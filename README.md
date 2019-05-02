@@ -1,2 +1,6 @@
 # The Meeting House Website
-This is a placeholder for the new website infrastructure, coming soon
+To run the admin site:
+
+1. amplify publish
+2. npm run-script dev
+
