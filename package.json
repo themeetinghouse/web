@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "node ssr-server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node ssr-server.js",
+    "start": "npm run build && NODE_ENV=production node ssr-server.js",
     "export": "next build && next export ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-elasticbeanstock": "brew install awsebcli && "

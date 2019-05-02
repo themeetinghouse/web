@@ -8,6 +8,7 @@ const HomePage = () => (
   <div>
     The Meeting House Home Page Coming Soon...
     <NavLink href="/policies">Policies</NavLink>
+    <NavLink href="/admin">Admin</NavLink>
   </div>
 )
 
