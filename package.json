@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "The Meeting House Website",
   "main": "index.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/themeetinghouse/web.git"
+  },
   "scripts": {
     "dev": "node ssr-server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node ssr-server.js",
     "export": "next build && next export ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-elasticbeanstock": "brew install awsebcli && "
   },
   "author": "George Bell",
   "license": "ISC",
