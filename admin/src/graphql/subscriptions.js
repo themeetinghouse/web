@@ -24,7 +24,6 @@ export const onCreateVideo = `subscription OnCreateVideo {
     id
     createdBy
     createdDate
-    postedDate
     locations {
       id
       canJoin
@@ -64,9 +63,68 @@ export const onCreateVideo = `subscription OnCreateVideo {
       facebook
       website
     }
-    title
-    decription
+    episodeTitle
+    episodeNumber
+    seriesTitle
+    publishedDate
+    recordedDate
+    description
+    closedCaptioning
+    referencedMedia
+    campaigns
+    bibleVerses
+    topics
+    qandeh
     length
+    YoutubeIdent
+    Youtube {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+      }
+    }
+    videoTypes
   }
 }
 `;
@@ -75,7 +133,6 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
     id
     createdBy
     createdDate
-    postedDate
     locations {
       id
       canJoin
@@ -115,9 +172,68 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
       facebook
       website
     }
-    title
-    decription
+    episodeTitle
+    episodeNumber
+    seriesTitle
+    publishedDate
+    recordedDate
+    description
+    closedCaptioning
+    referencedMedia
+    campaigns
+    bibleVerses
+    topics
+    qandeh
     length
+    YoutubeIdent
+    Youtube {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+      }
+    }
+    videoTypes
   }
 }
 `;
@@ -126,7 +242,6 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
     id
     createdBy
     createdDate
-    postedDate
     locations {
       id
       canJoin
@@ -166,9 +281,68 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
       facebook
       website
     }
-    title
-    decription
+    episodeTitle
+    episodeNumber
+    seriesTitle
+    publishedDate
+    recordedDate
+    description
+    closedCaptioning
+    referencedMedia
+    campaigns
+    bibleVerses
+    topics
+    qandeh
     length
+    YoutubeIdent
+    Youtube {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+      }
+    }
+    videoTypes
   }
 }
 `;
@@ -219,6 +393,7 @@ export const onCreateBlog = `subscription OnCreateBlog {
     }
     title
     content
+    version
   }
 }
 `;
@@ -269,6 +444,7 @@ export const onUpdateBlog = `subscription OnUpdateBlog {
     }
     title
     content
+    version
   }
 }
 `;
@@ -319,6 +495,7 @@ export const onDeleteBlog = `subscription OnDeleteBlog {
     }
     title
     content
+    version
   }
 }
 `;

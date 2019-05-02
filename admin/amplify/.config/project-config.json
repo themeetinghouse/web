@@ -7,7 +7,7 @@
         "config": {
             "SourceDir": "src",
             "DistributionDir": "out",
-            "BuildCommand": "npm run-script build",
+            "BuildCommand": "npm run-script export",
             "StartCommand": "npm run-script start"
         }
     },

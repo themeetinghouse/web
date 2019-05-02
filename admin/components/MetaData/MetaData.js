@@ -1,232 +1,337 @@
 ﻿import './MetaData.css'
 import React, { Container } from 'react';
+import YoutubeComponent from './YoutubeComponent'
+import MetaDataDetails from './MetaDataDetails'
 import ReactDOM from 'react-dom';
+import * as queries from '../../src/graphql/queries';
+import * as mutations from '../../src/graphql/mutations';
+import { Modal, Header, Footer, Button } from 'react-bootstrap';
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import * as MetaDataTypes from './MetaDataTypes'
+
 //import Background from ''';
 
 
-export default class MetaData extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-  render() {
-    return (
-      <div className="navbar-custom">
-      
-        <div className="menu">
-            <div>
-                <input type="text" id="searchInput" style={{backgroundImage:"url(" +"'./static/searchicon.png'" +")"}} onkeyup="searchTable()" placeholder="Search.." />
-                <select id="listOfViews" class="configure" onchange="listOfViewsChange(this,event);">
-                    <option value="volvo">Volvo</option>
-                </select>
-                <div className="configure"><a href="">Refresh</a></div>
-                <div className="configure"><a href="">Configure</a></div>
-                <div className="configure addVideo">+</div>
-            </div>
-            <div class="tableFixHead">
-                <table id="videoListTable" class="sortable darkTable">
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+export default class MetaData extends React.Component {
+
+    youtubePlaylistHeader = ["Thumb", "Title", "publishedAt", "Description"];
+    youtubePlaylistItemsHeader = ["Thumb", "Title", "publishedAt", "Description"];
+
+
+    constructor(props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.loadCaptionItem = this.loadCaptionItem.bind(this);
+        this.state = {
+            isOpen: false,
+            currentVideoListType: "loading",
+            tableHeader: [],
+            tableData: [],
+            youtubeData: null,
+            videoId: "vuFBqx6lsos",
+            closeCaptions: [],
+            closeCaptionItems: [],
+            selectedCaption: null,
+            metaDataPopup: false,
+            currentYoutubeVideoData: null,
+            videoTypes: []
+        };
+        this.reloadPlaylists();
+    }
+
+    reloadPlaylists() {
+        this.setState(
+            {
+                tableData: [],
+                youtubeData: null
+            });
+        this.loadPlaylists("");
+    }
+    loadPlaylists(nextPageToken) {
+        this.state.currentVideoListType = "youtubePlaylist";
+
+        const playlists = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
+        playlists.then(json => {
+            if (this.state.currentVideoListType == "youtubePlaylist") {
+                this.setPlaylists(json);
+                this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+    setPlaylists(json) {
+
+        console.log("setPlaylists: " + json);
+        this.setState(
+            {
+                tableData: this.state.tableData.concat(json.data.getYoutubePlaylist.items),
+
+                tableHeader: this.youtubePlaylistHeader,
+                youtubeData: this.state.tableData.concat(json.data.getYoutubePlaylist.items)
+            }
+        )
+    }
+
+    setPlaylistItems(json) {
+        console.log(json);
+        this.setState(
+            {
+                tableData: json.data.getYoutubePlaylistItems.items,
+                currentVideoListType: "youtubePlaylistItems",
+                tableHeader: this.youtubePlaylistItemsHeader
+            });
+    }
+    setCaptionItems(json) {
+        console.log(json);
+        if (json.data.getYoutubeCaptionlist.items.length > 0) {
+            this.setState(
+                {
+                    selectedCaption: this.state.videoId + "|" + json.data.getYoutubeCaptionlist.items[0].snippet.trackKind + "|" + json.data.getYoutubeCaptionlist.items[0].snippet.language + "|" + json.data.getYoutubeCaptionlist.items[0].snippet.name,
+                    closeCaptionItems: json.data.getYoutubeCaptionlist.items
+                });
+            this.loadCaption(this.state.videoId + "|" + json.data.getYoutubeCaptionlist.items[0].snippet.trackKind + "|" + json.data.getYoutubeCaptionlist.items[0].snippet.language + "|" + json.data.getYoutubeCaptionlist.items[0].snippet.name);
+        }
+    }
+    setCaption(json) {
+        console.log("SetCaption: " + json)
+        if (json.data.downloadYoutubeCaption.transcript != null) {
+            this.setState({
+                closeCaptions: json.data.downloadYoutubeCaption.transcript.text
+            });
+        } else {
+            this.setState({
+                closeCaptions: [{ content: "none" }]
+            });
+        }
+    }
+
+    loadCaptionItem(event) {
+        console.log("loadCaptionItem: " + event);
+        this.loadCaption(event.target.value);
+    }
+    loadCaption(captionData) {
+        console.log("loadCaption:" + captionData);
+        var values = captionData.split("|");
+        var name = values[3] == null ? "" : values[3];
+        const captionItem = API.graphql(graphqlOperation(queries.downloadYoutubeCaption, { videoId: values[0], tlang: values[2], trackKind: values[1], name: name }));
+        captionItem.then(json => {
+            console.log("Success queries.downloadYoutubeCaption:" + json)
+            this.setCaption(json);
+
+        }).catch(err => {
+            console.log("Error queries.downloadYoutubeCaption:" + err);
+        });
+
+    }
+
+    loadPlaylist(data) {
+        console.log("loadPlaylist: " + data.id);
+        this.clearSelected();
+        data.selected = "selected";
+        const playlistItems = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id }));
+        playlistItems.then(json => {
+            console.log("Success queries.getYoutubePlaylistItems: " + json)
+            this.setPlaylistItems(json);
+        }).catch(err => {
+            console.log("Error queries.getYoutubePlaylistItems: " + err)
+        });
+    }
+    toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+    clearSelected() {
+        this.state.tableData.map((value, index) => {
+            value.selected = "";
+        });
+    }
+    loadVideo(data) {
+        console.log(data.contentDetails.videoId);
+        this.clearSelected();
+        data.selected = "selected";
+        this.setState(
+            {
+                videoId: data.contentDetails.videoId,
+                currentYoutubeVideoData: data,
+
+            });
+        const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: data.contentDetails.videoId }));
+        closedCaptionList.then(json => {
+            this.setCaptionItems(json);
+        });
+    }
+    addMetaData() {
+        this.setState({
+            metaDataPopup: true
+        });
+    }
+    handleMetaDataClose(e) {
+        if (e!=null)
+        this.setState({
+            videoTypes: this.state.videoTypes.concat(e.target.value),
+            metaDataPopup: false
+        });
+        else
+        this.setState({
+            metaDataPopup: false
+        });
+    }
+    VideoListTable() {
+        if (this.state.currentVideoListType == "youtubePlaylist") {
+            return (
+                <table id="videoListTable" className="sortable darkTable">
                     <thead>
                         <tr id="videoListTableHeadTR">
-                            <th>head1</th>
+                            {this.state.tableHeader.map((value, index) => {
+                                return <th>{value}</th>
+                            })}
                         </tr>
                     </thead>
                     <tbody id="videoListTableBody">
-                        <tr>
-                            <td>test</td>
-                        </tr>
+                        {this.state.tableData.map((value, index) => {
+                            return (<tr className={value.selected} onClick={() => { this.loadPlaylist(value) }}>
+                                <td><img src={value.snippet.thumbnails.default.url}></img></td>
+                                <td>{value.snippet.title}</td>
+                                <td>{value.snippet.publishedAt}</td>
+                                <td>{value.snippet.description}</td>
 
+                            </tr>);
+                        })}
                     </tbody>
                 </table>
-            </div>
-        </div>
-        
-    <div class="youtubeTable workArea">
-        <div class="mediaZone">
-            <div class="youtubeDiv">
-                <iframe src="https://www.youtube.com/embed/WUtJR32tOus" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="closedCaptions">
-                <div class="closedCaptionDiv">
-                    Lorem ipsum dolor sit amet, vix ipsum zril ut, nec eleifend referrentur an. Ei indoctum voluptaria per, senserit salutandi sea id. Ex vel possim commodo. Nec audiam inermis explicari an, noster cetero facilisis pro no. Denique vivendum aliquando in vix, mea ex tale adversarium.<br /><br />
+            );
+        }
+        else if (this.state.currentVideoListType == "youtubePlaylistItems") {
+            return (
+                <table id="videoListTable" className="sortable darkTable">
+                    <thead>
+                        <tr id="videoListTableHeadTR">
+                            {this.state.tableHeader.map((value, index) => {
+                                return <th>{value}</th>
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody id="videoListTableBody">
+                        {this.state.tableData.map((value, index) => {
+                            return (<tr className={value.selected} onClick={() => { this.loadVideo(value) }}>
+                                <td><img src={value.snippet.thumbnails.default.url}></img></td>
+                                <td>{value.snippet.title}</td>
+                                <td>{value.contentDetails.videoPublishedAt}</td>
+                                <td>{value.snippet.description}</td>
+                            </tr>);
+                        })}
+                    </tbody>
+                </table>
+            );
+        }
+        else if (this.state.currentVideoListType == "loading") {
+            return (
+                <table id="videoListTable" className="sortable darkTable">
+                    <thead>
+                        <tr id="videoListTableHeadTR">Loading</tr>
+                    </thead>
+                    <tbody><tr>
+                        <td>Loading</td>
+                    </tr>
+                    </tbody>
+                </table>
+            )
+        }
 
-                    At solum equidem electram mea. Est ad reque mentitum delicatissimi. Te atqui incorrupte theophrastus mea, et quo sale partem urbanitas, lorem simul vis ei. Qui iusto dolores periculis cu, eu pro sint quaeque adolescens, in autem debitis iracundia mea. Eum ea ferri persecuti incorrupte, eos in latine reformidans. Ad solum aperiam eam, quas idque volutpat in sea, per in vero vide dicit.<br /><br />
+    }
+    goBack() {
+        console.log("goBack()");
+        this.reloadPlaylists()
+    }
+    render() {
+        return (
+            <div className="navbar-custom">
 
-                    Ne quas aliquip usu, his ad dolorem alienum. Vidit vivendo has id, vim alterum debitis deleniti ea, sea tollit nullam ne. Eam tritani accumsan ad, nec integre persequeris ut, ex est meis cotidieque. At graeci iuvaret cum. Mei debet tractatos consetetur at, atqui dicunt at per.<br /><br />
-
-                    An aeterno omittam pro, ne per labore option praesent. Eros democritum sententiae sea at. Placerat mandamus sed id, eu sea dolore putent laboramus. Quis animal deleniti ut duo, qui ut prima insolens. Facer docendi fuisset has te, duo eu postea vituperatoribus. Suavitate dignissim abhorreant ius eu, ei debitis adolescens mea.<br /><br />
-
-                    Tation nonumy vel in, at modus iriure oportere mel. Eum et novum appareat reformidans, pri eu habeo persius vivendum. Et has alii nonumy, per ad noluisse dignissim intellegat. Pri quidam assueverit in. No eos iisque expetendis, cu ius error possit audiam. Et malorum antiopam necessitatibus est, cum ad vidit molestie signiferumque.<br /><br />
+                <div className="menu">
+                    <div>
+                        <input type="text" id="searchInput" style={{ backgroundImage: "url(" + "'./static/searchicon.png'" + ")" }} onkeyup="searchTable()" placeholder="Search.." />
+                        <select id="listOfViews" className="configure">
+                            <option value="youtube">Youtube</option>
+                        </select>
+                        <div className="configure"><a onClick={(e) => { this.goBack() }} href="#">Back</a></div>
+                        <div className="configure"><a href="#">Refresh</a></div>
+                        <div className="configure"><a href="#">Configure</a></div>
+                        <div className="configure addVideo">+</div>
+                    </div>
+                    <div className="tableFixHead" >
+                        {this.VideoListTable()}
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="middleMenu">
-            <div class="middleMenuLeft">
-                <a href="">Previous</a>
-                <a href="">Next</a>
-            </div>
-            <div class="middleMenuRight">
-                <a href="">Add Metadata</a>
-            </div>
-        </div>
-        <div id="metadataColumn1" class="metaDataColumns">
 
-            <table class="sortable darkTable">
-                <caption>Youtube: TMH</caption>
+                <div className="youtubeTable workArea">
+                    <div className="mediaZone">
+                        <div className="youtubeDiv">
+                            <YoutubeComponent videoId={this.state.videoId}></YoutubeComponent>
+                        </div>
+                        <div className="closedCaptions">
+                            <div className="closedCaptionDiv">
+                                <select style={{ float: "right" }} onChange={this.loadCaptionItem}>
+                                    {
+                                        this.state.closeCaptionItems.map((value, index) => {
 
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Title</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Description</td><td><textarea rows="4" cols="50" class="metaInput">adjkdash asd ksahdjh sjd aj dja dja dhjkda jhkad hjasd adhjk ahja hjkdhjkd ajhjkd ajsdhjkadhjk adjksh hjkd hjkd hjkd hjkad dadshjk hjkhjk hjk dhajkd</textarea></td></tr>
-                    <tr><td>Public</td><td><input class="metaCheck" type="checkbox"></input></td></tr>
-                    <tr><td>Kind</td><td>Youtube</td></tr>
-                    <tr><td>id</td><td>x123</td></tr>
-                    <tr><td>PublishDate</td><td></td></tr>
-                    <tr><td>channelId</td><td></td></tr>
-                    <tr><td>channelTitle</td><td></td></tr>
-                    <tr><td>playlistId</td><td></td></tr>
-                    <tr><td>position</td><td></td></tr>
-                    <tr><td>resourceKind</td><td></td></tr>
-                    <tr><td>resourceVideoId</td><td></td></tr>
-                    <tr><td>etag</td><td></td></tr>
-                    <tr><td>thumbnail_120_url</td><td></td></tr>
-                    <tr><td>thumbnail_320_url</td><td></td></tr>
-                    <tr><td>thumbnail_480_url</td><td></td></tr>
-                    <tr><td>thumbnail_640_url</td><td></td></tr>
-                    <tr><td>thumbnail_1280_url</td><td></td></tr>
-                </tbody>
-            </table>
-            <table class="sortable darkTable">
-                <caption>Youtube: Jesus Collective</caption>
+                                            return (<option selected={this.state.selectedCaption == this.state.videoId + "|" + value.snippet.trackKind + "|" + value.snippet.language}>{this.state.videoId}|{value.snippet.trackKind}|{value.snippet.language}|{value.snippet.name}</option>)
+                                        })
+                                    }
+                                </select>
 
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Title</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Description</td><td><textarea rows="4" cols="50" class="metaInput">adjkdash asd ksahdjh sjd aj dja dja dhjkda jhkad hjasd adhjk ahja hjkdhjkd ajhjkd ajsdhjkadhjk adjksh hjkd hjkd hjkd hjkad dadshjk hjkhjk hjk dhajkd</textarea></td></tr>
-                    <tr><td>Public</td><td><input class="metaCheck" type="checkbox"></input></td></tr>
-                    <tr><td>Kind</td><td>Youtube</td></tr>
-                    <tr><td>id</td><td>x123</td></tr>
-                    <tr><td>PublishDate</td><td></td></tr>
-                    <tr><td>channelId</td><td></td></tr>
-                    <tr><td>channelTitle</td><td></td></tr>
-                    <tr><td>playlistId</td><td></td></tr>
-                    <tr><td>position</td><td></td></tr>
-                    <tr><td>resourceKind</td><td></td></tr>
-                    <tr><td>resourceVideoId</td><td></td></tr>
-                    <tr><td>etag</td><td></td></tr>
-                    <tr><td>thumbnail_120_url</td><td></td></tr>
-                    <tr><td>thumbnail_320_url</td><td></td></tr>
-                    <tr><td>thumbnail_480_url</td><td></td></tr>
-                    <tr><td>thumbnail_640_url</td><td></td></tr>
-                    <tr><td>thumbnail_1280_url</td><td></td></tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="metadataColumn2" class="metaDataColumns">
-            <table class="sortable darkTable">
-                <caption>Teaching</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Series</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Episode Name</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Episode #</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Recorded Date</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Speakers</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Topics</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Q&Eh Questions</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Bible Verses</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Quotes</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Referenced Media</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Location</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                    <tr><td>Campaigns</td><td><input class="metaInput" type="text" value="" /></td></tr>
-                </tbody>
-            </table>
-            <table class="sortable darkTable">
-                <caption>Internal Meeting House</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Master Google Drive Location</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Has TMH Branding</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                    <tr><td>Has TMH Specific Content</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                    <tr><td>Has Date Specific Content</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                    <tr><td>TMH Free Google Drive Location</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                </tbody>
-            </table>
-            <table class="sortable darkTable">
-                <caption>Associated Content</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Handout</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Homechurch Questions</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                    <tr><td>Dynamic Web</td><td><input class="metaInput" type="text" value="test" /></td></tr>
-                </tbody>
-            </table>
-        </div>
-        <div id="metadataColumn3" class="metaDataColumns">
-            <table class="sortable darkTable">
-                <caption>Jesus Collective</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Is Public</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                    <tr><td>Is For Sale</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                    <tr><td>S3 Location</td><td><input class="metaInput" type="textbox" /></td></tr>
-                    <tr><td>Vertical</td><td><input class="metaInput" type="textbox" /></td></tr>
-                </tbody>
-            </table>
-            <table class="sortable darkTable">
-                <caption>Website: TMH</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Description</td><td><input class="metaInput" type="textbox" /></td></tr>
-                    <tr><td>Is on Homepage</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                </tbody>
-            </table>
-            <table class="sortable darkTable">
-                <caption>Website: Jesus Collective</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Description</td><td><input class="metaInput" type="textbox" /></td></tr>
-                    <tr><td>Is on Homepage</td><td><input class="metaCheck" type="checkbox" /></td></tr>
-                </tbody>
-            </table>
-            <table class="sortable darkTable">
-                <caption>Podcast: Teaching</caption>
-                <thead>
-                    <tr><th>key</th><th>value</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Audio File</td><td><input class="metaInput" type="textbox" /></td></tr>
-                    <tr><td>Video File</td><td><input class="metaInput" type="textbox" /></td></tr>
-                </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      
-    );
-  }
+                                {
+                                    this.state.closeCaptions.map((value, index) => {
+                                        return (<div>{decodeHtml(value.content)}</div>)
+                                    })
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div className="middleMenu">
+                        <div className="middleMenuLeft">
+                            <a href="">Previous</a>
+                            <a href="">Next</a>
+                        </div>
+                        <div className="middleMenuRight">
+                            <a href="#" onClick={() => { this.addMetaData() }}>Add Metadata</a>
+                        </div>
+                    </div>
+
+                </div>
+                <MetaDataDetails currentYoutubeVideoData={this.state.currentYoutubeVideoData} videoTypes={this.state.videoTypes}></MetaDataDetails>
+
+
+                <Modal show={this.state.metaDataPopup} onHide={() => { this.handleMetaDataClose() }}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Add Metadata</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><div>Please select a type to add</div>
+                        {
+                            MetaDataTypes.constMetaDataTypes.map((item) => {
+                                return (
+                                    <Button onClick={(e) => { this.handleMetaDataClose(e) }} value={item.name}>{item.title}</Button>
+                                );
+                            })
+                        }
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={() => { this.handleMetaDataClose() }}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+            </div>
+
+        );
+    }
 }

@@ -24,7 +24,6 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
     id
     createdBy
     createdDate
-    postedDate
     locations {
       id
       canJoin
@@ -64,9 +63,68 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
       facebook
       website
     }
-    title
-    decription
+    episodeTitle
+    episodeNumber
+    seriesTitle
+    publishedDate
+    recordedDate
+    description
+    closedCaptioning
+    referencedMedia
+    campaigns
+    bibleVerses
+    topics
+    qandeh
     length
+    YoutubeIdent
+    Youtube {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+      }
+    }
+    videoTypes
   }
 }
 `;
@@ -75,7 +133,6 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
     id
     createdBy
     createdDate
-    postedDate
     locations {
       id
       canJoin
@@ -115,9 +172,68 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
       facebook
       website
     }
-    title
-    decription
+    episodeTitle
+    episodeNumber
+    seriesTitle
+    publishedDate
+    recordedDate
+    description
+    closedCaptioning
+    referencedMedia
+    campaigns
+    bibleVerses
+    topics
+    qandeh
     length
+    YoutubeIdent
+    Youtube {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+      }
+    }
+    videoTypes
   }
 }
 `;
@@ -126,7 +242,6 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
     id
     createdBy
     createdDate
-    postedDate
     locations {
       id
       canJoin
@@ -166,9 +281,68 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
       facebook
       website
     }
-    title
-    decription
+    episodeTitle
+    episodeNumber
+    seriesTitle
+    publishedDate
+    recordedDate
+    description
+    closedCaptioning
+    referencedMedia
+    campaigns
+    bibleVerses
+    topics
+    qandeh
     length
+    YoutubeIdent
+    Youtube {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+      }
+    }
+    videoTypes
   }
 }
 `;
@@ -219,6 +393,7 @@ export const createBlog = `mutation CreateBlog($input: CreateBlogInput!) {
     }
     title
     content
+    version
   }
 }
 `;
@@ -269,6 +444,7 @@ export const updateBlog = `mutation UpdateBlog($input: UpdateBlogInput!) {
     }
     title
     content
+    version
   }
 }
 `;
@@ -319,6 +495,7 @@ export const deleteBlog = `mutation DeleteBlog($input: DeleteBlogInput!) {
     }
     title
     content
+    version
   }
 }
 `;

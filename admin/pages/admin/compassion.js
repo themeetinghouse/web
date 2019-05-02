@@ -1,9 +1,9 @@
 ﻿
 import React, { Container } from 'react';
 
-import Menu from '../components/Menu/Menu.js';
+import Menu from '../../components/Menu/Menu.js';
 
- const Compassion = () => (
+const Compassion = () => (
   <div>
     <Menu />Compassion Admin Coming Soon...
   </div>

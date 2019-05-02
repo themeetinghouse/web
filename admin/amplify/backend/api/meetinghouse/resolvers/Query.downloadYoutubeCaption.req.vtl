@@ -1,0 +1,21 @@
+#set( $videoId = $ctx.args.videoId )
+#set( $tlang = $ctx.args.tlang )
+#set( $trackKind = $ctx.args.trackKind )
+#set( $name = $ctx.args.name )
+{
+"version": "2018-05-29",
+"method": "GET",
+"params": {
+    "headers":{
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",    
+        "Content-Type":"text/html",
+        "Accept-Encoding":"deflate, gzip"
+    },
+        "body":""
+},
+#if ($name == "")
+"resourcePath": "/timedtext?lang=$tlang&v=$videoId&trackKind=$trackKind"
+#else
+"resourcePath": "/timedtext?lang=$tlang&v=$videoId&trackKind=$trackKind&name=$name"
+#end
+}

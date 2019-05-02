@@ -65,41 +65,41 @@ export default class Menu extends React.Component {
   
   render() {
     return (
-      <div class="navbar-custom">
+      <div className="navbar-custom">
         <Navbar color="dark" dark expand="md" >
-          <NavbarBrand href="/">The Meeting House - Admin</NavbarBrand>
+          <NavbarBrand href="/admin">The Meeting House - Admin</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/videos">Videos</NavLink>
+                <NavLink href="/admin/videos">Videos</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/news">News</NavLink>
+                <NavLink href="/admin/news">News</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/blog">Blogs</NavLink>
+                <NavLink href="/admin/blog">Blogs</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/events">Events</NavLink>
+                <NavLink href="/admin/events">Events</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/locations">Locations</NavLink>
+                <NavLink href="/admin/locations">Locations</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/prayer">Prayer</NavLink>
+                <NavLink href="/admin/prayer">Prayer</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/homechurch">Home Church</NavLink>
+                <NavLink href="/admin/homechurch">Home Church</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/giving">Giving</NavLink>
+                <NavLink href="/admin/giving">Giving</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/compassion">Compassion</NavLink>
+                <NavLink href="/admin/compassion">Compassion</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/legal">Legal</NavLink>
+                <NavLink href="/admin/legal">Legal</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/themeetinghouse">GitHub</NavLink>

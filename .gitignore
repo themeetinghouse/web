@@ -19,3 +19,4 @@ public/react-dom-server.browser.production.min.js
 .env
 npm-debug.log
 
+admin/.next

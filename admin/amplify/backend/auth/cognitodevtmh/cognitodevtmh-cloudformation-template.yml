@@ -486,7 +486,7 @@ Resources:
       SupportedLoginProviders: 
         
           
-          graph.facebook.com: 'abc'
+          graph.facebook.com: '579712102531269'
                   
           
           accounts.google.com: 'def'
@@ -548,6 +548,6 @@ Outputs :
   
   
   FacebookWebClient:
-    Value: abc
+    Value: 579712102531269
    
   

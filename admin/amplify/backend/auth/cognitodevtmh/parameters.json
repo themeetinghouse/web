@@ -55,7 +55,7 @@
         "accounts.google.com",
         "www.amazon.com"
     ],
-    "selectedParties": "{\"graph.facebook.com\":\"abc\",\"accounts.google.com\":\"def\",\"www.amazon.com\":\"ghi\"}",
+    "selectedParties": "{\"graph.facebook.com\":\"579712102531269\",\"accounts.google.com\":\"def\",\"www.amazon.com\":\"ghi\"}",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },

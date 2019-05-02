@@ -1,11 +1,142 @@
 type Query {
-  getYoutubePlaylist: [YoutubePlayList!]!
+  getYoutubePlaylistItems(playlistId: String): YoutubePlaylistItems!
+  getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
+  getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
+  downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
+  getTakenoteSeries(user:Int,start:Int,count:Int): [TakeNoteSeries]
+  getTakenoteSermon(seriesId:Int,user:Int):[TakeNoteSermon]
+  getTakenoteSermonVerses(sermondId:Int):TakeNoteSermonVerses
+  getTakenoteLocations:[TakeNoteLocations]
 }
+type TakeNoteLocationGPS{
+  longitude:Float,
+  latitude:Float
+}
+type TakeNoteLocations{
+    _id:String,
+    id:String,
+    name:String,
+    categories:[String],
+    location:TakeNoteLocationGPS,
+    state:String
+}
+type TakeNoteSermonVerses{
+    sermonVerses:[TakeNoteVerses]
+}
+type TakeNoteVerses{
+  id:String,
+  chapterVerse:String,
+  translation:String,
+  content:String,
+  sermons_FK:String,
+  notes_FK:String
+}
+type TakeNoteSeries{
+  id:String,
+  title:String,
+  description:String,
+  imageUrl:String,
+  public:Int,
+  thumbnail:String,
+  startDate:String,
+  endDate:String,
+  sermonCommentCount:Int,
+  homeChurchCommentCount:Int
+}
+type TakeNoteMediaEntry{
+  id:String,
+  type:String,
+  contentType:String,
+  kind:String,
+  label:String,
+  url:String
+}
+type TakeNoteSermon{
+  id:String,
+  title:String,
+  speaker:String,
+  deliveryDate:String,
+  description:String,
+  audioUrl:String,
+  mediaEntries:[TakeNoteMediaEntry],
+  public:Int,
+  series_FK:String,
+  sermonNoteCount:Int,
+  homeChurchNoteCount:Int
+
+}
+type YoutubeCaptionDownload{
+  transcript:YoutubeCaptionText
+}
+type YoutubeCaptionText{
+  text:[YoutubeCaptionDetails]
+} 
+type YoutubeCaptionDetails{
+  dur:Float
+  start:Float
+  content:String
+}
+type YoutubeCaptionList{
+
+   kind: String
+  etag: String
+  items: [YoutubeCaptionItem]
+}
+type YoutubeCaptionItem{
+  kind:String
+  etag:String
+  id:String
+  snippet:YoutubeCaptionSnippet
+}
+type YoutubeCaptionSnippet{
+  videoId:String
+  lastUpdated:String
+  trackKind:String
+  language:String
+  name:String
+  audioTrackType:String
+  isCC:String
+  isLarge:String
+  isEasyReader:String
+  isDraft:String
+  isAutoSynced:String
+  status:String
+}
+
+type YoutubePlaylistItems{
+  kind: String
+  etag: String
+  pageInfo: YoutubePageInfo
+  items: [YoutubePlaylistItemsItem]
+}
+type YoutubePlaylistItemsItem
+ { 
+  id: ID
+  kind: String
+  etag: String
+  snippet: YoutubeSnippet
+  contentDetails: YoutubePlaylistItemDetails
+  
+}
+type YoutubePlaylistItemsItem2
+ { 
+  id: ID
+  kind: String
+  etag: String
+  snippet: YoutubeSnippet
+  contentDetails: YoutubePlaylistItemDetails
+  
+}
+type YoutubePlaylistItemDetails{
+  videoId: String
+  videoPublishedAt: String
+} 
 type YoutubePageInfo
 {
   totalResults: Int
   resultsPerPage: Int
 }
+
 type YoutubeThumbnails
 {
   default: YoutubeThumbnail
@@ -59,25 +190,33 @@ type Resource
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])
 {
-  id: ID!
+  id: ID
 }
 
 type Video 
  @model 
  @searchable
-  @auth(rules: [
-      {allow: groups, groups: ["VideoAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
 {
-  id: ID!
+  id: ID
   createdBy: String
   createdDate: String
-  postedDate: String
   locations:[Location]
-  title:String
-  decription:String
+  episodeTitle:String
+  episodeNumber:Int
+  seriesTitle:String
+  publishedDate:String
+  recordedDate:String
+  description:String
+  closedCaptioning:[String]
+  referencedMedia:[String]
+  campaigns:[String]
+  bibleVerses:[String]
+  topics:[String]
+  qandeh:[String]
   length:String
+  YoutubeIdent:String
+  Youtube:YoutubePlaylistItemsItem2
+  videoTypes:[String]
 }
 
 
@@ -90,7 +229,7 @@ type Blog
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])
 {
-  id: ID!
+  id: ID
   createdBy: String
   createdDate: String
   postedDate: String
@@ -106,7 +245,7 @@ type News
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])
 {
-  id: ID!
+  id: ID
   createdBy: String
   createdDate: String
   postedDate: String
@@ -124,7 +263,7 @@ type Event
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])
 {
-  id: ID!
+  id: ID
   createdBy: String
   createdDate: String
   postedDate: String
@@ -140,13 +279,13 @@ enum Status{
   disabled
 }
 interface Cohort {
-  id: ID!
-  canJoin: Boolean!
-  visibleToNonMembers: Boolean!
-  status:Status!
-  name: String!
-  admin: [User!]
-  members: [User!]
+  id: ID
+  canJoin: Boolean
+  visibleToNonMembers: Boolean
+  status:Status
+  name: String
+  admin: [User]
+  members: [User]
 }
 type Group implements Cohort
   @model 
@@ -155,14 +294,14 @@ type Group implements Cohort
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])
 {
-  id: ID!
-  canJoin: Boolean!
-  visibleToNonMembers: Boolean!
-  status:Status!
-  name: String!
-  admin: [User!]
-  members: [User!]
-  type: String!
+  id: ID
+  canJoin: Boolean
+  visibleToNonMembers: Boolean
+  status:Status
+  name: String
+  admin: [User]
+  members: [User]
+  type: String
 }
 type Organization implements Cohort
   @model 
@@ -171,7 +310,7 @@ type Organization implements Cohort
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])    
 {
-  id: ID!
+  id: ID
   canJoin: Boolean!
   visibleToNonMembers: Boolean!
   status:Status!
@@ -197,13 +336,13 @@ type Location implements Cohort
 
     
 {
-  id: ID!
-  canJoin: Boolean!
-  visibleToNonMembers: Boolean!
-  status:Status!
-  name: String!
-  admin: [User!]
-  members: [Staff!]
+  id: ID
+  canJoin: Boolean
+  visibleToNonMembers: Boolean
+  status:Status
+  name: String
+  admin: [User]
+  members: [Staff]
   location: String
   address: String
   phone: String
@@ -214,16 +353,16 @@ type Location implements Cohort
   website: String
 }
 interface User{
-  sub: String!
-  title: String!
-  name: String!
+  sub: String
+  title: String
+  name: String
   phone: String
   email: String
   instagram: String
   twitter: String
   facebook: String
   website: String
-  status: String!
+  status: String
 }
 type Staff implements User
   @model 
@@ -254,7 +393,7 @@ type Region
       {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
     ])
 {
-  id: ID!
+  id: ID
   name: String!
   status: Status!
   sites: [Location!]

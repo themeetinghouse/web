@@ -1,9 +1,9 @@
 ﻿
 import React, { Container } from 'react';
 
-import Menu from '../components/Menu/Menu.js';
+import Menu from '../../components/Menu/Menu.js';
 
- const Legal = () => (
+const Legal = () => (
   <div>
     <Menu />Legal Admin Coming Soon...
   </div>
