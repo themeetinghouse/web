@@ -1,0 +1,39 @@
+{
+    "page": {
+        "name": "index",
+        "content": [
+            {
+                "type": "teaching",
+                "style": "hero",
+                "header1":"Teaching - Sunday Teaching"
+            },
+            {
+                "type": "search",
+                "style": "teaching",
+                "header1":"Search the Archives",
+                "text1":"Try \"Grace\"",
+                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "selector":"sameSeries",
+                "header1":"More in this series"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "selector":"kidsthisweek",
+                "header1":"Kids & Youth this week"                
+            },
+            {
+                "type":"list",
+                "style":"horizontalBig",
+                "selector":"random",
+                "header1":"Random series"                
+            }
+
+
+        ]
+    }
+}

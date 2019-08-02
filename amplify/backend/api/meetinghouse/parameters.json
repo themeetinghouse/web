@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "meetinghouse",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "APIKeyExpirationEpoch": "-1",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognitodevtmh",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

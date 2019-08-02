@@ -1,0 +1,20 @@
+{
+    "appName": "themeetinghouse",
+    "roleName": "pinpointLambdaRolef2d7936e",
+    "cloudWatchPolicyName": "cloudWatchPolicyf2d7936e",
+    "pinpointPolicyName": "pinpointPolicyf2d7936e",
+    "authPolicyName": "pinpoint_amplify_f2d7936e",
+    "unauthPolicyName": "pinpoint_amplify_f2d7936e",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

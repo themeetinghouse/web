@@ -1,0 +1,183 @@
+$body-bg: #ffffff;
+$body-color: #000000;
+@import "~bootstrap/scss/bootstrap.scss";
+@import "/static/fonts/commercial-type-1906-WOIKTV-web/fonts.css";
+
+
+.VideoPlayer{
+    visibility:hidden;
+    background-color:#000000;
+    transition:0.3s;
+    opacity:0
+}
+.VideoPlayer.is-videoplayer-open{
+    visibility:visible;
+    background-color:#000000;
+    transition:0.3s;
+    opacity:1
+}
+.bg-white {
+    background-color: transparent !important;
+}
+
+.example-mask {
+
+    mask-mode: alpha;
+  //  webkit-mask-mode: alpha;
+    mask-repeat: no-repeat;
+  //  webkit-mask-repeat: no-repeat;
+    mask-size: 20vw;
+  //  webkit-mask-size: 20vw;
+}
+
+
+.Mega {
+    position: relative;
+    z-index: -1;
+    color: #dddddd;
+    font-size: 20vw;
+    font-family: "Graphik XXCond Web";
+    //line-height: 18vw;
+}
+
+.parallax-inner {
+    z-index: -100;
+}
+
+div.parallax-outer {
+
+    position: absolute;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1025px to higher resolution desktops
+*/
+
+
+@media (min-width: 768px) {
+
+
+    body {
+        padding-top: 90px;
+        font-family: Graphik Web;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+
+
+    body {
+        padding-top: 0 ;
+        margin-left: 0;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+
+    .brand {
+        position: fixed;
+
+        left: 0;
+        right: 0;
+        width: 16vw;
+        z-index: 1030;
+        margin: 2vw;
+        top: 0vh;
+    }
+
+    .search{
+        height:4vw;
+        left:96vw;
+        position:absolute;
+        z-index:1000;
+    }
+    .footer {
+        margin-left: 20vw;
+    
+    }
+    
+}
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    body {
+        padding-top: 90px;
+        font-family: Graphik Web;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    body {
+        padding-top: 0 ;
+        margin-left: 0;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+
+    .brand {
+        position: fixed;
+
+        left: 0;
+        right: 0;
+        width: 16vw;
+        z-index: 1030;
+        margin: 2vw;
+        top: 0vh;
+    }
+
+    .search{
+        height:4vw;
+        left:96vw;
+        position:absolute;
+        z-index:1000;
+    }
+    .footer {
+        margin-left: 20vw;
+    
+    }
+    
+}
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+
+@media (min-width: 320px) and (max-width: 767px) {
+
+    body {
+        padding-top: 12vw;
+        font-family: Graphik Web;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .search{
+        height:4vw;
+        left:82vw;
+        position:absolute;
+        z-index:1000;
+        top:16px;
+    }
+  
+    .footer {
+        margin-left: 0vw;
+    
+    }
+    
+}
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */

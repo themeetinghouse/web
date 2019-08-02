@@ -1,0 +1,14 @@
+#set( $sermonId = $ctx.args.sermonId )
+#set( $noteType = $ctx.args.noteType )
+{
+"version": "2018-05-29",
+"method": "GET",
+"params": {
+    "headers":{
+        "Content-Type":"text/html"
+    },
+        "body":""
+},
+
+"resourcePath": "/takenote/api//v1/notes.php?sermonId=$sermonId&noteType=$noteType"
+}
