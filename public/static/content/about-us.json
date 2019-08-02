@@ -1,6 +1,7 @@
 {
     "page": {
         "name": "index",
+        "movingMenu":"false",
         "content": [
            
             {
@@ -8,7 +9,7 @@
                 "style": "oneImage",
                 "header1":"Coming Soon",
                 "header2":"",
-                "text1":"This content has not been developed yet...",
+                "text1":"About-us has not been developed yet...",
                 "link1Text": "....",
                 "link1Action": "homepage",
                 "image1Src":"./static/images/homepage-2.png",

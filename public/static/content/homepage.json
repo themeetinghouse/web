@@ -1,6 +1,7 @@
 {
     "page": {
         "name": "index",
+        "movingMenu":"true",
         "content": [
             {
                 "type": "hero",
