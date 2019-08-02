@@ -23,31 +23,8 @@ export const createTnSeries = `mutation CreateTnSeries($input: CreateTNSeriesInp
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -80,31 +57,8 @@ export const updateTnSeries = `mutation UpdateTnSeries($input: UpdateTNSeriesInp
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -137,31 +91,8 @@ export const deleteTnSeries = `mutation DeleteTnSeries($input: DeleteTNSeriesInp
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -203,41 +134,6 @@ export const createTnSermon = `mutation CreateTnSermon($input: CreateTNSermonInp
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -279,41 +175,6 @@ export const updateTnSermon = `mutation UpdateTnSermon($input: UpdateTNSermonInp
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -355,41 +216,6 @@ export const deleteTnSermon = `mutation DeleteTnSermon($input: DeleteTNSermonInp
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -466,38 +292,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId
@@ -556,38 +351,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId
@@ -646,38 +410,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId

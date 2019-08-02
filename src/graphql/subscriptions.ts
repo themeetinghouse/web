@@ -23,31 +23,8 @@ export const onCreateTnSeries = `subscription OnCreateTnSeries {
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -80,31 +57,8 @@ export const onUpdateTnSeries = `subscription OnUpdateTnSeries {
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -137,31 +91,8 @@ export const onDeleteTnSeries = `subscription OnDeleteTnSeries {
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -203,41 +134,6 @@ export const onCreateTnSermon = `subscription OnCreateTnSermon {
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -279,41 +175,6 @@ export const onUpdateTnSermon = `subscription OnUpdateTnSermon {
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -355,41 +216,6 @@ export const onDeleteTnSermon = `subscription OnDeleteTnSermon {
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -466,38 +292,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId
@@ -556,38 +351,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId
@@ -646,38 +410,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId

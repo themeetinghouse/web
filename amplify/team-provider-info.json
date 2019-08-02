@@ -1,14 +1,4 @@
 {
-    "master": {
-        "categories": {
-            "auth": {
-                "Cognito": {
-                    "facebookAppId": "579712102531269",
-                    "googleClientId": "xxxxx"
-                }
-            }
-        }
-    },
     "prod": {
         "awscloudformation": {
             "AuthRoleName": "themeetinghouse-20190302182121-authRole",
@@ -68,6 +58,27 @@
                     "facebookAppId": "579712102531269",
                     "googleClientId": "a",
                     "amazonAppId": "b"
+                }
+            }
+        }
+    },
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "themeetinghouse-master-20190802000153-authRole",
+            "UnauthRoleArn": "arn:aws:iam::119330689042:role/themeetinghouse-master-20190802000153-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::119330689042:role/themeetinghouse-master-20190802000153-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "themeetinghouse-master-20190802000153-deployment",
+            "UnauthRoleName": "themeetinghouse-master-20190802000153-unauthRole",
+            "StackName": "themeetinghouse-master-20190802000153",
+            "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/themeetinghouse-master-20190802000153/441d9390-b4da-11e9-b84e-0a56ba5f6f9e"
+        },
+        "categories": {
+            "auth": {
+                "cognitodevtmh": {
+                    "facebookAppId": "579712102531269",
+                    "googleClientId": "abc",
+                    "amazonAppId": "123"
                 }
             }
         }

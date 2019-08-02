@@ -18,38 +18,7 @@ export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistI
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId
@@ -77,38 +46,7 @@ export const getYoutubePlaylist = `query GetYoutubePlaylist($nextPageToken: Stri
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
     }
   }
@@ -293,12 +231,6 @@ export const f1ListGroups = `query F1ListGroups($itemId: String) {
         isPublic
         hasChildcare
         isSearchable
-        gender {
-          name
-        }
-        maritalStatus {
-          name
-        }
         startAgeRange
         endAgeRange
       }
@@ -328,31 +260,8 @@ export const getTnSeries = `query GetTnSeries($id: ID!) {
         deliveryDate
         description
         audioUrl
-        mediaEntries {
-          type
-          contentType
-          kind
-          label
-          url
-        }
         public
         series_FK
-        series {
-          id
-          TNident
-          title
-          description
-          imageUrl
-          public
-          thumbnail
-          startDate
-          endDate
-          sermonCommentCount
-          homeChurchCommentCount
-          sermons {
-            nextToken
-          }
-        }
         sermonNoteCount
         quoteNoteCount
         homeChurchNoteCount
@@ -382,41 +291,6 @@ export const listTnSeriess = `query ListTnSeriess(
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -455,41 +329,6 @@ export const getTnSermon = `query GetTnSermon($id: ID!) {
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
-          id
-          TNident
-          title
-          speaker
-          deliveryDate
-          description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
-          public
-          series_FK
-          series {
-            id
-            TNident
-            title
-            description
-            imageUrl
-            public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-          }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
-        }
         nextToken
       }
     }
@@ -535,24 +374,6 @@ export const listTnSermons = `query ListTnSermons(
         endDate
         sermonCommentCount
         homeChurchCommentCount
-        sermons {
-          items {
-            id
-            TNident
-            title
-            speaker
-            deliveryDate
-            description
-            audioUrl
-            public
-            series_FK
-            sermonNoteCount
-            quoteNoteCount
-            homeChurchNoteCount
-            sermonCommentCount
-          }
-          nextToken
-        }
       }
       sermonNoteCount
       quoteNoteCount
@@ -630,38 +451,7 @@ export const getVideo = `query GetVideo($id: ID!) {
         channelId
         title
         description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
         channelTitle
-        localized {
-          title
-          description
-        }
       }
       contentDetails {
         videoId
@@ -696,11 +486,6 @@ export const listVideos = `query ListVideos(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       episodeTitle
@@ -721,21 +506,6 @@ export const listVideos = `query ListVideos(
         id
         kind
         etag
-        snippet {
-          publishedAt
-          channelId
-          title
-          description
-          channelTitle
-          localized {
-            title
-            description
-          }
-        }
-        contentDetails {
-          videoId
-          videoPublishedAt
-        }
       }
       videoTypes
     }
@@ -799,11 +569,6 @@ export const listBlogs = `query ListBlogs(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       title
@@ -871,11 +636,6 @@ export const listNewss = `query ListNewss(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       title
@@ -944,11 +704,6 @@ export const listEvents = `query ListEvents(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       startTime
@@ -1156,11 +911,6 @@ export const listOrganizations = `query ListOrganizations(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
     }
@@ -1309,11 +1059,6 @@ export const listRegions = `query ListRegions(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
     }
@@ -1350,11 +1095,6 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       episodeTitle
@@ -1375,21 +1115,6 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
         id
         kind
         etag
-        snippet {
-          publishedAt
-          channelId
-          title
-          description
-          channelTitle
-          localized {
-            title
-            description
-          }
-        }
-        contentDetails {
-          videoId
-          videoPublishedAt
-        }
       }
       videoTypes
     }
@@ -1445,11 +1170,6 @@ export const searchVideos = `query SearchVideos(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       episodeTitle
@@ -1470,21 +1190,6 @@ export const searchVideos = `query SearchVideos(
         id
         kind
         etag
-        snippet {
-          publishedAt
-          channelId
-          title
-          description
-          channelTitle
-          localized {
-            title
-            description
-          }
-        }
-        contentDetails {
-          videoId
-          videoPublishedAt
-        }
       }
       videoTypes
     }
@@ -1522,11 +1227,6 @@ export const searchBlogs = `query SearchBlogs(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       title
@@ -1567,11 +1267,6 @@ export const searchNewss = `query SearchNewss(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       title
@@ -1613,11 +1308,6 @@ export const searchEvents = `query SearchEvents(
         instagram
         twitter
         facebook
-        location {
-          longitude
-          latitude
-          address
-        }
         visible
       }
       startTime
