@@ -20,14 +20,7 @@
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"function": {
-		"tmhfunc": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true,
-			"dependsOn": []
-		}
-	},
+	"function": {},
 	"analytics": {
 		"themeetinghouse": {
 			"service": "Pinpoint",
