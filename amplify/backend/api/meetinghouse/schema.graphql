@@ -135,6 +135,9 @@ type TakeNoteSermon{
 
 type TNSeries
 @model
+ @key(fields: ["id"])
+ @key(name: "ByIdent", fields: ["TNident"], queryField:"getTNSeriesByIdent")
+
 {
   id:ID!
   TNident:String,
@@ -159,6 +162,9 @@ type TNMediaEntry{
 
 type TNSermon
 @model
+ @key(fields: ["id"])
+ @key(name: "ByIdent", fields: ["TNident"], queryField:"getTNSermonByIdent")
+
 {
   id:ID!
   TNident:String,
@@ -304,21 +310,46 @@ type Resource
 {
   id: ID
 }
-
+type Speaker
+ @model
+{
+   id:ID!
+   name:String
+   image:String
+   videos:[SpeakerVideos] @connection(name: "SpeakerVideos")
+}
+type SpeakerVideos
+@model{
+  id:ID!
+  video:Video @connection(name: "VideosSpeaker")
+  speaker:Speaker @connection(name: "SpeakerVideos")
+}
+type Series
+@model{
+  id: ID!
+  videos: [Video] @connection(name: "VideosSeries")
+  title: String
+  description: String
+  image: String
+  startDate: String
+  endDate: String
+}
 type Video 
  @model 
  @searchable
  @key(fields: ["id"])
  @key(name: "ByYoutubeIdent", fields: ["YoutubeIdent"], queryField:"getVideoByYoutubeIdent")
-
+ @key(name: "ByVideoTypes",fields: ["videoTypes","publishedDate"], queryField:"getVideoByVideoType")
 {
   id: ID!
   createdBy: String
   createdDate: String
   locations:[Location]
+  speakers:[SpeakerVideos] @connection(name: "VideosSpeaker")
   episodeTitle:String
   episodeNumber:Int
   seriesTitle:String
+  series:Series  @connection(name: "VideosSeries")
   publishedDate:String
   recordedDate:String
   description:String
@@ -331,7 +362,7 @@ type Video
   length:String
   YoutubeIdent:String!
   Youtube:YoutubePlaylistItemsItem2
-  videoTypes:[String]
+  videoTypes:String
 }
 
 

@@ -4,7 +4,7 @@
   "description": "The Meeting House Website",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3006 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -24,6 +24,7 @@
     "@types/react-lottie": "^1.2.2",
     "@types/react-router-dom": "^4.3.4",
     "@types/reactstrap": "^8.0.1",
+    "@types/uuid": "^3.4.5",
     "aws-amplify": "^1.1.35",
     "aws-amplify-react": "^2.3.12",
     "axios": "^0.19.0",

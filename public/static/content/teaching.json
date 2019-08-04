@@ -18,20 +18,24 @@
             {
                 "type":"list",
                 "style":"horizontal",
-                "selector":"sameSeries",
-                "header1":"More in this series"                
+                "class":"videos",
+                "subclass":"adult-sunday",
+                "selector":"all",
+                "header1":"All Teaching Videos"                
             },
             {
                 "type":"list",
                 "style":"horizontal",
-                "selector":"kidsthisweek",
-                "header1":"Kids & Youth this week"                
+                "class":"speakers",
+                "selector":"all",
+                "header1":"All Speakers"                
             },
             {
                 "type":"list",
                 "style":"horizontalBig",
-                "selector":"random",
-                "header1":"Random series"                
+                "class":"series",
+                "selector":"all",
+                "header1":"All series"                
             }
 
 

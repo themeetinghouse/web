@@ -55,7 +55,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
           <ListItem data={{
             "type": "list",
             "style": "horizontal",
-            "selector": "sameSeries",
+            "selector": "allTeaching",
             "header1": "Highlights"
           }}></ListItem>
           <ListItem data={{

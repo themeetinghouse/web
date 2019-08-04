@@ -1,20 +1,58 @@
 
 import React from 'react';
 import { Button } from 'reactstrap';
+import * as queries from '../../graphql/queries';
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import awsmobile from '../../aws-exports';
+//import uuidv4 from 'uuid/v4'
+Amplify.configure(awsmobile);
+
 interface Props {
   data: any
 }
 interface State {
-  data: any
+  data: any,
+  listData: any
 }
 export default class ListItem extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      data: props.data
+      data: props.data,
+      listData: []
+    }
+
+    if (this.state.data.class == "videos") {
+      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { limit: 50, videoTypes: this.state.data.subclass, publishedDate: { lt: "a" } }));
+      listVideos.then((json: any) => {
+        console.log("Success queries.listVideos: " + json);
+        console.log(json)
+        this.setState({
+          listData: json.data.getVideoByVideoType.items
+        })
+      })
+    }
+    else if (this.state.data.class == "speakers") {
+      const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { limit: 50 }));
+      listSpeakers.then((json: any) => {
+        console.log("Success queries.listSpeakers: " + json);
+        console.log(json)
+        this.setState({
+          listData: json.data.listSpeakers.items
+        })
+      })
+    }
+    else if (this.state.data.class == "series") {
+      const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 50 }));
+      listSeriess.then((json: any) => {
+        console.log("Success queries.listSeriess: " + json);
+        console.log(json)
+        this.setState({
+          listData: json.data.listSeriess.items
+        })
+      })
     }
   }
-  parallaxDetail = [-50, 0];
   render() {
 
     if (this.state.data.style === "text") return (
@@ -36,18 +74,30 @@ export default class ListItem extends React.Component<Props, State> {
     else if (this.state.data.style === "horizontal") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 100 }}>
-          <h1 style={{ position: "relative", left: "20vw", width:"80vw",fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          <div style={{ position: "relative", left: "20vw",width:"80vw" }}>
-            <div style={{ float: "left" }}>
-              <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
-              <div style={{ fontWeight: "bold" }}>Praying Like Jesus</div>
-              <div>July 1, 1999</div>
-            </div>
-            <div style={{ float: "left" }}>
-              <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
-              <div style={{ fontWeight: "bold" }}>Praying Like Jesus</div>
-              <div>July 1, 1999</div>
-            </div>
+          <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          <div style={{ position: "relative", left: "20vw", width: "80vw",overflowX: "scroll" , height:"15vw", whiteSpace:"nowrap"}}>
+            {this.state.listData.map((item: any) => {
+              if (this.state.data.class == "speakers") {
+                return (
+                  <div key={item.id} style={{display:"inline-block",verticalAlign:"top"}}>
+                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
+                    <div style={{ fontWeight: "bold" }}>{item.name}</div>
+                    <div>{item.videos.items.length==10?item.videos.items.length +"+" :item.videos.items.length} Episodes</div>
+                  </div>
+                )
+              }
+              else if (this.state.data.class == "videos") {
+                return (
+                  <div key={item.id} style={{display:"inline-block",verticalAlign:"top"}}>
+                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src={item.Youtube.snippet.thumbnails.default.url} />
+                    <div style={{ fontWeight: "bold" }}>{item.episodeTitle}</div>
+                    <div style={{ fontWeight: "bold" }}>{item.series!=null?item.series:null}</div>
+                    <div>{item.publishedDate}</div>
+                  </div>
+                )
+              }
+            })}
+
             <div style={{ clear: "left" }} ></div>
           </div>
         </div>
@@ -56,18 +106,18 @@ export default class ListItem extends React.Component<Props, State> {
     else if (this.state.data.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 100 }}>
-          <h1 style={{ position: "relative", left: "20vw", width:"80vw",fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          <div style={{ position: "relative", left: "20vw",width:"80vw"}}>
-            <div style={{ float: "left" }}>
-              <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="./static/images/teaching-4.png" />
-              <div style={{ fontWeight: "bold" }}>Faithful One</div>
-              <div>2019 • 4 Episodes</div>
-            </div>
-            <div style={{ float: "left" }}>
-              <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="./static/images/teaching-4.png" />
-              <div style={{ fontWeight: "bold" }}>Faithful One</div>
-              <div>2019 • 4 Episodes</div>
-          </div>
+          <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          <div style={{ position: "relative", left: "20vw", width: "80vw",overflowX: "scroll" , height:"30vw", whiteSpace:"nowrap" }}>
+            {this.state.listData.map((item: any) => {
+              return (
+                <div key={item.id} style={{ display:"inline-block",verticalAlign:"top" }}>
+                  <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="./static/images/teaching-4.png" />
+                  <div style={{ fontWeight: "bold" }}>{item.title}</div>
+                  <div>2019 • 4 Episodes</div>
+                </div>
+              )
+            })}
+
             <div style={{ clear: "left" }} ></div>
 
           </div>
