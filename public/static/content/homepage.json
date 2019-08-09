@@ -7,7 +7,7 @@
                 "type": "hero",
                 "style": "full",
                 "image1Src": "./static/images/homepage-1.png",
-                "header1": "Hello, friend.",
+                "header1": "Hello Friend",
                 "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "spirituality"
@@ -15,7 +15,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Loneliness sucks.",
+                "header1":"Loneliness sucks",
                 "header2":"",
                 "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with new people who want to care for their neighbours and neighbourhoods?",
                 "link1Text": "Find community",
@@ -79,7 +79,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Making a difference.",
+                "header1":"Making a difference",
                 "header2":"",
                 "text1":"Volunteer, giving and compassion partnership around the block or around the world. We want to use our money, our time and our resources to love and serve people at the margins. Are you looking to get involved?",
                 "link1Text": "Volunteering",
