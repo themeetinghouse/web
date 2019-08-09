@@ -17,7 +17,7 @@
                 "style": "oneImage",
                 "header1":"Loneliness sucks",
                 "header2":"",
-                "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with new people who want to care for their neighbours and neighbourhoods?",
+                "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
                 "link1Text": "Find community",
                 "link1Action": "community",
                 "image1Src":"./static/images/homepage-2.png",
@@ -29,7 +29,7 @@
                 "style": "oneImage",
                 "header1":"Ready for fall 2019?",
                 "header2":"",
-                "text1":"New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find out what you can expect and how you can get involved.",
+                "text1":"New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find our what you can expect and how you can get involved.",
                 "link1Text": "Tell Me More",
                 "link1Action": "fall-2019",
                 "image1Src":"./static/images/homepage-3.png",
@@ -39,11 +39,11 @@
                 "type": "list",
                 "style": "imageList",
                 "header1":"Teaching",
-                "text1":"Learn more about the life and teachings of Jesus, as well as practical applications for your daily life.",
+                "text1":"Explore the life and teaching of Jesus, as well as practical applications for your daily life. .",
                 "list":[
                     {
                         "title":"Sunday Teaching",
-                        "text":"The video from our live Sunday morning experience, including notes, reflection questions, and additional content. Check out what you missed last week, or search our teaching archive for the topic you’re interest in.",
+                        "text":"The video from our live Sunday services, including notes, reflection questions, and additional content. Check out what you missed last week, or search our teaching archive for the topic you’re interest in.",
                         "imageSrc":"./static/images/homepage-4-1.png",
                         "imageAlt":""
                     },
@@ -61,7 +61,7 @@
                     },
                     {
                         "title":"Kids & Youth Curriculum",
-                        "text":"We create our own video based curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
+                        "text":"We create our own curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
                         "imageSrc":"./static/images/homepage-4-4.png",
                         "imageAlt":""
                     }
