@@ -135,7 +135,7 @@ type TakeNoteSermon{
 
 type TNSeries
 @model
- @key(fields: ["id"])
+ @key(name: "TNSeriesKey", fields: ["id"])
  @key(name: "BySeriesIdent", fields: ["TNident"], queryField:"getTNSeriesByIdent")
 
 {
@@ -162,7 +162,7 @@ type TNMediaEntry{
 
 type TNSermon
 @model
- @key(fields: ["id"])
+ @key(name: "TNSermonKey", fields: ["id"])
  @key(name: "BySermonIdent", fields: ["TNident"], queryField:"getTNSermonByIdent")
 
 {
@@ -337,7 +337,7 @@ type Series
 type Video 
  @model 
  @searchable
- @key(fields: ["id"])
+ @key(name: "VideoKey", fields: ["id"])
  @key(name: "ByYoutubeIdent", fields: ["YoutubeIdent"], queryField:"getVideoByYoutubeIdent")
  @key(name: "ByVideoTypes",fields: ["videoTypes","publishedDate"], queryField:"getVideoByVideoType")
 {
