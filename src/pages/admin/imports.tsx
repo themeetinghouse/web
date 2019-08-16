@@ -96,14 +96,16 @@ class ImportYoutube {
 }
 interface Props { }
 interface State {
-  speakers: Array<any>
+  speakers: Array<any>,
+  exportAllData: Array<any>
 }
 
 class Imports extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props)
     this.state = {
-      speakers: []
+      speakers: [],
+      exportAllData: []
     }
   }
   importYoutube() {
@@ -162,7 +164,7 @@ class Imports extends React.Component<Props, State>  {
     const getTnSermon = API.graphql(graphqlOperation(queries.getTnSermonByIdent, { TNident: item.id }));
     getTnSermon.then((json: any) => {
       //console.log(json)
-      if (json.data.getTNSermonByIdent.items.length == 0) {
+      if (json.data.getTNSermonByIdent.items.length === 0) {
         console.log(json)
 
 
@@ -174,13 +176,13 @@ class Imports extends React.Component<Props, State>  {
           item.title = null
         //      if (itemz.mediaEntries == null)
         //        delete itemz.mediaEntries
-        if (item.sermonNoteCount == undefined)
+        if (item.sermonNoteCount === undefined)
           item.sermonNoteCount = null
-        if (item.sermonCommentCount == undefined)
+        if (item.sermonCommentCount === undefined)
           item.sermonCommentCount = null
-        if (item.homeChurchNoteCount == undefined)
+        if (item.homeChurchNoteCount === undefined)
           item.homeChurchNoteCount = null
-        if (item.quoteNoteCount == undefined)
+        if (item.quoteNoteCount === undefined)
           item.quoteNoteCount = null
         if (typeof item.mediaEntries === "string") {
           var z = JSON.parse(item.mediaEntries)
@@ -295,7 +297,7 @@ class Imports extends React.Component<Props, State>  {
     const getTnSeries = API.graphql(graphqlOperation(queries.getTnSeriesByIdent, { TNident: item.id }));
     getTnSeries.then((json: any) => {
       //console.log(json)
-      if (json.data.getTNSeriesByIdent.items.length == 0) {
+      if (json.data.getTNSeriesByIdent.items.length === 0) {
         // console.log(json)
 
 
@@ -477,7 +479,7 @@ class Imports extends React.Component<Props, State>  {
             return obj.contentType === "VIDEO"
           })
           var youtubeURL: string = ""
-          if (z != null && z.url != "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
+          if (z != null && z.url !== "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
             youtubeURL = this.fixTNYoutubeURL(z.url)
             var list: any = this.fixTNSpeakers(item.speaker)
             list.map((a: any) => {
@@ -519,7 +521,7 @@ class Imports extends React.Component<Props, State>  {
             return obj.contentType === "VIDEO"
           })
           var youtubeURL: string = ""
-          if (z != null && z.url != "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
+          if (z != null && z.url !== "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
             youtubeURL = this.fixTNYoutubeURL(z.url)
             console.log(youtubeURL)
             const getVideo = API.graphql(graphqlOperation(queries.getVideo, { id: youtubeURL }));
@@ -558,7 +560,55 @@ class Imports extends React.Component<Props, State>  {
         this.copyTNSermonData(json.data.listTNSermons.nextToken)
     })
   }
+  copySeriesSermonLinksTN(nextId: any) {
+    const listTnSermons = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
+    listTnSermons.then((json: any) => {
+      // console.log(json)
+      json.data.listTNSermons.items.map((item: any) => {
+        // console.log(item) 
+        if (item.mediaEntries != null) {
+          var z = item.mediaEntries.find((obj: any) => {
+            return obj.contentType === "VIDEO"
+          })
+          var youtubeURL: string = ""
+          if (z != null && z.url !== "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
+            youtubeURL = this.fixTNYoutubeURL(z.url)
+            console.log(youtubeURL)
+            var series_fk:any=item.series_FK
+            const getTnSeries = API.graphql(graphqlOperation(queries.getTnSeriesByIdent, { TNident: series_fk }));
+            getTnSeries.then((json: any) => {
+              //console.log(json)
+              if (json.data.getTNSeriesByIdent!=null) {
+                console.log(json)
+               console.log("ADD")
+               console.log(youtubeURL)
+               console.log(this.simplifySeries(json.data.getTNSeriesByIdent.title))
+               
+              }
+             }).catch((err: any) => {
+              console.log("Error queries.getTnSeriesByIdent: " + err);
+              console.log(err)
+              // this.importSeries(start)
+            });
+          }
+        }
+      })
+      if (json.data.listTNSermons.nextToken != null)
+        this.copySeriesSermonLinksTN(json.data.listTNSermons.nextToken)
+    }).catch((err: any) => {
+      console.log("Error queries.listTnSermons: " + err);
+      console.log(err)
+      // this.importSeries(start)
+    });
 
+
+  }
+  simplifySeries(str: string): string {
+    var temp = str.replace(" with Andrew Farley", "").replace(" with Doug Sider", "").replace(" with Greg Boyd", "").replace(" with John Mark Comer", "").replace(" with Ken Shigematsu", "").replace(" with Sunder Krishnan", "").replace(" with Danielle Strickland", "")
+    temp = temp.replace(": The Law and the Land", "").replace(" - Q&A", "").replace(": The Promise and the Pain", "").replace(": Restoring and Reconciling", "")
+    temp = temp.replace(" - Dec 2014", "").replace(" - June 2015", "")
+    return temp
+  }
   importSeriesTN(nextId: any, list: any) {
 
     // var list:any=[]
@@ -567,9 +617,7 @@ class Imports extends React.Component<Props, State>  {
     listTnSeriess.then((json: any) => {
       console.log(json)
       json.data.listTNSeriess.items.map((item: any) => {
-        var temp = item.title.replace(" with Andrew Farley", "").replace(" with Doug Sider", "").replace(" with Greg Boyd", "").replace(" with John Mark Comer", "").replace(" with Ken Shigematsu", "").replace(" with Sunder Krishnan", "").replace(" with Danielle Strickland", "")
-        temp = temp.replace(": The Law and the Land", "").replace(" - Q&A", "").replace(": The Promise and the Pain", "").replace(": Restoring and Reconciling", "")
-        temp = temp.replace(" - Dec 2014", "").replace(" - June 2015", "")
+        var temp = this.simplifySeries(item.title)
         list.push(temp)
         console.log(temp)
       })
@@ -580,18 +628,17 @@ class Imports extends React.Component<Props, State>  {
       console.log(list)
       if (json.data.listTNSeriess.nextToken != null)
         this.importSeriesTN(json.data.listTNSeriess.nextToken, list)
-      else if (json.data.listTNSeriess.nextToken == null)
-        {
-          list.map((item: any) => {
-            const createSeries = API.graphql(graphqlOperation(mutations.createSeries, { input: { id: item, title: item } }));
-            createSeries.then((json: any) => {
-              console.log("Success mutations.createSeries: " + json);
-            }).catch((err: any) => {
-              console.log("Error mutations.createSeries: " + err);
-              console.log(err)
-            });
-          })
-        }
+      else if (json.data.listTNSeriess.nextToken == null) {
+        list.map((item: any) => {
+          const createSeries = API.graphql(graphqlOperation(mutations.createSeries, { input: { id: item, title: item } }));
+          createSeries.then((json: any) => {
+            console.log("Success mutations.createSeries: " + json);
+          }).catch((err: any) => {
+            console.log("Error mutations.createSeries: " + err);
+            console.log(err)
+          });
+        })
+      }
     })
 
   }
@@ -643,7 +690,16 @@ class Imports extends React.Component<Props, State>  {
     });
 
   }
+  exportAllData(nextId: any) {
+    const listVideos = API.graphql(graphqlOperation(queries.listVideos, { limit: 100, nextToken: nextId }));
+    listVideos.then((json: any) => {
+      console.log(json)
+      this.setState({ exportAllData: this.state.exportAllData.concat(json.data.listVideos.items) })
 
+      if (json.data.listVideos.nextToken != null)
+        this.exportAllData(json.data.listVideos.nextToken)
+    })
+  }
   deleteSpeakers(nextId: any) {
     const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { limit: 100, nextToken: nextId }));
     listSpeakers.then((json: any) => {
@@ -693,23 +749,33 @@ class Imports extends React.Component<Props, State>  {
           </div>
           <div>Step 5.
           <Button onClick={() => { this.deleteSpeakers(null) }}>Delete All Speakers</Button>
-          <Button >Delete All Speakers/Video Links</Button>
+            <Button >Delete All Speakers/Video Links</Button>
             <Button onClick={() => { this.listAllSpeakers() }}>listAllSpeakers</Button>
             <Button onClick={() => { this.consoleAllSpeakers() }}>consoleAllSpeakers</Button>
             <Button onClick={() => { this.importSpeakers() }}>Import Speakers</Button>
             <Button onClick={() => { this.copyTNSpeakerData(null) }}>Import Speakers/Video Links</Button>
 
           </div>
-
-          <Button onClick={() => { this.importSeriesTN(null, []) }}>Import Series</Button>
-          <div>Step 4.
+          <div>Step 6.
+          <Button onClick={() => { this.importSeriesTN(null, []) }}>Create Series</Button>
+            <Button onClick={() => { this.copySeriesSermonLinksTN(null) }}>Copy Series/Sermon Links</Button>
+          </div>
+          <div>Step 7.
             <Button onClick={() => { this.importSites() }}>Import Sites</Button>
           </div>
         </div>
+        <Button onClick={() => { this.exportAllData(null) }}>Export All Data</Button>
         <div>
+          <table>
+            {this.state.exportAllData.map((item) => {
+
+              return (<tr><td>{item.id}</td><td>{item.publishedDate}</td><td>{item.videoTypes}</td><td>{item.episodeTitle}</td><td>{item.speakers.items.map((item: any) => { return (item.speaker.id + ",") })}</td></tr>)
+            })
+            }
+          </table>
           {this.state.speakers}
         </div>
-      </div>
+      </div >
 
     )
   }

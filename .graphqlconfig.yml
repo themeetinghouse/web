@@ -1,5 +1,5 @@
 projects:
-  meetinghouse:
+  themeetinghouse:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.ts

@@ -22,7 +22,7 @@ export default class ListItem extends React.Component<Props, State> {
       listData: []
     }
 
-    if (this.state.data.class == "videos") {
+    if (this.state.data.class === "videos") {
       const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { limit: 50, videoTypes: this.state.data.subclass, publishedDate: { lt: "a" } }));
       listVideos.then((json: any) => {
         console.log("Success queries.listVideos: " + json);
@@ -32,7 +32,7 @@ export default class ListItem extends React.Component<Props, State> {
         })
       })
     }
-    else if (this.state.data.class == "speakers") {
+    else if (this.state.data.class === "speakers") {
       const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { limit: 50 }));
       listSpeakers.then((json: any) => {
         console.log("Success queries.listSpeakers: " + json);
@@ -42,7 +42,7 @@ export default class ListItem extends React.Component<Props, State> {
         })
       })
     }
-    else if (this.state.data.class == "series") {
+    else if (this.state.data.class === "series") {
       const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 50 }));
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
@@ -77,16 +77,16 @@ export default class ListItem extends React.Component<Props, State> {
           <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
           <div style={{ position: "relative", left: "20vw", width: "80vw",overflowX: "scroll" , height:"15vw", whiteSpace:"nowrap"}}>
             {this.state.listData.map((item: any) => {
-              if (this.state.data.class == "speakers") {
+              if (this.state.data.class === "speakers") {
                 return (
                   <div key={item.id} style={{display:"inline-block",verticalAlign:"top"}}>
                     <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
                     <div style={{ fontWeight: "bold" }}>{item.name}</div>
-                    <div>{item.videos.items.length==10?item.videos.items.length +"+" :item.videos.items.length} Episodes</div>
+                    <div>{item.videos.items.length===10?item.videos.items.length +"+" :item.videos.items.length} Episodes</div>
                   </div>
                 )
               }
-              else if (this.state.data.class == "videos") {
+              else if (this.state.data.class === "videos") {
                 return (
                   <div key={item.id} style={{display:"inline-block",verticalAlign:"top"}}>
                     <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src={item.Youtube.snippet.thumbnails.default.url} />

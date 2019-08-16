@@ -403,12 +403,14 @@ export const listTnSeriess = `query ListTnSeriess(
   $filter: ModelTNSeriesFilterInput
   $limit: Int
   $nextToken: String
+  $sortDirection: ModelSortDirection
 ) {
   listTNSeriess(
     id: $id
     filter: $filter
     limit: $limit
     nextToken: $nextToken
+    sortDirection: $sortDirection
   ) {
     items {
       id
@@ -582,12 +584,14 @@ export const listTnSermons = `query ListTnSermons(
   $filter: ModelTNSermonFilterInput
   $limit: Int
   $nextToken: String
+  $sortDirection: ModelSortDirection
 ) {
   listTNSermons(
     id: $id
     filter: $filter
     limit: $limit
     nextToken: $nextToken
+    sortDirection: $sortDirection
   ) {
     items {
       id
@@ -2387,8 +2391,15 @@ export const listVideos = `query ListVideos(
   $filter: ModelVideoFilterInput
   $limit: Int
   $nextToken: String
+  $sortDirection: ModelSortDirection
 ) {
-  listVideos(id: $id, filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listVideos(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
     items {
       id
       createdBy
@@ -3234,12 +3245,14 @@ export const listRegions = `query ListRegions(
 `;
 export const getTnSeriesByIdent = `query GetTnSeriesByIdent(
   $TNident: String
+  $sortDirection: ModelSortDirection
   $filter: ModelTNSeriesFilterInput
   $limit: Int
   $nextToken: String
 ) {
   getTNSeriesByIdent(
     TNident: $TNident
+    sortDirection: $sortDirection
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -3319,12 +3332,14 @@ export const getTnSeriesByIdent = `query GetTnSeriesByIdent(
 `;
 export const getTnSermonByIdent = `query GetTnSermonByIdent(
   $TNident: String
+  $sortDirection: ModelSortDirection
   $filter: ModelTNSermonFilterInput
   $limit: Int
   $nextToken: String
 ) {
   getTNSermonByIdent(
     TNident: $TNident
+    sortDirection: $sortDirection
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -3411,12 +3426,14 @@ export const getTnSermonByIdent = `query GetTnSermonByIdent(
 `;
 export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
   $YoutubeIdent: String
+  $sortDirection: ModelSortDirection
   $filter: ModelVideoFilterInput
   $limit: Int
   $nextToken: String
 ) {
   getVideoByYoutubeIdent(
     YoutubeIdent: $YoutubeIdent
+    sortDirection: $sortDirection
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -3689,6 +3706,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
 export const getVideoByVideoType = `query GetVideoByVideoType(
   $videoTypes: String
   $publishedDate: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
   $filter: ModelVideoFilterInput
   $limit: Int
   $nextToken: String
@@ -3696,6 +3714,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
   getVideoByVideoType(
     videoTypes: $videoTypes
     publishedDate: $publishedDate
+    sortDirection: $sortDirection
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -3969,7 +3988,7 @@ export const searchResources = `query SearchResources(
   $filter: SearchableResourceFilterInput
   $sort: SearchableResourceSortInput
   $limit: Int
-  $nextToken: Int
+  $nextToken: String
 ) {
   searchResources(
     filter: $filter
@@ -3988,7 +4007,7 @@ export const searchVideos = `query SearchVideos(
   $filter: SearchableVideoFilterInput
   $sort: SearchableVideoSortInput
   $limit: Int
-  $nextToken: Int
+  $nextToken: String
 ) {
   searchVideos(
     filter: $filter
@@ -4265,7 +4284,7 @@ export const searchBlogs = `query SearchBlogs(
   $filter: SearchableBlogFilterInput
   $sort: SearchableBlogSortInput
   $limit: Int
-  $nextToken: Int
+  $nextToken: String
 ) {
   searchBlogs(
     filter: $filter
@@ -4310,7 +4329,7 @@ export const searchNewss = `query SearchNewss(
   $filter: SearchableNewsFilterInput
   $sort: SearchableNewsSortInput
   $limit: Int
-  $nextToken: Int
+  $nextToken: String
 ) {
   searchNewss(
     filter: $filter
@@ -4356,7 +4375,7 @@ export const searchEvents = `query SearchEvents(
   $filter: SearchableEventFilterInput
   $sort: SearchableEventSortInput
   $limit: Int
-  $nextToken: Int
+  $nextToken: String
 ) {
   searchEvents(
     filter: $filter
@@ -4402,7 +4421,7 @@ export const searchStaffs = `query SearchStaffs(
   $filter: SearchableStaffFilterInput
   $sort: SearchableStaffSortInput
   $limit: Int
-  $nextToken: Int
+  $nextToken: String
 ) {
   searchStaffs(
     filter: $filter

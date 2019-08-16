@@ -6,7 +6,7 @@
 		}
 	},
 	"api": {
-		"meetinghouse": {
+		"themeetinghouse": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
