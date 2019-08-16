@@ -136,7 +136,7 @@ type TakeNoteSermon{
 type TNSeries
 @model
  @key(fields: ["id"])
- @key(name: "ByIdent", fields: ["TNident"], queryField:"getTNSeriesByIdent")
+ @key(name: "BySeriesIdent", fields: ["TNident"], queryField:"getTNSeriesByIdent")
 
 {
   id:ID!
@@ -163,7 +163,7 @@ type TNMediaEntry{
 type TNSermon
 @model
  @key(fields: ["id"])
- @key(name: "ByIdent", fields: ["TNident"], queryField:"getTNSermonByIdent")
+ @key(name: "BySermonIdent", fields: ["TNident"], queryField:"getTNSermonByIdent")
 
 {
   id:ID!
