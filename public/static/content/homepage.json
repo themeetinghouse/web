@@ -7,7 +7,7 @@
                 "type": "hero",
                 "style": "full",
                 "image1Src": "./static/images/homepage-1.jpg",
-                "header1": "Hello Friend!",
+                "header1": "Hello Friend",
                 "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "spirituality"
