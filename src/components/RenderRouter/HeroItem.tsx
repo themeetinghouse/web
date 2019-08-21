@@ -36,12 +36,13 @@ class HeroItem extends React.Component<Props, State> {
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
                     <div className="heroImageGradient"></div>
                     <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="heroImage"  />
-                    <div style={{ position: "absolute", left: "20vw", top: "10vw", zIndex: 100 }}>
-                        <h1 style={{ fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-                        <h2>{this.state.data.header2}</h2>
-                        <div style={{ width: "50vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
-                        <div style={{ fontSize: "1.5vw" }}>{this.state.data.text2}</div>
-                        {this.state.data.button1Text?(<Button onClick={this.navigate}>{this.state.data.button1Text}</Button>):null}
+                    <div style={{ position: "absolute", backgroundColor:"#000000",padding:"2vw", left: "20vw", width:"36vw",top: "30vh", zIndex: 100 }}>
+                        <h1 style={{ fontFamily:"Graphik Web",fontWeight: "bold", color:"#ffffff",fontSize: "3vw" }}>{this.state.data.header1}</h1>
+                        {this.state.data.header2&&<h2>{this.state.data.header2}</h2>}
+                        <hr  style={{ marginLeft: 0,marginRight:0,marginTop:"1.5vw",marginBottom:"1.5vw",width:"5vw",backgroundColor:"#ffffff"}}></hr>
+                        <div style={{ fontFamily:"Graphik Web", width: "32vw", color:"#ffffff", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
+                        <div style={{ fontFamily:"Graphik Web", fontSize: "1.5vw" }}>{this.state.data.text2}</div>
+                        {this.state.data.button1Text?(<Button style={{marginTop:"1.5vw",color:"#000000",backgroundColor:"#ffffff",borderRadius:0}} onClick={this.navigate}>{this.state.data.button1Text}</Button>):null}
                         <a href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
                         {this.state.data.addToCalendar?(<Button onClick={this.navigate}><img src="./static/Calendar.png" />Add To Calendar</Button>):null}
                         {this.state.data.contactPastor?(<Button onClick={this.navigate}><img src="./static/Contact.png" />Contact the Pastor</Button>):null}
