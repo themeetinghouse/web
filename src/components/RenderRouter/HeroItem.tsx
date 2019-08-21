@@ -29,23 +29,60 @@ class HeroItem extends React.Component<Props, State> {
         unblock();
 
     }
+    smoothScrollTo(endX:any, endY:any, duration:any) {
+        let startX = window.scrollX || window.pageXOffset,
+        startY = window.scrollY || window.pageYOffset,
+        distanceX = endX - startX,
+        distanceY = endY - startY,
+        startTime = new Date().getTime();
+
+        // Easing function
+        let easeInOutQuart = function(time:any, from:any, distance:any, duration:any) {
+            if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
+            return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+        };
+
+        let timer = window.setInterval(function() {
+            let time = new Date().getTime() - startTime,
+            newX = easeInOutQuart(time, startX, distanceX, duration),
+            newY = easeInOutQuart(time, startY, distanceY, duration);
+            if (time >= duration) {
+                window.clearInterval(timer);
+            }
+            window.scrollTo(newX, newY);
+        }, 1000 / 60); // 60 fps
+    };
+scrollToNextPage(){
+    let pos = window.outerHeight;
+    if ('scrollBehavior' in document.documentElement.style) { //Checks if browser supports scroll function
+        window.scroll({
+            top : pos,
+            left : 0,
+            behavior : 'smooth'
+        });
+    } else {
+        this.smoothScrollTo(0, pos, 500); //polyfill below
+    }
+    
+}
 
     render() {
         if (this.state.data.style === "full") {
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
-                    <div className="heroImageGradient"></div>
-                    <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="heroImage"  />
+                    <div className="heroImageGradient" onClick={()=>{this.scrollToNextPage()}}></div>
+                    <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="heroImage"   />
                     <div style={{ position: "absolute", backgroundColor:"#000000",padding:"2vw", left: "20vw", width:"36vw",top: "30vh", zIndex: 100 }}>
                         <h1 style={{ fontFamily:"Graphik Web",fontWeight: "bold", color:"#ffffff",fontSize: "3vw" }}>{this.state.data.header1}</h1>
                         {this.state.data.header2&&<h2>{this.state.data.header2}</h2>}
                         <hr  style={{ marginLeft: 0,marginRight:0,marginTop:"1.5vw",marginBottom:"1.5vw",width:"5vw",backgroundColor:"#ffffff"}}></hr>
                         <div style={{ fontFamily:"Graphik Web", width: "32vw", color:"#ffffff", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
-                        <div style={{ fontFamily:"Graphik Web", fontSize: "1.5vw" }}>{this.state.data.text2}</div>
+                        <div style={{ fontFamily:"Graphik Web", width: "32vw", color:"#ffffff", fontSize: "1vw" }}>{this.state.data.text2}</div>
+                        <div style={{ fontFamily:"Graphik Web", width: "32vw", color:"#ffffff", fontSize: "1vw" }}>{this.state.data.text3}</div>
                         {this.state.data.button1Text?(<Button style={{marginTop:"1.5vw",color:"#000000",backgroundColor:"#ffffff",borderRadius:0}} onClick={this.navigate}>{this.state.data.button1Text}</Button>):null}
                         <a href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
-                        {this.state.data.addToCalendar?(<Button onClick={this.navigate}><img src="./static/Calendar.png" />Add To Calendar</Button>):null}
-                        {this.state.data.contactPastor?(<Button onClick={this.navigate}><img src="./static/Contact.png" />Contact the Pastor</Button>):null}
+                        {this.state.data.addToCalendar?(<Button style={{marginTop:"1.5vw",color:"#000000",backgroundColor:"#ffffff",borderRadius:0}} onClick={this.navigate}><img src="./static/Calendar.png" />Add To Calendar</Button>):null}
+                        {this.state.data.contactPastor?(<Button style={{marginTop:"1.5vw",color:"#000000",backgroundColor:"#ffffff",borderRadius:0}} onClick={this.navigate}><img src="./static/Contact.png" />Contact the Pastor</Button>):null}
 
                     </div>
                 </div>

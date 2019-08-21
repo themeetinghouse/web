@@ -3,7 +3,9 @@ $body-color: #000000;
 @import "~bootstrap/scss/bootstrap.scss";
 @import "/static/fonts/commercial-type-1906-WOIKTV-web/fonts.css";
 
-
+html{
+    scroll-behavior: smooth;
+}
 .VideoPlayer{
     visibility:hidden;
     background-color:#000000;
