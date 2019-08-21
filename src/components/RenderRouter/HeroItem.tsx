@@ -29,18 +29,23 @@ class HeroItem extends React.Component<Props, State> {
         unblock();
 
     }
+
     render() {
         if (this.state.data.style === "full") {
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
-                    <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="example-mask" style={{ width: "100vw", height: "100vh", zIndex: 50, objectFit: "cover", position: "absolute" }} />
+                    <div className="heroImageGradient"></div>
+                    <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="heroImage"  />
                     <div style={{ position: "absolute", left: "20vw", top: "10vw", zIndex: 100 }}>
                         <h1 style={{ fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
                         <h2>{this.state.data.header2}</h2>
                         <div style={{ width: "50vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
                         <div style={{ fontSize: "1.5vw" }}>{this.state.data.text2}</div>
-                        <Button onClick={this.navigate}>{this.state.data.button1Text}</Button>
+                        {this.state.data.button1Text?(<Button onClick={this.navigate}>{this.state.data.button1Text}</Button>):null}
                         <a href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
+                        {this.state.data.addToCalendar?(<Button onClick={this.navigate}><img src="./static/Calendar.png" />Add To Calendar</Button>):null}
+                        {this.state.data.contactPastor?(<Button onClick={this.navigate}><img src="./static/Contact.png" />Contact the Pastor</Button>):null}
+
                     </div>
                 </div>
 
@@ -49,6 +54,13 @@ class HeroItem extends React.Component<Props, State> {
         else if (this.state.data.style === "partialNoFooter") {
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw",height:"38vw", paddingBottom: "0vh" }}>
+                    <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="example-mask" style={{ width: "80vw", height:"40vw",  zIndex: 50, objectFit: "cover", position: "absolute" }} />
+                </div>
+            )
+        }
+        else if (this.state.data.style === "partial") {
+            return (
+                <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw",height:"43vw", paddingBottom: "5vh" }}>
                     <img src={this.state.data.image1Src} alt={this.state.data.image1Alt} className="example-mask" style={{ width: "80vw", height:"40vw",  zIndex: 50, objectFit: "cover", position: "absolute" }} />
                 </div>
             )

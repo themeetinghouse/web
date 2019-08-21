@@ -1,0 +1,24 @@
+[
+    {
+        "name":"Partner 1",
+        "photo":"./static/compassion/partner1.jpg",
+        "photoAlt":"Description of Partner",
+        "description":"This would be a few sentences to explain this local church site’s relationship to this partner. They do this thing and that thing, volunteering time, finances and any other necessary resource to make them successful. ",
+        "website":"www.partnerwebsite.com",
+        "twitter":"",
+        "facebook":"",
+        "instagram":"",
+        "sites":["downtown-toronto","oakville"]
+    },
+    {
+        "name":"Partner 2",
+        "photo":"./static/compassion/partner1.jpg",
+        "photoAlt":"Description of Partner",
+        "description":"This would be a few sentences to explain this local church site’s relationship to this partner. They do this thing and that thing, volunteering time, finances and any other necessary resource to make them successful. ",
+        "website":"www.partnerwebsite.com",
+        "twitter":"",
+        "facebook":"",
+        "instagram":"",
+        "sites":["downtown-hamilton","oakville"]
+    }
+]
