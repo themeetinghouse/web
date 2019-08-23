@@ -3,35 +3,27 @@
         "name": "index",
         "movingMenu":"false",
         "content": [
-           
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "teaching",
+                "style": "hero",
+                "header1":"Bruxy's Bag of Questions (BBQs)"
             },
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "search",
+                "style": "teaching",
+                "header1":"Search the Archives",
+                "text1":"Try \"Grace\"",
+                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"bbq",
+                "selector":"all",
+                "header1":"All BBQ Videos"                
             }
+
         ]
     }
 }
