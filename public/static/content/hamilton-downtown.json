@@ -1,6 +1,6 @@
 {
     "page": {
-        "name": "downtown-hamilton",
+        "name": "hamilton-downtown",
         "movingMenu": "true",
         "content": [
             {
@@ -8,11 +8,11 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "./static/images/downtown-hamilton-1-1.jpg",
+                        "src": "./static/images/hamilton-downtown-1-1.jpg",
                         "alt": "Description"
                     },
                     {
-                        "src": "./static/images/downtown-hamilton-1-2.jpg",
+                        "src": "./static/images/hamilton-downtown-1-2.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -29,7 +29,7 @@
                 "class": "staff",
                 "header1": "Leadership",
                 "text1": "This is a little something about this team; it could be humorous or it could be a canned subtitle that’s the same on all sites.",
-                "listFilter": "downtown-hamilton"
+                "listFilter": "hamilton-downtown"
             },
             {
                 "type": "list",
@@ -37,13 +37,13 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "listFilter": "downtown-hamilton"
+                "listFilter": "hamilton-downtown"
             },
             {
                 "type": "list",
                 "style": "grid",
                 "class": "instagram",
-                "listFilter": "downtown-hamilton"
+                "listFilter": "hamilton-downtown"
             },
             {
                 "type": "content",
@@ -54,7 +54,7 @@
                 "link1Text": "Info About Kids & Youth",
                 "link1Action": "kids-and-youth",
                 "image1":[{
-                    "src":"./static/images/downtown-hamilton-2.png",
+                    "src":"./static/images/hamilton-downtown-2.png",
                     "alt":"TODO"
                 }]
             },
@@ -63,7 +63,7 @@
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "./static/images/downtown-hamilton-3.png",
+                        "src": "./static/images/hamilton-downtown-3.png",
                         "alt": "Description"
                     }
                 ],
@@ -79,14 +79,14 @@
                 "class": "compassion",
                 "header1": "Local Compassion Partners",
                 "text1": "We use our money, our time, and our resources to love and serve people at the margins.",
-                "listFilter": "downtown-hamilton"
+                "listFilter": "hamilton-downtown"
             },
             {
                 "type": "hero",
                 "style": "partialNoFooter",
                 "image1": [
                     {
-                        "src": "./static/images/downtown-hamilton-4.png",
+                        "src": "./static/images/hamilton-downtown-4.png",
                         "alt": "Description"
                     }
                 ],

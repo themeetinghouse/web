@@ -11,7 +11,7 @@ import awsmobile from '../../aws-exports';
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 
-interface Props  extends RouteComponentProps{
+interface Props extends RouteComponentProps {
   data: any
 }
 interface State {
@@ -22,7 +22,7 @@ class ListItem extends React.Component<Props, State> {
   static contextTypes = {
     router: PropTypes.object,
     history: PropTypes.object
-}
+  }
   constructor(props: Props) {
     super(props);
     console.log(props.data)
@@ -124,10 +124,10 @@ class ListItem extends React.Component<Props, State> {
                     <div>{item.publishedDate}</div>
                   </div>
                 )
-              } 
+              }
               else return null
             }
-           
+
             )}
 
             <div style={{ clear: "left" }} ></div>
@@ -192,15 +192,15 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.data.class === "compassion") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
+                  <div key={item.id} style={{ display: "inline-block", width: 300, verticalAlign: "top" }}>
                     <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.photo} />
                     <div style={{ fontWeight: "bold" }}>{item.name}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.description}</div>
+                    <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
-                    <div><a href={item.website}>{item.website}</a></div>
-                    <a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
-                    <a href={"https://twitter.com/" + item.instagram} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
-                    <a href={"https://www.instagram.com//" + item.twitter} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>
+                    {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
+                    {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
+                    {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
+                    {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
 
 
 
