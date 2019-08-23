@@ -67,8 +67,9 @@ class HeroItem extends React.Component<Props, State> {
     }
 
     render() {
+        var image1 = this.state.data.image1[Math.floor(Math.random() * this.state.data.image1.length)];
         if (this.state.data.style === "full") {
-            var image1 = this.state.data.image1[Math.floor(Math.random()*this.state.data.image1.length)];
+
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
@@ -82,8 +83,8 @@ class HeroItem extends React.Component<Props, State> {
                         <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text3}</div>
                         {this.state.data.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.data.button1Text}</Button>) : null}
                         <a href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
-                        {this.state.data.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" />Add To Calendar</Button>) : null}
-                        {this.state.data.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Contact.png" />Contact the Pastor</Button>) : null}
+                        {this.state.data.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.data.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
                 </div>
@@ -91,7 +92,7 @@ class HeroItem extends React.Component<Props, State> {
             )
         }
         else if (this.state.data.style === "partialNoFooter") {
-            var image1 = this.state.data.image1[Math.floor(Math.random()*this.state.data.image1.length)];
+
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "38vw", paddingBottom: "0vh" }}>
                     <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "40vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
@@ -99,7 +100,7 @@ class HeroItem extends React.Component<Props, State> {
             )
         }
         else if (this.state.data.style === "partial") {
-            var image1 = this.state.data.image1[Math.floor(Math.random()*this.state.data.image1.length)];
+
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "43vw", paddingBottom: "5vh" }}>
                     <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "40vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />

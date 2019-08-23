@@ -124,8 +124,11 @@ class ListItem extends React.Component<Props, State> {
                     <div>{item.publishedDate}</div>
                   </div>
                 )
-              }
-            })}
+              } 
+              else return null
+            }
+           
+            )}
 
             <div style={{ clear: "left" }} ></div>
           </div>
@@ -179,8 +182,8 @@ class ListItem extends React.Component<Props, State> {
                     <div style={{ fontWeight: "bold" }}>{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
-                    <Button onClick={this.navigate}><img src="./static/Calendar.png" />Add To Calendar</Button>
-                    <Button onClick={this.navigate}><img src="./static/Share.png" />Share</Button>
+                    <Button onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                    <Button onClick={this.navigate}><img src="./static/Share.png" alt="Share Icon" />Share</Button>
 
 
 
@@ -204,6 +207,7 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
+              else return null
             })}
 
             <div style={{ clear: "left" }} ></div>
