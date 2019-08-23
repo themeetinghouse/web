@@ -139,6 +139,7 @@ class ListItem extends React.Component<Props, State> {
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 100 }}>
           <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          {this.state.data.text1!=null?(<div style={{  position: "relative",left: "20vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>):null}
           <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
             {this.state.listData.map((item: any) => {
               if (this.state.data.class === "speakers") {
@@ -177,9 +178,9 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.data.class === "events") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <div style={{ fontWeight: "bold" }}>{item.name}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.description}</div>
+                  <div key={item.id} style={{ display: "inline-block", width:"23vw", verticalAlign: "top" }}>
+                    <div style={{ whiteSpace: "normal",fontWeight: "bold" }}>{item.name}</div>
+                    <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
                     <Button onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
@@ -192,9 +193,9 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.data.class === "compassion") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", width: 300, verticalAlign: "top" }}>
-                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.photo} />
-                    <div style={{ fontWeight: "bold" }}>{item.name}</div>
+                  <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
+                    <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image} />
+                    <div style={{ whiteSpace: "normal",fontWeight: "bold" }}>{item.name}</div>
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
