@@ -29,8 +29,10 @@
                 "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
                 "link1Text": "Find community",
                 "link1Action": "community",
-                "image1Src": "./static/images/homepage-2.jpg",
-                "image1Alt": "TODO"
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
             },
             {
                 "type": "content",
@@ -40,8 +42,11 @@
                 "text1": "New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find our what you can expect and how you can get involved.",
                 "link1Text": "Tell Me More",
                 "link1Action": "fall-2019",
-                "image1Src": "./static/images/homepage-3.png",
-                "image1Alt": "TODO"
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
+               
             },
             {
                 "type": "list",
@@ -96,13 +101,19 @@
                 "link2Action": "compassino",
                 "link3Text": "Giving",
                 "link3Action": "giving",
-                "image1Src": "./static/images/homepage-6.png",
-                "image1Alt": "TODO"
-            },
+                "image1":[{
+                    "src":"./static/images/homepage-6.png",
+                    "alt":"TODO"
+                }]
+               },
             {
                 "type": "hero",
                 "style": "partialNoFooter",
-                "image1Src": "./static/svg/Map.svg"
+                "image1":[{
+                    "src":"./static/svg/Map.svg",
+                    "alt":"TODO"
+                }]
+               
             }
         ]
     }

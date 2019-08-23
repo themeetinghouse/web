@@ -53,8 +53,10 @@
                 "text1": "We work together to create a safe environment where our kids and youth can learn to love and follow Jesus. Kidmax is our Sunday morning children’s program for infants to grade 5, and runs intandem with our Sunday morning service. For students grades 6 to 12, our youth program includes both a Sunday morning portion and a midweek gathering. Click to learn more about our programs, curriculum, and how to register.",
                 "link1Text": "Info About Kids & Youth",
                 "link1Action": "kids-and-youth",
-                "image1Src": "./static/images/downtown-hamilton-2.png",
-                "image1Alt": "TODO"
+                "image1":[{
+                    "src":"./static/images/downtown-hamilton-2.png",
+                    "alt":"TODO"
+                }]
             },
             {
                 "type": "hero",
