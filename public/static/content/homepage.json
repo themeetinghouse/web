@@ -24,15 +24,12 @@
             {
                 "type": "content",
                 "style": "oneImage",
-<<<<<<< HEAD
                 "header1":"Loneliness sucks",
                 "header2":"",
                 "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
-=======
                 "header1": "Loneliness sucks",
                 "header2": "",
                 "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
->>>>>>> 3e805a03f97efb545e47c089d336767f9bed9380
                 "link1Text": "Find community",
                 "link1Action": "community",
                 "image1":[{
