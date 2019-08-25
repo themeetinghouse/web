@@ -1,0 +1,18 @@
+[
+    {
+        "date":"1980-01-13",
+        "name":"Summer Park Pop Up",
+        "description":"Invite your friends, bring your family and join others from our community for our Summer Park Pop Ups!",
+        "location":"123 Sesame Street",
+        "time":"5:30-6:30PM",
+        "sites":["hamilton-downtown","oakville"]
+    },
+    {
+        "date":"1980-01-13",
+        "name":"Summer Park Pop Up2",
+        "description":"Invite your friends, bring your family and join others from our community for our Summer Park Pop Ups!",
+        "location":"123 Sesame Street",
+        "time":"5:30-6:30PM",
+        "sites":["downtown-toronto","oakville"]
+    }
+]

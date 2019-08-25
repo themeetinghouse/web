@@ -105,7 +105,7 @@ class HomeMenu extends React.Component<Props, State>  {
           <img src="./static/House.png" alt="Logo: Stylized House" style={{ height: "4vw" }} onClick={() => { this.props.history.push("/") }} />
           <img alt="Logo: The Meeting House" src="./static/TMH.png" style={{ margin: "1vw", height: "4vw" }} onClick={() => { this.props.history.push("/") }} />
         </NavbarBrand>
-        <img src="./static/svg/Search.svg" className="search" alt="Search" />
+        <img style={{backgroundColor:"#ffffff"}} src="./static/svg/Search.svg" className="search" alt="Search" />
         <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
           <div style={{ height: "10vw" }}>&nbsp;</div>

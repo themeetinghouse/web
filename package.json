@@ -7,7 +7,8 @@
     "start": "PORT=3006 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify"
   },
   "repository": {
     "type": "git",

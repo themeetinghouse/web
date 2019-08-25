@@ -1,12 +1,21 @@
 {
     "page": {
-        "name": "index",
-        "movingMenu":"true",
+        "name": "homepage",
+        "movingMenu": "true",
         "content": [
             {
                 "type": "hero",
                 "style": "full",
-                "image1Src": "./static/images/homepage-1.jpg",
+                "image1": [
+                    {
+                        "src": "./static/images/homepage-1-1.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "./static/images/homepage-1-2.jpg",
+                        "alt": "Description"
+                    }
+                ],
                 "header1": "Hello Friend",
                 "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing!",
                 "button1Text": "Explore Spirituality",
@@ -15,87 +24,102 @@
             {
                 "type": "content",
                 "style": "oneImage",
+<<<<<<< HEAD
                 "header1":"Loneliness sucks",
                 "header2":"",
                 "text1":"Testing 123 I forgot. Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
+=======
+                "header1": "Loneliness sucks",
+                "header2": "",
+                "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
+>>>>>>> 3e805a03f97efb545e47c089d336767f9bed9380
                 "link1Text": "Find community",
                 "link1Action": "community",
-                "image1Src":"./static/images/homepage-2.jpg",
-                "image1Alt":"TODO"
-
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Ready for fall 2019?",
-                "header2":"",
-                "text1":"New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find our what you can expect and how you can get involved.",
+                "header1": "Ready for fall 2019?",
+                "header2": "",
+                "text1": "New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find our what you can expect and how you can get involved.",
                 "link1Text": "Tell Me More",
                 "link1Action": "fall-2019",
-                "image1Src":"./static/images/homepage-3.png",
-                "image1Alt":"TODO"
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
+               
             },
             {
                 "type": "list",
                 "style": "imageList",
-                "header1":"Teaching",
-                "text1":"Explore the life and teaching of Jesus, as well as practical applications for your daily life. .",
-                "list":[
+                "header1": "Teaching",
+                "text1": "Explore the life and teaching of Jesus, as well as practical applications for your daily life. .",
+                "list": [
                     {
-                        "title":"Sunday Teaching",
-                        "text":"The video from our live Sunday services, including notes, reflection questions, and additional content. Check out what you missed last week, or search our teaching archive for the topic you’re interest in.",
-                        "imageSrc":"./static/images/homepage-4-1.png",
-                        "imageAlt":""
+                        "title": "Sunday Teaching",
+                        "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. Check out what you missed last week, or search our teaching archive for the topic you’re interest in.",
+                        "imageSrc": "./static/images/homepage-4-1.png",
+                        "imageAlt": ""
                     },
                     {
-                        "title":"Podcasts",
-                        "text":"All of our Sunday morning teaching on audio in one place, as well as the After Party podcast where we dig deeper into specific topics in theology and culture with special guests, and the Roundtable podcast where we discuss leadership and church life with our leaders and staff team.",
-                        "imageSrc":"./static/images/homepage-4-2.png",
-                        "imageAlt":""
+                        "title": "Podcasts",
+                        "text": "All of our Sunday morning teaching on audio in one place, as well as the After Party podcast where we dig deeper into specific topics in theology and culture with special guests, and the Roundtable podcast where we discuss leadership and church life with our leaders and staff team.",
+                        "imageSrc": "./static/images/homepage-4-2.png",
+                        "imageAlt": ""
                     },
                     {
-                        "title":"Videos",
-                        "text":"Our entire video library featuring stories of people and communities who show us what it look like to live the Jesus-centered life.",
-                        "imageSrc":"./static/images/homepage-4-3.png",
-                        "imageAlt":""
+                        "title": "Videos",
+                        "text": "Our entire video library featuring stories of people and communities who show us what it look like to live the Jesus-centered life.",
+                        "imageSrc": "./static/images/homepage-4-3.png",
+                        "imageAlt": ""
                     },
                     {
-                        "title":"Kids & Youth Curriculum",
-                        "text":"We create our own curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
-                        "imageSrc":"./static/images/homepage-4-4.png",
-                        "imageAlt":""
+                        "title": "Kids & Youth Curriculum",
+                        "text": "We create our own curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
+                        "imageSrc": "./static/images/homepage-4-4.png",
+                        "imageAlt": ""
                     }
                 ]
             },
             {
                 "type": "list",
                 "style": "twoImage",
-                "header1":"Recent Blog Entries",
-                "header2":".",
-                "text1":"Part of being a disciple of Jesus is actually taking action and making a difference in this world. We do this through compassion initiatives where we love our neighbours both close and far away, volunteering and giving financially to support the work of our church and other kingdom projects.",
+                "header1": "Recent Blog Entries",
+                "header2": ".",
+                "text1": "Part of being a disciple of Jesus is actually taking action and making a difference in this world. We do this through compassion initiatives where we love our neighbours both close and far away, volunteering and giving financially to support the work of our church and other kingdom projects.",
                 "button1Text": "View All Blogs",
                 "button1Action": "blogs"
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Make a Difference",
-                "header2":"",
-                "text1":"Volunteer, giving and compassion partnership around the block or around the world. We want to use our money, our time and our resources to love and serve people at the margins. Are you looking to get involved?",
+                "header1": "Make a Difference",
+                "header2": "",
+                "text1": "Volunteer, giving and compassion partnership around the block or around the world. We want to use our money, our time and our resources to love and serve people at the margins. Are you looking to get involved?",
                 "link1Text": "Volunteering",
                 "link1Action": "volunteering",
                 "link2Text": "Compassion",
                 "link2Action": "compassino",
                 "link3Text": "Giving",
                 "link3Action": "giving",
-                "image1Src":"./static/images/homepage-6.png",
-                "image1Alt":"TODO"
-            },
+                "image1":[{
+                    "src":"./static/images/homepage-6.png",
+                    "alt":"TODO"
+                }]
+               },
             {
-                "type":"hero",
-                "style":"partialNoFooter",
-                "image1Src": "./static/svg/Map.svg"
-
+                "type": "hero",
+                "style": "partialNoFooter",
+                "image1":[{
+                    "src":"./static/svg/Map.svg",
+                    "alt":"TODO"
+                }]
+               
             }
         ]
     }

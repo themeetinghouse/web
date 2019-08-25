@@ -1,6 +1,6 @@
 {
     "page": {
-        "name": "index",
+        "name": "volunteering",
         "movingMenu":"false",
         "content": [
            
@@ -12,8 +12,10 @@
                 "text1":"This content has not been developed yet...",
                 "link1Text": "....",
                 "link1Action": "homepage",
-                "image1Src":"./static/images/homepage-2.png",
-                "image1Alt":"TODO"
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
 
             },
             {
@@ -24,8 +26,10 @@
                 "text1":"This content has not been developed yet...",
                 "link1Text": "....",
                 "link1Action": "homepage",
-                "image1Src":"./static/images/homepage-2.png",
-                "image1Alt":"TODO"
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
 
             }
         ]

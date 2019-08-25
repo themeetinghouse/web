@@ -1,0 +1,26 @@
+[
+    {
+        "name":"George Bell",
+        "phone":"416-802-6697",
+        "email":"george.bell@themeetinghouse.com",
+        "twitter":"georgebell",
+        "instagram":"georgevicbell",
+        "facebook":"george.bell",
+        "sites":["downtown-toronto","communications"],
+        "photo":"./static/staff/george.bell.jpg",
+        "photoAlt":"Picture of George Bell",
+        "position":"Digital Solutions"
+    },
+    {
+        "name":"George Bell2",
+        "phone":"416-802-6697",
+        "email":"george.bell@themeetinghouse.com",
+        "twitter":"georgebell",
+        "instagram":"georgevicbell",
+        "facebook":"george.bell",
+        "sites":["hamilton-downtown","communications"],
+        "photo":"./static/staff/george.bell.jpg",
+        "photoAlt":"Picture of George Bell",
+        "position":"Digital Solutions"
+    }
+]
