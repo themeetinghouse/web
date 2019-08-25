@@ -8,7 +8,7 @@
                 "style": "full",
                 "image1Src": "./static/images/homepage-1.jpg",
                 "header1": "Hello Friend",
-                "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
+                "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing!",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "spirituality"
             },
@@ -17,7 +17,7 @@
                 "style": "oneImage",
                 "header1":"Loneliness sucks",
                 "header2":"",
-                "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
+                "text1":"Testing 123 I forgot. Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
                 "link1Text": "Find community",
                 "link1Action": "community",
                 "image1Src":"./static/images/homepage-2.jpg",
