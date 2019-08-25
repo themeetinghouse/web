@@ -81,6 +81,10 @@ class HeroItem extends React.Component<Props, State> {
                         <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
                         <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text2}</div>
                         <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text3}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text4}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text5}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text6}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text7}</div>
                         {this.state.data.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.data.button1Text}</Button>) : null}
                         <a href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
                         {this.state.data.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}

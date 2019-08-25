@@ -7,6 +7,7 @@ import VideoItem from './VideoItem';
 import SVGItem from './SVGItem';
 import HeroItem from './HeroItem';
 import TeachingItem from './TeachingItem';
+import LocationItem from './LocationItem';
 import { withRouter, RouteComponentProps} from 'react-router-dom';
 
 interface Props extends RouteComponentProps {
@@ -34,6 +35,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<SVGItem key={index} data={item}></SVGItem>);
         else if (item.type === "hero")
           return (<HeroItem key={index} data={item}></HeroItem>);
+        else if (item.type === "locations")
+          return (<LocationItem key={index} data={item}></LocationItem>);
           else if (item.type === "teaching")
           return (<TeachingItem key={index} data={item}></TeachingItem>);
         else return null
