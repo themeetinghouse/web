@@ -25,11 +25,11 @@ class ListItem extends React.Component<Props, State> {
   }
   constructor(props: Props) {
     super(props);
-    console.log(props.data)
-    this.state = {
-      data: props.data,
-      listData: (props.data.list == null) ? [] : props.data.list
-    }
+    
+      this.state = {
+        data: props.data,
+        listData: ((props.data.list == null) ? [] : props.data.list)
+      }
     this.navigate = this.navigate.bind(this);
 
 
@@ -99,13 +99,18 @@ class ListItem extends React.Component<Props, State> {
 
   }
   render() {
+    var data
+    (this.props.data.filterField == null) ? data = this.state.listData :
+      data = this.state.listData.filter((item: any) => {
+        return item[this.props.data.filterField].includes(this.props.data.filterValue)
+      })
 
     if (this.state.data.style === "horizontal") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 100 }}>
           <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
           <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
-            {this.state.listData.map((item: any) => {
+            {data.map((item: any) => {
               if (this.state.data.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
@@ -139,9 +144,9 @@ class ListItem extends React.Component<Props, State> {
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 100 }}>
           <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          {this.state.data.text1!=null?(<div style={{  position: "relative",left: "20vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>):null}
+          {this.state.data.text1 != null ? (<div style={{ position: "relative", left: "20vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>) : null}
           <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
-            {this.state.listData.map((item: any) => {
+            {data.map((item: any) => {
               if (this.state.data.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
@@ -178,8 +183,8 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.data.class === "events") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", width:"23vw", verticalAlign: "top" }}>
-                    <div style={{ whiteSpace: "normal",fontWeight: "bold" }}>{item.name}</div>
+                  <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
+                    <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
@@ -195,7 +200,7 @@ class ListItem extends React.Component<Props, State> {
                 return (
                   <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
                     <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image} />
-                    <div style={{ whiteSpace: "normal",fontWeight: "bold" }}>{item.name}</div>
+                    <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
@@ -221,7 +226,7 @@ class ListItem extends React.Component<Props, State> {
         <div style={{ position: "relative", zIndex: 100 }}>
           <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
           <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
-            {this.state.listData.map((item: any) => {
+            {data.map((item: any) => {
               return (
                 <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                   <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="./static/images/teaching-4.png" />
@@ -244,9 +249,9 @@ class ListItem extends React.Component<Props, State> {
           <h2>{this.state.data.header2}</h2>
           <div style={{ width: "50vw" }}>{this.state.data.text1}</div>
           <div>
-            {console.log(this.state.listData)}
+            
             {
-              this.state.listData.map((item: any, index: any) => {
+              data.map((item: any, index: any) => {
                 return (
                   <div style={{ width: "50vw" }} key={index}>
                     <h3 style={{ width: "50vw" }}>{item.title}</h3>

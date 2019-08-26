@@ -1,37 +1,35 @@
 {
     "page": {
         "name": "locations",
-        "movingMenu":"false",
+        "movingMenu": "false",
         "content": [
-           
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "locations",
+                "locations": [
+                    "alliston",
+                    "ancaster",
+                    "brampton",
+                    "brantford",
+                    "burlington",
+                    "hamilton-downtown",
+                    "hamilton-mountain",
+                    "toronto-downtown",
+                    "toronto-east",
+                    "toronto-high-park",
+                    "toronto-uptown",
+                    "kitchener",
+                    "london",
+                    "newmarket",
+                    "oakville",
+                    "ottawa",
+                    "owen-sound",
+                    "parry-sound",
+                    "richmond-hill",
+                    "sandbanks",
+                    "waterloo"
+                ]
             }
+               
         ]
     }
 }
