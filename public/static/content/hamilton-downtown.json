@@ -30,7 +30,8 @@
                 "class": "staff",
                 "header1": "Leadership",
                 "text1": "This is a little something about this team; it could be humorous or it could be a canned subtitle that’s the same on all sites.",
-                "listFilter": "hamilton-downtown"
+                "filterField":"sites",                 
+                "filterValue": "hamilton-downtown"
             },
             {
                 "type": "list",
@@ -38,13 +39,15 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "listFilter": "hamilton-downtown"
+                "filterField":"sites",                 
+                "filterValue": "hamilton-downtown"
             },
             {
                 "type": "list",
                 "style": "grid",
                 "class": "instagram",
-                "listFilter": "hamilton-downtown"
+                "filterField":"sites",                 
+                "filterValue": "hamilton-downtown"
             },
             {
                 "type": "content",
@@ -80,7 +83,8 @@
                 "class": "compassion",
                 "header1": "Local Compassion Partners",
                 "text1": "We use our money, our time, and our resources to love and serve people at the margins.",
-                "listFilter": "hamilton-downtown"
+                "filterField":"sites",                 
+                "filterValue": "hamilton-downtown"
             },
             {
                 "type": "hero",

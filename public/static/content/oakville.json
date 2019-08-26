@@ -33,7 +33,8 @@
                 "class": "staff",
                 "header1": "Leadership",
                 "text1": "This is a little something about this team; it could be humorous or it could be a canned subtitle that’s the same on all sites.",
-                "listFilter": "oakville"
+                "filterField":"sites",                 
+                "filterValue": "oakville"
             },
             {
                 "type": "list",
@@ -41,13 +42,15 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "listFilter": "oakville"
+                "filterField":"sites",                 
+                "filterValue": "oakville"
             },
             {
                 "type": "list",
                 "style": "grid",
                 "class": "instagram",
-                "listFilter": "oakville"
+                "filterField":"sites",                 
+                "filterValue": "oakville"
             },
             {
                 "type": "content",
@@ -83,7 +86,8 @@
                 "class": "compassion",
                 "header1": "Local Compassion Partners",
                 "text1": "We use our money, our time, and our resources to love and serve people at the margins.",
-                "listFilter": "oakville"
+                "filterField":"sites",                 
+                "filterValue": "oakville"
             },
             {
                 "type": "hero",
