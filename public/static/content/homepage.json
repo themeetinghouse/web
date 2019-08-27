@@ -66,14 +66,14 @@
                     {
                         "title": "Podcasts",
                         "text": "All of our Sunday morning teaching on audio in one place, as well as the After Party podcast where we dig deeper into specific topics in theology and culture with special guests, and the Roundtable podcast where we discuss leadership and church life with our leaders and staff team.",
-                        "imageSrc": "./static/images/homepage-4-2.png",
-                        "imageAlt": ""
+                        "imageSrc": "./static/images/homepage-4-2.jng",
+                        "imageAlt": "."
                     },
                     {
                         "title": "Videos",
                         "text": "Our entire video library featuring stories of people and communities who show us what it look like to live the Jesus-centered life.",
-                        "imageSrc": "./static/images/homepage-4-3.png",
-                        "imageAlt": ""
+                        "imageSrc": "./static/images/homepage-4-3.jpg",
+                        "imageAlt": "Production volunteer recording a Meeting House video."
                     },
                     {
                         "title": "Kids & Youth Curriculum",
