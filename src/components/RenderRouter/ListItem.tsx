@@ -256,7 +256,7 @@ class ListItem extends React.Component<Props, State> {
                   <div style={{ width: "50vw" }} key={index}>
                     <h3 style={{ width: "50vw" }}>{item.title}</h3>
                     <div style={{ width: "50vw" }}>{item.text}</div>
-                    <img src={item.imageSrc} alt={item.imageAlt} />
+                    <img style={{width:"30vw"}} src={item.imageSrc} alt={item.imageAlt} />
                   </div>
                 )
               })
