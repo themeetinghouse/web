@@ -24,10 +24,10 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Loneliness sucks",
+                "header1":"Loneliness Sucks",
                 "header2":"",
                 "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
-                "header1": "Loneliness sucks",
+                "header1": "Loneliness Sucks",
                 "header2": "",
                 "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
                 "link1Text": "Find community",
@@ -105,8 +105,8 @@
                 "link3Text": "Giving",
                 "link3Action": "giving",
                 "image1":[{
-                    "src":"./static/images/homepage-6.png",
-                    "alt":"TODO"
+                    "src":"./static/images/homepage-6.jpg",
+                    "alt":"Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
                 }]
                },
             {
