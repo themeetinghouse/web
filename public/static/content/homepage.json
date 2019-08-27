@@ -25,11 +25,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1":"Loneliness Sucks",
-                "header2":"",
-                "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
-                "header1": "Loneliness Sucks",
-                "header2": "",
-                "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
+                "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbourhoods?",
                 "link1Text": "Find community",
                 "link1Action": "community",
                 "image1":[{
@@ -46,7 +42,7 @@
                 "link1Text": "Tell Me More",
                 "link1Action": "fall-2019",
                 "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
+                    "src":"./static/images/homepage-3.jpg",
                     "alt":"TODO"
                 }]
                
