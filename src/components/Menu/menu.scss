@@ -8,8 +8,10 @@
 .navbar-toggler {
     padding: 1px 1px 1px 1px;
 }
-
 @media (min-width:768px) {
+    a.smallNav.nav-link{
+        padding:0 !important;
+    }
     .ml-auto fix navbar-nav {
         margin-left: 0px !important;
         width: 20vw!important;
@@ -31,7 +33,8 @@
 
     .navbar.fixed-left .navbar-collapse .navbar-nav {
         flex-direction: column;
-        width: 20vw!important;
+        width: 18vw!important;
+        margin-left:0px!important;
         // width: 100%
     }
 
@@ -124,7 +127,9 @@
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
-
+    a.smallNav.nav-link{
+        padding:0 !important;
+    }
     .navbar {
         padding: 1px 1px 1px 1px;
        
@@ -194,7 +199,11 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-
+    a.smallNav.nav-link{
+        padding:0 !important;
+        margin-top:0;
+        margin-bottom:0;
+    }
     .navbar {
         padding: 1px 1px 1px 1px;
        
