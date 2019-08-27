@@ -25,11 +25,11 @@ class ListItem extends React.Component<Props, State> {
   }
   constructor(props: Props) {
     super(props);
-    
-      this.state = {
-        data: props.data,
-        listData: ((props.data.list == null) ? [] : props.data.list)
-      }
+
+    this.state = {
+      data: props.data,
+      listData: ((props.data.list == null) ? [] : props.data.list)
+    }
     this.navigate = this.navigate.bind(this);
 
 
@@ -91,7 +91,9 @@ class ListItem extends React.Component<Props, State> {
 
     }
   }
-
+  mouseOver(){
+    console.log("mouseover")
+  }
   navigate() {
     this.props.history.push("spirituality", "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
@@ -243,21 +245,23 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
     else if (this.state.data.style === "imageList") return (
-      <div className="ListItem imageList" style={{ position: "static", width: "50vw", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", left: "20vw", width: "50vw", zIndex: 100 }}>
+      <div className="ListItem imageList" style={{ position: "static", width: "100vw", paddingBottom: "5vw" }}>
+        <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 100 }}>
           <h1>{this.state.data.header1}</h1>
           <h2>{this.state.data.header2}</h2>
           <div style={{ width: "50vw" }}>{this.state.data.text1}</div>
           <div>
-            
+
             {
               data.map((item: any, index: any) => {
                 return (
-                  <div style={{ width: "50vw" }} key={index}>
-                    <h3 style={{ width: "50vw" }}>{item.title}</h3>
-                    <div style={{ width: "50vw" }}>{item.text}</div>
-                    <img style={{width:"30vw"}} src={item.imageSrc} alt={item.imageAlt} />
-                  </div>
+                    <div style={{ position: "relative", zIndex: 100 }} key={index}>
+                      <div className="imageList hoverText">
+                        <h3 style={{ width: "40vw" }}>{item.title}</h3>
+                        <div style={{ width: "40vw" }}>{item.text}</div>
+                      </div>
+                      <img style={{ position: "absolute", height: "20vw", width:"30vw", left: "0vw", objectFit:"cover", top: "2.5vw", boxShadow: "0px 20px 40px rgba(26, 26, 26, 0.16)" }} src={item.imageSrc} alt={item.imageAlt} />
+                    </div>
                 )
               })
             }
