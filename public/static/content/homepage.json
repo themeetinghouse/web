@@ -24,10 +24,10 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Loneliness sucks",
+                "header1":"Loneliness Sucks",
                 "header2":"",
                 "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
-                "header1": "Loneliness sucks",
+                "header1": "Loneliness Sucks",
                 "header2": "",
                 "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbours and neighbourhoods?",
                 "link1Text": "Find community",
@@ -78,8 +78,8 @@
                     {
                         "title": "Kids & Youth Curriculum",
                         "text": "We create our own curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
-                        "imageSrc": "./static/images/homepage-4-4.png",
-                        "imageAlt": ""
+                        "imageSrc": "./static/images/homepage-4-4.jpg",
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
                     }
                 ]
             },
@@ -105,8 +105,8 @@
                 "link3Text": "Giving",
                 "link3Action": "giving",
                 "image1":[{
-                    "src":"./static/images/homepage-6.png",
-                    "alt":"TODO"
+                    "src":"./static/images/homepage-6.jpg",
+                    "alt":"Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
                 }]
                },
             {
@@ -114,7 +114,7 @@
                 "style": "partialNoFooter",
                 "image1":[{
                     "src":"./static/svg/Map.svg",
-                    "alt":"TODO"
+                    "alt":"A map representing locations of The Meeting House churches."
                 }]
                
             }
