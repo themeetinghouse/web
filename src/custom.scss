@@ -90,13 +90,14 @@ div.parallax-outer {
     padding-top:5vw;
     padding-bottom:5vw;
     padding-left: 10vw;
-    width: 70vw;
+    width: 58vw;
     height: 25vw;
     left: 22vw;
     top: 0vw;
 }
 .imageList .hoverText:hover{
     background-color: #EFEFF0;
+    cursor:pointer;
 
 }
 @media (min-width: 768px) {

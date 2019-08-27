@@ -94,8 +94,8 @@ class ListItem extends React.Component<Props, State> {
   mouseOver(){
     console.log("mouseover")
   }
-  navigate() {
-    this.props.history.push("spirituality", "as")
+  navigate(to:string) {
+    this.props.history.push(to, "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
     unblock();
 
@@ -190,8 +190,8 @@ class ListItem extends React.Component<Props, State> {
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
-                    <Button onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                    <Button onClick={this.navigate}><img src="./static/Share.png" alt="Share Icon" />Share</Button>
+                    <Button onClick={()=>this.navigate("calendar")}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                    <Button onClick={()=>this.navigate("share")}><img src="./static/Share.png" alt="Share Icon" />Share</Button>
 
 
 
@@ -256,7 +256,7 @@ class ListItem extends React.Component<Props, State> {
               data.map((item: any, index: any) => {
                 return (
                     <div style={{ position: "relative", zIndex: 100 }} key={index}>
-                      <div className="imageList hoverText">
+                      <div onClick={()=>this.navigate(item.navigateTo)} className="imageList hoverText">
                         <h3 style={{ width: "40vw", fontSize:"2vw", fontFamily:"Graphik Web" }}>{item.title}</h3>
                         <div style={{ width: "40vw", fontSize:"1.25vw", fontFamily:"Graphik Web" }}>{item.text}</div>
                       </div>
