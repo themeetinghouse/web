@@ -9,10 +9,10 @@
                 "image1": [
                     {
                         "src": "./static/images/homepage-1-1.jpg",
-                        "alt": "Description"
+                        "alt": "Community of friends hanging out together and asking questions around a table."
                     },
                     {
-                        "src": "./static/images/homepage-1-1.jpg",
+                        "src": "./static/images/homepage-1-2.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -60,8 +60,8 @@
                     {
                         "title": "Sunday Teaching",
                         "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. Check out what you missed last week, or search our teaching archive for the topic you’re interest in.",
-                        "imageSrc": "./static/images/homepage-4-1.png",
-                        "imageAlt": ""
+                        "imageSrc": "./static/images/homepage-4-1.jpg",
+                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House."
                     },
                     {
                         "title": "Podcasts",
