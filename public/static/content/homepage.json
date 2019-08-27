@@ -65,25 +65,29 @@
                         "title": "Sunday Teaching",
                         "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search our teaching archive for the topic you’re interest in.",
                         "imageSrc": "./static/images/homepage-4-1.jpg",
-                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House."
+                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+                        "navigateTo":"teaching-sunday"
                     },
                     {
                         "title": "Podcasts",
                         "text": "All of our Sunday morning teaching on audio in one place, as well as the After Party podcast where we dig deeper into specific topics in theology and culture with special guests, and the Roundtable podcast where we discuss leadership and church life with our leaders and staff team.",
                         "imageSrc": "./static/images/homepage-4-2.jpg",
-                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast."
+                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
+                        "navigateTo":"teaching-podcasts"
                     },
                     {
                         "title": "Videos",
                         "text": "Our entire video library featuring stories of people and communities who show us what it look like to live the Jesus-centered life.",
                         "imageSrc": "./static/images/homepage-4-3.jpg",
-                        "imageAlt": "Production volunteer recording a Meeting House video."
+                        "imageAlt": "Production volunteer recording a Meeting House video.",
+                        "navigateTo":"teaching-curated"
                     },
                     {
                         "title": "Kids & Youth Curriculum",
                         "text": "We create our own curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
                         "imageSrc": "./static/images/homepage-4-4.jpg",
-                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
+                        "navigateTo":"teaching-kids+youth"
                     }
                 ]
             },
