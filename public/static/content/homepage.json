@@ -114,7 +114,7 @@
                 "style": "partialNoFooter",
                 "image1":[{
                     "src":"./static/svg/Map.svg",
-                    "alt":"TODO"
+                    "alt":"A map representing locations of The Meeting House churches."
                 }]
                
             }
