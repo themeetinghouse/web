@@ -1,0 +1,79 @@
+@media (min-width: 768px) {
+    .oneImageImage{
+        position: absolute;
+        height: 35vw;
+        width:35vw;
+        left: 20vw;
+        object-fit:cover;
+        top: 2.5vw;
+        box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+    }
+    .oneImageGreyBox{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 50vw; 
+        top: 0vw;
+        background-color: #EFEFF0;
+    }
+    .oneImageH1{
+        font-weight: bold; 
+        font-size: 3vw;
+        font-family:"Graphik Web";
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .oneImageImage{
+        position: absolute;
+        height: 35vw;
+        width:35vw;
+        left: 20vw;
+        object-fit:cover;
+        top: 2.5vw;
+        box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+    }
+    .oneImageGreyBox{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 50vw; 
+        top: 0vw;
+        background-color: #EFEFF0;
+    }
+    .oneImageH1{
+        font-weight: bold; 
+        font-size: 3vw;
+        font-family:"Graphik Web";
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .oneImageImage{
+        position: absolute;
+        height: 90vw;
+        width:90vw;
+        left: 5vw;
+        object-fit:cover;
+        top: -60vw;
+        box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+    }
+    .oneImageGreyBox{
+        margin-top:60vw;
+        padding: 10vw;
+        padding-top:40vw;
+        position: relative;
+        width: 100vw;
+        height: 80vw;
+        left: 0vw; 
+        top: 0vw;
+        background-color: #EFEFF0;
+    }
+    .oneImageH1{
+        font-weight: bold; 
+        font-size: 3vw;
+        font-family:"Graphik Web";
+    }
+}
