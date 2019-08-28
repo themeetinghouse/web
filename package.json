@@ -8,7 +8,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify"
+    "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify",
+    "images":"mkdir ./public/static/images-sized;batch-image-resizer -i ./public/static/images -o ./public/static/images-sized -s '[50, 500, 1000, 1500]'"
   },
   "repository": {
     "type": "git",
