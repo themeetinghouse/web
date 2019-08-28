@@ -9,6 +9,14 @@
     padding: 1px 1px 1px 1px;
 }
 @media (min-width:768px) {
+    .logoHouse{
+        height: 4vw;
+    }
+    .logoText{
+       margin: 1vw;
+        height: 4vw; 
+    }
+    
     a.smallNav.nav-link{
         padding:0 !important;
     }
@@ -126,7 +134,13 @@
 
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
+    .logoHouse{
+        height: 4vw;
+    }
+    .logoText{
+       margin: 1vw;
+        height: 4vw; 
+    }
     a.smallNav.nav-link{
         padding:0 !important;
     }
@@ -199,6 +213,14 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .logoHouse{
+        height: 8vw;
+    }
+    .logoText{
+       margin: 0vw;
+       margin-left:1vw;
+        height: 8vw; 
+    }
     a.smallNav.nav-link{
         padding:0 !important;
         margin-top:0;
@@ -208,7 +230,11 @@
         padding: 1px 1px 1px 1px;
        
     }
-    
+    .navbar-toggler{
+        position:absolute;
+        left:85vw
+    }
+   
     .navbar a {
         padding: 0px;
         color: #000000;
@@ -257,12 +283,16 @@
     }
     .navbar.fixed-left {
         position: fixed;
-
+        top: 0vh;
+        z-index:-1;
+        padding:0vw;
+        //height:5vw;
+        /*
         right: 4vw;
         width: 4vw;
         z-index: 1030;
         margin: 2vw;
-        top: 0vh;
+        */
     }
     .navbar-collapse{
         left:0vw;

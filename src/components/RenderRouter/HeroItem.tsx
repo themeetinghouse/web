@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
+import "./HeroItem.scss"
 interface Props extends RouteComponentProps {
     data: any
 
@@ -74,7 +75,7 @@ class HeroItem extends React.Component<Props, State> {
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     <img src={image1.src} alt={image1.alt} className="heroImage" />
-                    <div style={{ position: "absolute", backgroundColor: "#00000099", padding: "2vw", left: "20vw", width: "36vw", top: "30vh", zIndex: 100 }}>
+                    <div className="heroBlackBox" >
                         <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.data.header1}</h1>
                         {this.state.data.header2 && <h2>{this.state.data.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>

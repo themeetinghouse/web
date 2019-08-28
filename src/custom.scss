@@ -31,35 +31,6 @@ html{
     mask-size: 20vw;
   //  webkit-mask-size: 20vw;
 }
-.heroImage {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    mask-mode: alpha;
-  //  webkit-mask-mode: alpha;
-    mask-repeat: no-repeat;
-  //  webkit-mask-repeat: no-repeat;
-    mask-size: 20vw;
-    z-index: 50;
-  //  webkit-mask-size: 20vw;
-  //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
-
-}
-.heroImageGradient {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    mask-mode: alpha;
-  //  webkit-mask-mode: alpha;
-    mask-repeat: no-repeat;
-  //  webkit-mask-repeat: no-repeat;
-    mask-size: 20vw;
-    z-index: 51;
-    background-image: linear-gradient(135deg, rgba(255,255,255,1) 5%,rgba(255,255,255,0) 66%);
-    
-  }
 
 .Mega {
     position: relative;

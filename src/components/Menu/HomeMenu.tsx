@@ -102,8 +102,8 @@ class HomeMenu extends React.Component<Props, State>  {
 
       <div className="navbar-custom" id="navbar">
         <NavbarBrand className="brand" href="/">
-          <img src="./static/House.png" alt="Logo: Stylized House" style={{ height: "4vw" }} onClick={() => { this.props.history.push("/") }} />
-          <img alt="Logo: The Meeting House" src="./static/TMH.png" style={{ margin: "1vw", height: "4vw" }} onClick={() => { this.props.history.push("/") }} />
+          <img src="./static/House.png" alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
+          <img alt="Logo: The Meeting House" src="./static/TMH.png" className="logoText" onClick={() => { this.props.history.push("/") }} />
         </NavbarBrand>
         <img style={{backgroundColor:"#ffffff"}} src="./static/svg/Search.svg" className="search" alt="Search" />
         <Navbar color="white" expand="md" className={"navbar fixed-left"}>
