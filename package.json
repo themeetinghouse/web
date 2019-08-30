@@ -9,7 +9,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify",
-    "images":"mkdir ./public/static/images-sized;batch-image-resizer -i ./public/static/images -o ./public/static/images-sized -s '[50, 500, 1000, 1500]'"
+    "images": "mkdir ./public/static/images-sized;batch-image-resizer -i ./public/static/images -o ./public/static/images-sized -s '[50, 500, 1000, 1500]'"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "author": "George Bell",
   "license": "ISC",
   "dependencies": {
+    "@types/react-addons-css-transition-group": "^15.0.5",
     "@types/react-datepicker": "^2.8.1",
     "@types/react-dom": "^16.8.5",
     "@types/react-lottie": "^1.2.2",
@@ -33,10 +34,12 @@
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.1.0",
     "jquery": "^3.4.1",
+    "material-ui": "^0.20.2",
     "mdbreact": "^4.18.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^1.0.0-beta.10",
     "react-datepicker": "^2.8.0",
     "react-dom": "^16.8.6",

@@ -8,6 +8,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import * as queries from '../../graphql/queries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
+import VideoPlayer from '../VideoPlayer/VideoPlayer'
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 
@@ -91,10 +92,7 @@ class ListItem extends React.Component<Props, State> {
 
     }
   }
-  mouseOver(){
-    console.log("mouseover")
-  }
-  navigate(to:string) {
+  navigate(to: string) {
     this.props.history.push(to, "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
     unblock();
@@ -125,10 +123,7 @@ class ListItem extends React.Component<Props, State> {
               else if (this.state.data.class === "videos") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src={item.Youtube.snippet.thumbnails.default.url} />
-                    <div style={{ fontWeight: "bold" }}>{item.episodeTitle}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.series != null ? item.series : null}</div>
-                    <div>{item.publishedDate}</div>
+                    <VideoPlayer data={item}></VideoPlayer>
                   </div>
                 )
               }
@@ -165,6 +160,7 @@ class ListItem extends React.Component<Props, State> {
                     <div style={{ fontWeight: "bold" }}>{item.episodeTitle}</div>
                     <div style={{ fontWeight: "bold" }}>{item.series != null ? item.series : null}</div>
                     <div>{item.publishedDate}</div>
+                   
                   </div>
                 )
               }
@@ -190,8 +186,8 @@ class ListItem extends React.Component<Props, State> {
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
-                    <Button onClick={()=>this.navigate("calendar")}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                    <Button onClick={()=>this.navigate("share")}><img src="./static/Share.png" alt="Share Icon" />Share</Button>
+                    <Button onClick={() => this.navigate("calendar")}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                    <Button onClick={() => this.navigate("share")}><img src="./static/Share.png" alt="Share Icon" />Share</Button>
 
 
 
@@ -247,21 +243,21 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.data.style === "imageList") return (
       <div className="ListItem imageList" style={{ position: "static", width: "100vw", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 100 }}>
-          <h1 style={{fontSize:"3vw", fontWeight:"bold", fontFamily:"Graphik Web"}}>{this.state.data.header1}</h1>
+          <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.data.header1}</h1>
           <h2>{this.state.data.header2}</h2>
-          <div style={{ width: "50vw",fontStyle:"1.5vw", fontFamily:"Graphik Web" }}>{this.state.data.text1}</div>
-          <div style={{position:"relative"}}>
-            <div style={{position:"absolute", left:"12.5vw", width:"5vw",bottom:"0vw",top:"0vw",borderColor:"#0000ff",border:"solid 10px"}}></div>
+          <div style={{ width: "50vw", fontStyle: "1.5vw", fontFamily: "Graphik Web" }}>{this.state.data.text1}</div>
+          <div style={{ position: "relative" }}>
+            <div style={{ position: "absolute", left: "12.5vw", width: "5vw", bottom: "0vw", top: "0vw", borderColor: "#0000ff", border: "solid 10px" }}></div>
             {
               data.map((item: any, index: any) => {
                 return (
-                    <div style={{ position: "relative", zIndex: 100 }} key={index}>
-                      <div onClick={()=>this.navigate(item.navigateTo)} className="imageList hoverText">
-                        <h3 style={{ width: "40vw", fontSize:"2vw", fontFamily:"Graphik Web" }}>{item.title}</h3>
-                        <div style={{ width: "40vw", fontSize:"1.25vw", fontFamily:"Graphik Web" }}>{item.text}</div>
-                      </div>
-                      <img style={{ position: "absolute", height: "20vw", width:"30vw", left: "0vw", objectFit:"cover", top: "2.5vw", boxShadow: "0px 20px 40px rgba(26, 26, 26, 0.16)" }} src={item.imageSrc} alt={item.imageAlt} />
+                  <div style={{ position: "relative", zIndex: 100 }} key={index}>
+                    <div onClick={() => this.navigate(item.navigateTo)} className="imageList hoverText">
+                      <h3 style={{ width: "40vw", fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.title}</h3>
+                      <div style={{ width: "40vw", fontSize: "1.25vw", fontFamily: "Graphik Web" }}>{item.text}</div>
                     </div>
+                    <img style={{ position: "absolute", height: "20vw", width: "30vw", left: "0vw", objectFit: "cover", top: "2.5vw", boxShadow: "0px 20px 40px rgba(26, 26, 26, 0.16)" }} src={item.imageSrc} alt={item.imageAlt} />
+                  </div>
                 )
               })
             }

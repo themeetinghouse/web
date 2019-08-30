@@ -4,7 +4,6 @@ import HomeFooter from '../components/Menu/HomeFooter'
 import RenderRouter from '../components/RenderRouter/RenderRouter'
 import '../custom.scss';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import VideoPlayer from '../components/VideoPlayer/VideoPlayer'
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 
@@ -28,10 +27,8 @@ class HomePage extends React.Component<Props, State> {
       jsonFile = "homepage"
     if (props.match.params.id == null)
       jsonFile = "homepage"
-    //console.log(jsonFile)
     Analytics.record({
       name: 'pageVisit',
-      // Attribute values must be strings
       attributes: { page: jsonFile }
     });
     fetch('./static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
@@ -41,14 +38,11 @@ class HomePage extends React.Component<Props, State> {
         this.setState({ content: myJson });
       })
   }
-
   render() {
     return (
       <div>
         <HomeMenu></HomeMenu>
-
         <RenderRouter content={this.state.content}></RenderRouter>
-        <VideoPlayer video="video1"></VideoPlayer>
         <HomeFooter></HomeFooter>
       </div>
     )

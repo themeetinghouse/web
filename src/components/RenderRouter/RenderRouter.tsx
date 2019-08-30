@@ -30,7 +30,7 @@ class RenderRouter extends React.Component<Props, State> {
         else if (item.type === "video")
           return (<VideoItem key={index} data={item}></VideoItem>);
         else if (item.type === "list")
-          return (<ListItem key={index} data={item}></ListItem>);
+          return (<ListItem  key={index} data={item}></ListItem>);
         else if (item.type === "svg")
           return (<SVGItem key={index} data={item}></SVGItem>);
         else if (item.type === "hero")

@@ -6,17 +6,33 @@ $body-color: #000000;
 html{
     scroll-behavior: smooth;
 }
+.showVideoPlayer-enter {
+    opacity: 0.01;
+  }
+  
+  .showVideoPlayer-enter.showVideoPlayer-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  .showVideoPlayer-appear {
+    opacity: 0.01;
+  }
+  
+  .showVideoPlayer-appear.showVideoPlayer-appear-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }  
+  .showVideoPlayer-leave {
+    opacity: 1;
+  }
+  
+  .showVideoPlayer-leave.showVideoPlayer-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }
+
 .VideoPlayer{
-    visibility:hidden;
     background-color:#000000;
-    transition:0.3s;
-    opacity:0
-}
-.VideoPlayer.is-videoplayer-open{
-    visibility:visible;
-    background-color:#000000;
-    transition:0.3s;
-    opacity:1
 }
 .bg-white {
     background-color: transparent !important;
