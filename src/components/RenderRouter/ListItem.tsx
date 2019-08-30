@@ -256,7 +256,7 @@ class ListItem extends React.Component<Props, State> {
                       <h3 style={{ width: "40vw", fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.title}</h3>
                       <div style={{ width: "40vw", fontSize: "1.25vw", fontFamily: "Graphik Web" }}>{item.text}</div>
                     </div>
-                    <img style={{ position: "absolute", height: "20vw", width: "30vw", left: "0vw", objectFit: "cover", top: "2.5vw", boxShadow: "0px 20px 40px rgba(26, 26, 26, 0.16)" }} src={item.imageSrc} alt={item.imageAlt} />
+                    <img style={{ position: "absolute", height: "20vw", width: "30vw", left: "0vw", objectFit: "cover", top: "2.5vw" }} src={item.imageSrc} alt={item.imageAlt} />
                   </div>
                 )
               })
