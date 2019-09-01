@@ -1,7 +1,14 @@
 {
     "page": {
         "name": "kitchener",
-        "movingMenu": "true",
+        "pageConfig": {
+            "movingMenu": true,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
         "content": [
             {
                 "type": "hero",

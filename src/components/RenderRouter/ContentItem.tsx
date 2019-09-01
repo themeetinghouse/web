@@ -23,7 +23,7 @@ export default class ContentItem extends React.Component<Props, State>  {
 
       return (
         <div className="ContentItem oneImage" style={{ position: "static", paddingBottom: "5vw" }}>
-          <div style={{ position: "relative", zIndex: 100 }}>
+          <div className="oneImagePosition">
             <div className="oneImageGreyBox" >
               <h1 className="oneImageH1" >{this.state.data.header1}</h1>
               <h2>{this.state.data.header2}</h2>

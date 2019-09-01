@@ -16,14 +16,19 @@ import MainMenuItems from './MainMenu.json';
 import "./menu.scss"
 
 interface Props extends RouteComponentProps {
- 
+  //logoColor?:string,
+  pageConfig:any
+  
 }
 interface State {
   isOpen: boolean,
   userName: String,
   windowHeight: number,
   position: string,
-  logoColor: string
+  logoColor: string,
+  showLogoText: boolean,
+  showSearch:boolean,
+  showMenu:boolean
 }
 //const bootstrap = require('react-bootstrap');
 
@@ -41,7 +46,10 @@ class HomeMenu extends React.Component<Props, State>  {
       userName: "",
       windowHeight: 0,
       position: "unfix",
-      logoColor: "black"
+      logoColor: this.props.pageConfig.logoColor,
+      showLogoText: this.props.pageConfig.showLogoText,
+      showSearch: this.props.pageConfig.showSearch,
+      showMenu: this.props.pageConfig.showMenu
     };
     this.handleScroll = this.handleScroll.bind(this)
 
@@ -99,16 +107,16 @@ class HomeMenu extends React.Component<Props, State>  {
 
 
   render() {
-   // console.log(this.state.position)
+    // console.log(this.state.position)
     return (
 
       <div className="navbar-custom" id="navbar">
         <NavbarBrand className="brand" href="/">
-          <img src={"./static/logos/house-"+this.state.logoColor+".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
-          <img src={"./static/logos/tmh-text-"+this.state.logoColor+".png"} alt="Logo: The Meeting House"  className="logoText" onClick={() => { this.props.history.push("/") }} />
+          <img src={"./static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
+          {this.state.showLogoText ? (<img src={"./static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        <img style={{backgroundColor:"#ffffff"}} src="./static/svg/Search.svg" className="search" alt="Search" />
-        <Navbar color="white" expand="md" className={"navbar fixed-left"}>
+        {this.state.showSearch ? <img style={{ backgroundColor: "#ffffff" }} src="./static/svg/Search.svg" className="search" alt="Search" />:null}
+        {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
           <div style={{ height: "10vw" }}>&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -120,12 +128,12 @@ class HomeMenu extends React.Component<Props, State>  {
                       <NavLink className="bigNav" key={item.location} href={item.location}>
                         {item.name}
                       </NavLink>
-                      {(this.props.location.pathname === item.location || (item.children!=null && item.children.map(a => a.location).includes(this.props.location.pathname))  ?
+                      {(this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ?
                         (item.children != null ?
-                          
-                            item.children.map((item2) => {
-                              return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
-                            }) : null)                     
+
+                          item.children.map((item2) => {
+                            return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
+                          }) : null)
                         : null)}
                     </div>
                   )
@@ -133,7 +141,7 @@ class HomeMenu extends React.Component<Props, State>  {
               }
             </Nav>
           </Collapse>
-        </Navbar>
+        </Navbar>:null}
       </div>
     );
   }

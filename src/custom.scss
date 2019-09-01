@@ -3,6 +3,17 @@ $body-color: #000000;
 @import "~bootstrap/scss/bootstrap.scss";
 @import "/static/fonts/commercial-type-1906-WOIKTV-web/fonts.css";
 
+.modal-video{
+  width:100%;
+  max-width:none!important;
+  color:#000000;
+  margin:0!important;
+}
+.modal-video .modal-content{
+ 
+  background-color:#000000!important;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -96,7 +107,7 @@ html{
         left: 0;
         right: 0;
         width: 16vw;
-        z-index: 1030;
+        z-index: 100;
         margin: 2vw;
         top: 0vh;
     }
@@ -105,7 +116,7 @@ html{
         height:4vw;
         left:96vw;
         position:absolute;
-        z-index:1000;
+        z-index:100;
     }
     .footer {
         margin-left: 20vw;
@@ -143,7 +154,7 @@ html{
         left: 0;
         right: 0;
         width: 16vw;
-        z-index: 1030;
+        z-index: 100;
         margin: 2vw;
         top: 0vh;
     }
@@ -152,7 +163,7 @@ html{
         height:4vw;
         left:96vw;
         position:absolute;
-        z-index:1000;
+        z-index:100;
     }
     .footer {
         margin-left: 20vw;
@@ -179,7 +190,7 @@ html{
         height:4vw;
         left:82vw;
         position:absolute;
-        z-index:1000;
+        z-index:100;
         top:16px;
     }
   

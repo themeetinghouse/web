@@ -1,7 +1,14 @@
 {
     "page": {
         "name": "home-church",
-        "movingMenu":"false",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
         "content": [
            
             {

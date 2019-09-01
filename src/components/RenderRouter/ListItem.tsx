@@ -8,7 +8,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import * as queries from '../../graphql/queries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
-import VideoPlayer from '../VideoPlayer/VideoPlayer'
+import VideoOverlay from '../VideoOverlay/VideoOverlay'
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 
@@ -107,9 +107,9 @@ class ListItem extends React.Component<Props, State> {
 
     if (this.state.data.style === "horizontal") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 100 }}>
-          <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
+        <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
+          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
               if (this.state.data.class === "speakers") {
                 return (
@@ -123,7 +123,7 @@ class ListItem extends React.Component<Props, State> {
               else if (this.state.data.class === "videos") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <VideoPlayer data={item}></VideoPlayer>
+                    <VideoOverlay data={item}></VideoOverlay>
                   </div>
                 )
               }
@@ -139,10 +139,10 @@ class ListItem extends React.Component<Props, State> {
     )
     else if (this.state.data.style === "vertical") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 100 }}>
-          <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          {this.state.data.text1 != null ? (<div style={{ position: "relative", left: "20vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>) : null}
-          <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
+        <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
+          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          {this.state.data.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>) : null}
+          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
               if (this.state.data.class === "speakers") {
                 return (
@@ -221,9 +221,9 @@ class ListItem extends React.Component<Props, State> {
     )
     else if (this.state.data.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 100 }}>
-          <h1 style={{ position: "relative", left: "20vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          <div style={{ position: "relative", left: "20vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
+        <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
+          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
               return (
                 <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
@@ -242,7 +242,7 @@ class ListItem extends React.Component<Props, State> {
     )
     else if (this.state.data.style === "imageList") return (
       <div className="ListItem imageList" style={{ position: "static", width: "100vw", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 100 }}>
+        <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 99 }}>
           <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.data.header1}</h1>
           <h2>{this.state.data.header2}</h2>
           <div style={{ width: "50vw", fontStyle: "1.5vw", fontFamily: "Graphik Web" }}>{this.state.data.text1}</div>
@@ -251,7 +251,7 @@ class ListItem extends React.Component<Props, State> {
             {
               data.map((item: any, index: any) => {
                 return (
-                  <div style={{ position: "relative", zIndex: 100 }} key={index}>
+                  <div style={{ position: "relative", zIndex: 99 }} key={index}>
                     <div onClick={() => this.navigate(item.navigateTo)} className="imageList hoverText">
                       <h3 style={{ width: "40vw", fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.title}</h3>
                       <div style={{ width: "40vw", fontSize: "1.25vw", fontFamily: "Graphik Web" }}>{item.text}</div>

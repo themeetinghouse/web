@@ -1,0 +1,37 @@
+{
+    "page": {
+        "name": "video-player",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor":"white",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false
+        },
+        "content": [
+            {
+                "type": "videoPlayer"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "selector": "sameSeries",
+                "header1": "More from this Series"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "selector": "allTeaching",
+                "header1": "Highlights"
+
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "selector": "sameSeries",
+                "header1": "Related Videos"
+            }
+        ]
+    }
+}

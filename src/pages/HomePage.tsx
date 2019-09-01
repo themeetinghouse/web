@@ -1,6 +1,4 @@
 import React from 'react';
-import HomeMenu from '../components/Menu/HomeMenu';
-import HomeFooter from '../components/Menu/HomeFooter'
 import RenderRouter from '../components/RenderRouter/RenderRouter'
 import '../custom.scss';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
@@ -40,11 +38,9 @@ class HomePage extends React.Component<Props, State> {
   }
   render() {
     return (
-      <div>
-        <HomeMenu></HomeMenu>
+      
         <RenderRouter content={this.state.content}></RenderRouter>
-        <HomeFooter></HomeFooter>
-      </div>
+     
     )
   }
 }

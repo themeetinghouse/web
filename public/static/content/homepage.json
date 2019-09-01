@@ -1,7 +1,14 @@
 {
     "page": {
         "name": "homepage",
-        "movingMenu": "true",
+        "pageConfig": {
+            "movingMenu": true,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
         "content": [
             {
                 "type": "hero",
@@ -32,14 +39,16 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Loneliness Sucks",
-                "text1":"Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbourhoods?",
+                "header1": "Loneliness Sucks",
+                "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbourhoods?",
                 "link1Text": "Find community",
                 "link1Action": "community",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"Group of friends from church sitting together and talking."
-                }]
+                "image1": [
+                    {
+                        "src": "./static/images/homepage-2.jpg",
+                        "alt": "Group of friends from church sitting together and talking."
+                    }
+                ]
             },
             {
                 "type": "content",
@@ -49,11 +58,12 @@
                 "text1": "New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find our what you can expect and how you can get involved.",
                 "link1Text": "Let's Do This",
                 "link1Action": "fall-2019",
-                "image1":[{
-                    "src":"./static/images/homepage-3.jpg",
-                    "alt":"Group of friends hanging out at The Meeting House church excited about our plans for fall 2019."
-                }]
-               
+                "image1": [
+                    {
+                        "src": "./static/images/homepage-3.jpg",
+                        "alt": "Group of friends hanging out at The Meeting House church excited about our plans for fall 2019."
+                    }
+                ]
             },
             {
                 "type": "list",
@@ -66,28 +76,28 @@
                         "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search our teaching archive for the topic you’re interest in.",
                         "imageSrc": "./static/images/homepage-4-1.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
-                        "navigateTo":"teaching-sunday"
+                        "navigateTo": "teaching-sunday"
                     },
                     {
                         "title": "Podcasts",
                         "text": "All of our Sunday morning teaching on audio in one place, as well as the After Party podcast where we dig deeper into specific topics in theology and culture with special guests, and the Roundtable podcast where we discuss leadership and church life with our leaders and staff team.",
                         "imageSrc": "./static/images/homepage-4-2.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
-                        "navigateTo":"teaching-podcasts"
+                        "navigateTo": "teaching-podcasts"
                     },
                     {
                         "title": "Videos",
                         "text": "Our entire video library featuring stories of people and communities who show us what it look like to live the Jesus-centered life.",
                         "imageSrc": "./static/images/homepage-4-3.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
-                        "navigateTo":"teaching-curated"
+                        "navigateTo": "teaching-curated"
                     },
                     {
                         "title": "Kids & Youth Curriculum",
                         "text": "We create our own curriculum for kids and youth. We teach stories within the context of the overarching Bibilical narrative, so that students can see how each story connects to God’s big story, and learn where they fit into this story as they discover the role that God has for them as followers of Jesus.",
                         "imageSrc": "./static/images/homepage-4-4.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
-                        "navigateTo":"teaching-kids+youth"
+                        "navigateTo": "teaching-kids+youth"
                     }
                 ]
             },
@@ -112,24 +122,28 @@
                 "link2Action": "compassino",
                 "link3Text": "Giving",
                 "link3Action": "giving",
-                "image1":[{
-                    "src":"./static/images/homepage-6.jpg",
-                    "alt":"Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
-                }]
-               },
+                "image1": [
+                    {
+                        "src": "./static/images/homepage-6.jpg",
+                        "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
+                    }
+                ]
+            },
             {
                 "type": "hero",
                 "style": "partialNoFooter",
-                "image1":[{
-                    "src":"./static/svg/Map.svg",
-                    "alt":"A map representing locations of The Meeting House churches."
-                }],
-                "header1":"Locations. Cities. Neighbourhoods.",
-                "text1":"It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities, as we learn to follow Jesus.",
-                "text2":"What are you doing this Sunday?",
-                "link1Text":"Link of sub importance",
-                "link1Action":"locations",
-                "showLocationSearch":true
+                "image1": [
+                    {
+                        "src": "./static/svg/Map.svg",
+                        "alt": "A map representing locations of The Meeting House churches."
+                    }
+                ],
+                "header1": "Locations. Cities. Neighbourhoods.",
+                "text1": "It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities, as we learn to follow Jesus.",
+                "text2": "What are you doing this Sunday?",
+                "link1Text": "Link of sub importance",
+                "link1Action": "locations",
+                "showLocationSearch": true
             }
         ]
     }
