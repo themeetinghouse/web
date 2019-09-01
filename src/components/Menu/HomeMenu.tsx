@@ -16,13 +16,14 @@ import MainMenuItems from './MainMenu.json';
 import "./menu.scss"
 
 interface Props extends RouteComponentProps {
-
+ 
 }
 interface State {
   isOpen: boolean,
   userName: String,
   windowHeight: number,
-  position: string
+  position: string,
+  logoColor: string
 }
 //const bootstrap = require('react-bootstrap');
 
@@ -39,7 +40,8 @@ class HomeMenu extends React.Component<Props, State>  {
       isOpen: false,
       userName: "",
       windowHeight: 0,
-      position: "unfix"
+      position: "unfix",
+      logoColor: "black"
     };
     this.handleScroll = this.handleScroll.bind(this)
 
@@ -102,8 +104,8 @@ class HomeMenu extends React.Component<Props, State>  {
 
       <div className="navbar-custom" id="navbar">
         <NavbarBrand className="brand" href="/">
-          <img src="./static/House.png" alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
-          <img alt="Logo: The Meeting House" src="./static/TMH.png" className="logoText" onClick={() => { this.props.history.push("/") }} />
+          <img src={"./static/logos/house-"+this.state.logoColor+".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
+          <img src={"./static/logos/tmh-text-"+this.state.logoColor+".png"} alt="Logo: The Meeting House"  className="logoText" onClick={() => { this.props.history.push("/") }} />
         </NavbarBrand>
         <img style={{backgroundColor:"#ffffff"}} src="./static/svg/Search.svg" className="search" alt="Search" />
         <Navbar color="white" expand="md" className={"navbar fixed-left"}>
