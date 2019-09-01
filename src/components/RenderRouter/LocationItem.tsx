@@ -3,11 +3,11 @@ import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
 interface Props extends RouteComponentProps {
-    data: any
+    content: any
 
 }
 interface State {
-    data: any
+    content: any
 }
 class LocationItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -18,7 +18,7 @@ class LocationItem extends React.Component<Props, State> {
         super(props, context);
         console.log(context);
         this.state = {
-            data: props.data
+            content: props.content
         }
         this.navigate = this.navigate.bind(this);
     }
@@ -32,7 +32,7 @@ class LocationItem extends React.Component<Props, State> {
     render() {
         console.log("locations")
         return <div className="headerItem" style={{ position: "relative", width: "80vw", left:"20vw", height: "105vh", paddingBottom: "5vh" }}>
-            {this.state.data.locations.map((item: string) => { return <div><a href={item}>{item}</a></div> })}
+            {this.state.content.locations.map((item: string) => { return <div><a href={item}>{item}</a></div> })}
         </div>
 
     }

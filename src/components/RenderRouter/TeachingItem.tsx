@@ -4,11 +4,11 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 interface Props extends RouteComponentProps {
-    data: any
+    content: any
 
 }
 interface State {
-    data: any
+    content: any
 }
 class TeachingItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -19,7 +19,7 @@ class TeachingItem extends React.Component<Props, State> {
         super(props, context);
         console.log(context);
         this.state = {
-            data: props.data
+            content: props.content
         }
         this.navigate = this.navigate.bind(this);
     }
@@ -33,10 +33,10 @@ class TeachingItem extends React.Component<Props, State> {
     }
     //
     render() {
-        if (this.state.data.style === "hero") {
+        if (this.state.content.style === "hero") {
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "55vw", paddingBottom: "5vh" }}>
-                    <h1 style={{ position:"relative",top:"3vw",fontSize:"3vw",fontWeight: "bold" }}>{this.props.data.header1}</h1>
+                    <h1 style={{ position:"relative",top:"3vw",fontSize:"3vw",fontWeight: "bold" }}>{this.props.content.header1}</h1>
                     <div style={{ padding:"3vw", paddingRight:"15vw",position: "absolute", left: "5vw", width: "50vw", top:"10vw",height: "40vw", backgroundColor: "#000000", color: "#ffffff" }}>
                         <div style={{padding:"0.5vw",color: "#C8C8C8"}}>June 9, 2019</div>
                         <div style={{padding:"0.5vw",fontSize:"2.5vw",fontWeight:"bold",color: "#ffffff"}}>Water from the Rock</div>

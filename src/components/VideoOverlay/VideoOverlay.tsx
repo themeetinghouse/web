@@ -4,6 +4,8 @@ import RenderRouter from '../RenderRouter/RenderRouter'
 import { Modal } from 'react-bootstrap'
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
+
+
 Amplify.configure(awsconfig);
 
 interface Props {
@@ -35,14 +37,12 @@ export default class VideoPlayer extends React.Component<Props, State> {
     this.setState({
       videoVisible: !this.state.videoVisible
     })
-    const VideoPlayer = document.getElementById("VideoPlayer")
-    if (VideoPlayer != null) {
-      Analytics.record({
-        name: 'pageVisit',
-        attributes: { page: 'VideoPlayer', video: this.state.data.id }
-      });
+    Analytics.record({
+      name: 'pageVisit',
+      attributes: { page: 'VideoPlayer', video: this.state.data.id }
+    });
 
-    }
+
   }
 
   render() {
@@ -56,16 +56,16 @@ export default class VideoPlayer extends React.Component<Props, State> {
           <div style={{ fontWeight: "bold" }}>{this.state.data.series != null ? this.state.data.series : null}</div>
           <div>{this.state.data.publishedDate}</div>
         </div>
-        <Modal  dialogClassName="modal-video" show={this.state.videoVisible}>
+        <Modal dialogClassName="modal-video" show={this.state.videoVisible}>
           <Modal.Body id="modal-video-body">
-          <RenderRouter content={this.state.content}></RenderRouter>
+            <RenderRouter data={this.state.data} content={this.state.content}></RenderRouter>
 
           </Modal.Body>
 
 
         </Modal>
-      
-       
+
+
 
       </div >)
 

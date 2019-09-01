@@ -13,10 +13,10 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay'
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
-  data: any
+  content: any
 }
 interface State {
-  data: any,
+  content: any,
   listData: any
 }
 class ListItem extends React.Component<Props, State> {
@@ -28,14 +28,14 @@ class ListItem extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      data: props.data,
-      listData: ((props.data.list == null) ? [] : props.data.list)
+      content: props.content,
+      listData: ((props.content.list == null) ? [] : props.content.list)
     }
     this.navigate = this.navigate.bind(this);
 
 
-    if (this.state.data.class === "videos") {
-      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { limit: 50, videoTypes: this.state.data.subclass, publishedDate: { lt: "a" } }));
+    if (this.state.content.class === "videos") {
+      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
       listVideos.then((json: any) => {
         console.log("Success queries.listVideos: " + json);
         console.log(json)
@@ -44,7 +44,7 @@ class ListItem extends React.Component<Props, State> {
         })
       }).catch((e: any) => { console.log(e) })
     }
-    else if (this.state.data.class === "speakers") {
+    else if (this.state.content.class === "speakers") {
       const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { limit: 50 }));
       listSpeakers.then((json: any) => {
         console.log("Success queries.listSpeakers: " + json);
@@ -54,7 +54,7 @@ class ListItem extends React.Component<Props, State> {
         })
       }).catch((e: any) => { console.log(e) })
     }
-    else if (this.state.data.class === "series") {
+    else if (this.state.content.class === "series") {
       const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 50 }));
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
@@ -64,7 +64,7 @@ class ListItem extends React.Component<Props, State> {
         })
       }).catch((e: any) => { console.log(e) })
     }
-    else if (this.state.data.class === "staff") {
+    else if (this.state.content.class === "staff") {
       fetch('./static/data/staff.json').then(function (response) {
         return response.json();
       })
@@ -73,7 +73,7 @@ class ListItem extends React.Component<Props, State> {
         })
 
     }
-    else if (this.state.data.class === "events") {
+    else if (this.state.content.class === "events") {
       fetch('./static/data/events.json').then(function (response) {
         return response.json();
       })
@@ -82,7 +82,7 @@ class ListItem extends React.Component<Props, State> {
         })
 
     }
-    else if (this.state.data.class === "compassion") {
+    else if (this.state.content.class === "compassion") {
       fetch('./static/data/compassion.json').then(function (response) {
         return response.json();
       })
@@ -100,18 +100,18 @@ class ListItem extends React.Component<Props, State> {
   }
   render() {
     var data
-    (this.props.data.filterField == null) ? data = this.state.listData :
+    (this.props.content.filterField == null) ? data = this.state.listData :
       data = this.state.listData.filter((item: any) => {
-        return item[this.props.data.filterField].includes(this.props.data.filterValue)
+        return item[this.props.content.filterField].includes(this.props.content.filterValue)
       })
 
-    if (this.state.data.style === "horizontal") return (
+    if (this.state.content.style === "horizontal") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
-          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
-              if (this.state.data.class === "speakers") {
+              if (this.state.content.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                     <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
@@ -120,7 +120,7 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.data.class === "videos") {
+              else if (this.state.content.class === "videos") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                     <VideoOverlay data={item}></VideoOverlay>
@@ -137,14 +137,14 @@ class ListItem extends React.Component<Props, State> {
         </div>
       </div>
     )
-    else if (this.state.data.style === "vertical") return (
+    else if (this.state.content.style === "vertical") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
-          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-          {this.state.data.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.data.text1}</div>) : null}
+          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.content.text1}</div>) : null}
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
-              if (this.state.data.class === "speakers") {
+              if (this.state.content.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                     <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
@@ -153,7 +153,7 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.data.class === "videos") {
+              else if (this.state.content.class === "videos") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                     <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src={item.Youtube.snippet.thumbnails.default.url} />
@@ -164,7 +164,7 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.data.class === "staff") {
+              else if (this.state.content.class === "staff") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                     <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.photo} />
@@ -179,7 +179,7 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.data.class === "events") {
+              else if (this.state.content.class === "events") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
                     <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
@@ -194,7 +194,7 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.data.class === "compassion") {
+              else if (this.state.content.class === "compassion") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
                     <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image} />
@@ -219,10 +219,10 @@ class ListItem extends React.Component<Props, State> {
         </div>
       </div>
     )
-    else if (this.state.data.style === "horizontalBig") return (
+    else if (this.state.content.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
-          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.data.header1}</h1>
+          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
               return (
@@ -240,12 +240,12 @@ class ListItem extends React.Component<Props, State> {
         </div>
       </div>
     )
-    else if (this.state.data.style === "imageList") return (
+    else if (this.state.content.style === "imageList") return (
       <div className="ListItem imageList" style={{ position: "static", width: "100vw", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 99 }}>
-          <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.data.header1}</h1>
-          <h2>{this.state.data.header2}</h2>
-          <div style={{ width: "50vw", fontStyle: "1.5vw", fontFamily: "Graphik Web" }}>{this.state.data.text1}</div>
+          <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.content.header1}</h1>
+          <h2>{this.state.content.header2}</h2>
+          <div style={{ width: "50vw", fontStyle: "1.5vw", fontFamily: "Graphik Web" }}>{this.state.content.text1}</div>
           <div style={{ position: "relative" }}>
             <div style={{ position: "absolute", left: "12.5vw", width: "5vw", bottom: "0vw", top: "0vw", borderColor: "#0000ff", border: "solid 10px" }}></div>
             {

@@ -2,10 +2,10 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 interface Props{
-  data:any,
+  content:any,
 }
 interface State {
-  data:any,
+  content:any,
   animationData:any,
   isStopped:boolean,
   isPaused:boolean
@@ -14,7 +14,7 @@ export default class ContentItem extends React.Component<Props, State> {
   constructor(props:Props) {
     super(props);
     this.state = {
-      data: props.data,
+      content: props.content,
       animationData: null,
       isStopped: false, 
       isPaused: false
@@ -47,7 +47,7 @@ export default class ContentItem extends React.Component<Props, State> {
       return null
   }
   render() {
-    if (this.state.data.style === "full") return (
+    if (this.state.content.style === "full") return (
       <div className="SVGItem full" style={{ position: "static", paddingLeft: "0vw",paddingBottom: "5vw" }}>
         {this.renderSVG()}
       </div>

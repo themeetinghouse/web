@@ -5,11 +5,11 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./HeroItem.scss"
 interface Props extends RouteComponentProps {
-    data: any
+    content: any
 
 }
 interface State {
-    data: any
+    content: any
 }
 class HeroItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -20,7 +20,7 @@ class HeroItem extends React.Component<Props, State> {
         super(props, context);
         console.log(context);
         this.state = {
-            data: props.data
+            content: props.content
         }
         this.navigate = this.navigate.bind(this);
     }
@@ -68,61 +68,61 @@ class HeroItem extends React.Component<Props, State> {
     }
 
     render() {
-        var image1 = this.state.data.image1[Math.floor(Math.random() * this.state.data.image1.length)];
-        if (this.state.data.style === "full") {
+        var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+        if (this.state.content.style === "full") {
 
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     <img src={image1.src} alt={image1.alt} className="heroImage" />
                     <div className="heroBlackBox" >
-                        <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-                        {this.state.data.header2 && <h2>{this.state.data.header2}</h2>}
+                        <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2>{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text2}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text3}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text4}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text5}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text6}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text7}</div>
-                        {this.state.data.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.data.button1Text}</Button>) : null}
-                        <a href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
-                        {this.state.data.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
-                        {this.state.data.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.content.text1}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text2}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text3}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text4}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text5}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text6}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text7}</div>
+                        {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
+                        <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+                        {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
                 </div>
 
             )
         }
-        else if (this.state.data.style === "partialNoFooter") {
+        else if (this.state.content.style === "partialNoFooter") {
 
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "38vw", paddingBottom: "0vh" }}>
                     <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "40vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
                     <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "46vw", top: "6vh", zIndex: 100 }}>
-                        <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.data.header1}</h1>
-                        {this.state.data.header2 && <h2>{this.state.data.header2}</h2>}
+                        <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2>{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
-                        <div style={{ fontFamily: "Graphik Web", width: "46vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.data.text1}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.data.text2}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text3}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text4}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text5}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text6}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.data.text7}</div>
-                        {this.state.data.showLocationSearch ? (<div><input style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}} placeholder="Search for a church by city"></input></div>):null}
-                        {this.state.data.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.data.button1Text}</Button>) : null}
-                        <a style={{color:"#ffffff"}} href={this.state.data.link1Action}>{this.state.data.link1Text}</a>
-                        {this.state.data.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
-                        {this.state.data.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+                        <div style={{ fontFamily: "Graphik Web", width: "46vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.content.text1}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.content.text2}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text3}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text4}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text5}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text6}</div>
+                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text7}</div>
+                        {this.state.content.showLocationSearch ? (<div><input style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}} placeholder="Search for a church by city"></input></div>):null}
+                        {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
+                        <a style={{color:"#ffffff"}} href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+                        {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
                 </div>
             )
         }
-        else if (this.state.data.style === "partial") {
+        else if (this.state.content.style === "partial") {
 
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "43vw", paddingBottom: "5vh" }}>

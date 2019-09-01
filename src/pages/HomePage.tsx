@@ -39,7 +39,7 @@ class HomePage extends React.Component<Props, State> {
   render() {
     return (
       
-        <RenderRouter content={this.state.content}></RenderRouter>
+        <RenderRouter data={null} content={this.state.content}></RenderRouter>
      
     )
   }

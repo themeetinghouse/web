@@ -14,6 +14,7 @@ import HomeFooter from '../Menu/HomeFooter'
 
 interface Props extends RouteComponentProps {
   content: any
+  data:any
 }
 interface State {
   data: any
@@ -26,21 +27,21 @@ class RenderRouter extends React.Component<Props, State> {
       return this.props.content.page.content.map((item: any, index: any) => {
         console.log(item.type)
         if (item.type === "header")
-          return (<HeaderItem key={index} data={item}></HeaderItem>)
+          return (<HeaderItem key={index} content={item}></HeaderItem>)
         else if (item.type === "content")
-          return (<ContentItem key={index} data={item}></ContentItem>);
+          return (<ContentItem key={index} content={item}></ContentItem>);
         else if (item.type === "videoPlayer")
-          return (<VideoPlayer key={index} data={item}></VideoPlayer>);
+          return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
         else if (item.type === "list")
-          return (<ListItem key={index} data={item}></ListItem>);
+          return (<ListItem key={index} content={item}></ListItem>);
         else if (item.type === "svg")
-          return (<SVGItem key={index} data={item}></SVGItem>);
+          return (<SVGItem key={index} content={item}></SVGItem>);
         else if (item.type === "hero")
-          return (<HeroItem key={index} data={item}></HeroItem>);
+          return (<HeroItem key={index} content={item}></HeroItem>);
         else if (item.type === "locations")
-          return (<LocationItem key={index} data={item}></LocationItem>);
+          return (<LocationItem key={index} content={item}></LocationItem>);
         else if (item.type === "teaching")
-          return (<TeachingItem key={index} data={item}></TeachingItem>);
+          return (<TeachingItem key={index} content={item}></TeachingItem>);
         else return null
       })
     else return null
