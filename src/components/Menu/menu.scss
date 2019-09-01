@@ -9,6 +9,14 @@
     padding: 1px 1px 1px 1px;
 }
 @media (min-width:768px) {
+    .navbar-toggler {
+        padding:0!important;
+        margin:0!important;
+    }
+    .navbar-brand{
+        padding-top:0!important;
+        padding-bottom:0!important;
+    }
     .logoHouse{
         height: 4vw;
     }
@@ -72,7 +80,7 @@
     }
 
     .navbar {
-        padding: 1px 1px 1px 1px;
+        padding: 0!important;
     }
 
     .smallNav {
@@ -112,7 +120,7 @@
         right: 0;
         width: 16vw;
         z-index: 99;
-        margin: 0vw;
+        margin: 1vw!important;
         top: 0vh;
     }
 

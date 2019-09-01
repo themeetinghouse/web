@@ -68,10 +68,10 @@ class HomeMenu extends React.Component<Props, State>  {
   handleScroll() {
     this.getWindowHeight();
     //  console.log("scrolll" + this.state.windowHeight);
-    if (window.scrollY <= this.state.windowHeight - (this.state.windowHeight / 100 * 18)) {
+    if (window.scrollY <= this.state.windowHeight - ((this.state.windowHeight / 100) * 20)) {
       this.setState({ position: "unfix" })
       //     console.log("unfix");
-    } else if (window.scrollY > this.state.windowHeight - (this.state.windowHeight / 100 * 18)) {
+    } else if (window.scrollY > this.state.windowHeight - ((this.state.windowHeight / 100) * 20)) {
       this.setState({ position: "fix" })
       //      console.log("fix");
     }
@@ -118,7 +118,7 @@ class HomeMenu extends React.Component<Props, State>  {
         {this.state.showSearch ? <img style={{ backgroundColor: "#ffffff" }} src="./static/svg/Search.svg" className="search" alt="Search" />:null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
-          <div style={{ height: "10vw" }}>&nbsp;</div>
+          <div style={{ height: "14vh" }}>&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className={"ml-auto " + this.state.position}>
               {
