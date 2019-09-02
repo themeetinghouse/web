@@ -1,0 +1,50 @@
+@media (min-width: 768px) {
+    .TeachingSelected {
+        font-family: Graphik Web;
+        font-weight:bold;
+        color: black;
+    }
+
+    .TeachingUnselected {
+        font-family: Graphik Web;
+        font-weight:bold;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .TeachingSelected {
+        font-family: Graphik Web;
+        font-weight:bold;
+        color: black;
+    }
+
+    .TeachingUnselected {
+        font-family: Graphik Web;
+        font-weight:bold;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .TeachingSelected {
+        font-family: Graphik Web;
+        font-weight:bold;
+        color: black;
+    }
+
+    .TeachingUnselected {
+        font-family: Graphik Web;
+        font-weight:bold;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+
+    }
+}

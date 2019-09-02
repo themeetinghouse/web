@@ -14,7 +14,10 @@
             {
                 "type": "teaching",
                 "style": "hero",
-                "header1":"Sunday Teaching"
+                "header1":"Sunday Teaching",
+                "options":["Oakville","Regional"],
+                "group":"teaching"
+
             },
             {
                 "type": "search",
