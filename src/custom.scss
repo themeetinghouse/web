@@ -3,44 +3,11 @@ $body-color: #000000;
 @import "~bootstrap/scss/bootstrap.scss";
 @import "/static/fonts/commercial-type-1906-WOIKTV-web/fonts.css";
 
-.modal-video{
-  width:100%;
-  max-width:none!important;
-  color:#000000;
-  margin:0!important;
-}
-.modal-video .modal-content{
- 
-  background-color:#000000!important;
-}
 
 html{
     scroll-behavior: smooth;
 }
-.showVideoPlayer-enter {
-    opacity: 0.01;
-  }
-  
-  .showVideoPlayer-enter.showVideoPlayer-enter-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
-  .showVideoPlayer-appear {
-    opacity: 0.01;
-  }
-  
-  .showVideoPlayer-appear.showVideoPlayer-appear-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }  
-  .showVideoPlayer-leave {
-    opacity: 1;
-  }
-  
-  .showVideoPlayer-leave.showVideoPlayer-leave-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
-  }
+
 
 .VideoPlayer{
     background-color:#000000;

@@ -4,6 +4,7 @@ import RenderRouter from '../RenderRouter/RenderRouter'
 import { Modal } from 'react-bootstrap'
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
+import "./VideoOverlay.scss"
 
 
 Amplify.configure(awsconfig);
@@ -51,15 +52,17 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div>
 
         <div>
-          <img onClick={() => this.handleClick()} alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src={this.state.data.Youtube.snippet.thumbnails.default.url} />
+          <img onClick={() => this.handleClick()} alt="TBD" style={{ cursor: "pointer", height: "10vw", marginRight: "1vw" }} src={this.state.data.Youtube.snippet.thumbnails.default.url} />
           <div style={{ fontWeight: "bold" }}>{this.state.data.episodeTitle}</div>
           <div style={{ fontWeight: "bold" }}>{this.state.data.series != null ? this.state.data.series : null}</div>
           <div>{this.state.data.publishedDate}</div>
         </div>
         <Modal dialogClassName="modal-video" show={this.state.videoVisible}>
           <Modal.Body id="modal-video-body">
+            <img style={{position:"fixed",zIndex:1000,top:"2vw",left:"95vw"}} src="/static/Close.png" onClick={()=>{this.setState({
+              videoVisible: false
+            })}} />
             <RenderRouter data={this.state.data} content={this.state.content}></RenderRouter>
-
           </Modal.Body>
 
 
