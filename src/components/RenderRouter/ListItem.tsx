@@ -245,7 +245,7 @@ class ListItem extends React.Component<Props, State> {
         <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 99 }}>
           <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.content.header1}</h1>
           <h2>{this.state.content.header2}</h2>
-          <div style={{ width: "50vw", fontStyle: "1.5vw", fontFamily: "Graphik Web" }}>{this.state.content.text1}</div>
+          <div style={{ width: "80vw", fontSize: "1.5vw", fontFamily: "Graphik Web", paddingBottom:"1vw" }}>{this.state.content.text1}</div>
           <div style={{ position: "relative" }}>
             <div style={{ position: "absolute", left: "12.5vw", width: "5vw", bottom: "0vw", top: "0vw", borderColor: "#0000ff", border: "solid 10px" }}></div>
             {
