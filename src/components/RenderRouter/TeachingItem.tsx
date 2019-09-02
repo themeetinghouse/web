@@ -69,7 +69,7 @@ class TeachingItem extends React.Component<Props, State> {
                     <div style={{ position: "absolute", right: "78vw", textAlign: "right", width: "20vw", top: "10vw", transform: 'rotate(-90deg)', transformOrigin: "right top 0" }}>
                         {this.props.content.options.map((item: any) => {
                             return (
-                                <span style={{ margin: "1vw" }} className={this.state.selection==item?"TeachingSelected":"TeachingUnselected"} onClick={()=>{this.setSelection(item)}}>{item}</span>
+                                <span style={{ margin: "1vw" }} className={this.state.selection===item?"TeachingSelected":"TeachingUnselected"} onClick={()=>{this.setSelection(item)}}>{item}</span>
                             )
                         }
                         )}

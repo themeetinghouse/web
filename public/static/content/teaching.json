@@ -31,6 +31,7 @@
                 "class":"videos",
                 "subclass":"adult-sunday",
                 "selector":"all",
+                "sortOrder":"DESC",
                 "header1":"All Teaching Videos"                
             },
             {
@@ -38,6 +39,7 @@
                 "style":"horizontal",
                 "class":"speakers",
                 "selector":"all",
+                "sortOrder":"DESC",
                 "header1":"All Speakers"                
             },
             {
@@ -45,6 +47,7 @@
                 "style":"horizontalBig",
                 "class":"series",
                 "selector":"all",
+                "sortOrder":"DESC",
                 "header1":"All series"                
             }
 

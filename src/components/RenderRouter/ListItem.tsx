@@ -35,7 +35,7 @@ class ListItem extends React.Component<Props, State> {
 
 
     if (this.state.content.class === "videos") {
-      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
+      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { sortDirection:this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
       listVideos.then((json: any) => {
         console.log("Success queries.listVideos: " + json);
         console.log(json)
@@ -45,7 +45,7 @@ class ListItem extends React.Component<Props, State> {
       }).catch((e: any) => { console.log(e) })
     }
     else if (this.state.content.class === "speakers") {
-      const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { limit: 50 }));
+      const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { sortOrder: this.state.content.sortOrder, limit: 50 }));
       listSpeakers.then((json: any) => {
         console.log("Success queries.listSpeakers: " + json);
         console.log(json)
@@ -55,7 +55,7 @@ class ListItem extends React.Component<Props, State> {
       }).catch((e: any) => { console.log(e) })
     }
     else if (this.state.content.class === "series") {
-      const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 50 }));
+      const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { sortOrder: this.state.content.sortOrder, limit: 50 }));
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
         console.log(json)

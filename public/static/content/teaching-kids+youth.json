@@ -30,6 +30,7 @@
                 "class":"videos",
                 "subclass":"bbq",
                 "selector":"all",
+                "sortOrder":"DESC",
                 "header1":"All Kids Videos"                
             },
             {
@@ -38,6 +39,7 @@
                 "class":"videos",
                 "subclass":"bbq",
                 "selector":"all",
+                "sortOrder":"DESC",
                 "header1":"All Youth Videos"                
             }
         ]
