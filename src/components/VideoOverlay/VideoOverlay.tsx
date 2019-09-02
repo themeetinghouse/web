@@ -52,7 +52,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div>
 
         <div>
-          <img onClick={() => this.handleClick()} alt="TBD" style={{ cursor: "pointer", width: "16vw", marginRight: "1vw",objectFit: "cover",height:"9vw" }} src={this.state.data.Youtube.snippet.thumbnails.default.url} />
+          <img onClick={() => this.handleClick()} alt="TBD" style={{ cursor: "pointer", width: "16vw", marginRight: "1vw",objectFit: "cover",height:"9vw" }} src={this.state.data.Youtube.snippet.thumbnails.high.url} />
           <div style={{ width: "16vw", fontWeight: "bold", whiteSpace:"normal" }}>{this.state.data.episodeTitle}</div>
           <div style={{ fontWeight: "bold" }}>{this.state.data.series != null ? this.state.data.series : null}</div>
           <div>{this.state.data.publishedDate}</div>
