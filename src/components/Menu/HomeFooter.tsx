@@ -36,11 +36,11 @@ export default class HomeFooter extends React.Component {
           </MDBRow>
           <br />
           <br />
-          <div style={{ fontFamily:"Graphik Web", fontSize: "12px", fontWeight: "bold" }}>
-            <a href="https://www.facebook.com/themeetinghousechurch/" style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" />Facebook</a>
-            <a href="https://twitter.com/TheMeetingHouse" style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />Twitter</a>
-            <a href="https://www.youtube.com/themeetinghouse" style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />Youtube</a>
-            <a href="https://www.instagram.com/themeetinghouse/" style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />Instagram</a>
+          <div className="footerSocial">
+            <span ><a href="https://www.facebook.com/themeetinghousechurch/" style={{ whiteSpace: "nowrap",color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw",marginTop:"2.5vw" , marginBottom:"2.5vw" }} src="/static/svg/Facebook.svg" alt="Facebook Logo" />Facebook</a> </span>
+            <span > <a href="https://twitter.com/TheMeetingHouse" style={{ whiteSpace: "nowrap",color: "#1A1A1A" }}><img style={{  marginRight: "0.5vw", marginLeft: "3vw",marginTop:"2.5vw" ,marginBottom:"2.5vw"  }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />Twitter</a> </span>
+            <span > <a href="https://www.youtube.com/themeetinghouse" style={{ whiteSpace: "nowrap",color: "#1A1A1A" }}><img style={{  marginRight: "0.5vw", marginLeft: "3vw",marginTop:"2.5vw", marginBottom:"2.5vw"  }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />Youtube</a></span>
+            <span ><a href="https://www.instagram.com/themeetinghouse/" style={{ whiteSpace: "nowrap",color: "#1A1A1A" }}><img style={{  marginRight: "0.5vw", marginLeft: "3vw",marginTop:"2.5vw", marginBottom:"2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />Instagram</a></span>
           </div>
           <br />
           <br />

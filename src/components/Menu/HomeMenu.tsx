@@ -120,7 +120,7 @@ class HomeMenu extends React.Component<Props, State>  {
         {this.state.showSearch ? <img style={{ backgroundColor: "#ffffff" }} src="./static/svg/Search.svg" className="search" alt="Search" />:null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
-          <div style={{ height: "14vh" }}>&nbsp;</div>
+          <div className="navbar-expander">&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className={this.state.movingMenu?"ml-auto " + this.state.position:"ml-auto fixed"}>
               {

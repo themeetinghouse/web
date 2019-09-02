@@ -9,6 +9,12 @@
     padding: 1px 1px 1px 1px;
 }
 @media (min-width:768px) {
+    .search{
+        height:4vw;
+        left:96vw;
+        position:absolute;
+        z-index:100;
+    }
     .navbar-toggler {
         padding:0!important;
         margin:0!important;
@@ -148,8 +154,25 @@
         // margin:2vw;
 
     }
+    .footerSocial{
+        width:70vw;
+        overflow-wrap: break-word;
+        font-family:Graphik Web;
+        font-size: 12px;
+        white-space: normal;
+        font-weight: bold; 
+    } 
+    .navbar-expander{
+        height: 14vh
+      }
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .search{
+        height:4vw;
+        left:96vw;
+        position:absolute;
+        z-index:100;
+    }
     .logoHouse{
         height: 4vw;
     }
@@ -164,7 +187,10 @@
         padding: 1px 1px 1px 1px;
        
     }
-    
+    .navbar-brand{
+        padding-top:0!important;
+        padding-bottom:0!important;
+    }
     .navbar a {
         padding: 0px;
         color: #000000;
@@ -225,10 +251,31 @@
         // margin:2vw;
 
     }
-
+    .footerSocial{
+        width:70vw;
+        overflow-wrap: break-word;
+        font-family:Graphik Web;
+        font-size: 12px;
+        white-space: normal;
+        font-weight: bold; 
+    } 
+    .navbar-expander{
+        height: 14vh
+      }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .search{
+        height:6vw;
+        left:82vw;
+        position:absolute;
+        z-index:100;
+        top:3vw;
+    }
+    .navbar-brand{
+        padding-top:0!important;
+        padding-bottom:0!important;
+    }
     .logoHouse{
         height: 8vw;
     }
@@ -248,9 +295,17 @@
     }
     .navbar-toggler{
         position:absolute;
-        left:85vw
+        left:88vw;
+        top:2vw;
+        height:8vw;
+        margin:0vw!important;
+        padding:0vw!important;
     }
-   
+   .navbar-expander{
+     height: 8vw;
+    
+
+   }
     .navbar a {
         padding: 0px;
         color: #000000;
@@ -302,6 +357,7 @@
         top: 0vh;
         z-index:-1;
         padding:0vw;
+        height:8vw;
         //height:5vw;
         /*
         right: 4vw;
@@ -311,10 +367,21 @@
         */
     }
     .navbar-collapse{
-        left:0vw;
-        top:12vw;
-        position:fixed;
+        left:-2vw;
+        top:4vw;
+        position:relative;
         background-color:#ffffff;
         width:100vw;
     }
+    .navbar-toggler-icon{
+        width:8vw;
+    }
+    .footerSocial{
+        width:90vw;
+        overflow-wrap: break-word;
+        font-family:Graphik Web;
+        font-size: 12px;
+        white-space: normal;
+        font-weight: bold; 
+    } 
 }
