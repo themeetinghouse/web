@@ -59,7 +59,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
         </div>
         <Modal dialogClassName="modal-video" show={this.state.videoVisible}>
           <Modal.Body id="modal-video-body">
-            <img style={{position:"fixed",zIndex:1000,top:"2vw",left:"95vw"}} src="/static/Close.png" onClick={()=>{this.setState({
+            <img style={{cursor: "pointer",position:"fixed",zIndex:1000,top:"2vw",left:"95vw"}} src="/static/Close.png" onClick={()=>{this.setState({
               videoVisible: false
             })}} />
             <RenderRouter data={this.state.data} content={this.state.content}></RenderRouter>
