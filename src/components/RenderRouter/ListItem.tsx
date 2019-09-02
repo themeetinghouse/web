@@ -109,7 +109,7 @@ class ListItem extends React.Component<Props, State> {
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
         <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
-          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
+          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
               if (this.state.content.class === "speakers") {
                 return (

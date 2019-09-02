@@ -16,7 +16,10 @@
                 "style": "hero",
                 "header1":"Teaching - Sunday Teaching",
                 "options":["Oakville","Regional"],
-                "group":"teaching"
+                "group":"teaching",
+                "subclass":"adult-sunday",
+                "sortOrder":"DESC"
+
             },
             {
                 "type": "search",
@@ -34,14 +37,7 @@
                 "sortOrder":"DESC",
                 "header1":"All Teaching Videos"                
             },
-            {
-                "type":"list",
-                "style":"horizontal",
-                "class":"speakers",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Speakers"                
-            },
+           
             {
                 "type":"list",
                 "style":"horizontalBig",
