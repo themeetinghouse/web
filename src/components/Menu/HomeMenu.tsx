@@ -28,7 +28,8 @@ interface State {
   logoColor: string,
   showLogoText: boolean,
   showSearch:boolean,
-  showMenu:boolean
+  showMenu:boolean,
+  movingMenu:boolean
 }
 //const bootstrap = require('react-bootstrap');
 
@@ -46,6 +47,7 @@ class HomeMenu extends React.Component<Props, State>  {
       userName: "",
       windowHeight: 0,
       position: "unfix",
+      movingMenu: this.props.pageConfig.movingMenu,
       logoColor: this.props.pageConfig.logoColor,
       showLogoText: this.props.pageConfig.showLogoText,
       showSearch: this.props.pageConfig.showSearch,
@@ -120,7 +122,7 @@ class HomeMenu extends React.Component<Props, State>  {
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
           <div style={{ height: "14vh" }}>&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav navbar className={"ml-auto " + this.state.position}>
+            <Nav navbar className={this.state.movingMenu?"ml-auto " + this.state.position:"ml-auto fixed"}>
               {
                 MainMenuItems.map((item) => {
                   return (

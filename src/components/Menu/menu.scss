@@ -139,7 +139,15 @@
         // margin:2vw;
 
     }
+    .ml-auto.fixed.navbar-nav {
+        position: fixed;
+        top: 30vh;
+        left: 2vw!important;
+        width: 20vw;
+        left: 2vw!important;
+        // margin:2vw;
 
+    }
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .logoHouse{
