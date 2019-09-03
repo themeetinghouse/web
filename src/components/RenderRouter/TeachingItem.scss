@@ -1,4 +1,35 @@
 @media (min-width: 768px) {
+    .teaching-h1{
+        position: relative; 
+        top: 3vw;
+        font-size: 3vw;
+        font-weight: bold;
+    }
+    .teaching-blackbox{
+        padding: 3vw;
+        padding-right: 15vw;
+        position: absolute;
+        left: 5vw;
+        width: 50vw;
+        top: 10vw;
+        height: 40vw;
+        background-color: #000000;
+        color: #ffffff;
+    }
+    .teaching-image{
+        cursor: pointer;
+        position: absolute;
+        top: 5vw;
+        left: 35vw;
+        width: 40vw;
+    }
+    .teaching{
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 55vw;
+        padding-bottom: 5vh;
+    }
     .TeachingSelected {
         font-family: Graphik Web;
         font-weight:bold;
@@ -12,10 +43,57 @@
         color: blue;
         text-decoration: underline;
 
+    }
+    .teaching-mostrecent{
+        position: absolute; 
+        left: 2vw; 
+        top: 50vw;
+        transform: rotate(-90deg);
+        transform-origin: left top 0;
+    }
+    .teaching-options{
+        position: absolute;
+        right: 78vw;
+        text-align: right;
+        width: 20vw;
+        top: 10vw;
+        transform: rotate(-90deg);
+        transform-origin: right top 0;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .teaching-h1{
+        position: relative; 
+        top: 3vw;
+        font-size: 3vw;
+        font-weight: bold;
+    }
+    .teaching-blackbox{
+        padding: 3vw;
+        padding-right: 15vw;
+        position: absolute;
+        left: 5vw;
+        width: 50vw;
+        top: 10vw;
+        height: 40vw;
+        background-color: #000000;
+        color: #ffffff;
+    }
+    .teaching-image{
+        cursor: pointer;
+        position: absolute;
+        top: 5vw;
+        left: 35vw;
+        width: 40vw;
+    }
+    .teaching{
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 55vw;
+        padding-bottom: 5vh;
+    }
     .TeachingSelected {
         font-family: Graphik Web;
         font-weight:bold;
@@ -29,10 +107,56 @@
         color: blue;
         text-decoration: underline;
 
+    }
+    .teaching-mostrecent{
+        position: absolute; 
+        left: 2vw; 
+        top: 50vw;
+        transform: rotate(-90deg);
+        transform-origin: left top 0;
+    }
+    .teaching-options{
+        position: absolute;
+        right: 78vw;
+        text-align: right;
+        width: 20vw;
+        top: 10vw;
+        transform: rotate(-90deg);
+        transform-origin: right top 0;
     }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .teaching-h1{
+        position: relative; 
+        top: 3vw;
+        font-size: 3vw;
+        font-weight: bold;
+    }
+    .teaching-blackbox{
+        padding: 3vw;
+        position: absolute;
+        left: 0vw;
+        width: 100vw;
+        top: 20vw;
+        height: 90vw;
+        background-color: #000000;
+        color: #ffffff;
+    }
+    .teaching-image{
+        cursor: pointer;
+        position: absolute;
+        top: 55vw;
+        left: 15vw;
+        width: 70vw;
+    }
+    .teaching{
+        position: relative;
+        left: 0vw;
+        width: 100vw;
+        padding-bottom: 5vh;
+        height: 130vw;
+    }
     .TeachingSelected {
         font-family: Graphik Web;
         font-weight:bold;
@@ -46,5 +170,19 @@
         color: blue;
         text-decoration: underline;
 
+    }
+    .teaching-mostrecent{
+        position: absolute; 
+        left: 80vw; 
+        top: 10vw;
+       
+    }
+    .teaching-options{
+        position: absolute;
+        right: 78vw;
+        text-align: right;
+        width: 20vw;
+        top: 10vw;
+        
     }
 }
