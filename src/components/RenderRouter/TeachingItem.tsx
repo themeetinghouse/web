@@ -37,7 +37,7 @@ class TeachingItem extends React.Component<Props, State> {
         const { cookies } = props;
         if (cookies.get(this.props.content.group) == null)
             cookies.set(this.props.content.group, this.props.content.options[0], { path: '/' });
-        var teachingId=cookies.get(this.props.content.group)=="Oakville"?0:1
+        var teachingId=cookies.get(this.props.content.group)==="Oakville"?0:1
         this.state = {
             content: props.content,
             selection: cookies.get(this.props.content.group),
@@ -70,7 +70,7 @@ class TeachingItem extends React.Component<Props, State> {
     setSelection(selection: string) {
         const { cookies } = this.props;
         cookies.set(this.props.content.group,selection, { path: '/' });
-        var teachingId=cookies.get(this.props.content.group)=="Oakville"?0:1
+        var teachingId=cookies.get(this.props.content.group)==="Oakville"?0:1
         this.setState({
             selection: selection,
             teachingId: teachingId
