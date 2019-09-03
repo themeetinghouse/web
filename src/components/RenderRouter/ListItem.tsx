@@ -17,25 +17,39 @@ interface Props extends RouteComponentProps {
 }
 interface State {
   content: any,
-  listData: any
+  listData: any,
+  overlayData: any
 }
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
     router: PropTypes.object,
     history: PropTypes.object
   }
+  videoOverlayClose(){
+    this.setState({
+      overlayData: null
+
+    })
+  }
+  handleClick(data:any) {
+    this.setState({
+      overlayData: data
+
+    })
+  }
   constructor(props: Props) {
     super(props);
 
     this.state = {
       content: props.content,
-      listData: ((props.content.list == null) ? [] : props.content.list)
+      listData: ((props.content.list == null) ? [] : props.content.list),
+      overlayData: null
     }
     this.navigate = this.navigate.bind(this);
 
 
     if (this.state.content.class === "videos") {
-      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { sortDirection:this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
+      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
       listVideos.then((json: any) => {
         console.log("Success queries.listVideos: " + json);
         console.log(json)
@@ -107,7 +121,7 @@ class ListItem extends React.Component<Props, State> {
 
     if (this.state.content.style === "horizontal") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
+        <div style={{ position: "relative", zIndex: 99, left: "20vw", width: "80vw" }}>
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
@@ -123,7 +137,13 @@ class ListItem extends React.Component<Props, State> {
               else if (this.state.content.class === "videos") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <VideoOverlay data={item}></VideoOverlay>
+                    <div>
+                      <img onClick={() => this.handleClick(item)} alt="TBD" style={{ cursor: "pointer", width: "16vw", marginRight: "1vw", objectFit: "cover", height: "9vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
+                      <div style={{ width: "16vw", fontWeight: "bold", whiteSpace: "normal" }}>{item.episodeTitle}</div>
+                      <div style={{ fontWeight: "bold" }}>{item.series != null ? item.series : null}</div>
+                      <div>{item.publishedDate}</div>
+                    </div>
+
                   </div>
                 )
               }
@@ -135,11 +155,12 @@ class ListItem extends React.Component<Props, State> {
             <div style={{ clear: "left" }} ></div>
           </div>
         </div>
+        <VideoOverlay onClose={()=>{this.videoOverlayClose()}} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
     else if (this.state.content.style === "vertical") return (
       <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
+        <div style={{ position: "relative", zIndex: 99, left: "20vw", width: "80vw" }}>
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.content.text1}</div>) : null}
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
@@ -160,7 +181,7 @@ class ListItem extends React.Component<Props, State> {
                     <div style={{ fontWeight: "bold" }}>{item.episodeTitle}</div>
                     <div style={{ fontWeight: "bold" }}>{item.series != null ? item.series : null}</div>
                     <div>{item.publishedDate}</div>
-                   
+
                   </div>
                 )
               }
@@ -221,7 +242,7 @@ class ListItem extends React.Component<Props, State> {
     )
     else if (this.state.content.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 99,left: "20vw", width: "80vw" }}>
+        <div style={{ position: "relative", zIndex: 99, left: "20vw", width: "80vw" }}>
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
@@ -245,7 +266,7 @@ class ListItem extends React.Component<Props, State> {
         <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 99 }}>
           <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.content.header1}</h1>
           <h2>{this.state.content.header2}</h2>
-          <div style={{ width: "80vw", fontSize: "1.5vw", fontFamily: "Graphik Web", paddingBottom:"1vw" }}>{this.state.content.text1}</div>
+          <div style={{ width: "80vw", fontSize: "1.5vw", fontFamily: "Graphik Web", paddingBottom: "1vw" }}>{this.state.content.text1}</div>
           <div style={{ position: "relative" }}>
             <div style={{ position: "absolute", left: "12.5vw", width: "5vw", bottom: "0vw", top: "0vw", borderColor: "#0000ff", border: "solid 10px" }}></div>
             {

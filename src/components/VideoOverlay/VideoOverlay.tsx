@@ -2,20 +2,26 @@
 import React from 'react';
 import RenderRouter from '../RenderRouter/RenderRouter'
 import { Modal } from 'react-bootstrap'
-import Amplify, { Analytics } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
 import "./VideoOverlay.scss"
 
-
+/*Analytics.record({
+  name: 'pageVisit',
+  attributes: { page: 'VideoPlayer', video: this.state.data.id }
+});
+*/
 Amplify.configure(awsconfig);
 
 interface Props {
   data: any
+  onClose():void
 }
 interface State {
   videoVisible: boolean
   data: any
   content: any
+ 
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -31,45 +37,21 @@ export default class VideoPlayer extends React.Component<Props, State> {
       .then((myJson) => {
         this.setState({ content: myJson });
       })
-
   }
 
-  handleClick() {
-    this.setState({
-      videoVisible: !this.state.videoVisible
-    })
-    Analytics.record({
-      name: 'pageVisit',
-      attributes: { page: 'VideoPlayer', video: this.state.data.id }
-    });
-
-
-  }
+  
 
   render() {
     console.log(this.state.videoVisible)
     return (
       <div>
-
-        <div>
-          <img onClick={() => this.handleClick()} alt="TBD" style={{ cursor: "pointer", width: "16vw", marginRight: "1vw",objectFit: "cover",height:"9vw" }} src={this.state.data.Youtube.snippet.thumbnails.high.url} />
-          <div style={{ width: "16vw", fontWeight: "bold", whiteSpace:"normal" }}>{this.state.data.episodeTitle}</div>
-          <div style={{ fontWeight: "bold" }}>{this.state.data.series != null ? this.state.data.series : null}</div>
-          <div>{this.state.data.publishedDate}</div>
-        </div>
-        <Modal dialogClassName="modal-video" show={this.state.videoVisible}>
+        <Modal dialogClassName="modal-video" show={this.props.data!=null}>
           <Modal.Body id="modal-video-body">
-            <img style={{cursor: "pointer",position:"fixed",zIndex:1000,top:"2vw",left:"95vw"}} src="/static/Close.png" onClick={()=>{this.setState({
-              videoVisible: false
-            })}} />
-            <RenderRouter data={this.state.data} content={this.state.content}></RenderRouter>
+            <img style={{ cursor: "pointer", position: "fixed", zIndex: 1000, top: "2vw", left: "95vw" }} src="/static/Close.png" onClick={() => {
+              this.props.onClose()}} />
+            <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
           </Modal.Body>
-
-
         </Modal>
-
-
-
       </div >)
 
   }

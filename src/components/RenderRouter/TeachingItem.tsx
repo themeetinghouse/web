@@ -8,6 +8,8 @@ import "./TeachingItem.scss"
 import * as queries from '../../graphql/queries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
+import VideoOverlay from '../VideoOverlay/VideoOverlay'
+
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 
@@ -19,7 +21,8 @@ interface State {
     content: any,
     selection: string | null
     listData:any,
-    teachingId:any
+    teachingId:any,
+    overlayData:any
 }
 class TeachingItem extends React.Component<Props, State> {
 
@@ -39,9 +42,9 @@ class TeachingItem extends React.Component<Props, State> {
             content: props.content,
             selection: cookies.get(this.props.content.group),
             teachingId: teachingId,
-            listData:null
+            listData:null,
+            overlayData:null
         }
-        this.navigate = this.navigate.bind(this);
         const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { sortDirection:this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
         listVideos.then((json: any) => {
           console.log("Success queries.listVideos: " + json);
@@ -51,14 +54,19 @@ class TeachingItem extends React.Component<Props, State> {
           })
         }).catch((e: any) => { console.log(e) })
     }
-    navigate() {
-        console.log("navigate")
-        console.log(this.props.history)
-        this.props.history.push("spirituality", "as")
-        const unblock = this.props.history.block('Are you sure you want to leave this page?');
-        unblock();
-
-    }
+    videoOverlayClose(){
+        this.setState({
+          overlayData: null
+    
+        })
+      }
+      handleClick(data:any) {
+        this.setState({
+          overlayData: data
+    
+        })
+      }
+    
     setSelection(selection: string) {
         const { cookies } = this.props;
         cookies.set(this.props.content.group,selection, { path: '/' });
@@ -86,8 +94,8 @@ class TeachingItem extends React.Component<Props, State> {
                         <div style={{ padding: "0.5vw", fontSize: "2.5vw", fontWeight: "bold", color: "#ffffff" }}>{this.state.listData[this.state.teachingId].episodeTitle}</div>
                         <div style={{ padding: "0.5vw", color: "#C8C8C8" }}>E2. <a href="">{this.state.listData[this.state.teachingId].series}</a>  •  {this.state.listData[this.state.teachingId].duration}</div>
                         <div style={{ padding: "0.5vw", color: "#C8C8C8" }}> {this.state.listData[this.state.teachingId].description}</div>
-                        <div style={{ position: "absolute", bottom: "5vw" }}><Button >Watch</Button></div>
-                        <div><img alt="TBD" style={{ position: "absolute", top: "5vw", left: "35vw", width: "40vw" }} src={this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                        <div style={{ position: "absolute", bottom: "5vw" }}><Button onClick={()=>{this.handleClick(this.state.listData[this.state.teachingId])}} >Watch</Button></div>
+                        <div><img onClick={()=>{this.handleClick(this.state.listData[this.state.teachingId])}} alt="TBD" style={{ cursor:"pointer",position: "absolute", top: "5vw", left: "35vw", width: "40vw" }} src={this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                     </div>
                     <div style={{ position: "absolute", left: "2vw", top: "50vw", transform: 'rotate(-90deg)', transformOrigin: "left top 0" }}>Most recent</div>
                     <div style={{ position: "absolute", right: "78vw", textAlign: "right", width: "20vw", top: "10vw", transform: 'rotate(-90deg)', transformOrigin: "right top 0" }}>
@@ -98,6 +106,7 @@ class TeachingItem extends React.Component<Props, State> {
                         }
                         )}
                     </div>
+                    <VideoOverlay onClose={()=>{this.videoOverlayClose()}} data={this.state.overlayData}></VideoOverlay>
 
                 </div>:null
             )
