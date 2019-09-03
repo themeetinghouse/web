@@ -99,8 +99,8 @@ class HeroItem extends React.Component<Props, State> {
         else if (this.state.content.style === "partialNoFooter") {
 
             return (
-                <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "38vw", paddingBottom: "0vh" }}>
-                    <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "40vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
+                <div className="partialNoFooter" >
+                    <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"  />
                     <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "46vw", top: "6vh", zIndex: 100 }}>
                         <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2>{this.state.content.header2}</h2>}
