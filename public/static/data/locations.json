@@ -1,0 +1,170 @@
+[
+    {
+        "url": "alliston",
+        "location": {
+            "longitude": -79.870798,
+            "latitude": 44.149035,
+            "address": "Gibson Centre, 63 Tupper Street West"
+        }
+    },
+    {
+        "url": "sandbanks",
+        "location": {
+            "longitude": -79.95394369999997,
+            "latitude": 43.2272571,
+            "address": "The Meeting House Sandbanks, 1901 County Rd 12"
+        }
+    },
+    {
+        "url": "ancaster",
+        "location": {
+            "longitude": -79.95394369999997,
+            "latitude": 43.2272571,
+            "address": "SilverCity Ancaster, 771 Golf Links Road"
+        }
+    },
+    {
+        "url": "brampton",
+        "location": {
+            "longitude": -79.768112,
+            "latitude": 43.733024,
+            "address": "SilverCity Brampton, 50 Great Lakes Drive"
+        }
+    },
+    {
+        "url": "brantford",
+        "location": {
+            "longitude": -80.278012,
+            "latitude": 43.182376,
+            "address": "Galaxy Cinemas Brantford, 300 King George Road"
+        }
+    },
+    {
+        "url": "burlington",
+        "location": {
+            "longitude": -79.829876,
+            "latitude": 43.343507,
+            "address": "SilverCity Burlington, 1250 Brant Street"
+        }
+    },
+    {
+        "url": "hamilton-downtown",
+        "location": {
+            "longitude": -79.8702504,
+            "latitude": 43.26213,
+            "address": "The Meeting House Downtown Hamilton, 130 Victoria Avenue North"
+        }
+    },
+    {
+        "url": "toronto-downtown",
+        "location": {
+            "longitude": -79.391418,
+            "latitude": 43.648869,
+            "address": "Scotiabank Theatre Toronto, 259 Richmond Street West"
+        }
+    },
+    {
+        "url": "hamilton-mountain",
+        "location": {
+            "longitude": -79.808856,
+            "latitude": 43.193331,
+            "address": "SilverCity Hamilton Mountain, 795 Paramount Drive"
+        }
+    },
+    {
+        "url": "toronto-east",
+        "location": {
+            "longitude": -79.4744334,
+            "latitude": 43.6578297,
+            "address": "The Beach Alliance Theatre, 1651 Queen Street East"
+        }
+    },
+    {
+        "url": "toronto-high-park",
+        "location": {
+            "longitude": -79.4744334,
+            "latitude": 43.6578297,
+            "address": "The Meeting House High Park, 125 Evelyn Crescent"
+        }
+    },
+    {
+        "url": "kitchener",
+        "location": {
+            "longitude": -80.387502,
+            "latitude": 43.4054,
+            "address": "Landmark Cinemas 12, 135 Gateway Park Drive"
+        }
+    },
+    {
+        "url": "london",
+        "location": {
+            "longitude": -81.278295,
+            "latitude": 43.027068,
+            "address": "SilverCity London, 1680 Richmond Street"
+        }
+    },
+    {
+        "url": "newmarket",
+        "location": {
+            "longitude": -79.555998,
+            "latitude": 43.79428,
+            "address": "SilverCity Newmarket, 18195 Yonge Street"
+        }
+    },
+    {
+        "url": "oakville",
+        "location": {
+            "longitude": -79.685926,
+            "latitude": 43.511459,
+            "address": "Oakville Production Site, 2700 Bristol Circle"
+        }
+    },
+    {
+        "url": "ottawa",
+        "location": {
+            "longitude": -75.613528,
+            "latitude": 45.431384,
+            "address": "Lansdowne Cineplex, 325 Marché Way"
+        }
+    },
+    {
+        "url": "owen-sound",
+        "location": {
+            "longitude": -80.933555,
+            "latitude": 44.573804,
+            "address": "St. Mary's High School, 555 15th Street East"
+        }
+    },
+    {
+        "url": "parry-sound",
+        "location": {
+            "longitude": -80.036396,
+            "latitude": 45.35407,
+            "address": "Parry Sound Community Hub, 86 Gibson St."
+        }
+    },
+    {
+        "url": "richmond-hill",
+        "location": {
+            "longitude": -79.58688,
+            "latitude": 43.70752,
+            "address": "SilverCity Richmond Hill, 8725 Yonge Street"
+        }
+    },
+    {
+        "url": "toronto-uptown",
+        "location": {
+            "longitude": -79.58688,
+            "latitude": 43.70752,
+            "address": "Yorkdale Cineplex, 3401 Dufferin Street"
+        }
+    },
+    {
+        "url": "waterloo",
+        "location": {
+            "longitude": -80.527216,
+            "latitude": 43.498807,
+            "address": "Galaxy Cinemas | Conestoga Mall, 550 King Street North"
+        }
+    }
+]
