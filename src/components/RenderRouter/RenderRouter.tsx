@@ -7,6 +7,7 @@ import VideoPlayer from './VideoPlayer';
 import SVGItem from './SVGItem';
 import HeroItem from './HeroItem';
 import TeachingItem from './TeachingItem';
+import SundayMorningItem from './SundayMorningItem';
 import LocationItem from './LocationItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
@@ -42,6 +43,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<LocationItem key={index} content={item}></LocationItem>);
         else if (item.type === "teaching")
           return (<TeachingItem key={index} content={item}></TeachingItem>);
+        else if (item.type === "sunday-morning")
+          return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
         else return null
       })
     else return null

@@ -1,4 +1,11 @@
 @media (min-width: 768px) {
+    .partialNoFooterImage{
+        width: 80vw;
+       height: 40vw;
+       z-index: 50;
+        object-fit:cover;
+       position: absolute;
+   }
      .partialNoFooter {
         position: relative;
         left: 20vw;
@@ -50,6 +57,13 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .partialNoFooterImage{
+        width: 80vw;
+       height: 40vw;
+       z-index: 50;
+        object-fit:cover;
+       position: absolute;
+   }
      .partialNoFooter {
         position: relative;
         left: 20vw;
