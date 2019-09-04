@@ -1,6 +1,7 @@
 [
     {
-        "url": "alliston",
+        "id": "alliston",
+        "name": "Alliston",
         "location": {
             "longitude": -79.870798,
             "latitude": 44.149035,
@@ -8,7 +9,9 @@
         }
     },
     {
-        "url": "sandbanks",
+        "id": "sandbanks",
+        "name": "Sandbanks",
+
         "location": {
             "longitude": -79.95394369999997,
             "latitude": 43.2272571,
@@ -16,7 +19,9 @@
         }
     },
     {
-        "url": "ancaster",
+        "id": "ancaster",
+        "name": "Ancaster",
+
         "location": {
             "longitude": -79.95394369999997,
             "latitude": 43.2272571,
@@ -24,7 +29,9 @@
         }
     },
     {
-        "url": "brampton",
+        "id": "brampton",
+        "name": "Brampton",
+
         "location": {
             "longitude": -79.768112,
             "latitude": 43.733024,
@@ -32,7 +39,9 @@
         }
     },
     {
-        "url": "brantford",
+        "id": "brantford",
+        "name": "Brantford",
+
         "location": {
             "longitude": -80.278012,
             "latitude": 43.182376,
@@ -40,7 +49,9 @@
         }
     },
     {
-        "url": "burlington",
+        "id": "burlington",
+        "name": "Burlington",
+
         "location": {
             "longitude": -79.829876,
             "latitude": 43.343507,
@@ -48,7 +59,9 @@
         }
     },
     {
-        "url": "hamilton-downtown",
+        "id": "hamilton-downtown",
+        "name": "Hamilton Downtown",
+
         "location": {
             "longitude": -79.8702504,
             "latitude": 43.26213,
@@ -56,7 +69,9 @@
         }
     },
     {
-        "url": "toronto-downtown",
+        "id": "toronto-downtown",
+        "name": "Toronto Downtown",
+
         "location": {
             "longitude": -79.391418,
             "latitude": 43.648869,
@@ -64,7 +79,9 @@
         }
     },
     {
-        "url": "hamilton-mountain",
+        "id": "hamilton-mountain",
+        "name": "Hamilton Mountain",
+
         "location": {
             "longitude": -79.808856,
             "latitude": 43.193331,
@@ -72,7 +89,9 @@
         }
     },
     {
-        "url": "toronto-east",
+        "id": "toronto-east",
+        "name": "Toronto East",
+
         "location": {
             "longitude": -79.4744334,
             "latitude": 43.6578297,
@@ -80,7 +99,9 @@
         }
     },
     {
-        "url": "toronto-high-park",
+        "id": "toronto-high-park",
+        "name": "Toronto High Park",
+
         "location": {
             "longitude": -79.4744334,
             "latitude": 43.6578297,
@@ -88,7 +109,9 @@
         }
     },
     {
-        "url": "kitchener",
+        "id": "kitchener",
+        "name": "Kitchener",
+
         "location": {
             "longitude": -80.387502,
             "latitude": 43.4054,
@@ -96,7 +119,9 @@
         }
     },
     {
-        "url": "london",
+        "id": "london",
+        "name": "London",
+
         "location": {
             "longitude": -81.278295,
             "latitude": 43.027068,
@@ -104,7 +129,9 @@
         }
     },
     {
-        "url": "newmarket",
+        "id": "newmarket",
+        "name": "Newmarket",
+
         "location": {
             "longitude": -79.555998,
             "latitude": 43.79428,
@@ -112,7 +139,9 @@
         }
     },
     {
-        "url": "oakville",
+        "id": "oakville",
+        "name": "Oakville",
+
         "location": {
             "longitude": -79.685926,
             "latitude": 43.511459,
@@ -120,7 +149,9 @@
         }
     },
     {
-        "url": "ottawa",
+        "id": "ottawa",
+        "name": "Ottawa",
+
         "location": {
             "longitude": -75.613528,
             "latitude": 45.431384,
@@ -128,7 +159,9 @@
         }
     },
     {
-        "url": "owen-sound",
+        "id": "owen-sound",
+        "name": "Owen Sound",
+
         "location": {
             "longitude": -80.933555,
             "latitude": 44.573804,
@@ -136,7 +169,9 @@
         }
     },
     {
-        "url": "parry-sound",
+        "id": "parry-sound",
+        "name": "Parry Sound",
+
         "location": {
             "longitude": -80.036396,
             "latitude": 45.35407,
@@ -144,7 +179,9 @@
         }
     },
     {
-        "url": "richmond-hill",
+        "id": "richmond-hill",
+        "name": "Richmond Hill",
+
         "location": {
             "longitude": -79.58688,
             "latitude": 43.70752,
@@ -152,7 +189,9 @@
         }
     },
     {
-        "url": "toronto-uptown",
+        "id": "toronto-uptown",
+        "name": "Toronto Uptown",
+
         "location": {
             "longitude": -79.58688,
             "latitude": 43.70752,
@@ -160,7 +199,9 @@
         }
     },
     {
-        "url": "waterloo",
+        "id": "waterloo",
+        "name": "Waterloo",
+
         "location": {
             "longitude": -80.527216,
             "latitude": 43.498807,
