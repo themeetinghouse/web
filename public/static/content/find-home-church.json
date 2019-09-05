@@ -4,40 +4,15 @@
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
-           
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "home-church",
+                "header1": "Home Church"
             }
         ]
     }

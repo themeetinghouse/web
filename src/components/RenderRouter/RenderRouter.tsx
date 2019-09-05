@@ -8,6 +8,7 @@ import SVGItem from './SVGItem';
 import HeroItem from './HeroItem';
 import TeachingItem from './TeachingItem';
 import SundayMorningItem from './SundayMorningItem';
+import HomeChurchItem from './HomeChurchItem';
 import FormItem from './FormItem';
 import LocationItem from './LocationItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
@@ -46,6 +47,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<TeachingItem key={index} content={item}></TeachingItem>);
         else if (item.type === "sunday-morning")
           return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
+        else if (item.type === "home-church")
+          return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
         else if (item.type === "form")
           return (<FormItem key={index} content={item}></FormItem>);
         else return null

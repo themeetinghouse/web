@@ -36,8 +36,8 @@ export default class ContentItem extends React.Component<Props, State>  {
             else if (item.type === "checkboxes")
               return (<div>
                 <div>{item.label}</div>
-                <div>{item.items.map((item:any)=>{
-                  return (<div><Input type="checkbox"/>{item.label}</div>)
+                <div>{item.items.map((item: any) => {
+                  return (<div><Input type="checkbox" />{item.label}</div>)
                 })}</div>
               </div>)
             else if (item.type === "text")
