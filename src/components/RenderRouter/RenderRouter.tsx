@@ -8,6 +8,7 @@ import SVGItem from './SVGItem';
 import HeroItem from './HeroItem';
 import TeachingItem from './TeachingItem';
 import SundayMorningItem from './SundayMorningItem';
+import FormItem from './FormItem';
 import LocationItem from './LocationItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
@@ -15,7 +16,7 @@ import HomeFooter from '../Menu/HomeFooter'
 
 interface Props extends RouteComponentProps {
   content: any
-  data:any
+  data: any
 }
 interface State {
   data: any
@@ -45,18 +46,20 @@ class RenderRouter extends React.Component<Props, State> {
           return (<TeachingItem key={index} content={item}></TeachingItem>);
         else if (item.type === "sunday-morning")
           return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
+        else if (item.type === "form")
+          return (<FormItem key={index} content={item}></FormItem>);
         else return null
       })
     else return null
   }
   render() {
     return (
-    
+
       this.props.content != null ? (
         <div>
           <HomeMenu pageConfig={this.props.content.page.pageConfig} ></HomeMenu>
           {this.renderItem()}
-          {this.props.content.page.pageConfig.showFooter?<HomeFooter></HomeFooter>:null}
+          {this.props.content.page.pageConfig.showFooter ? <HomeFooter></HomeFooter> : null}
         </div>)
         : null
     )

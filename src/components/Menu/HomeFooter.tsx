@@ -15,8 +15,8 @@ export default class HomeFooter extends React.Component {
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
-              <NavLink style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="/about-us">About Us</NavLink>
-              <NavLink style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="contact">Contact</NavLink>
+              <NavLink style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="about-us">About Us</NavLink>
+              <NavLink style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="connect">Connect</NavLink>
               <NavLink style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="http://www.tmhrentals.com">Oakville Facility Rentals</NavLink>
               <br />
               <br />

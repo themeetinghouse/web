@@ -1,0 +1,88 @@
+{
+    "page": {
+        "name": "contact",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+           
+            {
+                "type": "form",
+                "header1": "We'd love to get to know you.",
+                "fields":[
+                    {
+                        "type":"input",
+                        "id":"full-name",
+                        "label":"Full Name"
+                    },
+                    {
+                        "type":"input",
+                        "id":"email",
+                        "label":"Email"
+                    },
+                    {
+                        "type":"input",
+                        "id":"phone",
+                        "label":"Phone"
+                    },
+                    {
+                        "type":"input",
+                        "id":"contact-preference",
+                        "label":"Contact Preference"
+                    },
+                    {
+                        "type":"checkboxes",
+                        "id":"full-name",
+                        "label":"I would like information about",
+                        "items":[
+                            {
+                                "id":"about-jesus",
+                                "label":"Learning about Jesus"
+                            },
+                            {
+                                "id":"about-community",
+                                "label":"Find caring community"
+                            },
+                            {
+                                "id":"about-relationships",
+                                "label":"Relationships"
+                            },
+                            {
+                                "id":"about-mental-health",
+                                "label":"Mental Health"
+                            },
+                            {
+                                "id":"about-spiritually-curious",
+                                "label":"Connecting with Spiritually Curious People"
+                            },
+                            {
+                                "id":"about-family",
+                                "label":"Finding positive influences for my family"
+                            },
+                            {
+                                "id":"about-other",
+                                "label":"Other"
+                            }                           
+                        ]
+                    },
+                    {
+                        "type":"text",
+                        "id":"extra-info",
+                        "label":"Anything else you'd like us to know?"
+                    }
+                    
+                ],
+                "button":{
+                    "type":"submit",
+                    "label":"Connect Me",
+                    "submitTo":"connectForm"
+                }
+            }
+        ]
+    }
+}
