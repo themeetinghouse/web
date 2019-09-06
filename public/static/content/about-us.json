@@ -14,11 +14,11 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Coming Soon",
+                "header1":"All Staff",
                 "header2":"",
-                "text1":"About-us has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
+                "text1":"Search for staff",
+                "link1Text": "Staff Page",
+                "link1Action": "staff",
                 "image1":[{
                     "src":"./static/images/homepage-2.jpg",
                     "alt":"TODO"
