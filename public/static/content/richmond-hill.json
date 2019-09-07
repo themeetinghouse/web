@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "richmond-hill",
+        "title": "The Meeting House - Richmond Hill",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

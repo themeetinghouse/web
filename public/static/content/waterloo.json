@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "waterloo",
+        "title": "The Meeting House - Waterloo",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

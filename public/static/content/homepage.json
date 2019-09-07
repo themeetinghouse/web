@@ -1,6 +1,9 @@
 {
     "page": {
         "name": "homepage",
+        "title": "The Meeting House - Welcome",
+        "keywords": "Church, Toronto, Anabaptist, Theatre, Jesus, Homechurch, Bruxy, Be In Christ, Ontario",
+        "description":"Homepage for The Meeting House",
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

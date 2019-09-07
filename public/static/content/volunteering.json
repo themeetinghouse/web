@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "volunteering",
+        "title": "Volunteer",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

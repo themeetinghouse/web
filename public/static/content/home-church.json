@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "home-church",
+        "title": "Home Church",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

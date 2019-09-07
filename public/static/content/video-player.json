@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "video-player",
+        "title": "Video Player",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": false,

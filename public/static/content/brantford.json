@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "brantford",
+        "title": "The Meeting House - Brantford",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

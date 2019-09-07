@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "burlington",
+        "title": "The Meeting House - Burlington",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

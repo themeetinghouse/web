@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "fall-2019",
+        "title": "Fall 2019",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

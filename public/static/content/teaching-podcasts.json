@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "teaching-podcasts",
+        "title": "Podcasts",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

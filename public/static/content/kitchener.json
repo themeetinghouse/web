@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "kitchener",
+        "title": "The Meeting House - Kitchener",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

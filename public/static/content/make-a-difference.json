@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "make-a-difference",
+        "title": "Make a Difference",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

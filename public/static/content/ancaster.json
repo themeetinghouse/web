@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "ancaster",
+        "title": "The Meeting House - Ancaster",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "newmarket",
+        "title": "The Meeting House - Newmarket",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

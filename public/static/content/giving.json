@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "giving",
+        "title": "Giving",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

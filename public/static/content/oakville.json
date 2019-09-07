@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "oakville",
+        "title": "The Meeting House - Oakville",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

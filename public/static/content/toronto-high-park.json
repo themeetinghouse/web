@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "toronto-high-park",
+        "title": "The Meeting House - High Park",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

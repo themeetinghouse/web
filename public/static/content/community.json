@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "community",
+        "title": "Community",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

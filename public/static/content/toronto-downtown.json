@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "toronto-downtown",
+        "title": "The Meeting House - Downtown Toronto",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

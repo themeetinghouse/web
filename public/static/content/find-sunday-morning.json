@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "find-sunday-morning",
+        "title": "Find Us",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

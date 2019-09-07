@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "sunday-morning",
+        "title": "Sunday Morning",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "teaching-new",
+        "title": "New Teaching",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

@@ -14,7 +14,7 @@ import LocationItem from './LocationItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
 import HomeFooter from '../Menu/HomeFooter'
-
+import Helmet from 'react-helmet'
 interface Props extends RouteComponentProps {
   content: any
   data: any
@@ -60,6 +60,11 @@ class RenderRouter extends React.Component<Props, State> {
 
       this.props.content != null ? (
         <div>
+          <Helmet>
+            <title>{this.props.content.page.title}</title>
+            <meta name="keywords" content={this.props.content.page.keywords}></meta>
+            <meta name="description" content={this.props.content.page.description}></meta>
+          </Helmet>
           <HomeMenu pageConfig={this.props.content.page.pageConfig} ></HomeMenu>
           {this.renderItem()}
           {this.props.content.page.pageConfig.showFooter ? <HomeFooter></HomeFooter> : null}

@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "find-home-church",
+        "title": "Find a Home Church",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

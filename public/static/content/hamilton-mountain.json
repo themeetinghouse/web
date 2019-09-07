@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "hamilton-mountain",
+        "title": "The Meeting House - Hamilton Mountain",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

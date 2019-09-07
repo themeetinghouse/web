@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "teaching",
+        "title": "Teaching",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "teaching-blogs",
+        "title": "Blogs",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

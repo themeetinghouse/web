@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "owen-sound",
+        "title": "The Meeting House - Owen Sound",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

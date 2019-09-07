@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "teaching-bbq",
+        "title": "Bruxy's Bag of Questions",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

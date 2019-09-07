@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "hamilton-downtown",
+        "title": "The Meeting House - Downtown Hamilton",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

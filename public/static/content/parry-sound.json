@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "parry-sound",
+        "title": "The Meeting House - Parry Sound",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

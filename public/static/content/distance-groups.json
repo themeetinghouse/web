@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "distance-groups",
+        "title": "Distance Groups",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

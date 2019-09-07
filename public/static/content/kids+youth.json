@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "kids+youth",
+        "title": "Kids and Youth",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

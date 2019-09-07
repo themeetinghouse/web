@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "life-stories",
+        "title": "Life Stories",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

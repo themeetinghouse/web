@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "ottawa",
+        "title": "The Meeting House - Ottawa",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,

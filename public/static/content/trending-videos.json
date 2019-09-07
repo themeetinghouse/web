@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "trending-videos",
+        "title": "Trending Videos",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

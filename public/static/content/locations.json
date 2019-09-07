@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "locations",
+        "title": "Locations",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,

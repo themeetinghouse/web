@@ -1,6 +1,10 @@
 {
     "page": {
         "name": "teaching-curated",
+        "title": "Curated Teaching",
+        "keywords": "",
+        "description":"",
+
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
