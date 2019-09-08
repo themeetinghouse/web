@@ -1,4 +1,13 @@
 @media (min-width: 768px) {
+    .oneImageText{
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+    }
+    .oneImageA{
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+
+    }
     .oneImageImage{
         position: absolute;
         height: 35vw;
@@ -31,6 +40,15 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .oneImageText{
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+    }
+    .oneImageA{
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+
+    }
     .oneImageImage{
         position: absolute;
         height: 35vw;
@@ -63,6 +81,15 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .oneImageText{
+        font-size: 3vw;
+        font-family:Graphik Web;
+    }
+    .oneImageA{
+        font-size: 3vw;
+        font-family:Graphik Web;
+
+    }
     .oneImageImage{
         position: absolute;
         height: 90vw;
@@ -85,7 +112,7 @@
     }
     .oneImageH1{
         font-weight: bold; 
-        font-size: 3vw;
+        font-size: 6vw;
         font-family:"Graphik Web";
     }
     .oneImagePosition{

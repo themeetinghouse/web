@@ -76,16 +76,16 @@ class HeroItem extends React.Component<Props, State> {
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     <img src={image1.src} alt={image1.alt} className="heroImage" />
                     <div className="heroBlackBox" >
-                        <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.content.header1}</h1>
-                        {this.state.content.header2 && <h2>{this.state.content.header2}</h2>}
+                        <h1 className="heroH1" >{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.content.text1}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text2}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text3}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text4}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text5}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text6}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text7}</div>
+                        <div className="heroText1" >{this.state.content.text1}</div>
+                        <div className="heroText2" >{this.state.content.text2}</div>
+                        <div className="heroText2" >{this.state.content.text3}</div>
+                        <div className="heroText2" >{this.state.content.text4}</div>
+                        <div className="heroText2" >{this.state.content.text5}</div>
+                        <div className="heroText2" >{this.state.content.text6}</div>
+                        <div className="heroText2" >{this.state.content.text7}</div>
                         {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
@@ -102,16 +102,16 @@ class HeroItem extends React.Component<Props, State> {
                 <div className="partialNoFooter" >
                     <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"  />
                     <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "46vw", top: "6vh", zIndex: 100 }}>
-                        <h1 style={{ fontFamily: "Graphik Web", fontWeight: "bold", color: "#ffffff", fontSize: "3vw" }}>{this.state.content.header1}</h1>
-                        {this.state.content.header2 && <h2>{this.state.content.header2}</h2>}
+                        <h1 className="heroH1" >{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
-                        <div style={{ fontFamily: "Graphik Web", width: "46vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.content.text1}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1.5vw" }}>{this.state.content.text2}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text3}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text4}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text5}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text6}</div>
-                        <div style={{ fontFamily: "Graphik Web", width: "32vw", color: "#ffffff", fontSize: "1vw" }}>{this.state.content.text7}</div>
+                        <div className="heroText1">{this.state.content.text1}</div>
+                        <div className="heroText1">{this.state.content.text2}</div>
+                        <div className="heroText2">{this.state.content.text3}</div>
+                        <div className="heroText2">{this.state.content.text4}</div>
+                        <div className="heroText2">{this.state.content.text5}</div>
+                        <div className="heroText2">{this.state.content.text6}</div>
+                        <div className="heroText2">{this.state.content.text7}</div>
                         {this.state.content.showLocationSearch ? (<div><input style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}} placeholder="Search for a church by city"></input></div>):null}
                         {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a style={{color:"#ffffff"}} href={this.state.content.link1Action}>{this.state.content.link1Text}</a>

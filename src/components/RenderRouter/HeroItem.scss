@@ -1,12 +1,36 @@
 @media (min-width: 768px) {
-    .partialNoFooterImage{
+    .heroH1 {
+        font-family: Graphik Web;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 3vw;
+    }
+
+    .heroH2 {}
+
+    .heroText1 {
+        font-family: Graphik Web;
+        width: 32vw;
+        color: #ffffff;
+        font-size: 1.5vw;
+    }
+
+    .heroText2 {
+        font-family: Graphik Web;
+        width: 32vw;
+        color: #ffffff;
+        font-size: 1vw;
+    }
+
+    .partialNoFooterImage {
         width: 80vw;
-       height: 40vw;
-       z-index: 50;
-        object-fit:cover;
-       position: absolute;
-   }
-     .partialNoFooter {
+        height: 40vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    .partialNoFooter {
         position: relative;
         left: 20vw;
         width: 80vw;
@@ -57,20 +81,45 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .partialNoFooterImage{
+    .heroH1 {
+        font-family: Graphik Web;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 3vw;
+    }
+
+    .heroH2 {}
+
+    .heroText1 {
+        font-family: Graphik Web;
+        width: 32vw;
+        color: #ffffff;
+        font-size: 1.5vw;
+    }
+
+    .heroText2 {
+        font-family: Graphik Web;
+        width: 32vw;
+        color: #ffffff;
+        font-size: 1vw;
+    }
+
+    .partialNoFooterImage {
         width: 80vw;
-       height: 40vw;
-       z-index: 50;
-        object-fit:cover;
-       position: absolute;
-   }
-     .partialNoFooter {
+        height: 40vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    .partialNoFooter {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 38vw;
         padding-bottom: 0vh;
     }
+
     .heroImage {
         width: 100vw;
         height: 100vh;
@@ -114,13 +163,36 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .partialNoFooterImage{
-         width: 100vw;
+    .heroH1 {
+        font-family: Graphik Web;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 6vw;
+    }
+
+    .heroH2 {}
+
+    .heroText1 {
+        font-family: Graphik Web;
+        width: 90vw;
+        color: #ffffff;
+        font-size: 3vw;
+    }
+
+    .heroText2 {
+        font-family: Graphik Web;
+        width: 90vw;
+        color: #ffffff;
+        font-size: 2vw;
+    }
+    .partialNoFooterImage {
+        width: 100vw;
         height: 80vw;
         z-index: 50;
-         object-fit:cover;
+        object-fit: cover;
         position: absolute;
     }
+
     .partialNoFooter {
         position: relative;
         left: 0vw;
@@ -128,6 +200,7 @@
         height: 78vw;
         padding-bottom: 0vh;
     }
+
     .heroImage {
         width: 100vw;
         height: 94vh;
@@ -154,8 +227,8 @@
         padding: 2vw;
         left: 0vw;
         width: 100vw;
-        height: 24vh;
-        top: 70vh;
+        height: 34vh;
+        top: 60vh;
         z-index: 100;
         padding: 6vw;
     }

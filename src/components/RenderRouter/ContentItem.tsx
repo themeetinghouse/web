@@ -26,9 +26,9 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div className="oneImagePosition">
             <div className="oneImageGreyBox" >
               <h1 className="oneImageH1" >{this.state.content.header1}</h1>
-              <h2>{this.state.content.header2}</h2>
-              <div style={{fontSize: "1.5vw", fontFamily:"Graphik Web" }}>{this.state.content.text1}</div>
-              <a style={{fontSize: "1.5vw",fontFamily:"Graphik Web"}} href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+              <h2 className="oneImageH2">{this.state.content.header2}</h2>
+              <div className="oneImageText" >{this.state.content.text1}</div>
+              <a className="oneImageA"href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
             </div>
             <img src={image1.src} alt={image1.alt} className="oneImageImage"  />
           </div>
