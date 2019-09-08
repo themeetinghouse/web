@@ -13,7 +13,8 @@ import FormItem from './FormItem';
 import LocationItem from './LocationItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
-import HomeFooter from '../Menu/HomeFooter'
+import HomeFooter from '../Menu/HomeFooter';
+import InstagramItem from './InstagramItem';
 import Helmet from 'react-helmet'
 interface Props extends RouteComponentProps {
   content: any
@@ -51,6 +52,9 @@ class RenderRouter extends React.Component<Props, State> {
           return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
         else if (item.type === "form")
           return (<FormItem key={index} content={item}></FormItem>);
+          else if (item.type === "instagram")
+          return (<InstagramItem key={index} content={item}></InstagramItem>);
+          
         else return null
       })
     else return null

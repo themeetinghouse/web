@@ -55,11 +55,7 @@
                 "filterValue": "oakville"
             },
             {
-                "type": "list",
-                "style": "grid",
-                "class": "instagram",
-                "filterField":"sites",                 
-                "filterValue": "oakville"
+                "type": "instagram"
             },
             {
                 "type": "content",
