@@ -64,6 +64,7 @@ class RenderRouter extends React.Component<Props, State> {
             <title>{this.props.content.page.title}</title>
             <meta name="keywords" content={this.props.content.page.keywords}></meta>
             <meta name="description" content={this.props.content.page.description}></meta>
+            <link rel="alternate" href="https://beta.themeetinghouse.com" hrefLang="en-ca" />
           </Helmet>
           <HomeMenu pageConfig={this.props.content.page.pageConfig} ></HomeMenu>
           {this.renderItem()}
