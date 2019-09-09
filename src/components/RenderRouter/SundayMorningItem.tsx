@@ -89,7 +89,7 @@ export class ContentItem extends React.Component<Props, State>  {
         // service.getDistanceMatrix()
         service.getDistanceMatrix({ origins: [start], destinations: destinations, travelMode: this.state.travelMode }, (res: any, status: any) => {
           console.log(res)
-          if (status == "OK")
+          if (status === "OK")
             this.setState({ distances: res })
         })
       }
