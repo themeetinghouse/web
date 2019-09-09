@@ -105,8 +105,8 @@ export class ContentItem extends React.Component<Props, State>  {
                 lng: -78.0
               }}
                 style={{ left: "0vw", width: "40vw", height: "40vw" }}>
-                {this.state.listData != null ? this.state.listData.map((item: any) => {
-                  return (<Marker onClick={this.onMarkerClick}
+                {this.state.listData != null ? this.state.listData.map((item: any,index:any) => {
+                  return (<Marker key={index} onClick={this.onMarkerClick}
                     position={{ lat: item.location.latitude, lng: item.location.longitude }} />
                   )
                 }) : null}
@@ -115,7 +115,7 @@ export class ContentItem extends React.Component<Props, State>  {
             <div style={{ position: "absolute", left: "0vw", width: "40vw", height: "40vw" }}>
               {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
                 return (
-                  <div onClick={() => this.navigate(item.id)}>{item.name}{this.state.distances != null ? " - " + this.state.distances.rows[0].elements[index].distance.text + " " + this.state.distances.rows[0].elements[index].duration.text : null}</div>
+                  <div key={index} onClick={() => this.navigate(item.id)}>{item.name}{this.state.distances != null ? " - " + this.state.distances.rows[0].elements[index].distance.text + " " + this.state.distances.rows[0].elements[index].duration.text : null}</div>
                 )
               }) : null}
             </div>
