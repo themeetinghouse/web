@@ -25,13 +25,13 @@ class ListItem extends React.Component<Props, State> {
     router: PropTypes.object,
     history: PropTypes.object
   }
-  videoOverlayClose(){
+  videoOverlayClose() {
     this.setState({
       overlayData: null
 
     })
   }
-  handleClick(data:any) {
+  handleClick(data: any) {
     this.setState({
       overlayData: data
 
@@ -155,7 +155,7 @@ class ListItem extends React.Component<Props, State> {
             <div style={{ clear: "left" }} ></div>
           </div>
         </div>
-        <VideoOverlay onClose={()=>{this.videoOverlayClose()}} data={this.state.overlayData}></VideoOverlay>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
     else if (this.state.content.style === "vertical") return (
@@ -164,11 +164,13 @@ class ListItem extends React.Component<Props, State> {
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.content.text1}</div>) : null}
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
-            {data.map((item: any) => {
+            {data.map((item: any,index:any) => {
               if (this.state.content.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
+                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png"
+                    onError={(target:any)=>{{console.log(target.target);if (target.target.src != "./static/Individual.png") target.target.src = "./static/Individual.png";}}}
+                    />
                     <div style={{ fontWeight: "bold" }}>{item.name}</div>
                     <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
                   </div>
@@ -187,8 +189,12 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.content.class === "staff") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} src={"./static/photos/staff/"+item.FirstName+"_"+item.LastName+"_app.jpg"} />
+                  <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
+                   
+                      <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} 
+                      onError={(target:any)=>{{console.log(target.target);if (target.target.src != "./static/Individual.png") target.target.src = "./static/Individual.png";}}}
+                      src={"./static/photos/staff/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+                   
                     <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
                     <div style={{ fontWeight: "bold" }}>{item.Position}</div>
                     <div>{item.Email}</div>
@@ -218,7 +224,8 @@ class ListItem extends React.Component<Props, State> {
               else if (this.state.content.class === "compassion") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
-                    <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image} />
+                    <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image}
+                    onError={(target:any)=>{{console.log(target.target);if (target.target.src != "./static/NoCompassionLogo.png") target.target.src = "./static/NoCompassionLogo.png";}}} />
                     <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>

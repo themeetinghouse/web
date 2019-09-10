@@ -42,7 +42,7 @@
                 "header1": "Leadership",
                 "text1": "This is a little something about this team; it could be humorous or it could be a canned subtitle that’s the same on all sites.",
                 "filterField":"sites",                 
-                "filterValue": "toronto-downtown"
+                "filterValue": "TODT"
             },
             {
                 "type": "list",

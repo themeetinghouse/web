@@ -4,7 +4,7 @@
         "LastName": "Westera",
         "Phone": "647.389.9378",
         "Position": "Hamilton Youth Pastor",
-        "Sites": ["HMMT","HMAN"],
+        "sites": ["HMDT","HMMT","HMAN","Pastoral","Youth"],
         "Email": "Aaron.Westera@themeetinghouse.com"
     },
     {
@@ -12,7 +12,7 @@
         "LastName": "Briere",
         "Phone": "226.218.1117",
         "Position": "Video Editor",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Alex.Briere@themeetinghouse.com"
     },
     {
@@ -21,7 +21,7 @@
         "Office": 800,
         "Phone": "905.330.8349",
         "Position": "Stewardship Manager",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Alison.Hardman@themeetinghouse.com"
     },
     {
@@ -30,7 +30,7 @@
         "Office": 802,
         "Phone": "416.833.8682",
         "Position": "Operations Director",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Andrew.Scanlan@themeetinghouse.com"
     },
     {
@@ -38,7 +38,7 @@
         "LastName": "Giardina",
         "Phone": "647.680.8782",
         "Position": "Downtown Toronto Lead Pastor",
-        "Sites": ["TODT"],
+        "sites": ["TODT","Pastoral"],
         "Email": "Anita.Giardina@themeetinghouse.com"
     },
     {
@@ -46,7 +46,7 @@
         "LastName": "Lakatos",
         "Phone": "289.681.5024",
         "Position": "Music Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Anna.Lakatos@themeetinghouse.com"
     },
     {
@@ -54,7 +54,7 @@
         "LastName": "Shim",
         "Phone": "905.580.0720",
         "Position": "Custodian",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Arnold.Shim@themeetinghouse.com"
     },
     {
@@ -62,7 +62,7 @@
         "LastName": "Thomson",
         "Phone": "905.536.7080",
         "Position": "Research Pastor",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership","Pastoral"],
         "Email": "Bec.Thomson@themeetinghouse.com"
     },
     {
@@ -71,7 +71,7 @@
         "Office": 833,
         "Phone": "905.464.0307",
         "Position": "Oakville Youth Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral","Youth"],
         "Email": "Brad.Eager@themeetinghouse.com"
     },
     {
@@ -80,7 +80,7 @@
         "Office": 803,
         "Phone": "905.510.2141",
         "Position": "IT Specialist",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Branden.Eyk@themeetinghouse.com"
     },
     {
@@ -88,7 +88,7 @@
         "LastName": "Cavey",
         "Phone": "905.334.6565",
         "Position": "Teaching Pastor",
-        "Sites": ["Senior Staff"],
+        "sites": ["Senior Staff","Pastoral"],
         "Email": "Bruxy.Cavey@themeetinghouse.com"
     },
     {
@@ -97,7 +97,7 @@
         "Office": 804,
         "Phone": "289.208.5599",
         "Position": "Oakville Site Administrator & Project Manager",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV"],
         "Email": "Carolynn.Bucek@themeetinghouse.com"
     },
     {
@@ -105,7 +105,7 @@
         "LastName": "Reffell",
         "Phone": "289.681.5069",
         "Position": "Events Admin & Associate",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Carrissa.Reffell@themeetinghouse.com"
     },
     {
@@ -114,7 +114,7 @@
         "Office": 805,
         "Phone": "289.795.0399",
         "Position": "Youth Pastor",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership","Pastoral","Youth"],
         "Email": "Chris.Murphy@themeetinghouse.com"
     },
     {
@@ -122,7 +122,7 @@
         "LastName": "van Dijk",
         "Phone": "416.435.2497",
         "Position": "Video Production Manager",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Chris.van Dijk@themeetinghouse.com"
     },
     {
@@ -130,7 +130,7 @@
         "LastName": "Gerber",
         "Phone": "",
         "Position": "Brampton Lead Pastor",
-        "Sites": ["BRAM"],
+        "sites": ["BRAM","Pastoral"],
         "Email": "Christine.Gerber@themeetinghouse.com"
     },
     {
@@ -139,7 +139,7 @@
         "Office": 806,
         "Phone": "289.242.8323",
         "Position": "Communications Manager",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Christine.Gratton@themeetinghouse.com"
     },
     {
@@ -147,7 +147,7 @@
         "LastName": "Morgan-Sinclair",
         "Phone": "416.700.2970",
         "Position": "Hamilton Mountain Lead Pastor",
-        "Sites": ["HMMT"],
+        "sites": ["HMMT","Pastoral"],
         "Email": "Dagmar.Morgan-Sinclair@themeetinghouse.com"
     },
     {
@@ -155,7 +155,7 @@
         "LastName": "McCubbing",
         "Phone": "289.681.5983",
         "Position": "Facility Assistant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Daniel.McCubbing@themeetinghouse.com"
     },
     {
@@ -164,7 +164,7 @@
         "Office": 807,
         "Phone": "",
         "Position": "Senior Pastor",
-        "Sites": ["Senior Staff"],
+        "sites": ["Senior Staff","Pastoral"],
         "Email": "Darrell.Winger@themeetinghouse.com"
     },
     {
@@ -173,7 +173,7 @@
         "Office": 808,
         "Phone": "905.617.7424",
         "Position": "Brand and Strategy Manager",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "David.Siekanowicz@themeetinghouse.com"
     },
     {
@@ -182,7 +182,7 @@
         "Office": 809,
         "Phone": "647.405.2244",
         "Position": "Oakville Preschool Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Diane.Klassen@themeetinghouse.com"
     },
     {
@@ -191,7 +191,7 @@
         "Office": 810,
         "Phone": "647.506.5342",
         "Position": "Technical Specialist",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Eric.Faulknor@themeetinghouse.com"
     },
     {
@@ -199,7 +199,7 @@
         "LastName": "Versluis",
         "Phone": "613.404.4530",
         "Position": "Ottawa Lead Pastor",
-        "Sites": ["OTTA"],
+        "sites": ["OTTA","Pastoral"],
         "Email": "Eric.Versluis@themeetinghouse.com"
     },
     {
@@ -207,7 +207,7 @@
         "LastName": "Bell",
         "Phone": "416.802.6697",
         "Position": "Digital Solutions",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "George.Bell@themeetinghouse.com"
     },
     {
@@ -216,7 +216,7 @@
         "Office": 811,
         "Phone": "905.334.2626",
         "Position": "Technical Specialist",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Ian.Jongema@themeetinghouse.com"
     },
     {
@@ -224,7 +224,7 @@
         "LastName": "White",
         "Phone": "905.808.8562",
         "Position": "Young Adults Champion",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership"],
         "Email": "James.White@themeetinghouse.com"
     },
     {
@@ -232,7 +232,7 @@
         "LastName": "Erhardt",
         "Phone": "416.419.2441",
         "Position": "Uptown Toronto Lead Pastor",
-        "Sites": ["TOUP"],
+        "sites": ["TOUP","Pastoral"],
         "Email": "Jared.Erhardt@themeetinghouse.com"
     },
     {
@@ -240,7 +240,7 @@
         "LastName": "McWilliams",
         "Phone": "905.510.0384",
         "Position": "Children's Pastor",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership","Pastoral","Children"],
         "Email": "Jennifer.McWilliams@themeetinghouse.com"
     },
     {
@@ -248,7 +248,7 @@
         "LastName": "Nasmith-Yandt",
         "Phone": "613.898.9781",
         "Position": "Ministry Support Associate",
-        "Sites": ["OTTA"],
+        "sites": ["OTTA"],
         "Email": "Jenny.Nasmith-Yandt@themeetinghouse.com"
     },
     {
@@ -256,7 +256,7 @@
         "LastName": "Rushton",
         "Phone": "905.906.7874",
         "Position": "Downtown Hamilton Lead Pastor",
-        "Sites": ["HMDT"],
+        "sites": ["HMDT","Pastoral"],
         "Email": "Jimmy.Rushton@themeetinghouse.com"
     },
     {
@@ -264,7 +264,7 @@
         "LastName": "Latta",
         "Phone": "905.510.2287",
         "Position": "Burlington Lead Pastor",
-        "Sites": ["BURL"],
+        "sites": ["BURL","Pastoral"],
         "Email": "John.Latta@themeetinghouse.com"
     },
     {
@@ -272,7 +272,7 @@
         "LastName": "Hand",
         "Phone": "",
         "Position": "Leadership Development Pastor",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership","Pastoral"],
         "Email": "Jon.Hand@themeetinghouse.com"
     },
     {
@@ -280,7 +280,7 @@
         "LastName": "Duerrstein",
         "Phone": "416.460.1051",
         "Position": "Waterloo Lead Pastor",
-        "Sites": ["WATL"],
+        "sites": ["WAT","Pastoral"],
         "Email": "Jordan.Duerrstein@themeetinghouse.com"
     },
     {
@@ -289,7 +289,7 @@
         "Office": 834,
         "Phone": "905.572.5069",
         "Position": "Operations Manager",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Juanita.Broadbent@themeetinghouse.com"
     },
     {
@@ -298,7 +298,7 @@
         "Office": 7013,
         "Phone": "905.484.6343",
         "Position": "Finance Manager",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Judy.Maranta@themeetinghouse.com"
     },
     {
@@ -306,7 +306,7 @@
         "LastName": "Pickett",
         "Phone": "416.707.1497",
         "Position": "Events and Rentals Associate",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Julie@themeetinghouse.com"
     },
     {
@@ -315,7 +315,7 @@
         "Office": 812,
         "Phone": "908.808.4066",
         "Position": "Oakville Lead Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Karmyn.Bokma@themeetinghouse.com"
     },
     {
@@ -324,7 +324,7 @@
         "Office": 813,
         "Phone": "905.334.3536",
         "Position": "Oakville Community Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Kate.Brown@themeetinghouse.com"
     },
     {
@@ -332,7 +332,7 @@
         "LastName": "Bernard",
         "Phone": "905.320.1564",
         "Position": "Oakville Care Team Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Kathy.Bernard@themeetinghouse.com"
     },
     {
@@ -341,7 +341,7 @@
         "Office": 814,
         "Phone": "416.806.3741",
         "Position": "People Strategies & Communications Director",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Katie.Double@themeetinghouse.com"
     },
     {
@@ -349,7 +349,7 @@
         "LastName": "Duncan",
         "Phone": "905.630.0373",
         "Position": "Executive Assistant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Keturah.Duncan@themeetinghouse.com"
     },
     {
@@ -358,7 +358,7 @@
         "Office": 815,
         "Phone": "905.466.8006",
         "Position": "Compassion Manager",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership"],
         "Email": "Laura.Hanna@themeetinghouse.com"
     },
     {
@@ -367,7 +367,7 @@
         "Office": 829,
         "Phone": "",
         "Position": "kidmax Coordinator, Grade 1-5, Oakville",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Children"],
         "Email": "Laura.Jory@themeetinghouse.com"
     },
     {
@@ -376,7 +376,7 @@
         "Office": 816,
         "Phone": "289.716.6456",
         "Position": "Executive Assistant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Laura.van der Kooi@themeetinghouse.com"
     },
     {
@@ -385,7 +385,7 @@
         "Office": 7000,
         "Phone": "289.208.4610",
         "Position": "Reception",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Lauren.Germain@themeetinghouse.com"
     },
     {
@@ -393,7 +393,7 @@
         "LastName": "Hart",
         "Phone": "",
         "Position": "Oakville Youth Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral","Youth"],
         "Email": "Lindsay.Hart@themeetinghouse.com"
     },
     {
@@ -402,7 +402,7 @@
         "Office": 818,
         "Phone": "905.808.5850",
         "Position": "Curriculum Support Administrator",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Lisa.Brown@themeetinghouse.com"
     },
     {
@@ -411,7 +411,7 @@
         "Office": 818,
         "Phone": "905.808.1425",
         "Position": "Oakville Associate Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Lisa.Goetze@themeetinghouse.com"
     },
     {
@@ -420,7 +420,7 @@
         "Office": 820,
         "Phone": "416.828.3973",
         "Position": "Site Leadership Administrator",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership"],
         "Email": "Louise.McBride@themeetinghouse.com"
     },
     {
@@ -429,7 +429,7 @@
         "Office": 821,
         "Phone": "",
         "Position": "Communications Project Coordinator & Administrator",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Lucas.Belem@themeetinghouse.com"
     },
     {
@@ -437,7 +437,7 @@
         "LastName": "Romberg",
         "Phone": "647.648.4348",
         "Position": "Video Tech Support",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Luke.Romberg@themeetinghouse.com"
     },
     {
@@ -446,7 +446,7 @@
         "Office": 7054,
         "Phone": "",
         "Position": "Accounts Payable Assistant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Marinda.Heckroodt@themeetinghouse.com"
     },
     {
@@ -454,7 +454,7 @@
         "LastName": "Wall",
         "Phone": "613.899.6589",
         "Position": "Discipleship Pastor & Interim Kitchener Lead Pastor",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership", "KIT","Pastoral"],
         "Email": "Mark.Wall@themeetinghouse.com"
     },
     {
@@ -462,7 +462,7 @@
         "LastName": "Collins",
         "Phone": "905.320.9316",
         "Position": "Ancaster Lead Pastor",
-        "Sites": ["HMAN"],
+        "sites": ["HMAN","Pastoral"],
         "Email": "Matt.Collins@themeetinghouse.com"
     },
     {
@@ -470,7 +470,7 @@
         "LastName": "Miles",
         "Phone": "647.746.0242",
         "Position": "Director of Growth and Strategic Partnerships",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership"],
         "Email": "Matt.Miles@themeetinghouse.com"
     },
     {
@@ -479,7 +479,7 @@
         "Office": 823,
         "Phone": "226.203.0215",
         "Position": "Compassion Manager",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership"],
         "Email": "Matt.Thompson@themeetinghouse.com"
     },
     {
@@ -487,7 +487,7 @@
         "LastName": "Ytsma",
         "Phone": "647.300.4756",
         "Position": "Richmond Hill Lead Pastor",
-        "Sites": ["RHLL"],
+        "sites": ["RHLL","Pastoral"],
         "Email": "Melissa.Ytsma@themeetinghouse.com"
     },
     {
@@ -496,7 +496,7 @@
         "Office": 824,
         "Phone": "905.599.3059",
         "Position": "Oakville Associate Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Mike.Finnie@themeetinghouse.com"
     },
     {
@@ -505,7 +505,7 @@
         "Office": 831,
         "Phone": "289.681.0771",
         "Position": "Oakville Associate Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Mike.Slack@themeetinghouse.com"
     },
     {
@@ -514,7 +514,7 @@
         "Office": 825,
         "Phone": "647.638.8916",
         "Position": "Curriculum Project Coordinator & Administrator",
-        "Sites": ["Communications"],
+        "sites": ["Communications","Children"],
         "Email": "Natalia.D'Amico@themeetinghouse.com"
     },
     {
@@ -523,7 +523,7 @@
         "Office": 835,
         "Phone": "289.440.4883",
         "Position": "Oakville Tech Coordinator",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV"],
         "Email": "Natalie.Burtch@themeetinghouse.com"
     },
     {
@@ -532,7 +532,7 @@
         "Office": 826,
         "Phone": "905.802.2528",
         "Position": "Curriculum Pastor",
-        "Sites": ["Communications"],
+        "sites": ["Communications","Pastoral","Children"],
         "Email": "Natalie.Frisk@themeetinghouse.com"
     },
     {
@@ -540,7 +540,7 @@
         "LastName": "Dorsman",
         "Phone": "905.315.0404",
         "Position": "Operations Associate & Purchaser",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Nicole.Dorsman@themeetinghouse.com"
     },
     {
@@ -548,7 +548,7 @@
         "LastName": "Vanderwal",
         "Phone": "905.912.8238",
         "Position": "Social Media Specialist",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Olivia.Vanderwal@themeetinghouse.com"
     },
     {
@@ -557,7 +557,7 @@
         "Office": 836,
         "Phone": "416.574.7965",
         "Position": "HR Manager",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Peter.van Oordt@themeetinghouse.com"
     },
     {
@@ -565,7 +565,7 @@
         "LastName": "Prendergast",
         "Phone": "519.495.0157",
         "Position": "London Lead Pastor",
-        "Sites": ["Site Leadership"],
+        "sites": ["Pastoral","LOND"],
         "Email": "Phil.Prendergast@themeetinghouse.com"
     },
     {
@@ -574,7 +574,7 @@
         "Office": 828,
         "Phone": "416.731.5573",
         "Position": "Oakville Site Pastor",
-        "Sites": ["OAKV"],
+        "sites": ["OAKV","Pastoral"],
         "Email": "Quincy.Bergman@themeetinghouse.com"
     },
     {
@@ -583,7 +583,7 @@
         "Office": 7026,
         "Phone": "",
         "Position": "Contributions Administrator",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Rachel.Meredith@themeetinghouse.com"
     },
     {
@@ -591,7 +591,7 @@
         "LastName": "Miller",
         "Phone": "905.717.8613",
         "Position": "Operations Associate",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Rachel.Miller@themeetinghouse.com"
     },
     {
@@ -599,7 +599,7 @@
         "LastName": "van der Bijl",
         "Phone": "905.466.7837",
         "Position": "Video Producer",
-        "Sites": ["Communications"],
+        "sites": ["Communications"],
         "Email": "Rentia.van der Bijl@themeetinghouse.com"
     },
     {
@@ -607,7 +607,7 @@
         "LastName": "Schellenberg",
         "Phone": "416.316.3074",
         "Position": "High Park Lead Pastor",
-        "Sites": ["TOHP"],
+        "sites": ["TOHP","Pastoral"],
         "Email": "Rob.Schellenberg@themeetinghouse.com"
     },
     {
@@ -615,7 +615,7 @@
         "LastName": "Ellingwood",
         "Phone": "416.461.9005",
         "Position": "East Toronto Lead Pastor",
-        "Sites": ["TOBC"],
+        "sites": ["TOBC","Pastoral"],
         "Email": "Robin.Ellingwood@themeetinghouse.com"
     },
     {
@@ -624,7 +624,7 @@
         "Office": 827,
         "Phone": "905.906.1539",
         "Position": "Senior Pastor",
-        "Sites": ["Operations"],
+        "sites": ["Operations","Pastoral"],
         "Email": "Rod.Tombs@themeetinghouse.com"
     },
     {
@@ -633,7 +633,7 @@
         "Office": 7028,
         "Phone": "905.815.3400",
         "Position": "Data Support Coordinator",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Roger.Massie@themeetinghouse.com"
     },
     {
@@ -641,7 +641,7 @@
         "LastName": "Janesan van Vuuren",
         "Phone": "416.821.2483",
         "Position": "Events Associate",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Ruska@themeetinghouse.com"
     },
     {
@@ -649,7 +649,7 @@
         "LastName": "Karayiannis",
         "Phone": "416.670.0408",
         "Position": "Toronto Youth Pastor",
-        "Sites": ["TOUP","TODT"],
+        "sites": ["TOUP","TODT","Pastoral","Youth"],
         "Email": "Ryan.Karayiannis@themeetinghouse.com"
     },
     {
@@ -657,7 +657,7 @@
         "LastName": "Wills",
         "Phone": "",
         "Position": "Payroll Coordinator/Operations Assistant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Sarah.Wills@themeetinghouse.com"
     },
     {
@@ -665,7 +665,7 @@
         "LastName": "Fennell",
         "Phone": "905.515.2670",
         "Position": "IT Consultant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Shawn.Fennell@themeetinghouse.com"
     },
     {
@@ -673,7 +673,7 @@
         "LastName": "Downey",
         "Phone": "289.716.0377",
         "Position": "Newmarket Lead Pastor/Regional Pastor",
-        "Sites": ["NMKT"],
+        "sites": ["NMKT","Pastoral"],
         "Email": "Simon.Downey@themeetinghouse.com"
     },
     {
@@ -682,7 +682,7 @@
         "Office": 837,
         "Phone": "289.681.8467",
         "Position": "Technical Producer",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Steve.Pauls@themeetinghouse.com"
     },
     {
@@ -691,7 +691,7 @@
         "Office": 830,
         "Phone": "905.510.7053",
         "Position": "Curriculum Assistant",
-        "Sites": ["Operations"],
+        "sites": ["Operations"],
         "Email": "Tammy.Lembo@themeetinghouse.com"
     },
     {
@@ -700,7 +700,7 @@
         "Office": 832,
         "Phone": "289.681.6937",
         "Position": "Jesus Collective Project Manager",
-        "Sites": ["Site Leadership"],
+        "sites": ["Site Leadership"],
         "Email": "Zulema.Smith@themeetinghouse.com"
     }
 ]
