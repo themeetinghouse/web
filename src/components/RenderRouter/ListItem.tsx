@@ -188,11 +188,11 @@ class ListItem extends React.Component<Props, State> {
               else if (this.state.content.class === "staff") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.photo} />
-                    <div style={{ fontWeight: "bold" }}>{item.name}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.position}</div>
-                    <div>{item.email}</div>
-                    <div>{item.phone}</div>
+                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} src={"./static/photos/staff/"+item.FirstName+"_"+item.LastName+"_app.jpg"} />
+                    <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
+                    <div style={{ fontWeight: "bold" }}>{item.Position}</div>
+                    <div>{item.Email}</div>
+                    <div>{item.Phone}</div>
                     <a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
                     <a href={"https://twitter.com/" + item.instagram} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
                     <a href={"https://www.instagram.com//" + item.twitter} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>

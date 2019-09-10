@@ -7,6 +7,7 @@ import { Map } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import "./HomeChurchItem.scss"
+import { Button } from 'react-bootstrap';
 
 
 
@@ -71,7 +72,9 @@ export class ContentItem extends React.Component<Props, State>  {
             <div style={{ position: "absolute", left: "0vw", width: "40vw", height: "40vw" }}>
               {this.state.listData != null ? this.state.listData.map((item: any) => {
                 return (
-                  <div onClick={() => this.navigate(item.id)}>{item.name}</div>
+                  <div >{item.name}
+                  <Button onClick={() => this.navigate(item.id)}>Site Page</Button>
+                  </div>
                 )
               }) : null}
             </div>
