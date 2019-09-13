@@ -16,7 +16,9 @@
         "content": [
             {
                 "type": "home-church",
-                "header1": "Home Church"
+                "header1": "Home Church",
+                "class":"home-church"
+
             }
         ]
     }

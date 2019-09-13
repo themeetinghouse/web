@@ -15,9 +15,24 @@
         },
         "content": [
            
+            
             {
                 "type": "home-church",
-                "header1": "Distance Groups"
+                "header1": "Distance Groups",
+                "class":"distance-groups"
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Distance Groups",
+                "header2":"",
+                "text1":"Connect with people in your area on facebook",
+                "link1Text": "Distance Groups Facebook Page",
+                "link1Action": "https://www.facebook.com/groups/tmhdistancegroups/",
+                "image1":[{
+                    "src":"./static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
             }
         ]
     }

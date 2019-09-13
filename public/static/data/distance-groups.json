@@ -1,0 +1,24 @@
+[
+    {
+        "howManyPeopleAreLeadingTheGroup": 1,
+        "l1FirstName": "Sue",
+        "l1LastName": "Krawchuk",
+        "l1Email": "sue.krawchuk@shaw.ca",
+        
+        "name":"Calgary",
+        
+        "location":{
+            "city": "Calgary",
+            "state": "Alberta",
+            "country": "Canada",
+            "latitude":"51.0447331",
+            "longitude":"-114.0718831"
+        },
+        "frequency": "Bi-weekly",
+        "dayofweek": "Thursday",
+        "howManyPeopleAreAttendingYourDistanceGroup": "Less than 10 adults",
+        "wouldYouLikeToAddAnySocialMediaInfoToYourDistanceGroupListing": "Yes",
+        "facebook": "The Meeting House - Calgary Distance Group",
+        "facebookLink":"https://www.facebook.com/groups/633681026662425/"
+    }
+]
