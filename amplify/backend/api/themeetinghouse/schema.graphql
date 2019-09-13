@@ -480,6 +480,7 @@ type LocationGPS{
 }
 type Location 
   @model 
+
 {
   id: String
   url: String

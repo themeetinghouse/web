@@ -10,7 +10,20 @@
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
-				"securityType": "AMAZON_COGNITO_USER_POOLS"
+				"authConfig": {
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "API_KEY",
+							"apiKeyConfig": {
+								"description": "Website",
+								"apiKeyExpirationDays": "365"
+							}
+						}
+					],
+					"defaultAuthentication": {
+						"authenticationType": "AWS_IAM"
+					}
+				}
 			}
 		}
 	},

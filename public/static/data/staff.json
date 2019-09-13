@@ -1,5 +1,6 @@
 [
     {
+       "Staff":true,
         "FirstName": "Aaron",
         "LastName": "Westera",
         "Phone": "647.389.9378",
@@ -8,6 +9,7 @@
         "Email": "Aaron.Westera@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Alex",
         "LastName": "Briere",
         "Phone": "226.218.1117",
@@ -16,6 +18,7 @@
         "Email": "Alex.Briere@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Alison",
         "LastName": "Hardman",
         "Office": 800,
@@ -25,6 +28,7 @@
         "Email": "Alison.Hardman@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Andrew",
         "LastName": "Scanlan",
         "Office": 802,
@@ -34,6 +38,7 @@
         "Email": "Andrew.Scanlan@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Anita",
         "LastName": "Giardina",
         "Phone": "647.680.8782",
@@ -42,6 +47,7 @@
         "Email": "Anita.Giardina@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Anna",
         "LastName": "Lakatos",
         "Phone": "289.681.5024",
@@ -50,6 +56,7 @@
         "Email": "Anna.Lakatos@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Arnold",
         "LastName": "Shim",
         "Phone": "905.580.0720",
@@ -58,6 +65,7 @@
         "Email": "Arnold.Shim@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Bec",
         "LastName": "Thomson",
         "Phone": "905.536.7080",
@@ -66,6 +74,7 @@
         "Email": "Bec.Thomson@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Brad",
         "LastName": "Eager",
         "Office": 833,
@@ -75,6 +84,7 @@
         "Email": "Brad.Eager@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Branden",
         "LastName": "Eyk",
         "Office": 803,
@@ -84,6 +94,7 @@
         "Email": "Branden.Eyk@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Bruxy",
         "LastName": "Cavey",
         "Phone": "905.334.6565",
@@ -92,6 +103,7 @@
         "Email": "Bruxy.Cavey@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Carolynn",
         "LastName": "Bucek",
         "Office": 804,
@@ -101,6 +113,7 @@
         "Email": "Carolynn.Bucek@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Carrissa",
         "LastName": "Reffell",
         "Phone": "289.681.5069",
@@ -109,6 +122,7 @@
         "Email": "Carrissa.Reffell@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Chris",
         "LastName": "Murphy",
         "Office": 805,
@@ -118,6 +132,7 @@
         "Email": "Chris.Murphy@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Chris",
         "LastName": "van Dijk",
         "Phone": "416.435.2497",
@@ -126,6 +141,7 @@
         "Email": "Chris.van Dijk@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Christine",
         "LastName": "Gerber",
         "Phone": "",
@@ -134,6 +150,7 @@
         "Email": "Christine.Gerber@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Christine",
         "LastName": "Gratton",
         "Office": 806,
@@ -143,6 +160,7 @@
         "Email": "Christine.Gratton@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Dagmar",
         "LastName": "Morgan-Sinclair",
         "Phone": "416.700.2970",
@@ -151,6 +169,7 @@
         "Email": "Dagmar.Morgan-Sinclair@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Daniel",
         "LastName": "McCubbing",
         "Phone": "289.681.5983",
@@ -159,6 +178,7 @@
         "Email": "Daniel.McCubbing@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Darrell",
         "LastName": "Winger",
         "Office": 807,
@@ -168,6 +188,7 @@
         "Email": "Darrell.Winger@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "David",
         "LastName": "Siekanowicz",
         "Office": 808,
@@ -177,6 +198,7 @@
         "Email": "David.Siekanowicz@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Diane",
         "LastName": "Klassen",
         "Office": 809,
@@ -186,6 +208,7 @@
         "Email": "Diane.Klassen@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Eric",
         "LastName": "Faulknor",
         "Office": 810,
@@ -195,6 +218,7 @@
         "Email": "Eric.Faulknor@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Eric",
         "LastName": "Versluis",
         "Phone": "613.404.4530",
@@ -203,6 +227,7 @@
         "Email": "Eric.Versluis@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "George",
         "LastName": "Bell",
         "Phone": "416.802.6697",
@@ -211,6 +236,7 @@
         "Email": "George.Bell@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Ian",
         "LastName": "Jongema",
         "Office": 811,
@@ -220,6 +246,7 @@
         "Email": "Ian.Jongema@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "James",
         "LastName": "White",
         "Phone": "905.808.8562",
@@ -228,6 +255,7 @@
         "Email": "James.White@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Jared",
         "LastName": "Erhardt",
         "Phone": "416.419.2441",
@@ -236,6 +264,7 @@
         "Email": "Jared.Erhardt@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Jennifer",
         "LastName": "McWilliams",
         "Phone": "905.510.0384",
@@ -244,6 +273,7 @@
         "Email": "Jennifer.McWilliams@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Jenny",
         "LastName": "Nasmith-Yandt",
         "Phone": "613.898.9781",
@@ -252,6 +282,7 @@
         "Email": "Jenny.Nasmith-Yandt@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Jimmy",
         "LastName": "Rushton",
         "Phone": "905.906.7874",
@@ -260,6 +291,7 @@
         "Email": "Jimmy.Rushton@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "John",
         "LastName": "Latta",
         "Phone": "905.510.2287",
@@ -268,6 +300,7 @@
         "Email": "John.Latta@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Jon",
         "LastName": "Hand",
         "Phone": "",
@@ -276,6 +309,7 @@
         "Email": "Jon.Hand@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Jordan",
         "LastName": "Duerrstein",
         "Phone": "416.460.1051",
@@ -284,6 +318,7 @@
         "Email": "Jordan.Duerrstein@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Juanita",
         "LastName": "Broadbent",
         "Office": 834,
@@ -293,6 +328,7 @@
         "Email": "Juanita.Broadbent@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Judy",
         "LastName": "Maranta",
         "Office": 7013,
@@ -302,6 +338,7 @@
         "Email": "Judy.Maranta@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Julie",
         "LastName": "Pickett",
         "Phone": "416.707.1497",
@@ -310,6 +347,7 @@
         "Email": "Julie@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Karmyn",
         "LastName": "Bokma",
         "Office": 812,
@@ -319,6 +357,7 @@
         "Email": "Karmyn.Bokma@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Kate",
         "LastName": "Brown",
         "Office": 813,
@@ -328,6 +367,7 @@
         "Email": "Kate.Brown@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Kathy",
         "LastName": "Bernard",
         "Phone": "905.320.1564",
@@ -336,6 +376,7 @@
         "Email": "Kathy.Bernard@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Katie",
         "LastName": "Double",
         "Office": 814,
@@ -345,6 +386,7 @@
         "Email": "Katie.Double@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Keturah",
         "LastName": "Duncan",
         "Phone": "905.630.0373",
@@ -353,6 +395,7 @@
         "Email": "Keturah.Duncan@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Laura",
         "LastName": "Hanna",
         "Office": 815,
@@ -362,6 +405,7 @@
         "Email": "Laura.Hanna@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Laura",
         "LastName": "Jory",
         "Office": 829,
@@ -371,6 +415,7 @@
         "Email": "Laura.Jory@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Laura",
         "LastName": "van der Kooi",
         "Office": 816,
@@ -380,6 +425,7 @@
         "Email": "Laura.van der Kooi@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Lauren",
         "LastName": "Germain",
         "Office": 7000,
@@ -389,6 +435,7 @@
         "Email": "Lauren.Germain@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Lindsay",
         "LastName": "Hart",
         "Phone": "",
@@ -397,6 +444,7 @@
         "Email": "Lindsay.Hart@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Lisa",
         "LastName": "Brown",
         "Office": 818,
@@ -406,6 +454,7 @@
         "Email": "Lisa.Brown@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Lisa",
         "LastName": "Goetze",
         "Office": 818,
@@ -415,6 +464,7 @@
         "Email": "Lisa.Goetze@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Louise",
         "LastName": "McBride",
         "Office": 820,
@@ -424,6 +474,7 @@
         "Email": "Louise.McBride@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Lucas",
         "LastName": "Belem",
         "Office": 821,
@@ -433,6 +484,7 @@
         "Email": "Lucas.Belem@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Luke",
         "LastName": "Romberg",
         "Phone": "647.648.4348",
@@ -441,6 +493,7 @@
         "Email": "Luke.Romberg@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Marinda",
         "LastName": "Heckroodt",
         "Office": 7054,
@@ -450,14 +503,16 @@
         "Email": "Marinda.Heckroodt@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Mark",
         "LastName": "Wall",
         "Phone": "613.899.6589",
         "Position": "Discipleship Pastor & Interim Kitchener Lead Pastor",
-        "sites": ["Site Leadership", "KIT","Pastoral"],
+        "sites": ["Site Leadership", "KITC","Pastoral"],
         "Email": "Mark.Wall@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Matt",
         "LastName": "Collins",
         "Phone": "905.320.9316",
@@ -466,6 +521,7 @@
         "Email": "Matt.Collins@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Matt",
         "LastName": "Miles",
         "Phone": "647.746.0242",
@@ -474,6 +530,7 @@
         "Email": "Matt.Miles@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Matt",
         "LastName": "Thompson",
         "Office": 823,
@@ -483,6 +540,7 @@
         "Email": "Matt.Thompson@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Melissa",
         "LastName": "Ytsma",
         "Phone": "647.300.4756",
@@ -491,6 +549,7 @@
         "Email": "Melissa.Ytsma@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Mike",
         "LastName": "Finnie",
         "Office": 824,
@@ -500,6 +559,7 @@
         "Email": "Mike.Finnie@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Mike",
         "LastName": "Slack",
         "Office": 831,
@@ -509,6 +569,7 @@
         "Email": "Mike.Slack@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Natalia",
         "LastName": "D'Amico",
         "Office": 825,
@@ -518,6 +579,7 @@
         "Email": "Natalia.D'Amico@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Natalie",
         "LastName": "Burtch",
         "Office": 835,
@@ -527,6 +589,7 @@
         "Email": "Natalie.Burtch@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Natalie",
         "LastName": "Frisk",
         "Office": 826,
@@ -536,6 +599,7 @@
         "Email": "Natalie.Frisk@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Nicole",
         "LastName": "Dorsman",
         "Phone": "905.315.0404",
@@ -544,6 +608,7 @@
         "Email": "Nicole.Dorsman@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Olivia",
         "LastName": "Vanderwal",
         "Phone": "905.912.8238",
@@ -552,6 +617,7 @@
         "Email": "Olivia.Vanderwal@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Peter",
         "LastName": "van Oordt",
         "Office": 836,
@@ -561,6 +627,7 @@
         "Email": "Peter.van Oordt@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Phil",
         "LastName": "Prendergast",
         "Phone": "519.495.0157",
@@ -569,6 +636,7 @@
         "Email": "Phil.Prendergast@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Quincy",
         "LastName": "Bergman",
         "Office": 828,
@@ -578,6 +646,7 @@
         "Email": "Quincy.Bergman@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Rachel",
         "LastName": "Meredith",
         "Office": 7026,
@@ -587,6 +656,7 @@
         "Email": "Rachel.Meredith@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Rachel",
         "LastName": "Miller",
         "Phone": "905.717.8613",
@@ -595,6 +665,7 @@
         "Email": "Rachel.Miller@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Rentia",
         "LastName": "van der Bijl",
         "Phone": "905.466.7837",
@@ -603,6 +674,7 @@
         "Email": "Rentia.van der Bijl@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Rob",
         "LastName": "Schellenberg",
         "Phone": "416.316.3074",
@@ -611,6 +683,7 @@
         "Email": "Rob.Schellenberg@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Robin",
         "LastName": "Ellingwood",
         "Phone": "416.461.9005",
@@ -619,6 +692,7 @@
         "Email": "Robin.Ellingwood@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Rod",
         "LastName": "Tombs",
         "Office": 827,
@@ -628,6 +702,7 @@
         "Email": "Rod.Tombs@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Roger",
         "LastName": "Massie",
         "Office": 7028,
@@ -637,6 +712,7 @@
         "Email": "Roger.Massie@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Ruska",
         "LastName": "Janesan van Vuuren",
         "Phone": "416.821.2483",
@@ -645,6 +721,7 @@
         "Email": "Ruska@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Ryan",
         "LastName": "Karayiannis",
         "Phone": "416.670.0408",
@@ -653,6 +730,7 @@
         "Email": "Ryan.Karayiannis@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Sarah",
         "LastName": "Wills",
         "Phone": "",
@@ -661,6 +739,7 @@
         "Email": "Sarah.Wills@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Shawn",
         "LastName": "Fennell",
         "Phone": "905.515.2670",
@@ -669,6 +748,7 @@
         "Email": "Shawn.Fennell@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Simon",
         "LastName": "Downey",
         "Phone": "289.716.0377",
@@ -677,6 +757,7 @@
         "Email": "Simon.Downey@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Steve",
         "LastName": "Pauls",
         "Office": 837,
@@ -686,6 +767,7 @@
         "Email": "Steve.Pauls@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Tammy",
         "LastName": "Lembo",
         "Office": 830,
@@ -695,6 +777,7 @@
         "Email": "Tammy.Lembo@themeetinghouse.com"
     },
     {
+       "Staff":true,
         "FirstName": "Zulema",
         "LastName": "Smith",
         "Office": 832,

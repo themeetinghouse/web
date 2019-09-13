@@ -85,14 +85,6 @@ export type CreateResourceInput = {
   id?: string | null,
 };
 
-export type UpdateResourceInput = {
-  id: string,
-};
-
-export type DeleteResourceInput = {
-  id?: string | null,
-};
-
 export type CreateSpeakerInput = {
   id?: string | null,
   name?: string | null,
@@ -247,21 +239,6 @@ export type CreateBlogInput = {
   content?: string | null,
 };
 
-export type UpdateBlogInput = {
-  id: string,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  title?: string | null,
-  content?: string | null,
-  expectedVersion: number,
-};
-
-export type DeleteBlogInput = {
-  id?: string | null,
-  expectedVersion: number,
-};
-
 export type CreateNewsInput = {
   id?: string | null,
   createdBy?: string | null,
@@ -273,21 +250,6 @@ export type CreateNewsInput = {
   endDate?: string | null,
 };
 
-export type UpdateNewsInput = {
-  id: string,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  title?: string | null,
-  content?: string | null,
-  startDate?: string | null,
-  endDate?: string | null,
-};
-
-export type DeleteNewsInput = {
-  id?: string | null,
-};
-
 export type CreateEventInput = {
   id?: string | null,
   createdBy?: string | null,
@@ -297,21 +259,6 @@ export type CreateEventInput = {
   endTime?: string | null,
   title?: string | null,
   description?: string | null,
-};
-
-export type UpdateEventInput = {
-  id: string,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  startTime?: string | null,
-  endTime?: string | null,
-  title?: string | null,
-  description?: string | null,
-};
-
-export type DeleteEventInput = {
-  id?: string | null,
 };
 
 export type CreateGroupInput = {
@@ -329,19 +276,6 @@ export enum Status {
 }
 
 
-export type UpdateGroupInput = {
-  id: string,
-  canJoin?: boolean | null,
-  visibleToNonMembers?: boolean | null,
-  status?: Status | null,
-  name?: string | null,
-  type?: string | null,
-};
-
-export type DeleteGroupInput = {
-  id?: string | null,
-};
-
 export type CreateOrganizationInput = {
   id?: string | null,
   canJoin: boolean,
@@ -356,26 +290,6 @@ export type CreateOrganizationInput = {
   twitter?: string | null,
   facebook?: string | null,
   website?: string | null,
-};
-
-export type UpdateOrganizationInput = {
-  id: string,
-  canJoin?: boolean | null,
-  visibleToNonMembers?: boolean | null,
-  status?: Status | null,
-  name?: string | null,
-  location?: string | null,
-  address?: string | null,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  website?: string | null,
-};
-
-export type DeleteOrganizationInput = {
-  id?: string | null,
 };
 
 export type CreateLocationInput = {
@@ -435,6 +349,98 @@ export type CreateStaffInput = {
   status: string,
 };
 
+export type CreateRegionInput = {
+  id?: string | null,
+  name: string,
+  status: Status,
+};
+
+export type UpdateResourceInput = {
+  id: string,
+};
+
+export type DeleteResourceInput = {
+  id?: string | null,
+};
+
+export type UpdateBlogInput = {
+  id: string,
+  createdBy?: string | null,
+  createdDate?: string | null,
+  postedDate?: string | null,
+  title?: string | null,
+  content?: string | null,
+  expectedVersion: number,
+};
+
+export type DeleteBlogInput = {
+  id?: string | null,
+  expectedVersion: number,
+};
+
+export type UpdateNewsInput = {
+  id: string,
+  createdBy?: string | null,
+  createdDate?: string | null,
+  postedDate?: string | null,
+  title?: string | null,
+  content?: string | null,
+  startDate?: string | null,
+  endDate?: string | null,
+};
+
+export type DeleteNewsInput = {
+  id?: string | null,
+};
+
+export type UpdateEventInput = {
+  id: string,
+  createdBy?: string | null,
+  createdDate?: string | null,
+  postedDate?: string | null,
+  startTime?: string | null,
+  endTime?: string | null,
+  title?: string | null,
+  description?: string | null,
+};
+
+export type DeleteEventInput = {
+  id?: string | null,
+};
+
+export type UpdateGroupInput = {
+  id: string,
+  canJoin?: boolean | null,
+  visibleToNonMembers?: boolean | null,
+  status?: Status | null,
+  name?: string | null,
+  type?: string | null,
+};
+
+export type DeleteGroupInput = {
+  id?: string | null,
+};
+
+export type UpdateOrganizationInput = {
+  id: string,
+  canJoin?: boolean | null,
+  visibleToNonMembers?: boolean | null,
+  status?: Status | null,
+  name?: string | null,
+  location?: string | null,
+  address?: string | null,
+  phone?: string | null,
+  email?: string | null,
+  instagram?: string | null,
+  twitter?: string | null,
+  facebook?: string | null,
+  website?: string | null,
+};
+
+export type DeleteOrganizationInput = {
+  id?: string | null,
+};
+
 export type UpdateStaffInput = {
   sub?: string | null,
   title?: string | null,
@@ -450,12 +456,6 @@ export type UpdateStaffInput = {
 
 export type DeleteStaffInput = {
   id?: string | null,
-};
-
-export type CreateRegionInput = {
-  id?: string | null,
-  name: string,
-  status: Status,
 };
 
 export type UpdateRegionInput = {
@@ -1616,28 +1616,6 @@ export type CreateResourceMutationVariables = {
 
 export type CreateResourceMutation = {
   createResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type UpdateResourceMutationVariables = {
-  input: UpdateResourceInput,
-};
-
-export type UpdateResourceMutation = {
-  updateResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type DeleteResourceMutationVariables = {
-  input: DeleteResourceInput,
-};
-
-export type DeleteResourceMutation = {
-  deleteResource:  {
     __typename: "Resource",
     id: string | null,
   } | null,
@@ -5657,84 +5635,6 @@ export type CreateBlogMutation = {
   } | null,
 };
 
-export type UpdateBlogMutationVariables = {
-  input: UpdateBlogInput,
-};
-
-export type UpdateBlogMutation = {
-  updateBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type DeleteBlogMutationVariables = {
-  input: DeleteBlogInput,
-};
-
-export type DeleteBlogMutation = {
-  deleteBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
 export type CreateNewsMutationVariables = {
   input: CreateNewsInput,
 };
@@ -5775,172 +5675,12 @@ export type CreateNewsMutation = {
   } | null,
 };
 
-export type UpdateNewsMutationVariables = {
-  input: UpdateNewsInput,
-};
-
-export type UpdateNewsMutation = {
-  updateNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type DeleteNewsMutationVariables = {
-  input: DeleteNewsInput,
-};
-
-export type DeleteNewsMutation = {
-  deleteNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
 export type CreateEventMutationVariables = {
   input: CreateEventInput,
 };
 
 export type CreateEventMutation = {
   createEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type UpdateEventMutationVariables = {
-  input: UpdateEventInput,
-};
-
-export type UpdateEventMutation = {
-  updateEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type DeleteEventMutationVariables = {
-  input: DeleteEventInput,
-};
-
-export type DeleteEventMutation = {
-  deleteEvent:  {
     __typename: "Event",
     id: string | null,
     createdBy: string | null,
@@ -6019,244 +5759,12 @@ export type CreateGroupMutation = {
   } | null,
 };
 
-export type UpdateGroupMutationVariables = {
-  input: UpdateGroupInput,
-};
-
-export type UpdateGroupMutation = {
-  updateGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type DeleteGroupMutationVariables = {
-  input: DeleteGroupInput,
-};
-
-export type DeleteGroupMutation = {
-  deleteGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
 export type CreateOrganizationMutationVariables = {
   input: CreateOrganizationInput,
 };
 
 export type CreateOrganizationMutation = {
   createOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type UpdateOrganizationMutationVariables = {
-  input: UpdateOrganizationInput,
-};
-
-export type UpdateOrganizationMutation = {
-  updateOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type DeleteOrganizationMutationVariables = {
-  input: DeleteOrganizationInput,
-};
-
-export type DeleteOrganizationMutation = {
-  deleteOrganization:  {
     __typename: "Organization",
     id: string | null,
     canJoin: boolean,
@@ -6430,6 +5938,533 @@ export type CreateStaffMutation = {
   } | null,
 };
 
+export type CreateRegionMutationVariables = {
+  input: CreateRegionInput,
+};
+
+export type CreateRegionMutation = {
+  createRegion:  {
+    __typename: "Region",
+    id: string | null,
+    name: string,
+    status: Status,
+    sites:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } > | null,
+  } | null,
+};
+
+export type UpdateResourceMutationVariables = {
+  input: UpdateResourceInput,
+};
+
+export type UpdateResourceMutation = {
+  updateResource:  {
+    __typename: "Resource",
+    id: string | null,
+  } | null,
+};
+
+export type DeleteResourceMutationVariables = {
+  input: DeleteResourceInput,
+};
+
+export type DeleteResourceMutation = {
+  deleteResource:  {
+    __typename: "Resource",
+    id: string | null,
+  } | null,
+};
+
+export type UpdateBlogMutationVariables = {
+  input: UpdateBlogInput,
+};
+
+export type UpdateBlogMutation = {
+  updateBlog:  {
+    __typename: "Blog",
+    id: string | null,
+    createdBy: string | null,
+    createdDate: string | null,
+    postedDate: string | null,
+    locations:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } | null > | null,
+    title: string | null,
+    content: string | null,
+    version: number,
+  } | null,
+};
+
+export type DeleteBlogMutationVariables = {
+  input: DeleteBlogInput,
+};
+
+export type DeleteBlogMutation = {
+  deleteBlog:  {
+    __typename: "Blog",
+    id: string | null,
+    createdBy: string | null,
+    createdDate: string | null,
+    postedDate: string | null,
+    locations:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } | null > | null,
+    title: string | null,
+    content: string | null,
+    version: number,
+  } | null,
+};
+
+export type UpdateNewsMutationVariables = {
+  input: UpdateNewsInput,
+};
+
+export type UpdateNewsMutation = {
+  updateNews:  {
+    __typename: "News",
+    id: string | null,
+    createdBy: string | null,
+    createdDate: string | null,
+    postedDate: string | null,
+    locations:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } | null > | null,
+    title: string | null,
+    content: string | null,
+    startDate: string | null,
+    endDate: string | null,
+  } | null,
+};
+
+export type DeleteNewsMutationVariables = {
+  input: DeleteNewsInput,
+};
+
+export type DeleteNewsMutation = {
+  deleteNews:  {
+    __typename: "News",
+    id: string | null,
+    createdBy: string | null,
+    createdDate: string | null,
+    postedDate: string | null,
+    locations:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } | null > | null,
+    title: string | null,
+    content: string | null,
+    startDate: string | null,
+    endDate: string | null,
+  } | null,
+};
+
+export type UpdateEventMutationVariables = {
+  input: UpdateEventInput,
+};
+
+export type UpdateEventMutation = {
+  updateEvent:  {
+    __typename: "Event",
+    id: string | null,
+    createdBy: string | null,
+    createdDate: string | null,
+    postedDate: string | null,
+    locations:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } | null > | null,
+    startTime: string | null,
+    endTime: string | null,
+    title: string | null,
+    description: string | null,
+  } | null,
+};
+
+export type DeleteEventMutationVariables = {
+  input: DeleteEventInput,
+};
+
+export type DeleteEventMutation = {
+  deleteEvent:  {
+    __typename: "Event",
+    id: string | null,
+    createdBy: string | null,
+    createdDate: string | null,
+    postedDate: string | null,
+    locations:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } | null > | null,
+    startTime: string | null,
+    endTime: string | null,
+    title: string | null,
+    description: string | null,
+  } | null,
+};
+
+export type UpdateGroupMutationVariables = {
+  input: UpdateGroupInput,
+};
+
+export type UpdateGroupMutation = {
+  updateGroup:  {
+    __typename: "Group",
+    id: string | null,
+    canJoin: boolean | null,
+    visibleToNonMembers: boolean | null,
+    status: Status | null,
+    name: string | null,
+    admin:  Array<( {
+        __typename: "Staff",
+        sub: string | null,
+        title: string | null,
+        name: string | null,
+        phone: string | null,
+        email: string | null,
+        instagram: string | null,
+        twitter: string | null,
+        facebook: string | null,
+        website: string | null,
+        status: string | null,
+      }
+    ) | null > | null,
+    members:  Array<( {
+        __typename: "Staff",
+        sub: string | null,
+        title: string | null,
+        name: string | null,
+        phone: string | null,
+        email: string | null,
+        instagram: string | null,
+        twitter: string | null,
+        facebook: string | null,
+        website: string | null,
+        status: string | null,
+      }
+    ) | null > | null,
+    type: string | null,
+  } | null,
+};
+
+export type DeleteGroupMutationVariables = {
+  input: DeleteGroupInput,
+};
+
+export type DeleteGroupMutation = {
+  deleteGroup:  {
+    __typename: "Group",
+    id: string | null,
+    canJoin: boolean | null,
+    visibleToNonMembers: boolean | null,
+    status: Status | null,
+    name: string | null,
+    admin:  Array<( {
+        __typename: "Staff",
+        sub: string | null,
+        title: string | null,
+        name: string | null,
+        phone: string | null,
+        email: string | null,
+        instagram: string | null,
+        twitter: string | null,
+        facebook: string | null,
+        website: string | null,
+        status: string | null,
+      }
+    ) | null > | null,
+    members:  Array<( {
+        __typename: "Staff",
+        sub: string | null,
+        title: string | null,
+        name: string | null,
+        phone: string | null,
+        email: string | null,
+        instagram: string | null,
+        twitter: string | null,
+        facebook: string | null,
+        website: string | null,
+        status: string | null,
+      }
+    ) | null > | null,
+    type: string | null,
+  } | null,
+};
+
+export type UpdateOrganizationMutationVariables = {
+  input: UpdateOrganizationInput,
+};
+
+export type UpdateOrganizationMutation = {
+  updateOrganization:  {
+    __typename: "Organization",
+    id: string | null,
+    canJoin: boolean,
+    visibleToNonMembers: boolean,
+    status: Status,
+    name: string,
+    admin:  Array<( {
+        __typename: "Staff",
+        sub: string | null,
+        title: string | null,
+        name: string | null,
+        phone: string | null,
+        email: string | null,
+        instagram: string | null,
+        twitter: string | null,
+        facebook: string | null,
+        website: string | null,
+        status: string | null,
+      }
+    ) > | null,
+    members:  Array< {
+      __typename: "Staff",
+      sub: string,
+      title: string,
+      name: string,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      website: string | null,
+      status: string,
+    } > | null,
+    location: string | null,
+    address: string | null,
+    phone: string | null,
+    email: string | null,
+    instagram: string | null,
+    twitter: string | null,
+    facebook: string | null,
+    website: string | null,
+    sites:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } > | null,
+  } | null,
+};
+
+export type DeleteOrganizationMutationVariables = {
+  input: DeleteOrganizationInput,
+};
+
+export type DeleteOrganizationMutation = {
+  deleteOrganization:  {
+    __typename: "Organization",
+    id: string | null,
+    canJoin: boolean,
+    visibleToNonMembers: boolean,
+    status: Status,
+    name: string,
+    admin:  Array<( {
+        __typename: "Staff",
+        sub: string | null,
+        title: string | null,
+        name: string | null,
+        phone: string | null,
+        email: string | null,
+        instagram: string | null,
+        twitter: string | null,
+        facebook: string | null,
+        website: string | null,
+        status: string | null,
+      }
+    ) > | null,
+    members:  Array< {
+      __typename: "Staff",
+      sub: string,
+      title: string,
+      name: string,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      website: string | null,
+      status: string,
+    } > | null,
+    location: string | null,
+    address: string | null,
+    phone: string | null,
+    email: string | null,
+    instagram: string | null,
+    twitter: string | null,
+    facebook: string | null,
+    website: string | null,
+    sites:  Array< {
+      __typename: "Location",
+      id: string | null,
+      url: string | null,
+      site_name: string | null,
+      directions: string | null,
+      welcome: string | null,
+      welcome_img: string | null,
+      welcome_vid_youtube: string | null,
+      phone: string | null,
+      email: string | null,
+      instagram: string | null,
+      twitter: string | null,
+      facebook: string | null,
+      location:  {
+        __typename: "LocationGPS",
+        longitude: number | null,
+        latitude: number | null,
+        address: string | null,
+      } | null,
+      visible: boolean | null,
+    } > | null,
+  } | null,
+};
+
 export type UpdateStaffMutationVariables = {
   input: UpdateStaffInput,
 };
@@ -6467,41 +6502,6 @@ export type DeleteStaffMutation = {
     facebook: string | null,
     website: string | null,
     status: string,
-  } | null,
-};
-
-export type CreateRegionMutationVariables = {
-  input: CreateRegionInput,
-};
-
-export type CreateRegionMutation = {
-  createRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
   } | null,
 };
 

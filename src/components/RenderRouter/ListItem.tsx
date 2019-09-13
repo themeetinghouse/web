@@ -83,7 +83,17 @@ class ListItem extends React.Component<Props, State> {
         return response.json();
       })
         .then((myJson) => {
-          this.setState({ listData: myJson });
+          if (this.state.content.filterField === "sites") {
+            fetch('./static/data/coordinators.json').then(function (response) {
+              return response.json();
+            }).then((myJson2) => {
+              this.setState({listData:myJson.concat(myJson2)})
+            })
+
+          }
+          else {
+            this.setState({ listData: myJson });
+          }
         })
 
     }
@@ -173,12 +183,12 @@ class ListItem extends React.Component<Props, State> {
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.content.text1}</div>) : null}
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
-            {data.map((item: any,index:any) => {
+            {data.map((item: any, index: any) => {
               if (this.state.content.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                     <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png"
-                    onError={(target:any)=>{console.log(target.target);if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png";}}
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png"; }}
                     />
                     <div style={{ fontWeight: "bold" }}>{item.name}</div>
                     <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
@@ -196,14 +206,14 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.content.class === "staff"  ) {
+              else if (this.state.content.class === "staff") {
                 return (
                   <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
-                   
-                      <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} 
-                      onError={(target:any)=>{console.log(target.target);if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png";}}
-                      src={"./static/photos/staff/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
-                   
+
+                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }}
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png"; }}
+                      src={"./static/photos/"+(item.Staff==null?"coordinators":"staff")+"/"+ (item.Staff==null?item.sites[0]+"_":"") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+
                     <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
                     <div style={{ fontWeight: "bold" }}>{item.Position}</div>
                     <div>{item.Email}</div>
@@ -215,14 +225,14 @@ class ListItem extends React.Component<Props, State> {
                   </div>
                 )
               }
-              else if (this.state.content.class === "overseers"  ) {
+              else if (this.state.content.class === "overseers") {
                 return (
                   <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
-                   
-                      <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }} 
-                      onError={(target:any)=>{console.log(target.target);if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png";}}
+
+                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }}
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png"; }}
                       src={"./static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
-                   
+
                     <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
                     <div style={{ fontWeight: "bold" }}>{item.Position}</div>
                     <div>{item.Email}</div>
@@ -253,7 +263,7 @@ class ListItem extends React.Component<Props, State> {
                 return (
                   <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
                     <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image}
-                    onError={(target:any)=>{console.log(target.target);if (target.target.src !== "./static/NoCompassionLogo.png") target.target.src = "./static/NoCompassionLogo.png";}} />
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/NoCompassionLogo.png") target.target.src = "./static/NoCompassionLogo.png"; }} />
                     <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
