@@ -31,16 +31,15 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Coming Soon",
+                "header1":"Overseers",
                 "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
+                "text1":"Search for overseers",
+                "link1Text": "Overseer Page",
+                "link1Action": "overseers",
                 "image1":[{
                     "src":"./static/images/homepage-2.jpg",
                     "alt":"TODO"
                 }]
-
             }
         ]
     }

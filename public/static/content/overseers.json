@@ -1,0 +1,28 @@
+{
+    "page": {
+        "name": "staff",
+        "title": "Staff",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+           
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "overseers",
+                "header1": "Overseers",
+                "text1": "This is a little something about this team; it could be humorous or it could be a canned subtitle that’s the same on all sites."
+                
+            }
+        ]
+    }
+}
