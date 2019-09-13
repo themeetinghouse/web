@@ -23,7 +23,7 @@ class HomePage extends React.Component<Props, State> {
     console.log(props)
     var jsonFile
     if (this.props.isVideo === "true") {
-      jsonFile = "homepage"
+      jsonFile = "video-player"
     }
     else {
       jsonFile = props.match.params.id
@@ -48,7 +48,7 @@ class HomePage extends React.Component<Props, State> {
   render() {
     return (
 
-      <RenderRouter data={null} content={this.state.content}></RenderRouter>
+      <RenderRouter data={this.props.isVideo === "true"?{id:this.props.match.params.episode}:null} content={this.state.content}></RenderRouter>
 
     )
   }

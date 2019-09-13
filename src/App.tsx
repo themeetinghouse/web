@@ -32,8 +32,8 @@ class App extends React.Component<Props, State>  {
       <Route path="/admin/locations"  render={() => <Locations />}/>
       <Route path="/admin/news"  render={() => <News />}/>
       <Route path="/admin"  render={() => <Admin />}/>
-      <Route path="/teaching/:series"  render={props => <HomePage isVideo="true" {...props} />}/>
       <Route path="/teaching/:series/:episode"  render={props => <HomePage  isVideo="true" {...props} />}/>
+      <Route path="/teaching/:series"  render={props => <HomePage isVideo="true" {...props} />}/>
       <Route path="/:id"  render={props => <HomePage isVideo="false" {...props} />}/>
     </Switch>
   )
