@@ -4,7 +4,7 @@ import '../custom.scss';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
-
+import VideoOverlay from '../components/VideoOverlay/VideoOverlay'
 Amplify.configure(awsconfig);
 
 interface Props extends RouteComponentProps {
@@ -41,16 +41,25 @@ class HomePage extends React.Component<Props, State> {
       return response.json();
     })
       .then((myJson) => {
-      
+
         this.setState({ content: myJson });
-      }).catch((e)=>{console.log(e)})
+      }).catch((e) => { console.log(e) })
+      this.navigateHome = this.navigateHome.bind(this);
   }
+  navigateHome() {
+    this.props.history.push("/", "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
+}
   render() {
-    return (
+    if (this.props.isVideo === "true")
+      return <VideoOverlay onClose={() => {this.navigateHome() }} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+    else
+      return (
+        <RenderRouter data={null} content={this.state.content}></RenderRouter>
 
-      <RenderRouter data={this.props.isVideo === "true"?{id:this.props.match.params.episode}:null} content={this.state.content}></RenderRouter>
-
-    )
+      )
   }
 }
 export default withRouter(HomePage);

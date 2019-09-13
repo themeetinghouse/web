@@ -31,7 +31,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       videoVisible: false,
       content: null
     }
-    fetch('./static/content/video-player.json').then(function (response) {
+    fetch('/static/content/video-player.json').then(function (response) {
       return response.json();
     })
       .then((myJson) => {
