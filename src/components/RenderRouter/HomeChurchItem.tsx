@@ -32,13 +32,17 @@ export class ContentItem extends React.Component<Props, State>  {
       listData: null
     }
     this.navigate = this.navigate.bind(this);
-
-    fetch('./static/data/distance-groups.json').then(function (response) {
-      return response.json();
-    })
-      .then((myJson) => {
-        this.setState({ listData: myJson });
+    if (this.state.content.class === "home-church") { 
+      
+    }
+    else {
+      fetch('./static/data/distance-groups.json').then(function (response) {
+        return response.json();
       })
+        .then((myJson) => {
+          this.setState({ listData: myJson });
+        })
+    }
   }
   navigate(to: string) {
     this.props.history.push(to, "as")
