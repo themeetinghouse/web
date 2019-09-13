@@ -9,6 +9,7 @@ import * as queries from '../../graphql/queries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 
@@ -49,7 +50,12 @@ class ListItem extends React.Component<Props, State> {
 
 
     if (this.state.content.class === "videos") {
-      const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
+    
+      const listVideos = API.graphql({query:queries.getVideoByVideoType, 
+  //    const listVideos = API.graphql({query:queries.getVideo, 
+        variables:{ sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
+//variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
+authMode: GRAPHQL_AUTH_MODE.API_KEY});
       listVideos.then((json: any) => {
         console.log("Success queries.listVideos: " + json);
         console.log(json)
@@ -69,7 +75,10 @@ class ListItem extends React.Component<Props, State> {
       }).catch((e: any) => { console.log(e) })
     }
     else if (this.state.content.class === "series") {
-      const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { sortOrder: this.state.content.sortOrder, limit: 50 }));
+     
+      const listSeriess = API.graphql({query:queries.listSeriess,
+        variables: { sortOrder: this.state.content.sortOrder, limit: 50 },
+        authMode:GRAPHQL_AUTH_MODE.API_KEY});
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
         console.log(json)

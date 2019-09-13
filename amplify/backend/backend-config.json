@@ -13,15 +13,15 @@
 				"authConfig": {
 					"additionalAuthenticationProviders": [
 						{
-							"authenticationType": "API_KEY",
-							"apiKeyConfig": {
-								"description": "Website",
-								"apiKeyExpirationDays": "365"
-							}
+							"authenticationType": "AWS_IAM"
 						}
 					],
 					"defaultAuthentication": {
-						"authenticationType": "AWS_IAM"
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "website",
+							"apiKeyExpirationDays": 180
+						}
 					}
 				}
 			}

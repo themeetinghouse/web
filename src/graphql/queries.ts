@@ -2387,19 +2387,11 @@ export const getVideo = `query GetVideo($id: ID!) {
 }
 `;
 export const listVideos = `query ListVideos(
-  $id: ID
   $filter: ModelVideoFilterInput
   $limit: Int
   $nextToken: String
-  $sortDirection: ModelSortDirection
 ) {
-  listVideos(
-    id: $id
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    sortDirection: $sortDirection
-  ) {
+  listVideos(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       createdBy

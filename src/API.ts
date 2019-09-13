@@ -140,7 +140,7 @@ export type DeleteSeriesInput = {
 };
 
 export type CreateVideoInput = {
-  id: string,
+  id?: string | null,
   createdBy?: string | null,
   createdDate?: string | null,
   episodeTitle?: string | null,
@@ -227,7 +227,7 @@ export type UpdateVideoInput = {
 };
 
 export type DeleteVideoInput = {
-  id: string,
+  id?: string | null,
 };
 
 export type CreateBlogInput = {
@@ -9344,11 +9344,9 @@ export type GetVideoQuery = {
 };
 
 export type ListVideosQueryVariables = {
-  id?: string | null,
   filter?: ModelVideoFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
-  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListVideosQuery = {

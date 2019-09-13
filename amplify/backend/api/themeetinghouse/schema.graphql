@@ -312,6 +312,8 @@ type Resource
 }
 type Speaker
  @model
+ @auth(rules:[{allow:public, operations:[read]}])
+
 {
    id:ID!
    name:String
@@ -319,13 +321,19 @@ type Speaker
    videos:[SpeakerVideos] @connection(name: "SpeakerVideos")
 }
 type SpeakerVideos
-@model{
+  @model
+ @auth(rules:[{allow:public, operations:[read]}])
+
+{
   id:ID!
   video:Video @connection(name: "VideosSpeaker")
   speaker:Speaker @connection(name: "SpeakerVideos")
 }
 type Series
-@model{
+  @model
+ @auth(rules:[{allow:public, operations:[read]}])
+
+{
   id: ID!
   videos: [Video] @connection(name: "VideosSeries")
   title: String
@@ -337,9 +345,10 @@ type Series
 type Video 
  @model 
  @searchable
- @key(fields:["id"])
  @key(name: "ByYoutubeIdent", fields: ["YoutubeIdent"], queryField:"getVideoByYoutubeIdent")
  @key(name: "ByVideoTypes",fields: ["videoTypes","publishedDate"], queryField:"getVideoByVideoType")
+ @auth(rules:[{allow:public, operations:[read]}])
+
 {
   id: ID!
   createdBy: String
@@ -480,6 +489,7 @@ type LocationGPS{
 }
 type Location 
   @model 
+ @auth(rules:[{allow:public, operations:[read]}])
 
 {
   id: String

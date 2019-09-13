@@ -6,9 +6,10 @@ import PropTypes from "prop-types";
 import { withCookies } from 'react-cookie';
 import "./TeachingItem.scss"
 import * as queries from '../../graphql/queries';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
@@ -45,7 +46,11 @@ class TeachingItem extends React.Component<Props, State> {
             listData:null,
             overlayData:null
         }
-        const listVideos = API.graphql(graphqlOperation(queries.getVideoByVideoType, { sortDirection:this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }));
+
+        const listVideos = API.graphql({
+            query: queries.getVideoByVideoType, 
+            variables: { sortDirection:this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } }, 
+            authMode: GRAPHQL_AUTH_MODE.API_KEY});
         listVideos.then((json: any) => {
           console.log("Success queries.listVideos: " + json);
           console.log(json)
