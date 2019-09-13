@@ -24,7 +24,7 @@ class App extends React.Component<Props, State>  {
   {
   return (
     <Switch key={this.props.location.pathname}>
-      <Route exact path="/"  render={props => <HomePage {...props} />} />
+      <Route exact path="/"  render={props => <HomePage isVideo="false" {...props} />} />
       <Route path="/admin/imports"  render={() => <Imports />}/>
       <Route path="/admin/blog"  render={() => <Blogs />}/>
       <Route path="/admin/events"  render={() => <Events />}/>
@@ -32,7 +32,9 @@ class App extends React.Component<Props, State>  {
       <Route path="/admin/locations"  render={() => <Locations />}/>
       <Route path="/admin/news"  render={() => <News />}/>
       <Route path="/admin"  render={() => <Admin />}/>
-      <Route path="/:id"  render={props => <HomePage {...props} />}/>
+      <Route path="/teaching/:series"  render={props => <HomePage isVideo="true" {...props} />}/>
+      <Route path="/teaching/:series/:episode"  render={props => <HomePage  isVideo="true" {...props} />}/>
+      <Route path="/:id"  render={props => <HomePage isVideo="false" {...props} />}/>
     </Switch>
   )
   }

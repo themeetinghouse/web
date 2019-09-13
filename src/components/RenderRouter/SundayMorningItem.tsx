@@ -137,8 +137,8 @@ export class ContentItem extends React.Component<Props, State>  {
                       </div>
                     </div>
                     <div>
-                      <Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderWidth: "0px", borderRadius: 0, fontSize: "1.5vw", fontFamily: "Graphik Web" }} ><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                      <Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderWidth: "0px", borderRadius: 0, fontSize: "1.5vw", fontFamily: "Graphik Web" }} ><img src="./static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
+                      <Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderWidth: "0px", borderRadius: 0, fontSize: "1.5vw", fontFamily: "Graphik Web" }} ><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                      <Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderWidth: "0px", borderRadius: 0, fontSize: "1.5vw", fontFamily: "Graphik Web" }} ><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
                     </div>
                   </div>
 

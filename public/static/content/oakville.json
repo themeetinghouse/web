@@ -19,11 +19,11 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "./static/images/oakville-1-1.jpg",
+                        "src": "/static/images/oakville-1-1.jpg",
                         "alt": "Description"
                     },
                     {
-                        "src": "./static/images/oakville-1-2.jpg",
+                        "src": "/static/images/oakville-1-2.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -66,7 +66,7 @@
                 "link1Text": "Info About Kids & Youth",
                 "link1Action": "kids-and-youth",
                 "image1":[{
-                    "src":"./static/images/oakville-2.png",
+                    "src":"/static/images/oakville-2.png",
                     "alt":"TODO"
                 }]
             },
@@ -75,7 +75,7 @@
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "./static/images/oakville-3.png",
+                        "src": "/static/images/oakville-3.png",
                         "alt": "Description"
                     }
                 ],
@@ -99,7 +99,7 @@
                 "style": "partialNoFooter",
                 "image1": [
                     {
-                        "src": "./static/images/oakville-4.png",
+                        "src": "/static/images/oakville-4.png",
                         "alt": "Description"
                     }
                 ],

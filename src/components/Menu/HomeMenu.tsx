@@ -114,10 +114,10 @@ class HomeMenu extends React.Component<Props, State>  {
 
       <div className="navbar-custom" id="navbar">
         <NavbarBrand className="brand" href="/">
-          <img src={"./static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
-          {this.state.showLogoText ? (<img src={"./static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
+          <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
+          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        {this.state.showSearch ? <img style={{ backgroundColor: "#ffffff" }} src="./static/svg/Search.svg" className="search" alt="Search" />:null}
+        {this.state.showSearch ? <img style={{ backgroundColor: "#ffffff" }} src="/static/svg/Search.svg" className="search" alt="Search" />:null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
           <div className="navbar-expander">&nbsp;</div>

@@ -50,12 +50,14 @@ class ListItem extends React.Component<Props, State> {
 
 
     if (this.state.content.class === "videos") {
-    
-      const listVideos = API.graphql({query:queries.getVideoByVideoType, 
-  //    const listVideos = API.graphql({query:queries.getVideo, 
-        variables:{ sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
-//variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
-authMode: GRAPHQL_AUTH_MODE.API_KEY});
+
+      const listVideos = API.graphql({
+        query: queries.getVideoByVideoType,
+        //    const listVideos = API.graphql({query:queries.getVideo, 
+        variables: { sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
+        //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
       listVideos.then((json: any) => {
         console.log("Success queries.listVideos: " + json);
         console.log(json)
@@ -75,10 +77,12 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
       }).catch((e: any) => { console.log(e) })
     }
     else if (this.state.content.class === "series") {
-     
-      const listSeriess = API.graphql({query:queries.listSeriess,
+
+      const listSeriess = API.graphql({
+        query: queries.listSeriess,
         variables: { sortOrder: this.state.content.sortOrder, limit: 50 },
-        authMode:GRAPHQL_AUTH_MODE.API_KEY});
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
         console.log(json)
@@ -96,7 +100,7 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
             fetch('./static/data/coordinators.json').then(function (response) {
               return response.json();
             }).then((myJson2) => {
-              this.setState({listData:myJson.concat(myJson2)})
+              this.setState({ listData: myJson.concat(myJson2) })
             })
 
           }
@@ -156,7 +160,7 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
               if (this.state.content.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png" />
+                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="/static/images/teaching-3.png" />
                     <div style={{ fontWeight: "bold" }}>{item.name}</div>
                     <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
                   </div>
@@ -196,8 +200,8 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
               if (this.state.content.class === "speakers") {
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="./static/images/teaching-3.png"
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png"; }}
+                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="/static/images/teaching-3.png"
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
                     />
                     <div style={{ fontWeight: "bold" }}>{item.name}</div>
                     <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
@@ -220,8 +224,8 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
                   <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
 
                     <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }}
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png"; }}
-                      src={"./static/photos/"+(item.Staff==null?"coordinators":"staff")+"/"+ (item.Staff==null?item.sites[0]+"_":"") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+                      src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
                     <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
                     <div style={{ fontWeight: "bold" }}>{item.Position}</div>
@@ -239,8 +243,8 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
                   <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
 
                     <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }}
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/Individual.png") target.target.src = "./static/Individual.png"; }}
-                      src={"./static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+                      src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
                     <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
                     <div style={{ fontWeight: "bold" }}>{item.Position}</div>
@@ -260,8 +264,8 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
-                    <Button onClick={() => this.navigate("calendar")}><img src="./static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                    <Button onClick={() => this.navigate("share")}><img src="./static/Share.png" alt="Share Icon" />Share</Button>
+                    <Button onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                    <Button onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
 
 
 
@@ -272,7 +276,7 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
                 return (
                   <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
                     <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image}
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "./static/NoCompassionLogo.png") target.target.src = "./static/NoCompassionLogo.png"; }} />
+                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
                     <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
                     <div style={{ whiteSpace: "normal" }}>{item.description}</div>
                     <div>{item.location}</div>
@@ -302,7 +306,7 @@ authMode: GRAPHQL_AUTH_MODE.API_KEY});
             {data.map((item: any) => {
               return (
                 <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                  <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="./static/images/teaching-4.png" />
+                  <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
                   <div style={{ fontWeight: "bold" }}>{item.title}</div>
                   <div>2019 • 4 Episodes</div>
                 </div>

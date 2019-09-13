@@ -24,7 +24,7 @@
                 "link1Text": "....",
                 "link1Action": "homepage",
                 "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
+                    "src":"/static/images/homepage-2.jpg",
                     "alt":"TODO"
                 }]
             },
@@ -37,7 +37,7 @@
                 "link1Text": "....",
                 "link1Action": "homepage",
                 "image1":[{
-                    "src":"./static/images/homepage-2.jpg",
+                    "src":"/static/images/homepage-2.jpg",
                     "alt":"TODO"
                 }]
             }

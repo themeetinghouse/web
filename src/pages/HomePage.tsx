@@ -9,7 +9,7 @@ Amplify.configure(awsconfig);
 
 interface Props extends RouteComponentProps {
   match: any
-
+  isVideo?: string
 }
 interface State {
   content: any
@@ -20,27 +20,36 @@ class HomePage extends React.Component<Props, State> {
     this.state = {
       content: null
     }
-    var jsonFile = props.match.params.id
-    if (props.match.params.id === "")
+    console.log(props)
+    var jsonFile
+    if (this.props.isVideo === "true") {
       jsonFile = "homepage"
-    if (props.match.params.id == null)
-      jsonFile = "homepage"
+    }
+    else {
+      jsonFile = props.match.params.id
+      if (props.match.params.id === "")
+        jsonFile = "homepage"
+      if (props.match.params.id == null)
+        jsonFile = "homepage"
+    }
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: jsonFile }
     });
-    fetch('./static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
+    fetch('/static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
+      console.log(response)
       return response.json();
     })
       .then((myJson) => {
+      
         this.setState({ content: myJson });
-      })
+      }).catch((e)=>{console.log(e)})
   }
   render() {
     return (
-      
-        <RenderRouter data={null} content={this.state.content}></RenderRouter>
-     
+
+      <RenderRouter data={null} content={this.state.content}></RenderRouter>
+
     )
   }
 }

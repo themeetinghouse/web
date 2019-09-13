@@ -19,11 +19,11 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "./static/images/ancaster-1-1.jpg",
+                        "src": "/static/images/ancaster-1-1.jpg",
                         "alt": "Description"
                     },
                     {
-                        "src": "./static/images/ancaster-1-2.jpg",
+                        "src": "/static/images/ancaster-1-2.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -68,7 +68,7 @@
                 "link1Text": "Info About Kids & Youth",
                 "link1Action": "kids-and-youth",
                 "image1":[{
-                    "src":"./static/images/ancaster-2.png",
+                    "src":"/static/images/ancaster-2.png",
                     "alt":"TODO"
                 }]
             },
@@ -77,7 +77,7 @@
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "./static/images/ancaster-3.png",
+                        "src": "/static/images/ancaster-3.png",
                         "alt": "Description"
                     }
                 ],
@@ -101,7 +101,7 @@
                 "style": "partialNoFooter",
                 "image1": [
                     {
-                        "src": "./static/images/ancaster-4.png",
+                        "src": "/static/images/ancaster-4.png",
                         "alt": "Description"
                     }
                 ],
