@@ -563,7 +563,7 @@ class Imports extends React.Component<Props, State>  {
   copySeriesSermonLinksTN(nextId: any) {
     const listTnSermons = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
     listTnSermons.then((json: any) => {
-      // console.log(json)
+      console.log(json)
       json.data.listTNSermons.items.map((item: any) => {
         // console.log(item) 
         if (item.mediaEntries != null) {
@@ -579,13 +579,13 @@ class Imports extends React.Component<Props, State>  {
             getTnSeries.then((json2: any) => {
               //console.log(json)
               if (json2.data.getTNSeriesByIdent != null) {
-                var seriesTitle=this.simplifySeries(json2.data.getTNSeriesByIdent.items[0].title)
+                var seriesTitle = this.simplifySeries(json2.data.getTNSeriesByIdent.items[0].title)
                 console.log(seriesTitle)
-                const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtubeURL, seriesTitle: seriesTitle, videoSeriesId:seriesTitle } }));
-                updateVideo.then((json3:any) => {
+                const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtubeURL, seriesTitle: seriesTitle, videoSeriesId: seriesTitle } }));
+                updateVideo.then((json3: any) => {
                   console.log(json3)
                 }
-                ).catch((err:any) => {
+                ).catch((err: any) => {
                   console.log("Error mutations.updateVideo: " + err);
                   console.log(err)
                 })
@@ -613,6 +613,36 @@ class Imports extends React.Component<Props, State>  {
     temp = temp.replace(": The Law and the Land", "").replace(" - Q&A", "").replace(": The Promise and the Pain", "").replace(": Restoring and Reconciling", "")
     temp = temp.replace(" - Dec 2014", "").replace(" - June 2015", "")
     return temp
+  }
+  updateSeriesDates(nextId: any) {
+    const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
+    listSeriess.then((json: any) => {
+      //  console.log(json)
+      json.data.listSeriess.items.map((item: any) => {
+        console.log(item.title)
+        if (item.videos.items.length > 0) {
+          var startDate=item.videos.items.map((a: any) => { return a.publishedDate }).sort()[0]
+          var endDate=item.videos.items.map((a: any) => { return a.publishedDate }).sort()[item.videos.items.length - 1]
+         
+          const updateSeriess = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: item.id, startDate:startDate,endDate:endDate } }));
+          updateSeriess.then((json2: any) => {
+            console.log(json2)
+          }).catch((err: any) => {
+            console.log("Error mutations.createSeries: " + err);
+            console.log(err)
+          });
+        }
+      })
+
+      if (json.data.listSeriess.nextToken != null)
+        this.updateSeriesDates(json.data.listSeriess.nextToken)
+      // const arrSum = (x:any) => x.reduce((a:any,b:any) => a + b, 0)
+      //  console.log(arrSum(z))
+    }).catch((err: any) => {
+      console.log("Error mutations.createSeries: " + err);
+      console.log(err)
+    });
+
   }
   importSeriesTN(nextId: any, list: any) {
 
@@ -764,6 +794,8 @@ class Imports extends React.Component<Props, State>  {
           <div>Step 6.
           <Button onClick={() => { this.importSeriesTN(null, []) }}>Create Series</Button>
             <Button onClick={() => { this.copySeriesSermonLinksTN(null) }}>Copy Series/Sermon Links</Button>
+            <Button onClick={() => { this.updateSeriesDates(null) }}>Update Series Dates</Button>
+
           </div>
           <div>Step 7.
             <Button onClick={() => { this.importSites() }}>Import Sites</Button>

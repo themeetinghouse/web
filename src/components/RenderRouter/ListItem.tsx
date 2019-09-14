@@ -32,6 +32,15 @@ class ListItem extends React.Component<Props, State> {
 
     })
   }
+  showYears(start:any,end:any){
+    if (start===null||end===null)
+      return null
+    else
+    if (new Date(start).getFullYear()==new Date(end).getFullYear())
+    return new Date(start).getFullYear() + " • "
+    else
+    return new Date(start).getFullYear() +" - "+new Date(end).getFullYear() + " • "
+  }
   handleClick(data: any) {
     this.setState({
       overlayData: data
@@ -308,7 +317,7 @@ class ListItem extends React.Component<Props, State> {
                 <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
                   <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
                   <div style={{ fontWeight: "bold" }}>{item.title}</div>
-                  <div>2019 • 4 Episodes</div>
+                  <div>{ this.showYears(item.startDate,item.endDate)}{item.videos.items.length} Episodes</div>
                 </div>
               )
             })}
