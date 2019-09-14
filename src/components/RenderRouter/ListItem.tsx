@@ -316,8 +316,8 @@ class ListItem extends React.Component<Props, State> {
               if (item.videos.items.length > 0)
                 return (
                   <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
-                    <div style={{ fontWeight: "bold" }}>{item.title}</div>
+                    <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
+                    <div style={{ width:"20vw", whiteSpace:"normal",fontWeight: "bold" }}>{item.title}</div>
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
                   </div>
                 )
