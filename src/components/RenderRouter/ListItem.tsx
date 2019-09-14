@@ -32,14 +32,14 @@ class ListItem extends React.Component<Props, State> {
 
     })
   }
-  showYears(start:any,end:any){
-    if (start===null||end===null)
+  showYears(start: any, end: any) {
+    if (start === null || end === null)
       return null
     else
-    if (new Date(start).getFullYear()==new Date(end).getFullYear())
-    return new Date(start).getFullYear() + " • "
-    else
-    return new Date(start).getFullYear() +" - "+new Date(end).getFullYear() + " • "
+      if (new Date(start).getFullYear() === new Date(end).getFullYear())
+        return new Date(start).getFullYear() + " • "
+      else
+        return new Date(start).getFullYear() + " - " + new Date(end).getFullYear() + " • "
   }
   handleClick(data: any) {
     this.setState({
@@ -313,13 +313,15 @@ class ListItem extends React.Component<Props, State> {
           <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
           <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
             {data.map((item: any) => {
-              return (
-                <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                  <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
-                  <div style={{ fontWeight: "bold" }}>{item.title}</div>
-                  <div>{ this.showYears(item.startDate,item.endDate)}{item.videos.items.length} Episodes</div>
-                </div>
-              )
+              if (item.videos.items.length > 0)
+                return (
+                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
+                    <img alt="TBD" style={{ height: "25vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
+                    <div style={{ fontWeight: "bold" }}>{item.title}</div>
+                    <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
+                  </div>
+                )
+              else return null
             })}
 
             <div style={{ clear: "left" }} ></div>

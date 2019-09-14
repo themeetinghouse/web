@@ -104,9 +104,9 @@ class TeachingItem extends React.Component<Props, State> {
                     </div>
                     <div className="teaching-mostrecent" >Most recent</div>
                     <div className="teaching-options" >
-                        {this.props.content.options.map((item: any) => {
+                        {this.props.content.options.map((item: any,index:any) => {
                             return (
-                                <span style={{ margin: "1vw" }} className={this.state.selection===item?"TeachingSelected":"TeachingUnselected"} onClick={()=>{this.setSelection(item)}}>{item}</span>
+                                <span key={index} style={{ margin: "1vw" }} className={this.state.selection===item?"TeachingSelected":"TeachingUnselected"} onClick={()=>{this.setSelection(item)}}>{item}</span>
                             )
                         }
                         )}
