@@ -574,18 +574,23 @@ class Imports extends React.Component<Props, State>  {
           if (z != null && z.url !== "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
             youtubeURL = this.fixTNYoutubeURL(z.url)
             console.log(youtubeURL)
-            var series_fk:any=item.series_FK
+            var series_fk: any = item.series_FK
             const getTnSeries = API.graphql(graphqlOperation(queries.getTnSeriesByIdent, { TNident: series_fk }));
-            getTnSeries.then((json: any) => {
+            getTnSeries.then((json2: any) => {
               //console.log(json)
-              if (json.data.getTNSeriesByIdent!=null) {
-                console.log(json)
-               console.log("ADD")
-               console.log(youtubeURL)
-               console.log(this.simplifySeries(json.data.getTNSeriesByIdent.title))
-               
+              if (json2.data.getTNSeriesByIdent != null) {
+                var seriesTitle=this.simplifySeries(json2.data.getTNSeriesByIdent.items[0].title)
+                console.log(seriesTitle)
+                const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtubeURL, seriesTitle: seriesTitle, videoSeriesId:seriesTitle } }));
+                updateVideo.then((json3:any) => {
+                  console.log(json3)
+                }
+                ).catch((err:any) => {
+                  console.log("Error mutations.updateVideo: " + err);
+                  console.log(err)
+                })
               }
-             }).catch((err: any) => {
+            }).catch((err: any) => {
               console.log("Error queries.getTnSeriesByIdent: " + err);
               console.log(err)
               // this.importSeries(start)

@@ -97,7 +97,7 @@ class TeachingItem extends React.Component<Props, State> {
                     <div className="teaching-blackbox" >
                         <div style={{ padding: "0.5vw", color: "#C8C8C8" }}>{this.state.listData[this.state.teachingId].publishedDate}</div>
                         <div style={{ padding: "0.5vw", fontSize: "2.5vw", fontWeight: "bold", color: "#ffffff" }}>{this.state.listData[this.state.teachingId].episodeTitle}</div>
-                        <div style={{ padding: "0.5vw", color: "#C8C8C8" }}>E2. <a href="">{this.state.listData[this.state.teachingId].series}</a>  •  {this.state.listData[this.state.teachingId].duration}</div>
+                        <div style={{ padding: "0.5vw", color: "#C8C8C8" }}>E2. <a href="">{this.state.listData[this.state.teachingId].seriesTitle}</a>  •  {this.state.listData[this.state.teachingId].duration}</div>
                         <div style={{ padding: "0.5vw", color: "#C8C8C8" }}> {this.state.listData[this.state.teachingId].description}</div>
                         <div style={{ position: "absolute", bottom: "5vw" }}><Button onClick={()=>{this.handleClick(this.state.listData[this.state.teachingId])}} >Watch</Button></div>
                         <div><img onClick={()=>{this.handleClick(this.state.listData[this.state.teachingId])}} alt="TBD" className="teaching-image"  src={this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>

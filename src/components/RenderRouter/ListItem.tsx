@@ -172,7 +172,7 @@ class ListItem extends React.Component<Props, State> {
                     <div>
                       <img onClick={() => this.handleClick(item)} alt="TBD" style={{ cursor: "pointer", width: "16vw", marginRight: "1vw", objectFit: "cover", height: "9vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
                       <div style={{ width: "16vw", fontWeight: "bold", whiteSpace: "normal" }}>{item.episodeTitle}</div>
-                      <div style={{ fontWeight: "bold" }}>{item.series != null ? item.series : null}</div>
+                      <div style={{ fontWeight: "bold" }}>{item.seriesTitle != null ? item.seriesTitle : null}</div>
                       <div>{item.publishedDate}</div>
                     </div>
 
