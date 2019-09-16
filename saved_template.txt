@@ -1,0 +1,36 @@
+ "CacheBehaviors": [
+                        {
+                            "AllowedMethods": [
+                                "DELETE",
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PATCH",
+                                "POST",
+                                "PUT"
+                            ],
+                            "CachedMethods": [
+                                "HEAD",
+                                "GET"
+                            ],
+                            "Compress": true,
+                            "DefaultTTL": 86400,
+                            "ForwardedValues": {
+                                "QueryString": "false"
+                            },
+                            "LambdaFunctionAssociations": [
+                                {
+                                    "EventType": "origin-response",
+                                    "LambdaFunctionARN": 
+                                        "arn:aws:lambda:us-east-1:119330689042:function:imageOptimizer-dev:1"
+                                    
+                                }
+                            ],
+                            "MaxTTL": 31536000,
+                            "MinTTL": 0,
+                            "PathPattern": "static/imageTest/*",
+                            "SmoothStreaming": false,
+                            "TargetOriginId": "hostingS3Bucket",
+                            "ViewerProtocolPolicy": "redirect-to-https"
+                        }
+                    ],

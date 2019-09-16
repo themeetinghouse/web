@@ -33,7 +33,22 @@
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"function": {},
+	"function": {
+		"themeetinghousea5cd4619": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "hosting",
+					"resourceName": "S3AndCloudFront",
+					"attributes": [
+						"HostingBucketName"
+					]
+				}
+			]
+		}
+	},
 	"analytics": {
 		"themeetinghouse": {
 			"service": "Pinpoint",

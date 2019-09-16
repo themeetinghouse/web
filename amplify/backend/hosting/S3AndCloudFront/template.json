@@ -20,6 +20,7 @@
         }
     },
     "Resources": {
+
         "S3Bucket": {
             "Type": "AWS::S3::Bucket",
             "DeletionPolicy": "Retain",
@@ -69,6 +70,8 @@
                 }
             }
         },
+
+       
         "OriginAccessIdentity": {
             "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
             "Properties": {
@@ -110,6 +113,7 @@
                         }
                     ],
                     "Enabled": "true",
+                   
                     "DefaultCacheBehavior": {
                         "AllowedMethods": [
                             "DELETE",
