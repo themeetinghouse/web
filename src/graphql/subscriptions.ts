@@ -617,6 +617,7 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -641,6 +642,7 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -651,6 +653,7 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -719,6 +722,7 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -789,6 +793,7 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -813,6 +818,7 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -823,6 +829,7 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -891,6 +898,7 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -961,6 +969,7 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -985,6 +994,7 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -995,6 +1005,7 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -1063,6 +1074,7 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -1154,6 +1166,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1211,6 +1224,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1247,6 +1261,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1395,6 +1410,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1516,6 +1532,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1573,6 +1590,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1609,6 +1627,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1757,6 +1776,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1878,6 +1898,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1935,6 +1956,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1971,6 +1993,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -2119,6 +2142,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -2233,6 +2257,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2273,6 +2298,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -2301,6 +2327,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2461,6 +2488,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2501,6 +2529,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -2529,6 +2558,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2689,6 +2719,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2729,6 +2760,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -2757,6 +2789,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2923,6 +2956,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2947,6 +2981,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -2957,6 +2992,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3025,6 +3061,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3053,6 +3090,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -3090,6 +3128,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3114,6 +3153,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3124,6 +3164,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3310,6 +3351,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3334,6 +3376,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3344,6 +3387,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3412,6 +3456,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3440,6 +3485,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -3477,6 +3523,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3501,6 +3548,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3511,6 +3559,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3697,6 +3746,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3721,6 +3771,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3731,6 +3782,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3799,6 +3851,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3827,6 +3880,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -3864,6 +3918,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3888,6 +3943,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3898,6 +3954,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate

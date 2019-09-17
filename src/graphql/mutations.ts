@@ -605,6 +605,7 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -629,6 +630,7 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -639,6 +641,7 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -707,6 +710,7 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -777,6 +781,7 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -801,6 +806,7 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -811,6 +817,7 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -879,6 +886,7 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -949,6 +957,7 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -973,6 +982,7 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -983,6 +993,7 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -1051,6 +1062,7 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -1142,6 +1154,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1199,6 +1212,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1235,6 +1249,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1383,6 +1398,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1504,6 +1520,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1561,6 +1578,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1597,6 +1615,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1745,6 +1764,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1866,6 +1886,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1923,6 +1944,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1959,6 +1981,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -2107,6 +2130,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -2221,6 +2245,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2261,6 +2286,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -2289,6 +2315,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2449,6 +2476,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2489,6 +2517,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -2517,6 +2546,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2677,6 +2707,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2717,6 +2748,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -2745,6 +2777,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -2911,6 +2944,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2935,6 +2969,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -2945,6 +2980,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3013,6 +3049,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3041,6 +3078,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -3078,6 +3116,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3102,6 +3141,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3112,6 +3152,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3298,6 +3339,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3322,6 +3364,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3332,6 +3375,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3400,6 +3444,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3428,6 +3473,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -3465,6 +3511,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3489,6 +3536,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3499,6 +3547,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3685,6 +3734,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3709,6 +3759,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3719,6 +3770,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3787,6 +3839,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3815,6 +3868,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -3852,6 +3906,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -3876,6 +3931,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -3886,6 +3942,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate

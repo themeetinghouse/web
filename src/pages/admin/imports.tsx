@@ -621,10 +621,10 @@ class Imports extends React.Component<Props, State>  {
       json.data.listSeriess.items.map((item: any) => {
         console.log(item.title)
         if (item.videos.items.length > 0) {
-          var startDate=item.videos.items.map((a: any) => { return a.publishedDate }).sort()[0]
-          var endDate=item.videos.items.map((a: any) => { return a.publishedDate }).sort()[item.videos.items.length - 1]
-         
-          const updateSeriess = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: item.id, startDate:startDate,endDate:endDate } }));
+          var startDate = item.videos.items.map((a: any) => { return a.publishedDate }).sort()[0]
+          var endDate = item.videos.items.map((a: any) => { return a.publishedDate }).sort()[item.videos.items.length - 1]
+
+          const updateSeriess = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: item.id, startDate: startDate, endDate: endDate } }));
           updateSeriess.then((json2: any) => {
             console.log(json2)
           }).catch((err: any) => {
@@ -636,6 +636,129 @@ class Imports extends React.Component<Props, State>  {
 
       if (json.data.listSeriess.nextToken != null)
         this.updateSeriesDates(json.data.listSeriess.nextToken)
+      // const arrSum = (x:any) => x.reduce((a:any,b:any) => a + b, 0)
+      //  console.log(arrSum(z))
+    }).catch((err: any) => {
+      console.log("Error mutations.createSeries: " + err);
+      console.log(err)
+    });
+
+  }
+  updateSeriesNumber(nextId: any) {
+    const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
+    listSeriess.then((json: any) => {
+      //  console.log(json)
+      json.data.listSeriess.items.map((item: any) => {
+        //  console.log(item)
+        if (!["The Body of Christ", "Faithful One", "Peacemakers", "Jesus by John", "Crossing the Line", "Chosen One", "The Death and Life of God", "Frosh 2017", "Bad Ideas"].includes(item.id)) {
+          if (item.videos.items.length > 0) {
+            var z = item.videos.items.map((a: any) => { return [a.publishedDate, a.episodeTitle, a.id] }).sort()
+            var x = z.map((item2: any, index2: any) => {
+              var current = (index2 + 1)
+
+              if (current == 1 && item2[1].includes("Week 1: ")) {
+                return [item2[2], item2[1].replace("Week 1: ", ""), current, item2[1]]
+              }
+              else if (current == 2 && item2[1].includes("Week 2: ")) {
+                return [item2[2], item2[1].replace("Week 2: ", ""), current, item2[1]]
+              }
+              else if (current == 3 && item2[1].includes("Week 3: ")) {
+                return [item2[2], item2[1].replace("Week 3: ", ""), current, item2[1]]
+              }
+              else if (current == 4 && item2[1].includes("Week 4: ")) {
+                return [item2[2], item2[1].replace("Week 4: ", ""), current, item2[1]]
+              }
+              else if (current == 5 && item2[1].includes("Week 5: ")) {
+                return [item2[2], item2[1].replace("Week 5: ", ""), current, item2[1]]
+              }
+              else if (current == 6 && item2[1].includes("Week 6: ")) {
+                return [item2[2], item2[1].replace("Week 6: ", ""), current, item2[1]]
+              }
+              else if (current == 7 && item2[1].includes("Week 7: ")) {
+                return [item2[2], item2[1].replace("Week 7: ", ""), current, item2[1]]
+              }
+              else if (current == 8 && item2[1].includes("Week 8: ")) {
+                return [item2[2], item2[1].replace("Week 8: ", ""), current, item2[1]]
+              }
+              else if (current == 9 && item2[1].includes("Week 9: ")) {
+                return [item2[2], item2[1].replace("Week 9: ", ""), current, item2[1]]
+              }
+              else if (current == 1 && item2[1].includes("WEEK 1: ")) {
+                return [item2[2], item2[1].replace("WEEK 1: ", ""), current, item2[1]]
+              }
+              else if (current == 2 && item2[1].includes("WEEK 2: ")) {
+                return [item2[2], item2[1].replace("WEEK 2: ", ""), current, item2[1]]
+              }
+              else if (current == 3 && item2[1].includes("WEEK 3: ")) {
+                return [item2[2], item2[1].replace("WEEK 3: ", ""), current, item2[1]]
+              }
+              else if (current == 4 && item2[1].includes("WEEK 4: ")) {
+                return [item2[2], item2[1].replace("WEEK 4: ", ""), current, item2[1]]
+              }
+              else if (current == 1 && item2[1].includes("Part 1: ")) {
+                return [item2[2], item2[1].replace("Part 1: ", ""), current, item2[1]]
+              }
+              else if (current == 2 && item2[1].includes("Part 2: ")) {
+                return [item2[2], item2[1].replace("Part 2: ", ""), current, item2[1]]
+              }
+              else if (current == 3 && item2[1].includes("Part 3: ")) {
+                return [item2[2], item2[1].replace("Part 3: ", ""), current, item2[1]]
+              }
+              else if (current == 4 && item2[1].includes("Part 4: ")) {
+                return [item2[2], item2[1].replace("Part 4: ", ""), current, item2[1]]
+              }
+              else if (current == 5 && item2[1].includes("Part 5: ")) {
+                return [item2[2], item2[1].replace("Part 5: ", ""), current, item2[1]]
+              }
+              else if (current == 6 && item2[1].includes("Part 6: ")) {
+                return [item2[2], item2[1].replace("Part 6: ", ""), current, item2[1]]
+              }
+              else if (current == 7 && item2[1].includes("Part 7: ")) {
+                return [item2[2], item2[1].replace("Part 7: ", ""), current, item2[1]]
+              }
+              else if (current == 8 && item2[1].includes("Part 8: ")) {
+                return [item2[2], item2[1].replace("Part 8: ", ""), current, item2[1]]
+              }
+              else if (current == 1 && item2[1].includes("Part 1 - ")) {
+                return [item2[2], item2[1].replace("Part 1 - ", ""), current, item2[1]]
+              }
+              else if (current == 2 && item2[1].includes("Part 2 - ")) {
+                return [item2[2], item2[1].replace("Part 2 - ", ""), current, item2[1]]
+              }
+              else if (current == 3 && item2[1].includes("Part 3 - ")) {
+                return [item2[2], item2[1].replace("Part 3 - ", ""), current, item2[1]]
+              }
+              else if (current == 4 && item2[1].includes("Part 4 - ")) {
+                return [item2[2], item2[1].replace("Part 4 - ", ""), current, item2[1]]
+              }
+              else if (current == 5 && item2[1].includes("Part 5 - ")) {
+                return [item2[2], item2[1].replace("Part 5 - ", ""), current, item2[1]]
+              }
+              else if (current == 6 && item2[1].includes("Part 6 - ")) {
+                return [item2[2], item2[1].replace("Part 6 - ", ""), current, item2[1]]
+              }
+              else
+                return [item2[2], item2[1], current]
+
+            })
+            console.log(item.id)
+            x.map((item3: any) => {
+              console.log(item3)
+              const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item3[0], episodeTitle:item3[1] ,episodeNumber: item3[2] } }));
+              updateVideo.then((json2: any) => {
+                console.log(json2)
+              }).catch((err: any) => {
+                console.log("Error mutations.updateVideo: " + err);
+                console.log(err)
+              });
+            })
+
+          }
+        }
+      })
+
+      if (json.data.listSeriess.nextToken != null)
+        this.updateSeriesNumber(json.data.listSeriess.nextToken)
       // const arrSum = (x:any) => x.reduce((a:any,b:any) => a + b, 0)
       //  console.log(arrSum(z))
     }).catch((err: any) => {
@@ -795,6 +918,7 @@ class Imports extends React.Component<Props, State>  {
           <Button onClick={() => { this.importSeriesTN(null, []) }}>Create Series</Button>
             <Button onClick={() => { this.copySeriesSermonLinksTN(null) }}>Copy Series/Sermon Links</Button>
             <Button onClick={() => { this.updateSeriesDates(null) }}>Update Series Dates</Button>
+            <Button onClick={() => { this.updateSeriesNumber(null) }}>Update Series Number</Button>
 
           </div>
           <div>Step 7.

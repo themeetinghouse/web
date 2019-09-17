@@ -177,11 +177,11 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.content.class === "videos") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
+                  <div  onClick={() => this.handleClick(item)} key={item.id} style={{cursor: "pointer", display: "inline-block", verticalAlign: "top" }}>
                     <div>
-                      <img onClick={() => this.handleClick(item)} alt="TBD" style={{ cursor: "pointer", width: "16vw", marginRight: "1vw", objectFit: "cover", height: "9vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
-                      <div style={{ width: "16vw", fontWeight: "bold", whiteSpace: "normal" }}>{item.episodeTitle}</div>
-                      <div style={{ fontWeight: "bold" }}>{item.seriesTitle != null ? item.seriesTitle : null}</div>
+                      <img alt="TBD" style={{  width: "20vw", marginRight: "1vw", objectFit: "cover", height: "12vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
+                      <div style={{ width: "20vw", fontWeight: "bold", whiteSpace: "normal" }}>{item.episodeNumber}. {item.episodeTitle}</div>
+                      <div style={{ width: "20vw", whiteSpace: "normal" }}>{item.seriesTitle != null ? item.seriesTitle : null}</div>
                       <div>{item.publishedDate}</div>
                     </div>
 
@@ -315,9 +315,9 @@ class ListItem extends React.Component<Props, State> {
             {data.map((item: any) => {
               if (item.videos.items.length > 0)
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
+                  <div onClick={() => this.handleClick(item.videos.items.sort((a:any, b:any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} style={{cursor: "pointer",  display: "inline-block", verticalAlign: "top" }}>
                     <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
-                    <div style={{ width:"20vw", whiteSpace:"normal",fontWeight: "bold" }}>{item.title}</div>
+                    <div style={{ width: "20vw", whiteSpace: "normal", fontWeight: "bold" }}>{item.title}</div>
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
                   </div>
                 )
@@ -328,6 +328,8 @@ class ListItem extends React.Component<Props, State> {
 
           </div>
         </div>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+
       </div>
     )
     else if (this.state.content.style === "imageList") return (

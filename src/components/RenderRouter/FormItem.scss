@@ -1,11 +1,5 @@
-@media (min-width: 768px) {
+@media (min-width: 768px) {}
 
-}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
- 
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  
-}
+@media (min-width: 320px) and (max-width: 767px) {}

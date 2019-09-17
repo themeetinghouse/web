@@ -356,6 +356,7 @@ type Video
   locations:[Location]
   speakers:[SpeakerVideos] @connection(name: "VideosSpeaker")
   episodeTitle:String
+  originalEpisodeTitle:String
   episodeNumber:Int
   seriesTitle:String
   series:Series  @connection(name: "VideosSeries")

@@ -144,6 +144,7 @@ export type CreateVideoInput = {
   createdBy?: string | null,
   createdDate?: string | null,
   episodeTitle?: string | null,
+  originalEpisodeTitle?: string | null,
   episodeNumber?: number | null,
   seriesTitle?: string | null,
   publishedDate?: string | null,
@@ -208,6 +209,7 @@ export type UpdateVideoInput = {
   createdBy?: string | null,
   createdDate?: string | null,
   episodeTitle?: string | null,
+  originalEpisodeTitle?: string | null,
   episodeNumber?: number | null,
   seriesTitle?: string | null,
   publishedDate?: string | null,
@@ -588,6 +590,7 @@ export type ModelVideoFilterInput = {
   createdBy?: ModelStringFilterInput | null,
   createdDate?: ModelStringFilterInput | null,
   episodeTitle?: ModelStringFilterInput | null,
+  originalEpisodeTitle?: ModelStringFilterInput | null,
   episodeNumber?: ModelIntFilterInput | null,
   seriesTitle?: ModelStringFilterInput | null,
   publishedDate?: ModelStringFilterInput | null,
@@ -782,6 +785,7 @@ export type SearchableVideoFilterInput = {
   createdBy?: SearchableStringFilterInput | null,
   createdDate?: SearchableStringFilterInput | null,
   episodeTitle?: SearchableStringFilterInput | null,
+  originalEpisodeTitle?: SearchableStringFilterInput | null,
   episodeNumber?: SearchableIntFilterInput | null,
   seriesTitle?: SearchableStringFilterInput | null,
   publishedDate?: SearchableStringFilterInput | null,
@@ -833,6 +837,7 @@ export enum SearchableVideoSortableFields {
   createdBy = "createdBy",
   createdDate = "createdDate",
   episodeTitle = "episodeTitle",
+  originalEpisodeTitle = "originalEpisodeTitle",
   episodeNumber = "episodeNumber",
   seriesTitle = "seriesTitle",
   publishedDate = "publishedDate",
@@ -1674,6 +1679,7 @@ export type CreateSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -1699,6 +1705,7 @@ export type CreateSpeakerMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -1712,6 +1719,7 @@ export type CreateSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -1788,6 +1796,7 @@ export type CreateSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -1872,6 +1881,7 @@ export type UpdateSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -1897,6 +1907,7 @@ export type UpdateSpeakerMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -1910,6 +1921,7 @@ export type UpdateSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -1986,6 +1998,7 @@ export type UpdateSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -2070,6 +2083,7 @@ export type DeleteSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -2095,6 +2109,7 @@ export type DeleteSpeakerMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -2108,6 +2123,7 @@ export type DeleteSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -2184,6 +2200,7 @@ export type DeleteSpeakerMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -2291,6 +2308,7 @@ export type CreateSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -2356,6 +2374,7 @@ export type CreateSpeakerVideosMutation = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -2399,6 +2418,7 @@ export type CreateSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -2570,6 +2590,7 @@ export type CreateSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -2714,6 +2735,7 @@ export type UpdateSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -2779,6 +2801,7 @@ export type UpdateSpeakerVideosMutation = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -2822,6 +2845,7 @@ export type UpdateSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -2993,6 +3017,7 @@ export type UpdateSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -3137,6 +3162,7 @@ export type DeleteSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -3202,6 +3228,7 @@ export type DeleteSpeakerVideosMutation = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -3245,6 +3272,7 @@ export type DeleteSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -3416,6 +3444,7 @@ export type DeleteSpeakerVideosMutation = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -3552,6 +3581,7 @@ export type CreateSeriesMutation = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -3596,6 +3626,7 @@ export type CreateSeriesMutation = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -3629,6 +3660,7 @@ export type CreateSeriesMutation = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -3815,6 +3847,7 @@ export type UpdateSeriesMutation = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -3859,6 +3892,7 @@ export type UpdateSeriesMutation = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -3892,6 +3926,7 @@ export type UpdateSeriesMutation = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -4078,6 +4113,7 @@ export type DeleteSeriesMutation = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -4122,6 +4158,7 @@ export type DeleteSeriesMutation = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -4155,6 +4192,7 @@ export type DeleteSeriesMutation = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -4348,6 +4386,7 @@ export type CreateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4373,6 +4412,7 @@ export type CreateVideoMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -4386,6 +4426,7 @@ export type CreateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4462,6 +4503,7 @@ export type CreateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4491,6 +4533,7 @@ export type CreateVideoMutation = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -4536,6 +4579,7 @@ export type CreateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4561,6 +4605,7 @@ export type CreateVideoMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -4574,6 +4619,7 @@ export type CreateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4789,6 +4835,7 @@ export type UpdateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4814,6 +4861,7 @@ export type UpdateVideoMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -4827,6 +4875,7 @@ export type UpdateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4903,6 +4952,7 @@ export type UpdateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -4932,6 +4982,7 @@ export type UpdateVideoMutation = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -4977,6 +5028,7 @@ export type UpdateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -5002,6 +5054,7 @@ export type UpdateVideoMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -5015,6 +5068,7 @@ export type UpdateVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -5230,6 +5284,7 @@ export type DeleteVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -5255,6 +5310,7 @@ export type DeleteVideoMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -5268,6 +5324,7 @@ export type DeleteVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -5344,6 +5401,7 @@ export type DeleteVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -5373,6 +5431,7 @@ export type DeleteVideoMutation = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -5418,6 +5477,7 @@ export type DeleteVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -5443,6 +5503,7 @@ export type DeleteVideoMutation = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -5456,6 +5517,7 @@ export type DeleteVideoMutation = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -7445,6 +7507,7 @@ export type GetSpeakerQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -7470,6 +7533,7 @@ export type GetSpeakerQuery = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -7483,6 +7547,7 @@ export type GetSpeakerQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -7559,6 +7624,7 @@ export type GetSpeakerQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -7645,6 +7711,7 @@ export type ListSpeakersQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -7790,6 +7857,7 @@ export type GetSpeakerVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -7855,6 +7923,7 @@ export type GetSpeakerVideosQuery = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -7898,6 +7967,7 @@ export type GetSpeakerVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -8069,6 +8139,7 @@ export type GetSpeakerVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -8207,6 +8278,7 @@ export type ListSpeakerVideossQuery = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -8251,6 +8323,7 @@ export type ListSpeakerVideossQuery = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -8284,6 +8357,7 @@ export type ListSpeakerVideossQuery = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -8428,6 +8502,7 @@ export type ListSpeakerVideossQuery = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -8545,6 +8620,7 @@ export type GetSeriesQuery = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -8589,6 +8665,7 @@ export type GetSeriesQuery = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -8622,6 +8699,7 @@ export type GetSeriesQuery = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -8792,6 +8870,7 @@ export type ListSeriessQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -8817,6 +8896,7 @@ export type ListSeriessQuery = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -8830,6 +8910,7 @@ export type ListSeriessQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -8977,6 +9058,7 @@ export type GetVideoQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -9002,6 +9084,7 @@ export type GetVideoQuery = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -9015,6 +9098,7 @@ export type GetVideoQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -9091,6 +9175,7 @@ export type GetVideoQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -9120,6 +9205,7 @@ export type GetVideoQuery = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -9165,6 +9251,7 @@ export type GetVideoQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -9190,6 +9277,7 @@ export type GetVideoQuery = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -9203,6 +9291,7 @@ export type GetVideoQuery = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -9420,6 +9509,7 @@ export type ListVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -9485,6 +9575,7 @@ export type ListVideosQuery = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -9528,6 +9619,7 @@ export type ListVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -10612,6 +10704,7 @@ export type GetVideoByYoutubeIdentQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -10677,6 +10770,7 @@ export type GetVideoByYoutubeIdentQuery = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -10720,6 +10814,7 @@ export type GetVideoByYoutubeIdentQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -10929,6 +11024,7 @@ export type GetVideoByVideoTypeQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -10994,6 +11090,7 @@ export type GetVideoByVideoTypeQuery = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -11037,6 +11134,7 @@ export type GetVideoByVideoTypeQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -11262,6 +11360,7 @@ export type SearchVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -11327,6 +11426,7 @@ export type SearchVideosQuery = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -11370,6 +11470,7 @@ export type SearchVideosQuery = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -12348,6 +12449,7 @@ export type OnCreateSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12373,6 +12475,7 @@ export type OnCreateSpeakerSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -12386,6 +12489,7 @@ export type OnCreateSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12462,6 +12566,7 @@ export type OnCreateSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12542,6 +12647,7 @@ export type OnUpdateSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12567,6 +12673,7 @@ export type OnUpdateSpeakerSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -12580,6 +12687,7 @@ export type OnUpdateSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12656,6 +12764,7 @@ export type OnUpdateSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12736,6 +12845,7 @@ export type OnDeleteSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12761,6 +12871,7 @@ export type OnDeleteSpeakerSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -12774,6 +12885,7 @@ export type OnDeleteSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12850,6 +12962,7 @@ export type OnDeleteSpeakerSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -12953,6 +13066,7 @@ export type OnCreateSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13018,6 +13132,7 @@ export type OnCreateSpeakerVideosSubscription = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -13061,6 +13176,7 @@ export type OnCreateSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13232,6 +13348,7 @@ export type OnCreateSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13372,6 +13489,7 @@ export type OnUpdateSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13437,6 +13555,7 @@ export type OnUpdateSpeakerVideosSubscription = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -13480,6 +13599,7 @@ export type OnUpdateSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13651,6 +13771,7 @@ export type OnUpdateSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13791,6 +13912,7 @@ export type OnDeleteSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -13856,6 +13978,7 @@ export type OnDeleteSpeakerVideosSubscription = {
         nextToken: string | null,
       } | null,
       episodeTitle: string | null,
+      originalEpisodeTitle: string | null,
       episodeNumber: number | null,
       seriesTitle: string | null,
       series:  {
@@ -13899,6 +14022,7 @@ export type OnDeleteSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -14070,6 +14194,7 @@ export type OnDeleteSpeakerVideosSubscription = {
               nextToken: string | null,
             } | null,
             episodeTitle: string | null,
+            originalEpisodeTitle: string | null,
             episodeNumber: number | null,
             seriesTitle: string | null,
             series:  {
@@ -14202,6 +14327,7 @@ export type OnCreateSeriesSubscription = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -14246,6 +14372,7 @@ export type OnCreateSeriesSubscription = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -14279,6 +14406,7 @@ export type OnCreateSeriesSubscription = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -14461,6 +14589,7 @@ export type OnUpdateSeriesSubscription = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -14505,6 +14634,7 @@ export type OnUpdateSeriesSubscription = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -14538,6 +14668,7 @@ export type OnUpdateSeriesSubscription = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -14720,6 +14851,7 @@ export type OnDeleteSeriesSubscription = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -14764,6 +14896,7 @@ export type OnDeleteSeriesSubscription = {
           nextToken: string | null,
         } | null,
         episodeTitle: string | null,
+        originalEpisodeTitle: string | null,
         episodeNumber: number | null,
         seriesTitle: string | null,
         series:  {
@@ -14797,6 +14930,7 @@ export type OnDeleteSeriesSubscription = {
                 nextToken: string | null,
               } | null,
               episodeTitle: string | null,
+              originalEpisodeTitle: string | null,
               episodeNumber: number | null,
               seriesTitle: string | null,
               series:  {
@@ -14986,6 +15120,7 @@ export type OnCreateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15011,6 +15146,7 @@ export type OnCreateVideoSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -15024,6 +15160,7 @@ export type OnCreateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15100,6 +15237,7 @@ export type OnCreateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15129,6 +15267,7 @@ export type OnCreateVideoSubscription = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -15174,6 +15313,7 @@ export type OnCreateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15199,6 +15339,7 @@ export type OnCreateVideoSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -15212,6 +15353,7 @@ export type OnCreateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15423,6 +15565,7 @@ export type OnUpdateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15448,6 +15591,7 @@ export type OnUpdateVideoSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -15461,6 +15605,7 @@ export type OnUpdateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15537,6 +15682,7 @@ export type OnUpdateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15566,6 +15712,7 @@ export type OnUpdateVideoSubscription = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -15611,6 +15758,7 @@ export type OnUpdateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15636,6 +15784,7 @@ export type OnUpdateVideoSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -15649,6 +15798,7 @@ export type OnUpdateVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15860,6 +16010,7 @@ export type OnDeleteVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15885,6 +16036,7 @@ export type OnDeleteVideoSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -15898,6 +16050,7 @@ export type OnDeleteVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -15974,6 +16127,7 @@ export type OnDeleteVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -16003,6 +16157,7 @@ export type OnDeleteVideoSubscription = {
       nextToken: string | null,
     } | null,
     episodeTitle: string | null,
+    originalEpisodeTitle: string | null,
     episodeNumber: number | null,
     seriesTitle: string | null,
     series:  {
@@ -16048,6 +16203,7 @@ export type OnDeleteVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,
@@ -16073,6 +16229,7 @@ export type OnDeleteVideoSubscription = {
             nextToken: string | null,
           } | null,
           episodeTitle: string | null,
+          originalEpisodeTitle: string | null,
           episodeNumber: number | null,
           seriesTitle: string | null,
           series:  {
@@ -16086,6 +16243,7 @@ export type OnDeleteVideoSubscription = {
                 createdBy: string | null,
                 createdDate: string | null,
                 episodeTitle: string | null,
+                originalEpisodeTitle: string | null,
                 episodeNumber: number | null,
                 seriesTitle: string | null,
                 publishedDate: string | null,

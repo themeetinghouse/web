@@ -732,6 +732,7 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -756,6 +757,7 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -766,6 +768,7 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -834,6 +837,7 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -908,6 +912,7 @@ export const listSpeakers = `query ListSpeakers(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1030,6 +1035,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1087,6 +1093,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -1123,6 +1130,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1271,6 +1279,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -1389,6 +1398,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -1429,6 +1439,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -1457,6 +1468,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -1583,6 +1595,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -1682,6 +1695,7 @@ export const getSeries = `query GetSeries($id: ID!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -1722,6 +1736,7 @@ export const getSeries = `query GetSeries($id: ID!) {
           nextToken
         }
         episodeTitle
+        originalEpisodeTitle
         episodeNumber
         seriesTitle
         series {
@@ -1750,6 +1765,7 @@ export const getSeries = `query GetSeries($id: ID!) {
                 nextToken
               }
               episodeTitle
+              originalEpisodeTitle
               episodeNumber
               seriesTitle
               series {
@@ -1897,6 +1913,7 @@ export const listSeriess = `query ListSeriess(
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -1921,6 +1938,7 @@ export const listSeriess = `query ListSeriess(
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -1931,6 +1949,7 @@ export const listSeriess = `query ListSeriess(
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2059,6 +2078,7 @@ export const getVideo = `query GetVideo($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2083,6 +2103,7 @@ export const getVideo = `query GetVideo($id: ID!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -2093,6 +2114,7 @@ export const getVideo = `query GetVideo($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2161,6 +2183,7 @@ export const getVideo = `query GetVideo($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2189,6 +2212,7 @@ export const getVideo = `query GetVideo($id: ID!) {
       nextToken
     }
     episodeTitle
+    originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
@@ -2226,6 +2250,7 @@ export const getVideo = `query GetVideo($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2250,6 +2275,7 @@ export const getVideo = `query GetVideo($id: ID!) {
             nextToken
           }
           episodeTitle
+          originalEpisodeTitle
           episodeNumber
           seriesTitle
           series {
@@ -2260,6 +2286,7 @@ export const getVideo = `query GetVideo($id: ID!) {
                 createdBy
                 createdDate
                 episodeTitle
+                originalEpisodeTitle
                 episodeNumber
                 seriesTitle
                 publishedDate
@@ -2450,6 +2477,7 @@ export const listVideos = `query ListVideos(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -2507,6 +2535,7 @@ export const listVideos = `query ListVideos(
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -2543,6 +2572,7 @@ export const listVideos = `query ListVideos(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -3488,6 +3518,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -3545,6 +3576,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -3581,6 +3613,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -3769,6 +3802,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -3826,6 +3860,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -3862,6 +3897,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -4065,6 +4101,7 @@ export const searchVideos = `query SearchVideos(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
@@ -4122,6 +4159,7 @@ export const searchVideos = `query SearchVideos(
         nextToken
       }
       episodeTitle
+      originalEpisodeTitle
       episodeNumber
       seriesTitle
       series {
@@ -4158,6 +4196,7 @@ export const searchVideos = `query SearchVideos(
               nextToken
             }
             episodeTitle
+            originalEpisodeTitle
             episodeNumber
             seriesTitle
             series {
