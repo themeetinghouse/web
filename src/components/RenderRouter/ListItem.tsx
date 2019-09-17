@@ -177,9 +177,9 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.content.class === "videos") {
                 return (
-                  <div  onClick={() => this.handleClick(item)} key={item.id} style={{cursor: "pointer", display: "inline-block", verticalAlign: "top" }}>
+                  <div onClick={() => this.handleClick(item)} key={item.id} style={{ cursor: "pointer", display: "inline-block", verticalAlign: "top" }}>
                     <div>
-                      <img alt="TBD" style={{  width: "20vw", marginRight: "1vw", objectFit: "cover", height: "12vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
+                      <img alt="TBD" style={{ width: "20vw", marginRight: "1vw", objectFit: "cover", height: "12vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
                       <div style={{ width: "20vw", fontWeight: "bold", whiteSpace: "normal" }}>{item.episodeNumber}. {item.episodeTitle}</div>
                       <div style={{ width: "20vw", whiteSpace: "normal" }}>{item.seriesTitle != null ? item.seriesTitle : null}</div>
                       <div>{item.publishedDate}</div>
@@ -232,12 +232,12 @@ class ListItem extends React.Component<Props, State> {
                 return (
                   <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
 
-                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }}
+                    <img alt={item.photoAlt} style={{ width: "20vw", marginRight: "1vw" }}
                       onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
                       src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
-                    <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.Position}</div>
+                    <div style={{  width: "20vw",whiteSpace: "normal",fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
+                    <div style={{  width: "20vw",whiteSpace: "normal" }}>{item.Position}</div>
                     <div>{item.Email}</div>
                     <div>{item.Phone}</div>
                     <a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
@@ -251,17 +251,12 @@ class ListItem extends React.Component<Props, State> {
                 return (
                   <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
 
-                    <img alt={item.photoAlt} style={{ height: "10vw", marginRight: "1vw" }}
+                    <img alt={item.photoAlt} style={{ width: "20vw", marginRight: "1vw" }}
                       onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
                       src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
-                    <div style={{ fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.Position}</div>
-                    <div>{item.Email}</div>
-                    <div>{item.Phone}</div>
-                    <a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
-                    <a href={"https://twitter.com/" + item.instagram} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
-                    <a href={"https://www.instagram.com//" + item.twitter} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>
+                    <div style={{ width: "20vw",whiteSpace: "normal",fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
+                    <div style={{ width: "20vw",whiteSpace: "normal" }}>{item.Position}</div>
 
                   </div>
                 )
@@ -315,7 +310,7 @@ class ListItem extends React.Component<Props, State> {
             {data.map((item: any) => {
               if (item.videos.items.length > 0)
                 return (
-                  <div onClick={() => this.handleClick(item.videos.items.sort((a:any, b:any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} style={{cursor: "pointer",  display: "inline-block", verticalAlign: "top" }}>
+                  <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} style={{ cursor: "pointer", display: "inline-block", verticalAlign: "top" }}>
                     <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
                     <div style={{ width: "20vw", whiteSpace: "normal", fontWeight: "bold" }}>{item.title}</div>
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>

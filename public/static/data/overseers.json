@@ -3,120 +3,90 @@
         "FirstName": "Cody",
         "LastName": "Buchenauer",
         "Position":"Executive, Treasurer Finance & Audit, Chair",
-        "Phone": "519.500.1823",
-        "sites": ["overseer"],
-        "Email": "codybuchenauer@gmail.com"
+        "sites": ["overseer"]
     },
     {
         "FirstName": "Bruxy",
         "LastName": "Cavey",
         "Position":"Teaching Pastor",
-        "Phone": "905.334.6565",
-        "sites": ["overseer"],
-        "Email": "bruxc@themeetinghouse.com"
+        "sites": ["overseer"]
     },
     {
         "FirstName": "Mario",
         "LastName": "Ferlanti",
         "Position":"Nominating, Chair",
-        "Phone": "416.731.7688",
-        "sites": ["overseer"],
-        "Email": "synthesis@sympatico.ca"
+        "sites": ["overseer"]
     },
     {
         "FirstName": "Maggie",
         "LastName": "John",
         "Position":"Executive, Chair",
-        "Phone": "416.799.2135",
-        "sites": ["overseer"],
-        "Email": "Magdalene.john@gmail.com"
+        "sites": ["overseer"]
     },
     {
         "FirstName": "Vincent",
         "LastName": "John",
         "Position":"Nominating",
-        "Phone": "416.725.3942",
-        "sites": ["overseer"],
-        "Email": "vajohn77@gmail.com"
+        "sites": ["overseer"]
     },
     {
         "FirstName": "David",
         "LastName": "Ho",
         "Position":"Governance, Chair",
-        "Phone": "416.357.9542",
-        "sites": ["overseer"],
-        "Email": "david.ho@infrastructureontario.ca"
+        "sites": ["overseer"]
     },        
     {
         "FirstName": "Catherine",
         "LastName": "MacKeil",
         "Position":"Finance & Audit",
-        "Phone": "416.458.7873",
-        "sites": ["overseer"],
-        "Email": "Catherine.mackeil@gmail.com"
+        "sites": ["overseer"]
     },   
     {
         "FirstName": "Yohan",
         "LastName": "Mahimwala",
         "Position":"Finance & Audit",
-        "Phone": "647.297.4574",
-        "sites": ["overseer"],
-        "Email": "Yohan.mahimwala@gmail.com"
+        "sites": ["overseer"]
     },      	         
     {
         "FirstName": "Bruce",
         "LastName": "Miller",
         "Position":"Governance",
-        "Phone": "647.231.2971",
-        "sites": ["overseer"],
-        "Email": "abrucemiller@gmail.com"
+        "sites": ["overseer"]
     }, 
     {
         "FirstName": "Nathan",
         "LastName": "Piche",
         "Position":"Executive, Secretary",
-        "Phone": "613.618.8785",
-        "sites": ["overseer"],
-        "Email": "Nathanpiche@mac.com"
+        "sites": ["overseer"]
     }, 
     {
         "FirstName": "Angela",
         "LastName": "Rose",
         "Position":"Governance",
-        "Phone": "705.724.4244",
-        "sites": ["overseer"],
-        "Email": "evergreenbubbles@yahoo.ca"
+        "sites": ["overseer"]
     },  
     {
         "FirstName": "Carole Ann",
         "LastName": "Stephen",
         "Position":"Nominating",
-        "Phone": "905.876.6695",
-        "sites": ["overseer"],
-        "Email": "caroleannstephen@gmail.com"
+        "sites": ["overseer"]
     },       
     {
         "FirstName": "Rod",
         "LastName": "Tombs",
         "Position":"Staff",
-        "Phone": "905.906.1539",
-        "sites": ["overseer"],
-        "Email": "rod.tombs@themeetinghouse.com"
+        "sites": ["overseer"]
     }, 	     
     {
         "FirstName": "Darrell",
         "LastName": "Winger",
         "Position":"Staff",
-        "Phone": "905.483.2335",
-        "sites": ["overseer"],
-        "Email": "Darrell.Winger@themeetinghouse.com"
+        "sites": ["overseer"]
     }, 	  
     {
         "FirstName": "Laura",
         "LastName": "van der Kooi",
         "Position":"Staff",
-        "Phone": "289.716.6456",
-        "sites": ["overseer"],
-        "Email": "Laura.Vanderkooi@themeetinghouse.com"
+        "sites": ["overseer"]
     }
 ]
