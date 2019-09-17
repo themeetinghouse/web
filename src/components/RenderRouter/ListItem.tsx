@@ -147,6 +147,9 @@ class ListItem extends React.Component<Props, State> {
 
     }
   }
+  navigateUrl(to:string){
+    window.location.href=to;
+  }
   navigate(to: string) {
     this.props.history.push(to, "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
@@ -339,7 +342,7 @@ class ListItem extends React.Component<Props, State> {
               data.map((item: any, index: any) => {
                 return (
                   <div style={{ position: "relative", zIndex: 99 }} key={index}>
-                    <div onClick={() => this.navigate(item.navigateTo)} className="imageList hoverText">
+                    <div onClick={() => {item.navigateTo?this.navigate(item.navigateTo):this.navigateUrl(item.url)}} className="imageList hoverText">
                       <h3 style={{ width: "40vw", fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.title}</h3>
                       <div style={{ width: "40vw", fontSize: "1.25vw", fontFamily: "Graphik Web" }}>{item.text}</div>
                     </div>

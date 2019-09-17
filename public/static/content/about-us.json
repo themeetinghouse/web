@@ -40,6 +40,19 @@
                     "src":"/static/images/homepage-2.jpg",
                     "alt":"TODO"
                 }]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Annual Reports",
+                "header2":"",
+                "text1":"Take a look at all the annual reports",
+                "link1Text": "Annual Reports",
+                "link1Action": "annual-reports",
+                "image1":[{
+                    "src":"/static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
             }
         ]
     }
