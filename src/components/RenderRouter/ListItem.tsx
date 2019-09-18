@@ -10,6 +10,8 @@ import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import "./ListItem.scss"
+
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 

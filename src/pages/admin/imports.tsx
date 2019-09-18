@@ -656,85 +656,85 @@ class Imports extends React.Component<Props, State>  {
             var x = z.map((item2: any, index2: any) => {
               var current = (index2 + 1)
 
-              if (current == 1 && item2[1].includes("Week 1: ")) {
+              if (current === 1 && item2[1].includes("Week 1: ")) {
                 return [item2[2], item2[1].replace("Week 1: ", ""), current, item2[1]]
               }
-              else if (current == 2 && item2[1].includes("Week 2: ")) {
+              else if (current === 2 && item2[1].includes("Week 2: ")) {
                 return [item2[2], item2[1].replace("Week 2: ", ""), current, item2[1]]
               }
-              else if (current == 3 && item2[1].includes("Week 3: ")) {
+              else if (current === 3 && item2[1].includes("Week 3: ")) {
                 return [item2[2], item2[1].replace("Week 3: ", ""), current, item2[1]]
               }
-              else if (current == 4 && item2[1].includes("Week 4: ")) {
+              else if (current === 4 && item2[1].includes("Week 4: ")) {
                 return [item2[2], item2[1].replace("Week 4: ", ""), current, item2[1]]
               }
-              else if (current == 5 && item2[1].includes("Week 5: ")) {
+              else if (current === 5 && item2[1].includes("Week 5: ")) {
                 return [item2[2], item2[1].replace("Week 5: ", ""), current, item2[1]]
               }
-              else if (current == 6 && item2[1].includes("Week 6: ")) {
+              else if (current === 6 && item2[1].includes("Week 6: ")) {
                 return [item2[2], item2[1].replace("Week 6: ", ""), current, item2[1]]
               }
-              else if (current == 7 && item2[1].includes("Week 7: ")) {
+              else if (current === 7 && item2[1].includes("Week 7: ")) {
                 return [item2[2], item2[1].replace("Week 7: ", ""), current, item2[1]]
               }
-              else if (current == 8 && item2[1].includes("Week 8: ")) {
+              else if (current === 8 && item2[1].includes("Week 8: ")) {
                 return [item2[2], item2[1].replace("Week 8: ", ""), current, item2[1]]
               }
-              else if (current == 9 && item2[1].includes("Week 9: ")) {
+              else if (current === 9 && item2[1].includes("Week 9: ")) {
                 return [item2[2], item2[1].replace("Week 9: ", ""), current, item2[1]]
               }
-              else if (current == 1 && item2[1].includes("WEEK 1: ")) {
+              else if (current === 1 && item2[1].includes("WEEK 1: ")) {
                 return [item2[2], item2[1].replace("WEEK 1: ", ""), current, item2[1]]
               }
-              else if (current == 2 && item2[1].includes("WEEK 2: ")) {
+              else if (current === 2 && item2[1].includes("WEEK 2: ")) {
                 return [item2[2], item2[1].replace("WEEK 2: ", ""), current, item2[1]]
               }
-              else if (current == 3 && item2[1].includes("WEEK 3: ")) {
+              else if (current === 3 && item2[1].includes("WEEK 3: ")) {
                 return [item2[2], item2[1].replace("WEEK 3: ", ""), current, item2[1]]
               }
-              else if (current == 4 && item2[1].includes("WEEK 4: ")) {
+              else if (current === 4 && item2[1].includes("WEEK 4: ")) {
                 return [item2[2], item2[1].replace("WEEK 4: ", ""), current, item2[1]]
               }
-              else if (current == 1 && item2[1].includes("Part 1: ")) {
+              else if (current === 1 && item2[1].includes("Part 1: ")) {
                 return [item2[2], item2[1].replace("Part 1: ", ""), current, item2[1]]
               }
-              else if (current == 2 && item2[1].includes("Part 2: ")) {
+              else if (current === 2 && item2[1].includes("Part 2: ")) {
                 return [item2[2], item2[1].replace("Part 2: ", ""), current, item2[1]]
               }
-              else if (current == 3 && item2[1].includes("Part 3: ")) {
+              else if (current === 3 && item2[1].includes("Part 3: ")) {
                 return [item2[2], item2[1].replace("Part 3: ", ""), current, item2[1]]
               }
-              else if (current == 4 && item2[1].includes("Part 4: ")) {
+              else if (current === 4 && item2[1].includes("Part 4: ")) {
                 return [item2[2], item2[1].replace("Part 4: ", ""), current, item2[1]]
               }
-              else if (current == 5 && item2[1].includes("Part 5: ")) {
+              else if (current === 5 && item2[1].includes("Part 5: ")) {
                 return [item2[2], item2[1].replace("Part 5: ", ""), current, item2[1]]
               }
-              else if (current == 6 && item2[1].includes("Part 6: ")) {
+              else if (current === 6 && item2[1].includes("Part 6: ")) {
                 return [item2[2], item2[1].replace("Part 6: ", ""), current, item2[1]]
               }
-              else if (current == 7 && item2[1].includes("Part 7: ")) {
+              else if (current === 7 && item2[1].includes("Part 7: ")) {
                 return [item2[2], item2[1].replace("Part 7: ", ""), current, item2[1]]
               }
-              else if (current == 8 && item2[1].includes("Part 8: ")) {
+              else if (current === 8 && item2[1].includes("Part 8: ")) {
                 return [item2[2], item2[1].replace("Part 8: ", ""), current, item2[1]]
               }
-              else if (current == 1 && item2[1].includes("Part 1 - ")) {
+              else if (current === 1 && item2[1].includes("Part 1 - ")) {
                 return [item2[2], item2[1].replace("Part 1 - ", ""), current, item2[1]]
               }
-              else if (current == 2 && item2[1].includes("Part 2 - ")) {
+              else if (current === 2 && item2[1].includes("Part 2 - ")) {
                 return [item2[2], item2[1].replace("Part 2 - ", ""), current, item2[1]]
               }
-              else if (current == 3 && item2[1].includes("Part 3 - ")) {
+              else if (current === 3 && item2[1].includes("Part 3 - ")) {
                 return [item2[2], item2[1].replace("Part 3 - ", ""), current, item2[1]]
               }
-              else if (current == 4 && item2[1].includes("Part 4 - ")) {
+              else if (current === 4 && item2[1].includes("Part 4 - ")) {
                 return [item2[2], item2[1].replace("Part 4 - ", ""), current, item2[1]]
               }
-              else if (current == 5 && item2[1].includes("Part 5 - ")) {
+              else if (current === 5 && item2[1].includes("Part 5 - ")) {
                 return [item2[2], item2[1].replace("Part 5 - ", ""), current, item2[1]]
               }
-              else if (current == 6 && item2[1].includes("Part 6 - ")) {
+              else if (current === 6 && item2[1].includes("Part 6 - ")) {
                 return [item2[2], item2[1].replace("Part 6 - ", ""), current, item2[1]]
               }
               else

@@ -55,20 +55,22 @@ export class ContentItem extends React.Component<Props, State>  {
   onInfoWindowClose() { }
 
   render() {
-    if (this.state.content.class == "home-church") {
-      var inititalCenter: any = {
+    var inititalCenter: any;
+    var initalZoom;
+    if (this.state.content.class === "home-church") {
+      inititalCenter= {
         lat: 44,
         lng: -78.0
 
       }
-      var initalZoom = 6
+      initalZoom = 6
     }
     else {
-      var inititalCenter: any = {
+       inititalCenter = {
         lat: 0,
         lng: -0
       }
-      var initalZoom = 1
+      initalZoom = 1
     }
 
     return (
@@ -89,7 +91,7 @@ export class ContentItem extends React.Component<Props, State>  {
             </div>
             <div style={{ position: "absolute", left: "0vw", width: "40vw", height: "40vw" }}>
               {this.state.listData != null ? this.state.listData.map((item: any) => {
-                if (this.state.content.class == "home-church") {
+                if (this.state.content.class === "home-church") {
                   return (
                     <div >{item.name}
                       <Button onClick={() => this.navigate(item.id)}>Site Page</Button>

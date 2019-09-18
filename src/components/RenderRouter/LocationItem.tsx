@@ -2,6 +2,8 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
+import "./LocationItem.scss"
+
 interface Props extends RouteComponentProps {
     content: any
 

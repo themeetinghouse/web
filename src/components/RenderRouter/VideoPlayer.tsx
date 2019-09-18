@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Button } from 'reactstrap';
+import "./VideoPlayer.scss"
+
 interface Props {
   content: any,
   data:any
