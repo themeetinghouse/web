@@ -29,7 +29,6 @@
     "@types/react-router-dom": "^4.3.5",
     "@types/reactstrap": "^8.0.4",
     "@types/uuid": "^3.4.5",
-    "aws-amplify": "^1.1.40",
     "aws-amplify-react": "^2.4.4",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -70,5 +69,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@aws-amplify/cli": "^3.2.0",
+    "aws-amplify": "^1.1.40",
+    "eslint": "^6.3.0"
   }
 }
