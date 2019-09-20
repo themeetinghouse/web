@@ -22,7 +22,7 @@ export default class ContentItem extends React.Component<Props, State>  {
       var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
       return (
-        <div className="ContentItem oneImage" style={{ position: "static", paddingBottom: "5vw" }}>
+        <div className="ContentItem oneImage">
           <div className="oneImagePosition">
             <div className="oneImageGreyBox" >
               <h1 className="oneImageH1" >{this.state.content.header1}</h1>
