@@ -35,7 +35,40 @@ export default class ContentItem extends React.Component<Props, State>  {
         </div>
       )
     }
+    else if (this.state.content.style === "oneImageBlack") {
+      var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
+      return (
+        <div className="ContentItem oneImage">
+          <div className="oneImagePosition">
+            <div className="oneImageBlackBox" >
+              <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
+              <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
+              <div className="oneImageText white" >{this.state.content.text1}</div>
+              <a className="oneImageA"href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+            </div>
+            <img src={image1.src} alt={image1.alt} className="oneImageImage"  />
+          </div>
+        </div>
+      )
+    }
+    else if (this.state.content.style === "oneImageBlackRight") {
+      var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+
+      return (
+        <div className="ContentItem oneImage">
+          <div className="oneImagePosition right">
+            <div className="oneImageBlackBox right" >
+              <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
+              <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
+              <div className="oneImageText white" >{this.state.content.text1}</div>
+              <a className="oneImageA"href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+            </div>
+            <img src={image1.src} alt={image1.alt} className="oneImageImage right"  />
+          </div>
+        </div>
+      )
+    }
 
     return (null)
   }

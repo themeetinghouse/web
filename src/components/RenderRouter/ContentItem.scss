@@ -3,6 +3,9 @@
         font-size: 1.5vw;
         font-family:Graphik Web;
     }
+    .oneImageText.white{
+        color:#ffffff;
+    }
     .oneImageA{
         font-size: 1.5vw;
         font-family:Graphik Web;
@@ -17,6 +20,15 @@
         top: 2.5vw;
        // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
+    .oneImageImage.right{
+        position: absolute;
+        height: 35vw;
+        width:35vw;
+        left: 45vw;
+        object-fit:cover;
+        top: 2.5vw;
+       // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+    }
     .oneImageGreyBox{
         padding: 10vw;
         position: relative;
@@ -26,10 +38,40 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
+    .oneImageGreyBox.right{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #EFEFF0;
+    }
+    .oneImageBlackBox{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 30vw;
+        top: 0vw;
+        background-color: #000000;
+    }
+    .oneImageBlackBox.right{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #000000;
+    }
     .oneImageH1{
         font-weight: bold;
         font-size: 3vw;
         font-family:"Graphik Web";
+    }
+    .oneImageH1.white{
+        color:#ffffff;
     }
     .oneImagePosition{
         position: relative;
@@ -49,6 +91,9 @@
         font-size: 1.5vw;
         font-family:Graphik Web;
     }
+    .oneImageText.white{
+        color:#ffffff;
+    }
     .oneImageA{
         font-size: 1.5vw;
         font-family:Graphik Web;
@@ -63,6 +108,15 @@
         top: 2.5vw;
      //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
+    .oneImageImage.right{
+        position: absolute;
+        height: 35vw;
+        width:35vw;
+        left: 45vw;
+        object-fit:cover;
+        top: 2.5vw;
+     //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+    }
     .oneImageGreyBox{
         padding: 10vw;
         position: relative;
@@ -72,10 +126,40 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
+    .oneImageGreyBox.right{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #EFEFF0;
+    }
+    .oneImageBlackBox{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 30vw;
+        top: 0vw;
+        background-color: #000000;
+    }
+    .oneImageBlackBox.right{
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #000000;
+    }
     .oneImageH1{
         font-weight: bold;
         font-size: 3vw;
         font-family:"Graphik Web";
+    }
+    .oneImageH1.white{
+        color:#ffffff;
     }
     .oneImagePosition{
         position: relative;
@@ -94,6 +178,9 @@
     .oneImageText{
         font-size: 3vw;
         font-family:Graphik Web;
+    }
+    .oneImageText.white{
+        color:#ffffff;
     }
     .oneImageA{
         font-size: 3vw;
@@ -120,10 +207,24 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
+    .oneImageBlackBox{
+        margin-top:60vw;
+        padding: 10vw;
+        padding-top:40vw;
+        position: relative;
+        width: 100vw;
+        height: 80vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #000000;
+    }
     .oneImageH1{
         font-weight: bold;
         font-size: 6vw;
         font-family:"Graphik Web";
+    }
+    .oneImageH1.white{
+        color:#ffffff;
     }
     .oneImagePosition{
         position: relative;
