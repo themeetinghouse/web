@@ -22,12 +22,12 @@
         position: relative;
         width: 50vw;
         height: 40vw;
-        left: 30vw; 
+        left: 30vw;
         top: 0vw;
         background-color: #EFEFF0;
     }
     .oneImageH1{
-        font-weight: bold; 
+        font-weight: bold;
         font-size: 3vw;
         font-family:"Graphik Web";
     }
@@ -37,6 +37,11 @@
         width:80vw;
         z-index: 100;
     }
+    .ContentItem.oneImage {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -63,12 +68,12 @@
         position: relative;
         width: 50vw;
         height: 40vw;
-        left: 30vw; 
+        left: 30vw;
         top: 0vw;
         background-color: #EFEFF0;
     }
     .oneImageH1{
-        font-weight: bold; 
+        font-weight: bold;
         font-size: 3vw;
         font-family:"Graphik Web";
     }
@@ -78,6 +83,11 @@
         width:80vw;
         z-index: 100;
     }
+    .ContentItem.oneImage {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -106,12 +116,12 @@
         position: relative;
         width: 100vw;
         height: 80vw;
-        left: 0vw; 
+        left: 0vw;
         top: 0vw;
         background-color: #EFEFF0;
     }
     .oneImageH1{
-        font-weight: bold; 
+        font-weight: bold;
         font-size: 6vw;
         font-family:"Graphik Web";
     }
@@ -120,5 +130,10 @@
         left:0vw;
         width:100vw;
         z-index: 100;
+    }
+
+    .ContentItem.oneImage {
+        position: static;
+        padding-bottom: 5vw;
     }
 }
