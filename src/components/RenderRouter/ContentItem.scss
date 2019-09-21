@@ -37,6 +37,11 @@
         width:80vw;
         z-index: 100;
     }
+    .ContentItem.oneImage {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -78,6 +83,11 @@
         width:80vw;
         z-index: 100;
     }
+    .ContentItem.oneImage {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -122,7 +132,7 @@
         z-index: 100;
     }
 
-    .ContentItem-oneImage {
+    .ContentItem.oneImage {
         position: static;
         padding-bottom: 5vw;
     }
