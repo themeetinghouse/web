@@ -20,9 +20,9 @@ export default class HomeFooter extends React.Component {
               <NavLink style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="http://www.tmhrentals.com">Oakville Facility Rentals</NavLink>
               <br />
               <br />
-              <img src="/static/google-play-badge.png" width="135" height="52" alt="Download App on Google Play Store" />
+{/*              <img src="/static/google-play-badge.png" width="135" height="52" alt="Download App on Google Play Store" />
               <a href="https://apps.apple.com/us/app/meeting-house/id917315049?mt=8"><img src="/static/AppleStore-badge.svg" width="135" height="38" alt="Download App on Apple Store" /></a>
-            </MDBCol>
+    */}           </MDBCol>
             <MDBCol md="6">
               <p style={{ lineHeight: "16px", fontSize: "12px", fontFamily:"Graphik Web", color: "#1A1A1A" }}>
                 <b>Main Office</b><br />
