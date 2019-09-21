@@ -20,5 +20,78 @@
         "wouldYouLikeToAddAnySocialMediaInfoToYourDistanceGroupListing": "Yes",
         "facebook": "The Meeting House - Calgary Distance Group",
         "facebookLink":"https://www.facebook.com/groups/633681026662425/"
+    },
+    {
+        "howManyPeopleAreLeadingTheGroup": 1,
+        "l1FirstName": "Peter",
+        "l1LastName": "Toews",
+        "l1Email": "ptarkie@wightman.ca",
+        
+        "name":"Hanover",
+        
+        "location":{
+            "address":"740 7th Avenue",
+            "city": "Hanover",
+            "state": "Ontario",
+            "country": "Canada",
+            "latitude":"44.159084",
+            "longitude":"-81.033327"
+        },
+        "frequency": "Weekly",
+        "dayofweek": "Wednesday/Sunday",
+        "howManyPeopleAreAttendingYourDistanceGroup": "Less than 10 adults",
+        "wouldYouLikeToAddAnySocialMediaInfoToYourDistanceGroupListing": "Yes",
+        "facebook": "The Meeting House - Hanover Distance Group",
+        "facebookLink":"https://www.facebook.com/groups/865830673536990"
+    },
+    {
+        "howManyPeopleAreLeadingTheGroup": 1,
+        "l1FirstName": "Brian",
+        "l1LastName": "Ross",
+        "l1Email": "boomrdoc@wightman.ca",
+        "l2FirstName": "Kristen",
+        "l2LastName": "Webb",
+        "l2Email": "kristenwebb1971@gmail.com",
+        "l3FirstName": "Paul",
+        "l3LastName": "Neuman",
+        "l3Email": "Paul.N@yfchanover.com",
+        
+        "name":"Hanover",
+        
+        "location":{
+            "address":"120 11th Ave",
+            "city": "Hanover",
+            "state": "Ontario",
+            "country": "Canada",
+            "latitude":"44.1425453",
+            "longitude":"-81.0227128"
+        },
+        "frequency": "Weekly",
+        "dayofweek": "Wednesday",
+        "howManyPeopleAreAttendingYourDistanceGroup": "Less than 10 adults",
+        "wouldYouLikeToAddAnySocialMediaInfoToYourDistanceGroupListing": "No"
+       
+    },
+    {
+        "howManyPeopleAreLeadingTheGroup": 1,
+        "l1FirstName": "Julie",
+        "l1LastName": "Stelter",
+        "l1Email": "juliestelter@gmail.com",
+        
+        "name":"Red Wing",
+        
+        "location":{
+            "city": "Red Wing",
+            "state": "Minnesota",
+            "country": "USA",
+            "latitude":"44.5660691",
+            "longitude":"-92.5369563"
+        },
+        "frequency": "Weekly",
+        "dayofweek": "Wednesday",
+        "howManyPeopleAreAttendingYourDistanceGroup": "Less than 10 adults",
+        "wouldYouLikeToAddAnySocialMediaInfoToYourDistanceGroupListing": "No"
+       
     }
+
 ]

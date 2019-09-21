@@ -1,43 +1,13 @@
 [
     {
         "name":"Spirituality",
-        "location":"/spirituality",
-        "children":[
-            {
-                "name":"Starting Questions",
-                "location":"/starting-questions"
-            },
-            {
-                "name":"Trending Videos",
-                "location":"/trending-videos"
-            },
-            {
-                "name":"Blogs",
-                "location":"/blogs"
-            }
-        ]
+        "location":"/spirituality"
+
     },
     {
         "name":"Community",
-        "location":"/community",
-        "children":[
-            {
-                "name":"Life Stories",
-                "location":"/life-stories"
-            },
-            {
-                "name":"Sunday Morning",
-                "location":"/sunday-morning"
-            },
-            {
-                "name":"Home Church",
-                "location":"/home-church"
-            },
-            {
-                "name":"Kids & Youth",
-                "location":"/kids+youth"
-            }
-        ]
+        "location":"/community"
+       
     },
     {
         "name":"Fall 2019",
@@ -53,12 +23,8 @@
                 "location":"/teaching-sunday"
             },
             {
-                "name":"New & Noteworthy",
+                "name":"Featured",
                 "location":"/teaching-new"
-            },
-            {
-                "name":"Bruxy's Bag of Questions",
-                "location":"/teaching-bbq"
             },
             {
                 "name":"Curated Playlists",
