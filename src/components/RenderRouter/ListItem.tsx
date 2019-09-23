@@ -149,6 +149,10 @@ class ListItem extends React.Component<Props, State> {
 
     }
   }
+  imgUrl(size:any){
+    return "http://heeetingouse-20190312104205-hostingbucket-dev.s3-website.us-east-1.amazonaws.com/cache/"+size
+    }
+
   navigateUrl(to:string){
     window.location.href=to;
   }
@@ -348,7 +352,20 @@ class ListItem extends React.Component<Props, State> {
                       <h3 style={{ width: "40vw", fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.title}</h3>
                       <div style={{ width: "40vw", fontSize: "1.25vw", fontFamily: "Graphik Web" }}>{item.text}</div>
                     </div>
-                    <img style={{ position: "absolute", height: "20vw", width: "30vw", left: "0vw", objectFit: "cover", top: "2.5vw" }} src={item.imageSrc} alt={item.imageAlt} />
+                    <img style={{ position: "absolute", height: "20vw", width: "30vw", left: "0vw", objectFit: "cover", top: "2.5vw" }}  src={this.imgUrl(480)+item.imageSrc} alt={item.imageAlt} 
+                        srcSet={this.imgUrl(320)+item.imageSrc+" 320w,"+
+                        this.imgUrl(480)+item.imageSrc+" 480w,"+
+                        this.imgUrl(640)+item.imageSrc+" 640w,"+
+                        this.imgUrl(1280)+item.imageSrc+" 1280w,"+
+                        this.imgUrl(1920)+item.imageSrc+" 1920w,"+
+                        this.imgUrl(2560)+item.imageSrc+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
                   </div>
                 )
               })
