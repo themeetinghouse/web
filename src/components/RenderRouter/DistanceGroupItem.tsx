@@ -6,7 +6,7 @@ import { Marker } from 'google-maps-react';
 import { Map } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import "./HomeChurchItem.scss"
+import "./DistanceGroupItem.scss"
 import { Button } from 'react-bootstrap';
 
 

@@ -7,6 +7,7 @@ import VideoPlayer from './VideoPlayer';
 import SVGItem from './SVGItem';
 import HeroItem from './HeroItem';
 import TeachingItem from './TeachingItem';
+import DistanceGroupItem from './DistanceGroupItem';
 import SundayMorningItem from './SundayMorningItem';
 import HomeChurchItem from './HomeChurchItem';
 import FormItem from './FormItem';
@@ -48,13 +49,15 @@ class RenderRouter extends React.Component<Props, State> {
           return (<TeachingItem key={index} content={item}></TeachingItem>);
         else if (item.type === "sunday-morning")
           return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
+        else if (item.type === "distance-groups")
+          return (<DistanceGroupItem key={index} content={item}></DistanceGroupItem>);
         else if (item.type === "home-church")
           return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
         else if (item.type === "form")
           return (<FormItem key={index} content={item}></FormItem>);
-          else if (item.type === "instagram")
+        else if (item.type === "instagram")
           return (<InstagramItem key={index} content={item}></InstagramItem>);
-          
+
         else return null
       })
     else return null
