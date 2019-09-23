@@ -17,9 +17,8 @@
            
             
             {
-                "type": "home-church",
-                "header1": "Distance Groups",
-                "class":"distance-groups"
+                "type": "distance-groups",
+                "header1": "Distance Groups"
             },
             {
                 "type": "content",
