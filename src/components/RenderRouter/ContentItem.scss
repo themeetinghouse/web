@@ -176,15 +176,19 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
     .oneImageText{
-        font-size: 3vw;
+        font-size: 4.255vw;
         font-family:Graphik Web;
+        line-height: 6.5vw;
     }
     .oneImageText.white{
         color:#ffffff;
     }
     .oneImageA{
-        font-size: 3vw;
+        font-size: 4.255vw;
         font-family:Graphik Web;
+        line-height: 6.5vw;
+        margin-top: 13vw;
+        display: inline-block;
 
     }
     .oneImageImage{
@@ -202,7 +206,7 @@
         padding-top:40vw;
         position: relative;
         width: 100vw;
-        height: 80vw;
+        height: 122vw;
         left: 0vw;
         top: 0vw;
         background-color: #EFEFF0;
@@ -220,8 +224,9 @@
     }
     .oneImageH1{
         font-weight: bold;
-        font-size: 6vw;
+        font-size: 8.525vw;
         font-family:"Graphik Web";
+        line-height: 10.665vw;
     }
     .oneImageH1.white{
         color:#ffffff;
