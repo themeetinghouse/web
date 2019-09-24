@@ -1,6 +1,77 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
+export const getYoutubeVideoSearch = `query GetYoutubeVideoSearch($videoId: String) {
+  getYoutubeVideoSearch(videoId: $videoId) {
+    kind
+    etag
+    pageInfo {
+      totalResults
+      resultsPerPage
+    }
+    items {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
+      }
+    }
+  }
+}
+`;
 export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistId: String) {
   getYoutubePlaylistItems(playlistId: $playlistId) {
     kind
@@ -54,6 +125,19 @@ export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistI
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
   }
@@ -786,6 +870,7 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -821,6 +906,19 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -920,6 +1018,7 @@ export const listSpeakers = `query ListSpeakers(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -951,6 +1050,19 @@ export const listSpeakers = `query ListSpeakers(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1043,6 +1155,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1074,6 +1187,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1138,6 +1264,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1169,12 +1296,26 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -1237,6 +1378,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -1287,6 +1441,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1318,6 +1473,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1403,6 +1571,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1473,6 +1642,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1499,6 +1669,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -1561,6 +1732,19 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -1600,6 +1784,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1700,6 +1885,7 @@ export const getSeries = `query GetSeries($id: ID!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1770,6 +1956,7 @@ export const getSeries = `query GetSeries($id: ID!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1796,6 +1983,7 @@ export const getSeries = `query GetSeries($id: ID!) {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -1858,12 +2046,26 @@ export const getSeries = `query GetSeries($id: ID!) {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -1967,6 +2169,7 @@ export const listSeriess = `query ListSeriess(
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -2002,12 +2205,26 @@ export const listSeriess = `query ListSeriess(
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -2132,6 +2349,7 @@ export const getVideo = `query GetVideo($id: ID!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -2167,6 +2385,19 @@ export const getVideo = `query GetVideo($id: ID!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -2304,6 +2535,7 @@ export const getVideo = `query GetVideo($id: ID!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -2339,12 +2571,26 @@ export const getVideo = `query GetVideo($id: ID!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -2407,6 +2653,19 @@ export const getVideo = `query GetVideo($id: ID!) {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes
@@ -2485,6 +2744,7 @@ export const listVideos = `query ListVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2516,6 +2776,19 @@ export const listVideos = `query ListVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2580,6 +2853,7 @@ export const listVideos = `query ListVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2611,12 +2885,26 @@ export const listVideos = `query ListVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -2679,6 +2967,19 @@ export const listVideos = `query ListVideos(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -3446,6 +3747,177 @@ export const getTnSermonByIdent = `query GetTnSermonByIdent(
   }
 }
 `;
+export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
+  $seriesType: String
+  $startDate: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelSeriesFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  getSeriesBySeriesType(
+    seriesType: $seriesType
+    startDate: $startDate
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      videos {
+        items {
+          id
+          createdBy
+          createdDate
+          locations {
+            id
+            url
+            site_name
+            directions
+            welcome
+            welcome_img
+            welcome_vid_youtube
+            phone
+            email
+            instagram
+            twitter
+            facebook
+            location {
+              longitude
+              latitude
+              address
+            }
+            visible
+          }
+          speakers {
+            items {
+              id
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                videoTypes
+              }
+              speaker {
+                id
+                name
+                image
+              }
+            }
+            nextToken
+          }
+          episodeTitle
+          originalEpisodeTitle
+          episodeNumber
+          seriesTitle
+          series {
+            id
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                videoTypes
+              }
+              nextToken
+            }
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+          }
+          publishedDate
+          recordedDate
+          description
+          closedCaptioning
+          referencedMedia
+          campaigns
+          bibleVerses
+          topics
+          qandeh
+          length
+          YoutubeIdent
+          Youtube {
+            id
+            kind
+            etag
+            snippet {
+              publishedAt
+              channelId
+              title
+              description
+              channelTitle
+              localized {
+                title
+                description
+              }
+            }
+            contentDetails {
+              videoId
+              videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
+            }
+          }
+          videoTypes
+        }
+        nextToken
+      }
+      seriesType
+      title
+      description
+      image
+      startDate
+      endDate
+    }
+    nextToken
+  }
+}
+`;
 export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
   $YoutubeIdent: String
   $sortDirection: ModelSortDirection
@@ -3526,6 +3998,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -3557,6 +4030,19 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -3621,6 +4107,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -3652,12 +4139,26 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -3720,6 +4221,19 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -3810,6 +4324,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -3841,6 +4356,19 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -3905,6 +4433,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -3936,12 +4465,26 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -4004,6 +4547,19 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -4109,6 +4665,7 @@ export const searchVideos = `query SearchVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -4140,6 +4697,19 @@ export const searchVideos = `query SearchVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -4204,6 +4774,7 @@ export const searchVideos = `query SearchVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -4235,12 +4806,26 @@ export const searchVideos = `query SearchVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -4303,6 +4888,19 @@ export const searchVideos = `query SearchVideos(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
