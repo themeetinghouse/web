@@ -264,7 +264,7 @@
       }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .search{
         height:8vw;
         left:76vw;
@@ -276,6 +276,8 @@
         padding-top:0!important;
         padding-bottom:0!important;
         margin-left: 15px;
+        position: relative;
+        top: 15.5%;
     }
     .logoHouse{
         height: 10.4vw;
@@ -296,8 +298,8 @@
     }
     .navbar-toggler{
         position:absolute;
-        left:85vw;
-        top:5vw;
+        left:86.5vw;
+        top:5.15vw;
         height:8vw;
         margin:0vw!important;
         padding:0vw!important;
@@ -334,7 +336,7 @@
         font-size: 3.5vw;
         padding-bottom: 0.5vw;
         padding-top: 0.5vw;
-        margin:10px 15px 15px 45px;
+        margin: 10px 15px 15px 25px;
     }
 
     .nav-item a {
@@ -349,10 +351,9 @@
         right: 0;
         width: 100vw;
         z-index: 1030;
-        padding: 2vw;
+        padding: 2vw 0 2vw 0;
         top: 0vh;
         height:19.2vw;
-        line-height: 50px;
     }
     .navbar.fixed-left {
         position: fixed;
@@ -370,7 +371,7 @@
     }
     .navbar-collapse{
         left:-2vw;
-        top:4vw;
+        top:10vw;
         position:relative;
         background-color:#ffffff;
         width:100vw;

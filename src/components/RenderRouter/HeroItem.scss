@@ -8,6 +8,14 @@
 
     .heroH2 {}
 
+    .heroHr {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1.5vw; margin-bottom: 1.5vw;
+        width: 8.55vw;
+        background-color: #ffffff;
+    }
+
     .heroText1 {
         font-family: Graphik Web;
         width: 32vw;
@@ -77,6 +85,13 @@
         width: 36vw;
         top: 30vh;
         z-index: 100;
+    }
+
+    .heroButton {
+        margin-top: 1.5vw;
+        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        padding: 1rem 1.5rem;
+        font-weight: 800;
     }
 }
 
@@ -90,6 +105,14 @@
 
     .heroH2 {}
 
+    .heroHr {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1.5vw; margin-bottom: 1.5vw;
+        width: 8.55vw;
+        background-color: #ffffff;
+    }
+
     .heroText1 {
         font-family: Graphik Web;
         width: 32vw;
@@ -160,23 +183,41 @@
         top: 30vh;
         z-index: 100;
     }
+
+    .heroButton {
+        margin-top: 1.5vw;
+        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        padding: 1rem 1.5rem;
+        font-weight: 800;
+    }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .heroH1 {
         font-family: Graphik Web;
         font-weight: bold;
         color: #ffffff;
-        font-size: 6vw;
+        font-size: 8.535vw;
+        line-height: 10.65vw;
     }
 
     .heroH2 {}
+
+    .heroHr {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 4.5vw; margin-bottom: 4.5vw;
+        width: 8.55vw;
+        background-color: #ffffff;
+    }
 
     .heroText1 {
         font-family: Graphik Web;
         width: 90vw;
         color: #ffffff;
-        font-size: 3vw;
+        font-size: 5vw;
+        line-height: 7.5vw;
+
     }
 
     .heroText2 {
@@ -227,9 +268,16 @@
         padding: 2vw;
         left: 0vw;
         width: 100vw;
-        height: 34vh;
+        height: 65vh;
         top: 60vh;
         z-index: 100;
-        padding: 6vw;
+        padding: 10vw 6vw 10vw 6vw;
+    }
+
+    .heroButton {
+        margin-top: 15vw;
+        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        padding: 1rem 1.5rem;
+        font-weight: 800;
     }
 }

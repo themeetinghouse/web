@@ -174,7 +174,7 @@
 
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .oneImageText{
         font-size: 4.255vw;
         font-family:Graphik Web;
@@ -241,5 +241,6 @@
     .ContentItem.oneImage {
         position: static;
         padding-bottom: 5vw;
+        padding-top: 57vw;
     }
 }

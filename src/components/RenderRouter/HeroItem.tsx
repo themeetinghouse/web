@@ -78,7 +78,7 @@ class HeroItem extends React.Component<Props, State> {
                     <div className="heroBlackBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
-                        <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
+                        <hr className="heroHr"></hr>
                         <div className="heroText1" >{this.state.content.text1}</div>
                         <div className="heroText2" >{this.state.content.text2}</div>
                         <div className="heroText2" >{this.state.content.text3}</div>
@@ -86,7 +86,7 @@ class HeroItem extends React.Component<Props, State> {
                         <div className="heroText2" >{this.state.content.text5}</div>
                         <div className="heroText2" >{this.state.content.text6}</div>
                         <div className="heroText2" >{this.state.content.text7}</div>
-                        {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
+                        {this.state.content.button1Text ? (<Button className="heroButton" onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
                         {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
