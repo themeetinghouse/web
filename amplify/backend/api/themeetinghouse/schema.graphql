@@ -347,10 +347,12 @@ type SpeakerVideos
 type Series
   @model
  @auth(rules:[{allow:public, operations:[read]}])
+ @key(name: "BySeriesTypes",fields: ["seriesType","startDate"], queryField:"getSeriesBySeriesType")
 
 {
   id: ID!
   videos: [Video] @connection(name: "VideosSeries")
+  seriesType: String
   title: String
   description: String
   image: String

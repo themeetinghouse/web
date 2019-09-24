@@ -870,6 +870,7 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -1017,6 +1018,7 @@ export const listSpeakers = `query ListSpeakers(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1153,6 +1155,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1261,6 +1264,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1311,6 +1315,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -1436,6 +1441,7 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1565,6 +1571,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1635,6 +1642,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1661,6 +1669,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -1775,6 +1784,7 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1875,6 +1885,7 @@ export const getSeries = `query GetSeries($id: ID!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1945,6 +1956,7 @@ export const getSeries = `query GetSeries($id: ID!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -1971,6 +1983,7 @@ export const getSeries = `query GetSeries($id: ID!) {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -2052,6 +2065,7 @@ export const getSeries = `query GetSeries($id: ID!) {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -2155,6 +2169,7 @@ export const listSeriess = `query ListSeriess(
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -2209,6 +2224,7 @@ export const listSeriess = `query ListSeriess(
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -2333,6 +2349,7 @@ export const getVideo = `query GetVideo($id: ID!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -2518,6 +2535,7 @@ export const getVideo = `query GetVideo($id: ID!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -2572,6 +2590,7 @@ export const getVideo = `query GetVideo($id: ID!) {
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -2725,6 +2744,7 @@ export const listVideos = `query ListVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2833,6 +2853,7 @@ export const listVideos = `query ListVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2883,6 +2904,7 @@ export const listVideos = `query ListVideos(
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -3725,6 +3747,177 @@ export const getTnSermonByIdent = `query GetTnSermonByIdent(
   }
 }
 `;
+export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
+  $seriesType: String
+  $startDate: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelSeriesFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  getSeriesBySeriesType(
+    seriesType: $seriesType
+    startDate: $startDate
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      videos {
+        items {
+          id
+          createdBy
+          createdDate
+          locations {
+            id
+            url
+            site_name
+            directions
+            welcome
+            welcome_img
+            welcome_vid_youtube
+            phone
+            email
+            instagram
+            twitter
+            facebook
+            location {
+              longitude
+              latitude
+              address
+            }
+            visible
+          }
+          speakers {
+            items {
+              id
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                videoTypes
+              }
+              speaker {
+                id
+                name
+                image
+              }
+            }
+            nextToken
+          }
+          episodeTitle
+          originalEpisodeTitle
+          episodeNumber
+          seriesTitle
+          series {
+            id
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                videoTypes
+              }
+              nextToken
+            }
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+          }
+          publishedDate
+          recordedDate
+          description
+          closedCaptioning
+          referencedMedia
+          campaigns
+          bibleVerses
+          topics
+          qandeh
+          length
+          YoutubeIdent
+          Youtube {
+            id
+            kind
+            etag
+            snippet {
+              publishedAt
+              channelId
+              title
+              description
+              channelTitle
+              localized {
+                title
+                description
+              }
+            }
+            contentDetails {
+              videoId
+              videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
+            }
+          }
+          videoTypes
+        }
+        nextToken
+      }
+      seriesType
+      title
+      description
+      image
+      startDate
+      endDate
+    }
+    nextToken
+  }
+}
+`;
 export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
   $YoutubeIdent: String
   $sortDirection: ModelSortDirection
@@ -3805,6 +3998,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -3913,6 +4107,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -3963,6 +4158,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -4128,6 +4324,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -4236,6 +4433,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -4286,6 +4484,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -4466,6 +4665,7 @@ export const searchVideos = `query SearchVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -4574,6 +4774,7 @@ export const searchVideos = `query SearchVideos(
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -4624,6 +4825,7 @@ export const searchVideos = `query SearchVideos(
           }
           nextToken
         }
+        seriesType
         title
         description
         image

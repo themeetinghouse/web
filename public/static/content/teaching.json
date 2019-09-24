@@ -46,6 +46,7 @@
                 "type":"list",
                 "style":"horizontalBig",
                 "class":"series",
+                "subclass":"adult-sunday",
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1":"All series"                

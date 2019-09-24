@@ -69,9 +69,37 @@
                 "type":"list",
                 "style":"horizontalBig",
                 "class":"series",
+                "subclass":"ky-kids",
                 "selector":"all",
                 "sortOrder":"DESC",
-                "header1":"All series"                
+                "header1":"All Kids Series"                
+            },
+            {
+                "type":"list",
+                "style":"horizontalBig",
+                "class":"series",
+                "subclass":"ky-jrhigh",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"All Jr. High Series"                
+            },
+            {
+                "type":"list",
+                "style":"horizontalBig",
+                "class":"series",
+                "subclass":"ky-youth",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"All Youth Series"                
+            },
+            {
+                "type":"list",
+                "style":"horizontalBig",
+                "class":"series",
+                "subclass":"ky-srhigh",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"All Sr. High Series"                
             },
             {
                 "type": "content",

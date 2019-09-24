@@ -90,15 +90,15 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === "series") {
 
       const listSeriess = API.graphql({
-        query: queries.listSeriess,
-        variables: { sortOrder: this.state.content.sortOrder, limit: 50 },
+        query: queries.getSeriesBySeriesType,
+        variables: { sortDirection: this.state.content.sortOrder, limit: 50,seriesType: this.state.content.subclass,publishedDate: { lt: "a" } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       });
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
         console.log(json)
         this.setState({
-          listData: json.data.listSeriess.items
+          listData: json.data.getSeriesBySeriesType.items
         })
       }).catch((e: any) => { console.log(e) })
     }

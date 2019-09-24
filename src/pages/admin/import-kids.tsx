@@ -946,7 +946,16 @@ class IndexApp extends React.Component {
                 console.log("Error mutations.createSeries: " + err);
                 console.log(err)
               });*/
-                        var z = "ky-"+category
+              var z = "ky-"+category
+              console.log(original)
+              const updateSeries = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: seriesId, image:series.image, seriesType:z, title: series.title,startDate:original.post_date[0].split(" ")[0],endDate:original.post_date[0].split(" ")[0] } }));
+              updateSeries.then((json: any) => {
+                console.log("Success mutations.updateSeries: " + json);
+              }).catch((err: any) => {
+                console.log("Error mutations.updateSeries: " + err);
+                console.log(err)
+              });
+                      
                         const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtube, videoTypes: z, publishedDate: original.post_date[0].split(" ")[0],episodeTitle: episodeTitle, episodeNumber: episode.episodeNumber, seriesTitle: series.title , videoSeriesId: seriesId} }));
                         updateVideo.then(() => {
                           console.log("updateVideo success")
@@ -1093,6 +1102,37 @@ class IndexApp extends React.Component {
       });
    
     }*/
+   
+    fixAdultSeries(nextId: any) {
+      const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
+      listSeriess.then((json: any) => {
+        //  console.log(json)
+        json.data.listSeriess.items.forEach((item: any) => {
+         
+          if (!item.id.includes("ky-")) {
+            console.log(item.id)
+
+
+            const updateSeriess = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: item.id, seriesType:"adult-sunday"} }));
+            updateSeriess.then((json2: any) => {
+              console.log(json2)
+            }).catch((err: any) => {
+              console.log("Error mutations.createSeries: " + err);
+              console.log(err)
+            });
+          }
+        })
+  
+        if (json.data.listSeriess.nextToken != null)
+          this.fixAdultSeries(json.data.listSeriess.nextToken)
+        // const arrSum = (x:any) => x.reduce((a:any,b:any) => a + b, 0)
+        //  console.log(arrSum(z))
+      }).catch((err: any) => {
+        console.log("Error mutations.createSeries: " + err);
+        console.log(err)
+      });
+  
+    }
   importYoutube() {
     var z = new ImportYoutube()
     z.reloadPlaylists()
@@ -1106,6 +1146,7 @@ class IndexApp extends React.Component {
         <Button onClick={() => { this.importYoutube() }}>Load New Youtube Items</Button>
 
         <Button onClick={() => { this.importKidsAndYouth() }}>Import Kids and Youth</Button>
+        <Button onClick={() => { this.fixAdultSeries(null) }}>Fix Adult</Button>
         <Button onClick={() => { /*this.importKidsAndYouthVideos() */ }}>Import Kids and Youth Videos</Button>
       </div>
     );

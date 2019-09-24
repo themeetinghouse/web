@@ -671,6 +671,7 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -860,6 +861,7 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -1049,6 +1051,7 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -1213,6 +1216,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1321,6 +1325,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1371,6 +1376,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -1496,6 +1502,7 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1631,6 +1638,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1739,6 +1747,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1789,6 +1798,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -1914,6 +1924,7 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2049,6 +2060,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2157,6 +2169,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2207,6 +2220,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -2332,6 +2346,7 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2457,6 +2472,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2527,6 +2543,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2553,6 +2570,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -2634,6 +2652,7 @@ export const onCreateSeries = `subscription OnCreateSeries {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -2701,6 +2720,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2771,6 +2791,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2797,6 +2818,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -2878,6 +2900,7 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -2945,6 +2968,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -3015,6 +3039,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -3041,6 +3066,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -3122,6 +3148,7 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -3244,6 +3271,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3429,6 +3457,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3483,6 +3512,7 @@ export const onCreateVideo = `subscription OnCreateVideo {
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -3678,6 +3708,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3863,6 +3894,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3917,6 +3949,7 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -4112,6 +4145,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -4297,6 +4331,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -4351,6 +4386,7 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
         }
         nextToken
       }
+      seriesType
       title
       description
       image

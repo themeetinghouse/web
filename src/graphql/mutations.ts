@@ -659,6 +659,7 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -848,6 +849,7 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -1037,6 +1039,7 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -1201,6 +1204,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1309,6 +1313,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1359,6 +1364,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -1484,6 +1490,7 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1619,6 +1626,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1727,6 +1735,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -1777,6 +1786,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -1902,6 +1912,7 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2037,6 +2048,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2145,6 +2157,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2195,6 +2208,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
           }
           nextToken
         }
+        seriesType
         title
         description
         image
@@ -2320,6 +2334,7 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               videos {
                 nextToken
               }
+              seriesType
               title
               description
               image
@@ -2445,6 +2460,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2515,6 +2531,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2541,6 +2558,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -2622,6 +2640,7 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -2689,6 +2708,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2759,6 +2779,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -2785,6 +2806,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -2866,6 +2888,7 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -2933,6 +2956,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -3003,6 +3027,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
               seriesTitle
               series {
                 id
+                seriesType
                 title
                 description
                 image
@@ -3029,6 +3054,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
             }
             nextToken
           }
+          seriesType
           title
           description
           image
@@ -3110,6 +3136,7 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
       }
       nextToken
     }
+    seriesType
     title
     description
     image
@@ -3232,6 +3259,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3417,6 +3445,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3471,6 +3500,7 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -3666,6 +3696,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3851,6 +3882,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -3905,6 +3937,7 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
         }
         nextToken
       }
+      seriesType
       title
       description
       image
@@ -4100,6 +4133,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -4285,6 +4319,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
               }
               nextToken
             }
+            seriesType
             title
             description
             image
@@ -4339,6 +4374,7 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
         }
         nextToken
       }
+      seriesType
       title
       description
       image
