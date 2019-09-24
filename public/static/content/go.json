@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "fall-2019",
-        "title": "Fall 2019",
+        "name": "go",
+        "title": "Go Campaign",
         "keywords": "",
         "description":"",
 
@@ -18,11 +18,11 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Coming Soon",
+                "header1":"Pledge",
                 "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
+                "text1":"Make a pledge...",
+                "link1Text": "Go",
+                "link1Action": "go-pledge",
                 "image1":[{
                     "src":"/static/images/homepage-2.jpg",
                     "alt":"TODO"
@@ -32,11 +32,11 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Coming Soon",
+                "header1":"Give",
                 "header2":"",
-                "text1":"This content has not been developed yet...",
+                "text1":"Make a one-time donation",
                 "link1Text": "....",
-                "link1Action": "homepage",
+                "link1Action": "go-give",
                 "image1":[{
                     "src":"/static/images/homepage-2.jpg",
                     "alt":"TODO"
