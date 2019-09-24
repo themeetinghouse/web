@@ -16,6 +16,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
 import HomeFooter from '../Menu/HomeFooter';
 import InstagramItem from './InstagramItem';
+import IFrameItem from './IFrameItem';
 import Helmet from 'react-helmet'
 interface Props extends RouteComponentProps {
   content: any
@@ -57,6 +58,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<FormItem key={index} content={item}></FormItem>);
         else if (item.type === "instagram")
           return (<InstagramItem key={index} content={item}></InstagramItem>);
+          else if (item.type === "iframe")
+          return (<IFrameItem key={index} content={item}></IFrameItem>);
 
         else return null
       })
