@@ -694,6 +694,19 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -870,6 +883,19 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -1046,6 +1072,19 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -1193,6 +1232,19 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1288,6 +1340,19 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1356,6 +1421,19 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -1437,6 +1515,19 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1559,6 +1650,19 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1654,6 +1758,19 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1722,6 +1839,19 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -1803,6 +1933,19 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1925,6 +2068,19 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2020,6 +2176,19 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2088,6 +2257,19 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -2169,6 +2351,19 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2408,6 +2603,19 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -2639,6 +2847,19 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -2870,6 +3091,19 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -3033,6 +3267,19 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3205,6 +3452,19 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3273,6 +3533,19 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes
@@ -3428,6 +3701,19 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3600,6 +3886,19 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3668,6 +3967,19 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes
@@ -3823,6 +4135,19 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3995,6 +4320,19 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -4063,6 +4401,19 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes

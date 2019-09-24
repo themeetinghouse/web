@@ -1,4 +1,5 @@
 type Query {
+  getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
   getYoutubePlaylistItems(playlistId: String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
@@ -152,6 +153,7 @@ type TNSeries
   homeChurchCommentCount:Int
   sermons:[TNSermon] @connection(name: "SeriesSermons")
 }
+
 type TNMediaEntry{
   type:String,
   contentType:String,
@@ -234,7 +236,7 @@ type YoutubePlaylistItemsItem
   etag: String
   snippet: YoutubeSnippet
   contentDetails: YoutubePlaylistItemDetails
-  
+  status: YoutubeStatus
 }
 type YoutubePlaylistItemsItem2
  { 
@@ -243,12 +245,25 @@ type YoutubePlaylistItemsItem2
   etag: String
   snippet: YoutubeSnippet
   contentDetails: YoutubePlaylistItemDetails
-  
+  status: YoutubeStatus
 }
 type YoutubePlaylistItemDetails{
   videoId: String
   videoPublishedAt: String
+  duration: String
+  dimension: String
+  definition: String
+  caption: String
+  licensedContent: Boolean,
+  projection: String
 } 
+type YoutubeStatus{
+  uploadStatus: String
+  privacyStatus: String
+  license: String
+  embeddable: Boolean
+  publicStatsViewable: Boolean
+}
 type YoutubePageInfo
 {
   totalResults: Int

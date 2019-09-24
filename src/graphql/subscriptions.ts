@@ -706,6 +706,19 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -882,6 +895,19 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -1058,6 +1084,19 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -1205,6 +1244,19 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1300,6 +1352,19 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1368,6 +1433,19 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -1449,6 +1527,19 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1571,6 +1662,19 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1666,6 +1770,19 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1734,6 +1851,19 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -1815,6 +1945,19 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1937,6 +2080,19 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2032,6 +2188,19 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2100,6 +2269,19 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -2181,6 +2363,19 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2420,6 +2615,19 @@ export const onCreateSeries = `subscription OnCreateSeries {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -2651,6 +2859,19 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -2882,6 +3103,19 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -3045,6 +3279,19 @@ export const onCreateVideo = `subscription OnCreateVideo {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3217,6 +3464,19 @@ export const onCreateVideo = `subscription OnCreateVideo {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3285,6 +3545,19 @@ export const onCreateVideo = `subscription OnCreateVideo {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes
@@ -3440,6 +3713,19 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3612,6 +3898,19 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -3680,6 +3979,19 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes
@@ -3835,6 +4147,19 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -4007,6 +4332,19 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -4075,6 +4413,19 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes

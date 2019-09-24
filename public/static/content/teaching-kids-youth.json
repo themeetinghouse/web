@@ -1,0 +1,92 @@
+{
+    "page": {
+        "name": "teaching-kids+youth",
+        "title": "Kids and Youth Teaching",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "teaching",
+                "style": "hero",
+                "header1":"Kids & Youth Teaching",
+                "options":["Kids","Jr. High","Youth"],
+                "group":"kids+youth"
+            },
+            {
+                "type": "search",
+                "style": "teaching",
+                "header1":"Search the Archives",
+                "text1":"Try \"Grace\"",
+                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"ky-kids",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Kids"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"ky-jrhigh",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Jr. High"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"ky-youth",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Youth"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"ky-srhigh",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Sr. High"                
+            },
+           
+            {
+                "type":"list",
+                "style":"horizontalBig",
+                "class":"series",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"All series"                
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Curriculum?",
+                "text1": "Interested in using our curriculum at your church? Please take a look at our dedicated site for information on crafts, questions and content!",
+                "link1Text": "Kids + Youth Curriculum",
+                "link1Action": "http://kidsandyouth.themeetinghouse.com",
+                "image1": [
+                    {
+                        "src": "/static/images/homepage-2.jpg",
+                        "alt": "Group of friends from church sitting together and talking."
+                    }
+                ]
+            }
+        ]
+    }
+}

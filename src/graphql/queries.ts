@@ -1,6 +1,77 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
+export const getYoutubeVideoSearch = `query GetYoutubeVideoSearch($videoId: String) {
+  getYoutubeVideoSearch(videoId: $videoId) {
+    kind
+    etag
+    pageInfo {
+      totalResults
+      resultsPerPage
+    }
+    items {
+      id
+      kind
+      etag
+      snippet {
+        publishedAt
+        channelId
+        title
+        description
+        thumbnails {
+          default {
+            url
+            width
+            height
+          }
+          medium {
+            url
+            width
+            height
+          }
+          high {
+            url
+            width
+            height
+          }
+          standard {
+            url
+            width
+            height
+          }
+          maxres {
+            url
+            width
+            height
+          }
+        }
+        channelTitle
+        localized {
+          title
+          description
+        }
+      }
+      contentDetails {
+        videoId
+        videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
+      }
+    }
+  }
+}
+`;
 export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistId: String) {
   getYoutubePlaylistItems(playlistId: $playlistId) {
     kind
@@ -54,6 +125,19 @@ export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistI
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
   }
@@ -821,6 +905,19 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -951,6 +1048,19 @@ export const listSpeakers = `query ListSpeakers(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1074,6 +1184,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1169,6 +1292,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1237,6 +1373,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -1318,6 +1467,19 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -1561,6 +1723,19 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -1858,6 +2033,19 @@ export const getSeries = `query GetSeries($id: ID!) {
           contentDetails {
             videoId
             videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
           }
         }
         videoTypes
@@ -2002,6 +2190,19 @@ export const listSeriess = `query ListSeriess(
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -2167,6 +2368,19 @@ export const getVideo = `query GetVideo($id: ID!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -2339,6 +2553,19 @@ export const getVideo = `query GetVideo($id: ID!) {
             contentDetails {
               videoId
               videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
             }
           }
           videoTypes
@@ -2407,6 +2634,19 @@ export const getVideo = `query GetVideo($id: ID!) {
       contentDetails {
         videoId
         videoPublishedAt
+        duration
+        dimension
+        definition
+        caption
+        licensedContent
+        projection
+      }
+      status {
+        uploadStatus
+        privacyStatus
+        license
+        embeddable
+        publicStatsViewable
       }
     }
     videoTypes
@@ -2516,6 +2756,19 @@ export const listVideos = `query ListVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2611,6 +2864,19 @@ export const listVideos = `query ListVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -2679,6 +2945,19 @@ export const listVideos = `query ListVideos(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -3557,6 +3836,19 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -3652,6 +3944,19 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -3720,6 +4025,19 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -3841,6 +4159,19 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -3936,6 +4267,19 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -4004,6 +4348,19 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
@@ -4140,6 +4497,19 @@ export const searchVideos = `query SearchVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -4235,6 +4605,19 @@ export const searchVideos = `query SearchVideos(
               contentDetails {
                 videoId
                 videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
               }
             }
             videoTypes
@@ -4303,6 +4686,19 @@ export const searchVideos = `query SearchVideos(
         contentDetails {
           videoId
           videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes
