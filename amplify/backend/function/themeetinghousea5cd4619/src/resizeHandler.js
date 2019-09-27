@@ -18,7 +18,7 @@ class ResizerHandler {
         console.log(path)
         try {
 //            const sizeArray = .split('/')
-            const begin = "cache"
+            const begin = "cached"
             const width = parseInt(size)
             const Key = path
             const format = Key.split('.')[1]
