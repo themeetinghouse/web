@@ -20,12 +20,8 @@
                 "image1": [
                     {
                         "src": "/static/images/ancaster-1-1.jpg",
-                        "alt": "Description"
+                        "alt": "Three people hanging out together in Ancaster, Hamilton, Ontario."
                     },
-                    {
-                        "src": "/static/images/ancaster-1-2.jpg",
-                        "alt": "Description"
-                    }
                 ],
                 "header1": "Ancaster",
                 "text1": "Sunday Service",
