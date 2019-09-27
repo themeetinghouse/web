@@ -17,9 +17,11 @@
             {
                 "type": "teaching",
                 "style": "hero",
+                "class":"teaching-kids-youth",
                 "header1":"Kids & Youth Teaching",
-                "options":["Kids","Jr. High","Youth"],
-                "group":"kids+youth"
+                "options":["Kids","Jr. High","Youth","Sr. High"],
+                "group":"kids+youth",
+                "sortOrder":"DESC"
             },
             {
                 "type": "search",

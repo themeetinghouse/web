@@ -67,7 +67,10 @@ class HeroItem extends React.Component<Props, State> {
 
     }
     imgUrl(size:any){
-    return "http://heeetingouse-20190312104205-hostingbucket-dev.s3-website.us-east-1.amazonaws.com/cache/"+size
+        if (window.location.hostname==="localhost")
+            return "https://localhost:3006"
+        else
+         return "https://beta.themeetinghouse.com/cache/"+size
     }
     render() {
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];

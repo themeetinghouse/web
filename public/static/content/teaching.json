@@ -18,6 +18,7 @@
             {
                 "type": "teaching",
                 "style": "hero",
+                "class": "teaching-sunday",
                 "header1":"Teaching - Sunday Teaching",
                 "options":["Oakville","Regional"],
                 "group":"teaching",
