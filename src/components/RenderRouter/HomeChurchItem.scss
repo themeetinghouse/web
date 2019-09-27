@@ -1,11 +1,125 @@
 @media (min-width: 768px) {
+  .ContentItem.oneImage.HomeChurchItem {
+        height: 100vw;
+        position: static; padding-bottom: 5vw;
+  }
 
+  .HomeChurchItemDiv2 {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+  }
+
+  .HomeChurchItemDiv3 {
+        position: absolute;
+        left: 40vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemDiv4 {
+        position: absolute;
+        left: 0vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemMap {
+        left: 0vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemA {
+        white-space: nowrap;
+        color: #1A1A1A;
+  }
+
+  .HomeChurchItemImage {
+        margin-right: 0.5vw; margin-top: 0.5vw; margin-bottom: 0.5vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .ContentItem.oneImage.HomeChurchIteDiv1 {
+        height: 100vw;
+        position: static; padding-bottom: 5vw;
+  }
 
+  .HomeChurchItemDiv2 {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+  }
+
+  .HomeChurchItemDiv3 {
+        position: absolute;
+        left: 40vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemDiv4 {
+        position: absolute;
+        left: 0vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemMap {
+        left: 0vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemA {
+        white-space: nowrap;
+        color: #1A1A1A;
+  }
+
+  .HomeChurchItemImage {
+        margin-right: 0.5vw; margin-top: 0.5vw; margin-bottom: 0.5vw;
+  }
 }
 
 @media (max-width: 767px) {
+  .ContentItem.oneImage.HomeChurchItem {
+        height: 100vw;
+        position: static; padding-bottom: 5vw;
+  }
 
+  .HomeChurchItemDiv2 {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+  }
+
+  .HomeChurchItemDiv3 {
+        position: absolute;
+        left: 40vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemDiv4 {
+        position: absolute;
+        left: 0vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemMap {
+        left: 0vw;
+        width: 40vw;
+        height: 40vw;
+  }
+
+  .HomeChurchItemA {
+        white-space: nowrap;
+        color: #1A1A1A;
+  }
+
+  .HomeChurchItemImage {
+        margin-right: 0.5vw; margin-top: 0.5vw; margin-bottom: 0.5vw;
+  }
 }
