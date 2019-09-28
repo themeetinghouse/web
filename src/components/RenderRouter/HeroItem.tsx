@@ -125,8 +125,8 @@ class HeroItem extends React.Component<Props, State> {
         else if (this.state.content.style === "partial") {
 
             return (
-                <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "43vw", paddingBottom: "5vh" }}>
-                    <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "40vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
+                <div className="headerPartialItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "50vw", paddingBottom: "5vh" }}>
+                    <img src={image1.src} alt={image1.alt} className="example-mask" style={{ left:"0vw",width: "80vw", height: "40vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
                 </div>
             )
         }
