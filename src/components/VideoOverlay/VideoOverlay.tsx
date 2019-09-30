@@ -16,6 +16,7 @@ Amplify.configure(awsconfig);
 interface Props {
   data: any
   onClose():void
+  content?: any
 }
 interface State {
   videoVisible: boolean
@@ -29,14 +30,17 @@ export default class VideoPlayer extends React.Component<Props, State> {
     this.state = {
       data: props.data,
       videoVisible: false,
-      content: null
+      content: this.props.content
     }
+    
+    if (this.props.content===undefined){
     fetch('/static/content/video-player.json').then(function (response) {
       return response.json();
     })
       .then((myJson) => {
         this.setState({ content: myJson });
       })
+    }
   }
 
   
