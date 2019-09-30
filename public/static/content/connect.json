@@ -7,11 +7,12 @@
 
         "pageConfig": {
             "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "showLogoText": false,
+            "logoColor":"white",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true
         },
         "content": [
            

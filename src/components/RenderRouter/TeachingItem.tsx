@@ -139,8 +139,8 @@ class TeachingItem extends React.Component<Props, State> {
         if (this.state.content.style === "hero") {
 
             return (
-                this.state.listData != null ?
-                    this.state.listData.length == this.props.content.options.length ?
+                this.state.listData !== null ?
+                    this.state.listData.length === this.props.content.options.length ?
                         <div className="teaching" >
 
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>

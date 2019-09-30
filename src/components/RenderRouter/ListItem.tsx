@@ -16,12 +16,15 @@ import "./ListItem.scss"
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
-  content: any
+  content: any,
+  data:any
+
 }
 interface State {
   content: any,
   listData: any,
-  overlayData: any
+  overlayData: any,
+  urlHistoryState: any
 }
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
@@ -31,8 +34,9 @@ class ListItem extends React.Component<Props, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null
-
     })
+    window.history.pushState({},"Videos",this.state.urlHistoryState, )
+
   }
   showYears(start: any, end: any) {
     if (start === null || end === null)
@@ -45,9 +49,11 @@ class ListItem extends React.Component<Props, State> {
   }
   handleClick(data: any) {
     this.setState({
-      overlayData: data
-
+      overlayData: data,
+      urlHistoryState: window.location.href
     })
+    window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
+   
   }
   constructor(props: Props) {
     super(props);
@@ -55,13 +61,31 @@ class ListItem extends React.Component<Props, State> {
     this.state = {
       content: props.content,
       listData: ((props.content.list == null) ? [] : props.content.list),
-      overlayData: null
+      overlayData: null,
+      urlHistoryState:window.history.state
     }
     this.navigate = this.navigate.bind(this);
 
 
     if (this.state.content.class === "videos") {
-
+      if (this.state.content.selector==="sameSeries")
+      {
+        const getSeries = API.graphql({
+          query: queries.getSeries,
+          //    const listVideos = API.graphql({query:queries.getVideo, 
+          variables: { sortDirection: this.state.content.sortOrder, limit: 50, id: this.props.data.series.id},
+          //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY
+        });
+        getSeries.then((json: any) => {
+          console.log("Success queries.getSeries: " + json);
+          console.log(json)
+          this.setState({
+            listData: json.data.getSeries.videos.items
+          })
+        }).catch((e: any) => { console.log(e) })
+      }
+      else{
       const listVideos = API.graphql({
         query: queries.getVideoByVideoType,
         //    const listVideos = API.graphql({query:queries.getVideo, 
@@ -76,6 +100,7 @@ class ListItem extends React.Component<Props, State> {
           listData: json.data.getVideoByVideoType.items
         })
       }).catch((e: any) => { console.log(e) })
+    }
     }
     else if (this.state.content.class === "speakers") {
       const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { sortOrder: this.state.content.sortOrder, limit: 50 }));
