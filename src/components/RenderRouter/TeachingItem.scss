@@ -1,6 +1,6 @@
 @media (min-width: 768px) {
     .teaching-h1{
-        position: relative; 
+        position: relative;
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
@@ -45,8 +45,8 @@
 
     }
     .teaching-mostrecent{
-        position: absolute; 
-        left: 2vw; 
+        position: absolute;
+        left: 2vw;
         top: 50vw;
         transform: rotate(-90deg);
         transform-origin: left top 0;
@@ -64,7 +64,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .teaching-h1{
-        position: relative; 
+        position: relative;
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
@@ -109,8 +109,8 @@
 
     }
     .teaching-mostrecent{
-        position: absolute; 
-        left: 2vw; 
+        position: absolute;
+        left: 2vw;
         top: 50vw;
         transform: rotate(-90deg);
         transform-origin: left top 0;
@@ -126,9 +126,9 @@
     }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .teaching-h1{
-        position: relative; 
+        position: relative;
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
@@ -172,10 +172,10 @@
 
     }
     .teaching-mostrecent{
-        position: absolute; 
-        left: 80vw; 
+        position: absolute;
+        left: 80vw;
         top: 10vw;
-       
+
     }
     .teaching-options{
         position: absolute;
@@ -183,6 +183,6 @@
         text-align: right;
         width: 20vw;
         top: 10vw;
-        
+
     }
 }

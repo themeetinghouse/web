@@ -1,11 +1,203 @@
 @media (min-width: 768px) {
-   
+    .ListItem.horizontal.horizontalBig {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
+    .ListItemDiv1 {
+        position: relative;
+        z-index: 99;
+        left: 20vw;
+        width: 80vw;
+    }
+
+    .ListItemDiv2 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+
+    .ListItemDiv3 {
+        display: inline-block; vertical-align: top;
+    }
+
+    .ListItemDiv4 {
+        font-weight: bold;
+    }
+
+    .ListItemDiv5 {
+        clear: left;
+    }
+
+    .ListItemDiv6 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        height: 30vw;
+        white-space: nowrap;
+    }
+
+    .ListItemDiv7 {
+        width: 80vw;
+        font-size: 1.5vw; font-family: Graphik Web; padding-bottom: 1vw;
+    }
+
+    .ListItemDiv8 {
+        position: relative;
+    }
+
+    .ListItemDiv9 {
+        position: absolute;
+        left: 12.5vw;
+        width: 5vw;
+        bottom: 0vw;
+        top: 0vw;
+        border-color: #0000ff; border: solid 10px;
+    }
+
+    .ListItemDiv10 {
+        position: relative;
+        z-index: 99;
+    }
+
+    .ListItemDiv11 {
+        width: 40vw;
+        font-size: 1.25vw; font-family: Graphik Web;
+    }
+
+    .ListItemH1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        font-weight: bold;
+        font-size: 3vw;
+    }
+
+    .ListItemH1ImageList {
+        font-size: 3vw;
+        font-weight: bold; font-family: Graphik Web;
+    }
+
+    .ListItemH1ImageList2 {
+        position: absolute;
+        height: 20vw;
+        width: 30vw;
+        left: 0vw;
+        object-fit: cover;
+        top: 2.5vw;
+    }
+
+    .ListItemH3 {
+        width: 40vw;
+        font-size: 2vw;
+        font-family: Graphik Web;
+    }
+
+    .ListItemImage.ListItemCompassionLogo {
+        height: 10vw;
+        margin-right: 1vw;
+    }
+
+    .ListItemImage2 {
+        width: 20vw;
+        margin-right: 1vw;
+    }
+
+    .ListItemTeachingImageDiv {
+        display: inline-block; vertical-align: top;
+    }
+
+    .ListItemTeachingImage {
+        height: 10vw;
+        margin-right: 1vw;
+    }
+
+    .ListItemSpeakersDiv {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        height: 15vw;
+        white-space: nowrap;
+    }
+
+    .ListItemText1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        font-size: 1.5vw;
+    }
+
+    .ListItemVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .ListItemVideoThumb {
+        width: 20vw;
+        margin-right: 1vw;
+        object-fit: cover;
+        height: 12vw;
+    }
+
+    .ListItemEpisodeNum.ListItemName {
+        width: 20vw;
+        font-weight: bold;
+        white-space: normal;
+    }
+
+    .ListItemEpisodeLength {
+        font-weight: bold;
+    }
+
+    .ListItemSeriesTitle.ListItemContact.ListItemPosition {
+        width: 20vw;
+        white-space: normal;
+    }
+
+    .ListItemA {
+        color: #1A1A1A;
+    }
+
+    .ListItemFB {
+        margin-right: 0.5vw;
+    }
+
+    .ListItemTwitter.ListItemInstagram {
+        margin-right: 0.5vw; margin-left: 3vw;
+    }
+
+    .ListItemEvents.ListItemCompassion {
+        display: inline-block;
+        width: 23vw;
+        vertical-align: top;
+    }
+
+    .ListItemEventsDescription {
+        white-space: normal; font-weight: bold;
+    }
+
+    .ListItemEventsDescription2 {
+        white-space: normal;
+    }
+
+    .ListItem.imageList {
+        position: static;
+        width: 100vw; padding-bottom: 5vw;
+    }
+
+
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
- 
+
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-  
+@media (max-width: 767px) {
+
 }
