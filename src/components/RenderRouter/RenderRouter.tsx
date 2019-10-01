@@ -2,6 +2,7 @@
 import React from 'react';
 import HeaderItem from './HeaderItem';
 import ContentItem from './ContentItem';
+import GiveItem from './GiveItem';
 import ListItem from './ListItem';
 import VideoPlayer from './VideoPlayer';
 import SVGItem from './SVGItem';
@@ -61,8 +62,10 @@ class RenderRouter extends React.Component<Props, State> {
           return (<InstagramItem key={index} content={item}></InstagramItem>);
         else if (item.type === "iframe")
           return (<IFrameItem key={index} content={item}></IFrameItem>);
-          else if (item.type === "search")
+        else if (item.type === "search")
           return (<SearchItem key={index} content={item}></SearchItem>);
+        else if (item.type === "give")
+          return (<GiveItem key={index} content={item}></GiveItem>);
 
         else return null
       })
