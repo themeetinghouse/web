@@ -20,11 +20,7 @@
                 "image1": [
                     {
                         "src": "/static/images/brantford-1-1.jpg",
-                        "alt": "Description"
-                    },
-                    {
-                        "src": "/static/images/brantford-1-2.jpg",
-                        "alt": "Description"
+                        "alt": "Three friends hanging out at a home church in Brantford, Ontario."
                     }
                 ],
                 "header1": "Brantford",
