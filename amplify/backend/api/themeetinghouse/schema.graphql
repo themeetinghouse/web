@@ -18,6 +18,18 @@ type F1ListGroups{
 type F1ListGroup{
   group:[F1ListGroup2]
 }
+type F1ListGroup2Campus{
+  id:String
+  name:String
+}
+type F1ListGroup2GroupType{
+  id:String
+  name:String
+}
+type F1ListGroup2DateRangeType{
+  id:String
+  name:String
+}
 type F1ListGroup2{
   id:String
   name:String
@@ -28,10 +40,53 @@ type F1ListGroup2{
   isPublic:String
   hasChildcare:String
   isSearchable:String
+  churchCampus:F1ListGroup2Campus
+  groupType:F1ListGroup2GroupType
+  groupURL:String
   gender:F1ListGroup2Gender
   maritalStatus:F1ListGroup2MaritalStatus
   startAgeRange:String
   endAgeRange:String
+  dateRangeType:F1ListGroup2DateRangeType
+  leadersCount:String
+  membersCount:String
+  openProspectsCount:String
+  event:F1ListGroup2Event
+  createdDate:String
+  lastUpdatedDate:String
+  isLocationPrivate:String
+  location:F1ListGroup2Location
+}
+type F1ListGroup2Address{
+  address1:String
+  address2:String
+  address3:String
+  city:String
+  stProvince:String
+  postalCode:String
+  county:String
+  country:String
+  carrierRoute:String
+  deliveryPoint:String
+  latitude:String
+  longitude:String
+  createdDate:String
+  lastUpdatedDate:String     
+}
+type F1ListGroup2Location{
+  id:String
+  name:String
+  description:String
+  isOnline:String
+  url:String
+  address:F1ListGroup2Address
+  createdDate:String
+  lastUpdatedDate:String
+}
+type F1ListGroup2Event{
+  id:String
+  name:String
+
 }
 type F1ListGroup2MaritalStatus{
    name:String
