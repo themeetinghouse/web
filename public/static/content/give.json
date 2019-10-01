@@ -1,0 +1,23 @@
+{
+    "page": {
+        "name": "give",
+        "title": "Give",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor":"white",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true
+        },
+        "content": [
+            {
+                "type": "give"
+            }
+        ]
+    }
+}
