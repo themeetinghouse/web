@@ -1,0 +1,21 @@
+{
+    "page": {
+        "name": "giving",
+        "title": "Giving",
+        "keywords": "",
+        "description":"",
+        "test":["kitchener" ,"locations" ,"blogs" ,"waterloo" ,"go-pledge" ,"connect" ,"volunteering" ,"teaching-bbq" ,"teaching" ,"burlington" ,"hamilton-downtown" ,".DS_Store" ,"teaching-blogs" ,"life-stories" ,"spirituality" ,"parry-sound" ,"teaching-kids-youth" ,"toronto-east" ,"teaching-new" ,"sunday-morning" ,"distance-groups" ,"search" ,"give" ,"toronto-high-park" ,"about-us" ,"staff" ,"oakville" ,"go" ,"sandbanks" ,"make-a-difference" ,"home-church" ,"owen-sound" ,"alliston" ,"find-sunday-morning" ,"test" ,"london" ,"kids+youth" ,"go-give" ,"ancaster" ,"brampton" ,"giving" ,"newmarket" ,"starting-questions" ,"teaching-curated" ,"teaching-podcasts" ,"annual-reports" ,"brantford" ,"ottawa" ,"find-home-church" ,"toronto-uptown" ,"trending-videos" ,"richmond-hill" ,"overseers" ,"hamilton-mountain" ,"homepage" ,"community" ,"teaching-sunday" ,"toronto-downtown" ,"compassion"],
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+           
+           
+        ]
+    }
+}
