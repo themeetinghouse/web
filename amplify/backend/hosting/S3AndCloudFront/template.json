@@ -20,7 +20,6 @@
         }
     },
     "Resources": {
-
         "S3Bucket": {
             "Type": "AWS::S3::Bucket",
             "DeletionPolicy": "Retain",
@@ -70,8 +69,6 @@
                 }
             }
         },
-
-       
         "OriginAccessIdentity": {
             "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
             "Properties": {
@@ -113,7 +110,29 @@
                         }
                     ],
                     "Enabled": "true",
-                   
+                    "CacheBehaviors": [
+                        {
+                            "AllowedMethods": [
+                                "DELETE",
+                                "GET",
+                                "HEAD",
+                                "OPTIONS",
+                                "PATCH",
+                                "POST",
+                                "PUT"
+                            ],
+                            "Compress": true,
+                            "DefaultTTL": 86400,
+                            "MaxTTL": 31536000,
+                            "MinTTL": 60,
+                            "TargetOriginId": "hostingS3Bucket",
+                            "ForwardedValues": {
+                                "QueryString": "false"
+                            },
+                            "ViewerProtocolPolicy": "redirect-to-https",
+                            "PathPattern": "cache/*"
+                        }
+                    ],
                     "DefaultCacheBehavior": {
                         "AllowedMethods": [
                             "DELETE",

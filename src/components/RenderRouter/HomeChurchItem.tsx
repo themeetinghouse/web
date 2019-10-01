@@ -100,7 +100,8 @@ export class ContentItem extends React.Component<Props, State>  {
                 }
                 else {
                   return (
-                    <div ><h3>{item.name}</h3>
+                    <div style={{borderBottomWidth:"1px", marginBottom:"5px", borderBottomColor:"#C8C8C8", borderBottomStyle:"solid"}}>
+                      <h3>{item.name}</h3>
                       <div>{item.dayofweek}/{item.frequency}</div>
                       <div>Leaders: <a href={"mailto:" + item.l1Email}>{item.l1FirstName} {item.l1LastName} ({item.l1Email})</a></div>
                       {item.l2Email!=null?<div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div>:null}

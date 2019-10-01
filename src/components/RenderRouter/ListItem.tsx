@@ -16,12 +16,15 @@ import "./ListItem.scss"
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
-  content: any
+  content: any,
+  data:any
+
 }
 interface State {
   content: any,
   listData: any,
-  overlayData: any
+  overlayData: any,
+  urlHistoryState: any
 }
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
@@ -31,8 +34,9 @@ class ListItem extends React.Component<Props, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null
-
     })
+    window.history.pushState({},"Videos",this.state.urlHistoryState, )
+
   }
   showYears(start: any, end: any) {
     if (start === null || end === null)
@@ -45,9 +49,11 @@ class ListItem extends React.Component<Props, State> {
   }
   handleClick(data: any) {
     this.setState({
-      overlayData: data
-
+      overlayData: data,
+      urlHistoryState: window.location.href
     })
+    window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
+   
   }
   constructor(props: Props) {
     super(props);
@@ -55,13 +61,31 @@ class ListItem extends React.Component<Props, State> {
     this.state = {
       content: props.content,
       listData: ((props.content.list == null) ? [] : props.content.list),
-      overlayData: null
+      overlayData: null,
+      urlHistoryState:window.history.state
     }
     this.navigate = this.navigate.bind(this);
 
 
     if (this.state.content.class === "videos") {
-
+      if (this.state.content.selector==="sameSeries")
+      {
+        const getSeries = API.graphql({
+          query: queries.getSeries,
+          //    const listVideos = API.graphql({query:queries.getVideo, 
+          variables: { sortDirection: this.state.content.sortOrder, limit: 50, id: this.props.data.series.id},
+          //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY
+        });
+        getSeries.then((json: any) => {
+          console.log("Success queries.getSeries: " + json);
+          console.log(json)
+          this.setState({
+            listData: json.data.getSeries.videos.items
+          })
+        }).catch((e: any) => { console.log(e) })
+      }
+      else{
       const listVideos = API.graphql({
         query: queries.getVideoByVideoType,
         //    const listVideos = API.graphql({query:queries.getVideo,
@@ -77,6 +101,7 @@ class ListItem extends React.Component<Props, State> {
         })
       }).catch((e: any) => { console.log(e) })
     }
+    }
     else if (this.state.content.class === "speakers") {
       const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { sortOrder: this.state.content.sortOrder, limit: 50 }));
       listSpeakers.then((json: any) => {
@@ -90,15 +115,15 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === "series") {
 
       const listSeriess = API.graphql({
-        query: queries.listSeriess,
-        variables: { sortOrder: this.state.content.sortOrder, limit: 50 },
+        query: queries.getSeriesBySeriesType,
+        variables: { sortDirection: this.state.content.sortOrder, limit: 50,seriesType: this.state.content.subclass,publishedDate: { lt: "a" } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       });
       listSeriess.then((json: any) => {
         console.log("Success queries.listSeriess: " + json);
         console.log(json)
         this.setState({
-          listData: json.data.listSeriess.items
+          listData: json.data.getSeriesBySeriesType.items
         })
       }).catch((e: any) => { console.log(e) })
     }
@@ -149,6 +174,17 @@ class ListItem extends React.Component<Props, State> {
 
     }
   }
+
+  imgUrl(size:any){
+   
+    if (window.location.hostname==="localhost"){
+   
+        return "https://localhost:3006"
+    }
+    else
+     return "https://beta.themeetinghouse.com/cache/"+size
+}
+
   navigateUrl(to:string){
     window.location.href=to;
   }
@@ -348,7 +384,20 @@ class ListItem extends React.Component<Props, State> {
                       <h3 className="ListItemH3" >{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
-                    <img className="ListItemH1ImageList2" src={item.imageSrc} alt={item.imageAlt} />
+                    <img className="ListItemH1ImageList2"  src={this.imgUrl(480)+item.imageSrc} alt={item.imageAlt} 
+                        srcSet={this.imgUrl(320)+item.imageSrc+" 320w,"+
+                        this.imgUrl(480)+item.imageSrc+" 480w,"+
+                        this.imgUrl(640)+item.imageSrc+" 640w,"+
+                        this.imgUrl(1280)+item.imageSrc+" 1280w,"+
+                        this.imgUrl(1920)+item.imageSrc+" 1920w,"+
+                        this.imgUrl(2560)+item.imageSrc+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
                   </div>
                 )
               })

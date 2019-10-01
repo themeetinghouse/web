@@ -1,0 +1,25 @@
+{
+    "page": {
+        "name": "go-pledge",
+        "title": "Go Campaign - Pledge",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+           
+            {
+                "type": "iframe",
+                "src":"https://staff.themeetinghouse.com/pledges/pledgeForm.php",
+                "height":"100vh"
+            }
+        ]
+    }
+}

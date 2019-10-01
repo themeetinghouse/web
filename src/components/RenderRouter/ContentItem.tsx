@@ -16,10 +16,16 @@ export default class ContentItem extends React.Component<Props, State>  {
       content: props.content
     }
   }
+  imgUrl(size:any){
+    if (window.location.hostname==="localhost")
+        return "https://localhost:3006"
+    else
+     return "https://beta.themeetinghouse.com/cache/"+size
+}
 
   render() {
+    var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
     if (this.state.content.style === "oneImage") {
-      var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
       return (
         <div className="ContentItem oneImage">
@@ -28,15 +34,27 @@ export default class ContentItem extends React.Component<Props, State>  {
               <h1 className="oneImageH1" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2">{this.state.content.header2}</h2>
               <div className="oneImageText" >{this.state.content.text1}</div>
-              <a className="oneImageA"href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+              <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
             </div>
-            <img src={image1.src} alt={image1.alt} className="oneImageImage"  />
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
+                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                        this.imgUrl(480)+image1.src+" 480w,"+
+                        this.imgUrl(640)+image1.src+" 640w,"+
+                        this.imgUrl(1280)+image1.src+" 1280w,"+
+                        this.imgUrl(1920)+image1.src+" 1920w,"+
+                        this.imgUrl(2560)+image1.src+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
           </div>
         </div>
       )
     }
     else if (this.state.content.style === "oneImageBlack") {
-      var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
       return (
         <div className="ContentItem oneImage">
@@ -45,15 +63,27 @@ export default class ContentItem extends React.Component<Props, State>  {
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
               <div className="oneImageText white" >{this.state.content.text1}</div>
-              <a className="oneImageA"href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+              <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
             </div>
-            <img src={image1.src} alt={image1.alt} className="oneImageImage"  />
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
+                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                        this.imgUrl(480)+image1.src+" 480w,"+
+                        this.imgUrl(640)+image1.src+" 640w,"+
+                        this.imgUrl(1280)+image1.src+" 1280w,"+
+                        this.imgUrl(1920)+image1.src+" 1920w,"+
+                        this.imgUrl(2560)+image1.src+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
           </div>
         </div>
       )
     }
     else if (this.state.content.style === "oneImageBlackRight") {
-      var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
       return (
         <div className="ContentItem oneImage">
@@ -62,9 +92,22 @@ export default class ContentItem extends React.Component<Props, State>  {
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
               <div className="oneImageText white" >{this.state.content.text1}</div>
-              <a className="oneImageA"href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+              <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
             </div>
-            <img src={image1.src} alt={image1.alt} className="oneImageImage right"  />
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage right"
+                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                        this.imgUrl(480)+image1.src+" 480w,"+
+                        this.imgUrl(640)+image1.src+" 640w,"+
+                        this.imgUrl(1280)+image1.src+" 1280w,"+
+                        this.imgUrl(1920)+image1.src+" 1920w,"+
+                        this.imgUrl(2560)+image1.src+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
           </div>
         </div>
       )

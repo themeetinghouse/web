@@ -66,7 +66,12 @@ class HeroItem extends React.Component<Props, State> {
         }
 
     }
-
+    imgUrl(size:any){
+        if (window.location.hostname==="localhost")
+            return "https://localhost:3006"
+        else
+         return "https://beta.themeetinghouse.com/cache/"+size
+    }
     render() {
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
         if (this.state.content.style === "full") {
@@ -74,7 +79,20 @@ class HeroItem extends React.Component<Props, State> {
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
-                    <img src={image1.src} alt={image1.alt} className="heroImage" />
+                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
+                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                        this.imgUrl(480)+image1.src+" 480w,"+
+                        this.imgUrl(640)+image1.src+" 640w,"+
+                        this.imgUrl(1280)+image1.src+" 1280w,"+
+                        this.imgUrl(1920)+image1.src+" 1920w,"+
+                        this.imgUrl(2560)+image1.src+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
                     <div className="heroBlackBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
@@ -100,7 +118,26 @@ class HeroItem extends React.Component<Props, State> {
 
             return (
                 <div className="partialNoFooter" >
-                    <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"  />
+                    {
+                        image1.src.includes(".svg")?
+                    
+                    <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"/>:
+                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partialNoFooterImage"
+                    srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                    this.imgUrl(480)+image1.src+" 480w,"+
+                    this.imgUrl(640)+image1.src+" 640w,"+
+                    this.imgUrl(1280)+image1.src+" 1280w,"+
+                    this.imgUrl(1920)+image1.src+" 1920w,"+
+                    this.imgUrl(2560)+image1.src+" 2560w"}
+                    sizes="(max-width: 320px) 320px,
+                           (max-width: 480px) 480px,
+                           (max-width: 640px) 640px,
+                           (max-width: 1280px) 1280px,
+                           (max-width: 1920) 1920,
+                            2560px"
+                />
+
+                    }
                     <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "46vw", top: "6vh", zIndex: 100 }}>
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}

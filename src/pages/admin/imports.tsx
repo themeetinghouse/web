@@ -8,92 +8,10 @@ import * as mutations from '../../graphql/mutations';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import uuidv4 from 'uuid/v4'
+import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 Amplify.configure(awsmobile);
 
 
-class ImportYoutube {
-  playlistData = []
-  setPlaylists(json: any) {
-    console.log("setPlaylists: " + json);
-    this.playlistData = this.playlistData.concat(json.data.getYoutubePlaylist.items)
-
-  }
-
-  loadPlaylists(nextPageToken: any) {
-    const playlists = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
-    playlists.then((json: any) => {
-      this.setPlaylists(json);
-      this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
-
-    }).catch((err: any) => {
-      console.log(err);
-      this.playlistData.map((item) => {
-        this.loadPlaylist(item);
-      })
-
-    });
-  }
-  reloadPlaylists() {
-    this.loadPlaylists("");
-
-  }
-
-  loadPlaylist(data: any) {
-    console.log("loadPlaylist: " + data.id);
-    const playlistItems = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id }));
-    playlistItems.then((json: any) => {
-      //console.log("Success queries.getYoutubePlaylistItems: " + json)
-      json.data.getYoutubePlaylistItems.items.map((item: any) => {
-        this.loadVideo(item)
-      })
-    }).catch((err: any) => {
-      console.log(err)
-      console.log("Error queries.getYoutubePlaylistItems: " + err)
-    });
-  }
-  loadVideo(data: any) {
-
-    this.writeYoutube(data)
-    /*  const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: data.contentDetails.videoId }));
-      closedCaptionList.then((json:any) => {
-        this.setCaptionItems(json);
-      });*/
-  }
-  writeYoutube(vid1: any) {
-    console.log("Write Youtube: " + vid1);
-    const getVideoByYoutubeIdent = API.graphql(graphqlOperation(queries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
-    getVideoByYoutubeIdent.then((json: any) => {
-      //console.log("Success queries.searchVideos: " + json);
-      if (json.data.getVideoByYoutubeIdent.items.length === 0) {
-        console.log(json)
-
-        console.log("Do mutations.createVideo")
-        delete vid1['id'];
-
-        delete vid1['selected'];
-        if (vid1.snippet.description === "")
-          delete vid1.snippet['description']
-        if (vid1.snippet.localized == null)
-          delete vid1.snippet['localized']
-        const createVideo = API.graphql(graphqlOperation(mutations.createVideo, { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1 } }));
-        createVideo.then((json3: any) => {
-          /* this.setState({
-               currentVideoData: json3.data.createVideo
-           })*/
-          console.log("Success mutations.createVideo: " + json3);
-        }).catch((err: any) => {
-          console.log("Error mutations.createVideo: " + err);
-          console.log(err)
-          console.log(vid1)
-        });
-      }
-
-    }).catch((err: any) => {
-      console.log("Error queries.getVideoByYoutubeIdent: " + err);
-      console.log(err)
-    });
-  }
-}
 interface Props { }
 interface State {
   speakers: Array<any>,
@@ -153,7 +71,7 @@ class Imports extends React.Component<Props, State>  {
         return response.json();
       })
       .then((myJson) => {
-        myJson.map((item: any) => {
+        myJson.forEach((item: any) => {
           console.log(item);
           this.writeSites(item)
         })
@@ -190,7 +108,7 @@ class Imports extends React.Component<Props, State>  {
         }
 
         if (item.mediaEntries != null)
-          item.mediaEntries.map((item3: any) => {
+          item.mediaEntries.forEach((item3: any) => {
             delete item3.id
             //  item3.__typename="TNMediaEntry"
           })
@@ -284,7 +202,7 @@ class Imports extends React.Component<Props, State>  {
         return response.json();
       })
       .then((myJson) => {
-        myJson.map((item: any) => {
+        myJson.forEach((item: any) => {
           // console.log(item);
           this.writeSermon(item)
         })
@@ -406,7 +324,7 @@ class Imports extends React.Component<Props, State>  {
         return response.json();
       })
       .then((myJson) => {
-        myJson.map((item: any) => {
+        myJson.forEach((item: any) => {
           // console.log(item);
           this.writeSeries(item)
         })
@@ -418,7 +336,7 @@ class Imports extends React.Component<Props, State>  {
   importSpeakers() {
 
     var insertSpeakers: any = this.state.speakers
-    insertSpeakers.map((item: any) => {
+    insertSpeakers.forEach((item: any) => {
       const createSpeaker = API.graphql(graphqlOperation(mutations.createSpeaker, { input: { id: item, name: item } }));
       createSpeaker.then((json: any) => {
         console.log("Success mutations.createSpeaker: " + json);
@@ -448,7 +366,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSermons = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
     listTnSermons.then((json: any) => {
       // console.log(json)
-      json.data.listTNSermons.items.map((item: any) => {
+      json.data.listTNSermons.items.forEach((item: any) => {
         console.log(item)
         if (item.speaker != null) {
           var list: any = this.fixTNSpeakers(item.speaker)
@@ -473,7 +391,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSermons = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
     listTnSermons.then((json: any) => {
       // console.log(json)
-      json.data.listTNSermons.items.map((item: any) => {
+      json.data.listTNSermons.items.forEach((item: any) => {
         if (item.mediaEntries != null) {
           var z = item.mediaEntries.find((obj: any) => {
             return obj.contentType === "VIDEO"
@@ -482,7 +400,7 @@ class Imports extends React.Component<Props, State>  {
           if (z != null && z.url !== "http://media.themeetinghouse.ca/vpodcast/2015-03-01-960-video.mp4") {
             youtubeURL = this.fixTNYoutubeURL(z.url)
             var list: any = this.fixTNSpeakers(item.speaker)
-            list.map((a: any) => {
+            list.forEach((a: any) => {
               console.log(a)
               const updateSpeakerVideos = API.graphql(graphqlOperation(mutations.createSpeakerVideos, { input: { id: uuidv4(), speakerVideosVideoId: youtubeURL, speakerVideosSpeakerId: a } }));
               updateSpeakerVideos.then((json: any) => {
@@ -514,7 +432,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSermons = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
     listTnSermons.then((json: any) => {
       // console.log(json)
-      json.data.listTNSermons.items.map((item: any) => {
+      json.data.listTNSermons.items.forEach((item: any) => {
         // console.log(item) 
         if (item.mediaEntries != null) {
           var z = item.mediaEntries.find((obj: any) => {
@@ -564,7 +482,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSermons = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
     listTnSermons.then((json: any) => {
       console.log(json)
-      json.data.listTNSermons.items.map((item: any) => {
+      json.data.listTNSermons.items.forEach((item: any) => {
         // console.log(item) 
         if (item.mediaEntries != null) {
           var z = item.mediaEntries.find((obj: any) => {
@@ -618,7 +536,7 @@ class Imports extends React.Component<Props, State>  {
     const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
     listSeriess.then((json: any) => {
       //  console.log(json)
-      json.data.listSeriess.items.map((item: any) => {
+      json.data.listSeriess.items.forEach((item: any) => {
         console.log(item.title)
         if (item.videos.items.length > 0) {
           var startDate = item.videos.items.map((a: any) => { return a.publishedDate }).sort()[0]
@@ -648,7 +566,7 @@ class Imports extends React.Component<Props, State>  {
     const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
     listSeriess.then((json: any) => {
       //  console.log(json)
-      json.data.listSeriess.items.map((item: any) => {
+      json.data.listSeriess.items.forEach((item: any) => {
         //  console.log(item)
         if (!["The Body of Christ", "Faithful One", "Peacemakers", "Jesus by John", "Crossing the Line", "Chosen One", "The Death and Life of God", "Frosh 2017", "Bad Ideas"].includes(item.id)) {
           if (item.videos.items.length > 0) {
@@ -742,7 +660,7 @@ class Imports extends React.Component<Props, State>  {
 
             })
             console.log(item.id)
-            x.map((item3: any) => {
+            x.forEach((item3: any) => {
               console.log(item3)
               const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item3[0], episodeTitle:item3[1] ,episodeNumber: item3[2] } }));
               updateVideo.then((json2: any) => {
@@ -774,7 +692,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSeriess = API.graphql(graphqlOperation(queries.listTnSeriess, { limit: 100, nextToken: nextId }));
     listTnSeriess.then((json: any) => {
       console.log(json)
-      json.data.listTNSeriess.items.map((item: any) => {
+      json.data.listTNSeriess.items.forEach((item: any) => {
         var temp = this.simplifySeries(item.title)
         list.push(temp)
         console.log(temp)
@@ -787,7 +705,7 @@ class Imports extends React.Component<Props, State>  {
       if (json.data.listTNSeriess.nextToken != null)
         this.importSeriesTN(json.data.listTNSeriess.nextToken, list)
       else if (json.data.listTNSeriess.nextToken == null) {
-        list.map((item: any) => {
+        list.forEach((item: any) => {
           const createSeries = API.graphql(graphqlOperation(mutations.createSeries, { input: { id: item, title: item } }));
           createSeries.then((json: any) => {
             console.log("Success mutations.createSeries: " + json);
@@ -804,7 +722,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSermon = API.graphql(graphqlOperation(queries.listTnSermons, { limit: 100, nextToken: nextId }));
     listTnSermon.then((json: any) => {
       console.log(json)
-      json.data.listTNSermons.items.map((item: any) => {
+      json.data.listTNSermons.items.forEach((item: any) => {
         const deleteTnSermon = API.graphql(graphqlOperation(mutations.deleteTnSermon, { input: { id: item.id } }));
         deleteTnSermon.then((json: any) => {
           console.log(json)
@@ -828,7 +746,7 @@ class Imports extends React.Component<Props, State>  {
     const listTnSeries = API.graphql(graphqlOperation(queries.listTnSeriess, { limit: 100, nextToken: nextId }));
     listTnSeries.then((json: any) => {
       console.log(json)
-      json.data.listTNSeriess.items.map((item: any) => {
+      json.data.listTNSeriess.items.forEach((item: any) => {
         const deleteTnSeries = API.graphql(graphqlOperation(mutations.deleteTnSeries, { input: { id: item.id } }));
         deleteTnSeries.then((json: any) => {
           console.log(json)
@@ -862,7 +780,7 @@ class Imports extends React.Component<Props, State>  {
     const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { limit: 100, nextToken: nextId }));
     listSpeakers.then((json: any) => {
       console.log(json)
-      json.data.listSpeakers.items.map((item: any) => {
+      json.data.listSpeakers.items.forEach((item: any) => {
         const deleteSpeaker = API.graphql(graphqlOperation(mutations.deleteSpeaker, { input: { id: item.id } }));
         deleteSpeaker.then((json: any) => {
           console.log(json)

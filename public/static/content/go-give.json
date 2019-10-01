@@ -1,0 +1,25 @@
+{
+    "page": {
+        "name": "go-give",
+        "title": "Go Campaign - Give",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+           
+            {
+                "type": "iframe",
+                "src":"https://staff.themeetinghouse.com/pledges/giveForm.php",
+                "height":"100vh"
+            }
+        ]
+    }
+}

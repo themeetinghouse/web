@@ -8,6 +8,7 @@ import Events from './pages/admin/events';
 import News from './pages/admin/news';
 import Locations from './pages/admin/locations';
 import Imports from './pages/admin/imports';
+import ImportKids from './pages/admin/import-kids';
 
 import { withRouter, RouteComponentProps} from 'react-router-dom';
 import {History } from "history";
@@ -25,6 +26,7 @@ class App extends React.Component<Props, State>  {
   return (
     <Switch key={this.props.location.pathname}>
       <Route exact path="/"  render={props => <HomePage isVideo="false" {...props} />} />
+      <Route path="/admin/import-kids"  render={() => <ImportKids />}/>
       <Route path="/admin/imports"  render={() => <Imports />}/>
       <Route path="/admin/blog"  render={() => <Blogs />}/>
       <Route path="/admin/events"  render={() => <Events />}/>

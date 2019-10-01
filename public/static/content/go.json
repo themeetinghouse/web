@@ -1,0 +1,48 @@
+{
+    "page": {
+        "name": "go",
+        "title": "Go Campaign",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+           
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Pledge",
+                "header2":"",
+                "text1":"Make a pledge...",
+                "link1Text": "Go",
+                "link1Action": "go-pledge",
+                "image1":[{
+                    "src":"/static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
+
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Give",
+                "header2":"",
+                "text1":"Make a one-time donation",
+                "link1Text": "....",
+                "link1Action": "go-give",
+                "image1":[{
+                    "src":"/static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
+
+            }
+        ]
+    }
+}
