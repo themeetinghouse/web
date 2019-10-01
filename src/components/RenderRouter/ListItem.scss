@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-    .ListItem.horizontal.horizontalBig {
+    .ListItem.horizontal, .ListItem.horizontalBig {
         position: static;
         padding-bottom: 5vw;
     }
@@ -96,7 +96,7 @@
         font-family: Graphik Web;
     }
 
-    .ListItemImage.ListItemCompassionLogo {
+    .ListItemImage, .ListItemCompassionLogo {
         height: 10vw;
         margin-right: 1vw;
     }
@@ -144,7 +144,7 @@
         height: 12vw;
     }
 
-    .ListItemEpisodeNum.ListItemName {
+    .ListItemEpisodeNum, .ListItemName {
         width: 20vw;
         font-weight: bold;
         white-space: normal;
@@ -154,7 +154,7 @@
         font-weight: bold;
     }
 
-    .ListItemSeriesTitle.ListItemContact.ListItemPosition {
+    .ListItemSeriesTitle, .ListItemContact, .ListItemPosition {
         width: 20vw;
         white-space: normal;
     }
@@ -167,11 +167,11 @@
         margin-right: 0.5vw;
     }
 
-    .ListItemTwitter.ListItemInstagram {
+    .ListItemTwitter, .ListItemInstagram {
         margin-right: 0.5vw; margin-left: 3vw;
     }
 
-    .ListItemEvents.ListItemCompassion {
+    .ListItemEvents, .ListItemCompassion {
         display: inline-block;
         width: 23vw;
         vertical-align: top;
