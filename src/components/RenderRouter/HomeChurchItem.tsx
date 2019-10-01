@@ -41,6 +41,7 @@ export class ContentItem extends React.Component<Props, State>  {
     }
     this.navigate = this.navigate.bind(this);
     if (this.state.content.class === "home-church") {
+
       const f1ListGroupTypes = API.graphql(graphqlOperation(queries.f1ListGroupTypes, { }));
       f1ListGroupTypes.then((json: any) => {
             console.log(json)
@@ -53,6 +54,7 @@ export class ContentItem extends React.Component<Props, State>  {
             this.setState({ groups: this.state.groups.concat(json2.data.F1ListGroups.groups.group) });
           });
         });
+
       })
     }
   }
@@ -88,13 +90,13 @@ export class ContentItem extends React.Component<Props, State>  {
 
     return (
 
-      <div className="ContentItem oneImage" style={{ height: "100vw", position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", left: "20vw", width: "80vw" }}>
+      <div className="ContentItem oneImage HomeChurchItemDiv1">
+        <div className="HomeChurchItemDiv2">
           <div  >
             <h1  >{this.state.content.header1}</h1>
-            <div style={{ position: "absolute", left: "40vw", width: "40vw", height: "40vw" }}>
+            <div className="HomeChurchItemDiv3">
               <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter}
-                style={{ left: "0vw", width: "40vw", height: "40vw" }}>
+                className="HomeChurchItemMap">
                 {this.state.groups != null ? this.state.groups.map((item: any) => {
                   return (<Marker key={item.id} onClick={this.onMarkerClick}
                     position={{ lat: item.location.address.latitude, lng: item.location.address.longitude }} />
@@ -102,7 +104,7 @@ export class ContentItem extends React.Component<Props, State>  {
                 }) : null}
               </Map>
             </div>
-            <div style={{ position: "absolute", left: "0vw", width: "40vw", height: "40vw" }}>
+            <div className="HomeChurchItemDiv4">
               {this.state.groups != null ? this.state.groups.map((item: any) => {
                 if (this.state.content.class === "home-church") {
                   return (

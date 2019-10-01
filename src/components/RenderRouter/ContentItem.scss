@@ -174,19 +174,19 @@
 
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
     .oneImageText{
-        font-size: 4.255vw;
+        font-size: 5vw;
         font-family:Graphik Web;
-        line-height: 6.5vw;
+        line-height: 7.5vw;
     }
     .oneImageText.white{
         color:#ffffff;
     }
     .oneImageA{
-        font-size: 4.255vw;
+        font-size: 5vw;
         font-family:Graphik Web;
-        line-height: 6.5vw;
+        line-height: 7.5vw;
         margin-top: 13vw;
         display: inline-block;
 
@@ -206,27 +206,27 @@
         padding-top:40vw;
         position: relative;
         width: 100vw;
-        height: 122vw;
+        height: 145vw;
         left: 0vw;
         top: 0vw;
         background-color: #EFEFF0;
     }
     .oneImageBlackBox{
-        margin-top:60vw;
+        margin-top:20vw;
         padding: 10vw;
         padding-top:40vw;
         position: relative;
         width: 100vw;
-        height: 80vw;
+        height: 175vw;
         left: 0vw;
         top: 0vw;
         background-color: #000000;
     }
     .oneImageH1{
         font-weight: bold;
-        font-size: 8.525vw;
+        font-size: 10vw;
         font-family:"Graphik Web";
-        line-height: 10.665vw;
+        line-height: 12.5vw;
     }
     .oneImageH1.white{
         color:#ffffff;
@@ -241,5 +241,6 @@
     .ContentItem.oneImage {
         position: static;
         padding-bottom: 5vw;
+        padding-top: 57vw;
     }
 }
