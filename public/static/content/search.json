@@ -1,0 +1,23 @@
+{
+    "page": {
+        "name": "search",
+        "title": "Search",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor":"white",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true
+        },
+        "content": [
+            {
+                "type": "search"
+            }
+        ]
+    }
+}
