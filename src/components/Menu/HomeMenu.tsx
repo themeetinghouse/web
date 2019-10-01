@@ -11,7 +11,7 @@ import {
   NavLink
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-
+import VideoOverlay from "../VideoOverlay/VideoOverlay";
 import MainMenuItems from './MainMenu.json';
 import "./menu.scss"
 
@@ -21,6 +21,8 @@ interface Props extends RouteComponentProps {
   
 }
 interface State {
+  urlHistoryState:any,
+  overlayData:any,
   isOpen: boolean,
   userName: String,
   windowHeight: number,
@@ -43,6 +45,8 @@ class HomeMenu extends React.Component<Props, State>  {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
+      urlHistoryState:null,
+      overlayData:null,
       isOpen: false,
       userName: "",
       windowHeight: 0,
@@ -107,7 +111,21 @@ class HomeMenu extends React.Component<Props, State>  {
       .catch(err => console.log(err));
   }
 
+  videoOverlayClose() {
+    this.setState({
+      overlayData: null
+    })
+    window.history.pushState({},"Videos",this.state.urlHistoryState, )
 
+  }
+  handleSearchClick(data: any) {
+    this.setState({
+      overlayData: data,
+      urlHistoryState: window.location.href
+    })
+    window.history.pushState({},"Videos","search", )
+   
+  }
   render() {
     // console.log(this.state.position)
     return (
@@ -117,7 +135,9 @@ class HomeMenu extends React.Component<Props, State>  {
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        {this.state.showSearch ? <img style={{ backgroundColor: "#ffffff" }} src="/static/svg/Search.svg" className="search" alt="Search" />:null}
+        {this.state.showSearch ? <div><img style={{ backgroundColor: "#ffffff", cursor:"pointer" }} src="/static/svg/Search.svg" className="search" alt="Search" onClick={()=>{this.handleSearchClick("search")}} /> 
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
+:null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
           <div className="navbar-expander">&nbsp;</div>

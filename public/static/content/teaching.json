@@ -27,7 +27,7 @@
 
             },
             {
-                "type": "search",
+                "type": "teachingsearch",
                 "style": "teaching",
                 "header1":"Search the Archives",
                 "text1":"Try \"Grace\"",
