@@ -38,7 +38,7 @@ export default class ContentItem extends React.Component<Props, State>  {
     //    console.log(data)
 
     return (
-      <div className="ContentItem oneImage" style={{ position: "static", paddingBottom: "5vw" }}>
+      <div className="ContentItem oneImage InstagramItemDiv">
 
       </div>
     )

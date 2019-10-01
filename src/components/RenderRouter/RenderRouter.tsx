@@ -16,8 +16,9 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
 import HomeFooter from '../Menu/HomeFooter';
 import InstagramItem from './InstagramItem';
+import SearchItem from './SearchItem';
 import IFrameItem from './IFrameItem';
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 interface Props extends RouteComponentProps {
   content: any
   data: any
@@ -39,7 +40,7 @@ class RenderRouter extends React.Component<Props, State> {
         else if (item.type === "videoPlayer")
           return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
         else if (item.type === "list")
-          return (<ListItem key={index} content={item}></ListItem>);
+          return (<ListItem data={this.props.data} key={index} content={item}></ListItem>);
         else if (item.type === "svg")
           return (<SVGItem key={index} content={item}></SVGItem>);
         else if (item.type === "hero")
@@ -58,8 +59,10 @@ class RenderRouter extends React.Component<Props, State> {
           return (<FormItem key={index} content={item}></FormItem>);
         else if (item.type === "instagram")
           return (<InstagramItem key={index} content={item}></InstagramItem>);
-          else if (item.type === "iframe")
+        else if (item.type === "iframe")
           return (<IFrameItem key={index} content={item}></IFrameItem>);
+          else if (item.type === "search")
+          return (<SearchItem key={index} content={item}></SearchItem>);
 
         else return null
       })

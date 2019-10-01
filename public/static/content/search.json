@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "connect",
-        "title": "Connect",
+        "name": "search",
+        "title": "Search",
         "keywords": "",
         "description":"",
 
@@ -15,13 +15,8 @@
             "isPopup":true
         },
         "content": [
-           
             {
-                "type": "form",
-                "header1": "We'd love to get to know you.",
-                "class":"formstack",
-                "formId":"connect",
-                "height":"100vh"
+                "type": "search"
             }
         ]
     }

@@ -1,5 +1,50 @@
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .FormItem {
+        position: static;
+        padding-bottom: 5vw;
+    }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
+    .FormItemText1 {
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+    }
 
-@media (min-width: 320px) and (max-width: 767px) {}
+    .FormId {
+        border: 0px;
+        width: 80vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .FormItem {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
+    .FormItemText1 {
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+    }
+
+    .FormId {
+        border: 0px;
+        width: 80vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .FormItem {
+        position: static;
+        padding-bottom: 5vw;
+    }
+
+    .FormItemText1 {
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+    }
+
+    .FormId {
+        border: 0px;
+        width: 80vw;
+    }
+}

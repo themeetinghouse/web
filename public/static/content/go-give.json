@@ -17,7 +17,7 @@
            
             {
                 "type": "iframe",
-                "src":"https://staff.themeetinghouse.com/DEV/pledges/giveForm.php",
+                "src":"https://staff.themeetinghouse.com/pledges/giveForm.php",
                 "height":"100vh"
             }
         ]

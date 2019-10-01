@@ -16,12 +16,15 @@ import "./ListItem.scss"
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
-  content: any
+  content: any,
+  data:any
+
 }
 interface State {
   content: any,
   listData: any,
-  overlayData: any
+  overlayData: any,
+  urlHistoryState: any
 }
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
@@ -31,8 +34,9 @@ class ListItem extends React.Component<Props, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null
-
     })
+    window.history.pushState({},"Videos",this.state.urlHistoryState, )
+
   }
   showYears(start: any, end: any) {
     if (start === null || end === null)
@@ -45,9 +49,11 @@ class ListItem extends React.Component<Props, State> {
   }
   handleClick(data: any) {
     this.setState({
-      overlayData: data
-
+      overlayData: data,
+      urlHistoryState: window.location.href
     })
+    window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
+   
   }
   constructor(props: Props) {
     super(props);
@@ -55,16 +61,34 @@ class ListItem extends React.Component<Props, State> {
     this.state = {
       content: props.content,
       listData: ((props.content.list == null) ? [] : props.content.list),
-      overlayData: null
+      overlayData: null,
+      urlHistoryState:window.history.state
     }
     this.navigate = this.navigate.bind(this);
 
 
     if (this.state.content.class === "videos") {
-
+      if (this.state.content.selector==="sameSeries")
+      {
+        const getSeries = API.graphql({
+          query: queries.getSeries,
+          //    const listVideos = API.graphql({query:queries.getVideo, 
+          variables: { sortDirection: this.state.content.sortOrder, limit: 50, id: this.props.data.series.id},
+          //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY
+        });
+        getSeries.then((json: any) => {
+          console.log("Success queries.getSeries: " + json);
+          console.log(json)
+          this.setState({
+            listData: json.data.getSeries.videos.items
+          })
+        }).catch((e: any) => { console.log(e) })
+      }
+      else{
       const listVideos = API.graphql({
         query: queries.getVideoByVideoType,
-        //    const listVideos = API.graphql({query:queries.getVideo, 
+        //    const listVideos = API.graphql({query:queries.getVideo,
         variables: { sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
         //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -76,6 +100,7 @@ class ListItem extends React.Component<Props, State> {
           listData: json.data.getVideoByVideoType.items
         })
       }).catch((e: any) => { console.log(e) })
+    }
     }
     else if (this.state.content.class === "speakers") {
       const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { sortOrder: this.state.content.sortOrder, limit: 50 }));
@@ -177,27 +202,27 @@ class ListItem extends React.Component<Props, State> {
       })
 
     if (this.state.content.style === "horizontal") return (
-      <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 99, left: "20vw", width: "80vw" }}>
-          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
-          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", whiteSpace: "nowrap" }}>
+      <div className="ListItem horizontal" >
+        <div className="ListItemDiv1" >
+          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+          <div className="ListItemDiv2" >
             {data.map((item: any) => {
               if (this.state.content.class === "speakers") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="/static/images/teaching-3.png" />
-                    <div style={{ fontWeight: "bold" }}>{item.name}</div>
+                  <div className="ListItemDiv3" key={item.id} >
+                    <img className="ListItemImage" alt="TBD" src="/static/images/teaching-3.png" />
+                    <div className="ListItemDiv4" >{item.name}</div>
                     <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
                   </div>
                 )
               }
               else if (this.state.content.class === "videos") {
                 return (
-                  <div onClick={() => this.handleClick(item)} key={item.id} style={{ cursor: "pointer", display: "inline-block", verticalAlign: "top" }}>
+                  <div onClick={() => this.handleClick(item)} key={item.id} className="ListItemVideo" >
                     <div>
-                      <img alt="TBD" style={{ width: "20vw", marginRight: "1vw", objectFit: "cover", height: "12vw" }} src={item.Youtube.snippet.thumbnails.high.url} />
-                      <div style={{ width: "20vw", fontWeight: "bold", whiteSpace: "normal" }}>{item.episodeNumber}. {item.episodeTitle}</div>
-                      <div style={{ width: "20vw", whiteSpace: "normal" }}>{item.seriesTitle != null ? item.seriesTitle : null}</div>
+                      <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+                      <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
+                      <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
                       <div>{item.publishedDate}</div>
                     </div>
 
@@ -209,36 +234,36 @@ class ListItem extends React.Component<Props, State> {
 
             )}
 
-            <div style={{ clear: "left" }} ></div>
+            <div className="ListItemDiv5" ></div>
           </div>
         </div>
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
     else if (this.state.content.style === "vertical") return (
-      <div className="ListItem horizontal" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 99, left: "20vw", width: "80vw" }}>
-          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
-          {this.state.content.text1 != null ? (<div style={{ position: "relative", left: "0vw", width: "80vw", fontSize: "1.5vw" }}>{this.state.content.text1}</div>) : null}
-          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "15vw", whiteSpace: "nowrap" }}>
+      <div className="ListItem horizontal" >
+        <div className="ListItemDiv1" >
+          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+          <div className="ListItemSpeakersDiv" >
             {data.map((item: any, index: any) => {
               if (this.state.content.class === "speakers") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src="/static/images/teaching-3.png"
+                  <div key={item.id} className="ListItemTeachingImageDiv" >
+                    <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
                       onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
                     />
-                    <div style={{ fontWeight: "bold" }}>{item.name}</div>
+                    <div className="ListItemEpisodeLength" >{item.name}</div>
                     <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
                   </div>
                 )
               }
               else if (this.state.content.class === "videos") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ height: "10vw", marginRight: "1vw" }} src={item.Youtube.snippet.thumbnails.default.url} />
-                    <div style={{ fontWeight: "bold" }}>{item.episodeTitle}</div>
-                    <div style={{ fontWeight: "bold" }}>{item.series != null ? item.series : null}</div>
+                  <div key={item.id} className="ListItemDiv3" >
+                    <img alt="TBD" className="ListItemImage"  src={item.Youtube.snippet.thumbnails.default.url} />
+                    <div className="ListItemDiv4" >{item.episodeTitle}</div>
+                    <div className="ListItemDiv4" >{item.series != null ? item.series : null}</div>
                     <div>{item.publishedDate}</div>
 
                   </div>
@@ -246,42 +271,42 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.content.class === "staff") {
                 return (
-                  <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
+                  <div key={index} className="ListItemDiv3" >
 
-                    <img alt={item.photoAlt} style={{ width: "20vw", marginRight: "1vw" }}
+                    <img alt={item.photoAlt} className="ListItemImage2"
                       onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
                       src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
-                    <div style={{  width: "20vw",whiteSpace: "normal",fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
-                    <div style={{  width: "20vw",whiteSpace: "normal" }}>{item.Position}</div>
+                    <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+                    <div className="ListItemContact" >{item.Position}</div>
                     <div>{item.Email}</div>
                     <div>{item.Phone}</div>
-                    <a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
-                    <a href={"https://twitter.com/" + item.instagram} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
-                    <a href={"https://www.instagram.com//" + item.twitter} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>
+                    <a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
+                    <a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
+                    <a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>
 
                   </div>
                 )
               }
               else if (this.state.content.class === "overseers") {
                 return (
-                  <div key={index} style={{ display: "inline-block", verticalAlign: "top" }}>
+                  <div key={index} className="ListItemDiv3" >
 
-                    <img alt={item.photoAlt} style={{ width: "20vw", marginRight: "1vw" }}
+                    <img alt={item.photoAlt} className="ListItemImage2"
                       onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
                       src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
-                    <div style={{ width: "20vw",whiteSpace: "normal",fontWeight: "bold" }}>{item.FirstName} {item.LastName}</div>
-                    <div style={{ width: "20vw",whiteSpace: "normal" }}>{item.Position}</div>
+                    <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+                    <div className="ListItemPosition" >{item.Position}</div>
 
                   </div>
                 )
               }
               else if (this.state.content.class === "events") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
-                    <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
-                    <div style={{ whiteSpace: "normal" }}>{item.description}</div>
+                  <div key={item.id} className="ListItemEvents" >
+                    <div className="ListItemEventsDescription" >{item.name}</div>
+                    <div className="ListItemEventsDescription2" >{item.description}</div>
                     <div>{item.location}</div>
                     <div>{item.time}</div>
                     <Button onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
@@ -294,16 +319,16 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.content.class === "compassion") {
                 return (
-                  <div key={item.id} style={{ display: "inline-block", width: "23vw", verticalAlign: "top" }}>
-                    <img alt={item.imageAlt} style={{ height: "10vw", marginRight: "1vw" }} src={item.image}
+                  <div key={item.id} className="ListItemCompassion" >
+                    <img alt={item.imageAlt} className="ListItemCompassionLogo"  src={item.image}
                       onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
-                    <div style={{ whiteSpace: "normal", fontWeight: "bold" }}>{item.name}</div>
-                    <div style={{ whiteSpace: "normal" }}>{item.description}</div>
+                    <div className="ListItemEventsDescription" >{item.name}</div>
+                    <div className="ListItemEventsDescription2" >{item.description}</div>
                     <div>{item.location}</div>
                     {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
-                    {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", }} src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
-                    {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
-                    {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} style={{ color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginLeft: "3vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
+                    {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
+                    {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
+                    {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
 
 
 
@@ -319,23 +344,23 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
     else if (this.state.content.style === "horizontalBig") return (
-      <div className="ListItem horizontalBig" style={{ position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", zIndex: 99, left: "20vw", width: "80vw" }}>
-          <h1 style={{ position: "relative", left: "0vw", width: "80vw", fontWeight: "bold", fontSize: "3vw" }}>{this.state.content.header1}</h1>
-          <div style={{ position: "relative", left: "0vw", width: "80vw", overflowX: "scroll", height: "30vw", whiteSpace: "nowrap" }}>
+      <div className="ListItem horizontalBig" >
+        <div className="ListItemDiv1" >
+          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+          <div className="ListItemDiv6" >
             {data.map((item: any) => {
               if (item.videos.items.length > 0)
                 return (
-                  <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} style={{ cursor: "pointer", display: "inline-block", verticalAlign: "top" }}>
-                    <img alt="TBD" style={{ width: "20vw", marginRight: "1vw" }} src="/static/images/teaching-4.png" />
-                    <div style={{ width: "20vw", whiteSpace: "normal", fontWeight: "bold" }}>{item.title}</div>
+                  <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
+                    <img alt="TBD" className="ListItemImage2"  src="/static/images/teaching-4.png" />
+                    <div className="ListItemName" >{item.title}</div>
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
                   </div>
                 )
               else return null
             })}
 
-            <div style={{ clear: "left" }} ></div>
+            <div className="ListItemDiv5" ></div>
 
           </div>
         </div>
@@ -344,22 +369,22 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
     else if (this.state.content.style === "imageList") return (
-      <div className="ListItem imageList" style={{ position: "static", width: "100vw", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", left: "20vw", width: "80vw", zIndex: 99 }}>
-          <h1 style={{ fontSize: "3vw", fontWeight: "bold", fontFamily: "Graphik Web" }}>{this.state.content.header1}</h1>
+      <div className="ListItem imageList" >
+        <div className="ListItemDiv1" >
+          <h1 className="ListItemH1ImageList" >{this.state.content.header1}</h1>
           <h2>{this.state.content.header2}</h2>
-          <div style={{ width: "80vw", fontSize: "1.5vw", fontFamily: "Graphik Web", paddingBottom: "1vw" }}>{this.state.content.text1}</div>
-          <div style={{ position: "relative" }}>
-            <div style={{ position: "absolute", left: "12.5vw", width: "5vw", bottom: "0vw", top: "0vw", borderColor: "#0000ff", border: "solid 10px" }}></div>
+          <div className="ListItemDiv7" >{this.state.content.text1}</div>
+          <div className="ListItemDiv8" >
+            <div className="ListItemDiv9" ></div>
             {
               data.map((item: any, index: any) => {
                 return (
-                  <div style={{ position: "relative", zIndex: 99 }} key={index}>
+                  <div className="ListItemDiv10" key={index}>
                     <div onClick={() => {item.navigateTo?this.navigate(item.navigateTo):this.navigateUrl(item.url)}} className="imageList hoverText">
-                      <h3 style={{ width: "40vw", fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.title}</h3>
-                      <div style={{ width: "40vw", fontSize: "1.25vw", fontFamily: "Graphik Web" }}>{item.text}</div>
+                      <h3 className="ListItemH3" >{item.title}</h3>
+                      <div className="ListItemDiv11" >{item.text}</div>
                     </div>
-                    <img style={{ position: "absolute", height: "20vw", width: "30vw", left: "0vw", objectFit: "cover", top: "2.5vw" }}  src={this.imgUrl(480)+item.imageSrc} alt={item.imageAlt} 
+                    <img className="ListItemH1ImageList2"  src={this.imgUrl(480)+item.imageSrc} alt={item.imageAlt} 
                         srcSet={this.imgUrl(320)+item.imageSrc+" 320w,"+
                         this.imgUrl(480)+item.imageSrc+" 480w,"+
                         this.imgUrl(640)+item.imageSrc+" 640w,"+

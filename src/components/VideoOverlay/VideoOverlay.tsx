@@ -15,13 +15,14 @@ Amplify.configure(awsconfig);
 
 interface Props {
   data: any
-  onClose():void
+  onClose(): void
+  content?: any
 }
 interface State {
   videoVisible: boolean
   data: any
   content: any
- 
+
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -29,26 +30,48 @@ export default class VideoPlayer extends React.Component<Props, State> {
     this.state = {
       data: props.data,
       videoVisible: false,
-      content: null
+      content: this.props.content
     }
-    fetch('/static/content/video-player.json').then(function (response) {
-      return response.json();
-    })
-      .then((myJson) => {
-        this.setState({ content: myJson });
-      })
+    /* 
+      }*/
+
+  }
+  componentDidUpdate(prevProps: Props) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.data !== prevProps.data) {
+      if (this.props.data === null){
+        this.setState({content:null})
+      }
+      else if (this.props.data === "search") {
+        fetch('/static/content/search.json').then(function (response) {
+          return response.json();
+        })
+          .then((myJson) => {
+            this.setState({ content: myJson });
+          })
+
+      }
+      else {
+
+        fetch('/static/content/video-player.json').then(function (response) {
+          return response.json();
+        })
+          .then((myJson) => {
+            this.setState({ content: myJson });
+          })
+
+      }
+    }
   }
 
-  
-
   render() {
-    console.log(this.state.videoVisible)
     return (
       <div>
-        <Modal dialogClassName="modal-video" show={this.props.data!=null}>
+        <Modal dialogClassName="modal-video" show={this.props.data !== null}>
           <Modal.Body id="modal-video-body">
             <img style={{ cursor: "pointer", position: "fixed", zIndex: 1000, top: "2vw", left: "95vw" }} src="/static/Close.png" alt="Close Window Icon" onClick={() => {
-              this.props.onClose()}} />
+              this.props.onClose()
+            }} />
             <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
           </Modal.Body>
         </Modal>
