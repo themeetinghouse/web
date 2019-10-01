@@ -20,11 +20,7 @@
                 "image1": [
                     {
                         "src": "/static/images/brampton-1-1.jpg",
-                        "alt": "Description"
-                    },
-                    {
-                        "src": "/static/images/brampton-1-2.jpg",
-                        "alt": "Description"
+                        "alt": "Three friends hanging out at a home church in Brampton, Ontario."
                     }
                 ],
                 "header1": "Brampton",
