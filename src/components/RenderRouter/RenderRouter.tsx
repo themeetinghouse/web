@@ -17,7 +17,7 @@ import HomeMenu from '../Menu/HomeMenu';
 import HomeFooter from '../Menu/HomeFooter';
 import InstagramItem from './InstagramItem';
 import IFrameItem from './IFrameItem';
-import Helmet from 'react-helmet'
+import {Helmet} from 'react-helmet'
 interface Props extends RouteComponentProps {
   content: any
   data: any

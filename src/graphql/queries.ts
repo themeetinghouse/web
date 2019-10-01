@@ -377,6 +377,15 @@ export const f1ListGroups = `query F1ListGroups($itemId: String) {
         isPublic
         hasChildcare
         isSearchable
+        churchCampus {
+          id
+          name
+        }
+        groupType {
+          id
+          name
+        }
+        groupURL
         gender {
           name
         }
@@ -385,6 +394,45 @@ export const f1ListGroups = `query F1ListGroups($itemId: String) {
         }
         startAgeRange
         endAgeRange
+        dateRangeType {
+          id
+          name
+        }
+        leadersCount
+        membersCount
+        openProspectsCount
+        event {
+          id
+          name
+        }
+        createdDate
+        lastUpdatedDate
+        isLocationPrivate
+        location {
+          id
+          name
+          description
+          isOnline
+          url
+          address {
+            address1
+            address2
+            address3
+            city
+            stProvince
+            postalCode
+            county
+            country
+            carrierRoute
+            deliveryPoint
+            latitude
+            longitude
+            createdDate
+            lastUpdatedDate
+          }
+          createdDate
+          lastUpdatedDate
+        }
       }
     }
   }
