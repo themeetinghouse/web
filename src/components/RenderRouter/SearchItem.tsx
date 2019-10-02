@@ -24,6 +24,6 @@ export default class ContentItem extends React.Component<Props, State>  {
 }
 
   render() {
-    return (<div style={{position:"relative",top:"2vw",left:"20vw"}}><input style={{width:"70vw"}} placeholder="Search"></input><div style={{height:"100vw"}}>Results:</div></div>)
+    return (<div className="SearchItem" ><input className="SearchItemInput"  placeholder="Search"></input><div className="SearchItemDiv" >Results:</div></div>)
   }
 }
