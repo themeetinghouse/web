@@ -806,41 +806,55 @@ class Imports extends React.Component<Props, State>  {
   importCC(nextId: any) {
     const listVideos = API.graphql(graphqlOperation(queries.listVideos, { limit: 100, nextToken: nextId }));
     listVideos.then((json: any) => {
-    //  console.log(json)
+      //  console.log(json)
       json.data.listVideos.items.map((item: any) => {
-    //    console.log(item.id)
-        const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: item.id }));
-        closedCaptionList.then((json2: any) => {
-       //   console.log(json2)
-          if (json2.data.getYoutubeCaptionlist.items.length > 0) {
-            const captionItem = API.graphql(graphqlOperation(queries.downloadYoutubeCaption, { videoId: item.id, tlang: json2.data.getYoutubeCaptionlist.items[0].snippet.language, trackKind: json2.data.getYoutubeCaptionlist.items[0].snippet.trackKind, name: json2.data.getYoutubeCaptionlist.items[0].snippet.name }));
-            captionItem.then((json3: any) => {
-           //   console.log("Success queries.downloadYoutubeCaption:" + json3)
-              console.log(item.id)
-              console.log(json3.data.downloadYoutubeCaption.transcript.text)
+        if (item.closedCaptioning === null) {
+          //    console.log(item.id)
+          const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: item.id }));
+          closedCaptionList.then((json2: any) => {
+            //   console.log(json2)
+            if (json2.data.getYoutubeCaptionlist.items.length > 0) {
+              const captionItem = API.graphql(graphqlOperation(queries.downloadYoutubeCaption, { videoId: item.id, tlang: json2.data.getYoutubeCaptionlist.items[0].snippet.language, trackKind: json2.data.getYoutubeCaptionlist.items[0].snippet.trackKind, name: json2.data.getYoutubeCaptionlist.items[0].snippet.name }));
+              captionItem.then((json3: any) => {
+                //   console.log("Success queries.downloadYoutubeCaption:" + json3)
+                console.log(item.id)
+                console.log(json3)
+                var cc: any = json3.data.downloadYoutubeCaption.transcript.text.map((item: any) => { return item.content })
+                console.log(cc)
+                const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.id, closedCaptioning: cc } }));
+                updateVideo.then(() => {
+                  console.log("updateVideo success")
 
-            }).catch((err: any) => {
-              console.log("Error queries.downloadYoutubeCaption:" + err);
-              console.log(err)
-            });
+                }).catch((err: any) => {
+                  console.log("Error queries.updateVideo: " + err);
+                  console.log(err)
+                  // this.importSeries(start)
+                });
 
-          }
+
+              }).catch((err: any) => {
+                console.log("Error queries.downloadYoutubeCaption:" + err);
+                console.log(err)
+              });
+            }
 
 
-        }).catch((err: any) => {
-          console.log("Error queries.getYoutubeCaptionlist:" + err);
-          console.log(err)
-        });
 
+
+          }).catch((err: any) => {
+            console.log("Error queries.getYoutubeCaptionlist:" + err);
+            console.log(err)
+          });
+        }
       })
 
       if (json.data.listVideos.nextToken != null)
         this.importCC(json.data.listVideos.nextToken)
     })
-    .catch((err: any) => {
-      console.log("Error queries.listVideos:" + err);
-      console.log(err)
-    })
+      .catch((err: any) => {
+        console.log("Error queries.listVideos:" + err);
+        console.log(err)
+      })
   }
   render() {
     return (

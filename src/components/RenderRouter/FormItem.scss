@@ -1,4 +1,12 @@
 @media (min-width: 768px) {
+    .FormItemH1{
+        font-weight: bold;
+        font-size: 3vw;
+        font-family:"Graphik Web";
+    } 
+    .FormItemH1.white{
+        color:#ffffff;
+    }
     .FormItem {
         position: static;
         padding-bottom: 5vw;
@@ -11,11 +19,19 @@
 
     .FormId {
         border: 0px;
-        width: 80vw;
+        width: 60vw;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .FormItemH1{
+        font-weight: bold;
+        font-size: 3vw;
+        font-family:"Graphik Web";
+    }
+    .FormItemH1.white{
+        color:#ffffff;
+    }
     .FormItem {
         position: static;
         padding-bottom: 5vw;
@@ -28,11 +44,20 @@
 
     .FormId {
         border: 0px;
-        width: 80vw;
+        width: 60vw;
     }
 }
 
 @media (max-width: 767px) {
+    .FormItemH1{
+        font-weight: bold;
+        font-size: 10vw;
+        font-family:"Graphik Web";
+        line-height: 12.5vw;
+    }
+    .FormItemH1.white{
+        color:#ffffff;
+    }
     .FormItem {
         position: static;
         padding-bottom: 5vw;
