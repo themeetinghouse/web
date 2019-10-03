@@ -75,10 +75,6 @@
             {
                 "name":"Home Church",
                 "location":"/find-home-church"
-            },
-            {
-                "name":"Distance Groups",
-                "location":"/distance-groups"
             }
         ]
     }
