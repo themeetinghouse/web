@@ -16,7 +16,7 @@ export default class ContentItem extends React.Component<Props, State> {
     this.state = {
       content: props.content,
       animationData: null,
-      isStopped: false, 
+      isStopped: false,
       isPaused: false
 
     }
@@ -39,7 +39,7 @@ export default class ContentItem extends React.Component<Props, State> {
 
     if (this.state.animationData != null)
       return (<Lottie options={defaultOptions}
-        
+
         width={"100vw"}
         isStopped={this.state.isStopped}
         isPaused={this.state.isPaused} />)
@@ -48,7 +48,7 @@ export default class ContentItem extends React.Component<Props, State> {
   }
   render() {
     if (this.state.content.style === "full") return (
-      <div className="SVGItem full" style={{ position: "static", paddingLeft: "0vw",paddingBottom: "5vw" }}>
+      <div className="SVGItem full" >
         {this.renderSVG()}
       </div>
     )
