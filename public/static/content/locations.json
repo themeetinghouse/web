@@ -39,6 +39,20 @@
                     "sandbanks",
                     "waterloo"
                 ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Distance Groups",
+                "header2":"",
+                "text1":"Groups from around the world",
+                "link1Text": "Distance Groups",
+                "link1Action": "distance-groups",
+                "image1":[{
+                    "src":"/static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
+
             }
                
         ]

@@ -6,6 +6,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 //import { Button } from 'reactstrap';
 import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql/customQueries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
@@ -71,7 +72,7 @@ class ListItem extends React.Component<Props, State> {
       if (this.state.content.selector==="sameSeries")
       {
         const getSeries = API.graphql({
-          query: queries.getSeries,
+          query: customQueries.getSeries,
           //    const listVideos = API.graphql({query:queries.getVideo, 
           variables: { sortDirection: this.state.content.sortOrder, limit: 50, id: this.props.data.series.id},
           //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
@@ -87,7 +88,7 @@ class ListItem extends React.Component<Props, State> {
       }
       else{
       const listVideos = API.graphql({
-        query: queries.getVideoByVideoType,
+        query: customQueries.getVideoByVideoType,
         //    const listVideos = API.graphql({query:queries.getVideo,
         variables: { sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
         //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
@@ -115,7 +116,7 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === "series") {
 
       const listSeriess = API.graphql({
-        query: queries.getSeriesBySeriesType,
+        query: customQueries.getSeriesBySeriesType,
         variables: { sortDirection: this.state.content.sortOrder, limit: 50,seriesType: this.state.content.subclass,publishedDate: { lt: "a" } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       });
