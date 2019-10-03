@@ -1,11 +1,254 @@
 @media (min-width: 768px) {
+    .ContentItem.oneImage {
+        height: 100vh;
+        position: static;
+        padding-bottom: 5vw;
+    }
 
+    .SundayMorningItemDiv1 {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+    }
+
+    .SundayMorningItemDiv2 {
+        position: absolute;
+        left: 40vw;
+        width: 40vw;
+        height: 90vh;
+    }
+
+    .SundayMorningItemDiv3 {
+        position: absolute;
+        left: 0vw;
+        width: 40vw;
+        height: 100vh;
+    }
+
+    .SundayMorningItemDiv4 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .SundayMorningItemDiv5 {
+        width: 40vw;
+        border-bottom-width: 1px; margin-bottom: 5px; border-bottom-color: #C8C8C8; border-bottom-style: solid;
+    }
+
+    .SundayMorningItemDiv6 {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+
+    .SundayMorningItemListData {
+        overflow-y: auto;
+        height: 80vh;
+    }
+
+    .SundayMorningH1 {
+        font-size: 3vw;
+        font-family: Graphik Web;
+    }
+
+    .SundayMorningH3 {
+        font-size: 2vw;
+        font-family: Graphik Web;
+    }
+
+    .SundayMorningMap {
+        left: 0vw;
+        width: 40vw;
+        height: 90vh;
+    }
+
+    .SundayMorningAddress.SundayMorningDistances {
+        font-size: 1vw;
+        font-family: Graphik Web;
+    }
+
+    .SundayMorningButton1 {
+        border-radius: 0px;
+        border-width: 0px;
+        color: #ffffff;
+        white-space: nowrap; background-color: #000000;
+    }
+
+    .SundayMorningButton2 {
+        margin-top: 1.5vw;
+        color: #000000;
+        background-color: #ffffff; border-width: 0px;
+        border-radius: 0;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .ContentItem.oneImage {
+      height: 100vh;
+      position: static;
+      padding-bottom: 5vw;
+  }
 
+  .SundayMorningItemDiv1 {
+      position: relative;
+      left: 20vw;
+      width: 80vw;
+  }
+
+  .SundayMorningItemDiv2 {
+      position: absolute;
+      left: 40vw;
+      width: 40vw;
+      height: 90vh;
+  }
+
+  .SundayMorningItemDiv3 {
+      position: absolute;
+      left: 0vw;
+      width: 40vw;
+      height: 100vh;
+  }
+
+  .SundayMorningItemDiv4 {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .SundayMorningItemDiv5 {
+      width: 40vw;
+      border-bottom-width: 1px; margin-bottom: 5px; border-bottom-color: #C8C8C8; border-bottom-style: solid;
+  }
+
+  .SundayMorningItemDiv6 {
+      margin-left: auto;
+      margin-right: 10px;
+  }
+
+  .SundayMorningItemListData {
+      overflow-y: auto;
+      height: 80vh;
+  }
+
+  .SundayMorningH1 {
+      font-size: 3vw;
+      font-family: Graphik Web;
+  }
+
+  .SundayMorningH3 {
+      font-size: 2vw;
+      font-family: Graphik Web;
+  }
+
+  .SundayMorningMap {
+      left: 0vw;
+      width: 40vw;
+      height: 90vh;
+  }
+
+  .SundayMorningAddress.SundayMorningDistances {
+      font-size: 1vw;
+      font-family: Graphik Web;
+  }
+
+  .SundayMorningButton1 {
+      border-radius: 0px;
+      border-width: 0px;
+      color: #ffffff;
+      white-space: nowrap; background-color: #000000;
+  }
+
+  .SundayMorningButton2 {
+      margin-top: 1.5vw;
+      color: #000000;
+      background-color: #ffffff; border-width: 0px;
+      border-radius: 0;
+      font-size: 1.5vw;
+      font-family: Graphik Web;
+  }
 }
 
 @media (max-width: 767px) {
+  .ContentItem.oneImage {
+      height: 100vh;
+      position: static;
+      padding-bottom: 5vw;
+  }
 
+  .SundayMorningItemDiv1 {
+      position: relative;
+      left: 20vw;
+      width: 80vw;
+  }
+
+  .SundayMorningItemDiv2 {
+      position: absolute;
+      left: 40vw;
+      width: 40vw;
+      height: 90vh;
+  }
+
+  .SundayMorningItemDiv3 {
+      position: absolute;
+      left: 0vw;
+      width: 40vw;
+      height: 100vh;
+  }
+
+  .SundayMorningItemDiv4 {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .SundayMorningItemDiv5 {
+      width: 40vw;
+      border-bottom-width: 1px; margin-bottom: 5px; border-bottom-color: #C8C8C8; border-bottom-style: solid;
+  }
+
+  .SundayMorningItemDiv6 {
+      margin-left: auto;
+      margin-right: 10px;
+  }
+
+  .SundayMorningItemListData {
+      overflow-y: auto;
+      height: 80vh;
+  }
+
+  .SundayMorningH1 {
+      font-size: 3vw;
+      font-family: Graphik Web;
+  }
+
+  .SundayMorningH3 {
+      font-size: 2vw;
+      font-family: Graphik Web;
+  }
+
+  .SundayMorningMap {
+      left: 0vw;
+      width: 40vw;
+      height: 90vh;
+  }
+
+  .SundayMorningAddress.SundayMorningDistances {
+      font-size: 1vw;
+      font-family: Graphik Web;
+  }
+
+  .SundayMorningButton1 {
+      border-radius: 0px;
+      border-width: 0px;
+      color: #ffffff;
+      white-space: nowrap; background-color: #000000;
+  }
+
+  .SundayMorningButton2 {
+      margin-top: 1.5vw;
+      color: #000000;
+      background-color: #ffffff; border-width: 0px;
+      border-radius: 0;
+      font-size: 1.5vw;
+      font-family: Graphik Web;
+  }
 }

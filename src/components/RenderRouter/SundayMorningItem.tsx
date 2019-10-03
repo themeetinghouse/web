@@ -97,17 +97,17 @@ export class ContentItem extends React.Component<Props, State>  {
       }
     }
     return (
-      <div className="ContentItem oneImage" style={{ height: "100vh", position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", left: "20vw", width: "80vw" }}>
+      <div className="ContentItem oneImage" >
+        <div className="SundayMorningItemDiv1" >
           <div  >
-            <h1 style={{ fontSize: "3vw", fontFamily: "Graphik Web" }} >{this.state.content.header1}</h1>
+            <h1 className="SundayMorningH1"  >{this.state.content.header1}</h1>
 
-            <div style={{ position: "absolute", left: "40vw", width: "40vw", height: "90vh" }}>
+            <div className="SundayMorningItemDiv2" >
               <Map google={this.props.google} zoom={6} initialCenter={{
                 lat: 44,
                 lng: -78.0
               }}
-                style={{ left: "0vw", width: "40vw", height: "90vh" }}>
+                className="SundayMorningMap" >
                 {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
                   return (<Marker key={index} onClick={this.onMarkerClick}
                     position={{ lat: item.location.latitude, lng: item.location.longitude }} />
@@ -115,30 +115,30 @@ export class ContentItem extends React.Component<Props, State>  {
                 }) : null}
               </Map>
             </div>
-            <div style={{ position: "absolute", left: "0vw", width: "40vw", height: "100vh" }}>
-              <div style={{display:"flex", flexDirection:"row"}}>
+            <div className="SundayMorningItemDiv3" >
+              <div className="SundayMorningItemDiv4" >
               <Input placeholder="Current Location" ></Input>
               <Button>Driving</Button> <Button>Transit</Button> <Button>Bike</Button>
               </div>
-              <div style={{overflowY:"auto",height:"80vh"}}>
+              <div className="SundayMorningItemListData" >
               {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
                 return (
-                  <div style={{width:"40vw",borderBottomWidth:"1px", marginBottom:"5px", borderBottomColor:"#C8C8C8", borderBottomStyle:"solid"}}>
-                    <div key={index} style={{ display: "flex", flexDirection: "row" }}>
+                  <div className="SundayMorningItemDiv5" >
+                    <div key={index} className="SundayMorningItemDiv4" >
 
                       <div>
-                        <h3 style={{ fontSize: "2vw", fontFamily: "Graphik Web" }}>{item.name}</h3>
-                        <div style={{ fontSize: "1vw", fontFamily: "Graphik Web" }}>{item.location.address}</div>
-                        <div style={{ fontSize: "1vw", fontFamily: "Graphik Web" }}>{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " " + this.state.distances.rows[0].elements[index].duration.text : null}</div>
+                        <h3 className="SundayMorningH3" >{item.name}</h3>
+                        <div className="SundayMorningAddress" >{item.location.address}</div>
+                        <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " " + this.state.distances.rows[0].elements[index].duration.text : null}</div>
 
                       </div>
-                      <div style={{ marginLeft: "auto",marginRight:"10px", }}>
-                        <Button style={{ borderRadius: "0px", borderWidth: "0px", color: "#ffffff", whiteSpace: "nowrap", backgroundColor: "#000000" }} onClick={() => this.navigate(item.id)}>Visit Site Page</Button>
+                      <div className="SundayMorningItemDiv6" >
+                        <Button className="SundayMorningButton1" onClick={() => this.navigate(item.id)}>Visit Site Page</Button>
                       </div>
                     </div>
                     <div>
-                      <Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderWidth: "0px", borderRadius: 0, fontSize: "1.5vw", fontFamily: "Graphik Web" }} ><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                      <Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderWidth: "0px", borderRadius: 0, fontSize: "1.5vw", fontFamily: "Graphik Web" }} ><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
+                      <Button className="SundayMorningButton2" ><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                      <Button className="SundayMorningButton2" ><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
                     </div>
                   </div>
 
