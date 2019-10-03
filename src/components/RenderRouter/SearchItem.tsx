@@ -50,9 +50,9 @@ export default class ContentItem extends React.Component<Props, State>  {
     })
   }
   render() {
-    return (<div style={{ position: "relative", top: "2vw", left: "20vw" }}>
-      <input style={{ width: "70vw" }} onChange={(e: any) => { this.doSearch(e) }} placeholder="Search"></input>
-      <div style={{ height: "100vw" }}>Results:
+    return (<div className="SearchItem" >
+      <input className="SearchItemInput" onChange={(e: any) => { this.doSearch(e) }} placeholder="Search"></input>
+      <div className="SearchItemDiv">Results:
       <div>
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
             if (item.episodeTitle !== null)

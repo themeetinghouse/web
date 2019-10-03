@@ -1,13 +1,47 @@
 @media (min-width: 768px) {
- 
+    .SearchItem {
+        position: relative;
+        top: 2vw;
+        left: 20vw;
+    }
 
+    .SearchItemInput {
+        width: 70vw;
+    }
+
+    .SearchItemDiv {
+        height:100vw;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
- 
+  .SearchItem {
+      position: relative;
+      top: 2vw;
+      left: 20vw;
+  }
 
+  .SearchItemInput {
+      width: 70vw;
+  }
+
+  .SearchItemDiv {
+      height:100vw;
+  }
 }
 
 @media (max-width: 767px) {
-  
+  .SearchItem {
+      position: relative;
+      top: 2vw;
+      left: 20vw;
+  }
+
+  .SearchItemInput {
+      width: 70vw;
+  }
+
+  .SearchItemDiv {
+      height:100vw;
+  }
 }

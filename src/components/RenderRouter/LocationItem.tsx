@@ -33,7 +33,7 @@ class LocationItem extends React.Component<Props, State> {
 
     render() {
         console.log("locations")
-        return <div className="headerItem" style={{ position: "relative", width: "80vw", left:"20vw", height: "105vh", paddingBottom: "5vh" }}>
+        return <div className="headerItem LocationItem" >
             {this.state.content.locations.map((item: string) => { return <div><a href={item}>{item}</a></div> })}
         </div>
 
