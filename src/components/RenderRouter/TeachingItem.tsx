@@ -156,7 +156,7 @@ class TeachingItem extends React.Component<Props, State> {
                             <div className="teaching-options" >
                                 {this.props.content.options.map((item: any, index: any) => {
                                     return (
-                                        <span key={index} className="teaching-span " className={this.state.selection === item ? "TeachingSelected" : "TeachingUnselected"} onClick={() => { this.setSelection(item) }}>{item}</span>
+                                        <span key={index} className={this.state.selection === item ? "teaching-span TeachingSelected" : "teaching-span TeachingUnselected"} onClick={() => { this.setSelection(item) }}>{item}</span>
                                     )
                                 }
                                 )}
