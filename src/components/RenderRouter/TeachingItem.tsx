@@ -124,7 +124,7 @@ class TeachingItem extends React.Component<Props, State> {
     setSelection(selection: string) {
         const { cookies } = this.props;
         cookies.set(this.props.content.group, selection, { path: '/' });
-        var teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group)) 
+        var teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.setState({
             selection: selection,
             teachingId: teachingId
@@ -145,18 +145,18 @@ class TeachingItem extends React.Component<Props, State> {
 
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
                             <div className="teaching-blackbox" >
-                                <div style={{ padding: "0.5vw", color: "#C8C8C8" }}>{this.state.listData[this.state.teachingId].publishedDate}</div>
-                                <div style={{ padding: "0.5vw", fontSize: "2.5vw", fontWeight: "bold", color: "#ffffff" }}>{this.state.listData[this.state.teachingId].episodeTitle}</div>
-                                <div style={{ padding: "0.5vw", color: "#C8C8C8" }}>E2. <a href="">{this.state.listData[this.state.teachingId].seriesTitle}</a>  •  {this.state.listData[this.state.teachingId].duration}</div>
-                                <div style={{ padding: "0.5vw", color: "#C8C8C8" }}> {this.state.listData[this.state.teachingId].description}</div>
-                                <div style={{ position: "absolute", bottom: "5vw" }}><Button onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button></div>
+                                <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
+                                <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
+                                <div className="teachingdiv" >E2. <a href="">{this.state.listData[this.state.teachingId].seriesTitle}</a>  •  {this.state.listData[this.state.teachingId].duration}</div>
+                                <div className="teachingdiv" > {this.state.listData[this.state.teachingId].description}</div>
+                                <div className="teachingdiv2" ><Button onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button></div>
                                 <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                             </div>
                             <div className="teaching-mostrecent" >Most recent</div>
                             <div className="teaching-options" >
                                 {this.props.content.options.map((item: any, index: any) => {
                                     return (
-                                        <span key={index} style={{ margin: "1vw" }} className={this.state.selection === item ? "TeachingSelected" : "TeachingUnselected"} onClick={() => { this.setSelection(item) }}>{item}</span>
+                                        <span key={index} className="teaching-span " className={this.state.selection === item ? "TeachingSelected" : "TeachingUnselected"} onClick={() => { this.setSelection(item) }}>{item}</span>
                                     )
                                 }
                                 )}
