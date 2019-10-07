@@ -53,6 +53,19 @@
                     "src":"/static/images/homepage-2.jpg",
                     "alt":"TODO"
                 }]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Careers",
+                "header2":"",
+                "text1":"Come join us",
+                "link1Text": "Action",
+                "link1Action": "careers",
+                "image1":[{
+                    "src":"/static/images/homepage-2.jpg",
+                    "alt":"TODO"
+                }]
             }
         ]
     }

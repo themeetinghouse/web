@@ -4,12 +4,15 @@ import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./HeroItem.scss"
+import Select from 'react-select';
+
 interface Props extends RouteComponentProps {
     content: any
 
 }
 interface State {
-    content: any
+    content: any,
+    locationData:any
 }
 class HeroItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -20,12 +23,31 @@ class HeroItem extends React.Component<Props, State> {
         super(props, context);
         console.log(context);
         this.state = {
-            content: props.content
+            content: props.content,
+            locationData:null
         }
         this.navigate = this.navigate.bind(this);
+        if (this.state.content.showLocationSearch){
+            fetch('./static/data/locations.json').then(function (response) {
+                return response.json();
+              })
+                .then((myJson) => {
+                  this.setState({ locationData: myJson });
+                })
+          
+        }
+    }
+    locationChange(item:any){
+        this.navigateTo(item.value)
     }
     navigate() {
         this.props.history.push("spirituality", "as")
+        const unblock = this.props.history.block('Are you sure you want to leave this page?');
+        unblock();
+
+    }
+    navigateTo(location:any) {
+        this.props.history.push(location, "as")
         const unblock = this.props.history.block('Are you sure you want to leave this page?');
         unblock();
 
@@ -149,7 +171,13 @@ class HeroItem extends React.Component<Props, State> {
                         <div className="heroText2">{this.state.content.text5}</div>
                         <div className="heroText2">{this.state.content.text6}</div>
                         <div className="heroText2">{this.state.content.text7}</div>
-                        {this.state.content.showLocationSearch ? (<div><input style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}} placeholder="Search for a church by city"></input></div>):null}
+                        {this.state.content.showLocationSearch ? (
+                            <div>
+                                {this.state.locationData!=null?
+                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}}  
+                                options={this.state.locationData.map((item:any)=>{return {label:item.name,value:item.id}})}></Select>
+                              :null}
+                            </div>):null}
                         {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a style={{color:"#ffffff"}} href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}

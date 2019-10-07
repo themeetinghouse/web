@@ -1,0 +1,42 @@
+{
+    "page": {
+        "name": "careers",
+        "title": "Careers",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+
+            {
+                "type": "list",
+                "style": "imageList",
+                "header1": "Come join us",
+                "list": [
+                    {
+                        "title": "Job1",
+                        "text": "Job 1 - Description",
+                        "imageSrc": "/static/images/community-3-1.jpg",
+                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+                        "navigateTo": "jobs.pdf"
+                    },
+                    {
+                        "title": "Job2",
+                        "text": "Job 2 - Description",
+                        "imageSrc": "/static/images/community-3-2.jpg",
+                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
+                        "navigateTo": "jobs.pdf"
+                    }
+                ]
+            }
+           
+        ]
+    }
+}

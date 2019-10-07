@@ -9,9 +9,67 @@ type Query {
   getTakenoteSermonVerses(sermondId:String):TakeNoteSermonVerses
   getTakenoteLocations:[TakeNoteLocations]
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
+  fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
+  getFBEvents(pageId:String):[FBEvent]
 }
+input fuzzySearchableVideoSortInput {
+  field: fuzzySearchableVideoSortableFields
+  direction: fuzzySearchableSortDirection
+}
+enum fuzzySearchableSortDirection {
+  asc
+  desc
+}
+enum fuzzySearchableVideoSortableFields {
+  id
+  createdBy
+  createdDate
+  episodeTitle
+  originalEpisodeTitle
+  episodeNumber
+  seriesTitle
+  publishedDate
+  recordedDate
+  description
+  closedCaptioning
+  referencedMedia
+  campaigns
+  bibleVerses
+  topics
+  qandeh
+  length
+  YoutubeIdent
+  videoTypes
+}
+type FBLocation{
+  city: String
+  country: String
+  latitude: Float
+  longitude: Float
+  state: String
+  street: String
+  zip: String
+}
+type FBPlace{
+ name: String
+  location: FBLocation
+  id: String
+}
+type FBEvent{
+  description:String
+  end_time: String
+  name:String
+  place: FBPlace
+  start_time: String
+  id: String
+}
+type fuzzySearchableVideoConnection {
+  items: [Video]
+  nextToken: String
+}
+
 type F1ListGroups{
   groups:F1ListGroup
 }

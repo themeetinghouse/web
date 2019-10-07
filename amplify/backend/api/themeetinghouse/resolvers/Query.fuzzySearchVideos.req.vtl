@@ -1,0 +1,31 @@
+#set( $indexPath = "/video/doc/_search" )
+#set( $nonKeywordFields = ["episodeNumber"] )
+{
+  "version": "2017-02-28",
+  "operation": "GET",
+  "path": "$indexPath",
+  "params": {
+      "body":     {
+                #if( $context.args.nextToken )"search_after": ["$context.args.nextToken"], #end
+                "size": #if( $context.args.limit ) $context.args.limit #else 10 #end,
+                "sort": #if( $context.args.sort )
+  [#if( !$util.isNullOrEmpty($context.args.sort.field) && !$util.isNullOrEmpty($context.args.sort.direction) )
+  {#if($nonKeywordFields.contains($context.args.sort.field))                                    
+"$context.args.sort.field" #else "${context.args.sort.field}.keyword" #end : {
+                                        "order": "$context.args.sort.direction"
+                                    }
+                                }
+#end]
+#else
+  []
+#end,
+                "query": {
+                  "fuzzy": {
+                   "episodeTitle": {
+                    "value": "$context.args.filter"
+                   }
+                  }
+                }
+                }
+  }
+}
