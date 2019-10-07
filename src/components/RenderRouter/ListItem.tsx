@@ -6,7 +6,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 //import { Button } from 'reactstrap';
 import * as queries from '../../graphql/queries';
-import * as customQueries from '../../graphql/customQueries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'

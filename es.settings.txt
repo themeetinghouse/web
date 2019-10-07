@@ -1,0 +1,35 @@
+ curl -X PUT "https://search-themeet-elasti-1odj30wbrwm71-zjksfh6p3abykedql5gfewzrwe.us-east-1.es.amazonaws.com/video?pretty" -H 'Content-Type: application/json' -d'
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": {
+          "tokenizer": "my_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "my_tokenizer": {
+          "type": "ngram",
+          "min_gram": 3,
+          "max_gram": 3,
+          "token_chars": [
+            "letter",
+            "digit"
+          ]
+        }
+      }
+    }
+  }
+}
+'
+
+
+ curl -X POST "https://search-themeet-elasti-1odj30wbrwm71-zjksfh6p3abykedql5gfewzrwe.us-east-1.es.amazonaws.com/_reindex?pretty" -H 'Content-Type: application/json' -d'
+{
+  "source": {
+    "index": "video2"
+  },
+  "dest": {
+    "index": "video"
+  }
+}'

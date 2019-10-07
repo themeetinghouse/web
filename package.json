@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify",
     "images": "mkdir ./public/static/images-sized;batch-image-resizer -i ./public/static/images -o ./public/static/images-sized -s '[50, 500, 1000, 1500]'",
-    "createTestList":"find . -exec echo -n '\"{}\" ', \\; | sed 's/.json//g' | sed 's|./||g'"
+    "createTestList": "find . -exec echo -n '\"{}\" ', \\; | sed 's/.json//g' | sed 's|./||g'"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@types/react-helmet": "^5.0.11",
     "@types/react-lottie": "^1.2.3",
     "@types/react-router-dom": "^5.1.0",
+    "@types/react-select": "^3.0.5",
     "@types/reactstrap": "^8.0.4",
     "@types/uuid": "^3.4.5",
     "aws-amplify-react": "^2.4.4",
@@ -54,6 +55,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.1.2",
     "react-scroll-parallax": "^2.1.3",
+    "react-select": "^2.0.0-beta.7",
     "reactstrap": "^8.0.1",
     "stream": "0.0.2",
     "typescript": "^3.6.3",

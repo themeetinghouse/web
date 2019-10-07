@@ -3,6 +3,11 @@
     "Description": "An auto-generated nested stack.",
     "Metadata": {},
     "Parameters": {
+        "ElasticSearchAccessIAMRoleName": {
+            "Type": "String",
+            "Description": "The name of the IAM role assumed by AppSync for Elasticsearch.",
+            "Default": "AppSyncElasticsearchRole"
+        },
         "AppSyncApiId": {
             "Type": "String",
             "Description": "The id of the AppSync API associated with this project."
@@ -24,9 +29,94 @@
         "S3DeploymentRootKey": {
             "Type": "String",
             "Description": "An S3 key relative to the S3DeploymentBucket that points to the root\nof the deployment directory."
+        },
+        "ElasticSearchInstanceType": {
+            "Type": "String",
+            "Description": "The type of instance to launch into the Elasticsearch domain.",
+            "Default": "t2.small.elasticsearch",
+            "AllowedValues": [
+                "t2.small.elasticsearch",
+                "t2.medium.elasticsearch",
+                "c4.large.elasticsearch",
+                "c4.xlarge.elasticsearch",
+                "c4.2xlarge.elasticsearch",
+                "c4.4xlarge.elasticsearch",
+                "c4.8xlarge.elasticsearch",
+                "m3.medium.elasticsearch",
+                "m3.large.elasticsearch",
+                "m3.xlarge.elasticsearch",
+                "m3.2xlarge.elasticsearch",
+                "m4.large.elasticsearch",
+                "m4.xlarge.elasticsearch",
+                "m4.2xlarge.elasticsearch",
+                "m4.4xlarge.elasticsearch",
+                "m4.10xlarge.elasticsearch",
+                "r3.large.elasticsearch",
+                "r3.xlarge.elasticsearch",
+                "r3.2xlarge.elasticsearch",
+                "r3.4xlarge.elasticsearch",
+                "r3.8xlarge.elasticsearch",
+                "r4.large.elasticsearch",
+                "r4.xlarge.elasticsearch",
+                "r4.2xlarge.elasticsearch",
+                "r4.4xlarge.elasticsearch",
+                "r4.8xlarge.elasticsearch",
+                "r4.16xlarge.elasticsearch",
+                "i2.xlarge.elasticsearch",
+                "i2.2xlarge.elasticsearch",
+                "i3.large.elasticsearch",
+                "i3.xlarge.elasticsearch",
+                "i3.2xlarge.elasticsearch",
+                "i3.4xlarge.elasticsearch",
+                "i3.8xlarge.elasticsearch",
+                "i3.16xlarge.elasticsearch"
+            ]
+        },
+        "ElasticSearchEBSVolumeGB": {
+            "Type": "Number",
+            "Description": "The size in GB of the EBS volumes that contain our data.",
+            "Default": 10
+        },
+        "ElasticSearchInstanceCount": {
+            "Type": "Number",
+            "Description": "The number of instances to launch into the Elasticsearch domain.",
+            "Default": 1
         }
+       
     },
     "Resources": {
+        "GraphQLAPI": {
+            "Type": "AWS::AppSync::GraphQLApi",
+            "Properties": {
+                "Name": {
+                    "Fn::If": [
+                        "HasEnvironmentParameter",
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    {
+                                        "Ref": "AppSyncApiName"
+                                    },
+                                    {
+                                        "Ref": "env"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "Ref": "AppSyncApiName"
+                        }
+                    ]
+                },
+                "AuthenticationType": "API_KEY",
+                "AdditionalAuthenticationProviders": [
+                    {
+                        "AuthenticationType": "AWS_IAM"
+                    }
+                ]
+            }
+        },
         "TakeNoteDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
@@ -50,6 +140,19 @@
                 "Type": "HTTP",
                 "HttpConfig": {
                     "Endpoint": "https://www.googleapis.com/"
+                }
+            }
+        },
+        "FBDataSource": {
+            "Type": "AWS::AppSync::DataSource",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "Name": "FacebookHTTP",
+                "Type": "HTTP",
+                "HttpConfig": {
+                    "Endpoint": "https://graph.facebook.com/"
                 }
             }
         },
@@ -129,6 +232,73 @@
                     ]
                 }
             }
+        },
+        "fuzzySearchVideosResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "DataSourceName": {
+                    "Fn::GetAtt": [
+                        "ElasticSearchDataSource",
+                        "Name"
+                    ]
+                },
+                "FieldName": "fuzzySearchVideos",
+                "TypeName": "Query",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "fuzzySearchVideos",
+                                        "req",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "fuzzySearchVideos",
+                                        "res",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "DependsOn": [
+                "ElasticSearchDataSource"
+            ]
         },
         "GetTakeNoteNotesResolver": {
             "Type": "AWS::AppSync::Resolver",
@@ -578,6 +748,191 @@
                 }
             }
         },
+        "ElasticSearchAccessIAMRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": {
+                    "Fn::If": [
+                        "HasEnvironmentParameter",
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    {
+                                        "Ref": "ElasticSearchAccessIAMRoleName"
+                                    },
+                                    {
+                                        "Fn::GetAtt": [
+                                            "GraphQLAPI",
+                                            "ApiId"
+                                        ]
+                                    },
+                                    {
+                                        "Ref": "env"
+                                    }
+                                ]
+                            ]
+                        },
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    {
+                                        "Ref": "ElasticSearchAccessIAMRoleName"
+                                    },
+                                    {
+                                        "Fn::GetAtt": [
+                                            "GraphQLAPI",
+                                            "ApiId"
+                                        ]
+                                    }
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "appsync.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Policies": [
+                    {
+                        "PolicyName": "ElasticsearchAccess",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "es:ESHttpPost",
+                                        "es:ESHttpDelete",
+                                        "es:ESHttpHead",
+                                        "es:ESHttpGet",
+                                        "es:ESHttpPost",
+                                        "es:ESHttpPut"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "ElasticSearchDomain",
+                                                        "DomainArn"
+                                                    ]
+                                                },
+                                                "/*"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "ElasticSearchDataSource": {
+            "Type": "AWS::AppSync::DataSource",
+            "Properties": {
+                "ApiId": {
+                    "Fn::GetAtt": [
+                        "GraphQLAPI",
+                        "ApiId"
+                    ]
+                },
+                "Name": "ElasticSearchDomain",
+                "Type": "AMAZON_ELASTICSEARCH",
+                "ServiceRoleArn": {
+                    "Fn::GetAtt": [
+                        "ElasticSearchAccessIAMRole",
+                        "Arn"
+                    ]
+                },
+                "ElasticsearchConfig": {
+                    "AwsRegion": {
+                        "Fn::Select": [
+                            3,
+                            {
+                                "Fn::Split": [
+                                    ":",
+                                    {
+                                        "Fn::GetAtt": [
+                                            "ElasticSearchDomain",
+                                            "DomainArn"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "Endpoint": {
+                        "Fn::Join": [
+                            "",
+                            [
+                                "https://",
+                                {
+                                    "Fn::GetAtt": [
+                                        "ElasticSearchDomain",
+                                        "DomainEndpoint"
+                                    ]
+                                }
+                            ]
+                        ]
+                    }
+                }
+            },
+            "DependsOn": "ElasticSearchDomain"
+        },
+        "ElasticSearchDomain": {
+            "Type": "AWS::Elasticsearch::Domain",
+            "Properties": {
+                "DomainName": {
+                    "Fn::If": [
+                        "HasEnvironmentParameter",
+                        {
+                            "Ref": "AWS::NoValue"
+                        },
+                        {
+                            "Fn::Join": [
+                                "-",
+                                [
+                                    "d",
+                                    {
+                                        "Ref": "AppSyncApiId"
+                                    }
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                "ElasticsearchVersion": "6.2",
+                "ElasticsearchClusterConfig": {
+                    "ZoneAwarenessEnabled": false,
+                    "InstanceCount": {
+                        "Ref": "ElasticSearchInstanceCount"
+                    },
+                    "InstanceType": {
+                        "Ref": "ElasticSearchInstanceType"
+                    }
+                },
+                "EBSOptions": {
+                    "EBSEnabled": true,
+                    "VolumeType": "gp2",
+                    "VolumeSize": {
+                        "Ref": "ElasticSearchEBSVolumeGB"
+                    }
+                }
+            }
+        },
         "GetYoutubePlaylistItemsResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
@@ -632,6 +987,70 @@
                                     [
                                         "Query",
                                         "getYoutubePlaylistItems",
+                                        "res",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "GetFBEventsResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "DataSourceName": {
+                    "Fn::GetAtt": [
+                        "FBDataSource",
+                        "Name"
+                    ]
+                },
+                "FieldName": "getFBEvents",
+                "TypeName": "Query",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "getFBEvents",
+                                        "req",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "getFBEvents",
                                         "res",
                                         "vtl"
                                     ]

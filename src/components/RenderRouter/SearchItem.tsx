@@ -36,13 +36,13 @@ export default class ContentItem extends React.Component<Props, State>  {
   search(e: any, nextId: any) {
 
     console.log(e)
-    const listVideos = API.graphql(graphqlOperation(queries.searchVideos, { filter: { episodeTitle: { regexp: e } }, limit: 10, nextToken: nextId }));
+    const listVideos = API.graphql(graphqlOperation(queries.fuzzySearchVideos, { filter:  e , limit: 10, nextToken: nextId }));
     listVideos.then((json: any) => {
       console.log(json)
       if (nextId == null)
-        this.setState({ searchResults: json.data.searchVideos.items })
+        this.setState({ searchResults: json.data.fuzzySearchVideos.items })
       else
-        this.setState({ searchResults: this.state.searchResults.concat(json.data.searchVideos.items) })
+        this.setState({ searchResults: this.state.searchResults.concat(json.data.fuzzySearchVideos.items) })
 
    //   this.search(e, json.data.searchVideos.nextToken)
     }).catch((e: any) => {
