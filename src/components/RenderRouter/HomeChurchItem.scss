@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-  .ContentItem.oneImage.HomeChurchItem {
+  .HomeChurchItem {
         height: 100vw;
         position: static; padding-bottom: 5vw;
   }
@@ -41,7 +41,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .ContentItem.oneImage.HomeChurchIteDiv1 {
+  .HomeChurchIteDiv1 {
         height: 100vw;
         position: static; padding-bottom: 5vw;
   }
@@ -83,7 +83,7 @@
 }
 
 @media (max-width: 767px) {
-  .ContentItem.oneImage.HomeChurchItem {
+  .HomeChurchItem {
         height: 100vw;
         position: static; padding-bottom: 5vw;
   }
