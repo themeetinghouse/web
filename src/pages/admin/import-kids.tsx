@@ -45,9 +45,7 @@ interface Props {
 interface State { }
 
 class AuthIndexApp extends React.Component<Props, State> {
-  constructor(props: Props, context: State) {
-    super(props, context);
-  }
+  
   render() {
     if (this.props.authState === "signedIn") {
       return (
@@ -218,7 +216,7 @@ class IndexApp extends React.Component {
             length = parseInt(keys, 10);
             contig = true;
 
-            for (var i: any = 0; i < length; i++) {
+            for (i = 0; i < length; i++) {
               kprops = _unserialize(data, dataoffset);
               kchrs = kprops[1];
               key = kprops[2];
@@ -896,8 +894,8 @@ class IndexApp extends React.Component {
     });
   }
   updateVideo(original: any, series: any, episode: any) {
-    series = series
-    original = original
+   //series = series
+   // original = original
    // console.log(original)
     if (episode.title != null) {
       var youtube: any = episode.videoPreview.replace("https://youtu.be/", "").replace("https://www.youtube.com/watch?v=", "")

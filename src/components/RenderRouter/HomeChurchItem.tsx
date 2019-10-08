@@ -46,7 +46,7 @@ export class ContentItem extends React.Component<Props, State>  {
       f1ListGroupTypes.then((json: any) => {
             console.log(json)
      
-        json.data.F1ListGroupTypes.groupTypes.groupType.map((item: any) => {
+        json.data.F1ListGroupTypes.groupTypes.groupType.forEach((item: any) => {
           const f1ListGroups = API.graphql(graphqlOperation(queries.f1ListGroups, { itemId: item.id}));
      
           f1ListGroups.then((json2: any) => {
