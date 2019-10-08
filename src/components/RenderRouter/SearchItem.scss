@@ -12,6 +12,13 @@
     .SearchItemDiv {
         height:100vw;
     }
+
+    .SearchItemVideoThumb {
+        width: 20vw;
+        margin-right: 1vw;
+        object-fit: cover;
+        height: 12vw;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -28,6 +35,12 @@
   .SearchItemDiv {
       height:100vw;
   }
+  .SearchItemVideoThumb {
+    width: 20vw;
+    margin-right: 1vw;
+    object-fit: cover;
+    height: 12vw;
+}
 }
 
 @media (max-width: 767px) {
@@ -44,4 +57,10 @@
   .SearchItemDiv {
       height:100vw;
   }
+  .SearchItemVideoThumb {
+    width: 20vw;
+    margin-right: 1vw;
+    object-fit: cover;
+    height: 12vw;
+}
 }
