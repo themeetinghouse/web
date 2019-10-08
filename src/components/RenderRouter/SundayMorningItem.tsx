@@ -97,7 +97,7 @@ export class ContentItem extends React.Component<Props, State>  {
       }
     }
     return (
-      <div className="ContentItem oneImage" >
+      <div className="SundayMorningItem" >
         <div className="SundayMorningItemDiv1" >
           <div  >
             <h1 className="SundayMorningH1"  >{this.state.content.header1}</h1>

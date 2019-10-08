@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-    .ContentItem.oneImage {
+    .SundayMorningItem {
         height: 100vh;
         position: static;
         padding-bottom: 5vw;
@@ -61,7 +61,7 @@
         height: 90vh;
     }
 
-    .SundayMorningAddress.SundayMorningDistances {
+    .SundayMorningAddress, .SundayMorningDistances {
         font-size: 1vw;
         font-family: Graphik Web;
     }
@@ -84,7 +84,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .ContentItem.oneImage {
+  .SundayMorningItem {
       height: 100vh;
       position: static;
       padding-bottom: 5vw;
@@ -146,7 +146,7 @@
       height: 90vh;
   }
 
-  .SundayMorningAddress.SundayMorningDistances {
+  .SundayMorningAddress, .SundayMorningDistances {
       font-size: 1vw;
       font-family: Graphik Web;
   }
@@ -169,7 +169,7 @@
 }
 
 @media (max-width: 767px) {
-  .ContentItem.oneImage {
+  .SundayMorningItem {
       height: 100vh;
       position: static;
       padding-bottom: 5vw;
@@ -231,7 +231,7 @@
       height: 90vh;
   }
 
-  .SundayMorningAddress.SundayMorningDistances {
+  .SundayMorningAddress, .SundayMorningDistances {
       font-size: 1vw;
       font-family: Graphik Web;
   }
