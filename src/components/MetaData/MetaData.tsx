@@ -170,7 +170,7 @@ export default class MetaData extends React.Component<Props, State>  {
         });
     }
     clearSelected() {
-        this.state.tableData.map((value:any) => {
+        this.state.tableData.forEach((value:any) => {
             value.selected = "";
         });
     }

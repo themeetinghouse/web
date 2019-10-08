@@ -807,7 +807,7 @@ class Imports extends React.Component<Props, State>  {
     const listVideos = API.graphql(graphqlOperation(queries.listVideos, { limit: 100, nextToken: nextId }));
     listVideos.then((json: any) => {
       //  console.log(json)
-      json.data.listVideos.items.map((item: any) => {
+      json.data.listVideos.items.forEach((item: any) => {
         if (item.closedCaptioning === null) {
           //    console.log(item.id)
           const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: item.id }));

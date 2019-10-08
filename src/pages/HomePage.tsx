@@ -45,7 +45,7 @@ class HomePage extends React.Component<Props, State> {
         .then((myJson) => {
           console.log(myJson)
           this.setState({ content: myJson });
-          myJson.page.test.map((items:any) => {
+          myJson.page.test.forEach((items:any) => {
             fetch('/static/content/' + items.toLowerCase() + '.json').then(function (response) {
               console.log(response)
               return response.json();

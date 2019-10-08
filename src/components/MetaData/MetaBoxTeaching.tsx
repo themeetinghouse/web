@@ -5,14 +5,14 @@ import { Button, Card } from 'react-bootstrap';
 //import { nullLiteral } from 'babel-types';
 interface Props {
     currentVideoData: any,
-    show:boolean,
-    fieldData:any,
-    onMetaDataChange(json:any):any
+    show: boolean,
+    fieldData: any,
+    onMetaDataChange(json: any): any
 }
 interface State {
     currentVideoData: any,
-    show:boolean,
-    fieldData:any
+    show: boolean,
+    fieldData: any
 }
 export default class MetaBoxTeaching extends React.Component<Props, State>  {
     constructor(props: Props) {
@@ -23,7 +23,7 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
             fieldData: props.fieldData
         }
     }
-    componentWillReceiveProps(nextProps:Props) {
+    componentWillReceiveProps(nextProps: Props) {
         // You don't have to do this check first, but it can help prevent an unneeded render
         if (nextProps.currentVideoData !== this.state.currentVideoData) {
             this.setState({ currentVideoData: nextProps.currentVideoData });
@@ -41,13 +41,13 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
             console.log(nextProps.fieldData);
         }
     }
-  /*  componentDidUpdate(prevProps:Props, prevState:State) {
-        if (prevState.currentVideoData != null && this.state.currentVideoData != null) {
-            if (prevState.currentVideoData.title !== this.state.currentVideoData.title) {
-            }
-        }
-    }*/
-    getText(str:String, key:any) {
+    /*  componentDidUpdate(prevProps:Props, prevState:State) {
+          if (prevState.currentVideoData != null && this.state.currentVideoData != null) {
+              if (prevState.currentVideoData.title !== this.state.currentVideoData.title) {
+              }
+          }
+      }*/
+    getText(str: String, key: any) {
 
         if (str == null)
             return "";
@@ -55,7 +55,7 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
             return str[key];
         }
     }
-    getTextArray(str:any, key:any):[any] {
+    getTextArray(str: any, key: any): [any] {
 
         if (str == null)
             return [""];
@@ -66,18 +66,18 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
             return str[key];
         }
     }
-   // @ts-ignore-start
+    // @ts-ignore-start
 
     onBlur(e, field, value) {
         this.props.onMetaDataChange({ videoId: this.state.currentVideoData.id, field: field, value: this.state.currentVideoData[value] })
         console.log(this.state.currentVideoData);
     }
-    onChange(event:any, field:any) {
+    onChange(event: any, field: any) {
         var currentVideoData = { ...this.state.currentVideoData }
         currentVideoData[field] = event.target.value;
         this.setState({ currentVideoData: currentVideoData })
     }
-    onChangeArray(event:any, field:any, key:any) {
+    onChangeArray(event: any, field: any, key: any) {
         console.log(event)
         console.log(field)
         console.log(key)
@@ -90,7 +90,7 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
         this.setState({ currentVideoData: currentVideoData })
     }
     // @ts-ignore-start
-    onAddItem(e:any, field:any, value:any) {
+    onAddItem(e: any, field: any, value: any) {
         var currentVideoData = { ...this.state.currentVideoData }
         if (e.target.value == null)
             currentVideoData[field] = [""];
@@ -99,11 +99,11 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
         this.setState({ currentVideoData: currentVideoData })
     }
     // @ts-ignore-start
-    onClickFromYoutube(e:any, field:any, value:any) {
+    onClickFromYoutube(e: any, field: any, value: any) {
         this.props.onMetaDataChange({ videoId: this.state.currentVideoData.id, field: field, value: eval(value) })
     }
     // @ts-ignore-start
-    removeVideoType(e:any, name:any) {
+    removeVideoType(e: any, name: any) {
         console.log(this.state);
         var temp = this.state.currentVideoData.videoTypes;
         var index = temp.indexOf(name);
@@ -112,20 +112,20 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
         }
         this.props.onMetaDataChange({ videoId: this.state.currentVideoData.id, field: "videoTypes", value: temp })
     }
-  
-    renderYoutubeButton(item:any) {
+
+    renderYoutubeButton(item: any) {
         if (item.youtube != null)
             return (
                 <Button variant="outline-light" size="sm" className="p-0"
-                    onClick={(e:any) => { this.onClickFromYoutube(e, item.youtube.onClickField1, item.youtube.onClickField2) }}>YT</Button>
+                    onClick={(e: any) => { this.onClickFromYoutube(e, item.youtube.onClickField1, item.youtube.onClickField2) }}>YT</Button>
             )
         else
             return null;
     }
     render() {
-     //   MetaBoxTeaching.propTypes = {
-     //       onMetaDataChange: PropTypes.func
-     //   };
+        //   MetaBoxTeaching.propTypes = {
+        //       onMetaDataChange: PropTypes.func
+        //   };
         if (this.state.show) {
             return (
 
@@ -137,7 +137,7 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
                         </thead>
                         <tbody>
                             {
-                                this.state.fieldData.fields.map((item:any) => {
+                                this.state.fieldData.fields.map((item: any) => {
                                     if (item.type === "input")
                                         return (
                                             <tr key={item.name}>
@@ -156,7 +156,7 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
                                             <tr key={item.name}>
                                                 <td>{item.name}</td>
                                                 <td>
-                                                    {this.getTextArray(this.state.currentVideoData, item.field).map((z:any, index:any) => {
+                                                    {this.getTextArray(this.state.currentVideoData, item.field).map((z: any, index: any) => {
                                                         return (
                                                             <div>
                                                                 <input key={index} className="metaInput" size={item.size}
@@ -168,7 +168,7 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
                                                     })
                                                     }
                                                     <Button variant="outline-light" size="sm" className="p-0"
-                                                        onClick={(e:any) => { this.onAddItem(e, item.field, this.state.currentVideoData) }}>+</Button>
+                                                        onClick={(e: any) => { this.onAddItem(e, item.field, this.state.currentVideoData) }}>+</Button>
 
                                                 </td>
                                             </tr>
@@ -187,6 +187,8 @@ export default class MetaBoxTeaching extends React.Component<Props, State>  {
                                                 </td>
                                             </tr>
                                         )
+                                    else
+                                        return null
                                 })
 
                             }
