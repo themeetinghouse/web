@@ -8,7 +8,7 @@
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": false,
-            "logoColor":"white",
+            "logoColor":"black",
             "showSearch":false,
             "showFooter":false,
             "showMenu":false,

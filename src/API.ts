@@ -8009,6 +8009,36 @@ export type F1ListGroupsQuery = {
   } | null,
 };
 
+export type GetFbEventsQueryVariables = {
+  pageId?: string | null,
+};
+
+export type GetFbEventsQuery = {
+  getFBEvents:  Array< {
+    __typename: "FBEvent",
+    description: string | null,
+    end_time: string | null,
+    name: string | null,
+    place:  {
+      __typename: "FBPlace",
+      name: string | null,
+      location:  {
+        __typename: "FBLocation",
+        city: string | null,
+        country: string | null,
+        latitude: number | null,
+        longitude: number | null,
+        state: string | null,
+        street: string | null,
+        zip: string | null,
+      } | null,
+      id: string | null,
+    } | null,
+    start_time: string | null,
+    id: string | null,
+  } | null > | null,
+};
+
 export type GetTnSeriesQueryVariables = {
   id: string,
 };

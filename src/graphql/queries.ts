@@ -760,6 +760,29 @@ export const f1ListGroups = `query F1ListGroups($itemId: String) {
   }
 }
 `;
+export const getFbEvents = `query GetFbEvents($pageId: String) {
+  getFBEvents(pageId: $pageId) {
+    description
+    end_time
+    name
+    place {
+      name
+      location {
+        city
+        country
+        latitude
+        longitude
+        state
+        street
+        zip
+      }
+      id
+    }
+    start_time
+    id
+  }
+}
+`;
 export const getTnSeries = `query GetTnSeries($id: ID!) {
   getTNSeries(id: $id) {
     id
