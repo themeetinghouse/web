@@ -5,7 +5,13 @@
         color: #ffffff;
         font-size: 3vw;
     }
-
+    .downarrow{
+        height:4vw;
+        left:2vw;
+        bottom: 4vw;
+        position:absolute;
+        z-index:100;
+    }
     .heroH2 {}
 
     .heroHr {
@@ -131,6 +137,13 @@
         font-weight: bold;
         color: #ffffff;
         font-size: 3vw;
+    }
+    .downarrow{
+        height:4vw;
+        left:2vw;
+        bottom: 4vw;
+        position:absolute;
+        z-index:100;
     }
 
     .heroH2 {}
@@ -259,6 +272,9 @@
         color: #ffffff;
         font-size: 10vw;
         line-height: 10.65vw;
+    }
+    .downarrow{
+       display:none;
     }
 
     .heroH2 {}
