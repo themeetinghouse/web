@@ -157,11 +157,25 @@ class ListItem extends React.Component<Props, State> {
 
     }
     else if (this.state.content.class === "events") {
+      this.state.content.facebookEvents.forEach((item:any)=>{
+        const getFbEvents = API.graphql({
+          query: queries.getFbEvents,
+          variables: { id: item },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY
+        });
+        getFbEvents.then((json: any) => {
+          console.log("Success queries.getFbEvents: " + json);
+          console.log(json)
+          this.setState({
+            listData: this.state.listData.concat(json.data.getFbEvents.items)
+          })
+        }).catch((e: any) => { console.log(e) })
+      })
       fetch('./static/data/events.json').then(function (response) {
         return response.json();
       })
         .then((myJson) => {
-          this.setState({ listData: myJson });
+          this.setState({ listData: this.state.listData.concat(myJson) });
         })
 
     }
@@ -280,11 +294,11 @@ class ListItem extends React.Component<Props, State> {
 
                     <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
                     <div className="ListItemContact" >{item.Position}</div>
-                    <div>{item.Email}</div>
+                    <div><a href={"mailto:"+item.Email}>{item.Email}</a></div>
                     <div>{item.Phone}</div>
-                    <a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
-                    <a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
-                    <a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>
+                    {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
+                    {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
+                    {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
 
                   </div>
                 )

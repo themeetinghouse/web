@@ -52,7 +52,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "oakville"
+                "filterValue": "oakville",
+                "facebookEvents": ["192337637474940","204669579590265"]
+
             },
             {
                 "type": "instagram"

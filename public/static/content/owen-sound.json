@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "owen-sound"
+                "filterValue": "owen-sound",
+                "facebookEvents": ["451394268313696"]
+
             },
             {
                 "type": "list",

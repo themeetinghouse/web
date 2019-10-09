@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "burlington"
+                "filterValue": "burlington",
+                "facebookEvents": ["197565076925859","432197160135510"]
+
             },
             {
                 "type": "list",

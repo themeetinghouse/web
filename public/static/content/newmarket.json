@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "newmarket"
+                "filterValue": "newmarket",
+                "facebookEvents": ["367938486566408","365702263516025"]
+
             },
             {
                 "type": "list",

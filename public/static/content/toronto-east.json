@@ -50,7 +50,8 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "toronto-east"
+                "filterValue": "toronto-east",
+                "facebookEvents": ["1770683463163459","220608684658029"]
             },
             {
                 "type": "list",

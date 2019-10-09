@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "hamilton-mountain"
+                "filterValue": "hamilton-mountain",
+                "facebookEvents": ["195306577177988","126960067401497"]
+
             },
             {
                 "type": "list",

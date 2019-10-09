@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "kitchener"
+                "filterValue": "kitchener",
+                "facebookEvents": ["229935083686562","418730018179338"]
+
             },
             {
                 "type": "list",

@@ -46,7 +46,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "ancaster"
+                "filterValue": "ancaster",
+                "facebookEvents": ["232915306779310","126960067401497"]
+
             },
             {
                 "type": "list",

@@ -121,7 +121,6 @@
         left: 0vw;
         width: 80vw;
         overflow-x: scroll;
-        height: 15vw;
         white-space: nowrap;
     }
 
@@ -175,6 +174,7 @@
     .ListItemEvents, .ListItemCompassion {
         display: inline-block;
         width: 23vw;
+        margin-right: 2vw;
         vertical-align: top;
     }
 
@@ -317,7 +317,6 @@
       left: 0vw;
       width: 80vw;
       overflow-x: scroll;
-      height: 15vw;
       white-space: nowrap;
   }
 
@@ -371,6 +370,8 @@
   .ListItemEvents, .ListItemCompassion {
       display: inline-block;
       width: 23vw;
+      margin-right: 2vw;
+
       vertical-align: top;
   }
 
@@ -514,7 +515,6 @@
       left: 0vw;
       width: 80vw;
       overflow-x: scroll;
-      height: 15vw;
       white-space: nowrap;
   }
 
@@ -568,6 +568,7 @@
   .ListItemEvents, .ListItemCompassion {
       display: inline-block;
       width: 23vw;
+      margin-right: 2vw;
       vertical-align: top;
   }
 
