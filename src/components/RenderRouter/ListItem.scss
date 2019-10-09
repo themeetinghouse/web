@@ -78,7 +78,8 @@
 
     .ListItemH1ImageList {
         font-size: 3vw;
-        font-weight: bold; font-family: Graphik Web;
+        font-weight: bold;
+        font-family: Graphik Web;
     }
 
     .ListItemH1ImageList2 {
@@ -399,6 +400,7 @@
       z-index: 99;
       left: 20vw;
       width: 80vw;
+      padding: 10vw 10vw;
   }
 
   .ListItemDiv2 {
@@ -467,8 +469,10 @@
   }
 
   .ListItemH1ImageList {
-      font-size: 3vw;
-      font-weight: bold; font-family: Graphik Web;
+      font-weight: 700;
+      font-size: 10vw;
+      font-family: Graphik Web;
+      line-height: 12.5vw;
   }
 
   .ListItemH1ImageList2 {
