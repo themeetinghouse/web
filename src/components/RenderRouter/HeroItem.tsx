@@ -132,6 +132,8 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
+                     <div><img style={{ cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
+
                 </div>
 
             )
