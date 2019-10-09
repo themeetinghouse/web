@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "london"
+                "filterValue": "london",
+                "facebookEvents": ["285545728251709","434599660039010"]
+
             },
             {
                 "type": "list",

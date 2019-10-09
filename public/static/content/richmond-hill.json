@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "richmond-hill"
+                "filterValue": "richmond-hill",
+                "facebookEvents": ["384127868269271","365702263516025"]
+
             },
             {
                 "type": "list",

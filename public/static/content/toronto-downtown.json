@@ -51,7 +51,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "toronto-downtown"
+                "filterValue": "toronto-downtown",
+                "facebookEvents": ["188440474508616","220608684658029"]
+
             },
             {
                 "type": "list",

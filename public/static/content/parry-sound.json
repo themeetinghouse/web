@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "parry-sound"
+                "filterValue": "parry-sound",
+                "facebookEvents": ["308436542541692","294618463975660"]
+
             },
             {
                 "type": "list",

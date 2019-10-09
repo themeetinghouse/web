@@ -50,7 +50,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "waterloo"
+                "filterValue": "waterloo",
+                "facebookEvents": ["184501998239227","418730018179338"]
+
             },
             {
                 "type": "list",

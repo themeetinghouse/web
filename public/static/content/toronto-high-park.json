@@ -51,7 +51,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "toronto-high-park"
+                "filterValue": "toronto-high-park",
+                "facebookEvents": ["725999090807589","220608684658029"]
+
             },
             {
                 "type": "list",

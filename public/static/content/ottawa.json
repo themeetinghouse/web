@@ -51,7 +51,9 @@
                 "header1": "Upcoming Events",
                 "header2": "",
                 "filterField":"sites",                 
-                "filterValue": "ottawa"
+                "filterValue": "ottawa",
+                "facebookEvents": ["179115895518447","345735435521842"]
+
             },
             {
                 "type": "list",
