@@ -157,23 +157,40 @@ class ListItem extends React.Component<Props, State> {
 
     }
     else if (this.state.content.class === "events") {
-      this.state.content.facebookEvents.forEach((item:any)=>{
-        const getFbEvents = API.graphql({
-          query: queries.getFbEvents,
-          variables: { id: item },
-          authMode: GRAPHQL_AUTH_MODE.API_KEY
-        });
-        getFbEvents.then((json: any) => {
-          console.log("Success queries.getFbEvents: " + json);
-          console.log(json)
-          this.setState({
-            listData: this.state.listData.concat(json.data.getFbEvents.items)
+      if (this.state.content.facebookEvents!=null)
+      {      
+        this.state.content.facebookEvents.forEach((item:any)=>{
+            const getFbEvents = API.graphql({
+              query: queries.getFbEvents,
+              variables: { id: item },
+              authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+            getFbEvents.then((json: any) => {
+              console.log("Success queries.getFbEvents: " + json);
+              console.log(json)
+              this.setState({
+                listData: this.state.listData.concat(json.data.getFbEvents.items)
+              })
+            }).catch((e: any) => { console.log(e) })
           })
-        }).catch((e: any) => { console.log(e) })
-      })
-      fetch('./static/data/events.json').then(function (response) {
-        return response.json();
-      })
+        }
+        else{
+          const getFbEvents = API.graphql({
+            query: queries.getFbEvents,
+            variables: { id: "155800937784104" },
+            authMode: GRAPHQL_AUTH_MODE.API_KEY
+          });
+          getFbEvents.then((json: any) => {
+            console.log("Success queries.getFbEvents: " + json);
+            console.log(json)
+            this.setState({
+              listData: this.state.listData.concat(json.data.getFbEvents.items)
+            })
+          }).catch((e: any) => { console.log(e) })
+        }
+        fetch('./static/data/events.json').then(function (response) {
+          return response.json();
+        })
         .then((myJson) => {
           this.setState({ listData: this.state.listData.concat(myJson) });
         })
