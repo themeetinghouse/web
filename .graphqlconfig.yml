@@ -11,3 +11,6 @@ projects:
         generatedFileName: src/API.ts
         docsFilePath: src/graphql
         maxDepth: 7
+extensions:
+  amplify:
+    version: 3

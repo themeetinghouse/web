@@ -41,7 +41,7 @@
     },
     "Resources": {
         
-        
+
       "image": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
@@ -154,7 +154,7 @@
                       }
                     }
                   },
-                  
+                          
                   "x-amazon-apigateway-integration": {
                     "responses": {
                       "default": {
@@ -253,7 +253,7 @@
                       }
                     }
                   },
-                  
+                                   
                   "x-amazon-apigateway-integration": {
                     "responses": {
                       "default": {

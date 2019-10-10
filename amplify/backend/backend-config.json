@@ -1,72 +1,73 @@
 {
-	"auth": {
-		"cognitodevtmh": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"api": {
-		"themeetinghouse": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [
-						{
-							"authenticationType": "AWS_IAM"
-						}
-					],
-					"defaultAuthentication": {
-						"authenticationType": "API_KEY",
-						"apiKeyConfig": {
-							"description": "website",
-							"apiKeyExpirationDays": 180
-						}
-					}
-				}
-			}
-		},
-		"image": {
-			"service": "API Gateway",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "themeetinghousea5cd4619",
-					"attributes": [
-						"Name",
-						"Arn"
-					]
-				}
-			]
-		}
-	},
-	"hosting": {
-		"S3AndCloudFront": {
-			"service": "S3AndCloudFront",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"function": {
-		"themeetinghousea5cd4619": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true,
-			"dependsOn": [
-				{
-					"category": "hosting",
-					"resourceName": "S3AndCloudFront",
-					"attributes": [
-						"HostingBucketName"
-					]
-				}
-			]
-		}
-	},
-	"analytics": {
-		"themeetinghouse": {
-			"service": "Pinpoint",
-			"providerPlugin": "awscloudformation"
-		}
-	}
+    "auth": {
+        "cognitodevtmh": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    },
+    "api": {
+        "themeetinghouse": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [
+                        {
+                            "authenticationType": "AWS_IAM"
+                        }
+                    ],
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "description": "website",
+                            "apiKeyExpirationDays": 180
+                        }
+                    }
+                }
+            }
+        },
+        "image": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "themeetinghousea5cd4619",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "function": {
+        "themeetinghousea5cd4619": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "hosting",
+                    "resourceName": "S3AndCloudFront",
+                    "attributes": [
+                        "HostingBucketName"
+                    ]
+                }
+            ]
+        }
+    },
+    "analytics": {
+        "themeetinghouse": {
+            "service": "Pinpoint",
+            "providerPlugin": "awscloudformation"
+        }
+    }
 }

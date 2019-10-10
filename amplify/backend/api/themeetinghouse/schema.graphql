@@ -8,16 +8,13 @@ type Query {
   getTakenoteSermon(seriesId:String,user:Int):[TakeNoteSermon]
   getTakenoteSermonVerses(sermondId:String):TakeNoteSermonVerses
   getTakenoteLocations:[TakeNoteLocations]
+  getFBEvents(pageId:String):[FBEvent]
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
-  getFBEvents(pageId:String):[FBEvent]
 }
-input fuzzySearchableVideoSortInput {
-  field: fuzzySearchableVideoSortableFields
-  direction: fuzzySearchableSortDirection
-}
+
 enum fuzzySearchableSortDirection {
   asc
   desc
@@ -42,6 +39,11 @@ enum fuzzySearchableVideoSortableFields {
   length
   YoutubeIdent
   videoTypes
+}
+
+input fuzzySearchableVideoSortInput {
+  field: fuzzySearchableVideoSortableFields
+  direction: fuzzySearchableSortDirection
 }
 type FBLocation{
   city: String
@@ -428,16 +430,6 @@ type YoutubePlayList
   items: [YoutubePlayListItem]
 }
 
-type Resource
- @model 
- @searchable
-  @auth(rules: [
-      {allow: groups, groups: ["ResourceAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID
-}
 type Speaker
  @model
  @auth(rules:[{allow:public, operations:[read]}])
@@ -483,7 +475,6 @@ type Video
   id: ID!
   createdBy: String
   createdDate: String
-  locations:[Location]
   speakers:[SpeakerVideos] @connection(name: "VideosSpeaker")
   episodeTitle:String
   originalEpisodeTitle:String
@@ -506,183 +497,6 @@ type Video
 }
 
 
-type Blog
- @model 
- @searchable
- @versioned
-  @auth(rules: [
-      {allow: groups, groups: ["BlogAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID
-  createdBy: String
-  createdDate: String
-  postedDate: String
-  locations:[Location]
-  title:String
-  content:String
-}
-type News
- @model 
- @searchable
-  @auth(rules: [
-      {allow: groups, groups: ["NewsAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID
-  createdBy: String
-  createdDate: String
-  postedDate: String
-  locations:[Location]
-  title:String
-  content:String
-  startDate:String
-  endDate:String
-}
-type Event
- @model 
- @searchable
-  @auth(rules: [
-      {allow: groups, groups: ["EventAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID
-  createdBy: String
-  createdDate: String
-  postedDate: String
-  locations:[Location]
-  startTime:String
-  endTime:String
-  title:String
-  description:String
-}
-
-enum Status{
-  enabled
-  disabled
-}
-interface Cohort {
-  id: ID
-  canJoin: Boolean
-  visibleToNonMembers: Boolean
-  status:Status
-  name: String
-  admin: [User]
-  members: [User]
-}
-type Group implements Cohort
-  @model 
-  @auth(rules: [
-      {allow: groups, groups: ["SiteAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID
-  canJoin: Boolean
-  visibleToNonMembers: Boolean
-  status:Status
-  name: String
-  admin: [User]
-  members: [User]
-  type: String
-}
-type Organization implements Cohort
-  @model 
-  @auth(rules: [
-      {allow: groups, groups: ["SiteAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])    
-{
-  id: ID
-  canJoin: Boolean!
-  visibleToNonMembers: Boolean!
-  status:Status!
-  name: String!
-  admin: [User!]
-  members: [Staff!]
-  location: String
-  address: String
-  phone: String
-  email: String
-  instagram: String
-  twitter: String
-  facebook: String
-  website: String
-  sites:[Location!]
-}
-type LocationGPS{
-  longitude: Float
-  latitude: Float
-  address: String  
-}
-type Location 
-  @model 
- @auth(rules:[{allow:public, operations:[read]}])
-
-{
-  id: String
-  url: String
-  site_name: String
-  directions:String
-  welcome: String
-  welcome_img: String
-  welcome_vid_youtube: String
-  phone: String
-  email: String
-  instagram: String
-  twitter: String
-  facebook: String    
-  location: LocationGPS
-  visible: Boolean
-}
-interface User{
-  sub: String
-  title: String
-  name: String
-  phone: String
-  email: String
-  instagram: String
-  twitter: String
-  facebook: String
-  website: String
-  status: String
-}
-type Staff implements User
-  @model 
-  @searchable
-  @auth(rules: [
-      {allow: groups, groups: ["SiteAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  sub: String!
-  title: String!
-  name: String!
-  phone: String
-  email: String
-  instagram: String
-  twitter: String
-  facebook: String
-  website: String
-  status: String!
-  
-}
 
 
-
-type Region 
-  @model 
-  @auth(rules: [
-      {allow: groups, groups: ["SiteAdmin"], queries: null, mutations: [create, update, delete]},
-      {allow: groups, groups: ["Everyone"], queries: [get, list], mutations: null}
-    ])
-{
-  id: ID
-  name: String!
-  status: Status!
-  sites: [Location!]
-}
 

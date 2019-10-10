@@ -34,7 +34,7 @@ class Imports extends React.Component<Props, State>  {
   writeSites(site: any) {
     console.log("Write Site: " + site);
     delete site._id
-    const listLocations = API.graphql(graphqlOperation(queries.listLocations, { filter: { id: { eq: site.id } } }));
+   /* const listLocations = API.graphql(graphqlOperation(queries.listLocations, { filter: { id: { eq: site.id } } }));
     listLocations.then((json: any) => {
       console.log("Success queries.listLocations: " + json);
       if (json.data.listLocations.items.length === 0) {
@@ -61,7 +61,7 @@ class Imports extends React.Component<Props, State>  {
     }).catch((err: any) => {
       console.log("Error queries.listLocations: " + err);
 
-    });
+    });*/
   }
 
   importSites() {
