@@ -81,10 +81,6 @@ export type DeleteTNSermonInput = {
   id: string,
 };
 
-export type CreateResourceInput = {
-  id?: string | null,
-};
-
 export type CreateSpeakerInput = {
   id?: string | null,
   name?: string | null,
@@ -249,244 +245,6 @@ export type DeleteVideoInput = {
   id?: string | null,
 };
 
-export type CreateBlogInput = {
-  id?: string | null,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  title?: string | null,
-  content?: string | null,
-};
-
-export type CreateNewsInput = {
-  id?: string | null,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  title?: string | null,
-  content?: string | null,
-  startDate?: string | null,
-  endDate?: string | null,
-};
-
-export type CreateEventInput = {
-  id?: string | null,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  startTime?: string | null,
-  endTime?: string | null,
-  title?: string | null,
-  description?: string | null,
-};
-
-export type CreateGroupInput = {
-  id?: string | null,
-  canJoin?: boolean | null,
-  visibleToNonMembers?: boolean | null,
-  status?: Status | null,
-  name?: string | null,
-  type?: string | null,
-};
-
-export enum Status {
-  enabled = "enabled",
-  disabled = "disabled",
-}
-
-
-export type CreateOrganizationInput = {
-  id?: string | null,
-  canJoin: boolean,
-  visibleToNonMembers: boolean,
-  status: Status,
-  name: string,
-  location?: string | null,
-  address?: string | null,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  website?: string | null,
-};
-
-export type CreateLocationInput = {
-  id?: string | null,
-  url?: string | null,
-  site_name?: string | null,
-  directions?: string | null,
-  welcome?: string | null,
-  welcome_img?: string | null,
-  welcome_vid_youtube?: string | null,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  location?: LocationGPSInput | null,
-  visible?: boolean | null,
-};
-
-export type LocationGPSInput = {
-  longitude?: number | null,
-  latitude?: number | null,
-  address?: string | null,
-};
-
-export type UpdateLocationInput = {
-  id: string,
-  url?: string | null,
-  site_name?: string | null,
-  directions?: string | null,
-  welcome?: string | null,
-  welcome_img?: string | null,
-  welcome_vid_youtube?: string | null,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  location?: LocationGPSInput | null,
-  visible?: boolean | null,
-};
-
-export type DeleteLocationInput = {
-  id?: string | null,
-};
-
-export type CreateStaffInput = {
-  sub: string,
-  title: string,
-  name: string,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  website?: string | null,
-  status: string,
-};
-
-export type CreateRegionInput = {
-  id?: string | null,
-  name: string,
-  status: Status,
-};
-
-export type UpdateResourceInput = {
-  id: string,
-};
-
-export type DeleteResourceInput = {
-  id?: string | null,
-};
-
-export type UpdateBlogInput = {
-  id: string,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  title?: string | null,
-  content?: string | null,
-  expectedVersion: number,
-};
-
-export type DeleteBlogInput = {
-  id?: string | null,
-  expectedVersion: number,
-};
-
-export type UpdateNewsInput = {
-  id: string,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  title?: string | null,
-  content?: string | null,
-  startDate?: string | null,
-  endDate?: string | null,
-};
-
-export type DeleteNewsInput = {
-  id?: string | null,
-};
-
-export type UpdateEventInput = {
-  id: string,
-  createdBy?: string | null,
-  createdDate?: string | null,
-  postedDate?: string | null,
-  startTime?: string | null,
-  endTime?: string | null,
-  title?: string | null,
-  description?: string | null,
-};
-
-export type DeleteEventInput = {
-  id?: string | null,
-};
-
-export type UpdateGroupInput = {
-  id: string,
-  canJoin?: boolean | null,
-  visibleToNonMembers?: boolean | null,
-  status?: Status | null,
-  name?: string | null,
-  type?: string | null,
-};
-
-export type DeleteGroupInput = {
-  id?: string | null,
-};
-
-export type UpdateOrganizationInput = {
-  id: string,
-  canJoin?: boolean | null,
-  visibleToNonMembers?: boolean | null,
-  status?: Status | null,
-  name?: string | null,
-  location?: string | null,
-  address?: string | null,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  website?: string | null,
-};
-
-export type DeleteOrganizationInput = {
-  id?: string | null,
-};
-
-export type UpdateStaffInput = {
-  sub?: string | null,
-  title?: string | null,
-  name?: string | null,
-  phone?: string | null,
-  email?: string | null,
-  instagram?: string | null,
-  twitter?: string | null,
-  facebook?: string | null,
-  website?: string | null,
-  status?: string | null,
-};
-
-export type DeleteStaffInput = {
-  id?: string | null,
-};
-
-export type UpdateRegionInput = {
-  id: string,
-  name?: string | null,
-  status?: Status | null,
-};
-
-export type DeleteRegionInput = {
-  id?: string | null,
-};
-
 export type fuzzySearchableVideoSortInput = {
   field?: fuzzySearchableVideoSortableFields | null,
   direction?: fuzzySearchableSortDirection | null,
@@ -601,13 +359,6 @@ export type ModelTNSermonFilterInput = {
   not?: ModelTNSermonFilterInput | null,
 };
 
-export type ModelResourceFilterInput = {
-  id?: ModelIDFilterInput | null,
-  and?: Array< ModelResourceFilterInput | null > | null,
-  or?: Array< ModelResourceFilterInput | null > | null,
-  not?: ModelResourceFilterInput | null,
-};
-
 export type ModelSpeakerFilterInput = {
   id?: ModelIDFilterInput | null,
   name?: ModelStringFilterInput | null,
@@ -662,131 +413,6 @@ export type ModelVideoFilterInput = {
   not?: ModelVideoFilterInput | null,
 };
 
-export type ModelBlogFilterInput = {
-  id?: ModelIDFilterInput | null,
-  createdBy?: ModelStringFilterInput | null,
-  createdDate?: ModelStringFilterInput | null,
-  postedDate?: ModelStringFilterInput | null,
-  title?: ModelStringFilterInput | null,
-  content?: ModelStringFilterInput | null,
-  and?: Array< ModelBlogFilterInput | null > | null,
-  or?: Array< ModelBlogFilterInput | null > | null,
-  not?: ModelBlogFilterInput | null,
-};
-
-export type ModelNewsFilterInput = {
-  id?: ModelIDFilterInput | null,
-  createdBy?: ModelStringFilterInput | null,
-  createdDate?: ModelStringFilterInput | null,
-  postedDate?: ModelStringFilterInput | null,
-  title?: ModelStringFilterInput | null,
-  content?: ModelStringFilterInput | null,
-  startDate?: ModelStringFilterInput | null,
-  endDate?: ModelStringFilterInput | null,
-  and?: Array< ModelNewsFilterInput | null > | null,
-  or?: Array< ModelNewsFilterInput | null > | null,
-  not?: ModelNewsFilterInput | null,
-};
-
-export type ModelEventFilterInput = {
-  id?: ModelIDFilterInput | null,
-  createdBy?: ModelStringFilterInput | null,
-  createdDate?: ModelStringFilterInput | null,
-  postedDate?: ModelStringFilterInput | null,
-  startTime?: ModelStringFilterInput | null,
-  endTime?: ModelStringFilterInput | null,
-  title?: ModelStringFilterInput | null,
-  description?: ModelStringFilterInput | null,
-  and?: Array< ModelEventFilterInput | null > | null,
-  or?: Array< ModelEventFilterInput | null > | null,
-  not?: ModelEventFilterInput | null,
-};
-
-export type ModelGroupFilterInput = {
-  id?: ModelIDFilterInput | null,
-  canJoin?: ModelBooleanFilterInput | null,
-  visibleToNonMembers?: ModelBooleanFilterInput | null,
-  status?: ModelStatusFilterInput | null,
-  name?: ModelStringFilterInput | null,
-  type?: ModelStringFilterInput | null,
-  and?: Array< ModelGroupFilterInput | null > | null,
-  or?: Array< ModelGroupFilterInput | null > | null,
-  not?: ModelGroupFilterInput | null,
-};
-
-export type ModelBooleanFilterInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
-};
-
-export type ModelStatusFilterInput = {
-  eq?: Status | null,
-  ne?: Status | null,
-};
-
-export type ModelOrganizationFilterInput = {
-  id?: ModelIDFilterInput | null,
-  canJoin?: ModelBooleanFilterInput | null,
-  visibleToNonMembers?: ModelBooleanFilterInput | null,
-  status?: ModelStatusFilterInput | null,
-  name?: ModelStringFilterInput | null,
-  location?: ModelStringFilterInput | null,
-  address?: ModelStringFilterInput | null,
-  phone?: ModelStringFilterInput | null,
-  email?: ModelStringFilterInput | null,
-  instagram?: ModelStringFilterInput | null,
-  twitter?: ModelStringFilterInput | null,
-  facebook?: ModelStringFilterInput | null,
-  website?: ModelStringFilterInput | null,
-  and?: Array< ModelOrganizationFilterInput | null > | null,
-  or?: Array< ModelOrganizationFilterInput | null > | null,
-  not?: ModelOrganizationFilterInput | null,
-};
-
-export type ModelLocationFilterInput = {
-  id?: ModelStringFilterInput | null,
-  url?: ModelStringFilterInput | null,
-  site_name?: ModelStringFilterInput | null,
-  directions?: ModelStringFilterInput | null,
-  welcome?: ModelStringFilterInput | null,
-  welcome_img?: ModelStringFilterInput | null,
-  welcome_vid_youtube?: ModelStringFilterInput | null,
-  phone?: ModelStringFilterInput | null,
-  email?: ModelStringFilterInput | null,
-  instagram?: ModelStringFilterInput | null,
-  twitter?: ModelStringFilterInput | null,
-  facebook?: ModelStringFilterInput | null,
-  visible?: ModelBooleanFilterInput | null,
-  and?: Array< ModelLocationFilterInput | null > | null,
-  or?: Array< ModelLocationFilterInput | null > | null,
-  not?: ModelLocationFilterInput | null,
-};
-
-export type ModelStaffFilterInput = {
-  sub?: ModelStringFilterInput | null,
-  title?: ModelStringFilterInput | null,
-  name?: ModelStringFilterInput | null,
-  phone?: ModelStringFilterInput | null,
-  email?: ModelStringFilterInput | null,
-  instagram?: ModelStringFilterInput | null,
-  twitter?: ModelStringFilterInput | null,
-  facebook?: ModelStringFilterInput | null,
-  website?: ModelStringFilterInput | null,
-  status?: ModelStringFilterInput | null,
-  and?: Array< ModelStaffFilterInput | null > | null,
-  or?: Array< ModelStaffFilterInput | null > | null,
-  not?: ModelStaffFilterInput | null,
-};
-
-export type ModelRegionFilterInput = {
-  id?: ModelIDFilterInput | null,
-  name?: ModelStringFilterInput | null,
-  status?: ModelStatusFilterInput | null,
-  and?: Array< ModelRegionFilterInput | null > | null,
-  or?: Array< ModelRegionFilterInput | null > | null,
-  not?: ModelRegionFilterInput | null,
-};
-
 export type ModelStringKeyConditionInput = {
   eq?: string | null,
   le?: string | null,
@@ -796,41 +422,6 @@ export type ModelStringKeyConditionInput = {
   between?: Array< string | null > | null,
   beginsWith?: string | null,
 };
-
-export type SearchableResourceFilterInput = {
-  id?: SearchableIDFilterInput | null,
-  and?: Array< SearchableResourceFilterInput | null > | null,
-  or?: Array< SearchableResourceFilterInput | null > | null,
-  not?: SearchableResourceFilterInput | null,
-};
-
-export type SearchableIDFilterInput = {
-  ne?: string | null,
-  eq?: string | null,
-  match?: string | null,
-  matchPhrase?: string | null,
-  matchPhrasePrefix?: string | null,
-  multiMatch?: string | null,
-  exists?: boolean | null,
-  wildcard?: string | null,
-  regexp?: string | null,
-};
-
-export type SearchableResourceSortInput = {
-  field?: SearchableResourceSortableFields | null,
-  direction?: SearchableSortDirection | null,
-};
-
-export enum SearchableResourceSortableFields {
-  id = "id",
-}
-
-
-export enum SearchableSortDirection {
-  asc = "asc",
-  desc = "desc",
-}
-
 
 export type SearchableVideoFilterInput = {
   id?: SearchableIDFilterInput | null,
@@ -855,6 +446,18 @@ export type SearchableVideoFilterInput = {
   and?: Array< SearchableVideoFilterInput | null > | null,
   or?: Array< SearchableVideoFilterInput | null > | null,
   not?: SearchableVideoFilterInput | null,
+};
+
+export type SearchableIDFilterInput = {
+  ne?: string | null,
+  eq?: string | null,
+  match?: string | null,
+  matchPhrase?: string | null,
+  matchPhrasePrefix?: string | null,
+  multiMatch?: string | null,
+  exists?: boolean | null,
+  wildcard?: string | null,
+  regexp?: string | null,
 };
 
 export type SearchableStringFilterInput = {
@@ -907,127 +510,9 @@ export enum SearchableVideoSortableFields {
 }
 
 
-export type SearchableBlogFilterInput = {
-  id?: SearchableIDFilterInput | null,
-  createdBy?: SearchableStringFilterInput | null,
-  createdDate?: SearchableStringFilterInput | null,
-  postedDate?: SearchableStringFilterInput | null,
-  title?: SearchableStringFilterInput | null,
-  content?: SearchableStringFilterInput | null,
-  and?: Array< SearchableBlogFilterInput | null > | null,
-  or?: Array< SearchableBlogFilterInput | null > | null,
-  not?: SearchableBlogFilterInput | null,
-};
-
-export type SearchableBlogSortInput = {
-  field?: SearchableBlogSortableFields | null,
-  direction?: SearchableSortDirection | null,
-};
-
-export enum SearchableBlogSortableFields {
-  id = "id",
-  createdBy = "createdBy",
-  createdDate = "createdDate",
-  postedDate = "postedDate",
-  title = "title",
-  content = "content",
-}
-
-
-export type SearchableNewsFilterInput = {
-  id?: SearchableIDFilterInput | null,
-  createdBy?: SearchableStringFilterInput | null,
-  createdDate?: SearchableStringFilterInput | null,
-  postedDate?: SearchableStringFilterInput | null,
-  title?: SearchableStringFilterInput | null,
-  content?: SearchableStringFilterInput | null,
-  startDate?: SearchableStringFilterInput | null,
-  endDate?: SearchableStringFilterInput | null,
-  and?: Array< SearchableNewsFilterInput | null > | null,
-  or?: Array< SearchableNewsFilterInput | null > | null,
-  not?: SearchableNewsFilterInput | null,
-};
-
-export type SearchableNewsSortInput = {
-  field?: SearchableNewsSortableFields | null,
-  direction?: SearchableSortDirection | null,
-};
-
-export enum SearchableNewsSortableFields {
-  id = "id",
-  createdBy = "createdBy",
-  createdDate = "createdDate",
-  postedDate = "postedDate",
-  title = "title",
-  content = "content",
-  startDate = "startDate",
-  endDate = "endDate",
-}
-
-
-export type SearchableEventFilterInput = {
-  id?: SearchableIDFilterInput | null,
-  createdBy?: SearchableStringFilterInput | null,
-  createdDate?: SearchableStringFilterInput | null,
-  postedDate?: SearchableStringFilterInput | null,
-  startTime?: SearchableStringFilterInput | null,
-  endTime?: SearchableStringFilterInput | null,
-  title?: SearchableStringFilterInput | null,
-  description?: SearchableStringFilterInput | null,
-  and?: Array< SearchableEventFilterInput | null > | null,
-  or?: Array< SearchableEventFilterInput | null > | null,
-  not?: SearchableEventFilterInput | null,
-};
-
-export type SearchableEventSortInput = {
-  field?: SearchableEventSortableFields | null,
-  direction?: SearchableSortDirection | null,
-};
-
-export enum SearchableEventSortableFields {
-  id = "id",
-  createdBy = "createdBy",
-  createdDate = "createdDate",
-  postedDate = "postedDate",
-  startTime = "startTime",
-  endTime = "endTime",
-  title = "title",
-  description = "description",
-}
-
-
-export type SearchableStaffFilterInput = {
-  sub?: SearchableStringFilterInput | null,
-  title?: SearchableStringFilterInput | null,
-  name?: SearchableStringFilterInput | null,
-  phone?: SearchableStringFilterInput | null,
-  email?: SearchableStringFilterInput | null,
-  instagram?: SearchableStringFilterInput | null,
-  twitter?: SearchableStringFilterInput | null,
-  facebook?: SearchableStringFilterInput | null,
-  website?: SearchableStringFilterInput | null,
-  status?: SearchableStringFilterInput | null,
-  and?: Array< SearchableStaffFilterInput | null > | null,
-  or?: Array< SearchableStaffFilterInput | null > | null,
-  not?: SearchableStaffFilterInput | null,
-};
-
-export type SearchableStaffSortInput = {
-  field?: SearchableStaffSortableFields | null,
-  direction?: SearchableSortDirection | null,
-};
-
-export enum SearchableStaffSortableFields {
-  sub = "sub",
-  title = "title",
-  name = "name",
-  phone = "phone",
-  email = "email",
-  instagram = "instagram",
-  twitter = "twitter",
-  facebook = "facebook",
-  website = "website",
-  status = "status",
+export enum SearchableSortDirection {
+  asc = "asc",
+  desc = "desc",
 }
 
 
@@ -1667,17 +1152,6 @@ export type DeleteTnSermonMutation = {
   } | null,
 };
 
-export type CreateResourceMutationVariables = {
-  input: CreateResourceInput,
-};
-
-export type CreateResourceMutation = {
-  createResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
 export type CreateSpeakerMutationVariables = {
   input: CreateSpeakerInput,
 };
@@ -1698,28 +1172,6 @@ export type CreateSpeakerMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -1915,28 +1367,6 @@ export type UpdateSpeakerMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -2132,28 +1562,6 @@ export type DeleteSpeakerMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -2342,28 +1750,6 @@ export type CreateSpeakerVideosMutation = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -2374,28 +1760,6 @@ export type CreateSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2499,28 +1863,6 @@ export type CreateSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2701,28 +2043,6 @@ export type CreateSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2829,28 +2149,6 @@ export type UpdateSpeakerVideosMutation = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -2861,28 +2159,6 @@ export type UpdateSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2986,28 +2262,6 @@ export type UpdateSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3188,28 +2442,6 @@ export type UpdateSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3316,28 +2548,6 @@ export type DeleteSpeakerVideosMutation = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -3348,28 +2558,6 @@ export type DeleteSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3473,28 +2661,6 @@ export type DeleteSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3675,28 +2841,6 @@ export type DeleteSpeakerVideosMutation = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3805,28 +2949,6 @@ export type CreateSeriesMutation = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -3837,22 +2959,6 @@ export type CreateSeriesMutation = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3917,22 +3023,6 @@ export type CreateSeriesMutation = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -4089,28 +3179,6 @@ export type UpdateSeriesMutation = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -4121,22 +3189,6 @@ export type UpdateSeriesMutation = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -4201,22 +3253,6 @@ export type UpdateSeriesMutation = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -4373,28 +3409,6 @@ export type DeleteSeriesMutation = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -4405,22 +3419,6 @@ export type DeleteSeriesMutation = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -4485,22 +3483,6 @@ export type DeleteSeriesMutation = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -4652,28 +3634,6 @@ export type CreateVideoMutation = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -4684,28 +3644,6 @@ export type CreateVideoMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -4892,28 +3830,6 @@ export type CreateVideoMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -5146,28 +4062,6 @@ export type UpdateVideoMutation = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -5178,28 +4072,6 @@ export type UpdateVideoMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -5386,28 +4258,6 @@ export type UpdateVideoMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -5640,28 +4490,6 @@ export type DeleteVideoMutation = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -5672,28 +4500,6 @@ export type DeleteVideoMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -5880,28 +4686,6 @@ export type DeleteVideoMutation = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -6121,985 +4905,6 @@ export type DeleteVideoMutation = {
       } | null,
     } | null,
     videoTypes: string | null,
-  } | null,
-};
-
-export type CreateBlogMutationVariables = {
-  input: CreateBlogInput,
-};
-
-export type CreateBlogMutation = {
-  createBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type CreateNewsMutationVariables = {
-  input: CreateNewsInput,
-};
-
-export type CreateNewsMutation = {
-  createNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type CreateEventMutationVariables = {
-  input: CreateEventInput,
-};
-
-export type CreateEventMutation = {
-  createEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type CreateGroupMutationVariables = {
-  input: CreateGroupInput,
-};
-
-export type CreateGroupMutation = {
-  createGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type CreateOrganizationMutationVariables = {
-  input: CreateOrganizationInput,
-};
-
-export type CreateOrganizationMutation = {
-  createOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type CreateLocationMutationVariables = {
-  input: CreateLocationInput,
-};
-
-export type CreateLocationMutation = {
-  createLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type UpdateLocationMutationVariables = {
-  input: UpdateLocationInput,
-};
-
-export type UpdateLocationMutation = {
-  updateLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type DeleteLocationMutationVariables = {
-  input: DeleteLocationInput,
-};
-
-export type DeleteLocationMutation = {
-  deleteLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type CreateStaffMutationVariables = {
-  input: CreateStaffInput,
-};
-
-export type CreateStaffMutation = {
-  createStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type CreateRegionMutationVariables = {
-  input: CreateRegionInput,
-};
-
-export type CreateRegionMutation = {
-  createRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type UpdateResourceMutationVariables = {
-  input: UpdateResourceInput,
-};
-
-export type UpdateResourceMutation = {
-  updateResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type DeleteResourceMutationVariables = {
-  input: DeleteResourceInput,
-};
-
-export type DeleteResourceMutation = {
-  deleteResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type UpdateBlogMutationVariables = {
-  input: UpdateBlogInput,
-};
-
-export type UpdateBlogMutation = {
-  updateBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type DeleteBlogMutationVariables = {
-  input: DeleteBlogInput,
-};
-
-export type DeleteBlogMutation = {
-  deleteBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type UpdateNewsMutationVariables = {
-  input: UpdateNewsInput,
-};
-
-export type UpdateNewsMutation = {
-  updateNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type DeleteNewsMutationVariables = {
-  input: DeleteNewsInput,
-};
-
-export type DeleteNewsMutation = {
-  deleteNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type UpdateEventMutationVariables = {
-  input: UpdateEventInput,
-};
-
-export type UpdateEventMutation = {
-  updateEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type DeleteEventMutationVariables = {
-  input: DeleteEventInput,
-};
-
-export type DeleteEventMutation = {
-  deleteEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type UpdateGroupMutationVariables = {
-  input: UpdateGroupInput,
-};
-
-export type UpdateGroupMutation = {
-  updateGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type DeleteGroupMutationVariables = {
-  input: DeleteGroupInput,
-};
-
-export type DeleteGroupMutation = {
-  deleteGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type UpdateOrganizationMutationVariables = {
-  input: UpdateOrganizationInput,
-};
-
-export type UpdateOrganizationMutation = {
-  updateOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type DeleteOrganizationMutationVariables = {
-  input: DeleteOrganizationInput,
-};
-
-export type DeleteOrganizationMutation = {
-  deleteOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type UpdateStaffMutationVariables = {
-  input: UpdateStaffInput,
-};
-
-export type UpdateStaffMutation = {
-  updateStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type DeleteStaffMutationVariables = {
-  input: DeleteStaffInput,
-};
-
-export type DeleteStaffMutation = {
-  deleteStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type UpdateRegionMutationVariables = {
-  input: UpdateRegionInput,
-};
-
-export type UpdateRegionMutation = {
-  updateRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type DeleteRegionMutationVariables = {
-  input: DeleteRegionInput,
-};
-
-export type DeleteRegionMutation = {
-  deleteRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
   } | null,
 };
 
@@ -7493,6 +5298,36 @@ export type GetTakenoteLocationsQuery = {
   } | null > | null,
 };
 
+export type GetFbEventsQueryVariables = {
+  pageId?: string | null,
+};
+
+export type GetFbEventsQuery = {
+  getFBEvents:  Array< {
+    __typename: "FBEvent",
+    description: string | null,
+    end_time: string | null,
+    name: string | null,
+    place:  {
+      __typename: "FBPlace",
+      name: string | null,
+      location:  {
+        __typename: "FBLocation",
+        city: string | null,
+        country: string | null,
+        latitude: number | null,
+        longitude: number | null,
+        state: string | null,
+        street: string | null,
+        zip: string | null,
+      } | null,
+      id: string | null,
+    } | null,
+    start_time: string | null,
+    id: string | null,
+  } | null > | null,
+};
+
 export type GetTakenoteNotesQueryVariables = {
   sermonId?: string | null,
   noteType?: string | null,
@@ -7555,28 +5390,6 @@ export type FuzzySearchVideosQuery = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -7587,28 +5400,6 @@ export type FuzzySearchVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -7712,28 +5503,6 @@ export type FuzzySearchVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -8007,36 +5776,6 @@ export type F1ListGroupsQuery = {
       } | null > | null,
     } | null,
   } | null,
-};
-
-export type GetFbEventsQueryVariables = {
-  pageId?: string | null,
-};
-
-export type GetFbEventsQuery = {
-  getFBEvents:  Array< {
-    __typename: "FBEvent",
-    description: string | null,
-    end_time: string | null,
-    name: string | null,
-    place:  {
-      __typename: "FBPlace",
-      name: string | null,
-      location:  {
-        __typename: "FBLocation",
-        city: string | null,
-        country: string | null,
-        latitude: number | null,
-        longitude: number | null,
-        state: string | null,
-        street: string | null,
-        zip: string | null,
-      } | null,
-      id: string | null,
-    } | null,
-    start_time: string | null,
-    id: string | null,
-  } | null > | null,
 };
 
 export type GetTnSeriesQueryVariables = {
@@ -8441,34 +6180,6 @@ export type ListTnSermonsQuery = {
   } | null,
 };
 
-export type GetResourceQueryVariables = {
-  id: string,
-};
-
-export type GetResourceQuery = {
-  getResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type ListResourcesQueryVariables = {
-  filter?: ModelResourceFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListResourcesQuery = {
-  listResources:  {
-    __typename: "ModelResourceConnection",
-    items:  Array< {
-      __typename: "Resource",
-      id: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
 export type GetSpeakerQueryVariables = {
   id: string,
 };
@@ -8489,28 +6200,6 @@ export type GetSpeakerQuery = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -8710,28 +6399,6 @@ export type ListSpeakersQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -8839,28 +6506,6 @@ export type GetSpeakerVideosQuery = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -8871,28 +6516,6 @@ export type GetSpeakerVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -8996,28 +6619,6 @@ export type GetSpeakerVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9198,28 +6799,6 @@ export type GetSpeakerVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9330,28 +6909,6 @@ export type ListSpeakerVideossQuery = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -9362,22 +6919,6 @@ export type ListSpeakerVideossQuery = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -9442,22 +6983,6 @@ export type ListSpeakerVideossQuery = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -9603,22 +7128,6 @@ export type ListSpeakerVideossQuery = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -9690,28 +7199,6 @@ export type GetSeriesQuery = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -9722,22 +7209,6 @@ export type GetSeriesQuery = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -9802,22 +7273,6 @@ export type GetSeriesQuery = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -9978,28 +7433,6 @@ export type ListSeriessQuery = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -10150,28 +7583,6 @@ export type GetVideoQuery = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -10182,28 +7593,6 @@ export type GetVideoQuery = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -10390,28 +7779,6 @@ export type GetVideoQuery = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -10648,28 +8015,6 @@ export type ListVideosQuery = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -10680,28 +8025,6 @@ export type ListVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -10805,28 +8128,6 @@ export type ListVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -10991,692 +8292,6 @@ export type ListVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetBlogQueryVariables = {
-  id: string,
-};
-
-export type GetBlogQuery = {
-  getBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type ListBlogsQueryVariables = {
-  filter?: ModelBlogFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListBlogsQuery = {
-  listBlogs:  {
-    __typename: "ModelBlogConnection",
-    items:  Array< {
-      __typename: "Blog",
-      id: string | null,
-      createdBy: string | null,
-      createdDate: string | null,
-      postedDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
-      title: string | null,
-      content: string | null,
-      version: number,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetNewsQueryVariables = {
-  id: string,
-};
-
-export type GetNewsQuery = {
-  getNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type ListNewssQueryVariables = {
-  filter?: ModelNewsFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListNewssQuery = {
-  listNewss:  {
-    __typename: "ModelNewsConnection",
-    items:  Array< {
-      __typename: "News",
-      id: string | null,
-      createdBy: string | null,
-      createdDate: string | null,
-      postedDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
-      title: string | null,
-      content: string | null,
-      startDate: string | null,
-      endDate: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetEventQueryVariables = {
-  id: string,
-};
-
-export type GetEventQuery = {
-  getEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type ListEventsQueryVariables = {
-  filter?: ModelEventFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListEventsQuery = {
-  listEvents:  {
-    __typename: "ModelEventConnection",
-    items:  Array< {
-      __typename: "Event",
-      id: string | null,
-      createdBy: string | null,
-      createdDate: string | null,
-      postedDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
-      startTime: string | null,
-      endTime: string | null,
-      title: string | null,
-      description: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetGroupQueryVariables = {
-  id: string,
-};
-
-export type GetGroupQuery = {
-  getGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type ListGroupsQueryVariables = {
-  filter?: ModelGroupFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListGroupsQuery = {
-  listGroups:  {
-    __typename: "ModelGroupConnection",
-    items:  Array< {
-      __typename: "Group",
-      id: string | null,
-      canJoin: boolean | null,
-      visibleToNonMembers: boolean | null,
-      status: Status | null,
-      name: string | null,
-      admin:  Array<( {
-          __typename: "Staff",
-          sub: string | null,
-          title: string | null,
-          name: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          website: string | null,
-          status: string | null,
-        }
-      ) | null > | null,
-      members:  Array<( {
-          __typename: "Staff",
-          sub: string | null,
-          title: string | null,
-          name: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          website: string | null,
-          status: string | null,
-        }
-      ) | null > | null,
-      type: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetOrganizationQueryVariables = {
-  id: string,
-};
-
-export type GetOrganizationQuery = {
-  getOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type ListOrganizationsQueryVariables = {
-  filter?: ModelOrganizationFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListOrganizationsQuery = {
-  listOrganizations:  {
-    __typename: "ModelOrganizationConnection",
-    items:  Array< {
-      __typename: "Organization",
-      id: string | null,
-      canJoin: boolean,
-      visibleToNonMembers: boolean,
-      status: Status,
-      name: string,
-      admin:  Array<( {
-          __typename: "Staff",
-          sub: string | null,
-          title: string | null,
-          name: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          website: string | null,
-          status: string | null,
-        }
-      ) > | null,
-      members:  Array< {
-        __typename: "Staff",
-        sub: string,
-        title: string,
-        name: string,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string,
-      } > | null,
-      location: string | null,
-      address: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      sites:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } > | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetLocationQueryVariables = {
-  id: string,
-};
-
-export type GetLocationQuery = {
-  getLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type ListLocationsQueryVariables = {
-  filter?: ModelLocationFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListLocationsQuery = {
-  listLocations:  {
-    __typename: "ModelLocationConnection",
-    items:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetStaffQueryVariables = {
-  id: string,
-};
-
-export type GetStaffQuery = {
-  getStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type ListStaffsQueryVariables = {
-  filter?: ModelStaffFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListStaffsQuery = {
-  listStaffs:  {
-    __typename: "ModelStaffConnection",
-    items:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetRegionQueryVariables = {
-  id: string,
-};
-
-export type GetRegionQuery = {
-  getRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type ListRegionsQueryVariables = {
-  filter?: ModelRegionFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListRegionsQuery = {
-  listRegions:  {
-    __typename: "ModelRegionConnection",
-    items:  Array< {
-      __typename: "Region",
-      id: string | null,
-      name: string,
-      status: Status,
-      sites:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } > | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -11894,28 +8509,6 @@ export type GetSeriesBySeriesTypeQuery = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -12072,28 +8665,6 @@ export type GetVideoByYoutubeIdentQuery = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -12104,28 +8675,6 @@ export type GetVideoByYoutubeIdentQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12229,28 +8778,6 @@ export type GetVideoByYoutubeIdentQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12437,28 +8964,6 @@ export type GetVideoByVideoTypeQuery = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -12469,28 +8974,6 @@ export type GetVideoByVideoTypeQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12594,28 +9077,6 @@ export type GetVideoByVideoTypeQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12780,24 +9241,6 @@ export type GetVideoByVideoTypeQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type SearchResourcesQueryVariables = {
-  filter?: SearchableResourceFilterInput | null,
-  sort?: SearchableResourceSortInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type SearchResourcesQuery = {
-  searchResources:  {
-    __typename: "SearchableResourceConnection",
-    items:  Array< {
-      __typename: "Resource",
-      id: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -12818,28 +9261,6 @@ export type SearchVideosQuery = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -12850,28 +9271,6 @@ export type SearchVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12975,28 +9374,6 @@ export type SearchVideosQuery = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -13161,173 +9538,6 @@ export type SearchVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type SearchBlogsQueryVariables = {
-  filter?: SearchableBlogFilterInput | null,
-  sort?: SearchableBlogSortInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type SearchBlogsQuery = {
-  searchBlogs:  {
-    __typename: "SearchableBlogConnection",
-    items:  Array< {
-      __typename: "Blog",
-      id: string | null,
-      createdBy: string | null,
-      createdDate: string | null,
-      postedDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
-      title: string | null,
-      content: string | null,
-      version: number,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type SearchNewssQueryVariables = {
-  filter?: SearchableNewsFilterInput | null,
-  sort?: SearchableNewsSortInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type SearchNewssQuery = {
-  searchNewss:  {
-    __typename: "SearchableNewsConnection",
-    items:  Array< {
-      __typename: "News",
-      id: string | null,
-      createdBy: string | null,
-      createdDate: string | null,
-      postedDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
-      title: string | null,
-      content: string | null,
-      startDate: string | null,
-      endDate: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type SearchEventsQueryVariables = {
-  filter?: SearchableEventFilterInput | null,
-  sort?: SearchableEventSortInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type SearchEventsQuery = {
-  searchEvents:  {
-    __typename: "SearchableEventConnection",
-    items:  Array< {
-      __typename: "Event",
-      id: string | null,
-      createdBy: string | null,
-      createdDate: string | null,
-      postedDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
-      startTime: string | null,
-      endTime: string | null,
-      title: string | null,
-      description: string | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type SearchStaffsQueryVariables = {
-  filter?: SearchableStaffFilterInput | null,
-  sort?: SearchableStaffSortInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type SearchStaffsQuery = {
-  searchStaffs:  {
-    __typename: "SearchableStaffConnection",
-    items:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -13945,27 +10155,6 @@ export type OnDeleteTnSermonSubscription = {
   } | null,
 };
 
-export type OnCreateResourceSubscription = {
-  onCreateResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type OnUpdateResourceSubscription = {
-  onUpdateResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
-export type OnDeleteResourceSubscription = {
-  onDeleteResource:  {
-    __typename: "Resource",
-    id: string | null,
-  } | null,
-};
-
 export type OnCreateSpeakerSubscription = {
   onCreateSpeaker:  {
     __typename: "Speaker",
@@ -13982,28 +10171,6 @@ export type OnCreateSpeakerSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -14195,28 +10362,6 @@ export type OnUpdateSpeakerSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -14408,28 +10553,6 @@ export type OnDeleteSpeakerSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -14614,28 +10737,6 @@ export type OnCreateSpeakerVideosSubscription = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -14646,28 +10747,6 @@ export type OnCreateSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -14771,28 +10850,6 @@ export type OnCreateSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -14973,28 +11030,6 @@ export type OnCreateSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -15097,28 +11132,6 @@ export type OnUpdateSpeakerVideosSubscription = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -15129,28 +11142,6 @@ export type OnUpdateSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -15254,28 +11245,6 @@ export type OnUpdateSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -15456,28 +11425,6 @@ export type OnUpdateSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -15580,28 +11527,6 @@ export type OnDeleteSpeakerVideosSubscription = {
       id: string,
       createdBy: string | null,
       createdDate: string | null,
-      locations:  Array< {
-        __typename: "Location",
-        id: string | null,
-        url: string | null,
-        site_name: string | null,
-        directions: string | null,
-        welcome: string | null,
-        welcome_img: string | null,
-        welcome_vid_youtube: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        location:  {
-          __typename: "LocationGPS",
-          longitude: number | null,
-          latitude: number | null,
-          address: string | null,
-        } | null,
-        visible: boolean | null,
-      } | null > | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -15612,28 +11537,6 @@ export type OnDeleteSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -15737,28 +11640,6 @@ export type OnDeleteSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -15939,28 +11820,6 @@ export type OnDeleteSpeakerVideosSubscription = {
             id: string,
             createdBy: string | null,
             createdDate: string | null,
-            locations:  Array< {
-              __typename: "Location",
-              id: string | null,
-              url: string | null,
-              site_name: string | null,
-              directions: string | null,
-              welcome: string | null,
-              welcome_img: string | null,
-              welcome_vid_youtube: string | null,
-              phone: string | null,
-              email: string | null,
-              instagram: string | null,
-              twitter: string | null,
-              facebook: string | null,
-              location:  {
-                __typename: "LocationGPS",
-                longitude: number | null,
-                latitude: number | null,
-                address: string | null,
-              } | null,
-              visible: boolean | null,
-            } | null > | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -16065,28 +11924,6 @@ export type OnCreateSeriesSubscription = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -16097,22 +11934,6 @@ export type OnCreateSeriesSubscription = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -16177,22 +11998,6 @@ export type OnCreateSeriesSubscription = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -16345,28 +12150,6 @@ export type OnUpdateSeriesSubscription = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -16377,22 +12160,6 @@ export type OnUpdateSeriesSubscription = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -16457,22 +12224,6 @@ export type OnUpdateSeriesSubscription = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -16625,28 +12376,6 @@ export type OnDeleteSeriesSubscription = {
         id: string,
         createdBy: string | null,
         createdDate: string | null,
-        locations:  Array< {
-          __typename: "Location",
-          id: string | null,
-          url: string | null,
-          site_name: string | null,
-          directions: string | null,
-          welcome: string | null,
-          welcome_img: string | null,
-          welcome_vid_youtube: string | null,
-          phone: string | null,
-          email: string | null,
-          instagram: string | null,
-          twitter: string | null,
-          facebook: string | null,
-          location:  {
-            __typename: "LocationGPS",
-            longitude: number | null,
-            latitude: number | null,
-            address: string | null,
-          } | null,
-          visible: boolean | null,
-        } | null > | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -16657,22 +12386,6 @@ export type OnDeleteSeriesSubscription = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -16737,22 +12450,6 @@ export type OnDeleteSeriesSubscription = {
               id: string,
               createdBy: string | null,
               createdDate: string | null,
-              locations:  Array< {
-                __typename: "Location",
-                id: string | null,
-                url: string | null,
-                site_name: string | null,
-                directions: string | null,
-                welcome: string | null,
-                welcome_img: string | null,
-                welcome_vid_youtube: string | null,
-                phone: string | null,
-                email: string | null,
-                instagram: string | null,
-                twitter: string | null,
-                facebook: string | null,
-                visible: boolean | null,
-              } | null > | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -16900,28 +12597,6 @@ export type OnCreateVideoSubscription = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -16932,28 +12607,6 @@ export type OnCreateVideoSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -17140,28 +12793,6 @@ export type OnCreateVideoSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -17390,28 +13021,6 @@ export type OnUpdateVideoSubscription = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -17422,28 +13031,6 @@ export type OnUpdateVideoSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -17630,28 +13217,6 @@ export type OnUpdateVideoSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -17880,28 +13445,6 @@ export type OnDeleteVideoSubscription = {
     id: string,
     createdBy: string | null,
     createdDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -17912,28 +13455,6 @@ export type OnDeleteVideoSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -18120,28 +13641,6 @@ export type OnDeleteVideoSubscription = {
           id: string,
           createdBy: string | null,
           createdDate: string | null,
-          locations:  Array< {
-            __typename: "Location",
-            id: string | null,
-            url: string | null,
-            site_name: string | null,
-            directions: string | null,
-            welcome: string | null,
-            welcome_img: string | null,
-            welcome_vid_youtube: string | null,
-            phone: string | null,
-            email: string | null,
-            instagram: string | null,
-            twitter: string | null,
-            facebook: string | null,
-            location:  {
-              __typename: "LocationGPS",
-              longitude: number | null,
-              latitude: number | null,
-              address: string | null,
-            } | null,
-            visible: boolean | null,
-          } | null > | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -18361,866 +13860,5 @@ export type OnDeleteVideoSubscription = {
       } | null,
     } | null,
     videoTypes: string | null,
-  } | null,
-};
-
-export type OnCreateBlogSubscription = {
-  onCreateBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type OnUpdateBlogSubscription = {
-  onUpdateBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type OnDeleteBlogSubscription = {
-  onDeleteBlog:  {
-    __typename: "Blog",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    version: number,
-  } | null,
-};
-
-export type OnCreateNewsSubscription = {
-  onCreateNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type OnUpdateNewsSubscription = {
-  onUpdateNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type OnDeleteNewsSubscription = {
-  onDeleteNews:  {
-    __typename: "News",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    title: string | null,
-    content: string | null,
-    startDate: string | null,
-    endDate: string | null,
-  } | null,
-};
-
-export type OnCreateEventSubscription = {
-  onCreateEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type OnUpdateEventSubscription = {
-  onUpdateEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type OnDeleteEventSubscription = {
-  onDeleteEvent:  {
-    __typename: "Event",
-    id: string | null,
-    createdBy: string | null,
-    createdDate: string | null,
-    postedDate: string | null,
-    locations:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } | null > | null,
-    startTime: string | null,
-    endTime: string | null,
-    title: string | null,
-    description: string | null,
-  } | null,
-};
-
-export type OnCreateGroupSubscription = {
-  onCreateGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type OnUpdateGroupSubscription = {
-  onUpdateGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type OnDeleteGroupSubscription = {
-  onDeleteGroup:  {
-    __typename: "Group",
-    id: string | null,
-    canJoin: boolean | null,
-    visibleToNonMembers: boolean | null,
-    status: Status | null,
-    name: string | null,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    members:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) | null > | null,
-    type: string | null,
-  } | null,
-};
-
-export type OnCreateOrganizationSubscription = {
-  onCreateOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type OnUpdateOrganizationSubscription = {
-  onUpdateOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type OnDeleteOrganizationSubscription = {
-  onDeleteOrganization:  {
-    __typename: "Organization",
-    id: string | null,
-    canJoin: boolean,
-    visibleToNonMembers: boolean,
-    status: Status,
-    name: string,
-    admin:  Array<( {
-        __typename: "Staff",
-        sub: string | null,
-        title: string | null,
-        name: string | null,
-        phone: string | null,
-        email: string | null,
-        instagram: string | null,
-        twitter: string | null,
-        facebook: string | null,
-        website: string | null,
-        status: string | null,
-      }
-    ) > | null,
-    members:  Array< {
-      __typename: "Staff",
-      sub: string,
-      title: string,
-      name: string,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      website: string | null,
-      status: string,
-    } > | null,
-    location: string | null,
-    address: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type OnCreateLocationSubscription = {
-  onCreateLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type OnUpdateLocationSubscription = {
-  onUpdateLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type OnDeleteLocationSubscription = {
-  onDeleteLocation:  {
-    __typename: "Location",
-    id: string | null,
-    url: string | null,
-    site_name: string | null,
-    directions: string | null,
-    welcome: string | null,
-    welcome_img: string | null,
-    welcome_vid_youtube: string | null,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    location:  {
-      __typename: "LocationGPS",
-      longitude: number | null,
-      latitude: number | null,
-      address: string | null,
-    } | null,
-    visible: boolean | null,
-  } | null,
-};
-
-export type OnCreateStaffSubscription = {
-  onCreateStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type OnUpdateStaffSubscription = {
-  onUpdateStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type OnDeleteStaffSubscription = {
-  onDeleteStaff:  {
-    __typename: "Staff",
-    sub: string,
-    title: string,
-    name: string,
-    phone: string | null,
-    email: string | null,
-    instagram: string | null,
-    twitter: string | null,
-    facebook: string | null,
-    website: string | null,
-    status: string,
-  } | null,
-};
-
-export type OnCreateRegionSubscription = {
-  onCreateRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type OnUpdateRegionSubscription = {
-  onUpdateRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
-  } | null,
-};
-
-export type OnDeleteRegionSubscription = {
-  onDeleteRegion:  {
-    __typename: "Region",
-    id: string | null,
-    name: string,
-    status: Status,
-    sites:  Array< {
-      __typename: "Location",
-      id: string | null,
-      url: string | null,
-      site_name: string | null,
-      directions: string | null,
-      welcome: string | null,
-      welcome_img: string | null,
-      welcome_vid_youtube: string | null,
-      phone: string | null,
-      email: string | null,
-      instagram: string | null,
-      twitter: string | null,
-      facebook: string | null,
-      location:  {
-        __typename: "LocationGPS",
-        longitude: number | null,
-        latitude: number | null,
-        address: string | null,
-      } | null,
-      visible: boolean | null,
-    } > | null,
   } | null,
 };

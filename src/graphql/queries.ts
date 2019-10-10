@@ -313,6 +313,29 @@ export const getTakenoteLocations = `query GetTakenoteLocations {
   }
 }
 `;
+export const getFbEvents = `query GetFbEvents($pageId: String) {
+  getFBEvents(pageId: $pageId) {
+    description
+    end_time
+    name
+    place {
+      name
+      location {
+        city
+        country
+        latitude
+        longitude
+        state
+        street
+        zip
+      }
+      id
+    }
+    start_time
+    id
+  }
+}
+`;
 export const getTakenoteNotes = `query GetTakenoteNotes($sermonId: String, $noteType: String) {
   getTakenoteNotes(sermonId: $sermonId, noteType: $noteType) {
     homeChurchNotes {
@@ -366,26 +389,6 @@ export const fuzzySearchVideos = `query FuzzySearchVideos(
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -393,26 +396,6 @@ export const fuzzySearchVideos = `query FuzzySearchVideos(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -502,26 +485,6 @@ export const fuzzySearchVideos = `query FuzzySearchVideos(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -757,29 +720,6 @@ export const f1ListGroups = `query F1ListGroups($itemId: String) {
         }
       }
     }
-  }
-}
-`;
-export const getFbEvents = `query GetFbEvents($pageId: String) {
-  getFBEvents(pageId: $pageId) {
-    description
-    end_time
-    name
-    place {
-      name
-      location {
-        city
-        country
-        latitude
-        longitude
-        state
-        street
-        zip
-      }
-      id
-    }
-    start_time
-    id
   }
 }
 `;
@@ -1150,25 +1090,6 @@ export const listTnSermons = `query ListTnSermons(
   }
 }
 `;
-export const getResource = `query GetResource($id: ID!) {
-  getResource(id: $id) {
-    id
-  }
-}
-`;
-export const listResources = `query ListResources(
-  $filter: ModelResourceFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listResources(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-    }
-    nextToken
-  }
-}
-`;
 export const getSpeaker = `query GetSpeaker($id: ID!) {
   getSpeaker(id: $id) {
     id
@@ -1181,26 +1102,6 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -1376,26 +1277,6 @@ export const listSpeakers = `query ListSpeakers(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1486,26 +1367,6 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -1513,26 +1374,6 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1622,26 +1463,6 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1799,26 +1620,6 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1913,26 +1714,6 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -1940,21 +1721,6 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2011,21 +1777,6 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2153,21 +1904,6 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2227,26 +1963,6 @@ export const getSeries = `query GetSeries($id: ID!) {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2254,21 +1970,6 @@ export const getSeries = `query GetSeries($id: ID!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2325,21 +2026,6 @@ export const getSeries = `query GetSeries($id: ID!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2480,26 +2166,6 @@ export const listSeriess = `query ListSeriess(
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -2633,26 +2299,6 @@ export const getVideo = `query GetVideo($id: ID!) {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -2660,26 +2306,6 @@ export const getVideo = `query GetVideo($id: ID!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -2846,26 +2472,6 @@ export const getVideo = `query GetVideo($id: ID!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3075,26 +2681,6 @@ export const listVideos = `query ListVideos(
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -3102,26 +2688,6 @@ export const listVideos = `query ListVideos(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -3211,26 +2777,6 @@ export const listVideos = `query ListVideos(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -3376,584 +2922,6 @@ export const listVideos = `query ListVideos(
         }
       }
       videoTypes
-    }
-    nextToken
-  }
-}
-`;
-export const getBlog = `query GetBlog($id: ID!) {
-  getBlog(id: $id) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const listBlogs = `query ListBlogs(
-  $filter: ModelBlogFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      createdBy
-      createdDate
-      postedDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-      title
-      content
-      version
-    }
-    nextToken
-  }
-}
-`;
-export const getNews = `query GetNews($id: ID!) {
-  getNews(id: $id) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const listNewss = `query ListNewss(
-  $filter: ModelNewsFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listNewss(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      createdBy
-      createdDate
-      postedDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-      title
-      content
-      startDate
-      endDate
-    }
-    nextToken
-  }
-}
-`;
-export const getEvent = `query GetEvent($id: ID!) {
-  getEvent(id: $id) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const listEvents = `query ListEvents(
-  $filter: ModelEventFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      createdBy
-      createdDate
-      postedDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-      startTime
-      endTime
-      title
-      description
-    }
-    nextToken
-  }
-}
-`;
-export const getGroup = `query GetGroup($id: ID!) {
-  getGroup(id: $id) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    type
-  }
-}
-`;
-export const listGroups = `query ListGroups(
-  $filter: ModelGroupFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listGroups(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      canJoin
-      visibleToNonMembers
-      status
-      name
-      admin {
-        sub
-        title
-        name
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        website
-        status
-      }
-      members {
-        sub
-        title
-        name
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        website
-        status
-      }
-      type
-    }
-    nextToken
-  }
-}
-`;
-export const getOrganization = `query GetOrganization($id: ID!) {
-  getOrganization(id: $id) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-  }
-}
-`;
-export const listOrganizations = `query ListOrganizations(
-  $filter: ModelOrganizationFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listOrganizations(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      canJoin
-      visibleToNonMembers
-      status
-      name
-      admin {
-        sub
-        title
-        name
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        website
-        status
-      }
-      members {
-        sub
-        title
-        name
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        website
-        status
-      }
-      location
-      address
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      sites {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getLocation = `query GetLocation($id: ID!) {
-  getLocation(id: $id) {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const listLocations = `query ListLocations(
-  $filter: ModelLocationFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listLocations(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    nextToken
-  }
-}
-`;
-export const getStaff = `query GetStaff($id: ID!) {
-  getStaff(id: $id) {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const listStaffs = `query ListStaffs(
-  $filter: ModelStaffFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listStaffs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    nextToken
-  }
-}
-`;
-export const getRegion = `query GetRegion($id: ID!) {
-  getRegion(id: $id) {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-  }
-}
-`;
-export const listRegions = `query ListRegions(
-  $filter: ModelRegionFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listRegions(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      status
-      sites {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
     }
     nextToken
   }
@@ -4163,26 +3131,6 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4329,26 +3277,6 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -4356,26 +3284,6 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -4465,26 +3373,6 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -4655,26 +3543,6 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -4682,26 +3550,6 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -4791,26 +3639,6 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -4956,25 +3784,6 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
         }
       }
       videoTypes
-    }
-    nextToken
-  }
-}
-`;
-export const searchResources = `query SearchResources(
-  $filter: SearchableResourceFilterInput
-  $sort: SearchableResourceSortInput
-  $limit: Int
-  $nextToken: String
-) {
-  searchResources(
-    filter: $filter
-    sort: $sort
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
     }
     nextToken
   }
@@ -4996,26 +3805,6 @@ export const searchVideos = `query SearchVideos(
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -5023,26 +3812,6 @@ export const searchVideos = `query SearchVideos(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -5132,26 +3901,6 @@ export const searchVideos = `query SearchVideos(
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -5297,171 +4046,6 @@ export const searchVideos = `query SearchVideos(
         }
       }
       videoTypes
-    }
-    nextToken
-  }
-}
-`;
-export const searchBlogs = `query SearchBlogs(
-  $filter: SearchableBlogFilterInput
-  $sort: SearchableBlogSortInput
-  $limit: Int
-  $nextToken: String
-) {
-  searchBlogs(
-    filter: $filter
-    sort: $sort
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
-      createdBy
-      createdDate
-      postedDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-      title
-      content
-      version
-    }
-    nextToken
-  }
-}
-`;
-export const searchNewss = `query SearchNewss(
-  $filter: SearchableNewsFilterInput
-  $sort: SearchableNewsSortInput
-  $limit: Int
-  $nextToken: String
-) {
-  searchNewss(
-    filter: $filter
-    sort: $sort
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
-      createdBy
-      createdDate
-      postedDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-      title
-      content
-      startDate
-      endDate
-    }
-    nextToken
-  }
-}
-`;
-export const searchEvents = `query SearchEvents(
-  $filter: SearchableEventFilterInput
-  $sort: SearchableEventSortInput
-  $limit: Int
-  $nextToken: String
-) {
-  searchEvents(
-    filter: $filter
-    sort: $sort
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
-      createdBy
-      createdDate
-      postedDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
-      startTime
-      endTime
-      title
-      description
-    }
-    nextToken
-  }
-}
-`;
-export const searchStaffs = `query SearchStaffs(
-  $filter: SearchableStaffFilterInput
-  $sort: SearchableStaffSortInput
-  $limit: Int
-  $nextToken: String
-) {
-  searchStaffs(
-    filter: $filter
-    sort: $sort
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
     }
     nextToken
   }

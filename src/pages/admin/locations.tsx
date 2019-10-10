@@ -3,14 +3,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 //import $ from 'jquery';
-import Amplify, { API,  graphqlOperation } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 
 //import gql from 'graphql-tag';
 //import AWSAppSyncClient, { AUTH_TYPE } from 'aws-appsync';
 //import aws_config from '../../aws-exports';
-import { listLocations, listRegions, listGroups } from '../../graphql/queries';
-import {  createRegion, createGroup } from '../../graphql/mutations';
+//import { listLocations, listRegions, listGroups } from '../../graphql/queries';
+//import {  createRegion, createGroup } from '../../graphql/mutations';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import './locations.css'
 Amplify.configure(awsmobile);
@@ -79,38 +79,38 @@ class Locations extends React.Component<Props, State>  {
     });
   }
   async addRegion() {
-    const CreateRegionInput = {
+    /*const CreateRegionInput = {
       name: "new region",
       status: "disabled"
-    };
-    API.graphql(graphqlOperation(createRegion, { input: CreateRegionInput })).then(() => {
+    };*/
+/*    API.graphql(graphqlOperation(createRegion, { input: CreateRegionInput })).then(() => {
       console.log("region");
       // this.setState({userName:location});
     }
     ).catch((e:any) => {
       console.log("Error: ");
       console.log(e);
-    });
+    });*/
   }
 
   async addGroup() {
-    const CreateGroupInput = {
+   /* const CreateGroupInput = {
       name: "new group",
       status: "enabled",
       canJoin: "false",
       visibleToNonMembers: "false",
       type: "internal"
-    };
+    };*/
 
 
-    API.graphql(graphqlOperation(createGroup, { input: CreateGroupInput })).then(() => {
+  /*  API.graphql(graphqlOperation(createGroup, { input: CreateGroupInput })).then(() => {
       console.log("group");
       // this.setState({userName:location});
     }
     ).catch((e:any) => {
       console.log("Error: ");
       console.log(e);
-    });
+    });*/
   }
   async addLocation() {
    /* const CreateLocationInput = {
@@ -145,13 +145,13 @@ class Locations extends React.Component<Props, State>  {
 
 
   async getGroupList() {
-    API.graphql(graphqlOperation(listGroups)).then((listGroups:any) => {
+   /* API.graphql(graphqlOperation(listGroups)).then((listGroups:any) => {
       this.setState({ Groups: listGroups.data.listGroups.items });
     }
     ).catch((e:any) => {
       console.log("Error (getGroupList): ");
       console.log(e);
-    });
+    });*/
   }
   groupList() {
     if (this.state.Groups == null) return "";
@@ -164,13 +164,13 @@ class Locations extends React.Component<Props, State>  {
     return groupList;
   }
   async getRegionList() {
-    API.graphql(graphqlOperation(listRegions)).then((listRegions:any) => {
+   /* API.graphql(graphqlOperation(listRegions)).then((listRegions:any) => {
       this.setState({ Regions: listRegions.data.listRegions.items });
     }
     ).catch((e:any) => {
       console.log("Error (getRegionList): ");
       console.log(e);
-    });
+    });*/
   }
   regionList() {
     if (this.state.Regions == null) return "";
@@ -184,7 +184,7 @@ class Locations extends React.Component<Props, State>  {
   }
 
   async getLocationList() {
-    API.graphql(graphqlOperation(listLocations)).then((listLocations:any) => {
+ /*   API.graphql(graphqlOperation(listLocations)).then((listLocations:any) => {
       console.log("hello");
       console.log(listLocations);
 
@@ -194,7 +194,7 @@ class Locations extends React.Component<Props, State>  {
     ).catch((e:any) => {
       console.log("Error (getLocationList): ");
       console.log(e);
-    });
+    });*/
   }
 
 
