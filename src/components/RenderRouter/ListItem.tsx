@@ -384,7 +384,8 @@ class ListItem extends React.Component<Props, State> {
               if (item.videos.items.length > 0)
                 return (
                   <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-                    <img alt="TBD" className="ListItemImage2"  src="/static/images/teaching-4.png" />
+                    <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title+".jpg"} 
+                    onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
                     <div className="ListItemName" >{item.title}</div>
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
                   </div>
