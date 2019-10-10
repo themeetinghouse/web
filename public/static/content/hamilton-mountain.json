@@ -20,11 +20,7 @@
                 "image1": [
                     {
                         "src": "/static/images/hamilton-mountain-1-1.jpg",
-                        "alt": "Description"
-                    },
-                    {
-                        "src": "/static/images/hamilton-mountain-1-2.jpg",
-                        "alt": "Description"
+                        "alt": "Three friends hanging out together in Hamilton Mountain Ontario."
                     }
                 ],
                 "header1": "Hamilton Mountain",
