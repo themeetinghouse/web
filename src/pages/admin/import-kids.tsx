@@ -45,7 +45,7 @@ interface Props {
 interface State { }
 
 class AuthIndexApp extends React.Component<Props, State> {
-  
+
   render() {
     if (this.props.authState === "signedIn") {
       return (
@@ -884,6 +884,35 @@ class IndexApp extends React.Component {
           console.log(vid1)
         });
       }
+      else if (json.data.getVideoByYoutubeIdent.items.length === 1) {
+        console.log(json)
+
+        console.log("Do mutations.createVideo")
+        delete vid1['id'];
+
+        delete vid1['selected'];
+        if (vid1.snippet.description === "")
+          delete vid1.snippet['description']
+        if (vid1.snippet.localized === null)
+          delete vid1.snippet['localized']
+        if (vid1.snippet.localized.description === "")
+          delete vid1.snippet.localized['description']
+        if (vid1.contentDetails.videoId === null)
+          delete vid1.contentDetails['videoId']
+        if (vid1.contentDetails.videoPublishedAt === null)
+          delete vid1.contentDetails['videoPublishedAt']
+        const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtubeId, Youtube: vid1 } }));
+        updateVideo.then((json3: any) => {
+          /* this.setState({
+               currentVideoData: json3.data.createVideo
+           })*/
+          console.log("Success mutations.updateVideo: " + json3);
+        }).catch((err: any) => {
+          console.log("Error mutations.updateVideo: " + err);
+          console.log(err)
+          console.log(vid1)
+        });
+      }
 
 
 
@@ -894,9 +923,9 @@ class IndexApp extends React.Component {
     });
   }
   updateVideo(original: any, series: any, episode: any) {
-   //series = series
-   // original = original
-   // console.log(original)
+    //series = series
+    // original = original
+    // console.log(original)
     if (episode.title != null) {
       var youtube: any = episode.videoPreview.replace("https://youtu.be/", "").replace("https://www.youtube.com/watch?v=", "")
       if (youtube !== "") {
@@ -935,7 +964,7 @@ class IndexApp extends React.Component {
             if (series.category.flat().includes("Senior High"))
               category = "srhigh"
             var seriesId = "ky-" + category + "-" + series.title
-            console.log(seriesId+"---"+series.title)
+            console.log(seriesId + "---" + series.title)
 
             /* const createSeries = API.graphql(graphqlOperation(mutations.createSeries, { input: { id: seriesId, title: series.title } }));
               createSeries.then((json: any) => {
@@ -944,24 +973,24 @@ class IndexApp extends React.Component {
                 console.log("Error mutations.createSeries: " + err);
                 console.log(err)
               });*/
-              var z = "ky-"+category
-              console.log(original)
-              const updateSeries = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: seriesId, image:series.image, seriesType:z, title: series.title,startDate:original.post_date[0].split(" ")[0],endDate:original.post_date[0].split(" ")[0] } }));
-              updateSeries.then((json: any) => {
-                console.log("Success mutations.updateSeries: " + json);
-              }).catch((err: any) => {
-                console.log("Error mutations.updateSeries: " + err);
-                console.log(err)
-              });
-                      
-                        const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtube, videoTypes: z, publishedDate: original.post_date[0].split(" ")[0],episodeTitle: episodeTitle, episodeNumber: episode.episodeNumber, seriesTitle: series.title , videoSeriesId: seriesId} }));
-                        updateVideo.then(() => {
-                          console.log("updateVideo success")
-            
-                        }).catch((err: any) => {
-                          console.log("Error queries.updateVideo: " + err);
-                          console.log(err)
-                        })
+            var z = "ky-" + category
+            console.log(original)
+            const updateSeries = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: seriesId, image: series.image, seriesType: z, title: series.title, startDate: original.post_date[0].split(" ")[0], endDate: original.post_date[0].split(" ")[0] } }));
+            updateSeries.then((json: any) => {
+              console.log("Success mutations.updateSeries: " + json);
+            }).catch((err: any) => {
+              console.log("Error mutations.updateSeries: " + err);
+              console.log(err)
+            });
+
+            const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtube, videoTypes: z, publishedDate: original.post_date[0].split(" ")[0], episodeTitle: episodeTitle, episodeNumber: episode.episodeNumber, seriesTitle: series.title, videoSeriesId: seriesId } }));
+            updateVideo.then(() => {
+              console.log("updateVideo success")
+
+            }).catch((err: any) => {
+              console.log("Error queries.updateVideo: " + err);
+              console.log(err)
+            })
 
             //console.log(+ "---" + episode.episodeNumber + "---" + series.category + "---" + youtube + "---" + episodeTitle + "---")
 
@@ -1100,43 +1129,312 @@ class IndexApp extends React.Component {
       });
    
     }*/
-   
-    fixAdultSeries(nextId: any) {
-      const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
-      listSeriess.then((json: any) => {
-        //  console.log(json)
-        json.data.listSeriess.items.forEach((item: any) => {
-         
-          if (!item.id.includes("ky-")) {
-            console.log(item.id)
+
+  fixAdultSeries(nextId: any) {
+    const listSeriess = API.graphql(graphqlOperation(queries.listSeriess, { limit: 100, nextToken: nextId }));
+    listSeriess.then((json: any) => {
+      //  console.log(json)
+      json.data.listSeriess.items.forEach((item: any) => {
+
+        if (!item.id.includes("ky-")) {
+          console.log(item.id)
 
 
-            const updateSeriess = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: item.id, seriesType:"adult-sunday"} }));
-            updateSeriess.then((json2: any) => {
-              console.log(json2)
-            }).catch((err: any) => {
-              console.log("Error mutations.createSeries: " + err);
-              console.log(err)
-            });
-          }
-        })
-  
-        if (json.data.listSeriess.nextToken != null)
-          this.fixAdultSeries(json.data.listSeriess.nextToken)
-        // const arrSum = (x:any) => x.reduce((a:any,b:any) => a + b, 0)
-        //  console.log(arrSum(z))
-      }).catch((err: any) => {
-        console.log("Error mutations.createSeries: " + err);
-        console.log(err)
-      });
-  
-    }
+          const updateSeriess = API.graphql(graphqlOperation(mutations.updateSeries, { input: { id: item.id, seriesType: "adult-sunday" } }));
+          updateSeriess.then((json2: any) => {
+            console.log(json2)
+          }).catch((err: any) => {
+            console.log("Error mutations.createSeries: " + err);
+            console.log(err)
+          });
+        }
+      })
+
+      if (json.data.listSeriess.nextToken != null)
+        this.fixAdultSeries(json.data.listSeriess.nextToken)
+      // const arrSum = (x:any) => x.reduce((a:any,b:any) => a + b, 0)
+      //  console.log(arrSum(z))
+    }).catch((err: any) => {
+      console.log("Error mutations.createSeries: " + err);
+      console.log(err)
+    });
+
+  }
   importYoutube() {
     var z = new ImportYoutube()
     z.reloadPlaylists()
 
   }
+  importLifeStores() {
+    const createSeries = API.graphql(graphqlOperation(mutations.createSeries, { input: { id: "life-story-Life Stories", title: "Life Stories", seriesType: "life-story", startDate: "2017-01-01", endDate: "2019-09-13" } }));
+    createSeries.then((json: any) => {
+      console.log("Success mutations.createSeries: " + json);
+    }).catch((err: any) => {
+      console.log("Error mutations.createSeries: " + err);
+      console.log(err)
+    });
+    fetch('/static/imports/life-stories.json')
+      .then(function (response) {
+        return response.json();
+      })
+      .then((myJson: any) => {
+        //  console.log(myJson)
+        return myJson.map((item: any) => {
+          var publishedA: any = ""
+          var youtubeId = item.replace("https://youtu.be/", "")
+          const getVideoByYoutubeIdent = API.graphql(graphqlOperation(queries.getVideoByYoutubeIdent, { YoutubeIdent: youtubeId }));
+          publishedA = getVideoByYoutubeIdent.then((json2: any) => {
+            //console.log("Success queries.searchVideos: " + json);
+            if (json2.data.getVideoByYoutubeIdent.items.length === 0) {
+              console.log("not found")
+              console.log(youtubeId)
+              const getYoutubeVideoSearch = API.graphql(graphqlOperation(queries.getYoutubeVideoSearch, { videoId: youtubeId }));
+              getYoutubeVideoSearch.then((json: any) => {
+                console.log(json.data.getYoutubeVideoSearch.items[0])
+                this.writeYoutube(json.data.getYoutubeVideoSearch.items[0])
+              }).catch((e: any) => {
+                console.log(e)
+              })
 
+            } else {
+              /*      const getYoutubeVideoSearch = API.graphql(graphqlOperation(queries.getYoutubeVideoSearch, { videoId: youtubeId }));
+                    getYoutubeVideoSearch.then((json: any) => {
+                      console.log(json.data.getYoutubeVideoSearch.items[0])
+                      this.writeYoutube(json.data.getYoutubeVideoSearch.items[0])
+                    }).catch((e: any) => {
+                      console.log(e)
+                    })*/
+
+              var episodeTitle = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.title.replace("Life Story | ", "")
+              var episodeDesc = ""
+              try {
+                episodeDesc = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.description.split("\n")[0].replace("[Log] We want to spend Easter with YOU! Learn more at http://www.themeetinghouseeaster.com", "")
+              } catch{
+                episodeDesc = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.description
+
+              }
+              //             console.log(json2.data.getVideoByYoutubeIdent.items[0].Youtube)
+              var published = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.publishedAt.split("T")[0]
+              console.log(episodeTitle + episodeDesc)
+              console.log(published)
+
+              const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtubeId, videoTypes: "life-story", publishedDate: published, episodeTitle: episodeTitle, videoSeriesId: "life-story-Life Stories", seriesTitle: "Life Stories", description: episodeDesc } }));
+              updateVideo.then(() => {
+                console.log("updateVideo success")
+
+
+              }).catch((err: any) => {
+                console.log("Error queries.updateVideo: " + err);
+                console.log(err)
+              })
+              return { pub: published, id: youtubeId }
+              // console.log(json2.data.getVideoByYoutubeIdent.items[0].videoTypes)
+            }
+
+          })
+          return publishedA
+
+        })
+        //  console.log(myJson["rss"]["channel"]["item"])
+      }).then((series: any) => {
+
+        Promise.all(series)
+          .then((r: any) => {
+            var ar = r.sort((a: any, b: any) => { return (new Date(a.pub).valueOf() - new Date(b.pub).valueOf()) })
+            ar.map((item: any, index: any) => {
+              const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.id, episodeNumber: index + 1 } }));
+              updateVideo.then(() => {
+                console.log("updateVideo success")
+
+
+              }).catch((err: any) => {
+                console.log("Error queries.updateVideo: " + err);
+                console.log(err)
+              })
+
+
+            })
+          })
+
+
+
+      })
+  }
+  importBBQs(pageToken: String | null) {
+
+    /*  const createSeries = API.graphql(graphqlOperation(mutations.createSeries, { input: { id: "bbq-Bruxy's Bag of Questions", title: "Bruxy's Bag of Questions", seriesType: "bbq", startDate: "2015-03-19", endDate: "2019-09-13" } }));
+      createSeries.then((json: any) => {
+        console.log("Success mutations.createSeries: " + json);
+      }).catch((err: any) => {
+        console.log("Error mutations.createSeries: " + err);
+        console.log(err)
+      });*/
+
+    const playlistItems = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: "PLB5r2P47beqLMKzJAjoiKwoMO7bWR6zcb", pageToken: pageToken }));
+    playlistItems.then((json: any) => {
+      //console.log("Success queries.getYoutubePlaylistItems: " + json)
+      json.data.getYoutubePlaylistItems.items.forEach((item: any) => {
+        // console.log(item.contentDetails.videoId)
+        const getVideoByYoutubeIdent = API.graphql(graphqlOperation(queries.getVideoByYoutubeIdent, { YoutubeIdent: item.contentDetails.videoId }));
+        getVideoByYoutubeIdent.then((json2: any) => {
+
+
+          // console.log(json2.data.getVideoByYoutubeIdent.videoTypes)
+
+          var episodeTitle = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.title
+          var episodeDesc = ""
+          try {
+            episodeDesc = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.description.split("\n")[0].replace("[Log] We want to spend Easter with YOU! Learn more at http://www.themeetinghouseeaster.com", "")
+          } catch{
+            episodeDesc = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.description
+
+          }
+          //             console.log(json2.data.getVideoByYoutubeIdent.items[0].Youtube)
+          var published = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.publishedAt.split("T")[0]
+
+          //console.log(published)
+
+          const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.contentDetails.videoId, videoTypes: "bbq", publishedDate: published, episodeTitle: episodeTitle, videoSeriesId: "bbq-Bruxy's Bag of Questions", seriesTitle: "Bruxy's Bag of Questions", description: episodeDesc } }));
+          updateVideo.then(() => {
+            console.log("updateVideo success")
+
+            return { id: item.contentDetails.videoId, pub: published }
+          }).catch((err: any) => {
+            console.log("Error queries.updateVideo: " + err);
+            console.log(err)
+          })
+
+        }).catch((err: any) => {
+          console.log(err)
+          console.log("Error queries.getVideoByYoutubeIdent: " + err)
+        });
+      })
+      console.log(json.data)
+      if (json.data.getYoutubePlaylistItems.nextPageToken !== null)
+        this.importBBQs(json.data.getYoutubePlaylistItems.nextPageToken)
+    }).catch((err: any) => {
+      console.log(err)
+      console.log("Error queries.getYoutubePlaylistItems: " + err)
+    });
+
+    /*
+    fetch('/static/imports/life-stories.json')
+      .then(function (response) {
+        return response.json();
+      })
+      .then((myJson: any) => {
+        //  console.log(myJson)
+        return myJson.map((item: any) => {
+          var publishedA: any = ""
+          var youtubeId = item.replace("https://youtu.be/", "")
+          const getVideoByYoutubeIdent = API.graphql(graphqlOperation(queries.getVideoByYoutubeIdent, { YoutubeIdent: youtubeId }));
+          publishedA = getVideoByYoutubeIdent.then((json2: any) => {
+            //console.log("Success queries.searchVideos: " + json);
+            if (json2.data.getVideoByYoutubeIdent.items.length === 0) {
+              console.log("not found")
+              console.log(youtubeId)
+              const getYoutubeVideoSearch = API.graphql(graphqlOperation(queries.getYoutubeVideoSearch, { videoId: youtubeId }));
+              getYoutubeVideoSearch.then((json: any) => {
+                console.log(json.data.getYoutubeVideoSearch.items[0])
+                this.writeYoutube(json.data.getYoutubeVideoSearch.items[0])
+              }).catch((e: any) => {
+                console.log(e)
+              })
+ 
+            } else {
+              /*      const getYoutubeVideoSearch = API.graphql(graphqlOperation(queries.getYoutubeVideoSearch, { videoId: youtubeId }));
+                    getYoutubeVideoSearch.then((json: any) => {
+                      console.log(json.data.getYoutubeVideoSearch.items[0])
+                      this.writeYoutube(json.data.getYoutubeVideoSearch.items[0])
+                    }).catch((e: any) => {
+                      console.log(e)
+                    })*/
+
+    /*     var episodeTitle = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.title.replace("Life Story | ", "")
+         var episodeDesc = ""
+         try {
+           episodeDesc = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.description.split("\n")[0].replace("[Log] We want to spend Easter with YOU! Learn more at http://www.themeetinghouseeaster.com", "")
+         } catch{
+           episodeDesc = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.description
+
+         }
+         //             console.log(json2.data.getVideoByYoutubeIdent.items[0].Youtube)
+         var published = json2.data.getVideoByYoutubeIdent.items[0].Youtube.snippet.publishedAt.split("T")[0]
+         console.log(episodeTitle + episodeDesc)
+         console.log(published)
+
+         const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: youtubeId, videoTypes: "life-story", publishedDate: published, episodeTitle: episodeTitle, videoSeriesId: "life-story-Life Stories", seriesTitle: "Life Stories", description: episodeDesc } }));
+         updateVideo.then(() => {
+           console.log("updateVideo success")
+
+
+         }).catch((err: any) => {
+           console.log("Error queries.updateVideo: " + err);
+           console.log(err)
+         })
+         return { pub: published, id: youtubeId }
+         // console.log(json2.data.getVideoByYoutubeIdent.items[0].videoTypes)
+       }
+
+     })
+     return publishedA
+
+   })
+   //  console.log(myJson["rss"]["channel"]["item"])
+ }).then((series: any) => {
+
+   Promise.all(series)
+     .then((r: any) => {
+       var ar = r.sort((a: any, b: any) => { return (new Date(a.pub).valueOf() - new Date(b.pub).valueOf()) })
+       ar.map((item: any, index: any) => {
+         const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.id, episodeNumber: index + 1 } }));
+         updateVideo.then(() => {
+           console.log("updateVideo success")
+
+
+         }).catch((err: any) => {
+           console.log("Error queries.updateVideo: " + err);
+           console.log(err)
+         })
+
+
+       })
+     })
+
+
+
+ })*/
+  }
+  orderBBQStart() {
+    this.orderBBQ(null)
+  }
+  orderBBQ(nextToken: any) {
+
+    const getVideoByVideoType = API.graphql(graphqlOperation(queries.getVideoByVideoType, { videoTypes: "bbq", limit: 200, nextToken: nextToken }));
+    getVideoByVideoType.then((json: any) => {
+      //console.log(json)
+      //var z:[]
+      return json.data.getVideoByVideoType.items.map((item: any) => { return { pub: item.publishedDate, id: item.id } })
+    }).then((items: any) => {
+      Promise.all(items).then((r: any) => {
+        var ar = r.sort((a: any, b: any) => { return (new Date(a.pub).valueOf() - new Date(b.pub).valueOf()) })
+        ar.map((item: any, index: any) => {
+          const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.id, episodeNumber: index + 1 } }));
+          updateVideo.then(() => {
+            console.log("updateVideo success")
+
+
+          }).catch((err: any) => {
+            console.log("Error queries.updateVideo: " + err);
+            console.log(err)
+          })
+
+
+        })
+      }
+      )
+    })
+  }
   render() {
     return (
       <div>
@@ -1146,7 +1444,12 @@ class IndexApp extends React.Component {
         <Button onClick={() => { this.importKidsAndYouth() }}>Import Kids and Youth</Button>
         <Button onClick={() => { this.fixAdultSeries(null) }}>Fix Adult</Button>
         <Button onClick={() => { /*this.importKidsAndYouthVideos() */ }}>Import Kids and Youth Videos</Button>
-      </div>
+
+        <Button onClick={() => { this.importLifeStores() }}>Import Life Stories</Button>
+        <Button onClick={() => { this.importBBQs(null) }}>Import BBQs</Button>
+        <Button onClick={() => { this.orderBBQStart() }}>BBQs Order</Button>
+
+      </div >
     );
   }
 }
