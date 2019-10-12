@@ -9,6 +9,7 @@ export const getYoutubeVideoSearch = `query GetYoutubeVideoSearch($videoId: Stri
       totalResults
       resultsPerPage
     }
+    nextPageToken
     items {
       id
       kind
@@ -72,14 +73,15 @@ export const getYoutubeVideoSearch = `query GetYoutubeVideoSearch($videoId: Stri
   }
 }
 `;
-export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistId: String) {
-  getYoutubePlaylistItems(playlistId: $playlistId) {
+export const getYoutubePlaylistItems = `query GetYoutubePlaylistItems($playlistId: String, $pageToken: String) {
+  getYoutubePlaylistItems(playlistId: $playlistId, pageToken: $pageToken) {
     kind
     etag
     pageInfo {
       totalResults
       resultsPerPage
     }
+    nextPageToken
     items {
       id
       kind

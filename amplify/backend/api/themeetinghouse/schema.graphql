@@ -1,6 +1,6 @@
 type Query {
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
-  getYoutubePlaylistItems(playlistId: String): YoutubePlaylistItems!
+  getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
   downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
@@ -342,6 +342,7 @@ type YoutubePlaylistItems{
   kind: String
   etag: String
   pageInfo: YoutubePageInfo
+  nextPageToken: String
   items: [YoutubePlaylistItemsItem]
 }
 type YoutubePlaylistItemsItem

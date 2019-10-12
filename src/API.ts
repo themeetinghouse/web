@@ -4922,6 +4922,7 @@ export type GetYoutubeVideoSearchQuery = {
       totalResults: number | null,
       resultsPerPage: number | null,
     } | null,
+    nextPageToken: string | null,
     items:  Array< {
       __typename: "YoutubePlaylistItemsItem",
       id: string | null,
@@ -4998,6 +4999,7 @@ export type GetYoutubeVideoSearchQuery = {
 
 export type GetYoutubePlaylistItemsQueryVariables = {
   playlistId?: string | null,
+  pageToken?: string | null,
 };
 
 export type GetYoutubePlaylistItemsQuery = {
@@ -5010,6 +5012,7 @@ export type GetYoutubePlaylistItemsQuery = {
       totalResults: number | null,
       resultsPerPage: number | null,
     } | null,
+    nextPageToken: string | null,
     items:  Array< {
       __typename: "YoutubePlaylistItemsItem",
       id: string | null,
