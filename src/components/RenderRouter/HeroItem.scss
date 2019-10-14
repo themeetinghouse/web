@@ -5,18 +5,20 @@
         color: #ffffff;
         font-size: 3vw;
     }
-    .downarrow{
-        height:4vw;
-        left:2vw;
+
+    .downarrow {
+        height: 4vw;
+        left: 2vw;
         bottom: 4vw;
-        position:absolute;
-        z-index:100;
+        position: absolute;
+        z-index: 100;
     }
 
     .heroHr {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 1.5vw; margin-bottom: 1.5vw;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
         width: 8.55vw;
         background-color: #ffffff;
     }
@@ -33,6 +35,14 @@
         width: 32vw;
         color: #ffffff;
         font-size: 1vw;
+    }
+
+    .partial {
+        width: 80vw;
+        height: 38vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute
     }
 
     .partialNoFooterImage {
@@ -81,7 +91,15 @@
         background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 66%);
 
     }
-
+    .heroPartialBlackBox {
+        position: absolute;
+        background-color: #000000aa;
+        padding: 2vw;
+        left: 10vw;
+        width: 36vw;
+        top: 10vh;
+        z-index: 100;
+    }
     .heroBlackBox {
         position: absolute;
         background-color: #000000aa;
@@ -94,7 +112,9 @@
 
     .heroButton {
         margin-top: 1.5vw;
-        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border-radius: 0;
         padding: 1rem 1.5rem;
         font-weight: 800;
     }
@@ -137,17 +157,20 @@
         color: #ffffff;
         font-size: 3vw;
     }
-    .downarrow{
-        height:4vw;
-        left:2vw;
+
+    .downarrow {
+        height: 4vw;
+        left: 2vw;
         bottom: 4vw;
-        position:absolute;
-        z-index:100;
+        position: absolute;
+        z-index: 100;
     }
+
     .heroHr {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 1.5vw; margin-bottom: 1.5vw;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
         width: 8.55vw;
         background-color: #ffffff;
     }
@@ -164,6 +187,13 @@
         width: 32vw;
         color: #ffffff;
         font-size: 1vw;
+    }
+    .partial {
+        width: 80vw;
+        height: 38vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute
     }
 
     .partialNoFooterImage {
@@ -212,7 +242,15 @@
         background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 66%);
 
     }
-
+    .heroPartialBlackBox {
+        position: absolute;
+        background-color: #000000aa;
+        padding: 2vw;
+        left: 10vw;
+        width: 36vw;
+        top: 10vh;
+        z-index: 100;
+    }
     .heroBlackBox {
         position: absolute;
         background-color: #000000aa;
@@ -225,7 +263,9 @@
 
     .heroButton {
         margin-top: 1.5vw;
-        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border-radius: 0;
         padding: 1rem 1.5rem;
         font-weight: 800;
     }
@@ -269,15 +309,17 @@
         font-size: 10vw;
         line-height: 10.65vw;
     }
-    .downarrow{
-       display:none;
+
+    .downarrow {
+        display: none;
     }
 
 
     .heroHr {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 4.5vw; margin-bottom: 4.5vw;
+        margin-top: 4.5vw;
+        margin-bottom: 4.5vw;
         width: 8.55vw;
         background-color: #ffffff;
     }
@@ -297,6 +339,14 @@
         color: #ffffff;
         font-size: 2vw;
     }
+    .partial {
+        width: 80vw;
+        height: 38vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute
+    }
+
     .partialNoFooterImage {
         width: 100vw;
         height: 80vw;
@@ -335,7 +385,7 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: rgba(0,0,0,1);
+        background-color: rgba(0, 0, 0, 1);
         padding: 2vw;
         left: 0vw;
         width: 100vw;
@@ -344,12 +394,24 @@
         z-index: 100;
         padding: 10vw 6vw 10vw 6vw;
     }
-
+    .heroPartialBlackBox {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 1);
+        padding: 2vw;
+        left: 0vw;
+        width: 100vw;
+        height: 65vh;
+        top: 60vh;
+        z-index: 100;
+        padding: 10vw 6vw 10vw 6vw;
+    }
     .heroButton {
         margin-top: 15vw;
-        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border-radius: 0;
         padding: 1rem 1.5rem;
-        font-weight: 800!important;
+        font-weight: 800 !important;
     }
 
     .headerItem {
