@@ -73,8 +73,11 @@
         width: 80vw;
         font-weight: bold;
         font-size: 3vw;
+        font-family: Graphik Web;
     }
-
+    .ListItemH1.whiteText{
+        color:#ffffff
+    }
     .ListItemH1ImageList {
         font-size: 3vw;
         font-weight: bold;
@@ -135,7 +138,10 @@
         display: inline-block;
         vertical-align: top;
     }
-
+    .ListItemVideo.whiteText{
+        color:#ffffff
+      }
+    
     .ListItemVideoThumb {
         width: 20vw;
         margin-right: 1vw;
@@ -270,6 +276,9 @@
       font-weight: bold;
       font-size: 3vw;
   }
+  .ListItemH1.whiteText{
+    color:#ffffff
+}
 
   .ListItemH1ImageList {
       font-size: 3vw;
@@ -329,6 +338,9 @@
       cursor: pointer;
       display: inline-block;
       vertical-align: top;
+  }
+  .ListItemVideo.whiteText{
+    color:#ffffff
   }
 
   .ListItemVideoThumb {
@@ -465,6 +477,9 @@
       font-weight: bold;
       font-size: 3vw;
   }
+  .ListItemH1.whiteText{
+    color:#ffffff
+}
 
   .ListItemH1ImageList {
       font-weight: 700;
@@ -526,6 +541,9 @@
       cursor: pointer;
       display: inline-block;
       vertical-align: top;
+  }
+  .ListItemVideo.whiteText{
+    color:#ffffff
   }
 
   .ListItemVideoThumb {

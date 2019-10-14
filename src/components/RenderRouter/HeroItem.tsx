@@ -193,7 +193,43 @@ class HeroItem extends React.Component<Props, State> {
 
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "43vw", paddingBottom: "5vh" }}>
-                    <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "38vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
+                     {
+                        image1.src.includes(".svg")?
+                    
+                    <img src={image1.src} alt={image1.alt} className="partial"/>:
+                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partial"
+                    srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                    this.imgUrl(480)+image1.src+" 480w,"+
+                    this.imgUrl(640)+image1.src+" 640w,"+
+                    this.imgUrl(1280)+image1.src+" 1280w,"+
+                    this.imgUrl(1920)+image1.src+" 1920w,"+
+                    this.imgUrl(2560)+image1.src+" 2560w"}
+                    sizes="(max-width: 320px) 320px,
+                           (max-width: 480px) 480px,
+                           (max-width: 640px) 640px,
+                           (max-width: 1280px) 1280px,
+                           (max-width: 1920) 1920,
+                            2560px"
+                />
+                     }
+                    <div className="heroPartialBlackBox" >
+                        <h1 className="heroH1" >{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
+                        <hr className="heroHr"></hr>
+                        <div className="heroText1" >{this.state.content.text1}</div>
+                        <div className="heroText2" >{this.state.content.text2}</div>
+                        <div className="heroText2" >{this.state.content.text3}</div>
+                        <div className="heroText2" >{this.state.content.text4}</div>
+                        <div className="heroText2" >{this.state.content.text5}</div>
+                        <div className="heroText2" >{this.state.content.text6}</div>
+                        <div className="heroText2" >{this.state.content.text7}</div>
+                        {this.state.content.button1Text ? (<Button className="heroButton" onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
+                        <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+                        {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+
+                    </div>
+
                 </div>
             )
         }
