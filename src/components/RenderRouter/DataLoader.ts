@@ -146,13 +146,13 @@ export default class DataLoader extends React.Component<Props, State> {
                 this.state.content.facebookEvents.forEach((item: any) => {
                     const getFbEvents = API.graphql({
                         query: queries.getFbEvents,
-                        variables: { id: item },
+                        variables: { pageId: item },
                         authMode: GRAPHQL_AUTH_MODE.API_KEY
                     });
                     getFbEvents.then((json: any) => {
-                        console.log("Success queries.getFbEvents: " + json);
+                        console.log("Success queries.getFBEvents: " + json);
                         console.log(json)
-                        this.props.dataLoaded(json.data.getFbEvents.items)
+                        this.props.dataLoaded(json.data.getFBEvents.data)
 
                     }).catch((e: any) => { console.log(e) })
                 })
@@ -160,22 +160,16 @@ export default class DataLoader extends React.Component<Props, State> {
             else {
                 const getFbEvents = API.graphql({
                     query: queries.getFbEvents,
-                    variables: { id: "155800937784104" },
+                    variables: { pageId: "155800937784104" },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });
                 getFbEvents.then((json: any) => {
-                    console.log("Success queries.getFbEvents: " + json);
+                    console.log("Success queries.getFBEvents: " + json);
                     console.log(json)
-                    this.props.dataLoaded(json.data.getFbEvents.items)
+                    this.props.dataLoaded(json.data.getFBEvents.data)
 
                 }).catch((e: any) => { console.log(e) })
             }
-            fetch('./static/data/events.json').then(function (response) {
-                return response.json();
-            })
-                .then((myJson) => {
-                    this.props.dataLoaded(myJson);
-                })
 
         }
         else if (this.state.content.class === "compassion") {

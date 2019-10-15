@@ -45,8 +45,6 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "filterField":"sites",                 
-                "filterValue": "brampton",
                 "facebookEvents": ["336457083044176","441433702554990"]
 
             },

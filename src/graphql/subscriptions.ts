@@ -3820,3 +3820,147 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
   }
 }
 `;
+export const onCreateWebPage = `subscription OnCreateWebPage {
+  onCreateWebPage {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;
+export const onUpdateWebPage = `subscription OnUpdateWebPage {
+  onUpdateWebPage {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;
+export const onDeleteWebPage = `subscription OnDeleteWebPage {
+  onDeleteWebPage {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;

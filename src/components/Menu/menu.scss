@@ -358,9 +358,9 @@
     .navbar.fixed-left {
         position: fixed;
         top: 0vh;
-        z-index:-1;
+        z-index:0;
         padding:0vw;
-        height:8vw;
+        height:0vw;
         //height:5vw;
         /*
         right: 4vw;
@@ -369,6 +369,7 @@
         margin: 2vw;
         */
     }
+
     .navbar-collapse{
         left:-2vw;
         top:10vw;

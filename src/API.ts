@@ -245,6 +245,71 @@ export type DeleteVideoInput = {
   id?: string | null,
 };
 
+export type CreateWebPageInput = {
+  id?: string | null,
+  page?: WebPageInfoInput | null,
+};
+
+export type WebPageInfoInput = {
+  name?: string | null,
+  title?: string | null,
+  keywords?: string | null,
+  description?: string | null,
+  pageConfig?: WebPageConfigInput | null,
+  content?: Array< WebPageContentInput | null > | null,
+};
+
+export type WebPageConfigInput = {
+  movingMenu?: boolean | null,
+  showLogoText?: boolean | null,
+  logoColor?: string | null,
+  showSearch?: boolean | null,
+  showFooter?: boolean | null,
+  showMenu?: boolean | null,
+};
+
+export type WebPageContentInput = {
+  type?: string | null,
+  style?: string | null,
+  image1?: Array< WebPageImageInput | null > | null,
+  header1?: string | null,
+  header2?: string | null,
+  text1?: string | null,
+  text2?: string | null,
+  link1Text?: string | null,
+  link1Action?: string | null,
+  link2Text?: string | null,
+  link2Action?: string | null,
+  link3Text?: string | null,
+  link3Action?: string | null,
+  button1Text?: string | null,
+  button1Action?: string | null,
+  list?: WebPageListInput | null,
+  showLocationSearch?: boolean | null,
+};
+
+export type WebPageImageInput = {
+  src?: string | null,
+  alt?: string | null,
+};
+
+export type WebPageListInput = {
+  title?: string | null,
+  text?: string | null,
+  imageSrc?: string | null,
+  imageAlt?: string | null,
+  navigateTo?: string | null,
+};
+
+export type UpdateWebPageInput = {
+  id: string,
+  page?: WebPageInfoInput | null,
+};
+
+export type DeleteWebPageInput = {
+  id?: string | null,
+};
+
 export type fuzzySearchableVideoSortInput = {
   field?: fuzzySearchableVideoSortableFields | null,
   direction?: fuzzySearchableSortDirection | null,
@@ -413,6 +478,13 @@ export type ModelVideoFilterInput = {
   not?: ModelVideoFilterInput | null,
 };
 
+export type ModelWebPageFilterInput = {
+  id?: ModelIDFilterInput | null,
+  and?: Array< ModelWebPageFilterInput | null > | null,
+  or?: Array< ModelWebPageFilterInput | null > | null,
+  not?: ModelWebPageFilterInput | null,
+};
+
 export type ModelStringKeyConditionInput = {
   eq?: string | null,
   le?: string | null,
@@ -513,6 +585,23 @@ export enum SearchableVideoSortableFields {
 export enum SearchableSortDirection {
   asc = "asc",
   desc = "desc",
+}
+
+
+export type SearchableWebPageFilterInput = {
+  id?: SearchableIDFilterInput | null,
+  and?: Array< SearchableWebPageFilterInput | null > | null,
+  or?: Array< SearchableWebPageFilterInput | null > | null,
+  not?: SearchableWebPageFilterInput | null,
+};
+
+export type SearchableWebPageSortInput = {
+  field?: SearchableWebPageSortableFields | null,
+  direction?: SearchableSortDirection | null,
+};
+
+export enum SearchableWebPageSortableFields {
+  id = "id",
 }
 
 
@@ -4908,6 +4997,180 @@ export type DeleteVideoMutation = {
   } | null,
 };
 
+export type CreateWebPageMutationVariables = {
+  input: CreateWebPageInput,
+};
+
+export type CreateWebPageMutation = {
+  createWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type UpdateWebPageMutationVariables = {
+  input: UpdateWebPageInput,
+};
+
+export type UpdateWebPageMutation = {
+  updateWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type DeleteWebPageMutationVariables = {
+  input: DeleteWebPageInput,
+};
+
+export type DeleteWebPageMutation = {
+  deleteWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
 export type GetYoutubeVideoSearchQueryVariables = {
   videoId?: string | null,
 };
@@ -5306,29 +5569,40 @@ export type GetFbEventsQueryVariables = {
 };
 
 export type GetFbEventsQuery = {
-  getFBEvents:  Array< {
-    __typename: "FBEvent",
-    description: string | null,
-    end_time: string | null,
-    name: string | null,
-    place:  {
-      __typename: "FBPlace",
+  getFBEvents:  {
+    __typename: "FBData",
+    data:  Array< {
+      __typename: "FBEvent",
+      description: string | null,
+      end_time: string | null,
       name: string | null,
-      location:  {
-        __typename: "FBLocation",
-        city: string | null,
-        country: string | null,
-        latitude: number | null,
-        longitude: number | null,
-        state: string | null,
-        street: string | null,
-        zip: string | null,
+      place:  {
+        __typename: "FBPlace",
+        name: string | null,
+        location:  {
+          __typename: "FBLocation",
+          city: string | null,
+          country: string | null,
+          latitude: number | null,
+          longitude: number | null,
+          state: string | null,
+          street: string | null,
+          zip: string | null,
+        } | null,
+        id: string | null,
       } | null,
+      start_time: string | null,
       id: string | null,
+    } | null > | null,
+    paging:  {
+      __typename: "FBPaging",
+      cursors:  {
+        __typename: "FBCursors",
+        before: string | null,
+        after: string | null,
+      } | null,
     } | null,
-    start_time: string | null,
-    id: string | null,
-  } | null > | null,
+  } | null,
 };
 
 export type GetTakenoteNotesQueryVariables = {
@@ -8300,6 +8574,128 @@ export type ListVideosQuery = {
   } | null,
 };
 
+export type GetWebPageQueryVariables = {
+  id: string,
+};
+
+export type GetWebPageQuery = {
+  getWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type ListWebPagesQueryVariables = {
+  filter?: ModelWebPageFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListWebPagesQuery = {
+  listWebPages:  {
+    __typename: "ModelWebPageConnection",
+    items:  Array< {
+      __typename: "WebPage",
+      id: string | null,
+      page:  {
+        __typename: "WebPageInfo",
+        name: string | null,
+        title: string | null,
+        keywords: string | null,
+        description: string | null,
+        pageConfig:  {
+          __typename: "WebPageConfig",
+          movingMenu: boolean | null,
+          showLogoText: boolean | null,
+          logoColor: string | null,
+          showSearch: boolean | null,
+          showFooter: boolean | null,
+          showMenu: boolean | null,
+        } | null,
+        content:  Array< {
+          __typename: "WebPageContent",
+          type: string | null,
+          style: string | null,
+          image1:  Array< {
+            __typename: "WebPageImage",
+            src: string | null,
+            alt: string | null,
+          } | null > | null,
+          header1: string | null,
+          header2: string | null,
+          text1: string | null,
+          text2: string | null,
+          link1Text: string | null,
+          link1Action: string | null,
+          link2Text: string | null,
+          link2Action: string | null,
+          link3Text: string | null,
+          link3Action: string | null,
+          button1Text: string | null,
+          button1Action: string | null,
+          list:  {
+            __typename: "WebPageList",
+            title: string | null,
+            text: string | null,
+            imageSrc: string | null,
+            imageAlt: string | null,
+            navigateTo: string | null,
+          } | null,
+          showLocationSearch: boolean | null,
+        } | null > | null,
+      } | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type GetTnSeriesByIdentQueryVariables = {
   TNident?: string | null,
   sortDirection?: ModelSortDirection | null,
@@ -9541,6 +9937,71 @@ export type SearchVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type SearchWebPagesQueryVariables = {
+  filter?: SearchableWebPageFilterInput | null,
+  sort?: SearchableWebPageSortInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type SearchWebPagesQuery = {
+  searchWebPages:  {
+    __typename: "SearchableWebPageConnection",
+    items:  Array< {
+      __typename: "WebPage",
+      id: string | null,
+      page:  {
+        __typename: "WebPageInfo",
+        name: string | null,
+        title: string | null,
+        keywords: string | null,
+        description: string | null,
+        pageConfig:  {
+          __typename: "WebPageConfig",
+          movingMenu: boolean | null,
+          showLogoText: boolean | null,
+          logoColor: string | null,
+          showSearch: boolean | null,
+          showFooter: boolean | null,
+          showMenu: boolean | null,
+        } | null,
+        content:  Array< {
+          __typename: "WebPageContent",
+          type: string | null,
+          style: string | null,
+          image1:  Array< {
+            __typename: "WebPageImage",
+            src: string | null,
+            alt: string | null,
+          } | null > | null,
+          header1: string | null,
+          header2: string | null,
+          text1: string | null,
+          text2: string | null,
+          link1Text: string | null,
+          link1Action: string | null,
+          link2Text: string | null,
+          link2Action: string | null,
+          link3Text: string | null,
+          link3Action: string | null,
+          button1Text: string | null,
+          button1Action: string | null,
+          list:  {
+            __typename: "WebPageList",
+            title: string | null,
+            text: string | null,
+            imageSrc: string | null,
+            imageAlt: string | null,
+            navigateTo: string | null,
+          } | null,
+          showLocationSearch: boolean | null,
+        } | null > | null,
+      } | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -13863,5 +14324,167 @@ export type OnDeleteVideoSubscription = {
       } | null,
     } | null,
     videoTypes: string | null,
+  } | null,
+};
+
+export type OnCreateWebPageSubscription = {
+  onCreateWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type OnUpdateWebPageSubscription = {
+  onUpdateWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type OnDeleteWebPageSubscription = {
+  onDeleteWebPage:  {
+    __typename: "WebPage",
+    id: string | null,
+    page:  {
+      __typename: "WebPageInfo",
+      name: string | null,
+      title: string | null,
+      keywords: string | null,
+      description: string | null,
+      pageConfig:  {
+        __typename: "WebPageConfig",
+        movingMenu: boolean | null,
+        showLogoText: boolean | null,
+        logoColor: string | null,
+        showSearch: boolean | null,
+        showFooter: boolean | null,
+        showMenu: boolean | null,
+      } | null,
+      content:  Array< {
+        __typename: "WebPageContent",
+        type: string | null,
+        style: string | null,
+        image1:  Array< {
+          __typename: "WebPageImage",
+          src: string | null,
+          alt: string | null,
+        } | null > | null,
+        header1: string | null,
+        header2: string | null,
+        text1: string | null,
+        text2: string | null,
+        link1Text: string | null,
+        link1Action: string | null,
+        link2Text: string | null,
+        link2Action: string | null,
+        link3Text: string | null,
+        link3Action: string | null,
+        button1Text: string | null,
+        button1Action: string | null,
+        list:  {
+          __typename: "WebPageList",
+          title: string | null,
+          text: string | null,
+          imageSrc: string | null,
+          imageAlt: string | null,
+          navigateTo: string | null,
+        } | null,
+        showLocationSearch: boolean | null,
+      } | null > | null,
+    } | null,
   } | null,
 };

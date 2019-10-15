@@ -48,9 +48,7 @@
                 "style": "vertical",
                 "class": "events",
                 "header1": "Upcoming Events",
-                "header2": "",
-                "filterField":"sites",                 
-                "filterValue": "alliston"
+                "header2": ""
             },
             {
                 "type": "list",

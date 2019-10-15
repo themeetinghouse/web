@@ -8,7 +8,7 @@ type Query {
   getTakenoteSermon(seriesId:String,user:Int):[TakeNoteSermon]
   getTakenoteSermonVerses(sermondId:String):TakeNoteSermonVerses
   getTakenoteLocations:[TakeNoteLocations]
-  getFBEvents(pageId:String):[FBEvent]
+  getFBEvents(pageId:String):FBData
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
@@ -58,6 +58,17 @@ type FBPlace{
  name: String
   location: FBLocation
   id: String
+}
+type FBPaging{
+  cursors:FBCursors
+}
+type FBCursors{
+  before:String
+  after:String
+}
+type FBData{
+  data: [FBEvent]
+  paging: FBPaging
 }
 type FBEvent{
   description:String
@@ -370,7 +381,7 @@ type YoutubePlaylistItemDetails{
   dimension: String
   definition: String
   caption: String
-  licensedContent: Boolean,
+  licensedContent: Boolean
   projection: String
 } 
 type YoutubeStatus{
@@ -497,7 +508,66 @@ type Video
   videoTypes:String
 }
 
+type WebPage
+ @model 
+ @searchable
+ @auth(rules:[{allow:public, operations:[read]}])
+ 
+{
+  id:ID
+  page:WebPageInfo
+}
+type WebPageInfo
+{
+  name:String
+  title:String
+  keywords:String
+  description:String
+  pageConfig:WebPageConfig
+  content:[WebPageContent]
 
+}
+type WebPageConfig
+{
+  movingMenu: Boolean
+  showLogoText: Boolean
+  logoColor:String
+  showSearch:Boolean
+  showFooter:Boolean
+  showMenu:Boolean
+}
+type WebPageImage
+{
+  src:String
+  alt:String
+}
+type WebPageList
+{
+  title:String
+  text:String
+  imageSrc:String
+  imageAlt:String
+  navigateTo:String
+}
+type WebPageContent
+{
+  type:String
+  style:String
+  image1:[WebPageImage]
+  header1:String
+  header2:String
+  text1:String
+  text2:String
+  link1Text:String
+  link1Action:String
+  link2Text:String
+  link2Action:String
+  link3Text:String
+  link3Action:String
+  button1Text:String
+  button1Action:String
+  list:WebPageList
+  showLocationSearch:Boolean
+}
 
-
-
+    

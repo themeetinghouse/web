@@ -162,7 +162,7 @@ class HeroItem extends React.Component<Props, State> {
                 />
 
                     }
-                    <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "46vw", top: "6vh", zIndex: 100 }}>
+                    <div className="partialNoFooterBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
@@ -176,7 +176,7 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?
-                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}}  
+                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"  
                                 options={this.state.locationData.map((item:any)=>{return {label:item.name,value:item.id}})}></Select>
                               :null}
                             </div>):null}

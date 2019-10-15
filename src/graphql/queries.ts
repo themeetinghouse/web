@@ -317,24 +317,32 @@ export const getTakenoteLocations = `query GetTakenoteLocations {
 `;
 export const getFbEvents = `query GetFbEvents($pageId: String) {
   getFBEvents(pageId: $pageId) {
-    description
-    end_time
-    name
-    place {
+    data {
+      description
+      end_time
       name
-      location {
-        city
-        country
-        latitude
-        longitude
-        state
-        street
-        zip
+      place {
+        name
+        location {
+          city
+          country
+          latitude
+          longitude
+          state
+          street
+          zip
+        }
+        id
       }
+      start_time
       id
     }
-    start_time
-    id
+    paging {
+      cursors {
+        before
+        after
+      }
+    }
   }
 }
 `;
@@ -2929,6 +2937,109 @@ export const listVideos = `query ListVideos(
   }
 }
 `;
+export const getWebPage = `query GetWebPage($id: ID!) {
+  getWebPage(id: $id) {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;
+export const listWebPages = `query ListWebPages(
+  $filter: ModelWebPageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listWebPages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      page {
+        name
+        title
+        keywords
+        description
+        pageConfig {
+          movingMenu
+          showLogoText
+          logoColor
+          showSearch
+          showFooter
+          showMenu
+        }
+        content {
+          type
+          style
+          image1 {
+            src
+            alt
+          }
+          header1
+          header2
+          text1
+          text2
+          link1Text
+          link1Action
+          link2Text
+          link2Action
+          link3Text
+          link3Action
+          button1Text
+          button1Action
+          list {
+            title
+            text
+            imageSrc
+            imageAlt
+            navigateTo
+          }
+          showLocationSearch
+        }
+      }
+    }
+    nextToken
+  }
+}
+`;
 export const getTnSeriesByIdent = `query GetTnSeriesByIdent(
   $TNident: String
   $sortDirection: ModelSortDirection
@@ -4048,6 +4159,67 @@ export const searchVideos = `query SearchVideos(
         }
       }
       videoTypes
+    }
+    nextToken
+  }
+}
+`;
+export const searchWebPages = `query SearchWebPages(
+  $filter: SearchableWebPageFilterInput
+  $sort: SearchableWebPageSortInput
+  $limit: Int
+  $nextToken: String
+) {
+  searchWebPages(
+    filter: $filter
+    sort: $sort
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      page {
+        name
+        title
+        keywords
+        description
+        pageConfig {
+          movingMenu
+          showLogoText
+          logoColor
+          showSearch
+          showFooter
+          showMenu
+        }
+        content {
+          type
+          style
+          image1 {
+            src
+            alt
+          }
+          header1
+          header2
+          text1
+          text2
+          link1Text
+          link1Action
+          link2Text
+          link2Action
+          link3Text
+          link3Action
+          button1Text
+          button1Action
+          list {
+            title
+            text
+            imageSrc
+            imageAlt
+            navigateTo
+          }
+          showLocationSearch
+        }
+      }
     }
     nextToken
   }
