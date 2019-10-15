@@ -49,8 +49,6 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "filterField":"sites",                 
-                "filterValue": "toronto-uptown",
                 "facebookEvents": ["131969003545127","220608684658029"]
 
             },

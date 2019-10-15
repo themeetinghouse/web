@@ -50,8 +50,6 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "filterField":"sites",                 
-                "filterValue": "hamilton-downtown",
                 "facebookEvents": ["1038050089551916","126960067401497"]
 
             },

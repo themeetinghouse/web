@@ -45,8 +45,6 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "filterField":"sites",                 
-                "filterValue": "brantford",
                 "facebookEvents": ["530089253701789","761107650648504"]
 
             },

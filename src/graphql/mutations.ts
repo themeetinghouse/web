@@ -3820,3 +3820,147 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
   }
 }
 `;
+export const createWebPage = `mutation CreateWebPage($input: CreateWebPageInput!) {
+  createWebPage(input: $input) {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;
+export const updateWebPage = `mutation UpdateWebPage($input: UpdateWebPageInput!) {
+  updateWebPage(input: $input) {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;
+export const deleteWebPage = `mutation DeleteWebPage($input: DeleteWebPageInput!) {
+  deleteWebPage(input: $input) {
+    id
+    page {
+      name
+      title
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
+    }
+  }
+}
+`;

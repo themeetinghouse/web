@@ -14,6 +14,15 @@
         z-index: 100;
     }
 
+    .partialNoFooterBox {
+        position: absolute;
+        padding: 2vw;
+        left: 5vw;
+        width: 46vw;
+        top: 6vh;
+        z-index: 100;
+    }
+
     .heroHr {
         margin-left: 0;
         margin-right: 0;
@@ -91,6 +100,7 @@
         background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 66%);
 
     }
+
     .heroPartialBlackBox {
         position: absolute;
         background-color: #000000aa;
@@ -100,6 +110,7 @@
         top: 10vh;
         z-index: 100;
     }
+
     .heroBlackBox {
         position: absolute;
         background-color: #000000aa;
@@ -147,6 +158,13 @@
         position: absolute;
         top: 0vw;
         left: 0vw;
+    }
+    .partialNoFooterLocationDropDown{
+        font-family: Graphik Web;
+        padding:4px;
+        width:40vw;
+        margin-top:2vw;
+        margin-bottom:2vw;
     }
 }
 
@@ -174,7 +192,14 @@
         width: 8.55vw;
         background-color: #ffffff;
     }
-
+    .partialNoFooterBox {
+        position: absolute;
+        padding: 2vw;
+        left: 5vw;
+        width: 46vw;
+        top: 6vh;
+        z-index: 100;
+    }
     .heroText1 {
         font-family: Graphik Web;
         width: 32vw;
@@ -188,6 +213,7 @@
         color: #ffffff;
         font-size: 1vw;
     }
+
     .partial {
         width: 80vw;
         height: 38vw;
@@ -242,6 +268,7 @@
         background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 66%);
 
     }
+
     .heroPartialBlackBox {
         position: absolute;
         background-color: #000000aa;
@@ -251,6 +278,7 @@
         top: 10vh;
         z-index: 100;
     }
+
     .heroBlackBox {
         position: absolute;
         background-color: #000000aa;
@@ -298,6 +326,13 @@
         position: absolute;
         top: 0vw;
         left: 0vw;
+    }
+    .partialNoFooterLocationDropDown{
+        font-family: Graphik Web;
+        padding:4px;
+        width:40vw;
+        margin-top:2vw;
+        margin-bottom:2vw;
     }
 }
 
@@ -339,6 +374,7 @@
         color: #ffffff;
         font-size: 2vw;
     }
+
     .partial {
         width: 80vw;
         height: 38vw;
@@ -349,17 +385,16 @@
 
     .partialNoFooterImage {
         width: 100vw;
-        height: 80vw;
         z-index: 50;
         object-fit: cover;
         position: absolute;
+        height:100%
     }
 
     .partialNoFooter {
-        position: relative;
+        position: absolute;
         left: 0vw;
         width: 100vw;
-        height: 78vw;
         padding-bottom: 0vh;
     }
 
@@ -394,6 +429,7 @@
         z-index: 100;
         padding: 10vw 6vw 10vw 6vw;
     }
+
     .heroPartialBlackBox {
         position: absolute;
         background-color: rgba(0, 0, 0, 1);
@@ -405,6 +441,7 @@
         z-index: 100;
         padding: 10vw 6vw 10vw 6vw;
     }
+
     .heroButton {
         margin-top: 15vw;
         color: #000000 !important;
@@ -442,5 +479,20 @@
         position: absolute;
         top: 5vw;
         left: 58vw;
+    }
+    .partialNoFooterBox {
+        position: relative;
+        padding: 2vw;
+        left: 5vw;
+        width: 100vw;
+        z-index: 100;
+        top:0vw;
+    }
+    .partialNoFooterLocationDropDown{
+        font-family: Graphik Web;
+        padding:4px;
+        width:86vw;
+        margin-top:2vw;
+        margin-bottom:2vw;
     }
 }
