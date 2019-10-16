@@ -1,47 +1,28 @@
 {
     "page": {
-        "name": "volunteering",
-        "title": "Volunteer",
+        "name": "connect",
+        "title": "Connect",
         "keywords": "",
         "description":"",
 
         "pageConfig": {
             "movingMenu": false,
-            "showLogoText": true,
+            "showLogoText": false,
             "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true
         },
         "content": [
            
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "form",
+                "header1": "Volunteer.",
+                "class":"formstack",
+                "style":"white",
+                "formId":"volunteer",
+                "height":"100vh"
             }
         ]
     }

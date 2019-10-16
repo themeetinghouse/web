@@ -5,7 +5,6 @@
             "lambdaFunction": "themeetinghousea5cd4619",
             "privacy": {
                 "open": true
-               
             }
         }
     ],
@@ -31,5 +30,6 @@
                 "Arn"
             ]
         }
-    ]
+    ],
+    "uuid": "610857b2"
 }
