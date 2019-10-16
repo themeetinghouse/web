@@ -508,6 +508,7 @@ type Video
   videoTypes:String
 }
 
+
 type WebPage
  @model 
  @searchable

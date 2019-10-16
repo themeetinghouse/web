@@ -63,17 +63,35 @@
                 "text1": "We work together to create a safe environment where our kids and youth can learn to love and follow Jesus. Kidmax is our Sunday morning children’s program for infants to grade 5, and runs intandem with our Sunday morning service. For students grades 6 to 12, our youth program includes both a Sunday morning portion and a midweek gathering. Click to learn more about our programs, curriculum, and how to register.",
                 "link1Text": "Info About Kids & Youth",
                 "link1Action": "kids-and-youth",
-                "image1":[{
-                    "src":"/static/images/brampton-2.png",
-                    "alt":"TODO"
-                }]
+                "image1": [
+                    {
+                        "src": "/static/images/KY1.jpg",
+                        "alt": "TODO"
+                    },
+                    {
+                        "src": "/static/images/KY2.jpg",
+                        "alt": "Description"
+                    }
+                ]
             },
             {
                 "type": "hero",
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "/static/images/brampton-3.png",
+                        "src": "/static/images/HC1.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "/static/images/HC2.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "/static/images/HC3.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "/static/images/HC4.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -87,7 +105,7 @@
                 "type": "list",
                 "style": "vertical",
                 "class": "compassion",
-                "header1": "Local Compassion Partners",
+                "header1": "Make a Difference",
                 "text1": "We use our money, our time, and our resources to love and serve people at the margins.",
                 "filterField":"sites",                 
                 "filterValue": "brampton"
@@ -97,7 +115,19 @@
                 "style": "partialNoFooter",
                 "image1": [
                     {
-                        "src": "/static/images/brampton-4.png",
+                        "src": "/static/images/GC1.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "/static/images/GC2.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "/static/images/GC3.jpg",
+                        "alt": "Description"
+                    },
+                    {
+                        "src": "/static/images/GC4.jpg",
                         "alt": "Description"
                     }
                 ],

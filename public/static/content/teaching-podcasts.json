@@ -21,18 +21,18 @@
                 "text1": "Check out some podcasts",
                 "list": [
                     {
-                        "title": "The After Party",
-                        "text": "Taking Sunday messages and concepts into extended conversations.",
-                        "imageSrc": "/static/images/podcast-1-1.jpg",
-                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
-                        "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=215990014"
-                    },
-                    {
                         "title": "The Meeting House Audiocast",
                         "text": "Join us each week for The Meeting House AudioCast where we explore what it means to be a Christ Follower. Listen to the message online or subscribe using through our RSS feed or ITunes.",
                         "imageSrc": "/static/images/podcast-1-2.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
                         "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=102719807"
+                    },
+                    {
+                        "title": "The After Party",
+                        "text": "Taking Sunday messages and concepts into extended conversations.",
+                        "imageSrc": "/static/images/podcast-1-1.jpg",
+                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+                        "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=215990014"
                     },
                     {
                         "title": "The Meeting House Roundtable",
