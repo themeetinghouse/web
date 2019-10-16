@@ -5,7 +5,7 @@
         "keywords": "",
         "description": "",
         "pageConfig": {
-            "movingMenu": true,
+            "movingMenu": false,
             "showLogoText": true,
             "logoColor": "black",
             "showSearch": true,
