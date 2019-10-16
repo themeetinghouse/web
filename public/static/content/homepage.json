@@ -36,6 +36,10 @@
                     {
                         "src": "/static/images/homepage-1-5.jpg",
                         "alt": "Friends sitting down and talking about Jesus and spirituality."
+                    },
+                    {
+                        "src": "/static/images/homepage-1-6.jpg",
+                        "alt": "Friends sitting down and talking about Jesus and spirituality."
                     }
                 ],
                 "header1": "Hello Friend",
