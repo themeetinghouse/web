@@ -24,7 +24,9 @@ export default class ContentItem extends React.Component<Props, State>  {
 }
 
   render() {
-    var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+    var image1 
+    if (this.state.content.image1!=null)
+     image1= this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
     if (this.state.content.style === "oneImage") {
 
       return (
@@ -109,6 +111,16 @@ export default class ContentItem extends React.Component<Props, State>  {
                                 2560px"
                     />
           </div>
+        </div>
+      )
+    }
+    else if(this.state.content.style === "greyTwoText"){
+      return (
+        <div className="ContentItem greyTwoText">
+              <div className="greyTwoTextH1" >{this.state.content.header1}</div>
+              <div className="greyTwoTextText" >{this.state.content.text1}</div>
+              <div className="greyTwoClear"></div>
+
         </div>
       )
     }
