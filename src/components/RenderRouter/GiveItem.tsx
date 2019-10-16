@@ -24,7 +24,7 @@ export default class ContentItem extends React.Component<Props, State>  {
   }
 
   render() {
-    return (<div style={{ position: "relative", top: "2vw", left: "20vw" }}>
+    return (<div className="giveItemDiv1" >
       <form>
       <h1>{this.state.content.header1}</h1>
       <h2>{this.state.content.header2}</h2>
