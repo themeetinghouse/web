@@ -246,7 +246,8 @@ class ListItem extends React.Component<Props, State> {
           <h1 className="ListItemH1" >{this.state.content.header1}</h1>
           <div className="ListItemDiv6" >
             {data.map((item: any) => {
-              if (item.videos.items.length > 0)
+              if (item.videos.items.length > 0){
+              console.log(item.seriesType+"-"+item.title+".jpg")
                 return (
                   <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
                     <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title+".jpg"} 
@@ -255,6 +256,7 @@ class ListItem extends React.Component<Props, State> {
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
                   </div>
                 )
+              }
               else return null
             })}
 
