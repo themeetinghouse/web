@@ -19,7 +19,7 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/community-1.jpg",
+                        "src": "/static/images/go-1.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -37,10 +37,10 @@
                 "text1":"We are our best selves when we don’t make it all about ourselves. As The Meeting House, we follow the counter cultural example of the early church, to care for and love others before ourselves, and trust that as we do this God will meet our needs. This is who we have always been and everyone who is a part of our church community today is a recipient of the radical other centred generosity of the previous generation. The Go Campaign is our response to our changing society. Our choice to be other-centred and radically generous by investing in new ideas and innovation, technology and resources, training and people who will reinvent and reshape what evangelism could be to enable thousands to engage in the good news message.",
                 "link1Text": "Give Now",
                 "link1Action": "give",
-                "link1Text": "Go",
-                "link1Action": "go-pledge",
+                "link2Text": "Go",
+                "link2Action": "go-pledge",
                 "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
+                    "src":"/static/images/go-2.jpg",
                     "alt":"TODO"
                 }]
 
