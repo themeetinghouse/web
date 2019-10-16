@@ -19,12 +19,12 @@ export default class ContentItem extends React.Component<Props, State>  {
 
 
   render() {
-    return (<div className="FormItem" style={{ position: "static", paddingBottom: "5vw" }}>
+    return (<div className="FormItem iframeItemDiv1" >
       <div className="oneImagePosition">
         <h1 className="oneImageH1" >{this.state.content.header1}</h1>
         <h2>{this.state.content.header2}</h2>
-        <div style={{ fontSize: "1.5vw", fontFamily: "Graphik Web" }}>{this.state.content.text1}</div>
-        <iframe src={this.state.content.src} title="The Meeting House - IFrame" scrolling="no" style={{ border: "0px", width: "80vw", height: this.state.content.height }}></iframe>
+        <div className="iframeItemDiv2" >{this.state.content.text1}</div>
+        <iframe src={this.state.content.src} title="The Meeting House - IFrame" scrolling="no" className="iframeItemIframe" style={{ height: this.state.content.height }}></iframe>
 
       </div></div>)
   }
