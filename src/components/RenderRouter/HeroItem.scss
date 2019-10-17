@@ -324,11 +324,11 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: #000000aa;
+        background-color: #000000;
         padding: 2vw;
         left: 0vw;
         width: 100vw;
-        height: 65vh;
+        // height: 65vh;
         top: 60vh;
         z-index: 100;
         padding: 10vw 6vw 10vw 6vw;
@@ -364,7 +364,7 @@
     .headerText2 {
         font-size: 1.5vw;
     }
-    
+
     .example-mask {
         position: absolute;
         top: 5vw;
