@@ -12,7 +12,8 @@ interface Props extends RouteComponentProps {
 }
 interface State {
     content: any,
-    locationData:any
+    locationData:any,
+    arrowOpacity:any
 }
 class HeroItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -24,7 +25,8 @@ class HeroItem extends React.Component<Props, State> {
         console.log(context);
         this.state = {
             content: props.content,
-            locationData:null
+            locationData:null,
+            arrowOpacity:1
         }
         this.navigate = this.navigate.bind(this);
         if (this.state.content.showLocationSearch){
@@ -94,14 +96,26 @@ class HeroItem extends React.Component<Props, State> {
         else
          return "https://beta.themeetinghouse.com/cache/"+size
     }
+    fadeIn(obj:any){
+       
+        obj.target.style.transition = "opacity 1s";
+        obj.target.style.opacity = "1";
+    }
+    downArrowScroll(){
+        //console.log(window.scrollY)
+        var downArrow=document.getElementById('downArrow')
+        if (downArrow)
+            downArrow.style.opacity=((1-(window.scrollY/250))).toString()
+    }
     render() {
+        window.onscroll=()=>{this.downArrowScroll()}
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
         if (this.state.content.style === "full") {
 
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
-                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
+                    <img  style={{opacity:0}} onLoad={(item)=>{this.fadeIn(item)}} src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
                         this.imgUrl(480)+image1.src+" 480w,"+
                         this.imgUrl(640)+image1.src+" 640w,"+
@@ -132,7 +146,7 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
-                     <div><img style={{ cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
+                     <div><img id="downArrow" style={{ opacity:this.state.arrowOpacity,cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
 
                 </div>
 
