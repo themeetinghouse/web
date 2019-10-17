@@ -200,6 +200,9 @@
         top: -60vw;
       //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
+    .secondImg {
+      top: 140vw;
+    }
     .oneImageGreyBox{
         margin-top:60vw;
         padding: 40vw 6vw 10vw;
@@ -212,8 +215,8 @@
     }
     .oneImageBlackBox{
         margin-top:20vw;
-        padding: 10vw;
-        padding-top:40vw;
+        padding: 6vw;
+        padding-top:20vw;
         position: relative;
         width: 100vw;
         height: 175vw;
@@ -240,6 +243,7 @@
     .ContentItem.oneImage {
         position: static;
         padding-bottom: 5vw;
-        padding-top: 57vw;
+        // padding-top: 45vw;
+        display: inline-block;
     }
 }

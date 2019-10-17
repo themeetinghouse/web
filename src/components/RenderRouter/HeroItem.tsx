@@ -34,7 +34,7 @@ class HeroItem extends React.Component<Props, State> {
                 .then((myJson) => {
                   this.setState({ locationData: myJson });
                 })
-          
+
         }
     }
     locationChange(item:any){
@@ -142,7 +142,7 @@ class HeroItem extends React.Component<Props, State> {
                 <div className="partialNoFooter" >
                     {
                         image1.src.includes(".svg")?
-                    
+
                     <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"/>:
                     <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partialNoFooterImage"
                     srcSet={this.imgUrl(320)+image1.src+" 320w,"+
@@ -174,7 +174,7 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?
-                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}}  
+                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}}
                                 options={this.state.locationData.map((item:any)=>{return {label:item.name,value:item.id}})}></Select>
                               :null}
                             </div>):null}

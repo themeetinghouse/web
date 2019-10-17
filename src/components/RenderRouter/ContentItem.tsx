@@ -94,7 +94,7 @@ export default class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
             </div>
-            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage right"
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage right secondImg"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
                         this.imgUrl(480)+image1.src+" 480w,"+
                         this.imgUrl(640)+image1.src+" 640w,"+
