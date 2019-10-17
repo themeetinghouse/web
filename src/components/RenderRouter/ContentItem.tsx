@@ -86,7 +86,7 @@ export default class ContentItem extends React.Component<Props, State>  {
     else if (this.state.content.style === "oneImageBlackRight") {
 
       return (
-        <div className="ContentItem oneImage">
+        <div className="ContentItem oneImage ContentItemMarginBottom">
           <div className="oneImagePosition right">
             <div className="oneImageBlackBox right" >
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
