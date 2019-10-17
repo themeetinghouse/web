@@ -27,13 +27,13 @@
       } 
       
       @-webkit-keyframes bounce {
-        0%, 20%, 40%, 60%, 80%, 100% {-webkit-transform: translateY(0);}
-        50% {-webkit-transform: translateY(-5px);}
+        0%, 20%, 30%, 70%, 80%, 100% {-webkit-transform: translateY(0);}
+        50% {-webkit-transform: translateY(-10px);}
       } 
       
       @keyframes bounce { 
-        0%, 20%, 40%, 60%, 80%, 100% {transform: translateY(0);}
-        50% {transform: translateY(-5px);}
+        0%, 20%, 30%, 70%, 80%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
       } 
       
       .bounce { 
@@ -224,13 +224,13 @@
       } 
       
       @-webkit-keyframes bounce {
-        0%, 20%, 40%, 60%, 80%, 100% {-webkit-transform: translateY(0);}
-        50% {-webkit-transform: translateY(-5px);}
+        0%, 20%, 30%, 70%, 80%, 100% {-webkit-transform: translateY(0);}
+        50% {-webkit-transform: translateY(-10px);}
       } 
       
       @keyframes bounce { 
-        0%, 20%, 40%, 60%, 80%, 100% {transform: translateY(0);}
-        50% {transform: translateY(-5px);}
+        0%, 20%, 30%, 70%, 80%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
       } 
       
       .bounce { 
