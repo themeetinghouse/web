@@ -137,109 +137,116 @@ class ListItem extends React.Component<Props, State> {
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
-    else if (this.state.content.style === "vertical") return (
-      <div className="ListItem horizontal" >
-        <div className="ListItemDiv1" >
-          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-          <div className="ListItemSpeakersDiv" >
-            {data.map((item: any, index: any) => {
-              if (this.state.content.class === "speakers") {
-                return (
-                  <div key={item.id} className="ListItemTeachingImageDiv" >
-                    <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-                    />
-                    <div className="ListItemEpisodeLength" >{item.name}</div>
-                    <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
-                  </div>
-                )
-              }
-              else if (this.state.content.class === "videos") {
-                return (
-                  <div key={item.id} className="ListItemDiv3" >
-                    <img alt="TBD" className="ListItemImage"  src={item.Youtube.snippet.thumbnails.default.url} />
-                    <div className="ListItemDiv4" >{item.episodeTitle}</div>
-                    <div className="ListItemDiv4" >{item.series != null ? item.series : null}</div>
-                    <div>{item.publishedDate}</div>
+    else if (this.state.content.style === "vertical") 
+    {
+      if (data.length>0)
+        return (
+          
+          <div className="ListItem horizontal" >
+            <div className="ListItemDiv1" >
+              <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+              {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+              <div className="ListItemSpeakersDiv" >
+                {data.map((item: any, index: any) => {
+                  if (this.state.content.class === "speakers") {
+                    return (
+                      <div key={item.id} className="ListItemTeachingImageDiv" >
+                        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
+                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+                        />
+                        <div className="ListItemEpisodeLength" >{item.name}</div>
+                        <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
+                      </div>
+                    )
+                  }
+                  else if (this.state.content.class === "videos") {
+                    return (
+                      <div key={item.id} className="ListItemDiv3" >
+                        <img alt="TBD" className="ListItemImage"  src={item.Youtube.snippet.thumbnails.default.url} />
+                        <div className="ListItemDiv4" >{item.episodeTitle}</div>
+                        <div className="ListItemDiv4" >{item.series != null ? item.series : null}</div>
+                        <div>{item.publishedDate}</div>
 
-                  </div>
-                )
-              }
-              else if (this.state.content.class === "staff") {
-                return (
-                  <div key={index} className="ListItemDiv3" >
+                      </div>
+                    )
+                  }
+                  else if (this.state.content.class === "staff") {
+                    return (
+                      <div key={index} className="ListItemDiv3" >
 
-                    <img alt={item.photoAlt} className="ListItemImage2"
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-                      src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+                        <img alt={item.photoAlt} className="ListItemImage2"
+                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+                          src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
-                    <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-                    <div className="ListItemContact" >{item.Position}</div>
-                    {item.Email!=null?<div><a href={"mailto:"+item.Email}>{item.Email}</a></div>:null}
-                    {item.Phone!=null?<div>{item.Phone}</div>:null}
-                    {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
-                    {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
-                    {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
+                        <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+                        <div className="ListItemContact" >{item.Position}</div>
+                        {item.Email!=null?<div><a href={"mailto:"+item.Email}>Email</a></div>:null}
+                        {item.Phone!=null?<div>{item.Phone}</div>:null}
+                        {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
+                        {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
+                        {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
 
-                  </div>
-                )
-              }
-              else if (this.state.content.class === "overseers") {
-                return (
-                  <div key={index} className="ListItemDiv3" >
+                      </div>
+                    )
+                  }
+                  else if (this.state.content.class === "overseers") {
+                    return (
+                      <div key={index} className="ListItemDiv3" >
 
-                    <img alt={item.photoAlt} className="ListItemImage2"
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-                      src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+                        <img alt={item.photoAlt} className="ListItemImage2"
+                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+                          src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
-                    <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-                    <div className="ListItemPosition" >{item.Position}</div>
+                        <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+                        <div className="ListItemPosition" >{item.Position}</div>
 
-                  </div>
-                )
-              }
-              else if (this.state.content.class === "events") {
-                return (
-                  <div key={item.id} className="ListItemEvents" >
-                    <div className="ListItemEventsDescription" >{item.name}</div>
-                    <div className="ListItemEventsDescription2" >{item.description}</div>
-                    <div>{item.location}</div>
-                    <div>{item.time}</div>
-                    <Button onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                    <Button onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
-
-
-
-                  </div>
-                )
-              }
-              else if (this.state.content.class === "compassion") {
-                return (
-                  <div key={item.id} className="ListItemCompassion" >
-                    <img alt={item.imageAlt} className="ListItemCompassionLogo"  src={item.image}
-                      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
-                    <div className="ListItemEventsDescription" >{item.name}</div>
-                    <div className="ListItemEventsDescription2" >{item.description}</div>
-                    <div>{item.location}</div>
-                    {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
-                    {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
-                    {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
-                    {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
+                      </div>
+                    )
+                  }
+                  else if (this.state.content.class === "events") {
+                    return (
+                      <div key={item.id} className="ListItemEvents" >
+                        <div className="ListItemEventsDescription" >{item.name}</div>
+                        <div className="ListItemEventsDescription2" >{item.description}</div>
+                        <div>{item.location}</div>
+                        <div>{item.time}</div>
+                        <Button onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                        <Button onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
 
 
 
-                  </div>
-                )
-              }
-              else return null
-            })}
+                      </div>
+                    )
+                  }
+                  else if (this.state.content.class === "compassion") {
+                    return (
+                      <div key={item.id} className="ListItemCompassion" >
+                        <img alt={item.imageAlt} className="ListItemCompassionLogo"  src={item.image}
+                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
+                        <div className="ListItemEventsDescription" >{item.name}</div>
+                        <div className="ListItemEventsDescription2" >{item.description}</div>
+                        <div>{item.location}</div>
+                        {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
+                        {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
+                        {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
+                        {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
 
-            <div style={{ clear: "left" }} ></div>
+
+
+                      </div>
+                    )
+                  }
+                  else return null
+                })}
+
+                <div style={{ clear: "left" }} ></div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    )
+        
+        )
+        else return null
+          }
     else if (this.state.content.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" >
         <div className="ListItemDiv1" >
