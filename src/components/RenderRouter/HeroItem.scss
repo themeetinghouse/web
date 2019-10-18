@@ -303,13 +303,20 @@
         padding-bottom: 0vh;
     }
     .partialNoFooterBox {
-    position: absolute;
-    padding: 2vw;
-    left: 5vw;
-    width: 46vw;
-    top: 18vh;
-    z-index: 100;
-}
+        position: absolute;
+        padding: 2vw;
+        left: 5vw;
+        width: 46vw;
+        top: 18vh;
+        z-index: 100;
+    }
+    .partialNoFooterLocationDropDown {
+        font-family: Graphik Web;
+        padding: 4px;
+        width: 86vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
     .heroImage {
         width: 100vw;
         height: 94vh;

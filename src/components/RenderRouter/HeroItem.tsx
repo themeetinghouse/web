@@ -160,7 +160,7 @@ class HeroItem extends React.Component<Props, State> {
                 />
 
                     }
-                    <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "46vw", top: "6vh", zIndex: 100 }}>
+                    <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "60vw", top: "6vh", zIndex: 100 }}>
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
