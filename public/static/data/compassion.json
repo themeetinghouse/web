@@ -31,7 +31,7 @@
         "sites": ["brantford"],
         "name": "Circle Square Ranch Brantford",
         "description": "Circle Square Ranch Brantford is a Summer camp for children and youth that serve the community of Brantford year round. They are committed to seeing young people transformed by the love of God actively at work in their lives.",
-        "image": "/static/photos/compassion/Circle Square Ranch Brantford.png",
+        "image": "/static/photos/compassion/circle square.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -74,7 +74,7 @@
         "name": "Crossroad Prision Ministries Canada",
         "description": "Crossroads Canada cultivates Christ-centred relationships between those inside and outside prison walls. ",
         "website": "cpministries.ca/",
-        "image": "/static/photos/compassion/Crossroads.jpg",
+        "image": "/static/photos/compassion/crossroads.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -92,7 +92,7 @@
         "name": "Indwell",
         "description": "Indwell is a Christian charity that creates affordable housing communities that support people seeking health, wellness and belonging. Their programs support more than 400 households in Hamilton, Woodstock and Simcoe.",
         "website": "indwell.ca/",
-        "image": "/static/photos/compassion/Indwell.jpg",
+        "image": "/static/photos/compassion/indwell.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -119,7 +119,7 @@
         "name": "Indwell",
         "description": "Indwell is a Christian charity that creates affordable housing communities that support people seeking health, wellness and belonging. Their programs support more than 400 households in Hamilton, Woodstock and Simcoe.",
         "website": "indwell.ca/",
-        "image": "/static/photos/compassion/Indwell.jpg",
+        "image": "/static/photos/compassion/indwell.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -137,7 +137,7 @@
         "name": "The Baby Depot",
         "description": "The Baby Depot helps families in need with children 0–2 years old in the Hamilton area. They supply a year’s worth of gently used baby clothes and essentials to those who need support.",
         "website": "www.thebabydepot.org/",
-        "image": "/static/photos/compassion/the baby depot.png",
+        "image": "/static/photos/compassion/baby depot.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -146,7 +146,7 @@
         "name": "Crossroad Prision Ministries Canada",
         "description": "Crossroads Canada cultivates Christ-centred relationships between those inside and outside prison walls. ",
         "website": "cpministries.ca/",
-        "image": "/static/photos/compassion/Crossroads.jpg",
+        "image": "/static/photos/compassion/crossroads.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -182,7 +182,7 @@
         "name": "New Life Prison Ministries",
         "description": "New Life Prison Ministries offers hope and direction to those impacted through the criminal justice system by presenting the good news of Jesus Christ through Bible correspondence studies, prison chapel services, visitation, video showings and aftercare support so that God’s name may be honoured and glorified.",
         "website": "nlpm.ca/",
-        "image": "/static/photos/compassion/new life.png",
+        "image": "/static/photos/compassion/new life.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -271,7 +271,7 @@
         "name": "The Dam",
         "description": "The Dam partners with youth to create an inclusive community where all are welcomed, valued and respected.",
         "website": "www.thedam.org/",
-        "image": "/static/photos/compassion/The Dam.jpg",
+        "image": "/static/photos/compassion/the dam.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -280,7 +280,7 @@
         "name": "Women’s Habitat",
         "description": "Women's Habitat is a shelter and outreach centre that provides services and temporary housing for women in need to make a new life for themselves and their children.",
         "website": "womenshabitat.ca/",
-        "image": "/static/photos/compassion/womens habitat.png",
+        "image": "/static/photos/compassion/womens habitat.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -289,7 +289,7 @@
         "name": "RE:Soul",
         "description": "ReSoul is Milton's only youth dedicated drop-in centre, serving youth from grades 6-12. ",
         "website": "yfcmilton.com",
-        "image": "/static/photos/compassion/ReSoul.png",
+        "image": "/static/photos/compassion/re soul.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -307,7 +307,7 @@
         "name": "Restoring Hope Ministries",
         "description": "Restoring Hope Ministries is all about offering hope and inspiration by providing emergency shelter and support for youth experiencing homelessness in Ottawa.",
         "website": "restoringhope.ca/main/",
-        "image": "/static/photos/compassion/restoring hope.png",
+        "image": "/static/photos/compassion/restoring hope.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -316,7 +316,7 @@
         "name": "Matthew House Ottawa",
         "description": "Matthew House Ottawa provides refugees with shelter, support, and community in Ottawa. They also have a furniture bank that supports the operation of the shelter.",
         "website": "www.matthewhouseottawa.org/",
-        "image": "/static/photos/compassion/matthew house.png",
+        "image": "/static/photos/compassion/matthew house.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -325,7 +325,7 @@
         "name": "Safe Families Canada",
         "description": "Safe Families is a movement to keep children safe and families intact. Through host families, family friends, and family coaches, they temporarily host children and provide a network of support to families in crisis while they get back on their feet.",
         "website": "safefamiliescanada.com/",
-        "image": "/static/photos/compassion/SFC.png",
+        "image": "/static/photos/compassion/safe families.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -334,7 +334,7 @@
         "name": "Jericho Road Christian Ministries",
         "description": "Jericho Road supports mental health addition recovery by providing homes and programs for men and connecting them to a recovery community where together they build  lives of hope, health, and purpose. ",
         "website": "www.jerichoroad.ca/",
-        "image": "/static/photos/compassion/jericho road2.png",
+        "image": "/static/photos/compassion/jericho road.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -449,7 +449,7 @@
         "name": "Wesley Mimico United Church",
         "description": "Provides a community lunch every Saturday at 12PM and a food bank every Saturday (except the last in a month) between 11-1PM.",
         "website": "www.wmuc.ca/",
-        "image": "/static/photos/compassion/Wesley.jpg",
+        "image": "/static/photos/compassion/wesley.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -458,7 +458,7 @@
         "name": "Inner City Outreach ",
         "description": "Inner City Outreach provides wholistic programs for youth in the Jane and Finch community. Some programs they offer are homework clubs, a basketball league, Scouts, and camps.",
         "website": "innercityoutreach.ca/",
-        "image": "/static/photos/compassion/ICO.jpg",
+        "image": "/static/photos/compassion/inner city outreach.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
