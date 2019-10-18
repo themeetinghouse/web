@@ -84,28 +84,35 @@
   .HomeFooter.footer.font-small {
     color: #1A1A1A;
     background-color: #EFEFF0;
-    padding-top: 2vw;
-    margin-top: 2vw;
+    padding-top: 10vw;
+    margin-top: 97vw;
   }
   .FooterNavLink {
     font-family: Graphik Web;
     line-height: 32px;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 16px;
     color: #1A1A1A;
+    text-align: left;
   }
   .HomeFooterP {
     line-height: 16px;
     font-size: 12px;
     font-family: Graphik Web;
     color: #1A1A1A;
+    text-align: left;
+    padding-left: 15px;
   }
   .HomeFooterA {
     color: #1A1A1A;
   }
+  .FooterSocial {
+    text-align: left;
+  }
   .FooterSocialA {
     white-space: nowrap;
     color: #1A1A1A;
+    padding-left: 15px;
   }
   .FooterSocialImg {
     margin-right: 0.5vw;
