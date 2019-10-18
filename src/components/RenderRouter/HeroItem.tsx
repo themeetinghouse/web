@@ -113,7 +113,7 @@ class HeroItem extends React.Component<Props, State> {
         if (this.state.content.style === "full") {
 
             return (
-                <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh", marginBottom: "45vw" }}>
+                <div className="headerItem heroItem" >
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     <img  style={{opacity:0}} onLoad={(item)=>{this.fadeIn(item)}} src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+

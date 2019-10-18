@@ -1,6 +1,7 @@
 ﻿//import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { NavLink } from 'reactstrap';
+import "./HomeFooter.scss"
 //const bootstrap = require('react-bootstrap');
 //import Popper from 'popper.js'
 //import Head from 'next/head'
@@ -11,7 +12,7 @@ import { MDBRow, MDBCol, MDBFooter, MDBContainer } from 'mdbreact'
 export default class HomeFooter extends React.Component {
   render() {
     return (
-      <MDBFooter color="black" style={{ color: "#1A1A1A", backgroundColor: "#EFEFF0", paddingTop:"2vw", marginTop:"2vw"}} className="footer font-small HomeFooter">
+      <MDBFooter color="black" className="HomeFooter footer font-small ">
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
