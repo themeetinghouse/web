@@ -32,8 +32,8 @@ export class ContentItem extends React.Component<Props, State>  {
       listData: null
     }
     this.navigate = this.navigate.bind(this);
-    if (this.state.content.class === "home-church") { 
-      
+    if (this.state.content.class === "home-church") {
+
     }
     else {
       fetch('./static/data/distance-groups.json').then(function (response) {
@@ -75,13 +75,12 @@ export class ContentItem extends React.Component<Props, State>  {
 
     return (
 
-      <div className="ContentItem oneImage" style={{ height: "100vw", position: "static", paddingBottom: "5vw" }}>
-        <div style={{ position: "relative", left: "20vw", width: "80vw" }}>
+      <div className="ContentItem oneImage distancegroupitem1" >
+        <div className="distancegroupitemdiv1" >
           <div  >
             <h1  >{this.state.content.header1}</h1>
-            <div style={{ position: "absolute", left: "40vw", width: "40vw", height: "40vw" }}>
-              <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter}
-                style={{ left: "0vw", width: "40vw", height: "40vw" }}>
+            <div className="distancegroupitemdiv2" >
+              <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} className="distancegroupmap" >
                 {this.state.listData != null ? this.state.listData.map((item: any) => {
                   return (<Marker onClick={this.onMarkerClick}
                     position={{ lat: item.location.latitude, lng: item.location.longitude }} />
@@ -89,7 +88,7 @@ export class ContentItem extends React.Component<Props, State>  {
                 }) : null}
               </Map>
             </div>
-            <div style={{ position: "absolute", left: "0vw", width: "40vw", height: "40vw" }}>
+            <div className="distancegroupitemdiv3" >
               {this.state.listData != null ? this.state.listData.map((item: any) => {
                 if (this.state.content.class === "home-church") {
                   return (
@@ -100,14 +99,14 @@ export class ContentItem extends React.Component<Props, State>  {
                 }
                 else {
                   return (
-                    <div style={{borderBottomWidth:"1px", marginBottom:"5px", borderBottomColor:"#C8C8C8", borderBottomStyle:"solid"}}>
+                    <div className="distancegroupitemdiv4" >
                       <h3>{item.name}</h3>
                       <div>{item.dayofweek}/{item.frequency}</div>
                       <div>Leaders: <a href={"mailto:" + item.l1Email}>{item.l1FirstName} {item.l1LastName} ({item.l1Email})</a></div>
                       {item.l2Email!=null?<div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div>:null}
                       {item.l3Email!=null?<div><a href={"mailto:" + item.l3Email}>{item.l3FirstName} {item.l3LastName} ({item.l3Email})</a></div>:null}
                       {item.l4Email!=null?<div><a href={"mailto:" + item.l4Email}>{item.l4FirstName} {item.l4LastName} ({item.l4Email})</a></div>:null}
-                      {item.facebook!=null?<div ><a href={item.facebookLink} style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "0.5vw", marginBottom: "0.5vw" }} src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div>:null}
+                      {item.facebook!=null?<div ><a href={item.facebookLink} className="distancegroupitemA" ><img className="distancegroupitemImage"  src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div>:null}
 
                     </div>
                   )

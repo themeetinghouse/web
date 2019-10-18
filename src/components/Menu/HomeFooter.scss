@@ -1,0 +1,129 @@
+@media (min-width: 768px) {
+    .HomeFooter.footer.font-small {
+      color: #1A1A1A;
+      background-color: #EFEFF0;
+      padding-top: 2vw;
+      margin-top: 2vw;
+    }
+    .FooterNavLink {
+      font-family: Graphik Web;
+      line-height: 32px;
+      font-weight: bold;
+      font-size: 22px;
+      color: #1A1A1A;
+    }
+    .HomeFooterP {
+      line-height: 16px;
+      font-size: 12px;
+      font-family: Graphik Web;
+      color: #1A1A1A;
+    }
+    .HomeFooterA {
+      color: #1A1A1A;
+    }
+    .FooterSocialA {
+      white-space: nowrap;
+      color: #1A1A1A;
+    }
+    .FooterSocialImg {
+      margin-right: 0.5vw;
+      margin-top: 2.5vw;
+      margin-bottom: 2.5vw;
+    }
+    .HomeFooterCopyright {
+      font-family: Graphik Web;
+      font-size: 12px;
+      margin: 0px;
+      padding: 5px;
+      color: #646469;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .HomeFooter.footer.font-small {
+    color: #1A1A1A;
+    background-color: #EFEFF0;
+    padding-top: 2vw;
+    margin-top: 2vw;
+  }
+  .FooterNavLink {
+    font-family: Graphik Web;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #1A1A1A;
+  }
+  .HomeFooterP {
+    line-height: 16px;
+    font-size: 12px;
+    font-family: Graphik Web;
+    color: #1A1A1A;
+  }
+  .HomeFooterA {
+    color: #1A1A1A;
+  }
+  .FooterSocialA {
+    white-space: nowrap;
+    color: #1A1A1A;
+  }
+  .FooterSocialImg {
+    margin-right: 0.5vw;
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+  }
+  .HomeFooterCopyright {
+    font-family: Graphik Web;
+    font-size: 12px;
+    margin: 0px;
+    padding: 5px;
+    color: #646469;
+  }
+}
+
+@media (max-width: 767px) {
+  .HomeFooter.footer.font-small {
+    color: #1A1A1A;
+    background-color: #EFEFF0;
+    padding-top: 10vw;
+   // margin-top: 97vw;
+  }
+  .FooterNavLink {
+    font-family: Graphik Web;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #1A1A1A;
+    text-align: left;
+  }
+  .HomeFooterP {
+    line-height: 16px;
+    font-size: 12px;
+    font-family: Graphik Web;
+    color: #1A1A1A;
+    text-align: left;
+    padding-left: 15px;
+  }
+  .HomeFooterA {
+    color: #1A1A1A;
+  }
+  .FooterSocial {
+    text-align: left;
+  }
+  .FooterSocialA {
+    white-space: nowrap;
+    color: #1A1A1A;
+    padding-left: 15px;
+  }
+  .FooterSocialImg {
+    margin-right: 0.5vw;
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+  }
+  .HomeFooterCopyright {
+    font-family: Graphik Web;
+    font-size: 12px;
+    margin: 0px;
+    padding: 5px;
+    color: #646469;
+  }
+}

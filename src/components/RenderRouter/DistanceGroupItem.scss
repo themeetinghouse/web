@@ -1,11 +1,143 @@
 @media (min-width: 768px) {
-   
+   .distancegroupitem1.ContentItem.oneImage {
+    height: 100vw;
+    position: static;
+    padding-bottom: 5vw;
+   }
+
+   .distancegroupitemdiv1 {
+     position: relative;
+     left: 20vw;
+     width: 80vw;
+   }
+
+   .distancegroupitemdiv2 {
+     position: absolute;
+     left: 40vw;
+     width: 40vw;
+     height: 40vw;
+   }
+
+   .distancegroupitemdiv3 {
+     position: absolute;
+     left: 0vw;
+     width: 40vw;
+     height: 40vw;
+   }
+
+   .distancegroupitemdiv4 {
+     border-bottom-width: 1px; margin-bottom: 5px; border-bottom-color: #C8C8C8; border-bottom-style: solid;
+   }
+
+   .distancegroupitemA {
+     white-space: nowrap;
+     color: #1A1A1A;
+   }
+
+   .distancegroupitemImage {
+     margin-right: 0.5vw;
+     margin-top: 0.5vw; margin-bottom: 0.5vw;
+   }
+
+   .distancegroupmap {
+     left: 0vw;
+     width: 40vw;
+     height: 40vw;
+   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
- 
+  .distancegroupitem1.ContentItem.oneImage {
+   height: 100vw;
+   position: static;
+   padding-bottom: 5vw;
+  }
+
+  .distancegroupitemdiv1 {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+  }
+
+  .distancegroupitemdiv2 {
+    position: absolute;
+    left: 40vw;
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .distancegroupitemdiv3 {
+    position: absolute;
+    left: 0vw;
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .distancegroupitemdiv4 {
+    border-bottom-width: 1px; margin-bottom: 5px; border-bottom-color: #C8C8C8; border-bottom-style: solid;
+  }
+
+  .distancegroupitemA {
+    white-space: nowrap;
+    color: #1A1A1A;
+  }
+
+  .distancegroupitemImage {
+    margin-right: 0.5vw;
+    margin-top: 0.5vw; margin-bottom: 0.5vw;
+  }
+
+  .distancegroupmap {
+    left: 0vw;
+    width: 40vw;
+    height: 40vw;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  
+  .distancegroupitem1.ContentItem.oneImage {
+   height: 100vw;
+   position: static;
+   padding-bottom: 5vw;
+  }
+
+  .distancegroupitemdiv1 {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+  }
+
+  .distancegroupitemdiv2 {
+    position: absolute;
+    left: 40vw;
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .distancegroupitemdiv3 {
+    position: absolute;
+    left: 0vw;
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .distancegroupitemdiv4 {
+    border-bottom-width: 1px; margin-bottom: 5px; border-bottom-color: #C8C8C8; border-bottom-style: solid;
+  }
+
+  .distancegroupitemA {
+    white-space: nowrap;
+    color: #1A1A1A;
+  }
+
+  .distancegroupitemImage {
+    margin-right: 0.5vw;
+    margin-top: 0.5vw; margin-bottom: 0.5vw;
+  }
+
+  .distancegroupmap {
+    left: 0vw;
+    width: 40vw;
+    height: 40vw;
+  }
 }

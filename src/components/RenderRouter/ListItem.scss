@@ -41,7 +41,9 @@
 
     .ListItemDiv7 {
         width: 80vw;
-        font-size: 1.5vw; font-family: Graphik Web; padding-bottom: 1vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        padding-bottom: 1vw;
     }
 
     .ListItemDiv8 {
@@ -395,7 +397,8 @@
 
   .ListItem.imageList {
       position: static;
-      width: 100vw; padding-bottom: 5vw;
+      width: 100vw;
+      padding-bottom: 5vw;
   }
 
 }
@@ -409,9 +412,9 @@
   .ListItemDiv1 {
       position: relative;
       z-index: 99;
-      left: 20vw;
+      // left: 20vw;
       width: 80vw;
-      padding: 10vw 10vw;
+      padding: 10vw 6vw 6vw;
   }
 
   .ListItemDiv2 {
@@ -443,31 +446,42 @@
   }
 
   .ListItemDiv7 {
-      width: 80vw;
-      font-size: 1.5vw; font-family: Graphik Web; padding-bottom: 1vw;
+      width: 90vw;
+      font-size: 5vw;
+      font-family: Graphik Web;
+      padding-bottom: 1vw;
   }
 
   .ListItemDiv8 {
       position: relative;
+      width: 87vw;
   }
 
   .ListItemDiv9 {
-      position: absolute;
-      left: 12.5vw;
-      width: 5vw;
-      bottom: 0vw;
-      top: 0vw;
-      border-color: #0000ff; border: solid 10px;
+    position: absolute;
+    left: -25vw;
+    width: 75vw;
+    height: 15vh;
+    bottom: 0vw;
+    top: 13vw;
+    border-color: #0000ff;
+    border: solid 10px;
   }
 
   .ListItemDiv10 {
       position: relative;
       z-index: 99;
+      top: 25vw;
+      height: 75vh;
+  }
+  .ListItemDiv10:nth-last-child(1) {
+      margin-bottom: 30vw;
   }
 
   .ListItemDiv11 {
-      width: 40vw;
-      font-size: 1.25vw; font-family: Graphik Web;
+      width: 100%;
+      font-size: 4.27vw;
+      font-family: Graphik Web;
   }
 
   .ListItemH1 {
@@ -482,24 +496,24 @@
 }
 
   .ListItemH1ImageList {
-      font-weight: 700;
       font-size: 10vw;
+      font-weight: bold;
       font-family: Graphik Web;
-      line-height: 12.5vw;
   }
 
   .ListItemH1ImageList2 {
       position: absolute;
-      height: 20vw;
-      width: 30vw;
+      height: 100%;
+      width: 100%;
       left: 0vw;
-      object-fit: cover;
-      top: 2.5vw;
+      object-fit: contain;
+      top: -40vw;
   }
 
   .ListItemH3 {
-      width: 40vw;
-      font-size: 2vw;
+      width: 100%;
+      font-size: 6.4vw;
+      font-weight: bold;
       font-family: Graphik Web;
   }
 

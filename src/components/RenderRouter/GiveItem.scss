@@ -1,13 +1,23 @@
 @media (min-width: 768px) {
-   
-
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-   
-
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+  }
 }
 
 @media (max-width: 767px) {
- 
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+  }
 }

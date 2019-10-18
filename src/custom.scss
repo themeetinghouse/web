@@ -27,7 +27,7 @@ html{
 }
 
 
-/* 
+/*
   ##Device = Desktops
   ##Screen = 1025px to higher resolution desktops
 */
@@ -56,7 +56,7 @@ html{
         font-size: 16px;
        // line-height: 24px;
     }
-    
+
 
 
     body {
@@ -79,16 +79,16 @@ html{
         top: 0vh;
     }
 
-   
+
     .footer {
         
         padding-left: 20vw;
         margin-left:0vw;
     }
-    
+
 }
 
-/* 
+/*
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
   */
@@ -101,7 +101,7 @@ html{
         font-size: 16px;
      //   line-height: 24px;
     }
-    
+
     body {
         padding-top: 0 ;
         margin-left: 0;
@@ -122,20 +122,20 @@ html{
         top: 0vh;
     }
 
-  
+
     .footer {
         padding-left: 20vw;
         margin-left:0vw;
     }
-    
+
 }
 
-/* 
+/*
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
   */
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
 
     body {
         padding-top: 12vw;
@@ -143,17 +143,24 @@ html{
         font-size: 16px;
      //  line-height: 24px;
     }
-    
-  
-  
     .footer {
         margin-left: 0vw;
-    
     }
-    
+    .imageList .hoverText{
+        position: relative;
+        padding-right:0vw;
+        padding-top:30vw;
+        padding-bottom:5vw;
+        padding-left: 0vw;
+        width: 100%!important;
+        height: 100%!important;
+        left: 0vw;
+        top: 32vw;
+    }
+
 }
 
-/* 
+/*
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */

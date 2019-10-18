@@ -36,7 +36,7 @@ class HeroItem extends React.Component<Props, State> {
                 .then((myJson) => {
                   this.setState({ locationData: myJson });
                 })
-          
+
         }
     }
     locationChange(item:any){
@@ -113,7 +113,7 @@ class HeroItem extends React.Component<Props, State> {
         if (this.state.content.style === "full") {
 
             return (
-                <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh" }}>
+                <div className="headerItem heroItem" >
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     <img  style={{opacity:0}} onLoad={(item)=>{this.fadeIn(item)}} src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
@@ -158,7 +158,7 @@ class HeroItem extends React.Component<Props, State> {
                 <div className="partialNoFooter" >
                     {
                         image1.src.includes(".svg")?
-                    
+
                     <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"/>:
                     <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partialNoFooterImage"
                     srcSet={this.imgUrl(320)+image1.src+" 320w,"+
