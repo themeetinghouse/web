@@ -80,11 +80,11 @@
                 "image1": [
                     {
                         "src": "/static/images/KY1.jpg",
-                        "alt": "TODO"
+                        "alt": "A young child playing with blocks."
                     },
                     {
                         "src": "/static/images/KY2.jpg",
-                        "alt": "Description"
+                        "alt": "Two boys laughing."
                     }
                 ]
             },
@@ -94,19 +94,19 @@
                 "image1": [
                     {
                         "src": "/static/images/HC1.jpg",
-                        "alt": "Description"
+                        "alt": "Several groups of people chatting in a living room."
                     },
                     {
                         "src": "/static/images/HC2.jpg",
-                        "alt": "Description"
+                        "alt": "Three people talking over an open bible at home church. "
                     },
                     {
                         "src": "/static/images/HC3.jpg",
-                        "alt": "Description"
+                        "alt": "Two women laughing."
                     },
                     {
                         "src": "/static/images/HC4.jpg",
-                        "alt": "Description"
+                        "alt": "Three men sitting on a couch and talking."
                     }
                 ],
                 "header1": "Home Church",
@@ -130,19 +130,19 @@
                 "image1": [
                     {
                         "src": "/static/images/GC1.jpg",
-                        "alt": "Description"
+                        "alt": "Two women drinking coffee."
                     },
                     {
                         "src": "/static/images/GC2.jpg",
-                        "alt": "Description"
+                        "alt": "A man and woman talking outside."
                     },
                     {
                         "src": "/static/images/GC3.jpg",
-                        "alt": "Description"
+                        "alt": "Three men talking around a counter."
                     },
                     {
                         "src": "/static/images/GC4.jpg",
-                        "alt": "Description"
+                        "alt": "Three women talking and laughing."
                     }
                 ],
                 "header1": "Get Connected",

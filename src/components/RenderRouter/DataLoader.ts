@@ -97,7 +97,18 @@ export default class DataLoader extends React.Component<Props, State> {
 
         }).catch((e: any) => { console.log(e) })
     }
-
+    sortStaff(list: any) {
+        return list.sort((a: any, b: any) => {
+            if (a.Position.includes("Lead Pastor") && b.Position.includes("Lead Pastor"))
+                return a.lastName - b.lastName;
+            else if (a.Position.includes("Lead Pastor"))
+                return -1;
+            else if (b.Position.includes("Lead Pastor"))
+                return 1;
+            else
+                return a.lastName - b.lastName
+        })
+    }
     loadData() {
         if (this.state.content.class === "videos") {
             if (this.state.content.selector === "sameSeries") {
@@ -122,7 +133,7 @@ export default class DataLoader extends React.Component<Props, State> {
                         fetch('./static/data/coordinators.json').then(function (response) {
                             return response.json();
                         }).then((myJson2) => {
-                            this.props.dataLoaded(myJson.concat(myJson2))
+                            this.props.dataLoaded(this.sortStaff(myJson).concat(myJson2))
                         })
 
                     }
