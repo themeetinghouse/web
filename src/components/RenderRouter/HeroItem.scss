@@ -6,12 +6,55 @@
         font-size: 3vw;
     }
 
-    .heroH2 {}
+    .downarrow {
+        height: 4vw;
+        left: 2vw;
+        bottom: 4vw;
+        position: absolute;
+        z-index: 100;
+
+    }
+ 
+    .animated {
+        -webkit-animation-duration: 2.5s;
+        animation-duration: 2.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+      } 
+      
+      @-webkit-keyframes bounce {
+        0%, 20%, 30%, 70%, 80%, 100% {-webkit-transform: translateY(0);}
+        50% {-webkit-transform: translateY(-10px);}
+      } 
+      
+      @keyframes bounce { 
+        0%, 20%, 30%, 70%, 80%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
+      } 
+      
+      .bounce { 
+        -webkit-animation-name: bounce;
+        animation-name: bounce;
+      }
+      
+    .partialNoFooterBox {
+        position: absolute;
+        padding: 2vw;
+        left: 5vw;
+        width: 46vw;
+        top: 6vh;
+        z-index: 100;
+    }
 
     .heroHr {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 1.5vw; margin-bottom: 1.5vw;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
         width: 8.55vw;
         background-color: #ffffff;
     }
@@ -28,6 +71,14 @@
         width: 32vw;
         color: #ffffff;
         font-size: 1vw;
+    }
+
+    .partial {
+        width: 80vw;
+        height: 38vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute
     }
 
     .partialNoFooterImage {
@@ -77,9 +128,19 @@
 
     }
 
+    .heroPartialBlackBox {
+        position: absolute;
+        background-color: #000000;
+        padding: 2vw;
+        left: 10vw;
+        width: 36vw;
+        top: 10vh;
+        z-index: 100;
+    }
+
     .heroBlackBox {
         position: absolute;
-        background-color: #000000aa;
+        background-color: #000000;
         padding: 2vw;
         left: 20vw;
         width: 36vw;
@@ -89,7 +150,9 @@
 
     .heroButton {
         margin-top: 1.5vw;
-        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border-radius: 0;
         padding: 1rem 1.5rem;
         font-weight: 800;
     }
@@ -122,6 +185,13 @@
         position: absolute;
         top: 0vw;
         left: 0vw;
+    }
+    .partialNoFooterLocationDropDown{
+        font-family: Graphik Web;
+        padding:4px;
+        width:40vw;
+        margin-top:2vw;
+        margin-bottom:2vw;
     }
 }
 
@@ -133,16 +203,56 @@
         font-size: 3vw;
     }
 
-    .heroH2 {}
+    .downarrow {
+        height: 4vw;
+        left: 2vw;
+        bottom: 4vw;
+        position: absolute;
+        z-index: 100;
+        
+    }
 
+    .animated {
+        -webkit-animation-duration: 2.5s;
+        animation-duration: 2.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+      } 
+      
+      @-webkit-keyframes bounce {
+        0%, 20%, 30%, 70%, 80%, 100% {-webkit-transform: translateY(0);}
+        50% {-webkit-transform: translateY(-10px);}
+      } 
+      
+      @keyframes bounce { 
+        0%, 20%, 30%, 70%, 80%, 100% {transform: translateY(0);}
+        50% {transform: translateY(-10px);}
+      } 
+      
+      .bounce { 
+        -webkit-animation-name: bounce;
+        animation-name: bounce;
+      }
     .heroHr {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 1.5vw; margin-bottom: 1.5vw;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
         width: 8.55vw;
         background-color: #ffffff;
     }
-
+    .partialNoFooterBox {
+        position: absolute;
+        padding: 2vw;
+        left: 5vw;
+        width: 46vw;
+        top: 6vh;
+        z-index: 100;
+    }
     .heroText1 {
         font-family: Graphik Web;
         width: 32vw;
@@ -155,6 +265,14 @@
         width: 32vw;
         color: #ffffff;
         font-size: 1vw;
+    }
+
+    .partial {
+        width: 80vw;
+        height: 38vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute
     }
 
     .partialNoFooterImage {
@@ -204,9 +322,19 @@
 
     }
 
+    .heroPartialBlackBox {
+        position: absolute;
+        background-color: #000000;
+        padding: 2vw;
+        left: 10vw;
+        width: 36vw;
+        top: 10vh;
+        z-index: 100;
+    }
+
     .heroBlackBox {
         position: absolute;
-        background-color: #000000aa;
+        background-color: #000000;
         padding: 2vw;
         left: 20vw;
         width: 36vw;
@@ -216,7 +344,9 @@
 
     .heroButton {
         margin-top: 1.5vw;
-        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border-radius: 0;
         padding: 1rem 1.5rem;
         font-weight: 800;
     }
@@ -249,6 +379,13 @@
         position: absolute;
         top: 0vw;
         left: 0vw;
+    }
+    .partialNoFooterLocationDropDown{
+        font-family: Graphik Web;
+        padding:4px;
+        width:40vw;
+        margin-top:2vw;
+        margin-bottom:2vw;
     }
 }
 
@@ -261,12 +398,16 @@
         line-height: 10.65vw;
     }
 
-    .heroH2 {}
+    .downarrow {
+        display: none;
+    }
+
 
     .heroHr {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 4.5vw; margin-bottom: 4.5vw;
+        margin-top: 4.5vw;
+        margin-bottom: 4.5vw;
         width: 8.55vw;
         background-color: #ffffff;
     }
@@ -287,19 +428,27 @@
         color: #ffffff;
         font-size: 2vw;
     }
+
+    .partial {
+        width: 80vw;
+        height: 38vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute
+    }
+
     .partialNoFooterImage {
         width: 100vw;
-        height: 175vw;
         z-index: 50;
         object-fit: cover;
         position: absolute;
+        height:100%
     }
 
     .partialNoFooter {
-        position: relative;
+        position: absolute;
         left: 0vw;
         width: 100vw;
-        height: 78vw;
         padding-bottom: 0vh;
     }
     .partialNoFooterBox {
@@ -339,7 +488,19 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: rgba(0, 0, 0, 1);
+        padding: 2vw;
+        left: 0vw;
+        width: 100vw;
+        height: 65vh;
+        top: 60vh;
+        z-index: 100;
+        padding: 10vw 6vw 10vw 6vw;
+    }
+
+    .heroPartialBlackBox {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 1);
         padding: 2vw;
         left: 0vw;
         width: 100vw;
@@ -351,9 +512,11 @@
 
     .heroButton {
         margin-top: 15vw;
-        color: #000000!important; background-color: #ffffff!important; border-radius: 0;
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border-radius: 0;
         padding: 1rem 1.5rem;
-        font-weight: 800!important;
+        font-weight: 800 !important;
     }
 
     .headerItem {
@@ -384,5 +547,20 @@
         position: absolute;
         top: 5vw;
         left: 58vw;
+    }
+    .partialNoFooterBox {
+        position: relative;
+        padding: 2vw;
+        left: 5vw;
+        width: 100vw;
+        z-index: 100;
+        top:0vw;
+    }
+    .partialNoFooterLocationDropDown{
+        font-family: Graphik Web;
+        padding:4px;
+        width:86vw;
+        margin-top:2vw;
+        margin-bottom:2vw;
     }
 }

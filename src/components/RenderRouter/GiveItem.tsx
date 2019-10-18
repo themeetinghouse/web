@@ -73,7 +73,7 @@ export default class ContentItem extends React.Component<Props, State>  {
       <button>Give Now</button>
       </form>
       <div>Other Ways to Give</div>
-      <div>Bank Transfer</div>
+      <div>Online Banking</div>
       <div>Offering Envelopes</div>
       <div>Fellowship One</div>
 

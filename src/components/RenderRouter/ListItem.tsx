@@ -3,22 +3,16 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-
-//import { Button } from 'reactstrap';
-import * as queries from '../../graphql/queries';
-import * as customQueries from '../../graphql-custom/customQueries';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
-import VideoOverlay from '../VideoOverlay/VideoOverlay'
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import VideoOverlay from '../VideoOverlay/VideoOverlay';
+import DataLoader from './DataLoader';
 import "./ListItem.scss"
 
 //import uuidv4 from 'uuid/v4'
-Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
   content: any,
-  data:any
+  data:any,
+  pageConfig:any
 
 }
 interface State {
@@ -56,6 +50,7 @@ class ListItem extends React.Component<Props, State> {
     window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
    
   }
+ dataLoader:DataLoader
   constructor(props: Props) {
     super(props);
 
@@ -66,116 +61,17 @@ class ListItem extends React.Component<Props, State> {
       urlHistoryState:window.history.state
     }
     this.navigate = this.navigate.bind(this);
-
-
-    if (this.state.content.class === "videos") {
-      if (this.state.content.selector==="sameSeries")
-      {
-        const getSeries = API.graphql({
-          query: customQueries.getSeries,
-          //    const listVideos = API.graphql({query:queries.getVideo, 
-          variables: { sortDirection: this.state.content.sortOrder, limit: 50, id: this.props.data.series.id},
-          //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
-          authMode: GRAPHQL_AUTH_MODE.API_KEY
-        });
-        getSeries.then((json: any) => {
-          console.log("Success queries.getSeries: " + json);
-          console.log(json)
-          this.setState({
-            listData: json.data.getSeries.videos.items
-          })
-        }).catch((e: any) => { console.log(e) })
-      }
-      else{
-      const listVideos = API.graphql({
-        query: customQueries.getVideoByVideoType,
-        //    const listVideos = API.graphql({query:queries.getVideo,
-        variables: { sortDirection: this.state.content.sortOrder, limit: 50, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
-        //variables:{ sortDirection: this.state.content.sortOrder, limit: 50, id { lt: "a" } },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      listVideos.then((json: any) => {
-        console.log("Success queries.listVideos: " + json);
-        console.log(json)
-        this.setState({
-          listData: json.data.getVideoByVideoType.items
-        })
-      }).catch((e: any) => { console.log(e) })
-    }
-    }
-    else if (this.state.content.class === "speakers") {
-      const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { sortOrder: this.state.content.sortOrder, limit: 50 }));
-      listSpeakers.then((json: any) => {
-        console.log("Success queries.listSpeakers: " + json);
-        console.log(json)
-        this.setState({
-          listData: json.data.listSpeakers.items
-        })
-      }).catch((e: any) => { console.log(e) })
-    }
-    else if (this.state.content.class === "series") {
-
-      const listSeriess = API.graphql({
-        query: customQueries.getSeriesBySeriesType,
-        variables: { sortDirection: this.state.content.sortOrder, limit: 50,seriesType: this.state.content.subclass,publishedDate: { lt: "a" } },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      listSeriess.then((json: any) => {
-        console.log("Success queries.listSeriess: " + json);
-        console.log(json)
-        this.setState({
-          listData: json.data.getSeriesBySeriesType.items
-        })
-      }).catch((e: any) => { console.log(e) })
-    }
-    else if (this.state.content.class === "staff") {
-      fetch('./static/data/staff.json').then(function (response) {
-        return response.json();
-      })
-        .then((myJson) => {
-          if (this.state.content.filterField === "sites") {
-            fetch('./static/data/coordinators.json').then(function (response) {
-              return response.json();
-            }).then((myJson2) => {
-              this.setState({ listData: myJson.concat(myJson2) })
-            })
-
-          }
-          else {
-            this.setState({ listData: myJson });
-          }
-        })
-
-    }
-    else if (this.state.content.class === "overseers") {
-      fetch('./static/data/overseers.json').then(function (response) {
-        return response.json();
-      })
-        .then((myJson) => {
-          this.setState({ listData: myJson });
-        })
-
-    }
-    else if (this.state.content.class === "events") {
-      fetch('./static/data/events.json').then(function (response) {
-        return response.json();
-      })
-        .then((myJson) => {
-          this.setState({ listData: myJson });
-        })
-
-    }
-    else if (this.state.content.class === "compassion") {
-      fetch('./static/data/compassion.json').then(function (response) {
-        return response.json();
-      })
-        .then((myJson) => {
-          this.setState({ listData: myJson });
-        })
-
-    }
+    this.setData=this.setData.bind(this);
+    this.dataLoader=new DataLoader({...this.props,dataLoaded:(data:any)=>{this.setData(data)}},this.state)
   }
-
+  componentDidMount(){
+    this.dataLoader.loadData()
+  }
+  setData(data:any){
+    this.setState({
+      listData:this.state.listData.concat(data)
+    })
+  }
   imgUrl(size:any){
    
     if (window.location.hostname==="localhost"){
@@ -205,7 +101,7 @@ class ListItem extends React.Component<Props, State> {
     if (this.state.content.style === "horizontal") return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
-          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
           <div className="ListItemDiv2" >
             {data.map((item: any) => {
               if (this.state.content.class === "speakers") {
@@ -219,7 +115,7 @@ class ListItem extends React.Component<Props, State> {
               }
               else if (this.state.content.class === "videos") {
                 return (
-                  <div onClick={() => this.handleClick(item)} key={item.id} className="ListItemVideo" >
+                  <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
                     <div>
                       <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
                       <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
@@ -280,11 +176,11 @@ class ListItem extends React.Component<Props, State> {
 
                     <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
                     <div className="ListItemContact" >{item.Position}</div>
-                    <div>{item.Email}</div>
+                    <div><a href={"mailto:"+item.Email}>{item.Email}</a></div>
                     <div>{item.Phone}</div>
-                    <a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>
-                    <a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>
-                    <a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>
+                    {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
+                    {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
+                    {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
 
                   </div>
                 )
@@ -350,14 +246,17 @@ class ListItem extends React.Component<Props, State> {
           <h1 className="ListItemH1" >{this.state.content.header1}</h1>
           <div className="ListItemDiv6" >
             {data.map((item: any) => {
-              if (item.videos.items.length > 0)
+              if (item.videos.items.length > 0){
+              console.log(item.seriesType+"-"+item.title+".jpg")
                 return (
                   <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-                    <img alt="TBD" className="ListItemImage2"  src="/static/images/teaching-4.png" />
+                    <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"} 
+                    onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
                     <div className="ListItemName" >{item.title}</div>
                     <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
                   </div>
                 )
+              }
               else return null
             })}
 
@@ -405,6 +304,7 @@ class ListItem extends React.Component<Props, State> {
             }
           </div>
         </div>
+        
       </div>
     )
     return (null)

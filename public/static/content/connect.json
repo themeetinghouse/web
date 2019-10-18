@@ -8,7 +8,7 @@
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": false,
-            "logoColor":"white",
+            "logoColor":"black",
             "showSearch":false,
             "showFooter":false,
             "showMenu":false,
@@ -20,6 +20,7 @@
                 "type": "form",
                 "header1": "We'd love to get to know you.",
                 "class":"formstack",
+                "style":"white",
                 "formId":"connect",
                 "height":"100vh"
             }

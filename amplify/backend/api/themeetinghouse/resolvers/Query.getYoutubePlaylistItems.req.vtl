@@ -1,4 +1,5 @@
 #set( $playlistId = $ctx.args.playlistId )
+#set( $pageToken = $ctx.args.pageToken )
 {
 "version": "2018-05-29",
 "method": "GET",
@@ -8,5 +9,9 @@
     },
         "body":""
 },
+#if( $ctx.args.pageToken )
+"resourcePath": "/youtube/v3/playlistItems?pageToken=$pageToken&playlistId=$playlistId&part=snippet,contentDetails,status&maxResults=50&channelId=UCRyI8BJBCTUKhzHEab3hSmw&key="
+  #else
 "resourcePath": "/youtube/v3/playlistItems?playlistId=$playlistId&part=snippet,contentDetails,status&maxResults=50&channelId=UCRyI8BJBCTUKhzHEab3hSmw&key="
+  #end
 }

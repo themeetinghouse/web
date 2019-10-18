@@ -67,14 +67,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <Modal dialogClassName="modal-video" show={this.props.data !== null}>
-          <Modal.Body id="modal-video-body">
-            <img style={{ cursor: "pointer", position: "fixed", zIndex: 1000, top: "2vw", left: "95vw" }} src="/static/Close.png" alt="Close Window Icon" onClick={() => {
+        {(this.state.content!=null)?
+        <Modal dialogClassName={this.state.content.page.pageConfig.logoColor==="black"?"modal-video white":"modal-video "} show={this.props.data !== null}>
+          <Modal.Body className={this.state.content.page.pageConfig.logoColor==="black"?"modal-body white":"modal-body "}>
+            <img style={{ cursor: "pointer", position: "fixed", zIndex: 1000, top: "2vw", left: "95vw" }} src={this.state.content.page.pageConfig.logoColor==="black"?"/static/Close-black.png":"/static/Close.png"} alt="Close Window Icon" onClick={() => {
               this.props.onClose()
             }} />
             <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
           </Modal.Body>
-        </Modal>
+        </Modal>:null}
       </div >)
 
   }

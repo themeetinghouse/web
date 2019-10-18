@@ -15,33 +15,22 @@
         },
         "content": [
            
+           
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "teachingsearch",
+                "style": "teaching",
+                "header1":"Search the Archives",
+                "text1":"Try \"Grace\"",
+                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
             },
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"life-story",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"All Life Stories"                
             }
         ]
     }

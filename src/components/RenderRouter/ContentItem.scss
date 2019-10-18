@@ -83,7 +83,41 @@
         position: static;
         padding-bottom: 5vw;
     }
+    .greyTwoText{
+        left:0vw;
+        position:relative;
+        width:100vw;
+        background-color:#EFEFF0;
+        margin-top:-5vh;
+        margin-bottom: 5vw;
+    }
+    .greyTwoTextH1{
+        position:relative;
+        float:left;
+        margin:1vw;
+        margin-top:3vw;
+        left:20vw;
+        font-weight:bold;
+        width:30vw;
+        height:20vw;
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+    }
+    .greyTwoTextText{
+        left:20vw;
+        position:relative;
+        margin:1vw;
+        margin-top:3vw;
 
+        float:left;
+        width:45vw;
+        height:20vw;
+        font-size: 1.2vw;
+        font-family:Graphik Web;
+    }
+    .greyTwoClear{
+        clear:left;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -172,6 +206,41 @@
         padding-bottom: 5vw;
     }
 
+    .greyTwoText{
+        left:0vw;
+        position:relative;
+        width:100vw;
+        background-color:#EFEFF0;
+        margin-top:-5vh;
+        margin-bottom: 5vw;
+    }
+    .greyTwoTextH1{
+        position:relative;
+        float:left;
+        margin:1vw;
+        margin-top:3vw;
+        left:20vw;
+        font-weight:bold;
+        width:30vw;
+        height:20vw;
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+    }
+    .greyTwoTextText{
+        left:20vw;
+        position:relative;
+        margin:1vw;
+        margin-top:3vw;
+
+        float:left;
+        width:45vw;
+        height:20vw;
+        font-size: 1.2vw;
+        font-family:Graphik Web;
+    }
+    .greyTwoClear{
+        clear:left;
+    }
 }
 
 @media (max-width: 767px) {
@@ -248,5 +317,41 @@
     }
     .ContentItemMarginBottom {
       margin-bottom: 85vw;
+    }
+
+    .greyTwoText{
+        left:0vw;
+        position:relative;
+        width:100vw;
+        background-color:#EFEFF0;
+        margin-top:-5vh;
+        margin-bottom: 5vw;
+    }
+    .greyTwoTextH1{
+        position:relative;
+        float:left;
+        margin:1vw;
+        margin-top:3vw;
+        left:20vw;
+        font-weight:bold;
+        width:30vw;
+        height:20vw;
+        font-size: 1.5vw;
+        font-family:Graphik Web;
+    }
+    .greyTwoTextText{
+        left:20vw;
+        position:relative;
+        margin:1vw;
+        margin-top:3vw;
+
+        float:left;
+        width:45vw;
+        height:20vw;
+        font-size: 1.2vw;
+        font-family:Graphik Web;
+    }
+    .greyTwoClear{
+        clear:left;
     }
 }

@@ -14,34 +14,41 @@
             "showMenu":true
         },
         "content": [
-           
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "list",
+                "style": "imageList",
+                "header1": "Podcasts",
+                "text1": "Check out some podcasts",
+                "list": [
+                    {
+                        "title": "The Meeting House Podcast",
+                        "text": "Join us each week for The Meeting House Podcast where we explore what it means to be a Christ Follower. Listen to the message online or subscribe using through our RSS feed or ITunes.",
+                        "imageSrc": "/static/photos/podcasts/audio.jpg",
+                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
+                        "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=102719807"
+                    },
+                    {
+                        "title": "The After Party",
+                        "text": "Taking Sunday messages and concepts into extended conversations.",
+                        "imageSrc": "/static/photos/podcasts/afterparty.jpg",
+                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+                        "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=215990014"
+                    },
+                    {
+                        "title": "The Meeting House Roundtable",
+                        "text": "",
+                        "imageSrc": "/static/photos/podcasts/roundtable.jpg",
+                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
+                        "url": "http://media.themeetinghouse.com/newroundtable/tmhrt.rss"
+                    },
+                    {
+                        "title": "The Meeting House Video Podcast",
+                        "text": "Join us each week for The Meeting House Video Podcast where we explore what it means to be a Christ Follower. Watch the message here online, subscribe through our RSS feed and ITunes Podcast, or visit our Youtube channel for more recent messages...",
+                        "imageSrc": "/static/photos/podcasts/video.jpg",
+                        "imageAlt": "Production volunteer recording a Meeting House video.",
+                        "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=143889873"
+                    }
+                ]
             }
         ]
     }

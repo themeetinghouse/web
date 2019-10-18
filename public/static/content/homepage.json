@@ -32,10 +32,18 @@
                     {
                         "src": "/static/images/homepage-1-4.jpg",
                         "alt": "Friends sitting down and talking about Jesus and spirituality."
+                    },
+                    {
+                        "src": "/static/images/homepage-1-5.jpg",
+                        "alt": "Friends sitting down and talking about Jesus and spirituality."
+                    },
+                    {
+                        "src": "/static/images/homepage-1-6.jpg",
+                        "alt": "Friends sitting down and talking about Jesus and spirituality."
                     }
                 ],
                 "header1": "Hello Friend",
-                "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing!",
+                "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "spirituality"
             },
@@ -56,15 +64,15 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Ready for fall 2019?",
+                "header1": "Go Campaign",
                 "header2": "",
-                "text1": "New teaching series, home church kickoff, a new season of youth programs, big announcements, exciting activities, and maybe even snacks? We’ve got big plans for this fall. Find our what you can expect and how you can get involved.",
+                "text1": "We're our best selves when we don’t make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
                 "link1Text": "Let's Do This",
                 "link1Action": "fall-2019",
                 "image1": [
                     {
                         "src": "/static/images/homepage-3.jpg",
-                        "alt": "Group of friends hanging out at The Meeting House church excited about our plans for fall 2019."
+                        "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
                     }
                 ]
             },

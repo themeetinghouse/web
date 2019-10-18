@@ -559,12 +559,6 @@ export const deleteTnSermon = `mutation DeleteTnSermon($input: DeleteTNSermonInp
   }
 }
 `;
-export const createResource = `mutation CreateResource($input: CreateResourceInput!) {
-  createResource(input: $input) {
-    id
-  }
-}
-`;
 export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!) {
   createSpeaker(input: $input) {
     id
@@ -577,26 +571,6 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -767,26 +741,6 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -957,26 +911,6 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -1142,26 +1076,6 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -1169,26 +1083,6 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1278,26 +1172,6 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1455,26 +1329,6 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1564,26 +1418,6 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -1591,26 +1425,6 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1700,26 +1514,6 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1877,26 +1671,6 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1986,26 +1760,6 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -2013,26 +1767,6 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -2122,26 +1856,6 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -2299,26 +2013,6 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -2409,26 +2103,6 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2436,21 +2110,6 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2507,21 +2166,6 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2657,26 +2301,6 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2684,21 +2308,6 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2755,21 +2364,6 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2905,26 +2499,6 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2932,21 +2506,6 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -3003,21 +2562,6 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -3150,26 +2694,6 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -3177,26 +2701,6 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3363,26 +2867,6 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3587,26 +3071,6 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -3614,26 +3078,6 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3800,26 +3244,6 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4024,26 +3448,6 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -4051,26 +3455,6 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4237,26 +3621,6 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4456,797 +3820,146 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
   }
 }
 `;
-export const createBlog = `mutation CreateBlog($input: CreateBlogInput!) {
-  createBlog(input: $input) {
+export const createWebPage = `mutation CreateWebPage($input: CreateWebPageInput!) {
+  createWebPage(input: $input) {
     id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const createNews = `mutation CreateNews($input: CreateNewsInput!) {
-  createNews(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const createEvent = `mutation CreateEvent($input: CreateEventInput!) {
-  createEvent(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const createGroup = `mutation CreateGroup($input: CreateGroupInput!) {
-  createGroup(input: $input) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
+    page {
       name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
       title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
     }
-    type
   }
 }
 `;
-export const createOrganization = `mutation CreateOrganization($input: CreateOrganizationInput!) {
-  createOrganization(input: $input) {
+export const updateWebPage = `mutation UpdateWebPage($input: UpdateWebPageInput!) {
+  updateWebPage(input: $input) {
     id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
+    page {
+      name
       title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
+      }
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
     }
-    members {
-      sub
+  }
+}
+`;
+export const deleteWebPage = `mutation DeleteWebPage($input: DeleteWebPageInput!) {
+  deleteWebPage(input: $input) {
+    id
+    page {
+      name
       title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
       }
-      visible
-    }
-  }
-}
-`;
-export const createLocation = `mutation CreateLocation($input: CreateLocationInput!) {
-  createLocation(input: $input) {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const updateLocation = `mutation UpdateLocation($input: UpdateLocationInput!) {
-  updateLocation(input: $input) {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const deleteLocation = `mutation DeleteLocation($input: DeleteLocationInput!) {
-  deleteLocation(input: $input) {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const createStaff = `mutation CreateStaff($input: CreateStaffInput!) {
-  createStaff(input: $input) {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const createRegion = `mutation CreateRegion($input: CreateRegionInput!) {
-  createRegion(input: $input) {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
       }
-      visible
-    }
-  }
-}
-`;
-export const updateResource = `mutation UpdateResource($input: UpdateResourceInput!) {
-  updateResource(input: $input) {
-    id
-  }
-}
-`;
-export const deleteResource = `mutation DeleteResource($input: DeleteResourceInput!) {
-  deleteResource(input: $input) {
-    id
-  }
-}
-`;
-export const updateBlog = `mutation UpdateBlog($input: UpdateBlogInput!) {
-  updateBlog(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const deleteBlog = `mutation DeleteBlog($input: DeleteBlogInput!) {
-  deleteBlog(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const updateNews = `mutation UpdateNews($input: UpdateNewsInput!) {
-  updateNews(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const deleteNews = `mutation DeleteNews($input: DeleteNewsInput!) {
-  deleteNews(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const updateEvent = `mutation UpdateEvent($input: UpdateEventInput!) {
-  updateEvent(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const deleteEvent = `mutation DeleteEvent($input: DeleteEventInput!) {
-  deleteEvent(input: $input) {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const updateGroup = `mutation UpdateGroup($input: UpdateGroupInput!) {
-  updateGroup(input: $input) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    type
-  }
-}
-`;
-export const deleteGroup = `mutation DeleteGroup($input: DeleteGroupInput!) {
-  deleteGroup(input: $input) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    type
-  }
-}
-`;
-export const updateOrganization = `mutation UpdateOrganization($input: UpdateOrganizationInput!) {
-  updateOrganization(input: $input) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-  }
-}
-`;
-export const deleteOrganization = `mutation DeleteOrganization($input: DeleteOrganizationInput!) {
-  deleteOrganization(input: $input) {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-  }
-}
-`;
-export const updateStaff = `mutation UpdateStaff($input: UpdateStaffInput!) {
-  updateStaff(input: $input) {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const deleteStaff = `mutation DeleteStaff($input: DeleteStaffInput!) {
-  deleteStaff(input: $input) {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const updateRegion = `mutation UpdateRegion($input: UpdateRegionInput!) {
-  updateRegion(input: $input) {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-  }
-}
-`;
-export const deleteRegion = `mutation DeleteRegion($input: DeleteRegionInput!) {
-  deleteRegion(input: $input) {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
     }
   }
 }

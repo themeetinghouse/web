@@ -559,24 +559,6 @@ export const onDeleteTnSermon = `subscription OnDeleteTnSermon {
   }
 }
 `;
-export const onCreateResource = `subscription OnCreateResource {
-  onCreateResource {
-    id
-  }
-}
-`;
-export const onUpdateResource = `subscription OnUpdateResource {
-  onUpdateResource {
-    id
-  }
-}
-`;
-export const onDeleteResource = `subscription OnDeleteResource {
-  onDeleteResource {
-    id
-  }
-}
-`;
 export const onCreateSpeaker = `subscription OnCreateSpeaker {
   onCreateSpeaker {
     id
@@ -589,26 +571,6 @@ export const onCreateSpeaker = `subscription OnCreateSpeaker {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -779,26 +741,6 @@ export const onUpdateSpeaker = `subscription OnUpdateSpeaker {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -969,26 +911,6 @@ export const onDeleteSpeaker = `subscription OnDeleteSpeaker {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -1154,26 +1076,6 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -1181,26 +1083,6 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1290,26 +1172,6 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1467,26 +1329,6 @@ export const onCreateSpeakerVideos = `subscription OnCreateSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1576,26 +1418,6 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -1603,26 +1425,6 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1712,26 +1514,6 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1889,26 +1671,6 @@ export const onUpdateSpeakerVideos = `subscription OnUpdateSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -1998,26 +1760,6 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
       id
       createdBy
       createdDate
-      locations {
-        id
-        url
-        site_name
-        directions
-        welcome
-        welcome_img
-        welcome_vid_youtube
-        phone
-        email
-        instagram
-        twitter
-        facebook
-        location {
-          longitude
-          latitude
-          address
-        }
-        visible
-      }
       speakers {
         items {
           id
@@ -2025,26 +1767,6 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -2134,26 +1856,6 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -2311,26 +2013,6 @@ export const onDeleteSpeakerVideos = `subscription OnDeleteSpeakerVideos {
             id
             createdBy
             createdDate
-            locations {
-              id
-              url
-              site_name
-              directions
-              welcome
-              welcome_img
-              welcome_vid_youtube
-              phone
-              email
-              instagram
-              twitter
-              facebook
-              location {
-                longitude
-                latitude
-                address
-              }
-              visible
-            }
             speakers {
               items {
                 id
@@ -2421,26 +2103,6 @@ export const onCreateSeries = `subscription OnCreateSeries {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2448,21 +2110,6 @@ export const onCreateSeries = `subscription OnCreateSeries {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2519,21 +2166,6 @@ export const onCreateSeries = `subscription OnCreateSeries {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2669,26 +2301,6 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2696,21 +2308,6 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2767,21 +2364,6 @@ export const onUpdateSeries = `subscription OnUpdateSeries {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -2917,26 +2499,6 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
         id
         createdBy
         createdDate
-        locations {
-          id
-          url
-          site_name
-          directions
-          welcome
-          welcome_img
-          welcome_vid_youtube
-          phone
-          email
-          instagram
-          twitter
-          facebook
-          location {
-            longitude
-            latitude
-            address
-          }
-          visible
-        }
         speakers {
           items {
             id
@@ -2944,21 +2506,6 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -3015,21 +2562,6 @@ export const onDeleteSeries = `subscription OnDeleteSeries {
               id
               createdBy
               createdDate
-              locations {
-                id
-                url
-                site_name
-                directions
-                welcome
-                welcome_img
-                welcome_vid_youtube
-                phone
-                email
-                instagram
-                twitter
-                facebook
-                visible
-              }
               speakers {
                 nextToken
               }
@@ -3162,26 +2694,6 @@ export const onCreateVideo = `subscription OnCreateVideo {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -3189,26 +2701,6 @@ export const onCreateVideo = `subscription OnCreateVideo {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3375,26 +2867,6 @@ export const onCreateVideo = `subscription OnCreateVideo {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3599,26 +3071,6 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -3626,26 +3078,6 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -3812,26 +3244,6 @@ export const onUpdateVideo = `subscription OnUpdateVideo {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4036,26 +3448,6 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
     id
     createdBy
     createdDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
     speakers {
       items {
         id
@@ -4063,26 +3455,6 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4249,26 +3621,6 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
           id
           createdBy
           createdDate
-          locations {
-            id
-            url
-            site_name
-            directions
-            welcome
-            welcome_img
-            welcome_vid_youtube
-            phone
-            email
-            instagram
-            twitter
-            facebook
-            location {
-              longitude
-              latitude
-              address
-            }
-            visible
-          }
           speakers {
             items {
               id
@@ -4468,785 +3820,146 @@ export const onDeleteVideo = `subscription OnDeleteVideo {
   }
 }
 `;
-export const onCreateBlog = `subscription OnCreateBlog {
-  onCreateBlog {
+export const onCreateWebPage = `subscription OnCreateWebPage {
+  onCreateWebPage {
     id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const onUpdateBlog = `subscription OnUpdateBlog {
-  onUpdateBlog {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const onDeleteBlog = `subscription OnDeleteBlog {
-  onDeleteBlog {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    version
-  }
-}
-`;
-export const onCreateNews = `subscription OnCreateNews {
-  onCreateNews {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const onUpdateNews = `subscription OnUpdateNews {
-  onUpdateNews {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const onDeleteNews = `subscription OnDeleteNews {
-  onDeleteNews {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    title
-    content
-    startDate
-    endDate
-  }
-}
-`;
-export const onCreateEvent = `subscription OnCreateEvent {
-  onCreateEvent {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const onUpdateEvent = `subscription OnUpdateEvent {
-  onUpdateEvent {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const onDeleteEvent = `subscription OnDeleteEvent {
-  onDeleteEvent {
-    id
-    createdBy
-    createdDate
-    postedDate
-    locations {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-    startTime
-    endTime
-    title
-    description
-  }
-}
-`;
-export const onCreateGroup = `subscription OnCreateGroup {
-  onCreateGroup {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
+    page {
       name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
       title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    type
-  }
-}
-`;
-export const onUpdateGroup = `subscription OnUpdateGroup {
-  onUpdateGroup {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    type
-  }
-}
-`;
-export const onDeleteGroup = `subscription OnDeleteGroup {
-  onDeleteGroup {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    type
-  }
-}
-`;
-export const onCreateOrganization = `subscription OnCreateOrganization {
-  onCreateOrganization {
-    id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
       }
-      visible
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
     }
   }
 }
 `;
-export const onUpdateOrganization = `subscription OnUpdateOrganization {
-  onUpdateOrganization {
+export const onUpdateWebPage = `subscription OnUpdateWebPage {
+  onUpdateWebPage {
     id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
-      title
+    page {
       name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
       title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
       }
-      visible
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
+      }
     }
   }
 }
 `;
-export const onDeleteOrganization = `subscription OnDeleteOrganization {
-  onDeleteOrganization {
+export const onDeleteWebPage = `subscription OnDeleteWebPage {
+  onDeleteWebPage {
     id
-    canJoin
-    visibleToNonMembers
-    status
-    name
-    admin {
-      sub
+    page {
+      name
       title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    members {
-      sub
-      title
-      name
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      website
-      status
-    }
-    location
-    address
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
+      keywords
+      description
+      pageConfig {
+        movingMenu
+        showLogoText
+        logoColor
+        showSearch
+        showFooter
+        showMenu
       }
-      visible
-    }
-  }
-}
-`;
-export const onCreateLocation = `subscription OnCreateLocation {
-  onCreateLocation {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const onUpdateLocation = `subscription OnUpdateLocation {
-  onUpdateLocation {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const onDeleteLocation = `subscription OnDeleteLocation {
-  onDeleteLocation {
-    id
-    url
-    site_name
-    directions
-    welcome
-    welcome_img
-    welcome_vid_youtube
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    location {
-      longitude
-      latitude
-      address
-    }
-    visible
-  }
-}
-`;
-export const onCreateStaff = `subscription OnCreateStaff {
-  onCreateStaff {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const onUpdateStaff = `subscription OnUpdateStaff {
-  onUpdateStaff {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const onDeleteStaff = `subscription OnDeleteStaff {
-  onDeleteStaff {
-    sub
-    title
-    name
-    phone
-    email
-    instagram
-    twitter
-    facebook
-    website
-    status
-  }
-}
-`;
-export const onCreateRegion = `subscription OnCreateRegion {
-  onCreateRegion {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
+      content {
+        type
+        style
+        image1 {
+          src
+          alt
+        }
+        header1
+        header2
+        text1
+        text2
+        link1Text
+        link1Action
+        link2Text
+        link2Action
+        link3Text
+        link3Action
+        button1Text
+        button1Action
+        list {
+          title
+          text
+          imageSrc
+          imageAlt
+          navigateTo
+        }
+        showLocationSearch
       }
-      visible
-    }
-  }
-}
-`;
-export const onUpdateRegion = `subscription OnUpdateRegion {
-  onUpdateRegion {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
-    }
-  }
-}
-`;
-export const onDeleteRegion = `subscription OnDeleteRegion {
-  onDeleteRegion {
-    id
-    name
-    status
-    sites {
-      id
-      url
-      site_name
-      directions
-      welcome
-      welcome_img
-      welcome_vid_youtube
-      phone
-      email
-      instagram
-      twitter
-      facebook
-      location {
-        longitude
-        latitude
-        address
-      }
-      visible
     }
   }
 }

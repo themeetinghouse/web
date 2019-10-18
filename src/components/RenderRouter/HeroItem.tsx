@@ -12,7 +12,8 @@ interface Props extends RouteComponentProps {
 }
 interface State {
     content: any,
-    locationData:any
+    locationData:any,
+    arrowOpacity:any
 }
 class HeroItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -24,7 +25,8 @@ class HeroItem extends React.Component<Props, State> {
         console.log(context);
         this.state = {
             content: props.content,
-            locationData:null
+            locationData:null,
+            arrowOpacity:1
         }
         this.navigate = this.navigate.bind(this);
         if (this.state.content.showLocationSearch){
@@ -94,14 +96,26 @@ class HeroItem extends React.Component<Props, State> {
         else
          return "https://beta.themeetinghouse.com/cache/"+size
     }
+    fadeIn(obj:any){
+       
+        obj.target.style.transition = "opacity 1s";
+        obj.target.style.opacity = "1";
+    }
+    downArrowScroll(){
+        //console.log(window.scrollY)
+        var downArrow=document.getElementById('downArrow')
+        if (downArrow)
+            downArrow.style.opacity=((1-(window.scrollY/250))).toString()
+    }
     render() {
+        window.onscroll=()=>{this.downArrowScroll()}
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
         if (this.state.content.style === "full") {
 
             return (
                 <div className="headerItem" style={{ position: "relative", width: "100vw", height: "105vh", paddingBottom: "5vh", marginBottom: "45vw" }}>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
-                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
+                    <img  style={{opacity:0}} onLoad={(item)=>{this.fadeIn(item)}} src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
                         this.imgUrl(480)+image1.src+" 480w,"+
                         this.imgUrl(640)+image1.src+" 640w,"+
@@ -132,6 +146,8 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
+                     <div><img id="downArrow" style={{ opacity:this.state.arrowOpacity,cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
+
                 </div>
 
             )
@@ -160,7 +176,7 @@ class HeroItem extends React.Component<Props, State> {
                 />
 
                     }
-                    <div style={{ position: "absolute", padding: "2vw", left: "5vw", width: "60vw", top: "6vh", zIndex: 100 }}>
+                    <div className="partialNoFooterBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}
                         <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
@@ -174,7 +190,7 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?
-                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" style={{fontFamily: "Graphik Web",padding:"4px",width:"40vw",marginTop:"2vw",marginBottom:"2vw"}}
+                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"  
                                 options={this.state.locationData.map((item:any)=>{return {label:item.name,value:item.id}})}></Select>
                               :null}
                             </div>):null}
@@ -191,7 +207,43 @@ class HeroItem extends React.Component<Props, State> {
 
             return (
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "43vw", paddingBottom: "5vh" }}>
-                    <img src={image1.src} alt={image1.alt} className="example-mask" style={{ width: "80vw", height: "38vw", zIndex: 50, objectFit: "cover", position: "absolute" }} />
+                     {
+                        image1.src.includes(".svg")?
+                    
+                    <img src={image1.src} alt={image1.alt} className="partial"/>:
+                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partial"
+                    srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                    this.imgUrl(480)+image1.src+" 480w,"+
+                    this.imgUrl(640)+image1.src+" 640w,"+
+                    this.imgUrl(1280)+image1.src+" 1280w,"+
+                    this.imgUrl(1920)+image1.src+" 1920w,"+
+                    this.imgUrl(2560)+image1.src+" 2560w"}
+                    sizes="(max-width: 320px) 320px,
+                           (max-width: 480px) 480px,
+                           (max-width: 640px) 640px,
+                           (max-width: 1280px) 1280px,
+                           (max-width: 1920) 1920,
+                            2560px"
+                />
+                     }
+                    <div className="heroPartialBlackBox" >
+                        <h1 className="heroH1" >{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
+                        <hr className="heroHr"></hr>
+                        <div className="heroText1" >{this.state.content.text1}</div>
+                        <div className="heroText2" >{this.state.content.text2}</div>
+                        <div className="heroText2" >{this.state.content.text3}</div>
+                        <div className="heroText2" >{this.state.content.text4}</div>
+                        <div className="heroText2" >{this.state.content.text5}</div>
+                        <div className="heroText2" >{this.state.content.text6}</div>
+                        <div className="heroText2" >{this.state.content.text7}</div>
+                        {this.state.content.button1Text ? (<Button className="heroButton" onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
+                        <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+                        {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+
+                    </div>
+
                 </div>
             )
         }

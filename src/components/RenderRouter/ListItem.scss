@@ -36,7 +36,6 @@
         left: 0vw;
         width: 80vw;
         overflow-x: scroll;
-        height: 30vw;
         white-space: nowrap;
     }
 
@@ -76,11 +75,15 @@
         width: 80vw;
         font-weight: bold;
         font-size: 3vw;
+        font-family: Graphik Web;
     }
-
+    .ListItemH1.whiteText{
+        color:#ffffff
+    }
     .ListItemH1ImageList {
         font-size: 3vw;
-        font-weight: bold; font-family: Graphik Web;
+        font-weight: bold;
+        font-family: Graphik Web;
     }
 
     .ListItemH1ImageList2 {
@@ -122,7 +125,6 @@
         left: 0vw;
         width: 80vw;
         overflow-x: scroll;
-        height: 15vw;
         white-space: nowrap;
     }
 
@@ -138,7 +140,10 @@
         display: inline-block;
         vertical-align: top;
     }
-
+    .ListItemVideo.whiteText{
+        color:#ffffff
+      }
+    
     .ListItemVideoThumb {
         width: 20vw;
         margin-right: 1vw;
@@ -176,6 +181,7 @@
     .ListItemEvents, .ListItemCompassion {
         display: inline-block;
         width: 23vw;
+        margin-right: 2vw;
         vertical-align: top;
     }
 
@@ -234,7 +240,6 @@
       left: 0vw;
       width: 80vw;
       overflow-x: scroll;
-      height: 30vw;
       white-space: nowrap;
   }
 
@@ -273,6 +278,9 @@
       font-weight: bold;
       font-size: 3vw;
   }
+  .ListItemH1.whiteText{
+    color:#ffffff
+}
 
   .ListItemH1ImageList {
       font-size: 3vw;
@@ -318,7 +326,6 @@
       left: 0vw;
       width: 80vw;
       overflow-x: scroll;
-      height: 15vw;
       white-space: nowrap;
   }
 
@@ -333,6 +340,9 @@
       cursor: pointer;
       display: inline-block;
       vertical-align: top;
+  }
+  .ListItemVideo.whiteText{
+    color:#ffffff
   }
 
   .ListItemVideoThumb {
@@ -372,6 +382,8 @@
   .ListItemEvents, .ListItemCompassion {
       display: inline-block;
       width: 23vw;
+      margin-right: 2vw;
+
       vertical-align: top;
   }
 
@@ -430,7 +442,6 @@
       left: 0vw;
       width: 80vw;
       overflow-x: scroll;
-      height: 30vw;
       white-space: nowrap;
   }
 
@@ -480,6 +491,9 @@
       font-weight: bold;
       font-size: 3vw;
   }
+  .ListItemH1.whiteText{
+    color:#ffffff
+}
 
   .ListItemH1ImageList {
       font-size: 10vw;
@@ -527,7 +541,6 @@
       left: 0vw;
       width: 80vw;
       overflow-x: scroll;
-      height: 15vw;
       white-space: nowrap;
   }
 
@@ -542,6 +555,9 @@
       cursor: pointer;
       display: inline-block;
       vertical-align: top;
+  }
+  .ListItemVideo.whiteText{
+    color:#ffffff
   }
 
   .ListItemVideoThumb {
@@ -581,6 +597,7 @@
   .ListItemEvents, .ListItemCompassion {
       display: inline-block;
       width: 23vw;
+      margin-right: 2vw;
       vertical-align: top;
   }
 

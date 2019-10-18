@@ -15,7 +15,6 @@ public/react-dom-server.browser.production.min.js
 
 # misc
 .DS_Store
-.env
 npm-debug.log
 
 .next
