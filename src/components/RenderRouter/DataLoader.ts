@@ -16,9 +16,9 @@ interface Props extends RouteComponentProps {
 }
 interface State {
     content: any,
-    listData: any,
-    overlayData: any,
-    urlHistoryState: any
+  //  listData: any,
+   // overlayData: any,
+   // urlHistoryState: any
 }
 export default class DataLoader extends React.Component<Props, State> {
     constructor(props: Props, state: State) {
@@ -26,16 +26,16 @@ export default class DataLoader extends React.Component<Props, State> {
 
         this.state = {
             content: state.content,
-            listData: state.listData,
-            overlayData: null,
-            urlHistoryState: window.history.state
+           // listData: state.listData,
+          //  overlayData: null,
+         //   urlHistoryState: window.history.state
         }
     }
-    componentDidUpdate(prevProps: Props, prevState: State) {
+   /* componentDidUpdate(prevProps: Props, prevState: State) {
         if (prevState.listData !== this.state.listData)
             this.props.dataLoaded(this.state.listData)
         console.log(prevProps)
-    }
+    }*/
     getVideosSameSeries(nextToken: any) {
         const getSeries = API.graphql({
             query: customQueries.getSeries,
@@ -110,6 +110,7 @@ export default class DataLoader extends React.Component<Props, State> {
         })
     }
     loadData() {
+        console.log(this.state)
         if (this.state.content.class === "videos") {
             if (this.state.content.selector === "sameSeries") {
                 this.getVideosSameSeries(null)
@@ -190,6 +191,18 @@ export default class DataLoader extends React.Component<Props, State> {
                 .then((myJson) => {
                     this.props.dataLoaded(myJson);
                 })
+
+        }
+        else if (this.state.content.class === "locations") {
+            fetch('./static/data/locations.json').then(function (response) {
+                return response.json();
+            })
+                .then((myJson) => {
+                    this.props.dataLoaded(myJson.filter((item:any)=>{
+                        return item[this.state.content.filterField]==this.state.content.filterValue
+                    })
+                )}
+                )
 
         }
     }

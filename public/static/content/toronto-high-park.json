@@ -41,7 +41,10 @@
                 "text3": "Includes full program for Infants to Grade 8",
                 "text4":"The Meeting House High Park is located inside the school at Kennedy Ave and Glenlake Ave. Underground parking is offered off Glenlake Ave with steps that exit right in front of the south entrance off of the south large field which leads to The Meeting House High Park. Accessibility is also offered through the loading ramp entrance off Evelyn Crescent. The accessibility entrance is the same driveway that The Meeting House truck is parked in. It's easiest to park on the road near that entrance. If you are unsure you are at the right school, just look for the many Meeting House signs that are there to guide you!",
                 "addToCalendar": true,
-                "contactPastor": true
+                "contactPastor": true,
+                "class":"locations",
+                "filterField": "id",
+                "filterValue": "toronto-high-park"
             },
             {
                 "type": "list",

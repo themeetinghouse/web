@@ -41,7 +41,10 @@
                 "text3": "Includes full program for Infants to Grade 8",
                 "text4": "Due to renovations at The Gasworks, we will now be meeting at Eucharist Church on 130 Victoria Avenue North.",
                 "addToCalendar": true,
-                "contactPastor": true
+                "contactPastor": true,
+                "class":"locations",
+                "filterField": "id",
+                "filterValue": "hamilton-downtown"
             },
             {
                 "type": "list",

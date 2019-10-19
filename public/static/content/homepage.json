@@ -154,6 +154,7 @@
                 "text2": "What are you doing this Sunday?",
                 "link1Text": "Link of sub importance",
                 "link1Action": "locations",
+                "class":"locations",
                 "showLocationSearch": true
             }
         ]
