@@ -41,7 +41,10 @@
                 "text3": "Includes full program for Infants to Grade 8",
                 "text4": "Free underground parking available. Validate your parking ticket at the info table.",
                 "addToCalendar": true,
-                "contactPastor": true
+                "contactPastor": true,
+                "class":"locations",
+                "filterField": "id",
+                "filterValue": "ottawa"
             },
             {
                 "type": "list",

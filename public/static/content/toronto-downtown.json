@@ -41,7 +41,10 @@
                 "text3": "Includes full program for Infants to Grade 8",
                 "text4": "Free underground parking available at the theatre. Pick up a parking voucher at the Info Table.",
                 "addToCalendar": true,
-                "contactPastor": true
+                "contactPastor": true,
+                "class":"locations",
+                "filterField": "id",
+                "filterValue": "toronto-downtown"
             },
             {
                 "type": "list",

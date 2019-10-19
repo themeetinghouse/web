@@ -5,10 +5,11 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./HeroItem.scss"
 import Select from 'react-select';
+import DataLoader from './DataLoader';
 
 interface Props extends RouteComponentProps {
     content: any
-
+    data:any
 }
 interface State {
     content: any,
@@ -20,25 +21,31 @@ class HeroItem extends React.Component<Props, State> {
         router: PropTypes.object,
         history: PropTypes.object
     }
+    dataLoader:DataLoader
+
     constructor(props: Props, context: any) {
         super(props, context);
         console.log(context);
         this.state = {
             content: props.content,
-            locationData:null,
+            locationData:[],
             arrowOpacity:1
         }
         this.navigate = this.navigate.bind(this);
-        if (this.state.content.showLocationSearch){
-            fetch('./static/data/locations.json').then(function (response) {
-                return response.json();
-              })
-                .then((myJson) => {
-                  this.setState({ locationData: myJson });
-                })
+        this.setData=this.setData.bind(this);
+        this.dataLoader=new DataLoader({...this.props,dataLoaded:(data:any)=>{this.setData(data)}},this.state)
 
-        }
     }
+    componentDidMount(){
+      
+        this.dataLoader.loadData()
+      }
+      setData(data:any){
+        this.setState({
+            locationData:this.state.locationData.concat(data)
+        })
+      }
+    
     locationChange(item:any){
         this.navigateTo(item.value)
     }
@@ -108,6 +115,7 @@ class HeroItem extends React.Component<Props, State> {
             downArrow.style.opacity=((1-(window.scrollY/250))).toString()
     }
     render() {
+        console.log(this.state.locationData)
         window.onscroll=()=>{this.downArrowScroll()}
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
         if (this.state.content.style === "full") {
@@ -131,7 +139,9 @@ class HeroItem extends React.Component<Props, State> {
                     />
                     <div className="heroBlackBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
-                        {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
+                        
+                        {this.state.locationData.length===1?<h2 className="heroH2">{this.state.locationData[0].location.address}</h2>
+                        :this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
                         <hr className="heroHr"></hr>
                         <div className="heroText1" >{this.state.content.text1}</div>
                         <div className="heroText2" >{this.state.content.text2}</div>

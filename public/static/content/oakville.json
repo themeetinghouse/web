@@ -42,7 +42,10 @@
                 "text4":"11:15 am-12:15 pm",
                 "text5":"7:00pm | Wednesdays | Youth Midweek for Grades 6 to 12",                
                 "addToCalendar": true,
-                "contactPastor": true
+                "contactPastor": true,
+                "class":"locations",
+                "filterField": "id",
+                "filterValue": "oakville"
             },
             {
                 "type": "list",
