@@ -1,4 +1,9 @@
 @media (min-width: 768px) {
+    .ListItemEventButton{
+        background-color:#ffffff00 !important;
+        color:#000000 !important;
+        border:0px !important;
+    }
     .ListItem.horizontal, .ListItem.horizontalBig {
         position: static;
         padding-bottom: 5vw;
@@ -181,21 +186,43 @@
         margin-right: 0.5vw; margin-left: 3vw;
     }
 
-    .ListItemEvents, .ListItemCompassion {
+    .ListItemEvents {
+        display: relative;
+        width: 53vw;
+        margin-right: 2vw;
+        vertical-align: top;
+    }
+    .ListItemEvents:hover
+    {
+        background-color:#EFEFF0;
+    }
+    .ListItemCompassion {
         display: inline-block;
         width: 23vw;
         margin-right: 2vw;
         vertical-align: top;
     }
-
     .ListItemEventsDescription {
-        white-space: normal; font-weight: bold;
+        white-space: normal; 
+        font-weight: bold;
+        font-size:2vw;
+        font-family: Graphik Web;
     }
 
     .ListItemEventsDescription2 {
         white-space: normal;
-    }
+        font-family: Graphik Web;
 
+    }
+    .ListItemEventsLocation{
+        font-family: Graphik Web;
+        font-weight:bold;
+        margin-top:10px;
+      }
+      .ListItemEventsDuration{
+        font-family: Graphik Web;
+        margin-top:10px;
+      }
     .ListItem.imageList {
         position: static;
         width: 100vw; padding-bottom: 5vw;
@@ -206,6 +233,11 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .ListItemEventButton{
+        background-color:#ffffff00 !important;
+        color:#000000 !important;
+        border:0px !important;
+    }
   .ListItem.horizontal, .ListItem.horizontalBig {
       position: static;
       padding-bottom: 5vw;
@@ -385,20 +417,38 @@
       margin-right: 0.5vw; margin-left: 3vw;
   }
 
-  .ListItemEvents, .ListItemCompassion {
-      display: inline-block;
-      width: 23vw;
+  .ListItemEvents {
+      display: relative;
+      width: 53vw;
       margin-right: 2vw;
 
       vertical-align: top;
   }
+  .ListItemEvents:hover
+  {
+      background-color:#EFEFF0;
+  }
+
+  .ListItemCompassion {
+    display: inline-block;
+    width: 23vw;
+    margin-right: 2vw;
+
+    vertical-align: top;
+}
 
   .ListItemEventsDescription {
-      white-space: normal; font-weight: bold;
+      white-space: normal; 
+      font-weight: bold;
+      font-size:2vw;
+      font-family: Graphik Web;
+
   }
 
   .ListItemEventsDescription2 {
       white-space: normal;
+      font-family: Graphik Web;
+
   }
 
   .ListItem.imageList {
@@ -410,6 +460,11 @@
 }
 
 @media (max-width: 767px) {
+    .ListItemEventButton{
+        background-color:#ffffff00 !important;
+        color:#000000 !important;
+        border:0px !important;
+    }
   .ListItem.horizontal, .ListItem.horizontalBig {
       position: static;
       padding-bottom: 5vw;
@@ -604,19 +659,44 @@
       margin-right: 0.5vw; margin-left: 3vw;
   }
 
-  .ListItemEvents, .ListItemCompassion {
-      display: inline-block;
+  .ListItemEvents {
+      display: relative;
       width: 23vw;
       margin-right: 2vw;
       vertical-align: top;
   }
+  .ListItemEvents:hover
+  {
+      background-color:#EFEFF0;
+  }
 
+  .ListItemCompassion {
+    display: inline-block;
+    width: 23vw;
+    margin-right: 2vw;
+    vertical-align: top;
+}
   .ListItemEventsDescription {
-      white-space: normal; font-weight: bold;
+      white-space: normal; 
+      font-weight: bold;
+      font-size:2vw;
+      font-family: Graphik Web;
+
   }
 
   .ListItemEventsDescription2 {
       white-space: normal;
+      font-family: Graphik Web;
+
+  }
+  .ListItemEventsLocation{
+    font-family: Graphik Web;
+    font-weight:bold;
+    margin-top:10px;
+  }
+  .ListItemEventsDuration{
+    font-family: Graphik Web;
+    margin-top:10px;
   }
 
   .ListItem.imageList {

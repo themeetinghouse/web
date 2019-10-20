@@ -1,13 +1,11 @@
 
 import React from 'react';
-import { Button } from 'reactstrap';
+//import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
-import "./ListItem.scss"
-
-//import uuidv4 from 'uuid/v4'
+import "./ListItem.scss";
 
 interface Props extends RouteComponentProps {
   content: any,
@@ -91,6 +89,161 @@ class ListItem extends React.Component<Props, State> {
     unblock();
 
   }
+
+renderVideo(item:any){
+  return (
+  <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
+  <div>
+    <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+    <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
+    <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
+    <div>{item.publishedDate}</div>
+  </div>
+
+</div>)
+}
+renderSpeaker(item:any){
+  
+  return (
+    <div key={item.id} className="ListItemTeachingImageDiv" >
+      <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
+        onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+      />
+      <div className="ListItemEpisodeLength" >{item.name}</div>
+      <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
+    </div>
+  )
+
+}
+renderOverseer(item:any,index:any){
+  return (
+    <div key={index} className="ListItemDiv3" >
+
+      <img alt={item.photoAlt} className="ListItemImage2"
+        onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+        src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+
+      <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+      <div className="ListItemPosition" >{item.Position}</div>
+
+    </div>
+  )
+}
+renderEvent(item:any){
+  
+    var start_date=new Date(item.start_time.substring(0, item.start_time.length-2) + ":" + item.start_time.substring(item.start_time.length-2))
+    var durationStr=start_date.toLocaleTimeString(navigator.language, {
+      hour: '2-digit',
+      minute:'2-digit'
+    });
+    if (item.end_date!=null){
+      var end_date=new Date(item.end_date.substring(0, item.end_date.length-2) + ":" + item.end_date.substring(item.end_date.length-2))
+      durationStr=durationStr+"-"+end_date.toLocaleTimeString(navigator.language, {
+        hour: '2-digit',
+        minute:'2-digit'
+      });
+    }
+    var description
+    if (item.description.length>300)
+      {
+        if (item.description.indexOf(" ",300)==-1)
+          description=item.description
+        else
+          description=item.description.substring(0,item.description.indexOf(" ",300))+ "..."
+      }
+    else 
+      description=item.description
+      if (new Date()<start_date)
+    return (
+      <div key={item.id} className="ListItemEvents" >
+        <div style={{float:"left",marginLeft:"10px",marginRight:"40px"}}>
+        <div style={{fontFamily:"Graphik Web",lineHeight:"3vw",fontSize:"2vw",fontWeight:"bold"}}>{start_date.toLocaleString('default', { month: 'long' })}</div>
+        <div style={{fontFamily:"Graphik Web",lineHeight:"3vw",fontSize:"4vw",fontWeight:"bold"}}>{start_date.getDate()}</div>
+        </div>
+        <div  style={{margin:"10px"}}>
+        <div className="ListItemEventsDescription" >{item.name}</div>
+        <div className="ListItemEventsDescription2" >{description}</div>
+        {item.place.name!=null?<div className="ListItemEventsLocation" >{item.place.name}</div>:null}
+        <div className="ListItemEventsDuration" >{durationStr}</div>
+{/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+        <Button className="ListItemEventButton" onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
+    */}       </div>
+        <div style={{clear:"left"}}></div>
+
+      </div>
+    )
+    else return null
+  
+}
+renderStaff(item:any,index:any){
+  return (
+    <div key={index} className="ListItemDiv3" >
+
+      <img alt={item.photoAlt} className="ListItemImage2"
+        onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+        src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+
+      <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+      <div className="ListItemContact" >{item.Position}</div>
+      {item.Email!=null?<div><a href={"mailto:"+item.Email}>Email</a></div>:null}
+      {item.Phone!=null?<div>{item.Phone}</div>:null}
+      {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
+      {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
+      {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
+
+    </div>
+  )
+}
+renderCompassion(item:any)
+{
+  return (
+    <div key={item.id} className="ListItemCompassion" >
+      <img alt={item.imageAlt} className="ListItemCompassionLogo"  src={item.image}
+        onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
+      <div className="ListItemEventsDescription" >{item.name}</div>
+      <div className="ListItemEventsDescription2" >{item.description}</div>
+      <div>{item.location}</div>
+      {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
+      {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
+      {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
+      {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
+
+
+
+    </div>
+  )
+}
+renderSeries(item:any){
+  if (item.videos.items.length > 0){
+    console.log(item.seriesType+"-"+item.title+".jpg")
+      return (
+        <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
+          <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"} 
+          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
+          <div className="ListItemName" >{item.title}</div>
+          <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
+        </div>
+      )
+    }
+    else return null
+}
+renderItemRouter(item:any,index:any){
+  if (this.state.content.class === "speakers") 
+  return this.renderSpeaker(item)
+else if (this.state.content.class === "videos") 
+  return this.renderVideo(item) 
+else if (this.state.content.class === "staff") 
+  return this.renderStaff(item,index)
+else if (this.state.content.class === "overseers") 
+  return this.renderOverseer(item,index)                 
+else if (this.state.content.class === "events") 
+  return this.renderEvent(item)
+else if (this.state.content.class === "compassion")
+  return this.renderCompassion(item)               
+else if (this.state.content.class ==="series")
+  return this.renderSeries(item)
+else return null
+}
   render() {
     var data
     (this.props.content.filterField == null) ? data = this.state.listData :
@@ -103,34 +256,11 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
           <div className="ListItemDiv2" >
-            {data.map((item: any) => {
-              if (this.state.content.class === "speakers") {
-                return (
-                  <div className="ListItemDiv3" key={item.id} >
-                    <img className="ListItemImage" alt="TBD" src="/static/images/teaching-3.png" />
-                    <div className="ListItemDiv4" >{item.name}</div>
-                    <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
-                  </div>
-                )
-              }
-              else if (this.state.content.class === "videos") {
-                return (
-                  <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
-                    <div>
-                      <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
-                      <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
-                      <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
-                      <div>{item.publishedDate}</div>
-                    </div>
+            {data.map((item: any,index:any) => {
+                    return this.renderItemRouter(item,index)
 
-                  </div>
-                )
-              }
-              else return null
             }
-
             )}
-
             <div className="ListItemDiv5" ></div>
           </div>
         </div>
@@ -148,95 +278,7 @@ class ListItem extends React.Component<Props, State> {
               {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
               <div className="ListItemSpeakersDiv" >
                 {data.map((item: any, index: any) => {
-                  if (this.state.content.class === "speakers") {
-                    return (
-                      <div key={item.id} className="ListItemTeachingImageDiv" >
-                        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
-                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-                        />
-                        <div className="ListItemEpisodeLength" >{item.name}</div>
-                        <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
-                      </div>
-                    )
-                  }
-                  else if (this.state.content.class === "videos") {
-                    return (
-                      <div key={item.id} className="ListItemDiv3" >
-                        <img alt="TBD" className="ListItemImage"  src={item.Youtube.snippet.thumbnails.default.url} />
-                        <div className="ListItemDiv4" >{item.episodeTitle}</div>
-                        <div className="ListItemDiv4" >{item.series != null ? item.series : null}</div>
-                        <div>{item.publishedDate}</div>
-
-                      </div>
-                    )
-                  }
-                  else if (this.state.content.class === "staff") {
-                    return (
-                      <div key={index} className="ListItemDiv3" >
-
-                        <img alt={item.photoAlt} className="ListItemImage2"
-                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-                          src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
-
-                        <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-                        <div className="ListItemContact" >{item.Position}</div>
-                        {item.Email!=null?<div><a href={"mailto:"+item.Email}>Email</a></div>:null}
-                        {item.Phone!=null?<div>{item.Phone}</div>:null}
-                        {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
-                        {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
-                        {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
-
-                      </div>
-                    )
-                  }
-                  else if (this.state.content.class === "overseers") {
-                    return (
-                      <div key={index} className="ListItemDiv3" >
-
-                        <img alt={item.photoAlt} className="ListItemImage2"
-                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-                          src={"/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"} />
-
-                        <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-                        <div className="ListItemPosition" >{item.Position}</div>
-
-                      </div>
-                    )
-                  }
-                  else if (this.state.content.class === "events") {
-                    return (
-                      <div key={item.id} className="ListItemEvents" >
-                        <div className="ListItemEventsDescription" >{item.name}</div>
-                        <div className="ListItemEventsDescription2" >{item.description}</div>
-                        <div>{item.location}</div>
-                        <div>{item.time}</div>
-                        <Button onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                        <Button onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
-
-
-
-                      </div>
-                    )
-                  }
-                  else if (this.state.content.class === "compassion") {
-                    return (
-                      <div key={item.id} className="ListItemCompassion" >
-                        <img alt={item.imageAlt} className="ListItemCompassionLogo"  src={item.image}
-                          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
-                        <div className="ListItemEventsDescription" >{item.name}</div>
-                        <div className="ListItemEventsDescription2" >{item.description}</div>
-                        <div>{item.location}</div>
-                        {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
-                        {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
-                        {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
-                        {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
-
-
-
-                      </div>
-                    )
-                  }
-                  else return null
+                    return this.renderItemRouter(item,index)
                 })}
 
                 <div style={{ clear: "left" }} ></div>
@@ -252,19 +294,9 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemDiv1" >
           <h1 className="ListItemH1" >{this.state.content.header1}</h1>
           <div className="ListItemDiv6" >
-            {data.map((item: any) => {
-              if (item.videos.items.length > 0){
-              console.log(item.seriesType+"-"+item.title+".jpg")
-                return (
-                  <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-                    <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"} 
-                    onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
-                    <div className="ListItemName" >{item.title}</div>
-                    <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
-                  </div>
-                )
-              }
-              else return null
+            {data.map((item: any,index:any) => {
+                    return this.renderItemRouter(item,index)
+
             })}
 
             <div className="ListItemDiv5" ></div>

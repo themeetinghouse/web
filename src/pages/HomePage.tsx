@@ -32,7 +32,6 @@ class HomePage extends React.Component<Props, State> {
       if (props.match.params.id == null)
         jsonFile = "homepage"
     }
-
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: jsonFile }

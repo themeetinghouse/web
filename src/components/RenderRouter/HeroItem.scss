@@ -235,6 +235,14 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .heroH2 {
+        font-family: Graphik Web;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 1.5vw;
+        margin-top:0vw !important;
+        margin-bottom:0vw !important;
+    }
     .heroItem {
         position: relative;
         width: 100vw;
@@ -462,6 +470,14 @@
 }
 
 @media (max-width: 767px) {
+    .heroH2 {
+        font-family: Graphik Web;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 3vw;
+        margin-top:0vw !important;
+        margin-bottom:0vw !important;
+    }
     .heroItem {
         position: relative;
         width: 100vw;
