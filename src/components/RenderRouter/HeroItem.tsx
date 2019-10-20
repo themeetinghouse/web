@@ -25,7 +25,6 @@ class HeroItem extends React.Component<Props, State> {
 
     constructor(props: Props, context: any) {
         super(props, context);
-        console.log(context);
         this.state = {
             content: props.content,
             locationData:[],
@@ -115,7 +114,6 @@ class HeroItem extends React.Component<Props, State> {
             downArrow.style.opacity=((1-(window.scrollY/250))).toString()
     }
     render() {
-        console.log(this.state.locationData)
         window.onscroll=()=>{this.downArrowScroll()}
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
         if (this.state.content.style === "full") {
@@ -152,8 +150,8 @@ class HeroItem extends React.Component<Props, State> {
                         <div className="heroText2" >{this.state.content.text7}</div>
                         {this.state.content.button1Text ? (<Button className="heroButton" onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
-                        {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
-                        {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+                        {this.state.content.addToCalendar ? (<Button style={{ fontSize:"1vw",marginTop: "1vw", color: "#ffffff", backgroundColor: "#000000", borderWidth:0, borderRadius: 0 }} onClick={this.navigate}><img style={{marginRight:"5px"}} src="/static/Calendar-white.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button style={{ fontSize:"1vw",marginTop: "1vw", color: "#ffffff", backgroundColor: "#000000", borderWidth:0, borderRadius: 0 }} onClick={this.navigate}><img style={{marginRight:"5px"}} src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
                      <div><img id="downArrow" style={{ opacity:this.state.arrowOpacity,cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
@@ -200,8 +198,15 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?
-                                <Select onChange={(item)=>{this.locationChange(item)}} placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"  
-                                options={this.state.locationData.map((item:any)=>{return {label:item.name,value:item.id}})}></Select>
+                                <Select onChange={(item)=>{this.locationChange(item)}} 
+                                placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"  
+                                options={this.state.locationData.map(
+                                    (item:any)=>{
+                                        return {label:item.name,value:item.id}}
+                                    ).sort((a:any,b:any)=>{
+                                        return a.label.localeCompare(b.label)
+                                    })
+                                    }></Select>
                               :null}
                             </div>):null}
                         {this.state.content.button1Text ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}

@@ -110,7 +110,6 @@ export default class DataLoader extends React.Component<Props, State> {
         })
     }
     loadData() {
-        console.log(this.state)
         if (this.state.content.class === "videos") {
             if (this.state.content.selector === "sameSeries") {
                 this.getVideosSameSeries(null)
