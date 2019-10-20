@@ -97,7 +97,7 @@ renderVideo(item:any){
     <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
     <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
     <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
-    <div>{item.publishedDate}</div>
+    <div className="ListItemPublishedDate">{item.publishedDate}</div>
   </div>
 
 </div>)
@@ -182,9 +182,9 @@ renderStaff(item:any,index:any){
         src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
 
       <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-      <div className="ListItemContact" >{item.Position}</div>
-      {item.Email!=null?<div><a href={"mailto:"+item.Email}>Email</a></div>:null}
-      {item.Phone!=null?<div>{item.Phone}</div>:null}
+      <div className="ListItemPosition" >{item.Position}</div>
+      {item.Email!=null?<div className="ListItemEmail"><a href={"mailto:"+item.Email}>Email</a></div>:null}
+      {item.Phone!=null?<div className="ListItemPhone">{item.Phone}</div>:null}
       {item.facebook!=null?<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>:null}
       {item.instagram!=null?<a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>:null}
       {item.twitter!=null?<a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>:null}
@@ -201,7 +201,7 @@ renderCompassion(item:any)
       <div className="ListItemEventsDescription" >{item.name}</div>
       <div className="ListItemEventsDescription2" >{item.description}</div>
       <div>{item.location}</div>
-      {item.website != null ? (<div><a href={item.website}>Website</a></div>) : null}
+      {item.website != null ? (<div><a className="ListItemWebsite" href={item.website}>Website</a></div>) : null}
       {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB"  src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
       {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter"  src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
       {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram"  src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
@@ -219,7 +219,7 @@ renderSeries(item:any){
           <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"} 
           onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
           <div className="ListItemName" >{item.title}</div>
-          <div>{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
+          <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
         </div>
       )
     }

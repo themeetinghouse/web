@@ -1,9 +1,13 @@
 @media (min-width: 768px) {
+    .teachingButton{
+        font-family:Graphik Web !important;
+    }
     .teaching-h1{
         position: relative;
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
+        font-family: Graphik Web;
     }
     .teaching-blackbox{
         padding: 3vw;
@@ -19,19 +23,23 @@
     .teachingdiv {
         padding: 0.5vw;
         color: #C8C8C8;
+        font-family: Graphik Web;
     }
     .teachingdiv2 {
         position: absolute;
         bottom: 5vw;
+        font-family: Graphik Web;
     }
     .teaching-episode-title {
         padding: 0.5vw;
         font-size: 2.5vw;
         font-weight: bold;
         color: #ffffff;
+        font-family: Graphik Web;
     }
     .teaching-span {
         margin: 1vw;
+        font-family: Graphik Web;
     }
     .teaching-image{
         cursor: pointer;
@@ -67,6 +75,7 @@
         top: 50vw;
         transform: rotate(-90deg);
         transform-origin: left top 0;
+        font-family: Graphik Web;
     }
     .teaching-options{
         position: absolute;
@@ -85,6 +94,7 @@
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
+        font-family: Graphik Web;
     }
     .teaching-blackbox{
         padding: 3vw;
@@ -100,19 +110,23 @@
     .teachingdiv {
         padding: 0.5vw;
         color: #C8C8C8;
+        font-family: Graphik Web;
     }
     .teachingdiv2 {
         position: absolute;
         bottom: 5vw;
+        font-family: Graphik Web;
     }
     .teaching-episode-title {
         padding: 0.5vw;
         font-size: 2.5vw;
         font-weight: bold;
         color: #ffffff;
+        font-family: Graphik Web;
     }
     .teaching-span {
         margin: 1vw;
+        font-family: Graphik Web;
     }
     .teaching-image{
         cursor: pointer;
@@ -148,6 +162,7 @@
         top: 50vw;
         transform: rotate(-90deg);
         transform-origin: left top 0;
+        font-family: Graphik Web;
     }
     .teaching-options{
         position: absolute;
@@ -166,6 +181,7 @@
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
+        font-family: Graphik Web;
     }
     .teaching-blackbox{
         padding: 3vw;
@@ -180,19 +196,23 @@
     .teachingdiv {
         padding: 0.5vw;
         color: #C8C8C8;
+        font-family: Graphik Web;
     }
     .teachingdiv2 {
         position: absolute;
         bottom: 5vw;
+        font-family: Graphik Web;
     }
     .teaching-episode-title {
         padding: 0.5vw;
         font-size: 2.5vw;
         font-weight: bold;
         color: #ffffff;
+        font-family: Graphik Web;
     }
     .teaching-span {
         margin: 1vw;
+        font-family: Graphik Web;
     }
     .teaching-image{
         cursor: pointer;
@@ -226,7 +246,7 @@
         position: absolute;
         left: 80vw;
         top: 10vw;
-
+        font-family: Graphik Web;
     }
     .teaching-options{
         position: absolute;
