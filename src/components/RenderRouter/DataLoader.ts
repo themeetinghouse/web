@@ -109,6 +109,14 @@ export default class DataLoader extends React.Component<Props, State> {
                 return a.lastName - b.lastName
         })
     }
+    filterEvents(items:any){
+        return items;
+        //TEMPORARY WHILE DEVELOPING
+        return items.filter((item:any)=>{
+            var start_date=new Date(item.start_time.substring(0, item.start_time.length-2) + ":" + item.start_time.substring(item.start_time.length-2))
+            return (new Date()<start_date)        
+        })
+    }
     loadData() {
         if (this.state.content.class === "videos") {
             if (this.state.content.selector === "sameSeries") {
@@ -163,7 +171,7 @@ export default class DataLoader extends React.Component<Props, State> {
                     getFbEvents.then((json: any) => {
                         console.log("Success queries.getFBEvents: " + json);
                         console.log(json)
-                        this.props.dataLoaded(json.data.getFBEvents.data)
+                        this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data))
 
                     }).catch((e: any) => { console.log(e) })
                 })
@@ -177,7 +185,7 @@ export default class DataLoader extends React.Component<Props, State> {
                 getFbEvents.then((json: any) => {
                     console.log("Success queries.getFBEvents: " + json);
                     console.log(json)
-                    this.props.dataLoaded(json.data.getFBEvents.data)
+                    this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data))
 
                 }).catch((e: any) => { console.log(e) })
             }
