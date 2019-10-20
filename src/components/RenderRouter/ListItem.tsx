@@ -153,7 +153,6 @@ renderEvent(item:any){
       }
     else 
       description=item.description
-      if (new Date()<start_date)
     return (
       <div key={item.id} className="ListItemEvents" >
         <div style={{float:"left",marginLeft:"10px",marginRight:"40px"}}>
@@ -172,7 +171,6 @@ renderEvent(item:any){
 
       </div>
     )
-    else return null
   
 }
 renderStaff(item:any,index:any){
