@@ -36,7 +36,7 @@ class HeroItem extends React.Component<Props, State> {
 
     }
     componentDidMount(){
-      
+
         this.dataLoader.loadData()
       }
       setData(data:any){
@@ -44,7 +44,7 @@ class HeroItem extends React.Component<Props, State> {
             locationData:this.state.locationData.concat(data)
         })
       }
-    
+
     locationChange(item:any){
         this.navigateTo(item.value)
     }
@@ -103,7 +103,7 @@ class HeroItem extends React.Component<Props, State> {
          return "https://beta.themeetinghouse.com/cache/"+size
     }
     fadeIn(obj:any){
-       
+
         obj.target.style.transition = "opacity 1s";
         obj.target.style.opacity = "1";
     }
@@ -137,7 +137,7 @@ class HeroItem extends React.Component<Props, State> {
                     />
                     <div className="heroBlackBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
-                        
+
                         {this.state.locationData.length===1?<h2 className="heroH2">{this.state.locationData[0].location.address}</h2>
                         :this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
                         <hr className="heroHr"></hr>
@@ -187,7 +187,7 @@ class HeroItem extends React.Component<Props, State> {
                     <div className="partialNoFooterBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}
-                        <hr style={{ marginLeft: 0, marginRight: 0, marginTop: "1.5vw", marginBottom: "1.5vw", width: "5vw", backgroundColor: "#ffffff" }}></hr>
+                        <hr className="partialNoFooterBoxHr" ></hr>
                         <div className="heroText1">{this.state.content.text1}</div>
                         <div className="heroText1">{this.state.content.text2}</div>
                         <div className="heroText2">{this.state.content.text3}</div>
@@ -198,8 +198,8 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?
-                                <Select onChange={(item)=>{this.locationChange(item)}} 
-                                placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"  
+                                <Select onChange={(item)=>{this.locationChange(item)}}
+                                placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"
                                 options={this.state.locationData.map(
                                     (item:any)=>{
                                         return {label:item.name,value:item.id}}
@@ -224,7 +224,7 @@ class HeroItem extends React.Component<Props, State> {
                 <div className="headerItem" style={{ position: "relative", left: "20vw", width: "80vw", height: "43vw", paddingBottom: "5vh" }}>
                      {
                         image1.src.includes(".svg")?
-                    
+
                     <img src={image1.src} alt={image1.alt} className="partial"/>:
                     <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partial"
                     srcSet={this.imgUrl(320)+image1.src+" 320w,"+

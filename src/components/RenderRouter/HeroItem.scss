@@ -88,6 +88,16 @@
         z-index: 100;
     }
 
+    .partialNoFooterBoxHr {
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 1.5vw;
+          margin-bottom: 1.5vw;
+          width: 5vw;
+          background-color: #ffffff;
+
+      }
+
     .heroHr {
         margin-left: 0;
         margin-right: 0;
@@ -333,6 +343,17 @@
         z-index: 100;
     }
 
+
+    .partialNoFooterBoxHr {
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 1.5vw;
+          margin-bottom: 1.5vw;
+          width: 5vw;
+          background-color: #ffffff;
+
+      }
+
     .heroText1 {
         font-family: Graphik Web;
         width: 32vw;
@@ -548,16 +569,26 @@
         left: 0vw;
         width: 100vw;
         padding-bottom: 0vh;
+        height: 90vh;
     }
 
     .partialNoFooterBox {
         position: absolute;
-        padding: 2vw;
+        padding: 30vw 6vw 6vw 6vw;
         left: 5vw;
         width: 46vw;
         top: 18vh;
         z-index: 100;
     }
+
+    .partialNoFooterBoxHr {
+          margin-left: 0;
+          margin-right: 0;
+          margin-top: 4.5vw;
+          margin-bottom: 4.5vw;
+          width: 8.55vw;
+          background-color: #ffffff;
+      }
 
     .partialNoFooterLocationDropDown {
         font-family: Graphik Web;
