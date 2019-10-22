@@ -39,8 +39,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
   componentDidUpdate(prevProps: Props) {
     // Typical usage (don't forget to compare props):
     if (this.props.data !== prevProps.data) {
-      if (this.props.data === null){
-        this.setState({content:null})
+      if (this.props.data === null) {
+        this.setState({ content: null })
       }
       else if (this.props.data === "search") {
         fetch('/static/content/search.json').then(function (response) {
@@ -67,15 +67,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        {(this.state.content!=null)?
-        <Modal dialogClassName={this.state.content.page.pageConfig.logoColor==="black"?"modal-video white":"modal-video "} show={this.props.data !== null}>
-          <Modal.Body className={this.state.content.page.pageConfig.logoColor==="black"?"modal-body white":"modal-body "}>
-            <img style={{ cursor: "pointer", position: "fixed", zIndex: 1000, top: "2vw", left: "95vw" }} src={this.state.content.page.pageConfig.logoColor==="black"?"/static/Close-black.png":"/static/Close.png"} alt="Close Window Icon" onClick={() => {
-              this.props.onClose()
-            }} />
-            <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
-          </Modal.Body>
-        </Modal>:null}
+        {(this.state.content != null) ?
+          <Modal dialogClassName={this.state.content.page.pageConfig.logoColor === "black" ? "modal-video white" : "modal-video "} show={this.props.data !== null}>
+            <Modal.Body className={this.state.content.page.pageConfig.logoColor === "black" ? "modal-body white" : "modal-body "}>
+              <img style={{ cursor: "pointer", position: "fixed", zIndex: 1000, top: "2vw", left: "95vw" }} src={this.state.content.page.pageConfig.logoColor === "black" ? "/static/Close-black.png" : "/static/Close.png"} alt="Close Window Icon" onClick={() => {
+                this.props.onClose()
+              }} />
+              <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
+            </Modal.Body>
+          </Modal> : null}
       </div >)
 
   }

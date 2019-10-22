@@ -58,7 +58,7 @@ export class ContentItem extends React.Component<Props, State>  {
     var inititalCenter: any;
     var initalZoom;
     if (this.state.content.class === "home-church") {
-      inititalCenter= {
+      inititalCenter = {
         lat: 44,
         lng: -78.0
 
@@ -66,7 +66,7 @@ export class ContentItem extends React.Component<Props, State>  {
       initalZoom = 6
     }
     else {
-       inititalCenter = {
+      inititalCenter = {
         lat: 0,
         lng: -0
       }
@@ -103,10 +103,10 @@ export class ContentItem extends React.Component<Props, State>  {
                       <h3>{item.name}</h3>
                       <div>{item.dayofweek}/{item.frequency}</div>
                       <div>Leaders: <a href={"mailto:" + item.l1Email}>{item.l1FirstName} {item.l1LastName} ({item.l1Email})</a></div>
-                      {item.l2Email!=null?<div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div>:null}
-                      {item.l3Email!=null?<div><a href={"mailto:" + item.l3Email}>{item.l3FirstName} {item.l3LastName} ({item.l3Email})</a></div>:null}
-                      {item.l4Email!=null?<div><a href={"mailto:" + item.l4Email}>{item.l4FirstName} {item.l4LastName} ({item.l4Email})</a></div>:null}
-                      {item.facebook!=null?<div ><a href={item.facebookLink} className="distancegroupitemA" ><img className="distancegroupitemImage"  src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div>:null}
+                      {item.l2Email != null ? <div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div> : null}
+                      {item.l3Email != null ? <div><a href={"mailto:" + item.l3Email}>{item.l3FirstName} {item.l3LastName} ({item.l3Email})</a></div> : null}
+                      {item.l4Email != null ? <div><a href={"mailto:" + item.l4Email}>{item.l4FirstName} {item.l4LastName} ({item.l4Email})</a></div> : null}
+                      {item.facebook != null ? <div ><a href={item.facebookLink} className="distancegroupitemA" ><img className="distancegroupitemImage" src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div> : null}
 
                     </div>
                   )

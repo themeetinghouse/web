@@ -1,26 +1,29 @@
 @media (min-width: 768px) {
-  .GiveItemH1{
-    color:#ffffff;
-    font-family:Graphik Web;
-    font-weight:bold;
-    font-size:3vw;
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 3vw;
   }
-  .GiveItemH2{
-    color:#ffffff;
-    font-family:Graphik Web;
-    font-weight:normal;
-    width:60vw;
-    font-size:1.5vw;
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 60vw;
+    font-size: 1.5vw;
   }
-  .GiveItemText{
-    color:#ffffff;
-    font-family:Graphik Web;
-    width:60vw;
-    margin-bottom:1vw;
-    font-size:1.2vw;
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
   }
-.GiveItemHR{
- 
+
+  .GiveItemHR {
+
     margin-left: 0;
     margin-right: 0;
     margin-top: 1.5vw;
@@ -28,85 +31,119 @@
     width: 8.55vw;
     background-color: #ffffff;
 
-}
-.GiveItemGreyBox{
-  background-color:#EFEFF0;
-  width:60vw;
-  padding:5vw;
-}
-.GiveItemButton{
-  background-color:#ffffff;
-  border-radius:0px;
-  border-width:1px;
-  border-color:#000000;
-  color:#000000;
-  font-family: Graphik Web;
-  font-weight: normal;
-  margin:0.5vw;
-  padding:0.7vw;
-}
-.GiveItemOtherWays, .GiveItemNeedHelp{
-  font-weight:bold;
-  font-family:Graphik Web;
-  color:#ffffff;
-  font-size:1vw;
-  margin-top:2vw;
- 
-}
-.GiveItemOtherWay {
-  font-family:Graphik Web;
-  color:#ffffff;
-  float:left;
-  font-size:1vw;
-  margin-right:1vw;
-  margin-bottom:5vw;
-}
-.GiveItemNeedHelpEmail{
-  font-family:Graphik Web;
-  color:#ffffff;
-  float:left;
-  font-size:1vw;
-  margin-bottom:5vw;
-}
-.GiveItemOtherWayGroup{
-  float:left;
-}
-.GiveItemNeedHelpGroup{
-  float:right;
-  width:60vw;
-  font-size:1vw;
-}
+  }
+
+  .GiveItemOtherWayButton {
+    font-family: Graphik Web;
+    background-color: #000000;
+    color: #ffffff;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
+  .GiveItemOtherWayButton:hover {
+    font-family: Graphik Web;
+    background-color: #000000;
+    color: #0000ff;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+
+  .GiveItemGreyBox {
+    background-color: #EFEFF0;
+    width: 60vw;
+    padding: 5vw;
+  }
+
+  .GiveItemButton {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: #000000;
+    color: #000000;
+    font-family: Graphik Web;
+    font-weight: normal;
+    margin: 0.5vw;
+    padding: 0.7vw;
+  }
+
+  .GiveItemOtherWays,
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 1vw;
+    margin-top: 2vw;
+
+  }
+
+  .GiveItemOtherWay {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemNeedHelpEmail {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemOtherWayGroup {
+    float: left;
+  }
+
+  .GiveItemNeedHelpGroup {
+    float: right;
+    width: 60vw;
+    font-size: 1vw;
+  }
+
   .giveItemDiv1 {
     position: relative;
     top: 2vw;
     left: 20vw;
-    margin-bottom:2vw;
+    margin-bottom: 2vw;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .GiveItemH1{
-    color:#ffffff;
-    font-family:Graphik Web;
-    font-weight:bold;
-    font-size:3vw;
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 3vw;
   }
-  .GiveItemH2{
-    color:#ffffff;
-    font-family:Graphik Web;
-    font-weight:normal;
-    width:60vw;
-    font-size:1.5vw;
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 60vw;
+    font-size: 1.5vw;
   }
-  .GiveItemText{
-    color:#ffffff;
-    font-family:Graphik Web;
-    width:60vw;
-    margin-bottom:1vw;
-    font-size:1.2vw;
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
   }
-.GiveItemHR{
- 
+
+  .GiveItemHR {
+
     margin-left: 0;
     margin-right: 0;
     margin-top: 1.5vw;
@@ -114,85 +151,97 @@
     width: 8.55vw;
     background-color: #ffffff;
 
-}
-.GiveItemGreyBox{
-  background-color:#EFEFF0;
-  width:60vw;
-  padding:5vw;
-}
-.GiveItemButton{
-  background-color:#ffffff;
-  border-radius:0px;
-  border-width:1px;
-  border-color:#000000;
-  color:#000000;
-  font-family: Graphik Web;
-  font-weight: normal;
-  margin:0.5vw;
-  padding:0.7vw;
-}
-.GiveItemOtherWays, .GiveItemNeedHelp{
-  font-weight:bold;
-  font-family:Graphik Web;
-  color:#ffffff;
-  font-size:1vw;
-  margin-top:2vw;
- 
-}
-.GiveItemOtherWay {
-  font-family:Graphik Web;
-  color:#ffffff;
-  float:left;
-  font-size:1vw;
-  margin-right:1vw;
-  margin-bottom:5vw;
-}
-.GiveItemNeedHelpEmail{
-  font-family:Graphik Web;
-  color:#ffffff;
-  float:left;
-  font-size:1vw;
-  margin-bottom:5vw;
-}
-.GiveItemOtherWayGroup{
-  float:left;
-}
-.GiveItemNeedHelpGroup{
-  float:right;
-  width:60vw;
-  font-size:1vw;
-}
+  }
+
+  .GiveItemGreyBox {
+    background-color: #EFEFF0;
+    width: 60vw;
+    padding: 5vw;
+  }
+
+  .GiveItemButton {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: #000000;
+    color: #000000;
+    font-family: Graphik Web;
+    font-weight: normal;
+    margin: 0.5vw;
+    padding: 0.7vw;
+  }
+
+  .GiveItemOtherWays,
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 1vw;
+    margin-top: 2vw;
+
+  }
+
+  .GiveItemOtherWay {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemNeedHelpEmail {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemOtherWayGroup {
+    float: left;
+  }
+
+  .GiveItemNeedHelpGroup {
+    float: right;
+    width: 60vw;
+    font-size: 1vw;
+  }
+
   .giveItemDiv1 {
     position: relative;
     top: 2vw;
     left: 20vw;
-    margin-bottom:2vw;
+    margin-bottom: 2vw;
   }
 }
 
 @media (max-width: 767px) {
-  .GiveItemH1{
-    color:#ffffff;
-    font-family:Graphik Web;
-    font-weight:bold;
-    font-size:3vw;
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 3vw;
   }
-  .GiveItemH2{
-    color:#ffffff;
-    font-family:Graphik Web;
-    font-weight:normal;
-    width:60vw;
-    font-size:1.5vw;
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 60vw;
+    font-size: 1.5vw;
   }
-  .GiveItemText{
-    color:#ffffff;
-    font-family:Graphik Web;
-    width:60vw;
-    margin-bottom:1vw;
-    font-size:1.2vw;
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
   }
-.GiveItemHR{
- 
+
+  .GiveItemHR {
+
     margin-left: 0;
     margin-right: 0;
     margin-top: 1.5vw;
@@ -200,58 +249,67 @@
     width: 8.55vw;
     background-color: #ffffff;
 
-}
-.GiveItemGreyBox{
-  background-color:#EFEFF0;
-  width:60vw;
-  padding:5vw;
-}
-.GiveItemButton{
-  background-color:#ffffff;
-  border-radius:0px;
-  border-width:1px;
-  border-color:#000000;
-  color:#000000;
-  font-family: Graphik Web;
-  font-weight: normal;
-  margin:0.5vw;
-  padding:0.7vw;
-}
-.GiveItemOtherWays, .GiveItemNeedHelp{
-  font-weight:bold;
-  font-family:Graphik Web;
-  color:#ffffff;
-  font-size:1vw;
-  margin-top:2vw;
- 
-}
-.GiveItemOtherWay {
-  font-family:Graphik Web;
-  color:#ffffff;
-  float:left;
-  font-size:1vw;
-  margin-right:1vw;
-  margin-bottom:5vw;
-}
-.GiveItemNeedHelpEmail{
-  font-family:Graphik Web;
-  color:#ffffff;
-  float:left;
-  font-size:1vw;
-  margin-bottom:5vw;
-}
-.GiveItemOtherWayGroup{
-  float:left;
-}
-.GiveItemNeedHelpGroup{
-  float:right;
-  width:60vw;
-  font-size:1vw;
-}
+  }
+
+  .GiveItemGreyBox {
+    background-color: #EFEFF0;
+    width: 60vw;
+    padding: 5vw;
+  }
+
+  .GiveItemButton {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: #000000;
+    color: #000000;
+    font-family: Graphik Web;
+    font-weight: normal;
+    margin: 0.5vw;
+    padding: 0.7vw;
+  }
+
+  .GiveItemOtherWays,
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 1vw;
+    margin-top: 2vw;
+
+  }
+
+  .GiveItemOtherWay {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemNeedHelpEmail {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemOtherWayGroup {
+    float: left;
+  }
+
+  .GiveItemNeedHelpGroup {
+    float: right;
+    width: 60vw;
+    font-size: 1vw;
+  }
+
   .giveItemDiv1 {
     position: relative;
     top: 2vw;
     left: 20vw;
-    margin-bottom:2vw;
+    margin-bottom: 2vw;
   }
 }

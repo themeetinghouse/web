@@ -1,16 +1,19 @@
 @media (min-width: 768px) {
-    .FormItemH1{
+    .FormItemH1 {
         font-weight: bold;
         font-size: 3vw;
-        font-family:Graphik Web;
-        margin-top:3vw;
-    } 
-    .FormItemH1.white{
-        color:#ffffff;
+        font-family: Graphik Web;
+        margin-top: 3vw;
     }
-    .FormItemH1.black{
-        color:#000000;
+
+    .FormItemH1.white {
+        color: #ffffff;
     }
+
+    .FormItemH1.black {
+        color: #000000;
+    }
+
     .FormItem {
         position: static;
         padding-bottom: 5vw;
@@ -28,15 +31,17 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .FormItemH1{
+    .FormItemH1 {
         font-weight: bold;
         font-size: 3vw;
-        font-family:Graphik Web;
-        margin-top:3vw;
+        font-family: Graphik Web;
+        margin-top: 3vw;
     }
-    .FormItemH1.white{
-        color:#ffffff;
+
+    .FormItemH1.white {
+        color: #ffffff;
     }
+
     .FormItem {
         position: static;
         padding-bottom: 5vw;
@@ -54,15 +59,17 @@
 }
 
 @media (max-width: 767px) {
-    .FormItemH1{
+    .FormItemH1 {
         font-weight: bold;
         font-size: 10vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
         line-height: 12.5vw;
     }
-    .FormItemH1.white{
-        color:#ffffff;
+
+    .FormItemH1.white {
+        color: #ffffff;
     }
+
     .FormItem {
         position: static;
         padding-bottom: 5vw;

@@ -42,13 +42,13 @@ export class ContentItem extends React.Component<Props, State>  {
     this.navigate = this.navigate.bind(this);
     if (this.state.content.class === "home-church") {
 
-      const f1ListGroupTypes = API.graphql(graphqlOperation(queries.f1ListGroupTypes, { }));
+      const f1ListGroupTypes = API.graphql(graphqlOperation(queries.f1ListGroupTypes, {}));
       f1ListGroupTypes.then((json: any) => {
-            console.log(json)
-     
+        console.log(json)
+
         json.data.F1ListGroupTypes.groupTypes.groupType.forEach((item: any) => {
-          const f1ListGroups = API.graphql(graphqlOperation(queries.f1ListGroups, { itemId: item.id}));
-     
+          const f1ListGroups = API.graphql(graphqlOperation(queries.f1ListGroups, { itemId: item.id }));
+
           f1ListGroups.then((json2: any) => {
             console.log(json2)
             this.setState({ groups: this.state.groups.concat(json2.data.F1ListGroups.groups.group) });

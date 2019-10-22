@@ -117,33 +117,33 @@ export class ContentItem extends React.Component<Props, State>  {
             </div>
             <div className="SundayMorningItemDiv3" >
               <div className="SundayMorningItemDiv4" >
-              <Input placeholder="Current Location" ></Input>
-              <Button>Driving</Button> <Button>Transit</Button> <Button>Bike</Button>
+                <Input placeholder="Current Location" ></Input>
+                <Button>Driving</Button> <Button>Transit</Button> <Button>Bike</Button>
               </div>
               <div className="SundayMorningItemListData" >
-              {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
-                return (
-                  <div className="SundayMorningItemDiv5" >
-                    <div key={index} className="SundayMorningItemDiv4" >
+                {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
+                  return (
+                    <div className="SundayMorningItemDiv5" >
+                      <div key={index} className="SundayMorningItemDiv4" >
 
+                        <div>
+                          <h3 className="SundayMorningH3" >{item.name}</h3>
+                          <div className="SundayMorningAddress" >{item.location.address}</div>
+                          <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " " + this.state.distances.rows[0].elements[index].duration.text : null}</div>
+
+                        </div>
+                        <div className="SundayMorningItemDiv6" >
+                          <Button className="SundayMorningButton1" onClick={() => this.navigate(item.id)}>Visit Site Page</Button>
+                        </div>
+                      </div>
                       <div>
-                        <h3 className="SundayMorningH3" >{item.name}</h3>
-                        <div className="SundayMorningAddress" >{item.location.address}</div>
-                        <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " " + this.state.distances.rows[0].elements[index].duration.text : null}</div>
-
-                      </div>
-                      <div className="SundayMorningItemDiv6" >
-                        <Button className="SundayMorningButton1" onClick={() => this.navigate(item.id)}>Visit Site Page</Button>
+                        <Button className="SundayMorningButton2" ><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+                        <Button className="SundayMorningButton2" ><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
                       </div>
                     </div>
-                    <div>
-                      <Button className="SundayMorningButton2" ><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                      <Button className="SundayMorningButton2" ><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
-                    </div>
-                  </div>
 
-                )
-              }) : null}
+                  )
+                }) : null}
               </div>
             </div>
           </div>

@@ -1241,7 +1241,7 @@ class IndexApp extends React.Component {
         Promise.all(series)
           .then((r: any) => {
             var ar = r.sort((a: any, b: any) => { return (new Date(a.pub).valueOf() - new Date(b.pub).valueOf()) })
-            ar.map((item: any, index: any) => {
+            ar.forEach((item: any, index: any) => {
               const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.id, episodeNumber: index + 1 } }));
               updateVideo.then(() => {
                 console.log("updateVideo success")
@@ -1418,7 +1418,7 @@ class IndexApp extends React.Component {
     }).then((items: any) => {
       Promise.all(items).then((r: any) => {
         var ar = r.sort((a: any, b: any) => { return (new Date(a.pub).valueOf() - new Date(b.pub).valueOf()) })
-        ar.map((item: any, index: any) => {
+        ar.forEach((item: any, index: any) => {
           const updateVideo = API.graphql(graphqlOperation(mutations.updateVideo, { input: { id: item.id, episodeNumber: index + 1 } }));
           updateVideo.then(() => {
             console.log("updateVideo success")
