@@ -291,6 +291,10 @@
         line-height: 7.5vw;
         margin-top: 13vw;
         display: inline-block;
+        // border-bottom-width: 1px;
+        // border-bottom-style: solid;
+        // padding-bottom: 3px;
+        text-decoration: underline;
 
     }
 
@@ -301,31 +305,32 @@
         left: 5vw;
         object-fit: cover;
         top: -60vw;
-        //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        padding-top: 20vw;
+      //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
 
     .secondImg {
-        top: 140vw;
+      top: 125vw;
     }
 
     .oneImageGreyBox {
-        margin-top: 60vw;
+        margin-top: 24vw;
         padding: 40vw 6vw 10vw;
         position: relative;
         width: 100vw;
-        height: 145vw;
+        //height: 145vw;
         left: 0vw;
         top: 0vw;
         background-color: #EFEFF0;
     }
-
-    .oneImageBlackBox {
-        margin-top: 20vw;
+    .oneImageBlackBox{
+        // margin-top:20vw;
         padding: 6vw;
         padding-top: 20vw;
         position: relative;
         width: 100vw;
-        height: 175vw;
+        //height: 175vw;
+        padding-bottom:65vw;
         left: 0vw;
         top: 0vw;
         background-color: #000000;
@@ -351,13 +356,13 @@
 
     .ContentItem.oneImage {
         position: static;
-        padding-bottom: 5vw;
+        // padding-bottom: 5vw;
         // padding-top: 45vw;
         display: relative;
     }
 
     .ContentItemMarginBottom {
-        margin-bottom: 85vw;
+      margin-bottom: 55vw;
     }
 
     .greyTwoText {
