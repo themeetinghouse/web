@@ -45,6 +45,7 @@ input fuzzySearchableVideoSortInput {
   field: fuzzySearchableVideoSortableFields
   direction: fuzzySearchableSortDirection
 }
+
 type FBLocation{
   city: String
   country: String

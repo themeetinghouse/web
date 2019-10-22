@@ -1,35 +1,40 @@
 @media (min-width: 768px) {
-    .oneImageText{
+    .oneImageText {
         font-size: 1.5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
     }
-    .oneImageText.white{
-        color:#ffffff;
+
+    .oneImageText.white {
+        color: #ffffff;
     }
-    .oneImageA{
+
+    .oneImageA {
         font-size: 1.5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
 
     }
-    .oneImageImage{
+
+    .oneImageImage {
         position: absolute;
         height: 35vw;
-        width:35vw;
+        width: 35vw;
         left: 0vw;
-        object-fit:cover;
+        object-fit: cover;
         top: 2.5vw;
-       // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
-    .oneImageImage.right{
+
+    .oneImageImage.right {
         position: absolute;
         height: 35vw;
-        width:35vw;
+        width: 35vw;
         left: 45vw;
-        object-fit:cover;
+        object-fit: cover;
         top: 2.5vw;
-       // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
-    .oneImageGreyBox{
+
+    .oneImageGreyBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -38,7 +43,8 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
-    .oneImageGreyBox.right{
+
+    .oneImageGreyBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -47,7 +53,8 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
-    .oneImageBlackBox{
+
+    .oneImageBlackBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -56,7 +63,8 @@
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageBlackBox.right{
+
+    .oneImageBlackBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -65,93 +73,106 @@
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageH1{
+
+    .oneImageH1 {
         font-weight: bold;
         font-size: 3vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
     }
-    .oneImageH1.white{
-        color:#ffffff;
+
+    .oneImageH1.white {
+        color: #ffffff;
     }
-    .oneImagePosition{
+
+    .oneImagePosition {
         position: relative;
-        left:20vw;
-        width:80vw;
+        left: 20vw;
+        width: 80vw;
         z-index: 100;
     }
+
     .ContentItem.oneImage {
         position: static;
         padding-bottom: 5vw;
     }
-    .greyTwoText{
-        left:0vw;
-        position:relative;
-        width:100vw;
-        background-color:#EFEFF0;
-        margin-top:-5vh;
+
+    .greyTwoText {
+        left: 0vw;
+        position: relative;
+        width: 100vw;
+        background-color: #EFEFF0;
+        margin-top: -5vh;
         margin-bottom: 5vw;
     }
-    .greyTwoTextH1{
-        position:relative;
-        float:left;
-        margin:1vw;
-        margin-top:3vw;
-        left:20vw;
-        font-weight:bold;
-        width:30vw;
-        height:20vw;
-        font-size: 1.5vw;
-        font-family:Graphik Web;
-    }
-    .greyTwoTextText{
-        left:20vw;
-        position:relative;
-        margin:1vw;
-        margin-top:3vw;
 
-        float:left;
-        width:45vw;
-        height:20vw;
-        font-size: 1.2vw;
-        font-family:Graphik Web;
+    .greyTwoTextH1 {
+        position: relative;
+        float: left;
+        margin: 1vw;
+        margin-top: 3vw;
+        left: 20vw;
+        font-weight: bold;
+        width: 30vw;
+        height: 20vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
     }
-    .greyTwoClear{
-        clear:left;
+
+    .greyTwoTextText {
+        left: 20vw;
+        position: relative;
+        margin: 1vw;
+        margin-top: 3vw;
+
+        float: left;
+        width: 45vw;
+        height: 20vw;
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+    }
+
+    .greyTwoClear {
+        clear: left;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .oneImageText{
+    .oneImageText {
         font-size: 1.5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
     }
-    .oneImageText.white{
-        color:#ffffff;
+
+    .oneImageText.white {
+        color: #ffffff;
     }
-    .oneImageA{
+
+    .oneImageA {
         font-size: 1.5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
 
     }
-    .oneImageImage{
+
+    .oneImageImage {
         position: absolute;
         height: 35vw;
-        width:35vw;
+        width: 35vw;
         left: 0vw;
-        object-fit:cover;
+        object-fit: cover;
         top: 2.5vw;
-     //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
-    .oneImageImage.right{
+
+    .oneImageImage.right {
         position: absolute;
         height: 35vw;
-        width:35vw;
+        width: 35vw;
         left: 45vw;
-        object-fit:cover;
+        object-fit: cover;
         top: 2.5vw;
-     //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
-    .oneImageGreyBox{
+
+    .oneImageGreyBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -160,7 +181,8 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
-    .oneImageGreyBox.right{
+
+    .oneImageGreyBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -169,7 +191,8 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
-    .oneImageBlackBox{
+
+    .oneImageBlackBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -178,7 +201,8 @@
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageBlackBox.right{
+
+    .oneImageBlackBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -187,93 +211,105 @@
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageH1{
+
+    .oneImageH1 {
         font-weight: bold;
         font-size: 3vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
     }
-    .oneImageH1.white{
-        color:#ffffff;
+
+    .oneImageH1.white {
+        color: #ffffff;
     }
-    .oneImagePosition{
+
+    .oneImagePosition {
         position: relative;
-        left:20vw;
-        width:80vw;
+        left: 20vw;
+        width: 80vw;
         z-index: 100;
     }
+
     .ContentItem.oneImage {
         position: static;
         padding-bottom: 5vw;
     }
 
-    .greyTwoText{
-        left:0vw;
-        position:relative;
-        width:100vw;
-        background-color:#EFEFF0;
-        margin-top:-5vh;
+    .greyTwoText {
+        left: 0vw;
+        position: relative;
+        width: 100vw;
+        background-color: #EFEFF0;
+        margin-top: -5vh;
         margin-bottom: 5vw;
     }
-    .greyTwoTextH1{
-        position:relative;
-        float:left;
-        margin:1vw;
-        margin-top:3vw;
-        left:20vw;
-        font-weight:bold;
-        width:30vw;
-        height:20vw;
-        font-size: 1.5vw;
-        font-family:Graphik Web;
-    }
-    .greyTwoTextText{
-        left:20vw;
-        position:relative;
-        margin:1vw;
-        margin-top:3vw;
 
-        float:left;
-        width:45vw;
-        height:20vw;
-        font-size: 1.2vw;
-        font-family:Graphik Web;
+    .greyTwoTextH1 {
+        position: relative;
+        float: left;
+        margin: 1vw;
+        margin-top: 3vw;
+        left: 20vw;
+        font-weight: bold;
+        width: 30vw;
+        height: 20vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
     }
-    .greyTwoClear{
-        clear:left;
+
+    .greyTwoTextText {
+        left: 20vw;
+        position: relative;
+        margin: 1vw;
+        margin-top: 3vw;
+
+        float: left;
+        width: 45vw;
+        height: 20vw;
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+    }
+
+    .greyTwoClear {
+        clear: left;
     }
 }
 
 @media (max-width: 767px) {
-    .oneImageText{
+    .oneImageText {
         font-size: 5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
         line-height: 7.5vw;
     }
-    .oneImageText.white{
-        color:#ffffff;
+
+    .oneImageText.white {
+        color: #ffffff;
     }
-    .oneImageA{
+
+    .oneImageA {
         font-size: 5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
         line-height: 7.5vw;
         margin-top: 13vw;
         display: inline-block;
 
     }
-    .oneImageImage{
+
+    .oneImageImage {
         position: absolute;
         height: 90vw;
-        width:90vw;
+        width: 90vw;
         left: 5vw;
-        object-fit:cover;
+        object-fit: cover;
         top: -60vw;
-      //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
+
     .secondImg {
-      top: 140vw;
+        top: 140vw;
     }
-    .oneImageGreyBox{
-        margin-top:60vw;
+
+    .oneImageGreyBox {
+        margin-top: 60vw;
         padding: 40vw 6vw 10vw;
         position: relative;
         width: 100vw;
@@ -282,10 +318,11 @@
         top: 0vw;
         background-color: #EFEFF0;
     }
-    .oneImageBlackBox{
-        margin-top:20vw;
+
+    .oneImageBlackBox {
+        margin-top: 20vw;
         padding: 6vw;
-        padding-top:20vw;
+        padding-top: 20vw;
         position: relative;
         width: 100vw;
         height: 175vw;
@@ -293,19 +330,22 @@
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageH1{
+
+    .oneImageH1 {
         font-weight: bold;
         font-size: 10vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
         line-height: 12.5vw;
     }
-    .oneImageH1.white{
-        color:#ffffff;
+
+    .oneImageH1.white {
+        color: #ffffff;
     }
-    .oneImagePosition{
+
+    .oneImagePosition {
         position: relative;
-        left:0vw;
-        width:100vw;
+        left: 0vw;
+        width: 100vw;
         z-index: 100;
     }
 
@@ -315,43 +355,47 @@
         // padding-top: 45vw;
         display: relative;
     }
+
     .ContentItemMarginBottom {
-      margin-bottom: 85vw;
+        margin-bottom: 85vw;
     }
 
-    .greyTwoText{
-        left:0vw;
-        position:relative;
-        width:100vw;
-        background-color:#EFEFF0;
-        margin-top:-5vh;
+    .greyTwoText {
+        left: 0vw;
+        position: relative;
+        width: 100vw;
+        background-color: #EFEFF0;
+        margin-top: -5vh;
         margin-bottom: 5vw;
     }
-    .greyTwoTextH1{
-        position:relative;
-        float:left;
-        margin:1vw;
-        margin-top:3vw;
-        left:20vw;
-        font-weight:bold;
-        width:30vw;
-        height:20vw;
-        font-size: 1.5vw;
-        font-family:Graphik Web;
-    }
-    .greyTwoTextText{
-        left:20vw;
-        position:relative;
-        margin:1vw;
-        margin-top:3vw;
 
-        float:left;
-        width:45vw;
-        height:20vw;
-        font-size: 1.2vw;
-        font-family:Graphik Web;
+    .greyTwoTextH1 {
+        position: relative;
+        float: left;
+        margin: 1vw;
+        margin-top: 3vw;
+        left: 20vw;
+        font-weight: bold;
+        width: 30vw;
+        height: 20vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
     }
-    .greyTwoClear{
-        clear:left;
+
+    .greyTwoTextText {
+        left: 20vw;
+        position: relative;
+        margin: 1vw;
+        margin-top: 3vw;
+
+        float: left;
+        width: 45vw;
+        height: 20vw;
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+    }
+
+    .greyTwoClear {
+        clear: left;
     }
 }

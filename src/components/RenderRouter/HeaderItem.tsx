@@ -1,22 +1,22 @@
 
 import React from 'react';
 import { Button } from 'reactstrap';
-interface Props{
-    content:any
-  }
-  interface State {
-    content:any
-  }
+interface Props {
+    content: any
+}
+interface State {
+    content: any
+}
 export default class HeaderItem extends React.Component<Props, State> {
-    constructor(props:Props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             content: props.content
         }
     }
-    parallaxDetail=[200, 250];
+    parallaxDetail = [200, 250];
     render() {
-        var image1 = this.state.content.image1[Math.floor(Math.random()*this.state.content.image1.length)];
+        var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
         return (
             <div className="headerItem">

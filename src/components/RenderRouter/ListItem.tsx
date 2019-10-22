@@ -146,7 +146,7 @@ renderEvent(item:any){
     var description
     if (item.description.length>300)
       {
-        if (item.description.indexOf(" ",300)==-1)
+        if (item.description.indexOf(" ",300)===-1)
           description=item.description
         else
           description=item.description.substring(0,item.description.indexOf(" ",300))+ "..."

@@ -206,7 +206,7 @@ export default class DataLoader extends React.Component<Props, State> {
             })
                 .then((myJson) => {
                     this.props.dataLoaded(myJson.filter((item:any)=>{
-                        return item[this.state.content.filterField]==this.state.content.filterValue
+                        return item[this.state.content.filterField]===this.state.content.filterValue
                     })
                 )}
                 )

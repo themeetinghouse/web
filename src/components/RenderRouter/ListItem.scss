@@ -1,10 +1,12 @@
 @media (min-width: 768px) {
-    .ListItemEventButton{
-        background-color:#ffffff00 !important;
-        color:#000000 !important;
-        border:0px !important;
+    .ListItemEventButton {
+        background-color: #ffffff00 !important;
+        color: #000000 !important;
+        border: 0px !important;
     }
-    .ListItem.horizontal, .ListItem.horizontalBig {
+
+    .ListItem.horizontal,
+    .ListItem.horizontalBig {
         position: static;
         padding-bottom: 5vw;
     }
@@ -25,7 +27,8 @@
     }
 
     .ListItemDiv3 {
-        display: inline-block; vertical-align: top;
+        display: inline-block;
+        vertical-align: top;
     }
 
     .ListItemDiv4 {
@@ -61,7 +64,8 @@
         width: 5vw;
         bottom: 0vw;
         top: 0vw;
-        border-color: #0000ff; border: solid 10px;
+        border-color: #0000ff;
+        border: solid 10px;
     }
 
     .ListItemDiv10 {
@@ -71,7 +75,8 @@
 
     .ListItemDiv11 {
         width: 40vw;
-        font-size: 1.25vw; font-family: Graphik Web;
+        font-size: 1.25vw;
+        font-family: Graphik Web;
     }
 
     .ListItemH1 {
@@ -82,9 +87,11 @@
         font-size: 3vw;
         font-family: Graphik Web;
     }
-    .ListItemH1.whiteText{
-        color:#ffffff
+
+    .ListItemH1.whiteText {
+        color: #ffffff
     }
+
     .ListItemH1ImageList {
         font-size: 3vw;
         font-weight: bold;
@@ -110,17 +117,20 @@
         height: 10vw;
         margin-right: 1vw;
     }
+
     .ListItemCompassionLogo {
         height: 13vw;
         margin-right: 1vw;
     }
+
     .ListItemImage2 {
         width: 20vw;
         margin-right: 1vw;
     }
 
     .ListItemTeachingImageDiv {
-        display: inline-block; vertical-align: top;
+        display: inline-block;
+        vertical-align: top;
     }
 
     .ListItemTeachingImage {
@@ -141,7 +151,7 @@
         left: 0vw;
         width: 80vw;
         font-size: 1.5vw;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
     }
 
     .ListItemVideo {
@@ -149,10 +159,11 @@
         display: inline-block;
         vertical-align: top;
     }
-    .ListItemVideo.whiteText{
-        color:#ffffff
-      }
-    
+
+    .ListItemVideo.whiteText {
+        color: #ffffff
+    }
+
     .ListItemVideoThumb {
         width: 20vw;
         margin-right: 1vw;
@@ -160,21 +171,29 @@
         height: 12vw;
     }
 
-    .ListItemEpisodeNum, .ListItemName {
+    .ListItemEpisodeNum,
+    .ListItemName {
         width: 20vw;
         font-weight: bold;
         white-space: normal;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
     }
 
     .ListItemEpisodeLength {
         font-weight: bold;
     }
 
-    .ListItemSeriesTitle, .ListItemContact, .ListItemPosition, .ListItemEmail, .ListItemPhone, .ListItemWebsite, .ListItemPublishedDate, .ListYearEpisode {
+    .ListItemSeriesTitle,
+    .ListItemContact,
+    .ListItemPosition,
+    .ListItemEmail,
+    .ListItemPhone,
+    .ListItemWebsite,
+    .ListItemPublishedDate,
+    .ListYearEpisode {
         width: 20vw;
         white-space: normal;
-        font-family:Graphik Web;
+        font-family: Graphik Web;
 
     }
 
@@ -186,8 +205,10 @@
         margin-right: 0.5vw;
     }
 
-    .ListItemTwitter, .ListItemInstagram {
-        margin-right: 0.5vw; margin-left: 3vw;
+    .ListItemTwitter,
+    .ListItemInstagram {
+        margin-right: 0.5vw;
+        margin-left: 3vw;
     }
 
     .ListItemEvents {
@@ -196,20 +217,22 @@
         margin-right: 2vw;
         vertical-align: top;
     }
-    .ListItemEvents:hover
-    {
-        background-color:#EFEFF0;
+
+    .ListItemEvents:hover {
+        background-color: #EFEFF0;
     }
+
     .ListItemCompassion {
         display: inline-block;
         width: 23vw;
         margin-right: 2vw;
         vertical-align: top;
     }
+
     .ListItemEventsDescription {
-        white-space: normal; 
+        white-space: normal;
         font-weight: bold;
-        font-size:2vw;
+        font-size: 2vw;
         font-family: Graphik Web;
     }
 
@@ -218,18 +241,22 @@
         font-family: Graphik Web;
 
     }
-    .ListItemEventsLocation{
+
+    .ListItemEventsLocation {
         font-family: Graphik Web;
-        font-weight:bold;
-        margin-top:10px;
-      }
-      .ListItemEventsDuration{
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .ListItemEventsDuration {
         font-family: Graphik Web;
-        margin-top:10px;
-      }
+        margin-top: 10px;
+    }
+
     .ListItem.imageList {
         position: static;
-        width: 100vw; padding-bottom: 5vw;
+        width: 100vw;
+        padding-bottom: 5vw;
     }
 
 
@@ -237,481 +264,526 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .ListItemEventButton{
-        background-color:#ffffff00 !important;
-        color:#000000 !important;
-        border:0px !important;
+    .ListItemEventButton {
+        background-color: #ffffff00 !important;
+        color: #000000 !important;
+        border: 0px !important;
     }
-  .ListItem.horizontal, .ListItem.horizontalBig {
-      position: static;
-      padding-bottom: 5vw;
-  }
 
-  .ListItemDiv1 {
-      position: relative;
-      z-index: 99;
-      left: 20vw;
-      width: 80vw;
-  }
+    .ListItem.horizontal,
+    .ListItem.horizontalBig {
+        position: static;
+        padding-bottom: 5vw;
+    }
 
-  .ListItemDiv2 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      overflow-x: scroll;
-      white-space: nowrap;
-  }
+    .ListItemDiv1 {
+        position: relative;
+        z-index: 99;
+        left: 20vw;
+        width: 80vw;
+    }
 
-  .ListItemDiv3 {
-      display: inline-block; vertical-align: top;
-  }
+    .ListItemDiv2 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 
-  .ListItemDiv4 {
-      font-weight: bold;
-  }
+    .ListItemDiv3 {
+        display: inline-block;
+        vertical-align: top;
+    }
 
-  .ListItemDiv5 {
-      clear: left;
-  }
+    .ListItemDiv4 {
+        font-weight: bold;
+    }
 
-  .ListItemDiv6 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      overflow-x: scroll;
-      white-space: nowrap;
-  }
+    .ListItemDiv5 {
+        clear: left;
+    }
 
-  .ListItemDiv7 {
-      width: 80vw;
-      font-size: 1.5vw; font-family: Graphik Web; padding-bottom: 1vw;
-  }
+    .ListItemDiv6 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 
-  .ListItemDiv8 {
-      position: relative;
-  }
+    .ListItemDiv7 {
+        width: 80vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        padding-bottom: 1vw;
+    }
 
-  .ListItemDiv9 {
-      position: absolute;
-      left: 12.5vw;
-      width: 5vw;
-      bottom: 0vw;
-      top: 0vw;
-      border-color: #0000ff; border: solid 10px;
-  }
+    .ListItemDiv8 {
+        position: relative;
+    }
 
-  .ListItemDiv10 {
-      position: relative;
-      z-index: 99;
-  }
+    .ListItemDiv9 {
+        position: absolute;
+        left: 12.5vw;
+        width: 5vw;
+        bottom: 0vw;
+        top: 0vw;
+        border-color: #0000ff;
+        border: solid 10px;
+    }
 
-  .ListItemDiv11 {
-      width: 40vw;
-      font-size: 1.25vw; font-family: Graphik Web;
-  }
+    .ListItemDiv10 {
+        position: relative;
+        z-index: 99;
+    }
 
-  .ListItemH1 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      font-weight: bold;
-      font-size: 3vw;
-  }
-  .ListItemH1.whiteText{
-    color:#ffffff
-}
+    .ListItemDiv11 {
+        width: 40vw;
+        font-size: 1.25vw;
+        font-family: Graphik Web;
+    }
 
-  .ListItemH1ImageList {
-      font-size: 3vw;
-      font-weight: bold; font-family: Graphik Web;
-  }
+    .ListItemH1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        font-weight: bold;
+        font-size: 3vw;
+    }
 
-  .ListItemH1ImageList2 {
-      position: absolute;
-      height: 20vw;
-      width: 30vw;
-      left: 0vw;
-      object-fit: cover;
-      top: 2.5vw;
-  }
+    .ListItemH1.whiteText {
+        color: #ffffff
+    }
 
-  .ListItemH3 {
-      width: 40vw;
-      font-size: 2vw;
-      font-family: Graphik Web;
-  }
+    .ListItemH1ImageList {
+        font-size: 3vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+    }
 
-  .ListItemImage {
-      height: 10vw;
-      margin-right: 1vw;
-  }
-  .ListItemCompassionLogo {
-    height: 13vw;
-    margin-right: 1vw;
-}
-  .ListItemImage2 {
-      width: 20vw;
-      margin-right: 1vw;
-  }
+    .ListItemH1ImageList2 {
+        position: absolute;
+        height: 20vw;
+        width: 30vw;
+        left: 0vw;
+        object-fit: cover;
+        top: 2.5vw;
+    }
 
-  .ListItemTeachingImageDiv {
-      display: inline-block; vertical-align: top;
-  }
+    .ListItemH3 {
+        width: 40vw;
+        font-size: 2vw;
+        font-family: Graphik Web;
+    }
 
-  .ListItemTeachingImage {
-      height: 10vw;
-      margin-right: 1vw;
-  }
+    .ListItemImage {
+        height: 10vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemSpeakersDiv {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      overflow-x: scroll;
-      white-space: nowrap;
-  }
+    .ListItemCompassionLogo {
+        height: 13vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemText1 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      font-size: 1.5vw;
-      font-family:Graphik Web;
-  }
+    .ListItemImage2 {
+        width: 20vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemVideo {
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
-  }
-  .ListItemVideo.whiteText{
-    color:#ffffff
-  }
+    .ListItemTeachingImageDiv {
+        display: inline-block;
+        vertical-align: top;
+    }
 
-  .ListItemVideoThumb {
-      width: 20vw;
-      margin-right: 1vw;
-      object-fit: cover;
-      height: 12vw;
-  }
+    .ListItemTeachingImage {
+        height: 10vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemEpisodeNum, .ListItemName {
-      width: 20vw;
-      font-weight: bold;
-      white-space: normal;
-      font-family:Graphik Web;
-  }
+    .ListItemSpeakersDiv {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 
-  .ListItemEpisodeLength {
-      font-weight: bold;
-  }
+    .ListItemText1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+    }
 
-  .ListItemSeriesTitle, .ListItemContact, .ListItemPosition, .ListItemEmail, .ListItemPhone, .ListItemWebsite, .ListItemPublishedDate, .ListYearEpisode {
-      width: 20vw;
-      white-space: normal;
-      font-family:Graphik Web;
+    .ListItemVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+    }
 
-  }
+    .ListItemVideo.whiteText {
+        color: #ffffff
+    }
 
-  .ListItemA {
-      color: #1A1A1A;
-  }
+    .ListItemVideoThumb {
+        width: 20vw;
+        margin-right: 1vw;
+        object-fit: cover;
+        height: 12vw;
+    }
 
-  .ListItemFB {
-      margin-right: 0.5vw;
-  }
+    .ListItemEpisodeNum,
+    .ListItemName {
+        width: 20vw;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
 
-  .ListItemTwitter, .ListItemInstagram {
-      margin-right: 0.5vw; margin-left: 3vw;
-  }
+    .ListItemEpisodeLength {
+        font-weight: bold;
+    }
 
-  .ListItemEvents {
-      display: relative;
-      width: 53vw;
-      margin-right: 2vw;
+    .ListItemSeriesTitle,
+    .ListItemContact,
+    .ListItemPosition,
+    .ListItemEmail,
+    .ListItemPhone,
+    .ListItemWebsite,
+    .ListItemPublishedDate,
+    .ListYearEpisode {
+        width: 20vw;
+        white-space: normal;
+        font-family: Graphik Web;
 
-      vertical-align: top;
-  }
-  .ListItemEvents:hover
-  {
-      background-color:#EFEFF0;
-  }
+    }
 
-  .ListItemCompassion {
-    display: inline-block;
-    width: 23vw;
-    margin-right: 2vw;
+    .ListItemA {
+        color: #1A1A1A;
+    }
 
-    vertical-align: top;
-}
+    .ListItemFB {
+        margin-right: 0.5vw;
+    }
 
-  .ListItemEventsDescription {
-      white-space: normal; 
-      font-weight: bold;
-      font-size:2vw;
-      font-family: Graphik Web;
+    .ListItemTwitter,
+    .ListItemInstagram {
+        margin-right: 0.5vw;
+        margin-left: 3vw;
+    }
 
-  }
+    .ListItemEvents {
+        display: relative;
+        width: 53vw;
+        margin-right: 2vw;
 
-  .ListItemEventsDescription2 {
-      white-space: normal;
-      font-family: Graphik Web;
+        vertical-align: top;
+    }
 
-  }
+    .ListItemEvents:hover {
+        background-color: #EFEFF0;
+    }
 
-  .ListItem.imageList {
-      position: static;
-      width: 100vw;
-      padding-bottom: 5vw;
-  }
+    .ListItemCompassion {
+        display: inline-block;
+        width: 23vw;
+        margin-right: 2vw;
+
+        vertical-align: top;
+    }
+
+    .ListItemEventsDescription {
+        white-space: normal;
+        font-weight: bold;
+        font-size: 2vw;
+        font-family: Graphik Web;
+
+    }
+
+    .ListItemEventsDescription2 {
+        white-space: normal;
+        font-family: Graphik Web;
+
+    }
+
+    .ListItem.imageList {
+        position: static;
+        width: 100vw;
+        padding-bottom: 5vw;
+    }
 
 }
 
 @media (max-width: 767px) {
-    .ListItemEventButton{
-        background-color:#ffffff00 !important;
-        color:#000000 !important;
-        border:0px !important;
+    .ListItemEventButton {
+        background-color: #ffffff00 !important;
+        color: #000000 !important;
+        border: 0px !important;
     }
-  .ListItem.horizontal, .ListItem.horizontalBig {
-      position: static;
-      padding-bottom: 5vw;
-  }
 
-  .ListItemDiv1 {
-      position: relative;
-      z-index: 99;
-      // left: 20vw;
-      width: 80vw;
-      padding: 10vw 6vw 6vw;
-  }
+    .ListItem.horizontal,
+    .ListItem.horizontalBig {
+        position: static;
+        padding-bottom: 5vw;
+    }
 
-  .ListItemDiv2 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      overflow-x: scroll;
-      white-space: nowrap;
-  }
+    .ListItemDiv1 {
+        position: relative;
+        z-index: 99;
+        // left: 20vw;
+        width: 80vw;
+        padding: 10vw 6vw 6vw;
+    }
 
-  .ListItemDiv3 {
-      display: inline-block; vertical-align: top;
-  }
+    .ListItemDiv2 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 
-  .ListItemDiv4 {
-      font-weight: bold;
-  }
+    .ListItemDiv3 {
+        display: inline-block;
+        vertical-align: top;
+    }
 
-  .ListItemDiv5 {
-      clear: left;
-  }
+    .ListItemDiv4 {
+        font-weight: bold;
+    }
 
-  .ListItemDiv6 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      overflow-x: scroll;
-      white-space: nowrap;
-  }
+    .ListItemDiv5 {
+        clear: left;
+    }
 
-  .ListItemDiv7 {
-      width: 90vw;
-      font-size: 5vw;
-      font-family: Graphik Web;
-      padding-bottom: 1vw;
-  }
+    .ListItemDiv6 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 
-  .ListItemDiv8 {
-      position: relative;
-      width: 87vw;
-  }
+    .ListItemDiv7 {
+        width: 90vw;
+        font-size: 5vw;
+        font-family: Graphik Web;
+        padding-bottom: 1vw;
+    }
 
-  .ListItemDiv9 {
-    position: absolute;
-    left: -25vw;
-    width: 75vw;
-    height: 15vh;
-    bottom: 0vw;
-    top: 13vw;
-    border-color: #0000ff;
-    border: solid 10px;
-  }
+    .ListItemDiv8 {
+        position: relative;
+        width: 87vw;
+    }
 
-  .ListItemDiv10 {
-      position: relative;
-      z-index: 99;
-      top: 25vw;
-      height: 75vh;
-  }
-  .ListItemDiv10:nth-last-child(1) {
-      margin-bottom: 30vw;
-  }
+    .ListItemDiv9 {
+        position: absolute;
+        left: -25vw;
+        width: 75vw;
+        height: 15vh;
+        bottom: 0vw;
+        top: 13vw;
+        border-color: #0000ff;
+        border: solid 10px;
+    }
 
-  .ListItemDiv11 {
-      width: 100%;
-      font-size: 4.27vw;
-      font-family: Graphik Web;
-  }
+    .ListItemDiv10 {
+        position: relative;
+        z-index: 99;
+        top: 25vw;
+        height: 75vh;
+    }
 
-  .ListItemH1 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      font-weight: bold;
-      font-size: 3vw;
-  }
-  .ListItemH1.whiteText{
-    color:#ffffff
-}
+    .ListItemDiv10:nth-last-child(1) {
+        margin-bottom: 30vw;
+    }
 
-  .ListItemH1ImageList {
-      font-size: 10vw;
-      font-weight: bold;
-      font-family: Graphik Web;
-  }
+    .ListItemDiv11 {
+        width: 100%;
+        font-size: 4.27vw;
+        font-family: Graphik Web;
+    }
 
-  .ListItemH1ImageList2 {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      left: 0vw;
-      object-fit: contain;
-      top: -40vw;
-  }
+    .ListItemH1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        font-weight: bold;
+        font-size: 3vw;
+    }
 
-  .ListItemH3 {
-      width: 100%;
-      font-size: 6.4vw;
-      font-weight: bold;
-      font-family: Graphik Web;
-  }
+    .ListItemH1.whiteText {
+        color: #ffffff
+    }
 
-  .ListItemImage {
-      height: 10vw;
-      margin-right: 1vw;
-  }
-  .ListItemCompassionLogo {
-    height: 13vw;
-    margin-right: 1vw;
-}
+    .ListItemH1ImageList {
+        font-size: 10vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+    }
 
-  .ListItemImage2 {
-      width: 20vw;
-      margin-right: 1vw;
-  }
+    .ListItemH1ImageList2 {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0vw;
+        object-fit: contain;
+        top: -40vw;
+    }
 
-  .ListItemTeachingImageDiv {
-      display: inline-block; vertical-align: top;
-  }
+    .ListItemH3 {
+        width: 100%;
+        font-size: 6.4vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+    }
 
-  .ListItemTeachingImage {
-      height: 10vw;
-      margin-right: 1vw;
-  }
+    .ListItemImage {
+        height: 10vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemSpeakersDiv {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      overflow-x: scroll;
-      white-space: nowrap;
-  }
+    .ListItemCompassionLogo {
+        height: 13vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemText1 {
-      position: relative;
-      left: 0vw;
-      width: 80vw;
-      font-size: 1.5vw;
-      font-family:Graphik Web;
-  }
+    .ListItemImage2 {
+        width: 20vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemVideo {
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
-  }
-  .ListItemVideo.whiteText{
-    color:#ffffff
-  }
+    .ListItemTeachingImageDiv {
+        display: inline-block;
+        vertical-align: top;
+    }
 
-  .ListItemVideoThumb {
-      width: 20vw;
-      margin-right: 1vw;
-      object-fit: cover;
-      height: 12vw;
-  }
+    .ListItemTeachingImage {
+        height: 10vw;
+        margin-right: 1vw;
+    }
 
-  .ListItemEpisodeNum, .ListItemName {
-      width: 20vw;
-      font-weight: bold;
-      white-space: normal;
-      font-family:Graphik Web;
-  }
+    .ListItemSpeakersDiv {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
 
-  .ListItemEpisodeLength {
-      font-weight: bold;
-  }
+    .ListItemText1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+    }
 
-  .ListItemSeriesTitle, .ListItemContact, .ListItemPosition, .ListItemEmail, .ListItemPhone, .ListItemWebsite, .ListItemPublishedDate, .ListYearEpisode {
-      width: 20vw;
-      white-space: normal;
-      font-family:Graphik Web;
-  }
+    .ListItemVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+    }
 
-  .ListItemA {
-      color: #1A1A1A;
-  }
+    .ListItemVideo.whiteText {
+        color: #ffffff
+    }
 
-  .ListItemFB {
-      margin-right: 0.5vw;
-  }
+    .ListItemVideoThumb {
+        width: 20vw;
+        margin-right: 1vw;
+        object-fit: cover;
+        height: 12vw;
+    }
 
-  .ListItemTwitter, .ListItemInstagram {
-      margin-right: 0.5vw; margin-left: 3vw;
-  }
+    .ListItemEpisodeNum,
+    .ListItemName {
+        width: 20vw;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
 
-  .ListItemEvents {
-      display: relative;
-      width: 23vw;
-      margin-right: 2vw;
-      vertical-align: top;
-  }
-  .ListItemEvents:hover
-  {
-      background-color:#EFEFF0;
-  }
+    .ListItemEpisodeLength {
+        font-weight: bold;
+    }
 
-  .ListItemCompassion {
-    display: inline-block;
-    width: 23vw;
-    margin-right: 2vw;
-    vertical-align: top;
-}
-  .ListItemEventsDescription {
-      white-space: normal; 
-      font-weight: bold;
-      font-size:2vw;
-      font-family: Graphik Web;
+    .ListItemSeriesTitle,
+    .ListItemContact,
+    .ListItemPosition,
+    .ListItemEmail,
+    .ListItemPhone,
+    .ListItemWebsite,
+    .ListItemPublishedDate,
+    .ListYearEpisode {
+        width: 20vw;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
 
-  }
+    .ListItemA {
+        color: #1A1A1A;
+    }
 
-  .ListItemEventsDescription2 {
-      white-space: normal;
-      font-family: Graphik Web;
+    .ListItemFB {
+        margin-right: 0.5vw;
+    }
 
-  }
-  .ListItemEventsLocation{
-    font-family: Graphik Web;
-    font-weight:bold;
-    margin-top:10px;
-  }
-  .ListItemEventsDuration{
-    font-family: Graphik Web;
-    margin-top:10px;
-  }
+    .ListItemTwitter,
+    .ListItemInstagram {
+        margin-right: 0.5vw;
+        margin-left: 3vw;
+    }
 
-  .ListItem.imageList {
-      position: static;
-      width: 100vw; padding-bottom: 5vw;
-  }
+    .ListItemEvents {
+        display: relative;
+        width: 23vw;
+        margin-right: 2vw;
+        vertical-align: top;
+    }
+
+    .ListItemEvents:hover {
+        background-color: #EFEFF0;
+    }
+
+    .ListItemCompassion {
+        display: inline-block;
+        width: 23vw;
+        margin-right: 2vw;
+        vertical-align: top;
+    }
+
+    .ListItemEventsDescription {
+        white-space: normal;
+        font-weight: bold;
+        font-size: 2vw;
+        font-family: Graphik Web;
+
+    }
+
+    .ListItemEventsDescription2 {
+        white-space: normal;
+        font-family: Graphik Web;
+
+    }
+
+    .ListItemEventsLocation {
+        font-family: Graphik Web;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .ListItemEventsDuration {
+        font-family: Graphik Web;
+        margin-top: 10px;
+    }
+
+    .ListItem.imageList {
+        position: static;
+        width: 100vw;
+        padding-bottom: 5vw;
+    }
 }
