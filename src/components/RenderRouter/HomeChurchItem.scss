@@ -1,34 +1,43 @@
 @media (min-width: 768px) {
       .HomeChurchItem {
-            height: 100vw;
+            height: 100vh;
             position: static;
             padding-bottom: 5vw;
+            padding-top: 2vh;
       }
 
-      .HomeChurchItemDiv2 {
+      .HomeChurchItemDiv1 {
             position: relative;
             left: 20vw;
             width: 80vw;
       }
 
-      .HomeChurchItemDiv3 {
+      .HomeChurchItemDiv2 {
             position: absolute;
             left: 40vw;
             width: 40vw;
-            height: 40vw;
+            height: 88vh;
       }
 
-      .HomeChurchItemDiv4 {
+      .HomeChurchItemDiv3 {
             position: absolute;
             left: 0vw;
             width: 40vw;
-            height: 40vw;
+            height: 100vh;
       }
-
+      .HomeChurchItemDiv4 {
+            display: flex;
+            flex-direction: row;
+        }
+        .HomeChurchItemListData {
+            overflow-y: auto;
+            height: 80vh;
+        }
+    
       .HomeChurchItemMap {
             left: 0vw;
             width: 40vw;
-            height: 40vw;
+            height: 88vh;
       }
 
       .HomeChurchItemA {
@@ -41,39 +50,64 @@
             margin-top: 0.5vw;
             margin-bottom: 0.5vw;
       }
+      .HomeChurchH1 {
+            font-size: 3vw;
+            font-family: Graphik Web;
+            font-weight: bold;
+        }
+    
+        .HomeChurchH3 {
+            font-size: 2vw;
+            font-family: Graphik Web;
+        }
+        .HomeChurchAddress,
+        .HomeChurchDistances {
+            font-size: 1vw;
+            font-family: Graphik Web;
+        }
+    
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-      .HomeChurchIteDiv1 {
-            height: 100vw;
+      .HomeChurchItem {
+            height: 100vh;
             position: static;
             padding-bottom: 5vw;
+            padding-top: 2vh;
       }
 
-      .HomeChurchItemDiv2 {
+      .HomeChurchItemDiv1 {
             position: relative;
             left: 20vw;
             width: 80vw;
       }
 
-      .HomeChurchItemDiv3 {
+      .HomeChurchItemDiv2 {
             position: absolute;
             left: 40vw;
             width: 40vw;
-            height: 40vw;
+            height: 88vh;
       }
 
-      .HomeChurchItemDiv4 {
+      .HomeChurchItemDiv3 {
             position: absolute;
             left: 0vw;
             width: 40vw;
-            height: 40vw;
+            height: 100vh;
       }
-
+      .HomeChurchItemDiv4 {
+            display: flex;
+            flex-direction: row;
+        }
+        .HomeChurchItemListData {
+            overflow-y: auto;
+            height: 80vh;
+        }
+    
       .HomeChurchItemMap {
             left: 0vw;
             width: 40vw;
-            height: 40vw;
+            height: 88vh;
       }
 
       .HomeChurchItemA {
@@ -86,39 +120,64 @@
             margin-top: 0.5vw;
             margin-bottom: 0.5vw;
       }
+      .HomeChurchH1 {
+            font-size: 3vw;
+            font-family: Graphik Web;
+            font-weight: bold;
+        }
+    
+        .HomeChurchH3 {
+            font-size: 2vw;
+            font-family: Graphik Web;
+        }
+        .HomeChurchAddress,
+        .HomeChurchDistances {
+            font-size: 1vw;
+            font-family: Graphik Web;
+        }
+    
 }
 
 @media (max-width: 767px) {
       .HomeChurchItem {
-            height: 100vw;
+            height: 100vh;
             position: static;
             padding-bottom: 5vw;
+            padding-top: 2vh;
       }
 
-      .HomeChurchItemDiv2 {
+      .HomeChurchItemDiv1 {
             position: relative;
             left: 20vw;
             width: 80vw;
       }
 
-      .HomeChurchItemDiv3 {
+      .HomeChurchItemDiv2 {
             position: absolute;
             left: 40vw;
             width: 40vw;
-            height: 40vw;
+            height: 88vh;
       }
 
-      .HomeChurchItemDiv4 {
+      .HomeChurchItemDiv3 {
             position: absolute;
             left: 0vw;
             width: 40vw;
-            height: 40vw;
+            height: 100vh;
       }
-
+      .HomeChurchItemDiv4 {
+            display: flex;
+            flex-direction: row;
+        }
+        .HomeChurchItemListData {
+            overflow-y: auto;
+            height: 80vh;
+        }
+    
       .HomeChurchItemMap {
             left: 0vw;
             width: 40vw;
-            height: 40vw;
+            height: 88vh;
       }
 
       .HomeChurchItemA {
@@ -131,4 +190,20 @@
             margin-top: 0.5vw;
             margin-bottom: 0.5vw;
       }
+      .HomeChurchH1 {
+            font-size: 3vw;
+            font-family: Graphik Web;
+            font-weight: bold;
+        }
+    
+        .HomeChurchH3 {
+            font-size: 2vw;
+            font-family: Graphik Web;
+        }
+        .HomeChurchAddress,
+        .HomeChurchDistances {
+            font-size: 1vw;
+            font-family: Graphik Web;
+        }
+    
 }

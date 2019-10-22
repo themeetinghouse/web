@@ -7,11 +7,11 @@ import { Map } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import "./HomeChurchItem.scss"
-import { Button } from 'react-bootstrap';
 //import { withApollo,WithApolloClient } from "react-apollo";
 import * as queries from '../../graphql/queries';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
+import { Input } from 'reactstrap';
 
 Amplify.configure(awsmobile);
 
@@ -90,50 +90,44 @@ export class ContentItem extends React.Component<Props, State>  {
 
     return (
 
-      <div className="ContentItem oneImage HomeChurchItemDiv1">
-        <div className="HomeChurchItemDiv2">
-          <div  >
-            <h1  >{this.state.content.header1}</h1>
-            <div className="HomeChurchItemDiv3">
-              <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter}
-                className="HomeChurchItemMap">
-                {this.state.groups != null ? this.state.groups.map((item: any) => {
-                  return (<Marker key={item.id} onClick={this.onMarkerClick}
-                    position={{ lat: item.location.address.latitude, lng: item.location.address.longitude }} />
-                  )
-                }) : null}
-              </Map>
-            </div>
-            <div className="HomeChurchItemDiv4">
+      <div className="HomeChurchItem">
+        <div className="HomeChurchItemDiv1">
+
+          <h1 className="SundayMorningH1"   >{this.state.content.header1}</h1>
+          <div className="HomeChurchItemDiv2">
+            <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter}
+              className="HomeChurchItemMap">
               {this.state.groups != null ? this.state.groups.map((item: any) => {
-                if (this.state.content.class === "home-church") {
-                  return (
-                    <div key={item.id} >{item.name}
-                      <Button onClick={() => this.navigate(item.id)}>Site Page</Button>
-                    </div>
-                  )
-                }
-                else {
-                  return (
-                    <div style={{ borderBottomWidth: "1px", marginBottom: "5px", borderBottomColor: "#C8C8C8", borderBottomStyle: "solid" }}>
-                      <h3>{item.name}</h3>
-                      <div>{item.description}</div>
-                      <div>{item.gender.name}</div>
-                      <div>{item.hasChildcare}</div>
-                      <div>{item.isOpen}</div>
-                      <div>{item.isPublic}</div>
-                      <div>{item.isSearchable}</div>
-                      <div>{item.maritalStatus.name}</div>
-
-                    </div>
-                  )
-                }
+                return (<Marker key={item.id} onClick={this.onMarkerClick}
+                  position={{ lat: item.location.address.latitude, lng: item.location.address.longitude }} />
+                )
               }) : null}
-
+            </Map>
+          </div>
+          <div className="HomeChurchItemDiv3">
+            <div className="SundayMorningItemDiv4" >
+              <Input placeholder="Current Location" ></Input>
+              <button className="SundayMorningButton">Driving</button>
+              <button className="SundayMorningButton">Transit</button>
+              <button className="SundayMorningButton">Bike</button>
+            </div>
+            <div className="SundayMorningItemListData" >
+              {this.state.groups != null ? this.state.groups.map((item: any) => {
+                return (item.isPublic?
+                  <div key={item.id} >
+                    <h3 className="HomeChurchH3">{item.name}</h3>
+                    <div className="HomeChurchAddress">{item.description}</div>
+                    <div>{item.gender.name}/{item.maritalStatus.name}</div>
+                    <div>{item.hasChildcare?"Childcare":"No Childcare"}</div>
+                    <div>{item.churchCampus.name}</div>
+                  </div>:null
+                )
+              }) : null}
             </div>
           </div>
         </div>
       </div>
+
     )
 
   }
