@@ -508,7 +508,7 @@
         width: 100vw;
         height: 120vh;
         padding-bottom: 5vh;
-        margin-bottom: 45vw;
+        // margin-bottom: 45vw;
     }
 
     .heroH1 {
@@ -602,7 +602,7 @@
 
     .heroImage {
         width: 100vw;
-        height: 94vh;
+        height: 35vh;
         object-fit: cover;
         position: absolute;
         mask-mode: alpha;
@@ -628,7 +628,7 @@
         left: 0vw;
         width: 100vw;
         height: 65vh;
-        top: 60vh;
+        top: 40vh;
         z-index: 100;
         padding: 10vw 6vw 10vw 6vw;
     }
