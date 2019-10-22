@@ -152,20 +152,20 @@ If you don't have an InFellowship account, you can create one <a href="https://m
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Other Ways to Give</div>
             {this.state.currentPage === "OnlineBanking" ? null :
-              <div className="GiveItemOtherWay"><a href="" onClick={(e: any) => { this.setState({ currentPage: "OnlineBanking" }); e.preventDefault() }}>Online Banking</a></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
             }
             {this.state.currentPage === "OfferingEnvelopes" ? null :
-              <div className="GiveItemOtherWay"><a href="" onClick={(e: any) => { this.setState({ currentPage: "OfferingEnvelopes" }); e.preventDefault() }}>Offering Envelopes</a></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OfferingEnvelopes" }) }}>Offering Envelopes</button></div>
             }
             {this.state.currentPage === "FellowshipOne" ? null :
-              <div className="GiveItemOtherWay"><a href="" onClick={(e: any) => { this.setState({ currentPage: "FellowshipOne" }); e.preventDefault() }}>Fellowship One</a></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "FellowshipOne" }) }}>Fellowship One</button></div>
             }
             {this.state.currentPage === "PushPay" ? null :
-              <div className="GiveItemOtherWay"><a href="" onClick={(e: any) => { this.setState({ currentPage: "PushPay" }); e.preventDefault() }}>Push Pay</a></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "PushPay" }) }}>Push Pay</button></div>
             }  </div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemNeedHelp">Need help?</div>
-            <div className="GiveItemNeedHelpEmail">donate@themeetinghouse.com</div>
+            <div className="GiveItemNeedHelpEmail"><a className="GiveItemOtherWayButton" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
           </div>
           <div style={{ clear: "both" }}></div>
         </form>

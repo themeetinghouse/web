@@ -1,17 +1,17 @@
 
 import React from 'react';
 import Lottie from 'react-lottie';
-interface Props{
-  content:any,
+interface Props {
+  content: any,
 }
 interface State {
-  content:any,
-  animationData:any,
-  isStopped:boolean,
-  isPaused:boolean
+  content: any,
+  animationData: any,
+  isStopped: boolean,
+  isPaused: boolean
 }
 export default class ContentItem extends React.Component<Props, State> {
-  constructor(props:Props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       content: props.content,

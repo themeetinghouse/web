@@ -162,6 +162,7 @@ export type CreateVideoInput = {
 };
 
 export type YoutubePlaylistItemsItem2Input = {
+  id?: string | null,
   kind?: string | null,
   etag?: string | null,
   snippet?: YoutubeSnippetInput | null,

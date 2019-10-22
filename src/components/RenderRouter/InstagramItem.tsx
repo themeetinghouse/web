@@ -33,7 +33,7 @@ export default class ContentItem extends React.Component<Props, State>  {
   render() {
     fetch(buildUrl(options)).then((data) => { console.log(data) }
 
-    ).catch((e)=>{console.log(e)})
+    ).catch((e) => { console.log(e) })
 
     //    console.log(data)
 

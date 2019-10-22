@@ -1,17 +1,20 @@
 @media (min-width: 768px) {
-    .InstagramItemDiv {
-          position: static; padding-bottom: 5vw;
-    }
+      .InstagramItemDiv {
+            position: static;
+            padding-bottom: 5vw;
+      }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .InstagramItemDiv {
-          position: static; padding-bottom: 5vw;
-    }
+      .InstagramItemDiv {
+            position: static;
+            padding-bottom: 5vw;
+      }
 }
 
 @media (max-width: 767px) {
-  .InstagramItemDiv {
-        position: static; padding-bottom: 5vw;
-  }
+      .InstagramItemDiv {
+            position: static;
+            padding-bottom: 5vw;
+      }
 }

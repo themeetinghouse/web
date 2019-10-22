@@ -49,7 +49,7 @@ export default class ContentItem extends React.Component<Props, State>  {
       console.log(e)
     })
   }
-  openVideo(item:any){
+  openVideo(item: any) {
     console.log(item)
   }
   render() {
@@ -60,7 +60,7 @@ export default class ContentItem extends React.Component<Props, State>  {
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
             if (item.episodeTitle !== null)
               return (
-                <div key={item.id} onClick={(item)=>{this.openVideo(item)}} style={{ cursor:"pointer" }}>
+                <div key={item.id} onClick={(item) => { this.openVideo(item) }} style={{ cursor: "pointer" }}>
                   <img alt="TBD" className="SearchItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
                   <div>{item.episodeNumber}. {item.episodeTitle} - {item.seriesTitle}</div>
                   <div>{item.description}</div>

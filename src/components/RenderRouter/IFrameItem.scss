@@ -1,6 +1,7 @@
 @media (min-width: 768px) {
   .iframeItemDiv1.FormItem {
-    position: static; padding-bottom: 5vw;
+    position: static;
+    padding-bottom: 5vw;
   }
 
   .iframeItemDiv2 {
@@ -16,7 +17,8 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .iframeItemDiv1.FormItem {
-    position: static; padding-bottom: 5vw;
+    position: static;
+    padding-bottom: 5vw;
   }
 
   .iframeItemDiv2 {
@@ -32,7 +34,8 @@
 
 @media (min-width: 320px) and (max-width: 767px) {
   .iframeItemDiv1.FormItem {
-    position: static; padding-bottom: 5vw;
+    position: static;
+    padding-bottom: 5vw;
   }
 
   .iframeItemDiv2 {

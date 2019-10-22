@@ -147,7 +147,7 @@ class TeachingItem extends React.Component<Props, State> {
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
-                                <div className="teachingdiv" >E2. <a href="">{this.state.listData[this.state.teachingId].seriesTitle}</a>  •  {this.state.listData[this.state.teachingId].duration}</div>
+                                <div className="teachingdiv" >E2. {this.state.listData[this.state.teachingId].seriesTitle}  •  {this.state.listData[this.state.teachingId].duration}</div>
                                 <div className="teachingdiv" > {this.state.listData[this.state.teachingId].description}</div>
                                 <div className="teachingdiv2" ><Button className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button></div>
                                 <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
