@@ -7,7 +7,6 @@ import { Map } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import "./SundayMorningItem.scss"
-import { Button } from 'react-bootstrap';
 import { Input } from 'reactstrap';
 
 
@@ -118,7 +117,9 @@ export class ContentItem extends React.Component<Props, State>  {
             <div className="SundayMorningItemDiv3" >
               <div className="SundayMorningItemDiv4" >
                 <Input placeholder="Current Location" ></Input>
-                <Button>Driving</Button> <Button>Transit</Button> <Button>Bike</Button>
+                <button className="SundayMorningButton">Driving</button> 
+                <button className="SundayMorningButton">Transit</button> 
+                <button className="SundayMorningButton">Bike</button>
               </div>
               <div className="SundayMorningItemListData" >
                 {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
@@ -133,12 +134,12 @@ export class ContentItem extends React.Component<Props, State>  {
 
                         </div>
                         <div className="SundayMorningItemDiv6" >
-                          <Button className="SundayMorningButton1" onClick={() => this.navigate(item.id)}>Visit Site Page</Button>
+                          <button className="SundayMorningButton1" onClick={() => this.navigate(item.id)}>Visit Site Page</button>
                         </div>
                       </div>
                       <div>
-                        <Button className="SundayMorningButton2" ><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-                        <Button className="SundayMorningButton2" ><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>
+                        <button className="SundayMorningButton2" ><img className="SundaMorningIcon" src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</button>
+                        <button className="SundayMorningButton2" ><img className="SundaMorningIcon" src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</button>
                       </div>
                     </div>
 

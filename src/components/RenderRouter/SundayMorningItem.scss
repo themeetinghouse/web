@@ -3,6 +3,7 @@
         height: 100vh;
         position: static;
         padding-bottom: 5vw;
+        padding-top:2vh;
     }
 
     .SundayMorningItemDiv1 {
@@ -15,7 +16,7 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 90vh;
+        height: 88vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -51,6 +52,7 @@
     .SundayMorningH1 {
         font-size: 3vw;
         font-family: Graphik Web;
+        font-weight: bold;
     }
 
     .SundayMorningH3 {
@@ -61,7 +63,7 @@
     .SundayMorningMap {
         left: 0vw;
         width: 40vw;
-        height: 90vh;
+        height: 88vh;
     }
 
     .SundayMorningAddress,
@@ -69,23 +71,63 @@
         font-size: 1vw;
         font-family: Graphik Web;
     }
-
-    .SundayMorningButton1 {
-        border-radius: 0px;
-        border-width: 0px;
+    .SundayMorningButton{
+        font-family: Graphik Web;
         color: #ffffff;
-        white-space: nowrap;
         background-color: #000000;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 1.2vw;
+        padding:0.5vw 1vw 0.5vw 1vw;
+        margin:0.1vw;
+        font-weight:normal;
+        display:none;
+        
     }
+    .SundayMorningButton:hover{
+        border-width: 0px;
+        border-radius: 0;
 
+    }
+    .SundayMorningButton1 {
+        font-family: Graphik Web;
+        color: #ffffff;
+        background-color: #000000;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 1.2vw;
+        padding:0.5vw 1vw 0.5vw 1vw;
+        margin:0.1vw;
+        font-weight:normal;
+        width:11vw;
+    }
+    .SundayMorningButton1:hover{
+        border-width: 0px;
+        border-radius: 0;
+    }
     .SundayMorningButton2 {
-        margin-top: 1.5vw;
+        font-family: Graphik Web;
         color: #000000;
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
+        font-size: 1vw;
+        text-decoration: underline;
+        font-weight:normal;
+       
+    }
+    .SundayMorningButton2:hover{
+        border-width: 0px;
+        border-radius: 0;
+        background-color:#ffffff;
+        color:#0000ff;
+        text-decoration: underline;
+        font-weight:normal;
+       
+    }
+    .SundaMorningIcon{
+        padding-right:10px;
+        height:25px;
     }
 }
 
@@ -94,6 +136,7 @@
         height: 100vh;
         position: static;
         padding-bottom: 5vw;
+        padding-top:2vh;
     }
 
     .SundayMorningItemDiv1 {
@@ -106,7 +149,7 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 90vh;
+        height: 88vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -142,6 +185,7 @@
     .SundayMorningH1 {
         font-size: 3vw;
         font-family: Graphik Web;
+        font-weight: bold;
     }
 
     .SundayMorningH3 {
@@ -152,7 +196,7 @@
     .SundayMorningMap {
         left: 0vw;
         width: 40vw;
-        height: 90vh;
+        height: 88vh;
     }
 
     .SundayMorningAddress,
@@ -160,23 +204,63 @@
         font-size: 1vw;
         font-family: Graphik Web;
     }
-
-    .SundayMorningButton1 {
-        border-radius: 0px;
-        border-width: 0px;
+    .SundayMorningButton{
+        font-family: Graphik Web;
         color: #ffffff;
-        white-space: nowrap;
         background-color: #000000;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 1.2vw;
+        padding:0.5vw 1vw 0.5vw 1vw;
+        margin:0.1vw;
+        font-weight:normal;
+        display:none;
+        
     }
+    .SundayMorningButton:hover{
+        border-width: 0px;
+        border-radius: 0;
 
+    }
+    .SundayMorningButton1 {
+        font-family: Graphik Web;
+        color: #ffffff;
+        background-color: #000000;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 1.2vw;
+        padding:0.5vw 1vw 0.5vw 1vw;
+        margin:0.1vw;
+        font-weight:normal;
+        width:11vw;
+    }
+    .SundayMorningButton1:hover{
+        border-width: 0px;
+        border-radius: 0;
+    }
     .SundayMorningButton2 {
-        margin-top: 1.5vw;
+        font-family: Graphik Web;
         color: #000000;
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
+        font-size: 1vw;
+        text-decoration: underline;
+        font-weight:normal;
+       
+    }
+    .SundayMorningButton2:hover{
+        border-width: 0px;
+        border-radius: 0;
+        background-color:#ffffff;
+        color:#0000ff;
+        text-decoration: underline;
+        font-weight:normal;
+       
+    }
+    .SundaMorningIcon{
+        padding-right:10px;
+        height:25px;
     }
 }
 
@@ -185,6 +269,7 @@
         height: 100vh;
         position: static;
         padding-bottom: 5vw;
+        padding-top:2vh;
     }
 
     .SundayMorningItemDiv1 {
@@ -197,7 +282,7 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 90vh;
+        height: 88vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -233,6 +318,7 @@
     .SundayMorningH1 {
         font-size: 3vw;
         font-family: Graphik Web;
+        font-weight: bold;
     }
 
     .SundayMorningH3 {
@@ -243,7 +329,7 @@
     .SundayMorningMap {
         left: 0vw;
         width: 40vw;
-        height: 90vh;
+        height: 88vh;
     }
 
     .SundayMorningAddress,
@@ -251,22 +337,62 @@
         font-size: 1vw;
         font-family: Graphik Web;
     }
-
-    .SundayMorningButton1 {
-        border-radius: 0px;
-        border-width: 0px;
+    .SundayMorningButton{
+        font-family: Graphik Web;
         color: #ffffff;
-        white-space: nowrap;
         background-color: #000000;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 1.2vw;
+        padding:0.5vw 1vw 0.5vw 1vw;
+        margin:0.1vw;
+        font-weight:normal;
+        display:none;
+        
     }
+    .SundayMorningButton:hover{
+        border-width: 0px;
+        border-radius: 0;
 
+    }
+    .SundayMorningButton1 {
+        font-family: Graphik Web;
+        color: #ffffff;
+        background-color: #000000;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 1.2vw;
+        padding:0.5vw 1vw 0.5vw 1vw;
+        margin:0.1vw;
+        font-weight:normal;
+        width:11vw;
+    }
+    .SundayMorningButton1:hover{
+        border-width: 0px;
+        border-radius: 0;
+    }
     .SundayMorningButton2 {
-        margin-top: 1.5vw;
+        font-family: Graphik Web;
         color: #000000;
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
+        font-size: 1vw;
+        text-decoration: underline;
+        font-weight:normal;
+       
+    }
+    .SundayMorningButton2:hover{
+        border-width: 0px;
+        border-radius: 0;
+        background-color:#ffffff;
+        color:#0000ff;
+        text-decoration: underline;
+        font-weight:normal;
+       
+    }
+    .SundaMorningIcon{
+        padding-right:10px;
+        height:25px;
     }
 }
