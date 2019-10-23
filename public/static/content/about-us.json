@@ -79,9 +79,9 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Where we stand",
+                "header1":"Beliefs, Statements, and Other Details",
                 "header2":"",
-                "text1":"Here’s the nitty gritty of where we stand, what we believe Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+                "text1":" Here’s the nitty gritty of what we believe and where we stand. We Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
                 "image1":[{
                     "src":"/static/images/about-us-2.jpg",
                     "alt":"TODO"
