@@ -46,7 +46,7 @@ class ListItem extends React.Component<Props, State> {
       urlHistoryState: window.location.href
     })
     window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
-   
+
   }
  dataLoader:DataLoader
   constructor(props: Props) {
@@ -71,9 +71,9 @@ class ListItem extends React.Component<Props, State> {
     })
   }
   imgUrl(size:any){
-   
+
     if (window.location.hostname==="localhost"){
-   
+
         return "https://localhost:3006"
     }
     else
@@ -103,7 +103,7 @@ renderVideo(item:any){
 </div>)
 }
 renderSpeaker(item:any){
-  
+
   return (
     <div key={item.id} className="ListItemTeachingImageDiv" >
       <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
@@ -130,7 +130,7 @@ renderOverseer(item:any,index:any){
   )
 }
 renderEvent(item:any){
-  
+
     var start_date=new Date(item.start_time.substring(0, item.start_time.length-2) + ":" + item.start_time.substring(item.start_time.length-2))
     var durationStr=start_date.toLocaleTimeString(navigator.language, {
       hour: '2-digit',
@@ -151,7 +151,7 @@ renderEvent(item:any){
         else
           description=item.description.substring(0,item.description.indexOf(" ",300))+ "..."
       }
-    else 
+    else
       description=item.description
     return (
       <div key={item.id} className="ListItemEvents" >
@@ -171,7 +171,7 @@ renderEvent(item:any){
 
       </div>
     )
-  
+
 }
 renderStaff(item:any,index:any){
   return (
@@ -216,7 +216,7 @@ renderSeries(item:any){
     console.log(item.seriesType+"-"+item.title+".jpg")
       return (
         <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-          <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"} 
+          <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"}
           onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
@@ -226,18 +226,18 @@ renderSeries(item:any){
     else return null
 }
 renderItemRouter(item:any,index:any){
-  if (this.state.content.class === "speakers") 
+  if (this.state.content.class === "speakers")
   return this.renderSpeaker(item)
-else if (this.state.content.class === "videos") 
-  return this.renderVideo(item) 
-else if (this.state.content.class === "staff") 
+else if (this.state.content.class === "videos")
+  return this.renderVideo(item)
+else if (this.state.content.class === "staff")
   return this.renderStaff(item,index)
-else if (this.state.content.class === "overseers") 
-  return this.renderOverseer(item,index)                 
-else if (this.state.content.class === "events") 
+else if (this.state.content.class === "overseers")
+  return this.renderOverseer(item,index)
+else if (this.state.content.class === "events")
   return this.renderEvent(item)
 else if (this.state.content.class === "compassion")
-  return this.renderCompassion(item)               
+  return this.renderCompassion(item)
 else if (this.state.content.class ==="series")
   return this.renderSeries(item)
 else return null
@@ -265,11 +265,11 @@ else return null
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
-    else if (this.state.content.style === "vertical") 
+    else if (this.state.content.style === "vertical")
     {
       if (data.length>0)
         return (
-          
+
           <div className="ListItem horizontal" >
             <div className="ListItemDiv1" >
               <h1 className="ListItemH1" >{this.state.content.header1}</h1>
@@ -283,13 +283,13 @@ else return null
               </div>
             </div>
           </div>
-        
+
         )
         else return null
           }
     else if (this.state.content.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" >
-        <div className="ListItemDiv1" >
+        <div className="ListItemDiv1 ListItemAllSeries" >
           <h1 className="ListItemH1" >{this.state.content.header1}</h1>
           <div className="ListItemDiv6" >
             {data.map((item: any,index:any) => {
@@ -321,7 +321,7 @@ else return null
                       <h3 className="ListItemH3" >{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
-                    <img className="ListItemH1ImageList2"  src={this.imgUrl(480)+item.imageSrc} alt={item.imageAlt} 
+                    <img className="ListItemH1ImageList2"  src={this.imgUrl(480)+item.imageSrc} alt={item.imageAlt}
                         srcSet={this.imgUrl(320)+item.imageSrc+" 320w,"+
                         this.imgUrl(480)+item.imageSrc+" 480w,"+
                         this.imgUrl(640)+item.imageSrc+" 640w,"+
@@ -341,7 +341,7 @@ else return null
             }
           </div>
         </div>
-        
+
       </div>
     )
     return (null)
