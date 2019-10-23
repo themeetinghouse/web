@@ -492,7 +492,7 @@
         "name": "Peacebuilding",
         "description":"One of our key values is to live out Jesus’ message of peace. As a church, we are committed to nonviolence and being agents of reconciliation. We do this through pursuing Indigenous reconciliation efforts, refugee sponsorship, restorative justice, relief, and peacebuilding literacy development.",
         "image": "/static/photos/compassion/peacebuilding.jpg",
-        "imagealt": "Placeholder image for Compassion Partner"
+        "imagealt": "A student sharing with his friends at a Peace Club in Zambia."
     },
     {
         "id": 57,
@@ -500,15 +500,15 @@
         "name": "Poverty Alleviation",
         "description":"Poverty was never in God’s design for humanity. Due to injustice in our world, there is a major gap in the quality of life between people around the world. We recognize the gifts we have been given and  the unique privilege we have to make a difference. We pursue a poverty-free world by partnering with two communities in Malawi through World Vision’s child sponsorship program.",
         "image": "/static/photos/compassion/povertyalleviation.jpg",
-        "imagealt": "Placeholder image for Compassion Partner"
+        "imagealt": "Young children in Jordan drawing and playing together inside a safe kids club that was created for them."
     },
     {
         "id": 58,
         "sites": ["crossregional"],
         "name": "Discipleship Development",
         "description":"Our main goal in Compassion is to focus externally, beyond our church community. To pursue this well, we invest in our discipleship journey so we can better reflect the compassionate nature of Jesus. Through education and support, we equip our church to better live into four focus areas: Peacebuilding, Poverty Alleviation, Local Engagement, and Global Church Partnerships. ",
-        "image": "/static/images/compassion/none.jpg",
-        "imagealt": "Placeholder image for Compassion Partner"
+        "image": "/static/photos/compassion/discipleshipdevelopment.jpg",
+        "imagealt": "Group photo of First Nations leaders and community members with the Meeting House Learning Team in Timmins, Ontario."
     },
     {
         "id": 59,
@@ -516,7 +516,7 @@
         "name": "Global Church Partnerships",
         "description":"We are part of a global movement called the church that is transforming lives by living out peace and simplicity in loving community. Recognizing the blessings we have, we support and pray for the international church as they share Jesus’ message. We serve the persecuted church through prayer and education.",
         "image": "/static/photos/compassion/globalchurchpartnerships.jpg",
-        "imagealt": "Placeholder image for Compassion Partner"
+        "imagealt": "Group photo of BIC church leaders in Kenya, alongside Meeting House and BIC Canada team members."
     },
     {
         "id": 60,
@@ -524,6 +524,6 @@
         "name": "Local Engagement",
         "description":"We want to be a transformative presence within our communities, so we serve and advocate for the marginalized in our neighbourhoods by volunteering in our cities. Each site partners with local organizations that are having a positive impact in their community. Relying on the expertise and reputation of our partners, we walk alongside the most vulnerable people in our neighbourhoods. ",
         "image": "/static/photos/compassion/localengagement.jpg",
-        "imagealt": "Placeholder image for Compassion Partner"
+        "imagealt": "A meeting house volunteer sorting and organizing donations as part of a local compassion initative."
     }
 ]
