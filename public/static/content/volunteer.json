@@ -1,0 +1,29 @@
+{
+    "page": {
+        "name": "connect",
+        "title": "Connect",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor":"black",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true
+        },
+        "content": [
+           
+            {
+                "type": "form",
+                "header1": "Volunteer.",
+                "class":"formstack",
+                "style":"white",
+                "formId":"volunteer",
+                "height":"100vh"
+            }
+        ]
+    }
+}

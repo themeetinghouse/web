@@ -37,10 +37,6 @@
             {
                 "name":"Podcasts",
                 "location":"/teaching-podcasts"
-            },
-            {
-                "name":"Blogs",
-                "location":"/teaching-blogs"
             }
         ]
     },

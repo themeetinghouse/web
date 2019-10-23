@@ -19,8 +19,8 @@
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "/static/images/make-a-difference-1.jpg",
-                        "alt": "Description"
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
                     }
                 ],
                 "header1": "Make a Difference",
@@ -35,21 +35,21 @@
                     {
                         "title": "Volunteer",
                         "text": "Volunteering is one way we get to grow as disciples of Jesus. Have a gift or passion you want to share with others? We would love to help you find a place where you can serve your community and meet the needs of those around you.",
-                        "imageSrc": "/static/images/make-a-difference-2-1.jpg",
+                        "imageSrc": "/static/images/TODO.jpg",
                         "imageAlt": "Todo",
                         "navigateTo": "volunteering"
                     },
                     {
                         "title": "Compassion",
                         "text": "We believe that all people are created in the image of God and have infinite worth. Therefore, we love, serve, and partner with vulnerable people as we journey together towards relationship, justice, and peace.",
-                        "imageSrc": "/static/images/make-a-difference-2-2.jpg",
+                        "imageSrc": "/static/images/TODO.jpg",
                         "imageAlt": "Todo",
                         "navigateTo": "compassion"
                     },
                     {
                         "title": "Giving",
                         "text": "We strive to live simply so that we can give generously. Jesus teaches that our money and possessions are entrusted to us by God to use, manage, and steward wisely by investing in what God is doing today.",
-                        "imageSrc": "/static/images/make-a-difference-2-3.jpg",
+                        "imageSrc": "/static/images/TODO.jpg",
                         "imageAlt": "Todo",
                         "navigateTo": "giving"
                     }
