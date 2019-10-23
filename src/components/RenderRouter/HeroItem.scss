@@ -1,4 +1,30 @@
 @media (min-width: 768px) {
+    #mc_embed_signup {
+        clear: left;
+        font: 14px Helvetica, Arial, sans-serif;
+        width: 100%;
+    }
+
+    #mc-embedded-subscribe-form input[type=checkbox] {
+        display: inline;
+        width: auto;
+        margin-right: 10px;
+    }
+
+    #mergeRow-gdpr {
+        margin-top: 20px;
+    }
+
+    #mergeRow-gdpr fieldset label {
+        font-weight: normal;
+    }
+
+    #mc-embedded-subscribe-form .mc_fieldset {
+        border: none;
+        min-height: 0px;
+        padding-bottom: 0px;
+    }
+
     .heroItem {
         position: relative;
         width: 100vw;
@@ -89,14 +115,14 @@
     }
 
     .partialNoFooterBoxHr {
-          margin-left: 0;
-          margin-right: 0;
-          margin-top: 1.5vw;
-          margin-bottom: 1.5vw;
-          width: 5vw;
-          background-color: #ffffff;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
+        width: 5vw;
+        background-color: #ffffff;
 
-      }
+    }
 
     .heroHr {
         margin-left: 0;
@@ -346,14 +372,14 @@
 
 
     .partialNoFooterBoxHr {
-          margin-left: 0;
-          margin-right: 0;
-          margin-top: 1.5vw;
-          margin-bottom: 1.5vw;
-          width: 5vw;
-          background-color: #ffffff;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
+        width: 5vw;
+        background-color: #ffffff;
 
-      }
+    }
 
     .heroText1 {
         font-family: Graphik Web;
@@ -584,13 +610,13 @@
     }
 
     .partialNoFooterBoxHr {
-          margin-left: 0;
-          margin-right: 0;
-          margin-top: 4.5vw;
-          margin-bottom: 4.5vw;
-          width: 8.55vw;
-          background-color: #ffffff;
-      }
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 4.5vw;
+        margin-bottom: 4.5vw;
+        width: 8.55vw;
+        background-color: #ffffff;
+    }
 
     .partialNoFooterLocationDropDown {
         font-family: Graphik Web;
