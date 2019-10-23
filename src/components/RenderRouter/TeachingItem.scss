@@ -210,43 +210,46 @@
         position: absolute;
         left: 0vw;
         width: 100vw;
-        top: 20vw;
-        height: 90vw;
+        top: 22vw;
+        height: 100%;
         background-color: #000000;
         color: #ffffff;
     }
 
     .teachingdiv {
-        padding: 0.5vw;
+        padding: 7vw 2vw;
         color: #C8C8C8;
         font-family: Graphik Web;
+        font-size: 3.25vw;
     }
 
     .teachingdiv2 {
         position: absolute;
-        bottom: 5vw;
+        /* bottom: 0; */
+        padding: 0 2vw 0 2vw;
         font-family: Graphik Web;
     }
 
     .teaching-episode-title {
-        padding: 0.5vw;
-        font-size: 2.5vw;
+        padding: 0vw 2vw;
+        font-size: 8.55vw;
+        line-height: 10.7vw;
         font-weight: bold;
         color: #ffffff;
         font-family: Graphik Web;
     }
 
     .teaching-span {
-        margin: 1vw;
+        margin: 2.25vw;
         font-family: Graphik Web;
     }
 
     .teaching-image {
         cursor: pointer;
         position: absolute;
-        top: 55vw;
-        left: 15vw;
-        width: 70vw;
+        top: 95vw;
+        left: 5vw;
+        width: 90%;
     }
 
     .teaching {
@@ -274,17 +277,34 @@
 
     .teaching-mostrecent {
         position: absolute;
-        left: 80vw;
+        left: 5vw;
         top: 10vw;
         font-family: Graphik Web;
     }
 
     .teaching-options {
         position: absolute;
-        right: 78vw;
+        right: 28vw;
         text-align: right;
         width: 20vw;
         top: 10vw;
-
     }
+
+    .teachingseriestitle {
+        padding: 2vw 2vw 0 2vw;
+    }
+
+    .teachingdescription {
+        font-size: 4.3vw;
+        line-height: 6.4vw;
+        padding-bottom: 11.2vw;
+    }
+
+    .teachingButton {
+      padding: 5vw 10vw;
+      line-height: 5vw;
+      background-color: #ffffff;
+      color: #000000;
+      font-weight: 800;
+  }
 }

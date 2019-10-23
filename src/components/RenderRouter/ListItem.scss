@@ -536,12 +536,13 @@
         // left: 20vw;
         width: 80vw;
         padding: 10vw 6vw 6vw;
+        margin-top: 65vw;
     }
 
     .ListItemDiv2 {
         position: relative;
         left: 0vw;
-        width: 80vw;
+        width: 95vw;
         overflow-x: scroll;
         white-space: nowrap;
     }
@@ -612,7 +613,9 @@
         left: 0vw;
         width: 80vw;
         font-weight: bold;
-        font-size: 3vw;
+        font-size: 6.4vw;
+        color: #000000;
+        margin-bottom: 4.25vw;
     }
 
     .ListItemH1.whiteText {
@@ -686,6 +689,8 @@
         cursor: pointer;
         display: inline-block;
         vertical-align: top;
+        width: 75%;
+        margin-right: 6.4vw;
     }
 
     .ListItemVideo.whiteText {
@@ -693,35 +698,51 @@
     }
 
     .ListItemVideoThumb {
-        width: 20vw;
+        width: 100%;
         margin-right: 1vw;
         object-fit: cover;
-        height: 12vw;
+        height: 100%;
     }
 
     .ListItemEpisodeNum,
     .ListItemName {
-        width: 20vw;
+        width: 100%;
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
+    }
+
+    .ListItemEpisodeNum {
+      padding-top: 2vw;
     }
 
     .ListItemEpisodeLength {
         font-weight: bold;
     }
 
-    .ListItemSeriesTitle,
+
     .ListItemContact,
     .ListItemPosition,
     .ListItemEmail,
     .ListItemPhone,
     .ListItemWebsite,
-    .ListItemPublishedDate,
     .ListYearEpisode {
         width: 20vw;
         white-space: normal;
         font-family: Graphik Web;
+    }
+
+    .ListItemSeriesTitle,
+    .ListItemPublishedDate {
+      width: 100%;
+      white-space: normal;
+      font-family: Graphik Web;
+      font-size: 3.2vw;
+      line-height: 4.8vw;
+    }
+
+    .ListItemSeriesTitle {
+      font-weight: 800;
     }
 
     .ListItemA {
