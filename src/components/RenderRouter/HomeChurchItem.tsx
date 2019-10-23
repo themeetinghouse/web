@@ -117,8 +117,6 @@ export class ContentItem extends React.Component<Props, State>  {
                   <div key={item.id} >
                     <h3 className="HomeChurchH3">{item.name}</h3>
                     <div className="HomeChurchAddress">{item.description}</div>
-                    <div>{item.gender.name}/{item.maritalStatus.name}</div>
-                    <div>{item.hasChildcare?"Childcare":"No Childcare"}</div>
                     <div>{item.churchCampus.name}</div>
                   </div>:null
                 )

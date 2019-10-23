@@ -78,13 +78,6 @@
                         "imageSrc": "/static/images/TODO.jpg",
                         "imageAlt": "TODO",
                         "navigateTo": "kids+youth"
-                    },
-                    {
-                        "title": "Make a Difference",
-                        "text": "Another way that people can get connected to community is through our compassion or volunteer opportunities. This module should give a super brief introduction to how these opportunities are one way to get connected with other people and then contain a link to the Make a Difference webpage",
-                        "imageSrc": "/static/images/TODO.jpg",
-                        "imageAlt": "TODO",
-                        "navigateTo": "make-a-difference"
                     }
                 ]
             }

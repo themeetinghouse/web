@@ -113,6 +113,30 @@ class HeroItem extends React.Component<Props, State> {
         if (downArrow)
             downArrow.style.opacity=((1-(window.scrollY/250))).toString()
     }
+
+    renderEmailSignup(){
+        return (
+            <div>
+                <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
+                <div id="mc_embed_signup">
+                    <form action="https://themeetinghouse.us8.list-manage.com/subscribe/post?u=3c4d56c1d635f336d8656e9dd&amp;id=3cb55a9826" 
+                    method="post" id="mc-embedded-subscribe-form" 
+                    name="mc-embedded-subscribe-form" className="validate" target="_blank">
+                        <div id="mc_embed_signup_scroll">
+                            
+                            <input type="email" value="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"  />
+                            <div style={{position: "absolute", left: "-5000px;"}} aria-hidden="true">
+                                <input style={{border:"0px"}} type="text" name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826" value="" />
+                            </div>
+                            <div className="clear">
+                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        )
+    }
     render() {
         window.onscroll=()=>{this.downArrowScroll()}
         var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
@@ -152,7 +176,6 @@ class HeroItem extends React.Component<Props, State> {
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button style={{ fontFamily:"Graphik Web", fontSize:"1vw",marginTop: "1vw", color: "#ffffff", backgroundColor: "#000000", borderWidth:0, borderRadius: 0 }} onClick={this.navigate}><img style={{marginRight:"5px"}} src="/static/Calendar-white.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
                         {this.state.content.contactPastor ? (<Button style={{ fontFamily:"Graphik Web", fontSize:"1vw",marginTop: "1vw", color: "#ffffff", backgroundColor: "#000000", borderWidth:0, borderRadius: 0 }} onClick={this.navigate}><img style={{marginRight:"5px"}} src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
-
                     </div>
                      <div><img id="downArrow" style={{ opacity:this.state.arrowOpacity,cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
 
@@ -213,6 +236,7 @@ class HeroItem extends React.Component<Props, State> {
                         <a style={{fontFamily:"Graphik Web",color:"#ffffff"}} href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
                         {this.state.content.contactPastor ? (<Button style={{ marginTop: "1.5vw", color: "#000000", backgroundColor: "#ffffff", borderRadius: 0 }} onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+                        {this.state.content.showEmailSignup?this.renderEmailSignup():null}
 
                     </div>
                 </div>
