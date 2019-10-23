@@ -6,12 +6,6 @@
         "sites": ["overseer"]
     },
     {
-        "FirstName": "Bruxy",
-        "LastName": "Cavey",
-        "Position":"Teaching Pastor",
-        "sites": ["overseer"]
-    },
-    {
         "FirstName": "Mario",
         "LastName": "Ferlanti",
         "Position":"Nominating, Chair",
@@ -69,24 +63,6 @@
         "FirstName": "Carole Ann",
         "LastName": "Stephen",
         "Position":"Nominating",
-        "sites": ["overseer"]
-    },       
-    {
-        "FirstName": "Rod",
-        "LastName": "Tombs",
-        "Position":"Staff",
-        "sites": ["overseer"]
-    }, 	     
-    {
-        "FirstName": "Darrell",
-        "LastName": "Winger",
-        "Position":"Staff",
-        "sites": ["overseer"]
-    }, 	  
-    {
-        "FirstName": "Laura",
-        "LastName": "van der Kooi",
-        "Position":"Staff",
         "sites": ["overseer"]
     }
 ]
