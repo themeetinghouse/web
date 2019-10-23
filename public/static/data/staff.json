@@ -208,6 +208,15 @@
         "Email": "Diane.Klassen@themeetinghouse.com"
     },
     {
+        "Staff":true,
+         "FirstName": "Emma",
+         "LastName": "Field",
+         "Phone": "905.287.7000 ext. 123",
+         "Position": "Youth Project Coordinator & Administrator",
+         "sites": ["Youth"],
+         "Email": "Emma.Field@themeetinghouse.com"
+     },
+     {
        "Staff":true,
         "FirstName": "Eric",
         "LastName": "Faulknor",
@@ -477,8 +486,7 @@
        "Staff":true,
         "FirstName": "Lucas",
         "LastName": "Belem",
-        "Office": 821,
-        "Phone": "",
+        "Phone": "905.287.7000 ext. 821",
         "Position": "Communications Project Coordinator & Administrator",
         "sites": ["Communications"],
         "Email": "Lucas.Belem@themeetinghouse.com"
@@ -615,16 +623,6 @@
         "Position": "Social Media Specialist",
         "sites": ["Communications"],
         "Email": "Olivia.Vanderwal@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
-        "FirstName": "Peter",
-        "LastName": "van Oordt",
-        "Office": 836,
-        "Phone": "416.574.7965",
-        "Position": "HR Manager",
-        "sites": ["Operations"],
-        "Email": "Peter.van Oordt@themeetinghouse.com"
     },
     {
        "Staff":true,
