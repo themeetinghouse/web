@@ -40,7 +40,7 @@
                 "type": "list",
                 "style": "vertical",
                 "class": "compassion",
-                "header1": "Make a Difference",
+                "header1": "What We Do",
                 "text1": "We intentionally demonstrate the love and teachings of Jesus by pursuing:",
                 "filterField":"sites",                 
                 "filterValue": "crossregional"
