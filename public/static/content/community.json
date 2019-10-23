@@ -19,8 +19,8 @@
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "/static/images/community-1.jpg",
-                        "alt": "Description"
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
                     }
                 ],
                 "header1": "Community",
@@ -38,8 +38,8 @@
                 "link1Action": "life-stories",
                 "image1": [
                     {
-                        "src": "/static/images/community-2.jpg",
-                        "alt": "Group of friends hanging out at The Meeting House church excited about our plans for fall 2019."
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
                     }
                 ]
             },
@@ -61,29 +61,29 @@
                     {
                         "title": "Sunday Morning",
                         "text": "We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of a people with a purpose. Planning on joining us this Sunday but aren’t sure what to expect?",
-                        "imageSrc": "/static/images/community-3-1.jpg",
-                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+                        "imageSrc": "/static/images/TODO.jpg",
+                        "imageAlt": "TODO",
                         "navigateTo": "sunday-morning"
                     },
                     {
                         "title": "Home Church",
                         "text": "During the week, we meet in homes to further study and apply Sunday’s teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this home church—and it’s kind of the best thing we’ve got going.",
-                        "imageSrc": "/static/images/community-3-2.jpg",
-                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
+                        "imageSrc": "/static/images/TODO.jpg",
+                        "imageAlt": "TODO",
                         "navigateTo": "home-church"
                     },
                     {
                         "title": "Kids & Youth",
                         "text": "We work together to create a safe environment where our kids and youth can learn to love and follow Jesus. Kidmax is our Sunday morning children’s program for infants to grade 5, and runs in tandem with our Sunday morning service. For students grades 6 to 12, our youth program includes both a Sunday morning portion and a midweek gathering. Learn more about our programs, curriculum, and how to register.",
-                        "imageSrc": "/static/images/community-3-3.jpg",
-                        "imageAlt": "Production volunteer recording a Meeting House video.",
+                        "imageSrc": "/static/images/TODO.jpg",
+                        "imageAlt": "TODO",
                         "navigateTo": "kids+youth"
                     },
                     {
                         "title": "Make a Difference",
                         "text": "Another way that people can get connected to community is through our compassion or volunteer opportunities. This module should give a super brief introduction to how these opportunities are one way to get connected with other people and then contain a link to the Make a Difference webpage",
-                        "imageSrc": "/static/images/community-3-4.jpg",
-                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
+                        "imageSrc": "/static/images/TODO.jpg",
+                        "imageAlt": "TODO",
                         "navigateTo": "make-a-difference"
                     }
                 ]

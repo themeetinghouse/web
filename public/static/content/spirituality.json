@@ -3,46 +3,80 @@
         "name": "spirituality",
         "title": "Spirtuality",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
-           
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
+                    }
+                ],
+                "header1": "Spiritually curious...or whatever.",
+                "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. This is a safe space where you can feel comfortable exploring faith and spirituality. Full disclosure: we think the best thing we have to offer is to point you towards Jesus"
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"This content has not been developed yet...",
-                "link1Text": "....",
-                "link1Action": "homepage",
-                "image1":[{
-                    "src":"/static/images/homepage-2.jpg",
-                    "alt":"TODO"
-                }]
-
+                "header1": "Jesus and Spirituality",
+                "header2": "",
+                "text1": "We take our cue from the life and teachings of the historical Jesus. We believe that Jesus reveals to us the best and clearest picture of who God is—and that’s really good news. As God on earth, Jesus came to show us God’s love, save us from sin, set up God’s kingdom, and shut down religion so we can share in God’s life, together. If you’re starting to ask questions about spirituality and faith, we think Jesus is the best place to start. Check out some of the videos, podcasts, and blogs below.",
+                "image1": [
+                    {
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
+                    }
+                ]
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class":"videos",
+                "subclass":"bbq",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1": "Starting Questions",
+                "header2": "",
+                "text1": "Short videos that are a great starting point if you are interested in some of the basics when it comes to Jesus, God, and spirituality."
+               
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class":"videos",
+                "subclass":"adult-sunday",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1": "Popular",
+                "header2": ""
+            },
+            {
+                "type": "blog"
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "What’s your next step?",
+                "header2": "",
+                "text1": "Exploring spirituality is not a journey you have to take on your own—we’re meant to do this together? Want to connect with other people who are asking similar questions?",
+                "image1": [
+                    {
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
+                    }
+                ]
             }
+            
         ]
     }
 }
