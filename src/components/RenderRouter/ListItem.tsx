@@ -162,7 +162,7 @@ renderEvent(item:any){
         <div  style={{margin:"10px"}}>
         <div className="ListItemEventsDescription" >{item.name}</div>
         <div className="ListItemEventsDescription2" >{description}</div>
-        {item.place.name!=null?<div className="ListItemEventsLocation" >{item.place.name}</div>:null}
+        {item.place!=null?item.place.name!=null?<div className="ListItemEventsLocation" >{item.place.name}</div>:null:null}
         <div className="ListItemEventsDuration" >{durationStr}</div>
 {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
         <Button className="ListItemEventButton" onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
