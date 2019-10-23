@@ -19,9 +19,14 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/about-us-1-1.jpg",
+                        "alt": "TODO"
+                    },
+                    {
+                        "src": "/static/images/about-us-1-2.jpg",
                         "alt": "TODO"
                     }
+
                 ],
                 "header1": "Our Story",
                 "text1": "All about Jesus. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
@@ -78,7 +83,7 @@
                 "header2":"",
                 "text1":"Here’s the nitty gritty of where we stand, what we believe Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
                 "image1":[{
-                    "src":"/static/images/TODO.jpg",
+                    "src":"/static/images/about-us-2.jpg",
                     "alt":"TODO"
                 }],
                 "list": [
@@ -109,7 +114,7 @@
                 "link1Text": "Rentals",
                 "link1Action": "rentals",
                 "image1":[{
-                    "src":"/static/images/TODO.jpg",
+                    "src":"/static/images/about-us-3.jpg",
                     "alt":"TODO"
                 }]
             },

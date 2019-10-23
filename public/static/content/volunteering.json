@@ -25,7 +25,7 @@
                 "link1Action": "?",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/volunteering-1.jpg",
                         "alt": "TODO"
                     }
                 ]
@@ -39,7 +39,7 @@
                
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/volunteering-2.jpg",
                         "alt": "TODO"
                     }
                 ]
@@ -51,8 +51,8 @@
                 "header2": "",
                 "image1": [
                     {
-                        "src": "/static/images/KY1.jpg",
-                        "alt": "A young child playing with blocks."
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
                     }
                 ],
                 "list": [
@@ -104,7 +104,7 @@
                 "link1Action": "volunteer",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/volunteering-4.jpg",
                         "alt": "TODO"
                     }
                 ]
