@@ -16,9 +16,9 @@ interface Props extends RouteComponentProps {
 }
 interface State {
     content: any,
-  //  listData: any,
-   // overlayData: any,
-   // urlHistoryState: any
+    //  listData: any,
+    // overlayData: any,
+    // urlHistoryState: any
 }
 export default class DataLoader extends React.Component<Props, State> {
     constructor(props: Props, state: State) {
@@ -26,16 +26,16 @@ export default class DataLoader extends React.Component<Props, State> {
 
         this.state = {
             content: state.content,
-           // listData: state.listData,
-          //  overlayData: null,
-         //   urlHistoryState: window.history.state
+            // listData: state.listData,
+            //  overlayData: null,
+            //   urlHistoryState: window.history.state
         }
     }
-   /* componentDidUpdate(prevProps: Props, prevState: State) {
-        if (prevState.listData !== this.state.listData)
-            this.props.dataLoaded(this.state.listData)
-        console.log(prevProps)
-    }*/
+    /* componentDidUpdate(prevProps: Props, prevState: State) {
+         if (prevState.listData !== this.state.listData)
+             this.props.dataLoaded(this.state.listData)
+         console.log(prevProps)
+     }*/
     getVideosSameSeries(nextToken: any) {
         const getSeries = API.graphql({
             query: customQueries.getSeries,
@@ -109,13 +109,14 @@ export default class DataLoader extends React.Component<Props, State> {
                 return a.lastName - b.lastName
         })
     }
-    filterEvents(items:any){
-        return items;
-        //TEMPORARY WHILE DEVELOPING
-        return items.filter((item:any)=>{
-            var start_date=new Date(item.start_time.substring(0, item.start_time.length-2) + ":" + item.start_time.substring(item.start_time.length-2))
-            return (new Date()<start_date)        
-        })
+    filterEvents(items: any) {
+        if (window.location.hostname === "localhost")
+            return items;
+        else
+            return items.filter((item: any) => {
+                var start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
+                return (new Date() < start_date)
+            })
     }
     loadData() {
         if (this.state.content.class === "videos") {
@@ -205,10 +206,11 @@ export default class DataLoader extends React.Component<Props, State> {
                 return response.json();
             })
                 .then((myJson) => {
-                    this.props.dataLoaded(myJson.filter((item:any)=>{
-                        return item[this.state.content.filterField]===this.state.content.filterValue
+                    this.props.dataLoaded(myJson.filter((item: any) => {
+                        return item[this.state.content.filterField] === this.state.content.filterValue
                     })
-                )}
+                    )
+                }
                 )
 
         }
