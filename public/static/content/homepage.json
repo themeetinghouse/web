@@ -98,7 +98,7 @@
                     },
                     {
                         "title": "Videos",
-                        "text": "Our entire video library featuring stories of people and communities who show us what it look like to live the Jesus-centered life.",
+                        "text": "Our entire video library featuring stories of people and communities who show us what it looks like to live the Jesus-centered life.",
                         "imageSrc": "/static/images/homepage-4-3.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
                         "navigateTo": "teaching-curated"
@@ -126,7 +126,7 @@
                 "style": "oneImage",
                 "header1": "Make a Difference",
                 "header2": "",
-                "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people at the margins. Are you looking to get involved?",
+                "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?",
                 "link1Text": "Volunteering",
                 "link1Action": "volunteering",
                 "link2Text": "Compassion",
