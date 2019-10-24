@@ -5,8 +5,9 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import VideoOverlay from '../components/VideoOverlay/VideoOverlay'
+import ReactGA from 'react-ga';
 Amplify.configure(awsconfig);
-
+ReactGA.initialize('UA-4554612-19');
 interface Props extends RouteComponentProps {
   match: any
   isVideo?: string
@@ -43,6 +44,7 @@ class HomePage extends React.Component<Props, State> {
       if (props.match.params.id == null)
         jsonFile = "homepage"
     }
+    ReactGA.pageview(window.location.pathname + window.location.search);
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: jsonFile }
