@@ -124,7 +124,7 @@ class HeroItem extends React.Component<Props, State> {
                     name="mc-embedded-subscribe-form" className="validate" target="_blank">
                         <div id="mc_embed_signup_scroll">
                             
-                            <input type="email" value="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"  />
+                            <input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"  />
                             <div style={{position: "absolute", left: "-5000px;"}} aria-hidden="true">
                                 <input style={{border:"0px"}} type="text" name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826" value="" />
                             </div>

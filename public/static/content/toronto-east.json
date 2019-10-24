@@ -147,7 +147,8 @@
                 ],
                 "header1": "Get Connected",
                 "header2": "",
-                "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. "
+                "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. ",
+                "showEmailSignup":true
             }
         ]
     }
