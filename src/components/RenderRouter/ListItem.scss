@@ -611,10 +611,11 @@
         position: relative;
         left: 0vw;
         width: 80vw;
-        font-weight: bold;
-        font-size: 6.4vw;
         color: #000000;
-        margin-bottom: 4.25vw;
+        margin-bottom: 8.55vw;;
+        font-size: 10vw;
+        font-weight: 700;
+        font-family: Graphik Web;
     }
 
     .ListItemH1.whiteText {
@@ -649,8 +650,10 @@
     }
 
     .ListItemCompassionLogo {
-        height: 13vw;
-        margin-right: 1vw;
+        height: 100%;
+        width: 100%;
+        // margin-right: 1vw;
+        margin-bottom: 5.5vw;
     }
 
     .ListItemImage2 {
@@ -680,8 +683,10 @@
         position: relative;
         left: 0vw;
         width: 80vw;
-        font-size: 1.5vw;
+        font-size: 5vw;
+        line-height: 7.5vw;
         font-family: Graphik Web;
+        margin-bottom: 10vw;
     }
 
     .ListItemVideo {
@@ -767,23 +772,26 @@
     }
 
     .ListItemCompassion {
-        display: inline-block;
-        width: 23vw;
-        margin-right: 2vw;
+        display: block;
+        width: 100%;
+        // margin-right: 2vw;
         vertical-align: top;
     }
 
     .ListItemEventsDescription {
         white-space: normal;
-        font-weight: bold;
-        font-size: 2vw;
         font-family: Graphik Web;
+        font-size: 6.4vw;
+        line-height: 8.55vw;
+        font-weight: 700;
+        margin-bottom: .5rem;
 
     }
 
     .ListItemEventsDescription2 {
         white-space: normal;
         font-family: Graphik Web;
+        margin-bottom: 20vw;
 
     }
 
