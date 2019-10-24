@@ -21,6 +21,17 @@ class HomePage extends React.Component<Props, State> {
       content: null
     }
     console.log(props)
+    fetch('/static/data/redirect.json').then(function (response) {
+      return response.json();
+    })
+      .then((myJson) => {
+        console.log(props.match.params.id)
+        var forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
+        console.log(forwardTo)
+        if (forwardTo.length > 0)
+          this.navigateUrl(forwardTo[0].to)
+      })
+
     var jsonFile
     if (this.props.isVideo === "true") {
       jsonFile = "video-player"
@@ -44,15 +55,15 @@ class HomePage extends React.Component<Props, State> {
         .then((myJson) => {
           console.log(myJson)
           this.setState({ content: myJson });
-          myJson.page.test.forEach((items:any) => {
+          myJson.page.test.forEach((items: any) => {
             fetch('/static/content/' + items.toLowerCase() + '.json').then(function (response) {
               console.log(response)
               return response.json();
             })
               .then((myJson2) => {
-                var c=this.state.content
-                c.page.content=c.page.content.concat(myJson2.page.content)
-                this.setState({ content:  c});
+                var c = this.state.content
+                c.page.content = c.page.content.concat(myJson2.page.content)
+                this.setState({ content: c });
               }).catch((e) => { console.log(e) })
           })
         }).catch((e) => { console.log(e) })
@@ -67,6 +78,17 @@ class HomePage extends React.Component<Props, State> {
         }).catch((e) => { console.log(e) })
     }
     this.navigateHome = this.navigateHome.bind(this);
+  }
+  navigateUrl(to:string){
+    window.location.href=to;
+  }
+
+  navigateTo(uri: any) {
+    console.log("Navigate to:"+ uri)
+    this.props.history.push(uri, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
   }
   navigateHome() {
     this.props.history.push("/", "as")

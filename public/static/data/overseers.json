@@ -1,5 +1,11 @@
 [
     {
+        "FirstName": "Maggie",
+        "LastName": "John",
+        "Position":"Executive, Chair",
+        "sites": ["overseer"]
+    },
+    {
         "FirstName": "Cody",
         "LastName": "Buchenauer",
         "Position":"Executive, Treasurer Finance & Audit, Chair",
@@ -9,12 +15,6 @@
         "FirstName": "Mario",
         "LastName": "Ferlanti",
         "Position":"Nominating, Chair",
-        "sites": ["overseer"]
-    },
-    {
-        "FirstName": "Maggie",
-        "LastName": "John",
-        "Position":"Executive, Chair",
         "sites": ["overseer"]
     },
     {
