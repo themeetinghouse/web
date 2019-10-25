@@ -75,7 +75,6 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
-src/aws-exports.js
 
 #amplify
 amplify/\#current-cloud-backend
