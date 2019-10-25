@@ -183,7 +183,7 @@ class HeroItem extends React.Component<Props, State> {
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {
                             this.state.content.addToCalendar ?
-                                <Button clasName="calendarButton"
+                                <Button className="calendarButton"
                                     onClick={this.navigate}><img className="calendarImage" src="/static/Calendar-white.png" alt="Calendar Icon" />Add To Calendar</Button>
                          :null
                          }

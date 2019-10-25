@@ -644,7 +644,8 @@
         font-family: Graphik Web;
         font-weight: bold;
         color: #ffffff;
-        font-size: 3vw;
+        font-size: 4.3vw;
+        line-height: 6.4vw;
         margin-top: 0vw !important;
         margin-bottom: 0vw !important;
     }
@@ -681,10 +682,11 @@
 
     .heroText1 {
         font-family: Graphik Web;
+        font-weight: 800;
         width: 90vw;
         color: #ffffff;
-        font-size: 5vw;
-        line-height: 7.5vw;
+        font-size: 4.3vw;
+        line-height: 6.4vw;
         margin-bottom: 5vw;
 
     }
@@ -693,7 +695,8 @@
         font-family: Graphik Web;
         width: 90vw;
         color: #ffffff;
-        font-size: 2vw;
+        font-size: 4.3vw;
+        line-height: 6.4vw;
     }
 
     .partial {
@@ -855,10 +858,13 @@
         border: 0px;
     }
     .calendarButton {
-        font-family: Graphik Web; font-size: 1vw;
-        margin-top: 1vw;
-        color: #ffffff; background-color: #000000;
-        border-width: 0; border-radius: 0;
+        font-family: Graphik Web;
+        font-size: 1vw;
+        margin-top: 10vw;
+        color: #ffffff;
+        background-color: #000000;
+        border-width: 0;
+        border-radius: 0;
     }
     .calendarImage {
         margin-right: 5px;
