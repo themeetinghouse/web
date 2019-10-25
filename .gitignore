@@ -84,7 +84,6 @@ amplify/backend/awscloudformation
 build/
 dist/
 node_modules/
-aws-exports.js
 awsconfiguration.json
 #amplify/team-provider-info.json
 out/
