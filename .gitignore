@@ -75,7 +75,6 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
-src/aws-exports.js
 
 #amplify
 amplify/\#current-cloud-backend
@@ -85,7 +84,6 @@ amplify/backend/awscloudformation
 build/
 dist/
 node_modules/
-aws-exports.js
 awsconfiguration.json
 #amplify/team-provider-info.json
 out/
