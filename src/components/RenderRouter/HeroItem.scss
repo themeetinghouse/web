@@ -269,6 +269,40 @@
         margin-top: 2vw;
         margin-bottom: 2vw;
     }
+    .emailDiv{
+        position: absolute;
+        left: -5000px;
+    }
+    .emailInput{
+        border: 0px;
+    }
+    .calendarButton {
+        font-family: Graphik Web; font-size: 1vw;
+        margin-top: 1vw;
+        color: #ffffff; background-color: #000000;
+        border-width: 0; border-radius: 0;
+    }
+    .calendarImage {
+        margin-right: 5px;
+    }
+    .heroItemButton {
+        margin-top: 1.5vw;
+        color: #000000; background-color: #ffffff;
+        border-radius: 0;
+    }
+    .HeroItemButtonA {
+        font-family: Graphik Web;
+        color: #ffffff;
+    }
+    .HeroItemA2 {
+        font-family: Graphik Web;
+    }
+    .divPartial {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 43vw; padding-bottom: 5vh;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -543,6 +577,40 @@
         margin-top: 2vw;
         margin-bottom: 2vw;
     }
+    .emailDiv{
+        position: absolute;
+        left: -5000px;
+    }
+    .emailInput{
+        border: 0px;
+    }
+    .calendarButton {
+        font-family: Graphik Web; font-size: 1vw;
+        margin-top: 1vw;
+        color: #ffffff; background-color: #000000;
+        border-width: 0; border-radius: 0;
+    }
+    .calendarImage {
+        margin-right: 5px;
+    }
+    .heroItemButton {
+        margin-top: 1.5vw;
+        color: #000000; background-color: #ffffff;
+        border-radius: 0;
+    }
+    .HeroItemButtonA {
+        font-family: Graphik Web;
+        color: #ffffff;
+    }
+    .HeroItemA2 {
+        font-family: Graphik Web;
+    }
+    .divPartial {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 43vw; padding-bottom: 5vh;
+    }
 }
 
 @media (max-width: 767px) {
@@ -778,5 +846,39 @@
         width: 86vw;
         margin-top: 2vw;
         margin-bottom: 2vw;
+    }
+    .emailDiv{
+        position: absolute;
+        left: -5000px;
+    }
+    .emailInput{
+        border: 0px;
+    }
+    .calendarButton {
+        font-family: Graphik Web; font-size: 1vw;
+        margin-top: 1vw;
+        color: #ffffff; background-color: #000000;
+        border-width: 0; border-radius: 0;
+    }
+    .calendarImage {
+        margin-right: 5px;
+    }
+    .heroItemButton {
+        margin-top: 1.5vw;
+        color: #000000; background-color: #ffffff;
+        border-radius: 0;
+    }
+    .HeroItemButtonA {
+        font-family: Graphik Web;
+        color: #ffffff;
+    }
+    .HeroItemA2 {
+        font-family: Graphik Web;
+    }
+    .divPartial {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 43vw; padding-bottom: 5vh;
     }
 }
