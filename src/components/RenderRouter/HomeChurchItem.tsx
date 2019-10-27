@@ -2,8 +2,7 @@
 import React from 'react';
 import { GoogleApiWrapper } from 'google-maps-react';
 //import {ProviderProps} from 'google-maps-react';
-import { Marker } from 'google-maps-react';
-import { Map } from 'google-maps-react';
+import { Map, InfoWindow, Marker } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import "./HomeChurchItem.scss"
@@ -23,6 +22,7 @@ interface Props extends RouteComponentProps {
 interface State {
   content: any,
   selectedPlace: any,
+  selectedPlaceMarker: any,
   listData: any,
   groupType: any,
   groups: any
@@ -35,6 +35,7 @@ export class ContentItem extends React.Component<Props, State>  {
     this.state = {
       content: props.content,
       selectedPlace: null,
+      selectedPlaceMarker: null,
       listData: null,
       groupType: [],
       groups: []
@@ -66,7 +67,10 @@ export class ContentItem extends React.Component<Props, State>  {
 
   }
 
-  onMarkerClick() { }
+  getMarkerClickHandler = (item:any) => (props:any, marker:any) => {
+      this.setState({selectedPlaceMarker: marker, selectedPlace: item});
+    }
+
   onInfoWindowClose() { }
 
   render() {
@@ -98,10 +102,21 @@ export class ContentItem extends React.Component<Props, State>  {
             <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter}
               className="HomeChurchItemMap">
               {this.state.groups != null ? this.state.groups.map((item: any) => {
-                return (<Marker key={item.id} onClick={this.onMarkerClick}
+                return (<Marker key={item.id} onClick={this.getMarkerClickHandler(item)}
                   position={{ lat: item.location.address.latitude, lng: item.location.address.longitude }} />
                 )
               }) : null}
+              <InfoWindow marker={this.state.selectedPlaceMarker} visible={true}>
+                { 
+                  this.state.selectedPlace ? (
+                    <div>
+                      <div className="HomeChurchItemMapInfoWindowDiv1">{this.state.selectedPlace.name}</div>
+                      <div className="HomeChurchItemMapInfoWindowDiv2">Site affiliation: {this.state.selectedPlace.churchCampus.name}</div>
+                      <div className="HomeChurchItemMapInfoWindowDiv3">{this.state.selectedPlace.description}</div>
+                    </div>
+                  ) : <div></div>
+                }           
+              </InfoWindow>
             </Map>
           </div>
           <div className="HomeChurchItemDiv3">
