@@ -95,6 +95,7 @@ renderVideo(item:any){
   <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
   <div>
     <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+    <div className="ListItemPlayImageOverlay"><img src="/static/svg/Play.svg"></img></div>
     <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
     <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
     <div className="ListItemPublishedDate">{item.publishedDate}</div>

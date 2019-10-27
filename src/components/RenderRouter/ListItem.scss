@@ -158,6 +158,12 @@
         cursor: pointer;
         display: inline-block;
         vertical-align: top;
+        position: relative;
+        :hover {
+            .ListItemPlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
     }
 
     .ListItemVideo.whiteText {
@@ -169,6 +175,21 @@
         margin-right: 1vw;
         object-fit: cover;
         height: 12vw;
+    }
+
+    .ListItemPlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        right: 0;
+        height: 12vw;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;  
+        img {
+            height: 100%;
+        }
     }
 
     .ListItemEpisodeNum,
