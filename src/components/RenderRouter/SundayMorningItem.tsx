@@ -5,9 +5,11 @@ import { GoogleApiWrapper } from 'google-maps-react';
 import { Marker } from 'google-maps-react';
 import { Map } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import AddToCalendar from 'react-add-to-calendar';
 
 import "./SundayMorningItem.scss"
 import { Input } from 'reactstrap';
+import moment from 'moment';
 
 
 
@@ -57,6 +59,12 @@ export class ContentItem extends React.Component<Props, State>  {
     unblock();
 
   }
+ 
+  getEmailLinkHandler = (item:any) => (
+    (event: any) => {
+      window.location.href="mailto:" + item.pastorEmail;
+    }
+  )
 
   onMarkerClick() { }
   onInfoWindowClose() { }
@@ -78,6 +86,22 @@ export class ContentItem extends React.Component<Props, State>  {
       console.log("error")
     }
   }
+
+  getCalendarEventForLocation(locationItem:any){
+    let nextSunday = (moment().day() === 0 ? moment().add(1, "week") : moment().day(0)).startOf("day");
+    let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length-1];
+    serviceHour = serviceHour.substr(0, serviceHour.indexOf(":"));
+    nextSunday = nextSunday.hour(+serviceHour);
+    let event = {
+      title: 'Church at The Meeting House',
+      description: 'Join us at The Meeting House on Sunday!',
+      location: locationItem.location.address,
+      startTime: nextSunday.format(),
+      endTime: moment(nextSunday).add(90, "minutes").format()
+    }
+    return event;
+  }
+
   render() {
     if (this.state.listData != null && this.state.currentLatLng != null) {
       if (this.state.distances == null) {
@@ -138,8 +162,11 @@ export class ContentItem extends React.Component<Props, State>  {
                         </div>
                       </div>
                       <div>
-                        <button className="SundayMorningButton2" ><img className="SundaMorningIcon" src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</button>
-                        <button className="SundayMorningButton2" ><img className="SundaMorningIcon" src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</button>
+                        <div className="AddToCalendarButtonContainer">
+                          <img className="SundaMorningIcon" src="/static/Calendar.png" alt="Calendar Icon" />                          
+                          <AddToCalendar event={this.getCalendarEventForLocation(item)} ></AddToCalendar>
+                        </div>
+                        <button className="SundayMorningButton2" onClick={this.getEmailLinkHandler(item)}><img className="SundaMorningIcon" src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</button>
                       </div>
                     </div>
 
