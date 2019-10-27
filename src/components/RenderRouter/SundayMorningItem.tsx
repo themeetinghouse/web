@@ -148,8 +148,8 @@ export class ContentItem extends React.Component<Props, State>  {
               <div className="SundayMorningItemListData" >
                 {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
                   return (
-                    <div className="SundayMorningItemDiv5" >
-                      <div key={index} className="SundayMorningItemDiv4" >
+                    <div key={item.id} className="SundayMorningItemDiv5" >
+                      <div className="SundayMorningItemDiv4" >
 
                         <div>
                           <h3 className="SundayMorningH3" >{item.name}</h3>
