@@ -20,16 +20,17 @@
                 "image1": [
                     {
                         "src": "/static/images/about-us-1-1.jpg",
-                        "alt": "TODO"
+                        "alt": "All of The Meeting House staff posing outside of the Oakville site"
                     },
                     {
                         "src": "/static/images/about-us-1-2.jpg",
-                        "alt": "TODO"
+                        "alt": "All of The Meeting House staff being silly outside of the Oakville site"
                     }
 
                 ],
                 "header1": "Our Story",
-                "text1": "TODO",
+                "text1": "We’re a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace, with a mission to share the gospel and care for people.",
+                "text2": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
                 "link1Text": "Read our whole story",
                 "link1Action": "TODO"
 
@@ -39,7 +40,7 @@
                 "style": "greyTwoText",
                 "header1":"What We Believe",
                 "header2":"",
-                "text1":"TODO"
+                "text1":"We belong to a denomination called Be In Christ Church of Canada, with roots in the Anabaptist and Wesleyan traditions that value simplicity, peacemaking, and living out the teaching of Jesus in daily life.  For a detailed list and description of our doctrinal statements, please visit http://www.canadianbic.ca/about-us/."
             
             },
 
@@ -84,7 +85,7 @@
                 "text1":"TODO",
                 "image1":[{
                     "src":"/static/images/about-us-2.jpg",
-                    "alt":"TODO"
+                    "alt":"Three people sitting at a table, talking about the bible"
                 }],
                 "list": [
                     {
@@ -110,19 +111,19 @@
                 "style": "oneImageBlackRight",
                 "header1":"Oakville Rentals",
                 "header2":"",
-                "text1":"TODO",
+                "text1":"Looking for a space for your next event? Our Oakville facility is available for rentals. Visit our rentals website for more information.",
                 "link1Text": "Rentals",
                 "link1Action": "http://www.tmhrentals.com/",
                 "image1":[{
                     "src":"/static/images/about-us-3.jpg",
-                    "alt":"TODO"
+                    "alt":"Man playing Bass guitar during worship"
                 }]
             },
             {
                 "type": "content",
                 "style": "oneImage",
                 "header1":"Jesus Collective",
-                "text1":"TODO",
+                "text1":"We’re a group of Jesus followers who believe the time is right to unite, equip, and amplify a movement that is all about Jesus. We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement, develop and support future-ready leaders, and equip more churches to make more disciples in a post-Christian context.",
                 "link1Text": "Jesus Collective",
                 "link1Action": "http://www.jesuscollective.com/",
                 "image1":[{

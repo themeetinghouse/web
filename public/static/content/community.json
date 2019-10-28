@@ -20,7 +20,7 @@
                 "image1": [
                     {
                         "src": "/static/images/community-1.jpg",
-                        "alt": "TODO"
+                        "alt": "Two people talking at a kitchen counter, drinking tea"
                     }
                 ],
                 "header1": "Community",
@@ -39,7 +39,7 @@
                 "image1": [
                     {
                         "src": "/static/images/community-2.jpg",
-                        "alt": "TODO"
+                        "alt": "Man standing in front of blackboard with equations on it"
                     }
                 ]
             },

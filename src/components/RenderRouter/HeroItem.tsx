@@ -179,6 +179,7 @@ class HeroItem extends React.Component<Props, State> {
                         <div className="heroText2" >{this.state.content.text5}</div>
                         <div className="heroText2" >{this.state.content.text6}</div>
                         <div className="heroText2" >{this.state.content.text7}</div>
+                        
                         {this.state.content.button1Text ? (<Button className="heroButton" onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {
@@ -293,6 +294,20 @@ class HeroItem extends React.Component<Props, State> {
                         <div className="heroText2" >{this.state.content.text5}</div>
                         <div className="heroText2" >{this.state.content.text6}</div>
                         <div className="heroText2" >{this.state.content.text7}</div>
+                        {this.state.content.showLocationSearch ? (
+                            <div>
+                                {this.state.locationData!=null?
+                                <Select onChange={(item)=>{this.locationChange(item)}}
+                                placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"
+                                options={this.state.locationData.map(
+                                    (item:any)=>{
+                                        return {label:item.name,value:item.id}}
+                                    ).sort((a:any,b:any)=>{
+                                        return a.label.localeCompare(b.label)
+                                    })
+                                    }></Select>
+                              :null}
+                            </div>):null}
                         {this.state.content.button1Text ? (<Button className="heroButton" onClick={this.navigate}>{this.state.content.button1Text}</Button>) : null}
                         <a className="HeroItemA2"  href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}

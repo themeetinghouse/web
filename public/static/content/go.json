@@ -19,31 +19,34 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/go-1.jpg",
+                        "src": "/static/images/Go-1.jpg",
                         "alt": "Description"
                     }
                 ],
                 "header1": "Go Campaign",
                 "header2": "",
-                "text1": "We are a movement driven by Jesus’ command: “to go and make disciples” but the world is changing. The Go Campaign is our response, our choice to grow, evolve and innovate so we can continue to introduce people to the Jesus-centred life and to be the church that God called us to be.",
-                "button1Text": "Explore Spirituality",
-                "button1Action": "spirituality"
+                "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+                "button1Text": "Watch Video",
+                "button1Action": ""
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Pledge",
+                "header1":"We are most us when we don’t make it about us.",
                 "header2":"",
-                "text1":"We are our best selves when we don’t make it all about ourselves. As The Meeting House, we follow the counter cultural example of the early church, to care for and love others before ourselves, and trust that as we do this God will meet our needs. This is who we have always been and everyone who is a part of our church community today is a recipient of the radical other centred generosity of the previous generation. The Go Campaign is our response to our changing society. Our choice to be other-centred and radically generous by investing in new ideas and innovation, technology and resources, training and people who will reinvent and reshape what evangelism could be to enable thousands to engage in the good news message.",
+                "text1":"We are most us when we don’t make it about us. We are a movement compelled by Jesus’ command: to go and make disciples.” It’s how we love people. But if we stop going, we stop growing. Our world is always changing. Our culture, our cities, our families are evolving and if we want to love people, then we need to go to them. The Go Campaign is our opportunity to engage people, in our local neighbourhoods and around the world, who have never meaningfully encountered the good news of Jesus, in new and innovative ways.",
                 "link1Text": "Give Now",
                 "link1Action": "give",
-                "link2Text": "Go",
+                "link2Text": "Pledge",
                 "link2Action": "go-pledge",
                 "image1":[{
-                    "src":"/static/images/go-2.jpg",
+                    "src":"/static/images/Go-2.jpg",
                     "alt":"TODO"
                 }]
 
+            },
+            {
+                "type":"goContent"
             }
         ]
     }
