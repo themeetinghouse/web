@@ -51,12 +51,12 @@
                 "subclass":"life-story",
                 "selector":"all",
                 "sortOrder":"DESC",
-                "header1":"More stories"                
+                "header1":"More Stories"                
             },
             {
                 "type": "list",
                 "style": "imageList",
-                "header1": "Come join us",
+                "header1": "Come Join Us",
                 "list": [
                     {
                         "title": "Sunday Morning",

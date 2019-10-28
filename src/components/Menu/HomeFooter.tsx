@@ -32,7 +32,7 @@ export default class HomeFooter extends React.Component {
                 <b>Phone</b><br />
                 (905) 287 - 7000<br /><br />
                 <b>Email</b><br />
-                <a className="HomeFooterA" href="mailto:info@themeetinghouse.com" style={{ color: "#1A1A1A" }}>info@themeetinghouse.com</a></p>
+                <a className="HomeFooterA" href="mailto:hello@themeetinghouse.com" style={{ color: "#1A1A1A" }}>hello@themeetinghouse.com</a></p>
             </MDBCol>
           </MDBRow>
           <br />
