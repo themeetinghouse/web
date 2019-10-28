@@ -22,7 +22,7 @@
                 "class": "videos",
                 "style": "horizontal",
                 "selector": "sameSeries",
-                "header1": "More from this Series"
+                "header1": "More From This Series"
             }
         ]
     }
