@@ -221,23 +221,26 @@
     color: #ffffff;
     font-family: Graphik Web;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 8.55vw;
+    line-height: 10.67vw;
   }
 
   .GiveItemH2 {
     color: #ffffff;
     font-family: Graphik Web;
     font-weight: normal;
-    width: 60vw;
-    font-size: 1.5vw;
+    width: 100%;
+    font-size: 6.4vw;
+    line-height: 8.55vw;
   }
 
   .GiveItemText {
     color: #ffffff;
     font-family: Graphik Web;
     width: 60vw;
-    margin-bottom: 1vw;
-    font-size: 1.2vw;
+    margin-bottom: 8vw;
+    font-size: 4.3vw;
+    width: 100%;
   }
 
   .GiveItemHR {
@@ -245,7 +248,7 @@
     margin-left: 0;
     margin-right: 0;
     margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
+    margin-bottom: 6.5vw;
     width: 8.55vw;
     background-color: #ffffff;
 
@@ -308,8 +311,9 @@
 
   .giveItemDiv1 {
     position: relative;
-    top: 2vw;
-    left: 20vw;
+    top: 35vw;
+    left: 0vw;
     margin-bottom: 2vw;
+    width:100%;
   }
 }
