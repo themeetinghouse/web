@@ -1,7 +1,7 @@
 
 import React from 'react';
 import "./GiveItem.scss"
-
+import { Button } from 'reactstrap';
 interface Props {
   content: any
 }
@@ -73,13 +73,13 @@ export default class ContentItem extends React.Component<Props, State>  {
       </div>
     )
   }
+  navigateUrl(to: string) {
+    console.log(to)
+    window.location.href = to;
+  }
   renderPushPay() {
-    return <div className="GiveItemGreyBox">
-      Text <b>TMH</b> to <b>77977*</b><br />
-      OR<br />
-      <a href="https://pushpay.com/g/themeetinghouse?src=hpp">Use a Credit Card</a><br /><br />
-
-      *When you text 'TMH' to 77977 you will receive a one time reply containing a link to give to The Meeting House (1msg/request). Please be aware that Msg & Data rates may apply. For full Terms & Conditions please visit <a href="pushpay.com/terms">pushpay.com/terms</a>. For the Privacy Policy please visit <a href="pushpay.com/privacy">pushpay.com/privacy</a>. For help reply HELP or STOP to cancel.
+    return <div>
+      <Button className="GiveButton" onClick={() => { this.navigateUrl("https://pushpay.com/g/themeetinghouse?src=hpp") }}>Give Now</Button>
     </div>
   }
   renderPushPay2() {
@@ -93,36 +93,51 @@ export default class ContentItem extends React.Component<Props, State>  {
   }
   renderOnlineBanking() {
     return <div className="GiveItemGreyBox">
+      <b>Web Banking</b><br />
+      To set up your giving as a bill payment through online banking:<br />
+      Locate your Meeting House account number, found on your donations envelope. Don’t have an account number? Request one here.<br />
+      Login to your online banking, and select the Bill Payment option.<br />
+      Set up a new payee as “The Meeting House” (it may display as The Meeting House Church Family).<br />
+      Enter your account number, followed by one of the three digit codes below to indicate which fund you would like to donate to. If your account number is less than 5 digits, enter zeros in front of of your number to make it the correct length<br />
+      General Fund: #####GEN<br />
+      Go Fund: #####GOF<br />
+      Compassion Fund #####COM<br />
+      Select the amount and frequency of your gift and submit.<br />
+      Note: If you would like to make a donation to multiple funds, you must set each up as a separate bill payment.<br /><br />
+
+
+
+
+
       <b>Pre-Authorized Withdrawal</b><br />
-      If you would like to give regularly, your gifts can be deducted directly from your bank account. It’s convenient, easy, and the most cost effective way to give to The Meeting House.<br />
-      1. Please complete this form.<br />
-      2. Drop it into the offering basket with a VOID cheque, or mail to:<br />
+      To have your giving deducted directly from your bank account:<br />
+      Complete this form online. You will need your branch, transit, and account number.<br />
+      <br />
+      OR <br />
+      <br />
+      Print then complete this form. Drop it into the offering bucket with a VOID cheque, or mail to:<br />
       The Meeting House Donations<br />
       2700 Bristol Circle<br />
       Oakville, ON L6H 6E1<br />
-      3. Need to change? Click here to modify your gift.<br />
       <br />
-      <b>Web Banking</b><br />
-      To give through your bank, you will need an account number. It’s the same as your donations envelopes. If you do not have an account number, request one here.<br />
-      1. Go to the “Bill Pay” section of your online banking<br />
-      2. Set up a new payee as “The Meeting House” (It may display as The Meeting House Church Family)<br />
-      3. If your account number is less than five digits, enter zeros ahead of your number to make it the correct length.<br />
-      4. Using your five-digit account number in place of the asterisks, select which fund you wish to donate to:<br />
-      General Fund: *****GEN<br />
-      Growth Fund: *****GRW<br />
-      Compassion Fund *****COM<br />
-      5. Select the amount and frequency of your gifts and submit<br />
+      Need to make a change? Click here to modify your gift.<br />
+      <br />
+
     </div>
   }
   renderOfferingEnvelopes() {
-    return <div className="GiveItemGreyBox">
-      Form is being made...
+    return <div >
+              <iframe
+            src={"https://meeting.formstack.com/forms/request_offering_envelopes_form"}
+            title="The Meeting House - Forms"
+            scrolling="yes" className="GiveFormId" style={{ height: "75vh" }}></iframe>
+
     </div>
   }
   renderFellowshipOne() {
     return <div className="GiveItemGreyBox">
-      Update your personal contact information through your <a href="https://meetinghouse.infellowship.com/UserLogin/">InFellowship</a> account.
-If you don't have an InFellowship account, you can create one <a href="https://meetinghouse.infellowship.com/UserLogin">here</a>.
+      Update your personal contact information through your <a href="https://meetinghouse.infellowship.com/UserLogin/">Meeting House</a> account.<br />
+      If you don't have an Meeting House account, you can create one <a href="https://meetinghouse.infellowship.com/UserLogin">here</a>.
     </div>
   }
   render() {
