@@ -3,7 +3,6 @@
     "FirstName": "Jen L.",
     "LastName": "Stevens",
     "sites": ["BURL"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
@@ -24,21 +23,18 @@
     "FirstName": "Ruth",
     "LastName": "Wagner",
     "sites": ["NMKT"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "April",
     "LastName": "Yorke",
     "sites": ["OTTA"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Amanda",
     "LastName": "Shaw",
     "sites": ["PRSN"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
@@ -52,28 +48,24 @@
     "FirstName": "Jas",
     "LastName": "Wong",
     "sites": ["TOBC"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Kareema",
     "LastName": "Giscombe-Bartley",
     "sites": ["BRAM"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Terri",
     "LastName": "Busch",
     "sites": ["HMAN"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Danielle",
     "LastName": "Fry",
     "sites": ["HMDT"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
@@ -108,21 +100,18 @@
     "FirstName": "Kat",
     "LastName": "Misztal-McCubbing",
     "sites": ["TOHP"],
-    "Email": "",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Graham",
     "LastName": "Elder",
     "sites": ["BRAM"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
     "FirstName": "Cathy",
     "LastName": "Ralph",
     "sites": ["BURL"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
@@ -136,35 +125,30 @@
     "FirstName": "Sarah",
     "LastName": "Van Es",
     "sites": ["OAKV"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
     "FirstName": "Jessica-Rae",
     "LastName": "Linzel",
     "sites": ["OTTA"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
     "FirstName": "Julie",
     "LastName": "Riley",
     "sites": ["TOBC"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
     "FirstName": "Scott",
     "LastName": "Mealey",
     "sites": ["TODT"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
     "FirstName": "Marcie",
     "LastName": "Hall",
     "sites": ["WATL"],
-    "Email": "",
     "Position": "Connect Coordinator"
   },
   {
@@ -206,7 +190,6 @@
     "FirstName": "Wendy",
     "LastName": "Cuell",
     "sites": ["HMMT"],
-    "Email": "",
     "Position": "kidmax Coordinator"
   },
   {
@@ -234,7 +217,6 @@
     "FirstName": "Tenika",
     "LastName": "Millington",
     "sites": ["NMKT"],
-    "Email": "",
     "Position": "kidmax Coordinator"
   },
   {
@@ -269,7 +251,6 @@
     "FirstName": "Christie-Lynn",
     "LastName": "Constable",
     "sites": ["PRSN"],
-    "Email": "",
     "Position": "kidmax Coordinator"
   },
   {
@@ -332,14 +313,12 @@
     "FirstName": "Bram",
     "LastName": "Van den Heuvel",
     "sites": ["BRFD"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
     "FirstName": "Adam",
     "LastName": "Davidson",
     "sites": ["BURL"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
@@ -360,7 +339,6 @@
     "FirstName": "Steve",
     "LastName": "Samuels",
     "sites": ["HMMT"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
@@ -381,14 +359,12 @@
     "FirstName": "William",
     "LastName": "Dyer",
     "sites": ["NMKT"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
     "FirstName": "Mike",
     "LastName": "Walker",
     "sites": ["NMKT"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
@@ -416,35 +392,30 @@
     "FirstName": "Matt",
     "LastName": "Phinney",
     "sites": ["TOBC"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
     "FirstName": "Nathan A.",
     "LastName": "Snelgrove",
     "sites": ["TODT"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
     "FirstName": "Becky",
     "LastName": "Voll",
     "sites": ["TOHP"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
     "FirstName": "Keltan",
     "LastName": "Dakins",
     "sites": ["TOUP"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
     "FirstName": "Emily",
     "LastName": "Piche",
     "sites": ["WATL"],
-    "Email": "",
     "Position": "Music Coordinator"
   },
   {
@@ -465,7 +436,6 @@
     "FirstName": "Jamie",
     "LastName": "Teeple",
     "sites": ["BURL"],
-    "Email": "",
     "Position": "Weekend Service Producer"
   },
   {
@@ -521,14 +491,12 @@
     "FirstName": "Fiona",
     "LastName": "Lau",
     "sites": ["OTTA"],
-    "Email": "",
     "Position": "Weekend Service Producer"
   },
   {
     "FirstName": "Daniel",
     "LastName": "VanderVeen",
     "sites": ["OTTA"],
-    "Email": "",
     "Position": "Weekend Service Producer"
   },
   {
@@ -584,14 +552,12 @@
     "FirstName": "Lisa",
     "LastName": "Collins",
     "sites": ["HMAN"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Jason",
     "LastName": "Lise",
     "sites": ["HMDT"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
@@ -605,49 +571,42 @@
     "FirstName": "Debbie",
     "LastName": "Tindale",
     "sites": ["NMKT"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Bill",
     "LastName": "Konoval",
     "sites": ["PRSN"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Tracy",
     "LastName": "Konoval",
     "sites": ["PRSN"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Angela",
     "LastName": "Kong",
     "sites": ["RHLL"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Ara",
     "LastName": "Ehamparam",
     "sites": ["TOHP"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Clara",
     "LastName": "Wong",
     "sites": ["TOUP"],
-    "Email": "",
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Amie",
     "LastName": "Medeiros",
     "sites": ["BRAM"],
-    "Email": "",
     "Position": "Youth Coordinator"
   },
   {
@@ -675,14 +634,12 @@
     "FirstName": "Marshall",
     "LastName": "Lewis",
     "sites": ["HMDT"],
-    "Email": "",
     "Position": "Youth Coordinator"
   },
   {
     "FirstName": "Nick",
     "LastName": "Barone",
     "sites": ["HMMT"],
-    "Email": "",
     "Position": "Youth Coordinator"
   },
   {
@@ -738,7 +695,6 @@
     "FirstName": "Adrienne T.",
     "LastName": "Sulistyo",
     "sites": ["RHLL"],
-    "Email": "",
     "Position": "Youth Coordinator"
   },
   {
