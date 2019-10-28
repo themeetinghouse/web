@@ -239,7 +239,7 @@
         "LastName": "Konig",
         "Phone":"905.287.7000",
         "Position": "Parry Sound Interim Lead Pastor",
-        "sites": ["PRSN", "Pastoral"],
+        "sites": ["PAR", "Pastoral"],
         "Email": "Heidi.Konig@themeetinghouse.com"
     },
     {
@@ -499,8 +499,8 @@
         "FirstName": "Mark",
         "LastName": "Wall",
         "Phone": "905.287.7000, ext. 850",
-        "Position": "Discipleship Pastor & Interim Kitchener Lead Pastor",
-        "sites": ["Site Leadership", "KITC","Pastoral"],
+        "Position": "Discipleship Pastor & Kitchener Interim Lead Pastor",
+        "sites": ["Site Leadership", "KIT","Pastoral"],
         "Email": "Mark.Wall@themeetinghouse.com"
     },
     {

@@ -1,5 +1,12 @@
 [
   {
+    "FirstName": "Michael",
+    "LastName": "Kotsopoulos",
+    "sites": ["ALLI"],
+    "Email": "michael.kotsopoulos@themeetinghouse.com",
+    "Position": "Alliston Lead Pastor"
+  },
+  {
     "FirstName": "Jen L.",
     "LastName": "Stevens",
     "sites": ["BURL"],
@@ -15,7 +22,7 @@
   {
     "FirstName": "Al",
     "LastName": "Voort",
-    "sites": ["KITC"],
+    "sites": ["KIT"],
     "Email": "al.voort@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
@@ -148,7 +155,7 @@
   {
     "FirstName": "Marcie",
     "LastName": "Hall",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Position": "Connect Coordinator"
   },
   {
@@ -195,7 +202,7 @@
   {
     "FirstName": "Jenn",
     "LastName": "Kuntz",
-    "sites": ["KITC"],
+    "sites": ["KIT"],
     "Email": "Jenn.kuntz@themeetinghouse.com",
     "Position": "kidmax Coordinator"
   },
@@ -250,13 +257,13 @@
   {
     "FirstName": "Christie-Lynn",
     "LastName": "Constable",
-    "sites": ["PRSN"],
+    "sites": ["PAR"],
     "Position": "kidmax Coordinator"
   },
   {
     "FirstName": "Rachelle",
     "LastName": "DeBoer",
-    "sites": ["PRSN"],
+    "sites": ["PAR"],
     "Email": "parrysound.kidmax@themeetinghouse.com",
     "Position": "kidmax Coordinator"
   },
@@ -344,7 +351,7 @@
   {
     "FirstName": "Laura",
     "LastName": "Driedger",
-    "sites": ["KITC"],
+    "sites": ["KIT"],
     "Email": "laura.driedger@themeetinghouse.com",
     "Position": "Music Coordinator"
   },
@@ -415,8 +422,22 @@
   {
     "FirstName": "Emily",
     "LastName": "Piche",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Brent",
+    "LastName": "Babcock",
+    "sites": ["SAND"],
+    "Email": "brent.babcock@themeetinghouse.com",
+    "Position": "Sandbanks Lead Pastor"
+  },
+  {
+    "FirstName": "Don",
+    "LastName": "Walcott",
+    "sites": ["SAND"],
+    "Email": "don.walcott@themeetinghouse.com",
+    "Position": "Sandbanks Associate Pastor"
   },
   {
     "FirstName": "Scott",
@@ -462,7 +483,7 @@
   {
     "FirstName": "Steve",
     "LastName": "Jarnick",
-    "sites": ["KITC"],
+    "sites": ["KIT"],
     "Email": "steve.jarnick@themeetinghouse.com",
     "Position": "Weekend Service Producer"
   },
@@ -576,13 +597,13 @@
   {
     "FirstName": "Bill",
     "LastName": "Konoval",
-    "sites": ["PRSN"],
+    "sites": ["PAR"],
     "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Tracy",
     "LastName": "Konoval",
-    "sites": ["PRSN"],
+    "sites": ["PAR"],
     "Position": "Welcome Coordinator"
   },
   {
@@ -645,7 +666,7 @@
   {
     "FirstName": "Marshall",
     "LastName": "McPherson",
-    "sites": ["KITC"],
+    "sites": ["KIT"],
     "Email": "marshall.mcpherson@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
