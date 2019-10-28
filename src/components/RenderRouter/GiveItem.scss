@@ -240,7 +240,7 @@
     width: 60vw;
     margin-bottom: 8vw;
     font-size: 4.3vw;
-    width: 100%;
+    width: 97%;
   }
 
   .GiveItemHR {
@@ -256,8 +256,8 @@
 
   .GiveItemGreyBox {
     background-color: #EFEFF0;
-    width: 60vw;
-    padding: 5vw;
+    width: 96%;
+    padding: 10vw 5vw 10vw 5vw;
   }
 
   .GiveItemButton {
@@ -277,8 +277,9 @@
     font-weight: bold;
     font-family: Graphik Web;
     color: #ffffff;
-    font-size: 1vw;
-    margin-top: 2vw;
+    font-size: 4.3vw;
+    margin-top: 12vw;
+    margin-bottom: 3vw;
 
   }
 
@@ -286,34 +287,41 @@
     font-family: Graphik Web;
     color: #ffffff;
     float: left;
-    font-size: 1vw;
+    font-size: 4.3vw;
     margin-right: 1vw;
     margin-bottom: 5vw;
+    width: 100%;
   }
 
   .GiveItemNeedHelpEmail {
     font-family: Graphik Web;
     color: #ffffff;
     float: left;
-    font-size: 1vw;
+    font-size: 4.3vw;
     margin-bottom: 5vw;
   }
 
   .GiveItemOtherWayGroup {
     float: left;
+    width: 96%;
   }
 
   .GiveItemNeedHelpGroup {
     float: right;
-    width: 60vw;
+    width: 100%;
     font-size: 1vw;
   }
 
   .giveItemDiv1 {
     position: relative;
     top: 35vw;
-    left: 0vw;
+    left: 2vw;
     margin-bottom: 2vw;
     width:100%;
+  }
+
+  .GiveItemOtherWayButton {
+    width: 100%;
+    color: #ffffff;
   }
 }
