@@ -37,7 +37,7 @@
             {
                 "type": "content",
                 "style": "greyTwoText",
-                "header1":"What we believe",
+                "header1":"What We Believe",
                 "header2":"",
                 "text1":"TODO"
             
@@ -112,7 +112,7 @@
                 "header2":"",
                 "text1":"TODO",
                 "link1Text": "Rentals",
-                "link1Action": "rentals",
+                "link1Action": "http://www.tmhrentals.com/",
                 "image1":[{
                     "src":"/static/images/about-us-3.jpg",
                     "alt":"TODO"
@@ -122,11 +122,12 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1":"Jesus Collective",
-                "header2":"TODO",
                 "text1":"TODO",
+                "link1Text": "Jesus Collective",
+                "link1Action": "http://www.jesuscollective.com/",
                 "image1":[{
-                    "src":"/static/images/TODO.jpg",
-                    "alt":"TODO"
+                    "src":"/static/images/about-us-5.png",
+                    "alt":"Jesus Collective Logo"
                 }]
             }
         ]

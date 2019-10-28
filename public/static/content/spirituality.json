@@ -23,7 +23,7 @@
                     }
                 ],
                 "header1": "Spiritually curious...or whatever.",
-                "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. This is a safe space where you can feel comfortable exploring faith and spirituality. Full disclosure: we think the best thing we have to offer is to point you towards Jesus"
+                "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. This is a safe space where you can feel comfortable exploring faith and spirituality. Full disclosure: we think the best thing we have to offer is to point you towards Jesus."
             },
             {
                 "type": "content",
@@ -34,7 +34,7 @@
                 "image1": [
                     {
                         "src": "/static/images/spirituality-2.jpg",
-                        "alt": "TODO"
+                        "alt": "Bruxy teaching a small group"
                     }
                 ]
             },
@@ -72,7 +72,7 @@
                 "image1": [
                     {
                         "src": "/static/images/spirituality-3.jpg",
-                        "alt": "TODO"
+                        "alt": "Two people sitting and talking during home church"
                     }
                 ]
             }

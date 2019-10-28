@@ -18,7 +18,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1": "Why we volunteer",
+                "header1": "Why We Volunteer",
                 "header2": "",
                 "text1": "TODO",
                 "link1Text": "Watch",
@@ -26,7 +26,7 @@
                 "image1": [
                     {
                         "src": "/static/images/volunteering-1.jpg",
-                        "alt": "TODO"
+                        "alt": "A man drumming during worship service"
                     }
                 ]
             },
@@ -40,7 +40,7 @@
                 "image1": [
                     {
                         "src": "/static/images/volunteering-2.jpg",
-                        "alt": "TODO"
+                        "alt": "A volunteer opening a door"
                     }
                 ]
             },
@@ -105,7 +105,7 @@
                 "image1": [
                     {
                         "src": "/static/images/volunteering-4.jpg",
-                        "alt": "TODO"
+                        "alt": "A volunteer signing in kids"
                     }
                 ]
             }
