@@ -436,12 +436,18 @@
         font-size: 1.5vw;
         font-family: Graphik Web;
     }
-
     .ListItemVideo {
         cursor: pointer;
         display: inline-block;
         vertical-align: top;
+        position: relative;
+        :hover {
+            .ListItemPlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
     }
+   
 
     .ListItemVideo.whiteText {
         color: #ffffff
@@ -453,7 +459,20 @@
         object-fit: cover;
         height: 12vw;
     }
-
+    .ListItemPlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        right: 0;
+        height: 12vw;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;  
+        img {
+            height: 100%;
+        }
+    }
     .ListItemEpisodeNum,
     .ListItemName {
         width: 20vw;
@@ -709,14 +728,20 @@
         margin-bottom: 10vw;
     }
 
+   
     .ListItemVideo {
         cursor: pointer;
         display: inline-block;
         vertical-align: top;
         width: 75%;
         margin-right: 6.4vw;
+        position: relative;
+        :hover {
+            .ListItemPlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
     }
-
     .ListItemVideo.whiteText {
         color: #ffffff
     }
@@ -727,7 +752,20 @@
         object-fit: cover;
         height: 100%;
     }
-
+    .ListItemPlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        right: 0;
+        height: 75%;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;  
+        img {
+            height: 100%;
+        }
+    }
     .ListItemEpisodeNum,
     .ListItemName {
         width: 100%;

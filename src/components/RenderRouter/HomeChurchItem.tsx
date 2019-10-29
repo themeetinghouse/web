@@ -122,7 +122,7 @@ export class ContentItem extends React.Component<Props, State>  {
   }
 
   calculateDistance(lat1:number, lng1:number, lat2:number, lng2:number) {
-    if ((lat1 == lat2) && (lng1 == lng2)) {
+    if ((lat1 === lat2) && (lng1 === lng2)) {
       return 0;
     }
     else {
