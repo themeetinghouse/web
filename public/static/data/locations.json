@@ -61,7 +61,7 @@
     },
     {
         "id": "hamilton-downtown",
-        "name": "Hamilton Downtown",
+        "name": "Hamilton - Downtown",
         "pastorEmail":"Jimmy.Rushton@themeetinghouse.com",
         "location": {
             "longitude": -79.8702504,
@@ -71,7 +71,7 @@
     },
     {
         "id": "toronto-downtown",
-        "name": "Toronto Downtown",
+        "name": "Toronto - Downtown",
         "pastorEmail":"Anita.Giardina@themeetinghouse.com",
         "location": {
             "longitude": -79.391418,
@@ -81,7 +81,7 @@
     },
     {
         "id": "hamilton-mountain",
-        "name": "Hamilton Mountain",
+        "name": "Hamilton - Mountain",
         "pastorEmail":"Dagmar.Morgan-Sinclair@themeetinghouse.com",
         "location": {
             "longitude": -79.808856,
@@ -91,7 +91,7 @@
     },
     {
         "id": "toronto-east",
-        "name": "Toronto East",
+        "name": "Toronto - East",
         "pastorEmail":"Robin.Ellingwood@themeetinghouse.com",
         "location": {
             "longitude":-79.3166538,
@@ -101,7 +101,7 @@
     },
     {
         "id": "toronto-high-park",
-        "name": "Toronto High Park",
+        "name": "Toronto - High Park",
         "pastorEmail":"Rob.Schellenberg@themeetinghouse.com",
         "location": {
             "longitude": -79.4744334,
@@ -191,7 +191,7 @@
     },
     {
         "id": "toronto-uptown",
-        "name": "Toronto Uptown",
+        "name": "Toronto - Uptown",
         "pastorEmail":"Jared.Erhardt@themeetinghouse.com",
         "location": {
             "longitude": -79.58688,
