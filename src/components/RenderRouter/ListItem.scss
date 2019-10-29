@@ -280,8 +280,6 @@
         padding-bottom: 5vw;
     }
 
-
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -570,6 +568,7 @@
     .ListItemDiv3 {
         display: inline-block;
         vertical-align: top;
+        width: 50vw;
     }
 
     .ListItemDiv4 {
@@ -748,7 +747,7 @@
     .ListItemEmail,
     .ListItemPhone,
     .ListItemWebsite {
-        width: 20vw;
+        //width: 20vw;
         white-space: normal;
         font-family: Graphik Web;
     }
@@ -783,7 +782,7 @@
 
     .ListItemEvents {
         display: relative;
-        width: 23vw;
+        width: 90vw;
         margin-right: 2vw;
         vertical-align: top;
     }
@@ -817,6 +816,7 @@
     }
 
     .ListItemEventsLocation {
+        white-space: normal;
         font-family: Graphik Web;
         font-weight: bold;
         margin-top: 10px;

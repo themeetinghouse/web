@@ -1,0 +1,142 @@
+@media (min-width: 768px) {
+    .HorizontalScrollListContainer{
+        position: relative;
+
+        .HorizontalScrollListItemContainer {
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            // Hide scrollbars on IE
+            scrollbar-base-color: #FFF;
+            scrollbar-face-color: #FFF;
+            scrollbar-3dlight-color: #FFF;
+            scrollbar-highlight-color: #FFF;
+            scrollbar-track-color: #FFF;
+            scrollbar-arrow-color: #FFF;
+            scrollbar-shadow-color: #FFF;            
+
+            .HorizontalScrollListItem {
+                display: inline-block;
+                white-space: nowrap;
+                margin: 10px 0;
+                padding: 0 5px;
+                vertical-align: top;
+            }
+        }
+
+        .ListItemScrollNav {
+            display: flex;
+            align-items: center;
+    
+            .ScrollLineContainer {
+                flex-grow: 1;
+                position: relative;
+                line-height: 0;
+                display: flex;
+            }
+    
+            .ScrollButtonContainer {
+                flex-grow: 0;
+                line-height: 0;
+                margin-right: 10px;
+            }
+    
+            .ScrollLine {
+                .line {
+                    height: 3px;
+                    //min-width: 2vw;
+                    max-width: 8vw;
+                    border-radius: 2px;
+                    background-color: #000000;
+                    margin: 0 0.5vw;
+                }
+                max-width: 8vw;
+                flex-grow: 1;
+                opacity: 0.2;
+                padding: 10px 0;
+                transition: opacity 0.3s ease;
+                cursor: pointer;
+                &:hover {
+                    opacity: 1;
+                }
+                &.Selected {
+                    opacity: 1;
+                }
+            }
+    
+            .ScrollButton {
+                background: black;
+                height: 4vw;
+                width: 5vw;
+                margin: 0.5vw;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                border: 0;
+                transition: opacity 0.3s ease;
+                &:disabled {
+                    opacity: 0.3;
+                }
+                
+                img {
+                    width: 2vw;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        &.dark {
+            .line {
+                background-color: white !important;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+}
+
+@media (max-width: 767px) {
+    .HorizontalScrollListContainer{
+        position: relative;
+
+        .HorizontalScrollListItemContainer {
+            overflow-x: scroll;
+
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            // Hide scrollbars on IE
+            scrollbar-base-color: #FFF;
+            scrollbar-face-color: #FFF;
+            scrollbar-3dlight-color: #FFF;
+            scrollbar-highlight-color: #FFF;
+            scrollbar-track-color: #FFF;
+            scrollbar-arrow-color: #FFF;
+            scrollbar-shadow-color: #FFF;            
+
+            .HorizontalScrollListItem {
+                display: inline-block;
+                white-space: nowrap;
+                margin: 10px 0;
+                padding: 0 5px;
+                vertical-align: top;
+            }
+        }
+    }
+
+    .ListItemScrollNav{
+        display: none;
+        visibility: hidden;
+    }
+}
