@@ -66,6 +66,17 @@
         height: 88vh;
     }
 
+    .SundayMorningMapInfoWindowDiv1 {
+        font-weight: bold;
+        font-size: 1.3vw;
+        margin-bottom: 0.5vw;
+    }
+    .SundayMorningMapInfoWindowDiv2 {
+            font-size: 1.1vw;
+            margin-bottom: 0.35vw;
+    }
+    .SundayMorningMapInfoWindowDiv3 {
+    }
     .SundayMorningAddress,
     .SundayMorningDistances {
         font-size: 1vw;
@@ -128,6 +139,83 @@
     .SundaMorningIcon{
         padding-right:10px;
         height:25px;
+    }
+
+    .AddToCalendarButtonContainer {
+        position: relative;
+        display: inline-block;
+        padding: .75rem 1.25rem;
+
+        .SundaMorningIcon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-right: 0;
+            padding-left: 1.25rem;
+            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .react-add-to-calendar__button {
+            font-family: Graphik Web;
+            color: #000000;
+            border-width: 0px;
+            border-radius: 0;
+            font-size: 1vw;
+            text-decoration: underline !important;
+            font-weight:normal;
+            padding-left: 35px;
+            cursor: pointer;
+        }
+        .react-add-to-calendar__dropdown {
+            position: absolute;
+            z-index: 100;
+            top: 48px;
+            background: white;
+            border: 1px solid #000000;
+            padding: 10px 20px 0 20px;  
+            ul {
+                list-style-type: none;
+                padding: 0;
+                font-family: Graphik Web;
+                font-size: 1vw;
+                a {
+                    color: #000000 !important;
+                    vertical-align: middle;
+                }
+                li {
+                    position: relative;
+                    vertical-align: middle;
+                }
+                a::before {
+                    width: 15px;
+                    height: 15px;
+                    vertical-align: middle;
+                    background-size: contain;
+                    background-position-y: center;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    content: "";
+                    margin: 5px 5px 8px 0;
+
+                }
+                a.apple-link::before {
+                    background-image: url("/static/svg/Apple.svg");
+                }
+                a.outlook-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.outlookcom-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.yahoo-link::before {
+                    background-image: url("/static/svg/Yahoo.svg");
+                }
+                a.google-link::before {
+                    background-image: url("/static/svg/Google.svg");
+                }
+            }
+        }
     }
 }
 

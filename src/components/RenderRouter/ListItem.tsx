@@ -5,7 +5,9 @@ import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
+import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
+
 
 interface Props extends RouteComponentProps {
   content: any,
@@ -95,6 +97,7 @@ renderVideo(item:any){
   <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
   <div>
     <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+    <div className="ListItemPlayImageOverlay"><img src="/static/svg/Play.svg"></img></div>
     <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
     <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
     <div className="ListItemPublishedDate">{item.publishedDate}</div>
@@ -242,6 +245,7 @@ else if (this.state.content.class ==="series")
   return this.renderSeries(item)
 else return null
 }
+
   render() {
     var data
     (this.props.content.filterField == null) ? data = this.state.listData :
@@ -254,11 +258,13 @@ else return null
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
           <div className="ListItemDiv2" >
+            <HorizontalScrollList darkMode={this.props.pageConfig.logoColor==="white"}>
             {data.map((item: any,index:any) => {
                     return this.renderItemRouter(item,index)
 
             }
             )}
+            </HorizontalScrollList>
             <div className="ListItemDiv5" ></div>
           </div>
         </div>
@@ -267,36 +273,37 @@ else return null
     )
     else if (this.state.content.style === "vertical")
     {
-      if (data.length>0)
+      if (data.length>0) {
         return (
-
           <div className="ListItem horizontal" >
             <div className="ListItemDiv1" >
               <h1 className="ListItemH1" >{this.state.content.header1}</h1>
               {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
               <div className="ListItemSpeakersDiv" >
-                {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item,index)
-                })}
-
-                <div style={{ clear: "left" }} ></div>
+                <HorizontalScrollList>
+                  {data.map((item: any, index: any) => {
+                      return this.renderItemRouter(item,index)
+                  })}
+                </HorizontalScrollList>
               </div>
             </div>
           </div>
-
         )
-        else return null
-          }
+      } else {
+        return null
+      }
+    }
     else if (this.state.content.style === "horizontalBig") return (
       <div className="ListItem horizontalBig" >
         <div className="ListItemDiv1 ListItemAllSeries" >
           <h1 className="ListItemH1" >{this.state.content.header1}</h1>
           <div className="ListItemDiv6" >
-            {data.map((item: any,index:any) => {
-                    return this.renderItemRouter(item,index)
+            <HorizontalScrollList>
+              {data.map((item: any,index:any) => {
+                      return this.renderItemRouter(item,index)
 
-            })}
-
+              })}
+            </HorizontalScrollList>
             <div className="ListItemDiv5" ></div>
 
           </div>
