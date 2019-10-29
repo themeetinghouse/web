@@ -350,7 +350,7 @@
         "id": 40,
         "sites": ["richmond-hill"],
         "name": "Spaghetti Dinners",
-        "description": "The Richmond Hill site organizes community spaghetti dinners open to the public for 150 people monthly at the McConaphy Centre.",
+        "description": "The Richmond Hill site organizes community spaghetti dinners open to the public for 150 people monthly at the McConaghy Centre.",
         "website": "N/A",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -360,7 +360,7 @@
         "sites": ["richmond-hill"],
         "name": "Compassion 365*** Not confirmed",
         "description": "The mission of Compassion 365 is to become a catalyst in assisting individuals and communities actualize their ability to make a difference in the life of another through facilitating effective awareness and funds that will contribute to a constructive development of harmony and social inclusion.",
-        "website": "N/A",
+        "website": "www.compassion365.ca",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },

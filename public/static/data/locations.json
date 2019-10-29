@@ -16,7 +16,7 @@
         "location": {
             "longitude": -77.2674762,
             "latitude": 43.9188665,
-            "address": "The Meeting House Sandbanks, 1901 County Rd 12"
+            "address": "1901 County Rd 12"
         }
     },
     {
@@ -66,7 +66,7 @@
         "location": {
             "longitude": -79.8702504,
             "latitude": 43.26213,
-            "address": "The Meeting House Downtown Hamilton, 130 Victoria Avenue North"
+            "address": "130 Victoria Avenue North"
         }
     },
     {
@@ -96,7 +96,7 @@
         "location": {
             "longitude":-79.3166538,
             "latitude": 43.6664844,
-            "address": "The Beach Alliance Theatre, 1651 Queen Street East"
+            "address": "The Beach Cinemas, 1651 Queen Street East"
         }
     },
     {
@@ -106,7 +106,7 @@
         "location": {
             "longitude": -79.4744334,
             "latitude": 43.6578297,
-            "address": "The Meeting House High Park, 125 Evelyn Crescent"
+            "address": "125 Evelyn Crescent"
         }
     },
     {

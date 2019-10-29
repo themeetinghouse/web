@@ -227,20 +227,6 @@
     "Position": "kidmax Coordinator"
   },
   {
-    "FirstName": "Laura",
-    "LastName": "Jory",
-    "sites": ["OAKV"],
-    "Email": "laura.jory@themeetinghouse.com",
-    "Position": "kidmax Coordinator"
-  },
-  {
-    "FirstName": "Diane",
-    "LastName": "Klassen",
-    "sites": ["OAKV"],
-    "Email": "diane.klassen@themeetinghouse.com",
-    "Position": "kidmax Coordinator"
-  },
-  {
     "FirstName": "Darcie",
     "LastName": "Dow",
     "sites": ["OTTA"],
@@ -265,13 +251,6 @@
     "LastName": "DeBoer",
     "sites": ["PAR"],
     "Email": "parrysound.kidmax@themeetinghouse.com",
-    "Position": "kidmax Coordinator"
-  },
-  {
-    "FirstName": "Melissa",
-    "LastName": "Ytsma",
-    "sites": ["RHLL"],
-    "Email": "melissa.ytsma@themeetinghouse.com",
     "Position": "kidmax Coordinator"
   },
   {
@@ -372,13 +351,6 @@
     "FirstName": "Mike",
     "LastName": "Walker",
     "sites": ["NMKT"],
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Anna M.",
-    "LastName": "Lakatos",
-    "sites": ["OAKV"],
-    "Email": "anna.lakatos@themeetinghouse.com",
     "Position": "Music Coordinator"
   },
   {
@@ -502,13 +474,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Kate",
-    "LastName": "Brown",
-    "sites": ["OAKV"],
-    "Email": "kate.brown@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Fiona",
     "LastName": "Lau",
     "sites": ["OTTA"],
@@ -524,7 +489,6 @@
     "FirstName": "Anthony",
     "LastName": "Mak",
     "sites": ["RHLL"],
-    "Email": "anthony.mak@themeetinghouse.com",
     "Position": "Weekend Service Producer"
   },
   {
@@ -645,13 +609,6 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Aaron",
-    "LastName": "Westera",
-    "sites": ["HMAN"],
-    "Email": "aaron.westera@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
     "FirstName": "Marshall",
     "LastName": "Lewis",
     "sites": ["HMDT"],
@@ -685,20 +642,6 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Brad",
-    "LastName": "Eager",
-    "sites": ["OAKV"],
-    "Email": "brad.eager@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Lindsay",
-    "LastName": "Hart",
-    "sites": ["OAKV"],
-    "Email": "lindsay.hart@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
     "FirstName": "Aaron",
     "LastName": "Webber",
     "sites": ["OTTA"],
@@ -716,6 +659,7 @@
     "FirstName": "Adrienne T.",
     "LastName": "Sulistyo",
     "sites": ["RHLL"],
+    "Email": "adrienne.sulistyo@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {
