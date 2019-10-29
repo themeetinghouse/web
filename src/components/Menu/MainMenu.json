@@ -19,14 +19,6 @@
         "location":"/teaching",
         "children":[
             {
-                "name":"Sunday Teaching",
-                "location":"/teaching-sunday"
-            },
-            {
-                "name":"Featured",
-                "location":"/teaching-new"
-            },
-            {
                 "name":"Curated Playlists",
                 "location":"/teaching-curated"
             },
@@ -46,12 +38,12 @@
         "location":"/make-a-difference",
         "children":[
             {
-                "name":"Compassion",
-                "location":"/compassion"
-            },
-            {
                 "name":"Volunteering",
                 "location":"/volunteering"
+            },
+            {
+                "name":"Compassion",
+                "location":"/compassion"
             },
             {
                 "name":"Giving",

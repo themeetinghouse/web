@@ -1,0 +1,134 @@
+@media (min-width: 768px) {
+    .headerItem.GoContentItem {
+        position: relative;
+        width: 70vw;
+        left: 20vw;
+        padding-bottom: 5vh;
+        font-family:Graphik Web;
+    }
+    .GoContentH1{
+        font-family:Graphik Web;
+        font-size:2vw;
+        font-weight:bold;
+    }
+    .GoContentH2{
+        font-family:Graphik Web;
+        font-size:5vw;
+        font-weight:bold;
+    }
+    .GoContentSubH1{
+        font-family:Graphik Web;
+        font-size:1.5vw;
+        font-weight:bold;
+    }
+    .GoContentSubH2{
+        font-family:Graphik Web;
+        font-size:4vw;
+        font-weight:bold;
+    }
+    .GoContentButton{
+        font-family:Graphik Web;
+        font-weight:bold;
+        color:#ffffff;
+        background-color:#000000;
+        border-color:#ffffff;
+
+    }
+    .GoContentSubItems{
+        width:30vw;
+        float:left;
+    }
+    .GoContentClear{
+        clear:left;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .headerItem.GoContentItem {
+        position: relative;
+        width: 70vw;
+        left: 20vw;
+        padding-bottom: 5vh;
+        font-family:Graphik Web;
+    }
+    .GoContentH1{
+        font-family:Graphik Web;
+        font-size:2vw;
+        font-weight:bold;
+    }
+    .GoContentH2{
+        font-family:Graphik Web;
+        font-size:5vw;
+        font-weight:bold;
+    }
+    .GoContentSubH1{
+        font-family:Graphik Web;
+        font-size:1.5vw;
+        font-weight:bold;
+    }
+    .GoContentSubH2{
+        font-family:Graphik Web;
+        font-size:4vw;
+        font-weight:bold;
+    }
+    .GoContentButton{
+        font-family:Graphik Web;
+        font-weight:bold;
+        color:#ffffff;
+        background-color:#000000;
+        border-color:#ffffff;
+
+    }
+    .GoContentSubItems{
+        width:30vw;
+        float:left;
+    }
+    .GoContentClear{
+        clear:left;
+    }
+}
+
+@media (max-width: 767px) {
+    .headerItem.GoContentItem {
+        position: relative;
+        width: 70vw;
+        left: 20vw;
+        padding-bottom: 5vh;
+        font-family:Graphik Web;
+    }
+    .GoContentH1{
+        font-family:Graphik Web;
+        font-size:2vw;
+        font-weight:bold;
+    }
+    .GoContentH2{
+        font-family:Graphik Web;
+        font-size:5vw;
+        font-weight:bold;
+    }
+    .GoContentSubH1{
+        font-family:Graphik Web;
+        font-size:1.5vw;
+        font-weight:bold;
+    }
+    .GoContentSubH2{
+        font-family:Graphik Web;
+        font-size:4vw;
+        font-weight:bold;
+    }
+    .GoContentButton{
+        font-family:Graphik Web;
+        font-weight:bold;
+        color:#ffffff;
+        background-color:#000000;
+        border-color:#ffffff;
+
+    }
+    .GoContentSubItems{
+        width:30vw;
+        float:left;
+    }
+    .GoContentClear{
+        clear:left;
+    }
+}

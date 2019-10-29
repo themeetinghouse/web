@@ -15,45 +15,77 @@
         },
         "content": [
             {
-                "type": "locations",
-                "locations": [
-                    "alliston",
-                    "ancaster",
-                    "brampton",
-                    "brantford",
-                    "burlington",
-                    "hamilton-downtown",
-                    "hamilton-mountain",
-                    "toronto-downtown",
-                    "toronto-east",
-                    "toronto-high-park",
-                    "toronto-uptown",
-                    "kitchener",
-                    "london",
-                    "newmarket",
-                    "oakville",
-                    "ottawa",
-                    "owen-sound",
-                    "parry-sound",
-                    "richmond-hill",
-                    "sandbanks",
-                    "waterloo"
-                ]
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
+                    }
+                ],
+                "header1": "Locations",
+                "text1": "TODO"
+            },
+            {
+                "type": "hero",
+                "style": "partial",
+                "image1": [
+                    {
+                        "src": "/static/svg/Map.svg",
+                        "alt": "A map representing locations of The Meeting House churches."
+                    }
+                ],
+                "header1": "Locations",
+                "text1": "It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities, as we learn to follow Jesus.",
+                "text2": "What are you doing this Sunday?",
+                "link1Text": "Show Map",
+                "link1Action": "find-sunday-morning",
+                "class":"locations",
+                "showLocationSearch": true
             },
             {
                 "type": "content",
                 "style": "oneImage",
+                "header1":"Home Church",
+                "header2":"",
+                "text1":"We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life as we invite others to join us. That’s why we meet during the week in homes to develop relationships, further study and apply Sunday’s teaching, and care for our neighbourhoods. ",
+                "link1Text": "Find a Home Church",
+                "link1Action": "find-home-church",
+                "image1":[{
+                    "src":"/static/images/TODO.jpg",
+                    "alt":"TODO"
+                }]
+
+            },
+             {
+                "type": "content",
+                "style": "oneImage",
                 "header1":"Distance Groups",
                 "header2":"",
-                "text1":"Groups from around the world",
-                "link1Text": "Distance Groups",
+                "text1":"Don’t live in a city where there is a Meeting House site? Have you considered starting or joining a Distance Group? A Distance Group is a gathering of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
+                "link1Text": "Find a Distance Group",
                 "link1Action": "distance-groups",
                 "image1":[{
                     "src":"/static/images/TODO.jpg",
                     "alt":"TODO"
                 }]
 
+            },
+             {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Jesus Collective",
+                "header2":"",
+                "text1":"TODO",
+                "link1Text": "Go to Jesus Collective",
+                "link1Action": "https://www.jesuscollective.com",
+                "image1":[{
+                    "src":"/static/images/about-us-5.png",
+                    "alt":"Jesus Collective Logo"
+                }]
+
             }
+
                
         ]
     }

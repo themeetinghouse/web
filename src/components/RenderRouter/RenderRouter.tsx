@@ -12,7 +12,7 @@ import DistanceGroupItem from './DistanceGroupItem';
 import SundayMorningItem from './SundayMorningItem';
 import HomeChurchItem from './HomeChurchItem';
 import FormItem from './FormItem';
-import LocationItem from './LocationItem';
+import GoContentItem from './GoContentItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
 import HomeFooter from '../Menu/HomeFooter';
@@ -46,8 +46,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<SVGItem key={index} content={item}></SVGItem>);
         else if (item.type === "hero")
           return (<HeroItem data={this.props.data} key={index} content={item}></HeroItem>);
-        else if (item.type === "locations")
-          return (<LocationItem key={index} content={item}></LocationItem>);
+        else if (item.type === "goContent")
+          return (<GoContentItem key={index} content={item}></GoContentItem>);
         else if (item.type === "teaching")
           return (<TeachingItem key={index} content={item}></TeachingItem>);
         else if (item.type === "sunday-morning")

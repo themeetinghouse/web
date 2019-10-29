@@ -1,1234 +1,735 @@
 [
-    {
-      "FirstName": "Kareema",
-      "LastName": "Giscombe-Bartley",
-      "sites": ["BRAM"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Lynn",
-      "LastName": "Felker",
-      "sites": ["BRFD"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Terri",
-      "LastName": "Busch",
-      "sites": ["HMAN"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Sue",
-      "LastName": "VanEgdom",
-      "sites": ["HMAN"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Teresa",
-      "LastName": "Howe",
-      "sites": ["HMDT"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Al",
-      "LastName": "Voort",
-      "sites": ["KITC"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Ruth",
-      "LastName": "Wagner",
-      "sites": ["NMKT"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Carolynn E.",
-      "LastName": "Bucek",
-      "sites": ["OAKV"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Heather",
-      "LastName": "Sutherland",
-      "sites": ["OTTA"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Amanda",
-      "LastName": "Shaw",
-      "sites": ["PRSN"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Sandra",
-      "LastName": "Albione",
-      "sites": ["RHLL"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Shyamala",
-      "LastName": "Pierce",
-      "sites": ["RHLL"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Erica",
-      "LastName": "Blekkenhorst",
-      "sites": ["TODT"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Kat",
-      "LastName": "Misztal-McCubbing",
-      "sites": ["TOHP"],
-      "Position": "Compassion Team Coordinator"
-    },
-    {
-      "FirstName": "Graham",
-      "LastName": "Elder",
-      "sites": ["BRAM"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Julie",
-      "LastName": "Riley",
-      "sites": ["TOBC"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Esther",
-      "LastName": "Allada",
-      "sites": ["OAKV"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Jessie",
-      "LastName": "Chiu",
-      "sites": ["OAKV"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Sarah",
-      "LastName": "Van Es",
-      "sites": ["OAKV"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Jess K.",
-      "LastName": "Feeney",
-      "sites": ["OTTA"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Jessica-Rae",
-      "LastName": "Linzel",
-      "sites": ["OTTA"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "Scott",
-      "LastName": "Mealey",
-      "sites": ["TODT"],
-      "Position": "Connect Coordinator"
-    },
-    {
-      "FirstName": "George D.",
-      "LastName": "Brown",
-      "sites": ["OAKV"],
-      "Position": "Healing Care Coordinator"
-    },
-    {
-      "FirstName": "Nate",
-      "LastName": "Van Kampen",
-      "sites": ["HMDT"],
-      "Position": "Jr. High Coordinator"
-    },
-    {
-      "FirstName": "Angela",
-      "LastName": "Rose",
-      "sites": ["NMKT"],
-      "Position": "Jr. High Coordinator"
-    },
-    {
-      "FirstName": "Adrienne T.",
-      "LastName": "Sulistyo",
-      "sites": ["RHLL"],
-      "Position": "Jr. High Coordinator"
-    },
-    {
-      "FirstName": "Brittany",
-      "LastName": "Scott",
-      "sites": ["BRAM"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Laura",
-      "LastName": "Wassink",
-      "sites": ["BRFD"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Lauren",
-      "LastName": "Webster",
-      "sites": ["BURL"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Janis",
-      "LastName": "Hiscock",
-      "sites": ["TOBC"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Jacqueline",
-      "LastName": "Wilcox",
-      "sites": ["HMAN"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Emily",
-      "LastName": "Van Kampen",
-      "sites": ["HMDT"],
-      "Position": "kidmax Coordinator"
-   },
-    {
-      "FirstName": "Wendy",
-      "LastName": "Cuell",
-      "sites": ["HMMT"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Jenn",
-      "LastName": "Kuntz",
-      "sites": ["KITC"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Kate",
-      "LastName": "Nixon",
-      "sites": ["LOND"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Jacqueline",
-      "LastName": "Lo",
-      "sites": ["NMKT"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Tenika",
-      "LastName": "Millington",
-      "sites": ["NMKT"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Laura",
-      "LastName": "Jory",
-      "sites": ["OAKV"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Diane",
-      "LastName": "Klassen",
-      "sites": ["OAKV"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Christie R.",
-      "LastName": "Esau",
-      "sites": ["OTTA"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Amy M.",
-      "LastName": "Langeman",
-      "sites": ["OWEN"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Christie-Lynn",
-      "LastName": "Constable",
-      "sites": ["PRSN"],
-      "Position": "kidmax Coordinator"
-    },
-    {
-      "FirstName": "Rachelle",
-      "LastName": "DeBoer",
-      "sites": ["PRSN"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Maggie S.",
-      "LastName": "Lam",
-      "sites": ["RHLL"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Melissa",
-      "LastName": "Ytsma",
-      "sites": ["RHLL"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Liz",
-      "LastName": "Dale",
-      "sites": ["TODT"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Meghan",
-      "LastName": "Walter",
-      "sites": ["TOHP"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Sarah",
-      "LastName": "Mahimwala",
-      "sites": ["TOUP"],
-      "Position": "kidmax Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Esther",
-      "LastName": "Hazzard",
-      "sites": ["BRAM"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Dwayne",
-      "LastName": "Jackson",
-      "sites": ["BRAM"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Bram",
-      "LastName": "Van den Heuvel",
-      "sites": ["BRFD"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Adam",
-      "LastName": "Davidson",
-      "sites": ["BURL"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Matt",
-      "LastName": "Phinney",
-      "sites": ["TOBC"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Steve",
-      "LastName": "Green",
-      "sites": ["HMAN"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Nathan J.",
-      "LastName": "Scott",
-      "sites": ["HMDT"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Steve",
-      "LastName": "Samuels",
-      "sites": ["HMMT"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Laura",
-      "LastName": "Driedger",
-      "sites": ["KITC"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Stephanie",
-      "LastName": "Prendergast",
-      "sites": ["LOND"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "William",
-      "LastName": "Dyer",
-      "sites": ["NMKT"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Mike",
-      "LastName": "Walker",
-      "sites": ["NMKT"],
-      "Position": "Music Coordinator"
-
-    },
-    {
-      "FirstName": "Anna M.",
-      "LastName": "Lakatos",
-      "sites": ["OAKV"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Carlo A.",
-      "LastName": "Verdicchio Tayler",
-      "sites": ["OTTA"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Peter",
-      "LastName": "Shadgett",
-      "sites": ["PRSN"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Bernie",
-      "LastName": "Chan",
-      "sites": ["RHLL"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Nathan A.",
-      "LastName": "Snelgrove",
-      "sites": ["TODT"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Becky",
-      "LastName": "Voll",
-      "sites": ["TOHP"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Keltan",
-      "LastName": "Dakins",
-      "sites": ["TOUP"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Emily",
-      "LastName": "Piche",
-      "sites": ["WAT"],
-      "Position": "Music Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Tiv J.",
-      "LastName": "Madarasz",
-      "sites": ["BRAM"],
-      "Position": "Prayer Coordinator"
-    },
-    {
-      "FirstName": "Deb",
-      "LastName": "Wach",
-      "sites": ["OAKV"],
-      "Position": "Prayer Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Kathryn",
-      "LastName": "Cobbler",
-      "sites": ["OTTA"],
-      "Position": "Prayer Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Uli U.",
-      "LastName": "Simon",
-      "sites": ["PRSN"],
-      "Position": "Prayer Coordinator"
-    },
-    {
-      "FirstName": "Pam",
-      "LastName": "Mugford",
-      "sites": ["TOHP"],
-      "Position": "Prayer Coordinator"
-
-    },
-    {
-      "FirstName": "Natalie",
-      "LastName": "Burtch",
-      "sites": ["OAKV"],
-      "Position": "Production Team Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Judy D.",
-      "LastName": "Brown",
-      "sites": ["BRAM"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Nathan",
-      "LastName": "Buckwalter",
-      "sites": ["TOBC"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Jason",
-      "LastName": "Lise",
-      "sites": ["HMDT"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Jenna",
-      "LastName": "Buist",
-      "sites": ["HMMT"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Tim",
-      "LastName": "van der Kooi",
-      "sites": ["NMKT"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Bob",
-      "LastName": "Bechara",
-      "sites": ["OAKV"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Tracy",
-      "LastName": "Hutt",
-      "sites": ["OAKV"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Denise",
-      "LastName": "Semple",
-      "sites": ["OAKV"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Gerry",
-      "LastName": "Shipman",
-      "sites": ["PRSN"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Carrie",
-      "LastName": "Yuen",
-      "sites": ["RHLL"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Samantha",
-      "LastName": "DePoorter",
-      "sites": ["TODT"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Matt",
-      "LastName": "Walter",
-      "sites": ["TOHP"],
-      "Position": "Setup Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Aaron",
-      "LastName": "Cardiff",
-      "sites": ["WAT"],
-      "Position": "Setup Coordinator"
-
-    },
-    {
-      "FirstName": "John-Mark",
-      "LastName": "Deneau",
-      "sites": ["BRFD"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Lois",
-      "LastName": "Deneau",
-      "sites": ["BRFD"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Fiona",
-      "LastName": "Miles",
-      "sites": ["TOBC"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Heather",
-      "LastName": "Boldt",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-    },
-    {
-      "FirstName": "Nancy J.",
-      "LastName": "Brown",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Al",
-      "LastName": "Coulas",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Jen",
-      "LastName": "Coulas",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Mark",
-      "LastName": "Hood",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Marnie",
-      "LastName": "Hood",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Mervyn",
-      "LastName": "Mediwake",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
- },
-    {
-      "FirstName": "Muriel",
-      "LastName": "Mediwake",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Bruce A.",
-      "LastName": "Miller",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Gael J.",
-      "LastName": "Miller",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Leslie",
-      "LastName": "Pashuk",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Carole",
-      "LastName": "Phillips",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-    },
-    {
-      "FirstName": "Maureen M.",
-      "LastName": "Savoy",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Tom",
-      "LastName": "Savoy",
-      "sites": ["OAKV"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Denis",
-      "LastName": "Audette",
-      "sites": ["OWEN"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Johan",
-      "LastName": "Strydom",
-      "sites": ["PRSN"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Clara",
-      "LastName": "Wong",
-      "sites": ["TOUP"],
-      "Position": "Specialty Ministries Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Jewell",
-      "LastName": "Chiaravalloti",
-      "sites": ["OAKV"],
-      "Position": "Stephen Ministry Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Peter",
-      "LastName": "Korth",
-      "sites": ["OAKV"],
-      "Position": "Stephen Ministry Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Pieter",
-      "LastName": "van Niekerk",
-      "sites": ["OAKV"],
-      "Position": "Stephen Ministry Coordinator"
-
-    },
-    {
-      "FirstName": "Martie",
-      "LastName": "Whitaker",
-      "sites": ["OAKV"],
-      "Position": "Stephen Ministry Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Luc",
-      "LastName": "Mongrain",
-      "sites": ["BRAM"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Scott",
-      "LastName": "Rancourt",
-      "sites": ["BRFD"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Ted",
-      "LastName": "Hildebrandt",
-      "sites": ["BURL"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Brian",
-      "LastName": "Wong",
-      "sites": ["TOBC"],
-      "Position": "Tech Coordinator"
-    },
-    {
-      "FirstName": "Mark",
-      "LastName": "Nyman",
-      "sites": ["HMAN"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Jenna",
-      "LastName": "Buist",
-      "sites": ["HMMT"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Sid",
-      "LastName": "Nandi",
-      "sites": ["KITC"],
-      "Position": "Tech Coordinator"
-    },
-    {
-      "FirstName": "Julie",
-      "LastName": "Custeau",
-      "sites": ["LOND"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Megan",
-      "LastName": "Rideout",
-      "sites": ["NMKT"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Megan",
-      "LastName": "McEwen",
-      "sites": ["OTTA"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Samson",
-      "LastName": "Chiu",
-      "sites": ["RHLL"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "T.J. J.",
-      "LastName": "Heideman",
-      "sites": ["TODT"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Kemi",
-      "LastName": "Adubi",
-      "sites": ["TOHP"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Jon",
-      "LastName": "Esparaz",
-      "sites": ["TOUP"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Steve",
-      "LastName": "Tosh",
-      "sites": ["WAT"],
-      "Position": "Tech Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Scott",
-      "LastName": "McConnell",
-      "sites": ["BRAM"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Joyce",
-      "LastName": "Baker",
-      "sites": ["BRFD"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Jamie",
-      "LastName": "Teeple",
-      "sites": ["BURL"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Hazel",
-      "LastName": "Cheng",
-      "sites": ["TOBC"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Greg",
-      "LastName": "Best",
-      "sites": ["HMAN"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Jared",
-      "LastName": "Van Huizen",
-      "sites": ["HMDT"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Carolina",
-      "LastName": "Bartholomew",
-      "sites": ["HMMT"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Steve",
-      "LastName": "Jarnick",
-      "sites": ["KITC"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Sheryl",
-      "LastName": "Bailey",
-      "sites": ["LOND"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Sarah",
-      "LastName": "Dyer",
-      "sites": ["NMKT"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Kate",
-      "LastName": "Brown",
-      "sites": ["OAKV"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Dave",
-      "LastName": "Beauchamp",
-      "sites": ["OTTA"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Jay",
-      "LastName": "Rosewell",
-      "sites": ["PRSN"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Anthony",
-      "LastName": "Mak",
-      "sites": ["RHLL"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Kelly",
-      "LastName": "Mak",
-      "sites": ["RHLL"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Josh",
-      "LastName": "Cole",
-      "sites": ["TODT"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Ronny",
-      "LastName": "Juarez",
-      "sites": ["TOHP"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Russ",
-      "LastName": "Skinner",
-      "sites": ["TOUP"],
-      "Position": "Weekend Service Producer"
-
-      
-    },
-    {
-      "FirstName": "Sarah",
-      "LastName": "Stratton-Snyder",
-      "sites": ["BRFD"],
-      "Position": "Welcome Coordinator"
-
-    },
-    {
-      "FirstName": "Lisa",
-      "LastName": "Collins",
-      "sites": ["HMAN"],
-      "Position": "Welcome Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Melissa",
-      "LastName": "Beldman",
-      "sites": ["LOND"],
-      "Position": "Welcome Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Debbie",
-      "LastName": "Tindale",
-      "sites": ["NMKT"],
-      "Position": "Welcome Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Bill",
-      "LastName": "Konoval",
-      "sites": ["PRSN"],
-      "Position": "Welcome Coordinator"
-    },
-    {
-      "FirstName": "Tracy",
-      "LastName": "Konoval",
-      "sites": ["PRSN"],
-      "Position": "Welcome Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Angela",
-      "LastName": "Kong",
-      "sites": ["RHLL"],
-      "Position": "Welcome Coordinator"
-    },
-    {
-      "FirstName": "Ara",
-      "LastName": "Ehamparam",
-      "sites": ["TOHP"],
-      "Position": "Welcome Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Clara",
-      "LastName": "Wong",
-      "sites": ["TOUP"],
-      "Position": "Welcome Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Marcie",
-      "LastName": "Hall",
-      "sites": ["WAT"],
-      "Position": "Welcome Coordinator"
-    },
-    {
-      "FirstName": "Amie",
-      "LastName": "Medeiros",
-      "sites": ["BRAM"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Joshua",
-      "LastName": "Woodward",
-      "sites": ["BRFD"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Hannah",
-      "LastName": "Froese",
-      "sites": ["BURL"],
-      "Position": "Youth Coordinator"
-    },
-    {
-      "FirstName": "Aaron",
-      "LastName": "Westera",
-      "sites": ["HMAN"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Nick",
-      "LastName": "Barone",
-      "sites": ["HMMT"],
-      "Position": "Youth Coordinator"
-    },
-    {
-      "FirstName": "Marshall",
-      "LastName": "McPherson",
-      "sites": ["KITC"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "T.J.",
-      "LastName": "Zielman",
-      "sites": ["LOND"],
-      "Position": "Youth Coordinator"
-    },
-    {
-      "FirstName": "Brad",
-      "LastName": "Eager",
-      "sites": ["OAKV"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Lindsay",
-      "LastName": "Hart",
-      "sites": ["OAKV"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Aaron",
-      "LastName": "Webber",
-      "sites": ["OTTA"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Hanna",
-      "LastName": "Coppes",
-      "sites": ["PRSN"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Liz",
-      "LastName": "Dale",
-      "sites": ["TODT"],
-      "Position": "Youth Coordinator"
-
-      
-    },
-    {
-      "FirstName": "Alyssa",
-      "LastName": "Esparaz",
-      "sites": ["TOUP"],
-      "Position": "Youth Coordinator"
-
-      
-    }
-  ]
+  {
+    "FirstName": "Michael",
+    "LastName": "Kotsopoulos",
+    "sites": ["ALLI"],
+    "Email": "michael.kotsopoulos@themeetinghouse.com",
+    "Position": "Alliston Lead Pastor"
+  },
+  {
+    "FirstName": "Jen L.",
+    "LastName": "Stevens",
+    "sites": ["BURL"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Sue",
+    "LastName": "VanEgdom",
+    "sites": ["HMAN"],
+    "Email": "sue.vanegdom@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Al",
+    "LastName": "Voort",
+    "sites": ["KIT"],
+    "Email": "al.voort@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Ruth",
+    "LastName": "Wagner",
+    "sites": ["NMKT"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "April",
+    "LastName": "Yorke",
+    "sites": ["OTTA"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Amanda",
+    "LastName": "Shaw",
+    "sites": ["PRSN"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Shyamala",
+    "LastName": "Pierce",
+    "sites": ["RHLL"],
+    "Email": "shyamala.pierce@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Jas",
+    "LastName": "Wong",
+    "sites": ["TOBC"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Kareema",
+    "LastName": "Giscombe-Bartley",
+    "sites": ["BRAM"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Terri",
+    "LastName": "Busch",
+    "sites": ["HMAN"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Danielle",
+    "LastName": "Fry",
+    "sites": ["HMDT"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Teresa",
+    "LastName": "Howe",
+    "sites": ["HMDT"],
+    "Email": "teresa.howe@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Carolynn E.",
+    "LastName": "Bucek",
+    "sites": ["HMMT"],
+    "Email": "carolynn.bucek@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Sandra",
+    "LastName": "Albione",
+    "sites": ["RHLL"],
+    "Email": "sandra.albione@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Erica",
+    "LastName": "Blekkenhorst",
+    "sites": ["TODT"],
+    "Email": "erica.blekkenhorst@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Kat",
+    "LastName": "Misztal-McCubbing",
+    "sites": ["TOHP"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Graham",
+    "LastName": "Elder",
+    "sites": ["BRAM"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Cathy",
+    "LastName": "Ralph",
+    "sites": ["BURL"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Esther",
+    "LastName": "Allada",
+    "sites": ["OAKV"],
+    "Email": "esther.allada@themeetinghouse.com",
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Van Es",
+    "sites": ["OAKV"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Jessica-Rae",
+    "LastName": "Linzel",
+    "sites": ["OTTA"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Julie",
+    "LastName": "Riley",
+    "sites": ["TOBC"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Scott",
+    "LastName": "Mealey",
+    "sites": ["TODT"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Marcie",
+    "LastName": "Hall",
+    "sites": ["WAT"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Brittany",
+    "LastName": "Scott",
+    "sites": ["BRAM"],
+    "Email": "brittany.chisholm@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Laura",
+    "LastName": "Wassink",
+    "sites": ["BRFD"],
+    "Email": "laura.wassink@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Lauren",
+    "LastName": "Webster",
+    "sites": ["BURL"],
+    "Email": "lauren.webster@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Jacqueline",
+    "LastName": "Wilcox",
+    "sites": ["HMAN"],
+    "Email": "jacqueline.wilcox@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Emily",
+    "LastName": "Van Kampen",
+    "sites": ["HMDT"],
+    "Email": "emily.vankampen@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Wendy",
+    "LastName": "Cuell",
+    "sites": ["HMMT"],
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Jenn",
+    "LastName": "Kuntz",
+    "sites": ["KIT"],
+    "Email": "Jenn.kuntz@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Kate",
+    "LastName": "Nixon",
+    "sites": ["LOND"],
+    "Email": "kate.nixon@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Jacqueline",
+    "LastName": "Lo",
+    "sites": ["NMKT"],
+    "Email": "jacqueline.lo@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Tenika",
+    "LastName": "Millington",
+    "sites": ["NMKT"],
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Laura",
+    "LastName": "Jory",
+    "sites": ["OAKV"],
+    "Email": "laura.jory@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Diane",
+    "LastName": "Klassen",
+    "sites": ["OAKV"],
+    "Email": "diane.klassen@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Darcie",
+    "LastName": "Dow",
+    "sites": ["OTTA"],
+    "Email": "darcie.dow@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Amy M.",
+    "LastName": "Langeman",
+    "sites": ["OWSN"],
+    "Email": "amy.langeman@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Christie-Lynn",
+    "LastName": "Constable",
+    "sites": ["PAR"],
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Rachelle",
+    "LastName": "DeBoer",
+    "sites": ["PAR"],
+    "Email": "parrysound.kidmax@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Melissa",
+    "LastName": "Ytsma",
+    "sites": ["RHLL"],
+    "Email": "melissa.ytsma@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Janis",
+    "LastName": "Hiscock",
+    "sites": ["TOBC"],
+    "Email": "janis.hiscock@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Jacob",
+    "LastName": "Winter",
+    "sites": ["TODT"],
+    "Email": "jacob.winter@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Meghan",
+    "LastName": "Walter",
+    "sites": ["TOHP"],
+    "Email": "meghan.walter@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Mahimwala",
+    "sites": ["TOUP"],
+    "Email": "sarah.mahimwala@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Esther",
+    "LastName": "Hazzard",
+    "sites": ["BRAM"],
+    "Email": "esther.hazzard@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Dwayne",
+    "LastName": "Jackson",
+    "sites": ["BRAM"],
+    "Email": "dwayne.jackson@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Bram",
+    "LastName": "Van den Heuvel",
+    "sites": ["BRFD"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Adam",
+    "LastName": "Davidson",
+    "sites": ["BURL"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Steve",
+    "LastName": "Green",
+    "sites": ["HMAN"],
+    "Email": "steve.green@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Nathan J.",
+    "LastName": "Scott",
+    "sites": ["HMDT"],
+    "Email": "Nathan.scott@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Steve",
+    "LastName": "Samuels",
+    "sites": ["HMMT"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Laura",
+    "LastName": "Driedger",
+    "sites": ["KIT"],
+    "Email": "laura.driedger@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Stephanie",
+    "LastName": "Prendergast",
+    "sites": ["LOND"],
+    "Email": "stephanie.prendergast@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "William",
+    "LastName": "Dyer",
+    "sites": ["NMKT"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Mike",
+    "LastName": "Walker",
+    "sites": ["NMKT"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Anna M.",
+    "LastName": "Lakatos",
+    "sites": ["OAKV"],
+    "Email": "anna.lakatos@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Carlo A.",
+    "LastName": "Verdicchio Tayler",
+    "sites": ["OTTA"],
+    "Email": "carlo.verdicchio@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Bernie",
+    "LastName": "Chan",
+    "sites": ["RHLL"],
+    "Email": "bernard.chan@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Matt",
+    "LastName": "Phinney",
+    "sites": ["TOBC"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Nathan A.",
+    "LastName": "Snelgrove",
+    "sites": ["TODT"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Becky",
+    "LastName": "Voll",
+    "sites": ["TOHP"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Keltan",
+    "LastName": "Dakins",
+    "sites": ["TOUP"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Emily",
+    "LastName": "Piche",
+    "sites": ["WAT"],
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Brent",
+    "LastName": "Babcock",
+    "sites": ["SAND"],
+    "Email": "brent.babcock@themeetinghouse.com",
+    "Position": "Sandbanks Lead Pastor"
+  },
+  {
+    "FirstName": "Don",
+    "LastName": "Walcott",
+    "sites": ["SAND"],
+    "Email": "don.walcott@themeetinghouse.com",
+    "Position": "Sandbanks Associate Pastor"
+  },
+  {
+    "FirstName": "Scott",
+    "LastName": "McConnell",
+    "sites": ["BRAM"],
+    "Email": "scott.mcconnell@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Joyce",
+    "LastName": "Baker",
+    "sites": ["BRFD"],
+    "Email": "joyce.baker@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Jamie",
+    "LastName": "Teeple",
+    "sites": ["BURL"],
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Greg",
+    "LastName": "Best",
+    "sites": ["HMAN"],
+    "Email": "greg.best@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Jared",
+    "LastName": "Van Huizen",
+    "sites": ["HMDT"],
+    "Email": "jared.vanhuizen@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Carolina",
+    "LastName": "Bartholomew",
+    "sites": ["HMMT"],
+    "Email": "carolina.bartholomew@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Steve",
+    "LastName": "Jarnick",
+    "sites": ["KIT"],
+    "Email": "steve.jarnick@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Sheryl",
+    "LastName": "Bailey",
+    "sites": ["LOND"],
+    "Email": "sheryl.bailey@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Dyer",
+    "sites": ["NMKT"],
+    "Email": "sarah.dyer@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Kate",
+    "LastName": "Brown",
+    "sites": ["OAKV"],
+    "Email": "kate.brown@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Fiona",
+    "LastName": "Lau",
+    "sites": ["OTTA"],
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Daniel",
+    "LastName": "VanderVeen",
+    "sites": ["OTTA"],
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Anthony",
+    "LastName": "Mak",
+    "sites": ["RHLL"],
+    "Email": "anthony.mak@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Kelly",
+    "LastName": "Mak",
+    "sites": ["RHLL"],
+    "Email": "Kelly.Mak@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Hazel",
+    "LastName": "Cheng",
+    "sites": ["TOBC"],
+    "Email": "hazel.cheng@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Josh",
+    "LastName": "Cole",
+    "sites": ["TODT"],
+    "Email": "josh.cole@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Ronny",
+    "LastName": "Juarez",
+    "sites": ["TOHP"],
+    "Email": "ronny.juarez@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Russ",
+    "LastName": "Skinner",
+    "sites": ["TOUP"],
+    "Email": "russ.skinner@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Stratton-Snyder",
+    "sites": ["BRFD"],
+    "Email": "sarah.strattonsnyder@themeetinghouse.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Lisa",
+    "LastName": "Collins",
+    "sites": ["HMAN"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Jason",
+    "LastName": "Lise",
+    "sites": ["HMDT"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Melissa",
+    "LastName": "Beldman",
+    "sites": ["LOND"],
+    "Email": "melissa.beldman@themeetinghouse.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Debbie",
+    "LastName": "Tindale",
+    "sites": ["NMKT"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Bill",
+    "LastName": "Konoval",
+    "sites": ["PAR"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Tracy",
+    "LastName": "Konoval",
+    "sites": ["PAR"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Angela",
+    "LastName": "Kong",
+    "sites": ["RHLL"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Ara",
+    "LastName": "Ehamparam",
+    "sites": ["TOHP"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Clara",
+    "LastName": "Wong",
+    "sites": ["TOUP"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Amie",
+    "LastName": "Medeiros",
+    "sites": ["BRAM"],
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Joshua",
+    "LastName": "Woodward",
+    "sites": ["BRFD"],
+    "Email": "josh.woodward@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Hannah",
+    "LastName": "Froese",
+    "sites": ["BURL"],
+    "Email": "hannah.froese@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Aaron",
+    "LastName": "Westera",
+    "sites": ["HMAN"],
+    "Email": "aaron.westera@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Marshall",
+    "LastName": "Lewis",
+    "sites": ["HMDT"],
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Nick",
+    "LastName": "Barone",
+    "sites": ["HMMT"],
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Marshall",
+    "LastName": "McPherson",
+    "sites": ["KIT"],
+    "Email": "marshall.mcpherson@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "T.J.",
+    "LastName": "Zielman",
+    "sites": ["LOND"],
+    "Email": "tj.zielman@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Angela",
+    "LastName": "Rose",
+    "sites": ["NMKT"],
+    "Email": "angela.rose@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Brad",
+    "LastName": "Eager",
+    "sites": ["OAKV"],
+    "Email": "brad.eager@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Lindsay",
+    "LastName": "Hart",
+    "sites": ["OAKV"],
+    "Email": "lindsay.hart@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Aaron",
+    "LastName": "Webber",
+    "sites": ["OTTA"],
+    "Email": "aaron.webber@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Hanna",
+    "LastName": "Coppes",
+    "sites": ["PRSN"],
+    "Email": "hanna.coppes@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Adrienne T.",
+    "LastName": "Sulistyo",
+    "sites": ["RHLL"],
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Liz",
+    "LastName": "Dale",
+    "sites": ["TODT"],
+    "Email": "liz.dale@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Alyssa",
+    "LastName": "Esparaz",
+    "sites": ["TOUP"],
+    "Email": "alyssa.esparaz@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  }
+ ]
