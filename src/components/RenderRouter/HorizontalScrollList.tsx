@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
-//import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import "./HorizontalScrollList.scss";
 import { isArray } from 'util';
+import "./HorizontalScrollList.scss";
 
 
 interface Props extends RouteComponentProps {
@@ -19,6 +18,8 @@ class HorizontalScrollList extends React.Component<Props, State> {
     scrollContainerElement:any;
     scrollNavElement:any;
     pageWidth:number = 0;
+    pageWidthActual:number = 0;
+    scrollableContentWidth:number = 0;
     itemsPerPage:number = 0;
     useSmoothScroll:boolean = false;
     scrollTimer:any;
@@ -47,6 +48,8 @@ class HorizontalScrollList extends React.Component<Props, State> {
             const childSize = children[0].getBoundingClientRect().width;
             this.itemsPerPage = Math.floor(containerSize.width / childSize);
             this.pageWidth = (this.itemsPerPage * childSize);
+            this.pageWidthActual = containerSize.width;
+            this.scrollableContentWidth = childSize * children.length;
             numPages = Math.ceil((childSize * children.length) / this.pageWidth);
             if (numPages === Infinity){
                 numPages = -1;
@@ -66,9 +69,8 @@ class HorizontalScrollList extends React.Component<Props, State> {
     }
 
     componentDidUpdate(){
-        //if (this.state.numPages === -1){
-            this.computePages();            
-        //}
+        // Content continues to load asynchronously, so need to keep recomputing number of pages
+        this.computePages();            
         
         if (this.useSmoothScroll){
             this.smoothScrollTo(this.scrollContainerElement, (this.pageWidth * this.state.currentPage) - this.scrollContainerElement.scrollLeft, 750);
@@ -119,9 +121,11 @@ class HorizontalScrollList extends React.Component<Props, State> {
 
     handleScroll = (event:any) => {
         if (this.state.numPages !== -1 && !this.useSmoothScroll){
-            //console.log("event: %o", event);
             let element = event.target;
             let newCurrentPage = Math.floor(element.scrollLeft / (this.pageWidth-10));
+            if (element.scrollLeft >= (this.scrollableContentWidth - this.pageWidthActual - 10)){
+                newCurrentPage = this.state.numPages-1;
+            }
             this.useSmoothScroll = false;
             this.setState({currentPage: newCurrentPage});
         }
@@ -129,7 +133,6 @@ class HorizontalScrollList extends React.Component<Props, State> {
       
 
     render():ReactNode {
-        console.log("this.state.numPages: " + this.state.numPages);
         return <>
             <div className={'HorizontalScrollListContainer ' + (this.props.darkMode ? 'dark' : '')}>
                 <div ref={this.refCallback} className="HorizontalScrollListItemContainer" onScroll={this.handleScroll}>
