@@ -3,7 +3,7 @@ import React from 'react';
 import { GoogleApiWrapper } from 'google-maps-react';
 //import {ProviderProps} from 'google-maps-react';
 import { Marker } from 'google-maps-react';
-import { Map } from 'google-maps-react';
+import { Map, InfoWindow } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import AddToCalendar from 'react-add-to-calendar';
 
@@ -21,11 +21,12 @@ interface Props extends RouteComponentProps {
 interface State {
   content: any,
   selectedPlace: any,
+  selectedPlaceMarker: any
   listData: any,
   origin: any,
   travelMode: string,
   currentLatLng: any,
-  distances: any
+  distances: any,
 }
 
 export class ContentItem extends React.Component<Props, State>  {
@@ -35,6 +36,7 @@ export class ContentItem extends React.Component<Props, State>  {
     this.state = {
       content: props.content,
       selectedPlace: null,
+      selectedPlaceMarker: null,
       listData: null,
       origin: ["43", "-79.8707"],
       travelMode: "DRIVING",
@@ -66,7 +68,10 @@ export class ContentItem extends React.Component<Props, State>  {
     }
   )
 
-  onMarkerClick() { }
+  getMarkerClickHandler = (item:any) => (props:any, marker:any) => {
+    this.setState({selectedPlaceMarker: marker, selectedPlace: item});
+  }
+
   onInfoWindowClose() { }
   getGeoLocation = () => {
     if (navigator.geolocation) {
@@ -126,17 +131,26 @@ export class ContentItem extends React.Component<Props, State>  {
             <h1 className="SundayMorningH1"  >{this.state.content.header1}</h1>
 
             <div className="SundayMorningItemDiv2" >
-              <Map google={this.props.google} zoom={6} initialCenter={{
-                lat: 44,
-                lng: -78.0
-              }}
-                className="SundayMorningMap" >
-                {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
-                  return (<Marker key={index} onClick={this.onMarkerClick}
+
+            <Map google={this.props.google} zoom={6} initialCenter={{lat: 44, lng: -78.0}} className="SundayMorningMap">
+              {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
+                  return (<Marker key={index} onClick={this.getMarkerClickHandler(item)}
                     position={{ lat: item.location.latitude, lng: item.location.longitude }} />
                   )
                 }) : null}
-              </Map>
+
+              <InfoWindow marker={this.state.selectedPlaceMarker} visible={true}>
+                { 
+                  this.state.selectedPlace ? (
+                    <div>
+                      <div className="SundayMorningMapInfoWindowDiv1">{this.state.selectedPlace.name}</div>
+                      <div className="SundayMorningMapInfoWindowDiv2">{this.state.selectedPlace.location.address}</div>
+                      <div className="SundayMorningMapInfoWindowDiv3">Service times: Sundays @ {this.state.selectedPlace.serviceTimes.map((t:any)=>(t+' am')).join(', ')}</div>
+                    </div>
+                  ) : <div></div>
+                }           
+              </InfoWindow>
+            </Map>
             </div>
             <div className="SundayMorningItemDiv3" >
               <div className="SundayMorningItemDiv4" >
