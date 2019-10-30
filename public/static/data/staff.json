@@ -49,7 +49,7 @@
         "FirstName": "Anna",
         "LastName": "Lakatos",
         "Phone": "905.287.7000, ext. 842",
-        "Position": "Music Pastor",
+        "Position": "Oakville Music Pastor",
         "sites": ["OAKV","Pastoral"],
         "Email": "Anna.Lakatos@themeetinghouse.com"
     },
@@ -112,7 +112,7 @@
         "FirstName": "Carrissa",
         "LastName": "Reffell",
         "Phone": "905.287.7000, ext. 863",
-        "Position": "Events Admin & Associate",
+        "Position": "Events Admin & Associate (on leave)",
         "sites": ["Operations"],
         "Email": "Carrissa.Reffell@themeetinghouse.com"
     },
@@ -328,7 +328,7 @@
         "FirstName": "Juanita",
         "LastName": "Broadbent",
         "Phone": "905.287.7000, ext. 834",
-        "Position": "Operations Manager",
+        "Position": "Site Support Manager & Compassion Manager",
         "sites": ["Operations"],
         "Email": "Juanita.Broadbent@themeetinghouse.com"
     },
@@ -409,7 +409,7 @@
         "FirstName": "Laura",
         "LastName": "Jory",
         "Phone": "905.287.7000, ext. 829",
-        "Position": "kidmax Coordinator, Grade 1-5, Oakville",
+        "Position": "Oakville Kidmax Coordinator, Grade 1-5",
         "sites": ["OAKV","Children"],
         "Email": "Laura.Jory@themeetinghouse.com"
     },
@@ -544,7 +544,7 @@
         "FirstName": "Mike",
         "LastName": "Finnie",
         "Phone": "905.287.7000, ext. 824",
-        "Position": "Oakville Associate Pastor",
+        "Position": "Oakville Associate Lead Pastor",
         "sites": ["OAKV","Pastoral"],
         "Email": "Mike.Finnie@themeetinghouse.com"
     },
@@ -616,7 +616,7 @@
         "FirstName": "Quincy",
         "LastName": "Bergman",
         "Phone": "905.287.7000, ext. 828",
-        "Position": "Oakville Site Pastor",
+        "Position": "Oakville Associate Pastor",
         "sites": ["OAKV","Pastoral"],
         "Email": "Quincy.Bergman@themeetinghouse.com"
     },
@@ -715,7 +715,7 @@
         "FirstName": "Simon",
         "LastName": "Downey",
         "Phone": "905.287.7000, ext. 845",
-        "Position": "Newmarket Lead Pastor/Regional Pastor",
+        "Position": "Newmarket Lead Pastor",
         "sites": ["NMKT","Pastoral"],
         "Email": "Simon.Downey@themeetinghouse.com"
     },
@@ -724,7 +724,7 @@
         "FirstName": "Steve",
         "LastName": "Pauls",
         "Phone": "905.287.7000, ext. 837",
-        "Position": "Technical Producer",
+        "Position": "Oakville Facility Manager",
         "sites": ["Operations"],
         "Email": "Steve.Pauls@themeetinghouse.com"
     },

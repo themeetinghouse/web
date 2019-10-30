@@ -7,6 +7,13 @@
     "Position": "Alliston Lead Pastor"
   },
   {
+    "FirstName": "Amy",
+    "LastName": "Thompson",
+    "sites": ["ALLI"],
+    "Email": "compassion.alliston@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
     "FirstName": "Jen L.",
     "LastName": "Stevens",
     "sites": ["BURL"],
@@ -49,6 +56,13 @@
     "LastName": "Pierce",
     "sites": ["RHLL"],
     "Email": "shyamala.pierce@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Cristal",
+    "LastName": "Laanstra",
+    "sites": ["SAND"],
+    "Email": "compassion.sandbanks@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
@@ -103,6 +117,20 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Denis",
+    "LastName": "Audette",
+    "sites": ["OWSN"],
+    "Email": "denis.audette@themeetinghouse.com",
+    "Position": "Community Coordinator"
+  },
+  {
+    "FirstName": "Janette",
+    "LastName": "Cridland",
+    "sites": ["ALLI"],
+    "Email": "connect.alliston@themeetinghouse.com",
+    "Position": "Connect Coordinator"
+  },
+  {
     "FirstName": "Graham",
     "LastName": "Elder",
     "sites": ["BRAM"],
@@ -118,6 +146,13 @@
     "FirstName": "Jessica-Rae",
     "LastName": "Linzel",
     "sites": ["OTTA"],
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Nancy",
+    "LastName": "Sergeant",
+    "sites": ["SAND"],
+    "Email": "connect.sandbanks@themeetinghouse.com",
     "Position": "Connect Coordinator"
   },
   {
@@ -137,6 +172,20 @@
     "LastName": "Hall",
     "sites": ["WAT"],
     "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Colleen",
+    "LastName": "Johnson",
+    "sites": ["ALLI"],
+    "Email": "kidmax.alliston@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
+    "FirstName": "Teresa",
+    "LastName": "Kotsopoulos",
+    "sites": ["ALLI"],
+    "Email": "kidmax.alliston@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Brittany",
@@ -234,6 +283,13 @@
     "Position": "kidmax Coordinator"
   },
   {
+    "FirstName": "Jenny",
+    "LastName": "Sheppard",
+    "sites": ["SAND"],
+    "Email": "kidmax.sandbanks@themeetinghouse.com",
+    "Position": "kidmax Coordinator"
+  },
+  {
     "FirstName": "Janis",
     "LastName": "Hiscock",
     "sites": ["TOBC"],
@@ -302,6 +358,13 @@
     "Position": "Music Coordinator"
   },
   {
+    "FirstName": "Ruth",
+    "LastName": "Wright",
+    "sites": ["ALLI"],
+    "Email": "ruth.wright@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
     "FirstName": "Steve",
     "LastName": "Samuels",
     "sites": ["HMMT"],
@@ -345,6 +408,13 @@
     "LastName": "Chan",
     "sites": ["RHLL"],
     "Email": "bernard.chan@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Bob",
+    "LastName": "Snider",
+    "sites": ["SAND"],
+    "Email": "music.sandbanks@themeetinghouse.com",
     "Position": "Music Coordinator"
   },
   {
@@ -507,13 +577,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Ruth",
-    "LastName": "Wright",
-    "sites": ["ALLI"],
-    "Email": "ruth.wright@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Sarah",
     "LastName": "Stratton-Snyder",
     "sites": ["BRFD"],
@@ -574,6 +637,20 @@
     "LastName": "Wong",
     "sites": ["TOUP"],
     "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Colleen",
+    "LastName": "Johnson",
+    "sites": ["ALLI"],
+    "Email": "youth.alliston@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Teresa",
+    "LastName": "Kotsopoulos",
+    "sites": ["ALLI"],
+    "Email": "youth.alliston@themeetinghouse.com",
+    "Position": "Youth Coordinator"
   },
   {
     "FirstName": "Amie",
@@ -647,6 +724,13 @@
     "LastName": "Sulistyo",
     "sites": ["RHLL"],
     "Email": "adrienne.sulistyo@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Carol",
+    "LastName": "Babcock",
+    "sites": ["SAND"],
+    "Email": "youth.sandbanks@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {
