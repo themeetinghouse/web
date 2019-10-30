@@ -8,7 +8,7 @@
             "latitude": 44.149035,
             "address": "Gibson Centre, 63 Tupper Street West"
         },
-        "serviceTimes": ["10:00"]
+        "serviceTimes": ["10:30"]
     },
     {
         "id": "sandbanks",
@@ -18,7 +18,8 @@
             "longitude": -77.2674762,
             "latitude": 43.9188665,
             "address": "1901 County Rd 12"
-        }
+        },
+        "serviceTimes": ["10:00"]
     },
     {
         "id": "ancaster",
