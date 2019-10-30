@@ -69,9 +69,7 @@
                 "header1":"Distance Groups",
                 "header2":"",
                 "text1":"Don’t live in a city where there is a Meeting House site? Have you considered starting or joining a Distance Group? A Distance Group is a gathering of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
-                "link1Text": "Find a Distance Group",
-                "link1Action": "distance-groups",
-
+                
                 "list": [
                     {
                         "type":"link",
