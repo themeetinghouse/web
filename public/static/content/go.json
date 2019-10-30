@@ -38,12 +38,7 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Give Now",
-                        "navigateTo": "give"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Pledge",
+                        "title": "Pledge and Give",
                         "navigateTo": "go-pledge"
                     }
                 ],

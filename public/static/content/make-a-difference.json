@@ -16,10 +16,14 @@
         "content": [
             {
                 "type": "hero",
-                "style": "partial",
+                "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/mad-1-1.jpg",
+                        "alt": "TODO"
+                    },
+                    {
+                        "src": "/static/images/mad-1-2.jpg",
                         "alt": "TODO"
                     }
                 ],

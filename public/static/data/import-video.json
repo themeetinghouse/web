@@ -1,0 +1,170 @@
+[
+    {
+        "id": "unlisted",
+        "name": "Unlisted",
+        "columns": [
+            {
+                "id": "episodeTitle",
+                "name": "Episode Name",
+                "type":"String",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "episodeNumber",
+                "name": "Episode Number",
+                "type":"Int",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "publishedDate",
+                "name": "Published Date",
+                "type":"Date",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "seriesTitle",
+                "name": "Series Title",
+                "type":"String",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "description",
+                "name": "Description",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "length",
+                "name": "Length",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "YoutubeIdent",
+                "name": "Youtube ID",
+                "type":"String",
+                "showInTable":true,
+                "showInEditor":true,
+                "readOnly":true
+            },
+            {
+                "id": "series",
+                "name": "Series ID",
+                "type":"Series",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "closedCaptioning",
+                "name": "CC",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            }
+        ]
+    },
+    {
+        "id": "life-story",
+        "name": "Life Story",
+        "columns": [
+            {
+                "id": "episodeTitle",
+                "name": "Episode Name",
+                "type":"String",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "episodeNumber",
+                "name": "Episode Number",
+                "type":"Int",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "publishedDate",
+                "name": "Published Date",
+                "type":"Date",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "seriesTitle",
+                "name": "Series Title",
+                "type":"String",
+                "showInTable":true,
+                "showInEditor":true
+            },
+            {
+                "id": "description",
+                "name": "Description",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "length",
+                "name": "Length",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "YoutubeIdent",
+                "name": "Youtube ID",
+                "type":"String",
+                "showInTable":true,
+                "showInEditor":true,
+                "readOnly":true
+            },
+            {
+                "id": "series",
+                "name": "Series ID",
+                "type":"Series",
+                "showInTable":false,
+                "showInEditor":false
+            },
+            {
+                "id": "closedCaptioning",
+                "name": "CC",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            }
+        ]
+    },
+    {
+        "id": "bbq",
+        "name": "Bruxy's Bag of Questions"
+    },
+    {
+        "id": "adult-sunday",
+        "name": "Sunday Teaching"
+    },
+    {
+        "id": "ky-kids",
+        "name": "Kids"
+    },
+    {
+        "id": "ky-jrhigh",
+        "name": "Jr High"
+    },
+    {
+        "id": "ky-youth",
+        "name": "Youth"
+    },
+    {
+        "id": "ky-srhigh",
+        "name": "Sr High"
+    },
+    {
+        "id": "questions",
+        "name": "Questions"
+    }
+]
