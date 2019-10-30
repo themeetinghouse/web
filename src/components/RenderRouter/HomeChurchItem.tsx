@@ -26,7 +26,7 @@ interface State {
   selectedPlace: any,
   selectedPlaceMarker: any,
   filterLocation: any,
-  mapBounds:any,
+  mapBounds: any,
   listData: any,
   locations: any,
   groupType: any,
@@ -38,8 +38,8 @@ interface State {
 }
 
 export class ContentItem extends React.Component<Props, State>  {
-  
-  dataLoader:DataLoader;
+
+  dataLoader: DataLoader;
 
   constructor(props: Props) {
     super(props);
@@ -49,7 +49,7 @@ export class ContentItem extends React.Component<Props, State>  {
       selectedPlace: null,
       selectedPlaceMarker: null,
       filterLocation: null,
-      mapBounds:null,
+      mapBounds: null,
       listData: null,
       locations: [],
       groupType: [],
@@ -60,10 +60,12 @@ export class ContentItem extends React.Component<Props, State>  {
       }
     }
 
-    this.dataLoader = new DataLoader({...this.props, data: {}, dataLoaded:(data:any)=>{
-      console.log("HomeChurchItem.constructor(): Got locations: %o", data);
-      this.setState({locations: data});
-    }}, { content: { class: "locations" }})    
+    this.dataLoader = new DataLoader({
+      ...this.props, data: {}, dataLoaded: (data: any) => {
+        console.log("HomeChurchItem.constructor(): Got locations: %o", data);
+        this.setState({ locations: data });
+      }
+    }, { content: { class: "locations" } })
     this.dataLoader.loadData();
 
     this.navigate = this.navigate.bind(this);
@@ -73,21 +75,24 @@ export class ContentItem extends React.Component<Props, State>  {
       const f1ListGroupTypes = API.graphql(graphqlOperation(queries.f1ListGroupTypes, {}));
       f1ListGroupTypes.then((json: any) => {
         console.log(json)
-
-        json.data.F1ListGroupTypes.groupTypes.groupType.forEach((item: any) => {
+        json.data.F1ListGroupTypes.groupTypes.groupType.filter((item: any) => {
+          return (item.isWebEnabled === "true")
+        }).forEach((item: any) => {
           const f1ListGroups = API.graphql(graphqlOperation(queries.f1ListGroups, { itemId: item.id }));
 
           f1ListGroups.then((json2: any) => {
             console.log(json2)
-            let unsortedGroups = this.state.groups.concat(json2.data.F1ListGroups.groups.group);
-            geoLocationPromise.then((currentLatLng:any) => {
-              let distanceSorter = (loc1:any, loc2:any) => {
+            let unsortedGroups = this.state.groups.concat(json2.data.F1ListGroups.groups.group.filter((item:any)=>{
+              return (item.isOpen==="true" && item.isSearchable==="true")
+            }));
+            geoLocationPromise.then((currentLatLng: any) => {
+              let distanceSorter = (loc1: any, loc2: any) => {
                 let dist1 = this.calculateDistance(currentLatLng.lat, currentLatLng.lng, +loc1.location.address.latitude || 0, +loc1.location.address.longitude || 0)
                 let dist2 = this.calculateDistance(currentLatLng.lat, currentLatLng.lng, +loc2.location.address.latitude || 0, +loc2.location.address.longitude || 0)
                 return (dist1 < dist2 ? -1 : 1);
               }
               let sortedGroups = unsortedGroups.sort(distanceSorter);
-              this.setState({ groups: sortedGroups});
+              this.setState({ groups: sortedGroups });
             })
           });
         });
@@ -96,7 +101,7 @@ export class ContentItem extends React.Component<Props, State>  {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getGeoLocation();
   }
 
@@ -105,7 +110,7 @@ export class ContentItem extends React.Component<Props, State>  {
       let currentLatLng = this.state.currentLatLng;
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-          console.log(position.coords);          
+          console.log(position.coords);
           currentLatLng = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -121,21 +126,21 @@ export class ContentItem extends React.Component<Props, State>  {
     })
   }
 
-  calculateDistance(lat1:number, lng1:number, lat2:number, lng2:number) {
+  calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
     if ((lat1 === lat2) && (lng1 === lng2)) {
       return 0;
     }
     else {
-      var radlat1 = Math.PI * lat1/180;
-      var radlat2 = Math.PI * lat2/180;
-      var theta = lng1-lng2;
-      var radtheta = Math.PI * theta/180;
+      var radlat1 = Math.PI * lat1 / 180;
+      var radlat2 = Math.PI * lat2 / 180;
+      var theta = lng1 - lng2;
+      var radtheta = Math.PI * theta / 180;
       var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
       if (dist > 1) {
         dist = 1;
       }
       dist = Math.acos(dist);
-      dist = dist * 180/Math.PI;
+      dist = dist * 180 / Math.PI;
       dist = dist * 60 * 1.1515; // Compute in Miles
       dist = dist * 1.609344; // Compute in KM
       return dist;
@@ -149,22 +154,22 @@ export class ContentItem extends React.Component<Props, State>  {
 
   }
 
-  getMarkerClickHandler = (item:any) => (props:any, marker:any) => {
-    this.setState({selectedPlaceMarker: marker, selectedPlace: item});
+  getMarkerClickHandler = (item: any) => (props: any, marker: any) => {
+    this.setState({ selectedPlaceMarker: marker, selectedPlace: item });
   }
 
-  handleSiteSelection = (locationItem:any) => {
+  handleSiteSelection = (locationItem: any) => {
     // Filter the list of home churches by the selected site
     console.log("HomeChurchItem.handleSiteSelection(): locationItem: %o", locationItem);
     var bounds = new this.props.google.maps.LatLngBounds();
-    for (let i=0; i<this.state.groups.length; i++){
+    for (let i = 0; i < this.state.groups.length; i++) {
       let p = { lat: +this.state.groups[i].location.address.latitude, lng: +this.state.groups[i].location.address.longitude };
       console.log("HomeChurchItem.handleSiteSelection(): map bounds point:%o", p);
-      if (p.lat !== 0 && p.lng !== 0){
+      if (p.lat !== 0 && p.lng !== 0) {
         bounds.extend(p);
       }
-    }    
-    this.setState({filterLocation: locationItem, mapBounds: bounds});
+    }
+    this.setState({ filterLocation: locationItem, mapBounds: bounds });
   }
 
   render() {
@@ -187,19 +192,19 @@ export class ContentItem extends React.Component<Props, State>  {
           <div className="HomeChurchItemDiv2">
             <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} bounds={this.state.mapBounds}
               className="HomeChurchItemMap">
-              {this.state.groups != null 
+              {this.state.groups != null
                 ? this.state.groups
-                  .filter((item:any) => {
+                  .filter((item: any) => {
                     return this.state.filterLocation ? item.churchCampus.name === this.state.filterLocation.label : true;
                   })
                   .map((item: any) => {
                     return (<Marker key={item.id} onClick={this.getMarkerClickHandler(item)}
                       position={{ lat: item.location.address.latitude, lng: item.location.address.longitude }} />
                     )
-                  }) 
+                  })
                 : null}
               <InfoWindow marker={this.state.selectedPlaceMarker} visible={true}>
-                { 
+                {
                   this.state.selectedPlace ? (
                     <div>
                       <div className="HomeChurchItemMapInfoWindowDiv1">{this.state.selectedPlace.name}</div>
@@ -207,36 +212,36 @@ export class ContentItem extends React.Component<Props, State>  {
                       <div className="HomeChurchItemMapInfoWindowDiv3">{this.state.selectedPlace.description}</div>
                     </div>
                   ) : <div></div>
-                }           
+                }
               </InfoWindow>
             </Map>
           </div>
           <div className="HomeChurchItemDiv3">
             <div className="HomeChurchItemDiv4" >
-            {<Select onChange={this.handleSiteSelection} placeholder="Select a Meeting House location" className="LocationSelect"
-              options={this.state.locations.map(
-                (item:any) => ({ label:item.name, value:item.id }) ).sort( (a:any,b:any) => a.label.localeCompare(b.label) 
-              )}></Select>}
+              {<Select onChange={this.handleSiteSelection} placeholder="Select a Meeting House location" className="LocationSelect"
+                options={this.state.locations.map(
+                  (item: any) => ({ label: item.name, value: item.id })).sort((a: any, b: any) => a.label.localeCompare(b.label)
+                  )}></Select>}
               {/* <Input placeholder="Current Location" ></Input> */}
               <button className="SundayMorningButton">Driving</button>
               <button className="SundayMorningButton">Transit</button>
               <button className="SundayMorningButton">Bike</button>
             </div>
             <div className="HomeChurchItemListData" >
-              {this.state.groups != null 
+              {this.state.groups != null
                 ? this.state.groups
-                  .filter((item:any) => {
+                  .filter((item: any) => {
                     return this.state.filterLocation ? item.churchCampus.name === this.state.filterLocation.label : true;
                   })
                   .map((item: any) => {
-                    return (item.isPublic?
+                    return (item.isPublic ?
                       <div className="HomeChurchItemDiv5" key={item.id} >
                         <h3 className="HomeChurchH3">{item.name}</h3>
                         <div className="HomeChurchAddress">{item.description}</div>
                         <div className="HomeChurchSiteAffiliation">Affiliated with location: {item.churchCampus.name}</div>
-                      </div>:null
+                      </div> : null
                     )
-                  }) 
+                  })
                 : null}
             </div>
           </div>

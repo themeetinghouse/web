@@ -24,6 +24,24 @@
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1":"All BBQ Videos"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"life-story",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"All Life Stories"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"ky-youth",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Youth"                
             }
             
         ]

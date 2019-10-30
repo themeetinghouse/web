@@ -2,7 +2,7 @@
     {
         "id": "alliston",
         "name": "Alliston",
-        "pastorEmail":"",
+        "pastorEmail":"michael.kotsopoulos@themeetinghouse.com",
         "location": {
             "longitude": -79.870798,
             "latitude": 44.149035,
@@ -13,7 +13,7 @@
     {
         "id": "sandbanks",
         "name": "Sandbanks",
-        "pastorEmail":"",
+        "pastorEmail":"brent.babcock@themeetinghouse.com",
         "location": {
             "longitude": -77.2674762,
             "latitude": 43.9188665,
@@ -46,7 +46,7 @@
     {
         "id": "brantford",
         "name": "Brantford",
-        "pastorEmail":"",
+        "pastorEmail":"Natalie.Frisk@themeetinghouse.com",
         "location": {
             "longitude": -80.278012,
             "latitude": 43.182376,
@@ -89,7 +89,7 @@
     },
     {
         "id": "hamilton-mountain",
-        "name": "Hamilton - Mountain",
+        "name": "Hamilton Mountain",
         "pastorEmail":"Dagmar.Morgan-Sinclair@themeetinghouse.com",
         "location": {
             "longitude": -79.808856,
@@ -123,7 +123,7 @@
     {
         "id": "kitchener",
         "name": "Kitchener",
-        "pastorEmail":"",
+        "pastorEmail":"Mark.Wall@themeetinghouse.com",
         "location": {
             "longitude": -80.387502,
             "latitude": 43.4054,
@@ -189,7 +189,7 @@
     {
         "id": "parry-sound",
         "name": "Parry Sound",
-        "pastorEmail":"",
+        "pastorEmail":"Heidi.Konig@themeetinghouse.com",
         "location": {
             "longitude": -80.036396,
             "latitude": 45.35407,

@@ -183,6 +183,13 @@ export default class ContentItem extends React.Component<Props, State>  {
             <div className="GiveItemNeedHelpEmail"><a className="GiveItemOtherWayButton" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
           </div>
           <div style={{ clear: "both" }}></div>
+          <div className="GiveItemOtherWayGroup">
+            <div className="GiveItemOtherWays">Give To Extended Family</div>
+            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OnlineBanking" }) }}>Alliston</button></div>
+            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OnlineBanking" }) }}>Sandbanks</button></div>
+
+          </div>
+          <div className="GiveItemBottom"></div>
         </form>
 
       </div >)

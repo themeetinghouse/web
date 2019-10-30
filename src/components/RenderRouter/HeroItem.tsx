@@ -2,10 +2,12 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import AddToCalendar from 'react-add-to-calendar';
 import PropTypes from "prop-types";
 import "./HeroItem.scss"
 import Select from 'react-select';
 import DataLoader from './DataLoader';
+import moment from 'moment';
 
 interface Props extends RouteComponentProps {
     content: any
@@ -44,7 +46,21 @@ class HeroItem extends React.Component<Props, State> {
             locationData:this.state.locationData.concat(data)
         })
       }
-
+      getCalendarEventForLocation(locationItem:any){
+        let nextSunday = (moment().day() === 0 ? moment().add(1, "week") : moment().day(0)).startOf("day");
+        let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length-1];
+        serviceHour = serviceHour.substr(0, serviceHour.indexOf(":"));
+        nextSunday = nextSunday.hour(+serviceHour);
+        let event = {
+          title: 'Church at The Meeting House',
+          description: 'Join us at The Meeting House on Sunday!',
+          location: locationItem.location.address,
+          startTime: nextSunday.format(),
+          endTime: moment(nextSunday).add(90, "minutes").format()
+        }
+        return event;
+      }
+    
     locationChange(item:any){
         this.navigateTo(item.value)
     }
@@ -184,8 +200,13 @@ class HeroItem extends React.Component<Props, State> {
                         <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {
                             this.state.content.addToCalendar ?
-                                <Button className="calendarButton"
-                                    onClick={this.navigate}><img className="calendarImage" src="/static/Calendar-white.png" alt="Calendar Icon" />Add To Calendar</Button>
+                            this.state.locationData.length===1? 
+                               <div className="HeroAddToCalendarButtonContainer">
+                                    <img className="SundaMorningIcon" src="/static/Calendar-white.png" alt="Calendar Icon" />                       
+                                    <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(this.state.locationData[0])} ></AddToCalendar>
+                                </div>
+                                        
+                         :null
                          :null
                          }
                         {this.state.content.contactPastor ?

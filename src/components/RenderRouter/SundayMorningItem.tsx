@@ -2,6 +2,7 @@
 import React from 'react';
 import { GoogleApiWrapper } from 'google-maps-react';
 //import {ProviderProps} from 'google-maps-react';
+
 import { Marker } from 'google-maps-react';
 import { Map, InfoWindow } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
@@ -160,7 +161,7 @@ export class ContentItem extends React.Component<Props, State>  {
                 <button className="SundayMorningButton">Bike</button>
               </div>
               <div className="SundayMorningItemListData" >
-                {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
+                {this.state.listData != null ? this.state.listData.sort((a:any,b:any)=>{return a.name>b.name}).map((item: any, index: any) => {
                   return (
                     <div key={item.id} className="SundayMorningItemDiv5" >
                       <div className="SundayMorningItemDiv4" >

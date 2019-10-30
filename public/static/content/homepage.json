@@ -87,7 +87,7 @@
                         "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search our teaching archive for the topic you’re interest in.",
                         "imageSrc": "/static/images/homepage-4-1.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "teaching"
                     },
                     {
                         "title": "Podcasts",
@@ -108,7 +108,7 @@
                         "text": "Through Sunday morning teaching, midweek resources, and a parent blog, the kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
                         "imageSrc": "/static/images/homepage-4-4.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
-                        "navigateTo": "teaching-kids+youth"
+                        "navigateTo": "teaching-kids-youth"
                     }
                 ]
             },

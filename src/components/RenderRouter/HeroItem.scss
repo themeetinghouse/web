@@ -1,4 +1,82 @@
 @media (min-width: 768px) {
+    .HeroAddToCalendarButtonContainer {
+        position: relative;
+        display: inline-block;
+        padding: .75rem 1.25rem;
+       font-family:Graphik Web;
+        color:#ffffff;
+        .SundaMorningIcon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-right: 0;
+            padding-left: 1.25rem;
+            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .react-add-to-calendar__button {
+            font-family: Graphik Web;
+            color: #000000;
+            border-width: 0px;
+            border-radius: 0;
+            font-size: 1vw;
+            text-decoration: underline !important;
+            font-weight:normal;
+            padding-left: 35px;
+            cursor: pointer;
+        }
+        .react-add-to-calendar__dropdown {
+            position: absolute;
+            z-index: 100;
+            top: 48px;
+            background: white;
+           
+            border: 1px solid #000000;
+            padding: 10px 20px 0 20px;  
+            ul {
+                list-style-type: none;
+                padding: 0;
+                font-family: Graphik Web;
+                font-size: 1vw;
+                a {
+                    color: #000000 !important;
+                    vertical-align: middle;
+                }
+                li {
+                    position: relative;
+                    vertical-align: middle;
+                }
+                a::before {
+                    width: 15px;
+                    height: 15px;
+                    vertical-align: middle;
+                    background-size: contain;
+                    background-position-y: center;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    content: "";
+                    margin: 5px 5px 8px 0;
+
+                }
+                a.apple-link::before {
+                    background-image: url("/static/svg/Apple.svg");
+                }
+                a.outlook-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.outlookcom-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.yahoo-link::before {
+                    background-image: url("/static/svg/Yahoo.svg");
+                }
+                a.google-link::before {
+                    background-image: url("/static/svg/Google.svg");
+                }
+            }
+        }
+    }
     #mc_embed_signup {
         clear: left;
         font: 14px Helvetica, Arial, sans-serif;
@@ -129,7 +207,7 @@
         margin-right: 0;
         margin-top: 1.5vw;
         margin-bottom: 1.5vw;
-        width: 8.55vw;
+        width: 3vw;
         background-color: #ffffff;
     }
 
@@ -277,10 +355,14 @@
         border: 0px;
     }
     .calendarButton {
-        font-family: Graphik Web; font-size: 1vw;
+        font-family: Graphik Web !important; 
+        font-size: 1vw !important;
         margin-top: 1vw;
-        color: #ffffff; background-color: #000000;
-        border-width: 0; border-radius: 0;
+        color: #ffffff; 
+        background-color: #000000 !important;
+        border-width: 0 !important;
+        border-radius: 0;
+        text-decoration: underline !important;
     }
     .calendarImage {
         margin-right: 5px;
@@ -306,6 +388,83 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .HeroAddToCalendarButtonContainer {
+        position: relative;
+        display: inline-block;
+        padding: .75rem 1.25rem;
+       font-family:Graphik Web;
+        color:#ffffff;
+        .SundaMorningIcon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-right: 0;
+            padding-left: 1.25rem;
+            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .react-add-to-calendar__button {
+            font-family: Graphik Web;
+            color: #000000;
+            border-width: 0px;
+            border-radius: 0;
+            font-size: 1vw;
+            text-decoration: underline !important;
+            font-weight:normal;
+            padding-left: 35px;
+            cursor: pointer;
+        }
+        .react-add-to-calendar__dropdown {
+            position: absolute;
+            z-index: 100;
+            top: 48px;
+            background: white;
+            border: 1px solid #000000;
+            padding: 10px 20px 0 20px;  
+            ul {
+                list-style-type: none;
+                padding: 0;
+                font-family: Graphik Web;
+                font-size: 1vw;
+                a {
+                    color: #000000 !important;
+                    vertical-align: middle;
+                }
+                li {
+                    position: relative;
+                    vertical-align: middle;
+                }
+                a::before {
+                    width: 15px;
+                    height: 15px;
+                    vertical-align: middle;
+                    background-size: contain;
+                    background-position-y: center;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    content: "";
+                    margin: 5px 5px 8px 0;
+
+                }
+                a.apple-link::before {
+                    background-image: url("/static/svg/Apple.svg");
+                }
+                a.outlook-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.outlookcom-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.yahoo-link::before {
+                    background-image: url("/static/svg/Yahoo.svg");
+                }
+                a.google-link::before {
+                    background-image: url("/static/svg/Google.svg");
+                }
+            }
+        }
+    }
     #mc_embed_signup {
         clear: left;
         font: 14px Helvetica, Arial, sans-serif;
@@ -417,7 +576,7 @@
         margin-right: 0;
         margin-top: 1.5vw;
         margin-bottom: 1.5vw;
-        width: 8.55vw;
+        width: 3vw;
         background-color: #ffffff;
     }
 
@@ -585,11 +744,16 @@
         border: 0px;
     }
     .calendarButton {
-        font-family: Graphik Web; font-size: 1vw;
+        font-family: Graphik Web !important; 
+        font-size: 1vw !important;
         margin-top: 1vw;
-        color: #ffffff; background-color: #000000;
-        border-width: 0; border-radius: 0;
+        color: #ffffff; 
+        background-color: #000000 !important;
+        border-width: 0 !important;
+        border-radius: 0;
+        text-decoration: underline !important;
     }
+    
     .calendarImage {
         margin-right: 5px;
     }
@@ -614,6 +778,83 @@
 }
 
 @media (max-width: 767px) {
+    .HeroAddToCalendarButtonContainer {
+        position: relative;
+        display: inline-block;
+        padding: .75rem 1.25rem;
+       font-family:Graphik Web;
+        color:#ffffff;
+        .SundaMorningIcon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-right: 0;
+            padding-left: 1.25rem;
+            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .react-add-to-calendar__button {
+            font-family: Graphik Web;
+            color: #000000;
+            border-width: 0px;
+            border-radius: 0;
+            font-size: 1vw;
+            text-decoration: underline !important;
+            font-weight:normal;
+            padding-left: 35px;
+            cursor: pointer;
+        }
+        .react-add-to-calendar__dropdown {
+            position: absolute;
+            z-index: 100;
+            top: 48px;
+            background: white;
+            border: 1px solid #000000;
+            padding: 10px 20px 0 20px;  
+            ul {
+                list-style-type: none;
+                padding: 0;
+                font-family: Graphik Web;
+                font-size: 1vw;
+                a {
+                    color: #000000 !important;
+                    vertical-align: middle;
+                }
+                li {
+                    position: relative;
+                    vertical-align: middle;
+                }
+                a::before {
+                    width: 15px;
+                    height: 15px;
+                    vertical-align: middle;
+                    background-size: contain;
+                    background-position-y: center;
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    content: "";
+                    margin: 5px 5px 8px 0;
+
+                }
+                a.apple-link::before {
+                    background-image: url("/static/svg/Apple.svg");
+                }
+                a.outlook-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.outlookcom-link::before {
+                    background-image: url("/static/svg/Outlook.svg");
+                }
+                a.yahoo-link::before {
+                    background-image: url("/static/svg/Yahoo.svg");
+                }
+                a.google-link::before {
+                    background-image: url("/static/svg/Google.svg");
+                }
+            }
+        }
+    }
     #mc_embed_signup {
         clear: left;
         font: 14px Helvetica, Arial, sans-serif;
@@ -857,14 +1098,16 @@
     .emailInput{
         border: 0px;
     }
+    
     .calendarButton {
-        font-family: Graphik Web;
-        font-size: 1vw;
+        font-family: Graphik Web !important; 
+        font-size: 1vw !important;
         margin-top: 10vw;
-        color: #ffffff;
-        background-color: #000000;
-        border-width: 0;
+        color: #ffffff; 
+        background-color: #000000 !important;
+        border-width: 0 !important;
         border-radius: 0;
+        text-decoration: underline !important;
     }
     .calendarImage {
         margin-right: 5px;

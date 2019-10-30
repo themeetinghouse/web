@@ -33,6 +33,7 @@ export default class ContentItem extends React.Component<Props, State>  {
     var targetValue = e.target.value
     this.search(targetValue, null)
   }
+  
   search(e: any, nextId: any) {
 
     console.log(e)
@@ -52,9 +53,17 @@ export default class ContentItem extends React.Component<Props, State>  {
   openVideo(item: any) {
     console.log(item)
   }
+  
+  
+  
   render() {
+    const focusInputField = (input:any) => {
+      if (input) {
+        setTimeout(() => {input.focus()}, 100);
+      }
+    };
     return (<div className="SearchItem" >
-      <input className="SearchItemInput" onChange={(e: any) => { this.doSearch(e) }} placeholder="Search"></input>
+      <input className="SearchItemInput" autoFocus={true} ref={focusInputField} onChange={(e: any) => { this.doSearch(e) }} placeholder="Search"></input>
       <div className="SearchItemDiv">Results:
       <div>
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {

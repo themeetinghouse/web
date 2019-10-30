@@ -9,11 +9,14 @@
     padding: 1px 1px 1px 1px;
 }
 @media (min-width:768px) {
-    .search{
+    .search{ 
         height:4vw;
-        left:96vw;
+        left:95vw;
         position:absolute;
         z-index:100;
+        background-color: #ffffff00;
+        cursor:pointer;
+        margin-top:0.5vw;
     }
     .navbar-toggler {
         padding:0!important;
@@ -167,11 +170,14 @@
       }
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .search{
+    .search{ 
         height:4vw;
-        left:96vw;
+        left:95vw;
         position:absolute;
         z-index:100;
+        background-color: #ffffff00;
+        cursor:pointer;
+        margin-top:0.5vw;
     }
     .logoHouse{
         height: 4vw;
@@ -271,6 +277,9 @@
         position:absolute;
         z-index:100;
         top: 5.6vw;
+        background-color: #ffffff;
+        cursor:pointer;
+
     }
     .navbar-brand{
         padding-top:0!important;
