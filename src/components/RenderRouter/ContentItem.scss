@@ -310,7 +310,8 @@
     }
 
     .secondImg {
-      top: 125vw;
+      // top: 125vw;
+      margin-top: 32vw;
     }
 
     .oneImageGreyBox {
@@ -324,7 +325,7 @@
         background-color: #EFEFF0;
     }
     .oneImageBlackBox{
-        // margin-top:20vw;
+        margin-top: 120vw;
         padding: 6vw;
         padding-top: 20vw;
         position: relative;
@@ -332,7 +333,7 @@
         //height: 175vw;
         padding-bottom:65vw;
         left: 0vw;
-        top: 0vw;
+        top: 48vw;
         background-color: #000000;
     }
 
