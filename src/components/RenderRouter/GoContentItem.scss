@@ -98,7 +98,8 @@
     }
     .GoContentH1{
         font-family:Graphik Web;
-        font-size:2vw;
+        font-size: 6.4vw;
+        line-height: 8.55vw;
         font-weight:bold;
     }
     .GoContentH2{
@@ -108,12 +109,13 @@
     }
     .GoContentSubH1{
         font-family:Graphik Web;
-        font-size:1.5vw;
+        font-size: 6.4vw;
+        line-height: 8.55vw;
         font-weight:bold;
     }
     .GoContentSubH2{
         font-family:Graphik Web;
-        font-size:4vw;
+        font-size:5vw;
         font-weight:bold;
     }
     .GoContentButton{
@@ -122,13 +124,23 @@
         color:#ffffff;
         background-color:#000000;
         border-color:#ffffff;
+        width: 100%;
+        margin-bottom: 2.5vw;
 
     }
     .GoContentSubItems{
-        width:30vw;
+        width:100%;
         float:left;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
     }
     .GoContentClear{
         clear:left;
+    }
+
+    .GoContentItem {
+    width: 100%!important;
+    left: 0!important;
+    padding: 10vw 6vw 5vw;
     }
 }
