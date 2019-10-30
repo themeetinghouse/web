@@ -71,14 +71,9 @@
         "location": {
             "longitude": -79.8702504,
             "latitude": 43.26213,
-<<<<<<< HEAD
             "address": "130 Victoria Avenue North"
-        }
-=======
-            "address": "The Meeting House Downtown Hamilton, 130 Victoria Avenue North"
         },
         "serviceTimes": ["10:00"]
->>>>>>> 3814e8e5ab0ff7a574747545348498f91fd5bdb2
     },
     {
         "id": "toronto-downtown",
@@ -109,14 +104,9 @@
         "location": {
             "longitude":-79.3166538,
             "latitude": 43.6664844,
-<<<<<<< HEAD
             "address": "The Beach Cinemas, 1651 Queen Street East"
-        }
-=======
-            "address": "The Beach Alliance Theatre, 1651 Queen Street East"
         },
         "serviceTimes": ["10:00"]
->>>>>>> 3814e8e5ab0ff7a574747545348498f91fd5bdb2
     },
     {
         "id": "toronto-high-park",
@@ -125,14 +115,9 @@
         "location": {
             "longitude": -79.4744334,
             "latitude": 43.6578297,
-<<<<<<< HEAD
             "address": "125 Evelyn Crescent"
-        }
-=======
-            "address": "The Meeting House High Park, 125 Evelyn Crescent"
         },
         "serviceTimes": ["10:00"]
->>>>>>> 3814e8e5ab0ff7a574747545348498f91fd5bdb2
     },
     {
         "id": "kitchener",
