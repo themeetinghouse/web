@@ -1030,9 +1030,10 @@
         left: 0vw;
         width: 100vw;
         // height: 65vh;
-        top: 60vh;
+        top: 0;
         z-index: 100;
         padding: 10vw 6vw 10vw 6vw;
+        margin-top: 75vw;
     }
 
     .heroButton {
@@ -1129,5 +1130,6 @@
         width: 100vw;
         height: 75vw;
         top: 3vw;
+        margin-bottom: 100vw;
     }
 }
