@@ -40,8 +40,15 @@
                 "style": "greyTwoText",
                 "header1":"What We Believe",
                 "header2":"",
-                "text1":"We belong to a denomination called Be In Christ Church of Canada, with roots in the Anabaptist and Wesleyan traditions that value simplicity, peacemaking, and living out the teaching of Jesus in daily life.  For a detailed list and description of our doctrinal statements, please visit http://www.canadianbic.ca/about-us/."
-            
+                "text1":"We belong to a denomination called Be In Christ Church of Canada, with roots in the Anabaptist and Wesleyan traditions that value simplicity, peacemaking, and living out the teaching of Jesus in daily life.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "BIC Doctrinal Statements",
+                        "navigateTo": "http://www.canadianbic.ca/about-us/",
+                        "openNewBrowser":true
+                    }
+                ]
             },
 
             {
@@ -57,23 +64,33 @@
                 "style": "vertical",
                 "class": "overseers",
                 "header1": "Overseers",
-                "text1": "Overseers are a group of Elders selected to represent and oversee the entire ministry of The Meeting House. Our senior staff report to this team, and they focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community.."
+                "text1": "Overseers are a group of Elders selected to represent and oversee the entire ministry of The Meeting House. Our senior staff report to this team, and they focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community."
                 
             },
             {
-                "type": "list",
-                "style": "imageList",
+                "type": "content",
+                "style": "oneImage",
                 "header1": "Careers",
+            
                 "list": [
                     {
-                        "title": "Job1",
-                        "text": "Job 1 - Description",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Job 1",
+                        "navigateTo": "pdf.pdf",
+                        "openNewBrowser":true
                     },
                     {
-                        "title": "Job2",
-                        "text": "Job 2 - Description",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Job 2",
+                        "navigateTo": "pdf.pdf",
+                        "openNewBrowser":true
+                    }
+                ],
+
+                "image1": [
+                    {
+                        "src": "/static/images/homepage-2.jpg",
+                        "alt": "Group of friends from church sitting together and talking."
                     }
                 ]
             },
@@ -133,7 +150,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1":"Jesus Collective",
-                "text1":"We’re a group of Jesus followers who believe the time is right to unite, equip, and amplify a movement that is all about Jesus. We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement, develop and support future-ready leaders, and equip more churches to make more disciples in a post-Christian context.",
+                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
                 "list": [
                     {
                         "type":"link",

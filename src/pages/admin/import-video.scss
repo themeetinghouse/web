@@ -1,0 +1,82 @@
+.dropdown {
+    width: 20vw;
+    display: inline-block;
+    margin: 1px;
+    padding: 1px;
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.adminButton {
+    padding: 1px;
+    margin: 1px;
+    font-size: 10px;
+    border-color: #ffffff;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #000000;
+    width: 100%;
+}
+.youtubeFrame{
+    width:100%;
+}
+.youtubeBox{
+    background-color:#000000;
+}
+.videoSelectBox{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+}
+.divTable {
+    background-color: #eee;
+    border: 1px solid #666666;
+    border-spacing: 5px;
+    font-size: 10px;
+    height:20vh;
+    overflow:auto;
+    width:70vw;
+    margin:0;
+}
+
+.divRow {
+    font-size: 10px;
+
+}
+
+
+.divCell {
+    font-size: 10px;
+    padding:1px;
+}
+tr:hover {
+    background-color: #ffff99;
+    cursor: pointer;
+  }
+table thead tr{
+    display:block;
+}
+
+table th,table td{
+    width:100px;//fixed width
+}
+
+.divCellEditor{
+    width:400px;
+    margin:1px;
+    padding:1px;
+}
+table  tbody{
+  display:block;
+  height:200px;
+  overflow:auto;//set tbody to auto
+}
+
+.textEditor{
+    font-size:10px;
+    margin:1px;
+    padding:1px;
+}

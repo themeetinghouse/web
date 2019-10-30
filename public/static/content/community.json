@@ -16,7 +16,7 @@
         "content": [
             {
                 "type": "hero",
-                "style": "partial",
+                "style": "full",
                 "image1": [
                     {
                         "src": "/static/images/community-1.jpg",
@@ -66,21 +66,21 @@
                 "list": [
                     {
                         "title": "Sunday Morning",
-                        "text": "We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of a people with a purpose. Planning on joining us this Sunday but aren’t sure what to expect?",
+                        "text": "Planning on joining us this Sunday but aren’t sure what to expect? We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of a people with a purpose.",
                         "imageSrc": "/static/images/community-3-1.jpg",
                         "imageAlt": "TODO",
                         "navigateTo": "sunday-morning"
                     },
                     {
                         "title": "Home Church",
-                        "text": "During the week, we meet in homes to further study and apply Sunday’s teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this home church—and it’s kind of the best thing we’ve got going.",
+                        "text": "During the week, we meet in homes to further study and apply Sunday’s teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it’s kind of the best thing we’ve got going.",
                         "imageSrc": "/static/images/community-3-2.jpg",
                         "imageAlt": "TODO",
                         "navigateTo": "home-church"
                     },
                     {
                         "title": "Kids & Youth",
-                        "text": "We work together to create a safe environment where our kids and youth can learn to love and follow Jesus. Kidmax is our Sunday morning children’s program for infants to grade 5, and runs in tandem with our Sunday morning service. For students grades 6 to 12, our youth program includes both a Sunday morning portion and a midweek gathering. Learn more about our programs, curriculum, and how to register.",
+                        "text": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. Learn more about our programs.",
                         "imageSrc": "/static/images/community-3-3.jpg",
                         "imageAlt": "TODO",
                         "navigateTo": "kids+youth"

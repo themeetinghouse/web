@@ -127,7 +127,9 @@ renderList(){
       return (
         <div className="ContentItem greyTwoText">
               <div className="greyTwoTextH1" >{this.state.content.header1}</div>
-              <div className="greyTwoTextText" >{this.state.content.text1}</div>
+              <div className="greyTwoTextText" >{this.state.content.text1}
+              {this.renderList()}
+              </div>
               <div className="greyTwoClear"></div>
 
         </div>

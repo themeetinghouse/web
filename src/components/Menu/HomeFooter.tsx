@@ -27,11 +27,11 @@ export default class HomeFooter extends React.Component {
             <MDBCol md="6">
               <p className="HomeFooterP" style={{ lineHeight: "16px", fontSize: "12px", fontFamily:"Graphik Web", color: "#1A1A1A" }}>
                 <b>Main Office</b><br />
-                2700 Bristol Circle<br />
+                <a href="https://www.google.com/maps/place/The+Meeting+House+Oakville/@43.5114145,-79.6860044,18.75z/data=!4m13!1m7!3m6!1s0x882b43061295ed3d:0x6c6d4c16d7ec8f0e!2s2700+Bristol+Cir,+Oakville,+ON+L6H+6E1!3b1!8m2!3d43.5111738!4d-79.685115!3m4!1s0x882b430685cd3af1:0xd4bac54f4e0dde88!8m2!3d43.5112168!4d-79.6853386"  rel="noopener noreferrer" target="_blank">2700 Bristol Circle</a><br />
                 Oakville, ON L6H 6E1<br />
                 Canada<br /><br />
                 <b>Phone</b><br />
-                905-287-7000<br /><br />
+                <a href="tel:+1-905-287-7000">905-287-7000</a><br /><br />
                 <b>Email</b><br />
                 <a className="HomeFooterA" href="mailto:hello@themeetinghouse.com" style={{ color: "#1A1A1A" }}>hello@themeetinghouse.com</a></p>
             </MDBCol>

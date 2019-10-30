@@ -22,14 +22,14 @@
                 "list": [
                     {
                         "title": "The Meeting House Podcast",
-                        "text": "Join us each week for The Meeting House Podcast where we explore what it means to be a Christ-Follower. Subscribe through iTunes.",
+                        "text": "Join us each week for The Meeting House Podcast where we explore what it means to be a Christ-follower. Subscribe through iTunes or Spotify.",
                         "imageSrc": "/static/photos/podcasts/audio.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
                         "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=102719807"
                     },
                     {
                         "title": "The After Party",
-                        "text": "Taking Sunday messages and concepts into extended conversations.",
+                        "text": "Because the fun doesn't stop after Sunday morning. Join us as we dig deeper into various topics and ask the experts. ",
                         "imageSrc": "/static/photos/podcasts/afterparty.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
                         "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=215990014"
@@ -43,7 +43,7 @@
                     },
                     {
                         "title": "The Meeting House Video Podcast",
-                        "text": "Join us each week for The Meeting House Video Podcast where we explore what it means to be a Christ-Follower. Subscribe through iTunes Podcast, or visit our Youtube channel for more recent messages...",
+                        "text": "Join us each week for The Meeting House Video Podcast where we explore what it means to be a Christ-follower. Subscribe through iTunes or Spotify, or visit our Youtube channel for more recent messages...",
                         "imageSrc": "/static/photos/podcasts/video.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
                         "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=143889873"

@@ -19,7 +19,7 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/locations-1-1.jpg",
                         "alt": "TODO"
                     }
                 ],
@@ -48,7 +48,7 @@
                 "style": "oneImage",
                 "header1":"Home Church",
                 "header2":"",
-                "text1":"We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life as we invite others to join us. That’s why we meet during the week in homes to develop relationships, further study and apply Sunday’s teaching, and care for our neighbourhoods. ",
+                "text1":" During the week, we meet in homes to further study and apply Sunday's teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this home church—and it's kind of the best thing we've got going.  ",
                
                 "list": [
                     {
@@ -58,7 +58,7 @@
                     }
                 ],
                 "image1":[{
-                    "src":"/static/images/TODO.jpg",
+                    "src":"/static/images/community-3-2.jpg",
                     "alt":"TODO"
                 }]
 
@@ -68,7 +68,7 @@
                 "style": "oneImage",
                 "header1":"Distance Groups",
                 "header2":"",
-                "text1":"Don’t live in a city where there is a Meeting House site? Have you considered starting or joining a Distance Group? A Distance Group is a gathering of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
+                "text1":"Don’t live in a city where there is a Meeting House site? A Distance Group is a gathering of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
                 
                 "list": [
                     {
@@ -88,7 +88,7 @@
                 "style": "oneImage",
                 "header1":"Jesus Collective",
                 "header2":"",
-                "text1":"TODO",
+                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
 
                 "list": [
                     {

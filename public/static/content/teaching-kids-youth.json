@@ -107,7 +107,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Curriculum?",
-                "text1": "Interested in using our curriculum at your church? Please take a look at our dedicated site for information on crafts, questions and content!",
+                "text1": "Interested in using our curriculum? Visit our dedicated site for Sunday morning teaching, midweek resources, and the parent blog. ",
             
                 "list": [
                     {
@@ -120,7 +120,7 @@
 
                 "image1": [
                     {
-                        "src": "/static/images/homepage-2.jpg",
+                        "src": "/static/images/teach-ky-1.jpg",
                         "alt": "Group of friends from church sitting together and talking."
                     }
                 ]

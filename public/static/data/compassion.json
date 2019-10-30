@@ -342,7 +342,6 @@
         "sites": ["parry-sound"],
         "name": "The HUB",
         "description": "The HUB is government assisted housing that shares the same property as the Parry Sound site. The site is intentional in building relationship with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives",
-        "website": "N/A",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -351,7 +350,6 @@
         "sites": ["richmond-hill"],
         "name": "Spaghetti Dinners",
         "description": "The Richmond Hill site organizes community spaghetti dinners open to the public for 150 people monthly at the McConaghy Centre.",
-        "website": "N/A",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },

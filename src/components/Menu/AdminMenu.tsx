@@ -78,7 +78,7 @@ export default class Menu extends React.Component<Props, State> {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
+{/*              <NavItem>
                 <NavLink href="/admin/videos">Videos</NavLink>
               </NavItem>
               <NavItem>
@@ -113,6 +113,9 @@ export default class Menu extends React.Component<Props, State> {
               </NavItem>
               <NavItem>
                 <NavLink href="/admin/import-kids">Import Kids</NavLink>
+</NavItem>*/}
+              <NavItem>
+                <NavLink href="/admin/import-video">Import Video</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/themeetinghouse">GitHub</NavLink>

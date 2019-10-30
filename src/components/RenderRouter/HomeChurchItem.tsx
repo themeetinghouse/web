@@ -159,7 +159,7 @@ export class ContentItem extends React.Component<Props, State>  {
   }
 
   handleSiteSelection = (locationItem: any) => {
-    // Filter the list of home churches by the selected site
+    // Filter the list of Home Churches by the selected site
     console.log("HomeChurchItem.handleSiteSelection(): locationItem: %o", locationItem);
     var bounds = new this.props.google.maps.LatLngBounds();
     for (let i = 0; i < this.state.groups.length; i++) {
