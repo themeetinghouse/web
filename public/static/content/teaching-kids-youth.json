@@ -108,8 +108,16 @@
                 "style": "oneImage",
                 "header1": "Curriculum?",
                 "text1": "Interested in using our curriculum at your church? Please take a look at our dedicated site for information on crafts, questions and content!",
-                "link1Text": "Kids & Youth Curriculum",
-                "link1Action": "http://kidsandyouth.themeetinghouse.com",
+            
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Kids & Youth Curriculum",
+                        "navigateTo": "http://kidsandyouth.themeetinghouse.com",
+                        "openNewBrowser":true
+                    }
+                ],
+
                 "image1": [
                     {
                         "src": "/static/images/homepage-2.jpg",

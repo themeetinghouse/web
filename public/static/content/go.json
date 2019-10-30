@@ -35,10 +35,19 @@
                 "header1":"It's how we love people.",
                 "header2":"",
                 "text1":"The Go Campaign is our opportunity to engage people, in our local neighbourhoods and around the world, who have never meaningfully encountered the good news of Jesus, in new and innovative ways.",
-                "link1Text": "Give Now",
-                "link1Action": "give",
-                "link2Text": "Pledge",
-                "link2Action": "go-pledge",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Give Now",
+                        "navigateTo": "give"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Pledge",
+                        "navigateTo": "go-pledge"
+                    }
+                ],
+               
                 "image1":[{
                     "src":"/static/images/Go-2.jpg",
                     "alt":"TODO"

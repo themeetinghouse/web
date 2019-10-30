@@ -21,8 +21,13 @@
                 "header1": "Why We Volunteer",
                 "header2": "",
                 "text1": "TODO",
-                "link1Text": "Watch",
-                "link1Action": "?",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Watch",
+                        "navigateTo": "TODO"
+                    }
+                ],
                 "image1": [
                     {
                         "src": "/static/images/volunteering-1.jpg",
@@ -100,8 +105,15 @@
                 "header1": "Let’s do this",
                 "header2": "",
                 "text1": "If you’re looking to serve your church family according to the gifts God has given you, and to take part in what God is doing in your community, let us know a little bit about yourself and someone will be in touch shortly.",
-                "link1Text": "Submit Form",
-                "link1Action": "volunteer",
+            
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Submit Form",
+                        "navigateTo": "volunteer"
+                    }
+                ],
+
                 "image1": [
                     {
                         "src": "/static/images/volunteering-4.jpg",

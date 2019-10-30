@@ -22,7 +22,16 @@ export default class ContentItem extends React.Component<Props, State>  {
     else
      return "https://beta.themeetinghouse.com/cache/"+size
 }
-
+renderList(){
+  return this.state.content.list?
+    this.state.content.list.map((item:any)=>{
+      return (<div>{item.openNewBrowser?
+       <a className="oneImageA" target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a>:
+       <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
+      }</div>)
+    })
+    :null
+}
   render() {
     var image1 
     if (this.state.content.image1!=null)
@@ -36,7 +45,7 @@ export default class ContentItem extends React.Component<Props, State>  {
               <h1 className="oneImageH1" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2">{this.state.content.header2}</h2>
               <div className="oneImageText" >{this.state.content.text1}</div>
-              <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+             {this.renderList()}
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
@@ -65,7 +74,7 @@ export default class ContentItem extends React.Component<Props, State>  {
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
               <div className="oneImageText white" >{this.state.content.text1}</div>
-              <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+              {this.renderList()}
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
@@ -94,7 +103,7 @@ export default class ContentItem extends React.Component<Props, State>  {
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
               <div className="oneImageText white" >{this.state.content.text1}</div>
-              <a className="oneImageA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+              {this.renderList()}
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage right secondImg"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+

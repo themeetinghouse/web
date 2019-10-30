@@ -26,8 +26,14 @@
                 "header1":"Distance Groups",
                 "header2":"",
                 "text1":"Connect with people in your area on facebook",
-                "link1Text": "Distance Groups Facebook Page",
-                "link1Action": "https://www.facebook.com/groups/tmhdistancegroups/",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Distance Groups Facebook Page",
+                        "navigateTo": "https://www.facebook.com/groups/tmhdistancegroups/",
+                        "openNewBrowser":true
+                    }
+                ],
                 "image1":[{
                     "src":"/static/images/TODO.jpg",
                     "alt":"TODO"
