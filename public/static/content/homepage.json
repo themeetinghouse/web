@@ -52,8 +52,14 @@
                 "style": "oneImage",
                 "header1": "Loneliness Sucks",
                 "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbourhoods?",
-                "link1Text": "Find community",
-                "link1Action": "community",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Find community",
+                        "navigateTo": "community"
+                    }
+                ],
+              
                 "image1": [
                     {
                         "src": "/static/images/homepage-2.jpg",
@@ -67,8 +73,14 @@
                 "header1": "Go Campaign",
                 "header2": "",
                 "text1": "We're our best selves when we don’t make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
-                "link1Text": "Let's Do This",
-                "link1Action": "go",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Let's Do This",
+                        "navigateTo": "go"
+                    }
+                ],
+              
                 "image1": [
                     {
                         "src": "/static/images/homepage-3.jpg",
@@ -87,7 +99,7 @@
                         "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search our teaching archive for the topic you’re interest in.",
                         "imageSrc": "/static/images/homepage-4-1.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "teaching"
                     },
                     {
                         "title": "Podcasts",
@@ -108,7 +120,7 @@
                         "text": "Through Sunday morning teaching, midweek resources, and a parent blog, the kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
                         "imageSrc": "/static/images/homepage-4-4.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
-                        "navigateTo": "teaching-kids+youth"
+                        "navigateTo": "teaching-kids-youth"
                     }
                 ]
             },
@@ -127,12 +139,25 @@
                 "header1": "Make a Difference",
                 "header2": "",
                 "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?",
-                "link1Text": "Volunteering",
-                "link1Action": "volunteering",
-                "link2Text": "Compassion",
-                "link2Action": "compassino",
-                "link3Text": "Giving",
-                "link3Action": "giving",
+               
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Volunteering",
+                        "navigateTo": "volunteering"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Compassion",
+                        "navigateTo": "compassion"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Giving",
+                        "navigateTo": "giving"
+                    }
+                ],
+              
                 "image1": [
                     {
                         "src": "/static/images/homepage-6.jpg",

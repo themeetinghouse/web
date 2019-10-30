@@ -21,8 +21,13 @@
                 "header1":"Coming Soon",
                 "header2":"",
                 "text1":"TODO",
-                "link1Text": "....",
-                "link1Action": "homepage",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "...",
+                        "navigateTo": "homepage"
+                    }
+                ],
                 "image1":[{
                     "src":"/static/images/TODO.jpg",
                     "alt":"TODO"
@@ -35,8 +40,14 @@
                 "header1":"Coming Soon",
                 "header2":"",
                 "text1":"TODO",
-                "link1Text": "....",
-                "link1Action": "homepage",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "...",
+                        "navigateTo": "homepage"
+                    }
+                ],
+              
                 "image1":[{
                     "src":"/static/images/TODO.jpg",
                     "alt":"TODO"

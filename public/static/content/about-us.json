@@ -89,18 +89,22 @@
                 }],
                 "list": [
                     {
+                        "type":"arrow",
                         "title": "Annual Reports",
                         "navigateTo": "jobs.pdf"
                     },
                     {
+                        "type":"arrow",
                         "title": "Position Statements",
                         "navigateTo": "jobs.pdf"
                     },
                     {
+                        "type":"arrow",
                         "title": "Policies",
                         "navigateTo": "jobs.pdf"
                     },
                     {
+                        "type":"arrow",
                         "title": "Be in Christ (BIC)",
                         "navigateTo": "jobs.pdf"
                     }
@@ -112,8 +116,14 @@
                 "header1":"Oakville Rentals",
                 "header2":"",
                 "text1":"Looking for a space for your next event? Our Oakville facility is available for rentals. Visit our rentals website for more information.",
-                "link1Text": "Rentals",
-                "link1Action": "http://www.tmhrentals.com/",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Rentals",
+                        "navigateTo": "http://www.tmhrentals.com/",
+                        "openNewBrowser":true
+                    }
+                ],
                 "image1":[{
                     "src":"/static/images/about-us-3.jpg",
                     "alt":"Man playing Bass guitar during worship"
@@ -124,8 +134,14 @@
                 "style": "oneImage",
                 "header1":"Jesus Collective",
                 "text1":"We’re a group of Jesus followers who believe the time is right to unite, equip, and amplify a movement that is all about Jesus. We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement, develop and support future-ready leaders, and equip more churches to make more disciples in a post-Christian context.",
-                "link1Text": "Jesus Collective",
-                "link1Action": "http://www.jesuscollective.com/",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Jesus Collective",
+                        "navigateTo": "http://www.jesuscollective.com/",
+                        "openNewBrowser":true
+                    }
+                ],
                 "image1":[{
                     "src":"/static/images/about-us-5.png",
                     "alt":"Jesus Collective Logo"

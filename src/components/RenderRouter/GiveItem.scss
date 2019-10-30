@@ -2,21 +2,24 @@
   .GiveFormId {
     border: 0px;
     width: 60vw;
-}
+  }
+
   .GiveItemH1 {
     color: #ffffff;
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 3vw;
   }
-.GiveButton{
-  font-family: Graphik Web !important;
-  font-weight: bold !important;
-  color:#ffffff !important;
-  background-color:#000000 !important;
-  border-color:#ffffff !important;
-  border-radius:0px !important;
-}
+
+  .GiveButton {
+    font-family: Graphik Web !important;
+    font-weight: bold !important;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+    border-radius: 0px !important;
+  }
+
   .GiveItemH2 {
     color: #ffffff;
     font-family: Graphik Web;
@@ -42,6 +45,10 @@
     width: 8.55vw;
     background-color: #ffffff;
 
+  }
+
+  .GiveItemBottom {
+    height: 15vw;
   }
 
   .GiveItemOtherWayButton {
@@ -100,7 +107,7 @@
     float: left;
     font-size: 1vw;
     margin-right: 1vw;
-    margin-bottom: 5vw;
+    margin-bottom: 2vw;
   }
 
   .GiveItemNeedHelpEmail {
@@ -108,7 +115,7 @@
     color: #ffffff;
     float: left;
     font-size: 1vw;
-    margin-bottom: 5vw;
+    margin-bottom: 2vw;
   }
 
   .GiveItemOtherWayGroup {
@@ -133,7 +140,7 @@
   .GiveFormId {
     border: 0px;
     width: 60vw;
-}
+  }
 
   .GiveItemH1 {
     color: #ffffff;
@@ -141,14 +148,16 @@
     font-weight: bold;
     font-size: 3vw;
   }
-  .GiveButton{
+
+  .GiveButton {
     font-family: Graphik Web !important;
     font-weight: bold !important;
-    color:#ffffff !important;
-    background-color:#000000 !important;
-    border-color:#ffffff !important;
-    border-radius:0px !important;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+    border-radius: 0px !important;
   }
+
   .GiveItemH2 {
     color: #ffffff;
     font-family: Graphik Web;
@@ -210,7 +219,11 @@
     float: left;
     font-size: 1vw;
     margin-right: 1vw;
-    margin-bottom: 5vw;
+    margin-bottom: 2vw;
+  }
+
+  .GiveItemBottom {
+    height: 15vw;
   }
 
   .GiveItemNeedHelpEmail {
@@ -218,7 +231,7 @@
     color: #ffffff;
     float: left;
     font-size: 1vw;
-    margin-bottom: 5vw;
+    margin-bottom: 2vw;
   }
 
   .GiveItemOtherWayGroup {
@@ -243,7 +256,7 @@
   .GiveFormId {
     border: 0px;
     width: 60vw;
-}
+  }
 
   .GiveItemH1 {
     color: #ffffff;
@@ -252,14 +265,16 @@
     font-size: 8.55vw;
     line-height: 10.67vw;
   }
-  .GiveButton{
+
+  .GiveButton {
     font-family: Graphik Web !important;
     font-weight: bold !important;
-    color:#ffffff !important;
-    background-color:#000000 !important;
-    border-color:#ffffff !important;
-    border-radius:0px !important;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+    border-radius: 0px !important;
   }
+
   .GiveItemH2 {
     color: #ffffff;
     font-family: Graphik Web;
@@ -352,7 +367,7 @@
     top: 35vw;
     left: 2vw;
     margin-bottom: 2vw;
-    width:100%;
+    width: 100%;
   }
 
   .GiveItemOtherWayButton {
