@@ -33,9 +33,9 @@
             z-index: 100;
             top: 48px;
             background: white;
-           
+
             border: 1px solid #000000;
-            padding: 10px 20px 0 20px;  
+            padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
                 padding: 0;
@@ -357,10 +357,10 @@
         border: 0px;
     }
     .calendarButton {
-        font-family: Graphik Web !important; 
+        font-family: Graphik Web !important;
         font-size: 1vw !important;
         margin-top: 1vw;
-        color: #ffffff; 
+        color: #ffffff;
         background-color: #000000 !important;
         border-width: 0 !important;
         border-radius: 0;
@@ -424,7 +424,7 @@
             top: 48px;
             background: white;
             border: 1px solid #000000;
-            padding: 10px 20px 0 20px;  
+            padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
                 padding: 0;
@@ -747,16 +747,16 @@
         border: 0px;
     }
     .calendarButton {
-        font-family: Graphik Web !important; 
+        font-family: Graphik Web !important;
         font-size: 1vw !important;
         margin-top: 1vw;
-        color: #ffffff; 
+        color: #ffffff;
         background-color: #000000 !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
     }
-    
+
     .calendarImage {
         margin-right: 5px;
     }
@@ -814,7 +814,7 @@
             top: 48px;
             background: white;
             border: 1px solid #000000;
-            padding: 10px 20px 0 20px;  
+            padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
                 padding: 0;
@@ -997,7 +997,7 @@
         width: 100vw;
         height: 35vh;
         object-fit: cover;
-        position: absolute;
+        // position: absolute;
         mask-mode: alpha;
         //  webkit-mask-mode: alpha;
         mask-repeat: no-repeat;
@@ -1015,7 +1015,7 @@
     }
 
     .heroBlackBox {
-        position: absolute;
+        // position: absolute;
         background-color: rgba(0, 0, 0, 1);
         padding: 2vw;
         left: 0vw;
@@ -1102,12 +1102,12 @@
     .emailInput{
         border: 0px;
     }
-    
+
     .calendarButton {
-        font-family: Graphik Web !important; 
+        font-family: Graphik Web !important;
         font-size: 1vw !important;
         margin-top: 10vw;
-        color: #ffffff; 
+        color: #ffffff;
         background-color: #000000 !important;
         border-width: 0 !important;
         border-radius: 0;
