@@ -90,7 +90,7 @@ class IndexApp extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     componentDidUpdate(prevProps: Props, prevState: State) {
-        if (this.state.selectedVideoType != prevState.selectedVideoType)
+        if (this.state.selectedVideoType !== prevState.selectedVideoType)
             this.getVideos(null)
     }
     renderYoutube() {

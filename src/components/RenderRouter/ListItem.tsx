@@ -222,7 +222,7 @@ renderSeries(item:any){
           <img alt={item.title + " series image"} className="ListItemImage2"  src={"/static/photos/series/"+item.seriesType+"-"+item.title.replace("?","")+".jpg"}
           onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }}/>
           <div className="ListItemName" >{item.title}</div>
-          <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} Episodes</div>
+          <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} {item.videos.items.length===1?"Episode":"Episodes"}</div>
         </div>
       )
     }
