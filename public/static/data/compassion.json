@@ -392,7 +392,9 @@
     {
         "id": 45,
         "sites": ["toronto-east"],
-        "name": "Additional Partner",
+        "name": "Red Door Family Shelter",
+        "description":"The Red Door Family Shelter provides safe and supportive emergency housing to individuals and families in need of refuge from domestic violence and to those who find themselves without accommodation.",
+        "website": "reddoorshelter.ca",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
