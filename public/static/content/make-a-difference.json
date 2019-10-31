@@ -20,11 +20,11 @@
                 "image1": [
                     {
                         "src": "/static/images/mad-1-1.jpg",
-                        "alt": "TODO"
+                        "alt": "Woman smiling at camera"
                     },
                     {
                         "src": "/static/images/mad-1-2.jpg",
-                        "alt": "TODO"
+                        "alt": "Volunteer with hat smiling at camera"
                     }
                 ],
                 "header1": "Make a Difference",
@@ -55,7 +55,7 @@
                         "text": "We strive to live simply so that we can give generously. Jesus teaches that our money and possessions are entrusted to us by God to use, manage, and steward wisely by investing in what God is doing today.",
                         "imageSrc": "/static/images/make-a-difference-3.jpg",
                         "imageAlt": "A woman on her phone outside",
-                        "navigateTo": "giving"
+                        "navigateTo": "give"
                     }
                 ]
             }
