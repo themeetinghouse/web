@@ -17,9 +17,13 @@
             {
                 "type": "teaching",
                 "style": "hero",
+                "class":"bbq",
+                "subclass":"bbq",
                 "header1":"Bruxy's Bag of Questions (BBQs)",
-                "options":["BBQ1","BBQ2"],
-                "group":"bbq"
+                "options":[],
+                "group":"bbq",
+                "sortOrder":"DESC"
+
             },
             {
                 "type": "teachingsearch",

@@ -20,7 +20,7 @@
                 "image1": [
                     {
                         "src": "/static/images/locations-1-1.jpg",
-                        "alt": "TODO"
+                        "alt": "Building facades"
                     }
                 ],
                 "header1": "Locations",
@@ -59,7 +59,7 @@
                 ],
                 "image1":[{
                     "src":"/static/images/community-3-2.jpg",
-                    "alt":"TODO"
+                    "alt":"Three people at a dining room table eating snacks"
                 }]
 
             },

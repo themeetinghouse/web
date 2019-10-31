@@ -38,7 +38,7 @@ class TeachingItem extends React.Component<Props, State> {
         const { cookies } = props;
         if (cookies.get(this.props.content.group) == null)
             cookies.set(this.props.content.group, this.props.content.options[0], { path: '/' });
-        var teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group))
+        var teachingId = this.props.content.options.length<=1?0:this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.state = {
             content: props.content,
             selection: cookies.get(this.props.content.group),
@@ -47,6 +47,20 @@ class TeachingItem extends React.Component<Props, State> {
             overlayData: null
         }
         if (this.props.content.class === "teaching-sunday") {
+            const listVideos = API.graphql({
+                query: queries.getVideoByVideoType,
+                variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
+                authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+            listVideos.then((json: any) => {
+                console.log("Success queries.listVideos: " + json);
+                console.log(json)
+                this.setState({
+                    listData: json.data.getVideoByVideoType.items
+                })
+            }).catch((e: any) => { console.log(e) })
+        }
+        else if (this.props.content.class === "bbq") {
             const listVideos = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
@@ -124,7 +138,9 @@ class TeachingItem extends React.Component<Props, State> {
     setSelection(selection: string) {
         const { cookies } = this.props;
         cookies.set(this.props.content.group, selection, { path: '/' });
-        var teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group))
+        var teachingId;
+
+        teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.setState({
             selection: selection,
             teachingId: teachingId
@@ -140,7 +156,7 @@ class TeachingItem extends React.Component<Props, State> {
 
             return (
                 this.state.listData !== null ?
-                    this.state.listData.length === this.props.content.options.length ?
+                    (this.state.listData.length === this.props.content.options.length) || (this.props.content.options.length === 0) ?
                         <div className="teaching" >
 
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
