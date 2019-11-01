@@ -166,7 +166,32 @@ ul.GiveItemNumber {
     border: 0px;
     width: 60vw;
   }
-
+  .GiveItemOtherWayLink{
+    margin:0;
+    padding:0;
+    background-color:#ffffff00;
+    color:#0000ff;
+    border:0;
+    font-weight:normal;
+    font-family: Graphik Web;
+   
+    
+  }
+  ul.GiveItem {
+    list-style-type: none;
+    margin: 5;
+    padding: 5;
+  }
+  ul.GiveItemNumber {
+    list-style-type: decimal;
+    margin: 5;
+    padding: 5;
+  }
+  .GiveItemOtherWayLink:hover{
+    background-color:#ffffff00 !important;
+    color:#0000ff !important;
+    border:0;
+  }
   .GiveItemH1 {
     color: #ffffff;
     font-family: Graphik Web;
@@ -282,7 +307,32 @@ ul.GiveItemNumber {
     border: 0px;
     width: 60vw;
   }
-
+  .GiveItemOtherWayLink{
+    margin:0;
+    padding:0;
+    background-color:#ffffff00;
+    color:#0000ff;
+    border:0;
+    font-weight:normal;
+    font-family: Graphik Web;
+   
+    
+  }
+  ul.GiveItem {
+    list-style-type: none;
+    margin: 5;
+    padding: 5;
+  }
+  ul.GiveItemNumber {
+    list-style-type: decimal;
+    margin: 5;
+    padding: 5;
+  }
+  .GiveItemOtherWayLink:hover{
+    background-color:#ffffff00 !important;
+    color:#0000ff !important;
+    border:0;
+  }
   .GiveItemH1 {
     color: #ffffff;
     font-family: Graphik Web;
