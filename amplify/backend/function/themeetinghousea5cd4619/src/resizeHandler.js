@@ -13,8 +13,8 @@ class ResizerHandler {
         return await this.resize(size, image)
     }
     async resize(size, path) {
-        console.log("Size:" + size)
-        console.log("Path:" + path)
+//        console.log("Size:" + size)
+//        console.log("Path:" + path)
         try {
             //            const sizeArray = .split('/')
             const begin = "cached"
@@ -24,9 +24,9 @@ class ResizerHandler {
             const formatLong = format == "png" ? "png" : "jpeg"
             const newKey = '' + begin + '/' + width + '/' + path
             const Bucket = process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME
-            console.log("Bucket:" + Bucket)
-            console.log("Key: " + Key)
-            console.log("NewKey:" + newKey)
+//            console.log("Bucket:" + Bucket)
+//            console.log("Key: " + Key)
+//            console.log("NewKey:" + newKey)
             const streamResize = sharp()
                 .resize(width)
                 .toFormat(formatLong, { "options": { "progressive": true } })
@@ -40,7 +40,7 @@ class ResizerHandler {
             } catch (e) {
                 doLoad = true
             }
-            console.log("Doload: "+doLoad)
+//            console.log("Doload: "+doLoad)
             if (doLoad) {
                 readStream
                     .pipe(streamResize)
@@ -50,7 +50,7 @@ class ResizerHandler {
             return newKey
         }
         catch (e) {
-            console.log("caught")
+//            console.log("caught")
             console.log(e)
         }
     }
