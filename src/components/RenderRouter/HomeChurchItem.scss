@@ -201,6 +201,7 @@
         .HomeChurchItemListData {
             overflow-y: auto;
             height: 80vh;
+            width: 90vw;
         }
 
       .HomeChurchItemMap {
@@ -226,13 +227,27 @@
         }
 
         .HomeChurchH3 {
-            font-size: 2vw;
+            font-size: 6.4vw;
             font-family: Graphik Web;
+            line-height: 8.55vw;
+            font-weight: 800;
+            color: #000000;
         }
         .HomeChurchAddress,
         .HomeChurchDistances {
-            font-size: 1vw;
+            font-size: 4.3vw;
+            line-height: 6.4vw;
             font-family: Graphik Web;
+        }
+
+        .HomeChurchSiteAffiliation {
+            font-size: 4.3vw;
+            line-height: 6.4vw;
+            margin-top: 5vw;
+            font-weight: 800;
+        }
+        .HomeChurchItemDiv5 {
+            margin-bottom: 15vw;
         }
 
 }
