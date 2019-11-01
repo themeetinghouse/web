@@ -25,7 +25,13 @@
         margin: 0 !important;
         background-color: #ffffff !important
     }
-
+    .VideoOverlayClose {
+        cursor: pointer;
+        position: fixed;
+        z-index: 1000;
+        top: 2vw;
+        left: 95vw
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -56,7 +62,13 @@
         background-color: #ffffff !important
     }
 
-
+    .VideoOverlayClose {
+        cursor: pointer;
+        position: fixed;
+        z-index: 1000;
+        top: 2vw;
+        left: 95vw
+    }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -68,8 +80,30 @@
         margin: 0 !important;
     }
 
-    .modal-video .modal-content {
+   
 
-        background-color: #000000 !important;
+    .modal-video .white {
+        width: 100%;
+        max-width: none !important;
+        background-color: #ffffff !important;
+        margin: 0 !important;
+    }
+    .modal-body {
+        padding: 0 !important;
+        margin: 0 !important;
+        background-color: #000000 !important
+    }
+
+    .modal-body .white {
+        padding: 0 !important;
+        margin: 0 !important;
+        background-color: #ffffff !important
+    }
+    .VideoOverlayClose {
+        cursor: pointer;
+        position: fixed;
+        z-index: 1041;
+        top: 5vw;
+        left: 90vw
     }
 }

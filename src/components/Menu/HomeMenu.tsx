@@ -129,8 +129,8 @@ class HomeMenu extends React.Component<Props, State>  {
   render() {
     // console.log(this.state.position)
     return (
-
-      <div className="navbar-custom" id="navbar">
+ 
+      <div className={"navbar-custom " + this.state.logoColor} id="navbar">
         <NavbarBrand className="brand" href="/">
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
