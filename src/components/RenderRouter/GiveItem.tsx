@@ -77,9 +77,15 @@ export default class ContentItem extends React.Component<Props, State>  {
     console.log(to)
     window.location.href = to;
   }
+  navigateUrlNewWindow(to: string) {
+    window.open(
+      to,
+      '_blank' // <- This is what makes it open in a new window.
+    );
+  }
   renderPushPay() {
     return <div>
-      <Button className="GiveButton" onClick={() => { this.navigateUrl("https://pushpay.com/g/themeetinghouse?src=hpp") }}>Give Now</Button>
+      <Button className="GiveButton" onClick={() => { this.navigateUrlNewWindow("https://pushpay.com/g/themeetinghouse?src=hpp") }}>Give by Credit Card</Button>
     </div>
   }
   renderPushPay2() {
@@ -94,50 +100,72 @@ export default class ContentItem extends React.Component<Props, State>  {
   renderOnlineBanking() {
     return <div className="GiveItemGreyBox">
       <b>Web Banking</b><br />
-      To set up your giving as a bill payment through online banking:<br />
-      Locate your Meeting House account number, found on your donations envelope. Don’t have an account number? Request one here.<br />
-      Login to your online banking, and select the Bill Payment option.<br />
-      Set up a new payee as “The Meeting House” (it may display as The Meeting House Church Family).<br />
-      Enter your account number, followed by one of the three digit codes below to indicate which fund you would like to donate to. If your account number is less than 5 digits, enter zeros in front of of your number to make it the correct length<br />
-      General Fund: #####GEN<br />
-      Go Fund: #####GOF<br />
-      Compassion Fund #####COM<br />
-      Select the amount and frequency of your gift and submit.<br />
-      Note: If you would like to make a donation to multiple funds, you must set each up as a separate bill payment.<br /><br />
-
-
-
-
+      <ul className="GiveItem">
+        <li>To set up your giving as a bill payment through online banking:</li>
+        <ul className="GiveItemNumber">
+          <li>Locate your Meeting House account number, found on your donations envelope. Don’t have an account number? <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "RequestAccountNumber" }) }}>Request one</button>.</li>
+          <li>Login to your online banking, and select the Bill Payment option.</li>
+          <li>Set up a new payee as “The Meeting House” (it may display as The Meeting House Church Family).</li>
+          <li>Enter your account number, followed by one of the three digit codes below to indicate which fund you would like to donate to. If your account number is less than 5 digits, enter zeros in front of of your number to make it the correct length</li>
+          <ul className="GiveItem">
+            <li>General Fund: #####GEN</li>
+            <li>Go Fund: #####GOF</li>
+            <li>Compassion Fund #####COM</li>
+          </ul>
+          <li>Select the amount and frequency of your gift and submit.</li>
+        </ul>
+        <li>Note: If you would like to make a donation to multiple funds, you must set each up as a separate bill payment.</li>
+      </ul>
 
       <b>Pre-Authorized Withdrawal</b><br />
-      To have your giving deducted directly from your bank account:<br />
-      Complete this form online. You will need your branch, transit, and account number.<br />
-      <br />
-      OR <br />
-      <br />
-      Print then complete this form. Drop it into the offering bucket with a VOID cheque, or mail to:<br />
-      The Meeting House Donations<br />
-      2700 Bristol Circle<br />
-      Oakville, ON L6H 6E1<br />
-      <br />
-      Need to make a change? Click here to modify your gift.<br />
-      <br />
-
+      <ul className="GiveItem">
+        <li>To have your giving deducted directly from your bank account:</li>
+        <ul className="GiveItem">
+          <li>Complete <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "PreAuthorizedWithdrawl" }) }}>this form</button> online. You will need your branch, transit, and account number.</li>
+          <li>OR</li>
+          <li>Print then complete this form. Drop it into the offering bucket with a VOID cheque, or mail to:</li>
+          <ul className="GiveItem">
+            <li>The Meeting House Donations</li>
+            <li>2700 Bristol Circle</li>
+            <li>Oakville, ON L6H 6E1</li>
+          </ul>
+          <li>Need to make a change? Click here to modify your gift.</li>
+        </ul>
+      </ul>
     </div>
+
   }
   renderOfferingEnvelopes() {
     return <div >
-              <iframe
-            src={"https://meeting.formstack.com/forms/request_offering_envelopes_form"}
-            title="The Meeting House - Forms"
-            scrolling="yes" className="GiveFormId" style={{ height: "75vh" }}></iframe>
+      <iframe
+        src={"https://meeting.formstack.com/forms/request_offering_envelopes_form"}
+        title="The Meeting House - Forms"
+        scrolling="yes" className="GiveFormId" style={{ height: "75vh" }}></iframe>
 
     </div>
   }
   renderFellowshipOne() {
     return <div className="GiveItemGreyBox">
-      Update your personal contact information through your <a href="https://meetinghouse.infellowship.com/UserLogin/">Meeting House</a> account.<br />
-      If you don't have an Meeting House account, you can create one <a href="https://meetinghouse.infellowship.com/UserLogin">here</a>.
+      You can give with credit or debit card through your  <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin/">Meeting House account</a>.<br />
+      If you don't have a Meeting House account, you can <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin">create one</a>.
+    </div>
+  }
+  renderPreAuthorizedWithdrawl() {
+    return <div >
+      <iframe
+        src={"https://meeting.formstack.com/forms/preauthorized_withdrawal_form"}
+        title="The Meeting House - Forms"
+        scrolling="yes" className="GiveFormId" style={{ height: "75vh" }}></iframe>
+
+    </div>
+  }
+  renderRequestAccountNumber() {
+    return <div >
+      <iframe
+        src={"https://meeting.formstack.com/forms/request_account_number"}
+        title="The Meeting House - Forms"
+        scrolling="yes" className="GiveFormId" style={{ height: "75vh" }}></iframe>
+
     </div>
   }
   render() {
@@ -162,7 +190,11 @@ export default class ContentItem extends React.Component<Props, State>  {
                     this.renderOfferingEnvelopes() :
                     this.state.currentPage === "OnlineBanking" ?
                       this.renderOnlineBanking() :
-                      null
+                      this.state.currentPage === "PreAuthorizedWithdrawl" ?
+                        this.renderPreAuthorizedWithdrawl() :
+                        this.state.currentPage === "RequestAccountNumber" ?
+                          this.renderRequestAccountNumber() :
+                          null
           }
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Other Ways to Give</div>
@@ -173,14 +205,14 @@ export default class ContentItem extends React.Component<Props, State>  {
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OfferingEnvelopes" }) }}>Offering Envelopes</button></div>
             }
             {this.state.currentPage === "FellowshipOne" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "FellowshipOne" }) }}>Fellowship One</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
             }
             {this.state.currentPage === "PushPay" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "PushPay" }) }}>Push Pay</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
             }  </div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemNeedHelp">Need help?</div>
-            <div className="GiveItemNeedHelpEmail"><a className="GiveItemOtherWayButton" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
+            <div className="GiveItemNeedHelpEmail">Please email Rachel at <a className="GiveItemOtherWayButton" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
           </div>
           <div style={{ clear: "both" }}></div>
           <div className="GiveItemOtherWayGroup">

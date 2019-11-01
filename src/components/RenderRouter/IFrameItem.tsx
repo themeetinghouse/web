@@ -24,9 +24,12 @@ export default class ContentItem extends React.Component<Props, State>  {
         <h1 className="oneImageH1" >{this.state.content.header1}</h1>
         <h2>{this.state.content.header2}</h2>
         <div className="iframeItemDiv2" >{this.state.content.text1}</div>
-        <iframe src={this.state.content.src} title="The Meeting House - IFrame" scrolling="no"
-          className="iframeItemIframe" style={{ height: this.state.content.height }}></iframe>
-
+        {this.state.content.isInPopup ?
+          <iframe src={this.state.content.src} title="The Meeting House - IFrame" scrolling="no"
+            className="iframeItemIframePopup" style={{ height: this.state.content.height }}></iframe> :
+          <iframe src={this.state.content.src} title="The Meeting House - IFrame" scrolling="no"
+            className="iframeItemIframe" style={{ height: this.state.content.height }}></iframe>
+        }
       </div></div>)
   }
 }

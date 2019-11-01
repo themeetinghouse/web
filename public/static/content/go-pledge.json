@@ -7,18 +7,20 @@
 
         "pageConfig": {
             "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "showLogoText": false,
+            "logoColor":"white",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true
         },
         "content": [
            
             {
                 "type": "iframe",
                 "src":"https://staff.themeetinghouse.com/pledges/pledgeForm.php",
-                "height":"100vh"
+                "height":"100vh",
+                "isInPopup":true
             }
         ]
     }
