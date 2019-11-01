@@ -1,4 +1,5 @@
 @media (min-width: 768px) {
+    
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;
@@ -229,7 +230,7 @@
 
     .partial {
         width: 80vw;
-        height: 38vw;
+        height: 45vw;
         z-index: 50;
         object-fit: cover;
         position: absolute
@@ -349,6 +350,13 @@
         margin-top: 2vw;
         margin-bottom: 2vw;
     }
+    .partialLocationDropDown {
+        font-family: Graphik Web;
+        padding: 4px;
+        width: 30vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
     .emailDiv{
         position: absolute;
         left: -5000px;
@@ -386,7 +394,7 @@
         position: relative;
         left: 20vw;
         width: 80vw;
-        height: 43vw; padding-bottom: 5vh;
+        height: 50vw; padding-bottom: 5vh;
     }
 }
 
@@ -619,7 +627,7 @@
 
     .partial {
         width: 80vw;
-        height: 38vw;
+        height: 45vw;
         z-index: 50;
         object-fit: cover;
         position: absolute
@@ -739,6 +747,14 @@
         margin-top: 2vw;
         margin-bottom: 2vw;
     }
+
+    .partialLocationDropDown {
+        font-family: Graphik Web;
+        padding: 4px;
+        width: 30vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
     .emailDiv{
         position: absolute;
         left: -5000px;
@@ -776,7 +792,7 @@
         position: relative;
         left: 20vw;
         width: 80vw;
-        height: 43vw; padding-bottom: 5vh;
+        height: 50vw; padding-bottom: 5vh;
     }
 }
 
@@ -993,6 +1009,13 @@
         margin-bottom: 2vw;
     }
 
+    .partialLocationDropDown {
+        font-family: Graphik Web;
+        padding: 4px;
+        width: 86vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+    }
     .heroImage {
         width: 100vw;
         height: 35vh;

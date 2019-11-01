@@ -261,6 +261,10 @@ class HeroItem extends React.Component<Props, State> {
                             <div>
                                 {this.state.locationData!=null?
                                 <Select onChange={(item)=>{this.locationChange(item)}}
+                                styles={{
+                                  
+                                    menuPortal: styles => ({ ...styles, zIndex: 999 }) //  >= dialog's z-index
+                                  }}
                                 placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"
                                 options={this.state.locationData.map(
                                     (item:any)=>{
@@ -282,7 +286,7 @@ class HeroItem extends React.Component<Props, State> {
             )
         }
         else if (this.state.content.style === "partial") {
-
+            
             return (
                 <div className="headerItem divPartial" >
                      {
@@ -318,8 +322,13 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?
-                                <Select onChange={(item)=>{this.locationChange(item)}}
-                                placeholder="Search for a church by city" className="partialNoFooterLocationDropDown"
+                                <Select   menuPortalTarget={document.querySelector('body')}X
+                                styles={{
+                                  
+                                    menuPortal: styles => ({ ...styles, zIndex: 999 }) //  >= dialog's z-index
+                                  }}
+                                onChange={(item)=>{this.locationChange(item)}}
+                                placeholder="Search for a church by city" className="partialLocationDropDown"
                                 options={this.state.locationData.map(
                                     (item:any)=>{
                                         return {label:item.name,value:item.id}}
