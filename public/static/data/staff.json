@@ -111,7 +111,7 @@
        "Staff":true,
         "FirstName": "Carrissa",
         "LastName": "Reffell",
-        "Phone": "905.287.7000, ext. 863",
+        "Phone": "905.287.7000, ext. 7067",
         "Position": "Events Admin & Associate (on leave)",
         "sites": ["Operations"],
         "Email": "Carrissa.Reffell@themeetinghouse.com"
@@ -201,7 +201,7 @@
         "Staff":true,
          "FirstName": "Emma",
          "LastName": "Field",
-         "Phone": "905.287.7000",
+         "Phone": "905.287.7000, ext. 811",
          "Position": "Youth Project Coordinator & Administrator",
          "sites": ["Youth"],
          "Email": "Emma.Field@themeetinghouse.com"
@@ -219,7 +219,7 @@
        "Staff":true,
         "FirstName": "Eric",
         "LastName": "Versluis",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext 836",
         "Position": "Ottawa Lead Pastor",
         "sites": ["OTTA","Pastoral"],
         "Email": "Eric.Versluis@themeetinghouse.com"
@@ -228,7 +228,7 @@
        "Staff":true,
         "FirstName": "George",
         "LastName": "Bell",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 859",
         "Position": "Digital Solutions",
         "sites": ["Communications"],
         "Email": "George.Bell@themeetinghouse.com"
@@ -237,7 +237,7 @@
        "Staff":true,
         "FirstName": "Heidi",
         "LastName": "Konig",
-        "Phone":"905.287.7000",
+        "Phone":"905.287.7000, ext. 863",
         "Position": "Parry Sound Interim Lead Pastor",
         "sites": ["PAR", "Pastoral"],
         "Email": "Heidi.Konig@themeetinghouse.com"
@@ -255,7 +255,7 @@
        "Staff":true,
         "FirstName": "James",
         "LastName": "White",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 864",
         "Position": "Young Adults Champion",
         "sites": ["Site Leadership"],
         "Email": "James.White@themeetinghouse.com"
@@ -264,7 +264,7 @@
        "Staff":true,
         "FirstName": "Jared",
         "LastName": "Erhardt",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 865",
         "Position": "Uptown Toronto Lead Pastor",
         "sites": ["TOUP","Pastoral"],
         "Email": "Jared.Erhardt@themeetinghouse.com"
@@ -282,7 +282,7 @@
        "Staff":true,
         "FirstName": "Jenny",
         "LastName": "Nasmith-Yandt",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 866",
         "Position": "Ministry Support Associate",
         "sites": ["OTTA"],
         "Email": "Jenny.Nasmith-Yandt@themeetinghouse.com"
@@ -318,7 +318,7 @@
        "Staff":true,
         "FirstName": "Jordan",
         "LastName": "Duerrstein",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 867",
         "Position": "Waterloo Lead Pastor",
         "sites": ["WAT","Pastoral"],
         "Email": "Jordan.Duerrstein@themeetinghouse.com"
@@ -345,7 +345,7 @@
        "Staff":true,
         "FirstName": "Julie",
         "LastName": "Pickett",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 7067",
         "Position": "Events and Rentals Associate",
         "sites": ["Operations"],
         "Email": "Julie@themeetinghouse.com"
@@ -486,6 +486,15 @@
         "Email": "Luke.Romberg@themeetinghouse.com"
     },
     {
+        "Staff":true,
+         "FirstName": "Lynda",
+         "LastName": "Thoms",
+         "Phone": "905.287.7000, ext. 7067",
+         "Position": "Events and Rentals Coordinator",
+         "sites": ["Operations"],
+         "Email": "lynda@themeetinghouse.com"
+     },
+    {
        "Staff":true,
         "FirstName": "Marinda",
         "LastName": "Heckroodt",
@@ -597,7 +606,7 @@
        "Staff":true,
         "FirstName": "Olivia",
         "LastName": "Vanderwal",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 868",
         "Position": "Social Media Specialist",
         "sites": ["Communications"],
         "Email": "Olivia.Vanderwal@themeetinghouse.com"
@@ -687,7 +696,7 @@
        "Staff":true,
         "FirstName": "Ruska",
         "LastName": "Janesan van Vuuren",
-        "Phone": "905.287.7000",
+        "Phone": "905.287.7000, ext. 7067",
         "Position": "Events Associate",
         "sites": ["Operations"],
         "Email": "Ruska@themeetinghouse.com"
@@ -705,7 +714,7 @@
        "Staff":true,
         "FirstName": "Shawn",
         "LastName": "Fennell",
-        "Phone": "905.287.7000, ext. 859",
+        "Phone": "905.287.7000",
         "Position": "IT Consultant",
         "sites": ["Operations"],
         "Email": "Shawn.Fennell@themeetinghouse.com"

@@ -24,7 +24,7 @@
                     }
                 ],
                 "header1": "Locations",
-                "text1": "We gather on Sundays across over twenty locations for teaching, music, prayer, and volunteering. Our teaching is focused on the life and message of Jesus as found in the Bible, always with an emphasis on practical application to our own lives. Our hope is to create safe places for spiritual seekers to come and ask questions, connect with our community, and explore faith."
+                "text1": "We gather on Sundays across over twenty locations for teaching, music, prayer, and volunteering. Our hope is to create safe places for spiritual seekers to come and ask questions, connect with our community, and explore faith."
             },
             {
                 "type": "hero",
@@ -36,7 +36,7 @@
                     }
                 ],
                 "header1": "We’d love to meet you",
-                "text1": "It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities, as we learn to follow Jesus.",
+                "text1": "It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
                
                 "link1Text": "Show Map",
                 "link1Action": "find-sunday-morning",
@@ -48,7 +48,7 @@
                 "style": "oneImage",
                 "header1":"Home Church",
                 "header2":"",
-                "text1":" During the week, we meet in homes to further study and apply Sunday's teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this home church—and it's kind of the best thing we've got going.  ",
+                "text1":" During the week, we meet in homes to further study and apply Sunday's teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.  ",
                
                 "list": [
                     {
@@ -68,7 +68,7 @@
                 "style": "oneImage",
                 "header1":"Distance Groups",
                 "header2":"",
-                "text1":"Don’t live in a city where there is a Meeting House site? A Distance Group is a gathering of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
+                "text1":"Don’t live in a city where there's a Meeting House site? Distance Groups are gatherings of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
                 
                 "list": [
                     {
@@ -88,7 +88,7 @@
                 "style": "oneImage",
                 "header1":"Jesus Collective",
                 "header2":"",
-                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
+                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Want to learn more? ",
 
                 "list": [
                     {
