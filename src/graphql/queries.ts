@@ -733,6 +733,50 @@ export const f1ListGroups = `query F1ListGroups($itemId: String) {
   }
 }
 `;
+export const f1ListEventSchedules = `query F1ListEventSchedules($itemId: String) {
+  F1ListEventSchedules(itemId: $itemId) {
+    schedules {
+      schedule {
+        id
+        name
+        description
+        startTime
+        endTime
+        numberRecurrences
+        startDate
+        endDate
+        recurrenceType {
+          name
+        }
+        recurrences {
+          recurrence {
+            recurrenceWeekly {
+              recurrenceFrequency
+              occurOnSunday
+              occurOnMonday
+              occurOnTuesday
+              occurOnWednesday
+              occurOnThursday
+              occurOnFriday
+              occurOnSaturday
+            }
+            recurrenceMonthly {
+              recurrenceFrequency
+              recurrenceOffset
+              monthDay
+              monthWeekDay
+            }
+          }
+        }
+        createdDate
+        createByPerson
+        lastUpdatedDate
+        lastUpdatedByPerson
+      }
+    }
+  }
+}
+`;
 export const getTnSeries = `query GetTnSeries($id: ID!) {
   getTNSeries(id: $id) {
     id

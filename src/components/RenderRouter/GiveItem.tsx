@@ -217,8 +217,8 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div style={{ clear: "both" }}></div>
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Give To Extended Family</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OnlineBanking" }) }}>Alliston</button></div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OnlineBanking" }) }}>Sandbanks</button></div>
+            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://tithe.ly/give_new/www/#/tithely/give-one-time/674673") }}>Alliston</button></div>
+            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://www.canadahelps.org/en/charities/west-lake-community-church/") }}>Sandbanks</button></div>
 
           </div>
           <div className="GiveItemBottom"></div>

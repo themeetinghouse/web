@@ -69,7 +69,7 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
+					"S3Bucket": "themeetinghouse-20190416154553-deployment",
 					"S3Key": "amplify-builds/themeetinghousea5cd4619-66646b387443366a5941-build.zip"
 				}
 			}
