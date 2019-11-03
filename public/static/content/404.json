@@ -1,0 +1,38 @@
+{
+    "page": {
+        "name": "about-us",
+        "title": "About Us",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/about-us-1-2.jpg",
+                        "alt": "All of The Meeting House staff being silly outside of the Oakville site"
+                    }
+
+                ],
+                "header1": "Page not found",
+                "text1": "We were unable to find your page",
+                "text2": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+                "link1Text": "Go to Home",
+                "link1Action": "homepage"
+
+            }
+
+
+        ]
+    }
+}
