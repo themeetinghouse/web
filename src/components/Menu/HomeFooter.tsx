@@ -16,9 +16,9 @@ export default class HomeFooter extends React.Component {
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
-              <NavLink className="FooterNavLink" style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="about-us">About Us</NavLink>
-              <NavLink className="FooterNavLink" style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }} href="connect">Connect</NavLink>
-              <NavLink className="FooterNavLink" style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "22px", color: "#1A1A1A" }}  target="_blank" rel="noopener noreferrer" href="http://www.tmhrentals.com">Oakville Facility Rentals</NavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }} href="about-us">About Us</NavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }} href="connect">Connect</NavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily:"Graphik Web",lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }}  target="_blank" rel="noopener noreferrer" href="http://www.tmhrentals.com">Oakville Facility Rentals</NavLink>
               <br />
               <br />
 {/*              <img src="/static/google-play-badge.png" width="135" height="52" alt="Download App on Google Play Store" />

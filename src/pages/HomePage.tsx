@@ -27,13 +27,18 @@ class HomePage extends React.Component<Props, State> {
     })
       .then((myJson) => {
         console.log(props.match.params.id)
+        ReactGA.pageview(window.location.pathname + window.location.search);
+        Analytics.record({
+          name: 'pageForward',
+          attributes: { page: props.match.params.id }
+        });
         var forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
         console.log(forwardTo)
         if (forwardTo.length > 0)
           this.navigateUrl(forwardTo[0].to)
       })
 
-    var jsonFile
+    var jsonFile:any
     if (this.props.isVideo === "true") {
       jsonFile = "video-player"
     }
@@ -68,7 +73,9 @@ class HomePage extends React.Component<Props, State> {
                 this.setState({ content: c });
               }).catch((e) => { console.log(e) })
           })
-        }).catch((e) => { console.log(e) })
+        }).catch((e) => { 
+          console.log(e) 
+        })
     } else {
       fetch('/static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
         console.log(response)
@@ -77,7 +84,22 @@ class HomePage extends React.Component<Props, State> {
         .then((myJson) => {
 
           this.setState({ content: myJson });
-        }).catch((e) => { console.log(e) })
+        }).catch((e) => { 
+          Analytics.record({
+            name: 'error',
+            attributes: { page: jsonFile }
+          });
+          fetch('/static/content/404.json').then(function (response) {
+            console.log(response)
+            return response.json();
+          })
+            .then((myJson) => {
+    
+              this.setState({ content: myJson });
+            }).catch((e) => { 
+              console.log(e)
+            })
+        })
     }
     this.navigateHome = this.navigateHome.bind(this);
   }
