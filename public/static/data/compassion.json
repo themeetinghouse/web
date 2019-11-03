@@ -30,7 +30,7 @@
         "id": 4,
         "sites": ["brantford"],
         "name": "Circle Square Ranch Brantford",
-        "description": "Circle Square Ranch Brantford is a Summer camp for children and youth that serve the community of Brantford year round. They are committed to seeing young people transformed by the love of God actively at work in their lives.",
+        "description": "Circle Square Ranch Brantford is a Summer camp for children and youth that serves the community of Brantford year round. They are committed to seeing young people transformed by the love of God actively at work in their lives.",
         "image": "/static/photos/compassion/circle square.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -99,7 +99,7 @@
         "id": 12,
         "sites": ["ancaster"],
         "name": "Mission Services",
-        "description": "Mission Services is a social services agency who believes every person deserves safe housing, healthy food, and opportunities for tomorrow.",
+        "description": "Mission Services is a social services agency that believes every person deserves safe housing, healthy food, and opportunities for tomorrow.",
         "website": "mission-services.com/",
         "image": "/static/photos/compassion/mission services.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -340,8 +340,8 @@
     {
         "id": 39,
         "sites": ["parry-sound"],
-        "name": "The HUB",
-        "description": "The HUB is government assisted housing that shares the same property as the Parry Sound site. The site is intentional in building relationship with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives",
+        "name": "The Sound HUB",
+        "description": "The Sound Hub is a collaborative partnership of community agencies, including the Parry Sound Non Profit Housing Corporation.  As a partner, The Meeting House Parry Sound is intentional in building relationships with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },

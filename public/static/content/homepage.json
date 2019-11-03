@@ -103,7 +103,7 @@
                     },
                     {
                         "title": "Podcasts",
-                        "text": "Our Sunday morning teaching, all in one place. Check out the After Party podcast where we chat with special guests about theology and culture and the Roundtable podcast where we discuss church life with our own leaders and staff team.",
+                        "text": "Our Sunday morning teaching, all in one place. We've also got the After Party podcast where we chat with special guests about theology and culture and the Roundtable podcast where we discuss church life with our own leaders and staff team.",
                         "imageSrc": "/static/images/homepage-4-2.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
                         "navigateTo": "teaching-podcasts"
@@ -117,7 +117,7 @@
                     },
                     {
                         "title": "Kids & Youth Curriculum",
-                        "text": "Through Sunday morning teaching, midweek resources, and The Parent Blog, the kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
+                        "text": "Through Sunday morning teaching, midweek resources, and The Parent Blog, our kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
                         "imageSrc": "/static/images/homepage-4-4.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
                         "navigateTo": "teaching-kids-youth"
