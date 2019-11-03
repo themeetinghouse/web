@@ -13,6 +13,7 @@ type Query {
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
+  F1ListEventSchedules(itemId:String):F1ListEventSchedules @function(name:"F1ListEventSchedules")
 }
 
 enum fuzzySearchableSortDirection {
@@ -83,12 +84,18 @@ type fuzzySearchableVideoConnection {
   items: [Video]
   nextToken: String
 }
+type F1ListEventSchedules{
+  schedules:F1ListEventSchedule
+}
 
 type F1ListGroups{
   groups:F1ListGroup
 }
 type F1ListGroup{
   group:[F1ListGroup2]
+}
+type F1ListEventSchedule{
+  schedule:[F1ListEventSchedule2]
 }
 type F1ListGroup2Campus{
   id:String
@@ -101,6 +108,49 @@ type F1ListGroup2GroupType{
 type F1ListGroup2DateRangeType{
   id:String
   name:String
+}
+type F1ListEventScheduleReccurenceType{
+  name:String
+}
+type F1ListEventSchedule2{
+   id:String
+  name:String
+  description:String
+  startTime:String
+  endTime:String
+  numberRecurrences:String
+  startDate:String
+  endDate:String
+  recurrenceType:F1ListEventScheduleReccurenceType
+  recurrences:F1ListEventScheduleRecurrences
+  createdDate:String
+  createByPerson:String
+  lastUpdatedDate:String
+  lastUpdatedByPerson:String
+}
+type F1ListEventScheduleRecurrences{
+  recurrence:F1ListEventScheduleRecurrence
+}
+type F1ListEventScheduleRecurrence{
+  recurrenceWeekly:F1ListEventScheduleRecurrenceWeekly
+  recurrenceMonthly:F1ListEventScheduleRecurrenceMonthly
+}
+type F1ListEventScheduleRecurrenceWeekly{
+  recurrenceFrequency:Int
+  occurOnSunday:Boolean
+  occurOnMonday:Boolean
+  occurOnTuesday:Boolean
+  occurOnWednesday:Boolean
+  occurOnThursday:Boolean
+  occurOnFriday:Boolean
+  occurOnSaturday:Boolean
+}
+type F1ListEventScheduleRecurrenceMonthly{
+  recurrenceFrequency:Int
+  recurrenceOffset:Int
+  monthDay:String
+  monthWeekDay:String
+
 }
 type F1ListGroup2{
   id:String

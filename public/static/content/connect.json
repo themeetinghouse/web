@@ -12,7 +12,8 @@
             "showSearch":false,
             "showFooter":false,
             "showMenu":false,
-            "isPopup":true
+            "isPopup":true,
+            "navigateOnPopupClose":"/"
         },
         "content": [
            
