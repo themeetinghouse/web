@@ -51,7 +51,8 @@
                         "openNewBrowser":true
                     },
                 ]
-                
+            },
+
             {
                 "type": "list",
                 "style": "vertical",
