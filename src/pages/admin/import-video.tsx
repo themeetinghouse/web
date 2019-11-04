@@ -2,8 +2,8 @@ import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import * as customQueries from '../../graphql-custom/customQueries';
 
-//import * as queries from '../../graphql/queries';
-//import * as mutations from '../../graphql/mutations';
+import * as queries from '../../graphql/queries';
+import * as mutations from '../../graphql/mutations';
 //{ API, graphqlOperation } 
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 
@@ -12,6 +12,9 @@ import { API } from 'aws-amplify'
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import "./import-video.scss"
 import awsmobile from '../../aws-exports';
+import uuid from 'uuid';
+import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
+
 //import { Button } from 'reactstrap';
 //import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 Amplify.configure(awsmobile);
@@ -32,10 +35,15 @@ interface Props {
     authState?: any
 }
 interface State {
+    getVideoQueryId: any
     videoTypes: any
     selectedVideoType: any
     selectedVideo: any
     videoList: any
+    seriesList: any
+    toSave: any
+    videoEditorValues: any
+    showError: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -56,10 +64,15 @@ class IndexApp extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
+            getVideoQueryId: null,
             videoTypes: [],
-            selectedVideoType: "unlisted",
+            selectedVideoType: "",
             selectedVideo: null,
-            videoList: []
+            videoList: [],
+            seriesList: [],
+            toSave: {},
+            videoEditorValues: {},
+            showError: ""
         }
         fetch('../static/data/import-video.json').then(function (response) {
             return response.json();
@@ -68,26 +81,90 @@ class IndexApp extends React.Component<Props, State> {
                 console.log(myJson)
                 this.setState({ videoTypes: myJson })
             }).catch((e) => { console.log({ "Exception: ": e }) })
-
+        this.listSeries(null)
     }
     componentDidMount() {
         this.getVideos(null)
     }
-    getVideos(nextToken: any) {
-        const listVideos = API.graphql({
-            query: customQueries.getVideoByVideoType,
-            variables: { nextToken: nextToken, sortDirection: "DESC", limit: 20, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
+    importYoutube() {
+        var z = new ImportYoutube()
+        z.reloadPlaylists()
+
+    }
+    listSeries(nextToken: any) {
+        var listSeries = API.graphql({
+            query: queries.listSeriess,
+            variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
-        listVideos.then((json: any) => {
-            console.log({ "Success queries.listVideos: ": json });
+
+        listSeries.then((json: any) => {
+            console.log({ "Success queries.listSeries: ": json });
             this.setState({
-                videoList: this.state.videoList.concat(json.data.getVideoByVideoType.items)
+                seriesList: this.state.seriesList.concat(json.data.listSeriess.items)
             })
-            if (json.data.getVideoByVideoType.nextToken != null)
-                this.getVideos(json.data.getVideoByVideoType.nextToken)
+            if (json.data.listSeriess.nextToken != null)
+                this.listSeries(json.data.listSeriess.nextToken)
 
         }).catch((e: any) => { console.log(e) })
+    }
+    getVideos(nextToken: any) {
+        if (nextToken == null) {
+            var queryId = uuid.v4()
+            this.setState({ getVideoQueryId: queryId },
+                () => { this.getVideosQID(nextToken, queryId) }
+            )
+
+        }
+    }
+    sortByPublished = (a: any, b: any) => {
+        var z = new Date(a.Youtube.snippet.publishedAt)
+        var y = new Date(b.Youtube.snippet.publishedAt)
+        return z > y ? -1 : z < y ? 1 : 0;
+    }
+    getVideosQID(nextToken: any, queryId: any) {
+        console.log(this.state.getVideoQueryId)
+        if (queryId === this.state.getVideoQueryId) {
+            var listVideos: any
+            console.log(this.state.selectedVideoType)
+            if (this.state.selectedVideoType === "") {
+                listVideos = API.graphql({
+                    query: customQueries.listVideos,
+                    variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
+                    authMode: GRAPHQL_AUTH_MODE.API_KEY
+                });
+                listVideos.then((json: any) => {
+                    console.log({ "Success queries.listVideos: ": json });
+                    if (queryId === this.state.getVideoQueryId) {
+                        this.setState({
+                            videoList: this.state.videoList.concat(json.data.listVideos.items.filter((a: any) => { return a.videoTypes == null })).sort(this.sortByPublished)
+                        })
+                        if (json.data.listVideos.nextToken != null)
+                            this.getVideosQID(json.data.listVideos.nextToken, queryId)
+                    }
+
+                }).catch((e: any) => { console.log(e) })
+            }
+            else {
+                listVideos = API.graphql({
+                    query: customQueries.getVideoByVideoType,
+                    variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
+                    authMode: GRAPHQL_AUTH_MODE.API_KEY
+                });
+
+                listVideos.then((json: any) => {
+                    console.log({ "Success queries.listVideos: ": json });
+                    if (queryId === this.state.getVideoQueryId) {
+                        this.setState({
+                            videoList: this.state.videoList.concat(json.data.getVideoByVideoType.items).sort(this.sortByPublished)
+                        })
+                        if (json.data.getVideoByVideoType.nextToken != null)
+                            this.getVideosQID(json.data.getVideoByVideoType.nextToken, queryId)
+                    }
+
+                }).catch((e: any) => { console.log(e) })
+            }
+        }
     }
     componentDidUpdate(prevProps: Props, prevState: State) {
         if (this.state.selectedVideoType !== prevState.selectedVideoType)
@@ -107,7 +184,7 @@ class IndexApp extends React.Component<Props, State> {
     renderHeader() {
         return (
             <div className="header">
-                <button className="adminButton">Add All New</button>
+                <button className="adminButton" onClick={() => this.importYoutube()}>Add All New</button>
                 <button className="adminButton">Add Unlisted</button>
                 <select className="dropdown" onChange={(e: any) => { this.setState({ selectedVideo: null, videoList: [], selectedVideoType: e.target.value }) }}>
                     {
@@ -138,9 +215,14 @@ class IndexApp extends React.Component<Props, State> {
                     {this.state.videoList.map((video: any) => {
 
                         return (
-                            <tr key={video.id} className="divRow" onClick={(i: any) => { this.setState({ selectedVideo: video }) }}>
+                            <tr key={video.id} className="divRow" onClick={(i: any) => { this.setState({ selectedVideo: null, toSave: null }, () => { this.setState({ selectedVideo: video, toSave: { id: video.id } }) }) }}>
                                 {z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInTable).map((item: any) => {
-                                    return (<td className="divCell" key={item.id}>{video[item.id]}</td>)
+                                    var list: any = item.id.split(".")
+                                    var value: any = video
+                                    for (var listItem of list) {
+                                        value = value[listItem]
+                                    }
+                                    return (<td className="divCell" key={item.id}>{value}</td>)
                                 }) : null : null
                                 }
                             </tr>
@@ -150,28 +232,106 @@ class IndexApp extends React.Component<Props, State> {
             </table>
         )
     }
+    save() {
+        if ((this.state.toSave.videoTypes === undefined && this.state.toSave.publishedDate !== undefined) || (this.state.toSave.videoTypes !== undefined && this.state.toSave.publishedDate === undefined)) {
+            this.setState({ showError: "Must set both videoType and publishedDate" })
+        }
+        else {
+            this.setState({ showError: "" })
+            console.log(this.state.toSave)
+            var updateVideo = API.graphql({
+                query: mutations.updateVideo,
+                variables: { input: this.state.toSave },
+                authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+            updateVideo.then((json: any) => {
+                console.log({ "Success queries.updateVideo: ": json });
+
+            }).catch((e: any) => { console.log(e) })
+        }
+
+
+    }
+    writeSeriesField(field: any, value: any) {
+        var tempSelectedVideo = this.state.selectedVideo
+        tempSelectedVideo[field] = value
+
+        var toSave = this.state.toSave
+        toSave[field] = value
+
+        toSave["seriesTitle"] = this.state.seriesList.filter((item: any) => item.id == value)[0].title
+        this.setState({
+            selectedVideo: tempSelectedVideo,
+            toSave: toSave
+        })
+    }
+    writeField(field: any, value: any) {
+        var tempSelectedVideo = this.state.selectedVideo
+        tempSelectedVideo[field] = value
+
+        var toSave = this.state.toSave
+        toSave[field] = value
+        this.setState({
+            selectedVideo: tempSelectedVideo,
+            toSave: toSave
+        })
+    }
     renderVideoEditor() {
-        let z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
+        var z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
 
         return (
-            <table className="divTable">
-                <tbody>
-                    {this.state.selectedVideo ? z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInEditor).map((item: any) => {
-                        return (<tr key={item.id} className="headRow">
-                            <td className="divCell">{item.name}</td>
-                            <td className="divCellEditor">
-                                {item.readOnly ?
-                                    this.state.selectedVideo[item.id]
-                                    :item.type === "String" ?
-                                        <input className="textEditor" type="text" value={this.state.selectedVideo[item.id]}></input> :
-                                        this.state.selectedVideo[item.id]
-                                }
-                            </td>
-                        </tr>)
-                    }) : null : null : null
-                    }
-                </tbody>
-            </table>
+            <div>
+                <table className="divTable2">
+                    <tbody>
+                        {this.state.selectedVideo ? z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInEditor).map((item: any) => {
+                            var list: any = item.id.split(".")
+                            var finalValue: any = this.state.selectedVideo
+                            for (var listItem of list) {
+                                finalValue = finalValue[listItem]
+                            }
+
+                            return (<tr key={item.id} className="headRow">
+                                <td className="divCell">{item.name}</td>
+                                <td className="divCellEditor">
+                                    {item.readOnly ?
+                                        item.type === "Date" ?
+                                            finalValue.split("T")[0]
+                                            : finalValue
+                                        : item.type === "Int" ?
+                                            <input className="textEditor" type="number" onChange={(e: any) => this.writeField(item.id, e.target.value)} value={finalValue}></input> :
+                                            item.type === "Date" ?
+                                                <input className="textEditor" type="text" onChange={(e: any) => this.writeField(item.id, e.target.value)} value={finalValue}></input> :
+                                                item.type === "String" ?
+                                                    <input className="textEditor" onChange={(e: any) => this.writeField(item.id, e.target.value)} type="text" value={finalValue}></input> :
+                                                    item.type === "VideoType" ?
+                                                        <select className="dropdown2" onChange={(e: any) => this.writeField(item.id, e.target.value)} >
+                                                            {
+                                                                this.state.videoTypes.map((item: any) => {
+                                                                    return (<option key={item.id} value={item.id}>{item.name}</option>)
+                                                                })
+                                                            }
+                                                        </select> :
+                                                        item.type === "Series" ?
+
+                                                            <select className="dropdown2" onChange={(e: any) => this.writeSeriesField(item.id, e.target.value)} >
+                                                                <option key="null" value="null">None Selected</option>
+
+                                                                {
+                                                                    this.state.seriesList.map((item: any) => {
+                                                                        return (<option key={item.id} value={item.id}>{item.id}</option>)
+                                                                    })
+                                                                }
+                                                            </select> :
+                                                            finalValue
+                                    }
+                                </td>
+                            </tr>)
+                        }) : null : null : null
+                        }
+                    </tbody>
+                </table >
+                <button onClick={(e: any) => this.save()}>Save</button>
+            </div>
         )
     }
     render() {
@@ -184,6 +344,7 @@ class IndexApp extends React.Component<Props, State> {
                     {this.renderYoutube()}
                 </div>
                 {this.renderVideoEditor()}
+                <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
             </div >
         );
     }

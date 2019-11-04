@@ -1,0 +1,121 @@
+{
+    "page": {
+        "name": "waterloo",
+        "title": "The Meeting House - Whitby",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/photos/staff/Matt_Thompson_app.jpg",
+                        "alt": "Three friends hanging out and walking together in the city."
+                    }
+                ],
+                "header1": "Whitby",
+                "text1": "No Services...Yet",
+                "text2": "",
+                "text3": "Includes no program for Infants to Grade 8",
+                "addToCalendar": true,
+                "contactPastor": true,
+                "class":"locations",
+                "filterField": "id",
+                "filterValue": "whitby"
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "staff",
+                "header1": "Our Team",
+                "text1": "Matt just asks the bus driver to take him to this site, and he does!",
+                "filterField":"sites",                 
+                "filterValue": "WIT"
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "events",
+                "header1": "Upcoming Events",
+                "header2": "",
+                "facebookEvents": ["184501998239227","418730018179338"]
+
+            },
+            {
+                "type": "list",
+                "style": "grid",
+                "class": "instagram",
+                "filterField":"sites",                 
+                "filterValue": "waterloo"
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Kids & Youth",
+                "header2": "",
+                "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. Learn more about our programs.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Info About Kids & Youth",
+                        "navigateTo": "kids-and-youth"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/photos/staff/Matt_Thompson_app.jpg",
+                        "alt": "A young child playing with blocks."
+                    }
+                ]
+            },
+            {
+                "type": "hero",
+                "style": "partial",
+                "image1": [
+                    {
+                        "src": "/static/photos/staff/Matt_Thompson_app.jpg",
+                        "alt": "Several groups of people chatting in a living room."
+                    }
+                ],
+                "header1": "Home Church",
+                "header2": "",
+                "text1": "During the week, we meet in homes to further study and apply Sunday’s teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it’s kind of the best thing we’ve got going.",
+                "link1Text": "Browse Home Churches in Waterloo",
+                "link1Action": "find-home-church"
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "compassion",
+                "header1": "Make a Difference",
+                "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
+                "filterField":"sites",                 
+                "filterValue": "waterloo"
+            },
+            {
+                "type": "hero",
+                "style": "partialNoFooter",
+                "image1": [
+                    {
+                        "src": "/static/photos/staff/Matt_Thompson_app.jpg",
+                        "alt": "Two women drinking coffee."
+                    }
+                ],
+                "header1": "Get Connected",
+                "header2": "",
+                "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. ",
+                "showEmailSignup":true
+            }
+        ]
+    }
+}

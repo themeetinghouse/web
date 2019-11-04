@@ -47,7 +47,7 @@ export default class ImportYoutube {
     loadVideo(data: any) {
   
       this.writeYoutube(data)
-      /*  const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: data.contentDetails.videoId }));
+       /*const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: data.contentDetails.videoId }));
         closedCaptionList.then((json:any) => {
           this.setCaptionItems(json);
         });*/

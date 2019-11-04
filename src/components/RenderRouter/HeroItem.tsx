@@ -122,8 +122,10 @@ class HeroItem extends React.Component<Props, State> {
     imgUrl(size:any){
         if (window.location.hostname==="localhost")
             return "https://localhost:3006"
+        else if (window.location.hostname.includes("beta"))
+            return "https://beta.themeetinghouse.com/cache/"+size
         else
-         return "https://beta.themeetinghouse.com/cache/"+size
+            return "https://www.themeetinghouse.com/cache/"+size
     }
     fadeIn(obj:any){
 

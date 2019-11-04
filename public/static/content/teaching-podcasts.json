@@ -49,6 +49,15 @@
                         "url": "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=143889873"
                     }
                 ]
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"after-party",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"The After Party"                
             }
         ]
     }
