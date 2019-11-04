@@ -39,6 +39,15 @@
                 "type":"list",
                 "style":"horizontal",
                 "class":"videos",
+                "subclass":"after-party",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"The After Party"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
                 "subclass":"life-story",
                 "selector":"all",
                 "sortOrder":"DESC",
