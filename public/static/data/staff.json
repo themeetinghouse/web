@@ -712,15 +712,6 @@
     },
     {
        "Staff":true,
-        "FirstName": "Shawn",
-        "LastName": "Fennell",
-        "Phone": "905.287.7000",
-        "Position": "IT Consultant",
-        "sites": ["Operations"],
-        "Email": "Shawn.Fennell@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
         "FirstName": "Simon",
         "LastName": "Downey",
         "Phone": "905.287.7000, ext. 845",
