@@ -356,7 +356,7 @@
     {
         "id": 41,
         "sites": ["richmond-hill"],
-        "name": "Compassion 365*** Not confirmed",
+        "name": "Compassion 365",
         "description": "The mission of Compassion 365 is to become a catalyst in assisting individuals and communities actualize their ability to make a difference in the life of another through facilitating effective awareness and funds that will contribute to a constructive development of harmony and social inclusion.",
         "website": "www.compassion365.ca",
         "image": "/static/images/compassion/none.jpg",
@@ -365,7 +365,7 @@
     {
         "id": 42,
         "sites": ["richmond-hill"],
-        "name": "Fight4Freedom*** Not confirmed",
+        "name": "Fight4Freedom",
         "description": "Fight4Freedom is dedicated to battling human trafficking in the sex trade,\n​seeing survivors set free, and giving beauty from ashes. They exist to be an active voice and advocate of justice for women and men exploited by human trafficking in the form of sexual exploitation and to further assist them in finding necessary support systems that will aid in their journey to safety, healing and restoration.",
         "website": "www.fight4freedom.ca/",
         "image": "/static/images/compassion/none.jpg",
