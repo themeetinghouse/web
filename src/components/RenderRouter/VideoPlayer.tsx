@@ -17,7 +17,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       content: props.content,
       data: props.data
     }
-    console.log(props.data)
+    console.log({"VideoPlayer":props.data})
 
   }
   render() {

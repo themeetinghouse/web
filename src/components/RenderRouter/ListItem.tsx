@@ -49,7 +49,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: data,
       urlHistoryState: window.location.href
     })
-    window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
+    window.history.pushState({},"Videos","/videos/"+data.series.id+"/"+data.id, )
 
   }
  dataLoader:DataLoader

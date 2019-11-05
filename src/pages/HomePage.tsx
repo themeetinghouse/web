@@ -1,6 +1,10 @@
 import React from 'react';
 import RenderRouter from '../components/RenderRouter/RenderRouter'
 import '../custom.scss';
+import * as queries from '../graphql/queries';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import  { API } from 'aws-amplify';
+
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
@@ -14,12 +18,14 @@ interface Props extends RouteComponentProps {
 }
 interface State {
   content: any
+  data:any
 }
 class HomePage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      content: null
+      content: null,
+      data:null
     }
     console.log(props)
     fetch('/static/data/redirect.json').then(function (response) {
@@ -38,7 +44,7 @@ class HomePage extends React.Component<Props, State> {
           this.navigateUrl(forwardTo[0].to)
       })
 
-    var jsonFile:any
+    var jsonFile: any
     if (this.props.isVideo === "true") {
       jsonFile = "video-player"
     }
@@ -73,8 +79,8 @@ class HomePage extends React.Component<Props, State> {
                 this.setState({ content: c });
               }).catch((e) => { console.log(e) })
           })
-        }).catch((e) => { 
-          console.log(e) 
+        }).catch((e) => {
+          console.log(e)
         })
     } else {
       fetch('/static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
@@ -84,7 +90,7 @@ class HomePage extends React.Component<Props, State> {
         .then((myJson) => {
 
           this.setState({ content: myJson });
-        }).catch((e) => { 
+        }).catch((e) => {
           Analytics.record({
             name: 'error',
             attributes: { page: jsonFile }
@@ -94,27 +100,41 @@ class HomePage extends React.Component<Props, State> {
             return response.json();
           })
             .then((myJson) => {
-    
+
               this.setState({ content: myJson });
-            }).catch((e) => { 
+            }).catch((e) => {
               console.log(e)
             })
         })
     }
     this.navigateHome = this.navigateHome.bind(this);
+  
+    if (this.props.isVideo === "true") {
+      console.log(this.props.match.params.episode)
+      const getVideo = API.graphql({
+        query: queries.getVideo,
+        variables: { id: this.props.match.params.episode},
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      getVideo.then((json: any) => {
+        console.log({"Success queries.getVideo: ": json});
+        this.setState({data:json.data.getVideo})
+       
+      }).catch((e: any) => { console.log(e) })
+    }
   }
-  navigateUrl(to:string){
-    window.location.href=to;
+  navigateUrl(to: string) {
+    window.location.href = to;
   }
 
   navigateTo(uri: any) {
-    console.log("Navigate to:"+ uri)
+    console.log("Navigate to:" + uri)
     this.props.history.push(uri, "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
     unblock();
 
   }
-  navigateHome(to:any) {
+  navigateHome(to: any) {
     this.props.history.push(to, "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
     unblock();
@@ -122,7 +142,7 @@ class HomePage extends React.Component<Props, State> {
   }
   render() {
     if (this.props.isVideo === "true")
-      return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+      return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={this.state.data}></VideoOverlay>
     else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
       return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
     else
