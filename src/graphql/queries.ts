@@ -780,6 +780,23 @@ export const f1ListEventSchedules = `query F1ListEventSchedules($itemId: [String
   }
 }
 `;
+export const emailHomeChurch = `query EmailHomeChurch(
+  $name: String
+  $email: String
+  $message: String
+  $homeChurchId: String
+) {
+  emailHomeChurch(
+    name: $name
+    email: $email
+    message: $message
+    homeChurchId: $homeChurchId
+  ) {
+    err
+    data
+  }
+}
+`;
 export const getTnSeries = `query GetTnSeries($id: ID!) {
   getTNSeries(id: $id) {
     id

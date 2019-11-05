@@ -71,7 +71,10 @@ export class ContentItem extends React.Component<Props, State>  {
     this.navigate = this.navigate.bind(this);
     let geoLocationPromise = this.getGeoLocation();
     if (this.state.content.class === "home-church") {
-     
+
+ 
+      
+
       const f1ListGroupTypes = API.graphql(graphqlOperation(queries.f1ListGroupTypes, {}));
       f1ListGroupTypes.then((json: any) => {
         console.log(json)

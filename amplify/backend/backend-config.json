@@ -62,6 +62,11 @@
 					]
 				}
 			]
+		},
+		"emailHomeChurch": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	},
 	"analytics": {

@@ -263,7 +263,7 @@ class IndexApp extends React.Component<Props, State> {
         var toSave = this.state.toSave
         toSave[field] = value
 
-        toSave["seriesTitle"] = this.state.seriesList.filter((item: any) => item.id == value)[0].title
+        toSave["seriesTitle"] = this.state.seriesList.filter((item: any) => item.id === value)[0].title
         this.setState({
             selectedVideo: tempSelectedVideo,
             toSave: toSave

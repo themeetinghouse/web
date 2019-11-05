@@ -6116,6 +6116,21 @@ export type F1ListEventSchedulesQuery = {
   } | null > | null,
 };
 
+export type EmailHomeChurchQueryVariables = {
+  name?: string | null,
+  email?: string | null,
+  message?: string | null,
+  homeChurchId?: string | null,
+};
+
+export type EmailHomeChurchQuery = {
+  emailHomeChurch:  {
+    __typename: "emailResponse",
+    err: string | null,
+    data: string | null,
+  } | null,
+};
+
 export type GetTnSeriesQueryVariables = {
   id: string,
 };
