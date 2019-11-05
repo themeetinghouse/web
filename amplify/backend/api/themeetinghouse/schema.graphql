@@ -13,9 +13,12 @@ type Query {
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
-  F1ListEventSchedules(itemId:String):F1ListEventSchedules @function(name:"F1ListEventSchedules")
+  F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
 }
-
+type F1ListEvent{
+  id:String
+  event:F1ListEventSchedules
+}
 enum fuzzySearchableSortDirection {
   asc
   desc
