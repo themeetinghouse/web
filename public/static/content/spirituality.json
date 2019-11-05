@@ -19,11 +19,7 @@
                 "image1": [
                     {
                         "src": "/static/images/sc-1-1.jpg",
-                        "alt": "Woman standing in front of grafiti wall"
-                    },
-                    {
-                        "src": "/static/images/sc-1-2.jpg",
-                        "alt": "Three people chatting on a patio"
+                        "alt": "Woman standing in front of grafiti wall."
                     }
                 ],
                 "header1": "Spiritually curious...or whatever.",
