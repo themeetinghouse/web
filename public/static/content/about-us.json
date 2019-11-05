@@ -40,7 +40,7 @@
                 "style": "greyTwoText",
                 "header1":"What We Believe",
                 "header2":"",
-                "text1":"We’re a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message.",
+                "text1":"We’re a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace with a mission to share the gospel and care for people.",
                 "text2": "If you're interested in specific beliefs or positions we hold, check out our denominational doctrinal statement in the link below.",
                 "list": [
                     {
@@ -100,6 +100,8 @@
                     }
                 ],
 
+                
+
                 "image1": [
                     {
                         "src": "/static/images/homepage-2.jpg",
@@ -117,6 +119,7 @@
                     "src":"/static/images/about-us-2.jpg",
                     "alt":"Three people sitting at a table, talking about the bible"
                 }],
+
                 "list": [
                     {
                         "type":"arrow",
