@@ -50,7 +50,6 @@
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1": "Starting Questions",
-                "header2": "Short videos that are a great starting point if you are interested in some of the basics when it comes to Jesus, God, and spirituality.",
                 "text1": "Short videos that are a great starting point if you are interested in some of the basics when it comes to Jesus, God, and spirituality."
                
             },
@@ -62,7 +61,7 @@
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1": "Popular Videos",
-                "header2": "Some of our most popular videos when it comes to exploring spirituality."
+                "text1": "Some of our most popular videos when it comes to exploring spirituality."
             },
             {
                 "type": "blog"
