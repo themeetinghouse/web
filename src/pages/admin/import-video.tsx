@@ -14,6 +14,7 @@ import "./import-video.scss"
 import awsmobile from '../../aws-exports';
 import uuid from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
+import { Modal } from 'reactstrap';
 
 //import { Button } from 'reactstrap';
 //import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
@@ -44,6 +45,7 @@ interface State {
     toSave: any
     videoEditorValues: any
     showError: any
+    showAddSeries: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -64,6 +66,7 @@ class IndexApp extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
+            showAddSeries: false,
             getVideoQueryId: null,
             videoTypes: [],
             selectedVideoType: "",
@@ -194,6 +197,7 @@ class IndexApp extends React.Component<Props, State> {
 
                     }
                 </select>
+                <button className="adminButton" onClick={() => { this.setState({ showAddSeries: true }) }}>Add Series</button>
             </div>
         )
     }
@@ -334,6 +338,23 @@ class IndexApp extends React.Component<Props, State> {
             </div>
         )
     }
+    renderAddSeries() {
+        return <Modal isOpen={this.state.showAddSeries}>
+            <div>id: <input />
+                Name: <input />
+                Start Date: <input />
+                End Date: <input />
+                <select className="dropdown2"  >
+                    {
+                        this.state.videoTypes.map((item: any) => {
+                            return (<option key={item.id} value={item.id}>{item.name}</option>)
+                        })
+                    }
+                </select>
+                <button onClick={() => { this.setState({ showAddSeries: false }) }}></button>
+            </div>
+        </Modal>
+    }
     render() {
         return (
             <div>
@@ -344,6 +365,7 @@ class IndexApp extends React.Component<Props, State> {
                     {this.renderYoutube()}
                 </div>
                 {this.renderVideoEditor()}
+                {this.renderAddSeries()}
                 <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
             </div >
         );

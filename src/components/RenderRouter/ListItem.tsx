@@ -277,6 +277,7 @@ else return null
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
           <div className="ListItemDiv2" >
             <HorizontalScrollList darkMode={this.props.pageConfig.logoColor==="white"}>
             {data.map((item: any,index:any) => {

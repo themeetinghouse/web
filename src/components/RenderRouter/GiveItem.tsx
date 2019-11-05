@@ -181,6 +181,7 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div className="GiveItemText">{this.state.content.text2}</div>
           <div className="GiveItemText">{this.state.content.text3}</div>
           <div className="GiveItemText">{this.state.content.text4}</div>
+          <div className="GiveItemText">{this.state.content.text5}</div>
           {
             this.state.currentPage === "PushPay" ?
               this.renderPushPay() :
