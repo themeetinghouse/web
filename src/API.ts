@@ -6057,59 +6057,63 @@ export type F1ListGroupsQuery = {
 };
 
 export type F1ListEventSchedulesQueryVariables = {
-  itemId?: string | null,
+  itemId?: Array< string | null > | null,
 };
 
 export type F1ListEventSchedulesQuery = {
-  F1ListEventSchedules:  {
-    __typename: "F1ListEventSchedules",
-    schedules:  {
-      __typename: "F1ListEventSchedule",
-      schedule:  Array< {
-        __typename: "F1ListEventSchedule2",
-        id: string | null,
-        name: string | null,
-        description: string | null,
-        startTime: string | null,
-        endTime: string | null,
-        numberRecurrences: string | null,
-        startDate: string | null,
-        endDate: string | null,
-        recurrenceType:  {
-          __typename: "F1ListEventScheduleReccurenceType",
+  F1ListEventSchedules:  Array< {
+    __typename: "F1ListEvent",
+    id: string | null,
+    event:  {
+      __typename: "F1ListEventSchedules",
+      schedules:  {
+        __typename: "F1ListEventSchedule",
+        schedule:  Array< {
+          __typename: "F1ListEventSchedule2",
+          id: string | null,
           name: string | null,
-        } | null,
-        recurrences:  {
-          __typename: "F1ListEventScheduleRecurrences",
-          recurrence:  {
-            __typename: "F1ListEventScheduleRecurrence",
-            recurrenceWeekly:  {
-              __typename: "F1ListEventScheduleRecurrenceWeekly",
-              recurrenceFrequency: number | null,
-              occurOnSunday: boolean | null,
-              occurOnMonday: boolean | null,
-              occurOnTuesday: boolean | null,
-              occurOnWednesday: boolean | null,
-              occurOnThursday: boolean | null,
-              occurOnFriday: boolean | null,
-              occurOnSaturday: boolean | null,
-            } | null,
-            recurrenceMonthly:  {
-              __typename: "F1ListEventScheduleRecurrenceMonthly",
-              recurrenceFrequency: number | null,
-              recurrenceOffset: number | null,
-              monthDay: string | null,
-              monthWeekDay: string | null,
+          description: string | null,
+          startTime: string | null,
+          endTime: string | null,
+          numberRecurrences: string | null,
+          startDate: string | null,
+          endDate: string | null,
+          recurrenceType:  {
+            __typename: "F1ListEventScheduleReccurenceType",
+            name: string | null,
+          } | null,
+          recurrences:  {
+            __typename: "F1ListEventScheduleRecurrences",
+            recurrence:  {
+              __typename: "F1ListEventScheduleRecurrence",
+              recurrenceWeekly:  {
+                __typename: "F1ListEventScheduleRecurrenceWeekly",
+                recurrenceFrequency: number | null,
+                occurOnSunday: boolean | null,
+                occurOnMonday: boolean | null,
+                occurOnTuesday: boolean | null,
+                occurOnWednesday: boolean | null,
+                occurOnThursday: boolean | null,
+                occurOnFriday: boolean | null,
+                occurOnSaturday: boolean | null,
+              } | null,
+              recurrenceMonthly:  {
+                __typename: "F1ListEventScheduleRecurrenceMonthly",
+                recurrenceFrequency: number | null,
+                recurrenceOffset: number | null,
+                monthDay: string | null,
+                monthWeekDay: string | null,
+              } | null,
             } | null,
           } | null,
-        } | null,
-        createdDate: string | null,
-        createByPerson: string | null,
-        lastUpdatedDate: string | null,
-        lastUpdatedByPerson: string | null,
-      } | null > | null,
+          createdDate: string | null,
+          createByPerson: string | null,
+          lastUpdatedDate: string | null,
+          lastUpdatedByPerson: string | null,
+        } | null > | null,
+      } | null,
     } | null,
-  } | null,
+  } | null > | null,
 };
 
 export type GetTnSeriesQueryVariables = {

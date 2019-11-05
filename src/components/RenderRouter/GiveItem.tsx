@@ -21,8 +21,10 @@ export default class ContentItem extends React.Component<Props, State>  {
   imgUrl(size: any) {
     if (window.location.hostname === "localhost")
       return "https://localhost:3006"
+    else if (window.location.hostname.includes("beta"))
+      return "https://beta.themeetinghouse.com/cache/"+size
     else
-      return "https://beta.themeetinghouse.com/cache/" + size
+      return "https://www.themeetinghouse.com/cache/"+size
   }
   renderPushPayCustom() {
     return (
@@ -179,6 +181,7 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div className="GiveItemText">{this.state.content.text2}</div>
           <div className="GiveItemText">{this.state.content.text3}</div>
           <div className="GiveItemText">{this.state.content.text4}</div>
+          <div className="GiveItemText">{this.state.content.text5}</div>
           {
             this.state.currentPage === "PushPay" ?
               this.renderPushPay() :

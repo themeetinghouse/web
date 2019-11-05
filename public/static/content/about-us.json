@@ -20,18 +20,18 @@
                 "image1": [
                     {
                         "src": "/static/images/about-us-1-1.jpg",
-                        "alt": "All of The Meeting House staff posing outside of the Oakville site"
+                        "alt": "All of The Meeting House staff posing outside of the main office in Oakville."
                     },
                     {
                         "src": "/static/images/about-us-1-2.jpg",
-                        "alt": "All of The Meeting House staff being silly outside of the Oakville site"
+                        "alt": "All of The Meeting House staff being silly outside of the main office in Oakville."
                     }
 
                 ],
                 "header1": "Our Story",
-                "text1": "We’re a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace, with a mission to share the gospel and care for people.",
-                "text2": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
-                "link1Text": "Read our whole story",
+                "text1": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+                "text2": "",
+                "link1Text": "",
                 "link1Action": "TODO"
 
             },
@@ -40,11 +40,12 @@
                 "style": "greyTwoText",
                 "header1":"What We Believe",
                 "header2":"",
-                "text1":"We belong to a denomination called Be In Christ Church of Canada, with roots in the Anabaptist and Wesleyan traditions that value simplicity, peacemaking, and living out the teaching of Jesus in daily life.",
+                "text1":"We’re a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message.",
+                "text2": "If you're interested in specific beliefs or positions we hold, check out our denominational doctrinal statement in the link below.",
                 "list": [
                     {
                         "type":"link",
-                        "title": "BIC Doctrinal Statements",
+                        "title": "BIC Doctrinal Statement",
                         "navigateTo": "http://www.canadianbic.ca/about-us/",
                         "openNewBrowser":true
                     }
@@ -64,7 +65,7 @@
                 "style": "vertical",
                 "class": "overseers",
                 "header1": "Overseers",
-                "text1": "Overseers are a group of Elders selected to represent and oversee the entire ministry of The Meeting House. Our senior staff report to this team, and they focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community."
+                "text1": "Overseers are a group of Elders selected to represent and oversee our entire ministry. Our senior staff report to this team. The Overseers focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community."
                 
             },
             {
@@ -148,14 +149,14 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Rentals",
+                        "title": "Rentals at The Meeting House",
                         "navigateTo": "http://www.tmhrentals.com/",
                         "openNewBrowser":true
                     }
                 ],
                 "image1":[{
                     "src":"/static/images/about-us-3.jpg",
-                    "alt":"Man playing Bass guitar during worship"
+                    "alt":"Man playing bass guitar during an event at The Meeting House."
                 }]
             },
             {

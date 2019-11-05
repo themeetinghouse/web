@@ -7,8 +7,8 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
-
-
+import Fireworks from 'fireworks-react'
+import Konami from 'react-konami-code'
 interface Props extends RouteComponentProps {
   content: any,
   data:any,
@@ -19,7 +19,8 @@ interface State {
   content: any,
   listData: any,
   overlayData: any,
-  urlHistoryState: any
+  urlHistoryState: any,
+  showChampion:any
 }
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
@@ -29,6 +30,7 @@ class ListItem extends React.Component<Props, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null
+     
     })
     window.history.pushState({},"Videos",this.state.urlHistoryState, )
 
@@ -47,7 +49,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: data,
       urlHistoryState: window.location.href
     })
-    window.history.pushState({},"Videos","videos/"+data.series.id+"/"+data.episodeNumber, )
+    window.history.pushState({},"Videos","/videos/"+data.series.id+"/"+data.id, )
 
   }
  dataLoader:DataLoader
@@ -55,6 +57,7 @@ class ListItem extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      showChampion:false,
       content: props.content,
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
@@ -78,8 +81,10 @@ class ListItem extends React.Component<Props, State> {
 
         return "https://localhost:3006"
     }
+    else if (window.location.hostname.includes("beta"))
+      return "https://beta.themeetinghouse.com/cache/"+size
     else
-     return "https://beta.themeetinghouse.com/cache/"+size
+      return "https://www.themeetinghouse.com/cache/"+size
 }
 
   navigateUrl(to:string){
@@ -176,9 +181,24 @@ renderEvent(item:any){
     )
 
 }
+easterEgg(){
+  this.setState({showChampion:true})
+}
 renderStaff(item:any,index:any){
   return (
     <div key={index} className="ListItemDiv3" >
+      {item.FirstName==="James"?<div>
+        <Konami action={()=>{this.easterEgg()}}></Konami>
+        {this.state.showChampion?
+      (<div><Fireworks style={{position:"fixed",width:"100%",height:"100%",left:0,top:0,zIndex:20005}} width={500} height={500}/> 
+      <img alt={item.photoAlt} className="ListItemImage2" style={{position:"fixed",left:"30%",width:"30%",top:"10%",zIndex:200004}}
+      onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+      src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
+     <h1 style={{color:"#ffffff",fontSize:100,position:"fixed",width:"80%",height:"20%",left:"10%",top:"70%",zIndex:200006}}>Young Adults Champion</h1></div>)
+     :null}
+     </div>
+      :null
+  }
 
       <img alt={item.photoAlt} className="ListItemImage2"
         onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
@@ -257,6 +277,7 @@ else return null
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
           <div className="ListItemDiv2" >
             <HorizontalScrollList darkMode={this.props.pageConfig.logoColor==="white"}>
             {data.map((item: any,index:any) => {
