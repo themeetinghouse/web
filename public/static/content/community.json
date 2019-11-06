@@ -31,22 +31,22 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Nik's Story",
+                "header1": "Sonia's Story",
                 "header2": "",
 
-                "text1": "“When I look around and say the word 'love', I see Jesus. And I just want to live a loving and serving life.” Nik's childhood experiences drove him away from religion, but he was able to find a faith community that accepted him and encouraged his questions.",
+                "text1": "“Where should I go? Is there such a thing as a church that isn't so uptight? Is there a place I could go to learn more?”",
                 
                 "list": [
                     {
                         "type":"link",
-                        "title": "Watch Nik's Story",
+                        "title": "Watch Sonia's Story",
                         "navigateTo": "life-stories"
                     }
                 ],
                 "image1": [
                     {
                         "src": "/static/images/community-2.jpg",
-                        "alt": "Man standing in front of blackboard with equations on it"
+                        "alt": "Woman standing infront of a building on a bright sunny day."
                     }
                 ]
             },
@@ -63,7 +63,7 @@
             {
                 "type": "list",
                 "style": "imageList",
-                "header1": "Come Join Us",
+                "header1": "Let's Get Together",
                 "list": [
                     {
                         "title": "Sunday Morning",
