@@ -59,11 +59,11 @@
                 "type": "list",
                 "style": "horizontal",
                 "class":"videos",
-                "subclass":"spiritually-curious",
+                "subclass":"bruxy's-bag-of-questions",
                 "selector":"all",
                 "sortOrder":"DESC",
-                "header1": "Exploring Faith",
-                "text1": "More personal stories from people in our community who are exploring their faith and asking questions."
+                "header1": "Popular Questions About Christianity",
+                "text1": "Dive a little deeper than our starting questions and check out some of the most popular questions we've received."
             },
             {
                 "type": "blog"
