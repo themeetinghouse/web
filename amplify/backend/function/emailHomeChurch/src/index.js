@@ -20,7 +20,7 @@ exports.handler = (event, context, callback) => {
                 
             }
         },
-        Source: "donotreply@themeetinghouse.com"
+        Source: "donot-reply@themeetinghouse.com"
     };
 
     
