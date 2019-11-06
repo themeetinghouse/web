@@ -180,13 +180,13 @@
     .ListItemPlayImageOverlay {
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
         right: 0;
         height: 12vw;
         text-align: center;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s ease;  
+        transition: opacity 0.3s ease;
         img {
             height: 100%;
         }
@@ -447,7 +447,7 @@
             }
         }
     }
-   
+
 
     .ListItemVideo.whiteText {
         color: #ffffff
@@ -462,13 +462,13 @@
     .ListItemPlayImageOverlay {
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
         right: 0;
         height: 12vw;
         text-align: center;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s ease;  
+        transition: opacity 0.3s ease;
         img {
             height: 100%;
         }
@@ -728,7 +728,7 @@
         margin-bottom: 10vw;
     }
 
-   
+
     .ListItemVideo {
         cursor: pointer;
         display: inline-block;
@@ -747,7 +747,7 @@
     }
 
     .ListItemVideoThumb {
-        width: 75vw;
+        width: 65vw;
         margin-right: 1vw;
         object-fit: cover;
         height: 42.1875vw;
@@ -755,13 +755,13 @@
     .ListItemPlayImageOverlay {
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
         width: 75vw;
         height: 42.1875vw;
         text-align: center;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s ease;  
+        transition: opacity 0.3s ease;
         img {
             height: 100%;
         }
