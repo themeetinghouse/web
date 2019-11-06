@@ -19,15 +19,16 @@
                 "image1": [
                     {
                         "src": "/static/images/sc-1-1.jpg",
-                        "alt": "Woman standing in front of grafiti wall."
+                        "alt": "Man standing in front of a large chalkboard at the front of a lecture hall at a university."
                     },
                     {
                         "src": "/static/images/sc-1-2.jpg",
-                        "alt": "Woman standing in front of grafiti wall."
+                        "alt": "Man sitting on the steps infront of a university building."
                     }
                 ],
                 "header1": "Spiritually curious...or whatever.",
-                "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. This is a safe space where you can feel comfortable exploring faith and spirituality. Full disclosure: we think the best thing we have to offer is to point you towards Jesus."
+                "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. This is a safe space where you can feel comfortable exploring faith and spirituality. Full disclosure: we think the best thing we have to offer is to point you towards Jesus.",
+                "button1Text": "Watch Nik's Story"
             },
             {
                 "type": "content",
