@@ -19,7 +19,7 @@
                 "style": "oneImage",
                 "header1": "Why We Volunteer",
                 "header2": "",
-                "text1": "TODO",
+                "text1": "When we serve in practical ways, we participate in what God is doing in our community, and we grow in our own faith in Jesus. When you volunteer your time to serve in our church, you contribute to what God wants to accomplish through The Meeting House. We don’t want you to miss out.",
                 "list": [
                     {
                         "type":"link",
@@ -34,20 +34,7 @@
                     }
                 ]
             },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "A Door Opener",
-                "header2": "",
-                "text1": "TODO",
-               
-                "image1": [
-                    {
-                        "src": "/static/images/volunteering-2.jpg",
-                        "alt": "A volunteer opening a door"
-                    }
-                ]
-            },
+            
             {
                 "type": "list",
                 "style": "oneImage",
@@ -55,8 +42,8 @@
                 "header2": "",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
-                        "alt": "TODO"
+                        "src": "/static/images/volunteering-2.jpg",
+                        "alt": "A volunteer opening a door"
                     }
                 ],
                 "list": [
