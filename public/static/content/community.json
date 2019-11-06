@@ -55,10 +55,10 @@
                 "type":"list",
                 "style":"horizontal",
                 "class":"videos",
-                "subclass":"life-story",
+                "subclass":"community",
                 "selector":"all",
                 "sortOrder":"DESC",
-                "header1":"More Stories"                
+                "header1":"More Stories from our Community"                
             },
             {
                 "type": "list",
