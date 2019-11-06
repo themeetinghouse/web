@@ -51,7 +51,7 @@
                 "subclass":"life-story",
                 "selector":"all",
                 "sortOrder":"DESC",
-                "header1":"All Life Stories"                
+                "header1":"Life Stories"                
             },
             {
                 "type":"list",

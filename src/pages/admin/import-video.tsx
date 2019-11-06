@@ -42,7 +42,8 @@ interface State {
     selectedVideo: any
     videoList: any
     seriesList: any
-    toSave: any
+    toSaveVideo: any
+    toSaveSeries: any
     videoEditorValues: any
     showError: any
     showAddSeries: any
@@ -73,7 +74,8 @@ class IndexApp extends React.Component<Props, State> {
             selectedVideo: null,
             videoList: [],
             seriesList: [],
-            toSave: {},
+            toSaveVideo: {},
+            toSaveSeries: { id: "", title: "", startDate: "", endDate: "", seriesType: "" },
             videoEditorValues: {},
             showError: ""
         }
@@ -104,7 +106,7 @@ class IndexApp extends React.Component<Props, State> {
         listSeries.then((json: any) => {
             console.log({ "Success queries.listSeries: ": json });
             this.setState({
-                seriesList: this.state.seriesList.concat(json.data.listSeriess.items)
+                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => a.id > b.id)
             })
             if (json.data.listSeriess.nextToken != null)
                 this.listSeries(json.data.listSeriess.nextToken)
@@ -126,10 +128,10 @@ class IndexApp extends React.Component<Props, State> {
         return z > y ? -1 : z < y ? 1 : 0;
     }
     getVideosQID(nextToken: any, queryId: any) {
-        console.log(this.state.getVideoQueryId)
+        //console.log(this.state.getVideoQueryId)
         if (queryId === this.state.getVideoQueryId) {
             var listVideos: any
-            console.log(this.state.selectedVideoType)
+            //console.log(this.state.selectedVideoType)
             if (this.state.selectedVideoType === "") {
                 listVideos = API.graphql({
                     query: customQueries.listVideos,
@@ -219,7 +221,7 @@ class IndexApp extends React.Component<Props, State> {
                     {this.state.videoList.map((video: any) => {
 
                         return (
-                            <tr key={video.id} className="divRow" onClick={(i: any) => { this.setState({ selectedVideo: null, toSave: null }, () => { this.setState({ selectedVideo: video, toSave: { id: video.id } }) }) }}>
+                            <tr key={video.id} className="divRow" onClick={(i: any) => { this.setState({ selectedVideo: null, toSaveVideo: null }, () => { this.setState({ selectedVideo: video, toSaveVideo: { id: video.id } }) }) }}>
                                 {z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInTable).map((item: any) => {
                                     var list: any = item.id.split(".")
                                     var value: any = video
@@ -237,15 +239,15 @@ class IndexApp extends React.Component<Props, State> {
         )
     }
     save() {
-        if ((this.state.toSave.videoTypes === undefined && this.state.toSave.publishedDate !== undefined) || (this.state.toSave.videoTypes !== undefined && this.state.toSave.publishedDate === undefined)) {
+        if ((this.state.toSaveVideo.videoTypes === undefined && this.state.toSaveVideo.publishedDate !== undefined) || (this.state.toSaveVideo.videoTypes !== undefined && this.state.toSaveVideo.publishedDate === undefined)) {
             this.setState({ showError: "Must set both videoType and publishedDate" })
         }
         else {
             this.setState({ showError: "" })
-            console.log(this.state.toSave)
+            console.log(this.state.toSaveVideo)
             var updateVideo = API.graphql({
                 query: mutations.updateVideo,
-                variables: { input: this.state.toSave },
+                variables: { input: this.state.toSaveVideo },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             updateVideo.then((json: any) => {
@@ -260,25 +262,29 @@ class IndexApp extends React.Component<Props, State> {
         var tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
 
-        var toSave = this.state.toSave
-        toSave[field] = value
+        var toSaveVideo = this.state.toSaveVideo
+        toSaveVideo[field] = value
 
-        toSave["seriesTitle"] = this.state.seriesList.filter((item: any) => item.id === value)[0].title
+        toSaveVideo["seriesTitle"] = this.state.seriesList.filter((item: any) => item.id === value)[0].title
         this.setState({
             selectedVideo: tempSelectedVideo,
-            toSave: toSave
+            toSaveVideo: toSaveVideo
         })
+        console.log(toSaveVideo)
     }
     writeField(field: any, value: any) {
         var tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
 
-        var toSave = this.state.toSave
-        toSave[field] = value
+        var toSaveVideo = this.state.toSaveVideo
+        toSaveVideo[field] = value
         this.setState({
             selectedVideo: tempSelectedVideo,
-            toSave: toSave
+            toSaveVideo: toSaveVideo
         })
+    }
+    filterSeries = (series: any, videoType: any) => {
+        return series.seriesType == videoType
     }
     renderVideoEditor() {
         var z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
@@ -288,6 +294,7 @@ class IndexApp extends React.Component<Props, State> {
                 <table className="divTable2">
                     <tbody>
                         {this.state.selectedVideo ? z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInEditor).map((item: any) => {
+
                             var list: any = item.id.split(".")
                             var finalValue: any = this.state.selectedVideo
                             for (var listItem of list) {
@@ -310,8 +317,8 @@ class IndexApp extends React.Component<Props, State> {
                                                     item.type === "VideoType" ?
                                                         <select className="dropdown2" onChange={(e: any) => this.writeField(item.id, e.target.value)} >
                                                             {
-                                                                this.state.videoTypes.map((item: any) => {
-                                                                    return (<option key={item.id} value={item.id}>{item.name}</option>)
+                                                                this.state.videoTypes.map((item2: any) => {
+                                                                    return (<option key={item2.id} value={item2.id}>{item2.name}</option>)
                                                                 })
                                                             }
                                                         </select> :
@@ -321,8 +328,8 @@ class IndexApp extends React.Component<Props, State> {
                                                                 <option key="null" value="null">None Selected</option>
 
                                                                 {
-                                                                    this.state.seriesList.map((item: any) => {
-                                                                        return (<option key={item.id} value={item.id}>{item.id}</option>)
+                                                                    this.state.seriesList.filter((a: any) => { return this.filterSeries(a, this.state.selectedVideo.videoTypes) }).map((item2: any) => {
+                                                                        return (<option key={item2.id} value={item2.id}>{item2.id}</option>)
                                                                     })
                                                                 }
                                                             </select> :
@@ -338,20 +345,47 @@ class IndexApp extends React.Component<Props, State> {
             </div>
         )
     }
+    updateSeriesField(field: any, value: any) {
+        var toSaveSeries = this.state.toSaveSeries
+        toSaveSeries[field] = value
+        if (toSaveSeries.seriesType === "adult-sunday")
+            toSaveSeries.id = toSaveSeries.title
+        else
+            toSaveSeries.id = toSaveSeries.seriesType + "-" + toSaveSeries.title
+        this.setState({ toSaveSeries: toSaveSeries })
+        console.log(toSaveSeries)
+    }
+    saveSeries() {
+        if (this.state.toSaveSeries.title !== "" && this.state.toSaveSeries.seriesType !== ""){
+            var saveSeries = API.graphql({
+                query: mutations.createSeries,
+                variables: {input:this.state.toSaveSeries},
+                authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+    
+            saveSeries.then((json: any) => {
+                console.log({ "Success mutations.saveSeries: ": json });
+    
+            }).catch((e: any) => { console.log(e) })
+            return true;
+        }
+      return false;
+    }
     renderAddSeries() {
         return <Modal isOpen={this.state.showAddSeries}>
-            <div>id: <input />
-                Name: <input />
-                Start Date: <input />
-                End Date: <input />
-                <select className="dropdown2"  >
+            <div>
+                <div>id: {this.state.toSaveSeries.id}</div>
+                <div>Name: <input value={this.state.toSaveSeries.title} onChange={(item: any) => { this.updateSeriesField("title", item.target.value) }} /></div>
+                <div>Start Date: <input value={this.state.toSaveSeries.startDate} onChange={(item: any) => { this.updateSeriesField("startDate", item.target.value) }} /></div>
+                <div>End Date: <input value={this.state.toSaveSeries.endDate} onChange={(item: any) => { this.updateSeriesField("endDate", item.target.value) }} /></div>
+                <div>Series Type: <select className="dropdown2" value={this.state.toSaveSeries.seriesType} onChange={(item: any) => { this.updateSeriesField("seriesType", item.target.value) }} >
                     {
                         this.state.videoTypes.map((item: any) => {
                             return (<option key={item.id} value={item.id}>{item.name}</option>)
                         })
                     }
-                </select>
-                <button onClick={() => { this.setState({ showAddSeries: false }) }}></button>
+                </select></div>
+                <button onClick={() => { if (this.saveSeries())this.setState({ showAddSeries: false })}}></button>
             </div>
         </Modal>
     }

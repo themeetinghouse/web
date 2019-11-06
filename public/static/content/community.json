@@ -69,21 +69,21 @@
                         "text": "Want to join us this Sunday but aren’t sure what to expect? We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of a people with a purpose.",
                         "imageSrc": "/static/images/community-3-1.jpg",
                         "imageAlt": "Three people standing by the doors of the Oakville site",
-                        "navigateTo": "find-sunday-morning"
+                        "navigateTo": "sunday-morning"
                     },
                     {
                         "title": "Home Church",
                         "text": "During the week, we meet in homes to further study and apply Sunday’s teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it’s kind of the best thing we’ve got going.",
                         "imageSrc": "/static/images/community-3-2.jpg",
                         "imageAlt": "Three people sitting around a dining room table eating snacks",
-                        "navigateTo": "find-home-church"
+                        "navigateTo": "home-church"
                     },
                     {
                         "title": "Kids & Youth",
                         "text": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. Learn more about our programs.",
                         "imageSrc": "/static/images/community-3-3.jpg",
                         "imageAlt": "Two kids smiling",
-                        "navigateTo": "teaching-kids-youth"
+                        "navigateTo": "kids-and-youth"
                     }
                 ]
             }

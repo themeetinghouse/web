@@ -16,42 +16,41 @@
         "content": [
            
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"TODO",
-                "list": [
+                "type": "hero",
+                "style": "full",
+                "image1": [
                     {
-                        "type":"link",
-                        "title": "...",
-                        "navigateTo": "homepage"
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
                     }
                 ],
-                "image1":[{
-                    "src":"/static/images/TODO.jpg",
-                    "alt":"TODO"
-                }]
-
+                "header1": "Home Church",
+                "header2": "",
+                "text1": "TODO"
+              
             },
             {
                 "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
+                "style": "greyTwoText",
+                "header1":"What is Home Church?",
                 "header2":"",
-                "text1":"TODO",
-                "list": [
+                "text1":"TODO"
+            
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Family Friendly",
+                "header2": "",
+                "text1": "Todo",
+                
+               
+                "image1": [
                     {
-                        "type":"link",
-                        "title": "...",
-                        "navigateTo": "homepage"
+                        "src": "/static/images/Todo.jpg",
+                        "alt": "Todo"
                     }
-                ],
-                "image1":[{
-                    "src":"/static/images/TODO.jpg",
-                    "alt":"TODO"
-                }]
-
+                ]
             }
         ]
     }

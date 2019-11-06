@@ -150,7 +150,6 @@ class TeachingItem extends React.Component<Props, State> {
     //
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
-
         console.log(this.state.teachingId)
         if (this.state.content.style === "hero") {
 
@@ -166,7 +165,7 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teachingdiv teachingseriestitle" >{this.state.listData[this.state.teachingId].episodeNumber} {this.state.listData[this.state.teachingId].seriesTitle}  •  {this.state.listData[this.state.teachingId].duration}</div>
                                 <div className="teachingdiv teachingdescription" > {this.state.listData[this.state.teachingId].description}</div>
                                 <div className="teachingdiv2" ><Button className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button></div>
-                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={this.props.content.class === "teaching-sunday"&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoType+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={this.props.content.class === "teaching-sunday"&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                             </div>
                             <div className="teaching-mostrecent" >Most recent</div>
                             <div className="teaching-options" >

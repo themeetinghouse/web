@@ -149,7 +149,7 @@ export default class ContentItem extends React.Component<Props, State>  {
   renderFellowshipOne() {
     return <div className="GiveItemGreyBox">
       You can give with credit or debit card through your  <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin/">Meeting House account</a>.<br />
-      If you don't have a Meeting House account, you can <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin">create one</a>.
+      If you don't have a Meeting House account, you can <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin/New">create one</a>.
     </div>
   }
   renderPreAuthorizedWithdrawl() {

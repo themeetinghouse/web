@@ -16,41 +16,70 @@
         "content": [
            
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"TODO",
-                "list": [
+                "type": "hero",
+                "style": "full",
+                "image1": [
                     {
-                        "type":"link",
-                        "title": "...",
-                        "navigateTo": "homepage"
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
                     }
                 ],
-                "image1":[{
-                    "src":"/static/images/TODO.jpg",
-                    "alt":"TODO"
-                }]
-
+                "header1": "Sunday Morning",
+                "header2": "",
+                "text1": "TODO"
+              
+            },
+            {
+                "type": "content",
+                "style": "greyTwoText",
+                "header1":"What should I expect?",
+                "header2":"",
+                "text1":"TODO"
+            
+            },
+            {
+                "type": "instagram"
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Coming Soon",
-                "header2":"",
-                "text1":"TODO",
+                "header1": "Kids & Youth",
+                "header2": "",
+                "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
                 "list": [
                     {
                         "type":"link",
-                        "title": "...",
-                        "navigateTo": "homepage"
+                        "title": "Find Out More",
+                        "navigateTo": "kids-and-youth"
                     }
                 ],
-                "image1":[{
-                    "src":"/static/images/TODO.jpg",
-                    "alt":"TODO"
-                }]
+                "image1": [
+                    {
+                        "src": "/static/images/KY1.jpg",
+                        "alt": "A young child playing with blocks."
+                    },
+                    {
+                        "src": "/static/images/KY2.jpg",
+                        "alt": "Two boys laughing."
+                    }
+                ]
+            },
+            {
+                "type": "hero",
+                "style": "partialNoFooter",
+                "image1": [
+                    {
+                        "src": "/static/svg/Map.svg",
+                        "alt": "A map representing locations of The Meeting House churches."
+                    }
+                ],
+                "header1": "Locations",
+                "text1": "It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
+                "text2": "What are you doing this Sunday?",
+                "link1Text": "Show Map",
+                "link1Action": "find-sunday-morning",
+                "class":"locations",
+                "showLocationSearch": true
             }
         ]
     }

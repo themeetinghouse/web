@@ -1,0 +1,79 @@
+{
+    "page": {
+        "name": "kids-and-youth",
+        "title": "Kids and Youth",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/TODO.jpg",
+                        "alt": "TODO"
+                    }
+                ],
+                "header1": "Kids and Youth",
+                "header2": "",
+                "text1": "TODO"
+              
+            },
+            {
+                "type": "content",
+                "style": "greyTwoText",
+                "header1":"Kids",
+                "header2":"Infant - Grade 5",
+                "text1":"TODO"
+            
+            },
+            {
+                "type": "content",
+                "style": "greyTwoText",
+                "header1":"Youth",
+                "header2":"Grades 6 - 12",
+                "text1":"TODO"
+            
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Curriculum?",
+                "text1": "Interested in using our curriculum? Visit our dedicated site for Sunday morning teaching, midweek resources, and The Parent Blog. ",
+            
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Kids & Youth Curriculum",
+                        "navigateTo": "http://kidsandyouth.themeetinghouse.com",
+                        "openNewBrowser":true
+                    }
+                ],
+
+                "image1": [
+                    {
+                        "src": "/static/images/teach-ky-1.jpg",
+                        "alt": "Group of friends from church sitting together and talking."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "greyTwoText",
+                "header1":"Parents",
+                "header2":"",
+                "text1":"TODO"
+            
+            }
+        ]
+    }
+}
