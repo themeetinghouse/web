@@ -16,14 +16,14 @@
         "content": [
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Why We Volunteer",
                 "header2": "",
                 "text1": "When we serve in practical ways, we participate in what God is doing in our community, and we grow in our own faith in Jesus. When you volunteer your time to serve in our church, you contribute to what God wants to accomplish through The Meeting House. We don’t want you to miss out.",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Watch",
+                        "title": "",
                         "navigateTo": "TODO"
                     }
                 ],
@@ -37,7 +37,7 @@
             
             {
                 "type": "list",
-                "style": "oneImageBlackRight",
+                "style": "oneImage",
                 "header1": "Serving Together",
                 "header2": "",
                 "image1": [
