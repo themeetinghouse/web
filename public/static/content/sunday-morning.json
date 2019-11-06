@@ -26,7 +26,7 @@
                 ],
                 "header1": "Sunday Morning",
                 "header2": "",
-                "text1": "TODO"
+                "text1": "We gather together each week to hear and explore the message of Jesus and what it means to follow him in our everyday lives."
               
             },
             {
@@ -34,8 +34,14 @@
                 "style": "greyTwoText",
                 "header1":"What should I expect?",
                 "header2":"",
-                "text1":"TODO"
-            
+                "text1":"We keep it simple. Our Sunday morning services are 60 minutes long. You can wear whatever clothing is comfortable. We’ve got coffee ready to go in the lobby, show up a few minutes early to grab a cup and find a seat. Our services begin with about 15 minutes of music, where we join together to sing songs about Jesus. There is a live band, and the lyrics are projected onto the screen. After this we share a few announcements and stories about what’s happening, followed by 40 minutes of Jesus-centred teaching. We’ve got notes and Bibles ready for you so you can follow along as we learn together. Once the service is done, we typically hang out to chat, connect, and maybe have a snack. You are welcome to take off, or stay as long as you’d like. Curious about our Sunday morning teaching?",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Check out the message from last Sunday",
+                        "navigateTo": "teaching"
+                    }
+                ]
             },
             {
                 "type": "instagram"
