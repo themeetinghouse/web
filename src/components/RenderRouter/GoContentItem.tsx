@@ -49,7 +49,7 @@ class LocationItem extends React.Component<Props, State> {
                     <div className="GoContentSubH1">Our Church Family</div>
                     <div className="GoContentSubH2">$3 Million</div>
                     <div>
-                    We can’t do this alone. We are a movement of Jesus-centred churches, and we want to invest in each of these communities so that we will be equipped to connect with the spiritually curious in our neighbourhoods. This investment includes funding local innovation and creative church expressions, shaping and training the next generation of young leaders, and investing in new technology and communication tools to allow us to share our message in relevant ways. 
+                    We can't do this alone. We are a movement of Jesus-centred churches, and we want to invest in each of these communities so that we will be equipped to connect with the spiritually curious in our neighbourhoods. This investment includes funding local innovation and creative church expressions, shaping and training the next generation of young leaders, and investing in new technology and communication tools to allow us to share our message in relevant ways. 
                     </div>
                     
                 </span>

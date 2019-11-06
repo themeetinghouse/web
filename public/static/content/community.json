@@ -33,7 +33,7 @@
                 "style": "oneImageBlackRight",
                 "header1": "Nik's Story",
                 "header2": "",
-                "text1": "“When I look around and say the word 'love', I see Jesus. And I just want to live a loving and serving life.” Nik's childhood experiences drove him away from religion, but he was able to find a faith community that accepted him and encouraged his questions. See Nik’s story and his spiritual journey.",
+                "text1": "“When I look around and say the word 'love', I see Jesus. And I just want to live a loving and serving life.” Nik's childhood experiences drove him away from religion, but he was able to find a faith community that accepted him and encouraged his questions. See Nik's story and his spiritual journey.",
                 
                 "list": [
                     {
@@ -66,14 +66,14 @@
                 "list": [
                     {
                         "title": "Sunday Morning",
-                        "text": "Want to join us this Sunday but aren’t sure what to expect? We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of a people with a purpose.",
+                        "text": "Want to join us this Sunday but aren't sure what to expect? We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of a people with a purpose.",
                         "imageSrc": "/static/images/community-3-1.jpg",
                         "imageAlt": "Three people standing by the doors of the Oakville site",
                         "navigateTo": "sunday-morning"
                     },
                     {
                         "title": "Home Church",
-                        "text": "During the week, we meet in homes to further study and apply Sunday’s teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it’s kind of the best thing we’ve got going.",
+                        "text": "During the week, we meet in homes to further study and apply Sunday's teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.",
                         "imageSrc": "/static/images/community-3-2.jpg",
                         "imageAlt": "Three people sitting around a dining room table eating snacks",
                         "navigateTo": "home-church"
