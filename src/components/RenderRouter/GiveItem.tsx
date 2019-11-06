@@ -124,14 +124,7 @@ export default class ContentItem extends React.Component<Props, State>  {
         <li>To have your giving deducted directly from your bank account:</li>
         <ul className="GiveItem">
           <li>Complete <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "PreAuthorizedWithdrawl" }) }}>this form</button> online. You will need your branch, transit, and account number.</li>
-          <li>OR</li>
-          <li>Print then complete this form. Drop it into the offering bucket with a VOID cheque, or mail to:</li>
-          <ul className="GiveItem">
-            <li>The Meeting House Donations</li>
-            <li>2700 Bristol Circle</li>
-            <li>Oakville, ON L6H 6E1</li>
-          </ul>
-          <li>Need to make a change? Click here to modify your gift.</li>
+         
         </ul>
       </ul>
     </div>
