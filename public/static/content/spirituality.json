@@ -59,7 +59,7 @@
                 "type": "list",
                 "style": "horizontal",
                 "class":"videos",
-                "subclass":"adult-sunday",
+                "subclass":"spiritually-curious",
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1": "Popular Videos",
