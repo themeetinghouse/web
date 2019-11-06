@@ -506,7 +506,7 @@
         "id": 58,
         "sites": ["crossregional"],
         "name": "Discipleship Development",
-        "description":"Our main goal in Compassion is to focus externally, beyond our church community. To pursue this well, we invest in our discipleship journey so we can better reflect the compassionate nature of Jesus. Through education and support, we equip our church to better live into four focus areas: Peacebuilding, Poverty Alleviation, Local Engagement, and Global Church Partnerships. ",
+        "description":"Our main goal in Compassion is to focus externally, beyond our church. To do this well, we educate our church community on issues around the world so we can better reflect the compassionate nature of Jesus. ",
         "image": "/static/photos/compassion/discipleshipdevelopment.jpg",
         "imagealt": "Group photo of First Nations leaders and community members with the Meeting House Learning Team in Timmins, Ontario."
     },
@@ -514,7 +514,7 @@
         "id": 59,
         "sites": ["crossregional"],
         "name": "Global Church Partnerships",
-        "description":"We are part of a global movement called the church that is transforming lives by living out peace and simplicity in loving community. Recognizing the blessings we have, we support and pray for the international church as they share Jesus' message. We serve the persecuted church through prayer and education.",
+        "description":"We are part of a global movement called the church that is transforming lives by living out peace and simplicity in loving communities. Recognizing the blessings we have, we support and pray for the international church as they share Jesus’ message. We particularly have a heart for the persecuted church.",
         "image": "/static/photos/compassion/globalchurchpartnerships.jpg",
         "imagealt": "Group photo of BIC church leaders in Kenya, alongside Meeting House and BIC Canada team members."
     },
