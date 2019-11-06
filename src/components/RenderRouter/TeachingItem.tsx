@@ -150,22 +150,22 @@ class TeachingItem extends React.Component<Props, State> {
     //
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
-        console.log(this.state.teachingId)
+       
         if (this.state.content.style === "hero") {
-
+            console.log(this.props.content.class)
             return (
                 this.state.listData !== null ?
                     (this.state.listData.length === this.props.content.options.length) || (this.props.content.options.length === 0) ?
                         <div className="teaching" >
-
+                            
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
-                                <div className="teachingdiv teachingseriestitle" >{this.state.listData[this.state.teachingId].episodeNumber} {this.state.listData[this.state.teachingId].seriesTitle}  •  {this.state.listData[this.state.teachingId].duration}</div>
+                                <div className="teachingdiv teachingseriestitle" >{this.state.listData[this.state.teachingId].episodeNumber}. {this.state.listData[this.state.teachingId].seriesTitle}  •  {this.state.listData[this.state.teachingId].duration}</div>
                                 <div className="teachingdiv teachingdescription" > {this.state.listData[this.state.teachingId].description}</div>
                                 <div className="teachingdiv2" ><Button className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button></div>
-                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={this.props.content.class === "teaching-sunday"&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={(this.state.content.class === "teaching-sunday"||this.state.listData[this.state.teachingId].videoTypes === "ky-kids"||this.state.listData[this.state.teachingId].videoTypes === "ky-youth"||this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh"||this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh")&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                             </div>
                             <div className="teaching-mostrecent" >Most recent</div>
                             <div className="teaching-options" >

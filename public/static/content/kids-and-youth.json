@@ -19,7 +19,7 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
+                        "src": "/static/images/KidsYouth_hero.jpg",
                         "alt": "TODO"
                     }
                 ],
@@ -61,7 +61,7 @@
 
                 "image1": [
                     {
-                        "src": "/static/images/teach-ky-1.jpg",
+                        "src": "/static/images/KidsYouth_3.jpg",
                         "alt": "Group of friends from church sitting together and talking."
                     }
                 ]
