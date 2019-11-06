@@ -180,13 +180,13 @@
     .ListItemPlayImageOverlay {
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
         right: 0;
         height: 12vw;
         text-align: center;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s ease;  
+        transition: opacity 0.3s ease;
         img {
             height: 100%;
         }
@@ -447,7 +447,7 @@
             }
         }
     }
-   
+
 
     .ListItemVideo.whiteText {
         color: #ffffff
@@ -462,13 +462,13 @@
     .ListItemPlayImageOverlay {
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
         right: 0;
         height: 12vw;
         text-align: center;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s ease;  
+        transition: opacity 0.3s ease;
         img {
             height: 100%;
         }
@@ -572,7 +572,7 @@
         position: relative;
         z-index: 99;
         width: 80vw;
-        padding: 10vw 6vw 6vw;
+        padding: 10vw 5vw 0vw;
         // margin-top: 65vw;
     }
 
@@ -610,35 +610,42 @@
         width: 90vw;
         font-size: 5vw;
         font-family: Graphik Web;
-        padding-bottom: 1vw;
+        // padding-bottom: 1vw;
+        margin-bottom: 30vw;
     }
 
     .ListItemDiv8 {
         position: relative;
-        width: 87vw;
+        width: 89vw;
     }
 
     .ListItemDiv9 {
-        position: absolute;
-        left: -25vw;
-        width: 75vw;
-        height: 15vh;
-        bottom: 0vw;
-        top: 13vw;
-        border-color: #0000ff;
-        border: solid 10px;
+      position: absolute;
+      left: -25vw;
+      width: 75vw;
+      height: 15vh;
+      bottom: 0vw;
+      top: -15vw;
+      border-color: #0000ff;
+      border: solid 10px;
+      z-index: -50;
     }
 
     .ListItemDiv10 {
-        position: relative;
+        // position: relative;
         z-index: 99;
-        top: 25vw;
-        height: 75vh;
+        // top: 25vw;
+        // height: 75vh;
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        // margin-top: 25vw;
+        margin-bottom: 15vw;
     }
-
-    .ListItemDiv10:nth-last-child(1) {
-        margin-bottom: 30vw;
-    }
+    //
+    // .ListItemDiv10:nth-last-child(1) {
+    //     margin-bottom: 30vw;
+    // }
 
     .ListItemDiv11 {
         width: 100%;
@@ -668,12 +675,12 @@
     }
 
     .ListItemH1ImageList2 {
-        position: absolute;
+        // position: absolute;
         height: 100%;
         width: 100%;
         left: 0vw;
         object-fit: contain;
-        top: -40vw;
+        // top: -40vw;
     }
 
     .ListItemH3 {
@@ -713,7 +720,7 @@
     .ListItemSpeakersDiv {
         position: relative;
         left: 0vw;
-        width: 80vw;
+        width: 95vw;
         overflow-x: scroll;
         white-space: nowrap;
     }
@@ -728,12 +735,12 @@
         margin-bottom: 10vw;
     }
 
-   
+
     .ListItemVideo {
         cursor: pointer;
         display: inline-block;
         vertical-align: top;
-        width: 75%;
+        width: 90%;
         margin-right: 6.4vw;
         position: relative;
         :hover {
@@ -747,7 +754,7 @@
     }
 
     .ListItemVideoThumb {
-        width: 75vw;
+        width: 65vw;
         margin-right: 1vw;
         object-fit: cover;
         height: 42.1875vw;
@@ -755,13 +762,13 @@
     .ListItemPlayImageOverlay {
         position: absolute;
         top: 0;
-        left: 0; 
+        left: 0;
         width: 75vw;
         height: 42.1875vw;
         text-align: center;
         pointer-events: none;
         opacity: 0;
-        transition: opacity 0.3s ease;  
+        transition: opacity 0.3s ease;
         img {
             height: 100%;
         }
