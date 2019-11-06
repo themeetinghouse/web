@@ -88,14 +88,14 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Let's do this",
+                "header1": "Let's Do This",
                 "header2": "",
-                "text1": "If you're looking to serve your church family according to the gifts God has given you, and to take part in what God is doing in your community, let us know a little bit about yourself and someone will be in touch shortly.",
+                "text1": "If you're looking to serve your church family and take part in what God is doing in your community, let us know! Getting started is as simple as filling out the form in the link below.",
             
                 "list": [
                     {
                         "type":"link",
-                        "title": "Submit Form",
+                        "title": "Volunteer Form",
                         "navigateTo": "volunteer"
                     }
                 ],
