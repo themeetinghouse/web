@@ -103,14 +103,14 @@
                     },
                     {
                         "title": "Podcasts",
-                        "text": "Our Sunday morning teaching, all in one place. We've also got the After Party podcast where we chat with special guests about theology and culture and the Roundtable podcast where we discuss church life with our own leaders and staff team.",
+                        "text": "Our Sunday morning teaching, all in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our own leaders and staff team.",
                         "imageSrc": "/static/images/homepage-4-2.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
                         "navigateTo": "teaching-podcasts"
                     },
                     {
                         "title": "Videos",
-                        "text": "Our video library featuring stories of people and communities who show us what it looks like to live the Jesus-centered life.",
+                        "text": "Our video library featuring stories of people and communities who show us what it looks like to live the Jesus-centred life.",
                         "imageSrc": "/static/images/homepage-4-3.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
                         "navigateTo": "teaching-curated"
