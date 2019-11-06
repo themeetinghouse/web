@@ -37,7 +37,7 @@
             
             {
                 "type": "list",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Serving Together",
                 "header2": "",
                 "image1": [
