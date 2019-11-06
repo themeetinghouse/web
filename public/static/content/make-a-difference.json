@@ -20,11 +20,11 @@
                 "image1": [
                     {
                         "src": "/static/images/mad-1-1.jpg",
-                        "alt": "Woman smiling at camera"
+                        "alt": "Woman smiling at camera."
                     },
                     {
                         "src": "/static/images/mad-1-2.jpg",
-                        "alt": "Volunteer with hat smiling at camera"
+                        "alt": "Volunteer with hat smiling at camera."
                     }
                 ],
                 "header1": "Make a Difference",
