@@ -281,11 +281,11 @@
     {
        "Staff":true,
         "FirstName": "Jenny",
-        "LastName": "Nasmith-Yandt",
+        "LastName": "Nasmith Yandt",
         "Phone": "905.287.7000, ext. 866",
         "Position": "Ministry Support Associate",
         "sites": ["OTTA"],
-        "Email": "Jenny.Nasmith-Yandt@themeetinghouse.com"
+        "Email": "Jenny.NasmithYandt@themeetinghouse.com"
     },
     {
        "Staff":true,
