@@ -38,7 +38,7 @@
         "id": 5,
         "sites": ["brantford"],
         "name": "Friendship House",
-        "description": "Friendship House focuses on building relationships that will meet the physical, emotional and spiritual needs of people. They strive to share and show Christ’s unconditional love within a safe and caring environment through their actions and acceptance of all people.",
+        "description": "Friendship House focuses on building relationships that will meet the physical, emotional and spiritual needs of people. They strive to share and show Christ's unconditional love within a safe and caring environment through their actions and acceptance of all people.",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -108,7 +108,7 @@
         "id": 13,
         "sites": ["hamilton-downtown"],
         "name": "TrueCity",
-        "description": "TrueCity is a movement of congregations in Hamilton, ON who recognize that God has called them to join Him in bringing His best to the city and beyond.  They work to simultaneously pursue mission at a congregational level, at a collaborative Church-in-the-City level, and as God’s people scattered across all sectors of Hamilton.",
+        "description": "TrueCity is a movement of congregations in Hamilton, ON who recognize that God has called them to join Him in bringing His best to the city and beyond.  They work to simultaneously pursue mission at a congregational level, at a collaborative Church-in-the-City level, and as God's people scattered across all sectors of Hamilton.",
         "website": "truecityhamilton.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -135,7 +135,7 @@
         "id": 16,
         "sites": ["hamilton-mountain"],
         "name": "The Baby Depot",
-        "description": "The Baby Depot helps families in need with children 0–2 years old in the Hamilton area. They supply a year’s worth of gently used baby clothes and essentials to those who need support.",
+        "description": "The Baby Depot helps families in need with children 0–2 years old in the Hamilton area. They supply a year's worth of gently used baby clothes and essentials to those who need support.",
         "website": "www.thebabydepot.org/",
         "image": "/static/photos/compassion/baby depot.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -180,7 +180,7 @@
         "id": 21,
         "sites": ["london"],
         "name": "New Life Prison Ministries",
-        "description": "New Life Prison Ministries offers hope and direction to those impacted through the criminal justice system by presenting the good news of Jesus Christ through Bible correspondence studies, prison chapel services, visitation, video showings and aftercare support so that God’s name may be honoured and glorified.",
+        "description": "New Life Prison Ministries offers hope and direction to those impacted through the criminal justice system by presenting the good news of Jesus Christ through Bible correspondence studies, prison chapel services, visitation, video showings and aftercare support so that God's name may be honoured and glorified.",
         "website": "nlpm.ca/",
         "image": "/static/photos/compassion/new life.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -277,7 +277,7 @@
     {
         "id": 32,
         "sites": ["oakville"],
-        "name": "Women’s Habitat",
+        "name": "Women's Habitat",
         "description": "Women's Habitat is a shelter and outreach centre that provides services and temporary housing for women in need to make a new life for themselves and their children.",
         "website": "womenshabitat.ca/",
         "image": "/static/photos/compassion/womens habitat.jpg",
@@ -402,7 +402,7 @@
         "id": 46,
         "sites": ["toronto-downtown"],
         "name": "Yonge Street Mission",
-        "description": "The Yonge Street Mission exists so that all the poor and vulnerable in Toronto that we encounter will experience God’s love, peace, and justice at a level that represents the highest stewardship of the resources invested.",
+        "description": "The Yonge Street Mission exists so that all the poor and vulnerable in Toronto that we encounter will experience God's love, peace, and justice at a level that represents the highest stewardship of the resources invested.",
         "website": "www.ysm.ca/",
         "image": "/static/photos/compassion/ysm.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -474,7 +474,7 @@
         "id": 54,
         "sites": ["toronto-uptown"],
         "name": "Matthew House",
-        "description": "Matthew House's primary goal is to help restore refugees’ dignity by providing shelter and support in a welcoming, home-like setting. Many refugees arrive with little more than a small bag and need practical support. We ensure that their individual needs are met and empower refugees to restart their lives in Canada. ",
+        "description": "Matthew House's primary goal is to help restore refugees' dignity by providing shelter and support in a welcoming, home-like setting. Many refugees arrive with little more than a small bag and need practical support. We ensure that their individual needs are met and empower refugees to restart their lives in Canada. ",
         "website": "www.matthewhouse.ca/",
         "image": "/static/photos/compassion/matthew house.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
@@ -490,7 +490,7 @@
         "id": 56,
         "sites": ["crossregional"],
         "name": "Peacebuilding",
-        "description":"One of our key values is to live out Jesus’ message of peace. As a church, we are committed to nonviolence and being agents of reconciliation. We do this through pursuing Indigenous reconciliation efforts, refugee sponsorship, restorative justice, relief, and peacebuilding literacy development.",
+        "description":"One of our key values is to live out Jesus' message of peace. As a church, we are committed to nonviolence and being agents of reconciliation. We do this through pursuing Indigenous reconciliation efforts, refugee sponsorship, restorative justice, relief, and peacebuilding literacy development.",
         "image": "/static/photos/compassion/peacebuilding.jpg",
         "imagealt": "A student sharing with his friends at a Peace Club in Zambia."
     },
@@ -498,7 +498,7 @@
         "id": 57,
         "sites": ["crossregional"],
         "name": "Poverty Alleviation",
-        "description":"Poverty was never in God’s design for humanity. Due to injustice in our world, there is a major gap in the quality of life between people around the world. We recognize the gifts we have been given and  the unique privilege we have to make a difference. We pursue a poverty-free world by partnering with two communities in Malawi through World Vision’s child sponsorship program.",
+        "description":"Poverty was never in God's design for humanity. Due to injustice in our world, there is a major gap in the quality of life between people around the world. We recognize the gifts we have been given and  the unique privilege we have to make a difference. We pursue a poverty-free world by partnering with two communities in Malawi through World Vision's child sponsorship program.",
         "image": "/static/photos/compassion/povertyalleviation.jpg",
         "imagealt": "Young children in Jordan drawing and playing together inside a safe kids club that was created for them."
     },

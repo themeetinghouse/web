@@ -43,7 +43,7 @@
                     }
                 ],
                 "header1": "Hello Friend",
-                "text1": "When’s the last time someone asked you what you believe? We’re a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
+                "text1": "When's the last time someone asked you what you believe? We're a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "spirituality"
             },
@@ -51,7 +51,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Loneliness Sucks",
-                "text1": "Community is a party and we want to make sure everyone’s invited. Ready to connect with people who want to care for their neighbourhoods?",
+                "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods?",
                 "list": [
                     {
                         "type":"link",
@@ -72,7 +72,7 @@
                 "style": "oneImageBlackRight",
                 "header1": "Go Campaign",
                 "header2": "",
-                "text1": "We're our best selves when we don’t make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
+                "text1": "We're our best selves when we don't make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
                 "list": [
                     {
                         "type":"link",
@@ -175,7 +175,7 @@
                     }
                 ],
                 "header1": "Locations",
-                "text1": "It’s pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
+                "text1": "It's pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
                 "text2": "What are you doing this Sunday?",
                 "link1Text": "Show Map",
                 "link1Action": "find-sunday-morning",
