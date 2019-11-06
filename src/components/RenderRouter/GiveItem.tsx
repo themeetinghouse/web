@@ -105,7 +105,7 @@ export default class ContentItem extends React.Component<Props, State>  {
       <ul className="GiveItem">
         <li>To set up your giving as a bill payment through online banking:</li>
         <ul className="GiveItemNumber">
-          <li>Locate your Meeting House account number, found on your donations envelope. Don’t have an account number? <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "RequestAccountNumber" }) }}>Request one</button>.</li>
+          <li>Locate your Meeting House account number, found on your donations envelope. Don't have an account number? <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "RequestAccountNumber" }) }}>Request one</button>.</li>
           <li>Login to your online banking, and select the Bill Payment option.</li>
           <li>Set up a new payee as “The Meeting House” (it may display as The Meeting House Church Family).</li>
           <li>Enter your account number, followed by one of the three digit codes below to indicate which fund you would like to donate to. If your account number is less than 5 digits, enter zeros in front of of your number to make it the correct length</li>
