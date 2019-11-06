@@ -525,5 +525,46 @@
         "description":"We want to be a transformative presence within our communities, so we serve and advocate for the marginalized in our neighbourhoods by volunteering in our cities. Each site partners with local organizations that are having a positive impact in their community. Relying on the expertise and reputation of our partners, we walk alongside the most vulnerable people in our neighbourhoods. ",
         "image": "/static/photos/compassion/localengagement.jpg",
         "imagealt": "A meeting house volunteer sorting and organizing donations as part of a local compassion initative."
+    },
+    {
+        "id": 60,
+        "sites": ["london"],
+        "name": "St. John's the Evangelist",
+        "description":"The London site partners with St. John's the Evanglist in serving hospitality meals on Saturday nights.",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["london"],
+        "name": "AVONA",
+        "description":"AVONA provides safe places, shelter, support, counselling, and resources for abused women, their children, and all oppressed individuals to find a new start.",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["kitchener"],
+        "name": "The Bridges",
+        "description":"Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["kitchener"],
+        "name": "Cambridge Self Help Foodbank",
+        "description":"The Cambridge Self-Help Food Bank offers food and support to people and community groups in need within Cambridge and North Dumfries. They encourage self-reliance through programs and services.",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["burlington"],
+        "name": "Eagles Nest Ministries",
+        "description":"For more than 15 years Eagles Nest Association of Waterdown has been impacting lives in their community showing compassion and providing practical support for families. Under Eagles Nest are three divisions: Drummond House, HOPE Centre and Rescued & Restored.",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
     }
+
 ]

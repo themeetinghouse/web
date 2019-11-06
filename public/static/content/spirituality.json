@@ -48,7 +48,7 @@
                 "type": "list",
                 "style": "horizontal",
                 "class":"videos",
-                "subclass":"bbq",
+                "subclass":"questions",
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1": "Starting Questions",
@@ -78,6 +78,13 @@
                     {
                         "src": "/static/images/spirituality-3.jpg",
                         "alt": "Two people sitting and talking during Home Church"
+                    }
+                ],
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Find Community",
+                        "navigateTo": "community"
                     }
                 ]
             }

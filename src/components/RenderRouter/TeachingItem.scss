@@ -1,6 +1,10 @@
 @media (min-width: 768px) {
     .teachingButton {
         font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color:#ffffff !important;
+        color:#000000 !important;
+        font-weight:bold!important;
     }
 
     .teaching-h1 {
@@ -102,6 +106,13 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .teachingButton {
+        font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color:#ffffff !important;
+        color:#000000 !important;
+        font-weight:bold!important;
+    }
     .teaching-h1 {
         position: relative;
         top: 3vw;
@@ -310,5 +321,6 @@
       background-color: #ffffff!important;
       color: #000000!important;
       font-weight: 800!important;
+      border-radius:0!important;
   }
 }
