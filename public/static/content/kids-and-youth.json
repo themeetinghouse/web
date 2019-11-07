@@ -19,60 +19,65 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/KidsYouth_hero.jpg",
-                        "alt": "TODO"
+                        "src": "/static/images/kidsyouth-1-1.jpg",
+                        "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
                     }
                 ],
                 "header1": "Kids and Youth",
                 "header2": "",
-                "text1": "TODO"
+                "text1": "We love kids and youth—and because of that we highly value the time we are able to be with them."
               
             },
             {
-                "type": "content",
-                "style": "greyTwoText",
-                "header1":"Kids",
-                "header2":"Infant - Grade 5",
-                "text1":"We use our own Jesus-centred curriculum to help kids and youth learn to love and follow Jesus in a safe and welcoming environment."
-            
-            },
-            {
-                "type": "content",
-                "style": "greyTwoText",
-                "header1":"Youth",
-                "header2":"Grades 6 - 12",
-                "text1":"We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our Junior High program (grades 6-8) consists of Sunday morning gatherings during our services, as well as a midweek gathering. Our Senior High students (grades 9-12) remain in the service on Sundays and gather midweek for teaching and small groups. We use our own Jesus-centred youth curriculum and provide our youth with opportunities to build relationships, talk about Jesus, and engage in their community."
-            
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Curriculum?",
-                "text1": "Interested in using our curriculum? Visit our dedicated site for Sunday morning teaching, midweek resources, and The Parent Blog. ",
-            
+                "type": "list",
+                "style": "imageList",
+                "header1": "",
+                "text1": "",
                 "list": [
                     {
-                        "type":"link",
-                        "title": "Kids & Youth Curriculum",
-                        "navigateTo": "http://kidsandyouth.themeetinghouse.com",
-                        "openNewBrowser":true
+                        "title": "Kids",
+                        "text": "Kidmax is the name of our kids program. We exist to help kids understand and live Jesus' message. Kids (infants to grade 5) hang out on Sunday mornings for activities and discussion from our curriculum. We use a small group model so kids can get to know one another and their leaders as they explore faith together. We work hard to create a safe community.",
+                        "imageSrc": "/static/images/kidsyouth-2-1.jpg",
+                        "imageAlt": "Kids laughing and playing together in our kidmax program."
+                    },
+                    {
+                        "title": "Youth",
+                        "text": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Jr. Highs (grades 6-8) hang out together on Sunday mornings for activities and discussion from our curriculum. Sr. Highs (grades 9-12) gather in the service with our wider church family. Both groups come together midweek to have fun, engage in small groups and talk about Jesus.",
+                        "imageSrc": "/static/images/kidsyouth-2-2.jpg",
+                        "imageAlt": "Two youth laughing together at a youth retreat."
+                    },
+                    {
+                        "title": "Parents and Guardians",
+                        "text": "We are passionate about helping with spiritual parenting. We provide take-home resources with questions and activities to further learning at home. Follow along on The Parent Blog to learn what kids learned this past Sunday and for other helpful resources.",
+                        "imageSrc": "/static/images/kidsyouth-2-3.jpg",
+                        "imageAlt": "Two parents walking with their young child."
                     }
                 ],
 
                 "image1": [
                     {
-                        "src": "/static/images/KidsYouth_3.jpg",
-                        "alt": "Group of friends from church sitting together and talking."
+                        "src": "",
+                        "alt": ""
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "greyTwoText",
-                "header1":"Parents",
-                "header2":"",
-                "text1":"Kidmax is our Sunday morning program for infants to grade 5. We use our own Jesus-centred curriculum to help our kids learn to love and follow Jesus in a safe and welcoming environment. We also want to empower parents to be the primary spiritual caregivers of their children, so we provide weekly take-home materials with each lesson."
-            
+                "style": "oneImageBlackRight",
+                "header1":"Curriculum",
+                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Kids and Youth Curriculum",
+                        "navigateTo": "http://www.http://kidsandyouth.themeetinghouse.com/",
+                        "openNewBrowser":true
+                    }
+                ],
+                "image1":[{
+                    "src":"/static/images/about-us-5.png",
+                    "alt":"Jesus Collective Logo"
+                }]
             }
         ]
     }
