@@ -31,19 +31,19 @@
             {
                 "type": "list",
                 "style": "imageList",
-                "header1": "What To Expect",
-                "text1": "We keep it pretty simple. If you're hanging out with us this Sunday, here's what you can expect:",
+                "header1": "",
+                "text1": "",
                 "list": [
                     {
                         "title": "Kids",
-                        "text": "Kidmax is our kids program. We exist to help kids understand and live Jesus' message. Kids (infants to grade 5) hang out on Sunday mornings for activities and discussion from our curriculum. We use a small group model so kids can get to know one another and their leaders as they explore faith together. We work hard to create a safe community.",
+                        "text": "Kidmax is the name of our kids program. We exist to help kids understand and live Jesus' message. Kids (infants to grade 5) hang out on Sunday mornings for activities and discussion from our curriculum. We use a small group model so kids can get to know one another and their leaders as they explore faith together. We work hard to create a safe community.",
                         "imageSrc": "/static/images/kidsyouth-2-1.jpg",
                         "imageAlt": "Man stands by the church doors welcoming people in."
                     },
                     {
                         "title": "Youth",
                         "text": " Our services begin with about 15 minutes of music, where we join together to sing songs about Jesus. There is a live band, and the lyrics are projected onto the screen. After this we share a few announcements and stories about what’s happening, followed by 40 minutes of Jesus-centred teaching. We’ve got notes and Bibles ready for you so you can follow along as we learn together.",
-                        "imageSrc": "/static/images/sunday-morning-2-2.jpg",
+                        "imageSrc": "/static/images/kidsyouth-2-2.jpg",
                         "imageAlt": "Volunteer musician playing the drums during a Sunday morning service at The Meeting House."
                     },
                     {
