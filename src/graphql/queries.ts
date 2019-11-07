@@ -475,6 +475,9 @@ export const fuzzySearchVideos = `query FuzzySearchVideos(
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -538,6 +541,9 @@ export const fuzzySearchVideos = `query FuzzySearchVideos(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -618,6 +624,9 @@ export const fuzzySearchVideos = `query FuzzySearchVideos(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1582,6 +1591,9 @@ export const listSpeakers = `query ListSpeakers(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1649,6 +1661,9 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -1707,6 +1722,9 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -1735,6 +1753,9 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -1768,6 +1789,9 @@ export const getSpeaker = `query GetSpeaker($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -1849,6 +1873,9 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1952,6 +1979,9 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -2015,6 +2045,9 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -2095,6 +2128,9 @@ export const getSpeakerVideos = `query GetSpeakerVideos($id: ID!) {
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -2169,6 +2205,9 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2266,6 +2305,9 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
           }
         }
         videoTypes
+        notesURL
+        videoURL
+        audioURL
         speakers {
           items {
             id
@@ -2302,6 +2344,9 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2352,6 +2397,9 @@ export const listSpeakerVideoss = `query ListSpeakerVideoss(
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2442,6 +2490,9 @@ export const listSeriess = `query ListSeriess(
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -2470,6 +2521,9 @@ export const listSeriess = `query ListSeriess(
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -2503,6 +2557,9 @@ export const listSeriess = `query ListSeriess(
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -2605,6 +2662,9 @@ export const getSeries = `query GetSeries($id: ID!) {
           }
         }
         videoTypes
+        notesURL
+        videoURL
+        audioURL
         speakers {
           items {
             id
@@ -2641,6 +2701,9 @@ export const getSeries = `query GetSeries($id: ID!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2691,6 +2754,9 @@ export const getSeries = `query GetSeries($id: ID!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2791,6 +2857,9 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -2819,6 +2888,9 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -2852,6 +2924,9 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -2945,6 +3020,9 @@ export const getVideo = `query GetVideo($id: ID!) {
       }
     }
     videoTypes
+    notesURL
+    videoURL
+    audioURL
     speakers {
       items {
         id
@@ -2980,6 +3058,9 @@ export const getVideo = `query GetVideo($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3038,6 +3119,9 @@ export const getVideo = `query GetVideo($id: ID!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3066,6 +3150,9 @@ export const getVideo = `query GetVideo($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3099,6 +3186,9 @@ export const getVideo = `query GetVideo($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3169,6 +3259,9 @@ export const getVideo = `query GetVideo($id: ID!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3197,6 +3290,9 @@ export const getVideo = `query GetVideo($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3230,6 +3326,9 @@ export const getVideo = `query GetVideo($id: ID!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3327,6 +3426,9 @@ export const listVideos = `query ListVideos(
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -3390,6 +3492,9 @@ export const listVideos = `query ListVideos(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -3470,6 +3575,9 @@ export const listVideos = `query ListVideos(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -3591,6 +3699,9 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -3654,6 +3765,9 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -3734,6 +3848,9 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -3857,6 +3974,9 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -3920,6 +4040,9 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -4000,6 +4123,9 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -4119,6 +4245,9 @@ export const searchVideos = `query SearchVideos(
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -4182,6 +4311,9 @@ export const searchVideos = `query SearchVideos(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -4262,6 +4394,9 @@ export const searchVideos = `query SearchVideos(
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id

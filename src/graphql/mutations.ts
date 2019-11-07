@@ -743,6 +743,9 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -801,6 +804,9 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -829,6 +835,9 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -862,6 +871,9 @@ export const createSpeaker = `mutation CreateSpeaker($input: CreateSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -913,6 +925,9 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -971,6 +986,9 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -999,6 +1017,9 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -1032,6 +1053,9 @@ export const updateSpeaker = `mutation UpdateSpeaker($input: UpdateSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -1083,6 +1107,9 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -1141,6 +1168,9 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -1169,6 +1199,9 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -1202,6 +1235,9 @@ export const deleteSpeaker = `mutation DeleteSpeaker($input: DeleteSpeakerInput!
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -1283,6 +1319,9 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1386,6 +1425,9 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -1449,6 +1491,9 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1529,6 +1574,9 @@ export const createSpeakerVideos = `mutation CreateSpeakerVideos($input: CreateS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1625,6 +1673,9 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1728,6 +1779,9 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -1791,6 +1845,9 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1871,6 +1928,9 @@ export const updateSpeakerVideos = `mutation UpdateSpeakerVideos($input: UpdateS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -1967,6 +2027,9 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -2070,6 +2133,9 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
         }
       }
       videoTypes
+      notesURL
+      videoURL
+      audioURL
       speakers {
         items {
           id
@@ -2133,6 +2199,9 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -2213,6 +2282,9 @@ export const deleteSpeakerVideos = `mutation DeleteSpeakerVideos($input: DeleteS
               }
             }
             videoTypes
+            notesURL
+            videoURL
+            audioURL
             speakers {
               items {
                 id
@@ -2329,6 +2401,9 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
           }
         }
         videoTypes
+        notesURL
+        videoURL
+        audioURL
         speakers {
           items {
             id
@@ -2365,6 +2440,9 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2415,6 +2493,9 @@ export const createSeries = `mutation CreateSeries($input: CreateSeriesInput!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2527,6 +2608,9 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
           }
         }
         videoTypes
+        notesURL
+        videoURL
+        audioURL
         speakers {
           items {
             id
@@ -2563,6 +2647,9 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2613,6 +2700,9 @@ export const updateSeries = `mutation UpdateSeries($input: UpdateSeriesInput!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2725,6 +2815,9 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
           }
         }
         videoTypes
+        notesURL
+        videoURL
+        audioURL
         speakers {
           items {
             id
@@ -2761,6 +2854,9 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2811,6 +2907,9 @@ export const deleteSeries = `mutation DeleteSeries($input: DeleteSeriesInput!) {
                 etag
               }
               videoTypes
+              notesURL
+              videoURL
+              audioURL
               speakers {
                 nextToken
               }
@@ -2914,6 +3013,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
       }
     }
     videoTypes
+    notesURL
+    videoURL
+    audioURL
     speakers {
       items {
         id
@@ -2949,6 +3051,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3007,6 +3112,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3035,6 +3143,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3068,6 +3179,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3138,6 +3252,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3166,6 +3283,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3199,6 +3319,9 @@ export const createVideo = `mutation CreateVideo($input: CreateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3291,6 +3414,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
       }
     }
     videoTypes
+    notesURL
+    videoURL
+    audioURL
     speakers {
       items {
         id
@@ -3326,6 +3452,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3384,6 +3513,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3412,6 +3544,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3445,6 +3580,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3515,6 +3653,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3543,6 +3684,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3576,6 +3720,9 @@ export const updateVideo = `mutation UpdateVideo($input: UpdateVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3668,6 +3815,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
       }
     }
     videoTypes
+    notesURL
+    videoURL
+    audioURL
     speakers {
       items {
         id
@@ -3703,6 +3853,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3761,6 +3914,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3789,6 +3945,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3822,6 +3981,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
@@ -3892,6 +4054,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
             }
           }
           videoTypes
+          notesURL
+          videoURL
+          audioURL
           speakers {
             items {
               id
@@ -3920,6 +4085,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
             }
             nextToken
@@ -3953,6 +4121,9 @@ export const deleteVideo = `mutation DeleteVideo($input: DeleteVideoInput!) {
                 length
                 YoutubeIdent
                 videoTypes
+                notesURL
+                videoURL
+                audioURL
               }
               nextToken
             }
