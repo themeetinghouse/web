@@ -63,11 +63,21 @@
             },
             {
                 "type": "content",
-                "style": "greyTwoText",
-                "header1":"Parents",
-                "header2":"",
-                "text1":"Kidmax is our Sunday morning program for infants to grade 5. We use our own Jesus-centred curriculum to help our kids learn to love and follow Jesus in a safe and welcoming environment. We also want to empower parents to be the primary spiritual caregivers of their children, so we provide weekly take-home materials with each lesson."
-            
+                "style": "oneImageBlackRight",
+                "header1":"Jesus Collective",
+                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Jesus Collective",
+                        "navigateTo": "http://www.jesuscollective.com/",
+                        "openNewBrowser":true
+                    }
+                ],
+                "image1":[{
+                    "src":"/static/images/about-us-5.png",
+                    "alt":"Jesus Collective Logo"
+                }]
             }
         ]
     }
