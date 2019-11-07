@@ -29,33 +29,28 @@
               
             },
             {
-                "type": "content",
-                "style": "greyTwoText",
-                "header1":"Kids",
-                "header2":"Infant - Grade 5",
-                "text1":"We use our own Jesus-centred curriculum to help kids and youth learn to love and follow Jesus in a safe and welcoming environment."
-            
-            },
-            {
-                "type": "content",
-                "style": "greyTwoText",
-                "header1":"Youth",
-                "header2":"Grades 6 - 12",
-                "text1":"We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our Junior High program (grades 6-8) consists of Sunday morning gatherings during our services, as well as a midweek gathering. Our Senior High students (grades 9-12) remain in the service on Sundays and gather midweek for teaching and small groups. We use our own Jesus-centred youth curriculum and provide our youth with opportunities to build relationships, talk about Jesus, and engage in their community."
-            
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Curriculum?",
-                "text1": "Interested in using our curriculum? Visit our dedicated site for Sunday morning teaching, midweek resources, and The Parent Blog. ",
-            
+                "type": "list",
+                "style": "imageList",
+                "header1": "What To Expect",
+                "text1": "We keep it pretty simple. If you're hanging out with us this Sunday, here's what you can expect:",
                 "list": [
                     {
-                        "type":"link",
-                        "title": "Kids & Youth Curriculum",
-                        "navigateTo": "http://kidsandyouth.themeetinghouse.com",
-                        "openNewBrowser":true
+                        "title": "Kids",
+                        "text": "Kidmax is our kids program. We exist to help kids understand and live Jesus' message. Kids (infants to grade 5) hang out on Sunday mornings for activities and discussion from our curriculum. We use a small group model so kids can get to know one another and their leaders as they explore faith together. We work hard to create a safe community.",
+                        "imageSrc": "/static/images/sunday-morning-2-1.jpg",
+                        "imageAlt": "Man stands by the church doors welcoming people in."
+                    },
+                    {
+                        "title": "Youth",
+                        "text": " Our services begin with about 15 minutes of music, where we join together to sing songs about Jesus. There is a live band, and the lyrics are projected onto the screen. After this we share a few announcements and stories about what’s happening, followed by 40 minutes of Jesus-centred teaching. We’ve got notes and Bibles ready for you so you can follow along as we learn together.",
+                        "imageSrc": "/static/images/sunday-morning-2-2.jpg",
+                        "imageAlt": "Volunteer musician playing the drums during a Sunday morning service at The Meeting House."
+                    },
+                    {
+                        "title": "Parents and Guardians",
+                        "text": "Once the service is done, we typically hang out to chat, connect, and maybe have a snack. You are welcome to take off, or stay as long as you’d like. If you'd like someone to talk to or pray with, maybe even figure out some next steps, our pastors and volunteers are always around to meet new people.",
+                        "imageSrc": "/static/images/sunday-morning-2-3.jpg",
+                        "imageAlt": "Group of friends smiling and talking together."
                     }
                 ],
 
