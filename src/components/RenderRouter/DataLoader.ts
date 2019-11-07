@@ -67,7 +67,14 @@ export default class DataLoader extends React.Component<Props, State> {
             if (json.data.getVideoByVideoType.nextToken != null)
                 this.getVideos(json.data.getVideoByVideoType.nextToken)
 
-        }).catch((e: any) => { console.log(e) })
+        }).catch((e: any) => { 
+            console.log({"Error: ":e}) 
+            this.props.dataLoaded(
+                e.data.getVideoByVideoType.items
+            )
+            if (e.data.getVideoByVideoType.nextToken != null)
+                this.getVideos(e.data.getVideoByVideoType.nextToken)
+        })
     }
     getSpeakers(nextToken: any) {
         const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { nextToken: nextToken, sortOrder: this.state.content.sortOrder, limit: 20 }));
