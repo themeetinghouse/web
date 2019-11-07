@@ -11,8 +11,8 @@
   border:0;
   font-weight:normal;
   font-family: Graphik Web;
- 
-  
+
+
 }
 ul.GiveItem {
   list-style-type: none;
@@ -174,8 +174,8 @@ ul.GiveItemNumber {
     border:0;
     font-weight:normal;
     font-family: Graphik Web;
-   
-    
+
+
   }
   ul.GiveItem {
     list-style-type: none;
@@ -315,8 +315,8 @@ ul.GiveItemNumber {
     border:0;
     font-weight:normal;
     font-family: Graphik Web;
-   
-    
+
+
   }
   ul.GiveItem {
     list-style-type: none;
@@ -427,7 +427,7 @@ ul.GiveItemNumber {
   }
 
   .GiveItemOtherWayGroup {
-   
+
     width: 96%;
   }
 
@@ -440,9 +440,11 @@ ul.GiveItemNumber {
   .giveItemDiv1 {
     position: relative;
     top: 35vw;
-    left: 2vw;
+    left: 0vw;
     margin-bottom: 2vw;
     width: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
 
   .GiveItemOtherWayButton {
