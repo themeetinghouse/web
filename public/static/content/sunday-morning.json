@@ -33,13 +33,13 @@
                 "type": "list",
                 "style": "imageList",
                 "header1": "What To Expect",
-                "text1": "We keep it pretty simple.",
+                "text1": "We keep it pretty simple. If you're hanging out with us this Sunday, here's what you can expect:",
                 "list": [
                     {
                         "title": "Before",
-                        "text": "Want to join us this Sunday but aren't sure what to expect? We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of people with a purpose.",
+                        "text": "Our Sunday services are 60 minutes long. You can wear whatever clothing is comfortable. We’ve got coffee ready to go in the lobby, show up a few minutes early to grab a cup and find a seat. If you're with children, we've got a full program for infants to grade 8.",
                         "imageSrc": "/static/images/sunday-morning-2-1.jpg",
-                        "imageAlt": "Three people standing by the doors of the Oakville site"
+                        "imageAlt": "Man stands by the church doors welcoming people in."
                     },
                     {
                         "title": "Music and Teaching",
