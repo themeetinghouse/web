@@ -61,7 +61,8 @@
                 }
             },
             "function": {
-                "themeetinghousea5cd4619": {}
+                "themeetinghousea5cd4619": {},
+                "emailHomeChurch": {}
             }
         }
     },
@@ -107,7 +108,8 @@
             },
             "function": {
                 "themeetinghousea5cd4619": {},
-                "S3AndCloudFront": {}
+                "S3AndCloudFront": {},
+                "emailHomeChurch": {}
             }
         }
     }

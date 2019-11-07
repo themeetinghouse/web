@@ -345,7 +345,15 @@ else return null
               data.map((item: any, index: any) => {
                 return (
                   <div className="ListItemDiv10" key={index}>
-                    <div onClick={() => {item.navigateTo?this.navigate(item.navigateTo):this.navigateUrl(item.url)}} className="imageList hoverText">
+                    <div 
+                      onClick={() => {
+                        if (item.navigateTo)
+                          this.navigate(item.navigateTo)
+                        else
+                          if (item.url)
+                            this.navigateUrl(item.url)
+                      } }
+                      className={"imageList "+ (item.url||item.navigateTo?"hoverText":"noHoverText")}>
                       <h3 className="ListItemH3" >{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
