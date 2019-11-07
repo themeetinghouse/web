@@ -54,10 +54,13 @@
 
   .iframeItemIframe {
     border: 0px;
-    width: 80vw;
+    width: 90vw;
   }
   .iframeItemIframePopup {
     border: 0px;
-    width: 60vw;
+    left:5vw;
+    width: 90vw;
+    position:relative;
+    top:10vw;
   }
 }
