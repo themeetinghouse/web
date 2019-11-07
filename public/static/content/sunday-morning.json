@@ -70,7 +70,7 @@
                 ],
                 "header1": "See you Sunday?",
                 "text1": "Browse through all our locations or find the one that's closest to you.",
-                "text2": "",
+                "text2": "If you've got any more questions or would like to connect with someone, just scroll down to the footer and click on connect.",
                 "link1Text": "Show Map",
                 "link1Action": "find-sunday-morning",
                 "class":"locations",
