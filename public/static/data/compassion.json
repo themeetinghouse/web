@@ -316,13 +316,13 @@
         "name": "Matthew House Ottawa",
         "description": "Matthew House Ottawa provides refugees with shelter, support, and community in Ottawa. They also have a furniture bank that supports the operation of the shelter.",
         "website": "www.matthewhouseottawa.org/",
-        "image": "/static/photos/compassion/matthew house.jpg",
+        "image": "/static/photos/compassion/matthew house ottawa.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
         "id": 37,
         "sites": ["ottawa"],
-        "name": "Safe Families Canada",
+        "name": "Safe Families Ottawa",
         "description": "Safe Families is a movement to keep children safe and families intact. Through host families, family friends, and family coaches, they temporarily host children and provide a network of support to families in crisis while they get back on their feet.",
         "website": "safefamiliescanada.com/",
         "image": "/static/photos/compassion/safe families.jpg",
@@ -476,13 +476,14 @@
         "name": "Matthew House",
         "description": "Matthew House's primary goal is to help restore refugees' dignity by providing shelter and support in a welcoming, home-like setting. Many refugees arrive with little more than a small bag and need practical support. We ensure that their individual needs are met and empower refugees to restart their lives in Canada. ",
         "website": "www.matthewhouse.ca/",
-        "image": "/static/photos/compassion/matthew house.jpg",
+        "image": "/static/photos/compassion/matthew house toronto.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
         "id": 55,
         "sites": ["waterloo"],
-        "name": "***Transition year",
+        "name": "Mennonite Coalition for Refugee Support",
+        "description": "MCRS is often the first stop for refugee claimants in Canada. They provide immediate assistance in completing their claim forms and applications, help in finding legal counsel, aid in applying for work permits, and help in navigating through other complex immigration-related processes.",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
