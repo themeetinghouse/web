@@ -56,21 +56,21 @@
 
                 "image1": [
                     {
-                        "src": "/static/images/KidsYouth_3.jpg",
-                        "alt": "Group of friends from church sitting together and talking."
+                        "src": "",
+                        "alt": ""
                     }
                 ]
             },
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1":"Jesus Collective",
+                "header1":"Curriculum",
                 "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Jesus Collective",
-                        "navigateTo": "http://www.jesuscollective.com/",
+                        "title": "Kids and Youth Curriculum",
+                        "navigateTo": "http://www.http://kidsandyouth.themeetinghouse.com/",
                         "openNewBrowser":true
                     }
                 ],
