@@ -579,6 +579,9 @@ type Video
   YoutubeIdent:String!
   Youtube:YoutubePlaylistItemsItem2
   videoTypes:String
+  notesURL:String
+  videoURL:String
+  audioURL:String
 }
 
 

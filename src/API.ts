@@ -223,6 +223,9 @@ export type CreateVideoInput = {
   YoutubeIdent: string,
   Youtube?: YoutubePlaylistItemsItem2Input | null,
   videoTypes?: string | null,
+  notesURL?: string | null,
+  videoURL?: string | null,
+  audioURL?: string | null,
   videoSeriesId?: string | null,
 };
 
@@ -304,6 +307,9 @@ export type UpdateVideoInput = {
   YoutubeIdent?: string | null,
   Youtube?: YoutubePlaylistItemsItem2Input | null,
   videoTypes?: string | null,
+  notesURL?: string | null,
+  videoURL?: string | null,
+  audioURL?: string | null,
   videoSeriesId?: string | null,
 };
 
@@ -526,6 +532,9 @@ export type ModelVideoFilterInput = {
   length?: ModelStringFilterInput | null,
   YoutubeIdent?: ModelStringFilterInput | null,
   videoTypes?: ModelStringFilterInput | null,
+  notesURL?: ModelStringFilterInput | null,
+  videoURL?: ModelStringFilterInput | null,
+  audioURL?: ModelStringFilterInput | null,
   and?: Array< ModelVideoFilterInput | null > | null,
   or?: Array< ModelVideoFilterInput | null > | null,
   not?: ModelVideoFilterInput | null,
@@ -551,6 +560,9 @@ export type SearchableVideoFilterInput = {
   length?: SearchableStringFilterInput | null,
   YoutubeIdent?: SearchableStringFilterInput | null,
   videoTypes?: SearchableStringFilterInput | null,
+  notesURL?: SearchableStringFilterInput | null,
+  videoURL?: SearchableStringFilterInput | null,
+  audioURL?: SearchableStringFilterInput | null,
   and?: Array< SearchableVideoFilterInput | null > | null,
   or?: Array< SearchableVideoFilterInput | null > | null,
   not?: SearchableVideoFilterInput | null,
@@ -603,6 +615,9 @@ export enum SearchableVideoSortableFields {
   length = "length",
   YoutubeIdent = "YoutubeIdent",
   videoTypes = "videoTypes",
+  notesURL = "notesURL",
+  videoURL = "videoURL",
+  audioURL = "audioURL",
 }
 
 
@@ -1468,6 +1483,9 @@ export type CreateSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -1532,6 +1550,9 @@ export type CreateSpeakerMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -1564,6 +1585,9 @@ export type CreateSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -1600,6 +1624,9 @@ export type CreateSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -1663,6 +1690,9 @@ export type UpdateSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -1727,6 +1757,9 @@ export type UpdateSpeakerMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -1759,6 +1792,9 @@ export type UpdateSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -1795,6 +1831,9 @@ export type UpdateSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -1858,6 +1897,9 @@ export type DeleteSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -1922,6 +1964,9 @@ export type DeleteSpeakerMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -1954,6 +1999,9 @@ export type DeleteSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -1990,6 +2038,9 @@ export type DeleteSpeakerMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -2087,6 +2138,9 @@ export type CreateSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2206,6 +2260,9 @@ export type CreateSpeakerVideosMutation = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -2279,6 +2336,9 @@ export type CreateSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2370,6 +2430,9 @@ export type CreateSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2486,6 +2549,9 @@ export type UpdateSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2605,6 +2671,9 @@ export type UpdateSpeakerVideosMutation = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -2678,6 +2747,9 @@ export type UpdateSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2769,6 +2841,9 @@ export type UpdateSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -2885,6 +2960,9 @@ export type DeleteSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3004,6 +3082,9 @@ export type DeleteSpeakerVideosMutation = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -3077,6 +3158,9 @@ export type DeleteSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3168,6 +3252,9 @@ export type DeleteSpeakerVideosMutation = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -3306,6 +3393,9 @@ export type CreateSeriesMutation = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -3348,6 +3438,9 @@ export type CreateSeriesMutation = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3404,6 +3497,9 @@ export type CreateSeriesMutation = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3536,6 +3632,9 @@ export type UpdateSeriesMutation = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -3578,6 +3677,9 @@ export type UpdateSeriesMutation = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3634,6 +3736,9 @@ export type UpdateSeriesMutation = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3766,6 +3871,9 @@ export type DeleteSeriesMutation = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -3808,6 +3916,9 @@ export type DeleteSeriesMutation = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3864,6 +3975,9 @@ export type DeleteSeriesMutation = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -3985,6 +4099,9 @@ export type CreateVideoMutation = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -4027,6 +4144,9 @@ export type CreateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4091,6 +4211,9 @@ export type CreateVideoMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -4123,6 +4246,9 @@ export type CreateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4159,6 +4285,9 @@ export type CreateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -4237,6 +4366,9 @@ export type CreateVideoMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -4269,6 +4401,9 @@ export type CreateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4305,6 +4440,9 @@ export type CreateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -4413,6 +4551,9 @@ export type UpdateVideoMutation = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -4455,6 +4596,9 @@ export type UpdateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4519,6 +4663,9 @@ export type UpdateVideoMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -4551,6 +4698,9 @@ export type UpdateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4587,6 +4737,9 @@ export type UpdateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -4665,6 +4818,9 @@ export type UpdateVideoMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -4697,6 +4853,9 @@ export type UpdateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4733,6 +4892,9 @@ export type UpdateVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -4841,6 +5003,9 @@ export type DeleteVideoMutation = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -4883,6 +5048,9 @@ export type DeleteVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -4947,6 +5115,9 @@ export type DeleteVideoMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -4979,6 +5150,9 @@ export type DeleteVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -5015,6 +5189,9 @@ export type DeleteVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -5093,6 +5270,9 @@ export type DeleteVideoMutation = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -5125,6 +5305,9 @@ export type DeleteVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -5161,6 +5344,9 @@ export type DeleteVideoMutation = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -5755,6 +5941,9 @@ export type FuzzySearchVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -5828,6 +6017,9 @@ export type FuzzySearchVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -5919,6 +6111,9 @@ export type FuzzySearchVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -6997,6 +7192,9 @@ export type ListSpeakersQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -7080,6 +7278,9 @@ export type GetSpeakerQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -7144,6 +7345,9 @@ export type GetSpeakerQuery = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -7176,6 +7380,9 @@ export type GetSpeakerQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -7212,6 +7419,9 @@ export type GetSpeakerQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -7309,6 +7519,9 @@ export type GetSpeakerVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -7428,6 +7641,9 @@ export type GetSpeakerVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -7501,6 +7717,9 @@ export type GetSpeakerVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -7592,6 +7811,9 @@ export type GetSpeakerVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -7681,6 +7903,9 @@ export type ListSpeakerVideossQuery = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -7792,6 +8017,9 @@ export type ListSpeakerVideossQuery = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -7834,6 +8062,9 @@ export type ListSpeakerVideossQuery = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -7890,6 +8121,9 @@ export type ListSpeakerVideossQuery = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -7993,6 +8227,9 @@ export type ListSeriessQuery = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -8025,6 +8262,9 @@ export type ListSeriessQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -8061,6 +8301,9 @@ export type ListSeriessQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -8181,6 +8424,9 @@ export type GetSeriesQuery = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -8223,6 +8469,9 @@ export type GetSeriesQuery = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -8279,6 +8528,9 @@ export type GetSeriesQuery = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -8385,6 +8637,9 @@ export type GetSeriesBySeriesTypeQuery = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -8417,6 +8672,9 @@ export type GetSeriesBySeriesTypeQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -8453,6 +8711,9 @@ export type GetSeriesBySeriesTypeQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -8562,6 +8823,9 @@ export type GetVideoQuery = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -8604,6 +8868,9 @@ export type GetVideoQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -8668,6 +8935,9 @@ export type GetVideoQuery = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -8700,6 +8970,9 @@ export type GetVideoQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -8736,6 +9009,9 @@ export type GetVideoQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -8814,6 +9090,9 @@ export type GetVideoQuery = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -8846,6 +9125,9 @@ export type GetVideoQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -8882,6 +9164,9 @@ export type GetVideoQuery = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -8994,6 +9279,9 @@ export type ListVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -9067,6 +9355,9 @@ export type ListVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9158,6 +9449,9 @@ export type ListVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9292,6 +9586,9 @@ export type GetVideoByYoutubeIdentQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -9365,6 +9662,9 @@ export type GetVideoByYoutubeIdentQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9456,6 +9756,9 @@ export type GetVideoByYoutubeIdentQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9591,6 +9894,9 @@ export type GetVideoByVideoTypeQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -9664,6 +9970,9 @@ export type GetVideoByVideoTypeQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9755,6 +10064,9 @@ export type GetVideoByVideoTypeQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -9888,6 +10200,9 @@ export type SearchVideosQuery = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -9961,6 +10276,9 @@ export type SearchVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -10052,6 +10370,9 @@ export type SearchVideosQuery = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -10905,6 +11226,9 @@ export type OnCreateSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -10969,6 +11293,9 @@ export type OnCreateSpeakerSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -11001,6 +11328,9 @@ export type OnCreateSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -11037,6 +11367,9 @@ export type OnCreateSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -11096,6 +11429,9 @@ export type OnUpdateSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -11160,6 +11496,9 @@ export type OnUpdateSpeakerSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -11192,6 +11531,9 @@ export type OnUpdateSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -11228,6 +11570,9 @@ export type OnUpdateSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -11287,6 +11632,9 @@ export type OnDeleteSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -11351,6 +11699,9 @@ export type OnDeleteSpeakerSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -11383,6 +11734,9 @@ export type OnDeleteSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -11419,6 +11773,9 @@ export type OnDeleteSpeakerSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -11512,6 +11869,9 @@ export type OnCreateSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -11631,6 +11991,9 @@ export type OnCreateSpeakerVideosSubscription = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -11704,6 +12067,9 @@ export type OnCreateSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -11795,6 +12161,9 @@ export type OnCreateSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -11907,6 +12276,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12026,6 +12398,9 @@ export type OnUpdateSpeakerVideosSubscription = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -12099,6 +12474,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12190,6 +12568,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12302,6 +12683,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12421,6 +12805,9 @@ export type OnDeleteSpeakerVideosSubscription = {
         } | null,
       } | null,
       videoTypes: string | null,
+      notesURL: string | null,
+      videoURL: string | null,
+      audioURL: string | null,
       speakers:  {
         __typename: "ModelSpeakerVideosConnection",
         items:  Array< {
@@ -12494,6 +12881,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12585,6 +12975,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               } | null,
             } | null,
             videoTypes: string | null,
+            notesURL: string | null,
+            videoURL: string | null,
+            audioURL: string | null,
             speakers:  {
               __typename: "ModelSpeakerVideosConnection",
               items:  Array< {
@@ -12719,6 +13112,9 @@ export type OnCreateSeriesSubscription = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -12761,6 +13157,9 @@ export type OnCreateSeriesSubscription = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -12817,6 +13216,9 @@ export type OnCreateSeriesSubscription = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -12945,6 +13347,9 @@ export type OnUpdateSeriesSubscription = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -12987,6 +13392,9 @@ export type OnUpdateSeriesSubscription = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -13043,6 +13451,9 @@ export type OnUpdateSeriesSubscription = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -13171,6 +13582,9 @@ export type OnDeleteSeriesSubscription = {
           } | null,
         } | null,
         videoTypes: string | null,
+        notesURL: string | null,
+        videoURL: string | null,
+        audioURL: string | null,
         speakers:  {
           __typename: "ModelSpeakerVideosConnection",
           items:  Array< {
@@ -13213,6 +13627,9 @@ export type OnDeleteSeriesSubscription = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -13269,6 +13686,9 @@ export type OnDeleteSeriesSubscription = {
                 etag: string | null,
               } | null,
               videoTypes: string | null,
+              notesURL: string | null,
+              videoURL: string | null,
+              audioURL: string | null,
               speakers:  {
                 __typename: "ModelSpeakerVideosConnection",
                 nextToken: string | null,
@@ -13386,6 +13806,9 @@ export type OnCreateVideoSubscription = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -13428,6 +13851,9 @@ export type OnCreateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -13492,6 +13918,9 @@ export type OnCreateVideoSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -13524,6 +13953,9 @@ export type OnCreateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -13560,6 +13992,9 @@ export type OnCreateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -13638,6 +14073,9 @@ export type OnCreateVideoSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -13670,6 +14108,9 @@ export type OnCreateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -13706,6 +14147,9 @@ export type OnCreateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -13810,6 +14254,9 @@ export type OnUpdateVideoSubscription = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -13852,6 +14299,9 @@ export type OnUpdateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -13916,6 +14366,9 @@ export type OnUpdateVideoSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -13948,6 +14401,9 @@ export type OnUpdateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -13984,6 +14440,9 @@ export type OnUpdateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -14062,6 +14521,9 @@ export type OnUpdateVideoSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -14094,6 +14556,9 @@ export type OnUpdateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -14130,6 +14595,9 @@ export type OnUpdateVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -14234,6 +14702,9 @@ export type OnDeleteVideoSubscription = {
       } | null,
     } | null,
     videoTypes: string | null,
+    notesURL: string | null,
+    videoURL: string | null,
+    audioURL: string | null,
     speakers:  {
       __typename: "ModelSpeakerVideosConnection",
       items:  Array< {
@@ -14276,6 +14747,9 @@ export type OnDeleteVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -14340,6 +14814,9 @@ export type OnDeleteVideoSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -14372,6 +14849,9 @@ export type OnDeleteVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -14408,6 +14888,9 @@ export type OnDeleteVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
@@ -14486,6 +14969,9 @@ export type OnDeleteVideoSubscription = {
             } | null,
           } | null,
           videoTypes: string | null,
+          notesURL: string | null,
+          videoURL: string | null,
+          audioURL: string | null,
           speakers:  {
             __typename: "ModelSpeakerVideosConnection",
             items:  Array< {
@@ -14518,6 +15004,9 @@ export type OnDeleteVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null,
             } | null > | null,
             nextToken: string | null,
@@ -14554,6 +15043,9 @@ export type OnDeleteVideoSubscription = {
                 length: string | null,
                 YoutubeIdent: string,
                 videoTypes: string | null,
+                notesURL: string | null,
+                videoURL: string | null,
+                audioURL: string | null,
               } | null > | null,
               nextToken: string | null,
             } | null,
