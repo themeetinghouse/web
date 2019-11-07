@@ -19,7 +19,7 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/KidsYouth_hero.jpg",
+                        "src": "/static/images/kidsyouth-1-1.jpg",
                         "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
                     }
                 ],
@@ -37,7 +37,7 @@
                     {
                         "title": "Kids",
                         "text": "Kidmax is our kids program. We exist to help kids understand and live Jesus' message. Kids (infants to grade 5) hang out on Sunday mornings for activities and discussion from our curriculum. We use a small group model so kids can get to know one another and their leaders as they explore faith together. We work hard to create a safe community.",
-                        "imageSrc": "/static/images/sunday-morning-2-1.jpg",
+                        "imageSrc": "/static/images/kidsyouth-2-1.jpg",
                         "imageAlt": "Man stands by the church doors welcoming people in."
                     },
                     {
