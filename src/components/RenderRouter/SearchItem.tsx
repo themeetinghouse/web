@@ -1,12 +1,14 @@
 
 import React from 'react';
 import "./SearchItem.scss"
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 Amplify.configure(awsmobile);
 
-interface Props {
+interface Props extends RouteComponentProps{
   content: any
 
 }
@@ -15,7 +17,7 @@ interface State {
   searchResults: any
 }
 
-export default class ContentItem extends React.Component<Props, State>  {
+ class ContentItem extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -54,9 +56,17 @@ export default class ContentItem extends React.Component<Props, State>  {
   }
   openVideo(item: any) {
     console.log(item)
+    console.log("/videos/"+item.series.id+"/"+item.id)
+    this.navigateTo("/videos/"+item.series.id+"/"+item.id)
+//    this.navigateTo("/videos/"+item.series+"/"+item.episodeId)
   }
   
-  
+  navigateTo(location:any) {
+    this.props.history.push(location, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
+}
   
   render() {
     const focusInputField = (input:any) => {
@@ -71,7 +81,7 @@ export default class ContentItem extends React.Component<Props, State>  {
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
             if (item.episodeTitle !== null)
               return (
-                <div key={item.id} onClick={(item) => { this.openVideo(item) }} className="SearchResultItem">
+                <div key={item.id} onClick={(item2) => { this.openVideo(item) }} className="SearchResultItem">
                   <img alt="TBD" className="Thumb" src={item.Youtube.snippet.thumbnails.high.url} />
                   <div className="Content">
                     <div className="ContentType">Video</div> 
@@ -87,3 +97,4 @@ export default class ContentItem extends React.Component<Props, State>  {
     </div>)
   }
 }
+export default withRouter(ContentItem)
