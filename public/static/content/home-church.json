@@ -20,14 +20,15 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
-                        "alt": "TODO"
+                        "src": "/static/images/homechurch-1-1.jpg",
+                        "alt": "Three friends talking together around a kitchen table during home church."
                     }
                 ],
-                "header1": "Andrea’s Story",
+                "header1": "Home Church",
                 "header2": "",
-                "text1": "We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life."
-              
+                "text1": "We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life.",
+                "button1Text": "Watch Andrea's Story",
+                "button1Action": "/videos/spiritually-curious-Spiritually%20Curious/SP3pD2plP04"
             },
             {
                 "type": "content",
@@ -54,8 +55,8 @@
                
                 "image1": [
                     {
-                        "src": "/static/images/Todo.jpg",
-                        "alt": "Todo"
+                        "src": "/static/images/homechurch-2-1.jpg",
+                        "alt": "Parents and children together at home church."
                     }
                 ]
             }
