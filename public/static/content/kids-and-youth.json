@@ -52,20 +52,15 @@
                         "imageSrc": "/static/images/kidsyouth-2-3.jpg",
                         "imageAlt": "Two parents walking with their young child."
                     }
-                ],
-
-                "image1": [
-                    {
-                        "src": "",
-                        "alt": ""
-                    }
                 ]
+
+
             },
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1":"Curriculum",
-                "text1":"Our mission is to develop lifelong followers of Jesus. Our approach is to teach stories within the context of the overarching Biblical narrative, so that kids and youth can learn each story and how it connects into God’s story. We also want kids and youth to see where they fit into God’s story, and discover the role that God has for them as disciples of Jesus.",
+                "text1":"Our mission is to develop lifelong followers of Jesus. Our approach is to teach stories within the context of the overarching Biblical narrative, so that kids and youth can learn each story and how it connects into God’s story.",
                 "list": [
                     {
                         "type":"link",
