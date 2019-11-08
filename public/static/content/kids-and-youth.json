@@ -52,14 +52,9 @@
                         "imageSrc": "/static/images/kidsyouth-2-3.jpg",
                         "imageAlt": "Two parents walking with their young child."
                     }
-                ],
-
-                "image1": [
-                    {
-                        "src": "",
-                        "alt": ""
-                    }
                 ]
+
+
             },
             {
                 "type": "content",
