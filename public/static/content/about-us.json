@@ -150,12 +150,12 @@
             },
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1":"Policies",
                 "header2":"",
                 "text1":"",
                 "image1":[{
-                    "src":"/static/images/about-us-2.jpg",
+                    "src":"/static/images/about-us-2-2.jpg",
                     "alt":"Three people sitting at a table, talking about the bible"
                 }],
 
