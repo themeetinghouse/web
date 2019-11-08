@@ -31,7 +31,7 @@
                 "header1": "Our Story",
                 "text1": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
                 "text2": "",
-                "link1Text": "Read more",
+                "link1Text": "Read More",
                 "link1Action": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf"
 
             },
@@ -41,8 +41,8 @@
                 "style": "greyTwoText",
                 "header1":"What We Believe",
                 "header2":"",
-                "text1":"We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace with a mission to share the gospel and care for people.",
-                "text2": "If you're interested in specific beliefs or positions we hold, check out our denominational doctrinal statement in the link below.",
+                "text1":"We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace with a mission to share the gospel and care for people. We belong to a denomination called Be In Christ Church of Canada. If you're interested in specific beliefs or positions we hold, check out our denominational doctrinal statement in the link below.",
+                "text2": "",
                 "list": [
                     {
                         "type":"link",
