@@ -1,7 +1,7 @@
 [
 {"id":"growthgauges","to":"https://themeetinghouse.typeform.com/to/aAoWDD"},
 {"id":"hchangout","to":"https://www.youtube.com/playlist?list=PLB5r2P47beqKOo8PtwHrVQuCJjBBSKACm"},
-{"id":"plantoprotect","to":"https://themeetinghouse.com/static/pdfs/Security Forms/TMH_PlanToProtect_July2019_PRINT.pdf"},
+{"id":"plantoprotect","to":"/static/pdfs/SecurityForms/TMH_PlanToProtect_July2019_PRINT.pdf"},
 {"id":"ministryapplication","to":"https://https://www.formstack.com/forms/?1293802-Uxpu1eS8YJ"},
 {"id":"accessibilitytraining","to":"https://www.meeting.formstack.com/forms/access_waiver"},
 {"id":"referencecheck","to":"https://www.formstack.com/forms/meeting-untitled_form"},
@@ -34,6 +34,9 @@
 {"id":"jesus101","to":"https://www.formstack.com/forms/?1335341-ggmKXD8iLR"},
 {"id":"register","to":"https://meeting.formstack.com/forms/kidmax_family_registration"},
 {"id":"youthpermission","to":"https://www.formstack.com/forms/?1301576-jEHnhMbMPA"},
-{"id":"homechurch","to":"https://themeetinghouse.com/static/content/find-home-church"},
+{"id":"homechurch","to":"/static/content/find-home-church"},
 {"id":"oakvillechristmasvolunteers","to":"https://meeting.formstack.com/forms/2019_oakville_christmas_volunteers"},
+{"id":"dataprivacy","to":"/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019"},
+{"id":"kids","to":"http://parents.themeetinghouse.com/"},
+{"id":"youth","to":"http://theunderground.ws"},
 ]
