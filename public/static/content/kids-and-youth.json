@@ -36,7 +36,7 @@
                 "list": [
                     {
                         "title": "Kids",
-                        "text": "Kidmax is the name of our kids program. We exist to help kids understand and live Jesus' message. Kids (infants to grade 5) hang out on Sunday mornings for activities and discussion from our curriculum. We use a small group model so kids can get to know one another and their leaders as they explore faith together. We work hard to create a safe community.",
+                        "text": "Kidmax is our Sunday morning kids program for infants to grade 5s. We exist to help kids understand and live Jesus' message, develop relationships through small group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples. Kids hang out in small groups for activities and discussion from our curriculum, so kids can get to know one another and their leaders as they explore faith together.",
                         "imageSrc": "/static/images/kidsyouth-2-1.jpg",
                         "imageAlt": "Kids laughing and playing together in our kidmax program."
                     },
@@ -69,13 +69,13 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Kids and Youth Curriculum",
+                        "title": "Preview Our Curriculum",
                         "navigateTo": "http://www.http://kidsandyouth.themeetinghouse.com/",
                         "openNewBrowser":true
                     }
                 ],
                 "image1":[{
-                    "src":"/static/images/about-us-5.png",
+                    "src":"/static/images/kidsyouth-4.jpg",
                     "alt":"Jesus Collective Logo"
                 }]
             }
