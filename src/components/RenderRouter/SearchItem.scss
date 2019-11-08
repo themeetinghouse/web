@@ -1,68 +1,172 @@
+// Base style: >= 768
+.SearchItem {
+    position: relative;
+    top: 1vw;
+    left: 15vw;
+}
+
+.SearchItemInput {
+    width: 70vw;
+    height: 56px;
+
+    font-family: Graphik Web;
+    font-size: 48px;
+    font-weight: bolder;
+    line-height: 56px;
+    letter-spacing: -0.5px;
+
+    border: none;
+}
+
+::placeholder{
+    color: #C8C8C8;
+    opacity: 1;
+}
+
+.SearchItemDiv {
+    width: 70vw;
+    margin: 18px 0px 0px 0px;
+    border-top: solid 2px #1A1A1A;
+}
+
+.SearchResultItem{
+    cursor: pointer;
+    padding-bottom: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid #EFEFF0;
+    width: 70vw;
+}
+
+.SearchResultItem .Thumb {
+    display: inline-block;
+    object-fit: contain;
+    margin-right: 30px;
+    width: 20%;
+    vertical-align: top;
+}
+
+.SearchResultItem .Content{
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 60%;
+}
+
+.SearchResultItem .ContentType{
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    margin-bottom: 20px;
+    background: #54565A;
+    border-radius: 50px;
+
+    font-family: Graphik Web;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.SearchResultItem .Title{
+    margin-bottom: 10px;
+
+    font-family: Graphik Web;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #1A1A1A;
+}
+
+.SearchResultItem .Description{
+    width: 100%;
+    font-family: Graphik Web;
+    font-size: 16px;
+    line-height: 24px;
+    color: #54565A;
+}
+
 @media (min-width: 768px) {
-    .SearchItem {
-        position: relative;
-        top: 2vw;
-        left: 20vw;
-    }
-
-    .SearchItemInput {
-        width: 70vw;
-    }
-
-    .SearchItemDiv {
-        height: 100vw;
-    }
-
-    .SearchItemVideoThumb {
-        width: 20vw;
-        margin-right: 1vw;
-        object-fit: cover;
-        height: 12vw;
-    }
+ 
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .SearchItem {
-        position: relative;
-        top: 2vw;
-        left: 20vw;
-    }
-
-    .SearchItemInput {
-        width: 70vw;
-    }
-
-    .SearchItemDiv {
-        height: 100vw;
-    }
-
-    .SearchItemVideoThumb {
-        width: 20vw;
-        margin-right: 1vw;
-        object-fit: cover;
-        height: 12vw;
-    }
+   
 }
 
 @media (max-width: 767px) {
     .SearchItem {
-        position: relative;
-        top: 2vw;
-        left: 20vw;
+        // position: relative;
+        top: 19vw;
+        left: 0vw;
+        background-color: white;
     }
-
+    
     .SearchItemInput {
-        width: 70vw;
+        width: 100%;
+        height: 40px;
+    
+        font-size: 32px;
     }
-
+    
     .SearchItemDiv {
-        height: 100vw;
+        width: 100%;
+        // margin: 18px 0px 0px 0px;
+        // border-top: solid 2px #1A1A1A;
     }
-
-    .SearchItemVideoThumb {
-        width: 20vw;
-        margin-right: 1vw;
-        object-fit: cover;
-        height: 12vw;
+    
+    .SearchResultItem{
+        // cursor: pointer;
+        // padding-bottom: 15px;
+        // padding-top: 20px;
+        // border-bottom: 1px solid #EFEFF0;
+        width: 100%;
+    }
+    
+    .SearchResultItem .Thumb {
+        display: none;
+        // object-fit: contain;
+        // margin-right: 30px;
+        // width: 20%;
+        // vertical-align: top;
+    }
+    
+    .SearchResultItem .Content{
+        // display: inline-block;
+        // vertical-align: top;
+        // height: 100%;
+        width: 100%;
+    }
+    
+    .SearchResultItem .ContentType{
+        // display: inline-block;
+        // padding: 8px 20px 8px 20px;
+        // margin-bottom: 20px;
+        // background: #54565A;
+        // border-radius: 50px;
+    
+        // font-family: Graphik Web;
+        // font-style: normal;
+        // font-weight: bold;
+        // font-size: 12px;
+        // line-height: 18px;
+        // color: #FFFFFF;
+    }
+    
+    .SearchResultItem .Title{
+        // margin-bottom: 10px;
+    
+        // font-family: Graphik Web;
+        // font-size: 16px;
+        // line-height: 24px;
+        // font-weight: bold;
+        // color: #1A1A1A;
+    }
+    
+    .SearchResultItem .Description{
+        // width: 100%;
+        // font-family: Graphik Web;
+        // font-size: 16px;
+        // line-height: 24px;
+        // color: #54565A;
     }
 }
