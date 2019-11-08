@@ -424,8 +424,8 @@ export class ContentItem extends React.Component<Props, State>  {
                     let isLocationLoaded = this.state.locationsLoaded.includes(Location_ID_to_F1_Group_Type_Map[location.id as string]);
                     return (
                       <div className={"LoadingItem " + (isLocationLoaded ? "Loaded" : "")} key={location.id}>
-                        <img className="LoadingImage" src="/static/svg/Home-Church-Location.svg"></img>
-                        <img className="LoadedImage" src="/static/svg/Check-green.svg"></img>
+                        <img alt="Loading Icon" className="LoadingImage" src="/static/svg/Home-Church-Location.svg"></img>
+                        <img alt="Loaded Icon" className="LoadedImage" src="/static/svg/Check-green.svg"></img>
                         <span className="LoadingLocationLabel">{location.name}</span>
                       </div>
                     )

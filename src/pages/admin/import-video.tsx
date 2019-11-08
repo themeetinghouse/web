@@ -284,7 +284,7 @@ class IndexApp extends React.Component<Props, State> {
         })
     }
     filterSeries = (series: any, videoType: any) => {
-        return series.seriesType == videoType
+        return series.seriesType === videoType
     }
     renderVideoEditor() {
         var z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]

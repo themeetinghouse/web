@@ -26,8 +26,8 @@ export default class ContentItem extends React.Component<Props, State>  {
 }
 renderList(){
   return this.state.content.list?
-    this.state.content.list.map((item:any)=>{
-      return (<div>{item.openNewBrowser?
+    this.state.content.list.map((item:any,id:any)=>{
+      return (<div key={id}>{item.openNewBrowser?
        <a className="oneImageA" target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a>:
        <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
       }</div>)
