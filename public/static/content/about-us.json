@@ -31,10 +31,11 @@
                 "header1": "Our Story",
                 "text1": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
                 "text2": "",
-                "link1Text": "",
-                "link1Action": "TODO"
+                "link1Text": "Read more",
+                "link1Action": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf"
 
             },
+
             {
                 "type": "content",
                 "style": "greyTwoText",
@@ -51,7 +52,41 @@
                     }
                 ]
             },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1":"Beliefs, Statements, and Other Details",
+                "header2":"",
+                "text1":"",
+                "image1":[{
+                    "src":"/static/images/about-us-2.jpg",
+                    "alt":"Three people sitting at a table, talking about the bible"
+                }],
 
+                "list": [
+
+                    {
+                        "type":"link",
+                        "title": "Gospel Cheat Sheet",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Huddle Questions",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "The Authority of the Word of God in Print",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Same Sex Marriage",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf"
+                    }
+                ]
+            },
             {
                 "type": "list",
                 "style": "vertical",
@@ -112,9 +147,9 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Beliefs, Statements, and Other Details",
+                "header1":"Policies",
                 "header2":"",
-                "text1":"TODO",
+                "text1":"",
                 "image1":[{
                     "src":"/static/images/about-us-2.jpg",
                     "alt":"Three people sitting at a table, talking about the bible"
@@ -122,27 +157,62 @@
 
                 "list": [
                     {
-                        "type":"arrow",
-                        "title": "Annual Reports",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "AODA Employment Standards Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/AODA Employment Standards Policy.pdf"
                     },
                     {
-                        "type":"arrow",
-                        "title": "Position Statements",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Accessibility at Oakville Production Site",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Building Accessibility_Oakville Production Site.pdf"
                     },
                     {
-                        "type":"arrow",
-                        "title": "Policies",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Conflict of Interest Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Conflict of Interest Policy_2018.pdf"
                     },
                     {
-                        "type":"arrow",
-                        "title": "Be in Christ (BIC)",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Data Privacy FAQ",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Data Privacy FAQ.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Data Privacy Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Ethical Fundraising Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Ethical Fundraising Policy.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Website Privacy Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf"
                     }
                 ]
             },
+
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Jesus Collective",
+                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Jesus Collective",
+                        "navigateTo": "http://www.jesuscollective.com/",
+                        "openNewBrowser":true
+                    }
+                ],
+                "image1":[{
+                    "src":"/static/images/about-us-5.png",
+                    "alt":"Jesus Collective Logo"
+                }]
+            },
+
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
@@ -160,24 +230,6 @@
                 "image1":[{
                     "src":"/static/images/about-us-3.jpg",
                     "alt":"Man playing bass guitar during an event at The Meeting House."
-                }]
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Jesus Collective",
-                "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Interested? ",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Jesus Collective",
-                        "navigateTo": "http://www.jesuscollective.com/",
-                        "openNewBrowser":true
-                    }
-                ],
-                "image1":[{
-                    "src":"/static/images/about-us-5.png",
-                    "alt":"Jesus Collective Logo"
                 }]
             }
         ]

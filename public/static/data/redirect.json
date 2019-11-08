@@ -39,4 +39,5 @@
 {"id":"dataprivacy","to":"/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019"},
 {"id":"kids","to":"http://parents.themeetinghouse.com/"},
 {"id":"youth","to":"http://theunderground.ws"},
+{"id":"go","to":"https://meeting.formstack.com/forms/mh_go_campaign_launch"}
 ]

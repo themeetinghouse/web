@@ -3,29 +3,35 @@ import RenderRouter from '../components/RenderRouter/RenderRouter'
 import '../custom.scss';
 import * as queries from '../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import  { API } from 'aws-amplify';
+import { API } from 'aws-amplify';
 
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import VideoOverlay from '../components/VideoOverlay/VideoOverlay'
 import ReactGA from 'react-ga';
+if (window.location.hostname === "localhost")
+  ReactGA.initialize('UA-4554612-19');
+else if (window.location.hostname.includes("beta"))
+  ReactGA.initialize('UA-4554612-19');
+else
+  ReactGA.initialize('UA-4554612-3');
+
 Amplify.configure(awsconfig);
-ReactGA.initialize('UA-4554612-19');
 interface Props extends RouteComponentProps {
   match: any
   isVideo?: string
 }
 interface State {
   content: any
-  data:any
+  data: any
 }
 class HomePage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
       content: null,
-      data:null
+      data: null
     }
     console.log(props)
     fetch('/static/data/redirect.json').then(function (response) {
@@ -108,18 +114,18 @@ class HomePage extends React.Component<Props, State> {
         })
     }
     this.navigateHome = this.navigateHome.bind(this);
-  
+
     if (this.props.isVideo === "true") {
       console.log(this.props.match.params.episode)
       const getVideo = API.graphql({
         query: queries.getVideo,
-        variables: { id: this.props.match.params.episode},
+        variables: { id: this.props.match.params.episode },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       });
       getVideo.then((json: any) => {
-        console.log({"Success queries.getVideo: ": json});
-        this.setState({data:json.data.getVideo})
-       
+        console.log({ "Success queries.getVideo: ": json });
+        this.setState({ data: json.data.getVideo })
+
       }).catch((e: any) => { console.log(e) })
     }
   }
