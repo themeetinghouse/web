@@ -2,6 +2,14 @@
 import React from 'react';
 import "./GiveItem.scss"
 import { Button } from 'reactstrap';
+import ReactGA from 'react-ga';
+if (window.location.hostname === "localhost")
+  ReactGA.initialize('UA-4554612-19');
+else if (window.location.hostname.includes("beta"))
+  ReactGA.initialize('UA-4554612-19');
+else
+  ReactGA.initialize('UA-4554612-3');
+
 interface Props {
   content: any
 }
@@ -195,16 +203,16 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Other Ways to Give</div>
             {this.state.currentPage === "OnlineBanking" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OnlineBanking');this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
             }
             {this.state.currentPage === "OfferingEnvelopes" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "OfferingEnvelopes" }) }}>Offering Envelopes</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OfferingEnvelopes');this.setState({ currentPage: "OfferingEnvelopes" }) }}>Offering Envelopes</button></div>
             }
             {this.state.currentPage === "FellowshipOne" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
             }
             {this.state.currentPage === "PushPay" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
             }  </div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemNeedHelp">Need help?</div>
