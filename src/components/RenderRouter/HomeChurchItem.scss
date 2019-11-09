@@ -1,3 +1,232 @@
+@import "../../custom.scss";
+
+.HomeChurchFormItemContainer {
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
+      .LocationSelect {
+            flex-grow: 3;
+            width: 50%;
+            flex-shrink: 0;
+      }
+      .PostalCodeInput { 
+            flex-grow: 1;
+            flex-shrink: 1;
+            font-size: 1rem;
+            font-weight: 400;
+            width: 35%;
+            height: 43px;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-radius: 0;
+            line-height: 41px;
+      }
+      .ClearAllButton {
+            white-space: nowrap;
+            font-size: 12px;
+            line-height: 41px;
+            height: 43px;
+            padding: 0 10px;
+            cursor: pointer;
+            color: $onyxblack;
+            &:hover {
+                  text-decoration: underline !important;
+            }
+      }
+  }
+
+.HomeChurchItemMapInfoWindowDiv1 {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+}
+.HomeChurchItemMapInfoWindowDiv2 {
+      font-size: 16px;
+      margin-bottom: 8px;
+}
+.HomeChurchItemMapInfoWindowDiv3 {
+}
+
+.HomeChurchItemMapInfoWindowDayOfWeek {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-top: 8px;
+}
+.HomeChurchItemMapInfoWindowTimeOfDay {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 5px;
+}
+
+.HomeChurchDayOfWeek {
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-top: 15px;
+}
+.HomeChurchTimeOfDay {
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 15px;
+}
+
+.ContactLeadersButton {
+      font-family: Graphik Web;
+      color: #000000;
+      background-color: #ffffff;
+      border-width: 0px;
+      border-radius: 0;
+      font-size: 16px;
+      text-decoration: none;
+      font-weight:normal;
+      cursor: pointer;
+
+      &.ContactLeadersButton:hover{
+          border-width: 0px;
+          border-radius: 0;
+          background-color:#ffffff;
+          color:#000000;
+          text-decoration: underline !important;
+          font-weight:normal;
+  
+      }
+      .ContactLeadersIcon {
+          padding-right:10px;
+          height:25px;
+      }
+  }        
+
+  .AddToCalendarButtonContainer {
+      position: relative;
+      display: inline-block;
+      padding: 12px 30px 12px 0;
+
+      .AddToCalendarIcon {
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding-right: 0;
+          padding-left: 0;
+          pointer-events: none;
+          top: 50%;
+          font-size: 12px;
+          transform: translateY(-50%);
+      }
+      .react-add-to-calendar__button {
+          font-family: Graphik Web;
+          color: #000000;
+          border-width: 0px;
+          border-radius: 0;
+          font-size: 16px;
+          font-weight:normal;
+          padding-left: 35px;
+          text-decoration: none !important;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline !important;
+          }
+      }
+      .react-add-to-calendar__dropdown {
+          position: absolute;
+          z-index: 100;
+          top: 48px;
+          background: white;
+          border: 1px solid #000000;
+          padding: 10px 20px 0 20px;
+          ul {
+              list-style-type: none;
+              padding: 0;
+              font-family: Graphik Web;
+              font-size: 14px;
+              a {
+                  color: #000000 !important;
+                  vertical-align: middle;
+              }
+              li {
+                  position: relative;
+                  vertical-align: middle;
+              }
+              a::before {
+                  width: 15px;
+                  height: 15px;
+                  vertical-align: middle;
+                  background-size: contain;
+                  background-position-y: center;
+                  background-repeat: no-repeat;
+                  display: inline-block;
+                  content: "";
+                  margin: 5px 5px 8px 0;
+
+              }
+              a.apple-link::before {
+                  background-image: url("/static/svg/Apple.svg");
+              }
+              a.outlook-link::before {
+                  background-image: url("/static/svg/Outlook.svg");
+              }
+              a.outlookcom-link::before {
+                  background-image: url("/static/svg/Outlook.svg");
+              }
+              a.yahoo-link::before {
+                  background-image: url("/static/svg/Yahoo.svg");
+              }
+              a.google-link::before {
+                  background-image: url("/static/svg/Google.svg");
+              }
+          }
+      }
+  }        
+
+  .LoadingContainer {
+        background: $onyxblack-light;
+        padding: 20px;
+        margin-right: 10px;
+
+      .LoadingTitleContainer {
+            .spinner-border {
+                  vertical-align: middle;
+            }
+            .LoadingTitle {
+                font-size: 18px;
+                vertical-align: middle;
+                padding-left: 10px;
+                font-weight: 700;
+            }
+      }
+        .LoadingItem {
+              vertical-align: middle;
+              font-size: 14px;
+              margin: 10px;
+              font-weight: 600;
+              display: inline-block;
+              white-space: nowrap;
+              img {
+                    width: 16px;
+                    margin-right: 8px;
+                    vertical-align: middle;
+              }
+              .LoadingLocationLabel {
+                  vertical-align: middle;
+              }
+              .LoadingImage {
+                    display: inline-block;
+              }
+              .LoadedImage {
+                    display: none;
+              }
+              &.Loaded {
+                    .LoadingImage {
+                          display: none;
+                    }
+                    .LoadedImage {
+                          display: inline-block;
+                    }
+              }
+        }
+  }
+
+
 @media (min-width: 768px) {
       .HomeChurchItem {
             height: 100vh;
@@ -25,11 +254,7 @@
             width: 40vw;
             height: 100vh;
       }
-      .HomeChurchItemDiv4 {
-            display: flex;
-            flex-direction: row;
-            padding: 10px;
-      }
+
       .HomeChurchItemDiv5 {
             border-bottom-width: 1px;
             margin-bottom: 10px;
@@ -40,25 +265,13 @@
       .HomeChurchItemListData {
             overflow-y: auto;
             height: 80vh;
-            padding: 10px;
+            padding: 0 10px 10px;
       }
 
       .HomeChurchItemMap {
             left: 0vw;
             width: 40vw;
             height: 88vh;
-      }
-
-      .HomeChurchItemMapInfoWindowDiv1 {
-            font-weight: bold;
-            font-size: 1.3vw;
-            margin-bottom: 0.5vw;
-      }
-      .HomeChurchItemMapInfoWindowDiv2 {
-            font-size: 1.1vw;
-            margin-bottom: 0.35vw;
-      }
-      .HomeChurchItemMapInfoWindowDiv3 {
       }
 
       .HomeChurchItemA {
@@ -72,29 +285,53 @@
             margin-bottom: 0.5vw;
       }
       .HomeChurchH1 {
-            font-size: 3vw;
+            font-size: 48px;
             font-family: Graphik Web;
             font-weight: bold;
         }
 
         .HomeChurchH3 {
-            font-size: 2vw;
+            font-size: 24px;
             font-family: Graphik Web;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            &:hover {
+                  text-decoration: underline;
+            }
+            &.selected {
+                  text-decoration: underline;
+            }
         }
         .HomeChurchAddress,
         .HomeChurchDistances {
-            font-size: 1.2vw;
+            font-size: 16px;
             font-family: Graphik Web;
-            margin-bottom: 5px;
+            color: $coolgray11;
         }
         .HomeChurchSiteAffiliation {
-              font-size: 1vw;
-              font-family: Graphik Web;
-        }
-        .LocationSelect {
-            width: 100%;
+              margin: 15px 0;
         }
 
+}
+
+
+.HomeChurchLoading-enter {
+      opacity: 0.01;
+
+      &.HomeChurchLoading-enter-active {
+            opacity: 1;
+            transition: opacity 300ms ease-in;
+      }
+}
+
+.HomeChurchLoading-leave {
+      opacity: 1;
+
+      &.HomeChurchLoading-leave-active {
+            opacity: 0.01;
+            transition: all 750ms ease-in;
+      }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -124,9 +361,15 @@
             width: 40vw;
             height: 100vh;
       }
-      .HomeChurchItemDiv4 {
+      .HomeChurchFormItemContainer {
             display: flex;
             flex-direction: row;
+            .LocationSelect {
+                  flex-grow: 2;
+            }
+            .PostalCodeInput { 
+                  flex-grow: 1;
+            }
         }
         .HomeChurchItemListData {
             overflow-y: auto;
@@ -150,27 +393,44 @@
             margin-bottom: 0.5vw;
       }
       .HomeChurchH1 {
-            font-size: 3vw;
+            font-size: 24px;
             font-family: Graphik Web;
             font-weight: bold;
         }
 
         .HomeChurchH3 {
-            font-size: 2vw;
+            font-size: 20px;
             font-family: Graphik Web;
         }
         .HomeChurchAddress,
         .HomeChurchDistances {
-            font-size: 1vw;
+            font-size: 16px;
             font-family: Graphik Web;
         }
+      .HomeChurchDayOfWeek {
+            font-size: 14px
+      }
+      .HomeChurchTimeOfDay {
+            font-size: 14px;
+            margin-bottom: 10px;
+      }    
+      .ContactLeadersButton {
+            font-size: 14px;      
+        }        
+      
+        .AddToCalendarButtonContainer {
+            .react-add-to-calendar__button {
+                font-size: 14px;
+            }
+        }              
 
 }
 
 @media (max-width: 767px) {
+      .HomeChurchFormItemContainer {
+            padding: 10px 0px;
+      }      
       .HomeChurchItem {
-            height: 100vh;
-            position: static;
             padding-bottom: 5vw;
             padding-top: 5vh;
       }
@@ -186,27 +446,23 @@
             // left: 0vw;
             width: 100%;
             height: 50vh;
-            top: 35vw;
+            top: 25vw;
       }
 
       .HomeChurchItemDiv3 {
-            position: absolute;
             left: 0vw;
             width: 90vw;
-            height: 100vh;
-            margin-top: 5vw;
       }
       .HomeChurchItemDiv4 {
             display: flex;
             flex-direction: row;
-        }
-        .HomeChurchItemListData {
-            overflow-y: auto;
-            height: 80vh;
-            width: 90vw;
+      }
+
+      .HomeChurchItemListData {
             position: relative;
-            top: 117vw;
-        }
+            top: 52vh;
+            padding-bottom: 52vh
+      }
 
       .HomeChurchItemMap {
             left: 0vw;
@@ -225,13 +481,13 @@
             margin-bottom: 0.5vw;
       }
       .HomeChurchH1 {
-            font-size: 3vw;
+            font-size: 24px;
             font-family: Graphik Web;
             font-weight: bold;
         }
 
         .HomeChurchH3 {
-            font-size: 6.4vw;
+            font-size: 24px;
             font-family: Graphik Web;
             line-height: 8.55vw;
             font-weight: 800;
@@ -251,13 +507,35 @@
             font-weight: 800;
         }
         .HomeChurchItemDiv5 {
-            margin-bottom: 15vw;
+            margin-bottom: 3vh;
+            padding-bottom: 3vh;
+            border-bottom: 1px solid $coolgray11;
         }
 
-        .LocationSelect.css-2b097c-container {
-            width: 100%;
-        }
-        .css-yk16xz-control {
-            width: 85vw;
-        }
+        .ContactLeadersButton {
+            font-size: 14px;      
+        }        
+      
+        .AddToCalendarButtonContainer {
+            .react-add-to-calendar__button {
+                font-size: 14px;
+            }
+        }        
+
+      .HomeChurchItemMapInfoWindowDiv1 {
+            font-size: 16px;
+      }
+      .HomeChurchItemMapInfoWindowDiv2 {
+            font-size: 16px;
+      }
+      
+      .HomeChurchItemMapInfoWindowDayOfWeek {
+            font-size: 14px;
+            font-weight: 700;
+      }
+      .HomeChurchItemMapInfoWindowTimeOfDay {
+            font-size: 14px;
+            font-weight: 700;
+      }        
+      
 }

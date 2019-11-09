@@ -24,7 +24,13 @@ const  resizeHandler = require("./resizeHandler.js");
 exports.handler = async event => {
   try {
     const imagePath = await resizeHandler.process(event);
-    const URLBase = "https://beta.themeetinghouse.com"
+    var URLBase
+    if (process.env.ENV==="dev")
+      URLBase= "https://beta.themeetinghouse.com"
+    else if (process.env.ENV==="tmhprod")
+      URLBase= "https://www.themeetinghouse.com"
+    else
+      URLBase= "https://www.themeetinghouse.com"
     const URL = `http://${process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME}.s3-website.${
       process.env.REGION
     }.amazonaws.com`;

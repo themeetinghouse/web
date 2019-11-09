@@ -14,6 +14,12 @@
 				"authConfig": {
 					"additionalAuthenticationProviders": [
 						{
+							"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+							"userPoolConfig": {
+								"userPoolId": "authcognitodevtmh"
+							}
+						},
+						{
 							"authenticationType": "AWS_IAM"
 						}
 					],

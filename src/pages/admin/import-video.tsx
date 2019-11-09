@@ -248,7 +248,7 @@ class IndexApp extends React.Component<Props, State> {
             var updateVideo = API.graphql({
                 query: mutations.updateVideo,
                 variables: { input: this.state.toSaveVideo },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
+                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
             updateVideo.then((json: any) => {
                 console.log({ "Success queries.updateVideo: ": json });
@@ -284,7 +284,7 @@ class IndexApp extends React.Component<Props, State> {
         })
     }
     filterSeries = (series: any, videoType: any) => {
-        return series.seriesType == videoType
+        return series.seriesType === videoType
     }
     renderVideoEditor() {
         var z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
@@ -360,7 +360,7 @@ class IndexApp extends React.Component<Props, State> {
             var saveSeries = API.graphql({
                 query: mutations.createSeries,
                 variables: {input:this.state.toSaveSeries},
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
+                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
     
             saveSeries.then((json: any) => {

@@ -97,22 +97,22 @@ class TeachingItem extends React.Component<Props, State> {
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             listVideos1.then((json1: any) => {
-                console.log("Success queries.listVideos: " + json1);
+                console.log({"Success queries.listVideos: " :json1});
                 this.setState({
                     listData: json1.data.getVideoByVideoType.items
                 })
                 listVideos2.then((json2: any) => {
-                    console.log("Success queries.listVideos: " + json2);
+                    console.log({"Success queries.listVideos: " : json2});
                     this.setState({
                         listData: this.state.listData.concat(json2.data.getVideoByVideoType.items)
                     })
                     listVideos3.then((json3: any) => {
-                        console.log("Success queries.listVideos: " + json3);
+                        console.log({"Success queries.listVideos: " : json3});
                         this.setState({
                             listData: this.state.listData.concat(json3.data.getVideoByVideoType.items)
                         })
                         listVideos4.then((json4: any) => {
-                            console.log("Success queries.listVideos: " + json4);
+                            console.log({"Success queries.listVideos: " : json4});
                             this.setState({
                                 listData: this.state.listData.concat(json4.data.getVideoByVideoType.items)
                             })

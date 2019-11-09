@@ -31,8 +31,8 @@
                 "style": "partial",
                 "image1": [
                     {
-                        "src": "/static/svg/Map.svg",
-                        "alt": "A map representing locations of The Meeting House churches."
+                        "src": "/static/images/locations-2-1.jpg",
+                        "alt": "A woman smiling and talking to friends around a table."
                     }
                 ],
                 "header1": "We'd love to meet you",
@@ -65,7 +65,7 @@
             },
              {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1":"Distance Groups",
                 "header2":"",
                 "text1":"Don't live in a city where there's a Meeting House site? Distance Groups are gatherings of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
@@ -78,8 +78,8 @@
                     }
                 ],
                 "image1":[{
-                    "src":"/static/images/TODO.jpg",
-                    "alt":"TODO"
+                    "src":"/static/images/DistanceGroup.jpg",
+                    "alt":"People chatting on a patio"
                 }]
 
             },

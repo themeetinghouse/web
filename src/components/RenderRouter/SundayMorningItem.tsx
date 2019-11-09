@@ -62,15 +62,15 @@ export class ContentItem extends React.Component<Props, State>  {
     unblock();
 
   }
- 
-  getEmailLinkHandler = (item:any) => (
+
+  getEmailLinkHandler = (item: any) => (
     (event: any) => {
-      window.location.href="mailto:" + item.pastorEmail;
+      window.location.href = "mailto:" + item.pastorEmail;
     }
   )
 
-  getMarkerClickHandler = (item:any) => (props:any, marker:any) => {
-    this.setState({selectedPlaceMarker: marker, selectedPlace: item});
+  getMarkerClickHandler = (item: any) => (props: any, marker: any) => {
+    this.setState({ selectedPlaceMarker: marker, selectedPlace: item });
   }
 
   onInfoWindowClose() { }
@@ -93,9 +93,9 @@ export class ContentItem extends React.Component<Props, State>  {
     }
   }
 
-  getCalendarEventForLocation(locationItem:any){
+  getCalendarEventForLocation(locationItem: any) {
     let nextSunday = (moment().day() === 0 ? moment().add(1, "week") : moment().day(0)).startOf("day");
-    let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length-1];
+    let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
     serviceHour = serviceHour.substr(0, serviceHour.indexOf(":"));
     nextSunday = nextSunday.hour(+serviceHour);
     let event = {
@@ -133,35 +133,42 @@ export class ContentItem extends React.Component<Props, State>  {
 
             <div className="SundayMorningItemDiv2" >
 
-            <Map google={this.props.google} zoom={6} initialCenter={{lat: 44, lng: -78.0}} className="SundayMorningMap">
-              {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
+              <Map google={this.props.google} zoom={6} initialCenter={{ lat: 44, lng: -78.0 }} className="SundayMorningMap">
+                {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
                   return (<Marker key={index} onClick={this.getMarkerClickHandler(item)}
                     position={{ lat: item.location.latitude, lng: item.location.longitude }} />
                   )
                 }) : null}
 
-              <InfoWindow marker={this.state.selectedPlaceMarker} visible={true}>
-                { 
-                  this.state.selectedPlace ? (
-                    <div>
-                      <div className="SundayMorningMapInfoWindowDiv1">{this.state.selectedPlace.name}</div>
-                      <div className="SundayMorningMapInfoWindowDiv2">{this.state.selectedPlace.location.address}</div>
-                      <div className="SundayMorningMapInfoWindowDiv3">Service times: Sundays @ {this.state.selectedPlace.serviceTimes.map((t:any)=>(t+' am')).join(', ')}</div>
-                    </div>
-                  ) : <div></div>
-                }           
-              </InfoWindow>
-            </Map>
+                <InfoWindow marker={this.state.selectedPlaceMarker} visible={true}>
+                  {
+                    this.state.selectedPlace ? (
+                      <div>
+                        <div className="SundayMorningMapInfoWindowDiv1">{this.state.selectedPlace.name}</div>
+                        <div className="SundayMorningMapInfoWindowDiv2">{this.state.selectedPlace.location.address}</div>
+                        <div className="SundayMorningMapInfoWindowDiv3">Service times: Sundays @ {this.state.selectedPlace.serviceTimes.map((t: any) => (t + ' am')).join(', ')}</div>
+                      </div>
+                    ) : <div></div>
+                  }
+                </InfoWindow>
+              </Map>
             </div>
             <div className="SundayMorningItemDiv3" >
               <div className="SundayMorningItemDiv4" >
                 <Input placeholder="Current Location" ></Input>
-                <button className="SundayMorningButton">Driving</button> 
-                <button className="SundayMorningButton">Transit</button> 
+                <button className="SundayMorningButton">Driving</button>
+                <button className="SundayMorningButton">Transit</button>
                 <button className="SundayMorningButton">Bike</button>
               </div>
               <div className="SundayMorningItemListData" >
-                {this.state.listData != null ? this.state.listData.sort((a:any,b:any)=>{return a.name>b.name}).map((item: any, index: any) => {
+                {this.state.listData != null ? this.state.listData.sort((a: any, b: any) => {
+                  if (a.name > b.name)
+                    return 1;
+                  else if (a.name < b.name)
+                    return -1;
+                  else
+                    return 0;
+                }).map((item: any, index: any) => {
                   return (
                     <div key={item.id} className="SundayMorningItemDiv5" >
                       <div className="SundayMorningItemDiv4" >
@@ -178,7 +185,7 @@ export class ContentItem extends React.Component<Props, State>  {
                       </div>
                       <div>
                         <div className="AddToCalendarButtonContainer">
-                          <img className="SundaMorningIcon" src="/static/Calendar.png" alt="Calendar Icon" />                          
+                          <img className="SundaMorningIcon" src="/static/Calendar.png" alt="Calendar Icon" />
                           <AddToCalendar event={this.getCalendarEventForLocation(item)} ></AddToCalendar>
                         </div>
                         <button className="SundayMorningButton2" onClick={this.getEmailLinkHandler(item)}><img className="SundaMorningIcon" src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</button>

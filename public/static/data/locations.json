@@ -1,5 +1,6 @@
 [
     {
+        
         "id": "alliston",
         "name": "Alliston",
         "pastorEmail":"michael.kotsopoulos@themeetinghouse.com",
@@ -175,6 +176,7 @@
         },
         "serviceTimes": ["10:00"]
     },
+
     {
         "id": "owen-sound",
         "name": "Owen Sound",

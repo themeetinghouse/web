@@ -45,9 +45,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
         </div>
         <div className="VideoPlayerDescription" >{this.state.data.description}</div>
         <div className="VideoPlayerExtra">
-          {this.state.data.notesURL != null ? <div className="VideoPlayerSeriesNotes">Notes</div> : null}
-          {this.state.data.videoURL != null ? <div className="VideoPlayerSeriesVideo">Download Video</div> : null}
-          {this.state.data.audioURL != null ? <div className="VideoPlayerSeriesAudio">Download Audio</div> : null}
+          {this.state.data.notesURL != null ? <div className="VideoPlayerSeriesNotes"><a href={this.state.data.notesURL}>Notes</a></div> : null}
+          {this.state.data.videoURL != null ? <div className="VideoPlayerSeriesVideo"><a href={this.state.data.videoURL}>Download Video</a></div> : null}
+          {this.state.data.audioURL != null ? <div className="VideoPlayerSeriesAudio"><a href={this.state.data.audioURL}>Download Audio</a></div> : null}
           <div className="VideoPlayerClear"></div>
         </div>
       </div>

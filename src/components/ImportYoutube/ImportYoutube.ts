@@ -2,6 +2,8 @@ import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+
 Amplify.configure(awsmobile);
 
 export default class ImportYoutube {
@@ -68,7 +70,12 @@ export default class ImportYoutube {
             delete vid1.snippet['description']
           if (vid1.snippet.localized == null)
             delete vid1.snippet['localized']
-          const createVideo = API.graphql(graphqlOperation(mutations.createVideo, { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1 } }));
+            var createVideo = API.graphql({
+              query: mutations.createVideo,
+              variables: { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1 } },
+              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+          });
+         
           createVideo.then((json3: any) => {
             /* this.setState({
                  currentVideoData: json3.data.createVideo

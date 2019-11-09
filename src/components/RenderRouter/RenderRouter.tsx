@@ -3,6 +3,7 @@ import React from 'react';
 import HeaderItem from './HeaderItem';
 import ContentItem from './ContentItem';
 import GiveItem from './GiveItem';
+import Give2Item from './Give2Item';
 import ListItem from './ListItem';
 import VideoPlayer from './VideoPlayer';
 import SVGItem from './SVGItem';
@@ -66,6 +67,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<SearchItem key={index} content={item}></SearchItem>);
         else if (item.type === "give")
           return (<GiveItem key={index} content={item}></GiveItem>);
+          else if (item.type === "give2")
+          return (<Give2Item key={index} content={item}></Give2Item>);
 
         else return null
       })

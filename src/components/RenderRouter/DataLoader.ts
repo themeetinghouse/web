@@ -67,7 +67,14 @@ export default class DataLoader extends React.Component<Props, State> {
             if (json.data.getVideoByVideoType.nextToken != null)
                 this.getVideos(json.data.getVideoByVideoType.nextToken)
 
-        }).catch((e: any) => { console.log(e) })
+        }).catch((e: any) => { 
+            console.log({"Error: ":e}) 
+            this.props.dataLoaded(
+                e.data.getVideoByVideoType.items
+            )
+            if (e.data.getVideoByVideoType.nextToken != null)
+                this.getVideos(e.data.getVideoByVideoType.nextToken)
+        })
     }
     getSpeakers(nextToken: any) {
         const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { nextToken: nextToken, sortOrder: this.state.content.sortOrder, limit: 20 }));
@@ -109,6 +116,19 @@ export default class DataLoader extends React.Component<Props, State> {
                 return a.lastName - b.lastName
         })
     }
+    getEvents(item:any){
+        const getFbEvents = API.graphql({
+            query: queries.getFbEvents,
+            variables: { pageId: item },
+            authMode: GRAPHQL_AUTH_MODE.API_KEY
+        });
+        getFbEvents.then((json: any) => {
+            console.log("Success queries.getFBEvents: " + json);
+            console.log(json)
+            this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data))
+
+        }).catch((e: any) => { console.log(e) })
+    }
     filterEvents(items: any) {
         if (window.location.hostname === "localhost")
             return items;
@@ -116,8 +136,7 @@ export default class DataLoader extends React.Component<Props, State> {
             return items.filter((item: any) => {
                 var start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
                 return (new Date() < start_date)
-            })
-    }
+            })    }
     loadData() {
         if (this.state.content.class === "videos") {
             if (this.state.content.selector === "sameSeries") {
@@ -163,32 +182,12 @@ export default class DataLoader extends React.Component<Props, State> {
         }
         else if (this.state.content.class === "events") {
             if (this.state.content.facebookEvents != null) {
-                this.state.content.facebookEvents.forEach((item: any) => {
-                    const getFbEvents = API.graphql({
-                        query: queries.getFbEvents,
-                        variables: { pageId: item },
-                        authMode: GRAPHQL_AUTH_MODE.API_KEY
-                    });
-                    getFbEvents.then((json: any) => {
-                        console.log("Success queries.getFBEvents: " + json);
-                        console.log(json)
-                        this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data))
-
-                    }).catch((e: any) => { console.log(e) })
+                this.state.content.facebookEvents.forEach((item2: any) => {
+                    this.getEvents(item2)
                 })
             }
             else {
-                const getFbEvents = API.graphql({
-                    query: queries.getFbEvents,
-                    variables: { pageId: "155800937784104" },
-                    authMode: GRAPHQL_AUTH_MODE.API_KEY
-                });
-                getFbEvents.then((json: any) => {
-                    console.log("Success queries.getFBEvents: " + json);
-                    console.log(json)
-                    this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data))
-
-                }).catch((e: any) => { console.log(e) })
+                this.getEvents("155800937784104")
             }
 
         }

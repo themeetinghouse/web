@@ -20,14 +20,15 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/TODO.jpg",
-                        "alt": "TODO"
+                        "src": "/static/images/homechurch-1-1.jpg",
+                        "alt": "Three friends talking together around a kitchen table during home church."
                     }
                 ],
-                "header1": "Andrea’s Story",
+                "header1": "Home Church",
                 "header2": "",
-                "text1": "We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life."
-              
+                "text1": "We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life.",
+                "button1Text": "Watch Andrea's Story",
+                "button1Action": "/videos/spiritually-curious-Spiritually%20Curious/SP3pD2plP04"
             },
             {
                 "type": "content",
@@ -49,13 +50,13 @@
                 "style": "oneImageBlackRight",
                 "header1": "Family Friendly",
                 "header2": "",
-                "text1": "Some Home Churches are designed with the entire family in mind. Kids and youth are welcome to join. Home Church leaders will tailor discussion to include kids and youth, or create space where they can participate with friends their age and apply the teaching in a relevant way.",
+                "text1": "Some Home Churches are designed with the entire family in mind, so kids and youth are welcome to join. Home Church leaders will help tailor the discussion to include everyone or create space where kids can learn and participate with friends their age.",
                 
                
                 "image1": [
                     {
-                        "src": "/static/images/Todo.jpg",
-                        "alt": "Todo"
+                        "src": "/static/images/homechurch-2-1.jpg",
+                        "alt": "Parents and children together at home church."
                     }
                 ]
             }

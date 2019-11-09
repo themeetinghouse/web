@@ -102,7 +102,7 @@ renderVideo(item:any){
   <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
   <div>
     <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
-    <div className="ListItemPlayImageOverlay"><img src="/static/svg/Play.svg"></img></div>
+    <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
     <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
     <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
     <div className="ListItemPublishedDate">{item.publishedDate}</div>
@@ -345,7 +345,15 @@ else return null
               data.map((item: any, index: any) => {
                 return (
                   <div className="ListItemDiv10" key={index}>
-                    <div onClick={() => {item.navigateTo?this.navigate(item.navigateTo):this.navigateUrl(item.url)}} className="imageList hoverText">
+                    <div 
+                      onClick={() => {
+                        if (item.navigateTo)
+                          this.navigate(item.navigateTo)
+                        else
+                          if (item.url)
+                            this.navigateUrl(item.url)
+                      } }
+                      className={"imageList "+ (item.url||item.navigateTo?"hoverText":"noHoverText")}>
                       <h3 className="ListItemH3" >{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>

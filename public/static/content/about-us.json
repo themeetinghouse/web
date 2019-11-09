@@ -31,17 +31,18 @@
                 "header1": "Our Story",
                 "text1": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
                 "text2": "",
-                "link1Text": "",
-                "link1Action": "TODO"
+                "link1Text": "Read More",
+                "link1Action": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf"
 
             },
+
             {
                 "type": "content",
                 "style": "greyTwoText",
                 "header1":"What We Believe",
                 "header2":"",
-                "text1":"We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace with a mission to share the gospel and care for people.",
-                "text2": "If you're interested in specific beliefs or positions we hold, check out our denominational doctrinal statement in the link below.",
+                "text1":"We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message. We value community, simplicity, and peace with a mission to share the gospel and care for people. We belong to a denomination called Be In Christ Church of Canada. If you're interested in specific beliefs or positions we hold, check out our denominational doctrinal statement in the link below.",
+                "text2": "",
                 "list": [
                     {
                         "type":"link",
@@ -51,7 +52,45 @@
                     }
                 ]
             },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1":"Resources",
+                "header2":"",
+                "text1":"",
+                "image1":[{
+                    "src":"/static/images/about-us-2.jpg",
+                    "alt":"Three people sitting at a table, talking about the bible"
+                }],
 
+                "list": [
+
+                    {
+                        "type":"link",
+                        "title": "Gospel Cheat Sheet",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Gospel Cheat Sheet Nov 2019.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Huddle Questions",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Huddle Questions_September 2019.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "The Authority of the Word of God in Print",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/The Authority of the Word of God in Print.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Same Sex Marriage",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/TMH_Same Sex Marriage.pdf",
+                        "openNewBrowser":true
+                    }
+                ]
+            },
             {
                 "type": "list",
                 "style": "vertical",
@@ -104,63 +143,129 @@
 
                 "image1": [
                     {
-                        "src": "/static/images/homepage-2.jpg",
+                        "src": "/static/images/about-us-2-1.jpg",
                         "alt": "Group of friends from church sitting together and talking."
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "oneImage",
-                "header1":"Beliefs, Statements, and Other Details",
+                "style": "oneImageBlackRight",
+                "header1":"Policies",
                 "header2":"",
-                "text1":"TODO",
+                "text1":"",
                 "image1":[{
-                    "src":"/static/images/about-us-2.jpg",
+                    "src":"/static/images/about-us-2-2.jpg",
                     "alt":"Three people sitting at a table, talking about the bible"
                 }],
 
                 "list": [
                     {
-                        "type":"arrow",
-                        "title": "Annual Reports",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "AODA Employment Standards Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/AODA Employment Standards Policy.pdf",
+                        "openNewBrowser":true
                     },
                     {
-                        "type":"arrow",
-                        "title": "Position Statements",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Accessibility at Oakville Production Site",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Building Accessibility_Oakville Production Site.pdf",
+                        "openNewBrowser":true
                     },
                     {
-                        "type":"arrow",
-                        "title": "Policies",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Conflict of Interest Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Conflict of Interest Policy_2018.pdf",
+                        "openNewBrowser":true
                     },
                     {
-                        "type":"arrow",
-                        "title": "Be in Christ (BIC)",
-                        "navigateTo": "jobs.pdf"
+                        "type":"link",
+                        "title": "Data Privacy FAQ",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Data Privacy FAQ.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Data Privacy Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Ethical Fundraising Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Ethical Fundraising Policy.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Website Privacy Policy",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf",
+                        "openNewBrowser":true
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "oneImageBlackRight",
-                "header1":"Oakville Rentals",
+                "style": "oneImage",
+                "header1":"Annual Reports",
                 "header2":"",
-                "text1":"Looking for a space for your next event? Our Oakville facility is available for rentals. Visit our rentals website for more information.",
+                "text1":"",
+                "image1":[{
+                    "src":"/static/images/about-us-2-3.jpg",
+                    "alt":"Three people sitting at a table, talking about the bible"
+                }],
+
                 "list": [
                     {
                         "type":"link",
-                        "title": "Rentals at The Meeting House",
-                        "navigateTo": "http://www.tmhrentals.com/",
+                        "title": "2019 AGM Report",
+                        "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2018 AGM Report",
+                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2017 AGM Report",
+                        "navigateTo": "/static/pdfs/annual-reports/2017_AnnualReport_v4.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2016 AGM Report",
+                        "navigateTo": "/static/pdfs/annual-reports/AnnualReport_2016_web.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2015 AGM Report",
+                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2015_web.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2014 AGM Report",
+                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2014.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2013 Leadership Community Report",
+                        "navigateTo": "/static/pdfs/annual-reports/2013_Leadership_Community_Report.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2012 Leadership Community Report",
+                        "navigateTo": "/static/pdfs/annual-reports/2012_Leadership_Community_Report_online.pdf",
                         "openNewBrowser":true
                     }
-                ],
-                "image1":[{
-                    "src":"/static/images/about-us-3.jpg",
-                    "alt":"Man playing bass guitar during an event at The Meeting House."
-                }]
+                    
+                ]
             },
             {
                 "type": "content",
@@ -178,6 +283,26 @@
                 "image1":[{
                     "src":"/static/images/about-us-5.png",
                     "alt":"Jesus Collective Logo"
+                }]
+            },
+
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1":"Oakville Rentals",
+                "header2":"",
+                "text1":"Looking for a space for your next event? Our Oakville facility is available for rentals. Visit our rentals website for more information.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Rentals at The Meeting House",
+                        "navigateTo": "http://www.tmhrentals.com/",
+                        "openNewBrowser":true
+                    }
+                ],
+                "image1":[{
+                    "src":"/static/images/about-us-3.jpg",
+                    "alt":"Man playing bass guitar during an event at The Meeting House."
                 }]
             }
         ]

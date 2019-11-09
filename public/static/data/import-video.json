@@ -34,6 +34,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -106,7 +107,29 @@
                 "showInTable":false,
                 "showInEditor":true,
                 "readOnly":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
             }
+
            
         ]
     },
@@ -138,6 +161,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -207,6 +231,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -240,6 +285,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -309,6 +355,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -342,6 +409,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -411,6 +479,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -444,6 +533,8 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
+                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -513,6 +604,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -546,6 +658,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -615,6 +728,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -648,6 +782,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -717,6 +852,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -750,6 +906,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -819,6 +976,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -852,6 +1030,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -921,6 +1100,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -954,6 +1154,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1023,6 +1224,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -1056,6 +1278,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1125,6 +1348,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -1158,6 +1402,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1227,6 +1472,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -1260,6 +1526,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1329,6 +1596,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -1362,6 +1650,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1431,6 +1720,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -1464,6 +1774,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1533,6 +1844,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
@@ -1566,6 +1898,7 @@
             {
                 "id": "seriesTitle",
                 "name": "Series Title",
+                "readOnly": true,                
                 "type":"String",
                 "showInTable":true,
                 "showInEditor":true
@@ -1635,6 +1968,27 @@
                 "id": "videoTypes",
                 "name": "Type",
                 "type":"VideoType",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "notesURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "audioURL",
+                "name": "Notes URL",
+                "type":"String",
+                "showInTable":false,
+                "showInEditor":true
+            },
+            {
+                "id": "videoURL",
+                "name": "Notes URL",
+                "type":"String",
                 "showInTable":false,
                 "showInEditor":true
             }
