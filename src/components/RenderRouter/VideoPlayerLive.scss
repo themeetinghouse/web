@@ -8,8 +8,10 @@
             padding: 0;
             overflow: auto;
             margin-bottom: 5vw;
+           
       }
 
+      
       .VideoPlayerDetails {
             left: 10vw;
             position: relative;
@@ -192,7 +194,7 @@
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
-            font-size: 3vw;
+            font-size: 5vw;
             margin-left: 10vw;
       }
 
@@ -227,6 +229,8 @@
             margin-top: 3vw;
             position: relative;
             left: 10vw;
+            font-family: Graphik Web;
+            color: #C8C8C8;
       }
 
       .VideoPlayerDescription {

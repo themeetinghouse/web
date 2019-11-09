@@ -29,7 +29,20 @@
         font-family: Graphik Web;
         font-weight:bold;
         font-size:2vw;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
+      
     }
+   
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
+    }
+  }
     .navbar-toggler {
         padding:0!important;
         margin:0!important;
@@ -202,7 +215,20 @@
         font-family: Graphik Web;
         font-weight:bold;
         font-size:2vw;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
+     
     }
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
+    }
+  }
     .logoHouse{
         height: 4vw;
     }
@@ -301,7 +327,7 @@
         position:absolute;
         z-index:100;
         top: 5.6vw;
-        background-color: #ffffff;
+        background-color: #ffffff00;
         cursor:pointer;
 
     }
@@ -316,8 +342,21 @@
         color:#ff0000;
         font-family: Graphik Web;
         font-weight:bold;
-        font-size:8vw;
+        font-size:8vw;     
+           -webkit-animation: glow 2s ease-in-out infinite alternate;
+        -moz-animation: glow 2s ease-in-out infinite alternate;
+        animation: glow 2s ease-in-out infinite alternate;
+     
     }
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #ff0000;
+    }
+    to {
+      text-shadow: 0 0 10px #fff, 0 0 15px #ffaaaa, 0 0 20px #ffaaaa, 0 0 25px #ffaaaa, 0 0 30px #ffaaaa;
+    }
+  }
     .navbar-brand{
         padding-top:0!important;
         padding-bottom:0!important;

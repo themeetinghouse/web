@@ -7,6 +7,8 @@
   .iframeItemDiv2 {
     font-size: 1.5vw;
     font-family: Graphik Web;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
   }
 
   .iframeItemIframe {
