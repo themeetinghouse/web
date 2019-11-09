@@ -2,21 +2,24 @@ var aws = require('aws-sdk');
 var ses = new aws.SES();
 
 exports.handler = (event, context, callback) => {
-     console.log(event);
-     console.log(context);
+    var message="Name: "+ event.arguments.name + "\n"+
+     "Email: "+event.arguments.email +"\n"+
+     "Message: "+event.arguments.message+"\n"+
+     "Homechurch Id:" +event.arguments.homeChurchId+"\n"
+    console.log(message)
      var params = {
         Destination: {
-            ToAddresses: ["george_vic_bell@hotmail.com"]
+            ToAddresses: ["george.bell@themeetinghouse.com"]
         },
         Message: {
             Body: {
-                Text: { Data: "Test"
+                Text: { Data: message
                     
                 }
                 
             },
             
-            Subject: { Data: "Test Email"
+            Subject: { Data: "Homechurch Inquiry"
                 
             }
         },
