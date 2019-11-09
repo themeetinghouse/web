@@ -18,6 +18,18 @@
         cursor:pointer;
         margin-top:0.5vw;
     }
+    .liveEvent{
+        left:88vw;
+        position:absolute;
+        z-index:100;
+        background-color: #ffffff00;
+        cursor:pointer;
+        margin-top:0.5vw;
+        color:#ff0000;
+        font-family: Graphik Web;
+        font-weight:bold;
+        font-size:2vw;
+    }
     .navbar-toggler {
         padding:0!important;
         margin:0!important;
@@ -179,6 +191,18 @@
         cursor:pointer;
         margin-top:0.5vw;
     }
+    .liveEvent{
+        left:88vw;
+        position:absolute;
+        z-index:100;
+        background-color: #ffffff00;
+        cursor:pointer;
+        margin-top:0.5vw;
+        color:#ff0000;
+        font-family: Graphik Web;
+        font-weight:bold;
+        font-size:2vw;
+    }
     .logoHouse{
         height: 4vw;
     }
@@ -280,6 +304,19 @@
         background-color: #ffffff;
         cursor:pointer;
 
+    }
+    .liveEvent{
+        top:3.5vw;
+        left:53vw;
+        position:absolute;
+        z-index:100;
+        background-color: #ffffff00;
+        cursor:pointer;
+        margin-top:0.0vw;
+        color:#ff0000;
+        font-family: Graphik Web;
+        font-weight:bold;
+        font-size:8vw;
     }
     .navbar-brand{
         padding-top:0!important;

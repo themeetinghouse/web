@@ -10,7 +10,8 @@
             "logoColor":"black",
             "showSearch":true,
             "showFooter":true,
-            "showMenu":true
+            "showMenu":true,
+            "showLive":true
         },
         "content": [
             {

@@ -1,0 +1,18 @@
+[
+    {
+        "name":"Sunday Morning Service",
+        "dayOfWeek":"7",
+        "startHour":"6",
+        "endHour":"13",
+        "navigateTo":"sunday-live"
+    },
+    {
+        "name":"Sunday Morning Service",
+        "dayOfWeek":6,
+        "startHour":0,
+        "endHour":3,
+        "navigateTo":"sunday-live"
+
+    }
+
+]
