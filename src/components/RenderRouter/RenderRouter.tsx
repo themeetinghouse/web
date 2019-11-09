@@ -6,6 +6,7 @@ import GiveItem from './GiveItem';
 import Give2Item from './Give2Item';
 import ListItem from './ListItem';
 import VideoPlayer from './VideoPlayer';
+import VideoPlayerLive from './VideoPlayerLive';
 import SVGItem from './SVGItem';
 import HeroItem from './HeroItem';
 import TeachingItem from './TeachingItem';
@@ -41,6 +42,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<ContentItem key={index} content={item}></ContentItem>);
         else if (item.type === "videoPlayer")
           return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
+          else if (item.type === "liveVideoPlayer")
+          return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
         else if (item.type === "list")
           return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
         else if (item.type === "svg")

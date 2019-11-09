@@ -31,7 +31,10 @@ interface State {
   showLogoText: boolean,
   showSearch:boolean,
   showMenu:boolean,
-  movingMenu:boolean
+  movingMenu:boolean,
+  showLive:boolean,
+  showLiveEvent:boolean,
+  liveEvent:any
 }
 //const bootstrap = require('react-bootstrap');
 
@@ -55,12 +58,33 @@ class HomeMenu extends React.Component<Props, State>  {
       logoColor: this.props.pageConfig.logoColor,
       showLogoText: this.props.pageConfig.showLogoText,
       showSearch: this.props.pageConfig.showSearch,
-      showMenu: this.props.pageConfig.showMenu
+      showMenu: this.props.pageConfig.showMenu,
+      showLive: this.props.pageConfig.showLive,
+      showLiveEvent:false,
+      liveEvent:""
     };
     this.handleScroll = this.handleScroll.bind(this)
+    fetch('./static/data/live-event.json').then(function (response) {
+      return response.json();
+  })
+      .then((myJson) => {
+        myJson.map((item:any)=>{
+          console.log(new Date().getDay())
+          console.log(new Date().getHours())
+          if (this.state.showLive&&item.dayOfWeek===new Date().getDay() && item.startHour<=new Date().getHours() && item.endHour>=new Date().getHours())
+          {
+console.log("ShowLive")
+            this.setState({liveEvent:item.navigateTo,showLiveEvent:true})
+          }
+        })
+      })
+  }
+  navigate(to: string) {
+    this.props.history.push(to, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
 
   }
-
   getWindowHeight() {
     let deviceWindow = document.getElementById('navbar');
     if (deviceWindow != null) {
@@ -118,12 +142,13 @@ class HomeMenu extends React.Component<Props, State>  {
     window.history.pushState({},"Videos",this.state.urlHistoryState, )
 
   }
+
   handleSearchClick(data: any) {
     this.setState({
       overlayData: data,
       urlHistoryState: window.location.href
     })
-    window.history.pushState({},"Videos","search", )
+    window.history.pushState({},"Search","search", )
    
   }
   render() {
@@ -135,6 +160,7 @@ class HomeMenu extends React.Component<Props, State>  {
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
+        {this.state.showLiveEvent ? <div className="liveEvent" onClick={()=>{this.navigate(this.state.liveEvent)}}>Live</div> :null}
         {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={()=>{this.handleSearchClick("search")}} /> 
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
 :null}

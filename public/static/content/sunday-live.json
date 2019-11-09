@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "go-pledge",
-        "title": "Go Campaign - Pledge",
+        "name": "video-player",
+        "title": "Video Player",
         "keywords": "",
         "description":"",
 
@@ -13,15 +13,11 @@
             "showFooter":false,
             "showMenu":false,
             "isPopup":true,
-            "navigateOnPopupClose":"go"
+            "navigateOnPopupClose":"/"
         },
         "content": [
-           
             {
-                "type": "iframe",
-                "src":"https://staff.themeetinghouse.com/pledges/pledgeForm.php",
-                "height":"240vh",
-                "isInPopup":true
+                "type": "liveVideoPlayer"
             }
         ]
     }
