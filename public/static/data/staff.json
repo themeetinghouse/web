@@ -630,6 +630,15 @@
         "Email": "Quincy.Bergman@themeetinghouse.com"
     },
     {
+        "Staff":true,
+         "FirstName": "Rachel",
+         "LastName": "Cuthill",
+         "Phone": "905.287.7000",
+         "Position": "Ministry Associate",
+         "sites": ["HMDT"],
+         "Email": "Rachel.Cuthill@themeetinghouse.com",
+     },
+    {
        "Staff":true,
         "FirstName": "Rachel",
         "LastName": "Meredith",
