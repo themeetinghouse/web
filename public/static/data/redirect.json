@@ -40,5 +40,7 @@
 {"id":"kids","to":"http://parents.themeetinghouse.com/"},
 {"id":"youth","to":"http://theunderground.ws"},
 {"id":"careers","to":"https://www.themeetinghouse.com/about-us"},
+{"id":"annualreports","to":"https://www.themeetinghouse.com/about-us"},
+{"id":"annualreport","to":"https://www.themeetinghouse.com/about-us"},
 {"id":"distancegroupupdates","to":"https://meeting.formstack.com/forms/distancegrouplisting"}
 ]

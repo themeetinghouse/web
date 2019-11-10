@@ -1,3 +1,35 @@
+@import "../../custom.scss";
+
+.SundayMorningFormItemContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    .PostalCodeInput { 
+          flex-grow: 1;
+          flex-shrink: 1;
+          font-size: 1rem;
+          font-weight: 400;
+          width: 35%;
+          height: 43px;
+          padding-top: 0;
+          padding-bottom: 0;
+          border-radius: 0;
+          line-height: 41px;
+    }
+    .ClearAllButton {
+          white-space: nowrap;
+          font-size: 12px;
+          line-height: 41px;
+          height: 43px;
+          padding: 0 10px;
+          cursor: pointer;
+          color: $onyxblack;
+          &:hover {
+                text-decoration: underline !important;
+          }
+    }
+}
+
 @media (min-width: 768px) {
     .SundayMorningItem {
         height: 100vh;
@@ -42,6 +74,7 @@
     .SundayMorningItemDiv6 {
         margin-left: auto;
         margin-right: 10px;
+        padding-top: 10px;
     }
 
     .SundayMorningItemListData {
@@ -56,8 +89,34 @@
     }
 
     .SundayMorningH3 {
-        font-size: 2vw;
+        font-size: 24px;
         font-family: Graphik Web;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        &:hover {
+              text-decoration: underline;
+        }
+        &.selected {
+              text-decoration: underline;
+        }
+    }
+    .SundayMorningAddress,
+    .SundayMorningDistances {
+        font-size: 16px;
+        font-family: Graphik Web;
+        color: $coolgray11;
+    }
+
+    .SundayMorningDistances {
+        margin: 10px 0;
+    }
+
+    .SundayMorningServiceDay, .SundayMorningServiceTimes  {
+        font-family: Graphik Web;
+        font-size: 16px;
+        font-weight: 600;
     }
 
     .SundayMorningMap {
@@ -66,22 +125,20 @@
         height: 88vh;
     }
 
-    .SundayMorningMapInfoWindowDiv1 {
+    .SundayMorningMapInfoWindowSiteName {
         font-weight: bold;
-        font-size: 1.3vw;
+        font-size: 18px;
         margin-bottom: 0.5vw;
     }
-    .SundayMorningMapInfoWindowDiv2 {
+    .SundayMorningMapInfoWindowAddress {
             font-size: 1.1vw;
             margin-bottom: 0.35vw;
     }
-    .SundayMorningMapInfoWindowDiv3 {
+    .SundayMorningMapInfoWindowDay, .SundayMorningMapInfoWindowTimes {
+        font-size: 14px;
+        font-weight: bold;
     }
-    .SundayMorningAddress,
-    .SundayMorningDistances {
-        font-size: 1vw;
-        font-family: Graphik Web;
-    }
+    
     .SundayMorningButton{
         font-family: Graphik Web;
         color: #ffffff;
@@ -141,82 +198,7 @@
         height:25px;
     }
 
-    .AddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
 
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #000000;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 1vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
-        }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid #000000;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: #000000 !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
-
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
-    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -289,9 +271,11 @@
 
     .SundayMorningAddress,
     .SundayMorningDistances {
-        font-size: 1vw;
+        font-size: 14px;
         font-family: Graphik Web;
+        color: $coolgray11;
     }
+
     .SundayMorningButton{
         font-family: Graphik Web;
         color: #ffffff;
@@ -350,134 +334,68 @@
         padding-right:10px;
         height:25px;
     }
+
+    .ContactLeadersButton {
+        font-size: 14px;      
+    }        
+  
     .AddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
-
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
         .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #000000;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 1vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
+            font-size: 14px;
         }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid #000000;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: #000000 !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
+    }        
 
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
-    }
 }
 
 @media (max-width: 767px) {
     .SundayMorningItem {
-        // height: 100vh;
-        // position: static;
-        padding-bottom: 5vw;
-        padding-top:5vh;
+
+        padding-bottom: 10vw;
+        padding-top: 5vh;
     }
 
     .SundayMorningItemDiv1 {
         position: relative;
         left: 5vw;
-        width: 90%
+        width: 90%;
     }
 
     .SundayMorningItemDiv2 {
         position: absolute;
+        // left: 0vw;
         width: 100%;
         height: 50vh;
         top: 25vw;
     }
 
     .SundayMorningItemDiv3 {
-        left: 0;
+        left: 0vw;
         width: 90vw;
     }
 
     .SundayMorningItemDiv4 {
-        display: flex;
-        flex-direction: row;
+        position: relative;
     }
 
     .SundayMorningItemDiv5 {
-        // width: 40vw;
-        border-bottom-width: 1px;
-        margin-bottom: 5px;
-        border-bottom-color: #C8C8C8;
-        border-bottom-style: solid;
+        margin-bottom: 3vh;
+        padding-bottom: 3vh;
+        border-bottom: 1px solid $coolgray11;
+        &:last-child {
+            border: none;
+        }
     }
 
     .SundayMorningItemDiv6 {
-        margin-left: auto;
-        margin-right: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .SundayMorningItemListData {
-        overflow-y: auto;
-        // height: 80vh;
-        // top: 52vh;
-        padding-bottom: 5vh;
-        margin-top: 55vh;
+        position: relative;
+        top: 54vh;
+        padding-bottom: 52vh;
     }
 
     .SundayMorningH1 {
@@ -488,11 +406,19 @@
 
     .SundayMorningH3 {
         font-size: 24px;
-        line-height: 8.55vw;
         font-family: Graphik Web;
-        font-weight: 800;
-        color: #000;
-    }
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-right: 120px;
+        cursor: pointer;
+        &:hover {
+              text-decoration: underline;
+        }
+        &.selected {
+              text-decoration: underline;
+        }
+    }    
 
     .SundayMorningMap {
         left: 0vw;
@@ -500,14 +426,38 @@
         height: 88vh;
     }
 
+    .SundayMorningMapInfoWindowSiteName {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .SundayMorningMapInfoWindowAddress {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .SundayMorningMapInfoWindowDay, .SundayMorningMapInfoWindowTimes {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
     .SundayMorningAddress,
     .SundayMorningDistances {
-        font-size: 4.3vw;
-        line-height: 6.4vw;
+        font-size: 14px;
         font-family: Graphik Web;
-        width: 90vw;
+        color: $coolgray11;
     }
-    .SundayMorningButton{
+
+    .SundayMorningDistances {
+        margin: 10px 0;
+    }
+
+    .SundayMorningServiceDay, .SundayMorningServiceTimes  {
+        font-family: Graphik Web;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .SundayMorningButton {
         font-family: Graphik Web;
         color: #ffffff;
         background-color: #000000;
@@ -531,11 +481,10 @@
         background-color: #000000;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
-        margin:0.1vw;
+        font-size: 14px;
+        padding:5px 10px;
         font-weight:normal;
-        width:11vw;
+        white-space: nowrap;
     }
     .SundayMorningButton1:hover{
         border-width: 0px;
@@ -568,80 +517,19 @@
         padding-right:10px;
         height:25px;
     }
+
+    .ContactLeadersButton {
+        font-size: 14px;    
+        padding-left: 5px;
+        padding-right: 0;
+    }        
+  
     .AddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
 
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            // padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+        padding-right: 20px !important;
         .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #000000;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 1vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
+            font-size: 14px;
         }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid #000000;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: #000000 !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
+    }        
 
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
-    }
 }
