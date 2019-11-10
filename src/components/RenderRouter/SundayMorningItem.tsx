@@ -254,7 +254,7 @@ export class ContentItem extends React.Component<Props, State>  {
                   if (a.distance && b.distance){
                     return a.distance.duration.value < b.distance.duration.value ? -1 : 1;
                   } else {
-                    a.name.localeCompare(b.name);
+                    return a.name.localeCompare(b.name);
                   }
                 })
                 .map((item: any, index: any) => {

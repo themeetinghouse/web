@@ -17,24 +17,24 @@ import "./menu.scss"
 
 interface Props extends RouteComponentProps {
   //logoColor?:string,
-  pageConfig:any
-  
+  pageConfig: any
+
 }
 interface State {
-  urlHistoryState:any,
-  overlayData:any,
+  urlHistoryState: any,
+  overlayData: any,
   isOpen: boolean,
   userName: String,
   windowHeight: number,
   position: string,
   logoColor: string,
   showLogoText: boolean,
-  showSearch:boolean,
-  showMenu:boolean,
-  movingMenu:boolean,
-  showLive:boolean,
-  showLiveEvent:boolean,
-  liveEvent:any
+  showSearch: boolean,
+  showMenu: boolean,
+  movingMenu: boolean,
+  showLive: boolean,
+  showLiveEvent: boolean,
+  liveEvent: any
 }
 //const bootstrap = require('react-bootstrap');
 
@@ -48,8 +48,8 @@ class HomeMenu extends React.Component<Props, State>  {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      urlHistoryState:null,
-      overlayData:null,
+      urlHistoryState: null,
+      overlayData: null,
       isOpen: false,
       userName: "",
       windowHeight: 0,
@@ -60,21 +60,18 @@ class HomeMenu extends React.Component<Props, State>  {
       showSearch: this.props.pageConfig.showSearch,
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
-      showLiveEvent:false,
-      liveEvent:""
+      showLiveEvent: false,
+      liveEvent: ""
     };
     this.handleScroll = this.handleScroll.bind(this)
     fetch('./static/data/live-event.json').then(function (response) {
       return response.json();
-  })
+    })
       .then((myJson) => {
-        myJson.map((item:any)=>{
-          console.log(new Date().getDay())
-          console.log(new Date().getHours())
-          if (this.state.showLive&&item.dayOfWeek===new Date().getDay() && item.startHour<=new Date().getHours() && item.endHour>=new Date().getHours())
-          {
-console.log("ShowLive")
-            this.setState({liveEvent:item.navigateTo,showLiveEvent:true})
+        myJson.forEach((item: any) => {
+          if (this.state.showLive && item.dayOfWeek === new Date().getDay() && item.startHour <= new Date().getHours() && item.endHour >= new Date().getHours()) {
+            console.log("ShowLive")
+            this.setState({ liveEvent: item.navigateTo, showLiveEvent: true })
           }
         })
       })
@@ -139,7 +136,7 @@ console.log("ShowLive")
     this.setState({
       overlayData: null
     })
-    window.history.pushState({},"Videos",this.state.urlHistoryState, )
+    window.history.pushState({}, "Videos", this.state.urlHistoryState)
 
   }
 
@@ -148,27 +145,27 @@ console.log("ShowLive")
       overlayData: data,
       urlHistoryState: window.location.href
     })
-    window.history.pushState({},"Search","search", )
-   
+    window.history.pushState({}, "Search", "search")
+
   }
   render() {
     // console.log(this.state.position)
     return (
- 
+
       <div className={"navbar-custom " + this.state.logoColor} id="navbar">
         <NavbarBrand className="brand" href="/">
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ? <div className="liveEvent" onClick={()=>{this.navigate(this.state.liveEvent)}}>Notes</div> :null}
-        {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={()=>{this.handleSearchClick("search")}} /> 
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
-:null}
+        {this.state.showLiveEvent ? <div className="liveEvent" onClick={() => { this.navigate(this.state.liveEvent) }}>Notes</div> : null}
+        {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => { this.handleSearchClick("search") }} />
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
+          : null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
           <div className="navbar-expander">&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav navbar className={this.state.movingMenu?"ml-auto " + this.state.position:"ml-auto fixed"}>
+            <Nav navbar className={this.state.movingMenu ? "ml-auto " + this.state.position : "ml-auto fixed"}>
               {
                 MainMenuItems.map((item) => {
                   return (
@@ -189,7 +186,7 @@ console.log("ShowLive")
               }
             </Nav>
           </Collapse>
-        </Navbar>:null}
+        </Navbar> : null}
       </div>
     );
   }

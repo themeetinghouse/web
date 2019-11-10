@@ -207,7 +207,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Annual Reports",
+                "header1":"Annual Report and AGM Documents",
                 "header2":"",
                 "text1":"",
                 "image1":[{
@@ -218,50 +218,38 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "2019 AGM Report",
+                        "title": "2019 - Annual Report and AGM Document",
                         "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
                         "openNewBrowser":true
                     },
                     {
                         "type":"link",
-                        "title": "2018 AGM Report",
+                        "title": "2018 - Annual Report and AGM Document",
                         "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
                         "openNewBrowser":true
                     },
                     {
                         "type":"link",
-                        "title": "2017 AGM Report",
+                        "title": "2017 - Annual Report and AGM Document",
                         "navigateTo": "/static/pdfs/annual-reports/2017_AnnualReport_v4.pdf",
                         "openNewBrowser":true
                     },
                     {
                         "type":"link",
-                        "title": "2016 AGM Report",
+                        "title": "2016 - Annual Report and AGM Document",
                         "navigateTo": "/static/pdfs/annual-reports/AnnualReport_2016_web.pdf",
                         "openNewBrowser":true
                     },
                     {
                         "type":"link",
-                        "title": "2015 AGM Report",
+                        "title": "2015 - Annual Report and AGM Document",
                         "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2015_web.pdf",
                         "openNewBrowser":true
                     },
                     {
                         "type":"link",
-                        "title": "2014 AGM Report",
+                        "title": "2014 - Annual Report and AGM  Document",
                         "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2014.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2013 Leadership Community Report",
-                        "navigateTo": "/static/pdfs/annual-reports/2013_Leadership_Community_Report.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2012 Leadership Community Report",
-                        "navigateTo": "/static/pdfs/annual-reports/2012_Leadership_Community_Report_online.pdf",
                         "openNewBrowser":true
                     }
                     
