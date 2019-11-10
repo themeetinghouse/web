@@ -13,7 +13,7 @@
             "showFooter":false,
             "showMenu":false,
             "isPopup":true,
-            "navigateOnPopupClose":"volunteering"
+            "navigateOnPopupClose":"/volunteering"
         },
         "content": [
            

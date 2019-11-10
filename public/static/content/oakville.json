@@ -82,7 +82,7 @@
                     {
                         "type":"link",
                         "title": "Find Out More",
-                        "navigateTo": "kids-and-youth"
+                        "navigateTo": "/kids-and-youth"
                     }
                 ],
                 "image1": [
@@ -121,7 +121,7 @@
                 "header2": "",
                 "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
                 "link1Text": "Browse Home Churches in Oakville",
-                "link1Action": "find-home-church"
+                "link1Action": "/find-home-church"
             },
             {
                 "type": "list",

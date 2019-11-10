@@ -86,7 +86,7 @@
                     {
                         "type":"link",
                         "title": "Find Community",
-                        "navigateTo": "community"
+                        "navigateTo": "/community"
                     }
                 ]
             }

@@ -39,7 +39,7 @@
                     {
                         "type":"link",
                         "title": "Pledge and Give",
-                        "navigateTo": "go-choose"
+                        "navigateTo": "/go-choose"
                     }
                 ],
                

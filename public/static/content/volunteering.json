@@ -24,7 +24,7 @@
                     {
                         "type":"link",
                         "title": "",
-                        "navigateTo": "TODO"
+                        "navigateTo": "/TODO"
                     }
                 ],
                 "image1": [
@@ -49,37 +49,37 @@
                 "list": [
                     {
                         "text": "Compassion",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     },
                     {
                         "text": "Connect/ Welcome Team",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     },
                     {
                         "text": "Home Church",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     },
                     {
                         "text": "Kids and Youth",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     },
                     {
                         "text": "Music Team",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     },
                     {
                         "text": "Prayer and Care",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     },
                     {
                         "text": "Tech",
-                        "navigateTo": "teaching-sunday"
+                        "navigateTo": "/teaching-sunday"
 
                     }
                 ]
@@ -96,7 +96,7 @@
                     {
                         "type":"link",
                         "title": "Volunteer Form",
-                        "navigateTo": "volunteer"
+                        "navigateTo": "/volunteer"
                     }
                 ],
 
