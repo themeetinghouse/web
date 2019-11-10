@@ -430,30 +430,28 @@
 
 @media (max-width: 767px) {
     .SundayMorningItem {
-        height: 100vh;
-        position: static;
+        // height: 100vh;
+        // position: static;
         padding-bottom: 5vw;
-        padding-top:2vh;
+        padding-top:5vh;
     }
 
     .SundayMorningItemDiv1 {
         position: relative;
-        left: 20vw;
-        width: 80vw;
+        left: 5vw;
+        width: 90%
     }
 
     .SundayMorningItemDiv2 {
         position: absolute;
-        left: 40vw;
-        width: 40vw;
-        height: 88vh;
+        width: 100%;
+        height: 50vh;
+        top: 25vw;
     }
 
     .SundayMorningItemDiv3 {
-        position: absolute;
-        left: 0vw;
-        width: 40vw;
-        height: 100vh;
+        left: 0;
+        width: 90vw;
     }
 
     .SundayMorningItemDiv4 {
@@ -462,7 +460,7 @@
     }
 
     .SundayMorningItemDiv5 {
-        width: 40vw;
+        // width: 40vw;
         border-bottom-width: 1px;
         margin-bottom: 5px;
         border-bottom-color: #C8C8C8;
@@ -476,11 +474,13 @@
 
     .SundayMorningItemListData {
         overflow-y: auto;
-        height: 80vh;
+        // height: 80vh;
+        top: 52vh;
+        padding-bottom: 52vh;
     }
 
     .SundayMorningH1 {
-        font-size: 8.55vw;
+        font-size: 24px;
         font-family: Graphik Web;
         font-weight: bold;
     }
