@@ -22,22 +22,24 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
   render() {
     return (
-      <div className="VideoPlayerDiv" >
-        <div className="VideoPlayerEpisodeTitle">Sunday Morning Live</div>
-        <div className="VideoPlayerExtra">
-          <div className="VideoPlayerSeriesNotes">Notes: </div>
-          <div className="VideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/oakville-notes.pdf">Oakville</a></div>
-          <div className="VideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/regional-notes.pdf">Regional</a></div>
-          <div className="VideoPlayerClear"></div>
+      <div className="LiveVideoPlayerDiv" >
+        <div className="LiveVideoPlayerEpisodeTitle">Today's Teaching Notes</div>
+        <div className="LiveVideoPlayerExtra">
+          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/oakville-notes.pdf">Oakville</a></div>
+          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/regional-notes.pdf">Regional</a></div>
+          <div className="LiveVideoPlayerClear"></div>
         </div>
-        {/* <div className="VideoPlayerExtra">
-          <div className="VideoPlayerSeriesNotes"><a href="TODO">KidMax Sign-In</a></div>
-          <div className="VideoPlayerClear"></div>
+        <div className="LiveVideoPlayerExtra">
+          <div className="LiveVideoPlayerSeriesNotes">Notes are updated shortly before 8am on Sunday and will be available again on Monday in the teaching library.</div>
+       </div> 
+        {/* <div className="LiveVideoPlayerExtra">
+          <div className="LiveVideoPlayerSeriesNotes"><a href="TODO">KidMax Sign-In</a></div>
+          <div className="LiveVideoPlayerClear"></div>
         </div>
         <br/>
         <br/>
-        <div className="VideoPlayerEpisodeTitle">Oakville Live Feed (Coming Soon)</div>
-        <iframe title="Youtube Player" className="VideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/test?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <div className="LiveVideoPlayerEpisodeTitle">Oakville Live Feed (Coming Soon)</div>
+        <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/test?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
     */}      </div>
     )
 

@@ -24,10 +24,10 @@
         z-index:100;
         background-color: #ffffff00;
         cursor:pointer;
-        margin-top:0.5vw;
-        color:#ff0000;
+        margin-top:0.8vw;
+        color:#000000;
         font-family: Graphik Web;
-        font-weight:bold;
+        font-weight:400;
         font-size:2vw;
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
@@ -37,7 +37,7 @@
    
 @keyframes glow {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #e60073, 0 0 70px #e60073;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     }
     to {
       text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
@@ -210,10 +210,10 @@
         z-index:100;
         background-color: #ffffff00;
         cursor:pointer;
-        margin-top:0.5vw;
-        color:#ff0000;
+        margin-top:0.8vw;
+        color:#000000;
         font-family: Graphik Web;
-        font-weight:bold;
+        font-weight:400;
         font-size:2vw;
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
@@ -223,7 +223,7 @@
 
 @keyframes glow {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #e60073, 0 0 70px #e60073;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
     }
     to {
       text-shadow: 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
@@ -332,17 +332,17 @@
 
     }
     .liveEvent{
-        top:3.5vw;
-        left:53vw;
+        top:4.5vw;
+        left:52vw;
         position:absolute;
         z-index:100;
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.0vw;
-        color:#ff0000;
+        color:#000000;
         font-family: Graphik Web;
-        font-weight:bold;
-        font-size:8vw;     
+        font-weight:400;
+        font-size:6vw;     
            -webkit-animation: glow 2s ease-in-out infinite alternate;
         -moz-animation: glow 2s ease-in-out infinite alternate;
         animation: glow 2s ease-in-out infinite alternate;
@@ -351,7 +351,7 @@
 
 @keyframes glow {
     from {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #ff0000;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #fff;
     }
     to {
       text-shadow: 0 0 10px #fff, 0 0 15px #ffaaaa, 0 0 20px #ffaaaa, 0 0 25px #ffaaaa, 0 0 30px #ffaaaa;

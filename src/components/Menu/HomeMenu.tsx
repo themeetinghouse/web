@@ -160,7 +160,7 @@ console.log("ShowLive")
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ? <div className="liveEvent" onClick={()=>{this.navigate(this.state.liveEvent)}}>Live</div> :null}
+        {this.state.showLiveEvent ? <div className="liveEvent" onClick={()=>{this.navigate(this.state.liveEvent)}}>Notes</div> :null}
         {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={()=>{this.handleSearchClick("search")}} /> 
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
 :null}

@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-      .VideoPlayerDiv {
+      .LiveVideoPlayerDiv {
             position: relative;
             top: 0;
             left: 0vw;
@@ -12,24 +12,24 @@
       }
 
       
-      .VideoPlayerDetails {
+      .LiveVideoPlayerDetails {
             left: 10vw;
             position: relative;
       }
 
-      .VideoPlayerIframe {
+      .LiveVideoPlayerIframe {
             margin-left: 10vw;
             padding-top: 2vw;
             width: 80vw;
             height: 45vw;
       }
 
-      .VideoPlayerInfoText {
+      .LiveVideoPlayerInfoText {
             font-family: Graphik Web;
             color: #646469
       }
 
-      .VideoPlayerEpisodeTitle {
+      .LiveVideoPlayerEpisodeTitle {
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
@@ -37,40 +37,40 @@
             margin-left: 10vw;
       }
 
-      .VideoPlayerSeriesVideo,
-      .VideoPlayerSeriesAudio,
-      .VideoPlayerSeriesNotes {
+      .LiveVideoPlayerSeriesVideo,
+      .LiveVideoPlayerSeriesAudio,
+      .LiveVideoPlayerSeriesNotes {
             float: left;
             margin-right: 2vw;
             color: #ffffff;
             font-family: Graphik Web;
       }
 
-      .VideoPlayerSeries,
-      .VideoPlayerPublished,
-      .VideoPlayerDuration {
+      .LiveVideoPlayerSeries,
+      .LiveVideoPlayerPublished,
+      .LiveVideoPlayerDuration {
             float: left;
             margin-right: 2vw;
       }
 
-      .VideoPlayerClear {
+      .LiveVideoPlayerClear {
             clear: left;
       }
 
-      .VideoPlayerSeriesTitle,
-      .VideoPlayerPublishedTitle,
-      .VideoPlayerDurationTitle {
+      .LiveVideoPlayerSeriesTitle,
+      .LiveVideoPlayerPublishedTitle,
+      .LiveVideoPlayerDurationTitle {
             font-family: Graphik Web;
             color: #C8C8C8;
       }
 
-      .VideoPlayerExtra {
+      .LiveVideoPlayerExtra {
             margin-top: 3vw;
             position: relative;
             left: 10vw;
       }
 
-      .VideoPlayerDescription {
+      .LiveVideoPlayerDescription {
             font-family: Graphik Web;
             color: #C8C8C8;
             left: 10vw;
@@ -81,7 +81,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-      .VideoPlayerDiv {
+      .LiveVideoPlayerDiv {
             position: relative;
             top: 0;
             left: 0vw;
@@ -92,24 +92,24 @@
             margin-bottom: 5vw;
       }
 
-      .VideoPlayerDetails {
+      .LiveVideoPlayerDetails {
             left: 10vw;
             position: relative;
       }
 
-      .VideoPlayerIframe {
+      .LiveVideoPlayerIframe {
             margin-left: 10vw;
             padding-top: 2vw;
             width: 80vw;
             height: 45vw;
       }
 
-      .VideoPlayerInfoText {
+      .LiveVideoPlayerInfoText {
             font-family: Graphik Web;
             color: #646469
       }
 
-      .VideoPlayerEpisodeTitle {
+      .LiveVideoPlayerEpisodeTitle {
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
@@ -117,40 +117,40 @@
             margin-left: 10vw;
       }
 
-      .VideoPlayerSeriesVideo,
-      .VideoPlayerSeriesAudio,
-      .VideoPlayerSeriesNotes {
+      .LiveVideoPlayerSeriesVideo,
+      .LiveVideoPlayerSeriesAudio,
+      .LiveVideoPlayerSeriesNotes {
             float: left;
             margin-right: 2vw;
             color: #ffffff;
             font-family: Graphik Web;
       }
 
-      .VideoPlayerSeries,
-      .VideoPlayerPublished,
-      .VideoPlayerDuration {
+      .LiveVideoPlayerSeries,
+      .LiveVideoPlayerPublished,
+      .LiveVideoPlayerDuration {
             float: left;
             margin-right: 2vw;
       }
 
-      .VideoPlayerClear {
+      .LiveVideoPlayerClear {
             clear: left;
       }
 
-      .VideoPlayerSeriesTitle,
-      .VideoPlayerPublishedTitle,
-      .VideoPlayerDurationTitle {
+      .LiveVideoPlayerSeriesTitle,
+      .LiveVideoPlayerPublishedTitle,
+      .LiveVideoPlayerDurationTitle {
             font-family: Graphik Web;
             color: #C8C8C8;
       }
 
-      .VideoPlayerExtra {
+      .LiveVideoPlayerExtra {
             margin-top: 3vw;
             position: relative;
             left: 10vw;
       }
 
-      .VideoPlayerDescription {
+      .LiveVideoPlayerDescription {
             font-family: Graphik Web;
             color: #C8C8C8;
             left: 10vw;
@@ -161,7 +161,7 @@
 }
 
 @media (max-width: 767px) {
-      .VideoPlayerDiv {
+      .LiveVideoPlayerDiv {
             position: relative;
             top: 0;
             left: 0vw;
@@ -173,24 +173,24 @@
             margin-top:20vw;
       }
 
-      .VideoPlayerDetails {
+      .LiveVideoPlayerDetails {
             left: 10vw;
             position: relative;
       }
 
-      .VideoPlayerIframe {
+      .LiveVideoPlayerIframe {
             margin-left: 10vw;
             padding-top: 2vw;
             width: 80vw;
             height: 45vw;
       }
 
-      .VideoPlayerInfoText {
+      .LiveVideoPlayerInfoText {
             font-family: Graphik Web;
             color: #646469
       }
 
-      .VideoPlayerEpisodeTitle {
+      .LiveVideoPlayerEpisodeTitle {
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
@@ -198,42 +198,43 @@
             margin-left: 10vw;
       }
 
-      .VideoPlayerSeriesVideo,
-      .VideoPlayerSeriesAudio,
-      .VideoPlayerSeriesNotes {
+      .LiveVideoPlayerSeriesVideo,
+      .LiveVideoPlayerSeriesAudio,
+      .LiveVideoPlayerSeriesNotes {
             float: left;
             margin-right: 2vw;
             color: #ffffff;
             font-family: Graphik Web;
       }
 
-      .VideoPlayerSeries,
-      .VideoPlayerPublished,
-      .VideoPlayerDuration {
+      .LiveVideoPlayerSeries,
+      .LiveVideoPlayerPublished,
+      .LiveVideoPlayerDuration {
             float: left;
             margin-right: 2vw;
       }
 
-      .VideoPlayerClear {
+      .LiveVideoPlayerClear {
             clear: left;
       }
 
-      .VideoPlayerSeriesTitle,
-      .VideoPlayerPublishedTitle,
-      .VideoPlayerDurationTitle {
+      .LiveVideoPlayerSeriesTitle,
+      .LiveVideoPlayerPublishedTitle,
+      .LiveVideoPlayerDurationTitle {
             font-family: Graphik Web;
             color: #C8C8C8;
       }
 
-      .VideoPlayerExtra {
+      .LiveVideoPlayerExtra {
             margin-top: 3vw;
             position: relative;
             left: 10vw;
+            width:80vw;
             font-family: Graphik Web;
             color: #C8C8C8;
       }
 
-      .VideoPlayerDescription {
+      .LiveVideoPlayerDescription {
             font-family: Graphik Web;
             color: #C8C8C8;
             left: 10vw;
