@@ -349,6 +349,7 @@
 
 @media (max-width: 767px) {
     .SundayMorningItem {
+
         padding-bottom: 10vw;
         padding-top: 5vh;
     }
@@ -498,6 +499,7 @@
         font-size: 1vw;
         text-decoration: underline;
         font-weight:normal;
+     
 
     }
     .SundayMorningButton2:hover{
@@ -521,6 +523,7 @@
     }        
   
     .AddToCalendarButtonContainer {
+
         padding-right: 20px !important;
         .react-add-to-calendar__button {
             font-size: 14px;
