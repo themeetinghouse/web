@@ -85,7 +85,7 @@ interface State {
                   <img alt="TBD" className="Thumb" src={item.Youtube.snippet.thumbnails.high.url} />
                   <div className="Content">
                     <div className="ContentType">Video</div> 
-                    <div className="Title">{item.episodeNumber}. {item.episodeTitle} - {item.seriesTitle}</div>
+                    <div className="Title">{item.episodeTitle} - {item.seriesTitle}</div>
                     <div className="Description">{item.description}</div>
                   </div>
                 </div>)

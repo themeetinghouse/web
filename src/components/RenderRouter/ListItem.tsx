@@ -103,7 +103,7 @@ renderVideo(item:any){
   <div>
     <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
     <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-    <div className="ListItemEpisodeNum" >{item.episodeNumber}. {item.episodeTitle}</div>
+    <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers===false?null:item.episodeNumber+". "}{item.episodeTitle}</div>
     <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
     <div className="ListItemPublishedDate">{item.publishedDate}</div>
   </div>
