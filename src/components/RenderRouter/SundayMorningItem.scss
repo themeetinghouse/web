@@ -475,8 +475,9 @@
     .SundayMorningItemListData {
         overflow-y: auto;
         // height: 80vh;
-        top: 52vh;
-        padding-bottom: 52vh;
+        // top: 52vh;
+        padding-bottom: 5vh;
+        margin-top: 55vh;
     }
 
     .SundayMorningH1 {
@@ -486,8 +487,11 @@
     }
 
     .SundayMorningH3 {
-        font-size: 2vw;
+        font-size: 24px;
+        line-height: 8.55vw;
         font-family: Graphik Web;
+        font-weight: 800;
+        color: #000;
     }
 
     .SundayMorningMap {
@@ -498,8 +502,10 @@
 
     .SundayMorningAddress,
     .SundayMorningDistances {
-        font-size: 1vw;
+        font-size: 4.3vw;
+        line-height: 6.4vw;
         font-family: Graphik Web;
+        width: 90vw;
     }
     .SundayMorningButton{
         font-family: Graphik Web;
@@ -541,9 +547,12 @@
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1vw;
+        font-size: 14px;
         text-decoration: underline;
         font-weight:normal;
+        padding-left: 0;
+        padding-top: 1vh;
+        text-decoration: none;
 
     }
     .SundayMorningButton2:hover{
@@ -569,7 +578,7 @@
             left: 0;
             top: 0;
             padding-right: 0;
-            padding-left: 1.25rem;
+            // padding-left: 1.25rem;
             pointer-events: none;
             top: 50%;
             transform: translateY(-50%);
