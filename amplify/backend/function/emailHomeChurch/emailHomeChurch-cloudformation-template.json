@@ -62,7 +62,7 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "themeetinghouse-20190416154553-deployment",
+					"S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
 					"S3Key": "amplify-builds/emailHomeChurch-34614434574759676264-build.zip"
 				}
 			}
