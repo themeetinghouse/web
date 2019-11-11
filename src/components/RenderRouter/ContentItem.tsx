@@ -33,7 +33,7 @@ renderList(){
       }</div>)
     })
     :null
-}
+} 
   render() {
     var image1 
     if (this.state.content.image1!=null)

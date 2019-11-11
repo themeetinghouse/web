@@ -50,8 +50,8 @@ class HomeChurchContactModal extends React.Component<Props, State> {
             homeChurchId: this.props.homeChurchId
         }
         console.log("HomeChurchContactModal.handleContactSubmit(): Payload: %o", payload);
-        API.graphql(graphqlOperation(queries.emailHomeChurch, payload))
-        .then((response: any) => {
+        const emailHomeChurch:any=API.graphql(graphqlOperation(queries.emailHomeChurch, payload))
+        emailHomeChurch.then((response: any) => {
             let error = response.data.emailHomeChurch.err;
             this.setState({sending: false, error: error});
             if (error){

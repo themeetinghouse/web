@@ -164,8 +164,8 @@ export class ContentItem extends React.Component<Props, State>  {
   // This will create a promise that will retry until successful.  Need to do this because AWS returns random
   // errors when trying to run this many queries in parallel...
   getRetryableGraphQLOperationPromise(query: any, args: any): Promise<any> {
-    return API.graphql(graphqlOperation(query, args))
-      .catch((error: any) => {
+    const qry:any=API.graphql(graphqlOperation(query, args))
+     return qry.catch((error: any) => {
         console.log("Promise failure caught: %o", error);
         return this.getRetryableGraphQLOperationPromise(query, args);
       })

@@ -47,7 +47,7 @@ class TeachingItem extends React.Component<Props, State> {
             overlayData: null
         }
         if (this.props.content.class === "teaching-sunday") {
-            const listVideos = API.graphql({
+            const listVideos:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -61,7 +61,7 @@ class TeachingItem extends React.Component<Props, State> {
             }).catch((e: any) => { console.log(e) })
         }
         else if (this.props.content.class === "bbq") {
-            const listVideos = API.graphql({
+            const listVideos:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -76,22 +76,22 @@ class TeachingItem extends React.Component<Props, State> {
         }
         else if (this.props.content.class === "teaching-kids-youth") {
             console.log("teaching-kids-youth")
-            const listVideos1 = API.graphql({
+            const listVideos1:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const listVideos2 = API.graphql({
+            const listVideos2:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const listVideos3 = API.graphql({
+            const listVideos3:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const listVideos4 = API.graphql({
+            const listVideos4:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-srhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY

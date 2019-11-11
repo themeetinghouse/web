@@ -7102,6 +7102,7 @@ export type SearchWebPagesQuery = {
       } | null,
     } | null > | null,
     nextToken: string | null,
+    total: number | null,
   } | null,
 };
 
@@ -10401,6 +10402,7 @@ export type SearchVideosQuery = {
       } | null,
     } | null > | null,
     nextToken: string | null,
+    total: number | null,
   } | null,
 };
 

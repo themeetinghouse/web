@@ -2,13 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Admin from './pages/admin/index';
-import Videos from './pages/admin/videos';
-import Blogs from './pages/admin/blog';
-import Events from './pages/admin/events';
-import News from './pages/admin/news';
-import Locations from './pages/admin/locations';
-import Imports from './pages/admin/imports';
-import ImportKids from './pages/admin/import-kids';
+
 import ImportVideo from './pages/admin/import-video';
 
 import { withRouter, RouteComponentProps} from 'react-router-dom';
@@ -27,14 +21,7 @@ class App extends React.Component<Props, State>  {
   return (
     <Switch key={this.props.location.pathname}>
       <Route exact path="/"  render={props => <HomePage isVideo="false" {...props} />} />
-      <Route path="/admin/import-kids"  render={() => <ImportKids />}/>
       <Route path="/admin/import-video"  render={() => <ImportVideo />}/>
-      <Route path="/admin/imports"  render={() => <Imports />}/>
-      <Route path="/admin/blog"  render={() => <Blogs />}/>
-      <Route path="/admin/events"  render={() => <Events />}/>
-      <Route path="/admin/videos"  render={() => <Videos />}/>
-      <Route path="/admin/locations"  render={() => <Locations />}/>
-      <Route path="/admin/news"  render={() => <News />}/>
       <Route path="/admin"  render={() => <Admin />}/>
       <Route path="/videos/:series/:episode"  render={props => <HomePage  isVideo="true" {...props} />}/>
       <Route path="/videos/:series"  render={props => <HomePage isVideo="true" {...props} />}/>

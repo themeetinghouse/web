@@ -117,7 +117,7 @@ class HomePage extends React.Component<Props, State> {
 
     if (this.props.isVideo === "true") {
       console.log(this.props.match.params.episode)
-      const getVideo = API.graphql({
+      const getVideo:any = API.graphql({
         query: queries.getVideo,
         variables: { id: this.props.match.params.episode },
         authMode: GRAPHQL_AUTH_MODE.API_KEY

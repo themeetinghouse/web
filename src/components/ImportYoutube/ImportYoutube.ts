@@ -15,7 +15,7 @@ export default class ImportYoutube {
     }
   
     loadPlaylists(nextPageToken: any) {
-      const playlists = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
+      const playlists:any = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
       playlists.then((json: any) => {
         this.setPlaylists(json);
         this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
@@ -35,7 +35,7 @@ export default class ImportYoutube {
   
     loadPlaylist(data: any) {
       console.log("loadPlaylist: " + data.id);
-      const playlistItems = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id }));
+      const playlistItems:any = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id }));
       playlistItems.then((json: any) => {
         //console.log("Success queries.getYoutubePlaylistItems: " + json)
         json.data.getYoutubePlaylistItems.items.forEach((item: any) => {
@@ -56,7 +56,7 @@ export default class ImportYoutube {
     }
     writeYoutube(vid1: any) {
       console.log("Write Youtube: " + vid1);
-      const getVideoByYoutubeIdent = API.graphql(graphqlOperation(queries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
+      const getVideoByYoutubeIdent:any = API.graphql(graphqlOperation(queries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
       getVideoByYoutubeIdent.then((json: any) => {
         //console.log("Success queries.searchVideos: " + json);
         if (json.data.getVideoByYoutubeIdent.items.length === 0) {
@@ -70,7 +70,7 @@ export default class ImportYoutube {
             delete vid1.snippet['description']
           if (vid1.snippet.localized == null)
             delete vid1.snippet['localized']
-            var createVideo = API.graphql({
+            var createVideo:any = API.graphql({
               query: mutations.createVideo,
               variables: { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1 } },
               authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
