@@ -1515,6 +1515,7 @@ export const searchWebPages = `query SearchWebPages(
       }
     }
     nextToken
+    total
   }
 }
 `;
@@ -4421,6 +4422,7 @@ export const searchVideos = `query SearchVideos(
       }
     }
     nextToken
+    total
   }
 }
 `;

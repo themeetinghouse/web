@@ -86,7 +86,12 @@ class ListItem extends React.Component<Props, State> {
     else
       return "https://www.themeetinghouse.com/cache/"+size
 }
-
+navigateUrlNewWindow(to: string) {
+  window.open(
+    to,
+    '_blank' // <- This is what makes it open in a new window.
+  );
+}
   navigateUrl(to:string){
     window.location.href=to;
   }
@@ -162,7 +167,7 @@ renderEvent(item:any){
     else
       description=item.description
     return (
-      <div key={item.id} className="ListItemEvents" >
+      <div key={item.id} onClick={()=>{this.navigateUrlNewWindow("https://facebook.com/"+item.id)}} className="ListItemEvents" >
         <div style={{float:"left",marginLeft:"10px",marginRight:"40px"}}>
         <div style={{fontFamily:"Graphik Web",lineHeight:"3vw",fontSize:"2vw",fontWeight:"bold"}}>{start_date.toLocaleString('default', { month: 'long' })}</div>
         <div style={{fontFamily:"Graphik Web",lineHeight:"3vw",fontSize:"4vw",fontWeight:"bold"}}>{start_date.getDate()}</div>

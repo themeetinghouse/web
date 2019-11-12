@@ -47,6 +47,7 @@ interface State {
     videoEditorValues: any
     showError: any
     showAddSeries: any
+    getVideosState: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -77,7 +78,8 @@ class IndexApp extends React.Component<Props, State> {
             toSaveVideo: {},
             toSaveSeries: { id: "", title: "", startDate: "", endDate: "", seriesType: "" },
             videoEditorValues: {},
-            showError: ""
+            showError: "",
+            getVideosState: "Starting Up"
         }
         fetch('../static/data/import-video.json').then(function (response) {
             return response.json();
@@ -97,7 +99,7 @@ class IndexApp extends React.Component<Props, State> {
 
     }
     listSeries(nextToken: any) {
-        var listSeries = API.graphql({
+        var listSeries:any = API.graphql({
             query: queries.listSeriess,
             variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -116,10 +118,9 @@ class IndexApp extends React.Component<Props, State> {
     getVideos(nextToken: any) {
         if (nextToken == null) {
             var queryId = uuid.v4()
-            this.setState({ getVideoQueryId: queryId },
+            this.setState({ getVideoQueryId: queryId, getVideosState: "Loading Videos" },
                 () => { this.getVideosQID(nextToken, queryId) }
             )
-
         }
     }
     sortByPublished = (a: any, b: any) => {
@@ -146,6 +147,8 @@ class IndexApp extends React.Component<Props, State> {
                         })
                         if (json.data.listVideos.nextToken != null)
                             this.getVideosQID(json.data.listVideos.nextToken, queryId)
+                        else
+                            this.setState({ getVideosState: "Done" })
                     }
 
                 }).catch((e: any) => { console.log(e) })
@@ -165,6 +168,8 @@ class IndexApp extends React.Component<Props, State> {
                         })
                         if (json.data.getVideoByVideoType.nextToken != null)
                             this.getVideosQID(json.data.getVideoByVideoType.nextToken, queryId)
+                        else
+                            this.setState({ getVideosState: "Done" })
                     }
 
                 }).catch((e: any) => { console.log(e) })
@@ -200,6 +205,7 @@ class IndexApp extends React.Component<Props, State> {
                     }
                 </select>
                 <button className="adminButton" onClick={() => { this.setState({ showAddSeries: true }) }}>Add Series</button>
+                <div>{this.state.getVideosState}</div>
             </div>
         )
     }
@@ -243,17 +249,20 @@ class IndexApp extends React.Component<Props, State> {
             this.setState({ showError: "Must set both videoType and publishedDate" })
         }
         else {
-            this.setState({ showError: "" })
+            this.setState({ showError: "Saving" })
             console.log(this.state.toSaveVideo)
-            var updateVideo = API.graphql({
+            var updateVideo:any = API.graphql({
                 query: mutations.updateVideo,
                 variables: { input: this.state.toSaveVideo },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
             updateVideo.then((json: any) => {
                 console.log({ "Success queries.updateVideo: ": json });
-
-            }).catch((e: any) => { console.log(e) })
+                this.setState({ showError: "Saved" })
+            }).catch((e: any) => { 
+                this.setState({showError: e.errors[0].message});
+                console.log(e) 
+            })
         }
 
 
@@ -356,21 +365,21 @@ class IndexApp extends React.Component<Props, State> {
         console.log(toSaveSeries)
     }
     saveSeries() {
-        if (this.state.toSaveSeries.title !== "" && this.state.toSaveSeries.seriesType !== ""){
-            var saveSeries = API.graphql({
+        if (this.state.toSaveSeries.title !== "" && this.state.toSaveSeries.seriesType !== "") {
+            var saveSeries:any = API.graphql({
                 query: mutations.createSeries,
-                variables: {input:this.state.toSaveSeries},
+                variables: { input: this.state.toSaveSeries },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
-    
+
             saveSeries.then((json: any) => {
                 console.log({ "Success mutations.saveSeries: ": json });
-    
+
             }).catch((e: any) => { console.log(e) })
             return true;
         }
-      return false;
-    }
+        return false;
+    }  
     renderAddSeries() {
         return <Modal isOpen={this.state.showAddSeries}>
             <div>
@@ -385,7 +394,7 @@ class IndexApp extends React.Component<Props, State> {
                         })
                     }
                 </select></div>
-                <button onClick={() => { if (this.saveSeries())this.setState({ showAddSeries: false })}}></button>
+                <button onClick={() => { if (this.saveSeries()) this.setState({ showAddSeries: false }) }}></button>
             </div>
         </Modal>
     }

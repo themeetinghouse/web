@@ -37,7 +37,7 @@ export default class DataLoader extends React.Component<Props, State> {
          console.log(prevProps)
      }*/
     getVideosSameSeries(nextToken: any) {
-        const getSeries = API.graphql({
+        const getSeries:any = API.graphql({
             query: customQueries.getSeries,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, id: this.props.data.series.id },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -53,7 +53,7 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getVideos(nextToken: any) {
-        const listVideos = API.graphql({
+        const listVideos:any = API.graphql({
             query: customQueries.getVideoByVideoType,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -77,7 +77,7 @@ export default class DataLoader extends React.Component<Props, State> {
         })
     }
     getSpeakers(nextToken: any) {
-        const listSpeakers = API.graphql(graphqlOperation(queries.listSpeakers, { nextToken: nextToken, sortOrder: this.state.content.sortOrder, limit: 20 }));
+        const listSpeakers:any = API.graphql(graphqlOperation(queries.listSpeakers, { nextToken: nextToken, sortOrder: this.state.content.sortOrder, limit: 20 }));
         listSpeakers.then((json: any) => {
             console.log("Success queries.listSpeakers: " + json);
             console.log(json)
@@ -90,7 +90,7 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getSeries(nextToken: any) {
-        const listSeriess = API.graphql({
+        const listSeriess:any = API.graphql({
             query: customQueries.getSeriesBySeriesType,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 50, seriesType: this.state.content.subclass, publishedDate: { lt: "a" } },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -117,7 +117,7 @@ export default class DataLoader extends React.Component<Props, State> {
         })
     }
     getEvents(item:any){
-        const getFbEvents = API.graphql({
+        const getFbEvents:any = API.graphql({
             query: queries.getFbEvents,
             variables: { pageId: item },
             authMode: GRAPHQL_AUTH_MODE.API_KEY

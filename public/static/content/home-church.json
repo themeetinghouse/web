@@ -40,7 +40,7 @@
                     {
                         "type":"link",
                         "title": "Find a Home Church",
-                        "navigateTo": "find-home-church"
+                        "navigateTo": "/find-home-church"
                     }
                 ]
             

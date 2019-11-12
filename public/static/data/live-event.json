@@ -4,7 +4,7 @@
         "dayOfWeek":0,
         "startHour":6,
         "endHour":13,
-        "navigateTo":"sunday-live"
+        "navigateTo":"/sunday-live"
     }
 
 ]

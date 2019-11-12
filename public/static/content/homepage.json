@@ -46,7 +46,7 @@
                 "header1": "Hello Friend",
                 "text1": "When's the last time someone asked you what you believe? We're a church that loves Jesus and loves people. We don't have all the answers, but helping you explore is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
-                "button1Action": "spirituality"
+                "button1Action": "/spirituality"
             },
             {
                 "type": "content",
@@ -57,7 +57,7 @@
                     {
                         "type":"link",
                         "title": "Find Community",
-                        "navigateTo": "community"
+                        "navigateTo": "/community"
                     }
                 ],
               
@@ -78,7 +78,7 @@
                     {
                         "type":"link",
                         "title": "Let's Do This",
-                        "navigateTo": "go"
+                        "navigateTo": "/go"
                     }
                 ],
               
@@ -100,28 +100,28 @@
                         "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search through topics in our teaching archive.",
                         "imageSrc": "/static/images/homepage-4-1.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
-                        "navigateTo": "teaching"
+                        "navigateTo": "/teaching"
                     },
                     {
                         "title": "Podcasts",
                         "text": "Our Sunday morning teaching, all in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our own leaders and staff team.",
                         "imageSrc": "/static/images/homepage-4-2.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
-                        "navigateTo": "teaching-podcasts"
+                        "navigateTo": "/teaching-podcasts"
                     },
                     {
                         "title": "Videos",
                         "text": "Our video library featuring stories of people and communities who show us what it looks like to live the Jesus-centred life.",
                         "imageSrc": "/static/images/homepage-4-3.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
-                        "navigateTo": "teaching-curated"
+                        "navigateTo": "/teaching-curated"
                     },
                     {
                         "title": "Kids & Youth Curriculum",
                         "text": "Through Sunday morning teaching, midweek resources, and The Parent Blog, our kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
                         "imageSrc": "/static/images/homepage-4-4.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
-                        "navigateTo": "teaching-kids-youth"
+                        "navigateTo": "/teaching-kids-youth"
                     }
                 ]
             },
@@ -132,7 +132,7 @@
                 "header2": ".",
                 "text1": "Part of being a disciple of Jesus is actually taking action and making a difference in this world. We do this through compassion initiatives where we love our neighbours both close and far away, volunteering and giving financially to support the work of our church and other kingdom projects.",
                 "button1Text": "View All Blogs",
-                "button1Action": "blogs"
+                "button1Action": "/blogs"
             },
             {
                 "type": "content",
@@ -145,17 +145,17 @@
                     {
                         "type":"link",
                         "title": "Volunteering",
-                        "navigateTo": "volunteering"
+                        "navigateTo": "/volunteering"
                     },
                     {
                         "type":"link",
                         "title": "Compassion",
-                        "navigateTo": "compassion"
+                        "navigateTo": "/compassion"
                     },
                     {
                         "type":"link",
                         "title": "Giving",
-                        "navigateTo": "give"
+                        "navigateTo": "/give"
                     }
                 ],
               
@@ -179,7 +179,7 @@
                 "text1": "It's pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
                 "text2": "What are you doing this Sunday?",
                 "link1Text": "Show Map",
-                "link1Action": "find-sunday-morning",
+                "link1Action": "/find-sunday-morning",
                 "class":"locations",
                 "showLocationSearch": true
             }

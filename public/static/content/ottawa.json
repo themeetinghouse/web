@@ -81,7 +81,7 @@
                     {
                         "type":"link",
                         "title": "Find Out More",
-                        "navigateTo": "kids-and-youth"
+                        "navigateTo": "/kids-and-youth"
                     }
                 ],
                 "image1": [
@@ -120,7 +120,7 @@
                 "header2": "",
                 "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
                 "link1Text": "Browse Home Churches in Ottawa",
-                "link1Action": "find-home-church"
+                "link1Action": "/find-home-church"
             },
             {
                 "type": "list",
@@ -141,15 +141,7 @@
                     },
                     {
                         "src": "/static/images/GC2.jpg",
-                        "alt": "A man and woman talking outside."
-                    },
-                    {
-                        "src": "/static/images/GC3.jpg",
-                        "alt": "Man sitting on a bench in a lobby looking out a window."
-                    },
-                    {
-                        "src": "/static/images/GC4.jpg",
-                        "alt": "Three women talking and laughing."
+                        "alt": "A man sitting outside on a ledge and looking up at the sky."
                     }
                 ],
                 "header1": "Get Connected",

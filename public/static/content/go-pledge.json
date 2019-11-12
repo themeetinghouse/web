@@ -13,7 +13,7 @@
             "showFooter":false,
             "showMenu":false,
             "isPopup":true,
-            "navigateOnPopupClose":"go"
+            "navigateOnPopupClose":"/go"
         },
         "content": [
            

@@ -68,7 +68,7 @@
                     {
                         "type":"link",
                         "title": "Find Out More",
-                        "navigateTo": "kids-and-youth"
+                        "navigateTo": "/kids-and-youth"
                     }
                 ],
                 "image1": [
@@ -91,7 +91,7 @@
                 "header2": "",
                 "text1": "During the week, we meet in homes to further study and apply Sunday's teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.",
                 "link1Text": "Browse Home Churches in Waterloo",
-                "link1Action": "find-home-church"
+                "link1Action": "/find-home-church"
             },
             {
                 "type": "list",
