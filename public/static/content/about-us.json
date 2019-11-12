@@ -136,6 +136,12 @@
                         "title": "East Toronto Weekend Service Producer",
                         "navigateTo": "/static/pdfs/careers/Weekend_Service_Producer_ETO_Aug_2019.pdf",
                         "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Human Resources Manager",
+                        "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
+                        "openNewBrowser":true
                     }
                 ],
 
