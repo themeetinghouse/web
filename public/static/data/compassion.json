@@ -4,7 +4,7 @@
         "sites": ["brampton"],
         "name": "Rising Angels",
         "description": "Rising Angel's mission is to bring sex trade education to professionals and the public, and to provide supportive services and safe environments to women exploited by the sex trade, allowing them to experience physical, mental, social and spiritual restoration in their lives.",
-        "website": "risingangels.net",
+        "website": "https://www.risingangels.net",
         "image": "/static/photos/compassion/rising angels.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -13,7 +13,7 @@
         "sites": ["brampton"],
         "name": "Regeneration Outreach",
         "description": "Regeneration is a caring community that continually strives to provide dignity for those in need, as an expression of Christian love in action. They serve those living in extreme poverty and homelessness by meeting their physical and spiritual needs.",
-        "website": "regenbrampton.com/",
+        "website": "https://regenbrampton.com/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -22,7 +22,7 @@
         "sites": ["brampton"],
         "name": "Dismas Fellowship Brampton",
         "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
-        "website": "www.friendsofdismas.com/what-i-do/dismas-fellowship-brampton-dates/",
+        "website": "https://www.friendsofdismas.com/what-i-do/dismas-fellowship-brampton-dates/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -55,7 +55,7 @@
         "sites": ["burlington"],
         "name": "Next Door Social Space",
         "description": "A community resource centre in the Aldershot area that has a mission to be good neighbours, practicing warm hospitality and developing supportive relationships, through programs focused on social, skill and spiritual development in a welcoming and friendly environment.",
-        "website": "www.nextdoorsocialspace.com/",
+        "website": "https://www.nextdoorsocialspace.com/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -64,7 +64,7 @@
         "sites": ["burlington"],
         "name": "Bethany Residence",
         "description": "A residence for adults with mental illness. They provide friendship through social events and gatherings.",
-        "website": "www.bethanyresidence.ca/",
+        "website": "https://www.bethanyresidence.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -73,7 +73,7 @@
         "sites": ["burlington"],
         "name": "Crossroads Prison Ministries Canada",
         "description": "Crossroads Canada cultivates Christ-centred relationships between those inside and outside prison walls. ",
-        "website": "cpministries.ca/",
+        "website": "https://cpministries.ca/",
         "image": "/static/photos/compassion/crossroads.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -82,7 +82,7 @@
         "sites": ["ancaster"],
         "name": "541 Eatery & Exchange",
         "description": "541 is an eatery; offering fresh, homemade meals and baked goods in the heart of Hamilton. Their mission is to address the needs of the local community in tangible ways through the love of Jesus Christ.  They are committed to providing food that is affordable, nutritious and family-friendly. ",
-        "website": "fivefortyone.ca/",
+        "website": "https://fivefortyone.ca/",
         "image": "/static/photos/compassion/541.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -91,7 +91,7 @@
         "sites": ["ancaster"],
         "name": "Indwell",
         "description": "Indwell is a Christian charity that creates affordable housing communities that support people seeking health, wellness and belonging. Their programs support more than 400 households in Hamilton, Woodstock and Simcoe.",
-        "website": "indwell.ca/",
+        "website": "https://indwell.ca/",
         "image": "/static/photos/compassion/indwell.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -100,7 +100,7 @@
         "sites": ["ancaster"],
         "name": "Mission Services",
         "description": "Mission Services is a social services agency that believes every person deserves safe housing, healthy food, and opportunities for tomorrow.",
-        "website": "mission-services.com/",
+        "website": "https://mission-services.com/",
         "image": "/static/photos/compassion/mission services.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -109,7 +109,7 @@
         "sites": ["hamilton-downtown"],
         "name": "TrueCity",
         "description": "TrueCity is a movement of congregations in Hamilton, ON who recognize that God has called them to join Him in bringing His best to the city and beyond.  They work to simultaneously pursue mission at a congregational level, at a collaborative Church-in-the-City level, and as God's people scattered across all sectors of Hamilton.",
-        "website": "truecityhamilton.ca/",
+        "website": "https://truecityhamilton.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -118,7 +118,7 @@
         "sites": ["hamilton-downtown"],
         "name": "Indwell",
         "description": "Indwell is a Christian charity that creates affordable housing communities that support people seeking health, wellness and belonging. Their programs support more than 400 households in Hamilton, Woodstock and Simcoe.",
-        "website": "indwell.ca/",
+        "website": "https://indwell.ca/",
         "image": "/static/photos/compassion/indwell.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -127,7 +127,7 @@
         "sites": ["hamilton-downtown"],
         "name": "541 Eatery & Exchange",
         "description": "541 is an eatery; offering fresh, homemade meals and baked goods in the heart of Hamilton. Their mission is to address the needs of the local community in tangible ways through the love of Jesus Christ.  They are committed to providing food that is affordable, nutritious and family-friendly. ",
-        "website": "fivefortyone.ca/",
+        "website": "https://fivefortyone.ca/",
         "image": "/static/photos/compassion/541.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -136,7 +136,7 @@
         "sites": ["hamilton-mountain"],
         "name": "The Baby Depot",
         "description": "The Baby Depot helps families in need with children 0–2 years old in the Hamilton area. They supply a year's worth of gently used baby clothes and essentials to those who need support.",
-        "website": "www.thebabydepot.org/",
+        "website": "https://www.thebabydepot.org/",
         "image": "/static/photos/compassion/baby depot.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -145,7 +145,7 @@
         "sites": ["hamilton-mountain"],
         "name": "Crossroads Prison Ministries Canada",
         "description": "Crossroads Canada cultivates Christ-centred relationships between those inside and outside prison walls. ",
-        "website": "cpministries.ca/",
+        "website": "https://cpministries.ca/",
         "image": "/static/photos/compassion/crossroads.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -154,7 +154,7 @@
         "sites": ["kitchener"],
         "name": "Ray of Hope",
         "description": "Ray of Hope provides life-changing services to people in need. They demonstrate the love of Christ with those who are disadvantaged, marginalized, or troubled.",
-        "website": "www.rayofhope.net/",
+        "website": "https://www.rayofhope.net/",
         "image": "/static/photos/compassion/ray of hope.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -163,7 +163,7 @@
         "sites": ["kitchener"],
         "name": "Life Centre Guelph",
         "description": "The Life Centre is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge. ",
-        "website": "www.thelifecentre.ca/",
+        "website": "https://www.thelifecentre.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -172,7 +172,7 @@
         "sites": ["london"],
         "name": "Dismas Fellowship London",
         "description": "To provide a safe and welcoming place where people who have been incarcerated and were friends can experience Christian community.\n",
-        "website": "www.friendsofdismas.com/",
+        "website": "https://www.friendsofdismas.com/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -181,7 +181,7 @@
         "sites": ["london"],
         "name": "New Life Prison Ministries",
         "description": "New Life Prison Ministries offers hope and direction to those impacted through the criminal justice system by presenting the good news of Jesus Christ through Bible correspondence studies, prison chapel services, visitation, video showings and aftercare support so that God's name may be honoured and glorified.",
-        "website": "nlpm.ca/",
+        "website": "https://nlpm.ca/",
         "image": "/static/photos/compassion/new life.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -190,7 +190,7 @@
         "sites": ["london"],
         "name": "Youth For Christ",
         "description": "Folloing Jesus' mission, YFC engages with youth in London by building relationships, developing potential and exploring faith - in partnership with the community and local churches.",
-        "website": "yfclondon.com",
+        "website": "https://yfclondon.com",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -199,7 +199,7 @@
         "sites": ["newmarket"],
         "name": "Rose of Sharon",
         "description": "Rose of Sharon is dedicated to providing counselling, education and parenting resources to prenatal and parenting young mothers and their families throughout York Region supporting their social, emotional and spiritual wellbeing.",
-        "website": "roseofsharon.com/",
+        "website": "https://roseofsharon.com/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -208,7 +208,7 @@
         "sites": ["newmarket"],
         "name": "MCC Circles of Support & Accountability ",
         "description": "Through Circles of Support and Accountability, teams of volunteers and staff, supported by professionals, meet with men and women with histories of sexual offending to hold them accountable for their actions and support them as they reintegrate into the community after release from prison.",
-        "website": "mcccanada.ca/learn/more/circles-support-accountability-cosa",
+        "website": "https://mcccanada.ca/learn/more/circles-support-accountability-cosa",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -225,7 +225,7 @@
         "sites": ["oakville"],
         "name": "Frontline Outreach",
         "description": "The vision of Frontline Outreach is that every person who lives in poverty will be shown the love and mercy of God by the local church and all benefactors who provide housing, food, programs and opportunities that are gateways out of poverty. Their hope is that residents of every low income, subsidized housing community will be adopted by a caring and generous church, that results in breaking the cycle of poverty that affects the lives of so many children",
-        "website": "frontlineoutreach.ca/",
+        "website": "https://frontlineoutreach.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -234,7 +234,7 @@
         "sites": ["oakville"],
         "name": "Food for Life",
         "description": "Food for Life is an outreach program that provides neighbours in need with direct access to fresh food within their neighbourhood. The food is delivered by the refrigerated Food for Life truck.",
-        "website": "www.foodforlife.ca/",
+        "website": "https://www.foodforlife.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -243,7 +243,7 @@
         "sites": ["oakville"],
         "name": "Salvation Army Halton Lighthouse Shelter",
         "description": "The Salvation Army Halton Lighthouse provides emergency shelter, basic needs and intensive case management for men, and women who are homeless. The Lighthouse Shelter provides accommodation for 30 men and women who are experiencing homelessness and partners with the Canadian Mental Health SafePlace program for persons who have mental health crisis needs.",
-        "website": "search.hipinfo.info/record/OAK3707",
+        "website": "https://search.hipinfo.info/record/OAK3707",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -252,7 +252,7 @@
         "sites": ["oakville"],
         "name": "Kerr Street Mission",
         "description": "We partner with KSM's Neighbour Care Network which is committed to helping people in difficulty and distress with one-on-one support and encouragement.",
-        "website": "www.kerrstreet.com/",
+        "website": "https://www.kerrstreet.com/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -261,7 +261,7 @@
         "sites": ["oakville"],
         "name": "Open Door",
         "description": "The Open Door at Square One is a front-line ministry outreach of the churches of Mississauga that has been ministering since 1974.  The Open Door serves people from every background and walk of life. ",
-        "website": "opendoorsquareone.org/",
+        "website": "https://opendoorsquareone.org/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -270,7 +270,7 @@
         "sites": ["oakville"],
         "name": "The Dam",
         "description": "The Dam partners with youth to create an inclusive community where all are welcomed, valued and respected.",
-        "website": "www.thedam.org/",
+        "website": "https://www.thedam.org/",
         "image": "/static/photos/compassion/the dam.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -279,7 +279,7 @@
         "sites": ["oakville"],
         "name": "Women's Habitat",
         "description": "Women's Habitat is a shelter and outreach centre that provides services and temporary housing for women in need to make a new life for themselves and their children.",
-        "website": "womenshabitat.ca/",
+        "website": "https://womenshabitat.ca/",
         "image": "/static/photos/compassion/womens habitat.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -288,7 +288,7 @@
         "sites": ["oakville"],
         "name": "RE:Soul",
         "description": "ReSoul is Milton's only youth dedicated drop-in centre, serving youth from grades 6-12. ",
-        "website": "yfcmilton.com",
+        "website": "https://yfcmilton.com",
         "image": "/static/photos/compassion/re soul.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -297,7 +297,7 @@
         "sites": ["ottawa"],
         "name": "Camp Connections                          ",
         "description": "Camp Connections is a Christian summer camp that operates every July. Designed for youth, ages 7 -18, Camp Connections presents opportunities for friends to help each other rise to new challenges. ",
-        "website": "camp-connections.org/",
+        "website": "https://camp-connections.org/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -306,7 +306,7 @@
         "sites": ["ottawa"],
         "name": "Restoring Hope Ministries",
         "description": "Restoring Hope Ministries is all about offering hope and inspiration by providing emergency shelter and support for youth experiencing homelessness in Ottawa.",
-        "website": "restoringhope.ca/main/",
+        "website": "https://restoringhope.ca/main/",
         "image": "/static/photos/compassion/restoring hope.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -315,7 +315,7 @@
         "sites": ["ottawa"],
         "name": "Matthew House Ottawa",
         "description": "Matthew House Ottawa provides refugees with shelter, support, and community in Ottawa. They also have a furniture bank that supports the operation of the shelter.",
-        "website": "www.matthewhouseottawa.org/",
+        "website": "https://www.matthewhouseottawa.org/",
         "image": "/static/photos/compassion/matthew house ottawa.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -324,7 +324,7 @@
         "sites": ["ottawa"],
         "name": "Safe Families Ottawa",
         "description": "Safe Families is a movement to keep children safe and families intact. Through host families, family friends, and family coaches, they temporarily host children and provide a network of support to families in crisis while they get back on their feet.",
-        "website": "safefamiliescanada.com/",
+        "website": "https://safefamiliescanada.com/",
         "image": "/static/photos/compassion/safe families.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -333,7 +333,7 @@
         "sites": ["ottawa"],
         "name": "Jericho Road Christian Ministries",
         "description": "Jericho Road supports mental health addition recovery by providing homes and programs for men and connecting them to a recovery community where together they build  lives of hope, health, and purpose. ",
-        "website": "www.jerichoroad.ca/",
+        "website": "https://www.jerichoroad.ca/",
         "image": "/static/photos/compassion/jericho road.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -358,7 +358,7 @@
         "sites": ["richmond-hill"],
         "name": "Compassion 365",
         "description": "The mission of Compassion 365 is to become a catalyst in assisting individuals and communities actualize their ability to make a difference in the life of another through facilitating effective awareness and funds that will contribute to a constructive development of harmony and social inclusion.",
-        "website": "www.compassion365.ca",
+        "website": "https://www.compassion365.ca",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -367,7 +367,7 @@
         "sites": ["richmond-hill"],
         "name": "Fight4Freedom",
         "description": "Fight4Freedom is dedicated to battling human trafficking in the sex trade,\n​seeing survivors set free, and giving beauty from ashes. They exist to be an active voice and advocate of justice for women and men exploited by human trafficking in the form of sexual exploitation and to further assist them in finding necessary support systems that will aid in their journey to safety, healing and restoration.",
-        "website": "www.fight4freedom.ca/",
+        "website": "https://www.fight4freedom.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -376,7 +376,7 @@
         "sites": ["toronto-east"],
         "name": "Glen Rhodes Community Dinners",
         "description": "Founded in 1906, Glen Rhodes United Church serves the East Toronto community through Sunday services, a monthly community dinner, and weekly food bank. The Glen Rhodes community seeks to be authentic disciples of Christ by offering hospitality to anyone who walks through their doors.",
-        "website": "eastendunited.ca/food-bank-community-dinner/",
+        "website": "https://eastendunited.ca/food-bank-community-dinner/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -385,7 +385,7 @@
         "sites": ["toronto-east"],
         "name": "Mercy City Church",
         "description": "Mercy City serves the Dawes Road community of East Toronto. Their ministries include camps, after school programs, family nights, community dinners, and Sunday services with the goal of sharing the gospel and building relationships.",
-        "website": "mercycitychurch.com",
+        "website": "https://mercycitychurch.com",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -394,7 +394,7 @@
         "sites": ["toronto-east"],
         "name": "Red Door Family Shelter",
         "description":"The Red Door Family Shelter provides safe and supportive emergency housing to individuals and families in need of refuge from domestic violence and to those who find themselves without accommodation.",
-        "website": "reddoorshelter.ca",
+        "website": "https://www.reddoorshelter.ca",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -403,7 +403,7 @@
         "sites": ["toronto-downtown"],
         "name": "Yonge Street Mission",
         "description": "The Yonge Street Mission exists so that all the poor and vulnerable in Toronto that we encounter will experience God's love, peace, and justice at a level that represents the highest stewardship of the resources invested.",
-        "website": "www.ysm.ca/",
+        "website": "https://www.ysm.ca/",
         "image": "/static/photos/compassion/ysm.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -412,7 +412,7 @@
         "sites": ["toronto-downtown"],
         "name": "The Dale ",
         "description": "The Dale creates a safe welcoming space in which all people, particularly the vulnerable and broken, are encouraged to participate fully, to the best of their abilities and journey together toward a deeper experience of the life God has given us.",
-        "website": "www.thedale.org/",
+        "website": "https://www.thedale.org/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -421,7 +421,7 @@
         "sites": ["toronto-downtown"],
         "name": "Adam House",
         "description": "Adam House is a home and caring community for newly arrived refugee claimants in Toronto. They are a provider of immigration and settlement services and a non-profit Christian refugee reception centre that has to date supported over 2000 refugees, regardless of race, ethnicity or creed.",
-        "website": "www.adamhouse.org/home",
+        "website": "https://www.adamhouse.org/home",
         "image": "/static/photos/compassion/adam house.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -430,7 +430,7 @@
         "sites": ["toronto-downtown"],
         "name": "The Causeway ",
         "description": "Causeway is a Christ-focused initiative of The Salvation Army. It is committed to living out the presence of Jesus Christ by intentionally connecting members of the local church with people who were recently homeless but are beginning a new life in a neighborhood. The purpose is to build unlikely yet mutually beneficial friendships.",
-        "website": "www.thecauseway.ca/",
+        "website": "https://www.thecauseway.ca/",
         "image": "/static/photos/compassion/causeway.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -439,7 +439,7 @@
         "sites": ["toronto-high-park"],
         "name": "The Sharing Place",
         "description": "The Sharing Place is a non-profit compassion organization that servers West Toronto with love and compassion.",
-        "website": "www.thesharingplace.ca/ ***Link isn't working",
+        "website": "https://www.thesharingplace.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -448,7 +448,7 @@
         "sites": ["toronto-high-park"],
         "name": "Wesley Mimico United Church",
         "description": "Provides a community lunch every Saturday at 12PM and a food bank every Saturday (except the last in a month) between 11-1PM.",
-        "website": "www.wmuc.ca/",
+        "website": "https://www.wmuc.ca/",
         "image": "/static/photos/compassion/wesley.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -457,7 +457,7 @@
         "sites": ["toronto-uptown"],
         "name": "Inner City Outreach ",
         "description": "Inner City Outreach provides wholistic programs for youth in the Jane and Finch community. Some programs they offer are homework clubs, a basketball league, Scouts, and camps.",
-        "website": "innercityoutreach.ca/",
+        "website": "https://innercityoutreach.ca/",
         "image": "/static/photos/compassion/inner city outreach.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -466,7 +466,7 @@
         "sites": ["toronto-uptown"],
         "name": "Pregnancy Care Centre",
         "description": "The Pregnancy Care Centre provides personalized support and resources for women who are pregnant. ",
-        "website": "iamnotalone.ca",
+        "website": "https://iamnotalone.ca",
         "image": "/static/photos/compassion/pregnancy care.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -475,7 +475,7 @@
         "sites": ["toronto-uptown"],
         "name": "Matthew House",
         "description": "Matthew House's primary goal is to help restore refugees' dignity by providing shelter and support in a welcoming, home-like setting. Many refugees arrive with little more than a small bag and need practical support. We ensure that their individual needs are met and empower refugees to restart their lives in Canada. ",
-        "website": "www.matthewhouse.ca/",
+        "website": "https://www.matthewhouse.ca/",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },

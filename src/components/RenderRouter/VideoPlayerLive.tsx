@@ -25,8 +25,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div className="LiveVideoPlayerDiv" >
         <div className="LiveVideoPlayerEpisodeTitle">Today's Teaching Notes</div>
         <div className="LiveVideoPlayerExtra">
-          <div className="LiveVideoPlayerSeriesNotes"><a href="/static/pdfs/notes/oakville-notes.pdf">Oakville</a></div>
-          <div className="LiveVideoPlayerSeriesNotes"><a href="/static/pdfs/notes/regional-notes.pdf">Regional</a></div>
+          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Oakville.pdf">Oakville</a></div>
+          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Regional.pdf">Regional</a></div>
           <div className="LiveVideoPlayerClear"></div>
         </div>
         <div className="LiveVideoPlayerExtra">
