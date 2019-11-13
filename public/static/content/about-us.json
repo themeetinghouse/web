@@ -156,6 +156,57 @@
             },
             {
                 "type": "content",
+                "style": "oneImage",
+                "header1":"Annual Report and AGM Documents",
+                "header2":"",
+                "text1":"",
+                "image1":[{
+                    "src":"/static/images/about-us-2-3.jpg",
+                    "alt":"Three people sitting at a table, talking about the bible"
+                }],
+
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "2019 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2018 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2017 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/2017_AnnualReport_v4.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2016 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/AnnualReport_2016_web.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2015 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2015_web.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "2014 - Annual Report and AGM  Document",
+                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2014.pdf",
+                        "openNewBrowser":true
+                    }
+                    
+                ]
+            },
+            {
+                "type": "content",
                 "style": "oneImageBlackRight",
                 "header1":"Policies",
                 "header2":"",
@@ -210,57 +261,7 @@
                     }
                 ]
             },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"Annual Report and AGM Documents",
-                "header2":"",
-                "text1":"",
-                "image1":[{
-                    "src":"/static/images/about-us-2-3.jpg",
-                    "alt":"Three people sitting at a table, talking about the bible"
-                }],
 
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "2019 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2018 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2017 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/2017_AnnualReport_v4.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2016 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/AnnualReport_2016_web.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2015 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2015_web.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "2014 - Annual Report and AGM  Document",
-                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2014.pdf",
-                        "openNewBrowser":true
-                    }
-                    
-                ]
-            },
             {
                 "type": "content",
                 "style": "oneImage",
