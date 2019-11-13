@@ -68,7 +68,9 @@
                 "style": "vertical",
                 "class": "events",
                 "header1": "Upcoming Events",
-                "header2": ""
+                "header2": "",
+                "facebookEvents": ["392241614911544"]
+
             },
             {
                 "type": "list",
