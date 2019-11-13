@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
-import * as customQueries from '../../graphql-custom/customQueries';
+//import * as customQueries from '../../graphql-custom/customQueries';
 
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
@@ -135,7 +135,7 @@ class IndexApp extends React.Component<Props, State> {
             //console.log(this.state.selectedVideoType)
             if (this.state.selectedVideoType === "") {
                 listVideos = API.graphql({
-                    query: customQueries.listVideos,
+                    query: queries.listVideos,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });
@@ -155,7 +155,7 @@ class IndexApp extends React.Component<Props, State> {
             }
             else {
                 listVideos = API.graphql({
-                    query: customQueries.getVideoByVideoType,
+                    query: queries.getVideoByVideoType,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });

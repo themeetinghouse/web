@@ -61,7 +61,7 @@ class LocationItem extends React.Component<Props, State> {
                 </span>
             </div>
             <div className="GoContentClear">
-            <div><a href="/static/pdfs/go/TMH_GO_booklet_v6_FINAL.pdf">Go Campaign Details</a></div>
+            <div><a href="/static/pdfs/go/TMH_GO_booklet_v7.pdf">Go Campaign Details</a></div>
             <div><a href="/static/pdfs/go/Donor-FAQs-for-Go.pdf">Go Campaign FAQ</a></div>
             <div><a href="https://www.jesuscollective.com">Learn more about Jesus Collective</a></div>
             <button onClick={() => this.navigate("go-choose")} className="GoContentButton">Pledge and Give</button>
