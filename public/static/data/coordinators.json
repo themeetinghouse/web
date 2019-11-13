@@ -160,13 +160,6 @@
     "Position": "Connect Coordinator"
   },
   {
-    "FirstName": "Colleen",
-    "LastName": "Johnson",
-    "sites": ["ALLI"],
-    "Email": "Kidmax.alliston@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
     "FirstName": "Teresa",
     "LastName": "Kotsopoulos",
     "sites": ["ALLI"],
@@ -627,13 +620,6 @@
   {
     "FirstName": "Colleen",
     "LastName": "Johnson",
-    "sites": ["ALLI"],
-    "Email": "youth.alliston@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Teresa",
-    "LastName": "Kotsopoulos",
     "sites": ["ALLI"],
     "Email": "youth.alliston@themeetinghouse.com",
     "Position": "Youth Coordinator"
