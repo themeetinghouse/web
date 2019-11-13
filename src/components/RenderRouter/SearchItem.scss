@@ -1,7 +1,7 @@
 // Base style: >= 768
 .SearchItem {
     position: relative;
-    top: 1vw;
+    top: 1.5vw;
     left: 15vw;
 }
 
@@ -18,6 +18,10 @@
     border: none;
 }
 
+*:focus {
+    outline: none; /* Chrome */
+}
+
 ::placeholder{
     color: #C8C8C8;
     opacity: 1;
@@ -25,8 +29,72 @@
 
 .SearchItemDiv {
     width: 70vw;
-    margin: 18px 0px 0px 0px;
+    margin: 18px 0px 30px 0px;
     border-top: solid 2px #1A1A1A;
+}
+
+.SearchLinks{
+    margin-top: 10px;
+}
+
+.SearchLink{
+    $link-width: 17vw;
+    $link-height: 16vh;
+
+    position: relative;
+    display: inline-block;
+    width: $link-width;
+    height: $link-height;
+    margin-right: 1.5vw;
+    vertical-align: top;
+
+    img{
+        position: absolute;
+        width: $link-width;
+        height: $link-height;
+
+        border: solid 1px #aaaaac;
+        filter: grayscale(75%);
+    }
+    p{
+        position: relative;
+        text-align: center;
+        top: 5vh;
+        
+        font-family: Graphik Web;
+        font-size: calc(1.25vh + 1.25vw);
+        font-weight: bold;
+    
+        color: #FFFFFF;
+    }
+}
+
+.SearchLinks .HomeChurch{
+    $link-width: 33vw;
+
+    width: $link-width;
+
+    img{
+        width: $link-width;
+    }
+    p{
+        text-align: left;
+        top: 3vh;
+        left: 2vw;
+        width: 15vw;
+        line-height: 4vh;
+
+        img{
+            margin-top:0.5vh;
+            height: 4vh;
+            width: 4vw;
+            border: none;
+        }
+    }
+}
+
+.SearchLinks .Articles{
+    margin-right: 0px;
 }
 
 .SearchResultItem{
@@ -85,8 +153,15 @@
     color: #54565A;
 }
 
+.SearchResultItem .Link{
+    margin-top: 50px;
+    height: 30px;
+    width: 25px;
+    float: right;
+}
+
 @media (min-width: 768px) {
- 
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
