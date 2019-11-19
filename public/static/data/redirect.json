@@ -43,5 +43,6 @@
 {"id":"annualreports","to":"https://www.themeetinghouse.com/about-us"},
 {"id":"annualreport","to":"/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf"},
 {"id":"distancegroupupdates","to":"https://meeting.formstack.com/forms/distancegrouplisting"},
-{"id":"divorcecareholidays","to":"https://meetinghouse.infellowship.com/Forms/407321"}
+{"id":"divorcecareholidays","to":"https://meetinghouse.infellowship.com/Forms/407321"},
+{"id":"pcinstructions","to":"https://meeting.formstack.com/forms/police_record_check_instructions__copy"}
 ]
