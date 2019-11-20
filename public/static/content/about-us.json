@@ -97,7 +97,6 @@
                 "class": "staff",
                 "header1": "Staff",
                 "text1": "We've got some good people. These are the folks that help make community, discipleship, and Sunday mornings happen."
-                
             },
             {
                 "type": "list",
@@ -111,7 +110,6 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Careers",
-                "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
                     {
