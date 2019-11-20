@@ -111,6 +111,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Careers",
+                "text1":"Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
                     {
@@ -121,14 +122,8 @@
                     },
                     {
                         "type":"link",
-                        "title": "Kitchener Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Uptown Toronto Youth Pastor",
-                        "navigateTo": "/static/pdfs/careers/Uptown_Toronto_Youth_Pastor.pdf",
+                        "title": "East Toronto Youth Coordinator",
+                        "navigateTo": "/static/pdfs/careers/TOBC_Youth_Coordinator.pdf",
                         "openNewBrowser":true
                     },
                     {
@@ -143,6 +138,12 @@
                         "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
                     }
+                    {
+                        "type":"link",
+                        "title": "Kitchener Lead Pastor",
+                        "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
+                        "openNewBrowser":true
+                    },
                 ],
 
                 
