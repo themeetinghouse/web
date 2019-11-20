@@ -111,7 +111,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Careers",
-                "text1":"Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
+                "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
                     {
@@ -137,13 +137,13 @@
                         "title": "Human Resources Manager",
                         "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
-                    }
+                    },
                     {
                         "type":"link",
                         "title": "Kitchener Lead Pastor",
                         "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
                         "openNewBrowser":true
-                    },
+                    }
                 ],
 
                 
