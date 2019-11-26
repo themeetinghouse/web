@@ -45,5 +45,8 @@
 {"id":"distancegroupupdates","to":"https://meeting.formstack.com/forms/distancegrouplisting"},
 {"id":"divorcecareholidays","to":"https://meetinghouse.infellowship.com/Forms/407321"},
 {"id":"pcinstructions","to":"https://meeting.formstack.com/forms/police_record_check_instructions__copy"},
-{"id":"oakvilleconnect","to":"https://meeting.formstack.com/forms/oakville_connect_form"}
+{"id":"oakvilleconnect","to":"https://meeting.formstack.com/forms/oakville_connect_form"},
+{"id":"peelpc","to":"https://www.peelpolice.ca/en/services/record-checks-and-suspensions-pardons.aspx"},
+{"id":"haltonpc","to":"https://www.haltonpolice.ca/about/courtsrecords/policerecordchecks.php"},
+{"id":"oakvillecommunitydinner","to":"https://meetinghouse.infellowship.com/Forms/432506"}
 ]
