@@ -3,7 +3,7 @@
         "name":"Sunday Morning Service",
         "dayOfWeek":0,
         "startHour":6,
-        "endHour":13,
+        "endHour":23,
         "navigateTo":"/sunday-live"
     }
 
