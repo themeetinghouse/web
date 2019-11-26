@@ -53,13 +53,13 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getVideos(nextToken: any) {
-        const listVideos:any = API.graphql({
+        const getVideoByVideoType:any = API.graphql({
             query: customQueries.getVideoByVideoType,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
-        listVideos.then((json: any) => {
-            console.log("Success queries.listVideos: " + json);
+        getVideoByVideoType.then((json: any) => {
+            console.log("Success queries.getVideoByVideoType: " + json);
             console.log(json)
             this.props.dataLoaded(
                 json.data.getVideoByVideoType.items
@@ -90,14 +90,13 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getSeries(nextToken: any) {
-        const listSeriess:any = API.graphql({
+        const getSeriesBySeriesType:any = API.graphql({
             query: customQueries.getSeriesBySeriesType,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 50, seriesType: this.state.content.subclass, publishedDate: { lt: "a" } },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
-        listSeriess.then((json: any) => {
-            console.log("Success queries.listSeriess: " + json);
-            console.log(json)
+        getSeriesBySeriesType.then((json: any) => {
+            console.log({"Success queries.getSeriesBySeriesType": json});
             this.props.dataLoaded(json.data.getSeriesBySeriesType.items)
             if (json.data.getSeriesBySeriesType.nextToken != null)
                 this.getSeries(json.data.getSeriesBySeriesType.nextToken)

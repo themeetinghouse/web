@@ -41,8 +41,8 @@ interface State {
   search(e: any, nextId: any) {
 
     console.log(e)
-    const listVideos:any = API.graphql(graphqlOperation(queries.fuzzySearchVideos, { filter: e, limit: 10, nextToken: nextId }));
-    listVideos.then((json: any) => {
+    const fuzzySearchVideos:any = API.graphql(graphqlOperation(queries.fuzzySearchVideos, { filter: e, limit: 10, nextToken: nextId }));
+    fuzzySearchVideos.then((json: any) => {
       console.log(json)
       if (nextId == null)
         this.setState({ searchResults: json.data.fuzzySearchVideos.items })

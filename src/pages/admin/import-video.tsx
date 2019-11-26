@@ -3,6 +3,7 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 //import * as customQueries from '../../graphql-custom/customQueries';
 
 import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 //{ API, graphqlOperation } 
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
@@ -100,13 +101,13 @@ class IndexApp extends React.Component<Props, State> {
     }
     listSeries(nextToken: any) {
         var listSeries:any = API.graphql({
-            query: queries.listSeriess,
+            query: customQueries.listSeriess,
             variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
 
         listSeries.then((json: any) => {
-            console.log({ "Success queries.listSeries: ": json });
+            console.log({ "Success customQueries.listSeries: ": json });
             this.setState({
                 seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => a.id > b.id)
             })
@@ -131,11 +132,11 @@ class IndexApp extends React.Component<Props, State> {
     getVideosQID(nextToken: any, queryId: any) {
         //console.log(this.state.getVideoQueryId)
         if (queryId === this.state.getVideoQueryId) {
-            var listVideos: any
+             
             //console.log(this.state.selectedVideoType)
             if (this.state.selectedVideoType === "") {
-                listVideos = API.graphql({
-                    query: queries.listVideos,
+                const listVideos:any = API.graphql({
+                    query: customQueries.listVideos,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });
@@ -154,14 +155,14 @@ class IndexApp extends React.Component<Props, State> {
                 }).catch((e: any) => { console.log(e) })
             }
             else {
-                listVideos = API.graphql({
+                const getVideoByVideoType:any = API.graphql({
                     query: queries.getVideoByVideoType,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });
 
-                listVideos.then((json: any) => {
-                    console.log({ "Success queries.listVideos: ": json });
+                getVideoByVideoType.then((json: any) => {
+                    console.log({ "Success queries.getVideoByVideoType: ": json });
                     if (queryId === this.state.getVideoQueryId) {
                         this.setState({
                             videoList: this.state.videoList.concat(json.data.getVideoByVideoType.items).sort(this.sortByPublished)

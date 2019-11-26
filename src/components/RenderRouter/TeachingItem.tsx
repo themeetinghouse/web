@@ -47,13 +47,13 @@ class TeachingItem extends React.Component<Props, State> {
             overlayData: null
         }
         if (this.props.content.class === "teaching-sunday") {
-            const listVideos:any = API.graphql({
+            const getVideoByVideoType:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            listVideos.then((json: any) => {
-                console.log("Success queries.listVideos: " + json);
+            getVideoByVideoType.then((json: any) => {
+                console.log("Success queries.getVideoByVideoType: " + json);
                 console.log(json)
                 this.setState({
                     listData: json.data.getVideoByVideoType.items
@@ -61,13 +61,13 @@ class TeachingItem extends React.Component<Props, State> {
             }).catch((e: any) => { console.log(e) })
         }
         else if (this.props.content.class === "bbq") {
-            const listVideos:any = API.graphql({
+            const getVideoByVideoType:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            listVideos.then((json: any) => {
-                console.log("Success queries.listVideos: " + json);
+            getVideoByVideoType.then((json: any) => {
+                console.log("Success queries.getVideoByVideoType: " + json);
                 console.log(json)
                 this.setState({
                     listData: json.data.getVideoByVideoType.items
@@ -76,43 +76,43 @@ class TeachingItem extends React.Component<Props, State> {
         }
         else if (this.props.content.class === "teaching-kids-youth") {
             console.log("teaching-kids-youth")
-            const listVideos1:any = API.graphql({
+            const getVideoByVideoType1:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const listVideos2:any = API.graphql({
+            const getVideoByVideoType2:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const listVideos3:any = API.graphql({
+            const getVideoByVideoType3:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const listVideos4:any = API.graphql({
+            const getVideoByVideoType4:any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-srhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            listVideos1.then((json1: any) => {
-                console.log({"Success queries.listVideos: " :json1});
+            getVideoByVideoType1.then((json1: any) => {
+                console.log({"Success queries.getVideoByVideoType: " :json1});
                 this.setState({
                     listData: json1.data.getVideoByVideoType.items
                 })
-                listVideos2.then((json2: any) => {
-                    console.log({"Success queries.listVideos: " : json2});
+                getVideoByVideoType2.then((json2: any) => {
+                    console.log({"Success queries.getVideoByVideoType: " : json2});
                     this.setState({
                         listData: this.state.listData.concat(json2.data.getVideoByVideoType.items)
                     })
-                    listVideos3.then((json3: any) => {
-                        console.log({"Success queries.listVideos: " : json3});
+                    getVideoByVideoType3.then((json3: any) => {
+                        console.log({"Success queries.getVideoByVideoType: " : json3});
                         this.setState({
                             listData: this.state.listData.concat(json3.data.getVideoByVideoType.items)
                         })
-                        listVideos4.then((json4: any) => {
-                            console.log({"Success queries.listVideos: " : json4});
+                        getVideoByVideoType4.then((json4: any) => {
+                            console.log({"Success queries.getVideoByVideoType: " : json4});
                             this.setState({
                                 listData: this.state.listData.concat(json4.data.getVideoByVideoType.items)
                             })
@@ -147,6 +147,13 @@ class TeachingItem extends React.Component<Props, State> {
         })
 
     }
+    navigateUrlNewWindow(to: string) {
+        window.open(
+          to,
+          '_blank' // <- This is what makes it open in a new window.
+        );
+      }
+    
     //
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
@@ -164,7 +171,10 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
                                 <div className="teachingdiv teachingseriestitle" >{this.state.listData[this.state.teachingId].episodeNumber}. {this.state.listData[this.state.teachingId].seriesTitle}  •  {this.state.listData[this.state.teachingId].duration}</div>
                                 <div className="teachingdiv teachingdescription" > {this.state.listData[this.state.teachingId].description}</div>
-                                <div className="teachingdiv2" ><Button className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button></div>
+                                <div className="teachingdiv2" >
+                                    <Button className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} >Watch</Button>
+                                    {this.state.listData[this.state.teachingId].notesURL!=null?<Button className="teachingButton" onClick={() => { this.navigateUrlNewWindow(this.state.listData[this.state.teachingId].notesURL) }} >Notes</Button>:null}
+                                </div>
                                 <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image" src={(this.state.content.class === "teaching-sunday"||this.state.listData[this.state.teachingId].videoTypes === "ky-kids"||this.state.listData[this.state.teachingId].videoTypes === "ky-youth"||this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh"||this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh")&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                             </div>
                             <div className="teaching-mostrecent" >Most recent</div>
