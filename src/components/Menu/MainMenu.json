@@ -10,8 +10,8 @@
        
     },
     {
-        "name":"Go Campaign",
-        "location":"/go"
+        "name":"Christmas",
+        "location":"/christmas"
     },
 
     {
@@ -37,6 +37,11 @@
         "name":"Make a Difference",
         "location":"/make-a-difference",
         "children":[
+            {
+                "name":"Go Campaign",
+                "location":"/go"
+            },
+        
             {
                 "name":"Volunteering",
                 "location":"/volunteering"

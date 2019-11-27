@@ -832,7 +832,14 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       length
       YoutubeIdent
       Youtube {
+        id
+        kind
+        etag
         snippet {
+          publishedAt
+          channelId
+          title
+          description
           thumbnails {
             default {
               url
@@ -860,6 +867,28 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
               height
             }
           }
+          channelTitle
+          localized {
+            title
+            description
+          }
+        }
+        contentDetails {
+          videoId
+          videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
         }
       }
       videoTypes

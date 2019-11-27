@@ -48,6 +48,7 @@
                 "filterField": "id",
                 "filterValue": "oakville"
             },
+
             {
                 "type": "list",
                 "style": "vertical",

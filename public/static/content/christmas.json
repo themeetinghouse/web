@@ -1,0 +1,50 @@
+{
+    "page": {
+        "name": "christmas",
+        "title": "Christmas",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/christmas-1.jpg",
+                        "alt": "Christmas Wreath"
+                    }
+                ],
+                "header1": "Christmas 2019",
+                "header2": "",
+                "text1": "Christmas time is the best time, because this is when we get together to celebrate the birth of Jesus. God became human to show us what a life of love looks like, and this is really, really good news. Want to join us? "
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "What to expect",
+                "header2": "",
+                "text1": "On Christmas Eve, we’re gathering across eighteen locations to hang out and celebrate together. Everyone is welcome to join us for an hour of musical worship, teaching, scripture reading, and community. Bring yourself, bring a friend, and we’ll see you there!",
+              
+                "image1": [
+                    {
+                        "src": "/static/images/christmas-2.jpg",
+                        "alt": "Candlelight Christmas Service"
+                    }
+                ]
+            },
+            {
+                "type": "sunday-morning",
+                "header1": "Christmas Locations",
+                "alternate": "christmas"
+            }
+        ]
+    }
+}

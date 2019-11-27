@@ -27,10 +27,18 @@ export default class ContentItem extends React.Component<Props, State>  {
 renderList(){
   return this.state.content.list?
     this.state.content.list.map((item:any,id:any)=>{
-      return (<div key={id}>{item.openNewBrowser?
+      return (
+        item.type==="link"?
+      <div key={id}>{item.openNewBrowser?
        <a className="oneImageA" target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a>:
        <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
-      }</div>)
+      }</div>
+      :item.type==="text"?
+      <div key={id}>
+        {item.title}
+      </div>
+      :null
+      )
     })
     :null
 } 
@@ -125,6 +133,35 @@ renderList(){
         </div>
       )
     }
+    else if (this.state.content.style === "oneImageGreenRight") {
+
+      return (
+        <div className="ContentItem oneImage ContentItemMarginBottom">
+          <div className="oneImagePosition right">
+            <div className="oneImageGreenBox right" >
+              <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
+              <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
+              <div className="oneImageText white" >{this.state.content.text1}</div>
+              {this.renderList()}
+            </div>
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage right secondImg bottom"
+                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                        this.imgUrl(480)+image1.src+" 480w,"+
+                        this.imgUrl(640)+image1.src+" 640w,"+
+                        this.imgUrl(1280)+image1.src+" 1280w,"+
+                        this.imgUrl(1920)+image1.src+" 1920w,"+
+                        this.imgUrl(2560)+image1.src+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
+          </div>
+        </div>
+      )
+    }
     else if(this.state.content.style === "greyTwoText"){
       return (
         <div className="ContentItem greyTwoText">
@@ -137,7 +174,18 @@ renderList(){
         </div>
       )
     }
+    else if(this.state.content.style === "greenTwoText"){
+      return (
+        <div className="ContentItem greenTwoText">
+              <div className="greenTwoTextH1" >{this.state.content.header1}</div>
+              <div className="greenTwoTextText" >{this.state.content.text1}
+              {this.renderList()}
+              </div>
+              <div className="greenTwoClear"></div>
 
+        </div>
+      )
+    }
     return (null)
   }
 }

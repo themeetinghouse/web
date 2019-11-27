@@ -73,7 +73,25 @@
         top: 0vw;
         background-color: #000000;
     }
+    .oneImageGreenBox {
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 30vw;
+        top: 0vw;
+        background-color: #2b583b;
+    }
 
+    .oneImageGreenBox.right {
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #2b583b;
+    }
     .oneImageH1 {
         font-weight: bold;
         font-size: 3vw;
@@ -132,6 +150,51 @@
     }
 
     .greyTwoClear {
+        clear: left;
+    }
+
+
+   
+
+
+    .greenTwoText {
+        left: 0vw;
+        position: relative;
+        width: 100vw;
+        background-color: #2b583b;
+        margin-top: -5vh;
+        margin-bottom: 5vw;
+    }
+
+    .greenTwoTextH1 {
+        position: relative;
+        float: left;
+        margin: 1vw;
+        margin-top: 3vw;
+        left: 20vw;
+        font-weight: bold;
+        width: 30vw;
+        height: 20vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        color:#ffffff;
+    }
+
+    .greenTwoTextText {
+        left: 20vw;
+        position: relative;
+        margin: 1vw;
+        margin-top: 3vw;
+
+        float: left;
+        width: 45vw;
+        height: 20vw;
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+        color:#ffffff;
+    }
+
+    .greenTwoClear {
         clear: left;
     }
 }
@@ -211,7 +274,25 @@
         top: 0vw;
         background-color: #000000;
     }
+    .oneImageGreenBox {
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 30vw;
+        top: 0vw;
+        background-color: #2b583b;
+    }
 
+    .oneImageGreenBox.right {
+        padding: 10vw;
+        position: relative;
+        width: 50vw;
+        height: 40vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #2b583b;
+    }
     .oneImageH1 {
         font-weight: bold;
         font-size: 3vw;
@@ -270,6 +351,49 @@
     }
 
     .greyTwoClear {
+        clear: left;
+    }
+
+
+
+    .greenTwoText {
+        left: 0vw;
+        position: relative;
+        width: 100vw;
+        background-color: #2b583b;
+        margin-top: -5vh;
+        margin-bottom: 5vw;
+    }
+
+    .greenTwoTextH1 {
+        position: relative;
+        float: left;
+        margin: 1vw;
+        margin-top: 3vw;
+        left: 20vw;
+        font-weight: bold;
+        width: 30vw;
+        height: 20vw;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        color:#ffffff;
+    }
+
+    .greenTwoTextText {
+        left: 20vw;
+        position: relative;
+        margin: 1vw;
+        margin-top: 3vw;
+
+        float: left;
+        width: 45vw;
+        height: 20vw;
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+        color:#ffffff;
+    }
+
+    .greenTwoClear {
         clear: left;
     }
 }
@@ -335,6 +459,18 @@
         left: 0vw;
         top: 0vw;
         background-color: #000000;
+    }
+    .oneImageGreenBox{
+        // margin-top: 120vw;
+        padding: 6vw;
+        padding-top: 20vw;
+        position: relative;
+        width: 100vw;
+        //height: 175vw;
+        padding-bottom:65vw;
+        left: 0vw;
+        top: 0vw;
+        background-color: #2b583b;
     }
 
     .oneImageH1 {
@@ -405,5 +541,55 @@
 
     .greyTwoClear {
         clear: left;
+    }
+
+
+
+
+    .greenTwoText {
+        left: 0vw;
+        position: relative;
+        width: 100vw;
+        background-color: #2b583b;
+        // margin-top: -23vh;
+        margin-bottom: 5vw;
+    }
+
+    .greenTwoTextH1 {
+        position: relative;
+        float: left;
+        margin: 1vw;
+        margin-top: 16vw;
+        margin-bottom: 10vw;
+        left: 5vw;
+        font-weight: bold;
+        width: 93vw;
+        height: 20vw;
+        font-size: 6.4vw;
+        font-family: Graphik Web;
+        color:#ffffff;
+    }
+
+    .greenTwoTextText {
+        left: 5vw;
+        position: relative;
+        margin: 1vw;
+        margin-top: 3vw;
+        margin-bottom: 100%;
+        float: left;
+        width: 90%;
+        height: 35vw;
+        font-size: 5vw;
+        line-height: 7.5vw;
+        font-family: Graphik Web;
+        color:#ffffff;
+    }
+
+    .greenTwoClear {
+        clear: left;
+    }
+    .bottom{
+        top:unset;
+        bottom:-40vw;
     }
 }

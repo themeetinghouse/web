@@ -70,6 +70,27 @@
             },
             {
                 "type": "content",
+                "style": "oneImageGreenRight",
+                "header1": "Christmas",
+                "header2": "",
+                "text1": "TODO",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Christmas Near You",
+                        "navigateTo": "/christmas"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/christmas-1.jpg",
+                        "alt": "Christmas Wreath."
+                    }
+                ]
+            },
+            {
+                "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Go Campaign",
                 "header2": "",

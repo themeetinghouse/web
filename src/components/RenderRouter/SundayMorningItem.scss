@@ -101,7 +101,13 @@
         &.selected {
               text-decoration: underline;
         }
+        
+        &.christmas {
+            color:#eb4b1f
+        }
+        
     }
+   
     .SundayMorningAddress,
     .SundayMorningDistances {
         font-size: 16px;

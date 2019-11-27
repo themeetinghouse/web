@@ -2,7 +2,7 @@ import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 //import * as customQueries from '../../graphql-custom/customQueries';
 
-import * as queries from '../../graphql/queries';
+//import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 //{ API, graphqlOperation } 
@@ -156,7 +156,7 @@ class IndexApp extends React.Component<Props, State> {
             }
             else {
                 const getVideoByVideoType:any = API.graphql({
-                    query: queries.getVideoByVideoType,
+                    query: customQueries.getVideoByVideoType,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });

@@ -40,25 +40,25 @@
                 "text3": "Includes full program for Infants to Grade 8",
                 "addToCalendar": true,
                 "contactPastor": true,
-                "class":"locations",
+                "class": "locations",
                 "filterField": "id",
                 "filterValue": "alliston"
             },
             {
                 "type": "content",
                 "style": "greyTwoText",
-                "header1":"Extended Family Church",
-                "header2":"",
-                "text1":"In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
-            
+                "header1": "Extended Family Church",
+                "header2": "",
+                "text1": "In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
             },
+
             {
                 "type": "list",
                 "style": "vertical",
                 "class": "staff",
                 "header1": "Our Team",
                 "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
-               "filterField": "sites",
+                "filterField": "sites",
                 "filterValue": "ALLI"
             },
             {
@@ -67,8 +67,9 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "facebookEvents": ["207406035979104"]
-
+                "facebookEvents": [
+                    "207406035979104"
+                ]
             },
             {
                 "type": "list",
@@ -85,7 +86,7 @@
                 "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Out More",
                         "navigateTo": "/kids-and-youth"
                     }
@@ -153,7 +154,7 @@
                 "header1": "Get Connected",
                 "header2": "",
                 "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. ",
-                "showEmailSignup":true
+                "showEmailSignup": true
             }
         ]
     }
