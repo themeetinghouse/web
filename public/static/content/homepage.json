@@ -73,18 +73,18 @@
                 "style": "oneImageGreenRight",
                 "header1": "Christmas",
                 "header2": "",
-                "text1": "TODO",
+                "text1": "Oh Christmas Eve, oh Christmas Eve! How lovely are the friends we will meet! We’ve got some plans for Christmas Eve, and we’d love to celebrate with you!",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Christmas Near You",
+                        "title": "Show Me Christmas!",
                         "navigateTo": "/christmas"
                     }
                 ],
               
                 "image1": [
                     {
-                        "src": "/static/images/christmas-1.jpg",
+                        "src": "/static/images/home-christmas.jpg",
                         "alt": "Christmas Wreath."
                     }
                 ]
