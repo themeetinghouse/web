@@ -95,7 +95,14 @@ class HomePage extends React.Component<Props, State> {
       })
         .then((myJson) => {
 
-          this.setState({ content: myJson });
+          this.setState({ content: myJson },()=>{
+            console.log(this.state.content.page.pageConfig.weatherAlert)
+            console.log(this.props.match.params.id)
+            if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === ""||this.props.match.params.id===undefined)){
+              this.navigateTo("/weather");
+
+            }
+          });
         }).catch((e) => {
           Analytics.record({
             name: 'error',
