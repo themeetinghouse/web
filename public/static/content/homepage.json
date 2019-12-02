@@ -11,7 +11,8 @@
             "showSearch":true,
             "showFooter":true,
             "showMenu":true,
-            "showLive":true
+            "showLive":true,
+            "weatherAlert":false
         },
         "content": [
             {
