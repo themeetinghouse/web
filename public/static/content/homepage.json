@@ -78,7 +78,7 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Show Me Christmas!",
+                        "title": "Show Me Christmas",
                         "navigateTo": "/christmas"
                     }
                 ],
