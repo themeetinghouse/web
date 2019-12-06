@@ -51,14 +51,14 @@
             {
                 "type": "content",
                 "style": "oneImageGreenRight",
-                "header1": "Christmas",
+                "header1": "Christmas Eve",
                 "header2": "",
                 "text1": "It’s so much better when we celebrate together.",
                 "list": [
                     
                     {
                         "type":"event",
-                        "date":"December 24 - 2pm, 4pm, 6pm",
+                        "date":"Tuesday December, 24 - 2pm, 4pm, 6pm",
                         "location":"2700 Bristol Circle"
                     },
                     {
