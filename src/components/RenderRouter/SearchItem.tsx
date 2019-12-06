@@ -6,6 +6,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
+
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps{
@@ -75,9 +76,23 @@ interface State {
       }
     };
     return (<div className="SearchItem" >
-      <input className="SearchItemInput" autoFocus={true} ref={focusInputField} onChange={(e: any) => { this.doSearch(e) }} placeholder="Search"></input>
+      <input className="SearchItemInput" autoFocus={true} ref={focusInputField} onChange={(e: any) => { this.doSearch(e) }} placeholder="Search..."></input>
       <div className="SearchItemDiv">
-      <div>
+        <div className="TrendingSearches"/>
+        <div className="SearchLinks">
+          <div className="SearchLink HomeChurch">
+            <img src="https://www.habitat.co.uk/blog/wp-content/uploads/2017/07/HABITAT_AW19_donovan_coffe_side.jpg"/>
+            <p>Find a home church <img alt="Go" src="\static\svg\ArrowRight.svg" /></p>
+          </div>
+          <div className="SearchLink Videos">
+            <img className="Image" src="https://emu.edu/now/news/wp-content/uploads/sites/43/2018/10/20181024-Bruxy-Cavey-Convocation-004-1000px.jpg" />
+            <p>Videos</p>
+          </div>
+          <div className="SearchLink Articles">
+            <img className="Image" src="https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_960_720.jpg" />
+            <p>Articles</p>
+          </div>
+        </div>
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
             if (item.episodeTitle !== null)
               return (
@@ -88,11 +103,13 @@ interface State {
                     <div className="Title">{item.episodeTitle} - {item.seriesTitle}</div>
                     <div className="Description">{item.description}</div>
                   </div>
+                  <div className="Link">
+                    <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+                  </div>
                 </div>)
             else
               return null
           }) : null}
-        </div>
       </div>
     </div>)
   }
