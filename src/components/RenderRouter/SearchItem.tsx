@@ -80,18 +80,19 @@ interface State {
       <div className="SearchItemDiv">
         <div className="TrendingSearches"/>
         <div className="SearchLinks">
-          <div className="SearchLink HomeChurch">
-            <img src="https://www.habitat.co.uk/blog/wp-content/uploads/2017/07/HABITAT_AW19_donovan_coffe_side.jpg"/>
+          <div className="SearchLink HomeChurch" >
+            <img style={{objectFit:"cover"}} onClick={()=>{this.navigateTo("/find-homechurch")}} src="/static/images/HC1.jpg"/>
             <p>Find a home church <img alt="Go" src="\static\svg\ArrowRight.svg" /></p>
           </div>
-          <div className="SearchLink Videos">
-            <img className="Image" src="https://emu.edu/now/news/wp-content/uploads/sites/43/2018/10/20181024-Bruxy-Cavey-Convocation-004-1000px.jpg" />
+          <div style={{objectFit:"cover"}} onClick={()=>{this.navigateTo("/teaching")}} className="SearchLink Videos">
+            <img className="Image" src="/static/images/homepage-4-1.jpg" />
             <p>Videos</p>
           </div>
+          {/*
           <div className="SearchLink Articles">
             <img className="Image" src="https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_960_720.jpg" />
             <p>Articles</p>
-          </div>
+          </div>*/}
         </div>
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
             if (item.episodeTitle !== null)
