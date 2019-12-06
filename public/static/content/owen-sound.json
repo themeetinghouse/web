@@ -47,6 +47,33 @@
                 "filterValue": "owen-sound"
             },
             {
+                "type": "content",
+                "style": "oneImageGreenRight",
+                "header1": "Christmas",
+                "header2": "",
+                "text1": "It’s so much better when we celebrate together.",
+                "list": [
+                    
+                    {
+                        "type":"event",
+                        "date":"December 22 - 10:30am",
+                        "location":"St. Mary's High School, 555 15th Street East"
+                    },
+                    {
+                        "type": "link",
+                        "title": "Find Another Location",
+                        "navigateTo": "/christmas"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/site-page-christmas.jpg",
+                        "alt": "Man holding child and candle."
+                    }
+                    
+                ]
+            },
+            {
                 "type": "list",
                 "style": "vertical",
                 "class": "staff",

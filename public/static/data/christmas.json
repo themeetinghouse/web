@@ -10,7 +10,7 @@
         },
         "serviceTimes": ["December 24 - 6:30pm"]
     },
-    {
+    { 
         "id": "sandbanks",
         "name": "Sandbanks",
         "pastorEmail":"brent.babcock@themeetinghouse.com",
@@ -230,7 +230,7 @@
             "latitude": 43.7029035,
             "address": "The Regent Theatre, 551 Mt. Pleasant Rd."
         },
-        "serviceTimes": ["December 23, 6:30pm"]
+        "serviceTimes": ["December 23 - 6:30pm"]
     },
     {
         "id": "waterloo",
@@ -241,6 +241,6 @@
             "latitude": 43.4487225,
             "address": "Crowne Plaze Kitchener-Waterloo, 105 King St. E"
         },
-        "serviceTimes": ["December 24, 5pm"]
+        "serviceTimes": ["December 24 - 5pm"]
     }
 ]
