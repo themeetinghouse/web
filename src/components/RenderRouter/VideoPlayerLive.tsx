@@ -25,12 +25,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div className="LiveVideoPlayerDiv" >
         <div className="LiveVideoPlayerEpisodeTitle">Today's Teaching Notes</div>
         <div className="LiveVideoPlayerExtra">
-          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Oakville.pdf">Oakville</a></div>
-          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Regional.pdf">Regional</a></div>
+          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Oakville.pdf">Oakville Location</a></div>
+          <br/>
+          <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Regional.pdf">Regional Locations</a></div>
           <div className="LiveVideoPlayerClear"></div>
         </div>
         <div className="LiveVideoPlayerExtra">
-          <div className="LiveVideoPlayerSeriesNotes">Notes are updated shortly before 8am on Sunday and will be available again on Monday in the teaching library.</div>
+          <div className="LiveVideoPlayerSeriesNotes">Click on one of the locations above to access today's teaching notes. Notes are updated shortly before 8am on Sunday and will be available again on Monday on the teaching page.</div>
        </div> 
         {/* <div className="LiveVideoPlayerExtra">
           <div className="LiveVideoPlayerSeriesNotes"><a href="TODO">KidMax Sign-In</a></div>
