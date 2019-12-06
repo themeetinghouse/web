@@ -23,81 +23,6 @@
         margin-bottom: 0vw !important;
     }
 
-    .downarrow {
-        height: 3vw;
-        left: 2vw;
-        bottom: 4vw;
-        position: absolute;
-        z-index: 100;
-
-    }
-
-    .animated {
-        -webkit-animation-duration: 2.5s;
-        animation-duration: 2.5s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-timing-function: linear;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    }
-
-    @-webkit-keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            -webkit-transform: translateY(0);
-        }
-
-        50% {
-            -webkit-transform: translateY(-10px);
-        }
-    }
-
-    @keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .bounce {
-        -webkit-animation-name: bounce;
-        animation-name: bounce;
-    }
-
-    .partialNoFooterBox {
-        position: absolute;
-        padding: 2vw;
-        left: 5vw;
-        width: 46vw;
-        top: 6vh;
-        z-index: 100;
-    }
-
-    .partialNoFooterBoxHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-        width: 5vw;
-        background-color: #ffffff;
-
-    }
 
     .weatherHr {
         margin-left: 0;
@@ -120,30 +45,6 @@
         width: 32vw;
         color: #ffffff;
         font-size: 1vw;
-    }
-
-    .partial {
-        width: 80vw;
-        height: 45vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute
-    }
-
-    .partialNoFooterImage {
-        width: 80vw;
-        height: 40vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
-    }
-
-    .partialNoFooter {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 38vw;
-        padding-bottom: 0vh;
     }
 
     .weatherImage {
@@ -207,71 +108,6 @@
         font-family: Graphik Web !important;
     }
 
-    .headerItem {
-        position: static;
-        padding-bottom: 5vw;
-    }
-
-    .headerItemDiv {
-        position: relative;
-        z-index: 100;
-    }
-
-    .header1H1 {
-        font-weight: bold;
-        font-size: 3vw;
-    }
-
-    .headerText1 {
-        width: 80vw;
-        font-size: 1.5vw;
-    }
-
-    .headerText2 {
-        font-size: 1.5vw;
-    }
-
-    .example-mask {
-        position: absolute;
-        top: 0vw;
-        left: 0vw;
-    }
-
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 40vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .partialLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 30vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .emailDiv{
-        position: absolute;
-        left: -5000px;
-    }
-    .emailInput{
-        border: 0px;
-    }
-    .calendarButton {
-        font-family: Graphik Web !important;
-        font-size: 1vw !important;
-        margin-top: 1vw;
-        color: #ffffff;
-        background-color: #000000 !important;
-        border-width: 0 !important;
-        border-radius: 0;
-        text-decoration: underline !important;
-    }
-    .calendarImage {
-        margin-right: 5px;
-        height:25px;
-    }
     .weatherItemButton {
         margin-top: 1.5vw;
         color: #000000; background-color: #ffffff;
@@ -284,7 +120,7 @@
     .weatherItemA2 {
         font-family: Graphik Web;
     }
-    .divPartial {
+    .weatherPartial {
         position: relative;
         left: 20vw;
         top:10vw;
@@ -294,108 +130,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .weatherAddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
-       font-family:Graphik Web;
-        color:#ffffff;
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #000000;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 1vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
-        }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid #000000;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: #000000 !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
-
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
-    }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
-    }
-
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
-    }
-
-    #mergeRow-gdpr {
-        margin-top: 20px;
-    }
-
-    #mergeRow-gdpr fieldset label {
-        font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
-    }
+   
 
     .weatherH2 {
         font-family: Graphik Web;
@@ -420,62 +155,6 @@
         font-size: 3vw;
     }
 
-    .downarrow {
-        height: 4vw;
-        left: 2vw;
-        bottom: 4vw;
-        position: absolute;
-        z-index: 100;
-
-    }
-
-    .animated {
-        -webkit-animation-duration: 2.5s;
-        animation-duration: 2.5s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-timing-function: linear;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    }
-
-    @-webkit-keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            -webkit-transform: translateY(0);
-        }
-
-        50% {
-            -webkit-transform: translateY(-10px);
-        }
-    }
-
-    @keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .bounce {
-        -webkit-animation-name: bounce;
-        animation-name: bounce;
-    }
 
     .weatherHr {
         margin-left: 0;
@@ -484,26 +163,6 @@
         margin-bottom: 1.5vw;
         width: 3vw;
         background-color: #ffffff;
-    }
-
-    .partialNoFooterBox {
-        position: absolute;
-        padding: 2vw;
-        left: 5vw;
-        width: 46vw;
-        top: 6vh;
-        z-index: 100;
-    }
-
-
-    .partialNoFooterBoxHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-        width: 5vw;
-        background-color: #ffffff;
-
     }
 
     .weatherText1 {
@@ -519,30 +178,6 @@
         width: 32vw;
         color: #ffffff;
         font-size: 1vw;
-    }
-
-    .partial {
-        width: 80vw;
-        height: 45vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute
-    }
-
-    .partialNoFooterImage {
-        width: 80vw;
-        height: 40vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
-    }
-
-    .partialNoFooter {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 38vw;
-        padding-bottom: 0vh;
     }
 
     .weatherImage {
@@ -606,72 +241,6 @@
         font-family: Graphik Web !important;
     }
 
-    .headerItem {
-        position: static;
-        padding-bottom: 5vw;
-    }
-
-    .headerItemDiv {
-        position: relative;
-        z-index: 100;
-    }
-
-    .header1H1 {
-        font-weight: bold;
-        font-size: 3vw;
-    }
-
-    .headerText1 {
-        width: 50vw;
-        font-size: 1.5vw;
-    }
-
-    .headerText2 {
-        font-size: 1.5vw;
-    }
-
-    .example-mask {
-        position: absolute;
-        top: 0vw;
-        left: 0vw;
-    }
-
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 40vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-
-    .partialLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 30vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .emailDiv{
-        position: absolute;
-        left: -5000px;
-    }
-    .emailInput{
-        border: 0px;
-    }
-    .calendarButton {
-        font-family: Graphik Web !important;
-        font-size: 1vw !important;
-        margin-top: 1vw;
-        color: #ffffff;
-        background-color: #000000 !important;
-        border-width: 0 !important;
-        border-radius: 0;
-        text-decoration: underline !important;
-    }
-
-    .calendarImage {
-        margin-right: 5px;
-    }
     .weatherItemButton {
         margin-top: 1.5vw;
         color: #000000; background-color: #ffffff;
@@ -684,117 +253,10 @@
     .weatherItemA2 {
         font-family: Graphik Web;
     }
-    .divPartial {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 50vw; padding-bottom: 5vh;
-    }
 }
 
 @media (max-width: 767px) {
-    .weatherAddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
-       font-family:Graphik Web;
-        color:#ffffff;
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #000000;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 3.5vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
-        }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid #000000;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: #000000 !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
-
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
-    }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
-    }
-
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
-    }
-
-    #mergeRow-gdpr {
-        margin-top: 20px;
-    }
-
-    #mergeRow-gdpr fieldset label {
-        font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
-    }
+   
 
     .weatherH2 {
         font-family: Graphik Web;
@@ -820,10 +282,6 @@
         color: #ffffff;
         font-size: 10vw;
         line-height: 10.65vw;
-    }
-
-    .downarrow {
-        display: none;
     }
 
 
@@ -855,63 +313,6 @@
         line-height: 6.4vw;
     }
 
-    .partial {
-        width: 100%;
-        height: 95vw;
-        z-index: 50;
-        object-fit: cover;
-        position: relative
-    }
-
-    .partialNoFooterImage {
-        width: 100vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
-        height: 100%
-    }
-
-    .partialNoFooter {
-        position: relative;
-        left: 0vw;
-        width: 100vw;
-        padding-bottom: 0vh;
-        height: 90vh;
-    }
-
-    .partialNoFooterBox {
-        position: absolute;
-        padding: 30vw 6vw 6vw 6vw;
-        left: 5vw;
-        width: 46vw;
-        top: 18vh;
-        z-index: 100;
-    }
-
-    .partialNoFooterBoxHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 4.5vw;
-        margin-bottom: 4.5vw;
-        width: 8.55vw;
-        background-color: #ffffff;
-    }
-
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 86vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-
-    .partialLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 86vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
     .weatherImage {
         width: 100vw;
         height: 35vh;
@@ -968,74 +369,6 @@
         font-family: Graphik Web !important;
     }
 
-    .headerItem {
-        position: static;
-        padding-bottom: 5vw;
-    }
-
-    .headerItemDiv {
-        position: relative;
-        z-index: 100;
-    }
-
-    .header1H1 {
-        font-weight: bold;
-        font-size: 3vw;
-    }
-
-    .headerText1 {
-        width: 50vw;
-        font-size: 1.5vw;
-    }
-
-    .headerText2 {
-        font-size: 1.5vw;
-    }
-
-    .example-mask {
-        position: absolute;
-        top: 5vw;
-        left: 58vw;
-    }
-
-    .partialNoFooterBox {
-        position: relative;
-        padding: 6vw;
-        left: 0vw;
-        width: 88vw;
-        z-index: 100;
-        // top: 20vw;
-    }
-
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 86vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .emailDiv{
-        position: absolute;
-        left: -5000px;
-    }
-    .emailInput{
-        border: 0px;
-    }
-
-    .calendarButton {
-        font-family: Graphik Web !important;
-        font-size: 3.5vw !important;
-        margin-top: 0vw;
-        color: #ffffff;
-        background-color: #000000 !important;
-        border-width: 0 !important;
-        border-radius: 0;
-        text-decoration: underline !important;
-    }
-    .calendarImage {
-        margin-right: 5px;
-        padding-left: 0.5rem;
-    }
     .weatherItemButton {
         margin-top: 1.5vw;
         color: #000000; background-color: #ffffff;
@@ -1048,12 +381,5 @@
     .weatherItemA2 {
         font-family: Graphik Web;
     }
-    .divPartial {
-        position: relative;
-        width: 100vw;
-     //   height: 75vw;
-        top: 3vw;
-        margin-bottom: 55vw;
-
-    }
+   
 }

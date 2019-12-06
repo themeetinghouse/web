@@ -129,9 +129,9 @@ class HeroItem extends React.Component<Props, State> {
         if (this.state.content.style === "yellow") {
 
             return (
-                <div className="weather divPartial" >
+                <div className="weather weatherPartial" >
                     <h1 className="weatherH1" >{this.state.content.header1}</h1>
-                    {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
+                    {this.state.content.header2 && <h2 className="weatherHeroH2">{this.state.content.header2}</h2>}
                     <hr className="weatheroHr"></hr>
                     <div className="weatherText1" >{this.state.content.text1}</div>
                     <div className="weatherText1" ><b>Closed Locations</b>

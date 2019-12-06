@@ -124,7 +124,11 @@ export default class DataLoader extends React.Component<Props, State> {
         getFbEvents.then((json: any) => {
             console.log("Success queries.getFBEvents: " + json);
             console.log(json)
-            this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data))
+            this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data).sort((a:any,b:any)=>{
+                var a_time:Date = new Date(a.start_time.substring(0, a.start_time.length - 2) + ":" + a.start_time.substring(a.start_time.length - 2))
+                var b_time:Date = new Date(b.start_time.substring(0, b.start_time.length - 2) + ":" + b.start_time.substring(b.start_time.length - 2))
+                return a_time>b_time;
+            }))
 
         }).catch((e: any) => { console.log(e) })
     }

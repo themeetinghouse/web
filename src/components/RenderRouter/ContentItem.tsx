@@ -37,6 +37,11 @@ renderList(){
       <div key={id}>
         {item.title}
       </div>
+      :item.type==="event"?
+      <div className="oneImageEventDetails" key={id}>
+        <div >{item.date}</div>
+        <div >{item.location}</div>
+      </div>
       :null
       )
     })
@@ -52,6 +57,35 @@ renderList(){
         <div className="ContentItem oneImage">
           <div className="oneImagePosition">
             <div className="oneImageGreyBox" >
+              <h1 className="oneImageH1" >{this.state.content.header1}</h1>
+              <h2 className="oneImageH2">{this.state.content.header2}</h2>
+              <div className="oneImageText" >{this.state.content.text1}</div>
+             {this.renderList()}
+            </div>
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
+                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                        this.imgUrl(480)+image1.src+" 480w,"+
+                        this.imgUrl(640)+image1.src+" 640w,"+
+                        this.imgUrl(1280)+image1.src+" 1280w,"+
+                        this.imgUrl(1920)+image1.src+" 1920w,"+
+                        this.imgUrl(2560)+image1.src+" 2560w"}
+                        sizes="(max-width: 320px) 320px,
+                               (max-width: 480px) 480px,
+                               (max-width: 640px) 640px,
+                               (max-width: 1280px) 1280px,
+                               (max-width: 1920) 1920,
+                                2560px"
+                    />
+          </div>
+        </div>
+      )
+    }
+    else if (this.state.content.style === "greenImage") {
+
+      return (
+        <div className="ContentItem oneImage">
+          <div className="oneImagePosition">
+            <div className="oneImageGreenBox" >
               <h1 className="oneImageH1" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2">{this.state.content.header2}</h2>
               <div className="oneImageText" >{this.state.content.text1}</div>
