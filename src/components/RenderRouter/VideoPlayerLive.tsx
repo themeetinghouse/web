@@ -31,7 +31,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
           <div className="LiveVideoPlayerClear"></div>
         </div>
         <div className="LiveVideoPlayerExtra">
-          <div className="LiveVideoPlayerSeriesNotes">Click on one of the locations above to access today's teaching notes. Notes are updated shortly before 8am on Sunday and will be available again on Monday on the teaching page.</div>
+          <div className="LiveVideoPlayerSeriesNotes">Click on one of the locations above to access today's teaching notes. Notes are updated on Sunday and will be available again on Monday on the teaching page.</div>
        </div> 
         {/* <div className="LiveVideoPlayerExtra">
           <div className="LiveVideoPlayerSeriesNotes"><a href="TODO">KidMax Sign-In</a></div>
