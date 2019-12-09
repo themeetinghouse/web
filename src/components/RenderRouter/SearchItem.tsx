@@ -88,10 +88,10 @@ interface State {
             <img className="Image" src="/static/images/homepage-4-1.jpg" />
             <p>Videos</p>
           </div>
-          <div className="SearchLink Articles">
+          {/* <div className="SearchLink Articles">
             <img className="Image" src="https://cdn.pixabay.com/photo/2016/11/22/23/09/fountain-pen-1851096_960_720.jpg" />
             <p>Articles</p>
-          </div>
+          </div> */}
         </div>
           {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
             if (item.episodeTitle !== null)
