@@ -47,14 +47,14 @@
             {
                 "type": "content",
                 "style": "oneImageGreenRight",
-                "header1": "Christmas",
+                "header1": "Christmas Eve",
                 "header2": "",
-                "text1": "It’s so much better when we celebrate together.",
+                "text1": "It’s so much better when we celebrate Christmas together.",
                 "list": [
                     
                     {
                         "type":"event",
-                        "date":"December 24 - 5pm",
+                        "date":"Tuesday December, 24 - 5:00pm",
                         "location":"Crowne Plaze Kitchener-Waterloo, 105 King St. E"
                     },
                     {
@@ -66,7 +66,7 @@
                 "image1": [
                     {
                         "src": "/static/images/site-page-christmas.jpg",
-                        "alt": "Man holding child and candle."
+                        "alt": "Man holding child and candle during a Christmas service at a church."
                     }
                     
                 ]

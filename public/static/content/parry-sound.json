@@ -36,14 +36,14 @@
             {
                 "type": "content",
                 "style": "oneImageGreenRight",
-                "header1": "Christmas",
+                "header1": "Christmas Gathering",
                 "header2": "",
-                "text1": "It’s so much better when we celebrate together.",
+                "text1": "It’s so much better when we celebrate Christmas together.",
                 "list": [
                     
                     {
                         "type":"event",
-                        "date":"December 22 - 6pm",
+                        "date":"Sunday December, 22 - 6:00pm",
                         "location":"The Sound Hub, 86 Gibson St."
                     },
                     {
@@ -55,7 +55,7 @@
                 "image1": [
                     {
                         "src": "/static/images/site-page-christmas.jpg",
-                        "alt": "Man holding child and candle."
+                        "alt": "Man holding child and candle during a Christmas service at a church."
                     }
                     
                 ]
