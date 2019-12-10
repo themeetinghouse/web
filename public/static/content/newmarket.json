@@ -123,6 +123,27 @@
                 ]
             },
             {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Bible 101",
+                "header2": "",
+                "text1": "A four-week introductory course designed to give you an overview of the big story, the meta-narrative of the Bible, and how it all points to Jesus. Begins January 5, 2020.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Register for Bible 101",
+                        "navigateTo": "https://meetinghouse.infellowship.com/Forms/433406/Register",
+                        "openNewBrowser":true
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/bible101.jpg",
+                        "alt": "Friends sitting around a table reading a bible."
+                    }
+                ]
+            },
+            {
                 "type": "hero",
                 "style": "partial",
                 "image1": [
