@@ -118,15 +118,14 @@
                     },
                     {
                         "src": "/static/images/KY2.jpg",
-                        "alt": "Two boys laughing."
+                        "alt": "Two boys laughing together."
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "oneImageBlackRight",
+                "style": "oneImage",
                 "header1": "Bible 101",
-                "header2": "",
                 "text1": "A four-week introductory course designed to give you an overview of the big story, the meta-narrative of the Bible, and how it all points to Jesus. Begins January 8, 2020.",
                 "list": [
                     {
@@ -136,33 +135,29 @@
                         "openNewBrowser":true
                     }
                 ],
-                "image1": [
-                    {
-                        "src": "/static/images/bible101.jpg",
-                        "alt": "Friends sitting around a table reading a bible."
-                    }
-                ]
+                "image1": [{
+                    "src": "/static/images/bible101.jpg",
+                    "alt": "Friends sitting around a table reading a bible."
+                }]
             },
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Jesus-Centred Parenting 201",
                 "header2": "",
                 "text1": "A four-week course designed to allow spiritual parents to join in the conversation around a Jesus-centred parenting approach. Begins January 5, 2020. ",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Register for Jesus-Centred Parenting 201",
+                        "title": "Register for Jesus-Centred Parenting",
                         "navigateTo": "https://meetinghouse.infellowship.com/Forms/433272",
                         "openNewBrowser":true
                     }
                 ],
-                "image1": [
-                    {
-                        "src": "/static/images/jesus-centredparenting201.jpg",
-                        "alt": "Mom and daugther sitting together."
-                    }
-                ]
+                "image1":[{
+                    "src": "/static/images/jesus-centredparenting201.jpg",
+                    "alt": "Mom and daugther sitting together."
+                    }]
             },
             {
                 "type": "hero",
