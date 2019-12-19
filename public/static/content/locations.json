@@ -66,26 +66,6 @@
              {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1":"Distance Groups",
-                "header2":"",
-                "text1":"Don't live in a city where there's a Meeting House site? Distance Groups are gatherings of people who follow The Meeting House teaching and come together to learn, pray, care for one another, and discover the unique ways God has created us to help in our communities. ",
-                
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Find a Distance Group",
-                        "navigateTo": "/distance-groups"
-                    }
-                ],
-                "image1":[{
-                    "src":"/static/images/DistanceGroup.jpg",
-                    "alt":"People chatting on a patio"
-                }]
-
-            },
-             {
-                "type": "content",
-                "style": "oneImage",
                 "header1":"Jesus Collective",
                 "header2":"",
                 "text1":"We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Want to learn more? ",
