@@ -73,5 +73,6 @@
 {"id":"easttoronto","to":"toronto-east"},
 {"id":"hamiltonmountain","to":"hamilton-mountain"},
 {"id":"owensound","to":"owen-sound"},
-{"id":"parrysound","to":"parry-sound"}
+{"id":"parrysound","to":"parry-sound"},
+{"id":"jesuscollective","to":"https://meeting.formstack.com/forms/jesus_collective_mailing_list"}
 ]
