@@ -60,11 +60,11 @@
         position: relative;
         text-align: center;
         top: 50px;
-        
+
         font-family: Graphik Web;
         font-size: 32px;
         font-weight: bold;
-    
+
         color: #FFFFFF;
     }
 }
@@ -83,7 +83,7 @@
         left: 30px;
         width: 200px;
         line-height: 40px;
-        
+
         img{
             margin: 4px 0px 0px 15px;
             height: 35px;
@@ -212,9 +212,9 @@
 
     .SearchLink{
         $link-width: 24.25vw;
-    
+
         width: $link-width;
-    
+
         img{
             width: $link-width;
         }
@@ -222,9 +222,9 @@
 
     .SearchLinks .HomeChurch{
         $link-width: 44vw;
-    
+
         width: $link-width;
-    
+
         img{
             width: $link-width;
         }
@@ -238,7 +238,7 @@
     }
 
     .logoHouse{
-        height: 20px;
+        // height: 20px;
         vertical-align: top;
     }
 
@@ -251,7 +251,7 @@
         z-index: 999;
         padding: 2vw 0 2vw 0;
         top: 0vh;
-        height: 50px;
+        // height: 50px;
     }
 
     .VideoOverlayClose{
@@ -262,7 +262,7 @@
         width: $size;
         height: $size;
     }
-  
+
     .SearchItem {
         top: 12vw;
         left: 0px;
@@ -283,9 +283,9 @@
 
     .SearchLink{
         $link-width: 44vw;
-    
+
         width: $link-width;
-    
+
         img{
             width: $link-width;
         }
@@ -293,7 +293,7 @@
 
     .SearchLinks .HomeChurch{
         $link-width: 100%;
-    
+
         width: $link-width;
         margin-bottom: 10px;
 
@@ -305,7 +305,7 @@
     .SearchLinks .Articles{
         float: right;
     }
-    
+
     .SearchResultItem .Content{
         width: 90%;
     }

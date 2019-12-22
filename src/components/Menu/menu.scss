@@ -32,9 +32,9 @@
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
         animation: glow 1s ease-in-out infinite alternate;
-      
+
     }
-   
+
 @keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
@@ -218,7 +218,7 @@
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
         animation: glow 1s ease-in-out infinite alternate;
-     
+
     }
 
 @keyframes glow {
@@ -342,11 +342,11 @@
         color:#000000;
         font-family: Graphik Web;
         font-weight:400;
-        font-size:6vw;     
+        font-size:6vw;
            -webkit-animation: glow 2s ease-in-out infinite alternate;
         -moz-animation: glow 2s ease-in-out infinite alternate;
         animation: glow 2s ease-in-out infinite alternate;
-     
+
     }
 
 @keyframes glow {
@@ -368,9 +368,8 @@
         height: 10.4vw;
     }
     .logoText{
-       margin: 0vw;
-       margin-left:1vw;
-        height: 8vw;
+       margin: 2vw 0vw 0vw 1vw;
+       height: 8vw;
     }
     a.smallNav.nav-link{
         padding:0 !important;
