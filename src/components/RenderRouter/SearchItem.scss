@@ -1,4 +1,4 @@
-// Base style: >= 768
+// Base style: >= 1024
 .SearchItem {
     position: relative;
     top: 1.5vw;
@@ -39,7 +39,7 @@
 
 .SearchLink{
     $link-width: 17vw;
-    $link-height: 16vh;
+    $link-height: 160px;
 
     position: relative;
     display: inline-block;
@@ -59,10 +59,10 @@
     p{
         position: relative;
         text-align: center;
-        top: 5vh;
+        top: 50px;
         
         font-family: Graphik Web;
-        font-size: calc(1.25vh + 1.25vw);
+        font-size: 32px;
         font-weight: bold;
     
         color: #FFFFFF;
@@ -79,15 +79,15 @@
     }
     p{
         text-align: left;
-        top: 3vh;
-        left: 2vw;
-        width: 15vw;
-        line-height: 4vh;
-
+        top: 41px;
+        left: 30px;
+        width: 200px;
+        line-height: 40px;
+        
         img{
-            margin-top:0.5vh;
-            height: 4vh;
-            width: 4vw;
+            margin: 4px 0px 0px 15px;
+            height: 35px;
+            width: 35px;
             border: none;
         }
     }
@@ -102,7 +102,7 @@
     padding-bottom: 15px;
     padding-top: 20px;
     border-bottom: 1px solid #EFEFF0;
-    width: 70vw;
+    width: 100%;
 }
 
 .SearchResultItem .Thumb {
@@ -160,90 +160,157 @@
     float: right;
 }
 
-@media (min-width: 768px) {
+// Tablet
+@media (min-width: 768px) and (max-width: 1024px) {
+    .modal-content {
+        padding-bottom: 10vh;
+    }
 
-}
+    .logoHouse{
+        height: 30px;
+        vertical-align: middle;
+    }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-   
-}
+    .navbar-custom{
+        position: fixed;
+        background-color: #ffffff;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        z-index: 999;
+        padding: 2vw 0 2vw 0;
+        top: 0vh;
+        height: 70px;
+    }
 
-@media (max-width: 767px) {
+    .VideoOverlayClose{
+        $size: 20px;
+
+        top: 25px;
+        left: 94vw;
+        width: $size;
+        height: $size;
+    }
+
     .SearchItem {
-        // position: relative;
-        top: 19vw;
-        left: 0vw;
-        background-color: white;
+        top: 9vw;
+        left: 0px;
+        margin: 0px 15px 0px 15px;
     }
-    
-    .SearchItemInput {
-        width: 100%;
-        height: 56px;
-        padding-left: 3vw;
+
+    .SearchItemInput{
+        width:100%;
+
         font-size: 32px;
+        line-height: 40px;
     }
-    
-    .SearchItemDiv {
-        width: 96%;
-        margin-left:2%;
-        margin-right:2%
-        // margin: 18px 0px 0px 0px;
-        // border-top: solid 2px #1A1A1A;
-    }
-    
-    .SearchResultItem{
-        // cursor: pointer;
-        // padding-bottom: 15px;
-        // padding-top: 20px;
-        // border-bottom: 1px solid #EFEFF0;
+
+    .SearchItemDiv{
         width: 100%;
+        margin-top: 13px;
     }
+
+    .SearchLink{
+        $link-width: 24.25vw;
     
-    .SearchResultItem .Thumb {
-        display: none;
-        // object-fit: contain;
-        // margin-right: 30px;
-        // width: 20%;
-        // vertical-align: top;
+        width: $link-width;
+    
+        img{
+            width: $link-width;
+        }
+    }
+
+    .SearchLinks .HomeChurch{
+        $link-width: 44vw;
+    
+        width: $link-width;
+    
+        img{
+            width: $link-width;
+        }
+    }
+}
+
+// Mobile
+@media (max-width: 767px) {
+    .modal-content {
+        padding-bottom: 10vh;
+    }
+
+    .logoHouse{
+        height: 20px;
+        vertical-align: top;
+    }
+
+    .navbar-custom{
+        position: fixed;
+        background-color: #ffffff;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        z-index: 999;
+        padding: 2vw 0 2vw 0;
+        top: 0vh;
+        height: 50px;
+    }
+
+    .VideoOverlayClose{
+        $size: 15px;
+
+        top: 18px;
+        left: 92vw;
+        width: $size;
+        height: $size;
+    }
+  
+    .SearchItem {
+        top: 12vw;
+        left: 0px;
+        margin: 0px 15px 0px 15px;
+    }
+
+    .SearchItemInput{
+        width:100%;
+
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .SearchItemDiv{
+        width: 100%;
+        margin-top: 13px;
+    }
+
+    .SearchLink{
+        $link-width: 44vw;
+    
+        width: $link-width;
+    
+        img{
+            width: $link-width;
+        }
+    }
+
+    .SearchLinks .HomeChurch{
+        $link-width: 100%;
+    
+        width: $link-width;
+        margin-bottom: 10px;
+
+        img{
+            width: $link-width;
+        }
+    }
+
+    .SearchLinks .Articles{
+        float: right;
     }
     
     .SearchResultItem .Content{
-        // display: inline-block;
-        // vertical-align: top;
-        // height: 100%;
-        width: 100%;
+        width: 90%;
     }
-    
-    .SearchResultItem .ContentType{
-        // display: inline-block;
-        // padding: 8px 20px 8px 20px;
-        // margin-bottom: 20px;
-        // background: #54565A;
-        // border-radius: 50px;
-    
-        // font-family: Graphik Web;
-        // font-style: normal;
-        // font-weight: bold;
-        // font-size: 12px;
-        // line-height: 18px;
-        // color: #FFFFFF;
-    }
-    
-    .SearchResultItem .Title{
-        // margin-bottom: 10px;
-    
-        // font-family: Graphik Web;
-        // font-size: 16px;
-        // line-height: 24px;
-        // font-weight: bold;
-        // color: #1A1A1A;
-    }
-    
-    .SearchResultItem .Description{
-        // width: 100%;
-        // font-family: Graphik Web;
-        // font-size: 16px;
-        // line-height: 24px;
-        // color: #54565A;
+
+    .SearchResultItem .Thumb{
+        display: none;
     }
 }
