@@ -45,33 +45,7 @@
                 "filterField": "id",
                 "filterValue": "toronto-uptown"
             },
-            {
-                "type": "content",
-                "style": "oneImageGreenRight",
-                "header1": "Christmas Gathering",
-                "header2": "",
-                "text1": "It’s so much better when we celebrate Christmas together.",
-                "list": [
-                    
-                    {
-                        "type":"event",
-                        "date":"Monday December, 23 - 6:30pm",
-                        "location":"The Regent Theatre, 551 Mt. Pleasant Rd."
-                    },
-                    {
-                        "type": "link",
-                        "title": "Find Another Location",
-                        "navigateTo": "/christmas"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/site-page-christmas.jpg",
-                        "alt": "Man holding child and candle during a Christmas service at a church."
-                    }
-                    
-                ]
-            },
+           
             {
                 "type": "list",
                 "style": "vertical",

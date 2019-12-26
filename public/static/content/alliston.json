@@ -43,33 +43,7 @@
                 "header2": "",
                 "text1": "In partnership with the Be In Christ Church of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
             },
-            {
-                "type": "content",
-                "style": "oneImageGreenRight",
-                "header1": "Christmas Eve",
-                "header2": "",
-                "text1": "It’s so much better when we celebrate Christmas together.",
-                "list": [
-                    
-                    {
-                        "type":"event",
-                        "date":"Tuesday December, 24 - 6:30pm",
-                        "location":"Gibson Centre, 63 Tupper Street West"
-                    },
-                    {
-                        "type": "link",
-                        "title": "Find Another Location",
-                        "navigateTo": "/christmas"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/site-page-christmas.jpg",
-                        "alt": "Man holding child and candle during a Christmas service at a church."
-                    }
-                    
-                ]
-            },
+
             {
                 "type": "list",
                 "style": "vertical",
