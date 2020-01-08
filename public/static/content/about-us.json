@@ -127,12 +127,6 @@
                     },
                     {
                         "type":"link",
-                        "title": "East Toronto Site Administrator",
-                        "navigateTo": "/static/pdfs/careers/TOBC_Site_Admin.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Human Resources Manager",
                         "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true

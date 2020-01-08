@@ -69,27 +69,7 @@
                     }
                 ]
             },
-            {
-                "type": "content",
-                "style": "oneImageGreenRight",
-                "header1": "Christmas",
-                "header2": "",
-                "text1": "Oh Christmas Eve, oh Christmas Eve! How lovely are the friends we will meet! We’ve got some plans for Christmas Eve, and we’d love to celebrate with you!",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Show Me Christmas",
-                        "navigateTo": "/christmas"
-                    }
-                ],
-              
-                "image1": [
-                    {
-                        "src": "/static/images/home-christmas.jpg",
-                        "alt": "Christmas Wreath."
-                    }
-                ]
-            },
+            
             {
                 "type": "content",
                 "style": "oneImageBlackRight",

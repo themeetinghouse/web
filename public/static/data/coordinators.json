@@ -10,7 +10,7 @@
     "FirstName": "Amy",
     "LastName": "Thompson",
     "sites": ["ALLI"],
-    "Email": "compassion.alliston@themeetinghouse.com",
+    "Email": "alliston.compassion@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
@@ -90,6 +90,13 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Jasmine",
+    "LastName": "Wong",
+    "sites": ["TOBC"],
+    "Email": "jasmine.wong@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
     "FirstName": "Erica",
     "LastName": "Blekkenhorst",
     "sites": ["TODT"],
@@ -113,7 +120,7 @@
     "FirstName": "Janette",
     "LastName": "Cridland",
     "sites": ["ALLI"],
-    "Email": "connect.alliston@themeetinghouse.com",
+    "Email": "alliston.connect@themeetinghouse.com",
     "Position": "Connect Coordinator"
   },
   {
@@ -138,7 +145,7 @@
     "FirstName": "Nancy",
     "LastName": "Sergeant",
     "sites": ["SAND"],
-    "Email": "connect.sandbanks@themeetinghouse.com",
+    "Email": "sandbanks.connect@themeetinghouse.com",
     "Position": "Connect Coordinator"
   },
   {
@@ -163,7 +170,7 @@
     "FirstName": "Teresa",
     "LastName": "Kotsopoulos",
     "sites": ["ALLI"],
-    "Email": "Kidmax.alliston@themeetinghouse.com",
+    "Email": "alliston.kidmax@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
@@ -263,9 +270,9 @@
   },
   {
     "FirstName": "Jenny",
-    "LastName": "Sheppard",
+    "LastName": "Shepherd",
     "sites": ["SAND"],
-    "Email": "Kidmax.sandbanks@themeetinghouse.com",
+    "Email": "sandbanks.kidmax@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
@@ -393,7 +400,7 @@
     "FirstName": "Bob",
     "LastName": "Snider",
     "sites": ["SAND"],
-    "Email": "music.sandbanks@themeetinghouse.com",
+    "Email": "sandbanks.music@themeetinghouse.com",
     "Position": "Music Coordinator"
   },
   {
@@ -621,7 +628,7 @@
     "FirstName": "Colleen",
     "LastName": "Johnson",
     "sites": ["ALLI"],
-    "Email": "youth.alliston@themeetinghouse.com",
+    "Email": "alliston.youth@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {
@@ -702,7 +709,6 @@
     "FirstName": "Carol",
     "LastName": "Babcock",
     "sites": ["SAND"],
-    "Email": "youth.sandbanks@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {

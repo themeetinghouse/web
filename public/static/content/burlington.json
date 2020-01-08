@@ -44,33 +44,7 @@
                 "filterField": "id",
                 "filterValue": "burlington"
             },
-            {
-                "type": "content",
-                "style": "oneImageGreenRight",
-                "header1": "Christmas Gathering",
-                "header2": "",
-                "text1": "It’s so much better when we celebrate Christmas together.",
-                "list": [
-                    
-                    {
-                        "type":"event",
-                        "date":"Sunday December, 22 - 6:00pm",
-                        "location":"Art Gallery of Burlington, 1333 Lakeshore Rd"
-                    },
-                    {
-                        "type": "link",
-                        "title": "Find Another Location",
-                        "navigateTo": "/christmas"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/site-page-christmas.jpg",
-                        "alt": "Man holding child and candle during a Christmas service at a church."
-                    }
-                    
-                ]
-            },
+         
             {
                 "type": "list",
                 "style": "vertical",
