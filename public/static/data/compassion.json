@@ -566,6 +566,41 @@
         "description":"For more than 15 years Eagles Nest Association of Waterdown has been impacting lives in their community showing compassion and providing practical support for families. Under Eagles Nest are three divisions: Drummond House, HOPE Centre and Rescued & Restored.",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
-    }
+    },
+    {
+        "id": 60,
+        "sites": ["sandbanks"],
+        "name": "Youth Unlimited PEC",
+        "description":"Life for teens is different than 20 years ago, with technology and social media that bombard us with societal pressures day and night. PEC Youth Unlimited is there to help teens learn to live with a twinkle in their eye in this ever changing world. Our vision for PEC is to see Prince Edward County filled with vibrant youth who are being transformed by the Spirit of Jesus and who are committed to serving the community.",
+        "website": "https://www.qyu.ca/prince-edward-county.html",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["sandbanks"],
+        "name": "New Life Girls Home",
+        "description":"To provide a safe place for young women with life-controlling problems to experience healing and transformation through a long-term Christian-based residential program.",
+        "website": "https://newlifecanada.org/",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["sandbanks"],
+        "name": "Gilead Fellowship Church",
+        "description":"Gilead Fellowship Church has provided a full Christmas Dinner for the past 20 years at noon on the 25th. This is open to anyone in the community who may not have anyone to spend Christmas with and the complete dinner and fellowship is provided at no cost.",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 60,
+        "sites": ["sandbanks"],
+        "name": "West Lake Terrace Long Term Care Facility",
+        "description":"To experience Hope, Purpose and Belonging in health care is the foundation of everything we strive for. It is reflected in our work, goals and motivation. In Hope, we find the promise of a brighter tomorrow. In Purpose, we give each day meaning by touching and changing the lives of others. And in Belonging, we share a sense of oneness, of community with our residents, staff and families.",
+        "website": "https://omniway.ca/homes/west-lake-terrace/",
+        "image": "/static/images/compassion/none.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
 
 ]

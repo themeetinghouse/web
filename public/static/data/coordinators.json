@@ -59,12 +59,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Jas",
-    "LastName": "Wong",
-    "sites": ["TOBC"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Kareema",
     "LastName": "Giscombe-Bartley",
     "sites": ["BRAM"],
@@ -107,6 +101,12 @@
     "FirstName": "Kat",
     "LastName": "Misztal-McCubbing",
     "sites": ["TOHP"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Dan",
+    "LastName": "Klass",
+    "sites": ["WAT"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -158,12 +158,6 @@
     "FirstName": "Scott",
     "LastName": "Mealey",
     "sites": ["TODT"],
-    "Position": "Connect Coordinator"
-  },
-  {
-    "FirstName": "Marcie",
-    "LastName": "Hall",
-    "sites": ["WAT"],
     "Position": "Connect Coordinator"
   },
   {
@@ -661,13 +655,6 @@
     "FirstName": "Nick",
     "LastName": "Barone",
     "sites": ["HMMT"],
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Marshall",
-    "LastName": "McPherson",
-    "sites": ["KIT"],
-    "Email": "marshall.mcpherson@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {

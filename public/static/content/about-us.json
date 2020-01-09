@@ -73,14 +73,14 @@
                     },
                     {
                         "type":"link",
-                        "title": "Huddle Questions",
-                        "navigateTo": "/static/pdfs/Policies-and-Statements/Huddle Questions_September 2019.pdf",
+                        "title": "Growth Gauges",
+                        "navigateTo": "/static/pdfs/Growth-Gauges/Growth-Gauges.pdf",
                         "openNewBrowser":true
                     },
                     {
                         "type":"link",
-                        "title": "The Authority of the Word of God in Print",
-                        "navigateTo": "/static/pdfs/Policies-and-Statements/The Authority of the Word of God in Print.pdf",
+                        "title": "Huddle Questions",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Huddle Questions_September 2019.pdf",
                         "openNewBrowser":true
                     },
                     {
@@ -88,7 +88,14 @@
                         "title": "Same Sex Marriage",
                         "navigateTo": "/static/pdfs/Policies-and-Statements/TMH_Same Sex Marriage.pdf",
                         "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "The Authority of the Word of God in Print",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/The Authority of the Word of God in Print.pdf",
+                        "openNewBrowser":true
                     }
+                    
                 ]
             },
             {

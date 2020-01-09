@@ -74,5 +74,6 @@
 {"id":"hamiltonmountain","to":"hamilton-mountain"},
 {"id":"owensound","to":"owen-sound"},
 {"id":"parrysound","to":"parry-sound"},
+{"id":"growthgaugesprint","to":"/static/pdfs/Growth-Gauges/Growth-Gauges.pdf"},
 {"id":"jesuscollective","to":"https://meeting.formstack.com/forms/jesus_collective_mailing_list"}
 ]
