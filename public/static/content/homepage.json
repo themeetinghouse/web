@@ -12,7 +12,7 @@
             "showFooter":true,
             "showMenu":true,
             "showLive":true,
-            "weatherAlert":false
+            "weatherAlert":true
         },
         "content": [
             {

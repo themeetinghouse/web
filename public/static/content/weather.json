@@ -19,17 +19,17 @@
             {
                 "type": "weather",
                 "style": "yellow",
-                "header1":"Service cancellations due to weather",
+                "header1":"Service cancellations due to weather.",
                 "header2":"",
-                "text1":"Sometimes the weather has other ideas. Below is a list of our locations that are closed and open. Be safe and we’ll see you soon.",
+                "text1":"Sometimes the weather has other ideas. Below is a list of our locations that have cancelled their services for Sunday January 12, 2019:",
                 "list": [
                     {
                         "type":"text",
-                        "title": "Downtown Toronto"
+                        "title": "Richmond Hill"
                     },
                     {
                         "type":"text",
-                        "title": "Uptown Toronto"
+                        "title": "Newmarket"
                     }
                 ],
                 "link1Text": "Show Map",
