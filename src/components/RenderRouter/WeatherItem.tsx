@@ -141,8 +141,8 @@ class HeroItem extends React.Component<Props, State> {
                             )
                         })}
                     </div>
-                    <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>
 
+                    <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>                  
 
                 </div>
             )
