@@ -1,8 +1,6 @@
-# web
+# The Meeting House Website
 
-1. Clone
-2. Run npm install
-3. Place aws-export.js in src folder (please ask George to send you this file)
-4. Run npm start
-
-(there may be some necessary local dependency's, will validate and update this shortly)
+1. Clone the repo
+2. Install node.js from http://nodejs.org/
+3. From cloned folder run: npm install
+4. From cloned folder run: npm start
