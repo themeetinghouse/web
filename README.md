@@ -1,4 +1,4 @@
-# The Meetinghouse Website
+# The Meeting House Website
 
 1. Clone the repo
 2. Install node.js from http://nodejs.org/
