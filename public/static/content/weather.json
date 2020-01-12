@@ -21,7 +21,7 @@
                 "style": "yellow",
                 "header1":"Service cancellations due to weather.",
                 "header2":"",
-                "text1":"Sometimes the weather has other ideas. Below is a list of our locations that have cancelled their services for Sunday January 12, 2019:",
+                "text1":"Sometimes the weather has other ideas. The following locations have cancelled their services for Sunday January 12, 2019:",
                 "list": [
                     {
                         "type":"text",
