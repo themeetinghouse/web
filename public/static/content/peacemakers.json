@@ -1,0 +1,107 @@
+{
+    "page": {
+        "name": "peacemakers",
+        "title": "Peacemakers",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/Go-1.jpg",
+                        "alt": "Description"
+                    }
+                ],
+                "header1": "Peacemakers",
+                "header2": "",
+                "text1": "Peacemakers is our opportunity to look beyond our neighbourhood and work towards justice and peace in some of the most vulnerable places around the world. As the church, it is our responsibility to stand up for people who have been marginalized and to meet the tangible needs of people created by the injustices in the world.",
+                "button1Text": "Watch Video",
+                "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "text1":"Through Peacemakers we partner with Mennonite Central Committee (MCC) to walk intentionally with people to support their vision for their lives and community",
+                "list": [
+                    {
+                        "type":"text",
+                        "title": "There are four areas of MCC's work we partner with:"
+                    },
+                    {
+                        "type":"text",
+                        "title": "Peacebuilding in Sub-Saharan Africa"
+                    },
+                    {
+                        "type":"text",
+                        "title": "Indigenous & Settler Reconciliation in Ontario"
+                    },
+                    {
+                        "type":"text",
+                        "title": "Restorative Justice in Ontario"
+                    }, 
+                    {
+                        "type":"text",
+                        "title": "Material relief efforts in areas of crisis globally"
+                    }
+
+                ],
+               
+                "image1":[{
+                    "src":"/static/images/Go-2.jpg",
+                    "alt":"Man with crossed arms in discussion"
+                }]
+
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"How can we support the campaign?",
+                "header2":"",
+                "text1":"TODO",  
+                "image1":[{
+                    "src":"/static/images/Go-2.jpg",
+                    "alt":"Man with crossed arms in discussion"
+                }]
+
+            },
+            {
+                "type": "content",
+                "style":"greyTwoText",
+                "text1":"We partner with peacebuilding efforts because it is through peace that communities are able to flourish.",
+                "amount":"0",
+
+                "total":"225000",
+                "list": [
+                    {
+                        "type":"button",
+                        "title": "Give to Peacemakers",
+                        "navigateTo": "/give"
+                    }
+                ]
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"compassion",
+                "selector":"peacemakers",
+                "sortOrder":"DESC",
+                "header1":"Peacemakers"                
+            },
+            {
+                "type":"faq" 
+            }
+        ]
+    }
+}

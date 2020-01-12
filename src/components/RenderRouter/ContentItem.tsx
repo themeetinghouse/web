@@ -1,21 +1,28 @@
 
 import React from 'react';
+import { Button } from 'reactstrap';
 import "./ContentItem.scss"
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface Props {
+interface Props extends RouteComponentProps {
   content: any
 }
 interface State {
   content: any
 }
-
-export default class ContentItem extends React.Component<Props, State>  {
+class ContentItem extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props);
     this.state = {
       content: props.content
     }
   }
+  navigateTo(location:any) {
+    this.props.history.push(location, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
+}
   imgUrl(size:any){
     if (window.location.hostname==="localhost")
         return "https://localhost:3006"
@@ -28,7 +35,11 @@ renderList(){
   return this.state.content.list?
     this.state.content.list.map((item:any,id:any)=>{
       return (
-        item.type==="link"?
+        item.type==="button"?
+        <div key={id}>
+          <Button className="contentButton" onClick={()=>{this.navigateTo(item.navigateTo)}}>{item.title}</Button>
+        </div>
+        :item.type==="link"?
       <div key={id}>{item.openNewBrowser?
        <a className="oneImageA" target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a>:
        <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
@@ -223,3 +234,4 @@ renderList(){
     return (null)
   }
 }
+export default withRouter(ContentItem)
