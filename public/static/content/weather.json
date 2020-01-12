@@ -30,6 +30,10 @@
                     {
                         "type":"text",
                         "title": "Newmarket"
+                    },
+                    {
+                        "type":"text",
+                        "title": "Parry Sound"
                     }
                 ],
                 "link1Text": "Show Map",
