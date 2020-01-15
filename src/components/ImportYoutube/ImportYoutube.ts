@@ -71,8 +71,15 @@ export default class ImportYoutube {
     const playlists: any = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
     playlists.then((json: any) => {
       this.setPlaylists(json);
-      this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
-
+      if (json.data.getYoutubePlaylist.nextPageToken!=null)
+        this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
+      else
+      {
+        this.playlistData.forEach((item:any) => {
+          if (!this.ignorePlaylist.includes(item.id))
+            this.loadPlaylist(item);
+        })
+      }
     }).catch((err: any) => {
       console.log(err);
       this.playlistData.forEach((item:any) => {
