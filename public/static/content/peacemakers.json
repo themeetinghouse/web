@@ -25,14 +25,14 @@
                 ],
                 "header1": "Peacemakers",
                 "header2": "",
-                "text1": "Peacemakers is an opportunity for us to look beyond our neighbourhoods and work for justice and peace in some of the most vulnerable places around the world. As the church, it is our responsibility to stand up for people who have been marginalized and to meet the tangible needs created by systems of injustice in our world.",
+                "text1": "The Peacemakers campaign is our opportunity to look beyond our neighbourhoods and work towards justice and peace in some of the most vulnerable places around the world. As the church, it is our responsibility to stand for people who have been marginalized by working to meet people's tangible needs.",
                 "button1Text": "Watch Video",
                 "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "text1":"Through Peacemakers we partner with Mennonite Central Committee (MCC) to walk intentionally with people to support their vision for their lives and community",
+                "text1":"Through Peacemakers we support Mennonite Central Committee (MCC) to walk intentionally with vulnerable people as they actualize their own vision for their community.",
                 "list": [
                     {
                         "type":"text",
@@ -52,7 +52,7 @@
                     }, 
                     {
                         "type":"text",
-                        "title": "Material relief efforts in areas of crisis globally"
+                        "title": "Humanitarian Relief globally"
                     }
 
                 ],
@@ -66,9 +66,9 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"How can we support the campaign?",
+                "header1":"How can you support the campaign?",
                 "header2":"",
-                "text1":"TODO",  
+                "text1":"Peacemakers is a collective initiative where all our sites and ministries focus our efforts so that we may have a greater impact. Our community is invited to donate financially in the form of Peace Cards (a recommended donation of $100) and Relief Kits (a collection of basic needs items) in support of MCC’s peacebuilding and relief work globally and in Ontario. This year our Relief Kits will be going to Jordan to people affected by the conflict in Syria. Collection Day: March 8 (all sites). Why Peacemakers? Peacemakers is one the biggest opportunity for our church to collectively pursue Jesus’ message of peace and model his profound love for people who have been pushed to the margins. It is a means for us to subvert the narrative that we must accumulate wealth and challenges us to think as global citizens. By participating in this campaign we choose to give generously to efforts in our world that seek to bring healing, redemption and justice to God’s creation.",  
                 "image1":[{
                     "src":"/static/images/Go-2.jpg",
                     "alt":"Man with crossed arms in discussion"
