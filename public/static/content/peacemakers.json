@@ -25,7 +25,7 @@
                 ],
                 "header1": "Peacemakers",
                 "header2": "",
-                "text1": "Peacemakers is our opportunity to look beyond our neighbourhood and work towards justice and peace in some of the most vulnerable places around the world. As the church, it is our responsibility to stand up for people who have been marginalized and to meet the tangible needs of people created by the injustices in the world.",
+                "text1": "Peacemakers is an opportunity for us to look beyond our neighbourhoods and work for justice and peace in some of the most vulnerable places around the world. As the church, it is our responsibility to stand up for people who have been marginalized and to meet the tangible needs created by systems of injustice in our world.",
                 "button1Text": "Watch Video",
                 "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
             },
@@ -40,7 +40,7 @@
                     },
                     {
                         "type":"text",
-                        "title": "Peacebuilding in Sub-Saharan Africa"
+                        "title": "Peacebuilding in sub-Saharan Africa"
                     },
                     {
                         "type":"text",
@@ -79,7 +79,7 @@
                 "type": "content",
                 "style":"greyTwoText",
                 "header1":"0$/225000$ Raised",
-                "text1":"We partner with peacebuilding efforts because it is through peace that communities are able to flourish.",
+                "text1":"We partner with peacebuilding efforts as peace lays the foundation for communities to flourish.",
                 "amount":"0",
 
                 "total":"225000",
