@@ -75,5 +75,6 @@
 {"id":"owensound","to":"owen-sound"},
 {"id":"parrysound","to":"parry-sound"},
 {"id":"growthgaugesprint","to":"/static/pdfs/Growth-Gauges/Growth-Gauges.pdf"},
-{"id":"jesuscollective","to":"https://meeting.formstack.com/forms/jesus_collective_mailing_list"}
+{"id":"jesuscollective","to":"https://meeting.formstack.com/forms/jesus_collective_mailing_list"},
+{"id":"govideos","to":"https://www.youtube.com/playlist?list=PLB5r2P47beqKvgGXrtWpjjfs1T7rwoP6_"}
 ]

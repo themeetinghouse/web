@@ -162,26 +162,7 @@
 
 // Tablet
 @media (min-width: 768px) and (max-width: 1024px) {
-    .modal-content {
-        padding-bottom: 10vh;
-    }
-
-    .logoHouse{
-        height: 30px;
-        vertical-align: middle;
-    }
-
-    .navbar-custom{
-        position: fixed;
-        background-color: #ffffff;
-        left: 0;
-        right: 0;
-        width: 100vw;
-        z-index: 999;
-        padding: 2vw 0 2vw 0;
-        top: 0vh;
-        height: 70px;
-    }
+   
 
     .VideoOverlayClose{
         $size: 20px;
@@ -233,26 +214,7 @@
 
 // Mobile
 @media (max-width: 767px) {
-    .modal-content {
-        padding-bottom: 10vh;
-    }
-
-    .logoHouse{
-        height: 20px;
-        vertical-align: top;
-    }
-
-    .navbar-custom{
-        position: fixed;
-        background-color: #ffffff;
-        left: 0;
-        right: 0;
-        width: 100vw;
-        z-index: 999;
-        padding: 2vw 0 2vw 0;
-        top: 0vh;
-        height: 50px;
-    }
+ 
 
     .VideoOverlayClose{
         $size: 15px;
