@@ -207,7 +207,7 @@
          "Email": "Emma.Field@themeetinghouse.com"
      },
      {
-       "Staff":true,
+       "Staff":false,
         "FirstName": "Eric",
         "LastName": "Faulknor",
         "Phone": "905.287.7000, ext. 810",

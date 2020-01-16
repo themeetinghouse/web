@@ -37,7 +37,7 @@
                 "text1":"We want to explore new and innovative ways of engaging people in our neighbourhoods and around the world who have never meaningfully encountered the good news of Jesus.",
                 "list": [
                     {
-                        "type":"link",
+                        "type":"button",
                         "title": "Pledge and Give",
                         "navigateTo": "/go-choose"
                     }
