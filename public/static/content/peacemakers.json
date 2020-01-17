@@ -19,7 +19,7 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/Go-1.jpg",
+                        "src": "/static/images/peacemakers-2.jpg",
                         "alt": "Description"
                     }
                 ],
@@ -59,27 +59,27 @@
                 ],
                
                 "image1":[{
-                    "src":"/static/images/Go-2.jpg",
-                    "alt":"Man with crossed arms in discussion"
+                    "src":"/static/images/peacemakers-2.jpg",
+                    "alt":"A women and her baby recieve a peacemakers relief kit from an Aid Worker in Jordan."
                 }]
 
             },
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1":"Ready to participate?",
-                "header2":"Collection Day: March 8",
-                "text1":"Peacemakers is a collective initiative. Our community is invited to donate financially in the form of Peace Cards and Relief Kits. This year our Relief Kits will be going to Jordan to people affected by the conflict in Syria. Why Peacemakers? Peacemakers is one the biggest opportunity for our church to collectively pursue Jesus’ message of peace and model his profound love for people who have been pushed to the margins. It is a means for us to subvert the narrative that we must accumulate wealth and challenges us to think as global citizens. By participating in this campaign we choose to give generously to efforts in our world that seek to bring healing, redemption and justice to God’s creation.",  
+                "header1":"Collection Day is Sunday March 8.",
+                "header2":"",
+                "text1":"Peacemakers is a collective initiative. Our community is invited to donate financially in the form of Peace Cards and Relief Kits. This year our Relief Kits will be going to Jordan to people affected by the conflict in Syria.",  
                 "image1":[{
-                    "src":"/static/images/Go-2.jpg",
-                    "alt":"Man with crossed arms in discussion"
+                    "src":"/static/images/peacemakers-3.jpg",
+                    "alt":"A teeange boy is volunteering for the peacemakers campaign by placing relief kit items into large bucket for shipping."
                 }]
 
             },
             {
                 "type": "content",
                 "style":"greyTwoText",
-                "header1":"0$/225000$ Raised",
+                "header1":"$0/$225,000 Raised",
                 "text1":"We partner with peacebuilding efforts as peace lays the foundation for communities to flourish.",
                 "amount":"0",
 
@@ -91,6 +91,24 @@
                         "navigateTo": "/give"
                     }
                 ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1":"Why Peacemakers?",
+                "text1":"This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth and challenges us to think as global citizens.",
+                "list": [
+                    {
+                        "type":"text",
+                        "title": "By participating in this campaign we choose to give generously to efforts in our world that seek to bring healing, redemption and justice to God’s creation."
+                    }
+                ],
+               
+                "image1":[{
+                    "src":"/static/images/peacemakers-4.jpg",
+                    "alt":"Volunteers working together to pack Peacemakers relief kits."
+                }]
+
             },
             {
                 "type":"list",
