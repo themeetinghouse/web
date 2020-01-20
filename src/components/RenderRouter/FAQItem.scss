@@ -1,355 +1,29 @@
 @media (min-width: 768px) {
-    /* 
-  make each pie piece a rectangle twice as high as it is wide.
-  move the transform origin to the middle of the left side.
-  Also ensure that overflow is set to hidden.
-*/
-.pieChart{
-    position:absolute;
-    left:20vw;
-    top:-2vw;
-}
-.pieChart2{
-    position:absolute;
-    left:24.5vw;
-    top:1vw;
-}
-.circleHeader{
-    position:absolute;
-    font-size: 3vw;
-    font-family: Graphik Web;
-    font-weight:bold;
-    text-align: center;
-    left:29vw;
-    top:5vw;
-    width:12vw;
-}
-.circleText{
-    position:absolute;
-    text-align: center;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
-    left:29vw;
-    top:9vw;
-    width:12vw;
-}
-  .pie {
-    position:absolute;
-    width:10vw;
-    height:20vw;
-    overflow:hidden;
-    left:15vw;
-    -moz-transform-origin:left center;
-    -ms-transform-origin:left center;
-    -o-transform-origin:left center;
-    -webkit-transform-origin:left center;
-    transform-origin:left center;
-}
-/*
-unless the piece represents more than 50% of the whole chart.
-then make it a square, and ensure the transform origin is
-back in the center.
-
-NOTE: since this is only ever a single piece, you could
-move this to a piece specific rule and remove the extra class
-*/
-.pie.big {
-    width:20vw;
-    height:20vw;
-    left:5vw;
-    -moz-transform-origin:center center;
-    -ms-transform-origin:center center;
-    -o-transform-origin:center center;
-    -webkit-transform-origin:center center;
-    transform-origin:center center;
-}
-/*
-this is the actual visible part of the pie. 
-Give it the same dimensions as the regular piece.
-Use border radius make it a half circle.
-move transform origin to the middle of the right side.
-Push it out to the left of the containing box.
-*/
-.pie:BEFORE {
-    content:"";
-    position:absolute;
-    width:10vw;
-    height:20vw;
-    left:-10vw;
-    border-radius:10vw 0 0 10vw;
-    -moz-transform-origin:right center;
-    -ms-transform-origin:right center;
-    -o-transform-origin:right center;
-    -webkit-transform-origin:right center;
-    transform-origin:right center;
     
-}
-/* if it's part of a big piece, bring it back into the square */
-.pie.big:BEFORE {
-    left:0px;
-}
-/* 
-big pieces will also need a second semicircle, pointed in the
-opposite direction to hide the first part behind.
-*/
-.pie.big:AFTER {
-    content:"";
-    position:absolute;
-    width:10vw;
-    height:20vw;
-    left:10vw;
-    border-radius:0 10vw 10vw 0;
-}
-/*
-add colour to each piece.
-*/
-.pie:nth-of-type(1):BEFORE,
-.pie:nth-of-type(1):AFTER {
-    background-color:#FFC60B;	
-}
-.pie:nth-of-type(2):AFTER,
-.pie:nth-of-type(2):BEFORE {
-    background-color:#FFC60B;	
-}
-.pie:nth-of-type(3):AFTER,
-.pie:nth-of-type(3):BEFORE {
-    background-color:#FFC60B;	
-}
-.pie:nth-of-type(4):AFTER,
-.pie:nth-of-type(4):BEFORE {
-    background-color:#646469;	
-}
-/*
-now rotate each piece based on their cumulative starting
-position
-*/
-.pie[data-start="30"] {
-    -moz-transform: rotate(30deg); /* Firefox */
-    -ms-transform: rotate(30deg); /* IE */
-    -webkit-transform: rotate(30deg); /* Safari and Chrome */
-    -o-transform: rotate(30deg); /* Opera */
-    transform:rotate(30deg);
-}
-.pie[data-start="60"] {
-    -moz-transform: rotate(60deg); /* Firefox */
-    -ms-transform: rotate(60deg); /* IE */
-    -webkit-transform: rotate(60deg); /* Safari and Chrome */
-    -o-transform: rotate(60deg); /* Opera */
-    transform:rotate(60deg);
-}
-.pie[data-start="100"] {
-    -moz-transform: rotate(100deg); /* Firefox */
-    -ms-transform: rotate(100deg); /* IE */
-    -webkit-transform: rotate(100deg); /* Safari and Chrome */
-    -o-transform: rotate(100deg); /* Opera */
-    transform:rotate(100deg);
-}
-/*
-and rotate the amount of the pie that's showing.
-
-NOTE: add an extra degree to all but the final piece, 
-to fill in unsightly gaps.
-*/
-.pie[data-value="30"]:BEFORE {
-    -moz-transform: rotate(31deg); /* Firefox */
-    -ms-transform: rotate(31deg); /* IE */
-    -webkit-transform: rotate(31deg); /* Safari and Chrome */
-    -o-transform: rotate(31deg); /* Opera */
-    transform:rotate(31deg);
-}
-.pie[data-value="40"]:BEFORE {
-    -moz-transform: rotate(41deg); /* Firefox */
-    -ms-transform: rotate(41deg); /* IE */
-    -webkit-transform: rotate(41deg); /* Safari and Chrome */
-    -o-transform: rotate(41deg); /* Opera */
-    transform:rotate(41deg);
-}
-.pie[data-value="260"]:BEFORE {
-    -moz-transform: rotate(260deg); /* Firefox */
-    -ms-transform: rotate(260deg); /* IE */
-    -webkit-transform: rotate(260deg); /* Safari and Chrome */
-    -o-transform: rotate(260deg); /* Opera */
-    transform:rotate(260deg);
-}
-
-
-
-
-
-.pie2 {
-    position:absolute;
-    width:7vw;
-    height:14vw;
-    overflow:hidden;
-    left:10.45vw;
-    -moz-transform-origin:left center;
-    -ms-transform-origin:left center;
-    -o-transform-origin:left center;
-    -webkit-transform-origin:left center;
-    transform-origin:left center;
-}
-/*
-unless the piece represents more than 50% of the whole chart.
-then make it a square, and ensure the transform origin is
-back in the center.
-
-NOTE: since this is only ever a single piece, you could
-move this to a piece specific rule and remove the extra class
-*/
-.pie2.big {
-    width:14vw;
-    height:14vw;
-    left:3.5vw;
-    -moz-transform-origin:center center;
-    -ms-transform-origin:center center;
-    -o-transform-origin:center center;
-    -webkit-transform-origin:center center;
-    transform-origin:center center;
-}
-/*
-this is the actual visible part of the pie. 
-Give it the same dimensions as the regular piece.
-Use border radius make it a half circle.
-move transform origin to the middle of the right side.
-Push it out to the left of the containing box.
-*/
-.pie2:BEFORE {
-    content:"";
-    position:absolute;
-    width:7vw;
-    height:14vw;
-    left:-7vw;
-    border-radius:7vw 0 0 7vw;
-    -moz-transform-origin:right center;
-    -ms-transform-origin:right center;
-    -o-transform-origin:right center;
-    -webkit-transform-origin:right center;
-    transform-origin:right center;
-    
-}
-/* if it's part of a big piece, bring it back into the square */
-.pie2.big:BEFORE {
-    left:0px;
-}
-/* 
-big pieces will also need a second semicircle, pointed in the
-opposite direction to hide the first part behind.
-*/
-.pie2.big:AFTER {
-    content:"";
-    position:absolute;
-    width:7vw;
-    height:14vw;
-    left:7vw;
-    border-radius:0 7vw 7vw 0;
-}
-/*
-add colour to each piece.
-*/
-.pie2:nth-of-type(1):BEFORE,
-.pie2:nth-of-type(1):AFTER {
-    background-color:#EFEFF0;	
-}
-.pie2:nth-of-type(2):AFTER,
-.pie2:nth-of-type(2):BEFORE {
-    background-color:#EFEFF0;	
-}
-.pie2:nth-of-type(3):AFTER,
-.pie2:nth-of-type(3):BEFORE {
-    background-color:#EFEFF0;	
-}
-.pie2:nth-of-type(4):AFTER,
-.pie2:nth-of-type(4):BEFORE {
-    background-color:#EFEFF0;	
-}
-/*
-now rotate each piece based on their cumulative starting
-position
-*/
-.pie2[data-start="30"] {
-    -moz-transform: rotate(30deg); /* Firefox */
-    -ms-transform: rotate(30deg); /* IE */
-    -webkit-transform: rotate(30deg); /* Safari and Chrome */
-    -o-transform: rotate(30deg); /* Opera */
-    transform:rotate(30deg);
-}
-.pie2[data-start="60"] {
-    -moz-transform: rotate(60deg); /* Firefox */
-    -ms-transform: rotate(60deg); /* IE */
-    -webkit-transform: rotate(60deg); /* Safari and Chrome */
-    -o-transform: rotate(60deg); /* Opera */
-    transform:rotate(60deg);
-}
-.pie2[data-start="100"] {
-    -moz-transform: rotate(100deg); /* Firefox */
-    -ms-transform: rotate(100deg); /* IE */
-    -webkit-transform: rotate(100deg); /* Safari and Chrome */
-    -o-transform: rotate(100deg); /* Opera */
-    transform:rotate(100deg);
-}
-/*
-and rotate the amount of the pie that's showing.
-
-NOTE: add an extra degree to all but the final piece, 
-to fill in unsightly gaps.
-*/
-.pie2[data-value="30"]:BEFORE {
-    -moz-transform: rotate(31deg); /* Firefox */
-    -ms-transform: rotate(31deg); /* IE */
-    -webkit-transform: rotate(31deg); /* Safari and Chrome */
-    -o-transform: rotate(31deg); /* Opera */
-    transform:rotate(31deg);
-}
-.pie2[data-value="40"]:BEFORE {
-    -moz-transform: rotate(41deg); /* Firefox */
-    -ms-transform: rotate(41deg); /* IE */
-    -webkit-transform: rotate(41deg); /* Safari and Chrome */
-    -o-transform: rotate(41deg); /* Opera */
-    transform:rotate(41deg);
-}
-.pie2[data-value="260"]:BEFORE {
-    -moz-transform: rotate(260deg); /* Firefox */
-    -ms-transform: rotate(260deg); /* IE */
-    -webkit-transform: rotate(260deg); /* Safari and Chrome */
-    -o-transform: rotate(260deg); /* Opera */
-    transform:rotate(260deg);
-}
-/*
-NOTE: you could also apply custom classes (i.e. .s0 .v30)
-but if the CSS3 attr() function proposal ever gets implemented,
-then all the above custom piece rules could be replaced with
-the following:
-
-.pie[data-start] {
-transform:rotate(attr(data-start,deg,0);
-}
-.pie[data-value]:BEFORE {
-transform:rotate(attr(data-value,deg,0);
-}
-*/
-
-    .oneImageText {
+    .faqText {
         font-size: 1.5vw;
         font-family: Graphik Web;
     }
-
-    .oneImageText.white {
+    .FAQQuestion{
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+        font-weight:bold;
+    }
+    .FAQAnswer{
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+    }
+    .faqText.white {
         color: #ffffff;
     }
-    .oneImageEventDetails{
-        font-family: Graphik Web;
-        color: #ffffff;
-        font-size: 1.5vw;
-        margin-top: 1vw;
-        margin-bottom: 0.5vw;
-    }
-    .oneImageA {
+   
+    .faqA {
         font-size: 1.5vw;
         font-family: Graphik Web;
 
     }
 
-    .oneImageImage {
+    .faqImage {
         position: absolute;
         height: 35vw;
         width: 35vw;
@@ -359,7 +33,7 @@ transform:rotate(attr(data-value,deg,0);
         // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
 
-    .oneImageImage.right {
+    .faqImage.right {
         position: absolute;
         height: 35vw;
         width: 35vw;
@@ -369,27 +43,26 @@ transform:rotate(attr(data-value,deg,0);
         // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
 
-    .oneImageGreyBox {
-        padding: 10vw;
+    .faqGreyBox {
+        padding: 0vw;
         position: relative;
         width: 50vw;
-        height: 40vw;
-        left: 30vw;
+        left: 20vw;
         top: 0vw;
-        background-color: #EFEFF0;
+       
     }
 
-    .oneImageGreyBox.right {
-        padding: 10vw;
+    .faqGreyBox.right {
+        padding: 0vw;
         position: relative;
-        width: 50vw;
-        height: 40vw;
+        width: 40vw;
+      
         left: 0vw;
         top: 0vw;
-        background-color: #EFEFF0;
+      
     }
 
-    .oneImageBlackBox {
+    .faqBlackBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -399,7 +72,7 @@ transform:rotate(attr(data-value,deg,0);
         background-color: #000000;
     }
 
-    .oneImageBlackBox.right {
+    .faqBlackBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -408,7 +81,7 @@ transform:rotate(attr(data-value,deg,0);
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageGreenBox {
+    .faqGreenBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -418,7 +91,7 @@ transform:rotate(attr(data-value,deg,0);
         background-color: #2b583b;
     }
 
-    .oneImageGreenBox.right {
+    .faqGreenBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -427,24 +100,24 @@ transform:rotate(attr(data-value,deg,0);
         top: 0vw;
         background-color: #2b583b;
     }
-    .oneImageH1 {
+    .faqeH1 {
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
     }
 
-    .oneImageH1.white {
+    .faqH1.white {
         color: #ffffff;
     }
 
-    .oneImagePosition {
+    .faqPosition {
         position: relative;
         left: 20vw;
         width: 80vw;
         z-index: 100;
     }
 
-    .ContentItem.oneImage {
+    .FAQItem.faq {
         position: static;
         padding-bottom: 5vw;
     }
@@ -546,28 +219,28 @@ transform:rotate(attr(data-value,deg,0);
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .oneImageText {
+    .faqText {
         font-size: 1.5vw;
         font-family: Graphik Web;
     }
-    .oneImageEventDetails{
+    .faqEventDetails{
         font-family: Graphik Web;
         color: #ffffff;
         font-size: 1.5vw;
         margin-top: 1vw;
         margin-bottom: 0.5vw;
     }
-    .oneImageText.white {
+    .faqText.white {
         color: #ffffff;
     }
 
-    .oneImageA {
+    .faqA {
         font-size: 1.5vw;
         font-family: Graphik Web;
 
     }
 
-    .oneImageImage {
+    .faqImage {
         position: absolute;
         height: 35vw;
         width: 35vw;
@@ -577,7 +250,7 @@ transform:rotate(attr(data-value,deg,0);
         //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
 
-    .oneImageImage.right {
+    .faqImage.right {
         position: absolute;
         height: 35vw;
         width: 35vw;
@@ -587,27 +260,27 @@ transform:rotate(attr(data-value,deg,0);
         //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
 
-    .oneImageGreyBox {
+    .faqGreyBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
-        height: 40vw;
+       
         left: 30vw;
         top: 0vw;
-        background-color: #EFEFF0;
+        
     }
 
-    .oneImageGreyBox.right {
+    .faqGreyBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
-        height: 40vw;
+       
         left: 0vw;
         top: 0vw;
-        background-color: #EFEFF0;
+        
     }
 
-    .oneImageBlackBox {
+    .faqBlackBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -617,7 +290,7 @@ transform:rotate(attr(data-value,deg,0);
         background-color: #000000;
     }
 
-    .oneImageBlackBox.right {
+    .faqBlackBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -626,7 +299,7 @@ transform:rotate(attr(data-value,deg,0);
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageGreenBox {
+    .faqGreenBox {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -636,7 +309,7 @@ transform:rotate(attr(data-value,deg,0);
         background-color: #2b583b;
     }
 
-    .oneImageGreenBox.right {
+    .faqGreenBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
@@ -645,24 +318,24 @@ transform:rotate(attr(data-value,deg,0);
         top: 0vw;
         background-color: #2b583b;
     }
-    .oneImageH1 {
+    .faqH1 {
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
     }
 
-    .oneImageH1.white {
+    .faqH1.white {
         color: #ffffff;
     }
 
-    .oneImagePosition {
+    .faqPosition {
         position: relative;
         left: 20vw;
         width: 80vw;
         z-index: 100;
     }
 
-    .ContentItem.oneImage {
+    .FAQItem.faq {
         position: static;
         padding-bottom: 5vw;
     }
@@ -760,17 +433,17 @@ transform:rotate(attr(data-value,deg,0);
 }
 
 @media (max-width: 767px) {
-    .oneImageText {
+    .faqText {
         font-size: 5vw;
         font-family: Graphik Web;
         line-height: 7.5vw;
     }
 
-    .oneImageText.white {
+    .faqText.white {
         color: #ffffff;
     }
 
-    .oneImageA {
+    .faqA {
         font-size: 5vw;
         font-family: Graphik Web;
         line-height: 7.5vw;
@@ -783,7 +456,7 @@ transform:rotate(attr(data-value,deg,0);
 
     }
 
-    .oneImageImage {
+    .faqImage {
         position: absolute;
         height: 90vw;
         width: 90vw;
@@ -799,7 +472,7 @@ transform:rotate(attr(data-value,deg,0);
       margin-top: 190vw!important;
     }
 
-    .oneImageGreyBox {
+    .faqGreyBox {
         margin-top: 55vw;
         padding: 40vw 6vw 10vw;
         position: relative;
@@ -807,9 +480,9 @@ transform:rotate(attr(data-value,deg,0);
         //height: 145vw;
         left: 0vw;
         top: 0vw;
-        background-color: #EFEFF0;
+       
     }
-    .oneImageBlackBox{
+    .faqBlackBox{
         // margin-top: 120vw;
         padding: 6vw;
         padding-top: 20vw;
@@ -821,7 +494,7 @@ transform:rotate(attr(data-value,deg,0);
         top: 0vw;
         background-color: #000000;
     }
-    .oneImageGreenBox{
+    .faqGreenBox{
         // margin-top: 120vw;
         padding: 6vw;
         padding-top: 20vw;
@@ -834,38 +507,38 @@ transform:rotate(attr(data-value,deg,0);
         background-color: #2b583b;
     }
 
-    .oneImageH1 {
+    .faqH1 {
         font-weight: bold;
         font-size: 10vw;
         font-family: Graphik Web;
         line-height: 12.5vw;
     }
-    .oneImageEventDetails{
+    .faqEventDetails{
         font-family: Graphik Web;
         color: #ffffff;
         font-size: 3vw;
         margin-top: 1vw;
         margin-bottom: 0.5vw;
     }
-    .oneImageH1.white {
+    .faqH1.white {
         color: #ffffff;
     }
 
-    .oneImagePosition {
+    .faqPosition {
         position: relative;
         left: 0vw;
         width: 100vw;
         z-index: 100;
     }
 
-    .ContentItem.oneImage {
+    .FAQItem.faq {
         position: static;
         // padding-bottom: 5vw;
         // padding-top: 45vw;
         display: relative;
     }
 
-    .ContentItemMarginBottom {
+    .FAQItemMarginBottom {
       margin-bottom: 55vw;
     }
 

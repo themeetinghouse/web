@@ -210,7 +210,26 @@ renderList(){
     else if(this.state.content.style === "greyTwoText"){
       return (
         <div className="ContentItem greyTwoText">
-              <div className="greyTwoTextH1" >{this.state.content.header1}</div>
+            {this.state.content.showCircle?<div>
+              <div className="pieChart">
+               
+                  <div className="pie" data-start="0" data-value="30"></div>
+                  <div className="pie highlight" data-start="30" data-value="30"></div>
+                  <div className="pie" data-start="60" data-value="40"></div>
+                  <div className="pie big" data-start="100" data-value="260"></div>
+            </div>
+             <div className="pieChart2">
+                  <div className="pie2" data-start="0" data-value="30"></div>
+                  <div className="pie2 highlight" data-start="30" data-value="30"></div>
+                  <div className="pie2" data-start="60" data-value="40"></div>
+                  <div className="pie2 big" data-start="100" data-value="260"></div>
+              </div>
+              <div className="circleHeader">{this.state.content.circleHeader}</div>
+              <div className="circleText">{this.state.content.circleText}</div>
+              </div>:null}
+              <div className="greyTwoTextH1" >{this.state.content.header1}
+              </div>
+             
               <div className="greyTwoTextText" >{this.state.content.text1}
               {this.renderList()}
               </div>
