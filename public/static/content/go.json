@@ -47,11 +47,30 @@
                     "src":"/static/images/Go-2.jpg",
                     "alt":"Man with crossed arms in discussion"
                 }]
-
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1":"Go Regional Events 2020",
+                "header2":"",
+                "text1":"We're coming to six cities across Ontario to hang out with you! If you've got questions or ideas when it comes to our Go campaign, this will be your opportunity to interact with our core community, senior leadership, and lead pastors.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Register Here",
+                        "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
+                    }
+                ],
+               
+                "image1":[{
+                    "src":"/static/images/Go-3.jpg",
+                    "alt":"Man with crossed arms in discussion"
+                }]
             },
             {
                 "type":"goContent"
             }
+            
         ]
     }
 }
