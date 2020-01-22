@@ -206,15 +206,6 @@
          "sites": ["Youth"],
          "Email": "Emma.Field@themeetinghouse.com"
      },
-     {
-       "Staff":true,
-        "FirstName": "Eric",
-        "LastName": "Faulknor",
-        "Phone": "905.287.7000, ext. 810",
-        "Position": "Technical Specialist",
-        "sites": ["Operations"],
-        "Email": "Eric.Faulknor@themeetinghouse.com"
-    },
     {
        "Staff":true,
         "FirstName": "Eric",

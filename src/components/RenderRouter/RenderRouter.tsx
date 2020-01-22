@@ -22,6 +22,7 @@ import InstagramItem from './InstagramItem';
 import SearchItem from './SearchItem';
 import IFrameItem from './IFrameItem';
 import WeatherItem from './WeatherItem';
+import FAQItem from './FAQItem'
 import { Helmet } from 'react-helmet'
 interface Props extends RouteComponentProps {
   content: any
@@ -73,6 +74,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<GiveItem key={index} content={item}></GiveItem>);
         else if (item.type === "give2")
           return (<Give2Item key={index} content={item}></Give2Item>);
+        else if (item.type === "faq")
+          return (<FAQItem key={index} content={item}></FAQItem>);
         else if (item.type==="weather")
         return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
         else return null

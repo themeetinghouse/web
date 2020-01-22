@@ -3,15 +3,14 @@
         "name": "peacemakers",
         "title": "Peacemakers",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -19,88 +18,269 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/Go-1.jpg",
+                        "src": "/static/images/peacemakers-2.jpg",
                         "alt": "Description"
                     }
                 ],
                 "header1": "Peacemakers",
                 "header2": "",
-                "text1": "Peacemakers is our opportunity to look beyond our neighbourhood and work towards justice and peace in some of the most vulnerable places around the world. As the church, it is our responsibility to stand up for people who have been marginalized and to meet the tangible needs of people created by the injustices in the world.",
+                "text1": "The is our opportunity to work towards justice and peace in some of the most vulnerable places around the world. As the church, it's our responsibility to stand for people who have been marginalized by working to meet their tangible needs.",
                 "button1Text": "Watch Video",
                 "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
             },
             {
                 "type": "content",
                 "style": "oneImage",
-                "text1":"Through Peacemakers we partner with Mennonite Central Committee (MCC) to walk intentionally with people to support their vision for their lives and community",
+                "header1": "Our Partnership",
+                "text1": "Through Peacemakers we support Mennonite Central Committee to walk with vulnerable people as they actualize their own vision for their community.",
                 "list": [
                     {
-                        "type":"text",
+                        "type": "text",
                         "title": "There are four areas of MCC's work we partner with:"
                     },
                     {
-                        "type":"text",
-                        "title": "Peacebuilding in Sub-Saharan Africa"
+                        "type": "text",
+                        "title": "Peacebuilding in sub-Saharan Africa"
                     },
                     {
-                        "type":"text",
-                        "title": "Indigenous & Settler Reconciliation in Ontario"
+                        "type": "text",
+                        "title": "Indigenous and Settler Reconciliation in Ontario"
                     },
                     {
-                        "type":"text",
+                        "type": "text",
                         "title": "Restorative Justice in Ontario"
-                    }, 
+                    },
                     {
-                        "type":"text",
-                        "title": "Material relief efforts in areas of crisis globally"
+                        "type": "text",
+                        "title": "Humanitarian Relief globally"
                     }
-
                 ],
-               
-                "image1":[{
-                    "src":"/static/images/Go-2.jpg",
-                    "alt":"Man with crossed arms in discussion"
-                }]
-
+                "image1": [
+                    {
+                        "src": "/static/images/peacemakers-2.jpg",
+                        "alt": "A women and her baby recieve a peacemakers relief kit from an Aid Worker in Jordan."
+                    }
+                ]
             },
             {
                 "type": "content",
-                "style": "oneImage",
-                "header1":"How can we support the campaign?",
-                "header2":"",
-                "text1":"TODO",  
-                "image1":[{
-                    "src":"/static/images/Go-2.jpg",
-                    "alt":"Man with crossed arms in discussion"
-                }]
-
+                "style": "oneImageBlackRight",
+                "header1": "Collection Day is Sunday March 8.",
+                "header2": "",
+                "text1": "Peacemakers is a collective initiative. Our community is invited to donate financially in the form of Peace Cards and Relief Kits. This year our Relief Kits will be going to Jordan to people affected by the conflict in Syria.",
+                "image1": [
+                    {
+                        "src": "/static/images/peacemakers-3.jpg",
+                        "alt": "A teeange boy is volunteering for the peacemakers campaign by placing relief kit items into large bucket for shipping."
+                    }
+                ]
             },
             {
                 "type": "content",
-                "style":"greyTwoText",
-                "text1":"We partner with peacebuilding efforts because it is through peace that communities are able to flourish.",
-                "amount":"0",
-
-                "total":"225000",
+                "style": "greyTwoText",
+                "header1": "",
+                "text1": "We partner with peacebuilding efforts as peace lays the foundation for communities to flourish.",
+                "circleHeader": "0$",
+                "circleText": "RAISED TO DATE",
+                "showCircle":true,
                 "list": [
                     {
-                        "type":"button",
+                        "type": "button",
                         "title": "Give to Peacemakers",
                         "navigateTo": "/give"
                     }
                 ]
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"compassion",
-                "selector":"peacemakers",
-                "sortOrder":"DESC",
-                "header1":"Peacemakers"                
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Why Peacemakers?",
+                "text1": "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth and challenges us to think as global citizens.",
+                "list": [
+                    {
+                        "type": "text",
+                        "title": "By participating in this campaign we choose to give generously to efforts in our world that seek to bring healing, redemption and justice to God’s creation."
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/peacemakers-4.jpg",
+                        "alt": "Volunteers working together to pack Peacemakers relief kits."
+                    }
+                ]
             },
             {
-                "type":"faq" 
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "compassion",
+                "selector": "peacemakers",
+                "sortOrder": "DESC",
+                "header1": "Peacemakers",
+                "showEpisodeNumbers": false
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Resources",
+                "header2": "",
+                "text1": "",
+                "image1": [
+                    {
+                        "src": "/static/images/about-us-2-3.jpg",
+                        "alt": "Three people sitting at a table, talking about the bible"
+                    }
+                ],
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "PDF1",
+                        "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "PDF2",
+                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
+                        "openNewBrowser": true
+                    }
+                ]
+            },
+            {
+                "type": "faq",
+                "header1":"FAQ",
+                "image1": [
+                    {
+                        "src": "/static/images/about-us-2-3.jpg",
+                        "alt": "Three people sitting at a table, talking about the bible"
+                    }
+                ],
+                "list": [
+                    {
+                        "type": "question",
+                        "question": "Why did we choose to support MCC’s peacebuilding work?",
+                        "answer": [
+                            "In 2016, we came to the end of a partnership agreement with MCC to support their HIV/AIDs healthcare initiatives in southern Africa. When we asked MCC how we could more effectively support them in the upcoming years they proposed that we focus our support on their peacebuilding and relief efforts. We believe in actively listening and responding to the needs of our partners and respecting their insight into the realities of the needs of their work around the world. Trusting MCC, their experience, and in an effort to be responsive to the highest priorities identified, we have decided to redirect our time and energy towards peacebuilding and humanitarian relief.",
+                            "Peace is at the core of our identity of our church as Christ followers and as Anabaptists. Our belief in Jesus’ radical demonstration of peace is central to our theology and we are excited to come alongside programs that support peace in such a tangible way! "
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What are Peace Cards and Relief Kits?",
+                        "answer": [
+                            "Peace Cards are $100 donations that will be going to MCC’s peacebuilding work in Sub-Saharan Africa and here in Ontario. Relief Kits are a collection of specific in-kind donations that MCC uses to respond to humanitarian relief situations around the world. For a list of items please visit themeetinghouse.com/peacemakers"
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What are our Peace Card and Relief Kit goals for 2020?",
+                        "answer": [
+                            "Our goal this year is to collect --- Peace Cards and ---- Relief Kits"
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What items are kidmax and the Underground collecting this year?",
+                        "answer": [
+                            "kidmax: This year the kids are collecting the 4 large bars of bath soap (in wrapper) that are needed for each Relief Kit. The goal that kidmax is trying to raise collectively is 4000 bars of bath soap.",
+                            "The Underground: This year the youth will be collecting full Relief Kits within their mid-week small groups. Junior highs that only attend Sunday mornings will be collecting 4 bars of bath soap (in wrapper) along with kidmax to work towards their goal of collecting 4000 bars of bath soap."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Who do I make the cheque out to?",
+                        "answer": [
+                            "Make all cheques out to The Meeting House and not MCC Ontario. Processing all the cheques is a lot of work so please make sure you use the Peace Card envelope available at our Information Tables.  Only one donor per Peace Card envelope please! Don’t forget to include all the requested contact information for tax receipting purposes. Tax receipts are given for amounts of $20 or greater."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "When do I bring my Relief Kits and Peace Cards for the collection?",
+                        "answer": [
+                            "The collection date for ALL sites in Sunday, March 8th, 2020. Bring your Relief Kits and Peace Cards to your site before the service begins. Make sure that your cheques and envelopes are properly filled in, including your full address. Please DO NOT pack any cheques or envelops into your Relief Kits"
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Who will receive the Relief Kits and how are recipients selected?",
+                        "answer": [
+                            "Each year MCC will determine where the Relief Kits will be going based on where the greatest need is for humanitarian relief. This year the Relief Kits will be distributed in Syria, Jordan, or Lebanon to persons affected by the crisis in Syria. The recipients of the kits will be Syrian and other refugees living in Jordan or Lebanon, Syrians who have been internally displaced within Syria, and low-income Jordanians/Lebanese who have been negatively impacted by the major influx of Syrian refugees into their country.  For more information about the crisis in Syria and MCC’s response please click here."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Why are these specific items needed?",
+                        "answer": [
+                            "Bath Soap - Soap helps to maintain a basic level of hygiene but for many people who have been displaced gaining access to ‘luxuries’ beyond adequate food and shelter is a challenge.",
+                            "Fingernail Clipper (Remove from packaging) - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short, and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult, and people are often eating with their hands.",
+                            "Laundry Soap (Sunlight ® brand preferred) - Bars of laundry soap are stronger than powdered laundry soap, and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives." ,
+                            "Adult-size toothbrushes - Many families when they are on the move either have no toothbrush depending on the condition in which they fled or may have to share one toothbrush among many family members. Dental care, if offered at all, is too expensive in the many places where there are large populations of refugees. Oral hygiene products are additional expenses that families often must forego in the place of food and shelter.",
+                            "Bath towels (medium weight, dark or bright colours) - Often heavy and bulky items such as towels are left behind in situations where families and individuals must leave most of their belongings behind. As refugees and internally displaced persons rebuild their lives, items such as towels are invaluable. Items like this are expensive to purchase when funds are low, yet are needed on a day-to-day basis.",
+                            "Wide-tooth combs (15 cm–20 cm) - A staple for personal hygiene, combs not only help when bathing is less possible in conditions where water is scarce, but they are also helpful in preserving personal dignity as displaced persons try to rebuild their lives.",
+                             "Plastic bottle shampoo (380–710 ml; place in re-sealable plastic bag) - Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work, and living day-to-day in a new place after traumatically leaving their homes behind.",
+                            "Box adhesive bandages (minimum 40 count, assorted) - In many places where there are densely populated refugees and internally displaced persons, adequate medical care is scarce. Bandages help keep small wounds clean in places where adequate sanitation is difficult to maintain, thereby assisting in keeping the spread of infection at bay.",
+                            "Package sanitary pads (18–24 count thin maxi) - Feminine Hygiene Products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy." 
+                        
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Why don’t we get all the items via corporate donations and/or bulk purchasing?",
+                        "answer": [
+                            "Obtaining items via donations or bulk purchasing would be more efficient but definitely less relational.  The Relief Kits create a space for The Meeting House as a community to remember our brothers and sisters in around the world and to respond in a tangible manner.  It’s an opportunity for individuals, Home Churches, and families to rally together and achieve a common goal."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Is sending Relief Kits to areas affected by conflict an appropriate response that aligns with proper development practices?",
+                        "answer": [
+                            "Relief Kits are important because they provide items that meet the basic needs for individuals and families affected by international conflict and disaster. MCC prioritizes purchasing items locally when possible, however, in severe conflict and disaster situations the local economy has collapsed and the ability to purchase these items locally in bulk is difficult or impossible. Without Relief Kits these essential supplies that meet people's basic needs wouldn’t be available. When people's basic needs are met it reduces tension within conflict situations, so Relief Kits not only support relief work but also support longer term development, peacebuilding, and reconciliation efforts"
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Why does it say 'one donor per envelope' on the Peace Cards?",
+                        "answer": [
+                            "Peace Cards are $100 each and our goal is --- across all of our sites. We are asking that people who give money towards Peace Cards will use the special envelopes that are available at the Info Tables.  We only want one donor per envelope because it’s much easier for our financial team to account and give tax receipts. We are, however, giving tax receipts for amounts of $20 or greater.  That means that if you have a 4 people wanting to put $25 each towards a $100 CARE CARD, they should use 4 separate envelopes.  If they put all their money in one envelope, then only one donor (whose info is on the outside of the envelope) will receive the tax receipt."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What are the Peace Card funds used for?",
+                        "answer": [
+                            "The funds raised through Peace Cards are how we financially support the peacebuilding work MCC is doing in Sub-Saharan Africa and locally in Ontario.  Are support will be going to MCC's work in Burkina Faso, Burundi, DRC, Kenya, Nigeria, South Sudan, South Africa, Uganda, Zambia, Zimbabwe and here in Canada.  Projects that we will be supporting include Peace Clubs in Zambia, Police Community Dialogue in Zimbabwe, Building Local Capacities for Conflict Transformation in Uganda, and Circles of Support and Accountability (CoSA) in Canada. Click here for more information about the MCC projects."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Can I give online or by text?",
+                        "answer": [
+                            "Yes!  There are 3 ways you can give without writing a cheque or giving cash.",
+                            "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE. If you do not currently give to The Meeting House through Bill Pay you can learn how to set this up by clicking HERE and read the section titled Web Banking.",
+                            "Credit/Debit: You can donate online by clicking on the following link HERE and selecting Peacemakers from the drop down menu. ",
+                            "Give by Text: You can donate by texting “The Meeting House”’ or “TMH” to 77977 and selecting Peacemakers from the drop down menu."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Why partner with MCC?",
+                        "answer": [
+                            "We are proud to be partnering with Mennonite Central Committee Canada as they come alongside locally directed projects around the globe and here in Canada.  MCC Canada has demonstrated commitment to a high level of transparency, accountability and integrity.  They are a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau, which have standards for fundraising as well as managing and reporting finances."
+                        ]
+                    },
+                   
+                    {
+                        "type": "question",
+                        "question": "Why does MCC send material resources?",
+                        "answer": [
+                            "MCC places a priority on purchasing materials in-country or in the region if surpluses of appropriate commodities are available at prices comparable to world prices plus shipping expenses. Nearly all MCC responses will contain both locally purchased materials and resources sent from Canada, the United States, and Europe. Material resources will be shipped from Canada and the United States where MCC works in the following situations:",
+                            "Available materials in MCC material resource centres are culturally appropriate",
+                            "Quality and quantity of materials given do not significantly disrupt the local market",
+                            "Local partners requested materials and are part of the planning for distribution and use",
+                            "Assistance is granted for a specific purpose and for a defined period of time"
+                        ]
+                    }
+                ]
             }
         ]
     }
