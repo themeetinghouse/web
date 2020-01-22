@@ -143,6 +143,24 @@
                         "title": "Kitchener Lead Pastor",
                         "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
                         "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Oakville Youth Pastor",
+                        "navigateTo": "/static/pdfs/careers/OAK_Youth_Pastor.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "High Park Kidmax Coordinator",
+                        "navigateTo": "/static/pdfs/careers/TOHP_Kidmax_Coordinator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Technical_Specialist",
+                        "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
+                        "openNewBrowser":true
                     }
                 ],
 
