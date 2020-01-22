@@ -158,7 +158,7 @@
                     },
                     {
                         "type":"link",
-                        "title": "Technical_Specialist",
+                        "title": "Technical Specialist",
                         "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
                         "openNewBrowser":true
                     }
