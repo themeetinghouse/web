@@ -87,7 +87,7 @@
                     {
                         "type": "button",
                         "title": "Give to Peacemakers",
-                        "navigateTo": "/give"
+                        "navigateTo": "/peacemakers-give"
                     }
                 ]
             },
@@ -134,14 +134,56 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "PDF1",
-                        "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
+                        "title": "Corporation Letter",
+                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
-                        "title": "PDF2",
-                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
+                        "title": "Fundraiser Procedures",
+                        "navigateTo": "/static/pdfs/compassion/2020-FundraiserProcedures.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Host a Fundraiser in your Neighbourhood",
+                        "navigateTo": "/static/pdfs/compassion/2020-Invite-your-Neighbourhood-Peacemakers.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Host a Fundraiser in your School",
+                        "navigateTo": "/static/pdfs/compassion/2020-Invite-your-School-Peacemakers-Resource.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Host a Fundraiser in your Workplace",
+                        "navigateTo": "/static/pdfs/compassion/2020-Invite-your-Workplace-Peacemakers.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Indigenous Neighbours Program",
+                        "navigateTo": "/static/pdfs/compassion/2019-Fall-Report-Indigenous-Neighbours-Food.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "List of Biodegradable Soap",
+                        "navigateTo": "/static/pdfs/compassion/2020-List-of-Biodegradable-Bath-Soap-Brands.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Restorative Justice Program",
+                        "navigateTo": "/static/pdfs/compassion/2019-Fall-Report-Restorative-Justice-General.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Sub-Saharan Africa Programs",
+                        "navigateTo": "/static/pdfs/compassion/2019-FallReport-Africa-Peace.pdf",
                         "openNewBrowser": true
                     }
                 ]
@@ -175,7 +217,7 @@
                         "type": "question",
                         "question": "What are our Peace Card and Relief Kit goals for 2020?",
                         "answer": [
-                            "Our goal this year is to collect --- Peace Cards and ---- Relief Kits"
+                            "Our goal this year is to collect 2,250 Peace Cards and 1,000 Relief Kits"
                         ]
                     },
                     {
@@ -204,7 +246,7 @@
                         "type": "question",
                         "question": "Who will receive the Relief Kits and how are recipients selected?",
                         "answer": [
-                            "Each year MCC will determine where the Relief Kits will be going based on where the greatest need is for humanitarian relief. This year the Relief Kits will be distributed in Syria, Jordan, or Lebanon to persons affected by the crisis in Syria. The recipients of the kits will be Syrian and other refugees living in Jordan or Lebanon, Syrians who have been internally displaced within Syria, and low-income Jordanians/Lebanese who have been negatively impacted by the major influx of Syrian refugees into their country.  For more information about the crisis in Syria and MCC’s response please click here."
+                            "Each year MCC will determine where the Relief Kits will be going based on where the greatest need is for humanitarian relief. This year the Relief Kits will be distributed to persons affected by the crisis in Syria. The recipients of the kits will be Syrian and other refugees living in Jordan or Lebanon, Syrians who have been internally displaced within Syria, and low-income Jordanians/Lebanese who have been negatively impacted by the major influx of Syrian refugees into their country.  For more information about the crisis in Syria and MCC’s response please click here."
                         ]
                     },
                     {
@@ -227,7 +269,7 @@
                         "type": "question",
                         "question": "Why don’t we get all the items via corporate donations and/or bulk purchasing?",
                         "answer": [
-                            "Obtaining items via donations or bulk purchasing would be more efficient but definitely less relational.  The Relief Kits create a space for The Meeting House as a community to remember our brothers and sisters in around the world and to respond in a tangible manner.  It’s an opportunity for individuals, Home Churches, and families to rally together and achieve a common goal."
+                            "Obtaining items via donations or bulk purchasing would be more efficient but definitely less relational.  The Relief Kits create a space for The Meeting House as a community to remember our brothers and sisters around the world and to respond in a tangible manner.  It’s an opportunity for individuals, Home Churches, and families to rally together and achieve a common goal."
                         ]
                     },
                     {
