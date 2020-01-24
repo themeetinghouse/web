@@ -52,6 +52,13 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Brent",
+    "LastName": "Babcock",
+    "sites": ["SAND"],
+    "Email": "brent.babcock@themeetinghouse.com",
+    "Position": "Sandbanks Lead Pastor"
+  },
+  {
     "FirstName": "Cristal",
     "LastName": "Laanstra",
     "sites": ["SAND"],
@@ -426,13 +433,6 @@
     "LastName": "Piche",
     "sites": ["WAT"],
     "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Brent",
-    "LastName": "Babcock",
-    "sites": ["SAND"],
-    "Email": "brent.babcock@themeetinghouse.com",
-    "Position": "Sandbanks Lead Pastor"
   },
   {
     "FirstName": "Don",
