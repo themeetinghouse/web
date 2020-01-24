@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-    
+
     .faqText {
         font-size: 1.5vw;
         font-family: Graphik Web;
@@ -16,7 +16,7 @@
     .faqText.white {
         color: #ffffff;
     }
-   
+
     .faqA {
         font-size: 1.5vw;
         font-family: Graphik Web;
@@ -49,17 +49,17 @@
         width: 50vw;
         left: 20vw;
         top: 0vw;
-       
+
     }
 
     .faqGreyBox.right {
         padding: 0vw;
         position: relative;
         width: 40vw;
-      
+
         left: 0vw;
         top: 0vw;
-      
+
     }
 
     .faqBlackBox {
@@ -162,7 +162,7 @@
     }
 
 
-   
+
 
 
     .greenTwoText {
@@ -213,7 +213,7 @@
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
-        
+
     }
 
 }
@@ -264,20 +264,20 @@
         padding: 10vw;
         position: relative;
         width: 50vw;
-       
+
         left: 30vw;
         top: 0vw;
-        
+
     }
 
     .faqGreyBox.right {
         padding: 10vw;
         position: relative;
         width: 50vw;
-       
+
         left: 0vw;
         top: 0vw;
-        
+
     }
 
     .faqBlackBox {
@@ -480,7 +480,7 @@
         //height: 145vw;
         left: 0vw;
         top: 0vw;
-       
+
     }
     .faqBlackBox{
         // margin-top: 120vw;
@@ -554,15 +554,16 @@
     .greyTwoTextH1 {
         position: relative;
         float: left;
-        margin: 1vw;
-        margin-top: 16vw;
-        margin-bottom: 10vw;
+        // margin: 1vw;
+        margin-top: 8vw;
+        margin-bottom: 0vw;
         left: 5vw;
         font-weight: bold;
-        width: 93vw;
-        height: 20vw;
-        font-size: 6.4vw;
+        // width: 93vw;
+        // height: 20vw;
+        // font-size: 6.4vw;
         font-family: Graphik Web;
+        text-align: center;
     }
 
     .greyTwoTextText {
