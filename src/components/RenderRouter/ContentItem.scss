@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-    /* 
+    /*
   make each pie piece a rectangle twice as high as it is wide.
   move the transform origin to the middle of the left side.
   Also ensure that overflow is set to hidden.
@@ -64,7 +64,7 @@ move this to a piece specific rule and remove the extra class
     transform-origin:center center;
 }
 /*
-this is the actual visible part of the pie. 
+this is the actual visible part of the pie.
 Give it the same dimensions as the regular piece.
 Use border radius make it a half circle.
 move transform origin to the middle of the right side.
@@ -82,13 +82,13 @@ Push it out to the left of the containing box.
     -o-transform-origin:right center;
     -webkit-transform-origin:right center;
     transform-origin:right center;
-    
+
 }
 /* if it's part of a big piece, bring it back into the square */
 .pie.big:BEFORE {
     left:0px;
 }
-/* 
+/*
 big pieces will also need a second semicircle, pointed in the
 opposite direction to hide the first part behind.
 */
@@ -105,19 +105,19 @@ add colour to each piece.
 */
 .pie:nth-of-type(1):BEFORE,
 .pie:nth-of-type(1):AFTER {
-    background-color:#FFC60B;	
+    background-color:#FFC60B;
 }
 .pie:nth-of-type(2):AFTER,
 .pie:nth-of-type(2):BEFORE {
-    background-color:#FFC60B;	
+    background-color:#FFC60B;
 }
 .pie:nth-of-type(3):AFTER,
 .pie:nth-of-type(3):BEFORE {
-    background-color:#FFC60B;	
+    background-color:#FFC60B;
 }
 .pie:nth-of-type(4):AFTER,
 .pie:nth-of-type(4):BEFORE {
-    background-color:#646469;	
+    background-color:#646469;
 }
 /*
 now rotate each piece based on their cumulative starting
@@ -147,7 +147,7 @@ position
 /*
 and rotate the amount of the pie that's showing.
 
-NOTE: add an extra degree to all but the final piece, 
+NOTE: add an extra degree to all but the final piece,
 to fill in unsightly gaps.
 */
 .pie[data-value="30"]:BEFORE {
@@ -207,7 +207,7 @@ move this to a piece specific rule and remove the extra class
     transform-origin:center center;
 }
 /*
-this is the actual visible part of the pie. 
+this is the actual visible part of the pie.
 Give it the same dimensions as the regular piece.
 Use border radius make it a half circle.
 move transform origin to the middle of the right side.
@@ -225,13 +225,13 @@ Push it out to the left of the containing box.
     -o-transform-origin:right center;
     -webkit-transform-origin:right center;
     transform-origin:right center;
-    
+
 }
 /* if it's part of a big piece, bring it back into the square */
 .pie2.big:BEFORE {
     left:0px;
 }
-/* 
+/*
 big pieces will also need a second semicircle, pointed in the
 opposite direction to hide the first part behind.
 */
@@ -248,19 +248,19 @@ add colour to each piece.
 */
 .pie2:nth-of-type(1):BEFORE,
 .pie2:nth-of-type(1):AFTER {
-    background-color:#EFEFF0;	
+    background-color:#EFEFF0;
 }
 .pie2:nth-of-type(2):AFTER,
 .pie2:nth-of-type(2):BEFORE {
-    background-color:#EFEFF0;	
+    background-color:#EFEFF0;
 }
 .pie2:nth-of-type(3):AFTER,
 .pie2:nth-of-type(3):BEFORE {
-    background-color:#EFEFF0;	
+    background-color:#EFEFF0;
 }
 .pie2:nth-of-type(4):AFTER,
 .pie2:nth-of-type(4):BEFORE {
-    background-color:#EFEFF0;	
+    background-color:#EFEFF0;
 }
 /*
 now rotate each piece based on their cumulative starting
@@ -290,7 +290,7 @@ position
 /*
 and rotate the amount of the pie that's showing.
 
-NOTE: add an extra degree to all but the final piece, 
+NOTE: add an extra degree to all but the final piece,
 to fill in unsightly gaps.
 */
 .pie2[data-value="30"]:BEFORE {
@@ -489,7 +489,7 @@ transform:rotate(attr(data-value,deg,0);
     }
 
 
-   
+
 
 
     .greenTwoText {
@@ -540,7 +540,7 @@ transform:rotate(attr(data-value,deg,0);
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
-        
+
     }
 
 }
@@ -967,5 +967,24 @@ transform:rotate(attr(data-value,deg,0);
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
+    }
+    .circleHeader{
+        // position:absolute;
+        font-size: 2vw;
+        font-family: Graphik Web;
+        font-weight:bold;
+        text-align: center;
+        // left:29vw;
+        // top:5vw;
+        // width:12vw;
+    }
+    .circleText{
+        // position:absolute;
+        text-align: center;
+        font-size: 5.5vw;
+        font-family: Graphik Web;
+        // left:29vw;
+        // top:9vw;
+        // width:12vw;
     }
 }
