@@ -540,7 +540,10 @@ transform:rotate(attr(data-value,deg,0);
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
-
+    }
+    .oneImageList {
+      font-size: 1.5vw;
+      font-family: Graphik Web;
     }
 
 }
@@ -1289,4 +1292,9 @@ transform:rotate(attr(data-value,deg,0);
   transform:rotate(attr(data-value,deg,0);
   }
   */
+  .oneImageList {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    line-height: 7.5vw;
+  }
 }

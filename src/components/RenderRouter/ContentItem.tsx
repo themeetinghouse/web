@@ -57,9 +57,9 @@ renderList(){
       )
     })
     :null
-} 
+}
   render() {
-    var image1 
+    var image1
     if (this.state.content.image1!=null)
      image1= this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
     if (this.state.content.style === "oneImage") {
@@ -71,7 +71,7 @@ renderList(){
               <h1 className="oneImageH1" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2">{this.state.content.header2}</h2>
               <div className="oneImageText" >{this.state.content.text1}</div>
-             {this.renderList()}
+              <div className="oneImageList" >{this.renderList()}</div>
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
@@ -212,7 +212,7 @@ renderList(){
         <div className="ContentItem greyTwoText">
             {this.state.content.showCircle?<div>
               <div className="pieChart">
-               
+
                   <div className="pie" data-start="0" data-value="30"></div>
                   <div className="pie highlight" data-start="30" data-value="30"></div>
                   <div className="pie" data-start="60" data-value="40"></div>
@@ -229,7 +229,7 @@ renderList(){
               </div>:null}
               <div className="greyTwoTextH1" >{this.state.content.header1}
               </div>
-             
+
               <div className="greyTwoTextText" >{this.state.content.text1}
               {this.renderList()}
               </div>
