@@ -894,6 +894,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .greyTwoTextText {
         left: 5vw;
+        top: 62vw;
         position: relative;
         margin: 1vw;
         margin-top: 3vw;
@@ -970,34 +971,34 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web !important;
     }
     .circleHeader{
-        // position:absolute;
+        position: absolute;
         font-size: 15vw!important;
         font-family: Graphik Web!important;
         font-weight:bold!important;
         text-align: center!important;
-        // left:29vw;
-        // top:5vw;
-        // width:12vw;
+        top: 41vw!important;
+        left: 41vw!important;
     }
     .circleText{
-        // position:absolute;
+        position: absolute;
         text-align: center!important;
         font-size: 5.5vw!important;
         font-family: Graphik Web!important;
-        // left:29vw;
-        // top:9vw;
-        // width:12vw;
+        top: 60vw!important;
+        left: 30vw!important;
     }
 
     .pieChart{
         position:absolute;
-        left:20vw;
-        top:-2vw;
+        left:-2vw;
+        top: 24vw;
+        transform: scale(3.5);
     }
     .pieChart2{
-        position:absolute;
-        left:24.5vw;
-        top:1vw;
+      position: absolute;
+      left: 12vw;
+      top: 31.5vw;
+      transform: scale(3.75);
     }
     .pie {
       position:absolute;
