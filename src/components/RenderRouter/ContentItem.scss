@@ -866,7 +866,11 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .ContentItemMarginBottom {
-      margin-bottom: 55vw;
+        margin-bottom: 55vw;
+    }
+
+    .goRegionalEventsMarginBottom {
+        margin-bottom: 30vw; 
     }
 
     .greyTwoText {
@@ -909,9 +913,6 @@ transform:rotate(attr(data-value,deg,0);
     .greyTwoClear {
         clear: left;
     }
-
-
-
 
     .greenTwoText {
         left: 0vw;
