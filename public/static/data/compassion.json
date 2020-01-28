@@ -56,7 +56,7 @@
         "name": "Next Door Social Space",
         "description": "A community resource centre in the Aldershot area that has a mission to be good neighbours, practicing warm hospitality and developing supportive relationships, through programs focused on social, skill and spiritual development in a welcoming and friendly environment.",
         "website": "https://www.nextdoorsocialspace.com/",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/images/compassion/nextdoor.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -146,7 +146,7 @@
         "name": "Crossroads Prison Ministries Canada",
         "description": "Crossroads Canada cultivates Christ-centred relationships between those inside and outside prison walls. ",
         "website": "https://cpministries.ca/",
-        "image": "/static/photos/compassion/crossroads.jpg",
+        "image": "/static/photos/compassion/crossroads.png",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -563,8 +563,8 @@
         "id": 65,
         "sites": ["burlington"],
         "name": "Eagles Nest Ministries",
-        "description":"For more than 15 years Eagles Nest Association of Waterdown has been impacting lives in their community showing compassion and providing practical support for families. Under Eagles Nest are three divisions: Drummond House, HOPE Centre and Rescued & Restored.",
-        "image": "/static/images/compassion/none.jpg",
+        "description":"Eagles Association of Waterdown has been impacting lives in the community for the past 15 years. The HOPE Centre (Home of Practical Education) provides accessible services such as counselling, coaching, educational programs, support groups, and parenting classes to equip families with the tools they need to build a healthier future. Rescued & Restored sells upcycled furniture and household goods to support the services of the HOPE Centre.",
+        "image": "/static/images/compassion/eagles next.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {

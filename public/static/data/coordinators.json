@@ -14,7 +14,7 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Jen L.",
+    "FirstName": "Jennifer",
     "LastName": "Stevens",
     "sites": ["BURL"],
     "Position": "Compassion Coordinator"
@@ -77,6 +77,12 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Pam",
+    "LastName": "Bustard",
+    "sites": ["KIT"],
+    "Position": "Compassion Coordinator"
+  },
+  {
     "FirstName": "Sandra",
     "LastName": "Albione",
     "sites": ["RHLL"],
@@ -136,6 +142,12 @@
     "Position": "Connect Coordinator"
   },
   {
+    "FirstName": "Steve",
+    "LastName": "Robinson",
+    "sites": ["HMMT"],
+    "Position": "Connect Coordinator"
+  },
+  {
     "FirstName": "Jessica-Rae",
     "LastName": "Linzel",
     "sites": ["OTTA"],
@@ -155,8 +167,8 @@
     "Position": "Connect Coordinator"
   },
   {
-    "FirstName": "Scott",
-    "LastName": "Mealey",
+    "FirstName": "Carol",
+    "LastName": "MacLean",
     "sites": ["TODT"],
     "Position": "Connect Coordinator"
   },
@@ -172,13 +184,6 @@
     "LastName": "Scott",
     "sites": ["BRAM"],
     "Email": "brittany.chisholm@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Laura",
-    "LastName": "Wassink",
-    "sites": ["BRFD"],
-    "Email": "laura.wassink@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
@@ -216,10 +221,9 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Kate",
-    "LastName": "Nixon",
+    "FirstName": "Natalie",
+    "LastName": "Kuurstra",
     "sites": ["LOND"],
-    "Email": "kate.nixon@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
@@ -351,10 +355,17 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Laura",
-    "LastName": "Driedger",
+    "FirstName": "Paula",
+    "LastName": "McLeod-Smith",
     "sites": ["KIT"],
-    "Email": "laura.driedger@themeetinghouse.com",
+    "Email": "kitchener.music@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Birgit",
+    "LastName": "Moscinski",
+    "sites": ["KIT"],
+    "Email": "kitchener.music@themeetinghouse.com",
     "Position": "Music Coordinator"
   },
   {
@@ -381,6 +392,12 @@
     "LastName": "Verdicchio Tayler",
     "sites": ["OTTA"],
     "Email": "carlo.verdicchio@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Allyson",
+    "LastName": "Theodore",
+    "sites": ["OTTA"],
     "Position": "Music Coordinator"
   },
   {
@@ -510,12 +527,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Daniel",
-    "LastName": "VanderVeen",
-    "sites": ["OTTA"],
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Anthony",
     "LastName": "Mak",
     "sites": ["RHLL"],
@@ -613,8 +624,14 @@
     "Position": "Welcome Coordinator"
   },
   {
-    "FirstName": "Clara",
-    "LastName": "Wong",
+    "FirstName": "Christine",
+    "LastName": "Hall",
+    "sites": ["TOUP"],
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Sue",
+    "LastName": "Yoo",
     "sites": ["TOUP"],
     "Position": "Welcome Coordinator"
   },
@@ -655,6 +672,12 @@
     "FirstName": "Nick",
     "LastName": "Barone",
     "sites": ["HMMT"],
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Lauren",
+    "LastName": "Gatten",
+    "sites": ["KIT"],
     "Position": "Youth Coordinator"
   },
   {
