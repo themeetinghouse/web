@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { Button } from 'reactstrap';
+import React  from 'react';
+import { Button, Collapse } from 'reactstrap';
 import "./FAQItem.scss"
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
@@ -9,12 +9,14 @@ interface Props extends RouteComponentProps {
 }
 interface State {
   content: any
+  isOpen:any
 }
 class ContentItem extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props);
     this.state = {
-      content: props.content
+      content: props.content,
+      isOpen:[]
     }
   }
   navigateTo(location:any) {
@@ -30,19 +32,34 @@ class ContentItem extends React.Component<Props, State>  {
       return "https://beta.themeetinghouse.com/cache/"+size
     else
       return "https://www.themeetinghouse.com/cache/"+size
+    }
+toggle = (id:any) => {
+  var list=this.state.isOpen
+  list[id]=!list[id]
+  this.setState({isOpen:list})
 }
+
 renderList(){
   return this.state.content.list?
     this.state.content.list.map((item:any,id:any)=>{
+    
+     
+     
       return (
         item.type==="question"?
+      
         <div key={id}>
-          <div className="FAQQuestion">{item.question}</div>
-          <div className="FAQAnswer">
+          <div onClick={()=>{this.toggle(id)}}  className="FAQQuestion">
+            <div style={{float:"left"}}>{item.question}</div>
+            <div style={{float:"right"}}>+</div>
+            <div style={{clear:"both"}}></div>
+          </div>
+          <Collapse  isOpen={this.state.isOpen[id]} >
+          <div  className="FAQAnswer">
             {item.answer.map((item:any)=>{return (<div>{item} <div>&nbsp;</div></div>)})}
           </div>
-         
-
+          </Collapse>
+          <div><hr></hr></div>
         </div>:
         item.type==="button"?
         <div key={id}>

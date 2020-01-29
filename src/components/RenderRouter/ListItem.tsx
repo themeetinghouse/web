@@ -251,7 +251,10 @@ renderSeries(item:any){
         </div>
       )
     }
-    else return null
+    else {
+      console.log({"None:":item})
+      return null
+    }
 }
 renderItemRouter(item:any,index:any){
   if (this.state.content.class === "speakers")

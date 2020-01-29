@@ -4,6 +4,7 @@
   "description": "The Meeting House Website",
   "main": "index.js",
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "HTTPS=true PORT=3006 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -72,6 +73,7 @@
     "react-scroll-parallax": "^2.1.3",
     "react-select": "^3.0.8",
     "reactstrap": "^8.1.1",
+    "source-map-explorer": "^2.2.2",
     "stream": "0.0.2",
     "typescript": "^3.7.2",
     "use-abortable-fetch": "^2.6.5",

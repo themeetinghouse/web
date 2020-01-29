@@ -7,12 +7,12 @@
 .pieChart{
     position:absolute;
     left:20vw;
-    top:-2vw;
+    top:1vw;
 }
 .pieChart2{
     position:absolute;
     left:24.5vw;
-    top:1vw;
+    top:4vw;
 }
 .circleHeader{
     position:absolute;
@@ -21,7 +21,7 @@
     font-weight:bold;
     text-align: center;
     left:29vw;
-    top:5vw;
+    top:7vw;
     width:12vw;
 }
 .circleText{
@@ -30,7 +30,7 @@
     font-size: 1.5vw;
     font-family: Graphik Web;
     left:29vw;
-    top:9vw;
+    top:11vw;
     width:12vw;
 }
   .pie {
@@ -109,11 +109,11 @@ add colour to each piece.
 }
 .pie:nth-of-type(2):AFTER,
 .pie:nth-of-type(2):BEFORE {
-    background-color:#FFC60B;
+    background-color:#646469;
 }
 .pie:nth-of-type(3):AFTER,
 .pie:nth-of-type(3):BEFORE {
-    background-color:#FFC60B;
+    background-color:#646469;
 }
 .pie:nth-of-type(4):AFTER,
 .pie:nth-of-type(4):BEFORE {
@@ -124,11 +124,11 @@ now rotate each piece based on their cumulative starting
 position
 */
 .pie[data-start="30"] {
-    -moz-transform: rotate(30deg); /* Firefox */
-    -ms-transform: rotate(30deg); /* IE */
-    -webkit-transform: rotate(30deg); /* Safari and Chrome */
-    -o-transform: rotate(30deg); /* Opera */
-    transform:rotate(30deg);
+    -moz-transform: rotate(5deg); /* Firefox */
+    -ms-transform: rotate(5deg); /* IE */
+    -webkit-transform: rotate(5deg); /* Safari and Chrome */
+    -o-transform: rotate(5deg); /* Opera */
+    transform:rotate(5deg);
 }
 .pie[data-start="60"] {
     -moz-transform: rotate(60deg); /* Firefox */
@@ -151,11 +151,11 @@ NOTE: add an extra degree to all but the final piece,
 to fill in unsightly gaps.
 */
 .pie[data-value="30"]:BEFORE {
-    -moz-transform: rotate(31deg); /* Firefox */
-    -ms-transform: rotate(31deg); /* IE */
-    -webkit-transform: rotate(31deg); /* Safari and Chrome */
-    -o-transform: rotate(31deg); /* Opera */
-    transform:rotate(31deg);
+    -moz-transform: rotate(56deg); /* Firefox */
+    -ms-transform: rotate(56deg); /* IE */
+    -webkit-transform: rotate(56deg); /* Safari and Chrome */
+    -o-transform: rotate(56deg); /* Opera */
+    transform:rotate(56deg);
 }
 .pie[data-value="40"]:BEFORE {
     -moz-transform: rotate(41deg); /* Firefox */
