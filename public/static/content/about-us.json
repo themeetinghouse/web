@@ -161,6 +161,24 @@
                         "title": "Technical Specialist",
                         "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
                         "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Communications Project Coordinator & Administrator",
+                        "navigateTo": "/static/pdfs/careers/Comms Project Coordinator & Administrator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Curriculum Project Coordinator",
+                        "navigateTo": "/static/pdfs/careers/Curriculum Project Coordinator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Events & Rentals Manager",
+                        "navigateTo": "/static/pdfs/careers/Events & Rentals Manager.pdf",
+                        "openNewBrowser":true
                     }
                 ],
 
