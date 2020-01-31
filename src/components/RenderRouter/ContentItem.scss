@@ -891,7 +891,7 @@ transform:rotate(attr(data-value,deg,0);
         left: 5vw;
         font-weight: bold;
         width: 93vw;
-        height: 20vw;
+      //  height: 20vw;
         font-size: 6.4vw;
         font-family: Graphik Web;
     }
@@ -904,7 +904,7 @@ transform:rotate(attr(data-value,deg,0);
         margin-bottom: 100%;
         float: left;
         width: 90%;
-        height: 35vw;
+      //  height: 35vw;
         font-size: 5vw;
         line-height: 7.5vw;
         font-family: Graphik Web;
@@ -961,7 +961,7 @@ transform:rotate(attr(data-value,deg,0);
         bottom:-40vw;
     }
     .contentButton {
-        margin-top: 15vw !important;
+        margin-top: 5vw !important;
         color: #ffffff !important;
         background-color: #000000 !important;
         border-radius: 0 !important;
@@ -970,34 +970,35 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web !important;
     }
     .circleHeader{
-        // position:absolute;
-        font-size: 15vw;
-        font-family: Graphik Web;
-        font-weight:bold;
-        text-align: center;
-        // left:29vw;
-        // top:5vw;
-        // width:12vw;
+        position: absolute;
+         font-size: 10vw!important;
+         font-family: Graphik Web!important;
+         font-weight:bold!important;
+         text-align: center!important;
+         top: 105vw!important;
+         left: 31vw!important;
+         text-align: center!important;
     }
     .circleText{
-        // position:absolute;
-        text-align: center;
-        font-size: 5.5vw;
-        font-family: Graphik Web;
-        // left:29vw;
-        // top:9vw;
-        // width:12vw;
+        position: absolute;
+        text-align: center!important;
+        font-size: 5.5vw!important;
+        font-family: Graphik Web!important;
+        top: 120vw!important;
+        left: 30vw!important;
     }
 
     .pieChart{
         position:absolute;
-        left:20vw;
-        top:-2vw;
+        left:-2vw;
+         top: 84vw;
+         transform: scale(3.5);
     }
     .pieChart2{
         position:absolute;
-        left:24.5vw;
-        top:1vw;
+        left: 12vw;
+        top: 92.5vw;
+        transform: scale(3.75);
     }
     .pie {
       position:absolute;
@@ -1075,11 +1076,11 @@ transform:rotate(attr(data-value,deg,0);
   }
   .pie:nth-of-type(2):AFTER,
   .pie:nth-of-type(2):BEFORE {
-      background-color:#FFC60B;
+      background-color:#646469;
   }
   .pie:nth-of-type(3):AFTER,
   .pie:nth-of-type(3):BEFORE {
-      background-color:#FFC60B;
+      background-color:#646469;
   }
   .pie:nth-of-type(4):AFTER,
   .pie:nth-of-type(4):BEFORE {
