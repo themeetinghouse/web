@@ -92,7 +92,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "compassion",
-                "selector": "peacemakers",
+                "selector": "Peacemakers",
                 "sortOrder": "DESC",
                 "header1": "Peacemakers",
                 "showEpisodeNumbers": false
