@@ -32,7 +32,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Partnership",
-                "text1": "We partner with Mennonite Central Committee in four key areas: peacebuilding in sub-Saharan Africa, Indigenous and settler reconciliation in Ontario, restorative justice in Ontario, and global humanitarian relief.",
+                "text1": "We partner with Mennonite Central Committee in four key areas: peacebuilding in Sub-Saharan Africa, Indigenous and settler reconciliation in Ontario, restorative justice in Ontario, and global humanitarian relief.",
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-2.jpg",
@@ -113,49 +113,32 @@
                     {
                         "type": "link",
                         "title": "Relief Kit Checklist",
-                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
+                        "navigateTo": "/static/pdfs/compassion/2020-Checklist-Cards.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
-                        "title": "Corporation Letter",
-                        "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
+                        "title": "Register to pack Relief Kits on March 8",
+                        "navigateTo": "https://meeting.formstack.com/forms/peacemakerspack",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
-                        "title": "Host a Fundraiser in your Neighbourhood",
-                        "navigateTo": "/static/pdfs/compassion/2020-Invite-your-Neighbourhood-Peacemakers.pdf",
+                        "title": "MMC Project Reports",
+                        "navigateTo": "/static/pdfs/compassion/MCC-Project-Reports.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
-                        "title": "Host a Fundraiser in your School",
-                        "navigateTo": "/static/pdfs/compassion/2020-Invite-your-School-Peacemakers-Resource.pdf",
+                        "title": "Start a Fundraiser",
+                        "navigateTo": "/static/pdfs/compassion/Fundraising-Resources.pdf",
                         "openNewBrowser": true
                     },
+                    
                     {
                         "type": "link",
-                        "title": "Indigenous Neighbours Program",
-                        "navigateTo": "/static/pdfs/compassion/2019-Fall-Report-Indigenous-Neighbours-Food.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "List of Biodegradable Soap",
-                        "navigateTo": "/static/pdfs/compassion/2020-List-of-Biodegradable-Bath-Soap-Brands.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "Restorative Justice Program",
-                        "navigateTo": "/static/pdfs/compassion/2019-Fall-Report-Restorative-Justice-General.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "Sub-Saharan Africa Programs",
-                        "navigateTo": "/static/pdfs/compassion/2019-FallReport-Africa-Peace.pdf",
+                        "title": "Kids, Youth, and Parents",
+                        "navigateTo": "/static/pdfs/compassion/Kids-Youth-Parents.pdf",
                         "openNewBrowser": true
                     }
                 ]
@@ -192,14 +175,14 @@
                         "type": "question",
                         "question": "What are the Peace Card funds used for?",
                         "answer": [
-                            "The funds raised through Peace Cards are how we financially support the peacebuilding work MCC is doing in Sub-Saharan Africa and locally in Ontario. Are support will be going to MCC's work in Burkina Faso, Burundi, DRC, Kenya, Nigeria, South Sudan, South Africa, Uganda, Zambia, Zimbabwe and here in Canada. Projects that we will be supporting include Peace Clubs in Zambia, Police Community Dialogue in Zimbabwe, Building Local Capacities for Conflict Transformation in Uganda, and Circles of Support and Accountability (CoSA) in Canada."
+                            "The funds raised through Peace Cards are how we financially support the peacebuilding work MCC is doing in Sub-Saharan Africa and locally in Ontario. Our support will be going to MCC's work in Burkina Faso, Burundi, Chad, DRC, Ethiopia, Kenya, Mozambique, Nigeria, South Sudan, South Africa, Uganda, Zambia, Zimbabwe and here in Canada. View the MCC project reports under the resources section of this page to learn about the type of work we support."
                         ]
                     },
                     {
                         "type": "question",
                         "question": "What items are in the Relief Kits?",
                         "answer": [
-                            "A list of items in the Relief Kits can be in the resource section of this page. Please only include new items and limit your generosity to the items on the list."
+                            "A list of items in the Relief Kits can be found in the resource section of this page. Please only include new items and limit your generosity to the items on the list."
                         ]
                     },
                     {
@@ -207,14 +190,14 @@
                         "question": "Why are these specific items needed?",
                         "answer": [
                             "Bath Soap - Soap helps to maintain a basic level of hygiene but for many people who have been displaced gaining access to ‘luxuries’ beyond adequate food and shelter is a challenge.",
-                            "Fingernail Clipper (Remove from packaging) - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short, and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult, and people are often eating with their hands.",
-                            "Laundry Soap (Sunlight ® brand preferred) - Bars of laundry soap are stronger than powdered laundry soap, and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives." ,
+                            "Fingernail Clipper - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short, and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult, and people are often eating with their hands.",
+                            "Laundry Soap - Bars of laundry soap are stronger than powdered laundry soap, and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives." ,
                             "Adult-size toothbrushes - Many families when they are on the move either have no toothbrush depending on the condition in which they fled or may have to share one toothbrush among many family members. Dental care, if offered at all, is too expensive in the many places where there are large populations of refugees. Oral hygiene products are additional expenses that families often must forego in the place of food and shelter.",
-                            "Bath towels (medium weight, dark or bright colours) - Often heavy and bulky items such as towels are left behind in situations where families and individuals must leave most of their belongings behind. As refugees and internally displaced persons rebuild their lives, items such as towels are invaluable. Items like this are expensive to purchase when funds are low, yet are needed on a day-to-day basis.",
-                            "Wide-tooth combs (15 cm–20 cm) - A staple for personal hygiene, combs not only help when bathing is less possible in conditions where water is scarce, but they are also helpful in preserving personal dignity as displaced persons try to rebuild their lives.",
-                             "Plastic bottle shampoo (380–710 ml; place in re-sealable plastic bag) - Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work, and living day-to-day in a new place after traumatically leaving their homes behind.",
-                            "Box adhesive bandages (minimum 40 count, assorted) - In many places where there are densely populated refugees and internally displaced persons, adequate medical care is scarce. Bandages help keep small wounds clean in places where adequate sanitation is difficult to maintain, thereby assisting in keeping the spread of infection at bay.",
-                            "Package sanitary pads (18–24 count thin maxi) - Feminine Hygiene Products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy." 
+                            "Bath towels - Often heavy and bulky items such as towels are left behind in situations where families and individuals must leave most of their belongings behind. As refugees and internally displaced persons rebuild their lives, items such as towels are invaluable. Items like this are expensive to purchase when funds are low, yet are needed on a day-to-day basis.",
+                            "Wide-tooth combs - A staple for personal hygiene, combs not only help when bathing is less possible in conditions where water is scarce, but they are also helpful in preserving personal dignity as displaced persons try to rebuild their lives.",
+                             "Plastic bottle shampoo- Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work, and living day-to-day in a new place after traumatically leaving their homes behind.",
+                            "Box adhesive bandages - In many places where there are densely populated refugees and internally displaced persons, adequate medical care is scarce. Bandages help keep small wounds clean in places where adequate sanitation is difficult to maintain, thereby assisting in keeping the spread of infection at bay.",
+                            "Package sanitary pads - Feminine Hygiene Products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy." 
                         
                         ]
                     },
@@ -273,10 +256,10 @@
                         "type": "question",
                         "question": "Can I give online or by text?",
                         "answer": [
-                            "Yes!  There are 3 ways you can give without writing a cheque or giving cash.",
-                            "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE. If you do not currently give to The Meeting House through Bill Pay you can learn how to set this up by clicking HERE and read the section titled Web Banking.",
-                            "Credit/Debit: You can donate online by clicking on the following link HERE and selecting Peacemakers from the drop down menu.",
-                            "Give by Text: You can donate by texting “The Meeting House”’ or “TMH” to 77977 and selecting Peacemakers from the drop down menu."
+                            "Yes!  There are 4 ways you can give without writing a cheque or giving cash.",
+                            "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
+                            "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
+                            "InFellowship: You can donate online through your The Meeting House InFellowship account."
                         ]
                     },
                     {
