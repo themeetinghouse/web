@@ -540,7 +540,10 @@ transform:rotate(attr(data-value,deg,0);
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
-
+    }
+    .oneImageList {
+      font-size: 1.5vw;
+      font-family: Graphik Web;
     }
 
 }
@@ -591,7 +594,7 @@ transform:rotate(attr(data-value,deg,0);
         padding: 10vw;
         position: relative;
         width: 50vw;
-        height: 40vw;
+        // height: 40vw;
         left: 30vw;
         top: 0vw;
         background-color: #EFEFF0;
@@ -898,6 +901,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .greyTwoTextText {
         left: 5vw;
+        //top: 62vw;
         position: relative;
         margin: 1vw;
         margin-top: 3vw;
@@ -908,6 +912,7 @@ transform:rotate(attr(data-value,deg,0);
         font-size: 5vw;
         line-height: 7.5vw;
         font-family: Graphik Web;
+        text-align: center!important;
     }
 
     .greyTwoClear {
@@ -970,34 +975,34 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web !important;
     }
     .circleHeader{
-        // position:absolute;
-        font-size: 15vw;
-        font-family: Graphik Web;
-        font-weight:bold;
-        text-align: center;
-        // left:29vw;
-        // top:5vw;
-        // width:12vw;
+        position: absolute;
+        font-size: 15vw!important;
+        font-family: Graphik Web!important;
+        font-weight:bold!important;
+        text-align: center!important;
+        top: 100vw!important;
+        left: 41vw!important;
     }
     .circleText{
-        // position:absolute;
-        text-align: center;
-        font-size: 5.5vw;
-        font-family: Graphik Web;
-        // left:29vw;
-        // top:9vw;
-        // width:12vw;
+        position: absolute;
+        text-align: center!important;
+        font-size: 5.5vw!important;
+        font-family: Graphik Web!important;
+        top: 120vw!important;
+        left: 30vw!important;
     }
 
     .pieChart{
         position:absolute;
-        left:20vw;
-        top:-2vw;
+        left:-2vw;
+        top: 84vw;
+        transform: scale(3.5);
     }
     .pieChart2{
-        position:absolute;
-        left:24.5vw;
-        top:1vw;
+      position: absolute;
+      left: 12vw;
+      top: 92.5vw;
+      transform: scale(3.75);
     }
     .pie {
       position:absolute;
@@ -1090,11 +1095,11 @@ transform:rotate(attr(data-value,deg,0);
   position
   */
   .pie[data-start="30"] {
-      -moz-transform: rotate(30deg); /* Firefox */
-      -ms-transform: rotate(30deg); /* IE */
-      -webkit-transform: rotate(30deg); /* Safari and Chrome */
-      -o-transform: rotate(30deg); /* Opera */
-      transform:rotate(30deg);
+      -moz-transform: rotate(5deg); /* Firefox */
+      -ms-transform: rotate(5deg); /* IE */
+      -webkit-transform: rotate(5deg); /* Safari and Chrome */
+      -o-transform: rotate(5deg); /* Opera */
+      transform:rotate(5deg);
   }
   .pie[data-start="60"] {
       -moz-transform: rotate(60deg); /* Firefox */
@@ -1288,4 +1293,9 @@ transform:rotate(attr(data-value,deg,0);
   transform:rotate(attr(data-value,deg,0);
   }
   */
+  .oneImageList {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    line-height: 7.5vw;
+  }
 }
