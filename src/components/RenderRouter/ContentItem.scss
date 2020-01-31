@@ -1124,11 +1124,11 @@ transform:rotate(attr(data-value,deg,0);
   to fill in unsightly gaps.
   */
   .pie[data-value="30"]:BEFORE {
-      -moz-transform: rotate(31deg); /* Firefox */
-      -ms-transform: rotate(31deg); /* IE */
-      -webkit-transform: rotate(31deg); /* Safari and Chrome */
-      -o-transform: rotate(31deg); /* Opera */
-      transform:rotate(31deg);
+      -moz-transform: rotate(56deg); /* Firefox */
+      -ms-transform: rotate(56deg); /* IE */
+      -webkit-transform: rotate(56deg); /* Safari and Chrome */
+      -o-transform: rotate(56deg); /* Opera */
+      transform:rotate(56deg);
   }
   .pie[data-value="40"]:BEFORE {
       -moz-transform: rotate(41deg); /* Firefox */
@@ -1235,11 +1235,11 @@ transform:rotate(attr(data-value,deg,0);
   position
   */
   .pie2[data-start="30"] {
-      -moz-transform: rotate(30deg); /* Firefox */
-      -ms-transform: rotate(30deg); /* IE */
-      -webkit-transform: rotate(30deg); /* Safari and Chrome */
-      -o-transform: rotate(30deg); /* Opera */
-      transform:rotate(30deg);
+      -moz-transform: rotate(5deg); /* Firefox */
+      -ms-transform: rotate(5deg); /* IE */
+      -webkit-transform: rotate(5deg); /* Safari and Chrome */
+      -o-transform: rotate(5deg); /* Opera */
+      transform:rotate(5deg);
   }
   .pie2[data-start="60"] {
       -moz-transform: rotate(60deg); /* Firefox */
@@ -1262,11 +1262,11 @@ transform:rotate(attr(data-value,deg,0);
   to fill in unsightly gaps.
   */
   .pie2[data-value="30"]:BEFORE {
-      -moz-transform: rotate(31deg); /* Firefox */
-      -ms-transform: rotate(31deg); /* IE */
-      -webkit-transform: rotate(31deg); /* Safari and Chrome */
-      -o-transform: rotate(31deg); /* Opera */
-      transform:rotate(31deg);
+      -moz-transform: rotate(56deg); /* Firefox */
+      -ms-transform: rotate(56deg); /* IE */
+      -webkit-transform: rotate(56deg); /* Safari and Chrome */
+      -o-transform: rotate(56deg); /* Opera */
+      transform:rotate(56deg);
   }
   .pie2[data-value="40"]:BEFORE {
       -moz-transform: rotate(41deg); /* Firefox */
