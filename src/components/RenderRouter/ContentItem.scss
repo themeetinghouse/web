@@ -897,7 +897,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .greyTwoTextText {
         left: 5vw;
-        top: 62vw;
+        //top: 62vw;
         position: relative;
         margin: 1vw;
         margin-top: 3vw;
@@ -979,7 +979,7 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web!important;
         font-weight:bold!important;
         text-align: center!important;
-        top: 47vw!important;
+        top: 100vw!important;
         left: 41vw!important;
     }
     .circleText{
@@ -987,20 +987,20 @@ transform:rotate(attr(data-value,deg,0);
         text-align: center!important;
         font-size: 5.5vw!important;
         font-family: Graphik Web!important;
-        top: 60vw!important;
+        top: 120vw!important;
         left: 30vw!important;
     }
 
     .pieChart{
         position:absolute;
         left:-2vw;
-        top: 24vw;
+        top: 84vw;
         transform: scale(3.5);
     }
     .pieChart2{
       position: absolute;
       left: 12vw;
-      top: 31.5vw;
+      top: 92.5vw;
       transform: scale(3.75);
     }
     .pie {
@@ -1094,11 +1094,11 @@ transform:rotate(attr(data-value,deg,0);
   position
   */
   .pie[data-start="30"] {
-      -moz-transform: rotate(30deg); /* Firefox */
-      -ms-transform: rotate(30deg); /* IE */
-      -webkit-transform: rotate(30deg); /* Safari and Chrome */
-      -o-transform: rotate(30deg); /* Opera */
-      transform:rotate(30deg);
+      -moz-transform: rotate(5deg); /* Firefox */
+      -ms-transform: rotate(5deg); /* IE */
+      -webkit-transform: rotate(5deg); /* Safari and Chrome */
+      -o-transform: rotate(5deg); /* Opera */
+      transform:rotate(5deg);
   }
   .pie[data-start="60"] {
       -moz-transform: rotate(60deg); /* Firefox */
