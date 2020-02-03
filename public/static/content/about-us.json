@@ -117,51 +117,9 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Careers",
-                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
+                "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
-                    {
-                        "type":"link",
-                        "title": "Brantford Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/2019_Lead_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "East Toronto Youth Coordinator",
-                        "navigateTo": "/static/pdfs/careers/TOBC_Youth_Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Human Resources Manager",
-                        "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Kitchener Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Oakville Youth Pastor",
-                        "navigateTo": "/static/pdfs/careers/OAK_Youth_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "High Park Kidmax Coordinator",
-                        "navigateTo": "/static/pdfs/careers/TOHP_Kidmax_Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Technical Specialist",
-                        "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
-                        "openNewBrowser":true
-                    },
                     {
                         "type":"link",
                         "title": "Communications Project Coordinator & Administrator",
@@ -176,8 +134,44 @@
                     },
                     {
                         "type":"link",
+                        "title": "East Toronto Youth Coordinator",
+                        "navigateTo": "/static/pdfs/careers/TOBC_Youth_Coordinator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
                         "title": "Events & Rentals Manager",
                         "navigateTo": "/static/pdfs/careers/Events & Rentals Manager.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "High Park Kidmax Coordinator",
+                        "navigateTo": "/static/pdfs/careers/TOHP_Kidmax_Coordinator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Human Resources Manager",
+                        "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Lead Pastor",
+                        "navigateTo": "/static/pdfs/careers/2019_Lead_Pastor.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Oakville Youth Pastor",
+                        "navigateTo": "/static/pdfs/careers/OAK_Youth_Pastor.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Technical Specialist",
+                        "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
                         "openNewBrowser":true
                     }
                 ],

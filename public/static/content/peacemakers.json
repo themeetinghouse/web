@@ -45,7 +45,7 @@
                 "style": "oneImageBlackRight",
                 "header1": "Relief Kit Collection Day is March 8",
                 "header2": "",
-                "text1": "Each year We collect Peace Cards and Relief Kits as part of this campaign. This year our goal is to collect $225,000 in Peace Cards and 1,000 Relief Kits.",
+                "text1": "Each year we collect Peace Cards and Relief Kits as part of this campaign. This year our goal is to collect $225,000 in Peace Cards and 1,000 Relief Kits.",
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-3.jpg",
@@ -57,7 +57,7 @@
                 "type": "content",
                 "style": "greyTwoText",
                 "header1": "",
-                "text1": "By participating in this campaign we choose to give generously to efforts in our world that seek to bring healing, reconciliation and justice to God’s creation. Our goals this year are $225,000 in Peace Cards, and 1,000 Relief Kits.",
+                "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $225,000 in Peace Cards and 1,000 Relief Kits.",
                 "circleHeader": "$26,861",
                 "circleText": "RAISED TO DATE",
                 "showCircle":true,
@@ -73,7 +73,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Why Peace?",
-                "text1": "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth and challenges us to think as global citizens.",
+                "text1": "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth, and it challenges us to think as global citizens.",
                 "list": [
                     {
                         "type": "text",
@@ -175,7 +175,7 @@
                         "type": "question",
                         "question": "What are the Peace Card funds used for?",
                         "answer": [
-                            "The funds raised through Peace Cards are how we financially support the peacebuilding work MCC is doing in Sub-Saharan Africa and locally in Ontario. Our support will be going to MCC's work in Burkina Faso, Burundi, Chad, DRC, Ethiopia, Kenya, Mozambique, Nigeria, South Sudan, South Africa, Uganda, Zambia, Zimbabwe and here in Canada. View the MCC project reports under the resources section of this page to learn about the type of work we support."
+                            "The funds raised through Peace Cards are how we financially support the peacebuilding work MCC is doing in Sub-Saharan Africa and locally in Ontario. Our support will be going to MCC's work in Burkina Faso, Burundi, Chad, DRC, Ethiopia, Kenya, Mozambique, Nigeria, South Sudan, South Africa, Uganda, Zambia, Zimbabwe, and here in Canada. View the MCC project reports under the resources section of this page to learn about the type of work we support."
                         ]
                     },
                     {
@@ -189,15 +189,15 @@
                         "type": "question",
                         "question": "Why are these specific items needed?",
                         "answer": [
-                            "Bath Soap - Soap helps to maintain a basic level of hygiene but for many people who have been displaced gaining access to ‘luxuries’ beyond adequate food and shelter is a challenge.",
-                            "Fingernail Clipper - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short, and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult, and people are often eating with their hands.",
-                            "Laundry Soap - Bars of laundry soap are stronger than powdered laundry soap, and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives." ,
+                            "Bath Soap - Soap helps to maintain a basic level of hygiene, but for many people who have been displaced, gaining access to ‘luxuries’ beyond adequate food and shelter is a challenge.",
+                            "Fingernail Clipper - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation, and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult and people are often eating with their hands.",
+                            "Laundry Soap - Bars of laundry soap are stronger than powdered laundry soap and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives." ,
                             "Adult-size toothbrushes - Many families when they are on the move either have no toothbrush depending on the condition in which they fled or may have to share one toothbrush among many family members. Dental care, if offered at all, is too expensive in the many places where there are large populations of refugees. Oral hygiene products are additional expenses that families often must forego in the place of food and shelter.",
                             "Bath towels - Often heavy and bulky items such as towels are left behind in situations where families and individuals must leave most of their belongings behind. As refugees and internally displaced persons rebuild their lives, items such as towels are invaluable. Items like this are expensive to purchase when funds are low, yet are needed on a day-to-day basis.",
                             "Wide-tooth combs - A staple for personal hygiene, combs not only help when bathing is less possible in conditions where water is scarce, but they are also helpful in preserving personal dignity as displaced persons try to rebuild their lives.",
-                             "Plastic bottle shampoo- Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work, and living day-to-day in a new place after traumatically leaving their homes behind.",
+                             "Plastic bottle shampoo- Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work and living day-to-day in a new place after traumatically leaving their homes behind.",
                             "Box adhesive bandages - In many places where there are densely populated refugees and internally displaced persons, adequate medical care is scarce. Bandages help keep small wounds clean in places where adequate sanitation is difficult to maintain, thereby assisting in keeping the spread of infection at bay.",
-                            "Package sanitary pads - Feminine Hygiene Products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy." 
+                            "Package sanitary pads - Feminine hygiene products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy." 
                         
                         ]
                     },
@@ -205,15 +205,15 @@
                         "type": "question",
                         "question": "How are Kidmax and Youth engaging with Peacemakers?",
                         "answer": [
-                            "Kidmax - This year the kids are collecting the 4 large bars of bath soap (in wrapper) that are needed for each Relief Kit. Talk to your Kidmax Coordinator if you have further questions.",
-                            "Youth - This year the youth will be collecting full Relief Kits within their mid-week small groups. Junior highs that only attend Sunday mornings will be collecting 4 bars of bath soap (in wrapper) with Kidmax. Talk to your Youth Coordinator of you have further questions."
+                            "Kidmax - This year the kids are collecting the four large bars of bath soap (in wrapper) that are needed for each Relief Kit. Talk to your Kidmax Coordinator if you have further questions.",
+                            "Youth - This year the youth will be collecting full Relief Kits within their mid-week small groups. Junior highs that only attend Sunday mornings will be collecting four bars of bath soap (in wrapper) with Kidmax. Talk to your Youth Coordinator if you have further questions."
                         ]
                     },
                     {
                         "type": "question",
                         "question": "Which organization do I write on the cheque?",
                         "answer": [
-                            "Make all cheques out to The Meeting House and not MCC Ontario. Processing all the cheques is a lot of work so please make sure you use the Peace Card envelope available at your site.  Please only include one donor per Peace Card envelope. Don’t forget to include all the requested contact information for tax receipting purposes. Tax receipts are given for amounts of $20 or greater."
+                            "Make all cheques out to The Meeting House and not MCC Ontario. Processing all the cheques is a lot of work, so please make sure you use the Peace Card envelope available at your site.  Please only include one donor per Peace Card envelope. Don’t forget to include all the requested contact information for tax receipting purposes. Tax receipts are given for amounts of $20 or greater."
                         ]
                     },
                     {
@@ -242,21 +242,21 @@
                         "type": "question",
                         "question": "Is sending Relief Kits to areas affected by conflict an appropriate response that aligns with proper development practices?",
                         "answer": [
-                            "Relief Kits are important because they provide items that meet the basic needs for individuals and families affected by international conflict and disaster. MCC prioritizes purchasing items locally when possible, however, in severe conflict and disaster situations the local economy has collapsed and the ability to purchase these items locally in bulk is difficult or impossible. Without Relief Kits these essential supplies that meet people's basic needs wouldn’t be available. When people's basic needs are met it reduces tension within conflict situations, so Relief Kits not only support relief work but also support longer term development, peacebuilding, and reconciliation efforts."
+                            "Relief Kits are important because they provide items that meet the basic needs for individuals and families affected by international conflict and disaster. MCC prioritizes purchasing items locally when possible; however, in severe conflict and disaster situations, the local economy has collapsed and the ability to purchase these items locally in bulk is difficult or impossible. Without Relief Kits, these essential supplies that meet people's basic needs wouldn’t be available. When people's basic needs are met, it reduces tension within conflict situations, so Relief Kits not only support relief work but also support longer term development, peacebuilding, and reconciliation efforts."
                         ]
                     },
                     {
                         "type": "question",
                         "question": "Why does it say 'one donor per envelope' on the Peace Cards?",
                         "answer": [
-                            "Peace Cards are $100 each and our goal is to raise $225,000 across all of our sites. We are asking that people who give money towards Peace Cards will use the special envelopes that are available at the Info Tables. We only want one donor per envelope because it’s much easier for our financial team to account and give tax receipts. We are, however, giving tax receipts for amounts of $20 or greater. That means that if you have a 4 people wanting to put $25 each towards a $100 Peace Card, they should use 4 separate envelopes.  If they put all their money in one envelope, then only one donor (whose info is on the outside of the envelope) will receive a tax receipt."
+                            "Peace Cards are $100 each and our goal is to raise $225,000 across all of our sites. We are asking that people who give money towards Peace Cards use the special envelopes that are available at the Info Tables. We only want one donor per envelope because it’s much easier for our financial team to account and give tax receipts. We are, however, giving tax receipts for amounts of $20 or greater. That means that if you have four people wanting to put $25 each towards a $100 Peace Card, they should use four separate envelopes. If they put all their money in one envelope, then only one donor (whose info is on the outside of the envelope) will receive a tax receipt."
                         ]
                     },
                     {
                         "type": "question",
                         "question": "Can I give online or by text?",
                         "answer": [
-                            "Yes!  There are 4 ways you can give without writing a cheque or giving cash.",
+                            "Yes!  There are four ways you can give without writing a cheque or giving cash.",
                             "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
                             "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
                             "InFellowship: You can donate online through your The Meeting House InFellowship account."
@@ -266,7 +266,7 @@
                         "type": "question",
                         "question": "Why partner with MCC?",
                         "answer": [
-                            "We are proud to be partnering with Mennonite Central Committee Canada as they come alongside locally directed projects around the globe and here in Canada. MCC Canada has demonstrated commitment to a high level of transparency, accountability and integrity. They are a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau, which have standards for fundraising as well as managing and reporting finances. In 2019, MCC was listed on Charity Intelligence Canada’s Top 10 International Impact Charities."
+                            "We are proud to be partnering with Mennonite Central Committee Canada as they come alongside locally directed projects around the globe and here in Canada. MCC Canada has demonstrated commitment to a high level of transparency, accountability, and integrity. They are a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau, which have standards for fundraising as well as managing and reporting finances. In 2019, MCC was listed on Charity Intelligence Canada’s Top 10 International Impact Charities."
                         ]
                     }
                 ]
