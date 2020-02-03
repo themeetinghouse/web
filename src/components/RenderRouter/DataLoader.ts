@@ -37,7 +37,7 @@ export default class DataLoader extends React.Component<Props, State> {
          console.log(prevProps)
      }*/
     getVideosSameSeries(nextToken: any) {
-        const getSeries:any = API.graphql({
+        const getSeries: any = API.graphql({
             query: customQueries.getSeries,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, id: this.props.data.series.id },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -53,7 +53,7 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getVideos(nextToken: any) {
-        const getVideoByVideoType:any = API.graphql({
+        const getVideoByVideoType: any = API.graphql({
             query: customQueries.getVideoByVideoType,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -61,23 +61,36 @@ export default class DataLoader extends React.Component<Props, State> {
         getVideoByVideoType.then((json: any) => {
             console.log("Success queries.getVideoByVideoType: " + json);
             console.log(json)
-            this.props.dataLoaded(
-                json.data.getVideoByVideoType.items
-            )
+            if (this.state.content.selector === "all") {
+                this.props.dataLoaded(
+                    json.data.getVideoByVideoType.items
+                )
+            } else {
+                this.props.dataLoaded(
+                    json.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle == this.state.content.selector)
+                )
+            }
             if (json.data.getVideoByVideoType.nextToken != null)
                 this.getVideos(json.data.getVideoByVideoType.nextToken)
 
-        }).catch((e: any) => { 
-            console.log({"Error: ":e}) 
-            this.props.dataLoaded(
-                e.data.getVideoByVideoType.items
-            )
+        }).catch((e: any) => {
+            console.log({ "Error: ": e })
+            if (this.state.content.selector === "all") {
+                this.props.dataLoaded(
+                    e.data.getVideoByVideoType.items
+                )
+            }
+            else {
+                this.props.dataLoaded(
+                    e.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle == this.state.content.selector)
+                )
+            }
             if (e.data.getVideoByVideoType.nextToken != null)
                 this.getVideos(e.data.getVideoByVideoType.nextToken)
         })
     }
     getSpeakers(nextToken: any) {
-        const listSpeakers:any = API.graphql(graphqlOperation(queries.listSpeakers, { nextToken: nextToken, sortOrder: this.state.content.sortOrder, limit: 20 }));
+        const listSpeakers: any = API.graphql(graphqlOperation(queries.listSpeakers, { nextToken: nextToken, sortOrder: this.state.content.sortOrder, limit: 20 }));
         listSpeakers.then((json: any) => {
             console.log("Success queries.listSpeakers: " + json);
             console.log(json)
@@ -90,13 +103,13 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getSeries(nextToken: any) {
-        const getSeriesBySeriesType:any = API.graphql({
+        const getSeriesBySeriesType: any = API.graphql({
             query: customQueries.getSeriesBySeriesType,
             variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 50, seriesType: this.state.content.subclass, publishedDate: { lt: "a" } },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
         getSeriesBySeriesType.then((json: any) => {
-            console.log({"Success queries.getSeriesBySeriesType": json});
+            console.log({ "Success queries.getSeriesBySeriesType": json });
             this.props.dataLoaded(json.data.getSeriesBySeriesType.items)
             if (json.data.getSeriesBySeriesType.nextToken != null)
                 this.getSeries(json.data.getSeriesBySeriesType.nextToken)
@@ -115,8 +128,8 @@ export default class DataLoader extends React.Component<Props, State> {
                 return a.lastName - b.lastName
         })
     }
-    getEvents(item:any){
-        const getFbEvents:any = API.graphql({
+    getEvents(item: any) {
+        const getFbEvents: any = API.graphql({
             query: queries.getFbEvents,
             variables: { pageId: item },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -124,10 +137,10 @@ export default class DataLoader extends React.Component<Props, State> {
         getFbEvents.then((json: any) => {
             console.log("Success queries.getFBEvents: " + json);
             console.log(json)
-            this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data).sort((a:any,b:any)=>{
-                var a_time:Date = new Date(a.start_time.substring(0, a.start_time.length - 2) + ":" + a.start_time.substring(a.start_time.length - 2))
-                var b_time:Date = new Date(b.start_time.substring(0, b.start_time.length - 2) + ":" + b.start_time.substring(b.start_time.length - 2))
-                return a_time>b_time;
+            this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data).sort((a: any, b: any) => {
+                var a_time: Date = new Date(a.start_time.substring(0, a.start_time.length - 2) + ":" + a.start_time.substring(a.start_time.length - 2))
+                var b_time: Date = new Date(b.start_time.substring(0, b.start_time.length - 2) + ":" + b.start_time.substring(b.start_time.length - 2))
+                return a_time > b_time;
             }))
 
         }).catch((e: any) => { console.log(e) })
@@ -139,7 +152,8 @@ export default class DataLoader extends React.Component<Props, State> {
             return items.filter((item: any) => {
                 var start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
                 return (new Date() < start_date)
-            })    }
+            })
+    }
     loadData() {
         if (this.state.content.class === "videos") {
             if (this.state.content.selector === "sameSeries") {

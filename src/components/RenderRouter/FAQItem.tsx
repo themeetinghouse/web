@@ -50,7 +50,7 @@ renderList(){
       
         <div key={id}>
           <div onClick={()=>{this.toggle(id)}}  className="FAQQuestion">
-            <div style={{float:"left"}}>{item.question}</div>
+            <div style={{width:"90%",float:"left"}}>{item.question}</div>
             <div style={{float:"right"}}>+</div>
             <div style={{clear:"both"}}></div>
           </div>

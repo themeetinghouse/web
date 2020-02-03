@@ -4,15 +4,18 @@
         font-size: 1.5vw;
         font-family: Graphik Web;
     }
-    .FAQQuestion{
+
+    .FAQQuestion {
         font-size: 1.2vw;
         font-family: Graphik Web;
-        font-weight:bold;
+        font-weight: bold;
     }
-    .FAQAnswer{
+
+    .FAQAnswer {
         font-size: 1.2vw;
         font-family: Graphik Web;
     }
+
     .faqText.white {
         color: #ffffff;
     }
@@ -81,6 +84,7 @@
         top: 0vw;
         background-color: #000000;
     }
+
     .faqGreenBox {
         padding: 10vw;
         position: relative;
@@ -100,6 +104,7 @@
         top: 0vw;
         background-color: #2b583b;
     }
+
     .faqeH1 {
         font-weight: bold;
         font-size: 3vw;
@@ -185,7 +190,7 @@
         height: 20vw;
         font-size: 1.5vw;
         font-family: Graphik Web;
-        color:#ffffff;
+        color: #ffffff;
     }
 
     .greenTwoTextText {
@@ -199,12 +204,13 @@
         height: 20vw;
         font-size: 1.2vw;
         font-family: Graphik Web;
-        color:#ffffff;
+        color: #ffffff;
     }
 
     .greenTwoClear {
         clear: left;
     }
+
     .contentButton {
         margin-top: 1.5vw !important;
         color: #ffffff !important;
@@ -219,17 +225,36 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+   
+    .FAQQuestion{
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+        font-weight:bold;
+    }
+    .FAQAnswer{
+        font-size: 1.2vw;
+        font-family: Graphik Web;
+    }
     .faqText {
         font-size: 1.5vw;
         font-family: Graphik Web;
     }
-    .faqEventDetails{
+
+    .FAQQuestion {
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        font-weight: bold;
+    }
+
+    .faqEventDetails {
         font-family: Graphik Web;
         color: #ffffff;
         font-size: 1.5vw;
         margin-top: 1vw;
         margin-bottom: 0.5vw;
     }
+
     .faqText.white {
         color: #ffffff;
     }
@@ -299,6 +324,7 @@
         top: 0vw;
         background-color: #000000;
     }
+
     .faqGreenBox {
         padding: 10vw;
         position: relative;
@@ -318,6 +344,7 @@
         top: 0vw;
         background-color: #2b583b;
     }
+
     .faqH1 {
         font-weight: bold;
         font-size: 3vw;
@@ -345,7 +372,7 @@
         position: relative;
         width: 100vw;
         background-color: #EFEFF0;
-        margin-top: -5vh;
+        margin-top: 0vh !important;
         margin-bottom: 5vw;
     }
 
@@ -367,11 +394,10 @@
         position: relative;
         margin: 1vw;
         margin-top: 3vw;
-
         float: left;
         width: 45vw;
         height: 20vw;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
         font-family: Graphik Web;
     }
 
@@ -401,7 +427,7 @@
         height: 20vw;
         font-size: 1.5vw;
         font-family: Graphik Web;
-        color:#ffffff;
+        color: #ffffff;
     }
 
     .greenTwoTextText {
@@ -415,12 +441,13 @@
         height: 20vw;
         font-size: 1.2vw;
         font-family: Graphik Web;
-        color:#ffffff;
+        color: #ffffff;
     }
 
     .greenTwoClear {
         clear: left;
     }
+
     .contentButton {
         margin-top: 1.5vw !important;
         color: #ffffff !important;
@@ -433,6 +460,20 @@
 }
 
 @media (max-width: 767px) {
+
+    .faqText {
+        font-size: 5vw;
+        font-family: Graphik Web;
+    }
+    .FAQQuestion{
+        font-size: 6vw;
+        font-family: Graphik Web;
+        font-weight:bold;
+    }
+    .FAQAnswer{
+        font-size: 5vw;
+        font-family: Graphik Web;
+    }
     .faqText {
         font-size: 5vw;
         font-family: Graphik Web;
@@ -464,12 +505,12 @@
         object-fit: cover;
         top: -60vw;
         padding-top: 20vw;
-      //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+        //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
     }
 
     .secondImg {
-      // top: 125vw;
-      margin-top: 190vw!important;
+        // top: 125vw;
+        margin-top: 190vw !important;
     }
 
     .faqGreyBox {
@@ -482,26 +523,28 @@
         top: 0vw;
 
     }
-    .faqBlackBox{
+
+    .faqBlackBox {
         // margin-top: 120vw;
         padding: 6vw;
         padding-top: 20vw;
         position: relative;
         width: 100vw;
         //height: 175vw;
-        padding-bottom:65vw;
+        padding-bottom: 65vw;
         left: 0vw;
         top: 0vw;
         background-color: #000000;
     }
-    .faqGreenBox{
+
+    .faqGreenBox {
         // margin-top: 120vw;
         padding: 6vw;
         padding-top: 20vw;
         position: relative;
         width: 100vw;
         //height: 175vw;
-        padding-bottom:65vw;
+        padding-bottom: 65vw;
         left: 0vw;
         top: 0vw;
         background-color: #2b583b;
@@ -513,13 +556,15 @@
         font-family: Graphik Web;
         line-height: 12.5vw;
     }
-    .faqEventDetails{
+
+    .faqEventDetails {
         font-family: Graphik Web;
         color: #ffffff;
         font-size: 3vw;
         margin-top: 1vw;
         margin-bottom: 0.5vw;
     }
+
     .faqH1.white {
         color: #ffffff;
     }
@@ -539,7 +584,7 @@
     }
 
     .FAQItemMarginBottom {
-      margin-bottom: 55vw;
+        margin-bottom: 55vw;
     }
 
     .greyTwoText {
@@ -609,7 +654,7 @@
         height: 20vw;
         font-size: 6.4vw;
         font-family: Graphik Web;
-        color:#ffffff;
+        color: #ffffff;
     }
 
     .greenTwoTextText {
@@ -624,23 +669,15 @@
         font-size: 5vw;
         line-height: 7.5vw;
         font-family: Graphik Web;
-        color:#ffffff;
+        color: #ffffff;
     }
 
     .greenTwoClear {
         clear: left;
     }
-    .bottom{
-        top:unset;
-        bottom:-40vw;
-    }
-    .contentButton {
-        margin-top: 15vw !important;
-        color: #ffffff !important;
-        background-color: #000000 !important;
-        border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
-        font-weight: 800 !important;
-        font-family: Graphik Web !important;
+
+    .bottom {
+        top: unset;
+        bottom: -40vw;
     }
 }
