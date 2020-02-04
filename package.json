@@ -6,7 +6,6 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "HTTPS=true PORT=3006 react-scripts start",
-    "start-pc": "set PORT=3006&& set HTTPS=true&& set BROWSER=firefox&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

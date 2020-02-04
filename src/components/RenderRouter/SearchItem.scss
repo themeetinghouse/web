@@ -192,6 +192,7 @@
     }
 
     .SearchLink{
+        display: none;
         $link-width: 24.25vw;
     
         width: $link-width;
@@ -202,6 +203,7 @@
     }
 
     .SearchLinks .HomeChurch{
+        display: none;
         $link-width: 44vw;
     
         width: $link-width;
@@ -245,6 +247,7 @@
     }
 
     .SearchLink{
+        display: none;
         $link-width: 44vw;
     
         width: $link-width;
@@ -255,6 +258,7 @@
     }
 
     .SearchLinks .HomeChurch{
+        display: none;
         $link-width: 100%;
     
         width: $link-width;
