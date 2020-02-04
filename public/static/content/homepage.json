@@ -73,28 +73,28 @@
                     }
                 ]
             },
-            
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Go Campaign",
+                "header1": "Peacemakers",
                 "header2": "",
-                "text1": "We're our best selves when we don't make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
+                "text1": "This is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. As the church, we journey with people who have been marginalized through violence by working to meet their tangible needs.",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Let's Do This",
-                        "navigateTo": "/go"
+                        "title": "Find Out More",
+                        "navigateTo": "/peacemakers"
                     }
                 ],
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-3.jpg",
-                        "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
+                        "src": "/static/images/peacemakers-1.jpg",
+                        "alt": "Man sharing First Nations peace practices and rituals with a group."
                     }
                 ]
             },
+           
             {
                 "type": "list",
                 "style": "imageList",
@@ -169,6 +169,27 @@
                     {
                         "src": "/static/images/homepage-6.jpg",
                         "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Go Campaign",
+                "header2": "",
+                "text1": "We're our best selves when we don't make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Let's Do This",
+                        "navigateTo": "/go"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/homepage-3.jpg",
+                        "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
                     }
                 ]
             },
