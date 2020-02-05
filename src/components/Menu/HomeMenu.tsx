@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
-import MainMenuItems from './MainMenu.json';
+//import MainMenuItems from '';
 import "./menu.scss"
 
 interface Props extends RouteComponentProps {
@@ -21,6 +21,7 @@ interface Props extends RouteComponentProps {
 
 }
 interface State {
+  MainMenuItems: any,
   urlHistoryState: any,
   overlayData: any,
   isOpen: boolean,
@@ -45,9 +46,16 @@ interface State {
 class HomeMenu extends React.Component<Props, State>  {
   constructor(props: any) {
     super(props);
+    fetch('/static/data/MainMenu.json').then(function (response) {
+      return response.json();
+    })
+      .then((myJson) => {
+        this.setState({ MainMenuItems: myJson });
+      })
 
     this.toggle = this.toggle.bind(this);
     this.state = {
+      MainMenuItems: null,
       urlHistoryState: null,
       overlayData: null,
       isOpen: false,
@@ -167,22 +175,23 @@ class HomeMenu extends React.Component<Props, State>  {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className={this.state.movingMenu ? "ml-auto " + this.state.position : "ml-auto fixed"}>
               {
-                MainMenuItems.map((item) => {
-                  return (
-                    <div key={item.location}>
-                      <NavLink className="bigNav" key={item.location} href={item.location}>
-                        {item.name}
-                      </NavLink>
-                      {(this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ?
-                        (item.children != null ?
+                this.state.MainMenuItems ?
+                  this.state.MainMenuItems.map((item:any) => {
+                    return (
+                      <div key={item.location}>
+                        <NavLink className="bigNav" key={item.location} href={item.location}>
+                          {item.name}
+                        </NavLink>
+                        {(this.props.location.pathname === item.location || (item.children != null && item.children.map((a:any) => a.location).includes(this.props.location.pathname)) ?
+                          (item.children != null ?
 
-                          item.children.map((item2) => {
-                            return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
-                          }) : null)
-                        : null)}
-                    </div>
-                  )
-                })
+                            item.children.map((item2:any) => {
+                              return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
+                            }) : null)
+                          : null)}
+                      </div>
+                    )
+                  }) : null
               }
             </Nav>
           </Collapse>
