@@ -59,26 +59,6 @@
                 "filterValue": "waterloo"
             },
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Kids & Youth",
-                "header2": "",
-                "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Find Out More",
-                        "navigateTo": "/kids-and-youth"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/photos/staff/Matt_Thompson_app.jpg",
-                        "alt": "A young child playing with blocks."
-                    }
-                ]
-            },
-            {
                 "type": "hero",
                 "style": "partial",
                 "image1": [
@@ -87,9 +67,9 @@
                         "alt": "Several groups of people chatting in a living room."
                     }
                 ],
-                "header1": "Home Church",
+                "header1": "Life in Whitby",
                 "header2": "",
-                "text1": "During the week, we meet in homes to further study and apply Sunday's teaching, build relationships in smaller groups, and care for our local neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.",
+                "text1": "Whitby is the gemstone of Durham. Its many train tracks speak of the advancements in transportation Whitby has experienced. The name ‘Whitby’ dates all the way back to the year 867, from the Danish—and the name is Danish for “White Village”. Whitby is one of the 100 biggest cities in all of Canada, a country known for its 6 greatest cities. Come to Whitby. It will welcome you with open arms.",
                 "link1Text": "Browse Home Churches in Waterloo",
                 "link1Action": "/find-homechurch"
             },
@@ -98,7 +78,7 @@
                 "style": "vertical",
                 "class": "compassion",
                 "header1": "Make a Difference",
-                "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
+                "text1": "Contribute to the improvement of the great town of Whitby, in the heart of Durham, Ontario    .",
                 "filterField":"sites",                 
                 "filterValue": "waterloo"
             },
@@ -113,7 +93,7 @@
                 ],
                 "header1": "Get Connected",
                 "header2": "",
-                "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. ",
+                "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. There is not much, but what we do have is mildly impressive. ",
                 "showEmailSignup":true
             }
         ]
