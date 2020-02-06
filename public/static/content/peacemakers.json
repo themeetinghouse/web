@@ -124,7 +124,7 @@
                     },
                     {
                         "type": "link",
-                        "title": "MMC Project Reports",
+                        "title": "MCC Project Reports",
                         "navigateTo": "/static/pdfs/compassion/MCC-Project-Reports.pdf",
                         "openNewBrowser": true
                     },
@@ -259,7 +259,8 @@
                             "Yes!  There are four ways you can give without writing a cheque or giving cash.",
                             "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
                             "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
-                            "InFellowship: You can donate online through your The Meeting House InFellowship account."
+                            "InFellowship: You can donate online through your The Meeting House InFellowship account.",
+                            "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu."
                         ]
                     },
                     {
