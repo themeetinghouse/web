@@ -116,7 +116,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1": "Careers",
+                "header1": "Careers - Full-time",
                 "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
@@ -134,26 +134,8 @@
                     },
                     {
                         "type":"link",
-                        "title": "East Toronto Youth Coordinator",
-                        "navigateTo": "/static/pdfs/careers/TOBC_Youth_Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Events & Rentals Manager",
                         "navigateTo": "/static/pdfs/careers/Events & Rentals Manager.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "High Park Kidmax Coordinator",
-                        "navigateTo": "/static/pdfs/careers/TOHP_Kidmax_Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Human Resources Manager",
-                        "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
                     },
                     {
@@ -172,6 +154,42 @@
                         "type":"link",
                         "title": "Technical Specialist",
                         "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
+                        "openNewBrowser":true
+                    }
+                ],
+
+                
+
+                "image1": [
+                    {
+                        "src": "/static/images/about-us-2-1.jpg",
+                        "alt": "Group of friends from church sitting together and talking."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Careers - Part-time",
+                "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
+            
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "East Toronto Youth Coordinator",
+                        "navigateTo": "/static/pdfs/careers/TOBC_Youth_Coordinator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "High Park Kidmax Coordinator",
+                        "navigateTo": "/static/pdfs/careers/TOHP_Kidmax_Coordinator.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Human Resources Manager",
+                        "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
                     }
                 ],
