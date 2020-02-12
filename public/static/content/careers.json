@@ -72,12 +72,6 @@
                     },
                     {
                         "type":"link",
-                        "title": "Events & Rentals Manager",
-                        "navigateTo": "/static/pdfs/careers/Events & Rentals Manager.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Graphic Design Intern",
                         "navigateTo": "/static/pdfs/careers/Graphic Design Intern 2020.pdf",
                         "openNewBrowser":true
