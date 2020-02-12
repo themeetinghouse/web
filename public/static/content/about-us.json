@@ -140,6 +140,18 @@
                     },
                     {
                         "type":"link",
+                        "title": "Graphic Design Intern",
+                        "navigateTo": "/static/pdfs/careers/Graphic Design Intern 2020.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Kidmax Intern",
+                        "navigateTo": "/static/pdfs/careers/Kidmax Intern 2020.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
                         "title": "Lead Pastor",
                         "navigateTo": "/static/pdfs/careers/2019_Lead_Pastor.pdf",
                         "openNewBrowser":true
