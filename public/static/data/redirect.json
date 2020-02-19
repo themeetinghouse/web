@@ -39,7 +39,6 @@
 {"id":"dataprivacy","to":"/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019"},
 {"id":"kids","to":"http://parents.themeetinghouse.com/"},
 {"id":"youth","to":"http://theunderground.ws"},
-{"id":"careers","to":"https://www.themeetinghouse.com/about-us"},
 {"id":"annualreports","to":"https://www.themeetinghouse.com/about-us"},
 {"id":"annualreport","to":"/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf"},
 {"id":"distancegroupupdates","to":"https://meeting.formstack.com/forms/distancegrouplisting"},
@@ -79,5 +78,6 @@
 {"id":"govideos","to":"https://www.youtube.com/playlist?list=PLB5r2P47beqKvgGXrtWpjjfs1T7rwoP6_"},
 {"id":"goevents","to":"https://themeetinghouse.typeform.com/to/GGo8uC"},
 {"id":"peacemakerspack","to":"https://meeting.formstack.com/forms/peacemakerspack"},
-{"id":"onlinegathering","to":"https://themeetinghouse.typeform.com/to/t3WHjb"}
+{"id":"onlinegathering","to":"https://themeetinghouse.typeform.com/to/t3WHjb"},
+{"id":"whitbyvideo","to":"https://youtu.be/QNeFqFxbjVQ"}
 ]
