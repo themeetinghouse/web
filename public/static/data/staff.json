@@ -481,7 +481,7 @@
          "FirstName": "Lynda",
          "LastName": "Thoms",
          "Phone": "905.287.7000, ext. 7067",
-         "Position": "Events and Rentals Coordinator",
+         "Position": "Events and Rentals Manager",
          "sites": ["Operations"],
          "Email": "lynda@themeetinghouse.com"
      },
@@ -598,7 +598,7 @@
         "FirstName": "Olivia",
         "LastName": "Vanderwal",
         "Phone": "905.287.7000, ext. 868",
-        "Position": "Social Media Specialist",
+        "Position": "Social Media Coordinator",
         "sites": ["Communications"],
         "Email": "Olivia.Vanderwal@themeetinghouse.com"
     },
@@ -679,7 +679,7 @@
         "FirstName": "Rod",
         "LastName": "Tombs",
         "Phone": "905.287.7000, ext. 827",
-        "Position": "Senior Pastor",
+        "Position": "Executive Pastor",
         "sites": ["Operations","Pastoral"],
         "Email": "Rod.Tombs@themeetinghouse.com"
     },
