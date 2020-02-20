@@ -32,7 +32,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Partnership",
-                "text1": "We partner with Mennonite Central Committee in four key areas: peacebuilding in Sub-Saharan Africa, Indigenous and settler reconciliation in Ontario, restorative justice in Ontario, and global humanitarian relief.",
+                "text1": "For peacemakers we partner with Mennonite Central Committee in four key areas: peacebuilding in Sub-Saharan Africa, Indigenous and settler reconciliation in Ontario, restorative justice in Ontario, and global humanitarian relief.",
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-2.jpg",
@@ -118,7 +118,7 @@
                     },
                     {
                         "type": "link",
-                        "title": "Register to pack Relief Kits on March 8",
+                        "title": "Register to pack Relief Kits",
                         "navigateTo": "https://meeting.formstack.com/forms/peacemakerspack",
                         "openNewBrowser": true
                     },
@@ -254,7 +254,7 @@
                     },
                     {
                         "type": "question",
-                        "question": "Can I give online or by text?",
+                        "question": "Can I give to peacemakers online or by text?",
                         "answer": [
                             "Yes!  There are four ways you can give without writing a cheque or giving cash.",
                             "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
