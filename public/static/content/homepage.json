@@ -49,7 +49,7 @@
                     }
                 ],
                 "header1": "Hello Friend",
-                "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but helping you explore is pretty much our favourite thing.",
+                "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "/spirituality"
             },
@@ -118,14 +118,14 @@
                     {
                         "title": "Videos",
                         "text": "Our video library featuring stories of people and communities who show us what it looks like to live the Jesus-centred life.",
-                        "imageSrc": "/static/images/homepage-4-3.jpg",
+                        "imageSrc": "/static/images/homepage-4-3-new.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
                         "navigateTo": "/teaching-curated"
                     },
                     {
                         "title": "Kids & Youth Curriculum",
-                        "text": "Through Sunday morning teaching, midweek resources, and The Parent Blog, our kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
-                        "imageSrc": "/static/images/homepage-4-4.jpg",
+                        "text": "Through Sunday morning teaching, midweek group resources, and The Parent Blog, our kids and youth curriculum is designed to partner with parents and leaders and equip them with resources to disciple their kids and youth well.",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
                         "navigateTo": "/teaching-kids-youth"
                     }
@@ -167,7 +167,7 @@
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-6.jpg",
+                        "src": "/static/images/homepage-6-new.jpg",
                         "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
                     }
                 ]
@@ -188,7 +188,7 @@
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-3-new.jpg",
+                        "src": "/static/images/homepage-3-new-update.jpg",
                         "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
                     }
                 ]

@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "about-us",
-        "title": "About Us",
+        "name": "careers",
+        "title": "Careers",
         "keywords": "",
         "description":"",
 
@@ -19,20 +19,16 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/about-us-1-1.jpg",
-                        "alt": "All of The Meeting House staff posing outside of the main office in Oakville."
-                    },
-                    {
-                        "src": "/static/images/about-us-1-2.jpg",
-                        "alt": "All of The Meeting House staff being silly outside of the main office in Oakville."
+                        "src": "/static/images/careers-1.jpg",
+                        "alt": "A pastor from The Meeting House is similing and looking off camera."
                     }
 
                 ],
                 "header1": "Staff & Careers",
-                "text1": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+                "text1": "We've got some good people. These are the folks that help make community, discipleship, and church things happen. Keep scrolling to connect with us or explore career opportunities.",
                 "text2": "",
-                "link1Text": "Read More",
-                "link1Action": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf"
+                "link1Text": "",
+                "link1Action": ""
 
             },
 
@@ -41,7 +37,7 @@
                 "style": "vertical",
                 "class": "staff",
                 "header1": "Staff",
-                "text1": "We've got some good people. These are the folks that help make community, discipleship, and Sunday mornings happen."
+                "text1": "Some call us the dream team."
             },
             {
                 "type": "list",
@@ -54,13 +50,13 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1": "Careers - Full-time",
-                "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
+                "header1": "Full-time Careers",
+                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
                     {
                         "type":"link",
-                        "title": "Communications Project Coordinator & Administrator",
+                        "title": "Communications Project Coordinator & Admin",
                         "navigateTo": "/static/pdfs/careers/Comms Project Coordinator & Administrator.pdf",
                         "openNewBrowser":true
                     },
@@ -100,16 +96,16 @@
 
                 "image1": [
                     {
-                        "src": "/static/images/about-us-2-4.jpg",
-                        "alt": "Group of friends from church sitting together and talking."
+                        "src": "/static/images/careers-2.jpg",
+                        "alt": "Staff member from The Meeting House smiling and looking off camera."
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "oneImage",
-                "header1": "Careers - Part-time",
-                "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
+                "style": "oneImageBlackRight",
+                "header1": "Part-time Careers",
+                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
                     {
@@ -130,8 +126,8 @@
 
                 "image1": [
                     {
-                        "src": "/static/images/about-us-2-1.jpg",
-                        "alt": "Group of friends from church sitting together and talking."
+                        "src": "/static/images/careers-3.jpg",
+                        "alt": "Staff member from The Meeting House is talking and smiling."
                     }
                 ]
             }
