@@ -93,12 +93,6 @@
                         "title": "Oakville Youth Pastor",
                         "navigateTo": "/static/pdfs/careers/OAK_Youth_Pastor.pdf",
                         "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Technical Specialist",
-                        "navigateTo": "/static/pdfs/careers/Technical_Specialist.pdf",
-                        "openNewBrowser":true
                     }
                 ],
 
@@ -118,12 +112,6 @@
                 "text1": "Want to work with us? Send your resume and cover letter to resumes@themeetinghouse.com",
             
                 "list": [
-                    {
-                        "type":"link",
-                        "title": "East Toronto Youth Coordinator",
-                        "navigateTo": "/static/pdfs/careers/TOBC_Youth_Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
                     {
                         "type":"link",
                         "title": "High Park Kidmax Coordinator",
