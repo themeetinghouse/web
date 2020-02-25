@@ -62,12 +62,6 @@
                     },
                     {
                         "type":"link",
-                        "title": "Curriculum Project Coordinator",
-                        "navigateTo": "/static/pdfs/careers/Curriculum Project Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Graphic Design Intern",
                         "navigateTo": "/static/pdfs/careers/Graphic Design Intern 2020.pdf",
                         "openNewBrowser":true
@@ -76,6 +70,12 @@
                         "type":"link",
                         "title": "Kidmax Intern",
                         "navigateTo": "/static/pdfs/careers/Kidmax Intern 2020.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "Kitchener Lead Pastor",
+                        "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
                         "openNewBrowser":true
                     },
                     {
