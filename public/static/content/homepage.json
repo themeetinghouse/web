@@ -2,7 +2,7 @@
     "page": {
         "name": "homepage",
         "title": "The Meeting House - Welcome",
-        "keywords": "Church, Toronto, Anabaptist, Theatre, Jesus, Homechurch, Bruxy, Be In Christ, Ontario",
+        "keywords": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Bruxy, Be In Christ, Spirituality, Christianity",
         "description":"Homepage for The Meeting House",
         "pageConfig": {
             "movingMenu": true,
@@ -49,7 +49,7 @@
                     }
                 ],
                 "header1": "Hello Friend",
-                "text1": "When’s the last time someone asked you what you believe? You know, about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but helping you explore is our favourite thing.",
+                "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "/spirituality"
             },
@@ -68,7 +68,7 @@
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-2.jpg",
+                        "src": "/static/images/homepage-2-new.jpg",
                         "alt": "Group of friends from church sitting together and talking."
                     }
                 ]
@@ -82,7 +82,7 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Find Out More",
+                        "title": "Become a Peacemaker",
                         "navigateTo": "/peacemakers"
                     }
                 ],
@@ -103,29 +103,29 @@
                 "list": [
                     {
                         "title": "Sunday Teaching",
-                        "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search through topics in our teaching archive.",
-                        "imageSrc": "/static/images/homepage-4-1.jpg",
+                        "text": "The video from our live Sunday services, including notes, questions, audio and additional content. Check out what we're learning, or search through various topics in our teaching archive.",
+                        "imageSrc": "/static/images/homepage-4-1-new.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
                         "navigateTo": "/teaching"
                     },
                     {
                         "title": "Podcasts",
-                        "text": "Our Sunday morning teaching, all in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our own leaders and staff team.",
-                        "imageSrc": "/static/images/homepage-4-2.jpg",
+                        "text": "All of our Sunday teaching in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our leaders, staff, and special guests.",
+                        "imageSrc": "/static/images/homepage-4-2-new.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
                         "navigateTo": "/teaching-podcasts"
                     },
                     {
                         "title": "Videos",
                         "text": "Our video library featuring stories of people and communities who show us what it looks like to live the Jesus-centred life.",
-                        "imageSrc": "/static/images/homepage-4-3.jpg",
+                        "imageSrc": "/static/images/homepage-4-3-new.jpg",
                         "imageAlt": "Production volunteer recording a Meeting House video.",
                         "navigateTo": "/teaching-curated"
                     },
                     {
                         "title": "Kids & Youth Curriculum",
-                        "text": "Through Sunday morning teaching, midweek resources, and The Parent Blog, our kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
-                        "imageSrc": "/static/images/homepage-4-4.jpg",
+                        "text": "Through Sunday morning teaching, midweek group resources, and The Parent Blog, our kids and youth curriculum is designed to partner with parents and leaders and equip them with resources to disciple their kids and youth well.",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
                         "navigateTo": "/teaching-kids-youth"
                     }
@@ -167,7 +167,7 @@
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-6.jpg",
+                        "src": "/static/images/homepage-6-new.jpg",
                         "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
                     }
                 ]
@@ -188,7 +188,7 @@
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-3.jpg",
+                        "src": "/static/images/homepage-3-new-update.jpg",
                         "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
                     }
                 ]

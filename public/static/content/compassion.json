@@ -20,20 +20,21 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/compassion-1.jpg",
+                        "src": "/static/images/compassion-1-new.jpg",
                         "alt": "Two people crossing a street"
                     }
                 ],
                 "header1": "Compassion",
-                "text1": "We recognize all people as unique individuals made in the image of God. Compassion requires a willingness to join people in their suffering and journey with them. As we pursue relationships with people who are vulnerable, we experience mutual transformation."
-               
+                "text1": "We recognize all people as unique individuals made in the image of God. Compassion requires a willingness to join people in their suffering and journey with them. As we pursue relationships with people who are vulnerable, we experience mutual transformation.",
+                "button1Text": "Looking for Peacemakers?",
+                "button1Action": "/peacemakers"
             },
             {
                 "type": "content",
                 "style": "greyTwoText",
                 "header1":"We work for justice in our neighbourhoods and around the world.",
                 "header2":"",
-                "text1":"We passionately care for people and want to ensure our actions don't cause more harm than good.  That's why education is our top priority. We stop to learn about the issues facing those around us and strive to make informed decisions before taking action. We walk with vulnerable people, relying on their experience and understanding of  their environments, and provide support when we are invited.  We expect the journey to change us as we engage in changing the world for the better."
+                "text1":"We care for people and want to ensure our actions don't cause more harm than good. That's why education is our top priority. We stop to learn about the issues facing those around us and strive to make informed decisions before taking action. We walk with vulnerable people, relying on their experience and understanding of  their environments, and provide support when we are invited. We expect the journey to change us as we engage in changing the world for the better."
             
             },
             {
@@ -41,9 +42,69 @@
                 "style": "vertical",
                 "class": "compassion",
                 "header1": "What We Do",
-                "text1": "We intentionally demonstrate the love and teachings of Jesus by pursuing:",
+                "text1": "We intentionally demonstrate the love and teachings of Jesus.",
                 "filterField":"sites",                 
                 "filterValue": "crossregional"
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Local Compassion Fund",
+                "text1": "This fund provides us with an opportunity to further invest financially in local organizations we partner with across southern Ontario who are having a positive impact in our community.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Final Report 2019-20",
+                        "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Final Report 2018-19",
+                        "navigateTo": "https://meeting.formstack.com/forms/lcf_final_report_2018_19"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Final Report 2017-18",
+                        "navigateTo": "https://meeting.formstack.com/forms/local_agency_reporting_copy"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/compassion-2-new.jpg",
+                        "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Local Compassion Fund Application",
+                "text1": "This fund is currently closed. The next submission window will open fall 2020.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Grant Application Guidelines",
+                        "navigateTo": "https://drive.google.com/file/d/10hpI7_4VWc-c6ZmZnoBzui_VV8fGUJsw/view"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Assessment Criteria",
+                        "navigateTo": "https://drive.google.com/file/d/1W_0gqgZJtRVBzFZrq_HTkFPQPUJGScQ-/view"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Application Writing Tutorial Video",
+                        "navigateTo": "/https://www.youtube.com/watch?v=4Unp14uUGKk&feature=youtu.be"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/compassion-3.jpg",
+                        "alt": "Young woman sitting and learning from two friends around a table."
+                    }
+                ]
             }
 
         ]
