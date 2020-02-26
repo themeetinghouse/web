@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
+import HamburgerMenu from 'react-hamburger-menu';
 //import MainMenuItems from '';
 import "./menu.scss"
 
@@ -170,7 +171,9 @@ class HomeMenu extends React.Component<Props, State>  {
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
           : null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
-          <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle}>
+            <HamburgerMenu isOpen={this.state.isOpen} menuClicked={this.toggle.bind(this)} width={24} height={16} strokeWidth={2} borderRadius={45} color="black"/>
+          </NavbarToggler>
           <div className="navbar-expander">&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className={this.state.movingMenu ? "ml-auto " + this.state.position : "ml-auto fixed"}>
