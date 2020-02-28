@@ -120,6 +120,12 @@
                         "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
                     }
+                    {
+                        "type":"link",
+                        "title": "Kitchener Youth Coordinator",
+                        "navigateTo": "/static/pdfs/careers/KIT Youth Coordinator 2020.pdf",
+                        "openNewBrowser":true
+                    }
                 ],
 
                 
