@@ -80,16 +80,80 @@
             }
         }
     }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
+
+    .partialConnect {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 38vw;
     }
 
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
+    .partialConnectImage {
+        width: 80vw;
+        height: 40vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    .partialConnectBox {
+        position: absolute;
+        background-color: #ffffff;
+        padding: 2vw;
+        right: 22vw;
+        width: 38vw;
+        top: 50%;
+        transform: translateY(-50%);;
+        z-index: 100;
+        
+        .heroH1, .heroH2 {
+            color: #1a1a1a;
+        }
+
+        .heroHr, .heroText1, .heroText2 {
+            color: #54565A
+        }
+    }
+
+    .signupContainer {
+        width: 100%;
+        margin-top: 1.5vw;
+    }
+ 
+    .signupButtons {
+        font-family: Graphik Web !important;
+        display: flex;
+        color: #646469;
+
+        [type="submit"].heroButton {
+            flex: 0 !important;
+            margin: 0 !important;
+            background-color: #1A1A1A !important;
+            border: 0 solid #1A1A1A;
+            color: #ffffff !important;
+            font-size: 1vw !important;
+        }
+    }
+
+    .emailWrapper {
+        flex: 1;
+        align-items: center;
+        display: flex;
+
+        border: 1.5px solid #C8C8C8;
+        margin-right: 1vw;
+
+        [type="email"] {
+            border: none;
+            outline: none;
+            margin: 0;
+
+            font-size: 1vw;
+        }
+    }
+
+    .contactIcon {
+        padding: 0 1vw;
     }
 
     #mergeRow-gdpr {
@@ -98,12 +162,6 @@
 
     #mergeRow-gdpr fieldset label {
         font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
     }
 
     .heroItem {
@@ -476,16 +534,80 @@
             }
         }
     }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
+
+    .partialConnect {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 38vw;
     }
 
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
+    .partialConnectImage {
+        width: 80vw;
+        height: 40vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    .partialConnectBox {
+        position: absolute;
+        background-color: #ffffff;
+        padding: 2vw;
+        right: 22vw;
+        width: 38vw;
+        top: 50%;
+        transform: translateY(-50%);;
+        z-index: 100;
+        
+        .heroH1, .heroH2 {
+            color: #1a1a1a;
+        }
+
+        .heroHr, .heroText1, .heroText2 {
+            color: #54565A
+        }
+    }
+
+    .signupContainer {
+        width: 100%;
+        margin-top: 1.5vw;
+    }
+ 
+    .signupButtons {
+        font-family: Graphik Web !important;
+        display: flex;
+        color: #646469;
+
+        [type="submit"].heroButton {
+            flex: 0 !important;
+            margin: 0 !important;
+            background-color: #1A1A1A !important;
+            border: 0 solid #1A1A1A;
+            color: #ffffff !important;
+            font-size: 1vw !important;
+        }
+    }
+
+    .emailWrapper {
+        flex: 1;
+        align-items: center;
+        display: flex;
+
+        border: 1.5px solid #C8C8C8;
+        margin-right: 1vw;
+
+        [type="email"] {
+            border: none;
+            outline: none;
+            margin: 0;
+
+            font-size: 1vw;
+        }
+    }
+
+    .contactIcon {
+        padding: 0 1vw;
     }
 
     #mergeRow-gdpr {
@@ -494,12 +616,6 @@
 
     #mergeRow-gdpr fieldset label {
         font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
     }
 
     .heroH2 {
@@ -874,16 +990,78 @@
             }
         }
     }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
+
+    .partialConnect {
+        position: relative;
+        width: 100vw;
     }
 
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
+    .partialConnectImage {
+        width: 100%;
+        object-fit: cover;
+        position: relative
+    }
+
+    .partialConnectBox {
+        background-color: #ffffff;
+        padding: 2vw;
+        left: 0vw;
+        width: 100vw;
+        z-index: 100;
+        padding: 10vw 5vw 10vw 5vw;
+        
+        .heroH1, .heroH2 {
+            color: #1a1a1a;
+        }
+
+        .heroHr, .heroText1, .heroText2 {
+            color: #54565A
+        }
+    }
+
+    .signupContainer {
+        width: 100%;
+        margin-top: 1.5vw;
+    }
+ 
+    .signupButtons {
+        font-family: Graphik Web !important;
+        display: flex;
+        flex-wrap: wrap;
+
+        color: #646469;
+        font-size: 4.3vw;
+        line-height: 6.4vw;
+
+        [type="submit"].heroButton {
+            flex: 0 !important;
+            margin: 0 !important;
+            background-color: #1A1A1A !important;
+            border: 0 solid #1A1A1A;
+            color: #ffffff !important;
+            // font-size: 1vw !important;
+        }
+    }
+
+    .emailWrapper {
+        flex: 0 1 auto;
+        width: 100%;
+        align-items: center;
+        display: flex;
+
+        border: 1.5px solid #C8C8C8;
+        margin-right: 4.5vw;
+        margin-bottom: 4.5vw;
+
+        [type="email"] {
+            border: none;
+            outline: none;
+            margin: 0;
+        }
+    }
+
+    .contactIcon {
+        padding: 0 4.5vw;
     }
 
     #mergeRow-gdpr {
@@ -892,12 +1070,6 @@
 
     #mergeRow-gdpr fieldset label {
         font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
     }
 
     .heroH2 {
