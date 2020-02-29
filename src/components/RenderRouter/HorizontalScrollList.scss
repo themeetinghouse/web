@@ -3,7 +3,7 @@
         position: relative;
 
         .HorizontalScrollListItemContainer {
-            overflow-x: scroll;
+            overflow-x: hidden;
 
             &::-webkit-scrollbar {
                 width: 12px;
