@@ -124,18 +124,18 @@ now rotate each piece based on their cumulative starting
 position
 */
 .pie[data-start="30"] {
-    -moz-transform: rotate(5deg); /* Firefox */
-    -ms-transform: rotate(5deg); /* IE */
-    -webkit-transform: rotate(5deg); /* Safari and Chrome */
-    -o-transform: rotate(5deg); /* Opera */
-    transform:rotate(5deg);
+    -moz-transform: rotate(90deg); /* Firefox */
+    -ms-transform: rotate(90deg); /* IE */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    transform:rotate(90deg);
 }
 .pie[data-start="60"] {
-    -moz-transform: rotate(60deg); /* Firefox */
-    -ms-transform: rotate(60deg); /* IE */
-    -webkit-transform: rotate(60deg); /* Safari and Chrome */
-    -o-transform: rotate(60deg); /* Opera */
-    transform:rotate(60deg);
+    -moz-transform: rotate(90deg); /* Firefox */
+    -ms-transform: rotate(90deg); /* IE */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    transform:rotate(90deg);
 }
 .pie[data-start="100"] {
     -moz-transform: rotate(100deg); /* Firefox */
@@ -151,11 +151,11 @@ NOTE: add an extra degree to all but the final piece,
 to fill in unsightly gaps.
 */
 .pie[data-value="30"]:BEFORE {
-    -moz-transform: rotate(56deg); /* Firefox */
-    -ms-transform: rotate(56deg); /* IE */
-    -webkit-transform: rotate(56deg); /* Safari and Chrome */
-    -o-transform: rotate(56deg); /* Opera */
-    transform:rotate(56deg);
+    -moz-transform: rotate(90deg); /* Firefox */
+    -ms-transform: rotate(90deg); /* IE */
+    -webkit-transform: rotate(90deg); /* Safari and Chrome */
+    -o-transform: rotate(90deg); /* Opera */
+    transform:rotate(90deg);
 }
 .pie[data-value="40"]:BEFORE {
     -moz-transform: rotate(41deg); /* Firefox */
@@ -1097,18 +1097,18 @@ transform:rotate(attr(data-value,deg,0);
   position
   */
   .pie[data-start="30"] {
-      -moz-transform: rotate(5deg); /* Firefox */
-      -ms-transform: rotate(5deg); /* IE */
-      -webkit-transform: rotate(5deg); /* Safari and Chrome */
-      -o-transform: rotate(5deg); /* Opera */
-      transform:rotate(5deg);
+      -moz-transform: rotate(90deg); /* Firefox */
+      -ms-transform: rotate(90deg); /* IE */
+      -webkit-transform: rotate(90deg); /* Safari and Chrome */
+      -o-transform: rotate(90deg); /* Opera */
+      transform:rotate(90deg);
   }
   .pie[data-start="60"] {
-      -moz-transform: rotate(60deg); /* Firefox */
-      -ms-transform: rotate(60deg); /* IE */
-      -webkit-transform: rotate(60deg); /* Safari and Chrome */
-      -o-transform: rotate(60deg); /* Opera */
-      transform:rotate(60deg);
+      -moz-transform: rotate(90deg); /* Firefox */
+      -ms-transform: rotate(90deg); /* IE */
+      -webkit-transform: rotate(90deg); /* Safari and Chrome */
+      -o-transform: rotate(90deg); /* Opera */
+      transform:rotate(90deg);
   }
   .pie[data-start="100"] {
       -moz-transform: rotate(100deg); /* Firefox */
@@ -1124,18 +1124,18 @@ transform:rotate(attr(data-value,deg,0);
   to fill in unsightly gaps.
   */
   .pie[data-value="30"]:BEFORE {
-      -moz-transform: rotate(56deg); /* Firefox */
-      -ms-transform: rotate(56deg); /* IE */
-      -webkit-transform: rotate(56deg); /* Safari and Chrome */
-      -o-transform: rotate(56deg); /* Opera */
-      transform:rotate(56deg);
+      -moz-transform: rotate(90deg); /* Firefox */
+      -ms-transform: rotate(90deg); /* IE */
+      -webkit-transform: rotate(90deg); /* Safari and Chrome */
+      -o-transform: rotate(90deg); /* Opera */
+      transform:rotate(90deg);
   }
   .pie[data-value="40"]:BEFORE {
-      -moz-transform: rotate(41deg); /* Firefox */
-      -ms-transform: rotate(41deg); /* IE */
-      -webkit-transform: rotate(41deg); /* Safari and Chrome */
-      -o-transform: rotate(41deg); /* Opera */
-      transform:rotate(41deg);
+      -moz-transform: rotate(91deg); /* Firefox */
+      -ms-transform: rotate(91deg); /* IE */
+      -webkit-transform: rotate(91deg); /* Safari and Chrome */
+      -o-transform: rotate(91deg); /* Opera */
+      transform:rotate(91deg);
   }
   .pie[data-value="260"]:BEFORE {
       -moz-transform: rotate(260deg); /* Firefox */
