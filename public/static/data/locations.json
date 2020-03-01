@@ -215,9 +215,9 @@
         "name": "Toronto - Uptown",
         "pastorEmail":"Jared.Erhardt@themeetinghouse.com",
         "location": {
-            "longitude": -79.58688,
-            "latitude": 43.70752,
-            "address": "Fairview Mall Cineplex, 1800 Sheppard Ave"
+            "longitude": -79.455526,
+            "latitude": 43.725822,
+            "address": "Cineplex Cinemas Yorkdale, 3401 Dufferin Street"
         },
         "serviceTimes": ["10:00"]
     },
