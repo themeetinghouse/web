@@ -143,47 +143,62 @@ class HeroItem extends React.Component<Props, State> {
         return (
             <div>
                 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
-                <div id="mc_embed_signup">
+                <div id="mc_embed_signup" className="signupContainer">
                     <form action="https://themeetinghouse.us8.list-manage.com/subscribe/post?u=3c4d56c1d635f336d8656e9dd&amp;id=3cb55a9826"
                     method="post" id="mc-embedded-subscribe-form"
                     name="mc-embedded-subscribe-form" className="validate" target="_blank">
-                        <div id="mc_embed_signup_scroll">
-
-                            <input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"  />
-                            <div className="emailDiv" aria-hidden="true">
-                                <input className="emailInput" type="text" name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826" value="" />
+                        <div className="emailDiv" aria-hidden="true">
+                            <input className="emailInput" type="text" name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826" value="" />
+                        </div>
+                        <div id="mc_embed_signup_scroll" className="signupButtons">
+                            <div className="emailWrapper">
+                                <img className="contactIcon" src="/static/svg/Contact.svg"></img>
+                                <input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"  />
                             </div>
-                            <div className="clear">
-                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
-                            </div>
+                            <input type="submit" value="Sign Me Up" name="subscribe" className="heroButton" id="mc-embedded-subscribe" />
                         </div>
                     </form>
                 </div>
             </div>
         )
     }
+
+    renderHeroImage(className: string) {
+        const image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+        let onLoad = (_: any)=>{};
+        let style;
+        if (className === "heroImage") {
+            onLoad = item => this.fadeIn(item)
+            style = {opacity: 0};
+        }
+        return (
+            image1.src.includes(".svg")?
+            <img src={image1.src} alt={image1.alt} className={className} />:
+            <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className={className}
+                style={style} onLoad={onLoad}
+                srcSet={this.imgUrl(320)+image1.src+" 320w,"+
+                this.imgUrl(480)+image1.src+" 480w,"+
+                this.imgUrl(640)+image1.src+" 640w,"+
+                this.imgUrl(1280)+image1.src+" 1280w,"+
+                this.imgUrl(1920)+image1.src+" 1920w,"+
+                this.imgUrl(2560)+image1.src+" 2560w"}
+                sizes="(max-width: 320px) 320px,
+                        (max-width: 480px) 480px,
+                        (max-width: 640px) 640px,
+                        (max-width: 1280px) 1280px,
+                        (max-width: 1920) 1920,
+                        2560px"
+            />
+        )
+    }
+
     render() {
         window.onscroll=()=>{this.downArrowScroll()}
-        var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
         if (this.state.content.style === "full") {
-
             return (
                 <div className="headerItem heroItem" >
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
-                    <img  style={{opacity:0}} onLoad={(item)=>{this.fadeIn(item)}} src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="heroImage"
-                        srcSet={this.imgUrl(320)+image1.src+" 320w,"+
-                        this.imgUrl(480)+image1.src+" 480w,"+
-                        this.imgUrl(640)+image1.src+" 640w,"+
-                        this.imgUrl(1280)+image1.src+" 1280w,"+
-                        this.imgUrl(1920)+image1.src+" 1920w,"+
-                        this.imgUrl(2560)+image1.src+" 2560w"}
-                        sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-                    />
+                    {this.renderHeroImage("heroImage")}
                     <div className="heroBlackBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
 
@@ -228,26 +243,7 @@ class HeroItem extends React.Component<Props, State> {
 
             return (
                 <div className="partialNoFooter" >
-                    {
-                        image1.src.includes(".svg")?
-
-                    <img src={image1.src} alt={image1.alt} className="partialNoFooterImage"/>:
-                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partialNoFooterImage"
-                    srcSet={this.imgUrl(320)+image1.src+" 320w,"+
-                    this.imgUrl(480)+image1.src+" 480w,"+
-                    this.imgUrl(640)+image1.src+" 640w,"+
-                    this.imgUrl(1280)+image1.src+" 1280w,"+
-                    this.imgUrl(1920)+image1.src+" 1920w,"+
-                    this.imgUrl(2560)+image1.src+" 2560w"}
-                    sizes="(max-width: 320px) 320px,
-                           (max-width: 480px) 480px,
-                           (max-width: 640px) 640px,
-                           (max-width: 1280px) 1280px,
-                           (max-width: 1920) 1920,
-                            2560px"
-                />
-
-                    }
+                    {this.renderHeroImage("partialNoFooterImage")}
                     <div className="partialNoFooterBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2" >{this.state.content.header2}</h2>}
@@ -281,8 +277,6 @@ class HeroItem extends React.Component<Props, State> {
                         <a className="HeroItemButtonA"  href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {this.state.content.addToCalendar ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
                         {this.state.content.contactPastor ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
-                        {this.state.content.showEmailSignup?this.renderEmailSignup():null}
-
                     </div>
                 </div>
             )
@@ -291,25 +285,7 @@ class HeroItem extends React.Component<Props, State> {
             
             return (
                 <div className="headerItem divPartial" >
-                     {
-                        image1.src.includes(".svg")?
-
-                    <img src={image1.src} alt={image1.alt} className="partial"/>:
-                    <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="partial"
-                    srcSet={this.imgUrl(320)+image1.src+" 320w,"+
-                    this.imgUrl(480)+image1.src+" 480w,"+
-                    this.imgUrl(640)+image1.src+" 640w,"+
-                    this.imgUrl(1280)+image1.src+" 1280w,"+
-                    this.imgUrl(1920)+image1.src+" 1920w,"+
-                    this.imgUrl(2560)+image1.src+" 2560w"}
-                    sizes="(max-width: 320px) 320px,
-                           (max-width: 480px) 480px,
-                           (max-width: 640px) 640px,
-                           (max-width: 1280px) 1280px,
-                           (max-width: 1920) 1920,
-                            2560px"
-                />
-                     }
+                    {this.renderHeroImage("partial")}
                     <div className="heroPartialBlackBox" >
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
@@ -347,6 +323,25 @@ class HeroItem extends React.Component<Props, State> {
 
                     </div>
 
+                </div>
+            )
+        } else if (this.state.content.style === "connect") {
+            return (
+                <div className="partialConnect" >
+                    {this.renderHeroImage("partialConnectImage")}
+                    <div className="partialConnectBox" >
+                        <h1 className="heroH1" >{this.state.content.header1}</h1>
+                        {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
+                        <hr className="heroHr"></hr>
+                        <div className="heroText1" >{this.state.content.text1}</div>
+                        <div className="heroText2" >{this.state.content.text2}</div>
+                        <div className="heroText2" >{this.state.content.text3}</div>
+                        <div className="heroText2" >{this.state.content.text4}</div>
+                        <div className="heroText2" >{this.state.content.text5}</div>
+                        <div className="heroText2" >{this.state.content.text6}</div>
+                        <div className="heroText2" >{this.state.content.text7}</div>
+                        {this.renderEmailSignup()}
+                    </div>
                 </div>
             )
         }

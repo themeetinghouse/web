@@ -1,0 +1,31 @@
+{
+    "page": {
+        "name": "gospeltest",
+        "title": "Gospel Cheat Sheet",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor":"white",
+            "showSearch":false,
+            "showFooter":false,
+            "showMenu":false,
+            "isPopup":true,
+            "navigateOnPopupClose":"/"
+        },
+        "content": [
+            {
+                "type": "give",
+                "header1": "Gospel Cheat Sheet",
+                "header2": "GETTING TO KNOW THE GOSPEL",
+                "text1":"Use this gospel cheat sheet to become increasingly familiar with Bible passages that relate to the good news of Jesus. Return to them often, meditate and memorize, so they get inside you and can be drawn on naturally in conversation.",
+                "text2":"When you give, you become a participant in a counter-cultural movement of disciples who want to transform their neighbourhoods and cities by helping grow loving communities of Jesus-followers who live and share his irreligious message. Your giving makes a difference in the lives of others, and in your own life.", 
+                "text3":"This is our collective purpose—this is why we exist. Your donations make this a tangible reality. ",
+                "text4":"Thank you."
+
+            }
+        ]
+    }
+}

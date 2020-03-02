@@ -113,7 +113,7 @@
                         "title": "Human Resources Manager",
                         "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
-                    }
+                    },
                     {
                         "type":"link",
                         "title": "Kitchener Youth Coordinator",
