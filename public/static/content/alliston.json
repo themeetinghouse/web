@@ -109,12 +109,8 @@
                 ],
                 "image1": [
                     {
-                        "src": "/static/images/KY1.jpg",
-                        "alt": "A young child playing with blocks."
-                    },
-                    {
-                        "src": "/static/images/KY2.jpg",
-                        "alt": "Two boys laughing."
+                        "src": "/static/images/make-a-difference-3.jpg",
+                        "alt": "A woman is using her smartphone."
                     }
                 ]
             },
