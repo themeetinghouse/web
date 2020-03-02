@@ -110,12 +110,6 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "High Park Kidmax Coordinator",
-                        "navigateTo": "/static/pdfs/careers/TOHP_Kidmax_Coordinator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Human Resources Manager",
                         "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
                         "openNewBrowser":true
