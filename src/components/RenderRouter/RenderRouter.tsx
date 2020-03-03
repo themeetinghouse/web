@@ -19,6 +19,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HomeMenu from '../Menu/HomeMenu';
 import HomeFooter from '../Menu/HomeFooter';
 import InstagramItem from './InstagramItem';
+import SimpleItem from './SimpleItem';
 import SearchItem from './SearchItem';
 import IFrameItem from './IFrameItem';
 import WeatherItem from './WeatherItem';
@@ -44,7 +45,7 @@ class RenderRouter extends React.Component<Props, State> {
           return (<ContentItem key={index} content={item}></ContentItem>);
         else if (item.type === "videoPlayer")
           return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
-          else if (item.type === "liveVideoPlayer")
+        else if (item.type === "liveVideoPlayer")
           return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
         else if (item.type === "list")
           return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
@@ -76,8 +77,10 @@ class RenderRouter extends React.Component<Props, State> {
           return (<Give2Item key={index} content={item}></Give2Item>);
         else if (item.type === "faq")
           return (<FAQItem key={index} content={item}></FAQItem>);
-        else if (item.type==="weather")
-        return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
+        else if (item.type === "simple")
+          return (<SimpleItem key={index} content={item}></SimpleItem>);
+        else if (item.type === "weather")
+          return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
         else return null
       })
     else return null
