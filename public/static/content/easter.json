@@ -1,0 +1,50 @@
+{
+    "page": {
+        "name": "easter",
+        "title": "Easter",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/christmas-eve-1.jpg",
+                        "alt": "Young woman smiling off camera at the Christmas Market."
+                    }
+                ],
+                "header1": "Easter",
+                "header2": "",
+                "text1": ""
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "What to expect",
+                "header2": "",
+                "text1": "",
+              
+                "image1": [
+                    {
+                        "src": "/static/images/christmas-2.jpg",
+                        "alt": "Candlelight Christmas Service"
+                    }
+                ]
+            },
+            {
+                "type": "sunday-morning",
+                "header1": "Easter Locations",
+                "alternate": "easter"
+            }
+        ]
+    }
+}
