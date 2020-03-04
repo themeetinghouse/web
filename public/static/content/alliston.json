@@ -95,6 +95,26 @@
                 ]
             },
             {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Giving",
+                "header2": "",
+                "text1": "When you give, you become a participant in a counter-cultural movement of disciples who want to transform their neighbourhoods and cities by helping grow loving communities of Jesus-followers who live and share his irreligious message. Your giving makes a difference in the lives of others, and in your own life.",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "Make a Secure Donation",
+                        "navigateTo": "https://tithe.ly/give_new/www/#/tithely/give-one-time/674673"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/make-a-difference-3.jpg",
+                        "alt": "A woman is using her smartphone."
+                    }
+                ]
+            },
+            {
                 "type": "hero",
                 "style": "partial",
                 "image1": [

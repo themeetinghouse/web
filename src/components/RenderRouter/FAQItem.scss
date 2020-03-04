@@ -3,17 +3,20 @@
     .faqText {
         font-size: 1.5vw;
         font-family: Graphik Web;
+      
     }
 
     .FAQQuestion {
         font-size: 1.2vw;
         font-family: Graphik Web;
         font-weight: bold;
+       
     }
 
     .FAQAnswer {
         font-size: 1.2vw;
         font-family: Graphik Web;
+       
     }
 
     .faqText.white {
@@ -105,14 +108,15 @@
         background-color: #2b583b;
     }
 
-    .faqeH1 {
+    .faqH1 {
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
+      
     }
-
-    .faqH1.white {
-        color: #ffffff;
+    .whiteText {
+        color:#ffffff!important;
+        background-color:#000000!important;
     }
 
     .faqPosition {
@@ -225,6 +229,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .whiteText {
+        color:#ffffff!important;
+        background-color:#000000!important;
+    }
 
    
     .FAQQuestion{
@@ -680,4 +688,9 @@
         top: unset;
         bottom: -40vw;
     }
+    .whiteText {
+        color:#ffffff!important;
+        background-color:#000000!important;
+    }
+
 }

@@ -49,13 +49,13 @@ renderList(){
         item.type==="question"?
       
         <div key={id}>
-          <div onClick={()=>{this.toggle(id)}}  className="FAQQuestion">
+          <div onClick={()=>{this.toggle(id)}}  className={this.state.content.style=="white"?"FAQQuestion whiteText":"FAQQuestion"} >
             <div style={{width:"90%",float:"left"}}>{item.question}</div>
             <div style={{float:"right"}}>+</div>
             <div style={{clear:"both"}}></div>
           </div>
           <Collapse  isOpen={this.state.isOpen[id]} >
-          <div  className="FAQAnswer">
+          <div  className={this.state.content.style=="white"?"FAQAnswer whiteText":"FAQAnswer"} >
             {item.answer.map((item:any)=>{return (<div>{item} <div>&nbsp;</div></div>)})}
           </div>
           </Collapse>
@@ -85,6 +85,8 @@ renderList(){
     :null
 } 
   render() {
+
+
     var image1 
     if (this.state.content.image1!=null)
      image1= this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
@@ -93,9 +95,9 @@ renderList(){
         <div className="FAQItem faq">
           <div className="faqPosition">
             <div className="faqGreyBox right" >
-              <h1 className="faqH1" >{this.state.content.header1}</h1>
-              <h2 className="faqH2">{this.state.content.header2}</h2>
-              <div className="faqText" >{this.state.content.text1}</div>
+              <h1 className={this.state.content.style=="white"?"faqH1 whiteText":"faqH1"} >{this.state.content.header1}</h1>
+              <h2 className={this.state.content.style=="white"?"faqH2 whiteText":"faqH2"} >{this.state.content.header2}</h2>
+              <div className={this.state.content.style=="white"?"faqText whiteText":"faqText"} >{this.state.content.text1}</div>
              {this.renderList()}
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="faqImage right"

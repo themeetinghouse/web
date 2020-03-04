@@ -19,7 +19,7 @@
             {
                 "type": "weather",
                 "style": "yellow",
-                "header1":"Weather Notice.",
+                "header1":"Weather Notice",
                 "header2":"Service Cancellations",
                 "text1":"Sometimes the weather has other ideas. The following locations have cancelled their services for Sunday January 12, 2019:",
                 "list": [
