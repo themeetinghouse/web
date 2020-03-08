@@ -20,7 +20,7 @@
         padding: .375rem 1.25rem;
         margin-top:1vw;
         margin-bottom:.5rem;
-       font-family:Graphik Web;
+        font-family:Graphik Web;
         color:#ffffff;
         .SundaMorningIcon {
             position: absolute;
@@ -34,7 +34,7 @@
         }
         .react-add-to-calendar__button {
             font-family: Graphik Web;
-            color: #000000;
+            color: #ffffff;
             border-width: 0px;
             border-radius: 0;
             font-size: 1vw;
@@ -437,9 +437,10 @@
         border: 0px;
     }
     .calendarButton {
+        position: relative;
         font-family: Graphik Web !important;
         font-size: 1vw !important;
-        margin-top: 1vw;
+        margin-top:1vw;
         color: #ffffff;
         background-color: #000000 !important;
         border-width: 0 !important;
@@ -489,7 +490,7 @@
         position: relative;
         display: inline-block;
         padding: .75rem 1.25rem;
-       font-family:Graphik Web;
+        font-family:Graphik Web;
         color:#ffffff;
         .SundaMorningIcon {
             position: absolute;
@@ -503,7 +504,7 @@
         }
         .react-add-to-calendar__button {
             font-family: Graphik Web;
-            color: #000000;
+            color: #ffffff;
             border-width: 0px;
             border-radius: 0;
             font-size: 1vw;
@@ -962,7 +963,7 @@
         position: relative;
         display: inline-block;
         padding: .75rem 1.25rem;
-       font-family:Graphik Web;
+        font-family:Graphik Web;
         color:#ffffff;
         .SundaMorningIcon {
             position: absolute;
@@ -976,7 +977,7 @@
         }
         .react-add-to-calendar__button {
             font-family: Graphik Web;
-            color: #000000;
+            color: #ffffff;
             border-width: 0px;
             border-radius: 0;
             font-size: 3.5vw;
