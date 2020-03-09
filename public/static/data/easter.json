@@ -8,7 +8,7 @@
             "latitude": 44.149035,
             "address": "Gibson Centre, 63 Tupper Street West"
         },
-        "serviceTimes": ["December 24 - 6:30pm"]
+        "serviceTimes": ["December 24 - 6:30pm","December 25 - 6:30pm"]
     },
     { 
         "id": "sandbanks",

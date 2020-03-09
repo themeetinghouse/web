@@ -61,6 +61,8 @@ export class ContentItem extends React.Component<Props, State>  {
     var jsonFile;
     if (this.state.content.alternate === "christmas")
       jsonFile = "./static/data/christmas.json"
+    else if (this.state.content.alternate === "easter")
+      jsonFile = "./static/data/easter.json"
     else
       jsonFile = "./static/data/locations.json"
     fetch(jsonFile).then(function (response) {
@@ -288,8 +290,8 @@ export class ContentItem extends React.Component<Props, State>  {
                             <div className="SundayMorningAddress" dangerouslySetInnerHTML={{ __html: item.location.address.split(",").join("<br/>") }}></div>
                             {/* <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " away (" + this.state.distances.rows[0].elements[index].duration.text + ")": null}</div> */}
                             <div className="SundayMorningDistances" >{item.distance != null ? item.distance.distance.text + " away (" + item.distance.duration.text + ")" : null}</div>
-                            {this.state.content.alternate === "christmas" ? null : <div className="SundayMorningServiceDay">Sundays</div>}
-                            {this.state.content.alternate === "christmas" ? <div className="SundayMorningServiceTimes">{item.serviceTimes}</div>
+                            {this.state.content.alternate === "christmas" || this.state.content.alternate === "easter"? null : <div className="SundayMorningServiceDay">Sundays</div>}
+                            {this.state.content.alternate === "christmas" || this.state.content.alternate === "easter" ? <div className="SundayMorningServiceTimes">{item.serviceTimes}</div>
                               : <div className="SundayMorningServiceTimes">{item.serviceTimes.map((t: any) => (t + ' am')).join(', ')}</div>}
                           </div>
                           <div className="SundayMorningItemDiv6" >

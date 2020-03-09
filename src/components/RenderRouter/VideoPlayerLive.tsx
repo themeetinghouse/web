@@ -39,9 +39,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
         </div>
         <br/>
         <br/>
-        <div className="LiveVideoPlayerEpisodeTitle">Oakville Live Feed (Coming Soon)</div>
+        <div className="LiveVideoPlayerEpisodeTitle">Oakville Live Feed</div>
         <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/test?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-    */}      </div>
+        <div className="LiveVideoPlayerEpisodeTitle">Regional Recording</div>
+        <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/test?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <div className="LiveVideoPlayerEpisodeTitle">KidMax Recording</div>
+        <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/test?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+     */}    </div>
     )
 
   }
