@@ -39,7 +39,7 @@ toggle = (id:any) => {
   this.setState({isOpen:list})
 }
 
-renderList(){
+renderList(image1:any){
   return this.state.content.list?
     this.state.content.list.map((item:any,id:any)=>{
     
@@ -50,8 +50,8 @@ renderList(){
       
         <div key={id}>
           <div onClick={()=>{this.toggle(id)}}  className={this.state.content.style=="white"?"FAQQuestion whiteText":"FAQQuestion"} >
-            <div style={{width:"90%",float:"left"}}>{item.question}</div>
-            <div style={{float:"right"}}>+</div>
+            <div style={image1?{width:"90%",float:"left"}:{width:"30%",float:"left"}}>{item.question}</div>
+            <div style={image1?{float:"right"}:{float:"left"}}>+</div>
             <div style={{clear:"both"}}></div>
           </div>
           <Collapse  isOpen={this.state.isOpen[id]} >
@@ -71,7 +71,7 @@ renderList(){
        <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
       }</div>
       :item.type==="text"?
-      <div key={id}>
+      <div key={id} className={item.class}>
         {item.title}
       </div>
       :item.type==="event"?
@@ -94,12 +94,13 @@ renderList(){
       return (
         <div className="FAQItem faq">
           <div className="faqPosition">
-            <div className="faqGreyBox right" >
+            <div className={image1?"faqGreyBox right":"faqGreyBox full"} >
               <h1 className={this.state.content.style=="white"?"faqH1 whiteText":"faqH1"} >{this.state.content.header1}</h1>
               <h2 className={this.state.content.style=="white"?"faqH2 whiteText":"faqH2"} >{this.state.content.header2}</h2>
               <div className={this.state.content.style=="white"?"faqText whiteText":"faqText"} >{this.state.content.text1}</div>
-             {this.renderList()}
+             {this.renderList(image1)}
             </div>
+            {image1?
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="faqImage right"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
                         this.imgUrl(480)+image1.src+" 480w,"+
@@ -113,7 +114,7 @@ renderList(){
                                (max-width: 1280px) 1280px,
                                (max-width: 1920) 1920,
                                 2560px"
-                    />
+                    />:null}
           </div>
         </div>
       )

@@ -27,13 +27,7 @@
                 "type": "faq",
                 "style":"white",
                 "header1": "GOD WITH US",
-                "text1": "The Hebrew Bible (or Old Testament, written hundreds of years before Jesus) prophesied a time when God would bust through the boundaries of religion and dwell intimately with humankind. • Jesus’s coming began the fulfilment of many prophecies, and started a “New Covenant” or new way of living in relationship with God and with others.",
-                "image1": [
-                    {
-                        "src": "",
-                        "alt": ""
-                    }
-                ],
+                "text1": "The Hebrew Bible (or Old Testament, written hundreds of years before Jesus) prophesied a time when God would bust through the boundaries of religion and dwell intimately with humankind. ",
                 "list": [
                     {
                         "type": "question",
@@ -48,6 +42,11 @@
                         "answer": [
                             "Peace Cards are $100 donations that will be going to MCC’s peacebuilding work in Sub-Saharan Africa and here in Ontario. Relief Kits are a collection of specific in-kind donations that MCC uses to respond to humanitarian relief situations around the world."
                         ]
+                    },
+                    {
+                        "type":"text",
+                        "class":"whiteText",
+                        "title":" Jesus’s coming began the fulfilment of many prophecies, and started a “New Covenant” or new way of living in relationship with God and with others."
                     },
                     {
                         "type": "question",
