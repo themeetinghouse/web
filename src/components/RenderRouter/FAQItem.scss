@@ -10,7 +10,7 @@
         font-size: 1.2vw;
         font-family: Graphik Web;
         font-weight: bold;
-       
+        margin-top: 2vw;
     }
 
     .FAQAnswer {
@@ -67,7 +67,15 @@
         top: 0vw;
 
     }
+    .faqGreyBox.full {
+        padding: 0vw;
+        position: relative;
+        width: 60vw;
 
+        left: 0vw;
+        top: 0vw;
+
+    }
     .faqBlackBox {
         padding: 10vw;
         position: relative;
