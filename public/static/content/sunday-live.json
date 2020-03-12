@@ -17,7 +17,9 @@
         },
         "content": [
             {
-                "type": "liveVideoPlayer"
+                "type": "liveVideoPlayer",
+                "liveYoutubeId":"v4qM-1JkPAo",
+                "showLiveVideos":true
             }
         ]
     }
