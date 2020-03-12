@@ -50,8 +50,8 @@ renderList(image1:any){
       
         <div key={id}>
           <div onClick={()=>{this.toggle(id)}}  className={this.state.content.style=="white"?"FAQQuestion whiteText":"FAQQuestion"} >
-            <div style={image1?{width:"90%",float:"left"}:{width:"30%",float:"left"}}>{item.question}</div>
-            <div style={image1?{float:"right"}:{float:"left"}}>+</div>
+            <div className={image1?"FAQFullWidth":"FAQPartialWidth"}>{item.question}</div>
+            <div className={image1?'FAQFloatLeft':"FAQFloatRight"}>+</div>
             <div style={{clear:"both"}}></div>
           </div>
           <Collapse  isOpen={this.state.isOpen[id]} >

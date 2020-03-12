@@ -5,7 +5,12 @@
         font-family: Graphik Web;
       
     }
-
+    .FAQFloatLeft{float:"left"}
+    .FAQFloatRight {float:"right"}
+    .FAQFullWidth{width:90%;
+        float:left;}
+    .FAQPartialWidth{width:30%;
+        float:left;}
     .FAQQuestion {
         font-size: 1.2vw;
         font-family: Graphik Web;
@@ -237,6 +242,12 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .FAQFloatLeft{float:"left"}
+    .FAQFloatRight {float:"right"}
+    .FAQFullWidth{width:90%;
+        float:left;}
+    .FAQPartialWidth{width:30%;
+        float:left;}
     .whiteText {
         color:#ffffff!important;
         background-color:#000000!important;
@@ -476,7 +487,12 @@
 }
 
 @media (max-width: 767px) {
-
+    .FAQFloatLeft{float:"right"}
+    .FAQFloatRight {float:"right"}
+    .FAQFullWidth{width:90%;
+        float:left;}
+    .FAQPartialWidth{width:90%;
+        float:left;}
     .faqText {
         font-size: 5vw;
         font-family: Graphik Web;
@@ -530,7 +546,7 @@
     }
 
     .faqGreyBox {
-        margin-top: 55vw;
+        margin-top: 0vw;
         padding: 40vw 6vw 10vw;
         position: relative;
         width: 100vw;

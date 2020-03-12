@@ -88,10 +88,12 @@ ul.SimpleItemNumber {
 
   }
 
-  .SimpleItemBottom {
+  .SimpleItemBigBottom {
     height: 15vw;
   }
-
+  .SimpleItemBottom {
+    height: 1vw;
+  }
   .SimpleItemOtherWayButton {
     font-family: Graphik Web;
     background-color: #000000;
@@ -239,6 +241,14 @@ ul.SimpleItemNumber {
     margin-bottom: 1vw;
     font-size: 1.2vw;
   }
+  .SimpleItemTextTab {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-left:5vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
   .SimpleItemTextBold {
     color: #ffffff;
     font-weight: Bold;
@@ -295,10 +305,13 @@ ul.SimpleItemNumber {
     margin-bottom: 2vw;
   }
 
-  .SimpleItemBottom {
+  .SimpleItemBigBottom {
     height: 15vw;
   }
 
+  .SimpleItemBottom {
+    height: 5vw;
+  }
   .SimpleItemNeedHelpEmail {
     font-family: Graphik Web;
     color: #ffffff;
@@ -390,6 +403,15 @@ ul.SimpleItemNumber {
     font-size: 4.3vw;
     width: 97%;
   }
+  .SimpleItemTextTab {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 8vw;
+    font-size: 4.3vw;
+    width: 97%;
+    margin-left:5vw;
+  }
   .SimpleItemTextBold {
     color: #ffffff;
     font-family: Graphik Web;
@@ -469,7 +491,7 @@ ul.SimpleItemNumber {
 
   .simpleItemDiv1 {
     position: relative;
-    top: 35vw;
+    top: 20vw;
     left: 0vw;
     margin-bottom: 2vw;
     width: 100%;
@@ -490,6 +512,9 @@ ul.SimpleItemNumber {
 
   }
   .SimpleItemBottom {
-    height: 45vw;
+    height: 10vw;
+  }
+  .SimpleItemBigBottom {
+    height: 5vw;
   }
 }
