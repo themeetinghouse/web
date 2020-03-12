@@ -51,7 +51,10 @@ export default class ContentItem extends React.Component<Props, State>  {
           <h1 className="SimpleItemH1">{this.state.content.header1}</h1>
           <h2 className="SimpleItemH2">{this.state.content.header2}</h2>
           <hr className="SimpleItemHR" />
-          <div className="SimpleItemText">{this.state.content.text1}</div>
+          {this.state.content.text.map((item:any)=>{
+            return (<div className={item.class}>{item.text}</div>)
+          })}
+        
           <div className="SimpleItemText">{this.state.content.text2}</div>
           <div className="SimpleItemText">{this.state.content.text3}</div>
           <div className="SimpleItemText">{this.state.content.text4}</div>
