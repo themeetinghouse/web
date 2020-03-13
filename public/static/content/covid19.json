@@ -18,7 +18,7 @@
             {
                 "type": "simple",
                 "header1": "COVID-19 Response | March 13, 2020",
-                "header2": "This is a changing situation please check back here regularly for updates.",
+                "header2": "This is a changing situation - please check back here regularly for updates.",
                 "text": [
                     {
                         "class": "SimpleItemText",
@@ -46,7 +46,7 @@
                     },
                     {
                         "class": "SimpleItemTextTab",
-                        "text": "- For our regional sites, the video teaching and notes for week two of Speaking of Jesus are available now."
+                        "text": "- For our regional sites, join us online at 10:00am on Sunday March 15 for a regional livestream. Right here on our website!"
                     },
                     {
                         "class": "SimpleItemTextTab",
