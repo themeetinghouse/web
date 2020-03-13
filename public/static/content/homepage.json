@@ -13,11 +13,13 @@
             "showMenu":true,
             "showLive":true,
             "weatherAlert":false
+            
         },
         "content": [
             {
                 "type": "hero",
                 "style": "full",
+                "showCovid":true,
                 "image1": [
                     {
                         "src": "/static/images/homepage-1-1.jpg",
@@ -52,6 +54,7 @@
                 "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
                 "button1Text": "Explore Spirituality",
                 "button1Action": "/spirituality"
+                
             },
             {
                 "type": "content",
