@@ -235,7 +235,7 @@ class HeroItem extends React.Component<Props, State> {
                               <br/>
                             
                     </div>
-       {this.state.content.showCovid?<div className="covidButton"><Button onClick={()=>{this.navigateTo("covid19")}} style={{backgroundColor:"#000000",paddingLeft:"10vw", paddingRight:"10vw",color:"#ffffff"}}>Learn about our Covid-19 Response</Button></div>:null}
+       {this.state.content.showCovid?<div className="covidButton"><Button onClick={()=>{this.navigateTo("covid19")}} style={{backgroundColor:"#000000",paddingLeft:"10vw", paddingRight:"10vw",color:"#ffffff"}}>COVID-19 Update</Button></div>:null}
                      <div><img id="downArrow" style={{ opacity:this.state.arrowOpacity,cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
 
                 </div>
