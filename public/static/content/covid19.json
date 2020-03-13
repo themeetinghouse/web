@@ -1,7 +1,7 @@
 {
     "page": {
         "name": "gospeltest",
-        "title": "Gospel Cheat Sheet",
+        "title": "COVID-19 Response",
         "keywords": "",
         "description": "",
         "pageConfig": {
@@ -17,7 +17,7 @@
         "content": [
             {
                 "type": "simple",
-                "header1": "March 12, 2020 – COVID-19 Response",
+                "header1": "COVID-19 Response | March 13, 2020",
                 "header2": "This is a changing situation please check back here regularly for updates.",
                 "text": [
                     {
@@ -42,7 +42,7 @@
                     },
                     {
                         "class": "SimpleItemText",
-                        "text": "We are encouraging you to participate in our Sunday services online. At this point, we will also continue with a significantly modified version of our in-person services for Sunday March 15."
+                        "text": "We have canceled our in-person services for Sunday March 15 at all our sites and encourage you to participate in our Sunday services online."
                     },
                     {
                         "class": "SimpleItemTextTab",
@@ -50,60 +50,19 @@
                     },
                     {
                         "class": "SimpleItemTextTab",
-                        "text": "- For Oakville, we will be live-streaming the teaching portion of both the 9:30am and 11:15am services at themeetinghouse.com beginning as soon as music has finished (approximately 20 minutes into the service)."
+                        "text": "- For Oakville, we will be live-streaming the service on our website at 9:30am and 11:15am."
                     },
                     {
                         "class": "SimpleItemText",
-                        "text": "For those who are looking to gather in person, we are taking proactive steps to ensure our environments are as safe as possible. This means significant changes."
+                        "text": "- All of our Kids and Youth teaching for this Sunday, as well as midweek youth, is also available on our website. You can access the take home cards and additional materials on The Parent Blog."
                     },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- For some of our sites this may mean one multi-generational service in the main theatre. Please check our website for more updates or email your local pastor."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- Paper programs will not be handed out. You can find teaching notes on our website."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- We will not be distributing welcome packs."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- Coffee and food will not be available. You’re still welcome to bring your own caffeine fix."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- Offering buckets will not be passed. Your pastor will give instructions on how to donate in person, online, or by text."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- Connect and welcome team volunteers will be greeting you with a smile instead of a handshake."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "We will be taking additional measures to sanitize and disinfect our Oakville location before and between services."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "We are in contact with Cineplex Entertainment and have been assured that they are taking additional steps to sanitize and disinfect the theatres we rent for our regional locations. More information is available on Cineplex’s website."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "We have distributed extra cleaning supplies and hand sanitizer to all of our locations. Our teams have been reminded to be extra vigilant in cleaning routines, including sanitization of gear in our Kidmax classrooms."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "We are asking anyone who is experiencing flu-like symptoms, or has reason to believe that they may have become exposed to COVID-19, to stay home."
-                    },
-                    
                     {
                         "class": "SimpleItemTextBold",
                         "text": "Midweek Events, Youth, and Home Church"
                     },
                     {
                         "class": "SimpleItemText",
-                        "text": "All Youth midweek programming, local community events (such as dinners and Movie Mania), and any additional special events and ministries are cancelled until March 31. For more specific local information please contact your local pastor."
+                        "text": "- All Youth midweek programming, local community events (such as dinners and Movie Mania), and any additional special events and ministries are cancelled until March 31. For more specific local information please contact your local pastor."
                     },
                     {
                         "class": "SimpleItemTextTab",
