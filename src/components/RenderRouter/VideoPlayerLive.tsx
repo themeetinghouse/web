@@ -87,7 +87,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div className="LiveVideoPlayerDiv" >
-        <div className="LiveVideoPlayerEpisodeTitle">Today's Teaching Notes</div>
+       {/* <div className="LiveVideoPlayerEpisodeTitle">Today's Teaching Notes</div>
         <div className="LiveVideoPlayerExtra">
           <div className="LiveVideoPlayerSeriesNotes"><a href="http://media.themeetinghouse.com/podcast/handouts/Oakville.pdf">Oakville Location</a></div>
           <br />
@@ -96,7 +96,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
         </div>
         <div className="LiveVideoPlayerExtra">
           <div className="LiveVideoPlayerSeriesNotes">Click on one of the locations above to access today's teaching notes. Notes are updated on Sunday and will be available again on Monday on the teaching page.</div>
-        </div>
+    </div>*/}
         {/* <div className="LiveVideoPlayerExtra">
           <div className="LiveVideoPlayerSeriesNotes"><a href="TODO">KidMax Sign-In</a></div>
           <div className="LiveVideoPlayerClear"></div>
@@ -111,7 +111,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <div className="LiveVideoPlayerEpisodeTitle">Oakville Live Feed</div>
             <div className="LiveVideoPlayerExtra">
               <div className="LiveVideoPlayerSeriesNotes">
-                <a href="https://themeetinghouse.online.church">Live Experience</a>
+                <a href="https://themeetinghouse.online.church">Live Experience</a> @ 9:30am and 11:15am
+              </div>
+            </div><br/><br/>
+            <div className="LiveVideoPlayerEpisodeTitle">Regional Live Feed</div>
+            <div className="LiveVideoPlayerExtra">
+              <div className="LiveVideoPlayerSeriesNotes">
+                <a href="https://tmhregional.online.church">Live Experience</a> @ 10am
               </div>
             </div><br/><br/>
             <div className="LiveVideoPlayerEpisodeTitle">Regional Recording</div>
