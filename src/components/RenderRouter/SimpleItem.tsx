@@ -52,7 +52,14 @@ export default class ContentItem extends React.Component<Props, State>  {
           <h2 className="SimpleItemH2">{this.state.content.header2}</h2>
           <hr className="SimpleItemHR" />
           {this.state.content.text.map((item: any) => {
-            return (<div className={item.class}>{item.text}</div>)
+            return (
+              item.type=="video"?
+              
+              <iframe title="Youtube Player" className={item.class} allowFullScreen src={"https://www.youtube.com/embed/" + item.id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+             
+              :
+            <div className={item.class}>{item.text}</div>
+            )
           })}
 
           <div className="SimpleItemText">{this.state.content.text2}</div>
@@ -62,8 +69,8 @@ export default class ContentItem extends React.Component<Props, State>  {
 
           {
             this.state.content.hasBigBottom ?
-              <div className="SimpleItemBigBottom"></div> 
-              :  <div className="SimpleItemBottom"></div> 
+              <div className="SimpleItemBigBottom"></div>
+              : <div className="SimpleItemBottom"></div>
           }
         </form>
 

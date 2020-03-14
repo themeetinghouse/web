@@ -3,6 +3,12 @@
     border: 0px;
     width: 60vw;
   }
+  .SimpleVideoPlayerIframe {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    width: 60vw;
+    height: 34vw;
+}
 .SimpleItemOtherWayLink{
   margin:0;
   padding:0;
@@ -180,6 +186,12 @@ ul.SimpleItemNumber {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .SimpleVideoPlayerIframe {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    width: 60vw;
+    height: 34vw;
+}
   .SimpleFormId {
     border: 0px;
     width: 60vw;
@@ -517,4 +529,10 @@ ul.SimpleItemNumber {
   .SimpleItemBigBottom {
     height: 5vw;
   }
+  .SimpleVideoPlayerIframe {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    width: 90vw;
+    height: 50vw;
+}
 }
