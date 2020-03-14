@@ -16,6 +16,7 @@
             {
                 "type": "hero",
                 "style": "full",
+                "showCovid":true,
                 "image1": [
                     {
                         "src": "/static/images/local-site-1-3.jpg",
@@ -27,10 +28,14 @@
                     }
                 ],
                 "header1": "Alliston",
-                "text1": "Sunday Service",
-                "text2": "10:30 am-11:30 am – Music and Teaching",
-                "text3": "Includes full program for Infants to Grade 8",
-                "addToCalendar": true,
+                
+                "button1Text":"Live Stream",
+                "button1Action":"live-regional",
+                "text1": "Sunday Service Moved Online - March 15",
+                "text1a": "Sunday Service",
+                "text2a": "10:30 am-11:30 am – Music and Teaching",
+                "text3a": "Includes full program for Infants to Grade 8",
+                "addToCalendar": false,
                 "contactPastor": true,
                 "class": "locations",
                 "filterField": "id",

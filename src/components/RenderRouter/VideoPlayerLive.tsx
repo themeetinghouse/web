@@ -111,15 +111,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <div className="LiveVideoPlayerEpisodeTitle">Oakville Live Feed</div>
             <div className="LiveVideoPlayerExtra">
               <div className="LiveVideoPlayerSeriesNotes">
-                <a href="https://themeetinghouse.online.church">Live Experience</a> @ 9:30am and 11:15am
+                <a href="https://themeetinghouse.online.church">Oakville Live Experience</a> @ 9:30am and 11:15am
               </div>
             </div><br/><br/>
             <div className="LiveVideoPlayerEpisodeTitle">Regional Live Feed</div>
             <div className="LiveVideoPlayerExtra">
               <div className="LiveVideoPlayerSeriesNotes">
-                <a href="https://tmhregional.online.church">Live Experience</a> @ 10am
+                <a href="https://tmhregional.online.church">Regional Live Experience</a> @ 10am
               </div>
-            </div><br/><br/>
+            </div><br/><br/><br/><br/><br/><br/>
             <div className="LiveVideoPlayerEpisodeTitle">Regional Recording</div>
             {this.state.listData ?
               <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.listData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
