@@ -17,9 +17,29 @@
         "content": [
             {
                 "type": "simple",
-                "header1": "COVID-19 Response | March 13, 2020",
-                "header2": "This is a changing situation - please check back here regularly for updates.",
+                "header1": "COVID-19 Response | Updated March 14",
+                "header2": "There will be no in-person services for Sunday March 15 across all our sites. We invite you to join us for our online services right here on our website.",
                 "text": [
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "Regional Sites Livestream"
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Join us online at 10:00am on Sunday March 15. Our online service will feature Bruxy as host, and will include a live chat, questions, notes, live music, video teaching and more."
+                    },
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "Oakville Livestream"
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Join us online at 9:30am or 11:15am on Sunday March 15. Our online service will feature Karmyn as host, and will include announcements, live music, live teaching, a live chat, questions, notes, and more."
+                    },
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "How We Respond to COVID-19/Coronavirus"
+                    },
                     {
                         "class": "SimpleItemText",
                         "text": "In light of the rapidly developing situation around COVID-19, we realize that there is a lot of fear and uncertainty as we navigate the constantly changing stream of news and updates. This is a complicated time for our world and our communities."
@@ -37,31 +57,7 @@
                         "text": "At this point in time, we are taking the following steps:"
                     },
                     {
-                        "class": "SimpleItemTextBold",
-                        "text": "Sunday Services"
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "There will be no in-person services for Sunday March 15 across all our sites, and we encourage you to participate in our Sunday services online."
-                    },
-                    {
                         "class": "SimpleItemTextTab",
-                        "text": "- For our regional sites, join us online at 10:00am on Sunday March 15 for a regional livestream that will include a live chat, questions, notes, and more. Right here on our website!"
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- For Oakville, we will be live-streaming the service on our website at 9:30am and 11:15am, on Sunday March 15, along with hosts, music, teaching, Q and Eh, and announcements."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "- All of our Kids and Youth teaching for this Sunday, as well as midweek youth, is also available on our website. You can access the take home cards and additional materials on The Parent Blog."
-                    },
-                    {
-                        "class": "SimpleItemTextBold",
-                        "text": "Midweek Events, Youth, and Home Church"
-                    },
-                    {
-                        "class": "SimpleItemText",
                         "text": "- All Youth midweek programming, local community events (such as dinners and Movie Mania), and any additional special events and ministries are cancelled until March 31. For more specific local information please contact your local pastor."
                     },
                     {
@@ -70,7 +66,11 @@
                     },
                     {
                         "class": "SimpleItemTextTab",
-                        "text": "- You can continue to support and fuel our ministry by giving online at themeetinghouse.com/give. Thank you for your generosity and continued support."
+                        "text": "- All of our Kids and Youth teaching for this Sunday, as well as midweek youth, is also available on our website. You can access the lesson plans, activity pages, and additional materials on The Parent Blog."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "You can continue to support and fuel our ministry by giving online at themeetinghouse.com/give. Thank you for your generosity and continued support."
                     },
                     {
                         "class": "SimpleItemText",
