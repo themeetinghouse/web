@@ -3,6 +3,12 @@
     border: 0px;
     width: 60vw;
   }
+  .SimpleVideoPlayerIframe {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    width: 60vw;
+    height: 34vw;
+}
 .SimpleItemOtherWayLink{
   margin:0;
   padding:0;
@@ -60,6 +66,22 @@ ul.SimpleItemNumber {
     margin-bottom: 1vw;
     font-size: 1.2vw;
   }
+  .SimpleItemTextTab {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    margin-left: 5vw;
+    font-size: 1.2vw;
+  }
+  .SimpleItemTextBold {
+    color: #ffffff;
+    font-weight: Bold;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
 
   .SimpleItemHR {
 
@@ -72,10 +94,12 @@ ul.SimpleItemNumber {
 
   }
 
-  .SimpleItemBottom {
+  .SimpleItemBigBottom {
     height: 15vw;
   }
-
+  .SimpleItemBottom {
+    height: 1vw;
+  }
   .SimpleItemOtherWayButton {
     font-family: Graphik Web;
     background-color: #000000;
@@ -162,6 +186,12 @@ ul.SimpleItemNumber {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .SimpleVideoPlayerIframe {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    width: 60vw;
+    height: 34vw;
+}
   .SimpleFormId {
     border: 0px;
     width: 60vw;
@@ -223,7 +253,22 @@ ul.SimpleItemNumber {
     margin-bottom: 1vw;
     font-size: 1.2vw;
   }
-
+  .SimpleItemTextTab {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-left:5vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
+  .SimpleItemTextBold {
+    color: #ffffff;
+    font-weight: Bold;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
   .SimpleItemHR {
 
     margin-left: 0;
@@ -272,10 +317,13 @@ ul.SimpleItemNumber {
     margin-bottom: 2vw;
   }
 
-  .SimpleItemBottom {
+  .SimpleItemBigBottom {
     height: 15vw;
   }
 
+  .SimpleItemBottom {
+    height: 5vw;
+  }
   .SimpleItemNeedHelpEmail {
     font-family: Graphik Web;
     color: #ffffff;
@@ -367,7 +415,24 @@ ul.SimpleItemNumber {
     font-size: 4.3vw;
     width: 97%;
   }
-
+  .SimpleItemTextTab {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 8vw;
+    font-size: 4.3vw;
+    width: 97%;
+    margin-left:5vw;
+  }
+  .SimpleItemTextBold {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: Bold;
+    width: 60vw;
+    margin-bottom: 8vw;
+    font-size: 4.3vw;
+    width: 97%;
+  }
   .SimpleItemHR {
 
     margin-left: 0;
@@ -438,7 +503,7 @@ ul.SimpleItemNumber {
 
   .simpleItemDiv1 {
     position: relative;
-    top: 35vw;
+    top: 20vw;
     left: 0vw;
     margin-bottom: 2vw;
     width: 100%;
@@ -459,6 +524,15 @@ ul.SimpleItemNumber {
 
   }
   .SimpleItemBottom {
-    height: 45vw;
+    height: 10vw;
   }
+  .SimpleItemBigBottom {
+    height: 5vw;
+  }
+  .SimpleVideoPlayerIframe {
+    margin-left: 0vw;
+    padding-top: 2vw;
+    width: 90vw;
+    height: 50vw;
+}
 }

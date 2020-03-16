@@ -1,5 +1,19 @@
 @media (min-width: 768px) {
-
+.covidButton{
+    position:absolute; 
+    z-index:1000;
+    left:20vw;
+    top:20vh;
+    
+}
+.covidButtonDetail{
+    background-color:#FFC60B!important;
+   // width:36vw!important;
+    padding-left:12.5vw!important;
+     border:0!important;
+     padding-right:12.5vw!important;
+     color:#000000!important;
+}
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;
@@ -457,6 +471,20 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .covidButtonDetail{
+        background-color:#FFC60B!important;
+       // width:36vw;
+        padding-left:12.5vw!important;
+         border:0!important;
+         padding-right:12.5vw!important;
+         color:#000000!important;
+    }
+    .covidButton{
+        position:absolute; 
+        z-index:1000;
+        left:20vw;
+        top:20vh
+    }
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;
@@ -913,6 +941,23 @@
 }
 
 @media (max-width: 767px) {
+    .covidButtonDetail{
+        background-color:#FFC60B!important;
+       
+        padding-left:10vw!important;
+         border:0!important;
+         padding-right:10vw!important;
+         width:70vw!important;
+         left:0vw!important;
+         right:10vw!important;
+         color:#000000!important;
+    }
+    .covidButton{
+        position:absolute; 
+        z-index:1000;
+        left:15vw;
+        top:40vh
+    }
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;

@@ -29,9 +29,9 @@ export default class ContentItem extends React.Component<Props, State>  {
     if (window.location.hostname === "localhost")
       return "https://localhost:3006"
     else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/"+size
+      return "https://beta.themeetinghouse.com/cache/" + size
     else
-      return "https://www.themeetinghouse.com/cache/"+size
+      return "https://www.themeetinghouse.com/cache/" + size
   }
   navigateUrl(to: string) {
     console.log(to)
@@ -43,7 +43,7 @@ export default class ContentItem extends React.Component<Props, State>  {
       '_blank' // <- This is what makes it open in a new window.
     );
   }
-  
+
   render() {
     return (
       <div className="simpleItemDiv1" >
@@ -51,13 +51,27 @@ export default class ContentItem extends React.Component<Props, State>  {
           <h1 className="SimpleItemH1">{this.state.content.header1}</h1>
           <h2 className="SimpleItemH2">{this.state.content.header2}</h2>
           <hr className="SimpleItemHR" />
-          <div className="SimpleItemText">{this.state.content.text1}</div>
+          {this.state.content.text.map((item: any) => {
+            return (
+              item.type=="video"?
+              
+              <iframe title="Youtube Player" className={item.class} allowFullScreen src={"https://www.youtube.com/embed/" + item.id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+             
+              :
+            <div className={item.class}>{item.text}</div>
+            )
+          })}
+
           <div className="SimpleItemText">{this.state.content.text2}</div>
           <div className="SimpleItemText">{this.state.content.text3}</div>
           <div className="SimpleItemText">{this.state.content.text4}</div>
           <div className="SimpleItemText">{this.state.content.text5}</div>
-          
-          <div className="SimpleItemBottom"></div>
+
+          {
+            this.state.content.hasBigBottom ?
+              <div className="SimpleItemBigBottom"></div>
+              : <div className="SimpleItemBottom"></div>
+          }
         </form>
 
       </div >)

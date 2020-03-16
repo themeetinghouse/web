@@ -232,7 +232,10 @@ class HeroItem extends React.Component<Props, State> {
                               onClick={()=>{console.log("test");this.navigateEmail(this.state.locationData[0].pastorEmail)}}><img className="calendarImage"  src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</Button>)
                               : null
                               :null}
+                              <br/>
+                            
                     </div>
+       {this.state.content.showCovid?<div className="covidButton"><Button onClick={()=>{this.navigateTo("covid19")}} className="covidButtonDetail">COVID-19 Update</Button></div>:null}
                      <div><img id="downArrow" style={{ opacity:this.state.arrowOpacity,cursor:"pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={()=>{this.scrollToNextPage()}} /> </div>
 
                 </div>

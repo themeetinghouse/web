@@ -1,0 +1,109 @@
+{
+    "page": {
+        "name": "covid19",
+        "title": "COVID-19 Response",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor": "white",
+            "showSearch": false,
+            "showFooter": false,
+            "showMenu": false,
+            "isPopup": true,
+            "navigateOnPopupClose": "/"
+        },
+        "content": [
+            {
+                "type": "simple",
+                "header1": "COVID-19 Response | Updated March 14",
+                "header2": "There will be no in-person services for Sunday March 15 across all our sites. We invite you to join us for our online services right here on our website.",
+                "text": [
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "Regional Sites Livestream"
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Join us online at 10:00am on Sunday March 15. Our online service will feature Bruxy as host, and will include a live chat, questions, notes, live music, video teaching and more."
+                    },
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "Oakville Livestream"
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Join us online at 9:30am or 11:15am on Sunday March 15. Our online service will feature Karmyn as host, and will include announcements, live music, live teaching, a live chat, questions, notes, and more."
+                    },
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "How We Respond to COVID-19/Coronavirus"
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "In light of the rapidly developing situation around COVID-19, we realize that there is a lot of fear and uncertainty as we navigate the constantly changing stream of news and updates. This is a complicated time for our world and our communities."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "However, in all this we want to remain firmly grounded in the truth and fix our attention on Jesus. We do not make decisions out of fear but instead follow his example to love our neighbours and to care for those around us who may be more vulnerable."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "This has led us, with information and recommendations provided by the Public Health Agency of Canada and concerns expressed by our church family, to consider a number of proactive measures. We want to be wise, caring, responsible, and compassionate during this uncertain time."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "At this point in time, we are taking the following steps:"
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "- All Youth midweek programming, local community events (such as dinners and Movie Mania), and any additional special events and ministries are cancelled until March 31. For more specific local information please contact your local pastor."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "- All in-person Home Church gatherings will be paused, and we are encouraging our Home Church elders to transition to online options until March 31. For more information, please contact your local pastor or Home Church elder."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "- All of our Kids and Youth teaching for this Sunday, as well as midweek youth, is also available on our website. You can access the lesson plans, activity pages, and additional materials on The Parent Blog."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "You can continue to support and fuel our ministry by giving online at themeetinghouse.com/give. Thank you for your generosity and continued support."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "While we are making these changes and taking precautionary measures, we are not shutting down our mission or compromising our purpose and vision."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "This is an opportunity for our mission to take a different form. We want to use digital tools and media to engage in online community building, supporting not only our church family but connecting with others who are isolated and aren’t able to engage in community and fellowship."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "We want to be a church that is always moving forward and reaching people in every context. We know that God will use what we have to continue building his kingdom as we seek to introduce spiritually curious people to the Jesus-centred life."
+                    }
+                    ,
+                    {
+                        "class": "SimpleItemText",
+                        "text": "We pray for God’s provision, leading, and the wisdom of the Holy Spirit during this situation. We pray for the health and safety of our church, our cities, our neighbours, and our world. And we continue to pray for Spirit-led courage and creativity as we ask God to use us to serve and love people well."
+                    }
+                    ,
+                    {
+                        "type":"video",
+                        "class": "SimpleVideoPlayerIframe",
+                        "id": "WaG1S6Laa-4"
+                    }
+                ]
+                
+                
+
+                
+
+
+
+     }
+        ]
+    }
+}
