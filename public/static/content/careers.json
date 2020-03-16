@@ -56,12 +56,6 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Communications Project Coordinator & Admin",
-                        "navigateTo": "/static/pdfs/careers/Comms Project Coordinator & Administrator.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Kidmax Intern",
                         "navigateTo": "/static/pdfs/careers/Kidmax Intern 2020.pdf",
                         "openNewBrowser":true
