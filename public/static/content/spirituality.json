@@ -46,7 +46,7 @@
             },
             {
                 "type": "list",
-                "style": "horizontal",
+                "style": "grid",
                 "class":"videos",
                 "subclass":"questions",
                 "selector":"all",

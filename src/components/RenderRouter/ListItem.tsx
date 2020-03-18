@@ -7,8 +7,11 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
-import Fireworks from 'fireworks-react'
-import Konami from 'react-konami-code'
+import Fireworks from 'fireworks-react';
+import Konami from 'react-konami-code';
+import Grid from '@material-ui/core/Grid';
+import FormRow from '@material-ui/core/Grid'
+
 interface Props extends RouteComponentProps {
   content: any,
   data:any,
@@ -115,6 +118,21 @@ renderVideo(item:any){
 
 </div>)
 }
+
+renderCurious(item:any){
+  return (
+  <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
+  <div>
+    <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+    <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
+    <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers===false?null:item.episodeNumber+". "}{item.episodeTitle}</div>
+    <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
+    <div className="ListItemPublishedDate">{item.publishedDate}</div>
+  </div>
+
+</div>)
+}
+
 renderSpeaker(item:any){
 
   return (
@@ -271,6 +289,8 @@ else if (this.state.content.class === "compassion")
   return this.renderCompassion(item)
 else if (this.state.content.class ==="series")
   return this.renderSeries(item)
+else if (this.state.content.class ==="curious")
+  return this.renderCurious(item)
 else return null
 }
 
@@ -300,6 +320,29 @@ else return null
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
+
+    if (this.state.content.style === "grid") return (
+      <div className="ListItem horizontal" >
+        <div className="ListItemDiv1" >
+          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+          <Grid container spacing={1}>
+          {data.map((item: any,index:any) => {
+                    return this.renderItemRouter(item,index)
+            }
+            )}
+            <Grid container item xs={12} spacing={3}>
+              <FormRow />
+            </Grid>
+            <Grid container item xs={12} spacing={3}>
+              <FormRow />
+             </Grid>
+          </Grid>
+        </div>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+      </div>
+    )
+
     else if (this.state.content.style === "vertical")
     {
       if (data.length>0) {
