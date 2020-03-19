@@ -56,18 +56,6 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Kidmax Intern",
-                        "navigateTo": "/static/pdfs/careers/Kidmax Intern 2020.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Kitchener Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/Kitchener_Lead_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
                         "title": "Lead Pastor",
                         "navigateTo": "/static/pdfs/careers/2019_Lead_Pastor.pdf",
                         "openNewBrowser":true
