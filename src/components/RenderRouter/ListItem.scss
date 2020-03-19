@@ -284,13 +284,18 @@
     .CuriousBox {
         position: relative;
         border: 4px solid #000000;
-        width: 20vw;
-        height: 11.25vw;
-        margin-bottom: 24px;
-        margin-right: 24px;
+        width: 24vw;
+        height: 13.5vw;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .CuriousWrapper {
+        position: relative;
+        width: 24vw;
+        height: 13.5vw;
+        margin-bottom: 1.67vw;
     }
     .CuriousText {
         position: relative;
@@ -317,19 +322,30 @@
         .CuriousText {
             color: #ffffff;
             transition: 0.5s;
-            transform: translateY(-1.5vw);
+            transform: translateY(-2vw);
         }
         .WatchVideoTag {
             transition: 0.5s;
             opacity: 1;
         }
     }
-
     .CuriousContainer {
-        width: 80vw;
+        display: grid;
+        grid-template-columns: repeat(3,24vw);
+        grid-template-rows: 15.17vw;
+        column-gap: 1.67vw;
     }
     .hide-desktop {
         display: none;
+    }
+
+    .CuriousText1 {
+        position: relative;
+        left: 0vw;
+        width: 45vw;
+        font-size: 1.25vw;
+        font-family: Graphik Web;
+        margin-bottom: 48px;
     }
 }
 
@@ -608,8 +624,8 @@
     .CuriousBox {
         position: relative;
         border: 4px solid #000000;
-        width: 20vw;
-        height: 11.25vw;
+        width: 36vw;
+        height: 20.25vw;
         margin-bottom: 24px;
         margin-right: 24px;
         display: flex;
@@ -626,12 +642,6 @@
 
     .WatchVideoTag {
         opacity: 0;
-        position: absolute;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        color: #ffffff;
-        margin-top: 2vw;
-        border-bottom: 1px solid #ffffff;
     }
 
     .hide-desktop {
