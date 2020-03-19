@@ -21,8 +21,9 @@ interface State {
   listData: any,
   overlayData: any,
   urlHistoryState: any,
-  showChampion:any
+  showChampion:any,
 }
+
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
     router: PropTypes.object,
@@ -62,7 +63,7 @@ class ListItem extends React.Component<Props, State> {
       content: props.content,
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
-      urlHistoryState:window.history.state
+      urlHistoryState:window.history.state,
     }
     this.navigate = this.navigate.bind(this);
     this.setData=this.setData.bind(this);
@@ -122,6 +123,7 @@ renderCurious(item:any){
   <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
     <div className="CuriousBox">
       <div className="CuriousText">{this.state.content.showEpisodeNumbers===false?null:item.episodeNumber+". "}{item.episodeTitle}</div>
+      <div className = "WatchVideoTag">{this.state.content.hovertag}</div>
     </div>
 </div>)
 }
@@ -319,20 +321,20 @@ else return null
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-              <div className = "CuriousContainer">
               <div className = "hide-mobile">
+                <div className = "CuriousContainer">
               {data.slice(0,6).map((item:any,index:any) => {
                 return this.renderItemRouter(item,index)
               }
               )}
+               </div>
               </div>
-              </div>
-
               <div className = "hide-desktop">
               {data.slice(0,3).map((item:any,index:any) => {
                 return this.renderItemRouter(item,index)
               }
               )}
+              <button className = "MoreVideos">Load 3 More Questions</button>              
               </div>
         </div>
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
