@@ -47,7 +47,7 @@
             {
                 "type": "list",
                 "style": "grid",
-                "class":"videos",
+                "class":"curious",
                 "subclass":"questions",
                 "selector":"all",
                 "sortOrder":"DESC",

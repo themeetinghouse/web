@@ -9,8 +9,6 @@ import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
-import Grid from '@material-ui/core/Grid';
-import FormRow from '@material-ui/core/Grid'
 
 interface Props extends RouteComponentProps {
   content: any,
@@ -122,14 +120,9 @@ renderVideo(item:any){
 renderCurious(item:any){
   return (
   <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
-  <div>
-    <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
-    <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
-    <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers===false?null:item.episodeNumber+". "}{item.episodeTitle}</div>
-    <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
-    <div className="ListItemPublishedDate">{item.publishedDate}</div>
-  </div>
-
+    <div className="CuriousBox">
+      <div className="CuriousText">{this.state.content.showEpisodeNumbers===false?null:item.episodeNumber+". "}{item.episodeTitle}</div>
+    </div>
 </div>)
 }
 
@@ -321,23 +314,26 @@ else return null
       </div>
     )
 
-    if (this.state.content.style === "grid") return (
+    else if (this.state.content.style === "grid") return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-          <Grid container spacing={1}>
-          {data.map((item: any,index:any) => {
-                    return this.renderItemRouter(item,index)
-            }
-            )}
-            <Grid container item xs={12} spacing={3}>
-              <FormRow />
-            </Grid>
-            <Grid container item xs={12} spacing={3}>
-              <FormRow />
-             </Grid>
-          </Grid>
+              <div className = "CuriousContainer">
+              <div className = "hide-mobile">
+              {data.slice(0,6).map((item:any,index:any) => {
+                return this.renderItemRouter(item,index)
+              }
+              )}
+              </div>
+              </div>
+
+              <div className = "hide-desktop">
+              {data.slice(0,3).map((item:any,index:any) => {
+                return this.renderItemRouter(item,index)
+              }
+              )}
+              </div>
         </div>
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
@@ -434,4 +430,5 @@ else return null
     return (null)
   }
 }
+
 export default withRouter(ListItem)
