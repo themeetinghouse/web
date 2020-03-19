@@ -46,7 +46,7 @@
             },
             {
                 "type": "list",
-                "style": "grid",
+                "style": "curious-ui",
                 "class":"curious",
                 "subclass":"questions",
                 "selector":"all",

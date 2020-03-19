@@ -1,6 +1,5 @@
 
 import React from 'react';
-//import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
@@ -22,6 +21,7 @@ interface State {
   overlayData: any,
   urlHistoryState: any,
   showChampion:any,
+  showMoreVideos:boolean
 }
 
 class ListItem extends React.Component<Props, State> {
@@ -64,11 +64,20 @@ class ListItem extends React.Component<Props, State> {
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
       urlHistoryState:window.history.state,
+      showMoreVideos:false
     }
+    this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
     this.setData=this.setData.bind(this);
     this.dataLoader=new DataLoader({...this.props,dataLoaded:(data:any)=>{this.setData(data)}},this.state)
   }
+
+  videoHandler() {
+    this.setState({
+      showMoreVideos: true,  
+    })
+  }
+
   componentDidMount(){
     this.dataLoader.loadData()
   }
@@ -318,7 +327,7 @@ else return null
       </div>
     )
 
-    else if (this.state.content.style === "grid") return (
+    else if (this.state.content.style === "curious-ui") return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
@@ -337,7 +346,8 @@ else return null
                 return this.renderItemRouter(item,index)
               }
               )}
-                <button className = "MoreVideos">Load 3 More Questions</button>              
+              {!this.state.showMoreVideos ? <button className = "MoreVideos" onClick={this.videoHandler}>Load 3 More Questions</button> : null}
+              {this.state.showMoreVideos ? <div>{data.slice(3,6).map((item:any,index:any) => {return this.renderItemRouter(item,index)})}</div> : null}              
               </div>
         </div>
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
