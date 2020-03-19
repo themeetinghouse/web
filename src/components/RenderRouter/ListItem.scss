@@ -1355,7 +1355,7 @@
     .MoreVideos {
         position: relative;
         font-family: Graphik Web;
-        font-size: 3.33vw;
+        font-size: 4.2vw;
         font-weight: normal;
         color: #000000 !important;
         background: #ffffff00 !important;
@@ -1364,7 +1364,8 @@
         border-right: #ffffff00 !important;
         outline: #ffffff00 !important;
         border-bottom: 1px solid #000000 !important;
-        padding: 0 0 0 0;
+        padding: 0px 0px 0px 0px;
+        margin-left: 2px;
     }
 
     .hide-mobile {
