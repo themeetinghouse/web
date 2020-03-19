@@ -19,7 +19,7 @@
             {
                 "type": "liveVideoPlayer",
                 "showOakvilleLiveExperience":true,
-                "showRegionalLiveExperience":true,
+                "showRegionalLiveExperience":false,
                 "oakvilleLiveYoutubeId":"v4qM-1JkPAo",
                 "regionalLiveYoutubeId":"v4qM-1JkPAo",
                 "showOakvilleLiveVideos":false,

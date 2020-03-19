@@ -115,10 +115,10 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 <div className="LiveVideoPlayerEpisodeTitle">&nbsp;</div>
                 {this.state.content.showOakvilleLiveExperience ?
 
-                  <div><div className="LiveVideoPlayerEpisodeTitle">Oakville Livestream</div>
+                  <div><div className="LiveVideoPlayerEpisodeTitle">All Sites Livestream</div>
                     <div className="LiveVideoPlayerExtra">
                       <div className="LiveVideoPlayerSeriesNotes">
-                        <a href="https://themeetinghouse.online.church">Oakville Live Experience</a> @ 9:30am and 11:15am
+                        <a href="https://themeetinghouse.online.church">All Sites Live Experience</a> @ 10:00am
               </div>
                     </div><br /><br />
                   </div> : null

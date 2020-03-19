@@ -17,28 +17,52 @@
         "content": [
             {
                 "type": "simple",
-                "header1": "COVID-19 Response | Updated March 14",
-                "header2": "There will be no in-person services for Sunday March 15 across all our sites. We invite you to join us for our online services right here on our website.",
+                "header1": "COVID-19 Response",
+                "header2": "Updated March 17, 2020. For previous updates scroll to the bottom.",
                 "text": [
                     {
-                        "class": "SimpleItemTextBold",
-                        "text": "Regional Sites Livestream"
+                        "class": "SimpleItemText",
+                        "text": "As the situation around COVID-19 continues to develop with growing uncertainty and new challenges, we will continue to update you regularly to stay connected as a church family."
                     },
                     {
                         "class": "SimpleItemText",
-                        "text": "Join us online at 10:00am on Sunday March 15. Our online service will feature Bruxy as host, and will include a live chat, questions, notes, live music, video teaching and more."
+                        "text": "To offer some clarity as we all make adjustments to our lives, we wanted to share our plans for what life at The Meeting House will look like in the coming weeks. We believe these are the most loving and proactive steps we can take to care for our church family, our neighbours, and our broader community."
                     },
                     {
-                        "class": "SimpleItemTextBold",
-                        "text": "Oakville Livestream"
+                        "class": "SimpleItemTextTab",
+                        "text": "-We will not be having in-person Sunday services at any of our locations for the foreseeable future, in light of the recommendations made by the Public Health Agency of Canada."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-We will continue with online church and livestream services. We’re so encouraged by the positive response after our first livestream service last Sunday, and we look forward to continued growth and engagement."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-We will transition to one Sunday livestream service at 10:00am, to unify the experience between our regional sites and Oakville. This means we’ll all be together on the same teaching schedule jumping into week four of our Speaking of Jesus series. If you attend one of our regional sites,  you’ll have to catch up on week 3 of the series."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-Good Friday and Easter Sunday services will also transition to a unified online experience. We’ll send you more info as we get closer to Easter, but for now we can confirm that we will not be gathering in-person this Easter. On the flip side, inviting your friends to join us this Easter will now be a click away."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-Our pastors will continue to work with our home church elders to find the best solutions to help our home churches connect online and support one another, care for our kids and youth, and love our neighbours."
                     },
                     {
                         "class": "SimpleItemText",
-                        "text": "Join us online at 9:30am or 11:15am on Sunday March 15. Our online service will feature Karmyn as host, and will include announcements, live music, live teaching, a live chat, questions, notes, and more."
+                        "text": "For deeper thoughts about our role as followers of Jesus, and the role of the church during this season, check out the reflective video we recently filmed with Bruxy at the bottom of this page."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Lastly, it’s always our aim to be transparent with you when we talk about money and finances. Based on our history, we know that cancelling Sunday services has a significant impact on the donations we receive and need to fuel our ministry. Thank you in advance for your continued generosity. To set up recurring giving, or give today, go back to our home page and select Make A Difference from the menu."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Thank you for your continued support and prayers as we navigate the changing circumstances in this current reality. Please continue to pray for our entire church family as we lean into our vision and continue to find new and innovative ways of introducing spiritually curious people to the Jesus-centred life."
                     },
                     {
                         "class": "SimpleItemTextBold",
-                        "text": "How We Respond to COVID-19/Coronavirus"
+                        "text": "How We Respond to COVID-19 (March 13, 2020)"
                     },
                     {
                         "class": "SimpleItemText",
@@ -47,30 +71,6 @@
                     {
                         "class": "SimpleItemText",
                         "text": "However, in all this we want to remain firmly grounded in the truth and fix our attention on Jesus. We do not make decisions out of fear but instead follow his example to love our neighbours and to care for those around us who may be more vulnerable."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "This has led us, with information and recommendations provided by the Public Health Agency of Canada and concerns expressed by our church family, to consider a number of proactive measures. We want to be wise, caring, responsible, and compassionate during this uncertain time."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "At this point in time, we are taking the following steps:"
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- All Youth midweek programming, local community events (such as dinners and Movie Mania), and any additional special events and ministries are cancelled until March 31. For more specific local information please contact your local pastor."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- All in-person Home Church gatherings will be paused, and we are encouraging our Home Church elders to transition to online options until March 31. For more information, please contact your local pastor or Home Church elder."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "- All of our Kids and Youth teaching for this Sunday, as well as midweek youth, is also available on our website. You can access the lesson plans, activity pages, and additional materials on The Parent Blog."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "You can continue to support and fuel our ministry by giving online at themeetinghouse.com/give. Thank you for your generosity and continued support."
                     },
                     {
                         "class": "SimpleItemText",
@@ -83,8 +83,7 @@
                     {
                         "class": "SimpleItemText",
                         "text": "We want to be a church that is always moving forward and reaching people in every context. We know that God will use what we have to continue building his kingdom as we seek to introduce spiritually curious people to the Jesus-centred life."
-                    }
-                    ,
+                    },
                     {
                         "class": "SimpleItemText",
                         "text": "We pray for God’s provision, leading, and the wisdom of the Holy Spirit during this situation. We pray for the health and safety of our church, our cities, our neighbours, and our world. And we continue to pray for Spirit-led courage and creativity as we ask God to use us to serve and love people well."
