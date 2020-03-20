@@ -39,6 +39,15 @@
                 "type":"list",
                 "style":"horizontal",
                 "class":"videos",
+                "subclass":"guided-prayer-meditation",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Guided Prayer Meditation"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
                 "subclass":"after-party",
                 "selector":"all",
                 "sortOrder":"DESC",
