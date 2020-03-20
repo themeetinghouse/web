@@ -992,6 +992,16 @@
         font-family: Graphik Web;
         margin-bottom: 4vw;
     }
+
+    .WatchVideoTag {
+        opacity: 0;
+        position: absolute;
+        font-family: Graphik Web;
+        font-size: 1.5vw;
+        color: #ffffff;
+        margin-top: 4vw;
+        border-bottom: 1px solid #ffffff;
+    }
 }
 
 @media (max-width: 767px) {

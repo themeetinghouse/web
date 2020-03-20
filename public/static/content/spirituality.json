@@ -50,7 +50,7 @@
                 "class":"curious",
                 "subclass":"questions",
                 "selector":"all",
-                "sortOrder":"DESC",
+                "sortOrder":"ASC",
                 "showEpisodeNumbers":false,
                 "hovertag": "Watch Video",
                 "header1": "Starting Questions",
