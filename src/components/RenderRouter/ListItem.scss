@@ -999,8 +999,22 @@
         font-family: Graphik Web;
         font-size: 1.5vw;
         color: #ffffff;
-        margin-top: 4vw;
+        margin-top: 3vw;
         border-bottom: 1px solid #ffffff;
+    }
+
+    .CuriousBox:hover {
+        transition: 0.5s;
+        background-color: #000000;
+        .CuriousText {
+            color: #ffffff;
+            transition: 0.5s;
+            transform: translateY(-3vw);
+        }
+        .WatchVideoTag {
+            transition: 0.5s;
+            opacity: 1;
+        }
     }
 }
 
