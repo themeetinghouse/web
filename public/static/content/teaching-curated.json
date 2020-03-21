@@ -39,7 +39,7 @@
                 "type":"list",
                 "style":"horizontal",
                 "class":"videos",
-                "subclass":"guided-prayer-meditation",
+                "subclass":"meditation",
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1":"Guided Prayer Meditation"                
