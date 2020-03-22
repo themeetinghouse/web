@@ -20,9 +20,9 @@
                 "type": "liveVideoPlayer",
                 "showOakvilleLiveExperience":true,
                 "showRegionalLiveExperience":false,
-                "oakvilleLiveYoutubeId":"v4qM-1JkPAo",
+                "oakvilleLiveYoutubeId":"avA9tGbkKBI",
                 "regionalLiveYoutubeId":"v4qM-1JkPAo",
-                "showOakvilleLiveVideos":false,
+                "showOakvilleLiveVideos":true,
                 "showRegionalLiveVideos":false,
                 "showLiveVideos":true,
                 "showNotes":false
