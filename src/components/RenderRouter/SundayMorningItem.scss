@@ -208,10 +208,17 @@
         background-color: #ffffff00 !important;
         border: none !important;
         color: #000000 !important;
+        outline: none !important;
+        display: inline-block;
         font-weight: normal;
-        outline: none;
+        margin-left: 1vw;
+        padding: 0 0.5vw 0 0;
     }
 
+    .emailText {
+        color: #000000 !important;
+        padding: 0 0 0 0;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
