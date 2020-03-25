@@ -18,12 +18,12 @@
         "content": [
             {
                 "type": "liveVideoPlayer",
-                "showOakvilleLiveExperience":true,
+                "showOakvilleLiveExperience":false,
                 "showRegionalLiveExperience":false,
-                "oakvilleLiveYoutubeId":"v4qM-1JkPAo",
-                "regionalLiveYoutubeId":"v4qM-1JkPAo",
-                "showOakvilleLiveVideos":false,
-                "showRegionalLiveVideos":false,
+                "oakvilleLiveYoutubeId":"avA9tGbkKBI",
+                "regionalLiveYoutubeId":"avA9tGbkKBI",
+                "showOakvilleLiveVideos":true,
+                "showRegionalLiveVideos":true,
                 "showLiveVideos":true,
                 "showNotes":false
             }
