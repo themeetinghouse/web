@@ -139,11 +139,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
               {this.state.isLive ?
                 <div>
                   <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  <iframe frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=localhost"} width="480"></iframe><br />
+                  <iframe frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe><br />
                 </div> :
                 <div>
                   <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.preRollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  <iframe frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=localhost"} width="480"></iframe><br />
+                  <iframe frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe><br />
                 </div>
               }
             </div>
@@ -153,7 +153,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <div>
               <div className="LiveVideoPlayerEpisodeTitle">Livestream</div>
               <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.liveYoutubeId + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-              <iframe frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=localhost"} width="480"></iframe><br />
+              <iframe frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe><br />
 
             </div>
             : null
