@@ -942,6 +942,13 @@
     }
 }
 
+@media (max-width: 357px) {
+    .calendarButton {
+        margin-top: 5vw !important;
+        padding-left: 0;
+    }
+}
+
 @media (max-width: 767px) {
     .covidButtonDetail{
         background-color:#FFC60B!important;
