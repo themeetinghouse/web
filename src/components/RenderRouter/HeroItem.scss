@@ -153,7 +153,7 @@
         flex: 1;
         align-items: center;
         display: flex;
-
+        overflow: hidden;
         border: 1.5px solid #C8C8C8;
         margin-right: 1vw;
         width:23vw;
@@ -161,7 +161,6 @@
             border: none;
             outline: none;
             margin: 0;
-
             font-size: 1vw;
         }
     }
