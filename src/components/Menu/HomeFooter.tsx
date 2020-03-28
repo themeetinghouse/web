@@ -10,7 +10,30 @@ import "./HomeFooter.scss"
 //import "./menu.scss"
 import { MDBRow, MDBCol, MDBFooter, MDBContainer } from 'mdbreact'
 export default class HomeFooter extends React.Component {
+
+  iconHandler(item:boolean) {
+    if (item) {
+      return (
+      <div className="footerSocial">
+        <span><a href="https://www.facebook.com/themeetinghousechurch/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} className="FooterSocialImg" src="/static/svg/Facebook.svg" alt="Facebook Logo" />Facebook</a></span>
+        <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />Twitter</a></span>
+        <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />Youtube</a></span>
+        <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />Instagram</a></span>
+      </div>);
+    } else {
+      return (
+        <div className="footerSocial">
+        <span><a href="https://www.facebook.com/themeetinghousechurch/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} className="FooterSocialImg" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a></span>
+        <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a></span>
+        <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" /></a></span>
+        <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a></span>
+      </div>);
+    }
+  }
+
   render() {
+    let width = window.innerWidth;
+    let handleIcons = (width > 767);
     return (
       <MDBFooter color="black" className="HomeFooter footer font-small ">
         <MDBContainer fluid className="text-center text-md-left">
@@ -39,12 +62,7 @@ export default class HomeFooter extends React.Component {
           </MDBRow>
           <br />
           <br />
-          <div className="footerSocial">
-            <span><a href="https://www.facebook.com/themeetinghousechurch/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} className="FooterSocialImg" src="/static/svg/Facebook.svg" alt="Facebook Logo" />Facebook</a></span>
-            <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />Twitter</a></span>
-            <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />Youtube</a></span>
-            <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />Instagram</a></span>
-          </div>
+          {this.iconHandler(handleIcons)}
           <br />
           <br />
           <br />
