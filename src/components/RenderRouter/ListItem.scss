@@ -349,6 +349,18 @@
     }
 }
 
+@-moz-document url-prefix() {
+    .WatchVideoTag {
+        opacity: 0;
+        position: absolute;
+        font-family: Graphik Web;
+        font-size: 1vw;
+        color: #ffffff;
+        margin-top: 4vw;
+        border-bottom: 1px solid #ffffff;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .ListItemEventButton {
         background-color: #ffffff00 !important;
@@ -672,7 +684,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  
     .CuriousBox {
         position: relative;
         border: 4px solid #000000;
