@@ -18,20 +18,20 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/christmas-eve-1.jpg",
-                        "alt": "Young woman smiling off camera at the Christmas Market."
+                        "src": "/static/images/Hiring-1.jpg",
+                        "alt": "Young man smiling."
                     }
                 ],
-                "header1": "Easter",
+                "header1": "Good Friday and Easter",
                 "header2": "",
-                "text1": "We're so excited to spend Easter in the best way: together. Join us as we celebrate the death and life of Jesus and what this means for us — that we also get to experience new life. "
+                "text1": "Being together looks a little different these days, but we're excited to spend Easter together online. Join us for our Good Friday and Easter Sunday livestreams as we explore the loneliness Jesus experienced in his death and how his life brings us all together. "
             },
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "What to expect",
                 "header2": "",
-                "text1": "Our Easter gatherings will be about an hour long as we celebrate by singing songs, sharing stories, and exploring the meaning of Easter found in the Bible. Everything is family friendly, so be sure to bring the whole gang. ",
+                "text1": "Our Easter livestreams are happening at 10am on Good Friday (April 10) and Easter Sunday (April 12). We'll spend an hour hanging out online with live music, communion, scripture readings, and reflecting on the meaning of Jesus' death and life as we learn about the Easter story found in the Bible. We can't wait to see you online!",
               
                 "image1": [
                     {
@@ -39,11 +39,6 @@
                         "alt": "Candlelight Christmas Service"
                     }
                 ]
-            },
-            {
-                "type": "sunday-morning",
-                "header1": "Easter Locations",
-                "alternate": "easter"
             }
         ]
     }

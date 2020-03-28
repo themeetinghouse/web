@@ -58,6 +58,27 @@
             },
             {
                 "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Easter",
+                "header2": "",
+                "text1": "We're taking Easter online! Join our livestreams on Good Friday (April 10) and Easter Sunday (April 12).",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "April 10 Livestream",
+                        "navigateTo": "/sunday-live"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/Hiring-1.jpg",
+                        "alt": "Young man smiling."
+                    }
+                ]
+            },
+            {
+                "type": "content",
                 "style": "oneImage",
                 "header1": "Loneliness Sucks",
                 "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods?",
