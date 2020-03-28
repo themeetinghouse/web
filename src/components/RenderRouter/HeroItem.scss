@@ -439,15 +439,17 @@
     .calendarButton {
         font-family: Graphik Web !important;
         font-size: 1vw !important;
-        margin-top: 1vw;
+        padding-top: 1vw;
+        padding-left: 1.5vw;
         color: #ffffff;
+        font-weight: normal;
         background-color: #000000 !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
     }
     .calendarImage {
-        margin-right: 5px;
+        margin-right: 10px;
         height:25px;
     }
     .heroItemButton {
@@ -1346,7 +1348,8 @@
     .calendarButton {
         font-family: Graphik Web !important;
         font-size: 3.5vw !important;
-        margin-top: 0vw;
+        font-weight: normal;
+        margin-top: 10vw;
         color: #ffffff;
         background-color: #000000 !important;
         border-width: 0 !important;

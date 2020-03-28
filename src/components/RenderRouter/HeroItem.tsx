@@ -228,8 +228,7 @@ class HeroItem extends React.Component<Props, State> {
                          }
                         {this.state.content.contactPastor ?
                               this.state.locationData.length===1? (
-                                <a href={"mailto:"+this.state.locationData[0].pastorEmail}><Button className="calendarButton"><img className="calendarImage"  src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</Button></a>
-                            )
+                                <a href={"mailto:"+this.state.locationData[0].pastorEmail}><button className="calendarButton"><img className="calendarImage"  src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</button></a>                            )
                               : null
                               :null}
                               <br/>

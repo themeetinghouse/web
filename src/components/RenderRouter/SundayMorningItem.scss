@@ -166,7 +166,7 @@
     .SundayMorningButton1 {
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: #000000 !important;
         border-width: 0px;
         border-radius: 0;
         font-size: 1.2vw;
@@ -223,13 +223,14 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .SundayMorningButtonContainer {
-        width: 25vw;
+        width: 190px;
     }
 
     .emailButton {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .SundayMorningItem {
         height: 100vh;
@@ -387,6 +388,26 @@
         padding: 0 0 0 0;
     }
 
+}
+
+@media (min-width: 768px) and (max-width: 850px) and (orientation: landscape) {
+    .SundayMorningButtonContainer {
+        width: 190px;
+    }
+
+    .emailButton {
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 357px) {
+    .SundayMorningButtonContainer {
+        width: 190px;
+    }
+
+    .emailButton {
+        margin-left: 0 !important;
+    }
 }
 
 @media (max-width: 767px) {
