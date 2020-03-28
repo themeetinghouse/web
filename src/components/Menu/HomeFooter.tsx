@@ -1,6 +1,7 @@
 ﻿//import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { NavLink } from 'reactstrap';
+import { isMobileOnly } from 'react-device-detect';
 import "./HomeFooter.scss"
 //const bootstrap = require('react-bootstrap');
 //import Popper from 'popper.js'
@@ -12,7 +13,7 @@ import { MDBRow, MDBCol, MDBFooter, MDBContainer } from 'mdbreact'
 export default class HomeFooter extends React.Component {
 
   iconHandler(item:boolean) {
-    if (item) {
+    if (!item) {
       return (["Facebook", "Twitter", "YouTube", "Instagram"]); 
     } else { 
       return (["", "", "", ""]); 
@@ -30,8 +31,6 @@ export default class HomeFooter extends React.Component {
   }
 
   render() {
-    let width = window.innerWidth;
-    let handleIcons = (width > 767);
     return (
       <MDBFooter color="black" className="HomeFooter footer font-small ">
         <MDBContainer fluid className="text-center text-md-left">
@@ -60,7 +59,7 @@ export default class HomeFooter extends React.Component {
           </MDBRow>
           <br />
           <br />
-          {this.renderIcons(this.iconHandler(handleIcons))}
+          {this.renderIcons(this.iconHandler(isMobileOnly))}
           <br />
           <br />
           <br />
