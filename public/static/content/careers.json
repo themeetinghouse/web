@@ -51,30 +51,8 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Full-time Careers",
-                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-            
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/2019_Lead_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Oakville Youth Pastor",
-                        "navigateTo": "/static/pdfs/careers/OAK_Youth_Pastor.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Reception and Office Assistant",
-                        "navigateTo": "/static/pdfs/careers/Reception and Office Assistant 2020.pdf",
-                        "openNewBrowser":true
-                    }
-                ],
-
-                
+                "text1": "We're not currently hiring, but stay tuned for updates!",
+    
 
                 "image1": [
                     {
@@ -87,24 +65,8 @@
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Part-time Careers",
-                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-            
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Human Resources Manager",
-                        "navigateTo": "/static/pdfs/careers/Human_Resources_Manager.pdf",
-                        "openNewBrowser":true
-                    },
-                    {
-                        "type":"link",
-                        "title": "Kitchener Youth Coordinator",
-                        "navigateTo": "/static/pdfs/careers/KIT Youth Coordinator 2020.pdf",
-                        "openNewBrowser":true
-                    }
-                ],
+                "text1": "We're not currently hiring, but stay tuned for updates!",
 
-                
 
                 "image1": [
                     {

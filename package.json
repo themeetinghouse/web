@@ -54,6 +54,7 @@
     "jsonlint": "^1.6.3",
     "mdbreact": "^4.22.0",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
