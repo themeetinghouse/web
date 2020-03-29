@@ -17,14 +17,12 @@
         },
         "content": [
             {
+                "title": "Livestream",
                 "type": "liveVideoPlayer",
-                "showOakvilleLiveExperience":false,
-                "showRegionalLiveExperience":false,
-                "oakvilleLiveYoutubeId":"avA9tGbkKBI",
-                "regionalLiveYoutubeId":"avA9tGbkKBI",
-                "showOakvilleLiveVideos":true,
-                "showRegionalLiveVideos":true,
+                "liveYoutubeId":"8quHdf55wz0",
+                "preRollYoutubeId":"YCOOpaHg-e4",
                 "showLiveVideos":true,
+                "showAlternateLiveVideos":false,
                 "showNotes":false
             }
         ]

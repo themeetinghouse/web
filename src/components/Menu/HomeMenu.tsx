@@ -15,7 +15,7 @@ import VideoOverlay from "../VideoOverlay/VideoOverlay";
 import HamburgerMenu from 'react-hamburger-menu';
 //import MainMenuItems from '';
 import "./menu.scss"
-
+import moment from 'moment-timezone'
 interface Props extends RouteComponentProps {
   //logoColor?:string,
   pageConfig: any
@@ -78,7 +78,12 @@ class HomeMenu extends React.Component<Props, State>  {
     })
       .then((myJson) => {
         myJson.forEach((item: any) => {
-          if (this.state.showLive && item.dayOfWeek === new Date().getDay() && item.startHour <= new Date().getHours() && item.endHour >= new Date().getHours()) {
+          var rightNow=moment().tz("America/Toronto")
+          console.log(rightNow.format())
+          console.log(rightNow.weekday())
+          //console.log(rightNow.day())
+          console.log(rightNow.hour())
+          if (this.state.showLive && item.dayOfWeek === rightNow.weekday() && item.startHour <= rightNow.hour() && item.endHour >= rightNow.hour()) {
             console.log("ShowLive")
             this.setState({ liveEvent: item.navigateTo, showLiveEvent: true })
           }
