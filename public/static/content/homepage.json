@@ -67,6 +67,11 @@
                         "type":"link",
                         "title": "April 10 Livestream",
                         "navigateTo": "/sunday-live"
+                    },
+                    {
+                        "type":"link",
+                        "title": "April 12 Livestream",
+                        "navigateTo": "/sunday-live"
                     }
                 ],
               
