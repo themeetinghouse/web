@@ -18,25 +18,25 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/Hiring-1.jpg",
-                        "alt": "Young man smiling."
+                        "src": "/static/images/easter-1.jpg",
+                        "alt": "Young woman sitting on a park bench outside similing."
                     }
                 ],
-                "header1": "Good Friday and Easter",
+                "header1": "Easter Online",
                 "header2": "",
-                "text1": "Being together looks a little different these days, but we're excited to spend Easter together online. Join us for our Good Friday and Easter Sunday livestreams as we explore the loneliness Jesus experienced in his death and how his life brings us all together. "
+                "text1": "Being together looks a little different these days, but we still value coming together online to celebrate. Join us online as we explore the loneliness Jesus experienced in his death and how his life brings us all together. "
             },
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "What to expect",
-                "header2": "",
-                "text1": "Our Easter livestreams are happening at 10am on Good Friday (April 10) and Easter Sunday (April 12). We'll spend an hour hanging out online with live music, communion, scripture readings, and reflecting on the meaning of Jesus' death and life as we learn about the Easter story found in the Bible. We can't wait to see you online!",
+                "header1": "Livestream Services",
+                "header2": "Nice and simple.",
+                "text1": "Let's get together online at 10:00am this Good Friday April 10 and on Easter Sunday April 12. Our livestream services will be 70 minutes long with music, communion, stories, teaching, and reflecting on the meaning of Jesus' death and resurrection.",
               
                 "image1": [
                     {
-                        "src": "/static/images/christmas-2.jpg",
-                        "alt": "Candlelight Christmas Service"
+                        "src": "/static/images/easter-2.jpg",
+                        "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
                     }
                 ]
             }
