@@ -301,9 +301,9 @@ export class ContentItem extends React.Component<Props, State>  {
                         <div className="SundayMorningButtonContainer">
                           <div className="AddToCalendarButtonContainer">
                             <img className="AddToCalendarIcon" src="/static/Calendar.png" alt="Calendar Icon" />
-                            <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)} ></AddToCalendar>
+                            <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}></AddToCalendar>
                           </div>
-                          <button className="ContactLeadersButton" onClick={this.getEmailLinkHandler(item)}><img className="ContactLeadersIcon" src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</button>
+                          <a className="emailText" href={"mailto:"+item.pastorEmail}><button className="emailButton"><img className="emailImage"  src="/static/svg/Contact.svg" alt="Contact Icon" /></button>Contact the Pastor</a>
                         </div>
                       </div>
 
