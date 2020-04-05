@@ -46,12 +46,13 @@
             },
             {
                 "type": "list",
-                "style": "horizontal",
-                "class":"videos",
+                "style": "curious-ui",
+                "class":"curious",
                 "subclass":"questions",
                 "selector":"all",
-                "sortOrder":"DESC",
+                "sortOrder":"ASC",
                 "showEpisodeNumbers":false,
+                "hovertag": "Watch Video",
                 "header1": "Starting Questions",
                 "text1": "Short videos that are a great starting point if you are interested in some of the basics when it comes to Jesus, God, and spirituality."
                
