@@ -95,7 +95,7 @@ export default class ContentItem extends React.Component<Props, State>  {
   }
   renderPushPay() {
     return <div>
-      <Button className="GiveButton" onClick={() => { this.navigateUrlNewWindow("https://pushpay.com/g/themeetinghouse?src=hpp") }}>Give by Credit Card</Button>
+      <Button className="GiveButton" onClick={() => { this.navigateUrlNewWindow("https://pushpay.com/g/themeetinghouse?src=hpp") }}>GIVE NOW</Button>
     </div>
   }
   renderPushPay2() {
