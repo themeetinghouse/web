@@ -126,16 +126,16 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div className="LiveVideoPlayerDiv" >
 
         <div>
-         
+
           {this.state.content.showLiveVideos ?
             <div>
               <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
               <div className="LiveVideoPlayerSeriesMenuContainer" >
-                <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" href="http://media.themeetinghouse.com/podcast/handouts/Oakville.pdf">Notes</a></div>
-                <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" href="http://www.themeetinghouse.com/connect">Connect</a></div>
-                <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" href="http://media.themeetinghouse.com/podcast/handouts/Oakville-Music.pdf">Music</a></div>
-                <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" href="http://www.themeetinghouse.com/give">Give</a></div>
-              </div>
+                {this.state.content.menu.map((item:any) => {
+                  return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" href={item.linkto}>{item.title}</a></div>
+
+                })}
+               </div>
               {this.state.isLive ?
                 <div>
                   <iframe title="Youtube Player" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
@@ -158,7 +158,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             </div>
             : null
           }
-          
+
           <div className="LiveVideoPlayerEpisodeTitle">Parent Blog</div>
           <div className="LiveVideoPlayerText">For Church at Home activities and more, check out the <a href="http://kidsandyouth.themeetinghouse.com/blog/">Parent Blog</a></div>
           <div className="LiveVideoPlayerEpisodeTitle">Kidmax (6-10 Years Old)</div>

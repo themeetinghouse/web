@@ -205,9 +205,7 @@ export default class ContentItem extends React.Component<Props, State>  {
             {this.state.currentPage === "OnlineBanking" ? null :
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OnlineBanking');this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
             }
-            {this.state.currentPage === "OfferingEnvelopes" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OfferingEnvelopes');this.setState({ currentPage: "OfferingEnvelopes" }) }}>Offering Envelopes</button></div>
-            }
+           
             {this.state.currentPage === "FellowshipOne" ? null :
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
             }

@@ -1,0 +1,47 @@
+{
+    "page": {
+        "name": "video-player",
+        "title": "Video Player",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor": "white",
+            "showSearch": false,
+            "showFooter": false,
+            "showMenu": false,
+            "isPopup": true,
+            "navigateOnPopupClose": "/"
+        },
+        "content": [
+            {
+                "title": "Livestream",
+                "type": "liveVideoPlayer",
+                "liveYoutubeId": "QfHITySG0bc",
+                "preRollYoutubeId": "YCOOpaHg-e4",
+                "showLiveVideos": true,
+                "showAlternateLiveVideos": false,
+                "showNotes": false,
+                "menu": [
+                    {
+                        "title": "Notes",
+                        "linkto": "http://media.themeetinghouse.com/podcast/handouts/Notes.pdf"
+                    },
+                    {
+                        "title": "Connect",
+                        "linkto": "http://www.themeetinghouse.com/connect"
+                    },
+                    {
+                        "title": "Music",
+                        "linkto": "http://media.themeetinghouse.com/podcast/handouts/Music.pdf"
+                    },
+                    {
+                        "title": "Give",
+                        "linkto": "http://www.themeetinghouse.com/give"
+                    }
+                ]
+            }
+        ]
+    }
+}
