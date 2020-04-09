@@ -18,7 +18,7 @@
             {
                 "type": "simple",
                 "header1": "COVID-19 Response",
-                "header2": "Updated March 17, 2020. For previous updates scroll to the bottom.",
+                "header2": "Latest news and updates from The Meeting House.",
                 "text": [
                     {
                         "class": "SimpleItemText",
@@ -30,31 +30,31 @@
                     },
                     {
                         "class": "SimpleItemTextTab",
-                        "text": "-We will not be having in-person Sunday services at any of our locations for the foreseeable future, in light of the recommendations made by the Public Health Agency of Canada."
+                        "text": "-We will not be having in-person Sunday services at any of our locations for the foreseeable future."
                     },
                     {
                         "class": "SimpleItemTextTab",
-                        "text": "-We will continue with online church and livestream services. We’re so encouraged by the positive response after our first livestream service last Sunday, and we look forward to continued growth and engagement."
+                        "text": "-We will transition to online church services via livestream every Sunday at 10:00am on our website."
                     },
                     {
                         "class": "SimpleItemTextTab",
-                        "text": "-We will transition to one Sunday livestream service at 10:00am, to unify the experience between our regional sites and Oakville. This means we’ll all be together on the same teaching schedule jumping into week four of our Speaking of Jesus series. If you attend one of our regional sites,  you’ll have to catch up on week 3 of the series."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "-Good Friday and Easter Sunday services will also transition to a unified online experience. We’ll send you more info as we get closer to Easter, but for now we can confirm that we will not be gathering in-person this Easter. On the flip side, inviting your friends to join us this Easter will now be a click away."
+                        "text": "-Good Friday and Easter Sunday services will also transition to livestream services at 10:00am on their respective days. Inviting your friends to join us this Easter will now be a click away."
                     },
                     {
                         "class": "SimpleItemTextTab",
                         "text": "-Our pastors will continue to work with our home church elders to find the best solutions to help our home churches connect online and support one another, care for our kids and youth, and love our neighbours."
                     },
                     {
-                        "class": "SimpleItemText",
-                        "text": "For deeper thoughts about our role as followers of Jesus, and the role of the church during this season, check out the reflective video we recently filmed with Bruxy at the bottom of this page."
+                        "class": "SimpleItemTextTab",
+                        "text": "-Many of our home churches are continuing to meet online during this time for support, community, prayer, discussion, and connection. If you are looking for community during this crisis please reach out and connect with one of our home church leaders."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-We know that pausing in-person Sunday services impacts the donations we receive and need to fuel our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage the good news of Jesus. To give, go to our home page and select Make A Difference."
                     },
                     {
                         "class": "SimpleItemText",
-                        "text": "Lastly, it’s always our aim to be transparent with you when we talk about money and finances. Based on our history, we know that cancelling Sunday services has a significant impact on the donations we receive and need to fuel our ministry. Thank you in advance for your continued generosity. To set up recurring giving, or give today, go back to our home page and select Make A Difference from the menu."
+                        "text": "For deeper thoughts about our role as followers of Jesus, and the role of the church during this season, check out the reflective video we recently filmed with Bruxy at the bottom of this page."
                     },
                     {
                         "class": "SimpleItemText",

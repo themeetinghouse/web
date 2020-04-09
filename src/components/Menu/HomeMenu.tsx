@@ -15,7 +15,7 @@ import VideoOverlay from "../VideoOverlay/VideoOverlay";
 import HamburgerMenu from 'react-hamburger-menu';
 //import MainMenuItems from '';
 import "./menu.scss"
-
+import moment from 'moment-timezone'
 interface Props extends RouteComponentProps {
   //logoColor?:string,
   pageConfig: any
@@ -78,7 +78,12 @@ class HomeMenu extends React.Component<Props, State>  {
     })
       .then((myJson) => {
         myJson.forEach((item: any) => {
-          if (this.state.showLive && item.dayOfWeek === new Date().getDay() && item.startHour <= new Date().getHours() && item.endHour >= new Date().getHours()) {
+          var rightNow=moment().tz("America/Toronto")
+          console.log(rightNow.format())
+          console.log(rightNow.weekday())
+          //console.log(rightNow.day())
+          console.log(rightNow.hour())
+          if (this.state.showLive && item.dayOfWeek === rightNow.weekday() && item.startHour <= rightNow.hour() && item.endHour >= rightNow.hour()) {
             console.log("ShowLive")
             this.setState({ liveEvent: item.navigateTo, showLiveEvent: true })
           }
@@ -166,7 +171,7 @@ class HomeMenu extends React.Component<Props, State>  {
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ? <div className="liveEvent" onClick={() => { this.navigate(this.state.liveEvent) }}>Sunday Live</div> : null}
+        {this.state.showLiveEvent ? <div className="liveEvent" onClick={() => { this.navigate(this.state.liveEvent) }}>Live</div> : null}
         {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => { this.handleSearchClick("search") }} />
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
           : null}

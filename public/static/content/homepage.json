@@ -79,21 +79,21 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Peacemakers",
+                "header1": "Easter",
                 "header2": "",
-                "text1": "Thank you to everyone who donated to our Peacemakers campaign! Together, we've raised over $200,000 and collected over 1,000 Relief Kits.",
+                "text1": "This year, we're coming to you! Find out how we're going to use livestream to come together and connect online as we celebrate Good Friday and Easter.",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Become a Peacemaker",
-                        "navigateTo": "/peacemakers"
+                        "title": "Easter Together Online",
+                        "navigateTo": "/easter"
                     }
                 ],
               
                 "image1": [
                     {
-                        "src": "/static/images/peacemakers-1.jpg",
-                        "alt": "Man sharing First Nations peace practices and rituals with a group."
+                        "src": "/static/images/homepage-easter.jpg",
+                        "alt": "A mother and her two children sitting together on the couch watching the Easter livestream from The Meeting House on a laptop."
                     }
                 ]
             },

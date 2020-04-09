@@ -228,8 +228,7 @@ class HeroItem extends React.Component<Props, State> {
                          }
                         {this.state.content.contactPastor ?
                               this.state.locationData.length===1? (
-                              <Button className="calendarButton"
-                              onClick={()=>{console.log("test");this.navigateEmail(this.state.locationData[0].pastorEmail)}}><img className="calendarImage"  src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</Button>)
+                                <a href={"mailto:"+this.state.locationData[0].pastorEmail}><button className="calendarButton"><img className="calendarImage"  src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</button></a>                            )
                               : null
                               :null}
                               <br/>

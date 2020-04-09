@@ -8,10 +8,10 @@
             padding: 0;
             overflow: auto;
             margin-bottom: 5vw;
-           
+
       }
 
-      
+
       .LiveVideoPlayerDetails {
             left: 10vw;
             position: relative;
@@ -28,15 +28,31 @@
             font-family: Graphik Web;
             color: #646469
       }
-
+      .LiveVideoPlayerText {
+            font-family: Graphik Web;
+            color: #646469;
+            margin-left: 10vw;
+            margin-right: 10vw;
+            a{color:#ffffff}
+      }
+      .LiveVideoPlayerEpisodeTitleMain {
+            font-family: Graphik Web;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 3vw;
+            margin-left: 10vw;
+            float:left;
+            margin-top:8vw;
+      }
       .LiveVideoPlayerEpisodeTitle {
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
             font-size: 3vw;
             margin-left: 10vw;
+           // float:left;
+            margin-top:5vw;
       }
-
       .LiveVideoPlayerSeriesVideo,
       .LiveVideoPlayerSeriesAudio,
       .LiveVideoPlayerSeriesNotes {
@@ -44,6 +60,22 @@
             margin-right: 2vw;
             color: #ffffff;
             font-family: Graphik Web;
+      }
+      .LiveVideoPlayerSeriesMenuContainer{
+            float: right;
+            margin-right: 8vw;
+            margin-top:2.2vw;
+      }
+      .LiveVideoPlayerSeriesMenu {
+            float: right;
+             
+            margin-right: 2vw;
+            font-size:2vw;
+            color: #ffffff;
+            font-family: Graphik Web;
+            a{
+                  color: #ffffff;
+            }
       }
 
       .LiveVideoPlayerSeries,
@@ -68,7 +100,7 @@
             margin-top: 3vw;
             position: relative;
             left: 10vw;
-            width:80vw;
+            width: 80vw;
       }
 
       .LiveVideoPlayerDescription {
@@ -92,7 +124,13 @@
             overflow: auto;
             margin-bottom: 5vw;
       }
-
+      .LiveVideoPlayerText {
+            font-family: Graphik Web;
+            color: #646469;
+            margin-left: 10vw;
+            margin-right: 10vw;
+            a{color:#ffffff}
+      }
       .LiveVideoPlayerDetails {
             left: 10vw;
             position: relative;
@@ -110,14 +148,25 @@
             color: #646469
       }
 
-      .LiveVideoPlayerEpisodeTitle {
+      .LiveVideoPlayerEpisodeTitleMain {
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
             font-size: 3vw;
             margin-left: 10vw;
+            float:left;
+            margin-top:8vw;
       }
-
+      .LiveVideoPlayerEpisodeTitle {
+            font-family: Graphik Web;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 3vw;
+            margin-top:5vw;
+            margin-left: 10vw;
+           // float:left;
+            
+      }
       .LiveVideoPlayerSeriesVideo,
       .LiveVideoPlayerSeriesAudio,
       .LiveVideoPlayerSeriesNotes {
@@ -149,7 +198,7 @@
             margin-top: 3vw;
             position: relative;
             left: 10vw;
-            width:80vw;
+            width: 80vw;
       }
 
       .LiveVideoPlayerDescription {
@@ -163,6 +212,23 @@
 }
 
 @media (max-width: 767px) {
+      .LiveVideoPlayerSeriesMenuContainer{
+            float: right;
+            margin-right: 8vw;
+            margin-top:2vw;
+      }
+      .LiveVideoPlayerSeriesMenu {
+            float: right;
+             
+            margin-right: 2vw;
+            font-size:2vw;
+            color: #ffffff;
+            font-family: Graphik Web;
+            a{
+                  color: #ffffff;
+            }
+      }
+
       .LiveVideoPlayerDiv {
             position: relative;
             top: 0;
@@ -172,7 +238,7 @@
             padding: 0;
             overflow: auto;
             margin-bottom: 5vw;
-            margin-top:20vw;
+            margin-top: 20vw;
       }
 
       .LiveVideoPlayerDetails {
@@ -192,14 +258,22 @@
             color: #646469
       }
 
-      .LiveVideoPlayerEpisodeTitle {
+      .LiveVideoPlayerEpisodeTitleMain {
             font-family: Graphik Web;
             font-weight: bold;
             color: #ffffff;
             font-size: 5vw;
             margin-left: 10vw;
       }
-
+      .LiveVideoPlayerEpisodeTitle {
+            font-family: Graphik Web;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 5vw;
+            clear: both;
+            margin-left: 10vw;
+            margin-top:5vw;
+      }
       .LiveVideoPlayerSeriesVideo,
       .LiveVideoPlayerSeriesAudio,
       .LiveVideoPlayerSeriesNotes {
@@ -231,7 +305,7 @@
             margin-top: 3vw;
             position: relative;
             left: 10vw;
-            width:80vw;
+            width: 80vw;
             font-family: Graphik Web;
             color: #C8C8C8;
       }
@@ -243,5 +317,30 @@
             position: relative;
             margin-top: 2vw;
             width: 70vw;
+      }
+      .LiveVideoPlayerSeriesMenuContainer{
+            float: right;
+            margin-right: 8vw;
+            margin-top:-5vw;
+            z-index: 12000;
+            overflow:visible
+      }
+      .LiveVideoPlayerSeriesMenu {
+            float: right;
+             
+            margin-right: 2vw;
+            font-size:2vw;
+            color: #ffffff;
+            font-family: Graphik Web;
+            a{
+                  color: #ffffff;
+            }
+      }
+      .LiveVideoPlayerText {
+            font-family: Graphik Web;
+            color: #646469;
+            margin-left: 10vw;
+            margin-right: 10vw;
+            a{color:#ffffff}
       }
 }

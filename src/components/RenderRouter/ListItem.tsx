@@ -1,14 +1,14 @@
 
 import React from 'react';
-//import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
-import Fireworks from 'fireworks-react'
-import Konami from 'react-konami-code'
+import Fireworks from 'fireworks-react';
+import Konami from 'react-konami-code';
+
 interface Props extends RouteComponentProps {
   content: any,
   data:any,
@@ -20,8 +20,10 @@ interface State {
   listData: any,
   overlayData: any,
   urlHistoryState: any,
-  showChampion:any
+  showChampion:any,
+  showMoreVideos:boolean
 }
+
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
     router: PropTypes.object,
@@ -61,12 +63,21 @@ class ListItem extends React.Component<Props, State> {
       content: props.content,
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
-      urlHistoryState:window.history.state
+      urlHistoryState:window.history.state,
+      showMoreVideos:false
     }
+    this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
     this.setData=this.setData.bind(this);
     this.dataLoader=new DataLoader({...this.props,dataLoaded:(data:any)=>{this.setData(data)}},this.state)
   }
+
+  videoHandler() {
+    this.setState({
+      showMoreVideos: true,  
+    })
+  }
+
   componentDidMount(){
     this.dataLoader.loadData()
   }
@@ -115,6 +126,19 @@ renderVideo(item:any){
 
 </div>)
 }
+
+renderCurious(item:any){
+  return (
+<div className = "CuriousWrapper">
+  <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >
+    <div className="CuriousBox"> 
+      <div className="CuriousText">{this.state.content.showEpisodeNumbers===false?null:item.episodeNumber+". "}{item.episodeTitle}</div>
+      <div className = "WatchVideoTag">{this.state.content.hovertag}</div>
+    </div>
+  </div>
+</div>)
+}
+
 renderSpeaker(item:any){
 
   return (
@@ -271,6 +295,8 @@ else if (this.state.content.class === "compassion")
   return this.renderCompassion(item)
 else if (this.state.content.class ==="series")
   return this.renderSeries(item)
+else if (this.state.content.class ==="curious")
+  return this.renderCurious(item)
 else return null
 }
 
@@ -300,6 +326,34 @@ else return null
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
+
+    else if (this.state.content.style === "curious-ui") return (
+      <div className="ListItem horizontal" >
+        <div className="ListItemDiv1" >
+          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor==="white"?" whiteText":"")} >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="CuriousText1" >{this.state.content.text1}</div>) : null}
+              <div className = "hide-mobile">
+                <div className = "CuriousContainer">
+              {data.slice(0,6).map((item:any,index:any) => {
+                return this.renderItemRouter(item,index)
+              }
+              )}
+                </div>
+              </div>
+
+              <div className = "hide-desktop">
+              {data.slice(0,3).map((item:any,index:any) => {
+                return this.renderItemRouter(item,index)
+              }
+              )}
+              {!this.state.showMoreVideos ? <button className = "MoreVideos" onClick={this.videoHandler}>Load 3 More Questions</button> : null}
+              {this.state.showMoreVideos ? <div>{data.slice(3,6).map((item:any,index:any) => {return this.renderItemRouter(item,index)})}</div> : null}              
+              </div>
+        </div>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+      </div>
+    )
+
     else if (this.state.content.style === "vertical")
     {
       if (data.length>0) {
@@ -391,4 +445,5 @@ else return null
     return (null)
   }
 }
+
 export default withRouter(ListItem)

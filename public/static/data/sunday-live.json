@@ -2,7 +2,7 @@
     {
         "name":"Sunday Morning Service",
         "dayOfWeek":5,
-        "startHour":6,
+        "startHour":10,
         "endHour":23,
         "navigateTo":"/live"
     }
