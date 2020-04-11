@@ -45,13 +45,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Shyamala",
-    "LastName": "Pierce",
-    "sites": ["RHLL"],
-    "Email": "shyamala.pierce@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Brent",
     "LastName": "Babcock",
     "sites": ["SAND"],
@@ -180,6 +173,12 @@
     "Position": "Connect Coordinator"
   },
   {
+    "FirstName": "Ric",
+    "LastName": "Woods",
+    "sites": ["WAT"],
+    "Position": "Connect Coordinator"
+  },
+  {
     "FirstName": "Teresa",
     "LastName": "Kotsopoulos",
     "sites": ["ALLI"],
@@ -295,10 +294,9 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Meghan",
-    "LastName": "Walter",
+    "FirstName": "Natasha",
+    "LastName": "Kleffman",
     "sites": ["TOHP"],
-    "Email": "meghan.walter@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
@@ -656,10 +654,9 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Hannah",
-    "LastName": "Froese",
+    "FirstName": "Carissa",
+    "LastName": "Refell",
     "sites": ["BURL"],
-    "Email": "hannah.froese@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {

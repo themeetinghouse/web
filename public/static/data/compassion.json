@@ -349,7 +349,7 @@
         "id": 40,
         "sites": ["richmond-hill"],
         "name": "Spaghetti Dinners",
-        "description": "The Richmond Hill site organizes community spaghetti dinners open to the public for 150 people monthly at the McConaghy Centre.",
+        "description": "Our site provides food, service, and a place to eat an affordable meal with members of our local community. We prepare and serve the food and set up the space to provide a welcoming environment for our diners.",
         "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
@@ -357,18 +357,18 @@
         "id": 41,
         "sites": ["richmond-hill"],
         "name": "Compassion 365",
-        "description": "The mission of Compassion 365 is to become a catalyst in assisting individuals and communities actualize their ability to make a difference in the life of another through facilitating effective awareness and funds that will contribute to a constructive development of harmony and social inclusion.",
+        "description": "Compassion 365 provides food, toys, and clothing to those in need, as well as social justice awareness through documentaries and presentations. We've been able to support sorting of donation items as well as volunteering at social justice awareness events.",
         "website": "https://www.compassion365.ca",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/images/compassion/Compassion365.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
         "id": 42,
         "sites": ["richmond-hill"],
         "name": "Fight4Freedom",
-        "description": "Fight4Freedom is dedicated to battling human trafficking in the sex trade,\n​seeing survivors set free, and giving beauty from ashes. They exist to be an active voice and advocate of justice for women and men exploited by human trafficking in the form of sexual exploitation and to further assist them in finding necessary support systems that will aid in their journey to safety, healing and restoration.",
+        "description": "Fight4Freedom is dedicated to battling human trafficking in the sex trade, seeing survivors set free, and giving beauty from ashes. We've been able to provide donation items to support outreach kits, and promote their work.",
         "website": "https://www.fight4freedom.ca/",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/images/compassion/Fight4Freedom.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
