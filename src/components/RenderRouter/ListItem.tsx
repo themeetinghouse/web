@@ -302,26 +302,12 @@ class ListItem extends React.Component<Props, State> {
   }
   renderSeries(item: any) {
     if (item.videos.items.length > 0) {
-      const imgsrc="/static/photos/series/" + item.seriesType + "-" + item.title.replace("?", "") + ".jpg"
       console.log(item.seriesType + "-" + item.title + ".jpg")
       return (
         <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-          <img alt={item.title + " series image"}
-            className="ListItemImage2"
-           
-            src={this.imgUrl(640)+imgsrc} 
-            srcSet={this.imgUrl(80)+imgsrc+" 80w,"+
-            this.imgUrl(120)+imgsrc+" 120w,"+
-            this.imgUrl(180)+imgsrc+" 180w,"+
-            this.imgUrl(320)+imgsrc+" 320w,"+
-            this.imgUrl(480)+imgsrc+" 480w,"+
-            this.imgUrl(640)+imgsrc+" 640w"}
-            sizes="(max-width: 320px) 80px,
-                    (max-width: 480px) 120px,
-                    (max-width: 640px) 180px,
-                    (max-width: 1280px) 320px,
-                    (max-width: 1920) 480px,
-                    640px"
+          <img alt={item.title + " series image"} 
+          className="ListItemImage2" 
+          src={"/static/photos/series/" + item.seriesType + "-" + item.title.replace("?", "") + ".jpg"}
             onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} {item.videos.items.length === 1 ? "Episode" : "Episodes"}</div>
