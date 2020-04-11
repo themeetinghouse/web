@@ -10,7 +10,8 @@
             "logoColor": "black",
             "showSearch": true,
             "showFooter": true,
-            "showMenu": true
+            "showMenu": true,
+            "showLive":true
         },
         "content": [
             {
@@ -48,17 +49,24 @@
                 "list": [
                     {
                         "title": "Good Friday",
-                        "text": "Live-streaming on Friday April 10 at 10:00am EST. Our online experience will take about 70 minutes and include music, prayer, readings from the Bible, a short message, and communion, as well as meditation and contemplation. Heads up: our communion will be a BYOC (bring your own communion) affair.",
+                        "text": "Live-streaming on Friday April 10 at 10:00am EDT. Our online experience will take about 70 minutes and include music, prayer, readings from the Bible, a short message, and communion, as well as meditation and contemplation. Heads up: our communion will be a BYOC (bring your own communion) affair.",
                         "imageSrc": "/static/images/easter-3.png",
                         "imageAlt": "Good Friday promotional graphic.",
-                        "navigateTo": ""
+                        "navigateTo": "/live"
                     },
                     {
                         "title": "Easter Sunday",
-                        "text": "Back at it with the livestream on Sunday April 12 at 10:00am EST as we celebrate together online! We'll have about 70 minutes together to sing, reflect, connect, and learn about the life of Jesus!",
+                        "text": "Back at it with the livestream on Sunday April 12 at 10:00am EDT as we celebrate together online! We'll have about 70 minutes together to sing, reflect, connect, and learn about the life of Jesus!",
                         "imageSrc": "/static/images/easter-4.png",
                         "imageAlt": "Easter Sunday promotional graphic.",
                         "navigateTo": ""
+                    },
+                    {
+                        "title": "Easter Activities",
+                        "text": "If you spending Easter with kids age 0 to Grade 5, we have some really fun Good Friday & Easter activities for them! Head to parents.themeetinghouse.com to check it out!",
+                        "imageSrc": "/static/images/easter-5.png",
+                        "imageAlt": "Easter promotional graphic for kids activities.",
+                        "navigateTo": "/kidseaster"
                     }
                 ]
             }

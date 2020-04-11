@@ -18,13 +18,16 @@
             {
                 "title": "Livestream",
                 "type": "liveVideoPlayer",
-                "liveYoutubeId": "gRaJW_t1-dE",
+                "liveYoutubeId": "X3UWdfWlTu4",
                 "preRollYoutubeId": "YCOOpaHg-e4",
                 "showLiveVideos": true,
                 "showAlternateLiveVideos": false,
                 "showNotes": false,
                 "menu": [
-                    
+                    {
+                        "title": "Notes",
+                        "linkto": "http://media.themeetinghouse.com/podcast/handouts/Notes.pdf"
+                    },
                     {
                         "title": "Connect",
                         "linkto": "http://www.themeetinghouse.com/connect"

@@ -83,5 +83,6 @@
 {"id":"prayer","to":"/static/pdfs/site-leadership/TMH_MOPrayer_2020_v3_mobile.pdf"},
 {"id":"kidmaxconference","to":"https://meetinghouse.infellowship.com/Forms/437119"},
 {"id":"sunday-live","to":"live"},
-{"id":"pray","to":"https://signup.com/client/invitation2/secure/3226812/false#/invitation"}
+{"id":"pray","to":"https://signup.com/client/invitation2/secure/3226812/false#/invitation"},
+{"id":"kidseaster","to":"http://kidsandyouth.themeetinghouse.com/blog/"}
 ]
