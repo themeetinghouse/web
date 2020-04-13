@@ -1,5 +1,4 @@
 import React from 'react';
-import RenderRouter from '../components/RenderRouter/RenderRouter'
 import '../custom.scss';
 import * as queries from '../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
@@ -8,8 +7,10 @@ import { API } from 'aws-amplify';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
-import VideoOverlay from '../components/VideoOverlay/VideoOverlay'
 import ReactGA from 'react-ga';
+const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
+const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
+
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
 else if (window.location.hostname.includes("beta"))

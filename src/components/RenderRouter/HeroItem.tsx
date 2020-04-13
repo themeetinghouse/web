@@ -152,7 +152,7 @@ class HeroItem extends React.Component<Props, State> {
                         </div>
                         <div id="mc_embed_signup_scroll" className="signupButtons">
                             <div className="emailWrapper">
-                                <img className="contactIcon" src="/static/svg/Contact.svg"></img>
+                                <img className="contactIcon" alt="Contac Icon" src="/static/svg/Contact.svg"></img>
                                 <input type="email" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address"  />
                             </div>
                             <input type="submit" value="Sign Me Up" name="subscribe" className="heroButton" id="mc-embedded-subscribe" />

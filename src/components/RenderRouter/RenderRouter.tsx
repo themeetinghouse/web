@@ -1,30 +1,34 @@
 
 import React from 'react';
-import HeaderItem from './HeaderItem';
-import ContentItem from './ContentItem';
-import GiveItem from './GiveItem';
-import Give2Item from './Give2Item';
-import ListItem from './ListItem';
-import VideoPlayer from './VideoPlayer';
-import VideoPlayerLive from './VideoPlayerLive';
-import SVGItem from './SVGItem';
-import HeroItem from './HeroItem';
-import TeachingItem from './TeachingItem';
-import DistanceGroupItem from './DistanceGroupItem';
-import SundayMorningItem from './SundayMorningItem';
-import HomeChurchItem from './HomeChurchItem';
-import FormItem from './FormItem';
-import GoContentItem from './GoContentItem';
+
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import HomeMenu from '../Menu/HomeMenu';
-import HomeFooter from '../Menu/HomeFooter';
-import InstagramItem from './InstagramItem';
-import SimpleItem from './SimpleItem';
-import SearchItem from './SearchItem';
-import IFrameItem from './IFrameItem';
-import WeatherItem from './WeatherItem';
-import FAQItem from './FAQItem'
+
 import { Helmet } from 'react-helmet'
+
+const HeaderItem = React.lazy(() => import('./HeaderItem'));
+const InstagramItem = React.lazy(() => import('./InstagramItem'));
+const SimpleItem = React.lazy(() => import('./SimpleItem'));
+const SearchItem = React.lazy(() => import('./SearchItem'));
+const IFrameItem = React.lazy(() => import('./IFrameItem'));
+const WeatherItem = React.lazy(() => import('./WeatherItem'));
+const HomeMenu = React.lazy(() => import('../Menu/HomeMenu'));
+const HomeFooter = React.lazy(() => import('../Menu/HomeFooter'));
+const FAQItem = React.lazy(() => import('./FAQItem'));
+const ContentItem = React.lazy(() => import('./ContentItem'));
+const GiveItem = React.lazy(() => import('./GiveItem'));
+const Give2Item = React.lazy(() => import('./Give2Item'));
+const ListItem = React.lazy(() => import('./ListItem'));
+const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
+const VideoPlayerLive = React.lazy(() => import('./VideoPlayerLive'));
+const SVGItem = React.lazy(() => import('./SVGItem'));
+const HeroItem = React.lazy(() => import('./HeroItem'));
+const TeachingItem = React.lazy(() => import('./TeachingItem'));
+const DistanceGroupItem = React.lazy(() => import('./DistanceGroupItem'));
+const SundayMorningItem = React.lazy(() => import('./SundayMorningItem'));
+const HomeChurchItem = React.lazy(() => import('./HomeChurchItem'));
+const FormItem = React.lazy(() => import('./FormItem'));
+const GoContentItem = React.lazy(() => import('./GoContentItem'));
+
 interface Props extends RouteComponentProps {
   content: any
   data: any
