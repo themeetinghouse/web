@@ -58,7 +58,7 @@
         "FirstName": "Arnold",
         "LastName": "Shim",
         "Phone": "905.287.7000",
-        "Position": "Custodian",
+        "Position": "Custodian (on leave)",
         "sites": ["Operations"],
         "Email": "Arnold.Shim@themeetinghouse.com"
     },
@@ -166,7 +166,7 @@
         "FirstName": "Daniel",
         "LastName": "McCubbing",
         "Phone": "905.287.7000, ext. 843",
-        "Position": "Facility Assistant",
+        "Position": "Facility Assistant (on leave)",
         "sites": ["Operations"],
         "Email": "Daniel.McCubbing@themeetinghouse.com"
     },
@@ -337,7 +337,7 @@
         "FirstName": "Julie",
         "LastName": "Pickett",
         "Phone": "905.287.7000, ext. 7067",
-        "Position": "Events and Rentals Associate",
+        "Position": "Events and Rentals Associate (on leave)",
         "sites": ["Operations"],
         "Email": "Julie@themeetinghouse.com"
     },
@@ -427,7 +427,7 @@
         "FirstName": "Lindsay",
         "LastName": "Hart",
         "Phone": "905.287.7000, ext. 817",
-        "Position": "Oakville Youth Pastor",
+        "Position": "Oakville Youth Pastor (on mat leave)",
         "sites": ["OAKV","Pastoral","Youth"],
         "Email": "Lindsay.Hart@themeetinghouse.com"
     },
@@ -481,7 +481,7 @@
          "FirstName": "Lynda",
          "LastName": "Thoms",
          "Phone": "905.287.7000, ext. 7067",
-         "Position": "Events and Rentals Manager",
+         "Position": "Events and Rentals Manager (on mat leave)",
          "sites": ["Operations"],
          "Email": "lynda@themeetinghouse.com"
      },
@@ -562,7 +562,7 @@
         "FirstName": "Natalia",
         "LastName": "D'Amico",
         "Phone": "905.287.7000, ext. 825",
-        "Position": "Curriculum Project Coordinator & Administrator",
+        "Position": "Curriculum Project Coordinator & Administrator (on mat leave)",
         "sites": ["Communications","Children"],
         "Email": "Natalia.D'Amico@themeetinghouse.com"
     },
@@ -589,7 +589,7 @@
         "FirstName": "Nicole",
         "LastName": "Dorsman",
         "Phone": "905.287.7000",
-        "Position": "Operations Associate & Purchaser",
+        "Position": "Operations Associate & Purchaser (on leave)",
         "sites": ["Operations"],
         "Email": "Nicole.Dorsman@themeetinghouse.com"
     },
@@ -640,15 +640,6 @@
     },
     {
        "Staff":true,
-        "FirstName": "Rachel",
-        "LastName": "Miller",
-        "Phone": "905.287.7000, ext. 801",
-        "Position": "Operations Associate",
-        "sites": ["Operations"],
-        "Email": "Rachel.Miller@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
         "FirstName": "Rentia",
         "LastName": "van der Bijl",
         "Phone": "905.287.7000",
@@ -691,15 +682,6 @@
         "Position": "Data Support Coordinator",
         "sites": ["Operations"],
         "Email": "Roger.Massie@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
-        "FirstName": "Ruska",
-        "LastName": "Janesan van Vuuren",
-        "Phone": "905.287.7000, ext. 7067",
-        "Position": "Events Associate",
-        "sites": ["Operations"],
-        "Email": "Ruska@themeetinghouse.com"
     },
     {
        "Staff":true,
