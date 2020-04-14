@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { History } from "history";
-import HomePage from './pages/HomePage';
 interface Props extends RouteComponentProps<any> {
   match: any
   history: History<any>
@@ -12,7 +11,7 @@ interface State {
   content: any
 }
 
-
+const HomePage = lazy(() => import('./pages/HomePage'));
 const Admin = lazy(() => import('./pages/admin/index'));
 const ImportVideo = lazy(() => import('./pages/admin/import-video'));
 

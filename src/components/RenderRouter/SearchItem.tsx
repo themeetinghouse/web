@@ -81,11 +81,11 @@ interface State {
         <div className="TrendingSearches"/>
         <div className="SearchLinks">
           <div className="SearchLink HomeChurch" >
-            <img style={{objectFit:"cover"}} onClick={()=>{this.navigateTo("/find-homechurch")}} src="/static/images/HC1.jpg"/>
+            <img style={{objectFit:"cover"}} alt="Homechurch" onClick={()=>{this.navigateTo("/find-homechurch")}} src="/static/images/HC1.jpg"/>
             <p>Find a home church <img alt="Go" src="\static\svg\ArrowRight.svg" /></p>
           </div>
           <div style={{objectFit:"cover"}} onClick={()=>{this.navigateTo("/teaching")}} className="SearchLink Videos">
-            <img className="Image" src="/static/images/homepage-4-1.jpg" />
+            <img className="Image" alt="teaching"  src="/static/images/homepage-4-1.jpg" />
             <p>Videos</p>
           </div>
           {/* <div className="SearchLink Articles">

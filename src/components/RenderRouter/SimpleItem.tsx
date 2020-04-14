@@ -53,7 +53,7 @@ export default class ContentItem extends React.Component<Props, State>  {
           <hr className="SimpleItemHR" />
           {this.state.content.text.map((item: any) => {
             return (
-              item.type=="video"?
+              item.type==="video"?
               
               <iframe title="Youtube Player" className={item.class} allowFullScreen src={"https://www.youtube.com/embed/" + item.id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
              

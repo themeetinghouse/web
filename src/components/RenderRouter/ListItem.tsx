@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { EventHandler, SyntheticEvent } from 'react';
 import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
@@ -139,13 +139,22 @@ class ListItem extends React.Component<Props, State> {
       </div>)
   }
 
+  fallbackToImage(
+    fallbackUrl: string
+  ): EventHandler<SyntheticEvent<HTMLImageElement>> {
+    return function (event: SyntheticEvent<HTMLImageElement>) {
+      if (!event.currentTarget.src.endsWith(fallbackUrl)) {
+        event.currentTarget.src = fallbackUrl;
+        event.currentTarget.srcset = '';
+      }
+    };
+  }
+
   renderSpeaker(item: any) {
 
     return (
       <div key={item.id} className="ListItemTeachingImageDiv" >
-        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png"
-          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
-        />
+        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png" onError={this.fallbackToImage("/static/Individual.png")} />
         <div className="ListItemEpisodeLength" >{item.name}</div>
         <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
       </div>
@@ -160,11 +169,7 @@ class ListItem extends React.Component<Props, State> {
       <div key={index} className="ListItemDiv3" >
 
         <img alt={item.photoAlt} className="ListItemImage2"
-          onError={(target: any) => {
-            console.log(target.target);
-            if (target.target.src !== "/static/Individual.png")
-              target.target.src = "/static/Individual.png";
-          }}
+          onError={this.fallbackToImage("/static/Individual.png")}
           src={this.imgUrl(640) + imgsrc}
           srcSet={this.imgUrl(80) + imgsrc + " 80w," +
             this.imgUrl(120) + imgsrc + " 120w," +
@@ -242,7 +247,7 @@ class ListItem extends React.Component<Props, State> {
           {this.state.showChampion ?
             (<div><Fireworks style={{ position: "fixed", width: "100%", height: "100%", left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
               <img alt={item.photoAlt} className="ListItemImage2" style={{ position: "fixed", left: "30%", width: "30%", top: "10%", zIndex: 200004 }}
-                onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/Individual.png") target.target.src = "/static/Individual.png"; }}
+                onError={this.fallbackToImage("/static/Individual.png")}
                 src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
               <h1 style={{ color: "#ffffff", fontSize: 100, position: "fixed", width: "80%", height: "20%", left: "10%", top: "70%", zIndex: 200006 }}>Young Adults Champion</h1></div>)
             : null}
@@ -251,11 +256,7 @@ class ListItem extends React.Component<Props, State> {
         }
 
         <img alt={item.photoAlt} className="ListItemImage2"
-          onError={(target: any) => {
-            console.log(target.target);
-            if (target.target.src !== "/static/Individual.png")
-              target.target.src = "/static/Individual.png";
-          }}
+          onError={this.fallbackToImage("/static/Individual.png")}
           src={this.imgUrl(640) + imgsrc}
           srcSet={this.imgUrl(80) + imgsrc + " 80w," +
             this.imgUrl(120) + imgsrc + " 120w," +
@@ -285,8 +286,7 @@ class ListItem extends React.Component<Props, State> {
   renderCompassion(item: any) {
     return (
       <div key={item.id} className="ListItemCompassion" >
-        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image}
-          onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
+        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image} onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
         <div className="ListItemEventsDescription" >{item.name}</div>
         <div className="ListItemEventsDescription2" >{item.description}</div>
         <div>{item.location}</div>
@@ -305,10 +305,10 @@ class ListItem extends React.Component<Props, State> {
       console.log(item.seriesType + "-" + item.title + ".jpg")
       return (
         <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-          <img alt={item.title + " series image"} 
-          className="ListItemImage2" 
-          src={"/static/photos/series/" + item.seriesType + "-" + item.title.replace("?", "") + ".jpg"}
-            onError={(target: any) => { console.log(target.target); if (target.target.src !== "/static/NoCompassionLogo.png") target.target.src = "/static/NoCompassionLogo.png"; }} />
+          <img alt={item.title + " series image"}
+            className="ListItemImage2"
+            src={"/static/photos/series/" + item.seriesType + "-" + item.title.replace("?", "") + ".jpg"}
+            onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} {item.videos.items.length === 1 ? "Episode" : "Episodes"}</div>
         </div>

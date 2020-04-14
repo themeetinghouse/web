@@ -1,6 +1,7 @@
 ﻿//import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { NavLink } from 'reactstrap';
+import { isMobileOnly } from 'react-device-detect';
 import "./HomeFooter.scss"
 //const bootstrap = require('react-bootstrap');
 //import Popper from 'popper.js'
@@ -10,6 +11,25 @@ import "./HomeFooter.scss"
 //import "./menu.scss"
 import { MDBRow, MDBCol, MDBFooter, MDBContainer } from 'mdbreact'
 export default class HomeFooter extends React.Component {
+
+  iconHandler(item:boolean) {
+    if (!item) {
+      return (["Facebook", "Twitter", "YouTube", "Instagram"]); 
+    } else { 
+      return (["", "", "", ""]); 
+    }
+  }
+
+  renderIcons(links:string[]) {
+      return (
+        <div className="footerSocial">
+        <span><a href="https://www.facebook.com/themeetinghousechurch/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} className="FooterSocialImg" src="/static/svg/Facebook.svg" alt="Facebook Logo" />{links[0]}</a></span>
+      <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />{links[1]}</a></span>
+      <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />{links[2]}</a></span>
+      <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />{links[3]}</a></span>
+      </div>);
+  }
+
   render() {
     return (
       <MDBFooter color="black" className="HomeFooter footer font-small ">
@@ -39,12 +59,7 @@ export default class HomeFooter extends React.Component {
           </MDBRow>
           <br />
           <br />
-          <div className="footerSocial">
-            <span><a href="https://www.facebook.com/themeetinghousechurch/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} className="FooterSocialImg" src="/static/svg/Facebook.svg" alt="Facebook Logo" />Facebook</a></span>
-            <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />Twitter</a></span>
-            <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />Youtube</a></span>
-            <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />Instagram</a></span>
-          </div>
+          {this.renderIcons(this.iconHandler(isMobileOnly))}
           <br />
           <br />
           <br />

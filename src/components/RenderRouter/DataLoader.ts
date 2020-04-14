@@ -67,7 +67,7 @@ export default class DataLoader extends React.Component<Props, State> {
                 )
             } else {
                 this.props.dataLoaded(
-                    json.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle == this.state.content.selector)
+                    json.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle === this.state.content.selector)
                 )
             }
             if (json.data.getVideoByVideoType.nextToken != null)
@@ -82,7 +82,7 @@ export default class DataLoader extends React.Component<Props, State> {
             }
             else {
                 this.props.dataLoaded(
-                    e.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle == this.state.content.selector)
+                    e.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle === this.state.content.selector)
                 )
             }
             if (e.data.getVideoByVideoType.nextToken != null)
