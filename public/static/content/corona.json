@@ -46,14 +46,14 @@
                         "text": "During the week we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our home churches will continue to meet online. Click here to find a group you can connect with.",
                         "imageSrc": "/static/images/easter-4.png",
                         "imageAlt": "Easter Sunday promotional graphic.",
-                        "navigateTo": ""
+                        "navigateTo": "/home-church"
                     },
                     {
                         "title": "Kids",
                         "text": "If you spending Easter with kids age 0 to Grade 5, we have some really fun Good Friday & Easter activities for them! Head to parents.themeetinghouse.com to check it out!",
                         "imageSrc": "/static/images/easter-5.png",
                         "imageAlt": "Easter promotional graphic for kids activities.",
-                        "navigateTo": "/kidseaster"
+                        "navigateTo": "/kids"
                     },
                     {
                         "title": "Youth",
