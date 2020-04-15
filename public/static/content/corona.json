@@ -1,0 +1,90 @@
+{
+    "page": {
+        "name": "corona",
+        "title": "corona",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true,
+            "showLive":true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/easter-1.jpg",
+                        "alt": "Young woman sitting on a park bench outside similing."
+                    }
+                ],
+                "header1": "Church During COVID-19",
+                "header2": "",
+                "text1": "Responding to this global pandemic has made life a lot different for all of us. Until things get back to normal, we've made several significant changes to serve our communities well and love those who are struggling during this difficult time."
+            },
+
+            {
+                "type": "list",
+                "style": "imageList",
+                "header1": "Life at The Meeting House",
+                "text1": "Our purpose and vision haven't changed, but we've made the following transitions for the forseeable future.",
+                "list": [
+                    {
+                        "title": "Sunday Service",
+                        "text": "We'll be live-streaming our service every Sunday at 10:00am EDT on our website. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
+                        "imageSrc": "/static/images/easter-3.png",
+                        "imageAlt": "Good Friday promotional graphic.",
+                        "navigateTo": "/live"
+                    },
+                    {
+                        "title": "Home Church",
+                        "text": "During the week we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our home churches will continue to meet online. Click here to find a group you can connect with.",
+                        "imageSrc": "/static/images/easter-4.png",
+                        "imageAlt": "Easter Sunday promotional graphic.",
+                        "navigateTo": ""
+                    },
+                    {
+                        "title": "Kids",
+                        "text": "If you spending Easter with kids age 0 to Grade 5, we have some really fun Good Friday & Easter activities for them! Head to parents.themeetinghouse.com to check it out!",
+                        "imageSrc": "/static/images/easter-5.png",
+                        "imageAlt": "Easter promotional graphic for kids activities.",
+                        "navigateTo": "/kidseaster"
+                    },
+                    {
+                        "title": "Youth",
+                        "text": "If you spending Easter with kids age 0 to Grade 5, we have some really fun Good Friday & Easter activities for them! Head to parents.themeetinghouse.com to check it out!",
+                        "imageSrc": "/static/images/easter-5.png",
+                        "imageAlt": "Easter promotional graphic for kids activities.",
+                        "navigateTo": "/kidseaster"
+                    }
+                ]
+            },
+
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Giving",
+                "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods?",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Find Community",
+                        "navigateTo": "/give"
+                    }
+                ],
+
+                "image1": [
+                    {
+                        "src": "/static/images/homepage-2-new.jpg",
+                        "alt": "Group of friends from church sitting together and talking."
+                    }
+                ]
+            }  
+        ]
+    }
+}
