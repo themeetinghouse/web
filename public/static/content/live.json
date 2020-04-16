@@ -25,6 +25,10 @@
                 "showNotes": false,
                 "menu": [
                     {
+                        "title": "Kidmax",
+                        "linkto": "http://www.kidsandyouth.themeetinghouse.com/blog"
+                    },
+                    {
                         "title": "Notes",
                         "linkto": "http://media.themeetinghouse.com/podcast/handouts/Notes.pdf"
                     },
