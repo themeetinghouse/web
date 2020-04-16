@@ -47,24 +47,24 @@
                     },
                     {
                         "title": "Home Church",
-                        "text": "During the week we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our home churches will continue to meet online. Click here to find a group you can connect with.",
+                        "text": "During the week we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our Home Churches will continue to meet online. Click here to find a group you can connect with.",
                         "imageSrc": "/static/images/corona-3.jpg",
                         "imageAlt": "Online home church meeting using zoom.",
                         "navigateTo": "/home-church"
                     },
                     {
                         "title": "Kids",
-                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is availble online. The latest video curriculum for Grades 1-5 is located in the teaching section of our website, and will also be added to our livestream page every Sunday morning. You can access the activities and lesson plans (updated weekly) by clicking here.",
+                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. The latest video curriculum for Grades 1-5 is located in the teaching section of our website and will also be added to our live-stream page every Sunday morning. You can access the activities and lesson plans (updated weekly) by clicking here.",
                         "imageSrc": "/static/images/corona-5.jpg",
                         "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
-                        "navigateTo": "http://kidsandyouth.themeetinghouse.com/blog/"
+                        "navigateTo": "/parents"
                     },
                     {
                         "title": "Youth",
                         "text": "Our Jr High and Sr High video curriculum is available online. All midweek youth programming has transitioned to online. To connect with a local youth pastor or coordinator and get details about online midweek programming, click here and select your location.",
                         "imageSrc": "/static/images/corona-6.jpg",
                         "imageAlt": "A high school student is exploring nature by himself.",
-                        "navigateTo": "http://www.tmhyouth.com/"
+                        "navigateTo": "/youth"
                     }
                 ]
             },
@@ -73,7 +73,7 @@
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Giving",
-                "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage the good news of Jesus.",
+                "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
                 "list": [
                     {
                         "type":"link",
@@ -105,7 +105,7 @@
                 ],
                 "header1": "Stay Connected",
                 "header2": "",
-                "text2": "Make sure you get all the latest news and announcements, plus know about all the new resources and media we're creating. Subscribe to our email list today."
+                "text2": "Make sure you get all the latest news and announcements and know about all the new resources and media we're creating. Subscribe to our email list today."
             }
         ]
     }
