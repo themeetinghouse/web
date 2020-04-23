@@ -79,21 +79,21 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Easter",
+                "header1": "COVID-19 Adjustments",
                 "header2": "",
-                "text1": "This year, we're coming to you! Find out how we're going to use livestream to come together and connect online as we celebrate Good Friday and Easter.",
+                "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's happening at The Meeting House and how you can connect.",
                 "list": [
                     {
                         "type":"link",
-                        "title": "Easter Together Online",
-                        "navigateTo": "/easter"
+                        "title": "Show Me More",
+                        "navigateTo": "/corona"
                     }
                 ],
               
                 "image1": [
                     {
-                        "src": "/static/images/homepage-easter.jpg",
-                        "alt": "A mother and her two children sitting together on the couch watching the Easter livestream from The Meeting House on a laptop."
+                        "src": "/static/images/homepage-corona.jpg",
+                        "alt": "Bruxy Cavey teaching during a Meeting House Sunday morning livestream."
                     }
                 ]
             },

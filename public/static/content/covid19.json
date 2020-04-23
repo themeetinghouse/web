@@ -18,7 +18,7 @@
             {
                 "type": "simple",
                 "header1": "COVID-19 Response",
-                "header2": "Latest news and updates from The Meeting House.",
+                "header2": "The latest updates from The Meeting House.",
                 "text": [
                     {
                         "class": "SimpleItemText",
@@ -35,10 +35,6 @@
                     {
                         "class": "SimpleItemTextTab",
                         "text": "-We will transition to online church services via livestream every Sunday at 10:00am on our website."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "-Good Friday and Easter Sunday services will also transition to livestream services at 10:00am on their respective days. Inviting your friends to join us this Easter will now be a click away."
                     },
                     {
                         "class": "SimpleItemTextTab",

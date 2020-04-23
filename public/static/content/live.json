@@ -18,12 +18,16 @@
             {
                 "title": "Livestream",
                 "type": "liveVideoPlayer",
-                "liveYoutubeId": "X3UWdfWlTu4",
+                "liveYoutubeId": "TYOt4B4O-2Y",
                 "preRollYoutubeId": "YCOOpaHg-e4",
                 "showLiveVideos": true,
                 "showAlternateLiveVideos": false,
                 "showNotes": false,
                 "menu": [
+                    {
+                        "title": "Kidmax",
+                        "linkto": "http://www.kidsandyouth.themeetinghouse.com/blog"
+                    },
                     {
                         "title": "Notes",
                         "linkto": "http://media.themeetinghouse.com/podcast/handouts/Notes.pdf"

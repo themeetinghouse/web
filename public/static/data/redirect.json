@@ -8,7 +8,6 @@
 {"id":"alongside","to":"https://meetinghouse.infellowship.com/Forms/429986"},
 {"id":"sandbanksparents","to":"https://docs.google.com/forms/d/e/1FAIpQLSfFGCdY6fPVkpHYVnHBsIt2ymNlx0xE56jM4cLFrVbHrA-Dlg/viewform?vc=0&c=0&w=1"},
 {"id":"socialmediacreative","to":"https://drive.google.com/drive/folders/1RH9EzO4WrnAENqyGT8eHMknPhMllBBfp"},
-{"id":"connect101","to":"https://meeting.formstack.com/forms/connect_101_registration"},
 {"id":"hc101video1","to":"https://meeting.formstack.com/forms/hc_101_leadership_video_1_healthy_home_church"},
 {"id":"hc101video2","to":"https://meeting.formstack.com/forms/hc_101_leadership_video_2_facilitation"},
 {"id":"hc101video3","to":"https://meeting.formstack.com/forms/hc_101_leadership_video_3_huddles"},
@@ -38,7 +37,7 @@
 {"id":"oakvillechristmasvolunteers","to":"https://meeting.formstack.com/forms/2019_oakville_christmas_volunteers"},
 {"id":"dataprivacy","to":"/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019"},
 {"id":"kids","to":"http://parents.themeetinghouse.com/"},
-{"id":"youth","to":"http://theunderground.ws"},
+{"id":"youth","to":"http://www.tmhyouth.com"},
 {"id":"annualreports","to":"https://www.themeetinghouse.com/about-us"},
 {"id":"annualreport","to":"/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf"},
 {"id":"distancegroupupdates","to":"https://meeting.formstack.com/forms/distancegrouplisting"},
@@ -80,9 +79,9 @@
 {"id":"peacemakerspack","to":"https://meeting.formstack.com/forms/peacemakerspack"},
 {"id":"onlinegathering","to":"https://themeetinghouse.typeform.com/to/t3WHjb"},
 {"id":"whitbyvideo","to":"https://youtu.be/QNeFqFxbjVQ"},
-{"id":"prayer","to":"/static/pdfs/site-leadership/TMH_MOPrayer_2020_v3_mobile.pdf"},
 {"id":"kidmaxconference","to":"https://meetinghouse.infellowship.com/Forms/437119"},
 {"id":"sunday-live","to":"live"},
-{"id":"pray","to":"https://signup.com/client/invitation2/secure/3226812/false#/invitation"},
-{"id":"kidseaster","to":"http://kidsandyouth.themeetinghouse.com/blog/"}
+{"id":"kidseaster","to":"http://kidsandyouth.themeetinghouse.com/blog/"},
+{"id":"connect101","to":"https://zoom.us/j/95938392489"},
+{"id":"prayer","to":"https://zoom.us/j/94256505862"}
 ]
