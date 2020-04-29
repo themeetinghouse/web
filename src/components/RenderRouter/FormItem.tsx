@@ -22,7 +22,6 @@ export default class ContentItem extends React.Component<Props, State>  {
 
     return (
       <div className="FormItem">
-        <div className="oneImagePosition">
           {this.state.content.style === "white" ?
             <h1 className="FormItemH1 black" >{this.state.content.header1}</h1> :
             <h1 className="FormItemH1 white" >{this.state.content.header1}</h1>
@@ -33,8 +32,6 @@ export default class ContentItem extends React.Component<Props, State>  {
             src={"https://meeting.formstack.com/forms/" + this.state.content.formId}
             title="The Meeting House - Forms"
             scrolling="yes" className="FormId" style={{ height: "75vh" }}></iframe>
-
-        </div>
       </div>
     )
 
