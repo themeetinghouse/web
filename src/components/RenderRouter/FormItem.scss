@@ -4,6 +4,9 @@
         font-size: 3vw;
         font-family: Graphik Web;
         margin-top: 3vw;
+        text-align: left;
+        width: 40vw;
+        margin-left: 2.8125vw;
     }
 
     .FormItemH1.white {
@@ -14,9 +17,13 @@
         color: #000000;
     }
 
+    .FormContainer {
+        text-align: center;
+    }
+
     .FormItem {
         position: static;
-        text-align: center;
+        display: inline-block;
     }
 
     .FormItemText1 {
@@ -26,7 +33,7 @@
 
     .FormId {
         border: 0px;
-        width: 60vw;
+        width: 40vw;
     }
 }
 
