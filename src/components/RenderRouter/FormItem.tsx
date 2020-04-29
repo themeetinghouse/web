@@ -19,7 +19,6 @@ export default class ContentItem extends React.Component<Props, State>  {
 
 
   render() {
-
     return (
       <div className="FormContainer">
         <div className="FormItem">
@@ -32,7 +31,7 @@ export default class ContentItem extends React.Component<Props, State>  {
             <iframe
               src={"https://meeting.formstack.com/forms/" + this.state.content.formId}
               title="The Meeting House - Forms"
-              scrolling="yes" className="FormId" style={{ height: "75vh" }}></iframe>
+              scrolling="yes" className="FormId"></iframe>
         </div>
       </div>
     )
