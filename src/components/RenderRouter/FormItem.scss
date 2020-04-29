@@ -37,6 +37,18 @@
     }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .FormId {
+        width: 72.5vw;
+    }
+
+    .FormItemH1 {
+        width: 60vw;
+        margin-left: 3vw;
+    }
+
+}
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .FormItemH1 {
         font-weight: bold;
@@ -54,8 +66,13 @@
         color: #000000;
     }
 
+    .FormContainer {
+        text-align: center;
+    }
+
     .FormItem {
         position: static;
+        display: inline-block;
     }
 
     .FormItemText1 {
@@ -75,6 +92,7 @@
         font-size: 10vw;
         font-family: Graphik Web;
         line-height: 12.5vw;
+        text-align: left;
     }
 
 
@@ -89,8 +107,13 @@
         padding-right: 5vw;
     }
 
+    .FormContainer {
+        text-align: center;
+    }
+
     .FormItem {
         position: static;
+        display: inline-block;
         padding-bottom: 5vw;
     }
 
@@ -101,6 +124,6 @@
 
     .FormId {
         border: 0px;
-        width: 90%;
+        width: 100vw;
     }
 }
