@@ -4,7 +4,7 @@ import RenderRouter from '../RenderRouter/RenderRouter'
 import { Modal } from 'react-bootstrap'
 import Amplify from 'aws-amplify';
 import awsconfig from '../../aws-exports';
-import "./PopupB.scss"
+import "./GiveForm.scss"
 
 /*Analytics.record({
   name: 'pageVisit',
