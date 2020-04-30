@@ -12,7 +12,7 @@
             "showSearch":false,
             "showFooter":false,
             "showMenu":false,
-            "isPopupNonForm":true,
+            "isPopupNonFormB":true,
             "navigateOnPopupClose":"/"
         },
         "content": [
