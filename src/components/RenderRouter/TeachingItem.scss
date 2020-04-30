@@ -74,14 +74,16 @@
         font-weight: bold;
         color: black;
         font-size:1vw;
+        border-bottom: black solid;
+        padding-bottom: 1px;
     }
 
     .TeachingUnselected {
         font-family: Graphik Web;
         font-weight: bold;
         cursor: pointer;
-        color: blue;
-        text-decoration: underline;
+        color: #646469; 
+        opacity: 0.54;
         font-size:1vw;
     }
 
@@ -92,6 +94,7 @@
         transform: rotate(-90deg);
         transform-origin: left top 0;
         font-family: Graphik Web;
+        color: #646469; 
 
     }
 
