@@ -12,7 +12,7 @@
             "showSearch":false,
             "showFooter":false,
             "showMenu":false,
-            "isPopup":true,
+            "isPopupNonForm":true,
             "navigateOnPopupClose":"/go"
         },
         "content": [
@@ -20,7 +20,7 @@
             {
                 "type": "iframe",
                 "src":"https://staff.themeetinghouse.com/pledges/pledgeForm.php",
-                "height":"240vh",
+                "height":"1200px",
                 "isInPopup":true
             }
         ]
