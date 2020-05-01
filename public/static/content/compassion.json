@@ -24,6 +24,12 @@
                         "alt": "Two people crossing a street"
                     }
                 ],
+                "OGimage": {
+                    "src": "/static/images/compassion-1-new.jpg",
+                    "alt": "Two people crossing a street",
+                    "width": "3500",
+                    "height": "2468"
+                },
                 "header1": "Compassion",
                 "text1": "We recognize all people as unique individuals made in the image of God. Compassion requires a willingness to join people in their suffering and journey with them. As we pursue relationships with people who are vulnerable, we experience mutual transformation.",
                 "button1Text": "Looking for Peacemakers?",

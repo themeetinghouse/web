@@ -23,6 +23,12 @@
                         "alt": "Two people talking at a kitchen counter, drinking tea."
                     }
                 ],
+                "OGimage": {
+                    "src": "/static/images/community-1-og.jpg",
+                    "alt": "Two people talking at a kitchen counter, drinking tea.",
+                    "width": "3974",
+                    "height": "2650"
+                },
                 "header1": "Community",
                 "header2": "",
                 "text1": "At our core, we believe that we are created for relationship with God and with each other. When we come together in our local neighbourhoods and invite others, something powerful happens. Ready to meet new friends and build relationships?"
