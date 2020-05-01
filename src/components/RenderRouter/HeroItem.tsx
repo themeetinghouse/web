@@ -8,6 +8,7 @@ import "./HeroItem.scss"
 import Select from 'react-select';
 import DataLoader from './DataLoader';
 import moment from 'moment';
+import { Helmet } from "react-helmet";
 
 interface Props extends RouteComponentProps {
     content: any
@@ -197,6 +198,11 @@ class HeroItem extends React.Component<Props, State> {
         if (this.state.content.style === "full") {
             return (
                 <div className="headerItem heroItem" >
+                    <Helmet>
+                        <meta property="og:image" content={this.state.content.OGimage.src} />
+                        <meta property="og:image:width" content={this.state.content.OGimage.width} />
+                        <meta property="og:image:height" content={this.state.content.OGimage.height} />
+                    </Helmet>
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     {this.renderHeroImage("heroImage")}
                     <div className="heroBlackBox" >
