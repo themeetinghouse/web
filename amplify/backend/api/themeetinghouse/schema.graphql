@@ -11,6 +11,7 @@ type Query {
   getFBEvents(pageId:String):FBData
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
+  fuzzySearchVideosByType(videoTypes: String, filter: String, limit: Int, nextToken: String):fuzzySearchVideosByTypeConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
@@ -92,6 +93,11 @@ type fuzzySearchableVideoConnection {
   items: [Video]
   nextToken: String
 }
+type fuzzySearchVideosByTypeConnection {
+  items: [Video]
+  nextToken: String
+}
+
 type F1ListEventSchedules{
   schedules:F1ListEventSchedule
 }
