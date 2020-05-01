@@ -218,6 +218,7 @@
         font-size:1vw;
         border-bottom: black solid;
         padding-bottom: 1px;
+        cursor: pointer;
     }
 
     .TeachingUnselected {
@@ -257,6 +258,12 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+    }
+
+    .titleOnly {
+        border-bottom: solid 1px;
+        padding-bottom: 2px;
+        cursor: pointer;
     }
 
     .teachingButton-icon {
@@ -322,6 +329,7 @@
     }
 
     .TeachingSelected {
+        cursor: pointer;
         font-family: Graphik Web;
         font-weight: bold;
         color: black;
@@ -330,6 +338,7 @@
     }
 
     .TeachingUnselected {
+        cursor: pointer;
         font-family: Graphik Web;
         font-weight: bold;
         color: #646469; 
