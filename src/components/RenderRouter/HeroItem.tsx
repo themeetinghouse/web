@@ -199,8 +199,8 @@ class HeroItem extends React.Component<Props, State> {
         let h = null;
         try {
             image = this.state.content.OGimage.src;
-            w = this.state.content.OGimage.width;
-            h = this.state.content.OGimage.height;
+            w = this.state.content.OGimage.imgWidth;
+            h = this.state.content.OGimage.imgHeight;
             return (
                 <Helmet>
                     <meta property="og:image" content={image} />

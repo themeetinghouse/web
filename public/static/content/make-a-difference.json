@@ -30,8 +30,8 @@
                 "OGimage": {
                     "src": "/static/images/mad-1-2.jpg",
                     "alt": "Volunteer with hat smiling at camera.",
-                    "width": "3840",
-                    "height": "2160"
+                    "imgWidth": "3840",
+                    "imgHeight": "2160"
                 },
                 "header1": "Make a Difference",
                 "header2": "",
