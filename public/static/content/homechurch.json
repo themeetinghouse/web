@@ -27,8 +27,8 @@
                 "OGimage": {
                     "src": "/static/images/homechurch-1-1-og.jpg",
                     "alt": "Three friends talking together around a kitchen table during home church.",
-                    "imgWidth": "3840",
-                    "imgHeight": "2160"
+                    "width": "3840",
+                    "height": "2160"
                 },
                 "header1": "Home Church",
                 "header2": "",

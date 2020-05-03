@@ -26,8 +26,8 @@
                 "OGimage": {
                     "src": "/static/images/community-1-og.jpg",
                     "alt": "Two people talking at a kitchen counter, drinking tea.",
-                    "imgWidth": "3974",
-                    "imgHeight": "2650"
+                    "width": "3974",
+                    "height": "2650"
                 },
                 "header1": "Community",
                 "header2": "",

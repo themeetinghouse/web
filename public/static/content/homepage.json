@@ -53,8 +53,8 @@
                 "OGimage": {
                     "src": "/static/images/homepage-1-4.jpg",
                     "alt": "Young woman in glasses smiling and speaking with a friend.",
-                    "imgWidth": "3840",
-                    "imgHeight": "2160"
+                    "width": "3840",
+                    "height": "2160"
                 },
                 "header1": "Hello Friend",
                 "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",

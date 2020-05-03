@@ -30,8 +30,8 @@
                 "OGimage": {
                     "src": "/static/images/corona-1.jpg",
                     "alt": "Young man sitting on indoors, reflecting and looking outside his window.",
-                    "imgWidth": "3840",
-                    "imgHeight": "2250"
+                    "width": "3840",
+                    "height": "2250"
                 },
                 "header1": "Church During COVID-19",
                 "header2": "",
