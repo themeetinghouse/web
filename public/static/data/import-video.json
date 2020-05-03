@@ -2136,7 +2136,7 @@
     },
     {
         "id": "livestream-services",
-        "name": "Sunday Morning Live stream",
+        "name": "Sunday Livestream",
         "columns": [
             {
                 "id": "episodeTitle",
