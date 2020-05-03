@@ -26,6 +26,12 @@
                         "alt": "Man sitting on the steps infront of a university building."
                     }
                 ],
+                "OGimage": {
+                    "src": "/static/images/sc-1-1.jpg",
+                    "alt": "Man standing in front of a large chalkboard at the front of a lecture hall at a university.",
+                    "width": "3840",
+                    "height": "2160"
+                },
                 "header1": "Spiritually curious...or whatever.",
                 "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. We've pulled together a few stories to share our experiences with you. Full disclosure: we think the best thing we have to offer is to point you towards Jesus.",
                 "button1Text": "Watch Nik's Story",

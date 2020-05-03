@@ -24,6 +24,12 @@
                         "alt": "Three friends talking together around a kitchen table during home church."
                     }
                 ],
+                "OGimage": {
+                    "src": "/static/images/homechurch-1-1-og.jpg",
+                    "alt": "Three friends talking together around a kitchen table during home church.",
+                    "width": "3840",
+                    "height": "2160"
+                },
                 "header1": "Home Church",
                 "header2": "",
                 "text1": "We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life.",
