@@ -74,7 +74,7 @@
     }
 
     .ListItemDiv11 {
-        width: 40vw;
+        width: 31vw;
         font-size: 1.25vw;
         font-family: Graphik Web;
     }
@@ -347,6 +347,12 @@
         font-family: Graphik Web;
         margin-bottom: 48px;
     }
+
+    .arrow {
+        float: right;
+        padding-top: 1px;
+        width: 32px;
+    }
 }
 
 @-moz-document url-prefix() {
@@ -437,7 +443,7 @@
     }
 
     .ListItemDiv11 {
-        width: 40vw;
+        width: 31vw;
         font-size: 1.25vw;
         font-family: Graphik Web;
     }
@@ -681,6 +687,11 @@
         margin-bottom: 48px;
     }
 
+    .arrow {
+        float: right;
+        width: 32px;
+        padding: 0;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -851,7 +862,7 @@
     // }
 
     .ListItemDiv11 {
-        width: 100%;
+        width: 88.5vw;
         font-size: 4.27vw;
         font-family: Graphik Web;
     }
@@ -887,7 +898,7 @@
     }
 
     .ListItemH3 {
-        width: 100%;
+        width: 75vw;
         font-size: 6.4vw;
         font-weight: bold;
         font-family: Graphik Web;
@@ -1143,5 +1154,12 @@
         font-size: 5.33vw;
         font-family: Graphik Web;
         margin-bottom: 12.8vw;
+    }
+
+    .arrow {
+        position: relative;
+        left: 12.5vw;
+        float: right;
+        width: 32px;
     }
 }

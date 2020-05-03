@@ -454,7 +454,7 @@ class ListItem extends React.Component<Props, State> {
                             this.navigateUrl(item.url)
                       }}
                       className={"imageList " + (item.url || item.navigateTo ? "hoverText" : "noHoverText")}>
-                      <h3 className="ListItemH3" >{item.title}</h3>
+                      <h3 className="ListItemH3" ><img className="arrow" src="/static/svg/ArrowRight black.svg"/>{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
                     <img className="ListItemH1ImageList2" src={this.imgUrl(480) + item.imageSrc} alt={item.imageAlt}
