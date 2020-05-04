@@ -6,7 +6,6 @@
             width: 100%;
             height: 100%;
             padding: 0;
-            overflow: auto;
             margin-bottom: 5vw;
       }
 
@@ -39,7 +38,7 @@
       .VideoPlayerSeriesAudio,
       .VideoPlayerSeriesNotes {
             float: left;
-            margin-right: 2vw;
+            margin-right: 3vw;
             color: #ffffff;
             font-family: Graphik Web;
       }
@@ -74,8 +73,31 @@
             left: 10vw;
             position: relative;
             margin-top: 2vw;
-            width: 70vw;
+            width: 50vw;
       }
+
+      .DownloadLink {
+            color: #ffffff !important;
+            border-bottom: solid;
+            padding-bottom: 1px;
+            text-decoration: none !important;
+      }
+
+      .button-icon {
+            margin-right: 16px;
+      }
+
+      .dropdown-toggle:after {
+            display: none;
+      }
+
+      #share-custom {
+            border-radius: 0;
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #ffffff;
+      }
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
