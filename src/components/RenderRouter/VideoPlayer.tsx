@@ -2,6 +2,7 @@
 import React from 'react';
 import "./VideoPlayer.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
+import Fade from 'react-bootstrap/Fade';
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -36,11 +37,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return (
     <Dropdown>
       <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share.svg" alt=""/>Share</Dropdown.Toggle>
-      <Dropdown.Menu className="ShareMenu">
-      <FacebookShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item></FacebookShareButton>
-      <TwitterShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item></TwitterShareButton>
-      <EmailShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item></EmailShareButton>      
-      </Dropdown.Menu>
+        <Fade timeout={1000}>
+          <Dropdown.Menu className="ShareMenu">
+            <FacebookShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item></FacebookShareButton>
+            <TwitterShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item></TwitterShareButton>
+            <EmailShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item></EmailShareButton>      
+          </Dropdown.Menu>
+        </Fade>
     </Dropdown>
     )
   }
