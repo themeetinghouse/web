@@ -33,6 +33,7 @@ export default class ContentItem extends React.Component<Props, State>  {
         <div className="FormItem">
           <Helmet>
             <meta property="og:image" content={this.imgUrl(1080) + "/static/logos/house-black.png"} />
+            <meta property="og:image:secure_url" content={this.imgUrl(1080) + "/static/logos/house-black.png"} />
             <meta property="og:image:width" content="1080" />
             <meta property="og:image:height" content="1080" />
           </Helmet>
