@@ -209,6 +209,7 @@ class HeroItem extends React.Component<Props, State> {
             return (this.state.ogImageHeight ? 
                 <Helmet>
                     <meta property="og:image" content={imageUrl} />
+                    <meta property="og:image:secure_url" content={imageUrl} />
                     <meta property="og:image:width" content={"1920"} />
                     <meta property="og:image:height" content={this.state.ogImageHeight.toString()} /> 
                 </Helmet> : null)

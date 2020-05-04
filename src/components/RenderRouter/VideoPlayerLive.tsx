@@ -128,6 +128,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div className="LiveVideoPlayerDiv" >
         <Helmet>
           <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"}/>
+          <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"}/>
         </Helmet>
         <div>
 
