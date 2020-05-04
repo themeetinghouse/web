@@ -412,9 +412,8 @@ ul.GiveItemNumber {
     font-family: Graphik Web;
     color: #ffffff;
    // float: left;
-    font-size: 4.3vw;
+    font-size: 3.7vw;
     margin-right: 1vw;
-    margin-bottom: 5vw;
     width: 100%;
   }
 
@@ -438,7 +437,7 @@ ul.GiveItemNumber {
 
   .giveItemDiv1 {
     position: relative;
-    top: 35vw;
+    top: 20vw;
     left: 0vw;
     margin-bottom: 2vw;
     width: 100%;
@@ -447,10 +446,15 @@ ul.GiveItemNumber {
   }
 
   .GiveItemOtherWayButton {
-    width: 100%;
+    float: left;
+    width: 50%;
     color: #000000;
     background-color:#ffffff;
-
+    width: 45%;
+    margin-right: 2vw;
+    margin-bottom: 5vw;
+    padding: 0; 
+    height: 11.25vw;
   }
   a.GiveItemOtherWayButton {
     width: 100%;
