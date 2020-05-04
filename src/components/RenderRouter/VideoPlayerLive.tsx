@@ -5,9 +5,7 @@ import * as queries from '../../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 //import moment from 'moment';
-import moment from 'moment-timezone';
-import { Helmet } from 'react-helmet'
-
+import moment from 'moment-timezone'
 interface Props {
   content: any,
   data: any
@@ -126,9 +124,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div className="LiveVideoPlayerDiv" >
-        <Helmet>
-          <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"}/>
-        </Helmet>
+
         <div>
 
           {this.state.content.showLiveVideos ?

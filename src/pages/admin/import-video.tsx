@@ -13,7 +13,7 @@ import { API } from 'aws-amplify'
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import "./import-video.scss"
 import awsmobile from '../../aws-exports';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 import { Modal } from 'reactstrap';
 
@@ -118,7 +118,7 @@ class IndexApp extends React.Component<Props, State> {
     }
     getVideos(nextToken: any) {
         if (nextToken == null) {
-            var queryId = uuid.v4()
+            var queryId = uuidv4()
             this.setState({ getVideoQueryId: queryId, getVideosState: "Loading Videos" },
                 () => { this.getVideosQID(nextToken, queryId) }
             )
