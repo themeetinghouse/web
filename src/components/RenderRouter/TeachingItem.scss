@@ -266,10 +266,6 @@
         cursor: pointer;
     }
 
-    .teachingButton-icon {
-        display: none;
-    }
-
     .teaching-blackbox {
         padding: 3vw;
         position: absolute;
@@ -372,18 +368,19 @@
     }
 
     .teachingButton {
-      padding: 5vw 10vw!important;
       line-height: 5vw!important;
       background-color: #ffffff!important;
       color: #000000!important;
       font-weight: 800!important;
       border-radius:0!important;
       margin-right:5vw;
-      font-size: 3vw;
+      font-size: 4.5vw;
+      width: 40vw;
+      height: 15vw;
     }
 
     .teachingButton-icon {
-        padding-bottom: 1px;
+        padding-bottom: 2px;
         padding-right: 18px
     }
 }
