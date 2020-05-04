@@ -2,6 +2,16 @@
 import React from 'react';
 import "./VideoPlayer.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
+import {
+  FacebookShareButton,
+  EmailShareButton,
+  TwitterShareButton
+} from "react-share";
+import {
+  FacebookIcon,
+  EmailIcon,
+  TwitterIcon
+} from "react-share";
 
 interface Props {
   content: any,
@@ -22,15 +32,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
   }
 
-
   shareButton() {
     return (
     <Dropdown>
-      <Dropdown.Toggle id="share-custom">Pow! Zoom!</Dropdown.Toggle>
+      <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share.svg" alt=""/>Share</Dropdown.Toggle>
       <Dropdown.Menu className="ShareMenu">
-      <Dropdown.Item as="button">Action</Dropdown.Item>
-      <Dropdown.Item as="button">Another action</Dropdown.Item>
-      <Dropdown.Item as="button">Something else</Dropdown.Item>
+      <FacebookShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item></FacebookShareButton>
+      <TwitterShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item></TwitterShareButton>
+      <EmailShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item></EmailShareButton>      
       </Dropdown.Menu>
     </Dropdown>
     )
@@ -40,8 +49,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return (
       <div className="VideoPlayerDiv" >
         <iframe title="Youtube Player" className="VideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.data.id + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-       <div className="VideoPlayerEpisodeTitle">{this.state.data.episodeTitle}</div>
-       <div className="ShareButton">{this.shareButton()}</div>
+       <div className="VideoPlayerEpisodeTitle">{this.state.data.episodeTitle}<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
         <div className="VideoPlayerDetails">
           {(this.state.data.seriesTitle != null) ?
             <div className="VideoPlayerSeries">
@@ -67,6 +75,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
           {this.state.data.audioURL != 'a' ? <div className="VideoPlayerSeriesAudio"><img className="button-icon" src="/static/svg/Audio-white.svg" alt=""/><a className="DownloadLink"href={this.state.data.audioURL}>Download Audio</a></div> : null}
           <div className="VideoPlayerClear"></div>
         </div>
+        <div className="ShareButtonMobile">{this.shareButton()}</div>
       </div>
     )
 
