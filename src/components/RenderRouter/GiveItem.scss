@@ -157,7 +157,16 @@ ul.GiveItemNumber {
     position: relative;
     top: 2vw;
     left: 20vw;
-    margin-bottom: 25vh;
+    margin-bottom: 40vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 70vh;
   }
 }
 
@@ -440,7 +449,7 @@ ul.GiveItemNumber {
     position: relative;
     top: 35vw;
     left: 0vw;
-    margin-bottom: 20vh;
+    margin-bottom: 25vh;
     width: 100%;
     padding-left: 5vw;
     padding-right: 5vw;
@@ -457,8 +466,5 @@ ul.GiveItemNumber {
     color: #ffffff;
     background-color:#000000;
 
-  }
-  .GiveItemBottom {
-    height: 45vw;
   }
 }
