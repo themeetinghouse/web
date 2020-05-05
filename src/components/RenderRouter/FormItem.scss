@@ -1,4 +1,9 @@
 @media (min-width: 768px) {
+
+    .FormContainer {
+        height: 100vh;
+    }
+
     .FormItemH1 {
         font-weight: bold;
         font-size: 3vw;
@@ -89,6 +94,12 @@
 }
 
 @media (max-width: 767px) {
+
+    .FormContainer {
+        height: 100vh;
+        overflow: hidden !important;
+    }
+
     .FormItemH1 {
         font-weight: bold;
         font-size: 10vw;

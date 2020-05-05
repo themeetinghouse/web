@@ -1,4 +1,8 @@
 @media (min-width: 768px) {
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
 
     .modal-video {
         width: 100%;
@@ -14,10 +18,30 @@
         margin: 0 !important;
     }
 
+    .modal-footer {
+        width: 100%;
+        max-width: none !important;
+        background-color: #000000 !important;
+        margin: 0 !important;
+        border-radius: 0;
+        border: none !important;
+        height: 10vh;
+    }
+
+    .modal-footer .white {
+        width: 100%;
+        max-width: none !important;
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        height: 10vh;
+        border-radius: 0;
+        border: none !important;
+    }
+
     .modal-body {
         padding: 0 !important;
         margin: 0 !important;
-        background-color: #000000 !important
+        background-color: #000000 !important;
     }
 
     .modal-body .white {
@@ -69,9 +93,39 @@
         top: 2vw;
         left: 95vw
     }
+
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+
+    .modal-footer {
+        width: 100%;
+        max-width: none !important;
+        background-color: #000000 !important;
+        margin: 0 !important;
+        border-radius: 0;
+        border: none !important;
+        height: 10vh;
+    }
+
+    .modal-footer .white {
+        width: 100%;
+        max-width: none !important;
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        height: 10vh;
+        border-radius: 0;
+        border: none !important;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+
+    .modal-content {
+        border: none;
+        border-radius: 0;
+    }
 
     .modal-video {
         width: 100%;
@@ -79,8 +133,6 @@
         color: #000000;
         margin: 0 !important;
     }
-
-
 
     .modal-video .white {
         width: 100%;
@@ -105,5 +157,25 @@
         z-index: 1041;
         top: 5vw;
         left: 86vw;
+    }
+
+    .modal-footer {
+        width: 100%;
+        max-width: none !important;
+        background-color: #000000 !important;
+        margin: 0 !important;
+        border-radius: 0;
+        border: none !important;
+        height: 20vh;
+    }
+
+    .modal-footer .white {
+        width: 100%;
+        max-width: none !important;
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        height: 20vh;
+        border-radius: 0;
+        border: none !important;
     }
 }
