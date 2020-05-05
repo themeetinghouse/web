@@ -47,7 +47,7 @@
         "sites": ["brantford"],
         "name": "Hope Boxes",
         "description": "Oxford-Brant Hope Box is bringing hope and healing to families experiencing pregnancy and infant loss. These free faith-based boxes are a practical, tangible outreach to our community and a way to bring hope and care during a challenging time.  ",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/photos/compassion/Hope Box.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -110,7 +110,7 @@
         "name": "TrueCity",
         "description": "TrueCity is a movement of congregations in Hamilton, ON who recognize that God has called them to join Him in bringing His best to the city and beyond.  They work to simultaneously pursue mission at a congregational level, at a collaborative Church-in-the-City level, and as God's people scattered across all sectors of Hamilton.",
         "website": "https://truecityhamilton.ca/",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/photos/compassion/True City.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -484,7 +484,7 @@
         "sites": ["waterloo"],
         "name": "Mennonite Coalition for Refugee Support",
         "description": "MCRS is often the first stop for refugee claimants in Canada. They provide immediate assistance in completing their claim forms and applications, help in finding legal counsel, aid in applying for work permits, and help in navigating through other complex immigration-related processes.",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/photos/compassion/MCRS.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -548,7 +548,7 @@
         "sites": ["kitchener"],
         "name": "The Bridges",
         "description":"Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/photos/compassion/cambridge shelter.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
