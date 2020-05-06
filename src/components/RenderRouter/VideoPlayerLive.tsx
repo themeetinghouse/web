@@ -104,8 +104,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
       console.log(rightNow.format())
       console.log(rightNow.weekday())
       //console.log(rightNow.day())
-      console.log(rightNow.hour())
-      if (item.dayOfWeek === rightNow.weekday() && item.startHour <= rightNow.hour() && item.endHour >= rightNow.hour()) {
+      let pastStart = rightNow.isAfter(moment(item.startTime, 'HH:mm')) 
+      let beforeEnd = rightNow.isBefore(moment(item.endTime, 'HH:mm')) 
+      if (item.dayOfWeek === rightNow.weekday() && pastStart === true && beforeEnd === true) {
         console.log("ShowLive")
         this.setState({ isLive: true })
       }

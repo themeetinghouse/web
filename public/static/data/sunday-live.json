@@ -2,8 +2,8 @@
     {
         "name":"Sunday Morning Service",
         "dayOfWeek":0,
-        "startHour":10,
-        "endHour":23,
+        "startTime":"9:45",
+        "endTime":"23:00",
         "navigateTo":"/live"
     }
 
