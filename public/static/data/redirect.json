@@ -83,5 +83,6 @@
 {"id":"sunday-live","to":"live"},
 {"id":"kidseaster","to":"http://kidsandyouth.themeetinghouse.com/blog/"},
 {"id":"connect101","to":"https://zoom.us/j/95938392489"},
-{"id":"prayer","to":"https://zoom.us/j/94256505862"}
+{"id":"prayer","to":"https://zoom.us/j/94256505862"},
+{"id":"giving","to":"give"}
 ]

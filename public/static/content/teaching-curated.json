@@ -48,6 +48,15 @@
                 "type":"list",
                 "style":"horizontal",
                 "class":"videos",
+                "subclass":"kidmax-live",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Kidmax Live"                
+            },
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
                 "subclass":"after-party",
                 "selector":"all",
                 "sortOrder":"DESC",

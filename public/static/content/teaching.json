@@ -37,6 +37,16 @@
                 "type":"list",
                 "style":"horizontal",
                 "class":"videos",
+                "subclass":"livestream-services",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Sunday Live Streams"                
+            },
+
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
                 "subclass":"adult-sunday",
                 "selector":"all",
                 "sortOrder":"DESC",

@@ -76,15 +76,19 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => {
             console.log({ "Error: ": e })
             if (this.state.content.selector === "all") {
+                if (e.data){
                 this.props.dataLoaded(
                     e.data.getVideoByVideoType.items
                 )
+                }
             }
             else {
+                if (e.data)
                 this.props.dataLoaded(
                     e.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle === this.state.content.selector)
                 )
             }
+            if (e.data)
             if (e.data.getVideoByVideoType.nextToken != null)
                 this.getVideos(e.data.getVideoByVideoType.nextToken)
         })

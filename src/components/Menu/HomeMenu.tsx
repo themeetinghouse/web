@@ -8,7 +8,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavLink
+  NavLink, Button
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
@@ -36,7 +36,8 @@ interface State {
   movingMenu: boolean,
   showLive: boolean,
   showLiveEvent: boolean,
-  liveEvent: any
+  liveEvent: any,
+  expand: any
 }
 //const bootstrap = require('react-bootstrap');
 
@@ -70,7 +71,8 @@ class HomeMenu extends React.Component<Props, State>  {
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
       showLiveEvent: false,
-      liveEvent: ""
+      liveEvent: "",
+      expand: null
     };
     this.handleScroll = this.handleScroll.bind(this)
     fetch('./static/data/live-event.json').then(function (response) {
@@ -78,7 +80,7 @@ class HomeMenu extends React.Component<Props, State>  {
     })
       .then((myJson) => {
         myJson.forEach((item: any) => {
-          var rightNow=moment().tz("America/Toronto")
+          var rightNow = moment().tz("America/Toronto")
           console.log(rightNow.format())
           console.log(rightNow.weekday())
           //console.log(rightNow.day())
@@ -177,23 +179,28 @@ class HomeMenu extends React.Component<Props, State>  {
           : null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler onClick={this.toggle}>
-            <HamburgerMenu isOpen={this.state.isOpen} menuClicked={this.toggle.bind(this)} width={24} height={16} strokeWidth={2} borderRadius={45} color="black"/>
+            <HamburgerMenu isOpen={this.state.isOpen} menuClicked={this.toggle.bind(this)} width={24} height={16} strokeWidth={2} borderRadius={45} color="black" />
           </NavbarToggler>
           <div className="navbar-expander">&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className={this.state.movingMenu ? "ml-auto " + this.state.position : "ml-auto fixed"}>
               {
                 this.state.MainMenuItems ?
-                  this.state.MainMenuItems.map((item:any) => {
+                  this.state.MainMenuItems.map((item: any) => {
                     return (
                       <div key={item.location}>
-                        <NavLink className="bigNav" key={item.location} href={item.location}>
+                        <NavLink className="bigNav" style={{display:"inline-block"}} key={item.location} href={item.location}>
                           {item.name}
                         </NavLink>
-                        {(this.props.location.pathname === item.location || (item.children != null && item.children.map((a:any) => a.location).includes(this.props.location.pathname)) ?
+                        {item.children != null ?
+                          this.state.expand == item.location ?
+                            <Button className="expanderButton" onClick={() => { this.setState({ expand: null }) }}>-</Button> :
+                            <Button className="expanderButton" onClick={() => { this.setState({ expand: item.location }) }}>+</Button>
+                          : null}
+                        {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ?
                           (item.children != null ?
 
-                            item.children.map((item2:any) => {
+                            item.children.map((item2: any) => {
                               return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
                             }) : null)
                           : null)}

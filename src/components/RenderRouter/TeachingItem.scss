@@ -1,11 +1,28 @@
 @media (min-width: 768px) {
     .teachingButton {
+        position: relative;
         font-family: Graphik Web !important;
         border-radius:0 !important;
         background-color:#ffffff !important;
         color:#000000 !important;
         font-weight:bold!important;
         margin-right:2vw;
+        font-size: 1vw;
+    }
+
+    .titleOnly {
+        border-bottom: solid 1px;
+        padding-bottom: 2px;
+        cursor: pointer;
+    }
+
+    .teachingButton-icon {
+        padding-bottom: 2px;
+        padding-right: 18px;
+    }
+
+    .teachingdescription {
+        font-size: 1vw;
     }
 
     .teaching-h1 {
@@ -74,14 +91,16 @@
         font-weight: bold;
         color: black;
         font-size:1vw;
+        border-bottom: black solid;
+        padding-bottom: 1px;
     }
 
     .TeachingUnselected {
         font-family: Graphik Web;
         font-weight: bold;
         cursor: pointer;
-        color: blue;
-        text-decoration: underline;
+        color: #646469; 
+        opacity: 0.54;
         font-size:1vw;
     }
 
@@ -92,7 +111,8 @@
         transform: rotate(-90deg);
         transform-origin: left top 0;
         font-family: Graphik Web;
-
+        color: #646469; 
+        font-size:1vw;
     }
 
     .teaching-options {
@@ -103,6 +123,15 @@
         top: 10vw;
         transform: rotate(-90deg);
         transform-origin: right top 0;
+    }
+
+    .line-decoration {
+        position: absolute;
+        left: 2vw;
+        top: 40vw;
+        transform: rotate(-90deg);
+        transform-origin: left top 0;
+        border-top: 1px solid red;
     }
 }
 
@@ -115,6 +144,12 @@
         font-weight:bold!important;
         margin-right:2vw;
     }
+
+    .teachingButton-icon {
+        padding-bottom: 1px;
+        padding-right: 18px
+    }
+
     .teaching-h1 {
         position: relative;
         top: 3vw;
@@ -181,14 +216,17 @@
         font-weight: bold;
         color: black;
         font-size:1vw;
+        border-bottom: black solid;
+        padding-bottom: 1px;
+        cursor: pointer;
     }
 
     .TeachingUnselected {
         font-family: Graphik Web;
         font-weight: bold;
         cursor: pointer;
-        color: blue;
-        text-decoration: underline;
+        color: #646469; 
+        opacity: 0.54;
         font-size:1vw;
     }
 
@@ -199,6 +237,7 @@
         transform: rotate(-90deg);
         transform-origin: left top 0;
         font-family: Graphik Web;
+        color: #646469; 
     }
 
     .teaching-options {
@@ -219,6 +258,16 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+    }
+
+    .titleOnly {
+        border-bottom: solid 1px;
+        padding-bottom: 2px;
+        cursor: pointer;
+    }
+
+    .teachingButton-icon {
+        display: none;
     }
 
     .teaching-blackbox {
@@ -280,18 +329,20 @@
     }
 
     .TeachingSelected {
+        cursor: pointer;
         font-family: Graphik Web;
         font-weight: bold;
         color: black;
+        border-bottom: black solid;
+        padding-bottom: 1px;
     }
 
     .TeachingUnselected {
+        cursor: pointer;
         font-family: Graphik Web;
         font-weight: bold;
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
-
+        color: #646469; 
+        opacity: 0.54;
     }
 
     .teaching-mostrecent {
@@ -299,6 +350,7 @@
         left: 5vw;
         top: 10vw;
         font-family: Graphik Web;
+        color: #646469; 
     }
 
     .teaching-options {
@@ -327,5 +379,11 @@
       font-weight: 800!important;
       border-radius:0!important;
       margin-right:5vw;
-  }
+      font-size: 3vw;
+    }
+
+    .teachingButton-icon {
+        padding-bottom: 1px;
+        padding-right: 18px
+    }
 }

@@ -96,7 +96,8 @@
             "DeploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
             "UnauthRoleName": "themeetinghouse-tmhprod-20191031042029-unauthRole",
             "StackName": "themeetinghouse-tmhprod-20191031042029",
-            "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/themeetinghouse-tmhprod-20191031042029/4e459240-fbb7-11e9-bf89-128a65397f5a"
+            "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/themeetinghouse-tmhprod-20191031042029/4e459240-fbb7-11e9-bf89-128a65397f5a",
+            "AmplifyAppId": "d3chs2w45ydgx7"
         },
         "categories": {
             "auth": {
