@@ -39,9 +39,31 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share.svg" alt=""/>Share</Dropdown.Toggle>
         <Fade timeout={1000}>
           <Dropdown.Menu className="ShareMenu">
-            <FacebookShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item></FacebookShareButton>
-            <TwitterShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item></TwitterShareButton>
-            <EmailShareButton className="ShareOption" url={window.location.href}><Dropdown.Item as="button" className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item></EmailShareButton>      
+            
+            <FacebookShareButton 
+              className="ShareOption" 
+              url={"https://www.themeetinghouse.com/videos/" + this.state.data.series.id + "/" + this.state.data.Youtube.contentDetails.videoId}
+              quote={this.state.data.Youtube.snippet.title ? this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}>
+              <Dropdown.Item as="button" className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item>
+            </FacebookShareButton>
+            
+            <TwitterShareButton 
+              className="ShareOption" 
+              url={"https://www.themeetinghouse.com/videos/" + this.state.data.series.id + "/" + this.state.data.Youtube.contentDetails.videoId}
+              title={this.state.data.Youtube.snippet.title ? this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}
+              via={"TheMeetingHouse"}
+              related={["TheMeetingHouse"]}>
+              <Dropdown.Item as="button" className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item>
+            </TwitterShareButton>
+            
+            <EmailShareButton 
+              className="ShareOption" 
+              url={"https://www.themeetinghouse.com/videos/" + this.state.data.series.id + "/" + this.state.data.Youtube.contentDetails.videoId} 
+              subject={this.state.data.Youtube.snippet.title ? "Check out " + this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}
+              body={"I wanted to share this video with you:"}>
+              <Dropdown.Item as="button" className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item>
+            </EmailShareButton>
+
           </Dropdown.Menu>
         </Fade>
     </Dropdown>
