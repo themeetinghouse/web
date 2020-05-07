@@ -207,14 +207,14 @@ export default class ContentItem extends React.Component<Props, State>  {
             }
            
             {this.state.currentPage === "FellowshipOne" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>TMH Account</button></div>
             }
             {this.state.currentPage === "PushPay" ? null :
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
             }  </div>
           <div className="GiveItemNeedHelpGroup">
-            <div className="GiveItemOtherWays">Get Your Tax Receipt</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://meetinghouse.infellowship.com/UserLogin") }}>InFellowship Account</button></div>
+            <div className="GiveItemOtherWays">2019 Tax Receipt</div>
+            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://meetinghouse.infellowship.com/UserLogin") }}>{"Login & Download"}</button></div>
           </div>
           
           <div style={{ clear: "both" }}></div>
