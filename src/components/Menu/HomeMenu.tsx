@@ -193,7 +193,7 @@ class HomeMenu extends React.Component<Props, State>  {
                           {item.name}
                         </NavLink>
                         {item.children != null ?
-                          this.state.expand == item.location ?
+                          this.state.expand === item.location ?
                             <Button className="expanderButton" onClick={() => { this.setState({ expand: null }) }}>-</Button> :
                             <Button className="expanderButton" onClick={() => { this.setState({ expand: item.location }) }}>+</Button>
                           : null}
