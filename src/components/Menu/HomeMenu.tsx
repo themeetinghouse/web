@@ -8,7 +8,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavLink, Button
+  NavLink
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
@@ -188,14 +188,15 @@ class HomeMenu extends React.Component<Props, State>  {
                 this.state.MainMenuItems ?
                   this.state.MainMenuItems.map((item: any) => {
                     return (
-                      <div key={item.location}>
+                      <div key={item.location} className="linkContainer">
                         <NavLink className="bigNav" style={{display:"inline-block"}} key={item.location} href={item.location}>
                           {item.name}
                         </NavLink>
                         {item.children != null ?
-                          this.state.expand == item.location ?
-                            <Button className="expanderButton" onClick={() => { this.setState({ expand: null }) }}>-</Button> :
-                            <Button className="expanderButton" onClick={() => { this.setState({ expand: item.location }) }}>+</Button>
+                            <button className="expanderButton" onClick={() => {this.state.expand === item.location ? this.setState({ expand: null }) : this.setState({ expand: item.location }) }}>
+                              <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "vertical-line xstate" : "vertical-line"}></div>
+                              <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "horizontal-line xstate" : "horizontal-line"}></div>
+                            </button>
                           : null}
                         {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ?
                           (item.children != null ?
