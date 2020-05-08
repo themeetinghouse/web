@@ -8,7 +8,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavLink
+  NavLink,
+  Button
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
@@ -193,10 +194,10 @@ class HomeMenu extends React.Component<Props, State>  {
                           {item.name}
                         </NavLink>
                         {item.children != null ?
-                            <button className="expanderButton" onClick={() => {this.state.expand === item.location ? this.setState({ expand: null }) : this.setState({ expand: item.location }) }}>
+                            <Button className="expanderButton" onClick={() => {this.state.expand === item.location ? this.setState({ expand: null }) : this.setState({ expand: item.location }) }}>
                               <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "vertical-line xstate" : "vertical-line"}></div>
                               <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "horizontal-line xstate" : "horizontal-line"}></div>
-                            </button>
+                            </Button>
                           : null}
                         {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ?
                           (item.children != null ?
