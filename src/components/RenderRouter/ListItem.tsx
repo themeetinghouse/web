@@ -51,7 +51,10 @@ class ListItem extends React.Component<Props, State> {
       overlayData: data,
       urlHistoryState: window.location.href
     })
-    window.history.pushState({}, "Videos", "/videos/" + data.series.id + "/" + data.id)
+    if (data.series == null)
+      console.log({ "You need to create a series for:": data })
+    else
+      window.history.pushState({}, "Videos", "/videos/" + data.series.id + "/" + data.id)
 
   }
   dataLoader: DataLoader
@@ -115,7 +118,7 @@ class ListItem extends React.Component<Props, State> {
 
   renderVideo(item: any) {
     return (
-      <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+      <div onClick={() => { this.handleClick(item) }} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
         <div>
           <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
           <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
@@ -454,7 +457,7 @@ class ListItem extends React.Component<Props, State> {
                             this.navigateUrl(item.url)
                       }}
                       className={"imageList " + (item.url || item.navigateTo ? "hoverText" : "noHoverText")}>
-                      <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg"/>{item.title}</h3>
+                      <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
                     <img className="ListItemH1ImageList2" src={this.imgUrl(480) + item.imageSrc} alt={item.imageAlt}
