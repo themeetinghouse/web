@@ -20,9 +20,12 @@
             {
                 "type": "list",
                 "class": "videos",
-                "style": "horizontal",
+                "style": "horizontal-video-player",
                 "selector": "sameSeries",
                 "header1": "More From This Series"
+            },
+            {
+                "type": "podcasts"
             }
         ]
     }

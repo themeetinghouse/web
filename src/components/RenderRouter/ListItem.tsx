@@ -369,6 +369,26 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
 
+    else if (this.state.content.style === "horizontal-video-player") return (
+      <div className="ListItem horizontal-video-player" >
+        <div className="ListItemDiv1 horizontal-video-player" >
+          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+          <div className="ListItemDiv2" >
+            <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
+              {data.map((item: any, index: any) => {
+                return this.renderItemRouter(item, index)
+
+              }
+              )}
+            </HorizontalScrollList>
+            <div className="ListItemDiv5" ></div>
+          </div>
+        </div>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+      </div>
+    )
+
     else if (this.state.content.style === "curious-ui") return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >

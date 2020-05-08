@@ -18,6 +18,12 @@
         width: 80vw;
     }
 
+    .ListItemDiv1.horizontal-video-player {
+        position: relative;
+        z-index: 99;
+        left: 10vw;
+    }
+
     .ListItemDiv2 {
         position: relative;
         left: 0vw;
@@ -384,6 +390,13 @@
         position: relative;
         z-index: 99;
         left: 20vw;
+        width: 80vw;
+    }
+
+    .ListItemDiv1.horizontal-video-player {
+        position: relative;
+        z-index: 99;
+        left: 10vw;
         width: 80vw;
     }
 
