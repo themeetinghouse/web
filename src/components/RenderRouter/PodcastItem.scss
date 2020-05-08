@@ -1,11 +1,54 @@
 @media (min-width: 768px) {
-    .PodcastItemDiv1 {
+    
+    .PodcastItem {
         position: relative;
         z-index: 99;
+        margin-top: 3vw;
         left: 10vw;
+        font-family: Graphik Web;
+    }
+    
+    .PodcastItemDiv1 {
         width: 40vw;
         color: white;
         float: left;
+    }
+
+    .PodcastHeader {
+        position: relative;
+        color: white;
+        font-weight: bold;
+        font-size: 2vw;
+        margin-bottom: 1vw;
+    }
+
+    .PodcastText {
+        color: #C8C8C8;
+        width: 30vw;
+        margin-top: 0.5vw;
+    }
+
+    .PodcastTitle {
+        font-weight: bold;
+    }
+
+    .PodcastContentContainer {
+        float: right;
+        margin-right: 3.5vw;
+    }
+
+    .PodcastLinksContainer {
+        margin-top: 1vw;
+    }
+
+    .PodcastLink {
+        font-weight: bold;
+        margin-right: 32px;
+    }
+
+    .PodcastIcon {
+        margin-bottom: 2px;
+        margin-right: 8px;
     }
 }
 

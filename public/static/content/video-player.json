@@ -25,7 +25,35 @@
                 "header1": "More From This Series"
             },
             {
-                "type": "podcasts"
+                "type": "podcasts",
+                "podcastlist": [
+                    {
+                        "title": "The After Party",
+                        "description": "Dig deeper into theology, culture, and hot topics with experts in the field.",
+                        "icon": {
+                            "src": "https://media.themeetinghouse.com/roundtable/podcast_icons_2019_afterparty.jpg",
+                            "alt": "The After Party Artwork"
+                        },
+                        "itunes": "",
+                        "googlepodcasts": "",
+                        "spotify": "",
+                        "stitcher": "",
+                        "overcast": ""
+                    },
+                    {
+                        "title": "The Meeting House Podcast",
+                        "description": "Taking Sunday messages and concepts into extended conversations.",
+                        "icon": {
+                            "src": "https://media.themeetinghouse.com/podcast/podcast_icons_2019_audio.jpg",
+                            "alt": "The Meeting House Podcast Artwork"
+                        },
+                        "itunes": "",
+                        "googlepodcasts": "",
+                        "spotify": "",
+                        "stitcher": "",
+                        "overcast": ""
+                    }
+                ]
             }
         ]
     }

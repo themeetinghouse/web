@@ -372,7 +372,7 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.style === "horizontal-video-player") return (
       <div className="ListItem horizontal-video-player" >
         <div className="ListItemDiv1 horizontal-video-player" >
-          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
+          <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
           <div className="ListItemDiv2" >
             <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
