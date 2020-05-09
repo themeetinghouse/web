@@ -9,20 +9,50 @@
     padding: 1px 1px 1px 1px;
 }
 @media (min-width:768px) {
-    .expanderButton{
-        margin-bottom:0;
-        background-color:#ffffff00;
-        border-width:0;
-        color:#000000
-        
+    .expanderButton {
+        background-color: #ffffff00 !important;
+        position: relative;
+        margin: 0;
+        margin-left: 8px;
+        margin-top: 2px;
+        padding: 0;
+        border: none !important;
+        width: 20px;
+        height: 20px;
     }
-    .expanderButton:hover
-        {
-            margin-bottom:0;
-            background-color:#ffffff00;
-            border-width:0;
-            color:#0056b3
-        }
+
+    .vertical-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: #000000;
+        width: 2px;
+        height: 12px;
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -6px;
+    }
+
+    .horizontal-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: #000000;
+        width: 12px;
+        height: 2px;
+        left: 50%;
+        margin-left: -6px;
+        top: 50%;
+        margin-top: -1px;
+    }
+        
+    .horizontal-line.xstate {
+        transform: rotate(45deg);
+    }
+    
+    .vertical-line.xstate {
+        transform: rotate(-135deg);
+    }
+
     .search{
         height:4vw;
         left:95vw;
@@ -49,7 +79,6 @@
         animation: glow 1s ease-in-out infinite alternate;
       
     }
-   
 @keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
@@ -210,19 +239,50 @@
       }
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .expanderButton{
-        margin-bottom:0;
-        background-color:#ffffff00;
-        border-width:0;
-        color:#000000
+    .expanderButton {
+        background-color: #ffffff00 !important;
+        position: relative;
+        margin: 0;
+        margin-left: 8px;
+        margin-top: 2px;
+        border: none !important;
+        padding: 0;
+        width: 20px;
+        height: 20px;
     }
-    .expanderButton:hover
-        {
-            margin-bottom:0;
-            background-color:#ffffff00;
-            border-width:0;
-            color:#0056b3
-        }
+
+    .vertical-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: #000000;
+        width: 2px;
+        height: 12px;
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -6px;
+    }
+
+    .horizontal-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: #000000;
+        width: 12px;
+        height: 2px;
+        left: 50%;
+        margin-left: -6px;
+        top: 50%;
+        margin-top: -1px;
+    }
+        
+    .horizontal-line.xstate {
+        transform: rotate(45deg);
+    }
+    
+    .vertical-line.xstate {
+        transform: rotate(-135deg);
+    }
+
     .search{
         height:4vw;
         left:95vw;
@@ -349,19 +409,50 @@
 }
 
 @media (max-width: 767px) {
-    .expanderButton{
-        margin-bottom:5;
-        background-color:#ffffff;
-        border-width:0;
-        color:#000000
+    .expanderButton {
+        background-color: #ffffff00 !important;
+        position: relative;
+        margin: 0;
+        margin-left: 8px;
+        margin-bottom: 8px;
+        border: none !important;
+        padding: 0;
+        width: 20px;
+        height: 20px;
     }
-    .expanderButton:hover
-        {
-            margin-bottom:5;
-            background-color:#ffffff00;
-            border-width:0;
-            color:#0056b3
-        }
+
+    .vertical-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: #000000;
+        width: 2px;
+        height: 10px;
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -5px;
+    }
+
+    .horizontal-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: #000000;
+        width: 10px;
+        height: 2px;
+        left: 50%;
+        margin-left: -5px;
+        top: 50%;
+        margin-top: -1px;
+    }
+        
+    .horizontal-line.xstate {
+        transform: rotate(45deg);
+    }
+    
+    .vertical-line.xstate {
+        transform: rotate(-135deg);
+    }
+
     .search{
         height:8vw;
         left:73vw;
