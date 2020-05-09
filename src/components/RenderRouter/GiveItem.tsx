@@ -207,16 +207,21 @@ export default class ContentItem extends React.Component<Props, State>  {
             }
            
             {this.state.currentPage === "FellowshipOne" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>TMH Account</button></div>
             }
             {this.state.currentPage === "PushPay" ? null :
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
             }  </div>
           <div className="GiveItemNeedHelpGroup">
+            <div className="GiveItemOtherWays">2019 Tax Receipt</div>
+            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://meetinghouse.infellowship.com/UserLogin") }}>{"Login & Download"}</button></div>
+          </div>
+          
+          <div style={{ clear: "both" }}></div>
+          <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemNeedHelp">Need help?</div>
             <div className="GiveItemNeedHelpEmail">Please email Rachel at <a className="GiveItemOtherWayButton" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
           </div>
-          <div style={{ clear: "both" }}></div>
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Give To Extended Family</div>
             <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://tithe.ly/give_new/www/#/tithely/give-one-time/674673") }}>Alliston</button></div>
