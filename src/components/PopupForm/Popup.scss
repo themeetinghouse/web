@@ -1,31 +1,24 @@
 @media (min-width: 768px) {
 
+    .modal-content {
+        border: none;
+        height: 100vh;
+        overflow: hidden;
+        border-radius: 0;
+    }
+
     .modal-video {
-        width: 100vw;
+        width: 100%;
         max-width: none !important;
         background-color: #000000 !important;
         margin: 0 !important;
-
-        .modal-content {
-            border: none;
-            border-radius: 0;
-            padding-bottom: 10vw;
-            background-color: #000000;
-        }
     }
 
     .modal-video .white {
-        width: 100vw;
+        width: 100%;
         max-width: none !important;
         background-color: #ffffff !important;
         margin: 0 !important;
-
-        .modal-content {
-            border: none;
-            border-radius: 0;
-            padding-bottom: 10vw;
-            background-color: #ffffff;
-        }
     }
 
     .modal-body {
@@ -50,19 +43,15 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
-    .modal-content {
-        height: 100vh;
-    }
-
     .modal-video {
-        width: 100vw;
+        width: 100%;
         max-width: none !important;
         background-color: #000000 !important;
         margin: 0 !important;
     }
 
     .modal-video .white {
-        width: 100vw;
+        width: 100%;
         max-width: none !important;
         background-color: #ffffff !important;
         margin: 0 !important;
@@ -89,42 +78,29 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .modal-content {
-        height: 100vh;
-    }
-}
-
 @media (min-width: 320px) and (max-width: 767px) {
 
+    .modal-content {
+        border: none;
+        height: 100vh;
+        overflow: hidden;
+        border-radius: 0;
+    }
+
     .modal-video {
-        width: 100vw;
+        width: 100%;
         max-width: none !important;
         color: #000000;
         margin: 0 !important;
-
-        .modal-content {
-            border: none;
-            border-radius: 0;
-            padding-bottom: 40vh;
-            width: 100vw;
-            background-color: #000000;
-        }
     }
 
+
+
     .modal-video .white {
-        width: 100vw;
+        width: 100%;
         max-width: none !important;
         background-color: #ffffff !important;
         margin: 0 !important;
-
-        .modal-content {
-            border: none;
-            border-radius: 0;
-            padding-bottom: 40vh;
-            width: 100vw;
-            background-color: #ffffff;
-        }
     }
     .modal-body {
         padding: 0 !important;
