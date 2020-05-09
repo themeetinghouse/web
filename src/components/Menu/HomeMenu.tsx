@@ -76,7 +76,7 @@ class HomeMenu extends React.Component<Props, State>  {
       expand: null
     };
     this.handleScroll = this.handleScroll.bind(this)
-    fetch('./static/data/live-event.json').then(function (response) {
+    fetch('/static/data/live-event.json').then(function (response) {
       return response.json();
     })
       .then((myJson) => {
