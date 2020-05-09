@@ -466,12 +466,12 @@ export class ContentItem extends React.Component<Props, State>  {
                     {item.schedule && item.schedule.recurrences && item.schedule.recurrences.recurrence.recurrenceWeekly
                       ?
                       <div className="AddToCalendarButtonContainer">
-                        <img className="AddToCalendarIcon" src="/static/Calendar.png" alt="Calendar Icon" />
-                        <AddToCalendar event={this.getCalendarEventForLocation(item)}></AddToCalendar>
+                        <img className="AddToCalendarIcon" src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />
+                        <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}></AddToCalendar>
                       </div>
                       : null
                     }
-                    <a className="ContactLeadersButton" onClick={this.getContactLeadersHandler(item)} tabIndex={0}><img className="ContactLeadersIcon" src="/static/Contact.png" alt="Contact Icon" />Contact Leaders</a>
+                    <a className="ContactLeadersButton" onClick={this.getContactLeadersHandler(item)} tabIndex={0}><img className="ContactLeadersIcon" src="/static/svg/Contact.svg" alt="Contact Icon" />Contact Leaders</a>
                   </div>
                 </div>
               ))}
