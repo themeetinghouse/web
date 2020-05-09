@@ -60,11 +60,11 @@ export class ContentItem extends React.Component<Props, State>  {
     this.navigate = this.navigate.bind(this);
     var jsonFile;
     if (this.state.content.alternate === "christmas")
-      jsonFile = "./static/data/christmas.json"
+      jsonFile = "/static/data/christmas.json"
     else if (this.state.content.alternate === "easter")
-      jsonFile = "./static/data/easter.json"
+      jsonFile = "/static/data/easter.json"
     else
-      jsonFile = "./static/data/locations.json"
+      jsonFile = "/static/data/locations.json"
     fetch(jsonFile).then(function (response) {
       return response.json();
     })

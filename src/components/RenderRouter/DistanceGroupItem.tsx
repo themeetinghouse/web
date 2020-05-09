@@ -36,7 +36,7 @@ export class ContentItem extends React.Component<Props, State>  {
 
     }
     else {
-      fetch('./static/data/distance-groups.json').then(function (response) {
+      fetch('/static/data/distance-groups.json').then(function (response) {
         return response.json();
       })
         .then((myJson) => {

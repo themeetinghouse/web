@@ -31,7 +31,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       isLive: false,
       liveEventJson: null
     }
-    fetch('./static/data/sunday-live.json').then(function (response) {
+    fetch('/static/data/sunday-live.json').then(function (response) {
       return response.json();
     })
       .then((myJson) => {
