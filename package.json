@@ -30,6 +30,7 @@
   "dependencies": {
     "@aws-amplify/cli": "^4.18.1",
     "@material-ui/core": "^4.9.12",
+    "@sentry/browser": "^5.15.5",
     "@types/moment-timezone": "^0.5.13",
     "@types/react-add-to-calendar": "^0.1.0",
     "@types/react-addons-css-transition-group": "^15.0.5",
