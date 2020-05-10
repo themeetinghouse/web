@@ -98,3 +98,4 @@ backup
 images-sized
 google*.html
 amplify/mock-data
+src/version.js
