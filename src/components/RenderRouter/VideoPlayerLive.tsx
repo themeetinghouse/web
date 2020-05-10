@@ -100,12 +100,17 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
   tick() {
     this.state.liveEventJson.forEach((item: any) => {
+     
+      let start = moment.tz(item.startTime, 'HH:mm',"America/Toronto")
+      let end = moment.tz(item.endTime, 'HH:mm',"America/Toronto")
       var rightNow = moment().tz("America/Toronto")
       console.log(rightNow.format())
       console.log(rightNow.weekday())
+      console.log(start.format())
       //console.log(rightNow.day())
-      let pastStart = rightNow.isAfter(moment(item.startTime, 'HH:mm')) 
-      let beforeEnd = rightNow.isBefore(moment(item.endTime, 'HH:mm')) 
+     
+      let pastStart = rightNow.isAfter(start) 
+      let beforeEnd = rightNow.isBefore(end) 
       if (item.dayOfWeek === rightNow.weekday() && pastStart === true && beforeEnd === true) {
         console.log("ShowLive")
         this.setState({ isLive: true })
