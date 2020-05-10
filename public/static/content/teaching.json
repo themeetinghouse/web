@@ -26,21 +26,13 @@
                 "sortOrder":"DESC"
 
             },
+
             {
                 "type": "teachingsearch",
                 "style": "teaching",
                 "header1":"Search the Archives",
                 "text1":"Try \"Grace\"",
                 "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
-            },
-            {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"livestream-services",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Sunday Live Streams"                
             },
 
             {
@@ -52,7 +44,7 @@
                 "sortOrder":"DESC",
                 "header1":"All Teaching Videos"                
             },
-           
+
             {
                 "type":"list",
                 "style":"horizontalBig",
@@ -61,9 +53,17 @@
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1":"All Teaching Series"                
+            },
+
+            {
+                "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"livestream-services",
+                "selector":"all",
+                "sortOrder":"DESC",
+                "header1":"Sunday Livestreams"                
             }
-
-
         ]
     }
 }

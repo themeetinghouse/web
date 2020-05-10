@@ -8,7 +8,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavLink, Button
+  NavLink,
+  Button
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
@@ -75,7 +76,7 @@ class HomeMenu extends React.Component<Props, State>  {
       expand: null
     };
     this.handleScroll = this.handleScroll.bind(this)
-    fetch('./static/data/live-event.json').then(function (response) {
+    fetch('/static/data/live-event.json').then(function (response) {
       return response.json();
     })
       .then((myJson) => {
@@ -168,7 +169,7 @@ class HomeMenu extends React.Component<Props, State>  {
     // console.log(this.state.position)
     return (
 
-      <div className={"navbar-custom " + this.state.logoColor} id="navbar">
+      <div className={this.state.logoColor === "white" ? "navbar-custom white": "navbar-custom" } id="navbar">
         <NavbarBrand className="brand" href="/">
           <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
@@ -188,14 +189,15 @@ class HomeMenu extends React.Component<Props, State>  {
                 this.state.MainMenuItems ?
                   this.state.MainMenuItems.map((item: any) => {
                     return (
-                      <div key={item.location}>
+                      <div key={item.location} className="linkContainer">
                         <NavLink className="bigNav" style={{display:"inline-block"}} key={item.location} href={item.location}>
                           {item.name}
                         </NavLink>
                         {item.children != null ?
-                          this.state.expand == item.location ?
-                            <Button className="expanderButton" onClick={() => { this.setState({ expand: null }) }}>-</Button> :
-                            <Button className="expanderButton" onClick={() => { this.setState({ expand: item.location }) }}>+</Button>
+                            <Button className="expanderButton" onClick={() => {this.state.expand === item.location ? this.setState({ expand: null }) : this.setState({ expand: item.location }) }}>
+                              <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "vertical-line xstate" : "vertical-line"}></div>
+                              <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "horizontal-line xstate" : "horizontal-line"}></div>
+                            </Button>
                           : null}
                         {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ?
                           (item.children != null ?

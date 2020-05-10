@@ -75,6 +75,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               }} />
               <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
             </Modal.Body>
+            <Modal.Footer className={this.state.content.page.pageConfig.logoColor === "black" ? "modal-footer white" : "modal-footer"}/>
           </Modal> : null}
       </div >)
 

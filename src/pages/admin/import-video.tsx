@@ -82,7 +82,7 @@ class IndexApp extends React.Component<Props, State> {
             showError: "",
             getVideosState: "Starting Up"
         }
-        fetch('../static/data/import-video.json').then(function (response) {
+        fetch('/static/data/import-video.json').then(function (response) {
             return response.json();
         })
             .then((myJson) => {

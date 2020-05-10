@@ -23,6 +23,7 @@
 
     .teachingdescription {
         font-size: 1vw;
+        width: 30.625vw;
     }
 
     .teaching-h1 {
@@ -40,7 +41,7 @@
         left: 5vw;
         width: 50vw;
         top: 10vw;
-        height: 40vw;
+        height: 42vw;
         background-color: #000000;
         color: #ffffff;
     }
@@ -53,7 +54,7 @@
 
     .teachingdiv2 {
         position: absolute;
-        bottom: 5vw;
+        bottom: 6vw;
         font-family: Graphik Web;
     }
 
@@ -70,12 +71,16 @@
         font-family: Graphik Web;
     }
 
-    .teaching-image {
+    .teaching-image-desktop {
         cursor: pointer;
         position: absolute;
         top: 5vw;
         left: 35vw;
         width: 40vw;
+    }
+
+    .teaching-image-mobile {
+        display: none;
     }
 
     .teaching {
@@ -165,7 +170,7 @@
         left: 5vw;
         width: 50vw;
         top: 10vw;
-        height: 40vw;
+        height: 42vw;
         background-color: #000000;
         color: #ffffff;
     }
@@ -195,12 +200,16 @@
         font-family: Graphik Web;
     }
 
-    .teaching-image {
+    .teaching-image-desktop {
         cursor: pointer;
         position: absolute;
         top: 5vw;
         left: 35vw;
         width: 40vw;
+    }
+
+    .teaching-image-mobile {
+        display: none;
     }
 
     .teaching {
@@ -266,19 +275,15 @@
         cursor: pointer;
     }
 
-    .teachingButton-icon {
-        display: none;
-    }
-
     .teaching-blackbox {
         padding: 3vw;
-        position: absolute;
+        position: relative;
         left: 0vw;
         width: 100vw;
-        top: 22vw;
-        height: 100%;
+        top: 16vw;
         background-color: #000000;
         color: #ffffff;
+        padding-bottom: 30vw;
     }
 
     .teachingdiv {
@@ -289,10 +294,9 @@
     }
 
     .teachingdiv2 {
-        // position: absolute;
-        /* bottom: 0; */
-        padding: 0 2vw 0 2vw;
         font-family: Graphik Web;
+        padding-bottom: 5vw;
+        padding-left: 2vw;
     }
 
     .teaching-episode-title {
@@ -309,23 +313,26 @@
         font-family: Graphik Web;
     }
 
-    .teaching-image {
+    .teaching-image-desktop {
+        display: none;
+    }
+
+    .teaching-image-mobile {
         cursor: pointer;
-        // position: absolute;
-        // top: 100vw;
-        left: 5vw;
-        width: 95%;
-        margin-top: 10vw;
-        margin-left: 2vw;
+        position: relative;
+        width: 90%;
+        bottom: 10vw;
+    }
+
+    .mobile-image-container {
+        text-align: center;
+        display: block;
     }
 
     .teaching {
         position: relative;
         left: 0vw;
         width: 100vw;
-        padding-bottom: 5vh;
-        height: 130vw;
-        margin-bottom: 75vw;
     }
 
     .TeachingSelected {
@@ -372,18 +379,19 @@
     }
 
     .teachingButton {
-      padding: 5vw 10vw!important;
       line-height: 5vw!important;
       background-color: #ffffff!important;
       color: #000000!important;
       font-weight: 800!important;
       border-radius:0!important;
       margin-right:5vw;
-      font-size: 3vw;
+      font-size: 4.5vw;
+      width: 40vw;
+      height: 15vw;
     }
 
     .teachingButton-icon {
-        padding-bottom: 1px;
+        padding-bottom: 2px;
         padding-right: 18px
     }
 }

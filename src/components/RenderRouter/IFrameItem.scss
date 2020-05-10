@@ -1,11 +1,12 @@
 @media (min-width: 768px) {
-  .iframeItemDiv1.FormItem {
-    position: static;
-    padding-bottom: 5vw;
-  }
 
   .FormItem {
     text-align: center;
+  }
+
+  .iframeItemDiv1.FormItem {
+    position: static;
+    padding-bottom: 5vw;
   }
 
   .iframeItemDiv2 {

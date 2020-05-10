@@ -8,7 +8,6 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import ReactGA from 'react-ga';
-const PopupForm = React.lazy(() => import('../components/PopupForm/PopupForm'));
 const Popup = React.lazy(() => import('../components/PopupForm/Popup'));
 const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
@@ -161,9 +160,7 @@ class HomePage extends React.Component<Props, State> {
       return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={this.state.data}></VideoOverlay>
     else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
       return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
-    else if (this.state.content && this.state.content.page.pageConfig.isPopupForm === true)
-      return <PopupForm onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></PopupForm>
-    else if (this.state.content && this.state.content.page.pageConfig.isPopupNonForm === true)
+      else if (this.state.content && this.state.content.page.pageConfig.isPopupForm === true)
       return <Popup onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></Popup>
     else
       return (
@@ -173,4 +170,3 @@ class HomePage extends React.Component<Props, State> {
   }
 }
 export default withRouter(HomePage);
-

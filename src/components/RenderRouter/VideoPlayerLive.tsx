@@ -31,7 +31,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       isLive: false,
       liveEventJson: null
     }
-    fetch('./static/data/sunday-live.json').then(function (response) {
+    fetch('/static/data/sunday-live.json').then(function (response) {
       return response.json();
     })
       .then((myJson) => {
@@ -100,12 +100,18 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
   tick() {
     this.state.liveEventJson.forEach((item: any) => {
+     
+      let start = moment.tz(item.startTime, 'HH:mm',"America/Toronto")
+      let end = moment.tz(item.endTime, 'HH:mm',"America/Toronto")
       var rightNow = moment().tz("America/Toronto")
       console.log(rightNow.format())
       console.log(rightNow.weekday())
+      console.log(start.format())
       //console.log(rightNow.day())
-      console.log(rightNow.hour())
-      if (item.dayOfWeek === rightNow.weekday() && item.startHour <= rightNow.hour() && item.endHour >= rightNow.hour()) {
+     
+      let pastStart = rightNow.isAfter(start) 
+      let beforeEnd = rightNow.isBefore(end) 
+      if (item.dayOfWeek === rightNow.weekday() && pastStart === true && beforeEnd === true) {
         console.log("ShowLive")
         this.setState({ isLive: true })
       }

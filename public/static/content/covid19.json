@@ -11,7 +11,7 @@
             "showSearch": false,
             "showFooter": false,
             "showMenu": false,
-            "isPopupNonForm": true,
+            "isPopup": true,
             "navigateOnPopupClose": "/"
         },
         "content": [

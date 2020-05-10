@@ -174,12 +174,12 @@ export default class DataLoader extends React.Component<Props, State> {
             this.getSeries(null)
         }
         else if (this.state.content.class === "staff") {
-            fetch('./static/data/staff.json').then(function (response) {
+            fetch('/static/data/staff.json').then(function (response) {
                 return response.json();
             })
                 .then((myJson) => {
                     if (this.state.content.filterField === "sites") {
-                        fetch('./static/data/coordinators.json').then(function (response) {
+                        fetch('/static/data/coordinators.json').then(function (response) {
                             return response.json();
                         }).then((myJson2) => {
                             this.props.dataLoaded(this.sortStaff(myJson).concat(myJson2))
@@ -193,7 +193,7 @@ export default class DataLoader extends React.Component<Props, State> {
 
         }
         else if (this.state.content.class === "overseers") {
-            fetch('./static/data/overseers.json').then(function (response) {
+            fetch('/static/data/overseers.json').then(function (response) {
                 return response.json();
             })
                 .then((myJson) => {
@@ -213,7 +213,7 @@ export default class DataLoader extends React.Component<Props, State> {
 
         }
         else if (this.state.content.class === "compassion") {
-            fetch('./static/data/compassion.json').then(function (response) {
+            fetch('/static/data/compassion.json').then(function (response) {
                 return response.json();
             })
                 .then((myJson) => {
@@ -222,7 +222,7 @@ export default class DataLoader extends React.Component<Props, State> {
 
         }
         else if (this.state.content.class === "locations") {
-            fetch('./static/data/locations.json').then(function (response) {
+            fetch('/static/data/locations.json').then(function (response) {
                 return response.json();
             })
                 .then((myJson) => {

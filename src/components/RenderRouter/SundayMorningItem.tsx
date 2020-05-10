@@ -60,11 +60,11 @@ export class ContentItem extends React.Component<Props, State>  {
     this.navigate = this.navigate.bind(this);
     var jsonFile;
     if (this.state.content.alternate === "christmas")
-      jsonFile = "./static/data/christmas.json"
+      jsonFile = "/static/data/christmas.json"
     else if (this.state.content.alternate === "easter")
-      jsonFile = "./static/data/easter.json"
+      jsonFile = "/static/data/easter.json"
     else
-      jsonFile = "./static/data/locations.json"
+      jsonFile = "/static/data/locations.json"
     fetch(jsonFile).then(function (response) {
       return response.json();
     })
@@ -300,10 +300,10 @@ export class ContentItem extends React.Component<Props, State>  {
                         </div>
                         <div className="SundayMorningButtonContainer">
                           <div className="AddToCalendarButtonContainer">
-                            <img className="AddToCalendarIcon" src="/static/Calendar.png" alt="Calendar Icon" />
+                            <img className="AddToCalendarIcon" src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />
                             <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}></AddToCalendar>
                           </div>
-                          <a className="emailText" href={"mailto:"+item.pastorEmail}><button className="emailButton"><img className="emailImage"  src="/static/svg/Contact.svg" alt="Contact Icon" /></button>Contact the Pastor</a>
+                          <a className="emailText" href={"mailto:"+item.pastorEmail}><button className="emailButton"><img className="ContactPastorIcon"  src="/static/svg/Contact.svg" alt="Contact Icon" /></button>Contact the Pastor</a>
                         </div>
                       </div>
 

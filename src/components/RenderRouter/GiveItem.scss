@@ -157,7 +157,16 @@ ul.GiveItemNumber {
     position: relative;
     top: 2vw;
     left: 20vw;
-    margin-bottom: 2vw;
+    margin-bottom: 40vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 70vh;
   }
 }
 
@@ -298,7 +307,7 @@ ul.GiveItemNumber {
     position: relative;
     top: 2vw;
     left: 20vw;
-    margin-bottom: 2vw;
+    margin-bottom: 50vh;
   }
 }
 
@@ -348,6 +357,7 @@ ul.GiveItemNumber {
     background-color: #000000 !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
+    font-size: 5vw;
   }
 
   .GiveItemH2 {
@@ -397,24 +407,30 @@ ul.GiveItemNumber {
     padding: 0.7vw;
   }
 
-  .GiveItemOtherWays,
-  .GiveItemNeedHelp {
+  .GiveItemOtherWays {
     font-weight: bold;
     font-family: Graphik Web;
     color: #ffffff;
     font-size: 4.3vw;
     margin-top: 12vw;
     margin-bottom: 3vw;
+  }
 
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 4.3vw;
+    margin-top: 2vw;
+    margin-bottom: 3vw;
   }
 
   .GiveItemOtherWay {
     font-family: Graphik Web;
     color: #ffffff;
    // float: left;
-    font-size: 4.3vw;
+    font-size: 3.7vw;
     margin-right: 1vw;
-    margin-bottom: 5vw;
     width: 100%;
   }
 
@@ -438,27 +454,29 @@ ul.GiveItemNumber {
 
   .giveItemDiv1 {
     position: relative;
-    top: 35vw;
+    top: 20vw;
     left: 0vw;
-    margin-bottom: 2vw;
+    margin-bottom: 25vh;
     width: 100%;
     padding-left: 5vw;
     padding-right: 5vw;
   }
 
   .GiveItemOtherWayButton {
-    width: 100%;
+    float: left;
+    width: 50%;
     color: #000000;
     background-color:#ffffff;
-
+    width: 45%;
+    margin-right: 2vw;
+    margin-bottom: 5vw;
+    padding: 0; 
+    height: 11.25vw;
   }
   a.GiveItemOtherWayButton {
     width: 100%;
     color: #ffffff;
     background-color:#000000;
 
-  }
-  .GiveItemBottom {
-    height: 45vw;
   }
 }
