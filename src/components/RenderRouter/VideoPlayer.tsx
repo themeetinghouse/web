@@ -42,24 +42,24 @@ export default class VideoPlayer extends React.Component<Props, State> {
             
             <FacebookShareButton 
               className="ShareOption" 
-              url={"https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id}
-              quote={this.state.data.Youtube.snippet.title ? this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}>
+              url={(this.state.data.seriesTitle && this.state.data.id) ? "https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id : window.location.href}
+              quote={this.state.data.Youtube ? this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}>
               <Dropdown.Item as="button" className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item>
             </FacebookShareButton>
-            
+
             <TwitterShareButton 
               className="ShareOption" 
-              url={"https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id}
-              title={this.state.data.Youtube.snippet.title ? this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}
+              url={(this.state.data.seriesTitle && this.state.data.id) ? "https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id : window.location.href}
+              title={this.state.data.Youtube ? this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}
               via={"TheMeetingHouse"}
               related={["TheMeetingHouse"]}>
               <Dropdown.Item as="button" className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item>
             </TwitterShareButton>
-            
+
             <EmailShareButton 
               className="ShareOption" 
-              url={"https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id}
-              subject={this.state.data.Youtube.snippet.title ? "Check out " + this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}
+              url={(this.state.data.seriesTitle && this.state.data.id) ? "https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id : window.location.href}
+              subject={this.state.data.Youtube ? "Check out " + this.state.data.Youtube.snippet.title + " from The Meeting House" : "Check out this video from The Meeting House"}
               body={"I wanted to share this video with you:"}>
               <Dropdown.Item as="button" className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item>
             </EmailShareButton>
