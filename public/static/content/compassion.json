@@ -54,6 +54,11 @@
                 "list": [
                     {
                         "type":"link",
+                        "title": "Final Report 2020-21",
+                        "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
+                    },
+                    {
+                        "type":"link",
                         "title": "Final Report 2019-20",
                         "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
                     },
@@ -61,11 +66,6 @@
                         "type":"link",
                         "title": "Final Report 2018-19",
                         "navigateTo": "https://meeting.formstack.com/forms/lcf_final_report_2018_19"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Final Report 2017-18",
-                        "navigateTo": "https://meeting.formstack.com/forms/local_agency_reporting_copy"
                     }
                 ],
               
@@ -80,17 +80,17 @@
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Local Compassion Fund Application",
-                "text1": "This fund is currently closed. The next submission window will open fall 2020.",
+                "text1": "This fund is now open for Grant Cycle One of 2020.",
                 "list": [
                     {
                         "type":"link",
                         "title": "Grant Application Guidelines",
-                        "navigateTo": "https://drive.google.com/file/d/10hpI7_4VWc-c6ZmZnoBzui_VV8fGUJsw/view"
+                        "navigateTo": "https://drive.google.com/file/d/1uOJH0wHRzSBHNbh4vVz7_2m8e37oRkwf/view"
                     },
                     {
                         "type":"link",
                         "title": "Assessment Criteria",
-                        "navigateTo": "https://drive.google.com/file/d/1W_0gqgZJtRVBzFZrq_HTkFPQPUJGScQ-/view"
+                        "navigateTo": "https://drive.google.com/file/d/1-djNFZpdI1k3pRM6W2_On9eCD8fORbLr/view"
                     },
                     {
                         "type":"link",
