@@ -125,12 +125,13 @@
     .modal-content {
         border: none;
         border-radius: 0;
+        background-color: #ffffff00 !important;
     }
 
     .modal-video {
         width: 100%;
         max-width: none !important;
-        background-color: #000000 !important;
+        background-color: #000000;
         margin: 0 !important;
     }
 
