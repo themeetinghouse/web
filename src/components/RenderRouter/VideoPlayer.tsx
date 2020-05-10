@@ -79,7 +79,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
           {(this.state.data.seriesTitle != null) ?
             <div className="VideoPlayerSeries">
               <div className="VideoPlayerInfoText">Series</div>
-              <div className="VideoPlayerSeriesTitle" >E{this.state.data.episodeNumber}. {this.state.data.seriesTitle}</div>
+              <div className="VideoPlayerSeriesTitle" >{this.state.data.episodeNumber === null ? null : "E" + this.state.data.episodeNumber + "."} {this.state.data.seriesTitle}</div>
             </div> : null}
           {(this.state.data.publishedDate != null) ?
             <div className="VideoPlayerPublished">
