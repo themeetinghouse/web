@@ -130,7 +130,7 @@
     .modal-video {
         width: 100%;
         max-width: none !important;
-        color: #000000;
+        color: #000000 !important;
         margin: 0 !important;
     }
 
@@ -143,13 +143,13 @@
     .modal-body {
         padding: 0 !important;
         margin: 0 !important;
-        background-color: #000000 !important
+        background-color: #000000;
     }
 
     .modal-body .white {
         padding: 0 !important;
         margin: 0 !important;
-        background-color: #ffffff !important
+        background-color: #ffffff;
     }
     .VideoOverlayClose {
         cursor: pointer;
