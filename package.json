@@ -6,7 +6,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "VERSION=`sentry-cli releases propose-version`;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;HTTPS=true PORT=3006 react-scripts start",
-    "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;react-scripts build",
+    "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;react-scripts build;sentry-cli releases finalize $VERSION;sentry-cli releases deploys $VERSION new -e prod;",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify",
