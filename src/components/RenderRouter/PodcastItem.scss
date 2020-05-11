@@ -82,6 +82,26 @@
     }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .PodcastHeader {
+        font-size: 3vw;
+    }
+
+    .AppleBadge {
+        height: 40px !important;
+    }
+
+    .OtherBadge {
+        height: 40px !important;
+    }
+
+    #podcast-toggle {
+        height: 40px;
+        width: 164px;
+        font-size: 12px;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .PodcastItem {
         position: relative;
@@ -225,7 +245,8 @@
         border-color: rgba(255,255,255,0.5);
         font-family: Graphik Web;
         font-weight: bold;
-        height: 32px;
+        height: 40px;
+        width: 164px;
         font-size: 12px;
     }
 
@@ -237,6 +258,14 @@
         float: left;
         margin-right: 2vw;
         margin-bottom: 1vw;
+    }
+
+    .AppleBadge {
+        height: 40px !important;
+    }
+
+    .OtherBadge {
+        height: 40px !important;
     }
 
     .PodcastMenu {
