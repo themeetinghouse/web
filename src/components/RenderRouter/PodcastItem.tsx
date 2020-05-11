@@ -32,15 +32,15 @@ export default class PodcastItem extends React.Component<Props, State> {
           <div className="PodcastText">{item.description}</div>
 
           <div className="PodcastLinksContainer">
-            <a className="ApplePodcast" href={item.apple} rel="noopener noreferrer" target="_blank"><img className="AppleBadge" src="/static/US_UK_Apple_Podcasts_Listen_Badge_RGB.svg" alt="Apple Podcasts" style={{height: 32}}></img></a>
+            {item.apple ? <a className="ApplePodcast" href={item.apple} rel="noopener noreferrer" target="_blank"><img className="AppleBadge" src="/static/US_UK_Apple_Podcasts_Listen_Badge_RGB.svg" alt="Apple Podcasts" style={{height: 32}}></img></a> : null}
          
             <Dropdown className="PodcastDropdown">
               <Dropdown.Toggle id="podcast-toggle"><img className="SubIcon" src="/static/svg/Subscribe-white.svg" alt=""/>More ways to listen</Dropdown.Toggle>
                 <Fade timeout={1000}>
                   <Dropdown.Menu className="PodcastMenu">
-                    <a href={item.spotify} rel="noopener noreferrer" target="_blank"><img className="OtherBadge" src="/static/spotify-podcast-badge-wht-grn-165x40.svg" alt="Spotify" style={{height: 32, marginBottom: 10}}></img></a>
-                    <a href={item.google} rel="noopener noreferrer" target="_blank"><img className="OtherBadge" src="/static/EN_Google_Podcasts_Badge.svg" alt="Google Podcasts" style={{height: 32, marginBottom: 10}}></img></a>
-                    <a href={item.podbean} rel="noopener noreferrer" target="_blank"><img className="OtherBadge" src="//d8g345wuhgd7e.cloudfront.net/site/images/badges/w600.png" alt="Podbean" style={{height: 32}}></img></a>
+                    {item.spotify ? <a href={item.spotify} rel="noopener noreferrer" target="_blank"><img className="OtherBadge" src="/static/spotify-podcast-badge-wht-grn-165x40.svg" alt="Spotify" style={{height: 36, marginBottom: 10}}></img></a> : null}
+                    {item.google ? <a href={item.google} rel="noopener noreferrer" target="_blank"><img className="OtherBadge" src="/static/EN_Google_Podcasts_Badge.svg" alt="Google Podcasts" style={{height: 36, marginBottom: 10}}></img></a> : null}
+                    {item.podbean ? <a href={item.podbean} rel="noopener noreferrer" target="_blank"><img className="OtherBadge" src="//d8g345wuhgd7e.cloudfront.net/site/images/badges/w600.png" alt="Podbean" style={{height: 36}}></img></a> : null}
                   </Dropdown.Menu>
                 </Fade>
             </Dropdown>
