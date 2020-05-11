@@ -29,29 +29,27 @@
                 "podcastlist": [
                     {
                         "title": "The After Party",
-                        "description": "Dig deeper into theology, culture, and hot topics with experts in the field.",
+                        "description": "Because the fun doesn't stop after Sunday morning. Dig deeper into theology, culture, and hot topics with other pastors, speakers, and experts in the field.",
                         "icon": {
                             "src": "https://media.themeetinghouse.com/roundtable/podcast_icons_2019_afterparty.jpg",
                             "alt": "The After Party Artwork"
                         },
-                        "itunes": "",
-                        "googlepodcasts": "",
-                        "spotify": "",
-                        "stitcher": "",
-                        "overcast": ""
+                        "apple": "https://podcasts.apple.com/podcast/id215990014",
+                        "google": "https://podcasts.google.com/?feed=aHR0cHM6Ly9tZWRpYS50aGVtZWV0aW5naG91c2UuY29tL3JvdW5kdGFibGUvZmVlZC5yc3M",
+                        "spotify": "https://open.spotify.com/show/3IBlaAlvUKlEoseUPYfusq",
+                        "podbean": "https://www.podbean.com/podcast-detail/6sp3n-3469e/The-Meeting-House-After-Party-Podcast"
                     },
                     {
                         "title": "The Meeting House Podcast",
-                        "description": "Taking Sunday messages and concepts into extended conversations.",
+                        "description": "Join us each week for The Meeting House Podcast where we explore what it means to be a Christ-follower.",
                         "icon": {
                             "src": "https://media.themeetinghouse.com/podcast/podcast_icons_2019_audio.jpg",
                             "alt": "The Meeting House Podcast Artwork"
                         },
-                        "itunes": "",
-                        "googlepodcasts": "",
-                        "spotify": "",
-                        "stitcher": "",
-                        "overcast": ""
+                        "apple": "https://podcasts.apple.com/podcast/id102719807",
+                        "google": "https://podcasts.google.com/?feed=aHR0cDovL21lZGlhLnRoZW1lZXRpbmdob3VzZS5jb20vcG9kY2FzdC9UTUgucnNz",
+                        "spotify": "https://open.spotify.com/show/4xebOPfALSB7mvO4ontlMr",
+                        "podbean": "https://www.podbean.com/podcast-detail/84py6-3469a/The-Meeting-House-Podcast"
                     }
                 ]
             }

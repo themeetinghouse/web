@@ -1,5 +1,4 @@
 @media (min-width: 768px) {
-    
     .PodcastItem {
         position: relative;
         z-index: 99;
@@ -9,14 +8,15 @@
     }
     
     .PodcastItemDiv1 {
-        width: 40vw;
-        color: white;
+        width: 37.5vw;
+        color: #ffffff;
+        margin-right: 3.5vw;
         float: left;
     }
 
     .PodcastHeader {
         position: relative;
-        color: white;
+        color: #ffffff;
         font-weight: bold;
         font-size: 2vw;
         margin-bottom: 1vw;
@@ -24,17 +24,22 @@
 
     .PodcastText {
         color: #C8C8C8;
-        width: 30vw;
         margin-top: 0.5vw;
     }
 
     .PodcastTitle {
+        color: #ffffff;
         font-weight: bold;
     }
 
     .PodcastContentContainer {
-        float: right;
-        margin-right: 3.5vw;
+        width: 26vw;
+        display: inline-block;
+        margin-left: 2vw;
+    }
+
+    .PodcastIcon {
+        float: left;
     }
 
     .PodcastLinksContainer {
@@ -46,16 +51,201 @@
         margin-right: 32px;
     }
 
-    .PodcastIcon {
-        margin-bottom: 2px;
-        margin-right: 8px;
+    #podcast-toggle {
+        color: #ffffff;
+        background-color: #000000;
+        border-color: rgba(255,255,255,0.5);
+        font-family: Graphik Web;
+        font-weight: bold;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .PodcastDropdown {
+        float: left;
+    }
+
+    .ApplePodcast {
+        float: left;
+        margin-right: 2vw;
+        margin-bottom: 1vw;
+    }
+
+    .PodcastMenu {
+        text-align: center;
+    }
+
+    .SubIcon {
+        padding-bottom: 4px;
+        padding-right: 10px;
+        width: 24px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .PodcastItem {
+        position: relative;
+        z-index: 99;
+        margin-top: 3vw;
+        left: 10vw;
+        font-family: Graphik Web;
+    }
     
+    .PodcastItemDiv1 {
+        width: 37.5vw;
+        color: #ffffff;
+        margin-right: 3.5vw;
+        float: left;
+    }
+
+    .PodcastHeader {
+        position: relative;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 2vw;
+        margin-bottom: 1vw;
+    }
+
+    .PodcastText {
+        color: #C8C8C8;
+        margin-top: 0.5vw;
+    }
+
+    .PodcastTitle {
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .PodcastContentContainer {
+        width: 25vw;
+        display: inline-block;
+        margin-left: 2vw;
+    }
+
+    .PodcastIcon {
+        float: left;
+    }
+
+    .PodcastLinksContainer {
+        margin-top: 1vw;
+    }
+
+    .PodcastLink {
+        font-weight: bold;
+        margin-right: 32px;
+    }
+
+    #podcast-toggle {
+        color: #ffffff;
+        background-color: #000000;
+        border-color: rgba(255,255,255,0.5);
+        font-family: Graphik Web;
+        font-weight: bold;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .PodcastDropdown {
+        float: left;
+    }
+
+    .ApplePodcast {
+        float: left;
+        margin-right: 2vw;
+        margin-bottom: 1vw;
+    }
+
+    .PodcastMenu {
+        text-align: center;
+    }
+
+    .SubIcon {
+        padding-bottom: 4px;
+        padding-right: 10px;
+        width: 24px;
+    }
 }
 
 @media (max-width: 767px) {
-  
+    .PodcastItem {
+        position: relative;
+        z-index: 99;
+        margin-top: 3vw;
+        padding: 10vw 5vw 0vw;
+        font-family: Graphik Web;
+    }
+    
+    .PodcastItemDiv1 {
+        color: #ffffff;
+        margin-right: 3.5vw;
+    }
+
+    .PodcastHeader {
+        position: relative;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 7vw;
+        margin-bottom: 5vw;
+    }
+
+    .PodcastText {
+        color: #C8C8C8;
+        margin-top: 0.5vw;
+    }
+
+    .PodcastTitle {
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .PodcastContentContainer {
+        display: inline-block;
+        width: 62vw;
+        margin-left: 6vw;
+        margin-bottom: 4vw;
+    }
+
+    .PodcastIcon {
+        float: left;
+    }
+
+    .PodcastLinksContainer {
+        margin-top: 1vw;
+        margin-bottom: 5vw;
+    }
+
+    .PodcastLink {
+        font-weight: bold;
+        margin-right: 32px;
+    }
+
+    #podcast-toggle {
+        color: #ffffff;
+        background-color: #000000;
+        border-color: rgba(255,255,255,0.5);
+        font-family: Graphik Web;
+        font-weight: bold;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .PodcastDropdown {
+        float: left;
+    }
+
+    .ApplePodcast {
+        float: left;
+        margin-right: 2vw;
+        margin-bottom: 1vw;
+    }
+
+    .PodcastMenu {
+        text-align: center;
+    }
+
+    .SubIcon {
+        padding-bottom: 4px;
+        padding-right: 10px;
+        width: 24px;
+    }
 }
