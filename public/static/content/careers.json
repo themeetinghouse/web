@@ -51,7 +51,17 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Full-time Careers",
-                "text1": "We're not currently hiring, but stay tuned for updates!",
+                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
+
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Youth Intern",
+                        "navigateTo": "/static/pdfs/careers/Youth Intern 2020.pdf",
+                        "openNewBrowser":true
+                    }
+                ]
+ 
     
 
                 "image1": [

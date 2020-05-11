@@ -95,7 +95,7 @@
                     {
                         "type":"link",
                         "title": "Application Writing Tutorial Video",
-                        "navigateTo": "/https://www.youtube.com/watch?v=4Unp14uUGKk&feature=youtu.be"
+                        "navigateTo": "https://www.youtube.com/watch?v=4Unp14uUGKk&feature=youtu.be"
                     }
                 ],
               
