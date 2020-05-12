@@ -58,15 +58,11 @@ export default class PodcastItem extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.data.videoTypes === "adult-sunday") {
-      return (
-        <div className="PodcastItem">
-          <div className="PodcastHeader">Suggested Podcasts</div> 
-          {this.renderPodcasts(this.state.content.podcastlist)}
-        </div>
-      )
-    } else {
-      return null
-    }
+    return (
+      <div className="PodcastItem">
+        <div className="PodcastHeader">Suggested Podcasts</div> 
+        {this.renderPodcasts(this.state.content.podcastlist)}
+      </div>
+    )
   }
 }
