@@ -7,6 +7,20 @@
     "Position": "Alliston Lead Pastor"
   },
   {
+    "FirstName": "Brent",
+    "LastName": "Babcock",
+    "sites": ["SAND"],
+    "Email": "brent.babcock@themeetinghouse.com",
+    "Position": "Sandbanks Lead Pastor"
+  },
+  {
+    "FirstName": "Don",
+    "LastName": "Walcott",
+    "sites": ["SAND"],
+    "Email": "don.walcott@themeetinghouse.com",
+    "Position": "Sandbanks Associate Pastor"
+  },
+  {
     "FirstName": "Amy",
     "LastName": "Thompson",
     "sites": ["ALLI"],
@@ -43,13 +57,6 @@
     "LastName": "Shaw",
     "sites": ["PRSN"],
     "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Brent",
-    "LastName": "Babcock",
-    "sites": ["SAND"],
-    "Email": "brent.babcock@themeetinghouse.com",
-    "Position": "Sandbanks Lead Pastor"
   },
   {
     "FirstName": "Cristal",
@@ -460,13 +467,6 @@
     "LastName": "Piche",
     "sites": ["WAT"],
     "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Don",
-    "LastName": "Walcott",
-    "sites": ["SAND"],
-    "Email": "don.walcott@themeetinghouse.com",
-    "Position": "Sandbanks Associate Pastor"
   },
   {
     "FirstName": "Scott",
