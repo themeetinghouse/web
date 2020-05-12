@@ -129,6 +129,19 @@ class ListItem extends React.Component<Props, State> {
       </div>)
   }
 
+  renderWatchPageVideo(item: any) {
+    return (
+      <div onClick={() => { this.handleClick(item) }} key={item.id} className={"WatchPageVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+        <div>
+          <img alt="TBD" className="WatchPageThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+          <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
+          <div className="WatchPageEpisodeTitle">{item.episodeTitle}</div>
+          <div className="WatchPagePublishedDate">{item.publishedDate}</div>
+        </div>
+
+      </div>)
+  }
+
   renderCurious(item: any) {
     return (
       <div className="CuriousWrapper">
@@ -338,6 +351,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderSeries(item)
     else if (this.state.content.class === "curious")
       return this.renderCurious(item)
+    else if (this.state.content.class === "watch-page")
+      return this.renderWatchPageVideo(item)
     else return null
   }
 
@@ -368,52 +383,56 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
 
-    else if (this.state.content.style === "horizontal-video-player") return (
-      <div className="ListItem horizontal-video-player" >
-        <div className="ListItemDiv1 horizontal-video-player" >
-          <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
-          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-          <div className="ListItemDiv2" >
-            <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
-              {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index)
-
-              }
-              )}
-            </HorizontalScrollList>
-            <div className="ListItemDiv5" ></div>
+    else if (this.state.content.style === "horizontal-video-player") {
+      //videos are not stored in order within a series, so we sort here
+      data.sort(function(a: any, b: any) { return a.episodeNumber - b.episodeNumber})
+      return (
+        <div className="ListItem horizontal-video-player" >
+          <div className="ListItemDiv1 horizontal-video-player" >
+            <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
+            {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+              <div className="WatchPageContainer">
+                {data.map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index)
+                }
+                )}
+              </div>
+          <div className="HorizontalLine"></div>
           </div>
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-      </div>
-    )
+      )
+    }
 
-    else if (this.state.content.style === "curious-ui") return (
-      <div className="ListItem horizontal" >
-        <div className="ListItemDiv1" >
-          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
-          {this.state.content.text1 != null ? (<div className="CuriousText1" >{this.state.content.text1}</div>) : null}
-          <div className="hide-mobile">
-            <div className="CuriousContainer">
-              {data.slice(0, 6).map((item: any, index: any) => {
+    else if (this.state.content.style === "curious-ui") {
+      data.sort(function(a: any, b: any) { return a.episodeNumber - b.episodeNumber})
+      return (
+        <div className="ListItem horizontal" >
+          <div className="ListItemDiv1" >
+            <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
+            {this.state.content.text1 != null ? (<div className="CuriousText1" >{this.state.content.text1}</div>) : null}
+            <div className="hide-mobile">
+              <div className="CuriousContainer">
+                {data.slice(0, 6).map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index)
+                }
+                )}
+              </div>
+            </div>
+
+            <div className="hide-desktop">
+              {data.slice(0, 3).map((item: any, index: any) => {
                 return this.renderItemRouter(item, index)
               }
               )}
+              {!this.state.showMoreVideos ? <button className="MoreVideos" onClick={this.videoHandler}>Load 3 More Questions</button> : null}
+              {this.state.showMoreVideos ? <div>{data.slice(3, 6).map((item: any, index: any) => { return this.renderItemRouter(item, index) })}</div> : null}
             </div>
           </div>
-
-          <div className="hide-desktop">
-            {data.slice(0, 3).map((item: any, index: any) => {
-              return this.renderItemRouter(item, index)
-            }
-            )}
-            {!this.state.showMoreVideos ? <button className="MoreVideos" onClick={this.videoHandler}>Load 3 More Questions</button> : null}
-            {this.state.showMoreVideos ? <div>{data.slice(3, 6).map((item: any, index: any) => { return this.renderItemRouter(item, index) })}</div> : null}
-          </div>
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-      </div>
-    )
+      )
+    }
 
     else if (this.state.content.style === "vertical") {
       if (data.length > 0) {
