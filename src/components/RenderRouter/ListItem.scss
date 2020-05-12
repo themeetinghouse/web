@@ -345,6 +345,72 @@
         grid-template-rows: 15.17vw;
         column-gap: 1.67vw;
     }
+
+    .WatchPageContainer {
+        display: grid;
+        grid-template-columns: repeat(4,18.33vw);
+        grid-template-rows: auto;
+        column-gap: 1.67vw;
+        row-gap: 1.67vw;
+    }
+
+    .WatchPageThumb {
+        width: 18.33vw;
+        object-fit: cover;
+        height: 10.27vw;
+    }
+
+    .WatchPageVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        :hover {
+            .WatchPagePlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .WatchPageVideo.whiteText {
+        color: #ffffff
+    }
+
+    .WatchPagePlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10vw;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .WatchPageEpisodeTitle {
+        width: 18.5vw;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .WatchPagePublishedDate {
+        width: 20vw;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .HorizontalLine {
+        margin-top: 3.75vw;
+        height: 8px;
+        background: #ffffff;
+        opacity: 0.12;
+    }
+
     .hide-desktop {
         display: none;
     }
@@ -719,6 +785,73 @@
         width: 32px;
         padding: 0;
     }
+
+    
+    .WatchPageContainer {
+        display: grid;
+        grid-template-columns: repeat(4,18.33vw);
+        grid-template-rows: auto;
+        column-gap: 1.67vw;
+        row-gap: 3.33vw;
+    }
+
+    .WatchPageThumb {
+        width: 18.33vw;
+        object-fit: cover;
+        height: 10.27vw;
+    }
+
+    .WatchPageVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        :hover {
+            .WatchPagePlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .WatchPageVideo.whiteText {
+        color: #ffffff
+    }
+
+    .WatchPagePlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10vw;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .WatchPageEpisodeTitle {
+        width: 18.5vw;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .WatchPagePublishedDate {
+        width: 20vw;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .HorizontalLine {
+        margin-top: 3.75vw;
+        height: 8px;
+        background: #ffffff;
+        opacity: 0.12;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -794,6 +927,74 @@
             opacity: 1;
         }
     }
+
+    
+    .WatchPageContainer {
+        display: grid;
+        grid-template-columns: repeat(2,38vw);
+        grid-template-rows: auto;
+        column-gap: 3.125vw;
+        row-gap: 2vw;
+    }
+
+    .WatchPageThumb {
+        width: 38vw;
+        object-fit: cover;
+        height: 22.98vw;
+    }
+
+    .WatchPageVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        :hover {
+            .WatchPagePlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .WatchPageVideo.whiteText {
+        color: #ffffff
+    }
+
+    .WatchPagePlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 24vw;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .WatchPageEpisodeTitle {
+        width: 38vw;
+        font-weight: bold;
+        font-size: 2vw;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .WatchPagePublishedDate {
+        width: 30vw;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .HorizontalLine {
+        margin-top: 3.75vw;
+        height: 8px;
+        background: #ffffff;
+        opacity: 0.12;
+    }
+
 }
 
 @media (max-width: 767px) {
@@ -1193,4 +1394,71 @@
         float: right;
         width: 32px;
     }
+
+    
+    .WatchPageContainer {
+        display: inline-block;
+    }
+
+    .WatchPageThumb {
+        width: 88.53vw;
+        object-fit: cover;
+        height: 53.33vw;
+    }
+
+    .WatchPageVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        margin-bottom: 10vw;
+        :hover {
+            .WatchPagePlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .WatchPageVideo.whiteText {
+        color: #ffffff
+    }
+
+    .WatchPagePlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50vw;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .WatchPageEpisodeTitle {
+        width: 88.53vw;
+        font-weight: bold;
+        font-size: 6.4vw;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .WatchPagePublishedDate {
+        width: 80vw;
+        white-space: normal;
+        font-size: 4.8vw;
+        font-family: Graphik Web;
+    }
+
+    .HorizontalLine {
+        margin-top: 3.75vw;
+        height: 8px;
+        width: 88.53vw;
+        background: #ffffff;
+        opacity: 0.12;
+    }
+
 }
