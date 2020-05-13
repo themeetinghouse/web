@@ -57,8 +57,8 @@
         border-color: rgba(255,255,255,0.5);
         font-family: Graphik Web;
         font-weight: bold;
-        height: 32px;
-        font-size: 12px;
+        height: 40px;
+        border-radius: 6px;
     }
 
     .PodcastDropdown {
@@ -67,7 +67,7 @@
 
     .ApplePodcast {
         float: left;
-        margin-right: 2vw;
+        margin-right: 1vw;
         margin-bottom: 1vw;
     }
 
@@ -78,27 +78,13 @@
     .SubIcon {
         padding-bottom: 4px;
         padding-right: 10px;
-        width: 24px;
+        width: 26px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .PodcastHeader {
         font-size: 3vw;
-    }
-
-    .AppleBadge {
-        height: 40px !important;
-    }
-
-    .OtherBadge {
-        height: 40px !important;
-    }
-
-    #podcast-toggle {
-        height: 40px;
-        width: 164px;
-        font-size: 12px;
     }
 }
 
@@ -161,8 +147,8 @@
         border-color: rgba(255,255,255,0.5);
         font-family: Graphik Web;
         font-weight: bold;
-        height: 32px;
-        font-size: 12px;
+        height: 36px;
+        border-radius: 6px;
     }
 
     .PodcastDropdown {
@@ -171,7 +157,7 @@
 
     .ApplePodcast {
         float: left;
-        margin-right: 2vw;
+        margin-right: 1vw;
         margin-bottom: 1vw;
     }
 
@@ -182,7 +168,7 @@
     .SubIcon {
         padding-bottom: 4px;
         padding-right: 10px;
-        width: 24px;
+        width: 26px;
     }
 }
 
@@ -247,8 +233,7 @@
         font-family: Graphik Web;
         font-weight: bold;
         height: 40px;
-        width: 164px;
-        font-size: 12px;
+        border-radius: 6px;
     }
 
     .PodcastDropdown {
@@ -261,14 +246,6 @@
         margin-bottom: 1vw;
     }
 
-    .AppleBadge {
-        height: 40px !important;
-    }
-
-    .OtherBadge {
-        height: 40px !important;
-    }
-
     .PodcastMenu {
         text-align: center;
     }
@@ -276,6 +253,6 @@
     .SubIcon {
         padding-bottom: 4px;
         padding-right: 10px;
-        width: 24px;
+        width: 28px;
     }
 }
