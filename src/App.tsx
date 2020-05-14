@@ -14,6 +14,7 @@ interface State {
 const HomePage = lazy(() => import('./pages/HomePage'));
 const Admin = lazy(() => import('./pages/admin/index'));
 const ImportVideo = lazy(() => import('./pages/admin/import-video'));
+const CreateBlog = lazy(() => import('./pages/admin/create-blog'));
 
 
 class App extends React.Component<Props, State>  {
@@ -23,9 +24,11 @@ class App extends React.Component<Props, State>  {
         <Switch key={this.props.location.pathname}>
           <Route exact path="/" render={props => <HomePage isVideo="false" {...props} />} />
           <Route path="/admin/import-video" render={() => <ImportVideo />} />
+          <Route path="/admin/create-blog" render={() => <CreateBlog />} />
           <Route path="/admin" render={() => <Admin />} />
           <Route path="/videos/:series/:episode" render={props => <HomePage isVideo="true" {...props} />} />
           <Route path="/videos/:series" render={props => <HomePage isVideo="true" {...props} />} />
+          {/* <Route path="/posts/:blog" render={props => <HomePage isBlog="true" {...props} />} /> */}
           <Route path="/:id" render={props => <HomePage isVideo="false" {...props} />} />
         </Switch>
       </Suspense>
