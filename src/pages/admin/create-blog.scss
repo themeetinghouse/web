@@ -4,13 +4,13 @@
     margin-right: 10px;
     border-width: 4px;
     border-radius: 8px;
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .DraftEditor-editorContainer {
     margin-top: 20px;
-    width: 40vw;
+    width: 80vw;
     border: black solid !important;
     padding-bottom: 20px;
     padding-left: 5px;
@@ -19,14 +19,24 @@
 
 .editor-container {
     margin-left: 5vw;
-    width: 40vw;
+    width: 80vw;
 }
 
-.preview {
-    position: absolute;
-    right: 5vw;
-    top: 8vw;
-    width: 40vw;
+.small-input {
+  width: 30vw;
+}
+
+.big-input {
+  width: 60vw;
+}
+
+.details-form {
+  height: 4vw;
+}
+
+.desc-button {
+  position: relative;
+  top: 40px;
 }
 
 //below is copied from the source files. some edits made

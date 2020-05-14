@@ -26,10 +26,10 @@ class App extends React.Component<Props, State>  {
           <Route path="/admin/import-video" render={() => <ImportVideo />} />
           <Route path="/admin/create-blog" render={() => <CreateBlog />} />
           <Route path="/admin" render={() => <Admin />} />
-          <Route path="/videos/:series/:episode" render={props => <HomePage isVideo="true" {...props} />} />
-          <Route path="/videos/:series" render={props => <HomePage isVideo="true" {...props} />} />
-          {/* <Route path="/posts/:blog" render={props => <HomePage isBlog="true" {...props} />} /> */}
-          <Route path="/:id" render={props => <HomePage isVideo="false" {...props} />} />
+          <Route path="/videos/:series/:episode" render={props => <HomePage isVideo="true" isBlog="false" {...props} />} />
+          <Route path="/videos/:series" render={props => <HomePage isVideo="true" isBlog="false" {...props} />} />
+          <Route path="/posts/:blog" render={props => <HomePage isVideo="false" isBlog="true" {...props} />} />
+          <Route path="/:id" render={props => <HomePage isVideo="false" isBlog="false" {...props} />} />
         </Switch>
       </Suspense>
     )

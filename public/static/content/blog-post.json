@@ -7,15 +7,15 @@
 
         "pageConfig": {
             "movingMenu": false,
-            "showLogoText": false,
-            "logoColor":"white",
-            "showSearch":false,
-            "showFooter":false,
-            "showMenu":false
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
         },
         "content": [
             {
-                "type": ""
+                "type": "blogPost"
             }
         ]
     }
