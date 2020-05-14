@@ -4,6 +4,7 @@ import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { Helmet } from 'react-helmet'
+import ErrorBoundary from 'components/ErrorBoundry';
 
 const HeaderItem = React.lazy(() => import('./HeaderItem'));
 const InstagramItem = React.lazy(() => import('./InstagramItem'));
@@ -40,55 +41,44 @@ interface State {
 
 class RenderRouter extends React.Component<Props, State> {
 
+  renderItemNow(item:any, index:any) {
+    switch (item.type) {
+      case "header": return (<HeaderItem key={index} content={item}></HeaderItem>)
+      case "content":return (<ContentItem key={index} content={item}></ContentItem>)
+      case "videoPlayer":return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
+      case "liveVideoPlayer":return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
+      case "list":return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
+      case "svg":return (<SVGItem key={index} content={item}></SVGItem>);
+      case "hero":return (<HeroItem data={this.props.data} key={index} content={item}></HeroItem>);
+      case "goContent":return (<GoContentItem key={index} content={item}></GoContentItem>);
+      case "teaching":return (<TeachingItem key={index} content={item}></TeachingItem>);
+      case "sunday-morning":return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
+      case "distance-groups":return (<DistanceGroupItem key={index} content={item}></DistanceGroupItem>);
+      case "home-church":return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
+      case "form":return (<FormItem key={index} content={item}></FormItem>);
+      case "instagram":return (<InstagramItem key={index} content={item}></InstagramItem>);
+      case "iframe":return (<IFrameItem key={index} content={item}></IFrameItem>);
+      case "search":return (<SearchItem key={index} content={item}></SearchItem>);
+      case "give":return (<GiveItem key={index} content={item}></GiveItem>);
+      case "give2":return (<Give2Item key={index} content={item}></Give2Item>);
+      case "faq":return (<FAQItem key={index} content={item}></FAQItem>);
+      case "simple":return (<SimpleItem key={index} content={item}></SimpleItem>);
+      case "podcasts":return (<PodcastItem data={this.props.data} key={index} content={item}></PodcastItem>)
+      case "weather":return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
+      default: return null
+    }      
+
+ 
+ 
+  }
   renderItem() {
     if (this.props.content != null)
       return this.props.content.page.content.map((item: any, index: any) => {
         console.log(item.type)
-        if (item.type === "header")
-          return (<HeaderItem key={index} content={item}></HeaderItem>)
-        else if (item.type === "content")
-          return (<ContentItem key={index} content={item}></ContentItem>);
-        else if (item.type === "videoPlayer")
-          return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
-        else if (item.type === "liveVideoPlayer")
-          return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
-        else if (item.type === "list")
-          return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
-        else if (item.type === "svg")
-          return (<SVGItem key={index} content={item}></SVGItem>);
-        else if (item.type === "hero")
-          return (<HeroItem data={this.props.data} key={index} content={item}></HeroItem>);
-        else if (item.type === "goContent")
-          return (<GoContentItem key={index} content={item}></GoContentItem>);
-        else if (item.type === "teaching")
-          return (<TeachingItem key={index} content={item}></TeachingItem>);
-        else if (item.type === "sunday-morning")
-          return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
-        else if (item.type === "distance-groups")
-          return (<DistanceGroupItem key={index} content={item}></DistanceGroupItem>);
-        else if (item.type === "home-church")
-          return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
-        else if (item.type === "form")
-          return (<FormItem key={index} content={item}></FormItem>);
-        else if (item.type === "instagram")
-          return (<InstagramItem key={index} content={item}></InstagramItem>);
-        else if (item.type === "iframe")
-          return (<IFrameItem key={index} content={item}></IFrameItem>);
-        else if (item.type === "search")
-          return (<SearchItem key={index} content={item}></SearchItem>);
-        else if (item.type === "give")
-          return (<GiveItem key={index} content={item}></GiveItem>);
-        else if (item.type === "give2")
-          return (<Give2Item key={index} content={item}></Give2Item>);
-        else if (item.type === "faq")
-          return (<FAQItem key={index} content={item}></FAQItem>);
-        else if (item.type === "simple")
-          return (<SimpleItem key={index} content={item}></SimpleItem>);
-        else if (item.type === "podcasts")
-          return (<PodcastItem data={this.props.data} key={index} content={item}></PodcastItem>)
-        else if (item.type === "weather")
-          return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
-        else return null
+        return <ErrorBoundary>
+          {this.renderItemNow(item,index)}
+        </ErrorBoundary>
+
       })
     else return null
   }
