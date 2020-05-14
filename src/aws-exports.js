@@ -24,7 +24,9 @@ const awsmobile = {
     "aws_content_delivery_bucket_region": "us-east-1",
     "aws_content_delivery_url": "https://d3ovx9jsa9o5gy.cloudfront.net",
     "aws_mobile_analytics_app_id": "20b026ebefc445dd82e5a853dff62770",
-    "aws_mobile_analytics_app_region": "us-east-1"
+    "aws_mobile_analytics_app_region": "us-east-1",
+    "aws_user_files_s3_bucket": "themeetinghouse-usercontentstoragetmhusercontent-tmhprod",
+    "aws_user_files_s3_bucket_region": "us-east-1"
 };
 
 
