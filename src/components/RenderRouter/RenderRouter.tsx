@@ -28,6 +28,7 @@ const SundayMorningItem = React.lazy(() => import('./SundayMorningItem'));
 const HomeChurchItem = React.lazy(() => import('./HomeChurchItem'));
 const FormItem = React.lazy(() => import('./FormItem'));
 const GoContentItem = React.lazy(() => import('./GoContentItem'));
+const PodcastItem = React.lazy(() => import('./PodcastItem'));
 
 interface Props extends RouteComponentProps {
   content: any
@@ -83,6 +84,8 @@ class RenderRouter extends React.Component<Props, State> {
           return (<FAQItem key={index} content={item}></FAQItem>);
         else if (item.type === "simple")
           return (<SimpleItem key={index} content={item}></SimpleItem>);
+        else if (item.type === "podcasts")
+          return (<PodcastItem data={this.props.data} key={index} content={item}></PodcastItem>)
         else if (item.type === "weather")
           return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
         else return null
