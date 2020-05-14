@@ -40,7 +40,7 @@
            
         
             {
-                "name":"Volunteering",
+                "name":"Volunteer",
                 "location":"/volunteering"
             },
             {
@@ -48,7 +48,7 @@
                 "location":"/compassion"
             },
             {
-                "name":"Giving",
+                "name":"Give",
                 "location":"/give"
             }
         ]
