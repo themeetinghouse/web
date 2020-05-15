@@ -9,8 +9,9 @@ import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify'
-import './create-blog.scss'
+import { API } from 'aws-amplify';
+import { Storage } from 'aws-amplify';
+import './create-blog.scss';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -125,6 +126,21 @@ class IndexApp extends React.Component<Props, State> {
 
   onChange = (editorState: any) => this.setState({ editorState });
 
+  onImageChange(e: any) {
+    const file = e.target.files[0];
+    Storage.put('example.png', file, {
+        contentType: 'image/*'
+    })
+    .then (result => console.log(result))
+    .catch(err => console.log(err));
+  }
+
+  getImageURL() {
+    Storage.get('example.png')
+      .then(result => console.log(result))
+      .catch(err => console.log(err));
+  }
+
   getMarkup() {
     const markup = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
     return markup
@@ -203,6 +219,7 @@ class IndexApp extends React.Component<Props, State> {
       <div className="blog-container">
         <AdminMenu></AdminMenu>
           <div className="toolbar-button-container">
+            <button className="toolbar-button" onClick={this.handleSave}>Help</button><br/>
             <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
             <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
             <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
@@ -245,6 +262,12 @@ class IndexApp extends React.Component<Props, State> {
               }
             }}
           />
+          <input
+            type="file" accept='image/*'
+            onChange={(evt) => this.onImageChange(evt)}
+          />
+          <button onClick={this.getImageURL}>Get Image URL</button>
+          
           <label>
             Add tags:
             <input type="text" value={this.state.currentTag} onChange={this.handleChangeTag} />
