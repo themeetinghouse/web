@@ -68,8 +68,7 @@ class RenderRouter extends React.Component<Props, State> {
       default: return null
     }      
 
- 
- 
+    
   }
   renderItem() {
     if (this.props.content != null)
@@ -81,7 +80,7 @@ class RenderRouter extends React.Component<Props, State> {
 
       })
     else return null
-  }
+    }
   render() {
     return (
 
