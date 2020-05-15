@@ -5,7 +5,7 @@
     border-width: 4px;
     border-radius: 8px;
     font-size: 14px;
-    width: 100px;
+    width: 110px;
 }
 
 .toolbar-button-container {
@@ -39,6 +39,26 @@
 .desc-button {
   position: relative;
   top: 40px;
+}
+
+.imageURL-output {
+  font-size: small;
+}
+
+.copied-alert {
+  position: fixed;
+  font-size: large;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.tags-button  {
+  color: black;
+  background: white;
+  margin-right: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 140px;
 }
 
 //below is copied from the source files. some edits made

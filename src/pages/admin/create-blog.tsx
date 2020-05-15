@@ -46,8 +46,12 @@ interface State {
   selectedTags: any
   editMode: boolean
   blogObject: any
+  blogSeries: any
   showError: boolean
   currentTag: string
+  imgURL: any
+  moreOptions: boolean
+  currentVideoSeries: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -84,8 +88,12 @@ class IndexApp extends React.Component<Props, State> {
       selectedTags: [],
       editMode: false, //always start with new post
       blogObject: {},
+      blogSeries: {},
       showError: false,
-      currentTag: ''
+      currentTag: '',
+      imgURL: null,
+      moreOptions: false,
+      currentVideoSeries: null
     }
 
     fetch('/static/content/blog-post.json').then(function (response) {
@@ -101,9 +109,15 @@ class IndexApp extends React.Component<Props, State> {
     this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
     this.handleChangeDesc = this.handleChangeDesc.bind(this);
     this.handleChangeTag = this.handleChangeTag.bind(this);
+    this.handleVideoSeries = this.handleVideoSeries.bind(this);
     this.showPreview = this.showPreview.bind(this);
     this.confirmTag = this.confirmTag.bind(this);
     this.clearTags = this.clearTags.bind(this);
+    this.confirmBlogSeries = this.confirmBlogSeries.bind(this);
+    this.clearBlogSeries = this.clearBlogSeries.bind(this);
+    this.confirmVideoSeries = this.confirmVideoSeries.bind(this);
+    this.clearVideoSeries = this.clearVideoSeries.bind(this);
+    this.moreOptions = this.moreOptions.bind(this);
   }
 
   listSeries(nextToken: any) {
@@ -116,7 +130,7 @@ class IndexApp extends React.Component<Props, State> {
     listSeries.then((json: any) => {
         console.log({ "Success customQueries.listSeries: ": json });
         this.setState({
-            videoSeriesList: this.state.videoSeriesList.concat(json.data.videoSeriesList.items).sort((a: any, b: any) => a.id > b.id)
+            videoSeriesList: this.state.videoSeriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => a.id > b.id)
         })
         if (json.data.listSeriess.nextToken != null)
             this.listSeries(json.data.listSeriess.nextToken)
@@ -128,17 +142,16 @@ class IndexApp extends React.Component<Props, State> {
 
   onImageChange(e: any) {
     const file = e.target.files[0];
-    Storage.put('example.png', file, {
+    const filename = file.name;
+    Storage.put(filename, file, {
         contentType: 'image/*'
     })
-    .then (result => console.log(result))
+    .then(result => console.log(result))
     .catch(err => console.log(err));
-  }
 
-  getImageURL() {
-    Storage.get('example.png')
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
+    Storage.get(filename)
+    .then(result => this.setState({imgURL: result}))
+    .catch(err => console.log(err));
   }
 
   getMarkup() {
@@ -164,12 +177,16 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ editMode: true });
     //set to unlisted (mutation)
     //find existing post
-    //set state of title, author, desc, editorState
+    //set state of title, author, desc, editorState, tags, video series, blog series
     //verbose warning that you need to re-publish
   }
 
   handleExit() {
     //provide warnings
+  }
+
+  handleVideoSeries(event: any) {
+    this.setState({ currentVideoSeries: event.target.value });
   }
 
   handleChangeTitle(event: any) {
@@ -203,6 +220,29 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ selectedTags: [] });
   }
 
+  confirmVideoSeries() {
+    this.setState({ selectedVideoSeries: this.state.selectedVideoSeries.concat(this.state.currentVideoSeries) });
+  }
+
+  clearVideoSeries() {
+    this.setState({ selectedVideoSeries: [] });
+  }
+
+  confirmBlogSeries() {
+    this.setState({ selectedVideoSeries: this.state.selectedVideoSeries.concat('') });
+  }
+
+  clearBlogSeries() {
+    this.setState({ selectedBlogSeries: [] });
+  }
+
+  //add new blog series function
+
+  moreOptions() {
+    this.setState({ moreOptions: !this.state.moreOptions })
+    console.log(this.state.videoSeriesList);
+  }
+
   interval: any;
   componentDidMount() {
     this.interval = setInterval(() => this.saveReminder(), 600000);
@@ -214,6 +254,8 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ saveReminder: !this.state.saveReminder })
   }
 
+  //image only width control.
+
   render() {
     return (
       <div className="blog-container">
@@ -223,6 +265,7 @@ class IndexApp extends React.Component<Props, State> {
             <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
             <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
             <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
+            <button className="toolbar-button" onClick={this.moreOptions}>Add tags + series</button><br/>
             <button className="toolbar-button" onClick={this.showPreview}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
             {this.state.saveReminder ? <div style={{color: "red", fontWeight: 'bold', width: 180}}>Save Your Work!</div>: null}
           </div>
@@ -251,9 +294,6 @@ class IndexApp extends React.Component<Props, State> {
               inline: {
                 options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
               },
-              blockType: {
-                options: ['Normal', 'H3', 'Blockquote']
-              },
               list: {
                 options: ['unordered', 'ordered']
               },
@@ -262,32 +302,47 @@ class IndexApp extends React.Component<Props, State> {
               }
             }}
           />
-          <input
-            type="file" accept='image/*'
-            onChange={(evt) => this.onImageChange(evt)}
-          />
-          <button onClick={this.getImageURL}>Get Image URL</button>
-          
           <label>
-            Add tags:
-            <input type="text" value={this.state.currentTag} onChange={this.handleChangeTag} />
+            Upload an image:
+            <br/>
+            <input
+              type="file" accept='image/*'
+              onChange={(evt) => this.onImageChange(evt)}
+            />
           </label>
-          <button onClick={this.confirmTag}>confirm tag</button>
-          <div>Selected tags: {this.state.selectedTags.map((item: any) => item + ", ")}</div>
-          <button style={{background: "red"}} onClick={this.clearTags}>clear selection</button>
+          {/* add click to copy*/}
+          <div className="imageURL-output">{this.state.imgURL ? "Please use this URL: " + this.state.imgURL : null}</div>                   
+          
+          {this.state.moreOptions ?
+          <div>
+            <label>
+              Add tags:
+              <input type="text" value={this.state.currentTag} onChange={this.handleChangeTag} />
+            </label>
+            <button className="tags-button" onClick={this.confirmTag}>Confirm Tag</button>
+            <button className="tags-button" style={{background: "red"}} onClick={this.clearTags}>Clear Selection</button>
+            <div>Current tags: {this.state.selectedTags.map((item: any) => item + ", ")}</div>
+              <br/>
 
-          <div>VideoSeries</div>
-          <select>
-            <option>test</option>
-          </select>
-          <div>Selected video series: {this.state.selectedVideoSeries}</div>
+            <b>Add to Video Series</b>
+            <button className="tags-button" onClick={this.confirmVideoSeries}>Add</button>
+            <button className="tags-button" style={{background: "red"}} onClick={this.clearVideoSeries}>Clear Selection</button>
+            <select onChange={this.handleVideoSeries}>
+              <option key="null" value="null">None Selected</option>
+              {this.state.videoSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
+            </select>
+            <div>Current video series: {this.state.selectedVideoSeries.map((item: any) => item + ", ")}</div>
+              <br/>
 
-          <div>BlogSeries</div>
-          <select>
-            <option>test</option>
-          </select>
-          <div>Selected blog series: {this.state.selectedBlogSeries}</div>
-
+            <b>Add to Blog Series</b>
+            <button className="tags-button" onClick={this.confirmBlogSeries}>Add</button>
+            <button className="tags-button" style={{background: "red"}} onClick={this.clearBlogSeries}>Clear Selection</button>
+            <select>
+              <option>test</option>
+            </select>
+            <div>Current blog series: {this.state.selectedBlogSeries.map((item: any) => item + ", ")}</div>
+          </div>
+          : null}
         </div>
         <div className="preview">{this.state.showPreview ? <BlogPreview data={this.state} content={this.state.content}></BlogPreview> : null}</div>
       </div>
