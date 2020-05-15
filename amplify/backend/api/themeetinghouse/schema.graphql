@@ -590,7 +590,7 @@ type BlogSeries
  @auth(rules:[
    {allow:public, operations:[read]},
    {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Blog"],provider:userPools}
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
  ])
 
 {
@@ -610,7 +610,7 @@ type Blog
  @auth(rules:[
    {allow:public, operations:[read]},
    {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Blog"],provider:userPools}
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
  ])
 
 {
