@@ -7,6 +7,9 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
+import * as customQueries from '../../graphql-custom/customQueries';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { API } from 'aws-amplify'
 import './create-blog.scss'
 
 Amplify.configure(awsmobile);
@@ -35,6 +38,15 @@ interface State {
   showPreview: boolean
   content: any
   saveReminder: boolean
+  videoSeriesList: any
+  blogSeriesList: any
+  selectedVideoSeries: any
+  selectedBlogSeries: any
+  selectedTags: any
+  editMode: boolean
+  blogObject: any
+  showError: boolean
+  currentTag: string
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -63,8 +75,18 @@ class IndexApp extends React.Component<Props, State> {
       desc: '',
       showPreview: false,
       content: null,
-      saveReminder: false
-    };
+      saveReminder: false,
+      videoSeriesList: [],
+      blogSeriesList: [],
+      selectedVideoSeries: [],
+      selectedBlogSeries: [],
+      selectedTags: [],
+      editMode: false, //always start with new post
+      blogObject: {},
+      showError: false,
+      currentTag: ''
+    }
+
     fetch('/static/content/blog-post.json').then(function (response) {
         console.log(response)
         return response.json();
@@ -72,14 +94,33 @@ class IndexApp extends React.Component<Props, State> {
       .then((myJson) => {
         this.setState({ content: myJson })
       })
-      
+
+    this.listSeries(null)
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
     this.handleChangeDesc = this.handleChangeDesc.bind(this);
-    this.handleTitleSubmit = this.handleTitleSubmit.bind(this);
-    this.handleAuthorSubmit = this.handleAuthorSubmit.bind(this);
-    this.handleDescSubmit = this.handleDescSubmit.bind(this);
+    this.handleChangeTag = this.handleChangeTag.bind(this);
     this.showPreview = this.showPreview.bind(this);
+    this.confirmTag = this.confirmTag.bind(this);
+    this.clearTags = this.clearTags.bind(this);
+  }
+
+  listSeries(nextToken: any) {
+    var listSeries:any = API.graphql({
+        query: customQueries.listSeriess,
+        variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+    });
+
+    listSeries.then((json: any) => {
+        console.log({ "Success customQueries.listSeries: ": json });
+        this.setState({
+            videoSeriesList: this.state.videoSeriesList.concat(json.data.videoSeriesList.items).sort((a: any, b: any) => a.id > b.id)
+        })
+        if (json.data.listSeriess.nextToken != null)
+            this.listSeries(json.data.listSeriess.nextToken)
+
+    }).catch((e: any) => { console.log(e) })
   }
 
   onChange = (editorState: any) => this.setState({ editorState });
@@ -90,60 +131,60 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleSave() {
-    //save, but don't publish
-    //if completely new post, create new unlisted blog object
+    //if this.state.editMode === true
+      //save, but don't publish
+    //if this.state.editMode === false
+      //create new unlisted blog object
     console.log("saved")
   }
 
   handlePublish() {
-    //add date (default to toronto time)
+    //same as save
+    //but add date and set blogStatus: Live
     console.log("published")
   }
 
   handleEdit() {
-    //modal for existing posts -> enter id
-    //message to say what's going to happen
-    //pull in existing post
-    //set to unlistsed
+    this.setState({ editMode: true });
+    //set to unlisted (mutation)
+    //find existing post
+    //set state of title, author, desc, editorState
+    //verbose warning that you need to re-publish
   }
 
   handleExit() {
-    //check if save
-    //check if published
-  }
-
-  handleTitleSubmit(event:any) {
-    alert(this.state.title);
-    event.preventDefault();
-    //write values
-  }
-
-  handleAuthorSubmit(event:any) {
-    alert(this.state.author);
-    event.preventDefault();
-    //write values
-  }
-
-  handleDescSubmit(event:any) {
-    alert(this.state.desc);
-    event.preventDefault();
-    //write values
+    //provide warnings
   }
 
   handleChangeTitle(event: any) {
-    this.setState({title: event.target.value});
+    this.setState({ title: event.target.value });
   }
 
   handleChangeAuthor(event: any) {
-    this.setState({author: event.target.value});
+    this.setState({ author: event.target.value });
   }
 
   handleChangeDesc(event: any) {
-    this.setState({desc: event.target.value});
+    this.setState({ desc: event.target.value });
+  }
+
+  handleChangeTag(event: any) {
+    this.setState({ currentTag: event.target.value });
   }
 
   showPreview() {
     this.setState({ showPreview: !this.state.showPreview })
+  }
+
+  confirmTag() {
+    this.setState({ 
+      selectedTags: this.state.selectedTags.concat(this.state.currentTag), 
+      currentTag: ''
+    });
+  }
+
+  clearTags() {
+    this.setState({ selectedTags: [] });
   }
 
   interval: any;
@@ -157,8 +198,6 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ saveReminder: !this.state.saveReminder })
   }
 
-  //preview should be an iframe (new window) that mirrors live site
-
   render() {
     return (
       <div className="blog-container">
@@ -171,29 +210,20 @@ class IndexApp extends React.Component<Props, State> {
             {this.state.saveReminder ? <div style={{color: "red", fontWeight: 'bold', width: 180}}>Save Your Work!</div>: null}
           </div>
         <div className="editor-container">
-        <form  onSubmit={this.handleTitleSubmit}>
           <label>
             Title:
             <input className="small-input" type="text" value={this.state.title} onChange={this.handleChangeTitle} />
           </label>
-          <input type="submit" value="Submit Title" />
-        </form>
 
-        <form onSubmit={this.handleAuthorSubmit}>
           <label>
             Author:
             <input className="small-input" type="text" value={this.state.author} onChange={this.handleChangeAuthor} />
           </label>
-          <input type="submit" value="Submit Author Name" />
-        </form>
 
-        <form onSubmit={this.handleDescSubmit}>
           <label>
-            Description:
-            <textarea className="big-input" maxLength={250} value={this.state.desc} onChange={this.handleChangeDesc} />
+            Description ({this.state.desc.length + " of 280 characters"}):
+            <textarea className="big-input" maxLength={280} value={this.state.desc} onChange={this.handleChangeDesc} />
           </label>
-          <input className="desc-button" type="submit" value="Submit Description" />
-        </form>
 
           <Editor
             editorState={this.state.editorState}
@@ -215,6 +245,26 @@ class IndexApp extends React.Component<Props, State> {
               }
             }}
           />
+          <label>
+            Add tags:
+            <input type="text" value={this.state.currentTag} onChange={this.handleChangeTag} />
+          </label>
+          <button onClick={this.confirmTag}>confirm tag</button>
+          <div>Selected tags: {this.state.selectedTags.map((item: any) => item + ", ")}</div>
+          <button style={{background: "red"}} onClick={this.clearTags}>clear selection</button>
+
+          <div>VideoSeries</div>
+          <select>
+            <option>test</option>
+          </select>
+          <div>Selected video series: {this.state.selectedVideoSeries}</div>
+
+          <div>BlogSeries</div>
+          <select>
+            <option>test</option>
+          </select>
+          <div>Selected blog series: {this.state.selectedBlogSeries}</div>
+
         </div>
         <div className="preview">{this.state.showPreview ? <BlogPreview data={this.state} content={this.state.content}></BlogPreview> : null}</div>
       </div>

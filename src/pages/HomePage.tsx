@@ -57,7 +57,7 @@ class HomePage extends React.Component<Props, State> {
     if (this.props.isVideo === "true") {
       jsonFile = "video-player"
     }
-    if (this.props.isBlog === "true") {
+    else if (this.props.isBlog === "true") {
       jsonFile = "blog-post"
     }
     else {

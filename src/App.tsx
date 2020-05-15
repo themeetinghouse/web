@@ -22,7 +22,7 @@ class App extends React.Component<Props, State>  {
     return (
       <Suspense fallback={<div></div>}>
         <Switch key={this.props.location.pathname}>
-          <Route exact path="/" render={props => <HomePage isVideo="false" {...props} />} />
+          <Route exact path="/" render={props => <HomePage isVideo="false" isBlog="false" {...props} />} />
           <Route path="/admin/import-video" render={() => <ImportVideo />} />
           <Route path="/admin/create-blog" render={() => <CreateBlog />} />
           <Route path="/admin" render={() => <Admin />} />
