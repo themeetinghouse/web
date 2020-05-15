@@ -1,0 +1,90 @@
+@import "/static/fonts/commercial-type-1906-WOIKTV-web/fonts.css";
+
+.blog {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+}
+
+.blog-h1 {
+    position: relative;
+    top: 3vw;
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #1A1A1A;
+    width: 58.33vw;
+}
+
+.blog-details {
+    padding-top: 2vw;
+    position: relative;
+    font-family: Graphik Web;
+    color: #54565A;
+    font-size: 1.1vw;
+}
+
+.blog-author {
+    color: #1A1A1A;
+    border-bottom: #1A1A1A solid;
+    padding-bottom: 1px;
+}
+
+.body {
+    padding-top: 4vw;
+    font-family: Graphik Web;
+    width: 48.33vw;
+    overflow-x: hidden;
+}
+
+.button-icon {
+    margin-right: 16px;
+}
+
+.dropdown-toggle:after {
+    display: none;
+}
+
+#share-custom {
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #1A1A1A;
+    border-color: #1A1A1A;
+    font-family: Graphik Web;
+    font-weight: bold;
+    width: 134px;
+    height: 56px;
+    margin-top: 5px;
+    box-shadow: none !important;
+}
+
+.ShareButtonDesktop {
+    margin-right: 11.25vw;
+    float: right;
+}
+
+.ShareButtonMobile {
+    display:none;
+}
+
+.social-share-icon {
+    margin-right: 20px;
+}
+
+.ShareMenu {
+    border-radius: 0;
+}
+
+.dropitem {
+    width: 200px;
+}
+
+.dropitem:hover {
+    background-color: #C8C8C8;
+    border: none;
+}
+
+.ShareOption {
+    text-align: left;
+}
+

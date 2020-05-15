@@ -620,14 +620,13 @@ type Blog
   createdDate: String
   publishedDate: String
   series:[Series]  @connection(name: "BlogVideoSeries")
-  blogSeries:[Series] @connection(name: "BlogSeries")
+  blogSeries:[BlogSeries] @connection(name: "BlogSeries")
   blogStatus:String
   description:String
   content:String
   blogTitle:String
-  campaigns:[String]
-  bibleVerses:[String]
   topics:[String]
+  tags:[String]
 }
 
 type WebPage

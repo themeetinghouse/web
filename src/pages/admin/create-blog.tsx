@@ -2,12 +2,11 @@ import React from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg'
 import draftToHtml from 'draftjs-to-html';
-import ReactHtmlParser from 'react-html-parser';
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
+import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
-import Preview from './blog-preview';
 import './create-blog.scss'
 
 Amplify.configure(awsmobile);
@@ -34,6 +33,8 @@ interface State {
   author: string
   desc: string
   showPreview: boolean
+  content: any
+  saveReminder: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -60,8 +61,18 @@ class IndexApp extends React.Component<Props, State> {
       title: '',
       author: '',
       desc: '',
-      showPreview: false
+      showPreview: false,
+      content: null,
+      saveReminder: false
     };
+    fetch('/static/content/blog-post.json').then(function (response) {
+        console.log(response)
+        return response.json();
+      })
+      .then((myJson) => {
+        this.setState({ content: myJson })
+      })
+      
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeAuthor = this.handleChangeAuthor.bind(this);
     this.handleChangeDesc = this.handleChangeDesc.bind(this);
@@ -76,11 +87,6 @@ class IndexApp extends React.Component<Props, State> {
   getMarkup() {
     const markup = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
     return markup
-  }
-
-  saveReminder() {
-    //reminder every 10 mins
-    //option to turn off
   }
 
   handleSave() {
@@ -137,7 +143,18 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   showPreview() {
-    this.state.showPreview ? this.setState({ showPreview: false }) : this.setState({ showPreview: true })
+    this.setState({ showPreview: !this.state.showPreview })
+  }
+
+  interval: any;
+  componentDidMount() {
+    this.interval = setInterval(() => this.saveReminder(), 600000);
+  }
+
+  async saveReminder() {
+    this.setState({ saveReminder: !this.state.saveReminder })
+    await new Promise(r => setTimeout(r, 5000));
+    this.setState({ saveReminder: !this.state.saveReminder })
   }
 
   //preview should be an iframe (new window) that mirrors live site
@@ -146,13 +163,15 @@ class IndexApp extends React.Component<Props, State> {
     return (
       <div className="blog-container">
         <AdminMenu></AdminMenu>
-        <h4>TMH Blog</h4>
+          <div className="toolbar-button-container">
+            <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
+            <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
+            <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
+            <button className="toolbar-button" onClick={this.showPreview}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
+            {this.state.saveReminder ? <div style={{color: "red", fontWeight: 'bold', width: 180}}>Save Your Work!</div>: null}
+          </div>
         <div className="editor-container">
-        <button className="toolbar-button" onClick={this.handleSave}>SAVE</button>
-        <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button>
-        <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button>
-        <button className="toolbar-button" onClick={this.showPreview}>Preview Your Work</button>
-        <form className="details-form" onSubmit={this.handleTitleSubmit}>
+        <form  onSubmit={this.handleTitleSubmit}>
           <label>
             Title:
             <input className="small-input" type="text" value={this.state.title} onChange={this.handleChangeTitle} />
@@ -160,7 +179,7 @@ class IndexApp extends React.Component<Props, State> {
           <input type="submit" value="Submit Title" />
         </form>
 
-        <form className="details-form" onSubmit={this.handleAuthorSubmit}>
+        <form onSubmit={this.handleAuthorSubmit}>
           <label>
             Author:
             <input className="small-input" type="text" value={this.state.author} onChange={this.handleChangeAuthor} />
@@ -181,7 +200,7 @@ class IndexApp extends React.Component<Props, State> {
             onEditorStateChange={this.onChange}
             spellCheck={true}
             toolbar={{
-              options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'embedded', 'emoji', 'image', 'history'],
+              options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'emoji', 'image', 'history'],
               inline: {
                 options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
               },
@@ -190,14 +209,14 @@ class IndexApp extends React.Component<Props, State> {
               },
               list: {
                 options: ['unordered', 'ordered']
+              },
+              image: {
+                alignment: false
               }
             }}
           />
         </div>
-        {this.state.showPreview ?
-        <Preview>
-          <div><h4>Preview your work</h4>{this.state.author}{this.state.title}{this.state.desc}{ReactHtmlParser(this.getMarkup())}</div>
-        </Preview> : null}
+        <div className="preview">{this.state.showPreview ? <BlogPreview data={this.state} content={this.state.content}></BlogPreview> : null}</div>
       </div>
     );
   }

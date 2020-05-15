@@ -5,7 +5,12 @@
     border-width: 4px;
     border-radius: 8px;
     font-size: 14px;
-    margin-bottom: 10px;
+    width: 100px;
+}
+
+.toolbar-button-container {
+  position: fixed;
+  z-index: 9999;
 }
 
 .DraftEditor-editorContainer {
@@ -18,8 +23,9 @@
 }
 
 .editor-container {
-    margin-left: 5vw;
+    margin-left: 15vw;
     width: 80vw;
+    padding-bottom: 15vw;
 }
 
 .small-input {
@@ -30,13 +36,13 @@
   width: 60vw;
 }
 
-.details-form {
-  height: 4vw;
-}
-
 .desc-button {
   position: relative;
   top: 40px;
+}
+
+.preview {
+  padding-bottom: 10vw;
 }
 
 //below is copied from the source files. some edits made
@@ -865,6 +871,7 @@
     font-size: 15px;
     margin-bottom: 5px;
     user-select: none;
+    order: 2;
   }
   .public-DraftStyleDefault-block {
     margin: 1em 0;
@@ -874,6 +881,8 @@
   }
   .rdw-editor-wrapper {
     box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
   }
   .rdw-editor-main blockquote {
     border-left: 5px solid #f1f1f1;
