@@ -30,6 +30,9 @@ const HomeChurchItem = React.lazy(() => import('./HomeChurchItem'));
 const FormItem = React.lazy(() => import('./FormItem'));
 const GoContentItem = React.lazy(() => import('./GoContentItem'));
 const PodcastItem = React.lazy(() => import('./PodcastItem'));
+const BlogItem = React.lazy(() => import('./BlogItem'));
+const BlogReader = React.lazy(() => import('./BlogReader'));
+
 
 interface Props extends RouteComponentProps {
   content: any
@@ -46,6 +49,8 @@ class RenderRouter extends React.Component<Props, State> {
       case "header": return (<HeaderItem key={index} content={item}></HeaderItem>)
       case "content":return (<ContentItem key={index} content={item}></ContentItem>)
       case "videoPlayer":return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
+      case "blog":return (<BlogItem key={index} content={item}></BlogItem>);
+      case "post":return (<BlogReader data={this.props.data} key={index} content={item}></BlogReader>);
       case "liveVideoPlayer":return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
       case "list":return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
       case "svg":return (<SVGItem key={index} content={item}></SVGItem>);

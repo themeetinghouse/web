@@ -11,6 +11,7 @@ import ReactGA from 'react-ga';
 const Popup = React.lazy(() => import('../components/PopupForm/Popup'));
 const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
+const BlogReader = React.lazy(() => import('../components/RenderRouter/BlogReader'));
 
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
@@ -141,7 +142,15 @@ class HomePage extends React.Component<Props, State> {
 
       }).catch((e: any) => { console.log(e) })
     }
+
+    if (this.props.isBlog === "true") {
+      //add query
+      console.log("query for blog")
+      //set data to blog data
+    }
   }
+
+  
   navigateUrl(to: string) {
     window.location.href = to;
   }
@@ -163,7 +172,7 @@ class HomePage extends React.Component<Props, State> {
     if (this.props.isVideo === "true")
       return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={this.state.data}></VideoOverlay>
     else if (this.props.isBlog === "true")
-      return <></>
+      return <BlogReader data={this.state.data} content={this.state.content}></BlogReader>
     else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
       return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
     else if (this.state.content && this.state.content.page.pageConfig.isPopupForm === true)

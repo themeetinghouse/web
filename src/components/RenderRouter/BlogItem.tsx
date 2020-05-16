@@ -10,6 +10,8 @@ import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 
+//needs an changes from video content to blog content...
+
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 

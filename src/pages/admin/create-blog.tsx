@@ -8,6 +8,7 @@ import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
+//import * as mutations from '../../graphql/mutations';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
@@ -245,12 +246,14 @@ class IndexApp extends React.Component<Props, State> {
 
   interval: any;
   componentDidMount() {
+    //reminder to save every 10 mins
     this.interval = setInterval(() => this.saveReminder(), 600000);
   }
 
   async saveReminder() {
     this.setState({ saveReminder: !this.state.saveReminder })
-    await new Promise(r => setTimeout(r, 5000));
+    //display for 10 sec
+    await new Promise(r => setTimeout(r, 10000));
     this.setState({ saveReminder: !this.state.saveReminder })
   }
 
@@ -261,7 +264,6 @@ class IndexApp extends React.Component<Props, State> {
       <div className="blog-container">
         <AdminMenu></AdminMenu>
           <div className="toolbar-button-container">
-            <button className="toolbar-button" onClick={this.handleSave}>Help</button><br/>
             <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
             <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
             <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
