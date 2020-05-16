@@ -12,6 +12,7 @@ import * as customQueries from '../../graphql-custom/customQueries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
+import { Modal } from 'reactstrap';
 import './create-blog.scss';
 
 Amplify.configure(awsmobile);
@@ -53,6 +54,7 @@ interface State {
   imgURL: any
   moreOptions: boolean
   currentVideoSeries: any
+  showEditModal: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -94,7 +96,8 @@ class IndexApp extends React.Component<Props, State> {
       currentTag: '',
       imgURL: null,
       moreOptions: false,
-      currentVideoSeries: null
+      currentVideoSeries: null,
+      showEditModal: false
     }
 
     fetch('/static/content/blog-post.json').then(function (response) {
@@ -119,6 +122,7 @@ class IndexApp extends React.Component<Props, State> {
     this.confirmVideoSeries = this.confirmVideoSeries.bind(this);
     this.clearVideoSeries = this.clearVideoSeries.bind(this);
     this.moreOptions = this.moreOptions.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   listSeries(nextToken: any) {
@@ -176,10 +180,18 @@ class IndexApp extends React.Component<Props, State> {
 
   handleEdit() {
     this.setState({ editMode: true });
+    this.setState({ showEditModal: true});
     //set to unlisted (mutation)
     //find existing post
     //set state of title, author, desc, editorState, tags, video series, blog series
     //verbose warning that you need to re-publish
+  }
+
+  renderEditBlog() {
+    return <Modal isOpen={this.state.showEditModal}>
+        <div>Test</div>
+        <button onClick={() => { this.setState({ showEditModal: false }) }}>DONE</button>
+      </Modal>
   }
 
   handleExit() {
@@ -263,6 +275,7 @@ class IndexApp extends React.Component<Props, State> {
     return (
       <div className="blog-container">
         <AdminMenu></AdminMenu>
+          {this.renderEditBlog()}
           <div className="toolbar-button-container">
             <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
             <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
