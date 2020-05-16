@@ -8,6 +8,7 @@ import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
+//import * as queries from '../../graphql/queries';
 //import * as mutations from '../../graphql/mutations';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
@@ -56,6 +57,8 @@ interface State {
   currentVideoSeries: any
   showEditModal: boolean
   newBlogSeriesModal: boolean
+  selectedBlogToEdit: any
+  blogPostsList: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -87,8 +90,8 @@ class IndexApp extends React.Component<Props, State> {
       saveReminder: false,
       videoSeriesList: [],
       blogSeriesList: [],
-      selectedVideoSeries: [],
-      selectedBlogSeries: [],
+      selectedVideoSeries: [], //need to store list of video series object not list of ids
+      selectedBlogSeries: [], //need to store list of blog series object not list of ids
       selectedTags: [],
       editMode: false, //always start with new post
       blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
@@ -99,7 +102,9 @@ class IndexApp extends React.Component<Props, State> {
       moreOptions: false,
       currentVideoSeries: null,
       showEditModal: false,
-      newBlogSeriesModal: false
+      newBlogSeriesModal: false,
+      selectedBlogToEdit: null,
+      blogPostsList: []
     }
 
     fetch('/static/content/blog-post.json').then(function (response) {
@@ -112,6 +117,8 @@ class IndexApp extends React.Component<Props, State> {
 
     this.listSeries(null)
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleSave = this.handleSave.bind(this);
+    this.handlePublish = this.handlePublish.bind(this);
   }
 
   //QUERY FUNCTIONS
@@ -137,32 +144,91 @@ class IndexApp extends React.Component<Props, State> {
   //HANDLERS
 
   handleSave() {
+    this.updateBlogField('blogTitle', this.state.title)
+    this.updateBlogField('author', this.state.author)
+    this.updateBlogField('description', this.state.desc)
+    this.updateBlogField('content', this.state.editorState)
+    this.updateBlogField('blogStatus', 'Unlisted')
+    this.updateBlogField('tags', this.state.selectedTags)
+
+    let videoseries: any = []
+    this.state.selectedVideoSeries.forEach((element: string) => {
+      videoseries.push(this.state.videoSeriesList.filter((series: any) => series.id === element)[0])
+    });
+    console.log(videoseries)
+    this.updateBlogField('series', videoseries)
+
+    
+    //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
+    
+    
+    //mutations:
     //if this.state.editMode === true
-      //save, but don't publish
+      //update, but don't publish
     //if this.state.editMode === false
       //create new unlisted blog object
+
     console.log("saved")
+    console.log(this.state.blogObject)
   }
 
   handlePublish() {
-    //same as save
-    //but add date and set blogStatus: Live
-    console.log("published")
+    if (this.state.author === '' || this.state.title === '' || this.state.desc === '' || this.state.editorState.getCurrentContent().hasText() === false) {
+      console.log('missing fields')
+    } else {
+      this.updateBlogField('blogTitle', this.state.title)
+      this.updateBlogField('author', this.state.author)
+      this.updateBlogField('description', this.state.desc)
+      this.updateBlogField('content', this.state.editorState)
+      this.updateBlogField('series', this.state.selectedVideoSeries)
+      this.updateBlogField('tags', this.state.selectedTags)
+      this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
+      this.updateBlogField('publishedDate', new Date().toJSON().slice(0,10).replace(/-/g,'-'))
+      this.updateBlogField('blogStatus', 'Live')
+      //mutation to create new or update
+      this.setState({
+        title: '',
+        author: '',
+        desc: '',
+        editorState: EditorState.createEmpty()
+      })
+      console.log("published")
+      console.log(this.state.blogObject)
+    }
   }
 
   handleEdit() {
-    this.setState({ editMode: true });
-    this.setState({ showEditModal: true});
+    this.setState({ showEditModal: true });
     //set to unlisted (mutation)
     //find existing post
     //set state of title, author, desc, editorState, tags, video series, blog series
     //verbose warning that you need to re-publish
+    this.setState({ editMode: true });
   }
 
-  //add new blog series function
+  handleNewBlogSeries() {
+    //create new blog series
+  }
 
   handleExit() {
     //provide warnings
+  }
+
+  updateSeriesField(field: any, value: any) {
+    let blogSeries = this.state.blogSeries
+    blogSeries[field] = value
+        
+    blogSeries.id = blogSeries.title + '-' + (new Date().toJSON().slice(0,10).replace(/-/g,'-'))
+    this.setState({ blogSeries: blogSeries })
+    console.log(blogSeries)
+  }
+
+  updateBlogField(field: any, value: any) {
+    let blog = this.state.blogObject
+    blog[field] = value
+
+    blog.id = blog.blogTitle + '-' + (new Date().toJSON().slice(0,10).replace(/-/g,'-'))
+    this.setState({ blogObject: blog })
   }
 
   //MISC FUNCTIONS + HELPERS
@@ -206,6 +272,10 @@ class IndexApp extends React.Component<Props, State> {
   renderEditBlogModal() {
     return <Modal isOpen={this.state.showEditModal}>
         <div>Edit a blog post</div>
+        <select onChange={(event:any) => this.setState({ selectedBlogToEdit: event.target.value})}>
+          <option key="null" value="null">None Selected</option>
+          {this.state.blogPostsList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
+        </select>
         <button onClick={() => { this.setState({ showEditModal: false }) }}>DONE</button>
       </Modal>
   }
@@ -213,6 +283,10 @@ class IndexApp extends React.Component<Props, State> {
   renderNewBlogSeriesModal() {
     return <Modal isOpen={this.state.newBlogSeriesModal}>
         <div>New Blog Series</div>
+        <label>
+          Title:
+          <input value={this.state.blogSeries.title} onChange={(item: any) => { this.updateSeriesField("title", item.target.value) }} />
+        </label>
         <button onClick={() => { this.setState({ newBlogSeriesModal: false }) }}>DONE</button>
       </Modal>
   }
