@@ -55,6 +55,7 @@ interface State {
   moreOptions: boolean
   currentVideoSeries: any
   showEditModal: boolean
+  newBlogSeriesModal: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -97,7 +98,8 @@ class IndexApp extends React.Component<Props, State> {
       imgURL: null,
       moreOptions: false,
       currentVideoSeries: null,
-      showEditModal: false
+      showEditModal: false,
+      newBlogSeriesModal: false
     }
 
     fetch('/static/content/blog-post.json').then(function (response) {
@@ -201,10 +203,17 @@ class IndexApp extends React.Component<Props, State> {
 
   //RENDER FUNCTIONS
 
-  renderEditBlog() {
+  renderEditBlogModal() {
     return <Modal isOpen={this.state.showEditModal}>
-        <div>Test</div>
+        <div>Edit a blog post</div>
         <button onClick={() => { this.setState({ showEditModal: false }) }}>DONE</button>
+      </Modal>
+  }
+
+  renderNewBlogSeriesModal() {
+    return <Modal isOpen={this.state.newBlogSeriesModal}>
+        <div>New Blog Series</div>
+        <button onClick={() => { this.setState({ newBlogSeriesModal: false }) }}>DONE</button>
       </Modal>
   }
 
@@ -233,6 +242,7 @@ class IndexApp extends React.Component<Props, State> {
         <b>Add to Blog Series</b>
         <button className="tags-button" onClick={()=>this.setState({ selectedVideoSeries: this.state.selectedVideoSeries.concat('')})}>Add</button>
         <button className="tags-button" style={{background: "red"}} onClick={()=>this.setState({ selectedBlogSeries: [] })}>Clear Selection</button>
+        <button className="tags-button" style={{background: "green", width: 160}} onClick={()=>this.setState({ newBlogSeriesModal: true })}>New Blog Series</button>
         <select>
           <option>test</option>
         </select>
@@ -312,7 +322,8 @@ class IndexApp extends React.Component<Props, State> {
     return (
       <div className="blog-container">
         <AdminMenu></AdminMenu>
-        {this.renderEditBlog()}
+        {this.renderEditBlogModal()}
+        {this.renderNewBlogSeriesModal()}
         {this.renderToolbar()}
         {this.renderTextInput()}
         <div className="preview">
