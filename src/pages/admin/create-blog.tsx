@@ -88,8 +88,8 @@ class IndexApp extends React.Component<Props, State> {
       selectedBlogSeries: [],
       selectedTags: [],
       editMode: false, //always start with new post
-      blogObject: {},
-      blogSeries: {},
+      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
+      blogSeries: { id: '', title: ''},
       showError: false,
       currentTag: '',
       imgURL: null,
