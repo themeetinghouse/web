@@ -612,6 +612,7 @@ type Blog
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
  ])
+  @key(name: "ByBlogStatus",fields: ["blogStatus","publishedDate"], queryField:"getBlogByBlogStatus")
 
 {
   id: ID!
