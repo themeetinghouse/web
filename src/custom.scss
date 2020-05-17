@@ -218,8 +218,7 @@ html{
 
     .imageList .hoverText:hover{
         .arrow {
-            transition: 2s;
-            transform: rotate(720deg);
+            transform: none;
         }
     }
 }
