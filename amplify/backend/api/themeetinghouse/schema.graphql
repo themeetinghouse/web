@@ -538,6 +538,7 @@ type Series
 {
   id: ID!
   videos: [Video] @connection(name: "VideosSeries",limit: 50)
+  blogs: [Blog] @connection(name: "BlogVideoSeries",limit: 20)
   seriesType: String
   title: String
   description: String
@@ -584,6 +585,50 @@ type Video
   audioURL:String
 }
 
+type BlogSeries
+  @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
+ ])
+
+{
+  id: ID!
+  blogs: [Blog] @connection(name: "BlogSeries",limit: 20)
+  seriesType: String
+  title: String
+  description: String
+  image: String
+  startDate: String
+  endDate: String
+}
+
+type Blog 
+ @model 
+ @searchable
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
+ ])
+  @key(name: "ByBlogStatus",fields: ["blogStatus","publishedDate"], queryField:"getBlogByBlogStatus")
+
+{
+  id: ID!
+  author: String
+  createdBy: String
+  createdDate: String
+  publishedDate: String
+  series:[Series]  @connection(name: "BlogVideoSeries")
+  blogSeries:[BlogSeries] @connection(name: "BlogSeries")
+  blogStatus:String
+  description:String
+  content:String
+  blogTitle:String
+  topics:[String]
+  tags:[String]
+}
 
 type WebPage
  @model 
