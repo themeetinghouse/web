@@ -55,10 +55,12 @@ interface State {
   imgURL: any
   moreOptions: boolean
   currentVideoSeries: any
+  currentBlogSeries: any
   showEditModal: boolean
   newBlogSeriesModal: boolean
   selectedBlogToEdit: any
   blogPostsList: any
+  copied: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -90,7 +92,7 @@ class IndexApp extends React.Component<Props, State> {
       saveReminder: false,
       videoSeriesList: [],
       blogSeriesList: [],
-      selectedVideoSeries: [], //need to store list of video series object not list of ids
+      selectedVideoSeries: [],
       selectedBlogSeries: [], //need to store list of blog series object not list of ids
       selectedTags: [],
       editMode: false, //always start with new post
@@ -101,10 +103,12 @@ class IndexApp extends React.Component<Props, State> {
       imgURL: null,
       moreOptions: false,
       currentVideoSeries: null,
+      currentBlogSeries: null,
       showEditModal: false,
       newBlogSeriesModal: false,
       selectedBlogToEdit: null,
-      blogPostsList: []
+      blogPostsList: [],
+      copied: false
     }
 
     fetch('/static/content/blog-post.json').then(function (response) {
@@ -144,6 +148,7 @@ class IndexApp extends React.Component<Props, State> {
   //HANDLERS
 
   handleSave() {
+    //check if author and title
     this.updateBlogField('blogTitle', this.state.title)
     this.updateBlogField('author', this.state.author)
     this.updateBlogField('description', this.state.desc)
@@ -165,8 +170,10 @@ class IndexApp extends React.Component<Props, State> {
     //mutations:
     //if this.state.editMode === true
       //update, but don't publish
-    //if this.state.editMode === false
+    if (this.state.editMode === false) {
       //create new unlisted blog object
+      this.setState({ editMode: true });
+    }
 
     console.log("saved")
     console.log(this.state.blogObject)
@@ -208,6 +215,7 @@ class IndexApp extends React.Component<Props, State> {
 
   handleNewBlogSeries() {
     //create new blog series
+    //fetch blog series
   }
 
   handleExit() {
@@ -227,7 +235,7 @@ class IndexApp extends React.Component<Props, State> {
     let blog = this.state.blogObject
     blog[field] = value
 
-    blog.id = blog.blogTitle + '-' + (new Date().toJSON().slice(0,10).replace(/-/g,'-'))
+    blog.id = blog.blogTitle + '-' + blog.author
     this.setState({ blogObject: blog })
   }
 
@@ -238,13 +246,14 @@ class IndexApp extends React.Component<Props, State> {
   onImageChange(e: any) {
     const file = e.target.files[0];
     const filename = file.name;
-    Storage.put(filename, file, {
+    this.setState({ copied: false })
+    Storage.put("/bloguploads/" + filename, file, {
         contentType: 'image/*'
     })
     .then(result => console.log(result))
     .catch(err => console.log(err));
 
-    Storage.get(filename)
+    Storage.get("/bloguploads/" + filename)
     .then(result => this.setState({imgURL: result}))
     .catch(err => console.log(err));
   }
@@ -299,8 +308,8 @@ class IndexApp extends React.Component<Props, State> {
           <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
         </label>
         <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''})}>Confirm Tag</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedTags: [] })}>Clear Selection</button>
-        <div>Current tags: {this.state.selectedTags.map((item: any) => item + ", ")}</div>
+        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedTags: [] })}>Clear All Tags</button>
+        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
           <br/>
 
         <b>Add to Video Series</b>
@@ -310,17 +319,18 @@ class IndexApp extends React.Component<Props, State> {
           <option key="null" value="null">None Selected</option>
           {this.state.videoSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
         </select>
-        <div>Current video series: {this.state.selectedVideoSeries.map((item: any) => item + ", ")}</div>
+        <div><b>Current video series (click on series to delete):</b> {this.state.selectedVideoSeries.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedVideoSeries: this.state.selectedVideoSeries.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
           <br/>
 
         <b>Add to Blog Series</b>
-        <button className="tags-button" onClick={()=>this.setState({ selectedVideoSeries: this.state.selectedVideoSeries.concat('')})}>Add</button>
+        <button className="tags-button" onClick={()=>this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(this.state.currentBlogSeries)})}>Add</button>
         <button className="tags-button" style={{background: "red"}} onClick={()=>this.setState({ selectedBlogSeries: [] })}>Clear Selection</button>
         <button className="tags-button" style={{background: "green", width: 160}} onClick={()=>this.setState({ newBlogSeriesModal: true })}>New Blog Series</button>
-        <select>
-          <option>test</option>
+        <select onChange={(event:any) => this.setState({ currentBlogSeries: event.target.value})}>
+          <option key="null" value="null">None Selected</option>
+          <option key="test" value="test">test</option>
         </select>
-        <div>Current blog series: {this.state.selectedBlogSeries.map((item: any) => item + ", ")}</div>
+        <div><b>Current blog series: (click on series to delete):</b> {this.state.selectedBlogSeries.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedBlogSeries: this.state.selectedBlogSeries.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
       </div>
     )
   }
@@ -330,12 +340,12 @@ class IndexApp extends React.Component<Props, State> {
       <div className="editor-container">
         <label>
           Title:
-          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> this.setState({ title: event.target.value})} />
+          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> this.setState({ title: event.target.value, editMode: false }) } />
         </label>
 
         <label>
           Author:
-          <input className="small-input" type="text" value={this.state.author} onChange={(event:any)=> this.setState({ author: event.target.value})} />
+          <input className="small-input" type="text" value={this.state.author} onChange={(event:any)=> this.setState({ author: event.target.value, editMode: false})} />
         </label>
 
         <label style={this.state.desc.length >= 180 ? {color: "red"} : {color: "black"}}>
@@ -373,7 +383,7 @@ class IndexApp extends React.Component<Props, State> {
           />
         </label>
         {/* add click to copy*/}
-        <div className="imageURL-output">{this.state.imgURL ? "Please use this URL: " + this.state.imgURL : null}</div>                   
+        {this.state.imgURL ? <button onClick={() => {navigator.clipboard.writeText(this.state.imgURL); this.setState({copied: true})}}>{this.state.copied ? "Copied" : "Click to Copy URL"}</button> : null}
         {this.state.moreOptions ? this.renderMoreOptions() : null}
       </div>
     )
