@@ -620,8 +620,8 @@ type Blog
   createdBy: String
   createdDate: String
   publishedDate: String
-  series:[Series]  @connection(name: "BlogVideoSeries")
-  blogSeries:[BlogSeries] @connection(name: "BlogSeries")
+  series:Series  @connection(name: "BlogVideoSeries")
+  blogSeries:BlogSeries @connection(name: "BlogSeries")
   blogStatus:String
   description:String
   content:String
