@@ -1,24 +1,22 @@
 @import "/static/fonts/commercial-type-1906-WOIKTV-web/fonts.css";
 
-.blog {
+.blog-content {
     position: relative;
+    top: 5vw;
     left: 20vw;
     width: 80vw;
+    padding-bottom: 5vw;
 }
 
 .blog-h1 {
-    position: relative;
-    top: 3vw;
     font-size: 3vw;
     font-weight: bold;
     font-family: Graphik Web;
     color: #1A1A1A;
-    width: 58.33vw;
+    width: 58vw;
 }
 
 .blog-details {
-    padding-top: 2vw;
-    position: relative;
     font-family: Graphik Web;
     color: #54565A;
     font-size: 1.1vw;
@@ -31,7 +29,7 @@
 }
 
 .body {
-    padding-top: 4vw;
+    padding-top: 3vw;
     font-family: Graphik Web;
     width: 48.33vw;
     overflow-x: hidden;
@@ -63,28 +61,11 @@
     float: right;
 }
 
-.ShareButtonMobile {
-    display:none;
-}
-
 .social-share-icon {
     margin-right: 20px;
 }
 
 .ShareMenu {
     border-radius: 0;
-}
-
-.dropitem {
-    width: 200px;
-}
-
-.dropitem:hover {
-    background-color: #C8C8C8;
-    border: none;
-}
-
-.ShareOption {
-    text-align: left;
 }
 

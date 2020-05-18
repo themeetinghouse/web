@@ -35,12 +35,10 @@ interface Props {
 }
 interface State {
   editorState: any
-  imageUpload: any
   title: string
   author: string
   desc: string
   showPreview: boolean
-  content: any
   saveReminder: boolean
   videoSeriesList: any
   blogSeriesList: any
@@ -50,9 +48,7 @@ interface State {
   editMode: boolean
   blogObject: any
   blogSeries: any
-  showError: boolean
   currentTag: string
-  imgURL: any
   moreOptions: boolean
   currentVideoSeries: any
   currentBlogSeries: any
@@ -60,7 +56,6 @@ interface State {
   newBlogSeriesModal: boolean
   selectedBlogToEdit: any
   blogPostsList: any
-  copied: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -82,42 +77,43 @@ class IndexApp extends React.Component<Props, State> {
   constructor(props : Props) {
     super(props);
     this.state = { 
+      // text input
       editorState: EditorState.createEmpty(),
-      imageUpload: null,
       title: '',
       author: '',
       desc: '',
-      showPreview: false,
-      content: null,
-      saveReminder: false,
-      videoSeriesList: [],
-      blogSeriesList: [],
+
+      // tags and series input
+      currentTag: '',
+      currentVideoSeries: null,
+      currentBlogSeries: null,
       selectedVideoSeries: null,
       selectedBlogSeries: [], //need to store list of blog series object not list of ids
       selectedTags: [],
-      editMode: false, //always start with new post
-      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
-      blogSeries: { id: '', title: ''},
-      showError: false,
-      currentTag: '',
-      imgURL: null,
+
+      // queried and loaded data
+      videoSeriesList: [],
+      blogSeriesList: [],
+      blogPostsList: [],
+
+      // display states
+      showPreview: false,
+      saveReminder: false,
       moreOptions: false,
-      currentVideoSeries: null,
-      currentBlogSeries: null,
       showEditModal: false,
       newBlogSeriesModal: false,
-      selectedBlogToEdit: null,
-      blogPostsList: [],
-      copied: false
-    }
 
-    fetch('/static/content/blog-post.json').then(function (response) {
-        console.log(response)
-        return response.json();
-      })
-      .then((myJson) => {
-        this.setState({ content: myJson })
-      })
+      // determines which existing blog the user wishes to edit
+      selectedBlogToEdit: null,
+
+      // determines if we create a new blog or update an existing blog
+      // always start with new post
+      editMode: false,
+
+      // mutation inputs
+      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
+      blogSeries: { id: '', title: ''},
+    }
 
     this.listSeries(null)
     this.handleEdit = this.handleEdit.bind(this);
@@ -159,10 +155,9 @@ class IndexApp extends React.Component<Props, State> {
     let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
     console.log(videoseries)
     this.updateBlogField('series', videoseries)
-
     
+    //require loop:
     //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
-    
     
     //mutations:
     //if this.state.editMode === true
@@ -239,21 +234,6 @@ class IndexApp extends React.Component<Props, State> {
   //MISC FUNCTIONS + HELPERS
 
   onChange = (editorState: any) => this.setState({ editorState });
-
-  onImageChange(e: any) {
-    const file = e.target.files[0];
-    const filepath = "bloguploads/" + (new Date().toJSON().slice(0,10).replace(/-/g,'')) + file.name;
-    this.setState({ copied: false })
-    Storage.put(filepath, file, {
-        contentType: 'image/*'
-    })
-    .then(result => console.log(result))
-    .catch(err => console.log(err));
-
-    Storage.get(filepath)
-    .then(result => this.setState({imgURL: result}))
-    .catch(err => console.log(err));
-  }
 
   getMarkup() {
     const markup = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
@@ -372,6 +352,7 @@ class IndexApp extends React.Component<Props, State> {
                   var download = await Storage.get(filepath, {
                       contentType: "image/*"
                   })
+                  console.log(download);
                   return { data: { link: download } }
               },
               previewImage: true,
@@ -414,7 +395,7 @@ class IndexApp extends React.Component<Props, State> {
         {this.renderToolbar()}
         {this.renderTextInput()}
         <div className="preview">
-          {this.state.showPreview ? <BlogPreview data={this.state} content={this.state.content}></BlogPreview> : null}
+          {this.state.showPreview ? <BlogPreview data={this.state} content={null}></BlogPreview> : null}
         </div>
       </div>
     );
