@@ -363,24 +363,30 @@ class IndexApp extends React.Component<Props, State> {
               options: ['unordered', 'ordered']
             },
             image: {
-              alignmentEnabled: false,
+              uploadEnabled: true,
+              uploadCallback: async (file: any) => {
+                  const filepath = "bloguploads/" + (new Date().toJSON().slice(0,10).replace(/-/g,'')) + file.name;
+                  await Storage.put(filepath, file, {
+                      contentType: "image/*"
+                  })
+                  var download = await Storage.get(filepath, {
+                      contentType: "image/*"
+                  })
+                  return { data: { link: download } }
+              },
+              previewImage: true,
+              alt: { 
+                present: true, 
+                mandatory: true 
+              },
               defaultSize: {
-                height: 'auto',
-                width: '50vw'
-              }
+                  height: 'auto',
+                  width: '50vw',
+              },
+              alignmentEnabled: false
             }
           }}
         />
-        <label>
-          Upload an image:
-          <br/>
-          <input
-            type="file" accept='.jpg, .jpeg, .gif, .png'
-            onChange={(evt) => this.onImageChange(evt)}
-          />
-        </label>
-        {/* add click to copy*/}
-        {this.state.imgURL ? <button onClick={() => {navigator.clipboard.writeText(this.state.imgURL); this.setState({copied: true})}}>{this.state.copied ? "Copied" : "Click to Copy URL"}</button> : null}
         {this.state.moreOptions ? this.renderMoreOptions() : null}
       </div>
     )
