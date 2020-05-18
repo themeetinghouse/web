@@ -16,6 +16,13 @@
         "content": [
             {
                 "type": "post"
+            },
+            {
+                "type": "list",
+                "class": "blogs",
+                "style": "blog-reader",
+                "selector": "sameSeries",
+                "header1": "Similar Blog Posts"
             }
         ]
     }

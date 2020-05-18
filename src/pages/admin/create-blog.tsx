@@ -92,7 +92,7 @@ class IndexApp extends React.Component<Props, State> {
       saveReminder: false,
       videoSeriesList: [],
       blogSeriesList: [],
-      selectedVideoSeries: [],
+      selectedVideoSeries: null,
       selectedBlogSeries: [], //need to store list of blog series object not list of ids
       selectedTags: [],
       editMode: false, //always start with new post
@@ -156,10 +156,7 @@ class IndexApp extends React.Component<Props, State> {
     this.updateBlogField('blogStatus', 'Unlisted')
     this.updateBlogField('tags', this.state.selectedTags)
 
-    let videoseries: any = []
-    this.state.selectedVideoSeries.forEach((element: string) => {
-      videoseries.push(this.state.videoSeriesList.filter((series: any) => series.id === element)[0])
-    });
+    let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
     console.log(videoseries)
     this.updateBlogField('series', videoseries)
 
@@ -187,9 +184,9 @@ class IndexApp extends React.Component<Props, State> {
       this.updateBlogField('author', this.state.author)
       this.updateBlogField('description', this.state.desc)
       this.updateBlogField('content', this.state.editorState)
-      this.updateBlogField('series', this.state.selectedVideoSeries)
+      //this.updateBlogField('series', this.state.selectedVideoSeries)
       this.updateBlogField('tags', this.state.selectedTags)
-      this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
+      //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
       this.updateBlogField('publishedDate', new Date().toJSON().slice(0,10).replace(/-/g,'-'))
       this.updateBlogField('blogStatus', 'Live')
       //mutation to create new or update
@@ -245,15 +242,15 @@ class IndexApp extends React.Component<Props, State> {
 
   onImageChange(e: any) {
     const file = e.target.files[0];
-    const filename = file.name;
+    const filepath = "bloguploads/" + (new Date().toJSON().slice(0,10).replace(/-/g,'')) + file.name;
     this.setState({ copied: false })
-    Storage.put("/bloguploads/" + filename, file, {
+    Storage.put(filepath, file, {
         contentType: 'image/*'
     })
     .then(result => console.log(result))
     .catch(err => console.log(err));
 
-    Storage.get("/bloguploads/" + filename)
+    Storage.get(filepath)
     .then(result => this.setState({imgURL: result}))
     .catch(err => console.log(err));
   }
@@ -312,16 +309,6 @@ class IndexApp extends React.Component<Props, State> {
         <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
           <br/>
 
-        <b>Add to Video Series</b>
-        <button className="tags-button" onClick={() => this.setState({ selectedVideoSeries: this.state.selectedVideoSeries.concat(this.state.currentVideoSeries)})}>Add</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedVideoSeries: [] })}>Clear Selection</button>
-        <select onChange={(event:any) => this.setState({ currentVideoSeries: event.target.value})}>
-          <option key="null" value="null">None Selected</option>
-          {this.state.videoSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
-        </select>
-        <div><b>Current video series (click on series to delete):</b> {this.state.selectedVideoSeries.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedVideoSeries: this.state.selectedVideoSeries.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
-          <br/>
-
         <b>Add to Blog Series</b>
         <button className="tags-button" onClick={()=>this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(this.state.currentBlogSeries)})}>Add</button>
         <button className="tags-button" style={{background: "red"}} onClick={()=>this.setState({ selectedBlogSeries: [] })}>Clear Selection</button>
@@ -331,6 +318,16 @@ class IndexApp extends React.Component<Props, State> {
           <option key="test" value="test">test</option>
         </select>
         <div><b>Current blog series: (click on series to delete):</b> {this.state.selectedBlogSeries.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedBlogSeries: this.state.selectedBlogSeries.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
+          <br/>
+
+        <b>Add to Video Series</b>
+        <button className="tags-button" onClick={() => this.setState({ selectedVideoSeries: this.state.currentVideoSeries})}>Select</button>
+        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedVideoSeries: null })}>Clear Selection</button>
+        <select onChange={(event:any) => this.setState({ currentVideoSeries: event.target.value})}>
+          <option key="null" value="null">None Selected</option>
+          {this.state.videoSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
+        </select>
+        <div><b>Current video series: </b> <div style={{display: "inline"}}>{this.state.selectedVideoSeries} </div></div>
       </div>
     )
   }
@@ -378,7 +375,7 @@ class IndexApp extends React.Component<Props, State> {
           Upload an image:
           <br/>
           <input
-            type="file" accept='image/*'
+            type="file" accept='.jpg, .jpeg, .gif, .png'
             onChange={(evt) => this.onImageChange(evt)}
           />
         </label>

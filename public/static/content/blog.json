@@ -23,7 +23,12 @@
                 "group":"teaching",
                 "subclass":"adult-sunday",
                 "sortOrder":"DESC"
-                
+            },
+            {
+                "type": "list",
+                "class": "blogs",
+                "style": "blog-page",
+                "selector": "all"
             }
         ]
     }

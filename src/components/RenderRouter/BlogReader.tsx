@@ -3,7 +3,7 @@ import React from 'react';
 import "./BlogReader.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Fade from 'react-bootstrap/Fade';
-import ReactHtmlParser from 'react-html-parser';
+//import ReactHtmlParser from 'react-html-parser';
 import { convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import {
@@ -37,6 +37,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
   getMarkup() {
     const markup = draftToHtml(convertToRaw(this.state.data.content.getCurrentContent()));
     return markup
+  }
+
+  navigateUrl(to: string) {
+    console.log(to)
+    window.location.href = to;
   }
 
   shareButton() {
@@ -76,12 +81,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div className="blog">
-        <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
-        {this.state.data.author ? <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {this.state.data.datePublished}</div> : null}
-        <div className="ShareButtonDesktop">{this.shareButton()}</div>
-        <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
+      <div className="link-to-main-blog-page" onClick={()=>this.navigateUrl("/blog")}>Blog<img className="dropdown-caret" src="static/svg/Dropdown Caret.svg" alt=""></img></div>
+        <div className="blog-content">
+          <h1 className="blog-h1" >Test Title Longer Test Title That Goes Two Lines</h1>
+          <div className="blog-details">by <span className="blog-author">Jon Esparaz</span> on 2020-05-17</div>
+          <div className="ShareButtonDesktop">{this.shareButton()}</div>
+          <div className="body">Test post blah blah All the Scriptures, both the Old and the New Testaments, on every hand, point us to Christ Jesus that we are to follow him." ~ Menno Simons (16th Century) Welcome back to our concluding post in this series. If you didn’t catch the first two posts, do not read further, do not pass go, do not collect two hundred dollars. Instead, go here and start at the beginning. Otherwise, let’s dive in. Jesus said, “To whom much is given, much is required” (Luke 12:48), and when it comes to the Bible, our post-Gutenberg, widely educated and online generation of the Church has been given much. Very much. And we are required to make much of what we have been given. In this final post of our “Radical Christians & the Word of God” series, we’re moving our focus beyond authority and inerrancy to application. The Radical Test post blah blah All the Scriptures, both the Old and the New Testaments, on every hand, point us to Christ Jesus that we are to follow him." ~ Menno Simons (16th Century) Welcome back to our concluding post in this series. If you didn’t catch the first two posts, do not read further, do not pass go, do not collect two hundred dollars. Instead, go here and start at the beginning. Otherwise, let’s dive in. Jesus said, “To whom much is given, much is required” (Luke 12:48), and when it comes to the Bible, our post-Gutenberg, widely educated and online generation of the Church has been given much. Very much. And we are required to make much of what we have been given. In this final post of our “Radical Christians & the Word of God” series, we’re moving our focus beyond authority and inerrancy to application. The Radica</div>
+          <div className="ShareButtonMobile">{this.shareButton()}</div>
+        </div>
       </div>
     )
-
   }
 }
