@@ -17,17 +17,14 @@
             {
                 "type": "blog",
                 "style": "hero",
-                "class": "teaching-sunday",
                 "header1":"Blog",
                 "options":[],
-                "group":"teaching",
-                "subclass":"adult-sunday",
                 "sortOrder":"DESC"
             },
             {
                 "type": "list",
                 "class": "blogs",
-                "style": "blog-page",
+                "style": "blogs",
                 "selector": "all"
             }
         ]

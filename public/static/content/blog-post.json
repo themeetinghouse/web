@@ -20,9 +20,9 @@
             {
                 "type": "list",
                 "class": "blogs",
-                "style": "blog-reader",
-                "selector": "sameSeries",
-                "header1": "Similar Blog Posts"
+                "style": "blogs",
+                "selector": "",
+                "header1": ""
             }
         ]
     }

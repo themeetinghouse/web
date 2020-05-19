@@ -14,6 +14,7 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
+import { v1 as uuidv1 } from 'uuid';
 import './create-blog.scss';
 
 Amplify.configure(awsmobile);
@@ -133,10 +134,12 @@ class IndexApp extends React.Component<Props, State> {
     listSeries.then((json: any) => {
         console.log({ "Success customQueries.listSeries: ": json });
         this.setState({
-            videoSeriesList: this.state.videoSeriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => a.id > b.id)
+            videoSeriesList: this.state.videoSeriesList.concat(json.data.listSeriess.items)
         })
         if (json.data.listSeriess.nextToken != null)
             this.listSeries(json.data.listSeriess.nextToken)
+
+    this.sortVideoSeriesList();
 
     }).catch((e: any) => { console.log(e) })
   }
@@ -253,6 +256,22 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ saveReminder: !this.state.saveReminder })
   }
 
+  sortVideoSeriesList() {
+    let sorted = this.state.videoSeriesList;
+    sorted.sort(function(a: any, b: any) {
+      var nameA = a.id.toUpperCase();
+      var nameB = b.id.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({ videoSeriesList: sorted });
+  }
+
   //RENDER FUNCTIONS
 
   renderEditBlogModal() {
@@ -345,7 +364,7 @@ class IndexApp extends React.Component<Props, State> {
             image: {
               uploadEnabled: true,
               uploadCallback: async (file: any) => {
-                  const filepath = "bloguploads/" + (new Date().toJSON().slice(0,10).replace(/-/g,'')) + file.name;
+                  const filepath = "bloguploads/" + uuidv1() + file.name;
                   await Storage.put(filepath, file, {
                       contentType: "image/*"
                   })
@@ -362,7 +381,7 @@ class IndexApp extends React.Component<Props, State> {
               },
               defaultSize: {
                   height: 'auto',
-                  width: '50vw',
+                  width: '100%',
               },
               alignmentEnabled: false
             }
@@ -379,7 +398,7 @@ class IndexApp extends React.Component<Props, State> {
         <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
         <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
         <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
-        <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>Add tags + series</button><br/>
+        <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>{"Add tags & series"}</button><br/>
         <button className="toolbar-button" onClick={()=>this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
         {this.state.saveReminder ? <div style={{color: "red", fontWeight: 'bold', width: 180}}>Save Your Work!</div>: null}
       </div>

@@ -154,6 +154,12 @@ class ListItem extends React.Component<Props, State> {
       </div>)
   }
 
+  renderBlogs(item: any) {
+    return (
+      <div>test</div>
+      )
+  }
+
   fallbackToImage(
     fallbackUrl: string
   ): EventHandler<SyntheticEvent<HTMLImageElement>> {
@@ -353,6 +359,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderCurious(item)
     else if (this.state.content.class === "watch-page")
       return this.renderWatchPageVideo(item)
+    else if (this.state.content.class === "blos")
+      return this.renderBlogs(item)
     else return null
   }
 
@@ -382,6 +390,24 @@ class ListItem extends React.Component<Props, State> {
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
+
+    else if (this.state.content.style === "blogs") {
+      return (
+        <div className="ListItem horizontal-video-player" >
+          <div className="ListItemDiv1 horizontal-video-player" >
+            <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
+            {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+              <div className="WatchPageContainer">
+                {data.map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index)
+                }
+                )}
+              </div>
+          <div className="HorizontalLine"></div>
+          </div>
+        </div>
+      )
+    }
 
     else if (this.state.content.style === "horizontal-video-player") {
       //videos are not stored in order within a series, so we sort here

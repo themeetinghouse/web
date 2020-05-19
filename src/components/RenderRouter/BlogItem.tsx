@@ -21,7 +21,6 @@ interface Props extends RouteComponentProps {
 }
 interface State {
     content: any,
-    selection: string | null
     listData: any,
     teachingId: any,
     overlayData: any
@@ -42,86 +41,23 @@ class BlogItem extends React.Component<Props, State> {
         var teachingId = this.props.content.options.length<=1?0:this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.state = {
             content: props.content,
-            selection: cookies.get(this.props.content.group),
             teachingId: teachingId,
             listData: null,
             overlayData: null
         }
-        if (this.props.content.class === "teaching-sunday") {
-            const getVideoByVideoType:any = API.graphql({
-                query: queries.getVideoByVideoType,
-                variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
-            });
-            getVideoByVideoType.then((json: any) => {
-                console.log("Success queries.getVideoByVideoType: " + json);
-                console.log(json)
-                this.setState({
-                    listData: json.data.getVideoByVideoType.items
-                })
-            }).catch((e: any) => { console.log(e) })
-        }
-        else if (this.props.content.class === "bbq") {
-            const getVideoByVideoType:any = API.graphql({
-                query: queries.getVideoByVideoType,
-                variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
-            });
-            getVideoByVideoType.then((json: any) => {
-                console.log("Success queries.getVideoByVideoType: " + json);
-                console.log(json)
-                this.setState({
-                    listData: json.data.getVideoByVideoType.items
-                })
-            }).catch((e: any) => { console.log(e) })
-        }
-        else if (this.props.content.class === "teaching-kids-youth") {
-            console.log("teaching-kids-youth")
-            const getVideoByVideoType1:any = API.graphql({
-                query: queries.getVideoByVideoType,
-                variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
-            });
-            const getVideoByVideoType2:any = API.graphql({
-                query: queries.getVideoByVideoType,
-                variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
-            });
-            const getVideoByVideoType3:any = API.graphql({
-                query: queries.getVideoByVideoType,
-                variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
-            });
-            const getVideoByVideoType4:any = API.graphql({
-                query: queries.getVideoByVideoType,
-                variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-srhigh", publishedDate: { lt: "a" } },
-                authMode: GRAPHQL_AUTH_MODE.API_KEY
-            });
-            getVideoByVideoType1.then((json1: any) => {
-                console.log({"Success queries.getVideoByVideoType: " :json1});
-                this.setState({
-                    listData: json1.data.getVideoByVideoType.items
-                })
-                getVideoByVideoType2.then((json2: any) => {
-                    console.log({"Success queries.getVideoByVideoType: " : json2});
-                    this.setState({
-                        listData: this.state.listData.concat(json2.data.getVideoByVideoType.items)
-                    })
-                    getVideoByVideoType3.then((json3: any) => {
-                        console.log({"Success queries.getVideoByVideoType: " : json3});
-                        this.setState({
-                            listData: this.state.listData.concat(json3.data.getVideoByVideoType.items)
-                        })
-                        getVideoByVideoType4.then((json4: any) => {
-                            console.log({"Success queries.getVideoByVideoType: " : json4});
-                            this.setState({
-                                listData: this.state.listData.concat(json4.data.getVideoByVideoType.items)
-                            })
-                        }).catch((e: any) => { console.log(e) })
-                    }).catch((e: any) => { console.log(e) })
-                }).catch((e: any) => { console.log(e) })
-            }).catch((e: any) => { console.log(e) })
-        }
+        //query blogs
+        const getVideoByVideoType:any = API.graphql({
+            query: queries.getVideoByVideoType,
+            variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: "adult-sunday", publishedDate: { lt: "a" } },
+            authMode: GRAPHQL_AUTH_MODE.API_KEY
+        });
+        getVideoByVideoType.then((json: any) => {
+            console.log("Success queries.getVideoByVideoType: " + json);
+            console.log(json)
+            this.setState({
+                listData: json.data.getVideoByVideoType.items
+            })
+        }).catch((e: any) => { console.log(e) })
     }
     videoOverlayClose() {
         this.setState({

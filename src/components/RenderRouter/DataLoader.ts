@@ -170,6 +170,9 @@ export default class DataLoader extends React.Component<Props, State> {
         else if (this.state.content.class === "speakers") {
             this.getSpeakers(null)
         }
+        else if (this.state.content.class === "blogs") {
+            //something happens
+        }
         else if (this.state.content.class === "series") {
             this.getSeries(null)
         }
