@@ -538,7 +538,7 @@ type Series
 {
   id: ID!
   videos: [Video] @connection(name: "VideosSeries",limit: 50)
-  blogs: [Blog] @connection(name: "BlogVideoSeries",limit: 20)
+  blogs: [Blog] @connection(name: "BlogInVideoSeries",limit: 20)
   seriesType: String
   title: String
   description: String
@@ -595,13 +595,25 @@ type BlogSeries
 
 {
   id: ID!
-  blogs: [Blog] @connection(name: "BlogSeries",limit: 20)
+  blogs: [BlogSeriesBridge] @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
   seriesType: String
   title: String
   description: String
   image: String
   startDate: String
   endDate: String
+}
+
+type BlogSeriesBridge
+ @model(queries: null)
+  @key(name: "byBlogSeries", fields: ["blogSeriesID", "blogPostID"], queryField: "blogBridgeBySeries")
+  @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost") 
+{
+id: ID!
+blogSeriesID: ID
+blogPostID: ID
+blogSeries: BlogSeries @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
+blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
 }
 
 type Blog 
@@ -620,8 +632,8 @@ type Blog
   createdBy: String
   createdDate: String
   publishedDate: String
-  series:[Series]  @connection(name: "BlogVideoSeries")
-  blogSeries:[BlogSeries] @connection(name: "BlogSeries")
+  series:Series @connection(name: "BlogInVideoSeries")
+  blogSeries:[BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
   blogStatus:String
   description:String
   content:String
