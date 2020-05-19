@@ -45,6 +45,7 @@ interface State {
   blogSeriesList: any
   selectedVideoSeries: any
   selectedBlogSeries: any
+  serverBlogBridges: any
   selectedTags: any
   editMode: boolean
   blogObject: any
@@ -58,6 +59,7 @@ interface State {
   blogToEditID: any
   blogToEditObject: any
   blogPostsList: any
+  unsavedChanges: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -90,13 +92,14 @@ class IndexApp extends React.Component<Props, State> {
       currentVideoSeries: null,
       currentBlogSeries: null,
       selectedVideoSeries: null,
-      selectedBlogSeries: [], //need to store list of blog series object not list of ids
+      selectedBlogSeries: [], //list of IDs
       selectedTags: [],
 
       // queried and loaded data
       videoSeriesList: [],
       blogSeriesList: [],
       blogPostsList: [],
+      serverBlogBridges: [],
 
       // display states
       showPreview: false,
@@ -113,13 +116,17 @@ class IndexApp extends React.Component<Props, State> {
       // always start with new post
       editMode: false,
 
+      // determines if the user has unsaved changes
+      unsavedChanges: false,
+
       // mutation inputs
       blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
-      newBlogSeries: { id: '', title: ''},
+      newBlogSeries: { id: '', title: ''}
     }
 
     this.listSeries(null)
     this.listBlogs(null)
+    this.listBlogSeries(null)
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handlePublish = this.handlePublish.bind(this);
@@ -138,12 +145,20 @@ class IndexApp extends React.Component<Props, State> {
     listSeries.then((json: any) => {
         console.log({ "Success customQueries.listSeries: ": json });
         this.setState({
-            videoSeriesList: this.state.videoSeriesList.concat(json.data.listSeriess.items)
+            videoSeriesList: this.state.videoSeriesList.concat(json.data.listSeriess.items).sort(function(a: any, b: any) {
+              var nameA = a.id.toUpperCase();
+              var nameB = b.id.toUpperCase();
+              if (nameA < nameB) {
+                return -1;
+              }
+              if (nameA > nameB) {
+                return 1;
+              }
+              return 0;
+            })
         })
         if (json.data.listSeriess.nextToken != null)
             this.listSeries(json.data.listSeriess.nextToken)
-
-    this.sortVideoSeriesList();
 
     }).catch((e: any) => { console.log(e) })
   }
@@ -158,12 +173,48 @@ class IndexApp extends React.Component<Props, State> {
     listBlogs.then((json: any) => {
       console.log({ "Success queries.listBlogs: ": json });
       this.setState({
-          blogPostsList: this.state.blogPostsList.concat(json.data.listBlogs.items)
+          blogPostsList: this.state.blogPostsList.concat(json.data.listBlogs.items).sort(function(a: any, b: any) {
+            var nameA = a.title.toUpperCase();
+            var nameB = b.title.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          })
       })
       if (json.data.listBlogs.nextToken != null)
           this.listSeries(json.data.listBlogs.nextToken)
 
-    this.sortBlogPostsList();
+    }).catch((e: any) => { console.log(e) })
+  }
+
+  listBlogSeries(nextToken: any) {
+    var listBlogSeries:any = API.graphql({
+        query: queries.listBlogSeriess,
+        variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200},
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+    });
+
+    listBlogSeries.then((json: any) => {
+      console.log({ "Success queries.listBlogSeries: ": json });
+      this.setState({
+          blogSeriesList: this.state.blogSeriesList.concat(json.data.listBlogSeriess.items).sort(function(a: any, b: any) {
+            var nameA = a.title.toUpperCase();
+            var nameB = b.title.toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            return 0;
+          })
+      })
+      if (json.data.listBlogSeriess.nextToken != null)
+          this.listSeries(json.data.listBlogSeriess.nextToken)
 
     }).catch((e: any) => { console.log(e) })
   }
@@ -178,15 +229,52 @@ class IndexApp extends React.Component<Props, State> {
       this.updateBlogField('author', this.state.author)
       this.updateBlogField('description', this.state.desc)
       this.updateBlogField('content', this.state.editorState)
-      this.updateBlogField('blogStatus', 'Unlisted')
       this.updateBlogField('tags', this.state.selectedTags)
+      this.updateBlogField('blogStatus', 'Unlisted')
   
-      let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
-      console.log(videoseries)
-      this.updateBlogField('series', videoseries)
+      if (this.state.selectedVideoSeries) {
+        let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
+        this.updateBlogField('series', videoseries)
+      } else {
+        this.updateBlogField('series', null)
+      }
+
+      var localBlogSeries = this.state.selectedBlogSeries;
+      var PostID = this.state.blogObject.id;
       
-      //requires loop:
-      //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
+      const blogBridgeByPost:any = API.graphql({
+        query: queries.blogBridgeByPost,
+        variables: { blogPostID: PostID },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      blogBridgeByPost.then((json: any) => {
+        console.log("Success queries.blogBridgeByPost: " + json);
+        console.log(json)
+        this.setState({
+            serverBlogBridges: json.data.blogBridgeByPost.items
+        })
+      }).catch((e: any) => { console.log(e) })
+
+      var serverBlogBridges = this.state.serverBlogBridges;
+
+      var justBlogSeries = serverBlogBridges.map((bridge: any) => { 
+        return bridge.blogSeriesID
+      });
+
+      var missingOnServer: any = []
+
+      if (localBlogSeries === []) {
+        //delete all bridges associated with this id
+      } else {
+        localBlogSeries.forEach((localIDs: string) => {
+          missingOnServer.push(justBlogSeries.filter((serverIDs: string) => serverIDs === localIDs)[0])
+        })
+
+        missingOnServer.forEach((item: any) => {
+          console.log(item)
+          //create bridge between post and series
+        })
+      }
       
       if (this.state.editMode === false) {
           var createBlog:any = API.graphql({
@@ -223,39 +311,12 @@ class IndexApp extends React.Component<Props, State> {
   handlePublish() {
     if (this.state.author === '' || this.state.title === '' || this.state.desc === '' || this.state.editorState.getCurrentContent().hasText() === false) {
       console.log('missing fields')
+    } else if (this.state.unsavedChanges === true) {
+      console.log('you have unsaved changes. click save before publishing')
     } else {
-      this.updateBlogField('blogTitle', this.state.title)
-      this.updateBlogField('author', this.state.author)
-      this.updateBlogField('description', this.state.desc)
-      this.updateBlogField('content', this.state.editorState)
-      //this.updateBlogField('series', this.state.selectedVideoSeries)
-      this.updateBlogField('tags', this.state.selectedTags)
-      //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
       this.updateBlogField('publishedDate', new Date().toJSON().slice(0,10).replace(/-/g,'-'))
       this.updateBlogField('blogStatus', 'Live')
-      //mutation to create new or update
-      this.setState({
-        title: '',
-        author: '',
-        desc: '',
-        editorState: EditorState.createEmpty()
-      })
 
-      if (this.state.editMode === false) {
-        var createBlog:any = API.graphql({
-            query: mutations.createBlog,
-            variables: { input: this.state.blogObject },
-            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-        });
-
-        createBlog.then((json: any) => {
-            console.log({ "Success mutations.createBlog: ": json });
-            this.setState({ editMode: true });
-
-        }).catch((e: any) => { console.log(e) })
-        return true;
-
-      } else if (this.state.editMode === true) {
         var updateBlog:any = API.graphql({
           query: mutations.updateBlog,
           variables: { input: this.state.blogObject },
@@ -264,13 +325,24 @@ class IndexApp extends React.Component<Props, State> {
 
         updateBlog.then((json: any) => {
             console.log({ "Success mutations.updateBlog: ": json });
-            this.setState({ editMode: true });
+            this.setState({ 
+              editMode: true,
+              title: '',
+              author: '',
+              desc: '',
+              editorState: EditorState.createEmpty(),
+              currentTag: '',
+              currentVideoSeries: null,
+              currentBlogSeries: null,
+              selectedVideoSeries: null,
+              selectedBlogSeries: [],
+              selectedTags: []
+            });
 
         }).catch((e: any) => { console.log(e) })
         return true;
-      }
-      return false;
     }
+    return false;
   }
 
   waitForSelection(conditionFunction: () => boolean) {
@@ -291,10 +363,12 @@ class IndexApp extends React.Component<Props, State> {
       author: this.state.blogToEditObject.author,
       desc: this.state.blogToEditObject.description,
       editorState: this.state.blogToEditObject.content,
-      selectedTags: this.state.blogToEditObject.tags
+      selectedTags: this.state.blogToEditObject.tags,
+      selectedVideoSeries: this.state.blogToEditObject.series
     })
-    //set state of video series, blog series
+    //set state blog series (needs some work)
     this.setState({ editMode: true });
+    //set post as unlisted
     console.log("editMode:" + this.state.editMode);
   }
 
@@ -316,15 +390,11 @@ class IndexApp extends React.Component<Props, State> {
   return false;
   }
 
-  handleExit() {
-    //provide warnings
-  }
-
   updateSeriesField(field: any, value: any) {
     let blogSeries = this.state.newBlogSeries
     blogSeries[field] = value
         
-    blogSeries.id = blogSeries.title + '-' + (new Date().toJSON().slice(0,10).replace(/-/g,'-'))
+    blogSeries.id = blogSeries.title
     this.setState({ newBlogSeries: blogSeries })
     console.log(blogSeries)
   }
@@ -344,51 +414,6 @@ class IndexApp extends React.Component<Props, State> {
   getMarkup() {
     const markup = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
     return markup
-  }
-
-  interval: any;
-  componentDidMount() {
-    //reminder to save every 10 mins
-    this.interval = setInterval(() => this.saveReminder(), 600000);
-  }
-
-  async saveReminder() {
-    this.setState({ saveReminder: !this.state.saveReminder })
-    //display for 10 sec
-    await new Promise(r => setTimeout(r, 10000));
-    this.setState({ saveReminder: !this.state.saveReminder })
-  }
-
-  sortVideoSeriesList() {
-    let sorted = this.state.videoSeriesList;
-    sorted.sort(function(a: any, b: any) {
-      var nameA = a.id.toUpperCase();
-      var nameB = b.id.toUpperCase();
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-      return 0;
-    });
-    this.setState({ videoSeriesList: sorted });
-  }
-
-  sortBlogPostsList() {
-    let sorted = this.state.blogPostsList;
-    sorted.sort(function(a: any, b: any) {
-      var nameA = a.title.toUpperCase();
-      var nameB = b.title.toUpperCase();
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-      return 0;
-    });
-    this.setState({ blogPostsList: sorted });
   }
 
   //RENDER FUNCTIONS
@@ -440,7 +465,7 @@ class IndexApp extends React.Component<Props, State> {
           <option key="null" value="null">None Selected</option>
           {this.state.blogSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.title}</option>})}
         </select>
-        <div><b>Current blog series: (click on series to delete):</b> {this.state.selectedBlogSeries.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedBlogSeries: this.state.selectedBlogSeries.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
+        <div><b>Current blog series: </b> {this.state.selectedBlogSeries.map((item: any) => <div style={{display: "inline"}}>{item + ", "}</div>)}</div>
           <br/>
 
         <b>Add to Video Series</b>
