@@ -8,8 +8,8 @@ import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
-//import * as queries from '../../graphql/queries';
-//import * as mutations from '../../graphql/mutations';
+import * as queries from '../../graphql/queries';
+import * as mutations from '../../graphql/mutations';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
@@ -48,14 +48,15 @@ interface State {
   selectedTags: any
   editMode: boolean
   blogObject: any
-  blogSeries: any
+  newBlogSeries: any
   currentTag: string
   moreOptions: boolean
   currentVideoSeries: any
   currentBlogSeries: any
   showEditModal: boolean
   newBlogSeriesModal: boolean
-  selectedBlogToEdit: any
+  blogToEditID: any
+  blogToEditObject: any
   blogPostsList: any
 }
 
@@ -105,7 +106,8 @@ class IndexApp extends React.Component<Props, State> {
       newBlogSeriesModal: false,
 
       // determines which existing blog the user wishes to edit
-      selectedBlogToEdit: null,
+      blogToEditID: null,
+      blogToEditObject: null,
 
       // determines if we create a new blog or update an existing blog
       // always start with new post
@@ -113,13 +115,15 @@ class IndexApp extends React.Component<Props, State> {
 
       // mutation inputs
       blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
-      blogSeries: { id: '', title: ''},
+      newBlogSeries: { id: '', title: ''},
     }
 
     this.listSeries(null)
+    this.listBlogs(null)
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handlePublish = this.handlePublish.bind(this);
+    this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
   }
 
   //QUERY FUNCTIONS
@@ -144,34 +148,76 @@ class IndexApp extends React.Component<Props, State> {
     }).catch((e: any) => { console.log(e) })
   }
 
+  listBlogs(nextToken: any) {
+    var listBlogs:any = API.graphql({
+        query: queries.listBlogs,
+        variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200},
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+    });
+
+    listBlogs.then((json: any) => {
+      console.log({ "Success queries.listBlogs: ": json });
+      this.setState({
+          blogPostsList: this.state.blogPostsList.concat(json.data.listBlogs.items)
+      })
+      if (json.data.listBlogs.nextToken != null)
+          this.listSeries(json.data.listBlogs.nextToken)
+
+    this.sortBlogPostsList();
+
+    }).catch((e: any) => { console.log(e) })
+  }
+
   //HANDLERS
 
   handleSave() {
-    //check if author and title
-    this.updateBlogField('blogTitle', this.state.title)
-    this.updateBlogField('author', this.state.author)
-    this.updateBlogField('description', this.state.desc)
-    this.updateBlogField('content', this.state.editorState)
-    this.updateBlogField('blogStatus', 'Unlisted')
-    this.updateBlogField('tags', this.state.selectedTags)
+    if (this.state.author === '' || this.state.title === '') {
+      console.log('missing title and/or author')
+    } else {
+      this.updateBlogField('blogTitle', this.state.title)
+      this.updateBlogField('author', this.state.author)
+      this.updateBlogField('description', this.state.desc)
+      this.updateBlogField('content', this.state.editorState)
+      this.updateBlogField('blogStatus', 'Unlisted')
+      this.updateBlogField('tags', this.state.selectedTags)
+  
+      let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
+      console.log(videoseries)
+      this.updateBlogField('series', videoseries)
+      
+      //requires loop:
+      //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
+      
+      if (this.state.editMode === false) {
+          var createBlog:any = API.graphql({
+              query: mutations.createBlog,
+              variables: { input: this.state.blogObject },
+              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+          });
 
-    let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
-    console.log(videoseries)
-    this.updateBlogField('series', videoseries)
-    
-    //require loop:
-    //this.updateBlogField('blogSeries', this.state.selectedBlogSeries)
-    
-    //mutations:
-    //if this.state.editMode === true
-      //update, but don't publish
-    if (this.state.editMode === false) {
-      //create new unlisted blog object
-      this.setState({ editMode: true });
-    }
+          createBlog.then((json: any) => {
+              console.log({ "Success mutations.createBlog: ": json });
+              this.setState({ editMode: true });
 
-    console.log("saved")
-    console.log(this.state.blogObject)
+          }).catch((e: any) => { console.log(e) })
+          return true;
+
+      } else if (this.state.editMode === true) {
+          var updateBlog:any = API.graphql({
+            query: mutations.updateBlog,
+            variables: { input: this.state.blogObject },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+          });
+
+          updateBlog.then((json: any) => {
+              console.log({ "Success mutations.updateBlog: ": json });
+              this.setState({ editMode: true });
+
+          }).catch((e: any) => { console.log(e) })
+          return true;
+      }
+      return false;
+    }  
   }
 
   handlePublish() {
@@ -194,23 +240,80 @@ class IndexApp extends React.Component<Props, State> {
         desc: '',
         editorState: EditorState.createEmpty()
       })
-      console.log("published")
-      console.log(this.state.blogObject)
+
+      if (this.state.editMode === false) {
+        var createBlog:any = API.graphql({
+            query: mutations.createBlog,
+            variables: { input: this.state.blogObject },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+        });
+
+        createBlog.then((json: any) => {
+            console.log({ "Success mutations.createBlog: ": json });
+            this.setState({ editMode: true });
+
+        }).catch((e: any) => { console.log(e) })
+        return true;
+
+      } else if (this.state.editMode === true) {
+        var updateBlog:any = API.graphql({
+          query: mutations.updateBlog,
+          variables: { input: this.state.blogObject },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+        });
+
+        updateBlog.then((json: any) => {
+            console.log({ "Success mutations.updateBlog: ": json });
+            this.setState({ editMode: true });
+
+        }).catch((e: any) => { console.log(e) })
+        return true;
+      }
+      return false;
     }
   }
 
-  handleEdit() {
+  waitForSelection(conditionFunction: () => boolean) {
+
+    const poll = (resolve: any) => {
+      if(conditionFunction()) resolve();
+      else setTimeout(_ => poll(resolve), 500);
+    }
+  
+    return new Promise(poll);
+  }
+
+  async handleEdit() {
     this.setState({ showEditModal: true });
-    //set to unlisted (mutation)
-    //find existing post
-    //set state of title, author, desc, editorState, tags, video series, blog series
-    //verbose warning that you need to re-publish
+    await this.waitForSelection(() => this.state.blogToEditObject);
+    this.setState({
+      title: this.state.blogToEditObject.blogTitle,
+      author: this.state.blogToEditObject.author,
+      desc: this.state.blogToEditObject.description,
+      editorState: this.state.blogToEditObject.content,
+      selectedTags: this.state.blogToEditObject.tags
+    })
+    //set state of video series, blog series
     this.setState({ editMode: true });
+    console.log("editMode:" + this.state.editMode);
   }
 
   handleNewBlogSeries() {
-    //create new blog series
-    //fetch blog series
+    this.setState({ newBlogSeriesModal: false });
+    if (this.state.newBlogSeries.title !== "") {
+      var saveBlogSeries:any = API.graphql({
+          query: mutations.createBlogSeries,
+          variables: { input: this.state.newBlogSeries },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+
+      saveBlogSeries.then((json: any) => {
+          console.log({ "Success mutations.saveBlogSeries: ": json });
+
+      }).catch((e: any) => { console.log(e) })
+      return true;
+    }
+  return false;
   }
 
   handleExit() {
@@ -218,11 +321,11 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   updateSeriesField(field: any, value: any) {
-    let blogSeries = this.state.blogSeries
+    let blogSeries = this.state.newBlogSeries
     blogSeries[field] = value
         
     blogSeries.id = blogSeries.title + '-' + (new Date().toJSON().slice(0,10).replace(/-/g,'-'))
-    this.setState({ blogSeries: blogSeries })
+    this.setState({ newBlogSeries: blogSeries })
     console.log(blogSeries)
   }
 
@@ -272,16 +375,37 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ videoSeriesList: sorted });
   }
 
+  sortBlogPostsList() {
+    let sorted = this.state.blogPostsList;
+    sorted.sort(function(a: any, b: any) {
+      var nameA = a.title.toUpperCase();
+      var nameB = b.title.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({ blogPostsList: sorted });
+  }
+
   //RENDER FUNCTIONS
 
   renderEditBlogModal() {
     return <Modal isOpen={this.state.showEditModal}>
         <div>Edit a blog post</div>
-        <select onChange={(event:any) => this.setState({ selectedBlogToEdit: event.target.value})}>
+        <select onChange={(event:any) => this.setState({ blogToEditID: event.target.value})}>
           <option key="null" value="null">None Selected</option>
           {this.state.blogPostsList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
         </select>
-        <button onClick={() => { this.setState({ showEditModal: false }) }}>DONE</button>
+        <button 
+          onClick={() => this.setState({ 
+            showEditModal: false, 
+            blogToEditObject: this.state.blogPostsList.filter((post: any) => post.id === this.state.blogToEditID)[0]
+            })
+          }>DONE</button>
       </Modal>
   }
 
@@ -290,9 +414,9 @@ class IndexApp extends React.Component<Props, State> {
         <div>New Blog Series</div>
         <label>
           Title:
-          <input value={this.state.blogSeries.title} onChange={(item: any) => { this.updateSeriesField("title", item.target.value) }} />
+          <input value={this.state.newBlogSeries.title} onChange={(item: any) => { this.updateSeriesField("title", item.target.value) }} />
         </label>
-        <button onClick={() => { this.setState({ newBlogSeriesModal: false }) }}>DONE</button>
+        <button onClick={() => this.handleNewBlogSeries()}>DONE</button>
       </Modal>
   }
 
@@ -314,7 +438,7 @@ class IndexApp extends React.Component<Props, State> {
         <button className="tags-button" style={{background: "green", width: 160}} onClick={()=>this.setState({ newBlogSeriesModal: true })}>New Blog Series</button>
         <select onChange={(event:any) => this.setState({ currentBlogSeries: event.target.value})}>
           <option key="null" value="null">None Selected</option>
-          <option key="test" value="test">test</option>
+          {this.state.blogSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.title}</option>})}
         </select>
         <div><b>Current blog series: (click on series to delete):</b> {this.state.selectedBlogSeries.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedBlogSeries: this.state.selectedBlogSeries.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
           <br/>
