@@ -264,7 +264,7 @@ class IndexApp extends React.Component<Props, State> {
       var missingOnServer: any = []
 
       if (localBlogSeries === []) {
-        //delete all bridges associated with this id
+        //deleteBlogSeriesBridge
       } else {
         localBlogSeries.forEach((localIDs: string) => {
           missingOnServer.push(justBlogSeries.filter((serverIDs: string) => serverIDs === localIDs)[0])
@@ -273,6 +273,8 @@ class IndexApp extends React.Component<Props, State> {
         missingOnServer.forEach((item: any) => {
           console.log(item)
           //create bridge between post and series
+          //bridge id: postid + seriesid
+          //update post and series to add bridge
         })
       }
       
