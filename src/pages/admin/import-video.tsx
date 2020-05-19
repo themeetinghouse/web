@@ -109,7 +109,17 @@ class IndexApp extends React.Component<Props, State> {
         listSeries.then((json: any) => {
             console.log({ "Success customQueries.listSeries: ": json });
             this.setState({
-                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => a.id > b.id)
+                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort(function(a: any, b: any) {
+                    var nameA = a.id.toUpperCase();
+                    var nameB = b.id.toUpperCase();
+                    if (nameA < nameB) {
+                      return -1;
+                    }
+                    if (nameA > nameB) {
+                      return 1;
+                    }
+                    return 0;
+                  })
             })
             if (json.data.listSeriess.nextToken != null)
                 this.listSeries(json.data.listSeriess.nextToken)
