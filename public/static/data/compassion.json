@@ -155,7 +155,7 @@
         "name": "Ray of Hope",
         "description": "Ray of Hope provides life-changing services to people in need. They demonstrate the love of Christ with those who are disadvantaged, marginalized, or troubled.",
         "website": "https://www.rayofhope.net/",
-        "image": "/static/photos/compassion/ray of hope.jpg",
+        "image": "/static/photos/compassion/Ray of Hope.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -342,7 +342,7 @@
         "sites": ["parry-sound"],
         "name": "The Sound HUB",
         "description": "The Sound Hub is a collaborative partnership of community agencies, including the Parry Sound Non Profit Housing Corporation.  As a partner, The Meeting House Parry Sound is intentional in building relationships with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/photos/compassion/The Sound Hub.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -548,7 +548,7 @@
         "sites": ["kitchener"],
         "name": "The Bridges",
         "description":"Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
-        "image": "/static/photos/compassion/cambridge shelter.jpg",
+        "image": "/static/photos/compassion/Cambridge Shelter.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
@@ -615,7 +615,7 @@
         "sites": ["alliston"],
         "name": "The Door Youth Centre",
         "description":"The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
-        "image": "/static/images/compassion/none.jpg",
+        "image": "/static/photos/compassion/The Door.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     }
 
