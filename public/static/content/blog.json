@@ -18,14 +18,15 @@
                 "type": "blog",
                 "style": "hero",
                 "header1":"Blog",
-                "status": "Unlisted",
-                "options": [],
+                "status": "Live",
                 "sortOrder": "DESC"
             },
             {
                 "type": "list",
                 "class": "blogs",
-                "style": "blogs"
+                "style": "blogs",
+                "status": "Live",
+                "sortOrder": "DESC"
             }
         ]
     }

@@ -41,7 +41,7 @@ class BlogItem extends React.Component<Props, State> {
         }
         const getBlogByBlogStatus:any = API.graphql({
             query: queries.getBlogByBlogStatus,
-            variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: 2 },
+            variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
         getBlogByBlogStatus.then((json: any) => {
@@ -53,44 +53,30 @@ class BlogItem extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
 
-    handleClick(data: any) {
-        this.setState({
-            overlayData: data
-
-        })
+    navigateUrl(to: string) {
+        window.location.href = to;
     }
-
-    navigateUrlNewWindow(to: string) {
-        window.open(
-          to,
-          '_blank' // <- This is what makes it open in a new window.
-        );
-      }
     
     render() {
-       
         if (this.state.content.style === "hero") {
             console.log(this.props.content.class)
             return (
                 this.state.listData !== null ?
-                    (this.state.listData.length === this.props.content.options.length) || (this.props.content.options.length === 0) ?
                         <div className="blog" >
-                            
                             <h1 className="blog-h1" >{this.props.content.header1}</h1>
                             <div className="blog-blackbox" >
                                 <div className="blog-post-title" >{this.state.listData[0].blogTitle}</div>
                                 <div className="blogdiv blogauthor" >by <span className="author-underline">{this.state.listData[0].author}</span> on {this.state.listData[0].publishedDate}</div>
                                 <div className="blogdiv blogdescription" >{this.state.listData[0].description}</div>
                                 <div className="blogdiv2" >
-                                    <Button size="lg" className="blogButton" >Read More</Button>
+                                    <Button size="lg" className="blogButton" onClick={() => this.navigateUrl("/posts/" + this.state.listData[0].id)}>Read More</Button>
                                 </div>
-                                <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/baby-hero-" + this.state.listData[0].blogTitle + ".jpg"} /></div>
+                                <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/" + this.state.listData[0].blogTitle + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.listData[0].id)}/></div>
                             </div>
                             {
-                            //image here
+                            <div className="mobile-image-container"><img alt="TBD" className="blog-image-mobile" src={"/static/photos/blogs/baby-hero/" + this.state.listData[0].blogTitle + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.listData[0].id)}/></div>
                             }
                         </div> : null
-                    : null
             )
         }
         else return null

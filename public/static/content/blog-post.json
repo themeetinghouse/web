@@ -16,13 +16,6 @@
         "content": [
             {
                 "type": "post"
-            },
-            {
-                "type": "list",
-                "class": "blogs",
-                "style": "blogs",
-                "selector": "",
-                "header1": ""
             }
         ]
     }

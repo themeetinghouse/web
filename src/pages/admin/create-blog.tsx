@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditorState, convertToRaw } from 'draft-js';
+import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg'
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
@@ -15,6 +15,10 @@ import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import format from 'date-fns/format';
 import './create-blog.scss';
 
 Amplify.configure(awsmobile);
@@ -59,7 +63,12 @@ interface State {
   blogToEditID: any
   blogToEditObject: any
   blogPostsList: any
-  unsavedChanges: boolean
+  publishDate: any
+  expireDate: any
+  videoSeries: any
+  showAlert: any
+  disableCalendar: boolean
+  blogStatus: string
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -87,19 +96,24 @@ class IndexApp extends React.Component<Props, State> {
       author: '',
       desc: '',
 
-      // tags and series input
+      // tags, series, status and date input
       currentTag: '',
+      blogStatus: 'Unlisted',
       currentVideoSeries: null,
       currentBlogSeries: null,
       selectedVideoSeries: null,
-      selectedBlogSeries: [], //list of IDs
+      selectedBlogSeries: [],
       selectedTags: [],
+      publishDate: new Date(),
+      expireDate: new Date(),
+      disableCalendar: false,
 
       // queried and loaded data
       videoSeriesList: [],
       blogSeriesList: [],
       blogPostsList: [],
       serverBlogBridges: [],
+      videoSeries: null,
 
       // display states
       showPreview: false,
@@ -107,6 +121,7 @@ class IndexApp extends React.Component<Props, State> {
       moreOptions: false,
       showEditModal: false,
       newBlogSeriesModal: false,
+      showAlert: '',
 
       // determines which existing blog the user wishes to edit
       blogToEditID: null,
@@ -116,11 +131,8 @@ class IndexApp extends React.Component<Props, State> {
       // always start with new post
       editMode: false,
 
-      // determines if the user has unsaved changes
-      unsavedChanges: false,
-
       // mutation inputs
-      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: ''},
+      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '' },
       newBlogSeries: { id: '', title: ''}
     }
 
@@ -129,13 +141,12 @@ class IndexApp extends React.Component<Props, State> {
     this.listBlogSeries(null)
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
-    this.handlePublish = this.handlePublish.bind(this);
     this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  //QUERY FUNCTIONS
+  // QUERY FUNCTIONS
 
   listSeries(nextToken: any) {
     var listSeries:any = API.graphql({
@@ -221,11 +232,23 @@ class IndexApp extends React.Component<Props, State> {
     }).catch((e: any) => { console.log(e) })
   }
 
-  //HANDLERS
+  // HANDLERS
+
+  handlePublishDate = (date: any) => {
+    this.setState({
+      publishDate: date
+    });
+  }
+
+  handleExpireDate = (date: any) => {
+    this.setState({
+      expireDate: date
+    });
+  }
 
   handleSave() {
     if (this.state.author === '' || this.state.title === '') {
-      console.log('missing title and/or author')
+      this.setState({ showAlert: "You need a valid title and author to save." })
       return false;
     } else {
       var contentState = this.state.editorState.getCurrentContent();
@@ -236,21 +259,16 @@ class IndexApp extends React.Component<Props, State> {
       this.updateBlogField('description', this.state.desc)
       this.updateBlogField('content', html)
       this.updateBlogField('tags', this.state.selectedTags)
-      this.updateBlogField('blogStatus', 'Unlisted')
-      this.updateBlogField('publishedDate', new Date().toJSON().slice(0,10).replace(/-/g,'-'))
-      console.log(this.state.blogObject)
-      /* if (this.state.selectedVideoSeries) {
-        let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
-        this.updateBlogField('series', videoseries)
-        console.log(videoseries)
+      this.updateBlogField('blogStatus', this.state.blogStatus)
+      this.updateBlogField('publishedDate', format(this.state.publishDate, "yyyy-MM-dd"))
+      if (this.state.disableCalendar===true) {
+        this.updateBlogField('expirationDate', 'none')
       } else {
-        this.updateBlogField('series', null)
+        this.updateBlogField('expirationDate', format(this.state.expireDate, "yyyy-MM-dd"))
       }
-      */
-    }
+      console.log(this.state.blogObject)
+      console.log(this.state.selectedVideoSeries)
 
-    console.log(this.state.blogObject);
-      
       if (this.state.editMode === false) {
           var createBlog:any = API.graphql({
               query: mutations.createBlog,
@@ -274,49 +292,11 @@ class IndexApp extends React.Component<Props, State> {
 
           updateBlog.then((json: any) => {
               console.log({ "Success mutations.updateBlog: ": json });
-              this.setState({ editMode: true });
 
           }).catch((e: any) => { console.log(e) })
           return true;
       }
-  }
-
-  handlePublish() {
-    if (this.state.author === '' || this.state.title === '' || this.state.desc === '' || this.state.editorState.getCurrentContent().hasText() === false) {
-      console.log('missing fields')
-      return false;
-    } else if (this.state.unsavedChanges === true) {
-      console.log('you have unsaved changes. click save before publishing')
-      return false;
-    } else {
-      this.updateBlogField('publishedDate', new Date().toJSON().slice(0,10).replace(/-/g,'-'))
-      this.updateBlogField('blogStatus', 'Live')
-
-        var updateBlog:any = API.graphql({
-          query: mutations.updateBlog,
-          variables: { input: this.state.blogObject },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-        });
-
-        updateBlog.then((json: any) => {
-            console.log({ "Success mutations.updateBlog: ": json });
-            this.setState({ 
-              editMode: true,
-              title: '',
-              author: '',
-              desc: '',
-              editorState: EditorState.createEmpty(),
-              currentTag: '',
-              currentVideoSeries: null,
-              currentBlogSeries: null,
-              selectedVideoSeries: null,
-              selectedBlogSeries: [],
-              selectedTags: []
-            });
-
-        }).catch((e: any) => { console.log(e) })
-        return true;
-      }
+    }
   }
 
   waitForSelection(conditionFunction: () => boolean) {
@@ -333,16 +313,19 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ showEditModal: true });
     await this.waitForSelection(() => this.state.blogToEditObject);
     console.log(this.state.blogToEditObject);
-    //const incomingContent = EditorState.createWithContent(this.state.blogToEditObject.content);
+    const blocksfromHtml = htmlToDraft(this.state.blogToEditObject.content);
+    const { contentBlocks, entityMap } = blocksfromHtml;
+    const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);    
     this.setState({
       title: this.state.blogToEditObject.blogTitle,
       author: this.state.blogToEditObject.author,
       desc: this.state.blogToEditObject.description,
-      //editorState: incomingContent,
-      selectedTags: this.state.blogToEditObject.tags,
-      selectedVideoSeries: this.state.blogToEditObject.series
+      editorState: EditorState.createWithContent(contentState),
+      selectedTags: this.state.blogToEditObject.tags
+      //series
+      //blog series
+      //dates
     })
-    //set state blog series (needs some work)
     this.setState({ editMode: true });
   }
 
@@ -361,7 +344,7 @@ class IndexApp extends React.Component<Props, State> {
       }).catch((e: any) => { console.log(e) })
       return true;
     }
-  return false;
+    return false;
   }
 
   updateSeriesField(field: any, value: any) {
@@ -421,7 +404,7 @@ class IndexApp extends React.Component<Props, State> {
 
   onChange = (editorState: any) => this.setState({ editorState });
 
-  //RENDER FUNCTIONS
+  // RENDER FUNCTIONS
 
   renderEditBlogModal() {
     return <Modal isOpen={this.state.showEditModal}>
@@ -453,6 +436,14 @@ class IndexApp extends React.Component<Props, State> {
   renderMoreOptions() {
     return (
       <div>
+
+      <b>Blog Status</b>
+        <select onChange={(event:any) => this.setState({ blogStatus: event.target.value})}>
+          <option key="unlisted" value="Unlisted">Unlisted</option>
+          <option key="live" value="Live">Live</option>
+        </select>
+          <br/>
+
         <label>
           Add tags:
           <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
@@ -481,6 +472,25 @@ class IndexApp extends React.Component<Props, State> {
           {this.state.videoSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
         </select>
         <div><b>Current video series: </b> <div style={{display: "inline"}}>{this.state.selectedVideoSeries} </div></div>
+          <br/>
+        
+        <b className="calendar-label">Schedule publish date</b>
+        <DatePicker 
+          selected={this.state.publishDate} 
+          onChange={this.handlePublishDate} 
+          dateFormat="yyyy-MM-dd"
+          minDate={new Date()}
+          />
+        <br/>
+        <b className="calendar-label">{this.state.disableCalendar ? "No expiry" : "Select expiry date"}</b>
+        <button onClick={()=>this.setState({ disableCalendar: !this.state.disableCalendar })}>None</button>
+        <DatePicker 
+          selected={this.state.expireDate} 
+          onChange={this.handleExpireDate} 
+          dateFormat="yyyy-MM-dd"
+          disabled={this.state.disableCalendar}
+          minDate={new Date()}
+        />
       </div>
     )
   }
@@ -499,8 +509,8 @@ class IndexApp extends React.Component<Props, State> {
         </label>
 
         <label style={this.state.desc.length >= 180 ? {color: "red"} : {color: "black"}}>
-          Description ({this.state.desc.length + " of 220 characters"}):
-          <textarea className="big-input" maxLength={220} value={this.state.desc} onChange={(event:any)=> this.setState({ desc: event.target.value})} />
+          Description ({this.state.desc.length + " of 210 characters"}):
+          <textarea className="big-input" maxLength={210} value={this.state.desc} onChange={(event:any)=> this.setState({ desc: event.target.value})} />
         </label>
 
         <Editor
@@ -518,7 +528,7 @@ class IndexApp extends React.Component<Props, State> {
             image: {
               uploadEnabled: true,
               uploadCallback: async (file: any) => {
-                  const filepath = "bloguploads/" + uuidv1() + file.name;
+                  const filepath = "/bloguploads/" + uuidv1() + file.name;
                   await Storage.put(filepath, file, {
                       contentType: "image/*"
                   })
@@ -550,12 +560,20 @@ class IndexApp extends React.Component<Props, State> {
     return (
       <div className="toolbar-button-container">
         <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
-        <button className="toolbar-button" onClick={this.handlePublish}>PUBLISH</button><br/>
         <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
-        <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>{"Add tags & series"}</button><br/>
+        <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br/>
         <button className="toolbar-button" onClick={()=>this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
         {this.state.saveReminder ? <div style={{color: "red", fontWeight: 'bold', width: 180}}>Save Your Work!</div>: null}
       </div>
+    )
+  }
+
+  renderAlert() {
+    return (
+      <Modal isOpen={this.state.showAlert}>
+        <div>{this.state.showAlert}</div>
+        <button onClick={() => this.setState({ showAlert: '' })}>OK</button>
+      </Modal>
     )
   }
 
@@ -563,6 +581,7 @@ class IndexApp extends React.Component<Props, State> {
     return (
       <div className="blog-container">
         <AdminMenu></AdminMenu>
+        {this.renderAlert()}
         {this.renderEditBlogModal()}
         {this.renderNewBlogSeriesModal()}
         {this.renderToolbar()}

@@ -20,6 +20,7 @@
     .blogdescription {
         margin-top: 2vw;
         width: 31vw;
+        font-size: larger;
     }
 
     .blogauthor {
@@ -54,8 +55,9 @@
     }
 
     .author-underline {
-        padding-bottom: 2px;
-        border-bottom: solid;
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
     }
 
     .blogdiv2 {
@@ -117,8 +119,26 @@
         font-family: Graphik Web;
     }
 
+    .blogdescription {
+        margin-top: 2vw;
+        width: 31vw;
+        font-size: medium;
+    }
+
+    .blogauthor {
+        font-size: small;
+        width: 30.625vw;
+    }
+
+    .author-underline {
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
+    }
+
     .blog-blackbox {
         padding: 3vw;
+        padding-top: 7vw;
         padding-right: 15vw;
         position: absolute;
         left: 5vw;
@@ -174,44 +194,6 @@
         padding-bottom: 5vh;
     }
 
-    .TeachingSelected {
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: black;
-        font-size:1vw;
-        border-bottom: black solid;
-        padding-bottom: 1px;
-        cursor: pointer;
-    }
-
-    .TeachingUnselected {
-        font-family: Graphik Web;
-        font-weight: bold;
-        cursor: pointer;
-        color: #646469; 
-        opacity: 0.54;
-        font-size:1vw;
-    }
-
-    .blog-mostrecent {
-        position: absolute;
-        left: 2vw;
-        top: 50vw;
-        transform: rotate(-90deg);
-        transform-origin: left top 0;
-        font-family: Graphik Web;
-        color: #646469; 
-    }
-
-    .blog-options {
-        position: absolute;
-        right: 78vw;
-        text-align: right;
-        width: 25vw;
-        top: 10vw;
-        transform: rotate(-90deg);
-        transform-origin: right top 0;
-    }
 }
 
 @media (max-width: 767px) {
@@ -223,14 +205,9 @@
         font-family: Graphik Web;
     }
 
-    .titleOnly {
-        border-bottom: solid 1px;
-        padding-bottom: 2px;
-        cursor: pointer;
-    }
-
     .blog-blackbox {
         padding: 3vw;
+        padding-top: 12vw;
         position: relative;
         left: 0vw;
         width: 100vw;
@@ -241,10 +218,16 @@
     }
 
     .blogdiv {
-        padding: 7vw 2vw;
+        padding: 3vw 2vw;
         color: #C8C8C8;
         font-family: Graphik Web;
         font-size: 3.25vw;
+    }
+
+    .author-underline {
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
     }
 
     .blogdiv2 {
@@ -287,43 +270,6 @@
         position: relative;
         left: 0vw;
         width: 100vw;
-    }
-
-    .TeachingSelected {
-        cursor: pointer;
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: black;
-        border-bottom: black solid;
-        padding-bottom: 1px;
-    }
-
-    .TeachingUnselected {
-        cursor: pointer;
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: #646469; 
-        opacity: 0.54;
-    }
-
-    .blog-mostrecent {
-        position: absolute;
-        left: 5vw;
-        top: 10vw;
-        font-family: Graphik Web;
-        color: #646469; 
-    }
-
-    .blog-options {
-        position: absolute;
-        right: 4.5vw;
-        text-align: right;
-        width: 100%;
-        top: 10vw;
-    }
-
-    .blogauthor {
-        padding: 2vw 2vw 0 2vw;
     }
 
     .blogdescription {

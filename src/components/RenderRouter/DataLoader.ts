@@ -107,15 +107,15 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getBlogs(nextToken: any) {
-        const listBlogs: any = API.graphql(graphqlOperation(queries.listBlogs, { nextToken: nextToken, sortDirection: "DESC", limit: 200}));
-        listBlogs.then((json: any) => {
-            console.log("Success queries.listBlogs: " + json);
+        const getBlogByBlogStatus: any = API.graphql(graphqlOperation(queries.getBlogByBlogStatus, { nextToken: nextToken, blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: 200}));
+        getBlogByBlogStatus.then((json: any) => {
+            console.log("Success queries.getBlogByBlogStatus: " + json);
             console.log(json)
             this.props.dataLoaded(
-                json.data.listBlogs.items
+                json.data.getBlogByBlogStatus.items
             )
-            if (json.data.listBlogs.nextToken != null)
-                this.getSpeakers(json.data.listBlogs.nextToken)
+            if (json.data.getBlogByBlogStatus.nextToken != null)
+                this.getBlogs(json.data.getBlogByBlogStatus.nextToken)
 
         }).catch((e: any) => { console.log(e) })
     }

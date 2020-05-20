@@ -20,7 +20,6 @@ interface State {
   overlayData: any,
   urlHistoryState: any,
   showChampion: any,
-  blogData: any,
   showMoreVideos: boolean
 }
 
@@ -53,8 +52,7 @@ class ListItem extends React.Component<Props, State> {
     if (data.series == null)
       console.log({ "You need to create a series for:": data })
     else
-      window.history.pushState({}, "Blogs", "/posts/" + data.id)
-
+      window.history.pushState({}, "Videos", "/videos/" + data.series.id + "/" + data.id)
   }
 
   dataLoader: DataLoader
@@ -68,7 +66,6 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
       urlHistoryState: window.history.state,
       showMoreVideos: false,
-      blogData: null
     }
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
@@ -161,7 +158,7 @@ class ListItem extends React.Component<Props, State> {
       <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl("/posts/" + item.id)}>
         <img alt={item.title + " series image"}
           className="BlogSquareImage"
-          src={"/static/photos/blogs/square/square-" + item.blogTitle + ".jpg"}
+          src={"/static/photos/blogs/square/" + item.blogTitle + ".jpg"}
           onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
@@ -404,6 +401,17 @@ class ListItem extends React.Component<Props, State> {
     )
 
     else if (this.state.content.style === "blogs") {
+      data.sort(function(a: any, b: any) {
+        var nameA = a.publishedDate.toUpperCase();
+        var nameB = b.publishedDate.toUpperCase();
+        if (nameA > nameB) {
+          return -1;
+        }
+        if (nameA < nameB) {
+          return 1;
+        }
+        return 0;
+      });
       return (
       <div className="ListItemDiv1 BlogItem" >
         <div className="BlogItemContainer">
