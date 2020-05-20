@@ -20,7 +20,7 @@
                 "style": "hero",
                 "class": "teaching-sunday",
                 "header1":"Teaching - Sunday Teaching",
-                "options":["Oakville","Regional"],
+                "options":[],
                 "group":"teaching",
                 "subclass":"adult-sunday",
                 "sortOrder":"DESC"

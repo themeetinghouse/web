@@ -73,12 +73,34 @@
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"S3Triggerd90d52fa": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	},
 	"analytics": {
 		"themeetinghouse": {
 			"service": "Pinpoint",
 			"providerPlugin": "awscloudformation"
+		}
+	},
+	"storage": {
+		"tmhusercontent": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "S3Triggerd90d52fa",
+					"attributes": [
+						"Name",
+						"Arn",
+						"LambdaExecutionRole"
+					]
+				}
+			]
 		}
 	}
 }
