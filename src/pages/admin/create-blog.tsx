@@ -1,7 +1,6 @@
 import React from 'react';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg'
-import draftToHtml from 'draftjs-to-html';
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
@@ -15,6 +14,7 @@ import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
+import draftToHtml from 'draftjs-to-html';
 import './create-blog.scss';
 
 Amplify.configure(awsmobile);
@@ -120,7 +120,7 @@ class IndexApp extends React.Component<Props, State> {
       unsavedChanges: false,
 
       // mutation inputs
-      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '', content: null},
+      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: ''},
       newBlogSeries: { id: '', title: ''}
     }
 
@@ -176,8 +176,8 @@ class IndexApp extends React.Component<Props, State> {
       console.log({ "Success queries.listBlogs: ": json });
       this.setState({
           blogPostsList: this.state.blogPostsList.concat(json.data.listBlogs.items).sort(function(a: any, b: any) {
-            var nameA = a.title.toUpperCase();
-            var nameB = b.title.toUpperCase();
+            var nameA = a.id.toUpperCase();
+            var nameB = b.id.toUpperCase();
             if (nameA < nameB) {
               return -1;
             }
@@ -228,17 +228,21 @@ class IndexApp extends React.Component<Props, State> {
       console.log('missing title and/or author')
       return false;
     } else {
+      var contentState = this.state.editorState.getCurrentContent();
+      var raw = convertToRaw(contentState);
+      var html = draftToHtml(raw)
       this.updateBlogField('blogTitle', this.state.title)
       this.updateBlogField('author', this.state.author)
       this.updateBlogField('description', this.state.desc)
-      this.updateBlogField('content', this.state.editorState)
+      this.updateBlogField('content', html)
       this.updateBlogField('tags', this.state.selectedTags)
       this.updateBlogField('blogStatus', 'Unlisted')
       this.updateBlogField('publishedDate', new Date().toJSON().slice(0,10).replace(/-/g,'-'))
-  
+      console.log(this.state.blogObject)
       /* if (this.state.selectedVideoSeries) {
         let videoseries = this.state.videoSeriesList.filter((series: any) => series.id === this.state.selectedVideoSeries)[0]
         this.updateBlogField('series', videoseries)
+        console.log(videoseries)
       } else {
         this.updateBlogField('series', null)
       }
@@ -328,18 +332,18 @@ class IndexApp extends React.Component<Props, State> {
   async handleEdit() {
     this.setState({ showEditModal: true });
     await this.waitForSelection(() => this.state.blogToEditObject);
+    console.log(this.state.blogToEditObject);
+    //const incomingContent = EditorState.createWithContent(this.state.blogToEditObject.content);
     this.setState({
       title: this.state.blogToEditObject.blogTitle,
       author: this.state.blogToEditObject.author,
       desc: this.state.blogToEditObject.description,
-      editorState: this.state.blogToEditObject.content,
+      //editorState: incomingContent,
       selectedTags: this.state.blogToEditObject.tags,
       selectedVideoSeries: this.state.blogToEditObject.series
     })
     //set state blog series (needs some work)
     this.setState({ editMode: true });
-    //set post as unlisted
-    console.log("editMode:" + this.state.editMode);
   }
 
   handleNewBlogSeries() {
@@ -415,14 +419,7 @@ class IndexApp extends React.Component<Props, State> {
     }).catch((e: any) => { console.log(e) })
   }
 
-  //MISC FUNCTIONS + HELPERS
-
   onChange = (editorState: any) => this.setState({ editorState });
-
-  getMarkup() {
-    const markup = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()));
-    return markup
-  }
 
   //RENDER FUNCTIONS
 

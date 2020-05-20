@@ -106,6 +106,19 @@ export default class DataLoader extends React.Component<Props, State> {
 
         }).catch((e: any) => { console.log(e) })
     }
+    getBlogs(nextToken: any) {
+        const listBlogs: any = API.graphql(graphqlOperation(queries.listBlogs, { nextToken: nextToken, sortDirection: "DESC", limit: 200}));
+        listBlogs.then((json: any) => {
+            console.log("Success queries.listBlogs: " + json);
+            console.log(json)
+            this.props.dataLoaded(
+                json.data.listBlogs.items
+            )
+            if (json.data.listBlogs.nextToken != null)
+                this.getSpeakers(json.data.listBlogs.nextToken)
+
+        }).catch((e: any) => { console.log(e) })
+    }
     getSeries(nextToken: any) {
         const getSeriesBySeriesType: any = API.graphql({
             query: customQueries.getSeriesBySeriesType,
@@ -171,7 +184,7 @@ export default class DataLoader extends React.Component<Props, State> {
             this.getSpeakers(null)
         }
         else if (this.state.content.class === "blogs") {
-            //something happens
+            this.getBlogs(null)
         }
         else if (this.state.content.class === "series") {
             this.getSeries(null)

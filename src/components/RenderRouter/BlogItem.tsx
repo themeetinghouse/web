@@ -22,7 +22,6 @@ interface Props extends RouteComponentProps {
 interface State {
     content: any,
     listData: any,
-    teachingId: any,
     overlayData: any
 }
 class BlogItem extends React.Component<Props, State> {
@@ -35,36 +34,25 @@ class BlogItem extends React.Component<Props, State> {
     constructor(props: Props, context: any) {
         super(props, context);
         console.log(context);
-        const { cookies } = props;
-        if (cookies.get(this.props.content.group) == null)
-            cookies.set(this.props.content.group, this.props.content.options[0], { path: '/' });
-        var teachingId = this.props.content.options.length<=1?0:this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.state = {
             content: props.content,
-            teachingId: teachingId,
             listData: null,
             overlayData: null
         }
-        //query blogs
-        const getVideoByVideoType:any = API.graphql({
-            query: queries.getVideoByVideoType,
-            variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: "adult-sunday", publishedDate: { lt: "a" } },
+        const getBlogByBlogStatus:any = API.graphql({
+            query: queries.getBlogByBlogStatus,
+            variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: 2 },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
-        getVideoByVideoType.then((json: any) => {
-            console.log("Success queries.getVideoByVideoType: " + json);
+        getBlogByBlogStatus.then((json: any) => {
+            console.log("Success queries.getBlogByBlogStatus: " + json);
             console.log(json)
             this.setState({
-                listData: json.data.getVideoByVideoType.items
+                listData: json.data.getBlogByBlogStatus.items
             })
         }).catch((e: any) => { console.log(e) })
     }
-    videoOverlayClose() {
-        this.setState({
-            overlayData: null
 
-        })
-    }
     handleClick(data: any) {
         this.setState({
             overlayData: data
@@ -90,15 +78,17 @@ class BlogItem extends React.Component<Props, State> {
                             
                             <h1 className="blog-h1" >{this.props.content.header1}</h1>
                             <div className="blog-blackbox" >
-                                <div className="blog-post-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
-                                <div className="blogdiv blogauthor" >by {this.state.listData[this.state.teachingId].seriesTitle} on {this.state.listData[this.state.teachingId].publishedDate}</div>
-                                <div className="blogdiv blogdescription" > {this.state.listData[this.state.teachingId].description}</div>
+                                <div className="blog-post-title" >{this.state.listData[0].blogTitle}</div>
+                                <div className="blogdiv blogauthor" >by <span className="author-underline">{this.state.listData[0].author}</span> on {this.state.listData[0].publishedDate}</div>
+                                <div className="blogdiv blogdescription" >{this.state.listData[0].description}</div>
                                 <div className="blogdiv2" >
                                     <Button size="lg" className="blogButton" >Read More</Button>
                                 </div>
-                                <div><img alt="TBD" className="blog-image-desktop" src={(this.state.content.class === "teaching-sunday"||this.state.listData[this.state.teachingId].videoTypes === "ky-kids"||this.state.listData[this.state.teachingId].videoTypes === "ky-youth"||this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh"||this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh")&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                                <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/baby-hero-" + this.state.listData[0].blogTitle + ".jpg"} /></div>
                             </div>
-                            <div className="mobile-image-container"><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="blog-image-mobile" src={(this.state.content.class === "teaching-sunday"||this.state.listData[this.state.teachingId].videoTypes === "ky-kids"||this.state.listData[this.state.teachingId].videoTypes === "ky-youth"||this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh"||this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh")&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace("?","")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                            {
+                            //image here
+                            }
                         </div> : null
                     : null
             )

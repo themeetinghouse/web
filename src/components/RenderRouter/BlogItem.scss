@@ -7,8 +7,9 @@
         color:#000000 !important;
         font-weight:bold!important;
         margin-right:2vw;
-        width: 9vw;
-        height: 3.5vw;
+        font-size: 16px;
+        height: 56px;
+        width: 133px;
     }
 
     .blogButton-icon {
@@ -17,7 +18,12 @@
     }
 
     .blogdescription {
-        font-size: 1vw;
+        margin-top: 2vw;
+        width: 31vw;
+    }
+
+    .blogauthor {
+        font-size: small;
         width: 30.625vw;
     }
 
@@ -32,9 +38,8 @@
     .blog-blackbox {
         padding: 3vw;
         padding-right: 15vw;
-        padding-top: 5vw;
+        padding-top: 7vw;
         position: absolute;
-        left: 5vw;
         width: 50vw;
         top: 10vw;
         height: 42vw;
@@ -46,6 +51,11 @@
         padding: 0.5vw;
         color: #C8C8C8;
         font-family: Graphik Web;
+    }
+
+    .author-underline {
+        padding-bottom: 2px;
+        border-bottom: solid;
     }
 
     .blogdiv2 {
@@ -67,7 +77,7 @@
         cursor: pointer;
         position: absolute;
         top: 5vw;
-        left: 35vw;
+        left: 40vw;
         width: 40vw;
     }
 

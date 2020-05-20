@@ -20,6 +20,7 @@ interface State {
   overlayData: any,
   urlHistoryState: any,
   showChampion: any,
+  blogData: any,
   showMoreVideos: boolean
 }
 
@@ -31,7 +32,6 @@ class ListItem extends React.Component<Props, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null
-
     })
     window.history.pushState({}, "Videos", this.state.urlHistoryState)
 
@@ -53,9 +53,10 @@ class ListItem extends React.Component<Props, State> {
     if (data.series == null)
       console.log({ "You need to create a series for:": data })
     else
-      window.history.pushState({}, "Videos", "/videos/" + data.series.id + "/" + data.id)
+      window.history.pushState({}, "Blogs", "/posts/" + data.id)
 
   }
+
   dataLoader: DataLoader
   constructor(props: Props) {
     super(props);
@@ -66,7 +67,8 @@ class ListItem extends React.Component<Props, State> {
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
       urlHistoryState: window.history.state,
-      showMoreVideos: false
+      showMoreVideos: false,
+      blogData: null
     }
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
@@ -156,7 +158,17 @@ class ListItem extends React.Component<Props, State> {
 
   renderBlogs(item: any) {
     return (
-      <div>test</div>
+      <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl("/posts/" + item.id)}>
+        <img alt={item.title + " series image"}
+          className="BlogSquareImage"
+          src={"/static/photos/blogs/square/square-" + item.blogTitle + ".jpg"}
+          onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
+        <div className="BlogContentContainer">
+          <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
+          <div className="BlogDetails">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
+    <div className="BlogDesc">{item.description}</div>
+        </div>
+      </div>
       )
   }
 
@@ -359,7 +371,7 @@ class ListItem extends React.Component<Props, State> {
       return this.renderCurious(item)
     else if (this.state.content.class === "watch-page")
       return this.renderWatchPageVideo(item)
-    else if (this.state.content.class === "blos")
+    else if (this.state.content.class === "blogs")
       return this.renderBlogs(item)
     else return null
   }
@@ -393,19 +405,14 @@ class ListItem extends React.Component<Props, State> {
 
     else if (this.state.content.style === "blogs") {
       return (
-        <div className="ListItem horizontal-video-player" >
-          <div className="ListItemDiv1 horizontal-video-player" >
-            <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
-            {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-              <div className="WatchPageContainer">
-                {data.map((item: any, index: any) => {
-                  return this.renderItemRouter(item, index)
-                }
-                )}
-              </div>
-          <div className="HorizontalLine"></div>
-          </div>
+      <div className="ListItemDiv1 BlogItem" >
+        <div className="BlogItemContainer">
+            {data.map((item: any, index: any) => {
+              return this.renderItemRouter(item, index)
+            }
+            )}
         </div>
+      </div>
       )
     }
 

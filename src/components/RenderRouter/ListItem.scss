@@ -426,6 +426,53 @@
         padding-top: 1px;
         width: 32px;
     }
+
+    .blogarrow {
+        float: right;
+    }
+
+    .author-only {
+        color: #1A1A1A;
+        border-bottom: solid #1A1A1A 1px;
+        padding-bottom: 1px;
+    }
+
+    .BlogItem {
+        display: flex;
+        align-items: top;
+        margin-bottom: 3.3vw;
+        width: 78vw;
+    }
+
+    .BlogItem:hover {
+        cursor:pointer;
+    }
+
+    .BlogSquareImage {
+        width: 120px;
+    }
+
+    .BlogDesc {
+        color: #54565A;
+        margin-top: 1vw;
+        width: 50vw;
+    }
+
+    .BlogDetails {
+        color: #54565A;
+        font-size: small;
+    }
+
+    .BlogTitle {
+        color: #1A1A1A;
+        font-weight: bold;
+    }
+
+    .BlogContentContainer {
+        display: inline-block;
+        margin-left: 2vw;
+        width: 64vw;
+    }
 }
 
 @-moz-document url-prefix() {
