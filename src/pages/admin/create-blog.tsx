@@ -260,12 +260,15 @@ class IndexApp extends React.Component<Props, State> {
       this.updateBlogField('content', html)
       this.updateBlogField('tags', this.state.selectedTags)
       this.updateBlogField('blogStatus', this.state.blogStatus)
+      this.updateBlogField('blogSeriesId', this.state.selectedVideoSeries)
       this.updateBlogField('publishedDate', format(this.state.publishDate, "yyyy-MM-dd"))
+      /*
       if (this.state.disableCalendar===true) {
         this.updateBlogField('expirationDate', 'none')
       } else {
         this.updateBlogField('expirationDate', format(this.state.expireDate, "yyyy-MM-dd"))
       }
+      */
       console.log(this.state.blogObject)
       console.log(this.state.selectedVideoSeries)
 
@@ -321,11 +324,13 @@ class IndexApp extends React.Component<Props, State> {
       author: this.state.blogToEditObject.author,
       desc: this.state.blogToEditObject.description,
       editorState: EditorState.createWithContent(contentState),
-      selectedTags: this.state.blogToEditObject.tags
-      //series
+      selectedTags: this.state.blogToEditObject.tags,
       //blog series
       //dates
     })
+    if (this.state.blogToEditObject.series) {
+      this.setState({ selectedVideoSeries: this.state.blogToEditObject.series.id })
+    }
     this.setState({ editMode: true });
   }
 
