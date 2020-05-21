@@ -69,6 +69,8 @@ interface State {
   showAlert: any
   disableCalendar: boolean
   blogStatus: string
+  delete: string
+  understand: string
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -133,7 +135,11 @@ class IndexApp extends React.Component<Props, State> {
 
       // mutation inputs
       blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '' },
-      newBlogSeries: { id: '', title: ''}
+      newBlogSeries: { id: '', title: ''},
+
+      // id of post to delete
+      delete: '',
+      understand: ''
     }
 
     this.listSeries(null)
@@ -144,6 +150,7 @@ class IndexApp extends React.Component<Props, State> {
     this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleDeleteBlogPost = this.handleDeleteBlogPost.bind(this);
   }
 
   // QUERY FUNCTIONS
@@ -244,6 +251,29 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({
       expireDate: date
     });
+  }
+
+  handleDeleteBlogPost() {
+    if (this.state.understand === "The admins have warned me") {
+      var deleteBlog:any = API.graphql({
+          query: mutations.deleteBlog,
+          variables: { input: {'id': this.state.delete} },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+
+      deleteBlog.then((json: any) => {
+          console.log({ "Success mutations.deleteBlog: ": json });
+          this.setState({
+            delete: '',
+            understand: '',
+            showAlert: 'Deleted'
+          })
+
+      }).catch((e: any) => { console.log(e) })
+      return true;
+    } else {
+      this.setState({ showAlert: 'You must type the confirmation message' })
+    }
   }
 
   handleSave() {
@@ -365,7 +395,7 @@ class IndexApp extends React.Component<Props, State> {
     let blog = this.state.blogObject
     blog[field] = value
 
-    blog.id = blog.blogTitle + '-' + blog.author
+    blog.id = blog.blogTitle + ' ' + blog.author
     this.setState({ blogObject: blog })
   }
 
@@ -485,8 +515,8 @@ class IndexApp extends React.Component<Props, State> {
           onChange={this.handlePublishDate} 
           dateFormat="yyyy-MM-dd"
           minDate={new Date()}
-          />
-        <br/>
+        /><br/>
+
         <b className="calendar-label">{this.state.disableCalendar ? "No expiry" : "Select expiry date"}</b>
         <button onClick={()=>this.setState({ disableCalendar: !this.state.disableCalendar })}>None</button>
         <DatePicker 
@@ -495,7 +525,18 @@ class IndexApp extends React.Component<Props, State> {
           dateFormat="yyyy-MM-dd"
           disabled={this.state.disableCalendar}
           minDate={new Date()}
-        />
+        /><br/>
+
+        <label>
+          Delete a blog (type in id):
+          <input type="text" value={this.state.delete} onChange={(event:any) => this.setState({ delete: event.target.value})} />
+        </label>
+        <label>
+          Type "The admins have warned me", then click to confirm:
+          <input type="text" value={this.state.understand} onChange={(event:any) => this.setState({ understand: event.target.value})} />
+        </label>
+        <button className="tags-button" style={{background: "red"}} onClick={this.handleDeleteBlogPost}>DELETE</button>
+
       </div>
     )
   }
@@ -575,7 +616,7 @@ class IndexApp extends React.Component<Props, State> {
 
   renderAlert() {
     return (
-      <Modal isOpen={this.state.showAlert}>
+      <Modal isOpen={this.state.showAlert ? true : false}>
         <div>{this.state.showAlert}</div>
         <button onClick={() => this.setState({ showAlert: '' })}>OK</button>
       </Modal>
