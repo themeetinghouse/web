@@ -606,6 +606,10 @@ type BlogSeries
 
 type BlogSeriesBridge
  @model(queries: null)
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
   @key(name: "byBlogSeries", fields: ["blogSeriesID", "blogPostID"], queryField: "blogBridgeBySeries")
   @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost") 
 {
@@ -632,6 +636,7 @@ type Blog
   createdBy: String
   createdDate: String
   publishedDate: String
+  expirationDate: String
   series:Series @connection(name: "BlogInVideoSeries")
   blogSeries:[BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
   blogStatus:String
