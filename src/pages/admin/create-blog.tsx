@@ -19,6 +19,7 @@ import htmlToDraft from 'html-to-draftjs';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
+import parse from 'date-fns/parse';
 import './create-blog.scss';
 
 Amplify.configure(awsmobile);
@@ -50,6 +51,7 @@ interface State {
   selectedVideoSeries: any
   selectedBlogSeries: any
   serverBlogBridges: any
+  blogBridgeList: any
   selectedTags: any
   editMode: boolean
   blogObject: any
@@ -108,7 +110,7 @@ class IndexApp extends React.Component<Props, State> {
       selectedTags: [],
       publishDate: new Date(),
       expireDate: new Date(),
-      disableCalendar: false,
+      disableCalendar: true,
 
       // queried and loaded data
       videoSeriesList: [],
@@ -116,6 +118,7 @@ class IndexApp extends React.Component<Props, State> {
       blogPostsList: [],
       serverBlogBridges: [],
       videoSeries: null,
+      blogBridgeList: [],
 
       // display states
       showPreview: false,
@@ -148,8 +151,8 @@ class IndexApp extends React.Component<Props, State> {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handleAddBridge = this.handleAddBridge.bind(this);
+    this.handleDeleteBridge = this.handleDeleteBridge.bind(this);
     this.handleDeleteBlogPost = this.handleDeleteBlogPost.bind(this);
   }
 
@@ -206,7 +209,7 @@ class IndexApp extends React.Component<Props, State> {
           })
       })
       if (json.data.listBlogs.nextToken != null)
-          this.listSeries(json.data.listBlogs.nextToken)
+          this.listBlogs(json.data.listBlogs.nextToken)
 
     }).catch((e: any) => { console.log(e) })
   }
@@ -234,7 +237,7 @@ class IndexApp extends React.Component<Props, State> {
           })
       })
       if (json.data.listBlogSeriess.nextToken != null)
-          this.listSeries(json.data.listBlogSeriess.nextToken)
+          this.listBlogSeries(json.data.listBlogSeriess.nextToken)
 
     }).catch((e: any) => { console.log(e) })
   }
@@ -281,6 +284,17 @@ class IndexApp extends React.Component<Props, State> {
       this.setState({ showAlert: "You need a valid title and author to save." })
       return false;
     } else {
+
+      var titles: any = [];
+      this.state.blogPostsList.forEach((post: any) => {
+        titles.push(post.blogTitle)
+      });
+
+      if (titles.includes(this.state.title)) {
+        this.setState({ showAlert: "Warning: a post with this title exists. Please change your title."})
+        return false;
+      }
+
       var contentState = this.state.editorState.getCurrentContent();
       var raw = convertToRaw(contentState);
       var html = draftToHtml(raw)
@@ -292,13 +306,11 @@ class IndexApp extends React.Component<Props, State> {
       this.updateBlogField('blogStatus', this.state.blogStatus)
       this.updateBlogField('blogSeriesId', this.state.selectedVideoSeries)
       this.updateBlogField('publishedDate', format(this.state.publishDate, "yyyy-MM-dd"))
-      /*
       if (this.state.disableCalendar===true) {
         this.updateBlogField('expirationDate', 'none')
       } else {
         this.updateBlogField('expirationDate', format(this.state.expireDate, "yyyy-MM-dd"))
       }
-      */
       console.log(this.state.blogObject)
       console.log(this.state.selectedVideoSeries)
 
@@ -311,7 +323,7 @@ class IndexApp extends React.Component<Props, State> {
 
           createBlog.then((json: any) => {
               console.log({ "Success mutations.createBlog: ": json });
-              this.setState({ editMode: true });
+              this.setState({ editMode: true, showAlert: 'Saved' });
 
           }).catch((e: any) => { console.log(e) })
           return true;
@@ -325,6 +337,7 @@ class IndexApp extends React.Component<Props, State> {
 
           updateBlog.then((json: any) => {
               console.log({ "Success mutations.updateBlog: ": json });
+              this.setState({ showAlert: 'Saved' });
 
           }).catch((e: any) => { console.log(e) })
           return true;
@@ -355,12 +368,37 @@ class IndexApp extends React.Component<Props, State> {
       desc: this.state.blogToEditObject.description,
       editorState: EditorState.createWithContent(contentState),
       selectedTags: this.state.blogToEditObject.tags,
-      //blog series
-      //dates
+      blogStatus: this.state.blogToEditObject.blogStatus
     })
+
+    if (this.state.blogToEditObject.expirationDate !== 'none') {
+      const exp = parse(this.state.blogToEditObject.expirationDate, "yyyy-MM-dd", new Date())
+      this.setState({ expireDate: exp })
+    }
+
+    const pub = parse(this.state.blogToEditObject.publishedDate, "yyyy-MM-dd", new Date())
+    this.setState({ publishDate: pub })
+
     if (this.state.blogToEditObject.series) {
       this.setState({ selectedVideoSeries: this.state.blogToEditObject.series.id })
     }
+
+    const blogBridgeByPost:any = API.graphql({
+        query: queries.blogBridgeByPost,
+        variables: { blogPostID: this.state.blogToEditObject.id },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+    });
+    blogBridgeByPost.then((json: any) => {
+        console.log("Success queries.blogBridgeByPost: " + json);
+        this.setState({
+          blogBridgeList: json.data.blogBridgeByPost.items
+        })
+    }).catch((e: any) => { console.log(e) })
+
+    this.state.blogBridgeList.forEach((bridge: any) => {
+      this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(bridge.blogSeriesID) })
+    });
+
     this.setState({ editMode: true });
   }
 
@@ -395,11 +433,11 @@ class IndexApp extends React.Component<Props, State> {
     let blog = this.state.blogObject
     blog[field] = value
 
-    blog.id = blog.blogTitle + ' ' + blog.author
+    blog.id = blog.blogTitle
     this.setState({ blogObject: blog })
   }
 
-  handleAdd() {
+  handleAddBridge() {
     // this is for adding blog series
     this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(this.state.currentBlogSeries)});
     var BlogSeriesToAdd = this.state.currentBlogSeries
@@ -418,7 +456,7 @@ class IndexApp extends React.Component<Props, State> {
     }).catch((e: any) => { console.log(e) })
   }
 
-  handleDelete() {
+  handleDeleteBridge() {
     // this is for deleting blog series
     var removed = this.state.selectedBlogSeries
     var toDelete = removed.pop()
@@ -473,10 +511,11 @@ class IndexApp extends React.Component<Props, State> {
       <div>
 
       <b>Blog Status</b>
-        <select onChange={(event:any) => this.setState({ blogStatus: event.target.value})}>
+        <select style={{width: 200, height: 20}} onChange={(event:any) => this.setState({ blogStatus: event.target.value})}>
           <option key="unlisted" value="Unlisted">Unlisted</option>
           <option key="live" value="Live">Live</option>
         </select>
+        <div>Current status: {this.state.blogStatus}</div>
           <br/>
 
         <label>
@@ -489,10 +528,10 @@ class IndexApp extends React.Component<Props, State> {
           <br/>
 
         <b>Add to Blog Series</b>
-        <button className="tags-button" onClick={()=>this.handleAdd()}>Add</button>
-        <button className="tags-button" style={{background: "red"}} onClick={()=>this.handleDelete()}>Delete</button>
+        <button className="tags-button" onClick={()=>this.handleAddBridge()}>Select</button>
+        <button className="tags-button" style={{background: "red"}} onClick={()=>this.handleDeleteBridge()}>Clear</button>
         <button className="tags-button" style={{background: "green", width: 160}} onClick={()=>this.setState({ newBlogSeriesModal: true })}>New Blog Series</button>
-        <select onChange={(event:any) => this.setState({ currentBlogSeries: event.target.value})}>
+        <select style={{width: 800, height: 20}} onChange={(event:any) => this.setState({ currentBlogSeries: event.target.value})}>
           <option key="null" value="null">None Selected</option>
           {this.state.blogSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.title}</option>})}
         </select>
@@ -501,8 +540,8 @@ class IndexApp extends React.Component<Props, State> {
 
         <b>Add to Video Series</b>
         <button className="tags-button" onClick={() => this.setState({ selectedVideoSeries: this.state.currentVideoSeries})}>Select</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedVideoSeries: null })}>Clear Selection</button>
-        <select onChange={(event:any) => this.setState({ currentVideoSeries: event.target.value})}>
+        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedVideoSeries: null })}>Clear</button>
+        <select style={{width: 800, height: 20}} onChange={(event:any) => this.setState({ currentVideoSeries: event.target.value})}>
           <option key="null" value="null">None Selected</option>
           {this.state.videoSeriesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
         </select>
@@ -518,7 +557,7 @@ class IndexApp extends React.Component<Props, State> {
         /><br/>
 
         <b className="calendar-label">{this.state.disableCalendar ? "No expiry" : "Select expiry date"}</b>
-        <button onClick={()=>this.setState({ disableCalendar: !this.state.disableCalendar })}>None</button>
+        <button className="tags-button" onClick={()=>this.setState({ disableCalendar: !this.state.disableCalendar })}>{this.state.disableCalendar ? "Add expiry" : "No expiry"}</button>
         <DatePicker 
           selected={this.state.expireDate} 
           onChange={this.handleExpireDate} 
@@ -528,12 +567,12 @@ class IndexApp extends React.Component<Props, State> {
         /><br/>
 
         <label>
-          Delete a blog (type in id):
-          <input type="text" value={this.state.delete} onChange={(event:any) => this.setState({ delete: event.target.value})} />
+          Delete a blog (enter title):
+          <input style={{width: 400, height: 20}} type="text" value={this.state.delete} onChange={(event:any) => this.setState({ delete: event.target.value})} />
         </label>
         <label>
-          Type "The admins have warned me", then click to confirm:
-          <input type="text" value={this.state.understand} onChange={(event:any) => this.setState({ understand: event.target.value})} />
+          Type "The admins have warned me":
+          <input style={{width: 400, height: 20}} type="text" value={this.state.understand} onChange={(event:any) => this.setState({ understand: event.target.value})} />
         </label>
         <button className="tags-button" style={{background: "red"}} onClick={this.handleDeleteBlogPost}>DELETE</button>
 
@@ -576,7 +615,8 @@ class IndexApp extends React.Component<Props, State> {
               uploadCallback: async (file: any) => {
                   const filepath = "/bloguploads/" + uuidv1() + file.name;
                   await Storage.put(filepath, file, {
-                      contentType: "image/*"
+                      contentType: "image/*",
+                      acl: "public-read"
                   })
                   var download = await Storage.get(filepath, {
                       contentType: "image/*"
