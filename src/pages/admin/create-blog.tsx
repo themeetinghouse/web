@@ -262,7 +262,7 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleDeleteBlogPost() {
-    if (this.state.understand === "The admins have warned me") {
+    if (this.state.understand === "Delete forever") {
       var deleteBlog:any = API.graphql({
           query: mutations.deleteBlog,
           variables: { input: {'id': this.state.delete} },
@@ -285,7 +285,7 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleDeleteBlogSeries() {
-    if (this.state.understandBlogSeries === "The admins have warned me") {
+    if (this.state.understandBlogSeries === "Delete forever") {
       var deleteBlogSeries:any = API.graphql({
           query: mutations.deleteBlogSeries,
           variables: { input: {'id': this.state.deleteBlogSeries} },
@@ -605,7 +605,7 @@ class IndexApp extends React.Component<Props, State> {
           <input style={{width: 400, height: 20}} type="text" value={this.state.delete} onChange={(event:any) => this.setState({ delete: event.target.value})} />
         </label>
         <label>
-          Type "The admins have warned me":
+          Type "Delete forever":
           <input style={{width: 400, height: 20}} type="text" value={this.state.understand} onChange={(event:any) => this.setState({ understand: event.target.value})} />
         </label>
         <button className="tags-button" style={{background: "red"}} onClick={this.handleDeleteBlogPost}>DELETE</button>
@@ -616,7 +616,7 @@ class IndexApp extends React.Component<Props, State> {
           <input style={{width: 400, height: 20}} type="text" value={this.state.deleteBlogSeries} onChange={(event:any) => this.setState({ deleteBlogSeries: event.target.value})} />
         </label>
         <label>
-          Type "The admins have warned me":
+          Type "Delete forever":
           <input style={{width: 400, height: 20}} type="text" value={this.state.understandBlogSeries} onChange={(event:any) => this.setState({ understandBlogSeries: event.target.value})} />
         </label>
         <button className="tags-button" style={{background: "red"}} onClick={this.handleDeleteBlogSeries}>DELETE</button>

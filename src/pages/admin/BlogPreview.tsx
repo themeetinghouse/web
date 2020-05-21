@@ -5,6 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ReactHtmlParser from 'react-html-parser';
 import { convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
+import format from 'date-fns/format';
 
 interface Props {
   content: any,
@@ -41,7 +42,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       <div className="blog-content">
         <div>Below is a preview... To refresh, please toggle "Preview Your Work".</div>
         <h1 className="blog-h1" >{this.state.data.title}</h1>
-        {this.state.data.author ? <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {new Date().toJSON().slice(0,10).replace(/-/g,'-')}</div> : null}
+        {this.state.data.author ? <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {format(this.state.data.publishDate, "yyyy-MM-dd")}</div> : null}
         <div className="ShareButtonDesktop">{this.shareButton()}</div>
         <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
       </div>
