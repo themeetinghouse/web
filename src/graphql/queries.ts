@@ -696,16 +696,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -730,6 +721,16 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
               }
             }
             nextToken
@@ -1636,6 +1637,14 @@ export const blogBridgeBySeries = /* GraphQL */ `
         updatedAt
         blogSeries {
           id
+          seriesType
+          title
+          description
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
           blogs {
             items {
               id
@@ -1645,9 +1654,6 @@ export const blogBridgeBySeries = /* GraphQL */ `
               updatedAt
               blogSeries {
                 id
-                blogs {
-                  nextToken
-                }
                 seriesType
                 title
                 description
@@ -1656,6 +1662,9 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                blogs {
+                  nextToken
+                }
               }
               blogPost {
                 id
@@ -1663,9 +1672,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -1685,18 +1692,13 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
+                blogSeries {
+                  nextToken
+                }
               }
             }
             nextToken
           }
-          seriesType
-          title
-          description
-          image
-          startDate
-          endDate
-          createdAt
-          updatedAt
         }
         blogPost {
           id
@@ -1704,59 +1706,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
           createdBy
           createdDate
           publishedDate
-          blogSeries {
-            items {
-              id
-              blogSeriesID
-              blogPostID
-              createdAt
-              updatedAt
-              blogSeries {
-                id
-                blogs {
-                  nextToken
-                }
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-              }
-              blogPost {
-                id
-                author
-                createdBy
-                createdDate
-                publishedDate
-                blogSeries {
-                  nextToken
-                }
-                blogStatus
-                description
-                content
-                blogTitle
-                topics
-                tags
-                createdAt
-                updatedAt
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-              }
-            }
-            nextToken
-          }
+          expirationDate
           blogStatus
           description
           content
@@ -1830,9 +1780,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -1852,9 +1800,66 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
+                blogSeries {
+                  nextToken
+                }
               }
               nextToken
             }
+          }
+          blogSeries {
+            items {
+              id
+              blogSeriesID
+              blogPostID
+              createdAt
+              updatedAt
+              blogSeries {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                blogs {
+                  nextToken
+                }
+              }
+              blogPost {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
           }
         }
       }
@@ -1887,6 +1892,14 @@ export const blogBridgeByPost = /* GraphQL */ `
         updatedAt
         blogSeries {
           id
+          seriesType
+          title
+          description
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
           blogs {
             items {
               id
@@ -1896,9 +1909,6 @@ export const blogBridgeByPost = /* GraphQL */ `
               updatedAt
               blogSeries {
                 id
-                blogs {
-                  nextToken
-                }
                 seriesType
                 title
                 description
@@ -1907,6 +1917,9 @@ export const blogBridgeByPost = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                blogs {
+                  nextToken
+                }
               }
               blogPost {
                 id
@@ -1914,9 +1927,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -1936,18 +1947,13 @@ export const blogBridgeByPost = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
+                blogSeries {
+                  nextToken
+                }
               }
             }
             nextToken
           }
-          seriesType
-          title
-          description
-          image
-          startDate
-          endDate
-          createdAt
-          updatedAt
         }
         blogPost {
           id
@@ -1955,59 +1961,7 @@ export const blogBridgeByPost = /* GraphQL */ `
           createdBy
           createdDate
           publishedDate
-          blogSeries {
-            items {
-              id
-              blogSeriesID
-              blogPostID
-              createdAt
-              updatedAt
-              blogSeries {
-                id
-                blogs {
-                  nextToken
-                }
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-              }
-              blogPost {
-                id
-                author
-                createdBy
-                createdDate
-                publishedDate
-                blogSeries {
-                  nextToken
-                }
-                blogStatus
-                description
-                content
-                blogTitle
-                topics
-                tags
-                createdAt
-                updatedAt
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-              }
-            }
-            nextToken
-          }
+          expirationDate
           blogStatus
           description
           content
@@ -2081,9 +2035,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -2103,9 +2055,66 @@ export const blogBridgeByPost = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
+                blogSeries {
+                  nextToken
+                }
               }
               nextToken
             }
+          }
+          blogSeries {
+            items {
+              id
+              blogSeriesID
+              blogPostID
+              createdAt
+              updatedAt
+              blogSeries {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                blogs {
+                  nextToken
+                }
+              }
+              blogPost {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
           }
         }
       }
@@ -2505,6 +2514,7 @@ export const getSpeaker = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -2928,16 +2938,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -2962,6 +2963,16 @@ export const getSpeakerVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
               }
             }
             nextToken
@@ -3265,9 +3276,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -3286,6 +3295,9 @@ export const listSpeakerVideoss = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                }
+                blogSeries {
+                  nextToken
                 }
               }
               nextToken
@@ -3460,6 +3472,7 @@ export const listSeriess = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -3482,42 +3495,7 @@ export const listSeriess = /* GraphQL */ `
             createdBy
             createdDate
             publishedDate
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
+            expirationDate
             blogStatus
             description
             content
@@ -3572,6 +3550,7 @@ export const listSeriess = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -3583,6 +3562,43 @@ export const listSeriess = /* GraphQL */ `
                 }
                 nextToken
               }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
             }
           }
           nextToken
@@ -3818,9 +3834,7 @@ export const getSeries = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -3839,6 +3853,9 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                }
+                blogSeries {
+                  nextToken
                 }
               }
               nextToken
@@ -3854,59 +3871,7 @@ export const getSeries = /* GraphQL */ `
           createdBy
           createdDate
           publishedDate
-          blogSeries {
-            items {
-              id
-              blogSeriesID
-              blogPostID
-              createdAt
-              updatedAt
-              blogSeries {
-                id
-                blogs {
-                  nextToken
-                }
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-              }
-              blogPost {
-                id
-                author
-                createdBy
-                createdDate
-                publishedDate
-                blogSeries {
-                  nextToken
-                }
-                blogStatus
-                description
-                content
-                blogTitle
-                topics
-                tags
-                createdAt
-                updatedAt
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-              }
-            }
-            nextToken
-          }
+          expirationDate
           blogStatus
           description
           content
@@ -3980,9 +3945,7 @@ export const getSeries = /* GraphQL */ `
                 createdBy
                 createdDate
                 publishedDate
-                blogSeries {
-                  nextToken
-                }
+                expirationDate
                 blogStatus
                 description
                 content
@@ -4002,9 +3965,66 @@ export const getSeries = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
+                blogSeries {
+                  nextToken
+                }
               }
               nextToken
             }
+          }
+          blogSeries {
+            items {
+              id
+              blogSeriesID
+              blogPostID
+              createdAt
+              updatedAt
+              blogSeries {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                blogs {
+                  nextToken
+                }
+              }
+              blogPost {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
           }
         }
         nextToken
@@ -4185,6 +4205,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -4207,42 +4228,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             createdBy
             createdDate
             publishedDate
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
+            expirationDate
             blogStatus
             description
             content
@@ -4297,6 +4283,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -4308,6 +4295,43 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 }
                 nextToken
               }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
             }
           }
           nextToken
@@ -4602,6 +4626,7 @@ export const getVideo = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -4774,6 +4799,7 @@ export const getVideo = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -4796,42 +4822,7 @@ export const getVideo = /* GraphQL */ `
             createdBy
             createdDate
             publishedDate
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
+            expirationDate
             blogStatus
             description
             content
@@ -4886,6 +4877,7 @@ export const getVideo = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -4897,6 +4889,43 @@ export const getVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
             }
           }
           nextToken
@@ -5200,16 +5229,7 @@ export const listVideos = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -5234,6 +5254,16 @@ export const listVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
               }
             }
             nextToken
@@ -5547,16 +5577,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -5581,6 +5602,16 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
               }
             }
             nextToken
@@ -5896,16 +5927,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -5930,6 +5952,16 @@ export const getVideoByVideoType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
               }
             }
             nextToken
@@ -6241,16 +6273,7 @@ export const searchVideos = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -6275,6 +6298,16 @@ export const searchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
               }
             }
             nextToken
@@ -6295,6 +6328,14 @@ export const listBlogSeriess = /* GraphQL */ `
     listBlogSeriess(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        seriesType
+        title
+        description
+        image
+        startDate
+        endDate
+        createdAt
+        updatedAt
         blogs {
           items {
             id
@@ -6304,6 +6345,14 @@ export const listBlogSeriess = /* GraphQL */ `
             updatedAt
             blogSeries {
               id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
               blogs {
                 items {
                   id
@@ -6314,14 +6363,6 @@ export const listBlogSeriess = /* GraphQL */ `
                 }
                 nextToken
               }
-              seriesType
-              title
-              description
-              image
-              startDate
-              endDate
-              createdAt
-              updatedAt
             }
             blogPost {
               id
@@ -6329,16 +6370,7 @@ export const listBlogSeriess = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -6364,18 +6396,20 @@ export const listBlogSeriess = /* GraphQL */ `
                   nextToken
                 }
               }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
           }
           nextToken
         }
-        seriesType
-        title
-        description
-        image
-        startDate
-        endDate
-        createdAt
-        updatedAt
       }
       nextToken
     }
@@ -6385,6 +6419,14 @@ export const getBlogSeries = /* GraphQL */ `
   query GetBlogSeries($id: ID!) {
     getBlogSeries(id: $id) {
       id
+      seriesType
+      title
+      description
+      image
+      startDate
+      endDate
+      createdAt
+      updatedAt
       blogs {
         items {
           id
@@ -6394,6 +6436,14 @@ export const getBlogSeries = /* GraphQL */ `
           updatedAt
           blogSeries {
             id
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
             blogs {
               items {
                 id
@@ -6418,6 +6468,7 @@ export const getBlogSeries = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -6430,14 +6481,6 @@ export const getBlogSeries = /* GraphQL */ `
               }
               nextToken
             }
-            seriesType
-            title
-            description
-            image
-            startDate
-            endDate
-            createdAt
-            updatedAt
           }
           blogPost {
             id
@@ -6445,42 +6488,7 @@ export const getBlogSeries = /* GraphQL */ `
             createdBy
             createdDate
             publishedDate
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
+            expirationDate
             blogStatus
             description
             content
@@ -6535,6 +6543,7 @@ export const getBlogSeries = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -6547,18 +6556,47 @@ export const getBlogSeries = /* GraphQL */ `
                 nextToken
               }
             }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
         }
         nextToken
       }
-      seriesType
-      title
-      description
-      image
-      startDate
-      endDate
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -6575,79 +6613,7 @@ export const listBlogs = /* GraphQL */ `
         createdBy
         createdDate
         publishedDate
-        blogSeries {
-          items {
-            id
-            blogSeriesID
-            blogPostID
-            createdAt
-            updatedAt
-            blogSeries {
-              id
-              blogs {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              image
-              startDate
-              endDate
-              createdAt
-              updatedAt
-            }
-            blogPost {
-              id
-              author
-              createdBy
-              createdDate
-              publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogStatus
-              description
-              content
-              blogTitle
-              topics
-              tags
-              createdAt
-              updatedAt
-              series {
-                id
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-                blogs {
-                  nextToken
-                }
-              }
-            }
-          }
-          nextToken
-        }
+        expirationDate
         blogStatus
         description
         content
@@ -6756,16 +6722,7 @@ export const listBlogs = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -6791,9 +6748,93 @@ export const listBlogs = /* GraphQL */ `
                   nextToken
                 }
               }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             nextToken
           }
+        }
+        blogSeries {
+          items {
+            id
+            blogSeriesID
+            blogPostID
+            createdAt
+            updatedAt
+            blogSeries {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              blogs {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogPost {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              content
+              blogTitle
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
         }
       }
       nextToken
@@ -6808,172 +6849,7 @@ export const getBlog = /* GraphQL */ `
       createdBy
       createdDate
       publishedDate
-      blogSeries {
-        items {
-          id
-          blogSeriesID
-          blogPostID
-          createdAt
-          updatedAt
-          blogSeries {
-            id
-            blogs {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
-            seriesType
-            title
-            description
-            image
-            startDate
-            endDate
-            createdAt
-            updatedAt
-          }
-          blogPost {
-            id
-            author
-            createdBy
-            createdDate
-            publishedDate
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
-            blogStatus
-            description
-            content
-            blogTitle
-            topics
-            tags
-            createdAt
-            updatedAt
-            series {
-              id
-              seriesType
-              title
-              description
-              image
-              startDate
-              endDate
-              createdAt
-              updatedAt
-              videos {
-                items {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  publishedDate
-                  recordedDate
-                  description
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogs {
-                items {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-            }
-          }
-        }
-        nextToken
-      }
+      expirationDate
       blogStatus
       description
       content
@@ -7138,6 +7014,7 @@ export const getBlog = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -7160,42 +7037,7 @@ export const getBlog = /* GraphQL */ `
             createdBy
             createdDate
             publishedDate
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                createdAt
-                updatedAt
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  blogStatus
-                  description
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
+            expirationDate
             blogStatus
             description
             content
@@ -7250,6 +7092,7 @@ export const getBlog = /* GraphQL */ `
                   createdBy
                   createdDate
                   publishedDate
+                  expirationDate
                   blogStatus
                   description
                   content
@@ -7262,9 +7105,216 @@ export const getBlog = /* GraphQL */ `
                 nextToken
               }
             }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
+      }
+      blogSeries {
+        items {
+          id
+          blogSeriesID
+          blogPostID
+          createdAt
+          updatedAt
+          blogSeries {
+            id
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            blogs {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          blogPost {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            content
+            blogTitle
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  publishedDate
+                  recordedDate
+                  description
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
       }
     }
   }
@@ -7292,79 +7342,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
         createdBy
         createdDate
         publishedDate
-        blogSeries {
-          items {
-            id
-            blogSeriesID
-            blogPostID
-            createdAt
-            updatedAt
-            blogSeries {
-              id
-              blogs {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              image
-              startDate
-              endDate
-              createdAt
-              updatedAt
-            }
-            blogPost {
-              id
-              author
-              createdBy
-              createdDate
-              publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogStatus
-              description
-              content
-              blogTitle
-              topics
-              tags
-              createdAt
-              updatedAt
-              series {
-                id
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-                blogs {
-                  nextToken
-                }
-              }
-            }
-          }
-          nextToken
-        }
+        expirationDate
         blogStatus
         description
         content
@@ -7473,16 +7451,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -7508,9 +7477,93 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   nextToken
                 }
               }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             nextToken
           }
+        }
+        blogSeries {
+          items {
+            id
+            blogSeriesID
+            blogPostID
+            createdAt
+            updatedAt
+            blogSeries {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              blogs {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogPost {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              content
+              blogTitle
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
         }
       }
       nextToken
@@ -7536,79 +7589,7 @@ export const searchBlogs = /* GraphQL */ `
         createdBy
         createdDate
         publishedDate
-        blogSeries {
-          items {
-            id
-            blogSeriesID
-            blogPostID
-            createdAt
-            updatedAt
-            blogSeries {
-              id
-              blogs {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              image
-              startDate
-              endDate
-              createdAt
-              updatedAt
-            }
-            blogPost {
-              id
-              author
-              createdBy
-              createdDate
-              publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogStatus
-              description
-              content
-              blogTitle
-              topics
-              tags
-              createdAt
-              updatedAt
-              series {
-                id
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-                blogs {
-                  nextToken
-                }
-              }
-            }
-          }
-          nextToken
-        }
+        expirationDate
         blogStatus
         description
         content
@@ -7717,16 +7698,7 @@ export const searchBlogs = /* GraphQL */ `
               createdBy
               createdDate
               publishedDate
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
+              expirationDate
               blogStatus
               description
               content
@@ -7752,9 +7724,93 @@ export const searchBlogs = /* GraphQL */ `
                   nextToken
                 }
               }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             nextToken
           }
+        }
+        blogSeries {
+          items {
+            id
+            blogSeriesID
+            blogPostID
+            createdAt
+            updatedAt
+            blogSeries {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              blogs {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogPost {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              content
+              blogTitle
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
         }
       }
       nextToken
