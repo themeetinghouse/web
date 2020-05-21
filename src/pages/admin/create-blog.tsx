@@ -423,7 +423,7 @@ class IndexApp extends React.Component<Props, State> {
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     blogBridgeByPost.then((json: any) => {
-      console.log("Success queries.blogBridgeByPost: " + json);
+      console.log({"Success queries.blogBridgeByPost: ": json});
       console.log(json)
       this.setState({
           blogBridgeList: json.data.blogBridgeByPost.items
@@ -444,7 +444,7 @@ class IndexApp extends React.Component<Props, State> {
       });
 
       saveBlogSeries.then((json: any) => {
-          console.log({ "Success mutations.saveBlogSeries: ": json });
+          console.log({"Success mutations.createBlogSeries: ": json});
 
       }).catch((e: any) => { console.log(e) })
       return true;

@@ -66,7 +66,7 @@ class ListItem extends React.Component<Props, State> {
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
       urlHistoryState: window.history.state,
-      showMoreVideos: false,
+      showMoreVideos: false
     }
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
