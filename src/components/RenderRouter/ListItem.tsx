@@ -5,6 +5,7 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
+import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
 
@@ -163,7 +164,7 @@ class ListItem extends React.Component<Props, State> {
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
           <div className="BlogDetails">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
-    <div className="BlogDesc">{item.description}</div>
+          <div className="BlogDesc">{item.description}</div>
         </div>
       </div>
       )
@@ -412,10 +413,14 @@ class ListItem extends React.Component<Props, State> {
         }
         return 0;
       });
+
+      const today = format(new Date(), "yyyy-MM-dd")
+      var dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
+
       return (
       <div className="ListItemDiv1 BlogItem" >
         <div className="BlogItemContainer">
-            {data.map((item: any, index: any) => {
+            {dateChecked.map((item: any, index: any) => {
               return this.renderItemRouter(item, index)
             }
             )}
