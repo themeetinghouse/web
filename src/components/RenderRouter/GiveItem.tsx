@@ -201,16 +201,22 @@ export default class ContentItem extends React.Component<Props, State>  {
           }
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Other Ways to Give</div>
+            {this.state.currentPage === "OnlineBanking" ?
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton2" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>Online Banking</button></div>
+              : null
+            }
             {this.state.currentPage === "OnlineBanking" ? null :
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OnlineBanking');this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
             }
            
+           {this.state.currentPage === "FellowshipOne" ?
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton2" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>TMH Account</button></div>
+              : null
+            }
             {this.state.currentPage === "FellowshipOne" ? null :
               <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>TMH Account</button></div>
             }
-            {this.state.currentPage === "PushPay" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
-            }  </div>
+          </div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemOtherWays">2019 Tax Receipt</div>
             <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://meetinghouse.infellowship.com/UserLogin") }}>{"Login & Download"}</button></div>
