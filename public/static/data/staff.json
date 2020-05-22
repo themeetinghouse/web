@@ -684,6 +684,15 @@
         "Email": "Roger.Massie@themeetinghouse.com"
     },
     {
+        "Staff":true,
+         "FirstName": "Sarah",
+         "LastName": "Lowe",
+         "Phone": "905.287.7000",
+         "Position": "Toronto Youth Pastor",
+         "sites": ["TODT","Youth", "Pastoral"],
+         "Email": "sarah.lowe@themeetinghouse.com"
+     },
+    {
        "Staff":true,
         "FirstName": "Sarah",
         "LastName": "Wills",
