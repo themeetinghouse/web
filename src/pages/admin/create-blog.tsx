@@ -655,10 +655,7 @@ class IndexApp extends React.Component<Props, State> {
                       contentType: "image/*",
                       acl: "public-read"
                   })
-                  var download = await Storage.get(filepath, {
-                      contentType: "image/*"
-                  })
-                  console.log(download);
+                  var download = "https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/" + filepath;
                   return { data: { link: download } }
               },
               previewImage: true,
