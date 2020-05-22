@@ -5,6 +5,7 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import "./ListItem.scss";
+import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
 
@@ -31,7 +32,6 @@ class ListItem extends React.Component<Props, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null
-
     })
     window.history.pushState({}, "Videos", this.state.urlHistoryState)
 
@@ -54,8 +54,8 @@ class ListItem extends React.Component<Props, State> {
       console.log({ "You need to create a series for:": data })
     else
       window.history.pushState({}, "Videos", "/videos/" + data.series.id + "/" + data.id)
-
   }
+
   dataLoader: DataLoader
   constructor(props: Props) {
     super(props);
@@ -152,6 +152,22 @@ class ListItem extends React.Component<Props, State> {
           </div>
         </div>
       </div>)
+  }
+
+  renderBlogs(item: any) {
+    return (
+      <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl("/posts/" + item.id)}>
+        <img alt={item.title + " series image"}
+          className="BlogSquareImage"
+          src={"/static/photos/blogs/square/" + item.blogTitle + ".jpg"}
+          onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
+        <div className="BlogContentContainer">
+          <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
+          <div className="BlogDetails">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
+          <div className="BlogDesc">{item.description}</div>
+        </div>
+      </div>
+      )
   }
 
   fallbackToImage(
@@ -353,6 +369,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderCurious(item)
     else if (this.state.content.class === "watch-page")
       return this.renderWatchPageVideo(item)
+    else if (this.state.content.class === "blogs")
+      return this.renderBlogs(item)
     else return null
   }
 
@@ -382,6 +400,34 @@ class ListItem extends React.Component<Props, State> {
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
+
+    else if (this.state.content.style === "blogs") {
+      data.sort(function(a: any, b: any) {
+        var nameA = a.publishedDate.toUpperCase();
+        var nameB = b.publishedDate.toUpperCase();
+        if (nameA > nameB) {
+          return -1;
+        }
+        if (nameA < nameB) {
+          return 1;
+        }
+        return 0;
+      });
+
+      const today = format(new Date(), "yyyy-MM-dd")
+      var dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
+
+      return (
+      <div className="ListItemDiv1 BlogItem" >
+        <div className="BlogItemContainer">
+            {dateChecked.map((item: any, index: any) => {
+              return this.renderItemRouter(item, index)
+            }
+            )}
+        </div>
+      </div>
+      )
+    }
 
     else if (this.state.content.style === "horizontal-video-player") {
       //videos are not stored in order within a series, so we sort here

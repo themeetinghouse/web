@@ -1,0 +1,297 @@
+@media (min-width: 768px) {
+    .blogButton {
+        position: relative;
+        font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color: #ffffff !important;
+        color:#000000 !important;
+        font-weight:bold!important;
+        margin-right:2vw;
+        font-size: 16px;
+        height: 56px;
+        width: 133px;
+    }
+
+    .blogButton-icon {
+        padding-bottom: 2px;
+        padding-right: 18px;
+    }
+
+    .blogdescription {
+        margin-top: 2vw;
+        width: 31vw;
+        font-size: larger;
+    }
+
+    .blogauthor {
+        font-size: small;
+        width: 30.625vw;
+    }
+
+    .blog-h1 {
+        position: relative;
+        top: 3vw;
+        font-size: 3vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+    }
+
+    .blog-blackbox {
+        padding: 3vw;
+        padding-right: 15vw;
+        padding-top: 7vw;
+        position: absolute;
+        width: 50vw;
+        top: 10vw;
+        height: 42vw;
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .blogdiv {
+        padding: 0.5vw;
+        color: #C8C8C8;
+        font-family: Graphik Web;
+    }
+
+    .author-underline {
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
+    }
+
+    .blogdiv2 {
+        position: absolute;
+        bottom: 6vw;
+        padding: 0.5vw;
+        font-family: Graphik Web;
+    }
+
+    .blog-post-title {
+        padding: 0.5vw;
+        font-size: 2.5vw;
+        font-weight: bold;
+        color: #ffffff;
+        font-family: Graphik Web;
+    }
+
+    .blog-image-desktop {
+        cursor: pointer;
+        position: absolute;
+        top: 5vw;
+        left: 40vw;
+        width: 40vw;
+    }
+
+    .blog-image-mobile {
+        display: none;
+    }
+
+    .blog {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 55vw;
+        padding-bottom: 5vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .blogButton {
+        font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color:#ffffff !important;
+        color:#000000 !important;
+        font-weight:bold!important;
+        margin-right:2vw;
+    }
+
+    .blogButton-icon {
+        padding-bottom: 1px;
+        padding-right: 18px
+    }
+
+    .blog-h1 {
+        position: relative;
+        top: 3vw;
+        font-size: 3vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+    }
+
+    .blogdescription {
+        margin-top: 2vw;
+        width: 31vw;
+        font-size: medium;
+    }
+
+    .blogauthor {
+        font-size: small;
+        width: 30.625vw;
+    }
+
+    .author-underline {
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
+    }
+
+    .blog-blackbox {
+        padding: 3vw;
+        padding-top: 7vw;
+        padding-right: 15vw;
+        position: absolute;
+        left: 5vw;
+        width: 50vw;
+        top: 10vw;
+        height: 42vw;
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .blogdiv {
+        padding: 0.5vw;
+        color: #C8C8C8;
+        font-family: Graphik Web;
+    }
+
+    .blogdiv2 {
+        position: absolute;
+        bottom: 5vw;
+        font-family: Graphik Web;
+    }
+
+    .blog-post-title {
+        padding: 0.5vw;
+        font-size: 2.5vw;
+        font-weight: bold;
+        color: #ffffff;
+        font-family: Graphik Web;
+    }
+
+    .blog-span {
+        margin: 1vw;
+        font-family: Graphik Web;
+    }
+
+    .blog-image-desktop {
+        cursor: pointer;
+        position: absolute;
+        top: 5vw;
+        left: 35vw;
+        width: 40vw;
+    }
+
+    .blog-image-mobile {
+        display: none;
+    }
+
+    .blog {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 55vw;
+        padding-bottom: 5vh;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .blog-h1 {
+        position: relative;
+        top: 3vw;
+        font-size: 3vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+    }
+
+    .blog-blackbox {
+        padding: 3vw;
+        padding-top: 12vw;
+        position: relative;
+        left: 0vw;
+        width: 100vw;
+        top: 16vw;
+        background-color: #000000;
+        color: #ffffff;
+        padding-bottom: 30vw;
+    }
+
+    .blogdiv {
+        padding: 3vw 2vw;
+        color: #C8C8C8;
+        font-family: Graphik Web;
+        font-size: 3.25vw;
+    }
+
+    .author-underline {
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
+    }
+
+    .blogdiv2 {
+        font-family: Graphik Web;
+        padding-bottom: 5vw;
+        padding-left: 2vw;
+    }
+
+    .blog-post-title {
+        padding: 0vw 2vw;
+        font-size: 8.55vw;
+        line-height: 10.7vw;
+        font-weight: bold;
+        color: #ffffff;
+        font-family: Graphik Web;
+    }
+
+    .blog-span {
+        margin: 1.25vw;
+        font-family: Graphik Web;
+    }
+
+    .blog-image-desktop {
+        display: none;
+    }
+
+    .blog-image-mobile {
+        cursor: pointer;
+        position: relative;
+        width: 90%;
+        bottom: 10vw;
+    }
+
+    .mobile-image-container {
+        text-align: center;
+        display: block;
+    }
+
+    .blog {
+        position: relative;
+        left: 0vw;
+        width: 100vw;
+    }
+
+    .blogdescription {
+        font-size: 4.3vw;
+        line-height: 6.4vw;
+        padding-bottom: 11.2vw;
+    }
+
+    .blogButton {
+      line-height: 5vw!important;
+      background-color: #ffffff!important;
+      color: #000000!important;
+      font-weight: 800!important;
+      border-radius:0!important;
+      margin-right:5vw;
+      font-size: 4.5vw;
+      width: 40vw;
+      height: 15vw;
+    }
+
+    .blogButton-icon {
+        padding-bottom: 2px;
+        padding-right: 18px
+    }
+}

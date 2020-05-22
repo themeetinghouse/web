@@ -426,6 +426,54 @@
         padding-top: 1px;
         width: 32px;
     }
+
+    .blogarrow {
+        float: right;
+    }
+
+    .author-only {
+        color: #1A1A1A;
+        border-bottom: solid #1A1A1A 1px;
+        padding-bottom: 1px;
+    }
+
+    .BlogItem {
+        display: flex;
+        align-items: top;
+        margin-bottom: 3.3vw;
+        width: 78vw;
+    }
+
+    .BlogItem:hover {
+        cursor:pointer;
+    }
+
+    .BlogSquareImage {
+        width: 120px;
+        height: 120px;
+    }
+
+    .BlogDesc {
+        color: #54565A;
+        margin-top: 1vw;
+        width: 50vw;
+    }
+
+    .BlogDetails {
+        color: #54565A;
+        font-size: small;
+    }
+
+    .BlogTitle {
+        color: #1A1A1A;
+        font-weight: bold;
+    }
+
+    .BlogContentContainer {
+        display: inline-block;
+        margin-left: 2vw;
+        width: 64vw;
+    }
 }
 
 @-moz-document url-prefix() {
@@ -844,6 +892,44 @@
         height: 8px;
         background: #ffffff;
         opacity: 0.12;
+    }
+
+    .BlogItem {
+        display: flex;
+        align-items: top;
+        margin-bottom: 3.3vw;
+        width: 78vw;
+    }
+
+    .BlogItem:hover {
+        cursor:pointer;
+    }
+
+    .BlogSquareImage {
+        width: 120px;
+        height: 120px;
+    }
+
+    .BlogDesc {
+        color: #54565A;
+        margin-top: 1vw;
+        width: 50vw;
+    }
+
+    .BlogDetails {
+        color: #54565A;
+        font-size: small;
+    }
+
+    .BlogTitle {
+        color: #1A1A1A;
+        font-weight: bold;
+    }
+
+    .BlogContentContainer {
+        display: inline-block;
+        margin-left: 2vw;
+        width: 64vw;
     }
 
 }
@@ -1450,6 +1536,52 @@
         width: 88.53vw;
         background: #ffffff;
         opacity: 0.12;
+    }
+
+    .blogarrow {
+        float: right;
+    }
+
+    .author-only {
+        color: #1A1A1A;
+        border-bottom: solid #1A1A1A 1px;
+        padding-bottom: 1px;
+    }
+
+    .BlogItem {
+        margin-bottom: 12.8vw;
+        width: 88.5vw;
+    }
+
+    .BlogItem:hover {
+        cursor:pointer;
+    }
+
+    .BlogSquareImage {
+        width: 156px;
+        height: 156px;
+    }
+
+    .BlogDesc {
+        color: #54565A;
+        margin-top: 1vw;
+        width: 88.5vw;
+    }
+
+    .BlogDetails {
+        color: #54565A;
+        font-size: small;
+    }
+
+    .BlogTitle {
+        color: #1A1A1A;
+        font-weight: bold;
+    }
+
+    .BlogContentContainer {
+        display: inline-block;
+        margin-left: 2vw;
+        width: 86.5vw;
     }
 
 }
