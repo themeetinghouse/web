@@ -463,6 +463,10 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleAddBridge() {
+    if (this.state.title === '' || this.state.author === '') {
+      this.setState({ showAlert: 'You need a valid title and author to add to a video series' })
+      return false;
+    }
     // this is for adding blog series
     this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(this.state.currentBlogSeries)});
     var BlogSeriesToAdd = this.state.currentBlogSeries
