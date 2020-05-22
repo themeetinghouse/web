@@ -78,10 +78,10 @@ class BlogItem extends React.Component<Props, State> {
                                 <div className="blogdiv2" >
                                     <Button size="lg" className="blogButton" onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}>Read More</Button>
                                 </div>
-                                <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}/></div>
+                                <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g,"")+".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}/></div>
                             </div>
                             {
-                            <div className="mobile-image-container"><img alt="TBD" className="blog-image-mobile" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}/></div>
+                            <div className="mobile-image-container"><img alt="TBD" className="blog-image-mobile" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g,"")+".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}/></div>
                             }
                         </div> : null
             )

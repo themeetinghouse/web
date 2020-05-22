@@ -159,7 +159,7 @@ class ListItem extends React.Component<Props, State> {
       <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl("/posts/" + item.id)}>
         <img alt={item.title + " series image"}
           className="BlogSquareImage"
-          src={"/static/photos/blogs/square/" + item.blogTitle + ".jpg"}
+          src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g,"")+".jpg"}
           onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
