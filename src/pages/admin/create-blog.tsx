@@ -650,7 +650,7 @@ class IndexApp extends React.Component<Props, State> {
             image: {
               uploadEnabled: true,
               uploadCallback: async (file: any) => {
-                  const filepath = "/bloguploads/" + uuidv1() + file.name;
+                  const filepath = "bloguploads/" + uuidv1() + file.name;
                   await Storage.put(filepath, file, {
                       contentType: "image/*",
                       acl: "public-read"
