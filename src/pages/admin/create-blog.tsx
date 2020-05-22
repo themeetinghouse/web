@@ -139,8 +139,8 @@ class IndexApp extends React.Component<Props, State> {
       editMode: false,
 
       // mutation inputs
-      blogObject: { id: '', author: '', publishedDate: '', blogStatus: '', description: '', blogTitle: '' },
-      newBlogSeries: { id: '', title: ''},
+      blogObject: {},
+      newBlogSeries: {},
 
       // the power to delete things
       delete: '',
@@ -317,16 +317,10 @@ class IndexApp extends React.Component<Props, State> {
       this.state.blogPostsList.forEach((post: any) => {
         titles.push(post.blogTitle)
       });
-
       var contentState = this.state.editorState.getCurrentContent();
       var raw = convertToRaw(contentState);
       var html = draftToHtml(raw)
-      this.updateBlogField('blogTitle', this.state.title)
-      this.updateBlogField('author', this.state.author)
-      this.updateBlogField('description', this.state.desc)
       this.updateBlogField('content', html)
-      this.updateBlogField('tags', this.state.selectedTags)
-      this.updateBlogField('blogStatus', this.state.blogStatus)
       if (this.state.selectedVideoSeries) {
         // DynamoDB naming convention is confusing blog(videoSeries)Id
         this.updateBlogField('blogSeriesId', this.state.selectedVideoSeries)
@@ -340,40 +334,39 @@ class IndexApp extends React.Component<Props, State> {
         this.updateBlogField('expirationDate', format(this.state.expireDate, "yyyy-MM-dd"))
       }
       console.log(this.state.blogObject)
-      console.log(this.state.selectedVideoSeries)
 
-      if (this.state.editMode === false) {
-        if (titles.includes(this.state.title)) {
-          this.setState({ showAlert: "⚠️ Warning: a post with this title exists. Please change your title."})
-          return false;
-        }
-          var createBlog:any = API.graphql({
-              query: mutations.createBlog,
-              variables: { input: this.state.blogObject },
-              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-          });
-
-          createBlog.then((json: any) => {
-              console.log({ "Success mutations.createBlog: ": json });
-              this.setState({ editMode: true, showAlert: 'Saved ✅' });
-
-          }).catch((e: any) => { console.log(e) })
-          return true;
-
-      } else if (this.state.editMode === true) {
-          var updateBlog:any = API.graphql({
-            query: mutations.updateBlog,
-            variables: { input: this.state.blogObject },
-            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-          });
-
-          updateBlog.then((json: any) => {
-              console.log({ "Success mutations.updateBlog: ": json });
-              this.setState({ showAlert: 'Saved ✅' });
-
-          }).catch((e: any) => { console.log(e) })
-          return true;
+      if (this.state.editMode === false && titles.includes(this.state.title)) {
+        this.setState({ showAlert: "⚠️ Warning: a post with this title exists. Please change your title."})
+        return false;
       }
+      
+      var createBlog:any = API.graphql({
+          query: mutations.createBlog,
+          variables: { input: this.state.blogObject },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+
+      createBlog.then((json: any) => {
+          console.log({ "Success mutations.createBlog: ": json });
+          this.setState({ editMode: true, showAlert: 'Saved ✅' });
+          return true;
+
+      }).catch((e: any) => { console.log(e) })
+
+      var updateBlog:any = API.graphql({
+          query: mutations.updateBlog,
+          variables: { input: this.state.blogObject },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+
+      updateBlog.then((json: any) => {
+          console.log({ "Success mutations.updateBlog: ": json });
+          this.setState({ showAlert: 'Saved ✅' });
+          return true;
+
+      }).catch((e: any) => { console.log(e) })
+
+      return false;
     }
   }
 
@@ -545,7 +538,7 @@ class IndexApp extends React.Component<Props, State> {
       <div>
 
       <b>Blog Status</b>
-        <select style={{width: 200}} onChange={(event:any) => this.setState({ blogStatus: event.target.value})}>
+        <select style={{width: 200}} onChange={(event:any) => {this.setState({ blogStatus: event.target.value}); this.updateBlogField('blogStatus', this.state.blogStatus)} }>
           <option key="unlisted" value="Unlisted">Unlisted</option>
           <option key="live" value="Live">Live</option>
         </select>
@@ -556,9 +549,9 @@ class IndexApp extends React.Component<Props, State> {
           Add tags:
           <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
         </label>
-        <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''})}>Confirm Tag</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedTags: [] })}>Clear All Tags</button>
-        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)})}>{item + ", "}</div>)}</div>
+        <button className="tags-button" onClick={()=>{this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}); this.updateBlogField('tags', this.state.selectedTags)} }>Confirm Tag</button>
+        <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateBlogField('tags', this.state.selectedTags)} }>Clear All Tags</button>
+        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => {this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}); this.updateBlogField('tags', this.state.selectedTags)} }>{item + ", "}</div>)}</div>
           <br/>
 
         <b>Add to Blog Series</b>
@@ -639,7 +632,7 @@ class IndexApp extends React.Component<Props, State> {
 
         <label style={this.state.desc.length >= 180 ? {color: "red"} : {color: "black"}}>
           Description ({this.state.desc.length + " of 210 characters"}):
-          <textarea className="big-input" maxLength={210} value={this.state.desc} onChange={(event:any)=> this.setState({ desc: event.target.value})} />
+          <textarea className="big-input" maxLength={210} value={this.state.desc} onChange={(event:any)=> {this.setState({ desc: event.target.value}); this.updateBlogField('description', this.state.desc)} } />
         </label>
 
         <Editor
