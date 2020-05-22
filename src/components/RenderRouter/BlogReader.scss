@@ -4,7 +4,8 @@
         top: 5vw;
         left: 20vw;
         width: 80vw;
-        padding-bottom: 5vw;
+        padding-bottom: 5vh;
+        min-height: 80vh;
     }
     
     .blog-h1 {
@@ -110,7 +111,7 @@
         top: 5vw;
         left: 20vw;
         width: 80vw;
-        padding-bottom: 5vw;
+        padding-bottom: 5vh;
     }
     
     .blog-h1 {
@@ -271,6 +272,7 @@
 
     .ShareButtonMobile {
         left: 5.8vw;
+        padding-bottom: 5vh;
     }
 
     .social-share-icon {
