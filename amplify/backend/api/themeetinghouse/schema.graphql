@@ -648,6 +648,24 @@ type Blog
   tags:[String]
 }
 
+type Notes 
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+
+{
+  id: ID!
+  title:String
+  content:String
+  image:String
+  pdf:String
+  topics:[String]
+  tags:[String]
+}
+
 type WebPage
  @model 
  @searchable
