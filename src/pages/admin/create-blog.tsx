@@ -150,7 +150,6 @@ class IndexApp extends React.Component<Props, State> {
     this.listSeries(null)
     this.listBlogs(null)
     this.listBlogSeries(null)
-    this.handleAuthor = this.handleAuthor.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
@@ -520,14 +519,6 @@ class IndexApp extends React.Component<Props, State> {
     })
   }
 
-  handleAuthor(event: any) {
-    this.setState({ 
-      title: event.target.value, 
-      selectedBlogSeries: [],
-      editMode: false
-    })
-  }
-
   onChange = (editorState: any) => this.setState({ editorState });
 
   // RENDER FUNCTIONS
@@ -649,7 +640,7 @@ class IndexApp extends React.Component<Props, State> {
       <div className="editor-container">
         <label>
           Title:
-          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.handleAuthor(event); this.updateBlogField('blogTitle', event.target.value)} } />
+          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.setState({ title: event.target.value, selectedBlogSeries: [], editMode: false}); this.updateBlogField('blogTitle', event.target.value)} } />
         </label>
 
         <label>
