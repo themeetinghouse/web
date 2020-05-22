@@ -45,12 +45,11 @@ interface State {
   author: string
   desc: string
   showPreview: boolean
-  saveReminder: boolean
   videoSeriesList: any
   blogSeriesList: any
   selectedVideoSeries: any
   selectedBlogSeries: any
-  serverBlogBridges: any
+  deselectedBlogSeries: any
   blogBridgeList: any
   selectedTags: any
   editMode: boolean
@@ -109,6 +108,7 @@ class IndexApp extends React.Component<Props, State> {
       currentBlogSeries: null,
       selectedVideoSeries: null,
       selectedBlogSeries: [],
+      deselectedBlogSeries: [],
       selectedTags: [],
       publishDate: new Date(),
       expireDate: new Date(),
@@ -118,13 +118,11 @@ class IndexApp extends React.Component<Props, State> {
       videoSeriesList: [],
       blogSeriesList: [],
       blogPostsList: [],
-      serverBlogBridges: [],
       videoSeries: null,
       blogBridgeList: null,
 
       // display states
       showPreview: false,
-      saveReminder: false,
       moreOptions: false,
       showEditModal: false,
       newBlogSeriesModal: false,
@@ -152,6 +150,7 @@ class IndexApp extends React.Component<Props, State> {
     this.listSeries(null)
     this.listBlogs(null)
     this.listBlogSeries(null)
+    this.handleAuthor = this.handleAuthor.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
@@ -308,11 +307,10 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleSave() {
-    if (this.state.author === '' || this.state.title === '') {
-      this.setState({ showAlert: "⚠️ You need a valid title and author to save." })
+    if (this.state.title === '' || this.state.author === '' || this.state.desc === '' || this.state.editorState.getCurrentContent().hasText() === false) {
+      this.setState({ showAlert: "⚠️ You need a valid title, author, description and body to save." })
       return false;
     } else {
-
       var titles: any = [];
       this.state.blogPostsList.forEach((post: any) => {
         titles.push(post.blogTitle)
@@ -328,6 +326,7 @@ class IndexApp extends React.Component<Props, State> {
         this.updateBlogField('blogSeriesId', 'nonEmptyVoidStringValue')
       }
       this.updateBlogField('publishedDate', format(this.state.publishDate, "yyyy-MM-dd"))
+
       if (this.state.disableCalendar===true) {
         this.updateBlogField('expirationDate', 'none')
       } else {
@@ -339,7 +338,12 @@ class IndexApp extends React.Component<Props, State> {
         this.setState({ showAlert: "⚠️ Warning: a post with this title exists. Please change your title."})
         return false;
       }
-      
+
+      this.updateBlogField('tags', this.state.selectedTags)
+      this.writeBridges(this.state.selectedBlogSeries, this.state.deselectedBlogSeries);
+
+      this.setState({ editMode: true })
+
       var createBlog:any = API.graphql({
           query: mutations.createBlog,
           variables: { input: this.state.blogObject },
@@ -348,7 +352,7 @@ class IndexApp extends React.Component<Props, State> {
 
       createBlog.then((json: any) => {
           console.log({ "Success mutations.createBlog: ": json });
-          this.setState({ editMode: true, showAlert: 'Saved ✅' });
+          this.setState({ showAlert: 'Saved ✅' });
           return true;
 
       }).catch((e: any) => { console.log(e) })
@@ -462,48 +466,66 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({ blogObject: blog })
   }
 
-  handleAddBridge() {
-    if (this.state.title === '' || this.state.author === '') {
-      this.setState({ showAlert: 'You need a valid title and author to add to a video series' })
-      return false;
-    }
-    // this is for adding blog series
-    this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(this.state.currentBlogSeries)});
-    var BlogSeriesToAdd = this.state.currentBlogSeries
-    console.log(BlogSeriesToAdd)
+  writeBridges(toAdd: string[], toDelete: string[]) {
+
     var currentPostID = this.state.blogObject.id
 
-    var bridgeID = BlogSeriesToAdd + '-' + currentPostID
+    toDelete.forEach((series: string) => {
 
-    var createBlogSeriesBridge:any = API.graphql({
-      query: mutations.createBlogSeriesBridge,
-      variables: { input: {'id': bridgeID, 'blogSeriesID': BlogSeriesToAdd, 'blogPostID': currentPostID} },
-      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      var bridgeID = currentPostID+'-'+series
+
+      var deleteBlogSeriesBridge:any = API.graphql({
+        query: mutations.deleteBlogSeriesBridge,
+        variables: { input: {'id': bridgeID} },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+  
+      deleteBlogSeriesBridge.then((json: any) => {
+        console.log({ "Success mutations.deleteBlogSeriesBridge: ": json });
+      }).catch((e: any) => { console.log(e) })
+
     });
 
-    createBlogSeriesBridge.then((json: any) => {
-      console.log({ "Success mutations.createBlogSeriesBridge: ": json });
-    }).catch((e: any) => { console.log(e) })
+
+    toAdd.forEach((series:string) => {
+      
+      var bridgeID = currentPostID+'-'+series
+
+      var createBlogSeriesBridge:any = API.graphql({
+        query: mutations.createBlogSeriesBridge,
+        variables: { input: {'id': bridgeID, 'blogSeriesID': series, 'blogPostID': currentPostID} },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+  
+      createBlogSeriesBridge.then((json: any) => {
+        console.log({ "Success mutations.createBlogSeriesBridge: ": json });
+      }).catch((e: any) => { console.log(e) })
+    });
+
   }
 
   handleDeleteBridge() {
-    // this is for deleting blog series
     var removed = this.state.selectedBlogSeries
     var toDelete = removed.pop()
-    var currentPostID = this.state.blogObject.id
-    this.setState({ selectedBlogSeries: removed })
-    
-    var bridgeID = toDelete + '-' + currentPostID
+    this.setState({ 
+      selectedBlogSeries: removed,  
+      deselectedBlogSeries: this.state.deselectedBlogSeries.concat(toDelete)
+    })
+  }
 
-    var deleteBlogSeriesBridge:any = API.graphql({
-      query: mutations.deleteBlogSeriesBridge,
-      variables: { input: {'id': bridgeID} },
-      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-    });
+  handleAddBridge() {
+    this.setState({ 
+      selectedBlogSeries: this.state.selectedBlogSeries.concat(this.state.currentBlogSeries),
+      deselectedBlogSeries: this.state.deselectedBlogSeries.filter((elem: any)=>elem!==this.state.currentBlogSeries)
+    })
+  }
 
-    deleteBlogSeriesBridge.then((json: any) => {
-      console.log({ "Success mutations.deleteBlogSeriesBridge: ": json });
-    }).catch((e: any) => { console.log(e) })
+  handleAuthor(event: any) {
+    this.setState({ 
+      title: event.target.value, 
+      selectedBlogSeries: [],
+      editMode: false
+    })
   }
 
   onChange = (editorState: any) => this.setState({ editorState });
@@ -543,6 +565,7 @@ class IndexApp extends React.Component<Props, State> {
 
       <b>Blog Status</b>
         <select style={{width: 200}} onChange={(event:any) => {this.setState({ blogStatus: event.target.value}); this.updateBlogField('blogStatus', this.state.blogStatus)} }>
+          <option key="null" value="null">None Selected</option>
           <option key="unlisted" value="Unlisted">Unlisted</option>
           <option key="live" value="Live">Live</option>
         </select>
@@ -553,7 +576,7 @@ class IndexApp extends React.Component<Props, State> {
           Add tags:
           <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
         </label>
-        <button className="tags-button" onClick={()=>{this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}); this.updateBlogField('tags', this.state.selectedTags)} }>Confirm Tag</button>
+        <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}) }>Confirm Tag</button>
         <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateBlogField('tags', this.state.selectedTags)} }>Clear All Tags</button>
         <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => {this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}); this.updateBlogField('tags', this.state.selectedTags)} }>{item + ", "}</div>)}</div>
           <br/>
@@ -626,13 +649,14 @@ class IndexApp extends React.Component<Props, State> {
       <div className="editor-container">
         <label>
           Title:
-          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.setState({ title: event.target.value, editMode: false, selectedBlogSeries: [] }); this.updateBlogField('blogTitle', event.target.value)} } />
+          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.handleAuthor(event); this.updateBlogField('blogTitle', event.target.value)} } />
         </label>
 
         <label>
           Author:
-          <input className="small-input" type="text" value={this.state.author} onChange={(event:any)=> {this.setState({ author: event.target.value, editMode: false, selectedBlogSeries: [] }); this.updateBlogField('author', event.target.value)} } />
+          <input className="small-input" type="text" value={this.state.author} onChange={(event:any)=> {this.setState({ author: event.target.value }); this.updateBlogField('author', event.target.value)} } />
         </label>
+        <div style={{color: "red", padding: 0, fontSize: "small"}}>{this.state.editMode ? "Warning. Changing your title will create a new post. Please be careful to avoid publishing duplicates." : null}</div>
 
         <label style={this.state.desc.length >= 180 ? {color: "red"} : {color: "black"}}>
           Description ({this.state.desc.length + " of 210 characters"}):
@@ -687,7 +711,6 @@ class IndexApp extends React.Component<Props, State> {
         <button className="toolbar-button" onClick={this.handleEdit}>Edit an existing post</button><br/>
         <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br/>
         <button className="toolbar-button" onClick={()=>this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
-        {this.state.saveReminder ? <div style={{color: "red", fontWeight: 'bold', width: 180}}>Save Your Work!</div>: null}
       </div>
     )
   }
