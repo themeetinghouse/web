@@ -334,7 +334,7 @@ class IndexApp extends React.Component<Props, State> {
       console.log(this.state.blogObject)
 
       if (this.state.editMode === false && titles.includes(this.state.title)) {
-        this.setState({ showAlert: "⚠️ Warning: a post with this title exists. Please change your title."})
+        this.setState({ showAlert: "⚠️ Warning: a post with this title exists. Please change your title. If you are trying to edit this post, please close this message then click edit: Edit an existing post"})
         return false;
       }
 
