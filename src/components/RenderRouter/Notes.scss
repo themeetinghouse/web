@@ -1,0 +1,316 @@
+@media (min-width: 768px) {
+    .blog-content {
+        position: relative;
+        top: 5vw;
+        left: 20vw;
+        width: 80vw;
+        padding-bottom: 5vh;
+        min-height: 80vh;
+    }
+    
+    .blog-h1 {
+        font-size: 3vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+        color: #1A1A1A;
+        width: 58vw;
+    }
+    
+    .blog-details {
+        font-family: Graphik Web;
+        color: #54565A;
+        font-size: 1.1vw;
+    }
+    
+    .blog-author {
+        color: #1A1A1A;
+        border-bottom: #1A1A1A solid;
+        padding-bottom: 1px;
+    }
+    
+    .blog-body {
+        padding-top: 3vw;
+        font-family: Graphik Web;
+        width: 48.33vw;
+        overflow-x: hidden;
+        padding-bottom: 6vw;
+    }
+    
+    .button-icon {
+        margin-right: 16px;
+    }
+    
+    .dropdown-toggle:after {
+        display: none;
+    }
+    
+    #share-custom {
+        border-radius: 0;
+        color: #ffffff;
+        background-color: #1A1A1A;
+        border-color: #1A1A1A;
+        font-family: Graphik Web;
+        font-weight: bold;
+        width: 134px;
+        height: 56px;
+        margin-top: 5px;
+        box-shadow: none !important;
+    }
+    
+    .ShareButtonDesktop {
+        margin-right: 11.25vw;
+        float: right;
+    }
+    
+    .ShareButtonMobile {
+        display:none;
+    }
+    
+    .social-share-icon {
+        margin-right: 20px;
+    }
+    
+    .ShareMenu {
+        border-radius: 0;
+    }
+    
+    .dropitem {
+        width: 200px;
+    }
+    
+    .dropitem:hover {
+        background-color: #C8C8C8;
+        border: none;
+    }
+    
+    .ShareOption {
+        text-align: left;
+    }
+
+    .link-to-main-blog-page {
+        position: absolute;
+        top: 3vw;
+        left: 20vw;
+        font-size: 1.1vw;
+        color: #1A1A1A;
+    }
+
+    .link-to-main-blog-page:hover { 
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .dropdown-caret {
+        transform: rotate(-90deg) translate(1px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .blog-content {
+        position: relative;
+        top: 5vw;
+        left: 20vw;
+        width: 80vw;
+        padding-bottom: 5vh;
+    }
+    
+    .blog-h1 {
+        font-size: 3vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+        color: #1A1A1A;
+        width: 58vw;
+    }
+    
+    .blog-details {
+        font-family: Graphik Web;
+        color: #54565A;
+        font-size: 1.1vw;
+    }
+    
+    .blog-author {
+        color: #1A1A1A;
+        border-bottom: #1A1A1A solid;
+        padding-bottom: 1px;
+    }
+    
+    .blog-body {
+        padding-top: 3vw;
+        font-family: Graphik Web;
+        width: 48.33vw;
+        overflow-x: hidden;
+    }
+    
+    .button-icon {
+        margin-right: 16px;
+    }
+    
+    .dropdown-toggle:after {
+        display: none;
+    }
+    
+    #share-custom {
+        border-radius: 0;
+        color: #ffffff;
+        background-color: #1A1A1A;
+        border-color: #1A1A1A;
+        font-family: Graphik Web;
+        font-weight: bold;
+        width: 134px;
+        height: 56px;
+        margin-top: 5px;
+        box-shadow: none !important;
+    }
+    
+    .ShareButtonDesktop {
+        margin-right: 11.25vw;
+        float: right;
+    }
+    
+    .ShareButtonMobile {
+        display:none;
+    }
+    
+    .social-share-icon {
+        margin-right: 20px;
+    }
+    
+    .ShareMenu {
+        border-radius: 0;
+    }
+    
+    .dropitem {
+        width: 200px;
+    }
+    
+    .dropitem:hover {
+        background-color: #C8C8C8;
+        border: none;
+    }
+    
+    .ShareOption {
+        text-align: left;
+    }
+
+    .link-to-main-blog-page {
+        position: absolute;
+        top: 3vw;
+        left: 20vw;
+        font-size: 1.1vw;
+        color: #1A1A1A;
+    }
+
+    .link-to-main-blog-page:hover { 
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .dropdown-caret {
+        transform: rotate(-90deg) translate(1px);
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-content {
+        position: relative;
+        top: 24vw;
+        left: 5.8vw;
+        padding-bottom: 24vw;
+    }
+    
+    .blog-h1 {
+        font-size: 8.5vw;
+        font-weight: bold;
+        font-family: Graphik Web;
+        color: #1A1A1A;
+        width: 88.5vw;
+    }
+    
+    .blog-details {
+        font-family: Graphik Web;
+        color: #54565A;
+        font-size: 3.5vw;
+    }
+    
+    .blog-author {
+        color: #1A1A1A;
+        border-bottom: #1A1A1A solid;
+        padding-bottom: 1px;
+    }
+    
+    .blog-body {
+        padding-top: 8.5vw;
+        font-family: Graphik Web;
+        width: 88.5vw;
+        overflow-x: hidden;
+    }
+    
+    .button-icon {
+        margin-right: 16px;
+    }
+    
+    .dropdown-toggle:after {
+        display: none;
+    }
+    
+    #share-custom {
+        border-radius: 0;
+        color: #ffffff;
+        background-color: #1A1A1A;
+        border-color: #1A1A1A;
+        font-family: Graphik Web;
+        font-weight: bold;
+        width: 134px;
+        height: 56px;
+        margin-top: 5vh;
+        box-shadow: none !important;
+    }
+    
+    .ShareButtonDesktop {
+        display: none;
+    }
+
+    .ShareButtonMobile {
+        left: 5.8vw;
+        padding-bottom: 5vh;
+    }
+
+    .social-share-icon {
+        margin-right: 20px;
+    }
+
+    .ShareMenu {
+        border-radius: 0;
+        width: 175px;
+    }
+
+    .dropitem {
+        width: 173px;
+    }
+
+    .dropitem:hover {
+        background-color: #C8C8C8;
+        border: none;
+    }
+
+    .ShareOption {
+        text-align: left;
+    }
+
+    .link-to-main-blog-page {
+        position: absolute;
+        top: 28vw;
+        left: 5.8vw;
+        font-size: 3.5vw;
+        color: #1A1A1A;
+    }
+
+    .link-to-main-blog-page:hover { 
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .dropdown-caret {
+        transform: rotate(-90deg) translate(1px);
+    }
+}

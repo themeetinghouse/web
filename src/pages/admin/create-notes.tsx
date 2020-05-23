@@ -6,20 +6,15 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
-import * as customQueries from '../../graphql-custom/customQueries';
-import * as queries from '../../graphql/queries';
-import * as mutations from '../../graphql/mutations';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify';
+//import * as queries from '../../graphql/queries';
+//import * as mutations from '../../graphql/mutations';
+//import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+//import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import format from 'date-fns/format';
-import parse from 'date-fns/parse';
 import './create-notes.scss';
 
 Amplify.configure(awsmobile);
@@ -54,6 +49,7 @@ interface State {
   showEditModal: boolean
   delete: string
   understand: string
+  noteEdit: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -80,7 +76,7 @@ class IndexApp extends React.Component<Props, State> {
       title: '',
 
       // banner image
-      image: null,
+      image: '',
 
       // tags
       selectedTags: [],
@@ -93,8 +89,9 @@ class IndexApp extends React.Component<Props, State> {
       editMode: false,
       showAlert: '',
 
-      // import of prev notes
+      // imports
       notesList: [],
+      noteEdit: null,
 
       // the power to delete things
       delete: '',
@@ -105,14 +102,9 @@ class IndexApp extends React.Component<Props, State> {
     }
 
     this.listNotes(null);
-    this.handleAuthor = this.handleAuthor.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSave = this.handleSave.bind(this);
-    this.handleNewBlogSeries = this.handleNewBlogSeries.bind(this);
-    this.handleAddBridge = this.handleAddBridge.bind(this);
-    this.handleDeleteBridge = this.handleDeleteBridge.bind(this);
     this.handleDeleteNote = this.handleDeleteNote.bind(this);
-    this.handleDeleteBlogSeries = this.handleDeleteBlogSeries.bind(this);
   }
 
   listNotes(nextToken: any) {
@@ -183,7 +175,7 @@ class IndexApp extends React.Component<Props, State> {
       var html = draftToHtml(raw)
       this.updateField('content', html)
 
-      console.log(this.state.blogObject)
+      console.log(this.state.noteObject)
 
       this.updateField('tags', this.state.selectedTags)
 
@@ -234,67 +226,19 @@ class IndexApp extends React.Component<Props, State> {
 
   async handleEdit() {
     this.setState({ showEditModal: true });
-    await this.waitForSelection(() => this.state.blogToEditObject);
-    console.log(this.state.blogToEditObject);
-    const blocksfromHtml = htmlToDraft(this.state.blogToEditObject.content);
+    await this.waitForSelection(() => this.state.noteEdit);
+    const blocksfromHtml = htmlToDraft(this.state.noteEdit.content);
     const { contentBlocks, entityMap } = blocksfromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);    
     this.setState({
-      title: this.state.blogToEditObject.blogTitle,
-      author: this.state.blogToEditObject.author,
-      desc: this.state.blogToEditObject.description,
+      title: this.state.noteEdit.blogTitle,
       editorState: EditorState.createWithContent(contentState),
-      selectedTags: this.state.blogToEditObject.tags,
-      blogStatus: this.state.blogToEditObject.blogStatus
+      selectedTags: this.state.noteEdit.tags,
     })
 
-    this.updateBlogField('blogTitle', this.state.title) // sets id so other functions work
-
-    if (this.state.blogToEditObject.expirationDate !== 'none') {
-      const exp = parse(this.state.blogToEditObject.expirationDate, "yyyy-MM-dd", new Date())
-      this.setState({ expireDate: exp, disableCalendar: false })
-    }
-
-    const pub = parse(this.state.blogToEditObject.publishedDate, "yyyy-MM-dd", new Date())
-    this.setState({ publishDate: pub })
-
-    if (this.state.blogToEditObject.series) {
-      this.setState({ selectedVideoSeries: this.state.blogToEditObject.series.id })
-    }
-
-    const blogBridgeByPost:any = API.graphql({
-      query: queries.blogBridgeByPost,
-      variables: { blogPostID: this.state.blogToEditObject.id },
-      authMode: GRAPHQL_AUTH_MODE.API_KEY
-    });
-    blogBridgeByPost.then((json: any) => {
-      console.log({"Success queries.blogBridgeByPost: ": json});
-      console.log(json)
-      this.setState({
-          blogBridgeList: json.data.blogBridgeByPost.items
-      })
-      this.state.blogBridgeList.forEach((bridge: any)=>this.setState({ selectedBlogSeries: this.state.selectedBlogSeries.concat(bridge.blogSeriesID)}))
-    }).catch((e: any) => { console.log(e) })
+    this.updateField('title', this.state.title) // sets id so other functions work
 
     this.setState({ editMode: true });
-  }
-
-  handleNewBlogSeries() {
-    this.setState({ newBlogSeriesModal: false });
-    if (this.state.newBlogSeries.title !== "") {
-      var saveBlogSeries:any = API.graphql({
-          query: mutations.createBlogSeries,
-          variables: { input: this.state.newBlogSeries },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      });
-
-      saveBlogSeries.then((json: any) => {
-          console.log({"Success mutations.createBlogSeries: ": json});
-
-      }).catch((e: any) => { console.log(e) })
-      return true;
-    }
-    return false;
   }
 
   updateField(field: any, value: any) {
@@ -336,8 +280,8 @@ class IndexApp extends React.Component<Props, State> {
           <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
         </label>
         <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}) }>Confirm Tag</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateBlogField('tags', this.state.selectedTags)} }>Clear All Tags</button>
-        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => {this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}); this.updateBlogField('tags', this.state.selectedTags)} }>{item + ", "}</div>)}</div>
+        <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateField('tags', this.state.selectedTags)} }>Clear All Tags</button>
+        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => {this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}); this.updateField('tags', this.state.selectedTags)} }>{item + ", "}</div>)}</div>
           <br/>
       
 
@@ -360,7 +304,7 @@ class IndexApp extends React.Component<Props, State> {
       <div className="editor-container">
         <label>
           Title:
-          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.handleAuthor(event); this.updateField('blogTitle', event.target.value)} } />
+          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.setState({ title: event.target.value }); this.updateField('blogTitle', event.target.value)} } />
         </label>
 
         <Editor

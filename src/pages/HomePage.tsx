@@ -25,6 +25,7 @@ interface Props extends RouteComponentProps {
   match: any
   isVideo?: string
   isBlog? : string
+  isNotes?: string
 }
 interface State {
   content: any
@@ -60,6 +61,9 @@ class HomePage extends React.Component<Props, State> {
     }
     else if (this.props.isBlog === "true") {
       jsonFile = "blog-post"
+    }
+    else if (this.props.isNotes === "true") {
+      jsonFile = "notes"
     }
     else {
       jsonFile = props.match.params.id
@@ -156,6 +160,22 @@ class HomePage extends React.Component<Props, State> {
         console.log(this.state.data);
       }).catch((e: any) => { console.log(e) })
     }
+
+    else if (this.props.isNotes === "true") {
+      /*
+      console.log(this.props.match.params.note)      
+      const getNotes:any = API.graphql({
+        query: queries.getNotes,
+        variables: { id: this.props.match.params.note },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      getNotes.then((json: any) => {
+        console.log({ "Success queries.getNotes: ": json });
+        this.setState({ data: json.data.getNotes })
+        console.log(this.state.data);
+      }).catch((e: any) => { console.log(e) })
+      */
+    }
   }
 
   
@@ -179,7 +199,7 @@ class HomePage extends React.Component<Props, State> {
   render() {
     if (this.props.isVideo === "true")
       return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={this.state.data}></VideoOverlay>
-    else if (this.props.isBlog === "true")
+    else if (this.props.isBlog === "true" || this.props.isNotes === "true")
       return <Blog data={this.state.data}></Blog>
     else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
       return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
