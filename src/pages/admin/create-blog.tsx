@@ -334,7 +334,7 @@ class IndexApp extends React.Component<Props, State> {
       console.log(this.state.blogObject)
 
       if (this.state.editMode === false && titles.includes(this.state.title)) {
-        this.setState({ showAlert: "⚠️ Warning: a post with this title exists. Please change your title. If you are trying to edit this post, please close this message then click edit: Edit an existing post"})
+        this.setState({ showAlert: "⚠️ Warning: A post with this title exists. Please change your title. If you are trying to edit this post, please close this message then click edit: Edit an existing post"})
         return false;
       }
 
@@ -568,8 +568,8 @@ class IndexApp extends React.Component<Props, State> {
           <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
         </label>
         <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}) }>Confirm Tag</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateBlogField('tags', this.state.selectedTags)} }>Clear All Tags</button>
-        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => {this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}); this.updateBlogField('tags', this.state.selectedTags)} }>{item + ", "}</div>)}</div>
+        <button className="tags-button" style={{background: "red"}} onClick={() => this.setState({ selectedTags: [] })}>Clear All Tags</button>
+        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}) }>{item + ", "}</div>)}</div>
           <br/>
 
         <b>Add to Blog Series</b>
@@ -647,7 +647,7 @@ class IndexApp extends React.Component<Props, State> {
           Author:
           <input className="small-input" type="text" value={this.state.author} onChange={(event:any)=> {this.setState({ author: event.target.value }); this.updateBlogField('author', event.target.value)} } />
         </label>
-        <div style={{color: "red", padding: 0, fontSize: "small"}}>{this.state.editMode ? "Warning. Changing your title will create a new post. Please be careful to avoid publishing duplicates." : null}</div>
+        <div style={{color: "red", padding: 0, fontSize: "small"}}>{this.state.editMode ? "Warning: Changing your title will create a new post. Please be careful to avoid publishing duplicates." : null}</div>
 
         <label style={this.state.desc.length >= 180 ? {color: "red"} : {color: "black"}}>
           Description ({this.state.desc.length + " of 210 characters"}):
