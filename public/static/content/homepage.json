@@ -135,12 +135,10 @@
                 ]
             },
             {
-                "type": "list",
+                "type": "blog",
                 "style": "twoImage",
+                "status": "Live",
                 "header1": "Recent Blog Entries",
-                "header2": ".",
-                "text1": "Part of being a disciple of Jesus is actually taking action and making a difference in this world. We do this through compassion initiatives where we love our neighbours both close and far away, volunteering and giving financially to support the work of our church and other kingdom projects.",
-                "button1Text": "View All Blogs",
                 "button1Action": "/blogs"
             },
             {
