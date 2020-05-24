@@ -337,7 +337,8 @@ class IndexApp extends React.Component<Props, State> {
         this.setState({ showAlert: "⚠️ Warning: A post with this title exists. Please change your title. If you are trying to edit this post, please close this message then click edit: Edit an existing post"})
         return false;
       }
-
+      
+      this.updateBlogField('blogStatus', this.state.blogStatus)
       this.updateBlogField('tags', this.state.selectedTags)
       this.writeBridges(this.state.selectedBlogSeries, this.state.deselectedBlogSeries);
 
@@ -555,7 +556,7 @@ class IndexApp extends React.Component<Props, State> {
       <div>
 
       <b>Blog Status</b>
-        <select style={{width: 200}} onChange={(event:any) => {this.setState({ blogStatus: event.target.value}); this.updateBlogField('blogStatus', this.state.blogStatus)} }>
+        <select style={{width: 200}} onChange={(event:any) => this.setState({ blogStatus: event.target.value}) }>
           <option key="null" value="null">None Selected</option>
           <option key="unlisted" value="Unlisted">Unlisted</option>
           <option key="live" value="Live">Live</option>
@@ -649,9 +650,9 @@ class IndexApp extends React.Component<Props, State> {
         </label>
         <div style={{color: "red", padding: 0, fontSize: "small"}}>{this.state.editMode ? "Warning: Changing your title will create a new post. Please be careful to avoid publishing duplicates." : null}</div>
 
-        <label style={this.state.desc.length >= 180 ? {color: "red"} : {color: "black"}}>
-          Description ({this.state.desc.length + " of 210 characters"}):
-          <textarea className="big-input" maxLength={210} value={this.state.desc} onChange={(event:any)=> {this.setState({ desc: event.target.value}); this.updateBlogField('description', this.state.desc)} } />
+        <label style={this.state.desc.length >= 175 ? {color: "red"} : {color: "black"}}>
+          Description ({this.state.desc.length + " of 200 characters"}):
+          <textarea className="big-input" maxLength={200} value={this.state.desc} onChange={(event:any)=> {this.setState({ desc: event.target.value}); this.updateBlogField('description', this.state.desc)} } />
         </label>
 
         <Editor

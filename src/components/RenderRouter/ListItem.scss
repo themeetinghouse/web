@@ -449,24 +449,26 @@
     }
 
     .BlogSquareImage {
-        width: 120px;
-        height: 120px;
+        width: 8.33vw;
+        height: 8.33vw;
     }
 
     .BlogDesc {
         color: #54565A;
         margin-top: 1vw;
         width: 50vw;
+        font-size: 1.1vw;
     }
 
     .BlogDetails {
         color: #54565A;
-        font-size: small;
+        font-size: 0.83vw;
     }
 
     .BlogTitle {
         color: #1A1A1A;
         font-weight: bold;
+        font-size: 1.1vw;
     }
 
     .BlogContentContainer {
@@ -906,19 +908,20 @@
     }
 
     .BlogSquareImage {
-        width: 120px;
-        height: 120px;
+        width: 8.33vw;
+        height: 8.33vw;
     }
 
     .BlogDesc {
         color: #54565A;
         margin-top: 1vw;
         width: 50vw;
+        font-size: 1.1vw
     }
 
     .BlogDetails {
         color: #54565A;
-        font-size: small;
+        font-size: 0.83vw
     }
 
     .BlogTitle {
@@ -930,6 +933,7 @@
         display: inline-block;
         margin-left: 2vw;
         width: 64vw;
+        font-size: 1.1vw
     }
 
 }
@@ -1558,30 +1562,33 @@
     }
 
     .BlogSquareImage {
-        width: 156px;
-        height: 156px;
+        width: 41.6vw;
+        height: 41.6vw;
     }
 
     .BlogDesc {
         color: #54565A;
         margin-top: 1vw;
         width: 88.5vw;
+        font-size: 4.26vw;
+        padding-top: 4.26vw;
     }
 
     .BlogDetails {
         color: #54565A;
-        font-size: small;
+        font-size: 3.2vw;
     }
 
     .BlogTitle {
         color: #1A1A1A;
         font-weight: bold;
+        font-size: 4.26vw;
     }
 
     .BlogContentContainer {
         display: inline-block;
-        margin-left: 2vw;
         width: 86.5vw;
+        padding-top: 6.4vw;
     }
 
 }

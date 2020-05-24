@@ -18,13 +18,13 @@
     }
 
     .blogdescription {
-        margin-top: 2vw;
+        padding-top: 2.2vw !important;
         width: 31vw;
-        font-size: larger;
+        font-size: 1.1vw;
     }
 
     .blogauthor {
-        font-size: small;
+        font-size: 0.83vw;
         width: 30.625vw;
     }
 
@@ -49,7 +49,7 @@
     }
 
     .blogdiv {
-        padding: 0.5vw;
+        padding: 0 0.5vw;
         color: #C8C8C8;
         font-family: Graphik Web;
     }
@@ -69,7 +69,7 @@
 
     .blog-post-title {
         padding: 0.5vw;
-        font-size: 2.5vw;
+        font-size: 2.2vw;
         font-weight: bold;
         color: #ffffff;
         font-family: Graphik Web;
@@ -98,17 +98,32 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .blogButton {
+        position: relative;
         font-family: Graphik Web !important;
         border-radius:0 !important;
-        background-color:#ffffff !important;
+        background-color: #ffffff !important;
         color:#000000 !important;
         font-weight:bold!important;
         margin-right:2vw;
+        font-size: 16px;
+        height: 56px;
+        width: 133px;
     }
 
     .blogButton-icon {
-        padding-bottom: 1px;
-        padding-right: 18px
+        padding-bottom: 2px;
+        padding-right: 18px;
+    }
+
+    .blogdescription {
+        padding-top: 2.2vw !important;
+        width: 31vw;
+        font-size: 1.1vw;
+    }
+
+    .blogauthor {
+        font-size: 0.83vw;
+        width: 30.625vw;
     }
 
     .blog-h1 {
@@ -119,29 +134,11 @@
         font-family: Graphik Web;
     }
 
-    .blogdescription {
-        margin-top: 2vw;
-        width: 31vw;
-        font-size: medium;
-    }
-
-    .blogauthor {
-        font-size: small;
-        width: 30.625vw;
-    }
-
-    .author-underline {
-        padding-bottom: 1px;
-        border-bottom: solid 1px white;
-        color: white;
-    }
-
     .blog-blackbox {
         padding: 3vw;
-        padding-top: 7vw;
         padding-right: 15vw;
+        padding-top: 7vw;
         position: absolute;
-        left: 5vw;
         width: 50vw;
         top: 10vw;
         height: 42vw;
@@ -150,27 +147,29 @@
     }
 
     .blogdiv {
-        padding: 0.5vw;
+        padding: 0 0.5vw;
         color: #C8C8C8;
         font-family: Graphik Web;
     }
 
+    .author-underline {
+        padding-bottom: 1px;
+        border-bottom: solid 1px white;
+        color: white;
+    }
+
     .blogdiv2 {
         position: absolute;
-        bottom: 5vw;
+        bottom: 6vw;
+        padding: 0.5vw;
         font-family: Graphik Web;
     }
 
     .blog-post-title {
         padding: 0.5vw;
-        font-size: 2.5vw;
+        font-size: 2.2vw;
         font-weight: bold;
         color: #ffffff;
-        font-family: Graphik Web;
-    }
-
-    .blog-span {
-        margin: 1vw;
         font-family: Graphik Web;
     }
 
@@ -178,7 +177,7 @@
         cursor: pointer;
         position: absolute;
         top: 5vw;
-        left: 35vw;
+        left: 40vw;
         width: 40vw;
     }
 
