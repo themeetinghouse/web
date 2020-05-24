@@ -32,7 +32,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Partnership",
-                "text1": "We’re partnering with the Mushkegowuk Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC) who have determined the items that will be sent in the kits. The two councils will work with MCC to distribute the kits to the most vulnerable households among 14 remote First Nations and three Indigneous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
+                "text1": "We’re partnering with the Mushkegowuk Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC) who have determined the items in the kits. The two councils will work with MCC to distribute the kits to the most vulnerable households among 14 remote First Nations communities and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-2.jpg",
@@ -106,14 +106,14 @@
                         "type": "question",
                         "question": "Can I only give online?",
                         "answer": [
-                            "Yes. Donations are made to MCC directly and can be received online through the giving portal above."
+                            "Yes. Donations are made to Mennonite Central Committee directly and can be received online through the giving portal above."
                         ]
                     },
                     {
                         "type": "question",
                         "question": "Will I receive a tax receipt?",
                         "answer": [
-                            "Yes. Donations over (insert number) will be issued a tax receipt."
+                            "Yes. Donations over $10 will be issued a tax receipt by Mennonite Central Committee. Note that you will not receieve a tax receipt from The Meeting House."
                         ]
                     },
                     {
@@ -121,8 +121,8 @@
                         "question": "Which First Nations communities will receive the kits?",
                         "answer": [
                             "Mushkegowuk Council (7): Weenisk, Attawapiskat, Fort Albany, Kashechewan, Moose Cree, Mocreebec First Nations, and the town of Moosonee.",
-                            "Windigo First Nation Council (7):Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
-                            "Timmins Urban Organizations:Missiway Health Centre and the Timmins Native Friendship Centre."
+                            "Windigo First Nation Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
+                            "Timmins Urban Organizations: Missiway Health Centre, the Timmins Native Friendship Centre, and the MCC Ontario office."
                         ]
                     },
                     {
