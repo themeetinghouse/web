@@ -143,14 +143,14 @@ class IndexApp extends React.Component<Props, State> {
   handleDeleteNote() {
     if (this.state.understand === "Delete forever") {
       /*
-      var deleteBlog:any = API.graphql({
-          query: mutations.deleteBlog,
+      var deleteNotes:any = API.graphql({
+          query: mutations.deleteNotes,
           variables: { input: {'id': this.state.delete} },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
 
-      deleteBlog.then((json: any) => {
-          console.log({ "Success mutations.deleteBlog: ": json });
+      deleteNotes.then((json: any) => {
+          console.log({ "Success mutations.deleteNotes: ": json });
           this.setState({
             delete: '',
             understand: '',
@@ -183,27 +183,27 @@ class IndexApp extends React.Component<Props, State> {
 
       /*
 
-      var createBlog:any = API.graphql({
-          query: mutations.createBlog,
-          variables: { input: this.state.blogObject },
+      var createNotes:any = API.graphql({
+          query: mutations.createNotes,
+          variables: { input: this.state.noteObject },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
 
-      createBlog.then((json: any) => {
-          console.log({ "Success mutations.createBlog: ": json });
+      createNotes.then((json: any) => {
+          console.log({ "Success mutations.createNotes: ": json });
           this.setState({ showAlert: 'Saved ✅' });
           return true;
 
       }).catch((e: any) => { console.log(e) })
 
-      var updateBlog:any = API.graphql({
-          query: mutations.updateBlog,
-          variables: { input: this.state.blogObject },
+      var updateNotes:any = API.graphql({
+          query: mutations.updateNotes,
+          variables: { input: this.state.noteObject },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
 
-      updateBlog.then((json: any) => {
-          console.log({ "Success mutations.updateBlog: ": json });
+      updateNotes.then((json: any) => {
+          console.log({ "Success mutations.updateNotes: ": json });
           this.setState({ showAlert: 'Saved ✅' });
           return true;
 
@@ -231,7 +231,7 @@ class IndexApp extends React.Component<Props, State> {
     const { contentBlocks, entityMap } = blocksfromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);    
     this.setState({
-      title: this.state.noteEdit.blogTitle,
+      title: this.state.noteEdit.title,
       editorState: EditorState.createWithContent(contentState),
       selectedTags: this.state.noteEdit.tags,
     })
@@ -253,22 +253,20 @@ class IndexApp extends React.Component<Props, State> {
 
   // RENDER FUNCTIONS
 
-  renderEditBlogModal() {
-    /*
+  renderEditModal() {
     return <Modal isOpen={this.state.showEditModal}>
-        <div>Edit a blog post</div>
-        <select onChange={(event:any) => this.setState({ blogToEditID: event.target.value})}>
+        <div>Edit existing notes</div>
+        <select onChange={(event:any) => this.setState({ noteEdit: event.target.value})}>
           <option key="null" value="null">None Selected</option>
-          {this.state.blogPostsList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
+          {this.state.notesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
         </select>
         <button 
           onClick={() => this.setState({ 
             showEditModal: false, 
-            blogToEditObject: this.state.blogPostsList.filter((post: any) => post.id === this.state.blogToEditID)[0]
+            noteEdit: this.state.notesList.filter((post: any) => post.id === this.state.noteEdit)[0]
             })
           }>DONE</button>
       </Modal>
-     */ 
   }
 
   renderMoreOptions() {
@@ -304,7 +302,7 @@ class IndexApp extends React.Component<Props, State> {
       <div className="editor-container">
         <label>
           Title:
-          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.setState({ title: event.target.value }); this.updateField('blogTitle', event.target.value)} } />
+          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.setState({ title: event.target.value }); this.updateField('title', event.target.value)} } />
         </label>
 
         <Editor
@@ -370,10 +368,10 @@ class IndexApp extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="blog-container">
+      <div className="note-container">
         <AdminMenu></AdminMenu>
         {this.renderAlert()}
-        {this.renderEditBlogModal()}
+        {this.renderEditModal()}
         {this.renderToolbar()}
         {this.renderTextInput()}
         <div className="preview">
