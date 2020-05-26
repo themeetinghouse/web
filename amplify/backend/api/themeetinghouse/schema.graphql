@@ -660,7 +660,9 @@ type Notes
   id: ID!
   title:String
   content:String
-  image:String
+  imageA:String
+  imageB:String
+  imageC:String
   pdf:String
   topics:[String]
   tags:[String]
