@@ -329,8 +329,9 @@ transform:rotate(attr(data-value,deg,0);
 */
 
     .oneImageText {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         font-family: Graphik Web;
+        margin-bottom: 1.5vw;
     }
 
     .oneImageText.white {
@@ -344,9 +345,31 @@ transform:rotate(attr(data-value,deg,0);
         margin-bottom: 0.5vw;
     }
     .oneImageA {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         font-family: Graphik Web;
+        color: black;
+        border-bottom: 1px solid black;
+        padding-bottom: 2px;
+    }
 
+    .oneImageA.blackBox {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 2px;
+    }
+
+    .oneImageA:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .oneImageA.blackBox:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .oneImageAContainer {
+        margin-bottom: 0.5vw;
     }
 
     .oneImageImage {
@@ -371,6 +394,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageGreyBox {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -381,6 +405,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageGreyBox.right {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -391,6 +416,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageBlackBox {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -401,6 +427,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageBlackBox.right {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -542,7 +569,6 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web !important;
     }
     .oneImageList {
-      font-size: 1.5vw;
       font-family: Graphik Web;
     }
 
@@ -550,7 +576,7 @@ transform:rotate(attr(data-value,deg,0);
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .oneImageText {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         font-family: Graphik Web;
     }
     .oneImageEventDetails{
@@ -565,9 +591,31 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .oneImageA {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         font-family: Graphik Web;
+        color: black;
+        border-bottom: 1px solid black;
+        padding-bottom: 2px;
+    }
 
+    .oneImageA.blackBox {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 2px;
+    }
+
+    .oneImageA:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .oneImageA.blackBox:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .oneImageAContainer {
+        margin-bottom: 0.5vw;
     }
 
     .oneImageImage {
@@ -592,6 +640,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageGreyBox {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         // height: 40vw;
@@ -602,6 +651,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageGreyBox.right {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -612,6 +662,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageBlackBox {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -622,6 +673,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .oneImageBlackBox.right {
         padding: 10vw;
+        padding-top: 8vw;
         position: relative;
         width: 50vw;
         height: 40vw;
@@ -779,11 +831,23 @@ transform:rotate(attr(data-value,deg,0);
         line-height: 7.5vw;
         margin-top: 13vw;
         display: inline-block;
-        // border-bottom-width: 1px;
-        // border-bottom-style: solid;
-        // padding-bottom: 3px;
-        text-decoration: underline;
+        color: black;
+        border-bottom: 1px solid black;
+    }
 
+    .oneImageA.blackBox {
+        color: white;
+        border-bottom: 1px solid white;
+    }
+
+    .oneImageA:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .oneImageA.blackBox:hover {
+        color: white;
+        text-decoration: none;
     }
 
     .oneImageImage {
