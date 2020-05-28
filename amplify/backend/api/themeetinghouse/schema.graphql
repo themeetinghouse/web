@@ -658,12 +658,9 @@ type Notes
 
 {
   id: ID!
-  title:String
   content:String
-  imageA:String
-  imageB:String
-  imageC:String
   pdf:String
+  date:String
   topics:[String]
   tags:[String]
 }
