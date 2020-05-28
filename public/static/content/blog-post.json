@@ -15,7 +15,8 @@
         },
         "content": [
             {
-                "type": "post"
+                "type": "post",
+                "style": "blog"
             }
         ]
     }

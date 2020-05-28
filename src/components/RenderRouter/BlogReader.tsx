@@ -4,6 +4,7 @@ import "./BlogReader.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Fade from 'react-bootstrap/Fade';
 import ReactHtmlParser from 'react-html-parser';
+import { Button } from 'reactstrap';
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -71,19 +72,45 @@ export default class VideoPlayer extends React.Component<Props, State> {
     )
   }
 
-  render() {
+  downloadButton() {
     return (
-      (this.state.data !== null) ?
-        <div className="blog">
-          <div className="link-to-main-blog-page" onClick={()=>this.navigateUrl("/blog")}>Blog<img className="dropdown-caret" src="/static/svg/Dropdown Caret.svg" alt=""></img></div>
-            <div className="blog-content">
-              <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
-              <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {this.state.data.publishedDate}</div>
-              <div className="ShareButtonDesktop">{this.shareButton()}</div>
-              <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
-              <div className="ShareButtonMobile">{this.shareButton()}</div>
-            </div>
-        </div> : null
+      <Button className="download-custom"><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
     )
+  }
+
+  render() {
+    // remember to swith notes and blog
+    if (this.state.content.style === "notes") {
+      return (
+        (this.state.data !== null) ?
+          <div className="blog">
+            <div className="link-to-main-blog-page" onClick={()=>this.navigateUrl("/blog")}>Blog<img className="dropdown-caret" src="/static/svg/Dropdown Caret.svg" alt=""></img></div>
+              <div className="blog-content">
+                <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
+                <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {this.state.data.publishedDate}</div>
+                <div className="ShareButtonDesktop">{this.shareButton()}</div>
+                <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
+                <div className="ShareButtonMobile">{this.shareButton()}</div>
+              </div>
+          </div> : null
+      )
+    } else if (this.state.content.style === "blog") {
+      console.log(this.state.data.content)
+      return (
+        (this.state.data !== null) ?
+          <div className="blog">
+              <div className="blog-content">
+                <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
+                <div className="blog-details">{this.state.data.publishedDate}</div>
+                <div className="ShareButtonDesktop">{this.downloadButton()}</div>
+                <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
+                <div className="ShareButtonMobile">{this.downloadButton()}</div>
+              </div>
+          </div> 
+        : null
+      )
+    } else {
+      return null
+    }
   }
 }
