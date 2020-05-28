@@ -11,6 +11,7 @@ import ReactGA from 'react-ga';
 const Popup = React.lazy(() => import('../components/PopupForm/Popup'));
 const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
+const Blog = React.lazy(() => import('../components/Blog/Blog'));
 
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
@@ -23,6 +24,7 @@ Amplify.configure(awsconfig);
 interface Props extends RouteComponentProps {
   match: any
   isVideo?: string
+  isBlog? : string
 }
 interface State {
   content: any
@@ -55,6 +57,9 @@ class HomePage extends React.Component<Props, State> {
     var jsonFile: any
     if (this.props.isVideo === "true") {
       jsonFile = "video-player"
+    }
+    else if (this.props.isBlog === "true") {
+      jsonFile = "blog-post"
     }
     else {
       jsonFile = props.match.params.id
@@ -137,7 +142,23 @@ class HomePage extends React.Component<Props, State> {
 
       }).catch((e: any) => { console.log(e) })
     }
+
+    else if (this.props.isBlog === "true") {
+      console.log(this.props.match.params.blog)
+      const getBlog:any = API.graphql({
+        query: queries.getBlog,
+        variables: { id: this.props.match.params.blog },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      getBlog.then((json: any) => {
+        console.log({ "Success queries.getBlog: ": json });
+        this.setState({ data: json.data.getBlog })
+        console.log(this.state.data);
+      }).catch((e: any) => { console.log(e) })
+    }
   }
+
+  
   navigateUrl(to: string) {
     window.location.href = to;
   }
@@ -158,9 +179,11 @@ class HomePage extends React.Component<Props, State> {
   render() {
     if (this.props.isVideo === "true")
       return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={this.state.data}></VideoOverlay>
+    else if (this.props.isBlog === "true")
+      return <Blog data={this.state.data}></Blog>
     else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
       return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
-      else if (this.state.content && this.state.content.page.pageConfig.isPopupForm === true)
+    else if (this.state.content && this.state.content.page.pageConfig.isPopupForm === true)
       return <Popup onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></Popup>
     else
       return (
