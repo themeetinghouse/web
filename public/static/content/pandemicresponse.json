@@ -26,13 +26,8 @@
                 "header2": "",
                 "text1": "Lack of access to clean water, overcrowded households, and limited medical care have made remote First Nations communities especially vulnerable to the COVID-19 pandemic. At the request of over a dozen First Nations communities in Ontario, we are raising $24,000 to purchase kits of sanitary items to help slow the spread of the virus.",
                 "button1Text": "Give",
-<<<<<<< HEAD:public/static/content/mcc.json
-                "button1Action": "/videos/peacemakers-Launch/Y2rmqH20HmM",
-                "text2": "*Donations will be made to Mennonite Central Committee directly"
-=======
                 "button1Action": "https://donate.mcccanada.ca/cause/pandemic-response-kit-indigenous-communities",
-                "text1": "*Donations will be made to Mennonite Central Committee directly"
->>>>>>> 0fb89060d7565a7ba7106d619d26d771422bf983:public/static/content/pandemicresponse.json
+                "text2": "*Donations will be made to Mennonite Central Committee directly"
             },
             {
                 "type": "content",
