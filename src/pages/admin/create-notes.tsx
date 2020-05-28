@@ -15,6 +15,10 @@ import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
 import './create-notes.scss';
 
 Amplify.configure(awsmobile);
@@ -48,6 +52,7 @@ interface State {
   delete: string
   understand: string
   noteEdit: any
+  date: any
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -69,8 +74,9 @@ class IndexApp extends React.Component<Props, State> {
   constructor(props : Props) {
     super(props);
     this.state = { 
-      // text input
+      // input
       editorState: EditorState.createEmpty(),
+      date: new Date(),
 
       // tags
       selectedTags: [],
@@ -175,6 +181,9 @@ class IndexApp extends React.Component<Props, State> {
 
       this.setState({ editMode: true })
 
+      this.updateField('date', format(this.state.date, "yyyy-MM-dd"))
+
+
       /*
 
       var createNotes:any = API.graphql({
@@ -223,12 +232,13 @@ class IndexApp extends React.Component<Props, State> {
     await this.waitForSelection(() => this.state.noteEdit);
     const blocksfromHtml = htmlToDraft(this.state.noteEdit.content);
     const { contentBlocks, entityMap } = blocksfromHtml;
-    const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);    
+    const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+    const loadedDate = parse(this.state.noteEdit.date, "yyyy-MM-dd", new Date())    
     this.setState({
       editorState: EditorState.createWithContent(contentState),
       selectedTags: this.state.noteEdit.tags,
+      date: loadedDate
     })
-
     this.setState({ editMode: true });
   }
 
@@ -241,6 +251,12 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   onChange = (editorState: any) => this.setState({ editorState });
+
+  handlePublishDate = (date: any) => {
+    this.setState({
+      date: date
+    });
+  }
 
   // RENDER FUNCTIONS
 
@@ -325,6 +341,12 @@ class IndexApp extends React.Component<Props, State> {
           }}
         />
         {this.state.moreOptions ? this.renderMoreOptions() : null}
+        <b className="calendar-label">Teaching date</b>
+        <DatePicker 
+          selected={this.state.date} 
+          onChange={this.handlePublishDate} 
+          dateFormat="yyyy-MM-dd"
+        /><br/>
       </div>
     )
   }

@@ -74,6 +74,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
   downloadButton() {
     return (
+      //set download for generated pdf
       <Button className="download-custom"><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
     )
   }
