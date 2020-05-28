@@ -31,7 +31,7 @@ class ContentItem extends React.Component<Props, State>  {
     else
       return "https://www.themeetinghouse.com/cache/"+size
 }
-renderList(){
+renderList(boxColor: string = "grey"){
   return this.state.content.list?
     this.state.content.list.map((item:any,id:any)=>{
       return (
@@ -40,9 +40,9 @@ renderList(){
           <Button className="contentButton" onClick={()=>{this.navigateTo(item.navigateTo)}}>{item.title}</Button>
         </div>
         :item.type==="link"?
-      <div key={id}>{item.openNewBrowser?
-       <a className="oneImageA" target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a>:
-       <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
+      <div className="oneImageAContainer" key={id}>{item.openNewBrowser?
+       <a className={boxColor==="black" ? "oneImageA blackBox" : "oneImageA"} target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a>:
+       <a className={boxColor==="black" ? "oneImageA blackBox" : "oneImageA"} href={item.navigateTo}>{item.title}</a>
       }</div>
       :item.type==="text"?
       <div key={id}>
@@ -129,7 +129,7 @@ renderList(){
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
               <div className="oneImageText white" >{this.state.content.text1}</div>
-              {this.renderList()}
+              {this.renderList("black")}
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+
@@ -158,7 +158,7 @@ renderList(){
               <h1 className="oneImageH1 white" >{this.state.content.header1}</h1>
               <h2 className="oneImageH2 white">{this.state.content.header2}</h2>
               <div className="oneImageText white" >{this.state.content.text1}</div>
-              {this.renderList()}
+              {this.renderList("black")}
             </div>
             <img src={this.imgUrl(2560)+image1.src} alt={image1.alt} className="oneImageImage right secondImg"
                         srcSet={this.imgUrl(320)+image1.src+" 320w,"+

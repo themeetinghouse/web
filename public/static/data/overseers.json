@@ -22,19 +22,7 @@
         "LastName": "John",
         "Position":"Nominating",
         "sites": ["overseer"]
-    },
-    {
-        "FirstName": "David",
-        "LastName": "Ho",
-        "Position":"Governance, Chair",
-        "sites": ["overseer"]
-    },        
-    {
-        "FirstName": "Catherine",
-        "LastName": "MacKeil",
-        "Position":"Finance & Audit",
-        "sites": ["overseer"]
-    },   
+    }, 
     {
         "FirstName": "Yohan",
         "LastName": "Mahimwala",

@@ -1,9 +1,9 @@
 {
     "page": {
-        "name": "peacemakers",
-        "title": "Peacemakers",
-        "keywords": "peacemakers",
-        "description": "The page for The Meeting House 2020 Peacemakers campaign in partnership with MCC Canada.",
+        "name": "first nations pandemic response",
+        "title": "First Nations Pandemic Response",
+        "keywords": "first nations pandemic response",
+        "description": "The page for The Meeting House First Nations Pandemic Response in partnership with MCC Canada.",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
@@ -22,11 +22,12 @@
                         "alt": "Man sharing First Nations peace practices and rituals with a group."
                     }
                 ],
-                "header1": "COVID-19 Indigenous Response",
+                "header1": "First Nations Pandemic Response",
                 "header2": "",
                 "text1": "Lack of access to clean water, overcrowded households, and limited medical care have made remote First Nations communities especially vulnerable to the COVID-19 pandemic. At the request of over a dozen First Nations communities in Ontario, we are raising $24,000 to purchase kits of sanitary items to help slow the spread of the virus.",
                 "button1Text": "Give",
-                "button1Action": "/videos/peacemakers-Launch/Y2rmqH20HmM"
+                "button1Action": "/videos/peacemakers-Launch/Y2rmqH20HmM",
+                "text1": "*Donations will be made to Mennonite Central Committee directly"
             },
             {
                 "type": "content",
@@ -57,7 +58,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Heart",
-                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between Indigenous and settler communities. This season, we’re so grateful to partner with our Indigenous neighbours in Ontario in order to meet tangible needs.",
+                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between Indigenous and settler communities. Through partnership this season, ensuring that vulnerable families have access to sanitary items is a tangible way for us to pursue this together.",
                 "list": [
                     {
                         "type": "text",
@@ -122,7 +123,7 @@
                         "answer": [
                             "Mushkegowuk Council (7): Weenisk, Attawapiskat, Fort Albany, Kashechewan, Moose Cree, Mocreebec First Nations, and the town of Moosonee.",
                             "Windigo First Nation Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
-                            "Timmins Urban Organizations: Missiway Health Centre, the Timmins Native Friendship Centre, and the MCC Ontario office."
+                            "Timmins Urban Organizations: Missiway Health Centre, the Timmins Native Friendship Centre, and the MCC Indigenous Neighbours office."
                         ]
                     },
                     {
