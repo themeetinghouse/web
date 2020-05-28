@@ -115,10 +115,13 @@ export default class Menu extends React.Component<Props, State> {
                 <NavLink href="/admin/import-kids">Import Kids</NavLink>
 </NavItem>*/}
               <NavItem>
+                <NavLink href="/admin/create-blog" style={{color: "green"}}>Blog</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="/admin/import-video">Import Video</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/themeetinghouse">GitHub</NavLink>
+                <NavLink href="https://github.com/themeetinghouse" style={{color: "green"}}>GitHub</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

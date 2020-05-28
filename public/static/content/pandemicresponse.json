@@ -1,0 +1,181 @@
+{
+    "page": {
+        "name": "first nations pandemic response",
+        "title": "First Nations Pandemic Response",
+        "keywords": "first nations pandemic response",
+        "description": "The page for The Meeting House First Nations Pandemic Response in partnership with MCC Canada.",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/peacemakers-1.jpg",
+                        "alt": "Man sharing First Nations peace practices and rituals with a group."
+                    }
+                ],
+                "header1": "First Nations Pandemic Response",
+                "header2": "",
+                "text1": "Lack of access to clean water, overcrowded households, and limited medical care have made remote First Nations communities especially vulnerable to the COVID-19 pandemic. At the request of over a dozen First Nations communities in Ontario, we are raising $24,000 to purchase kits of sanitary items to help slow the spread of the virus.",
+                "button1Text": "Give",
+<<<<<<< HEAD:public/static/content/mcc.json
+                "button1Action": "/videos/peacemakers-Launch/Y2rmqH20HmM",
+                "text2": "*Donations will be made to Mennonite Central Committee directly"
+=======
+                "button1Action": "https://donate.mcccanada.ca/cause/pandemic-response-kit-indigenous-communities",
+                "text1": "*Donations will be made to Mennonite Central Committee directly"
+>>>>>>> 0fb89060d7565a7ba7106d619d26d771422bf983:public/static/content/pandemicresponse.json
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Our Partnership",
+                "text1": "We’re partnering with the Mushkegowuk Tribal Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC) who have determined the items in the kits. These partners will distribute the kits to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
+                "image1": [
+                    {
+                        "src": "/static/images/pandemic response-2.jpg",
+                        "alt": "Lyndsay Mollins Koene, an MCC employee, with a First Nations woman."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Kit Fundraiser Deadline is June 14",
+                "header2": "",
+                "text1": "By giving $10 for a kit, you are partnering with First Nations leaders so that they can protect and equip their own communities. They have requested that we raise $24,000 in order to make 2,400 kits.",
+                "image1": [
+                    {
+                        "src": "/static/images/pandemic response-3.jpg",
+                        "alt": "An MCC employee packs sanitary items into a plane before delivery."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Our Heart",
+                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between Indigenous and settler communities. Through partnership this season, ensuring that vulnerable families have access to sanitary items is a tangible way for us to pursue this together.",
+                "list": [
+                    {
+                        "type": "text",
+                        "title": ""
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/pandemic response-4.jpg",
+                        "alt": "A woman from Attawapiskat First Nation stands in front of a wood pile."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Resources",
+                "header2": "",
+                "text1": "",
+                "image1": [
+                    {
+                        "src": "/static/images/pandemic response-5.jpg",
+                        "alt": "A pile of hand-sewn face masks, including one with an eagle on the front."
+                    }
+                ],
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "Family and Small Group Resources",
+                        "navigateTo": "https://drive.google.com/file/d/1pX2QS__N4PEx261eqDnKNJDtAG3kWfr2/view",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Journey Toward Reconciliation",
+                        "navigateTo": "https://drive.google.com/file/d/1SpALQC83RGbIKW9sw50ZnPmiGwlXKliV/view",
+                        "openNewBrowser": true
+                    }
+                ]
+            },
+            {
+                "type": "faq",
+                "header1":"FAQ",
+                "image1": [
+                    {
+                        "src": "/static/images/peacemakers-9.jpg",
+                        "alt": "Timmins City Counselor presenting on Indigineous bundles."
+                    }
+                ],
+                "list": [
+                    {
+                        "type": "question",
+                        "question": "Can I only give online?",
+                        "answer": [
+                            "Yes. Donations are made to Mennonite Central Committee directly and can be received online through the giving portal above."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Will I receive a tax receipt?",
+                        "answer": [
+                            "Yes. Donations over $10 will be issued a tax receipt by Mennonite Central Committee. Note that you will not receieve a tax receipt from The Meeting House."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Which First Nations communities will receive the kits?",
+                        "answer": [
+                            "Mushkegowuk Tribal Council (7): Weenisk, Attawapiskat, Fort Albany, Kashechewan, Moose Cree, Mocreebec First Nations, and the town of Moosonee.",
+                            "Windigo First Nation Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
+                            "Timmins Urban Organizations: Missiway Health Centre, the Timmins Native Friendship Centre, and the MCC Indigenous Neighbours office."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What are the items in the kits?",
+                        "answer": [
+                            "MCC will bulk purchase the items in the kit (please do not purchase them yourselves). The kits will include a hand towel, a face cloth, hand sanitizer, a face mask, a laundry soap bar, and two bars of soap."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Can I purchase the items in the kit myself?",
+                        "answer": [
+                            "No. We want to play our part in limiting the spread of COVID-19, which is why we don’t want to encourage our community to leave their homes to purchase the kits. Additionally, by bulk ordering items in the kits, our partners will be able to distribute the kits sooner." 
+                        
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What happens if we surpass our goal?",
+                        "answer": [
+                            "This would be awesome! Any additional funds would be given to MCC’s Indigenous Neighbours program to be used to address the ongoing needs of their First Nations communities in Ontario."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "What is the Mushkegowuk Tribal Council & Windigo First Nation Council?",
+                        "answer": [
+                            "The Mushkegowuk Tribal Council & Windigo First Nation Council are non-profit regional chiefs' councils representing two clusters of remote First Nations communities in northern Ontario, Canada. Each council provides advisory services and program delivery to its member nations, including oversight in health care within their affiliated First Nations communities."
+                        ]
+                    },
+                    {
+                        "type": "question",
+                        "question": "Why partner with MCC?",
+                        "answer": [
+                            "We are proud to be partnering with Mennonite Central Committee as they come alongside locally directed projects around the globe and here in Canada. MCC also has a strong relationship with many First Nations communities in Ontario and has developed a positive reputation among these communities.",
+                            "MCC Canada has demonstrated commitment to a high level of transparency, accountability, and integrity. They are a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau, which have standards for fundraising as well as managing and reporting finances. In 2019, MCC was listed on Charity Intelligence Canada’s Top 10 International Impact Charities."
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
