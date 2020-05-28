@@ -76,7 +76,7 @@ class IndexApp extends React.Component<Props, State> {
     this.state = { 
       // input
       editorState: EditorState.createEmpty(),
-      date: new Date(),
+      date: null,
 
       // tags
       selectedTags: [],
@@ -166,8 +166,8 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleSave() {
-    if (this.state.editorState.getCurrentContent().hasText() === false) {
-      this.setState({ showAlert: "⚠️ You need to type some stuff to save." })
+    if (this.state.editorState.getCurrentContent().hasText() === false || this.state.date === null) {
+      this.setState({ showAlert: "⚠️ You need a valid content and date to save." })
       return false;
     } else {
       var contentState = this.state.editorState.getCurrentContent();
@@ -182,8 +182,6 @@ class IndexApp extends React.Component<Props, State> {
       this.setState({ editMode: true })
 
       this.updateField('date', format(this.state.date, "yyyy-MM-dd"))
-
-
       /*
 
       var createNotes:any = API.graphql({
@@ -233,12 +231,14 @@ class IndexApp extends React.Component<Props, State> {
     const blocksfromHtml = htmlToDraft(this.state.noteEdit.content);
     const { contentBlocks, entityMap } = blocksfromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
-    const loadedDate = parse(this.state.noteEdit.date, "yyyy-MM-dd", new Date())    
+    const date = parse(this.state.noteEdit.date, "yyyy-MM-dd", new Date())    
     this.setState({
       editorState: EditorState.createWithContent(contentState),
       selectedTags: this.state.noteEdit.tags,
-      date: loadedDate
+      date: date
     })
+    this.updateField('date', format(this.state.date, "yyyy-MM-dd")) // sets id
+
     this.setState({ editMode: true });
   }
 
@@ -246,7 +246,7 @@ class IndexApp extends React.Component<Props, State> {
     let note = this.state.noteObject
     note[field] = value
 
-    note.id = note.title
+    note.id = note.date
     this.setState({ noteObject: note })
   }
 
@@ -291,7 +291,7 @@ class IndexApp extends React.Component<Props, State> {
       
 
         <label>
-        {"⚠️ Delete existing notes (enter title):"}
+        {"⚠️ Delete existing notes (teaching date):"}
           <input style={{width: 400, height: 20}} type="text" value={this.state.delete} onChange={(event:any) => this.setState({ delete: event.target.value})} />
         </label>
         <label>
@@ -315,6 +315,9 @@ class IndexApp extends React.Component<Props, State> {
             options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'textAlign', 'emoji', 'colorPicker', 'image', 'history'],
             inline: {
               options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
+            },
+            list: {
+              options: ['unordered', 'ordered'],
             },
             image: {
               uploadEnabled: true,
