@@ -557,11 +557,7 @@ class IndexApp extends React.Component<Props, State> {
       <div>
 
       <b>Blog Status</b>
-<<<<<<< HEAD
         <select style={{width: 200}} onChange={(event:any) => this.setState({ blogStatus: event.target.value}) }>
-=======
-        <select style={{width: 200}} onChange={(event:any) => this.setState({ blogStatus: event.target.value})}>
->>>>>>> public blog launch
           <option key="null" value="null">None Selected</option>
           <option key="unlisted" value="Unlisted">Unlisted</option>
           <option key="live" value="Live">Live</option>
