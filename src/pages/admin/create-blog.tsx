@@ -726,7 +726,7 @@ class IndexApp extends React.Component<Props, State> {
         {this.renderToolbar()}
         {this.renderTextInput()}
         <div className="preview">
-          {this.state.showPreview ? <BlogPreview data={this.state} content={null}></BlogPreview> : null}
+          {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"blog"}></BlogPreview> : null}
         </div>
       </div>
     );

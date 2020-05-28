@@ -79,8 +79,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   render() {
-    // remember to swith notes and blog
-    if (this.state.content.style === "notes") {
+    if (this.state.content.style === "blog") {
       return (
         (this.state.data !== null) ?
           <div className="blog">
@@ -94,14 +93,12 @@ export default class VideoPlayer extends React.Component<Props, State> {
               </div>
           </div> : null
       )
-    } else if (this.state.content.style === "blog") {
+    } else if (this.state.content.style === "notes") {
       console.log(this.state.data.content)
       return (
         (this.state.data !== null) ?
           <div className="blog">
               <div className="blog-content">
-                <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
-                <div className="blog-details">{this.state.data.publishedDate}</div>
                 <div className="ShareButtonDesktop">{this.downloadButton()}</div>
                 <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
                 <div className="ShareButtonMobile">{this.downloadButton()}</div>

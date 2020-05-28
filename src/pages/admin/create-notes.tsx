@@ -36,8 +36,6 @@ interface Props {
 }
 interface State {
   editorState: any
-  title: string
-  image: string
   showPreview: boolean
   notesList: any
   selectedTags: any
@@ -73,10 +71,6 @@ class IndexApp extends React.Component<Props, State> {
     this.state = { 
       // text input
       editorState: EditorState.createEmpty(),
-      title: '',
-
-      // banner image
-      image: '',
 
       // tags
       selectedTags: [],
@@ -166,8 +160,8 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   handleSave() {
-    if (this.state.title === '' || this.state.editorState.getCurrentContent().hasText() === false) {
-      this.setState({ showAlert: "⚠️ You need a valid title and content to save." })
+    if (this.state.editorState.getCurrentContent().hasText() === false) {
+      this.setState({ showAlert: "⚠️ You need to type some stuff to save." })
       return false;
     } else {
       var contentState = this.state.editorState.getCurrentContent();
@@ -231,12 +225,9 @@ class IndexApp extends React.Component<Props, State> {
     const { contentBlocks, entityMap } = blocksfromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);    
     this.setState({
-      title: this.state.noteEdit.title,
       editorState: EditorState.createWithContent(contentState),
       selectedTags: this.state.noteEdit.tags,
     })
-
-    this.updateField('title', this.state.title) // sets id so other functions work
 
     this.setState({ editMode: true });
   }
@@ -300,22 +291,14 @@ class IndexApp extends React.Component<Props, State> {
   renderTextInput() {
     return (
       <div className="editor-container">
-        <label>
-          Title:
-          <input className="small-input" type="text" value={this.state.title} onChange={(event:any)=> {this.setState({ title: event.target.value }); this.updateField('title', event.target.value)} } />
-        </label>
-
         <Editor
           editorState={this.state.editorState}
           onEditorStateChange={this.onChange}
           spellCheck={true}
           toolbar={{
-            options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'emoji', 'image', 'history'],
+            options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'textAlign', 'emoji', 'colorPicker', 'image', 'history'],
             inline: {
               options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
-            },
-            list: {
-              options: ['unordered', 'ordered']
             },
             image: {
               uploadEnabled: true,
@@ -375,7 +358,7 @@ class IndexApp extends React.Component<Props, State> {
         {this.renderToolbar()}
         {this.renderTextInput()}
         <div className="preview">
-          {this.state.showPreview ? <BlogPreview data={this.state} content={null}></BlogPreview> : null}
+          {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"notes"}></BlogPreview> : null}
         </div>
       </div>
     );
