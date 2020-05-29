@@ -661,6 +661,7 @@ type Notes
   content:String
   pdf:String
   date:String
+  status:String
   topics:[String]
   tags:[String]
 }
