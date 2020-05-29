@@ -1,3 +1,5 @@
+@import "../../custom";
+
 @media (min-width: 768px) {
 .covidButton{
     position:absolute; 
@@ -1326,16 +1328,9 @@
     }
 
     .heroPartialBlackBox {
-        position: absolute;
-        z-index: 51;
-       // background-color: rgba(0, 0, 0, 1);
-        padding: 2vw;
-        left: 0vw;
+        background-color: $onyxblacktext;
         width: 100vw;
-        // height: 65vh;
-        top: 0;
         padding: 10vw 6vw 10vw 6vw;
-        //margin-top: 75vw;
     }
 
     .heroButton {
