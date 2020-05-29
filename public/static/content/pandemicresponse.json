@@ -36,7 +36,7 @@
                 "text1": "We’re partnering with the Mushkegowuk Tribal Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC) who have determined the items in the kits. These partners will distribute the kits to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-2.jpg",
+                        "src": "/static/images/pandemic-response-2.jpg",
                         "alt": "Lyndsay Mollins Koene, an MCC employee, with a First Nations woman."
                     }
                 ]
@@ -49,7 +49,7 @@
                 "text1": "By giving $10 for a kit, you are partnering with First Nations leaders so that they can protect and equip their own communities. They have requested that we raise $24,000 in order to make 2,400 kits.",
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-3.jpg",
+                        "src": "/static/images/pandemic-response-3.jpg",
                         "alt": "An MCC employee packs sanitary items into a plane before delivery."
                     }
                 ]
@@ -67,7 +67,7 @@
                 ],
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-4.jpg",
+                        "src": "/static/images/pandemic-response-4.jpg",
                         "alt": "A woman from Attawapiskat First Nation stands in front of a wood pile."
                     }
                 ]
@@ -80,7 +80,7 @@
                 "text1": "",
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-5.jpg",
+                        "src": "/static/images/pandemic-response-5.jpg",
                         "alt": "A pile of hand-sewn face masks, including one with an eagle on the front."
                     }
                 ],
