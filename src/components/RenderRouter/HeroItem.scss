@@ -291,7 +291,7 @@
         font-family: Graphik Web;
         width: 32vw;
         color: #ffffff;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .heroText2 {
@@ -493,8 +493,8 @@
         text-decoration: none;
     }
 
-    .heroTextContainer {
-        margin-bottom: 2vw;
+    .heroAContainer {
+        margin-top: 1vw;
     }
 }
 
@@ -787,7 +787,7 @@
         font-family: Graphik Web;
         width: 32vw;
         color: #ffffff;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .heroText2 {
@@ -989,8 +989,8 @@
         text-decoration: none;
     }
 
-    .heroTextContainer {
-        margin-bottom: 2vw;
+    .heroAContainer {
+        margin-top: 1vw;
     }
 }
 
@@ -1453,5 +1453,9 @@
     .heroBlackBoxA:hover {
         color: white;
         text-decoration: none;
+    }
+
+    .heroAContainer {
+        margin-top: 5vw;
     }
 }
