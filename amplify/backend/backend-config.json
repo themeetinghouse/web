@@ -78,6 +78,28 @@
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"pdfHandler": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "api",
+					"resourceName": "themeetinghouse",
+					"attributes": [
+						"GraphQLAPIIdOutput",
+						"GraphQLAPIEndpointOutput"
+					]
+				},
+				{
+					"category": "storage",
+					"resourceName": "tmhusercontent",
+					"attributes": [
+						"BucketName"
+					]
+				}
+			]
 		}
 	},
 	"analytics": {

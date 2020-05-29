@@ -1,0 +1,22 @@
+{
+    "permissions": {
+        "api": {
+            "themeetinghouse": [
+                "read",
+                "update"
+            ]
+        },
+        "storage": {
+            "tmhusercontent": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ],
+            "Notes:@model(appsync)": [
+                "read",
+                "update"
+            ]
+        }
+    }
+}
