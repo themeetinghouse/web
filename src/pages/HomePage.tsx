@@ -111,11 +111,7 @@ class HomePage extends React.Component<Props, State> {
             }
           });
         }).catch((e) => {
-          Analytics.record({
-            name: 'error',
-            attributes: { page: jsonFile }
-          });
-          fetch('/static/content/404.json').then(function (response) {
+          fetch('/static/redirect/' + jsonFile.toLowerCase() + '.json').then(function (response) {
             console.log(response)
             return response.json();
           })
@@ -123,7 +119,20 @@ class HomePage extends React.Component<Props, State> {
 
               this.setState({ content: myJson });
             }).catch((e) => {
-              console.log(e)
+              Analytics.record({
+                name: 'error',
+                attributes: { page: jsonFile }
+              });
+              fetch('/static/content/404.json').then(function (response) {
+                console.log(response)
+                return response.json();
+              })
+                .then((myJson) => {
+    
+                  this.setState({ content: myJson });
+                }).catch((e) => {
+                  console.log(e)
+                })
             })
         })
     }
