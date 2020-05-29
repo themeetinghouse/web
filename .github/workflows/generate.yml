@@ -20,6 +20,6 @@ jobs:
     - name: stage changed files
       run: git add .
     - name: commit changed files
-      run: git commit -m "Auto updating redirect.json"
+      run: git commit -m "Auto generate redirect JSON file(s)"
     - name: push code to master
       run: git push origin HEAD:master
