@@ -462,12 +462,37 @@
     }
     .HeroItemA2 {
         font-family: Graphik Web;
+        color: white;
+        border-bottom: solid 1px white;
+        padding-bottom: 1px;
+        font-size: 1.5vw;
     }
+    .HeroItemA2:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     .divPartial {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 50vw; padding-bottom: 5vh;
+    }
+
+    .heroBlackBoxA {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 1px;
+        font-size: 1.2vw;
+    }
+
+    .heroBlackBoxA:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .heroTextContainer {
+        margin-bottom: 2vw;
     }
 }
 
@@ -932,12 +957,38 @@
     }
     .HeroItemA2 {
         font-family: Graphik Web;
+        color: white;
+        border-bottom: solid 1px white;
+        padding-bottom: 1px;
+        font-size: 1.5vw;
     }
+
+    .HeroItemA2:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     .divPartial {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 50vw; padding-bottom: 5vh;
+    }
+
+    .heroBlackBoxA {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 1px;
+        font-size: 1.2vw;
+    }
+
+    .heroBlackBoxA:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .heroTextContainer {
+        margin-bottom: 2vw;
     }
 }
 
@@ -1377,7 +1428,17 @@
     }
     .HeroItemA2 {
         font-family: Graphik Web;
+        color: white;
+        border-bottom: solid 1px white;
+        padding-bottom: 1px;
+        font-size: 4vw;
     }
+
+    .HeroItemA2:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     .divPartial {
         position: relative;
         width: 100vw;
@@ -1385,5 +1446,17 @@
         top: 3vw;
         margin-bottom: 55vw;
 
+    }
+
+    .heroBlackBoxA {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 1px;
+        font-size: 4vw;
+    }
+
+    .heroBlackBoxA:hover {
+        color: white;
+        text-decoration: none;
     }
 }

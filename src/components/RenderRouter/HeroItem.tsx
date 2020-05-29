@@ -232,16 +232,17 @@ class HeroItem extends React.Component<Props, State> {
                         {this.state.locationData.length===1?<h2 className="heroH2">{this.state.locationData[0].location.address}</h2>
                         :this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
                         <hr className="heroHr"></hr>
-                        <div className="heroText1" >{this.state.content.text1}</div>
-                        <div className="heroText2" >{this.state.content.text2}</div>
-                        <div className="heroText2" >{this.state.content.text3}</div>
-                        <div className="heroText2" >{this.state.content.text4}</div>
-                        <div className="heroText2" >{this.state.content.text5}</div>
-                        <div className="heroText2" >{this.state.content.text6}</div>
-                        <div className="heroText2" >{this.state.content.text7}</div>
-                        
+                        <div className="heroTextContainer">
+                            <div className="heroText1" >{this.state.content.text1}</div>
+                            <div className="heroText2" >{this.state.content.text2}</div>
+                            <div className="heroText2" >{this.state.content.text3}</div>
+                            <div className="heroText2" >{this.state.content.text4}</div>
+                            <div className="heroText2" >{this.state.content.text5}</div>
+                            <div className="heroText2" >{this.state.content.text6}</div>
+                            <div className="heroText2" >{this.state.content.text7}</div>
+                            </div>
                         {this.state.content.button1Text ? (<Button className="heroButton" onClick={()=>{this.navigateTo(this.state.content.button1Action)}}>{this.state.content.button1Text}</Button>) : null}
-                        <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+                        <a className="heroBlackBoxA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
                         {
                             this.state.content.addToCalendar ?
                             this.state.locationData.length===1? 
@@ -319,13 +320,15 @@ class HeroItem extends React.Component<Props, State> {
                         <h1 className="heroH1" >{this.state.content.header1}</h1>
                         {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
                         <hr className="heroHr"></hr>
-                        <div className="heroText1" >{this.state.content.text1}</div>
-                        <div className="heroText2" >{this.state.content.text2}</div>
-                        <div className="heroText2" >{this.state.content.text3}</div>
-                        <div className="heroText2" >{this.state.content.text4}</div>
-                        <div className="heroText2" >{this.state.content.text5}</div>
-                        <div className="heroText2" >{this.state.content.text6}</div>
-                        <div className="heroText2" >{this.state.content.text7}</div>
+                        <div className="heroTextContainer">
+                            <div className="heroText1" >{this.state.content.text1}</div>
+                            <div className="heroText2" >{this.state.content.text2}</div>
+                            <div className="heroText2" >{this.state.content.text3}</div>
+                            <div className="heroText2" >{this.state.content.text4}</div>
+                            <div className="heroText2" >{this.state.content.text5}</div>
+                            <div className="heroText2" >{this.state.content.text6}</div>
+                            <div className="heroText2" >{this.state.content.text7}</div>
+                        </div>
                         {this.state.content.showLocationSearch ? (
                             <div>
                                 {this.state.locationData!=null?

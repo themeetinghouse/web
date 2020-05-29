@@ -259,7 +259,7 @@ renderList(boxColor: string = "grey"){
               <div className="greyTwoTextH1" >{this.state.content.header1}
               </div>
 
-              <div className="greyTwoTextText" >{this.state.content.text1}
+              <div className="greyTwoTextText" ><div className="greyTwoTextJustText">{this.state.content.text1}</div>
               {this.renderList()}
               </div>
               <div className="greyTwoClear"></div>
