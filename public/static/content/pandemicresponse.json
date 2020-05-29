@@ -18,8 +18,8 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/peacemakers-1.jpg",
-                        "alt": "Man sharing First Nations peace practices and rituals with a group."
+                        "src": "/static/images/pandemic-response-1.jpg",
+                        "alt": "Amanda speaking to a group at the Timmins Native Friendship Centre."
                     }
                 ],
                 "header1": "First Nations Pandemic Response",
@@ -33,7 +33,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Partnership",
-                "text1": "We’re partnering with the Mushkegowuk Tribal Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC) who have determined the items in the kits. These partners will distribute the kits to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
+                "text1": "We’re partnering with the Mushkegowuk Tribal Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC). They have determined the items in the kits and will distribute them to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
                 "image1": [
                     {
                         "src": "/static/images/pandemic-response-2.jpg",
@@ -58,7 +58,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Heart",
-                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between Indigenous and settler communities. Through partnership this season, ensuring that vulnerable families have access to sanitary items is a tangible way for us to pursue this together.",
+                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between Indigenous and settler communities. This season, we want to pursue reconciliation by partnering with First Nations leaders to ensure that vulnerable families have access to sanitary items.",
                 "list": [
                     {
                         "type": "text",
