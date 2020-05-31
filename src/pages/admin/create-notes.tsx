@@ -19,6 +19,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
+import getDay from 'date-fns/getDay';
 import './create-notes.scss';
 
 Amplify.configure(awsmobile);
@@ -53,6 +54,9 @@ interface State {
   understand: string
   noteEdit: any
   date: any
+  status: string
+  pdf: string
+  dateWarning: string
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -77,6 +81,8 @@ class IndexApp extends React.Component<Props, State> {
       // input
       editorState: EditorState.createEmpty(),
       date: null,
+      status: 'Unlisted',
+      pdf: '',
 
       // tags
       selectedTags: [],
@@ -88,6 +94,7 @@ class IndexApp extends React.Component<Props, State> {
       showEditModal: false,
       editMode: false,
       showAlert: '',
+      dateWarning: '',
 
       // imports
       notesList: [],
@@ -125,10 +132,10 @@ class IndexApp extends React.Component<Props, State> {
               var nameA = a.id.toUpperCase();
               var nameB = b.id.toUpperCase();
               if (nameA < nameB) {
-                return -1;
+                return 1;
               }
               if (nameA > nameB) {
-                return 1;
+                return -1;
               }
               return 0;
             })
@@ -256,6 +263,17 @@ class IndexApp extends React.Component<Props, State> {
     this.setState({
       date: date
     });
+
+    var dayofweek = getDay(date)
+    if (dayofweek !== 0) {
+      this.setState({
+        dateWarning: 'Warning: this date is not a Sunday'
+      })
+    } else {
+      this.setState({
+        dateWarning: ''
+      })
+    }
   }
 
   // RENDER FUNCTIONS
@@ -343,13 +361,31 @@ class IndexApp extends React.Component<Props, State> {
             }
           }}
         />
+        <div>
+          <b className="calendar-label">Teaching date</b>
+          <DatePicker 
+            selected={this.state.date} 
+            onChange={this.handlePublishDate} 
+            dateFormat="yyyy-MM-dd"
+          />
+          <div style={{color:"red"}}>{this.state.dateWarning}</div>
+        </div>
+        <div>
+        <label>
+          PDF Link:
+          <input type="text" style={{width:800}}value={this.state.pdf} onChange={(event:any)=> this.setState({ pdf: event.target.value })}/>
+        </label>
+        </div>
+        <div>
+          <b>Status</b>
+          <select style={{width: 200}} onChange={(event:any) => this.setState({ status: event.target.value}) }>
+            <option key="null" value="null">None Selected</option>
+            <option key="unlisted" value="Unlisted">Unlisted</option>
+            <option key="live" value="Live">Live</option>
+          </select>
+          <div>Current status: {this.state.status}</div>
+        </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
-        <b className="calendar-label">Teaching date</b>
-        <DatePicker 
-          selected={this.state.date} 
-          onChange={this.handlePublishDate} 
-          dateFormat="yyyy-MM-dd"
-        /><br/>
       </div>
     )
   }

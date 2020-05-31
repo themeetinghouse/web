@@ -72,10 +72,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
     )
   }
 
-  downloadButton() {
+  downloadButton(pdf_url: string) {
     return (
-      //set download for generated pdf
-      <Button className="download-custom"><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
+      <Button className="download-custom" onClick={()=>this.navigateUrl(pdf_url)}><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
     )
   }
 
@@ -99,11 +98,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
       return (
         (this.state.data !== null) ?
           <div className="blog">
+              {this.state.data.status === "Live" ? 
               <div className="blog-content">
-                <div className="ShareButtonDesktop">{this.downloadButton()}</div>
+                {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
                 <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
-                <div className="ShareButtonMobile">{this.downloadButton()}</div>
+                {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
               </div>
+              : <h1 className="blog-h1" >Notes will be available soon</h1>}
           </div> 
         : null
       )
