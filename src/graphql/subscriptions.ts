@@ -8819,3 +8819,54 @@ export const onDeleteBlog = /* GraphQL */ `
     }
   }
 `;
+export const onCreateNotes = /* GraphQL */ `
+  subscription OnCreateNotes {
+    onCreateNotes {
+      id
+      title
+      content
+      imageA
+      imageB
+      imageC
+      pdf
+      topics
+      tags
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateNotes = /* GraphQL */ `
+  subscription OnUpdateNotes {
+    onUpdateNotes {
+      id
+      title
+      content
+      imageA
+      imageB
+      imageC
+      pdf
+      topics
+      tags
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteNotes = /* GraphQL */ `
+  subscription OnDeleteNotes {
+    onDeleteNotes {
+      id
+      title
+      content
+      imageA
+      imageB
+      imageC
+      pdf
+      topics
+      tags
+      createdAt
+      updatedAt
+    }
+  }
+`;

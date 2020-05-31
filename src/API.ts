@@ -394,6 +394,34 @@ export type DeleteBlogInput = {
   id?: string | null,
 };
 
+export type CreateNotesInput = {
+  id?: string | null,
+  title?: string | null,
+  content?: string | null,
+  imageA?: string | null,
+  imageB?: string | null,
+  imageC?: string | null,
+  pdf?: string | null,
+  topics?: Array< string | null > | null,
+  tags?: Array< string | null > | null,
+};
+
+export type UpdateNotesInput = {
+  id: string,
+  title?: string | null,
+  content?: string | null,
+  imageA?: string | null,
+  imageB?: string | null,
+  imageC?: string | null,
+  pdf?: string | null,
+  topics?: Array< string | null > | null,
+  tags?: Array< string | null > | null,
+};
+
+export type DeleteNotesInput = {
+  id?: string | null,
+};
+
 export type fuzzySearchableVideoSortInput = {
   field?: fuzzySearchableVideoSortableFields | null,
   direction?: fuzzySearchableSortDirection | null,
@@ -792,6 +820,21 @@ export enum SearchableBlogSortableFields {
   tags = "tags",
 }
 
+
+export type ModelNotesFilterInput = {
+  id?: ModelIDFilterInput | null,
+  title?: ModelStringFilterInput | null,
+  content?: ModelStringFilterInput | null,
+  imageA?: ModelStringFilterInput | null,
+  imageB?: ModelStringFilterInput | null,
+  imageC?: ModelStringFilterInput | null,
+  pdf?: ModelStringFilterInput | null,
+  topics?: ModelStringFilterInput | null,
+  tags?: ModelStringFilterInput | null,
+  and?: Array< ModelNotesFilterInput | null > | null,
+  or?: Array< ModelNotesFilterInput | null > | null,
+  not?: ModelNotesFilterInput | null,
+};
 
 export type CreateTnSeriesMutationVariables = {
   input: CreateTNSeriesInput,
@@ -10693,6 +10736,69 @@ export type DeleteBlogMutation = {
   } | null,
 };
 
+export type CreateNotesMutationVariables = {
+  input: CreateNotesInput,
+};
+
+export type CreateNotesMutation = {
+  createNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateNotesMutationVariables = {
+  input: UpdateNotesInput,
+};
+
+export type UpdateNotesMutation = {
+  updateNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteNotesMutationVariables = {
+  input: DeleteNotesInput,
+};
+
+export type DeleteNotesMutation = {
+  deleteNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type GetYoutubeVideoSearchQueryVariables = {
   videoId?: string | null,
 };
@@ -19433,6 +19539,54 @@ export type SearchBlogsQuery = {
     } | null > | null,
     nextToken: string | null,
     total: number | null,
+  } | null,
+};
+
+export type GetNotesQueryVariables = {
+  id: string,
+};
+
+export type GetNotesQuery = {
+  getNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListNotessQueryVariables = {
+  filter?: ModelNotesFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListNotessQuery = {
+  listNotess:  {
+    __typename: "ModelNotesConnection",
+    items:  Array< {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      imageA: string | null,
+      imageB: string | null,
+      imageC: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
   } | null,
 };
 
@@ -29213,5 +29367,56 @@ export type OnDeleteBlogSubscription = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+  } | null,
+};
+
+export type OnCreateNotesSubscription = {
+  onCreateNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateNotesSubscription = {
+  onUpdateNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteNotesSubscription = {
+  onDeleteNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    imageA: string | null,
+    imageB: string | null,
+    imageC: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
