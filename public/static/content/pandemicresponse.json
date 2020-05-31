@@ -56,7 +56,7 @@
             },
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Our Heart",
                 "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between First Nations and settler communities. This season, we want to pursue reconciliation by partnering with First Nations leaders to ensure that vulnerable families have access to sanitary items.",
                 "list": [
@@ -75,7 +75,7 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Educational Resources",
+                "header1": "Resources",
                 "header2": "",
                 "text1": "",
                 "image1": [

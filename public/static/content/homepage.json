@@ -78,6 +78,27 @@
             },
             {
                 "type": "content",
+                "style": "oneImage",
+                "header1": "First Nations Pandemic Response",
+                "header2": "",
+                "text1": "We’re partnering with First Nations leaders and MCC to reduce the spread of COVID-19 in remote First Nations communities in northern Ontario. Find out how you can participate here.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Learn & Participate",
+                        "navigateTo": "/pandemicresponse"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/pandemic-response-2.jpg",
+                        "alt": "Lyndsay Mollins Koene, an MCC employee, with a First Nations woman."
+                    }
+                ]
+            },
+            {
+                "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "COVID-19 Adjustments",
                 "header2": "",
