@@ -659,6 +659,7 @@ type Notes
 {
   id: ID!
   content:String
+  title:String
   pdf:String
   date:String
   status:String
