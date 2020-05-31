@@ -75,10 +75,13 @@ class HeroItem extends React.Component<Props, State> {
 
     }
     navigateTo(location:any) {
-        this.props.history.push(location, "as")
-        const unblock = this.props.history.block('Are you sure you want to leave this page?');
-        unblock();
-
+        if (location.includes("http")) {
+            window.location.href = location
+        } else {
+            this.props.history.push(location, "as")
+            const unblock = this.props.history.block('Are you sure you want to leave this page?');
+            unblock();
+        }
     }
     smoothScrollTo(endX: any, endY: any, duration: any) {
         let startX = window.scrollX || window.pageXOffset,
