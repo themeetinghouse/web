@@ -98,13 +98,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
       return (
         (this.state.data !== null) ?
           <div className="blog">
-              {this.state.data.status === "Live" ? 
-              <div className="blog-content">
-                {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
-                <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
-                {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
-              </div>
-              : <h1 className="blog-h1" >Notes will be available soon</h1>}
+              {this.state.data.title === "Unlisted" ? 
+              <h1 className="blog-h1" >Notes will be available soon</h1>
+              : <div className="blog-content">
+                  <h1 className="blog-h1" >{this.state.data.title}</h1>
+                  {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
+                  <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
+                  {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
+              </div>}
           </div> 
         : null
       )

@@ -6,10 +6,10 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
 import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
 import awsmobile from '../../aws-exports';
-//import * as queries from '../../graphql/queries';
-//import * as mutations from '../../graphql/mutations';
-//import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-//import { API } from 'aws-amplify';
+import * as queries from '../../graphql/queries';
+import * as mutations from '../../graphql/mutations';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { API } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
@@ -44,7 +44,6 @@ interface State {
   showPreview: boolean
   notesList: any
   selectedTags: any
-  editMode: boolean
   noteObject: any
   showAlert: string
   currentTag: string
@@ -54,9 +53,9 @@ interface State {
   understand: string
   noteEdit: any
   date: any
-  status: string
   pdf: string
   dateWarning: string
+  title: string
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -81,8 +80,8 @@ class IndexApp extends React.Component<Props, State> {
       // input
       editorState: EditorState.createEmpty(),
       date: null,
-      status: 'Unlisted',
       pdf: '',
+      title: 'Unlisted',
 
       // tags
       selectedTags: [],
@@ -92,7 +91,6 @@ class IndexApp extends React.Component<Props, State> {
       showPreview: false,
       moreOptions: false,
       showEditModal: false,
-      editMode: false,
       showAlert: '',
       dateWarning: '',
 
@@ -116,19 +114,16 @@ class IndexApp extends React.Component<Props, State> {
 
   listNotes(nextToken: any) {
 
-    // convert to list notes
-
-    /*
-    var listSeries:any = API.graphql({
-        query: customQueries.listSeriess,
+    var listNotess:any = API.graphql({
+        query: queries.listNotess,
         variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
 
-    listSeries.then((json: any) => {
-        console.log({ "Success customQueries.listSeries: ": json });
+    listNotess.then((json: any) => {
+        console.log({ "Success customQueries.listNotess: ": json });
         this.setState({
-            videoSeriesList: this.state.videoSeriesList.concat(json.data.listSeriess.items).sort(function(a: any, b: any) {
+              notesList: this.state.notesList.concat(json.data.listNotess.items).sort(function(a: any, b: any) {
               var nameA = a.id.toUpperCase();
               var nameB = b.id.toUpperCase();
               if (nameA < nameB) {
@@ -140,16 +135,14 @@ class IndexApp extends React.Component<Props, State> {
               return 0;
             })
         })
-        if (json.data.listSeriess.nextToken != null)
-            this.listSeries(json.data.listSeriess.nextToken)
+        if (json.data.listNotess.nextToken != null)
+            this.listNotes(json.data.listNotess.nextToken)
 
     }).catch((e: any) => { console.log(e) })
-    */
   }
 
   handleDeleteNote() {
     if (this.state.understand === "Delete forever") {
-      /*
       var deleteNotes:any = API.graphql({
           query: mutations.deleteNotes,
           variables: { input: {'id': this.state.delete} },
@@ -166,7 +159,6 @@ class IndexApp extends React.Component<Props, State> {
 
       }).catch((e: any) => { console.log(e) })
       return true;
-      */
     } else {
       this.setState({ showAlert: '⚠️ You must type the confirmation message' })
     }
@@ -186,10 +178,8 @@ class IndexApp extends React.Component<Props, State> {
 
       this.updateField('tags', this.state.selectedTags)
 
-      this.setState({ editMode: true })
-
-      this.updateField('date', format(this.state.date, "yyyy-MM-dd"))
-      /*
+      this.updateField('title', this.state.title)
+      this.updateField('pdf', this.state.pdf)
 
       var createNotes:any = API.graphql({
           query: mutations.createNotes,
@@ -199,7 +189,7 @@ class IndexApp extends React.Component<Props, State> {
 
       createNotes.then((json: any) => {
           console.log({ "Success mutations.createNotes: ": json });
-          this.setState({ showAlert: 'Saved ✅' });
+          this.setState({ showAlert: 'Note created ✅' });
           return true;
 
       }).catch((e: any) => { console.log(e) })
@@ -218,7 +208,6 @@ class IndexApp extends React.Component<Props, State> {
       }).catch((e: any) => { console.log(e) })
 
       return false;
-      */
     }
   }
 
@@ -238,22 +227,22 @@ class IndexApp extends React.Component<Props, State> {
     const blocksfromHtml = htmlToDraft(this.state.noteEdit.content);
     const { contentBlocks, entityMap } = blocksfromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
-    const date = parse(this.state.noteEdit.date, "yyyy-MM-dd", new Date())    
+    const date = parse(this.state.noteEdit.id, "yyyy-MM-dd", new Date())    
     this.setState({
       editorState: EditorState.createWithContent(contentState),
       selectedTags: this.state.noteEdit.tags,
-      date: date
+      date: date,
+      title: this.state.noteEdit.title,
+      pdf: this.state.noteEdit.pdf
     })
-    this.updateField('date', format(this.state.date, "yyyy-MM-dd")) // sets id
-
-    this.setState({ editMode: true });
+    this.updateField('title', this.state.noteEdit.title) // call updateField to set id
   }
 
   updateField(field: any, value: any) {
     let note = this.state.noteObject
     note[field] = value
 
-    note.id = note.date
+    note.id = format(this.state.date, "yyyy-MM-dd")
     this.setState({ noteObject: note })
   }
 
@@ -325,6 +314,13 @@ class IndexApp extends React.Component<Props, State> {
   renderTextInput() {
     return (
       <div className="editor-container">
+
+        <label>
+          Title:
+          <input type="text" style={{width:400}} value={this.state.title} onChange={(event:any)=> this.setState({ title: event.target.value })}/>
+        </label>
+        <div>Notes will remain hidden if the title is "Unlisted"</div>
+
         <Editor
           editorState={this.state.editorState}
           onEditorStateChange={this.onChange}
@@ -375,15 +371,6 @@ class IndexApp extends React.Component<Props, State> {
           PDF Link:
           <input type="text" style={{width:800}}value={this.state.pdf} onChange={(event:any)=> this.setState({ pdf: event.target.value })}/>
         </label>
-        </div>
-        <div>
-          <b>Status</b>
-          <select style={{width: 200}} onChange={(event:any) => this.setState({ status: event.target.value}) }>
-            <option key="null" value="null">None Selected</option>
-            <option key="unlisted" value="Unlisted">Unlisted</option>
-            <option key="live" value="Live">Live</option>
-          </select>
-          <div>Current status: {this.state.status}</div>
         </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
       </div>

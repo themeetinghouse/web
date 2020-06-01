@@ -55,6 +55,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       return (
         <div className="blog-content">
           <div>Below is a preview... To refresh, please toggle "Preview Your Work".</div>
+          <h1 className="blog-h1" >{this.state.data.title}</h1>
           <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
         </div>
       )

@@ -163,7 +163,6 @@ class HomePage extends React.Component<Props, State> {
     }
 
     else if (this.props.isNotes === "true") {
-      /*
       console.log(this.props.match.params.note)      
       const getNotes:any = API.graphql({
         query: queries.getNotes,
@@ -175,7 +174,6 @@ class HomePage extends React.Component<Props, State> {
         this.setState({ data: json.data.getNotes })
         console.log(this.state.data);
       }).catch((e: any) => { console.log(e) })
-      */
     }
   }
 
