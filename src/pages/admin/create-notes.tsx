@@ -45,6 +45,7 @@ interface State {
   notesList: any
   selectedTags: any
   noteObject: any
+  noteEditObject: any
   showAlert: string
   currentTag: string
   moreOptions: boolean
@@ -97,6 +98,7 @@ class IndexApp extends React.Component<Props, State> {
       // imports
       notesList: [],
       noteEdit: null,
+      noteEditObject: null,
 
       // the power to delete things
       delete: '',
@@ -189,7 +191,7 @@ class IndexApp extends React.Component<Props, State> {
 
       createNotes.then((json: any) => {
           console.log({ "Success mutations.createNotes: ": json });
-          this.setState({ showAlert: 'Note created ✅' });
+          this.setState({ showAlert: 'Saved ✅' });
           return true;
 
       }).catch((e: any) => { console.log(e) })
@@ -223,19 +225,19 @@ class IndexApp extends React.Component<Props, State> {
 
   async handleEdit() {
     this.setState({ showEditModal: true });
-    await this.waitForSelection(() => this.state.noteEdit);
-    const blocksfromHtml = htmlToDraft(this.state.noteEdit.content);
+    await this.waitForSelection(() => this.state.noteEditObject);
+    const blocksfromHtml = htmlToDraft(this.state.noteEditObject.content);
     const { contentBlocks, entityMap } = blocksfromHtml;
     const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
-    const date = parse(this.state.noteEdit.id, "yyyy-MM-dd", new Date())    
+    const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date())    
     this.setState({
       editorState: EditorState.createWithContent(contentState),
-      selectedTags: this.state.noteEdit.tags,
+      selectedTags: this.state.noteEditObject.tags,
       date: date,
-      title: this.state.noteEdit.title,
-      pdf: this.state.noteEdit.pdf
+      title: this.state.noteEditObject.title,
+      pdf: this.state.noteEditObject.pdf
     })
-    this.updateField('title', this.state.noteEdit.title) // call updateField to set id
+    this.updateField('title', this.state.noteEditObject.title) // call updateField to set id
   }
 
   updateField(field: any, value: any) {
@@ -277,7 +279,7 @@ class IndexApp extends React.Component<Props, State> {
         <button 
           onClick={() => this.setState({ 
             showEditModal: false, 
-            noteEdit: this.state.notesList.filter((post: any) => post.id === this.state.noteEdit)[0]
+            noteEditObject: this.state.notesList.filter((post: any) => post.id === this.state.noteEdit)[0]
             })
           }>DONE</button>
       </Modal>

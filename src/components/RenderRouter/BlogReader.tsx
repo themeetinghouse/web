@@ -38,6 +38,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
     window.location.href = to;
   }
 
+  navigateNewUrl(to: string) {
+    console.log(to)
+    window.open(to, "_blank")
+  }
+
   shareButton() {
     return (
     <Dropdown>
@@ -74,7 +79,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
   downloadButton(pdf_url: string) {
     return (
-      <Button className="download-custom" onClick={()=>this.navigateUrl(pdf_url)}><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
+      <Button className="download-custom" onClick={()=>this.navigateNewUrl(pdf_url)}><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
     )
   }
 
@@ -99,12 +104,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
         (this.state.data !== null) ?
           <div className="blog">
               {this.state.data.title === "Unlisted" ? 
-              <h1 className="blog-h1" >Notes will be available soon</h1>
-              : <div className="blog-content">
-                  <h1 className="blog-h1" >{this.state.data.title}</h1>
-                  {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
-                  <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
-                  {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
+              <div className="blog-content">
+                <h1 className="blog-h1" >Notes will be available soon</h1>
+                <div className="blog-details">Please check back later</div>
+              </div> :
+              <div className="blog-content">
+                <h1 className="blog-h1" >{this.state.data.title}</h1>
+                {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
+                <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
+                {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
               </div>}
           </div> 
         : null
