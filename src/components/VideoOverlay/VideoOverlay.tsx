@@ -22,7 +22,7 @@ interface State {
   videoVisible: boolean
   data: any
   content: any
-
+  
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -68,9 +68,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return (
       <div>
         {(this.state.content != null) ?
-          <Modal dialogClassName={this.state.content.page.pageConfig.logoColor === "black" ? "modal-video white" : "modal-video "} show={this.props.data !== null}>
+          <Modal dialogClassName={this.state.content.page.pageConfig.logoColor === "black" ? "modal-video white" : "modal-video "} show={this.props.data !== null} onHide={()=>null} style={{overflowY: this.state.content.page.content[0].type === "form" ? "hidden" : "scroll"}}>
             <Modal.Body className={this.state.content.page.pageConfig.logoColor === "black" ? "modal-body white" : "modal-body "}>
-              <img className="VideoOverlayClose" src={this.state.content.page.pageConfig.logoColor === "black" ? "/static/Close-black.png" : "/static/Close.png"} alt="Close Window Icon" onClick={() => {
+              <img className="VideoOverlayClose" src={this.state.content.page.pageConfig.logoColor === "black" ? "/static/svg/Close-Cancel.svg" : "/static/svg/Close-Cancel-White.svg"} alt="Close Window Icon" onClick={() => {
                 this.props.onClose()
               }} />
               <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
