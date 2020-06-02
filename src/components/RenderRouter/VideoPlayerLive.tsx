@@ -19,7 +19,7 @@ interface State {
   kidData: any,
   isLive: boolean,
   liveEventJson: any,
-  sunday: any
+  currentSundayDate: any
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -31,7 +31,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       data: props.data,
       isLive: false,
       liveEventJson: null,
-      sunday: moment().tz("America/Toronto").isoWeekday(7).format('YYYY-MM-DD')
+      currentSundayDate: moment().tz("America/Toronto").isoWeekday(7).format('YYYY-MM-DD')
     }
     fetch('/static/data/sunday-live.json').then(function (response) {
       return response.json();
@@ -147,7 +147,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 {this.state.content.menu.map((item:any) => {
 
                   if (item.title === "Notes" && item.linkto === "sunday web notes") {
-                    return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.sunday}>{item.title}</a></div>
+                    return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
                   } else {
                     return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
                   }

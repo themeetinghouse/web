@@ -159,7 +159,7 @@ class HomePage extends React.Component<Props, State> {
         console.log({ "Success queries.getBlog: ": json });
         this.setState({ data: json.data.getBlog })
         console.log(this.state.data);
-      }).catch((e: any) => { console.log(e) })
+      }).catch((e: Error) => { console.error(e) })
     }
 
     else if (this.props.isNotes === "true") {
@@ -173,7 +173,7 @@ class HomePage extends React.Component<Props, State> {
         console.log({ "Success queries.getNotes: ": json });
         this.setState({ data: json.data.getNotes })
         console.log(this.state.data);
-      }).catch((e: any) => { console.log(e) })
+      }).catch((e: Error) => { console.error(e) })
     }
   }
 

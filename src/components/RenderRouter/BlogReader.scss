@@ -1,3 +1,20 @@
+.download-custom {
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #1A1A1A;
+    border-color: #1A1A1A;
+    font-family: Graphik Web;
+    font-weight: bold;
+    width: 134px;
+    height: 56px;
+    margin-top: 5px;
+    box-shadow: none !important;
+    &:hover {
+        background-color: #1A1A1A;
+        border-color: #1A1A1A;
+    }
+}
+
 @media (min-width: 768px) {
     .blog-content {
         position: relative;
@@ -55,24 +72,6 @@
         height: 56px;
         margin-top: 5px;
         box-shadow: none !important;
-    }
-
-    .download-custom {
-        border-radius: 0;
-        color: #ffffff;
-        background-color: #1A1A1A;
-        border-color: #1A1A1A;
-        font-family: Graphik Web;
-        font-weight: bold;
-        width: 134px;
-        height: 56px;
-        margin-top: 5px;
-        box-shadow: none !important;
-    }
-
-    .download-custom:hover {
-        background-color: #1A1A1A;
-        border-color: #1A1A1A;
     }
     
     .ShareButtonDesktop {
@@ -180,24 +179,6 @@
         box-shadow: none !important;
     }
     
-    .download-custom {
-        border-radius: 0;
-        color: #ffffff;
-        background-color: #1A1A1A;
-        border-color: #1A1A1A;
-        font-family: Graphik Web;
-        font-weight: bold;
-        width: 134px;
-        height: 56px;
-        margin-top: 5px;
-        box-shadow: none !important;
-    }
-
-    .download-custom:hover {
-        background-color: #1A1A1A;
-        border-color: #1A1A1A;
-    }
-    
     .ShareButtonDesktop {
         margin-right: 11.25vw;
         float: right;
@@ -300,24 +281,6 @@
         height: 56px;
         margin-top: 5vh;
         box-shadow: none !important;
-    }
-    
-    .download-custom {
-        border-radius: 0;
-        color: #ffffff;
-        background-color: #1A1A1A;
-        border-color: #1A1A1A;
-        font-family: Graphik Web;
-        font-weight: bold;
-        width: 134px;
-        height: 56px;
-        margin-top: 5px;
-        box-shadow: none !important;
-    }
-
-    .download-custom:hover {
-        background-color: #1A1A1A;
-        border-color: #1A1A1A;
     }
     
     .ShareButtonDesktop {

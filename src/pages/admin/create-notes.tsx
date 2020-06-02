@@ -20,6 +20,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import getDay from 'date-fns/getDay';
+import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 
 Amplify.configure(awsmobile);

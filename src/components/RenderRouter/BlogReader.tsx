@@ -34,13 +34,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   navigateUrl(to: string) {
-    console.log(to)
     window.location.href = to;
   }
 
   navigateNewUrl(to: string) {
-    console.log(to)
-    window.open(to, "_blank")
+    window.open(to, "_blank", "noopener noreferrer")
   }
 
   shareButton() {
@@ -77,18 +75,22 @@ export default class VideoPlayer extends React.Component<Props, State> {
     )
   }
 
-  downloadButton(pdf_url: string) {
+  downloadButton(pdfLink: string) {
     return (
-      <Button className="download-custom" onClick={()=>this.navigateNewUrl(pdf_url)}><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
+      <Button className="download-custom" onClick={()=>this.navigateNewUrl(pdfLink)}><img className="button-icon" src="/static/svg/Download-White.svg" alt=""/>PDF</Button>
     )
   }
 
   render() {
-    if (this.state.content.style === "blog") {
-      return (
-        (this.state.data !== null) ?
-          <div className="blog">
-            <div className="link-to-main-blog-page" onClick={()=>this.navigateUrl("/blog")}>Blog<img className="dropdown-caret" src="/static/svg/Dropdown Caret.svg" alt=""></img></div>
+
+    if (this.state.data !== null) {
+
+      switch(this.state.content.style) {
+
+        case "blog":
+          return (
+            <div className="blog">
+              <div className="link-to-main-blog-page" onClick={()=>this.navigateUrl("/blog")}>Blog<img className="dropdown-caret" src="/static/svg/Dropdown Caret.svg" alt=""></img></div>
               <div className="blog-content">
                 <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
                 <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {this.state.data.publishedDate}</div>
@@ -96,27 +98,31 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
                 <div className="ShareButtonMobile">{this.shareButton()}</div>
               </div>
-          </div> : null
-      )
-    } else if (this.state.content.style === "notes") {
-      console.log(this.state.data.content)
-      return (
-        (this.state.data !== null) ?
-          <div className="blog">
-              {this.state.data.title === "Unlisted" ? 
-              <div className="blog-content">
-                <h1 className="blog-h1" >Notes will be available soon</h1>
-                <div className="blog-details">Please check back later</div>
-              </div> :
-              <div className="blog-content">
-                <h1 className="blog-h1" >{this.state.data.title}</h1>
-                {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
-                <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
-                {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
-              </div>}
-          </div> 
-        : null
-      )
+            </div>
+          )
+
+        case "notes":
+          return (
+            <div className="blog">
+                {this.state.data.title === "Unlisted" ? 
+                <div className="blog-content">
+                  <h1 className="blog-h1" >Notes will be available soon</h1>
+                  <div className="blog-details">Please check back later</div>
+                </div> :
+                <div className="blog-content">
+                  <h1 className="blog-h1" >{this.state.data.title}</h1>
+                  {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
+                  <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
+                  {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
+                </div>}
+            </div> 
+          )
+
+        default: 
+            return null
+
+      }
+
     } else {
       return null
     }
