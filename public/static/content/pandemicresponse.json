@@ -33,7 +33,7 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Partnership",
-                "text1": "The Mushkegowuk Tribal Council, Windigo First Nation Council, and Mennonite Central Committee (MCC), have determined the items in the sanitary kits and will distribute them to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
+                "text1": "The Mushkegowuk Tribal Council, Windigo First Nations Council, and Mennonite Central Committee (MCC), have determined the items in the sanitary kits and will distribute them to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
                 "image1": [
                     {
                         "src": "/static/images/pandemic-response-2.jpg",
@@ -56,7 +56,7 @@
             },
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Our Heart",
                 "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between First Nations and settler communities. This season, we want to pursue reconciliation by partnering with First Nations leaders to ensure that vulnerable families have access to sanitary items.",
                 "list": [
@@ -75,7 +75,7 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Educational Resources",
+                "header1": "Resources",
                 "header2": "",
                 "text1": "",
                 "image1": [
@@ -128,7 +128,7 @@
                         "question": "Which First Nations communities will receive the kits?",
                         "answer": [
                             "Mushkegowuk Tribal Council (7): Weenisk, Attawapiskat, Fort Albany, Kashechewan, Moose Cree, Mocreebec First Nations, and the town of Moosonee.",
-                            "Windigo First Nation Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
+                            "Windigo First Nations Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
                             "Timmins Urban Organizations: Missiway Health Centre, the Timmins Native Friendship Centre, and the MCC Indigenous Neighbours office."
                         ]
                     },
@@ -156,9 +156,9 @@
                     },
                     {
                         "type": "question",
-                        "question": "What is the Mushkegowuk Tribal Council & Windigo First Nation Council?",
+                        "question": "What is the Mushkegowuk Tribal Council & Windigo First Nations Council?",
                         "answer": [
-                            "The Mushkegowuk Tribal Council & Windigo First Nation Council are non-profit regional chiefs' councils representing two clusters of remote First Nations communities in northern Ontario, Canada. Each council provides advisory services and program delivery to its member nations, including oversight in health care within their affiliated First Nations communities."
+                            "The Mushkegowuk Tribal Council & Windigo First Nations Council are non-profit regional chiefs' councils representing two clusters of remote First Nations communities in northern Ontario, Canada. Each council provides advisory services and program delivery to its member nations, including oversight in health care within their affiliated First Nations communities."
                         ]
                     },
                     {

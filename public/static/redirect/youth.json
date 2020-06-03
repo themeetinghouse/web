@@ -1,0 +1,32 @@
+{
+    "page": {
+        "name": "redirect",
+        "title": "The Meeting House",
+        "keywords": "",
+        "description":"",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/about-us-1-2.jpg",
+                        "alt": "All of The Meeting House staff being silly outside of the Oakville site"
+                    }
+
+                ],
+                "header1": "Redirecting...",
+                "text1": "This will just take a second"
+            }
+
+        ]
+    }
+}
