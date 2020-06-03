@@ -661,9 +661,9 @@ class IndexApp extends React.Component<Props, State> {
           onEditorStateChange={this.onChange}
           spellCheck={true}
           toolbar={{
-            options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'emoji', 'image', 'history'],
+            options: ['inline', 'fontSize', 'list', 'link', 'emoji', 'image', 'history'],
             inline: {
-              options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
+              options: ['bold', 'italic', 'underline', 'strikethrough'],
             },
             list: {
               options: ['unordered', 'ordered']
