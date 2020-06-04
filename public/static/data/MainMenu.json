@@ -29,6 +29,10 @@
             {
                 "name":"Podcasts",
                 "location":"/teaching-podcasts"
+            },
+            {
+                "name":"Blog",
+                "location":"/blog"
             }
         ]
     },

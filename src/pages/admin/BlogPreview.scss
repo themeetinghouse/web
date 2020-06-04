@@ -24,8 +24,8 @@
 
 .blog-author {
     color: #1A1A1A;
-    border-bottom: #1A1A1A solid;
-    padding-bottom: 1px;
+    //border-bottom: #1A1A1A solid;
+    //padding-bottom: 1px;
 }
 
 .body {
@@ -33,6 +33,14 @@
     font-family: Graphik Web;
     width: 48.33vw;
     overflow-x: hidden;
+}
+
+.body p {
+    font-family: Graphik Web !important;
+}
+
+.body span {
+    font-family: Graphik Web !important;
 }
 
 .button-icon {
