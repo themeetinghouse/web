@@ -1,3 +1,11 @@
+.blog-body p {
+    font-family: Graphik Web !important;
+}
+
+.blog-body span {
+    font-family: Graphik Web !important;
+}
+
 @media (min-width: 768px) {
     .blog-content {
         position: relative;
@@ -34,14 +42,6 @@
         width: 48.33vw;
         overflow-x: hidden;
         padding-bottom: 6vw;
-    }
-
-    .blog-body p {
-        font-family: Graphik Web !important;
-    }
-
-    .blog-body span {
-        font-family: Graphik Web !important;
     }
     
     .button-icon {
