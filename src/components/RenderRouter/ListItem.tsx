@@ -115,6 +115,18 @@ class ListItem extends React.Component<Props, State> {
 
   }
 
+  sortBlogs(a: any, b: any) {
+    var nameA = a.publishedDate.toUpperCase();
+    var nameB = b.publishedDate.toUpperCase();
+    if (nameA > nameB) {
+      return -1;
+    }
+    if (nameA < nameB) {
+      return 1;
+    }
+    return 0;
+  }
+
   renderVideo(item: any) {
     return (
       <div onClick={() => { this.handleClick(item) }} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
@@ -402,17 +414,7 @@ class ListItem extends React.Component<Props, State> {
     )
 
     else if (this.state.content.style === "blogs") {
-      data.sort(function(a: any, b: any) {
-        var nameA = a.publishedDate.toUpperCase();
-        var nameB = b.publishedDate.toUpperCase();
-        if (nameA > nameB) {
-          return -1;
-        }
-        if (nameA < nameB) {
-          return 1;
-        }
-        return 0;
-      });
+      data.sort((a: any, b: any) => this.sortBlogs(a,b))
 
       const today = format(new Date(), "yyyy-MM-dd")
       var dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))

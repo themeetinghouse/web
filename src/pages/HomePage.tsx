@@ -8,7 +8,6 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import ReactGA from 'react-ga';
-const Popup = React.lazy(() => import('../components/PopupForm/Popup'));
 const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
 const Blog = React.lazy(() => import('../components/Blog/Blog'));
@@ -111,11 +110,7 @@ class HomePage extends React.Component<Props, State> {
             }
           });
         }).catch((e) => {
-          Analytics.record({
-            name: 'error',
-            attributes: { page: jsonFile }
-          });
-          fetch('/static/content/404.json').then(function (response) {
+          fetch('/static/redirect/' + jsonFile.toLowerCase() + '.json').then(function (response) {
             console.log(response)
             return response.json();
           })
@@ -123,7 +118,20 @@ class HomePage extends React.Component<Props, State> {
 
               this.setState({ content: myJson });
             }).catch((e) => {
-              console.log(e)
+              Analytics.record({
+                name: 'error',
+                attributes: { page: jsonFile }
+              });
+              fetch('/static/content/404.json').then(function (response) {
+                console.log(response)
+                return response.json();
+              })
+                .then((myJson) => {
+    
+                  this.setState({ content: myJson });
+                }).catch((e) => {
+                  console.log(e)
+                })
             })
         })
     }
@@ -183,8 +191,6 @@ class HomePage extends React.Component<Props, State> {
       return <Blog data={this.state.data}></Blog>
     else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
       return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
-    else if (this.state.content && this.state.content.page.pageConfig.isPopupForm === true)
-      return <Popup onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></Popup>
     else
       return (
         <RenderRouter data={null} content={this.state.content}></RenderRouter>

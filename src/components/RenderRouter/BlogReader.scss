@@ -1,3 +1,11 @@
+.blog-body p {
+    font-family: Graphik Web !important;
+}
+
+.blog-body span {
+    font-family: Graphik Web !important;
+}
+
 @media (min-width: 768px) {
     .blog-content {
         position: relative;
@@ -24,8 +32,8 @@
     
     .blog-author {
         color: #1A1A1A;
-        border-bottom: #1A1A1A solid 1px;
-        padding-bottom: 1px;
+        //border-bottom: #1A1A1A solid 1px;
+        //padding-bottom: 1px;
     }
     
     .blog-body {
@@ -130,8 +138,8 @@
     
     .blog-author {
         color: #1A1A1A;
-        border-bottom: #1A1A1A solid 1px;
-        padding-bottom: 1px;
+        //border-bottom: #1A1A1A solid 1px;
+        //padding-bottom: 1px;
     }
     
     .blog-body {
@@ -234,8 +242,8 @@
     
     .blog-author {
         color: #1A1A1A;
-        border-bottom: #1A1A1A solid 1px;
-        padding-bottom: 1px;
+        //border-bottom: #1A1A1A solid 1px;
+        //padding-bottom: 1px;
     }
     
     .blog-body {

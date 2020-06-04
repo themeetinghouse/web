@@ -18,25 +18,25 @@
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/peacemakers-1.jpg",
-                        "alt": "Man sharing First Nations peace practices and rituals with a group."
+                        "src": "/static/images/pandemic-response-1.jpg",
+                        "alt": "Amanda speaking to a group at the Timmins Native Friendship Centre."
                     }
                 ],
                 "header1": "First Nations Pandemic Response",
                 "header2": "",
-                "text1": "Lack of access to clean water, overcrowded households, and limited medical care have made remote First Nations communities especially vulnerable to the COVID-19 pandemic. At the request of over a dozen First Nations communities in Ontario, we are raising $24,000 to purchase kits of sanitary items to help slow the spread of the virus.",
-                "button1Text": "Give",
+                "text1": "At the request of over a dozen First Nations communities in Ontario, we are raising $24,000 to purchase kits of sanitary items to help slow the spread of COVID-19.",
+                "button1Text": "Donate",
                 "button1Action": "https://donate.mcccanada.ca/cause/pandemic-response-kit-indigenous-communities",
-                "text2": "*Donations will be made to Mennonite Central Committee directly"
+                "text2": "*Donations made directly to Mennonite Central Committee"
             },
             {
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Our Partnership",
-                "text1": "We’re partnering with the Mushkegowuk Tribal Council, the Windigo First Nation Council, and Mennonite Central Committee (MCC) who have determined the items in the kits. These partners will distribute the kits to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
+                "text1": "The Mushkegowuk Tribal Council, Windigo First Nations Council, and Mennonite Central Committee (MCC), have determined the items in the sanitary kits and will distribute them to the most vulnerable households among 14 remote First Nations communities in northern Ontario and three Indigenous organizations in Timmins. Our partners estimate that over 15,000 people will benefit from this initiative.",
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-2.jpg",
+                        "src": "/static/images/pandemic-response-2.jpg",
                         "alt": "Lyndsay Mollins Koene, an MCC employee, with a First Nations woman."
                     }
                 ]
@@ -44,21 +44,21 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Kit Fundraiser Deadline is June 14",
+                "header1": "Fundraiser Deadline June 14",
                 "header2": "",
-                "text1": "By giving $10 for a kit, you are partnering with First Nations leaders so that they can protect and equip their own communities. They have requested that we raise $24,000 in order to make 2,400 kits.",
+                "text1": "Lack of access to clean water, overcrowded households, and limited medical care have made remote First Nations communities especially vulnerable to COVID-19. By donating $10 to cover the cost of a sanitary kit, you're partnering with First Nations leaders so that they can protect and equip their communities.",
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-3.jpg",
+                        "src": "/static/images/pandemic-response-3.jpg",
                         "alt": "An MCC employee packs sanitary items into a plane before delivery."
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Our Heart",
-                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between Indigenous and settler communities. Through partnership this season, ensuring that vulnerable families have access to sanitary items is a tangible way for us to pursue this together.",
+                "text1": "As a church, we’ve been exploring what it means to work toward reconciliation between First Nations and settler communities. This season, we want to pursue reconciliation by partnering with First Nations leaders to ensure that vulnerable families have access to sanitary items.",
                 "list": [
                     {
                         "type": "text",
@@ -67,20 +67,20 @@
                 ],
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-4.jpg",
+                        "src": "/static/images/pandemic-response-4.jpg",
                         "alt": "A woman from Attawapiskat First Nation stands in front of a wood pile."
                     }
                 ]
             },
             {
                 "type": "content",
-                "style": "oneImage",
+                "style": "oneImageBlackRight",
                 "header1": "Resources",
                 "header2": "",
                 "text1": "",
                 "image1": [
                     {
-                        "src": "/static/images/pandemic response-5.jpg",
+                        "src": "/static/images/pandemic-response-5.jpg",
                         "alt": "A pile of hand-sewn face masks, including one with an eagle on the front."
                     }
                 ],
@@ -128,7 +128,7 @@
                         "question": "Which First Nations communities will receive the kits?",
                         "answer": [
                             "Mushkegowuk Tribal Council (7): Weenisk, Attawapiskat, Fort Albany, Kashechewan, Moose Cree, Mocreebec First Nations, and the town of Moosonee.",
-                            "Windigo First Nation Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
+                            "Windigo First Nations Council (7): Bearskin Lake, Cat Lake, Koocheching, North Caribou, Sachigo, Slate Falls, and Whitewater First Nations.",
                             "Timmins Urban Organizations: Missiway Health Centre, the Timmins Native Friendship Centre, and the MCC Indigenous Neighbours office."
                         ]
                     },
@@ -156,9 +156,9 @@
                     },
                     {
                         "type": "question",
-                        "question": "What is the Mushkegowuk Tribal Council & Windigo First Nation Council?",
+                        "question": "What is the Mushkegowuk Tribal Council & Windigo First Nations Council?",
                         "answer": [
-                            "The Mushkegowuk Tribal Council & Windigo First Nation Council are non-profit regional chiefs' councils representing two clusters of remote First Nations communities in northern Ontario, Canada. Each council provides advisory services and program delivery to its member nations, including oversight in health care within their affiliated First Nations communities."
+                            "The Mushkegowuk Tribal Council & Windigo First Nations Council are non-profit regional chiefs' councils representing two clusters of remote First Nations communities in northern Ontario, Canada. Each council provides advisory services and program delivery to its member nations, including oversight in health care within their affiliated First Nations communities."
                         ]
                     },
                     {

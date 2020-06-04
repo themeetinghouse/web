@@ -7818,3 +7818,44 @@ export const searchBlogs = /* GraphQL */ `
     }
   }
 `;
+export const getNotes = /* GraphQL */ `
+  query GetNotes($id: ID!) {
+    getNotes(id: $id) {
+      id
+      title
+      content
+      imageA
+      imageB
+      imageC
+      pdf
+      topics
+      tags
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listNotess = /* GraphQL */ `
+  query ListNotess(
+    $filter: ModelNotesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotess(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        content
+        imageA
+        imageB
+        imageC
+        pdf
+        topics
+        tags
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
