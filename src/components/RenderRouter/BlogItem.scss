@@ -55,8 +55,8 @@
     }
 
     .author-underline {
-        padding-bottom: 1px;
-        border-bottom: solid 1px white;
+        //padding-bottom: 1px;
+        //border-bottom: solid 1px white;
         color: white;
     }
 
@@ -93,6 +93,87 @@
         width: 80vw;
         height: 55vw;
         padding-bottom: 5vh;
+    }
+
+    .blog.twoImage {
+        height: auto;
+        padding-bottom: 5vw;
+    }
+
+    .blog-h1.twoImage {
+        font-size: 1.6vw;
+        top: 0;
+        padding-bottom: 2.2vw;
+        color: #1A1A1A;
+    }
+
+    .BlogSquareImage.twoImage {
+        display: none;
+        display: hidden;
+    }
+
+    .BlogBannerImage.twoImage {
+        width: 38.33vw;
+        height: 20.83vw;
+        cursor: pointer;
+    }
+
+    .BlogTwoImageItem {
+        width: 38.33vw;
+        display: inline-block;
+        margin-right: 1.67vw;
+    }
+
+    .blog-post-title.twoImage{
+        padding: 0;
+        font-size: 1.1vw;
+        font-weight: bold;
+        color: #1A1A1A;
+        font-family: Graphik Web;
+    }
+
+    .blogdescription.twoImage {
+        padding-top: 1.67vw;
+        padding-bottom: 2.2vw;
+        width: 37.22vw;
+        font-size: 1.1vw;
+        color: #1A1A1A;
+        margin: 0;
+    }
+
+    .blogauthor.twoImage {
+        font-size: 0.83vw;
+        color: #54565A;
+    }
+
+    .author-underline.twoImage {
+        //border-bottom: solid 1px #1A1A1A;
+        color: #1A1A1A;
+    }
+
+    .BlogTwoImageTextContainer {
+        padding-top: 2.2vw;
+    }
+
+    .blog-read-more {
+        color: #1A1A1A !important;
+        font-size: 1.1vw;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #1A1A1A; 
+        text-decoration: none !important;
+    }
+    
+    .twoImageButton {
+        position: relative;
+        font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color: #1A1A1A !important;
+        color:#ffffff !important;
+        font-weight:bold!important;
+        font-size: 1.1vw;
+        padding: 1.1vw 1.6vw;
+        height: 4vw;
+        margin-top: 3.3vw;
     }
 }
 
@@ -153,8 +234,8 @@
     }
 
     .author-underline {
-        padding-bottom: 1px;
-        border-bottom: solid 1px white;
+        //padding-bottom: 1px;
+        //border-bottom: solid 1px white;
         color: white;
     }
 
@@ -193,8 +274,87 @@
         padding-bottom: 5vh;
     }
 
-}
+    .blog.twoImage {
+        height: auto;
+        padding-bottom: 5vw;
+    }
 
+    .blog-h1.twoImage {
+        font-size: 1.6vw;
+        top: 0;
+        padding-bottom: 2.2vw;
+        color: #1A1A1A;
+    }
+
+    .BlogSquareImage.twoImage {
+        display: none;
+        display: hidden;
+    }
+
+    .BlogBannerImage.twoImage {
+        width: 38.33vw;
+        height: 20.83vw;
+        cursor: pointer;
+    }
+
+    .BlogTwoImageItem {
+        width: 38.33vw;
+        display: inline-block;
+        margin-right: 1.67vw;
+    }
+
+    .blog-post-title.twoImage{
+        padding: 0;
+        font-size: 1.1vw;
+        font-weight: bold;
+        color: #1A1A1A;
+        font-family: Graphik Web;
+    }
+
+    .blogdescription.twoImage {
+        padding-top: 1.67vw;
+        padding-bottom: 2.2vw;
+        width: 37.22vw;
+        font-size: 1.1vw;
+        color: #1A1A1A;
+        margin: 0;
+    }
+
+    .blogauthor.twoImage {
+        font-size: 0.83vw;
+        color: #54565A;
+    }
+
+    .author-underline.twoImage {
+        //border-bottom: solid 1px #1A1A1A;
+        color: #1A1A1A;
+    }
+
+    .BlogTwoImageTextContainer {
+        padding-top: 2.2vw;
+    }
+
+    .blog-read-more {
+        color: #1A1A1A !important;
+        font-size: 1.1vw;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #1A1A1A; 
+        text-decoration: none !important;
+    }
+    
+    .twoImageButton {
+        position: relative;
+        font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color: #1A1A1A !important;
+        color:#ffffff !important;
+        font-weight:bold!important;
+        font-size: 1.1vw;
+        padding: 1.1vw 1.6vw;
+        height: 4vw;
+        margin-top: 3.3vw;
+    }
+}
 @media (max-width: 767px) {
     .blog-h1 {
         position: relative;
@@ -224,8 +384,8 @@
     }
 
     .author-underline {
-        padding-bottom: 1px;
-        border-bottom: solid 1px white;
+        //padding-bottom: 1px;
+        //border-bottom: solid 1px white;
         color: white;
     }
 
@@ -292,5 +452,83 @@
     .blogButton-icon {
         padding-bottom: 2px;
         padding-right: 18px
+    }
+
+    .blog.twoImage {
+        height: auto;
+        padding: 10vw 5vw 0vw;
+    }
+
+    .blog-h1.twoImage {
+        font-size: 6.4vw;
+        top: 0;
+        padding-bottom: 9.6vw;
+        color: #1A1A1A;
+    }
+
+    .BlogSquareImage.twoImage {
+        width: 88.5vw;
+        height: 88.5vw;
+    }
+
+    .BlogBannerImage.twoImage {
+        display: none;
+    }
+
+    .BlogTwoImageItem {
+        margin-right: 1.67vw;
+    }
+
+    .blog-post-title.twoImage{
+        padding: 8.5vw 0 0;
+        font-size: 4.26vw;
+        line-height: 4.26vw;
+        font-weight: bold;
+        color: #1A1A1A;
+        font-family: Graphik Web;
+    }
+
+    .blogdescription.twoImage {
+        padding-top: 6.4vw;
+        padding-bottom: 12.8vw;
+        font-size: 4.26vw;
+        width: 84.26vw;
+        color: #1A1A1A;
+    }
+
+    .blogauthor.twoImage {
+        padding-top: 1.2vw;
+        font-size: 3.2vw;
+        color: #54565A;
+    }
+
+    .author-underline.twoImage {
+        //border-bottom: solid 1px #1A1A1A;
+        color: #1A1A1A;
+    }
+
+    .BlogTwoImageTextContainer {
+        margin-top: 2.2vw;
+        padding-left: 2vw;
+        padding-bottom: 12.8vw;
+    }
+
+    .blog-read-more {
+        color: #1A1A1A !important;
+        font-size: 4.26vw;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #1A1A1A; 
+        text-decoration: none !important;
+    }
+    
+    .twoImageButton {
+        position: relative;
+        font-family: Graphik Web !important;
+        border-radius:0 !important;
+        background-color: #1A1A1A !important;
+        color:#ffffff !important;
+        font-weight:bold!important;
+        font-size: 4.26vw;
+        padding: 4.26vw 6.4vw;
     }
 }
