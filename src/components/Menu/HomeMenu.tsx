@@ -188,8 +188,6 @@ class HomeMenu extends React.Component<Props, State>  {
               {
                 this.state.MainMenuItems ?
                   this.state.MainMenuItems.map((item: any) => {
-                    console.log(this.props.location)
-                    console.log(this.state.expand)
                     return (
                       <div key={item.location} className="linkContainer">
                         <NavLink className="bigNav" style={{ fontWeight : (item.location.includes(this.props.location.pathname) && this.props.location.pathname !== "/") || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "bold" : "normal", display:"inline-block"}} key={item.location} href={item.location}>
