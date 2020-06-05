@@ -188,9 +188,11 @@ class HomeMenu extends React.Component<Props, State>  {
               {
                 this.state.MainMenuItems ?
                   this.state.MainMenuItems.map((item: any) => {
+                    console.log(this.props.location)
+                    console.log(this.state.expand)
                     return (
                       <div key={item.location} className="linkContainer">
-                        <NavLink className="bigNav" style={{display:"inline-block"}} key={item.location} href={item.location}>
+                        <NavLink className="bigNav" style={{ fontWeight : (item.location.includes(this.props.location.pathname) && this.props.location.pathname !== "/") || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "bold" : "normal", display:"inline-block"}} key={item.location} href={item.location}>
                           {item.name}
                         </NavLink>
                         {item.children != null ?
@@ -203,7 +205,7 @@ class HomeMenu extends React.Component<Props, State>  {
                           (item.children != null ?
 
                             item.children.map((item2: any) => {
-                              return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
+                              return (<NavLink className="smallNav" key={item2.location} href={item2.location} style={{ fontWeight : (item2.location === this.props.location.pathname && this.props.location.pathname !== "/") ? "bold" : "normal" }}>{item2.name}</NavLink>)
                             }) : null)
                           : null)}
                       </div>
