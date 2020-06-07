@@ -42,7 +42,7 @@ class BlogItem extends React.Component<Props, State> {
             overlayData: null,
             publishedOnly: null
         }
-        const getBlogByBlogStatus:any = API.graphql({
+        const getBlogByBlogStatus: any = API.graphql({
             query: queries.getBlogByBlogStatus,
             variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -63,55 +63,55 @@ class BlogItem extends React.Component<Props, State> {
     navigateUrl(to: string) {
         window.location.href = to;
     }
-    
+
     render() {
         if (this.state.content.style === "hero") {
             console.log(this.props.content.class)
             return (
                 this.state.publishedOnly !== null ?
-                        <div className="blog" >
-                            <h1 className="blog-h1" >{this.props.content.header1}</h1>
-                            <div className="blog-blackbox" >
-                                <div className="blog-post-title" >{this.state.publishedOnly[0].blogTitle}</div>
-                                <div className="blogdiv blogauthor" >by <span className="author-underline">{this.state.publishedOnly[0].author}</span> on {this.state.publishedOnly[0].publishedDate}</div>
-                                <div className="blogdiv blogdescription" >{this.state.publishedOnly[0].description}</div>
-                                <div className="blogdiv2" >
-                                    <Button size="lg" className="blogButton" onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}>Read More</Button>
-                                </div>
-                                <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g,"")+".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}/></div>
+                    <div className="blog" >
+                        <h1 className="blog-h1" >{this.props.content.header1}</h1>
+                        <div className="blog-blackbox" >
+                            <div className="blog-post-title" >{this.state.publishedOnly[0].blogTitle}</div>
+                            <div className="blogdiv blogauthor" >by <span className="author-underline">{this.state.publishedOnly[0].author}</span> on {this.state.publishedOnly[0].publishedDate}</div>
+                            <div className="blogdiv blogdescription" >{this.state.publishedOnly[0].description}</div>
+                            <div className="blogdiv2" >
+                                <Button size="lg" className="blogButton" onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}>Read More</Button>
                             </div>
-                            <div className="mobile-image-container"><img alt="TBD" className="blog-image-mobile" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g,"")+".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}/></div>
-                        </div> : null
+                            <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)} /></div>
+                        </div>
+                        <div className="mobile-image-container"><img alt="TBD" className="blog-image-mobile" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)} /></div>
+                    </div> : null
             )
         } else if (this.state.content.style === "twoImage") {
             console.log(this.props.content.class)
             return (
                 this.state.publishedOnly !== null ?
-                        <div className="blog twoImage" >
-                            <h1 className="blog-h1 twoImage" >{this.props.content.header1}</h1>
-                            {this.state.publishedOnly.slice(0,2).map((item: any) => {
-                                return (
-                                    <div className="BlogTwoImageItem">
-                                        <img alt={item.id + " series image"}
+                    <div className="blog twoImage" >
+                        <h1 className="blog-h1 twoImage" >{this.props.content.header1}</h1>
+                        {this.state.publishedOnly.slice(0, 2).map((item: any, index: any) => {
+                            return (
+                                <div key={index} className="BlogTwoImageItem">
+                                    <img alt={item.id + " series image"}
                                         className="BlogSquareImage twoImage"
-                                        src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g,"")+".jpg"} 
-                                        onClick={() => this.navigateUrl("/posts/" + item.id)}/>
-                                          <img alt={item.id + " series image"}
+                                        src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                        onClick={() => this.navigateUrl("/posts/" + item.id)} />
+                                    <img alt={item.id + " series image"}
                                         className="BlogBannerImage twoImage"
-                                        src={"/static/photos/blogs/banner/" + item.blogTitle.replace(/\?|[']/g,"")+".jpg"} 
-                                        onClick={() => this.navigateUrl("/posts/" + item.id)}/>
-                                        <div className="BlogTwoImageTextContainer">
-                                            <div className="blog-post-title twoImage">{item.blogTitle}</div>
-                                            <div className="blogauthor twoImage">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
-                                            <div className="blogdescription twoImage">{item.description}</div>
-                                            <a className="blog-read-more" href={"/posts/" + item.id}>Read More</a> 
-                                        </div>
+                                        src={"/static/photos/blogs/banner/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                        onClick={() => this.navigateUrl("/posts/" + item.id)} />
+                                    <div className="BlogTwoImageTextContainer">
+                                        <div className="blog-post-title twoImage">{item.blogTitle}</div>
+                                        <div className="blogauthor twoImage">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
+                                        <div className="blogdescription twoImage">{item.description}</div>
+                                        <a className="blog-read-more" href={"/posts/" + item.id}>Read More</a>
                                     </div>
-                                )
-                            }
-                            )}
+                                </div>
+                            )
+                        }
+                        )}
                         <Button size="lg" className="twoImageButton" onClick={() => this.navigateUrl("/blog")}>View All Blogs</Button>
-                        </div> : null
+                    </div> : null
             )
         }
         else return null
