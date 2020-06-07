@@ -249,7 +249,7 @@ class HeroItem extends React.Component<Props, State> {
                             this.state.content.addToCalendar ?
                             this.state.locationData.length===1? 
                                <div className="HeroAddToCalendarButtonContainer">
-                                    <img className="SundaMorningIcon" src="/static/Calendar-white.png" alt="Calendar Icon" />                       
+                                    <img className="SundaMorningIcon" src="/static/svg/Calendar-white.svg" alt="Calendar Icon" />                       
                                     <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(this.state.locationData[0])} ></AddToCalendar>
                                 </div>
                                         
@@ -258,7 +258,7 @@ class HeroItem extends React.Component<Props, State> {
                          }
                         {this.state.content.contactPastor ?
                               this.state.locationData.length===1? (
-                                <a href={"mailto:"+this.state.locationData[0].pastorEmail}><button className="calendarButton"><img className="calendarImage"  src="/static/Contact-white.png" alt="Contact Icon" />Contact the Pastor</button></a>                            )
+                                <a href={"mailto:"+this.state.locationData[0].pastorEmail}><button className="calendarButton"><img className="calendarImage"  src="/static/svg/Contact-white.svg" alt="Contact Icon" />Contact the Pastor</button></a>                            )
                               : null
                               :null}
                               <br/>
@@ -307,8 +307,8 @@ class HeroItem extends React.Component<Props, State> {
                             </div>):null}
                         {this.state.content.button1Text ? (<Button className="heroItemButton"  onClick={()=>{this.navigateTo(this.state.content.button1Action)}}>{this.state.content.button1Text}</Button>) : null}
                         <a className="HeroItemButtonA"  href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
-                        {this.state.content.addToCalendar ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
-                        {this.state.content.contactPastor ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+                        {this.state.content.addToCalendar ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/svg/Contact.svg" alt="Contact Icon" />Contact the Pastor</Button>) : null}
                     </div>
                 </div>
             )
@@ -350,8 +350,8 @@ class HeroItem extends React.Component<Props, State> {
                             </div>):null}
                         {this.state.content.button1Text ? (<Button className="heroButton" onClick={()=>{this.navigateTo(this.state.content.button1Action)}}>{this.state.content.button1Text}</Button>) : null}
                         <a className="HeroItemA2"  href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
-                        {this.state.content.addToCalendar ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
-                        {this.state.content.contactPastor ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
+                        {this.state.content.addToCalendar ? (<Button className="heroItemButton"  onClick={this.navigate}><img src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />Add To Calendar</Button>) : null}
+                        {this.state.content.contactPastor ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/svg/Contact.svg" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 
                     </div>
 

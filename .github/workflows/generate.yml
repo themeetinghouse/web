@@ -1,0 +1,25 @@
+name: Generate redirect JSON
+
+on:
+  push:
+    paths:
+      - 'public/static/data/redirect.json'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: python ./.github/workflows/make_json.py
+    - name: switching from HTTPS to SSH
+      run: git remote set-url origin ${{ secrets.ssh }}
+    - name: check for changes
+      run: git status
+    - name: stage changed files
+      run: git add .
+    - name: commit changed files
+      run: git commit -m "Auto generate redirect JSON file(s)"
+    - name: push code to master
+      run: git push origin HEAD:master
