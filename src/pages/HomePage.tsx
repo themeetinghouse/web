@@ -67,15 +67,15 @@ class HomePage extends React.Component<Props, State> {
     const pageType = this.props.pageType ?? 'default';
     let jsonFile: string;
     switch (pageType) {
-    case 'video':
-      jsonFile = 'video-player'
-      break;
-    case 'blog':
-      jsonFile = 'blog-post'
-      break;
-    case 'default':
-      jsonFile = props.match.params.id || 'homepage'
-      break;
+      case 'video':
+        jsonFile = 'video-player'
+        break;
+      case 'blog':
+        jsonFile = 'blog-post'
+        break;
+      case 'default':
+        jsonFile = props.match.params.id || 'homepage'
+        break;
     }
     ReactGA.pageview(window.location.pathname + window.location.search);
     Analytics.record({
@@ -111,10 +111,10 @@ class HomePage extends React.Component<Props, State> {
       })
         .then((myJson) => {
 
-          this.setState({ content: myJson },()=>{
+          this.setState({ content: myJson }, () => {
             console.log(this.state.content.page.pageConfig.weatherAlert)
             console.log(this.props.match.params.id)
-            if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === ""||this.props.match.params.id===undefined)){
+            if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === "" || this.props.match.params.id === undefined)) {
               this.navigateTo("/weather");
 
             }
@@ -137,7 +137,7 @@ class HomePage extends React.Component<Props, State> {
                 return response.json();
               })
                 .then((myJson) => {
-    
+
                   this.setState({ content: myJson });
                 }).catch((e) => {
                   console.log(e)
@@ -159,7 +159,7 @@ class HomePage extends React.Component<Props, State> {
 
       }).catch((e: any) => { console.log(e) })
     } else if (pageType === 'blog') {
-      const getBlog:any = API.graphql({
+      const getBlog: any = API.graphql({
         query: queries.getBlog,
         variables: { id: this.props.match.params.blog },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -172,7 +172,7 @@ class HomePage extends React.Component<Props, State> {
     }
   }
 
-  
+
   navigateUrl(to: string) {
     window.location.href = to;
   }
@@ -198,9 +198,11 @@ class HomePage extends React.Component<Props, State> {
       case 'blog':
         return <Blog data={this.state.data}></Blog>
       case 'default':
-        const {isPopup, navigateOnPopupClose} = this.state.content?.page.pageConfig;
-        if (isPopup) {
-          return <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+        if (this.state.content?.page.pageConfig) {
+          const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig;
+          if (isPopup) {
+            return <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+          }
         }
         return <RenderRouter data={null} content={this.state.content}></RenderRouter>
     }
