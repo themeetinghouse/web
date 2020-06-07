@@ -225,6 +225,20 @@
 
     }
 
+    .ListItemWebsite {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .ListItemWebsiteContainer {
+        margin-top: 1vw;
+    }
+
+    .ListItemEmailText {
+        color: black;
+        text-decoration: underline;
+    }
+
     .ListItemA {
         color: #1A1A1A;
     }
@@ -719,6 +733,20 @@
         white-space: normal;
         font-family: Graphik Web;
 
+    }
+
+    .ListItemWebsite {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .ListItemWebsiteContainer {
+        margin-top: 1vw;
+    }
+
+    .ListItemEmailText {
+        color: black;
+        text-decoration: underline;
     }
 
     .ListItemA {
@@ -1322,6 +1350,16 @@
         //width: 20vw;
         white-space: normal;
         font-family: Graphik Web;
+    }
+
+    .ListItemWebsite {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .ListItemEmailText {
+        color: black;
+        text-decoration: underline;
     }
 
     .ListItemSeriesTitle,
