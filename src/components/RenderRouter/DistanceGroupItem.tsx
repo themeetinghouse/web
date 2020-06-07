@@ -81,8 +81,8 @@ export class ContentItem extends React.Component<Props, State>  {
             <h1  >{this.state.content.header1}</h1>
             <div className="distancegroupitemdiv2" >
               <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} className="distancegroupmap" >
-                {this.state.listData != null ? this.state.listData.map((item: any) => {
-                  return (<Marker onClick={this.onMarkerClick}
+                {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
+                  return (<Marker key={index} onClick={this.onMarkerClick}
                     position={{ lat: item.location.latitude, lng: item.location.longitude }} />
                   )
                 }) : null}

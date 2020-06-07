@@ -95,7 +95,7 @@ class HeroItem extends React.Component<Props, State> {
             }
             window.scrollTo(newX, newY);
         }, 1000 / 60); // 60 fps
-    };
+    }
     scrollToNextPage() {
         let pos = window.outerHeight;
         if ('scrollBehavior' in document.documentElement.style) { //Checks if browser supports scroll function
@@ -142,7 +142,7 @@ class HeroItem extends React.Component<Props, State> {
                         })}
                     </div>
 
-                    <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>                  
+                    <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>
 
                 </div>
             )

@@ -10,6 +10,7 @@ interface Props extends RouteComponentProps {
 interface State {
     numPages: number;
     currentPage: number
+    childrenLength: number
 }
 
 
@@ -27,6 +28,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
+            childrenLength: -1,
             numPages: -1,
             currentPage: 0
         }
@@ -72,8 +74,11 @@ class HorizontalScrollList extends React.Component<Props, State> {
     }
 
     componentDidUpdate() {
-        // Content continues to load asynchronously, so need to keep recomputing number of pages
-        this.computePages();
+        const children = this.scrollContainerElement.getElementsByClassName("HorizontalScrollListItem");
+        if (children.length != this.state.childrenLength) {        // Content continues to load asynchronously, so need to keep recomputing number of pages
+            this.computePages();
+            this.setState({ childrenLength: children.length })
+        }
 
         if (this.useSmoothScroll) {
             this.smoothScrollTo(this.scrollContainerElement, (this.pageWidth * this.state.currentPage) - this.scrollContainerElement.scrollLeft, 750);

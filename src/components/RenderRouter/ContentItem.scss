@@ -349,13 +349,13 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web;
         color: black;
         border-bottom: 1px solid black;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
     }
 
     .oneImageA.blackBox {
         color: white;
         border-bottom: 1px solid white;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
     }
 
     .oneImageA:hover {
@@ -511,6 +511,11 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web;
     }
 
+    .greyTwoTextJustText {
+        margin-bottom: 2vw;
+    }
+
+
     .greyTwoClear {
         clear: left;
     }
@@ -595,13 +600,13 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web;
         color: black;
         border-bottom: 1px solid black;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
     }
 
     .oneImageA.blackBox {
         color: white;
         border-bottom: 1px solid white;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
     }
 
     .oneImageA:hover {
@@ -757,6 +762,10 @@ transform:rotate(attr(data-value,deg,0);
         font-family: Graphik Web;
     }
 
+    .greyTwoTextJustText {
+        margin-bottom: 2vw;
+    }
+
     .greyTwoClear {
         clear: left;
     }
@@ -826,10 +835,10 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .oneImageA {
-        font-size: 5vw;
+        font-size: 4vw;
         font-family: Graphik Web;
         line-height: 7.5vw;
-        margin-top: 13vw;
+        margin-top: 8vw;
         display: inline-block;
         color: black;
         border-bottom: 1px solid black;
@@ -863,7 +872,7 @@ transform:rotate(attr(data-value,deg,0);
 
     .secondImg {
       // top: 125vw;
-      margin-top: 190vw!important;
+      position: relative;
     }
 
     .oneImageGreyBox {
@@ -933,7 +942,7 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .ContentItemMarginBottom {
-        margin-bottom: 55vw;
+        margin-bottom: 0vw;
     }
 
     .goRegionalEventsMarginBottom {
@@ -969,14 +978,13 @@ transform:rotate(attr(data-value,deg,0);
         position: relative;
         margin: 1vw;
         margin-top: 3vw;
-        margin-bottom: 100%;
+        margin-bottom: 50%;
         float: left;
         width: 90%;
       //  height: 35vw;
         font-size: 5vw;
         line-height: 7.5vw;
         font-family: Graphik Web;
-        text-align: center!important;
     }
 
     .greyTwoClear {

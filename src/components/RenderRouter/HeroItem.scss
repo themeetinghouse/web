@@ -1,3 +1,5 @@
+@import "../../custom";
+
 @media (min-width: 768px) {
 .covidButton{
     position:absolute; 
@@ -289,7 +291,7 @@
         font-family: Graphik Web;
         width: 32vw;
         color: #ffffff;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .heroText2 {
@@ -462,12 +464,37 @@
     }
     .HeroItemA2 {
         font-family: Graphik Web;
+        color: white;
+        border-bottom: solid 1px white;
+        padding-bottom: 1px;
+        font-size: 1.5vw;
     }
+    .HeroItemA2:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     .divPartial {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 50vw; padding-bottom: 5vh;
+    }
+
+    .heroBlackBoxA {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 1px;
+        font-size: 1.2vw;
+    }
+
+    .heroBlackBoxA:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .heroAContainer {
+        margin-top: 1vw;
     }
 }
 
@@ -760,7 +787,7 @@
         font-family: Graphik Web;
         width: 32vw;
         color: #ffffff;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .heroText2 {
@@ -932,12 +959,38 @@
     }
     .HeroItemA2 {
         font-family: Graphik Web;
+        color: white;
+        border-bottom: solid 1px white;
+        padding-bottom: 1px;
+        font-size: 1.5vw;
     }
+
+    .HeroItemA2:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     .divPartial {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 50vw; padding-bottom: 5vh;
+    }
+
+    .heroBlackBoxA {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 1px;
+        font-size: 1.2vw;
+    }
+
+    .heroBlackBoxA:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .heroAContainer {
+        margin-top: 1vw;
     }
 }
 
@@ -1275,16 +1328,9 @@
     }
 
     .heroPartialBlackBox {
-        position: absolute;
-        z-index: 51;
-       // background-color: rgba(0, 0, 0, 1);
-        padding: 2vw;
-        left: 0vw;
+        background-color: black;
         width: 100vw;
-        // height: 65vh;
-        top: 0;
         padding: 10vw 6vw 10vw 6vw;
-        //margin-top: 75vw;
     }
 
     .heroButton {
@@ -1377,7 +1423,17 @@
     }
     .HeroItemA2 {
         font-family: Graphik Web;
+        color: white;
+        border-bottom: solid 1px white;
+        padding-bottom: 1px;
+        font-size: 4vw;
     }
+
+    .HeroItemA2:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     .divPartial {
         position: relative;
         width: 100vw;
@@ -1385,5 +1441,21 @@
         top: 3vw;
         margin-bottom: 55vw;
 
+    }
+
+    .heroBlackBoxA {
+        color: white;
+        border-bottom: 1px solid white;
+        padding-bottom: 1px;
+        font-size: 4vw;
+    }
+
+    .heroBlackBoxA:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .heroAContainer {
+        margin-top: 5vw;
     }
 }

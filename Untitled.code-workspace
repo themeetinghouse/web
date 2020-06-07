@@ -3,5 +3,8 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"typescript.tsserver.experimental.enableProjectDiagnostics": true
+	}
 }

@@ -4,7 +4,7 @@ import * as queries from '../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, RouteComponentProps, } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import ReactGA from 'react-ga';
@@ -20,20 +20,30 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
+type PageType = 'default' | 'video' | 'blog';
+
 Amplify.configure(awsconfig);
-interface Props extends RouteComponentProps {
-  match: any
-  isVideo?: string
-  isBlog? : string
-  isNotes?: string
+
+interface Params {
+  id?: string;
+  blog?: string;
+  episode?: string;
+  series?: string;
 }
+
+interface Props extends RouteComponentProps<Params> {
+  pageType: PageType;
+}
+
 interface State {
-  content: any
+  content?: any
   data: any
 }
+
 class HomePage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
     this.state = {
       content: null,
       data: null
@@ -55,22 +65,18 @@ class HomePage extends React.Component<Props, State> {
           this.navigateUrl(forwardTo[0].to)
       })
 
-    var jsonFile: any
-    if (this.props.isVideo === "true") {
-      jsonFile = "video-player"
-    }
-    else if (this.props.isBlog === "true") {
-      jsonFile = "blog-post"
-    }
-    else if (this.props.isNotes === "true") {
-      jsonFile = "notes"
-    }
-    else {
-      jsonFile = props.match.params.id
-      if (props.match.params.id === "")
-        jsonFile = "homepage"
-      if (props.match.params.id == null)
-        jsonFile = "homepage"
+    const pageType = this.props.pageType ?? 'default';
+    let jsonFile: string;
+    switch (pageType) {
+      case 'video':
+        jsonFile = 'video-player'
+        break;
+      case 'blog':
+        jsonFile = 'blog-post'
+        break;
+      case 'default':
+        jsonFile = props.match.params.id || 'homepage'
+        break;
     }
     ReactGA.pageview(window.location.pathname + window.location.search);
     Analytics.record({
@@ -106,10 +112,10 @@ class HomePage extends React.Component<Props, State> {
       })
         .then((myJson) => {
 
-          this.setState({ content: myJson },()=>{
+          this.setState({ content: myJson }, () => {
             console.log(this.state.content.page.pageConfig.weatherAlert)
             console.log(this.props.match.params.id)
-            if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === ""||this.props.match.params.id===undefined)){
+            if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === "" || this.props.match.params.id === undefined)) {
               this.navigateTo("/weather");
 
             }
@@ -132,7 +138,7 @@ class HomePage extends React.Component<Props, State> {
                 return response.json();
               })
                 .then((myJson) => {
-    
+
                   this.setState({ content: myJson });
                 }).catch((e) => {
                   console.log(e)
@@ -142,9 +148,8 @@ class HomePage extends React.Component<Props, State> {
     }
     this.navigateHome = this.navigateHome.bind(this);
 
-    if (this.props.isVideo === "true") {
-      console.log(this.props.match.params.episode)
-      const getVideo:any = API.graphql({
+    if (pageType === 'video') {
+      const getVideo: any = API.graphql({
         query: queries.getVideo,
         variables: { id: this.props.match.params.episode },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -154,11 +159,8 @@ class HomePage extends React.Component<Props, State> {
         this.setState({ data: json.data.getVideo })
 
       }).catch((e: any) => { console.log(e) })
-    }
-
-    else if (this.props.isBlog === "true") {
-      console.log(this.props.match.params.blog)
-      const getBlog:any = API.graphql({
+    } else if (pageType === 'blog') {
+      const getBlog: any = API.graphql({
         query: queries.getBlog,
         variables: { id: this.props.match.params.blog },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -185,7 +187,7 @@ class HomePage extends React.Component<Props, State> {
     }
   }
 
-  
+
   navigateUrl(to: string) {
     window.location.href = to;
   }
@@ -203,20 +205,23 @@ class HomePage extends React.Component<Props, State> {
     unblock();
 
   }
-  render() {
-    if (this.props.isVideo === "true")
-      return <VideoOverlay onClose={() => { this.navigateHome("/") }} data={this.state.data}></VideoOverlay>
-    else if (this.props.isBlog === "true")
-      return <Blog data={this.state.data}></Blog>
-    else if (this.props.isNotes === "true")
-      return <Note data={this.state.data}></Note>
-    else if (this.state.content && this.state.content.page.pageConfig.isPopup === true)
-      return <VideoOverlay onClose={() => { this.navigateHome(this.state.content.page.pageConfig.navigateOnPopupClose) }} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
-    else
-      return (
-        <RenderRouter data={null} content={this.state.content}></RenderRouter>
 
-      )
+  render() {
+    switch (this.props.pageType) {
+      case 'video':
+        return <VideoOverlay onClose={() => this.navigateHome("/")} data={this.state.data}></VideoOverlay>
+      case 'blog':
+        return <Blog data={this.state.data}></Blog>
+      case 'default':
+        if (this.state.content?.page.pageConfig) {
+          const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig;
+          if (isPopup) {
+            return <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+          }
+        }
+        return <RenderRouter data={null} content={this.state.content}></RenderRouter>
+    }
   }
 }
+
 export default withRouter(HomePage);
