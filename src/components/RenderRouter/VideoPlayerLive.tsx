@@ -100,17 +100,17 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
   tick() {
     this.state.liveEventJson.forEach((item: any) => {
-     
-      let start = moment.tz(item.startTime, 'HH:mm',"America/Toronto")
-      let end = moment.tz(item.endTime, 'HH:mm',"America/Toronto")
+
+      let start = moment.tz(item.startTime, 'HH:mm', "America/Toronto")
+      let end = moment.tz(item.endTime, 'HH:mm', "America/Toronto")
       var rightNow = moment().tz("America/Toronto")
       console.log(rightNow.format())
       console.log(rightNow.weekday())
       console.log(start.format())
       //console.log(rightNow.day())
-     
-      let pastStart = rightNow.isAfter(start) 
-      let beforeEnd = rightNow.isBefore(end) 
+
+      let pastStart = rightNow.isAfter(start)
+      let beforeEnd = rightNow.isBefore(end)
       if (item.dayOfWeek === rightNow.weekday() && pastStart === true && beforeEnd === true) {
         console.log("ShowLive")
         this.setState({ isLive: true })
@@ -133,8 +133,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return (
       <div className="LiveVideoPlayerDiv" >
         <Helmet>
-          <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"}/>
-          <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"}/>
+          <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"} />
+          <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"} />
         </Helmet>
         <div>
 
@@ -142,11 +142,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <div>
               <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
               <div className="LiveVideoPlayerSeriesMenuContainer" >
-                {this.state.content.menu.map((item:any) => {
-                  return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
+                {this.state.content.menu.map((item: any, index: any) => {
+                  return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
 
                 })}
-               </div>
+              </div>
               {this.state.isLive ?
                 <div>
                   <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>

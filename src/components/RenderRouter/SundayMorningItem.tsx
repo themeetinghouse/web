@@ -291,7 +291,7 @@ export class ContentItem extends React.Component<Props, State>  {
                             <div className="SundayMorningDistances" >{item.distance != null ? item.distance.distance.text + " away (" + item.distance.duration.text + ")" : null}</div>
                             {this.state.content.alternate === "christmas" || this.state.content.alternate === "easter" ? null : <div className="SundayMorningServiceDay">Sundays</div>}
                             {this.state.content.alternate === "christmas" || this.state.content.alternate === "easter" ?
-                              <div className="SundayMorningServiceTimes">{item.serviceTimes.map((val: any) => { return <div>{val}</div> })}</div>
+                              <div className="SundayMorningServiceTimes">{item.serviceTimes.map((val: any, index: any) => { return <div key={index}>{val}</div> })}</div>
                               : <div className="SundayMorningServiceTimes">{item.serviceTimes.map((t: any) => (t + ' am')).join(', ')}</div>}
                           </div>
                           <div className="SundayMorningItemDiv6" >
@@ -303,7 +303,7 @@ export class ContentItem extends React.Component<Props, State>  {
                             <img className="AddToCalendarIcon" src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />
                             <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}></AddToCalendar>
                           </div>
-                          <a className="emailText" href={"mailto:"+item.pastorEmail}><button className="emailButton"><img className="ContactPastorIcon"  src="/static/svg/Contact.svg" alt="Contact Icon" /></button>Contact the Pastor</a>
+                          <a className="emailText" href={"mailto:" + item.pastorEmail}><button className="emailButton"><img className="ContactPastorIcon" src="/static/svg/Contact.svg" alt="Contact Icon" /></button>Contact the Pastor</a>
                         </div>
                       </div>
 
