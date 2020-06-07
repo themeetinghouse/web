@@ -9,6 +9,7 @@
     "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;react-scripts build;sentry-cli releases finalize $VERSION;sentry-cli releases deploys $VERSION new -e prod;",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify",
     "images": "mkdir ./public/static/images-sized;batch-image-resizer -i ./public/static/images -o ./public/static/images-sized -s '[50, 500, 1000, 1500]'",
     "createTestList": "find . -exec echo -n '\"{}\" ', \\; | sed 's/.json//g' | sed 's|./||g'",
@@ -109,7 +110,10 @@
     "@types/react-draft-wysiwyg": "^1.13.0",
     "@types/react-hamburger-menu": "0.0.3",
     "@types/react-html-parser": "^2.0.1",
-    "eslint": "^6.6.0",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.20.0",
     "tslint": "^6.1.2"
   }
 }
