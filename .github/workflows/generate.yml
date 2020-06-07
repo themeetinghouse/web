@@ -11,6 +11,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
     - name: Run a one-line script
       run: python ./.github/workflows/make_json.py
     - name: switching from HTTPS to SSH
