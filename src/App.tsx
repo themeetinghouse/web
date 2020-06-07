@@ -22,14 +22,14 @@ class App extends React.Component<Props, State>  {
     return (
       <Suspense fallback={<div></div>}>
         <Switch key={this.props.location.pathname}>
-          <Route exact path="/" render={props => <HomePage isVideo="false" isBlog="false" {...props} />} />
+          <Route exact path="/" render={props => <HomePage pageType="default" {...props} />} />
           <Route path="/admin/import-video" render={() => <ImportVideo />} />
           <Route path="/admin/create-blog" render={() => <CreateBlog />} />
           <Route path="/admin" render={() => <Admin />} />
-          <Route path="/videos/:series/:episode" render={props => <HomePage isVideo="true" isBlog="false" {...props} />} />
-          <Route path="/videos/:series" render={props => <HomePage isVideo="true" isBlog="false" {...props} />} />
-          <Route path="/posts/:blog" render={props => <HomePage isVideo="false" isBlog="true" {...props} />} />
-          <Route path="/:id" render={props => <HomePage isVideo="false" isBlog="false" {...props} />} />
+          <Route path="/videos/:series/:episode" render={props => <HomePage pageType="video" {...props} />} />
+          <Route path="/videos/:series" render={props => <HomePage pageType="video" {...props} />} />
+          <Route path="/posts/:blog" render={props => <HomePage pageType="blog" {...props} />} />
+          <Route path="/:id" render={props => <HomePage pageType="default" {...props} />} />
         </Switch>
       </Suspense>
     )
