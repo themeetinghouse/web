@@ -9,7 +9,9 @@ module.exports = {
     },
 
     output: {
-        path.resolve(__dirname, './build'),
+        filename: "[name].bundle.js",
+        chunkFilename: '[name].[chunkhash].js',
+        path: path.resolve(__dirname, './build'),
     },
 
     plugins: [
