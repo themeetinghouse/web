@@ -46,7 +46,7 @@ interface State {
   notesList: any
   selectedTags: any
   noteObject: any
-  noteEditObject: any
+  noteEditObject?: any
   showAlert: string
   currentTag: string
   moreOptions: boolean
@@ -76,7 +76,8 @@ class AuthIndexApp extends React.Component<Props, State> {
 }
 
 class IndexApp extends React.Component<Props, State> {
-  constructor(props : Props) {
+  deleteConfirmation = "Delete forever";
+  constructor(props: Props) {
     super(props);
     this.state = { 
       // input
@@ -108,117 +109,100 @@ class IndexApp extends React.Component<Props, State> {
       // upload object
       noteObject: {}
     }
-
     this.listNotes(null);
-    this.handleEdit = this.handleEdit.bind(this);
-    this.handleSave = this.handleSave.bind(this);
-    this.handleDeleteNote = this.handleDeleteNote.bind(this);
   }
 
-  listNotes(nextToken: any) {
+  async listNotes(nextToken: any) {
 
-    var listNotess:any = API.graphql({
+    try {
+      const listNotess: any = await API.graphql({
         query: queries.listNotess,
         variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
-    });
-
-    listNotess.then((json: any) => {
-        console.log({ "Success customQueries.listNotess: ": json });
-        this.setState({
-              notesList: this.state.notesList.concat(json.data.listNotess.items).sort(function(a: any, b: any) {
-              var nameA = a.id.toUpperCase();
-              var nameB = b.id.toUpperCase();
-              if (nameA < nameB) {
-                return 1;
-              }
-              if (nameA > nameB) {
-                return -1;
-              }
-              return 0;
-            })
+      })
+      console.log({ "Success customQueries.listNotess: ": listNotess });
+      this.setState({
+        notesList: this.state.notesList.concat(listNotess.data.listNotess.items).sort(function(a: any, b: any) {
+        const nameA = a.id.toUpperCase();
+        const nameB = b.id.toUpperCase();
+        if (nameA < nameB) {
+          return 1;
+        }
+        if (nameA > nameB) {
+          return -1;
+        }
+        return 0;
         })
-        if (json.data.listNotess.nextToken != null)
-            this.listNotes(json.data.listNotess.nextToken)
-
-    }).catch((e: any) => { console.log(e) })
+      })
+      if (listNotess.data.listNotess.nextToken != null)
+        this.listNotes(listNotess.data.listNotess.nextToken)
+    } catch(e) { console.error(e) }
   }
 
-  handleDeleteNote() {
-    if (this.state.understand === "Delete forever") {
-      var deleteNotes:any = API.graphql({
+  async handleDeleteNote() {
+    if (this.state.understand === this.deleteConfirmation) {
+      try {
+        const deleteNotes: any = await API.graphql({
           query: mutations.deleteNotes,
           variables: { input: {'id': this.state.delete} },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      });
-
-      deleteNotes.then((json: any) => {
-          console.log({ "Success mutations.deleteNotes: ": json });
-          this.setState({
-            delete: '',
-            understand: '',
-            showAlert: '⚠️ Deleted'
-          })
-
-      }).catch((e: any) => { console.log(e) })
-      return true;
+        })
+        console.log({ "Success mutations.deleteNotes: ": deleteNotes });
+        this.setState({
+          delete: '',
+          understand: '',
+          showAlert: `⚠️ Deleted: ${deleteNotes.data.deleteNotes.id}`
+        })
+      } catch(e) {
+        console.error(e)
+      }
     } else {
       this.setState({ showAlert: '⚠️ You must type the confirmation message' })
     }
   }
 
-  handleSave() {
-    if (this.state.editorState.getCurrentContent().hasText() === false || this.state.date === null) {
+  async handleSave() {
+    if (!this.state.editorState.getCurrentContent().hasText() || this.state.date === null) {
       this.setState({ showAlert: "⚠️ You need a valid content and date to save." })
       return false;
-    } else {
-      var contentState = this.state.editorState.getCurrentContent();
-      var raw = convertToRaw(contentState);
-      var html = draftToHtml(raw)
-      this.updateField('content', html)
+    }
+    const contentState = this.state.editorState.getCurrentContent();
+    const raw = convertToRaw(contentState);
+    const html = draftToHtml(raw)
+    this.updateField('content', html)
+    this.updateField('tags', this.state.selectedTags)
+    this.updateField('title', this.state.title)
+    this.updateField('pdf', this.state.pdf)
 
-      console.log(this.state.noteObject)
-
-      this.updateField('tags', this.state.selectedTags)
-
-      this.updateField('title', this.state.title)
-      this.updateField('pdf', this.state.pdf)
-
-      var createNotes:any = API.graphql({
+    try {
+      const updateNotes: any = await API.graphql({
+        query: mutations.updateNotes,
+        variables: { input: this.state.noteObject },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+      console.log({ "Success mutations.createNotes: ": updateNotes});
+      this.setState({ showAlert: `✅ Saved: ${updateNotes.data.updateNotes.id}` })
+    } catch(e) {
+      console.error(e)
+      try {
+        const createNotes: any = await API.graphql({
           query: mutations.createNotes,
           variables: { input: this.state.noteObject },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      });
-
-      createNotes.then((json: any) => {
-          console.log({ "Success mutations.createNotes: ": json });
-          this.setState({ showAlert: 'Saved ✅' });
-          return true;
-
-      }).catch((e: any) => { console.log(e) })
-
-      var updateNotes:any = API.graphql({
-          query: mutations.updateNotes,
-          variables: { input: this.state.noteObject },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      });
-
-      updateNotes.then((json: any) => {
-          console.log({ "Success mutations.updateNotes: ": json });
-          this.setState({ showAlert: 'Saved ✅' });
-          return true;
-
-      }).catch((e: any) => { console.log(e) })
-
-      return false;
+        });
+        console.log({ "Success mutations.createNotes: ": createNotes});
+        this.setState({ showAlert: `✅ Created: ${createNotes.data.createNotes.id}` })
+      } catch(e) {
+        console.error(e)
+      }
     }
   }
 
   waitForSelection(conditionFunction: () => boolean) {
 
     const poll = (resolve: any) => {
-      if(conditionFunction()) resolve();
-      else setTimeout(_ => poll(resolve), 500);
+      if (conditionFunction()) resolve();
+      else setTimeout(() => poll(resolve), 250);
     }
   
     return new Promise(poll);
@@ -242,11 +226,21 @@ class IndexApp extends React.Component<Props, State> {
   }
 
   updateField(field: any, value: any) {
-    let note = this.state.noteObject
+    const note = this.state.noteObject
     note[field] = value
 
-    note.id = format(this.state.date, "yyyy-MM-dd")
-    this.setState({ noteObject: note })
+    try {
+      note.id = format(this.state.date, "yyyy-MM-dd")
+      this.setState({ noteObject: note })
+    } catch(e) {
+      this.setState({ showAlert: 'If you are reading this, you likely didn\'t select a date. Please select a date :)'})
+      console.error(e)
+    }
+  }
+
+  handleRemoveTag(item: string): void {
+    this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)})
+    this.updateField('tags', this.state.selectedTags)
   }
 
   onChange = (editorState: any) => this.setState({ editorState });
@@ -256,7 +250,7 @@ class IndexApp extends React.Component<Props, State> {
       date: date
     });
 
-    var dayofweek = getDay(date)
+    const dayofweek = getDay(date)
     if (dayofweek !== 0) {
       this.setState({
         dateWarning: 'Warning: this date is not a Sunday'
@@ -273,7 +267,7 @@ class IndexApp extends React.Component<Props, State> {
   renderEditModal() {
     return <Modal isOpen={this.state.showEditModal}>
         <div>Edit existing notes</div>
-        <select onChange={(event:any) => this.setState({ noteEdit: event.target.value})}>
+        <select onChange={(event: any) => this.setState({ noteEdit: event.target.value})}>
           <option key="null" value="null">None Selected</option>
           {this.state.notesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
         </select>
@@ -292,23 +286,29 @@ class IndexApp extends React.Component<Props, State> {
 
         <label>
           Add tags:
-          <input type="text" value={this.state.currentTag} onChange={(event:any) => this.setState({ currentTag: event.target.value})} />
+          <input type="text" value={this.state.currentTag} onChange={event => this.setState({ currentTag: event.target.value})} />
         </label>
         <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}) }>Confirm Tag</button>
         <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateField('tags', this.state.selectedTags)} }>Clear All Tags</button>
-        <div><b>Current tags (click on tag to delete):</b> {this.state.selectedTags.map((item: any) => <div className="tags-item" onClick={() => {this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)}); this.updateField('tags', this.state.selectedTags)} }>{item + ", "}</div>)}</div>
+        <div>
+          <b>Current tags (click on tag to delete):</b> 
+          {this.state.selectedTags.map((item: string, index: number) => 
+            <div className="tags-item" key={index} onClick={() => this.handleRemoveTag(item) }>
+              {index===(this.state.selectedTags.length-1) ? item : item + ", "}
+            </div>
+          )}
+        </div>
           <br/>
       
-
         <label>
-        {"⚠️ Delete existing notes (teaching date):"}
-          <input style={{width: 400, height: 20}} type="text" value={this.state.delete} onChange={(event:any) => this.setState({ delete: event.target.value})} />
+        Delete existing notes (teaching date):
+          <input style={{width: 400, height: 20}} type="text" value={this.state.delete} onChange={(event: any) => this.setState({ delete: event.target.value})} />
         </label>
         <label>
-          Type "Delete forever":
-          <input style={{width: 400, height: 20}} type="text" value={this.state.understand} onChange={(event:any) => this.setState({ understand: event.target.value})} />
+          Type &quot;{this.deleteConfirmation}&quot;:
+          <input style={{width: 400, height: 20}} type="text" value={this.state.understand} onChange={(event: any) => this.setState({ understand: event.target.value})} />
         </label>
-        <button className="tags-button" style={{background: "red"}} onClick={this.handleDeleteNote}>DELETE</button>
+        <button className="tags-button" style={{background: "red"}} onClick={()=>this.handleDeleteNote()}>DELETE</button>
 
       </div>
     )
@@ -320,9 +320,9 @@ class IndexApp extends React.Component<Props, State> {
 
         <label>
           Title:
-          <input type="text" style={{width:400}} value={this.state.title} onChange={(event:any)=> this.setState({ title: event.target.value })}/>
+          <input type="text" style={{width:400}} value={this.state.title} onChange={(event: any)=> this.setState({ title: event.target.value })}/>
         </label>
-        <div>Notes will remain hidden if the title is "Unlisted"</div>
+        <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
 
         <Editor
           editorState={this.state.editorState}
@@ -344,7 +344,7 @@ class IndexApp extends React.Component<Props, State> {
                       contentType: "image/*",
                       acl: "public-read"
                   })
-                  var download = "https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/" + filepath;
+                  const download = "https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/" + filepath;
                   return { data: { link: download } }
               },
               previewImage: true,
@@ -372,7 +372,7 @@ class IndexApp extends React.Component<Props, State> {
         <div>
         <label>
           PDF Link:
-          <input type="text" style={{width:800}}value={this.state.pdf} onChange={(event:any)=> this.setState({ pdf: event.target.value })}/>
+          <input type="url" style={{width:800}} value={this.state.pdf} onChange={(event: any)=> this.setState({ pdf: event.target.value })}/>
         </label>
         </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
@@ -383,8 +383,8 @@ class IndexApp extends React.Component<Props, State> {
   renderToolbar() {
     return (
       <div className="toolbar-button-container">
-        <button className="toolbar-button" onClick={this.handleSave}>SAVE</button><br/>
-        <button className="toolbar-button" onClick={this.handleEdit}>Edit existing notes</button><br/>
+        <button className="toolbar-button" onClick={()=>this.handleSave()}>SAVE</button><br/>
+        <button className="toolbar-button" onClick={()=>this.handleEdit()}>Edit existing notes</button><br/>
         <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br/>
         <button className="toolbar-button" onClick={()=>this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
       </div>
@@ -393,7 +393,7 @@ class IndexApp extends React.Component<Props, State> {
 
   renderAlert() {
     return (
-      <Modal isOpen={this.state.showAlert ? true : false}>
+      <Modal isOpen={Boolean(this.state.showAlert)}>
         <div>{this.state.showAlert}</div>
         <button onClick={() => this.setState({ showAlert: '' })}>OK</button>
       </Modal>
