@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "blog-post",
-        "title": "Blog",
+        "name": "notes",
+        "title": "Notes",
         "keywords": "",
         "description":"",
 
@@ -16,7 +16,7 @@
         "content": [
             {
                 "type": "post",
-                "style": "blog"
+                "style": "notes"
             }
         ]
     }

@@ -11,6 +11,7 @@ import ReactGA from 'react-ga';
 const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
 const Blog = React.lazy(() => import('../components/Blog/Blog'));
+const Note = React.lazy(() => import('../components/Note/Note'));
 
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
@@ -19,7 +20,7 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
-type PageType = 'default' | 'video' | 'blog';
+type PageType = 'default' | 'video' | 'blog' | 'note';
 
 Amplify.configure(awsconfig);
 
@@ -28,6 +29,7 @@ interface Params {
   blog?: string;
   episode?: string;
   series?: string;
+  note?: string;
 }
 
 interface Props extends RouteComponentProps<Params> {
@@ -35,8 +37,8 @@ interface Props extends RouteComponentProps<Params> {
 }
 
 interface State {
-  content?: any
-  data: any
+  content?: any;
+  data: any;
 }
 
 class HomePage extends React.Component<Props, State> {
@@ -58,7 +60,7 @@ class HomePage extends React.Component<Props, State> {
           name: 'pageForward',
           attributes: { page: props.match.params.id }
         });
-        var forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
+        const forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
         console.log(forwardTo)
         if (forwardTo.length > 0)
           this.navigateUrl(forwardTo[0].to)
@@ -72,6 +74,9 @@ class HomePage extends React.Component<Props, State> {
         break;
       case 'blog':
         jsonFile = 'blog-post'
+        break;
+      case 'note':
+        jsonFile = 'notes'
         break;
       case 'default':
         jsonFile = props.match.params.id || 'homepage'
@@ -96,7 +101,7 @@ class HomePage extends React.Component<Props, State> {
               return response.json();
             })
               .then((myJson2) => {
-                var c = this.state.content
+                const c = this.state.content
                 c.page.content = c.page.content.concat(myJson2.page.content)
                 this.setState({ content: c });
               }).catch((e) => { console.log(e) })
@@ -168,7 +173,21 @@ class HomePage extends React.Component<Props, State> {
         console.log({ "Success queries.getBlog: ": json });
         this.setState({ data: json.data.getBlog })
         console.log(this.state.data);
-      }).catch((e: any) => { console.log(e) })
+      }).catch((e: Error) => { console.error(e) })
+    }
+
+    else if (pageType === 'note') {
+      console.log(this.props.match.params.note)      
+      const getNotes: any = API.graphql({
+        query: queries.getNotes,
+        variables: { id: this.props.match.params.note },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      getNotes.then((json: any) => {
+        console.log({ "Success queries.getNotes: ": json });
+        this.setState({ data: json.data.getNotes })
+        console.log(this.state.data);
+      }).catch((e: Error) => { console.error(e) })
     }
   }
 
@@ -197,6 +216,8 @@ class HomePage extends React.Component<Props, State> {
         return <VideoOverlay onClose={() => this.navigateHome("/")} data={this.state.data}></VideoOverlay>
       case 'blog':
         return <Blog data={this.state.data}></Blog>
+      case 'note':
+        return <Note data={this.state.data}></Note>
       case 'default':
         if (this.state.content?.page.pageConfig) {
           const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig;

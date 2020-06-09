@@ -1,0 +1,172 @@
+.toolbar-button {
+    color: black;
+    background: white;
+    margin-right: 10px;
+    border-width: 4px;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 110px;
+}
+
+.toolbar-button-container {
+  position: fixed;
+  z-index: 9999;
+}
+
+.DraftEditor-editorContainer {
+    margin-top: 20px;
+    width: 80vw;
+    border: black solid !important;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.editor-container {
+    margin-left: 15vw;
+    width: 80vw;
+    padding-bottom: 15vw;
+}
+
+.small-input {
+  width: 30vw;
+}
+
+.big-input {
+  width: 60vw;
+}
+
+.desc-button {
+  position: relative;
+  top: 40px;
+}
+
+.imageURL-output {
+  font-size: small;
+}
+
+.copied-alert {
+  position: fixed;
+  font-size: large;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.tags-button  {
+  color: black;
+  background: white;
+  margin-left: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 140px;
+}
+
+.tags-item {
+  display: inline;
+}
+
+.tags-item:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.calendar-label {
+  margin-right: 10px;
+}
+  .rdw-link-modal {
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 235px;
+    height: 350px;
+    border: 1px solid #F1F1F1;
+    padding: 15px;
+    border-radius: 2px;
+    z-index: 100;
+    background: white;
+    box-shadow: 3px 3px 5px #BFBDBD;
+  }
+  .rdw-link-modal-btn {
+    margin-left: 10px;
+    width: 75px;
+    height: 50px;
+    border: 1px solid #F1F1F1;
+    border-radius: 2px;
+    cursor: pointer;
+    background: grey;
+    text-transform: capitalize;
+    color: black;
+  }
+  .rdw-embedded-modal {
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 235px;
+    height: 250px;
+    border: 1px solid #F1F1F1;
+    padding: 15px;
+    border-radius: 2px;
+    z-index: 100;
+    background: white;
+    justify-content: space-between;
+    box-shadow: 3px 3px 5px #BFBDBD;
+  }
+  .rdw-embedded-modal-btn {
+    margin: 0 3px;
+    width: 80px;
+    height: 50px;
+    border: 1px solid #F1F1F1;
+    border-radius: 2px;
+    cursor: pointer;
+    color: black;
+    background: grey;
+    text-transform: capitalize;
+  }
+  .rdw-image-modal {
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 235px;
+    height: 440px;
+    border: 1px solid #F1F1F1;
+    padding: 15px;
+    border-radius: 2px;
+    z-index: 100;
+    background: white;
+    box-shadow: 3px 3px 5px #BFBDBD;
+  }
+  .rdw-image-modal-btn {
+    margin: 0 5px;
+    width: 75px;
+    height: 50px;
+    border: 1px solid #F1F1F1;
+    border-radius: 2px;
+    cursor: pointer;
+    background: grey;
+    color: black;
+    text-transform: capitalize;
+  }
+  .rdw-editor-toolbar {
+    padding: 6px 5px 0;
+    border-radius: 2px;
+    border: 1px solid #F1F1F1;
+    display: flex;
+    justify-content: flex-start;
+    background: white;
+    flex-wrap: wrap;
+    font-size: 15px;
+    margin-bottom: 5px;
+    user-select: none;
+    order: 2;
+  }
+  .rdw-editor-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+  }

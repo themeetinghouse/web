@@ -1,7 +1,22 @@
+.download-custom {
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #1A1A1A;
+    border-color: #1A1A1A;
+    font-family: Graphik Web;
+    font-weight: bold;
+    width: 134px;
+    height: 56px;
+    margin-top: 5px;
+    box-shadow: none !important;
+    &:hover {
+        background-color: #1A1A1A;
+        border-color: #1A1A1A;
+    }
+}
 .blog-body p {
     font-family: Graphik Web !important;
 }
-
 .blog-body span {
     font-family: Graphik Web !important;
 }
