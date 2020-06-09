@@ -147,7 +147,7 @@ class ListItem extends React.Component<Props, State> {
         <div>
           <img alt="TBD" className="WatchPageThumb" src={item.Youtube.snippet.thumbnails.high.url} />
           <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="WatchPageEpisodeTitle">{item.episodeNumber ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
+          <div className="WatchPageEpisodeTitle">{item.episodeNumber && item.videoTypes !== "adult-sunday-shortcut" ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
           <div className="WatchPagePublishedDate">{item.publishedDate}</div>
         </div>
 
