@@ -146,7 +146,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               <div className="LiveVideoPlayerSeriesMenuContainer" >
                 {this.state.content.menu.map((item:any) => {
 
-                  if (item.title === "Notes" && item.linkto === "sunday web notes") {
+                  if (item.title === "Notes" && item.linkto === "web-notes") {
                     return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
                   } else {
                     return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
