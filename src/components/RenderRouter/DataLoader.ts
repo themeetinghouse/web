@@ -36,10 +36,10 @@ export default class DataLoader extends React.Component<Props, State> {
              this.props.dataLoaded(this.state.listData)
          console.log(prevProps)
      }*/
-    getVideosSameSeries(nextToken: any) {
+    getVideosSameSeries(nextToken: any, id: string) {
         const getSeries: any = API.graphql({
             query: customQueries.getSeries,
-            variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, id: this.props.data.series.id },
+            variables: { nextToken: nextToken, sortDirection: this.state.content.sortOrder, limit: 20, id: id },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
         getSeries.then((json: any) => {
@@ -49,7 +49,7 @@ export default class DataLoader extends React.Component<Props, State> {
                 json.data.getSeries.videos.items
             )
             if (json.data.getSeries.nextToken != null)
-                this.getVideosSameSeries(json.data.getSeries.nextToken)
+                this.getVideosSameSeries(json.data.getSeries.nextToken, id)
         }).catch((e: any) => { console.log(e) })
     }
     getVideos(nextToken: any) {
@@ -173,11 +173,15 @@ export default class DataLoader extends React.Component<Props, State> {
     }
     loadData() {
         if (this.state.content.class === "videos" || this.state.content.class === "curious" || this.state.content.class === "watch-page") {
-            if (this.state.content.selector === "sameSeries") {
-                this.getVideosSameSeries(null)
-            }
-            else {
-                this.getVideos(null)
+            switch (this.state.content.selector) {
+                case "sameSeries":
+                    this.getVideosSameSeries(null, this.props.data.series.id)
+                    break;
+                case "highlights":
+                    this.getVideosSameSeries(null, "adult-sunday-shortcut-" + this.props.data.series.id)
+                    break;
+                default:
+                    this.getVideos(null)
             }
         }
         else if (this.state.content.class === "speakers") {

@@ -24,6 +24,10 @@
         left: 10vw;
     }
 
+    .ListItem.horizontal-video-player {
+        margin-bottom: 3vw;
+    }
+
     .ListItemDiv2 {
         position: relative;
         left: 0vw;
@@ -507,6 +511,10 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .ListItemH1.horizontal-video-player {
         font-size: 3vw;
+    }
+
+    .ListItem.horizontal-video-player {
+        margin-bottom: 3vw;
     }
 }
 
@@ -1128,6 +1136,14 @@
         width: 80vw;
         padding: 10vw 5vw 0vw;
         // margin-top: 65vw;
+    }
+
+    .ListItemDiv1.horizontal-video-player {
+        padding: 0vw 5vw 0vw;
+    }
+
+    .ListItem.horizontal-video-player {
+        margin-bottom: 10vw;
     }
 
     .ListItemDiv2 {

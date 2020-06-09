@@ -21,6 +21,13 @@
                 "type": "list",
                 "class": "watch-page",
                 "style": "horizontal-video-player",
+                "selector": "highlights",
+                "header1": "Highlights"
+            },
+            {
+                "type": "list",
+                "class": "watch-page",
+                "style": "horizontal-video-player",
                 "selector": "sameSeries",
                 "header1": "More From This Series"
             },
