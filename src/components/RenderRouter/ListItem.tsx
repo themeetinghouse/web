@@ -115,14 +115,14 @@ class ListItem extends React.Component<Props, State> {
 
   }
 
-  sortBlogs(a: any, b: any) {
+  sortByDate(a: any, b: any, dir: "oldFirst" | "newFirst") {
     var nameA = a.publishedDate.toUpperCase();
     var nameB = b.publishedDate.toUpperCase();
     if (nameA > nameB) {
-      return -1;
+      return dir === "newFirst" ? -1 : 1;
     }
     if (nameA < nameB) {
-      return 1;
+      return dir === "newFirst" ? 1 : -1;
     }
     return 0;
   }
@@ -147,7 +147,7 @@ class ListItem extends React.Component<Props, State> {
         <div>
           <img alt="TBD" className="WatchPageThumb" src={item.Youtube.snippet.thumbnails.high.url} />
           <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="WatchPageEpisodeTitle">{item.episodeNumber ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
+          <div className="WatchPageEpisodeTitle">{item.episodeNumber && item.videoTypes !== "adult-sunday-shortcut" ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
           <div className="WatchPagePublishedDate">{item.publishedDate}</div>
         </div>
 
@@ -414,7 +414,7 @@ class ListItem extends React.Component<Props, State> {
     )
 
     else if (this.state.content.style === "blogs") {
-      data.sort((a: any, b: any) => this.sortBlogs(a,b))
+      data.sort((a: any, b: any) => this.sortByDate(a,b,"newFirst"))
 
       const today = format(new Date(), "yyyy-MM-dd")
       var dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
@@ -432,8 +432,11 @@ class ListItem extends React.Component<Props, State> {
     }
 
     else if (this.state.content.style === "horizontal-video-player") {
+      if (!data.length) {
+        return null
+      } 
       //videos are not stored in order within a series, so we sort here
-      data.sort(function(a: any, b: any) { return a.episodeNumber - b.episodeNumber})
+      data.sort((a: any, b: any) => this.sortByDate(a,b,"oldFirst"))
       return (
         <div className="ListItem horizontal-video-player" >
           <div className="ListItemDiv1 horizontal-video-player" >
