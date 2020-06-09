@@ -468,10 +468,11 @@
         border-bottom: solid 1px white;
         padding-bottom: 1px;
         font-size: 1.5vw;
-    }
-    .HeroItemA2:hover {
-        color: white;
-        text-decoration: none;
+
+        &:hover {
+            color: white;
+            text-decoration: inherit;
+        }
     }
 
     .divPartial {
@@ -486,11 +487,11 @@
         border-bottom: 1px solid white;
         padding-bottom: 1px;
         font-size: 1.2vw;
-    }
 
-    .heroBlackBoxA:hover {
-        color: white;
-        text-decoration: none;
+        &:hover {
+            color: white;
+            text-decoration: inherit;
+        }
     }
 
     .heroAContainer {
@@ -963,11 +964,11 @@
         border-bottom: solid 1px white;
         padding-bottom: 1px;
         font-size: 1.5vw;
-    }
 
-    .HeroItemA2:hover {
-        color: white;
-        text-decoration: none;
+        &:hover {
+            color: white;
+            text-decoration: inherit;
+        }
     }
 
     .divPartial {
@@ -982,11 +983,11 @@
         border-bottom: 1px solid white;
         padding-bottom: 1px;
         font-size: 1.2vw;
-    }
 
-    .heroBlackBoxA:hover {
-        color: white;
-        text-decoration: none;
+        &:hover {
+            color: white;
+            text-decoration: inherit;
+        }
     }
 
     .heroAContainer {
@@ -1427,6 +1428,11 @@
         border-bottom: solid 1px white;
         padding-bottom: 1px;
         font-size: 4vw;
+
+        &:hover {
+            color: white;
+            text-decoration: inherit;
+        }
     }
 
     .HeroItemA2:hover {
@@ -1448,11 +1454,11 @@
         border-bottom: 1px solid white;
         padding-bottom: 1px;
         font-size: 4vw;
-    }
 
-    .heroBlackBoxA:hover {
-        color: white;
-        text-decoration: none;
+        &:hover {
+            color: white;
+            text-decoration: inherit;
+        }
     }
 
     .heroAContainer {
