@@ -350,22 +350,17 @@ transform:rotate(attr(data-value,deg,0);
         color: black;
         border-bottom: 1px solid black;
         padding-bottom: 1px;
+
+        &:hover {
+            color: inherit;
+            text-decoration: inherit;
+        }
     }
 
     .oneImageA.blackBox {
         color: white;
         border-bottom: 1px solid white;
         padding-bottom: 1px;
-    }
-
-    .oneImageA:hover {
-        color: black;
-        text-decoration: none;
-    }
-
-    .oneImageA.blackBox:hover {
-        color: white;
-        text-decoration: none;
     }
 
     .oneImageAContainer {
@@ -601,22 +596,17 @@ transform:rotate(attr(data-value,deg,0);
         color: black;
         border-bottom: 1px solid black;
         padding-bottom: 1px;
+
+        &:hover {
+            color: inherit;
+            text-decoration: inherit;
+        }
     }
 
     .oneImageA.blackBox {
         color: white;
         border-bottom: 1px solid white;
         padding-bottom: 1px;
-    }
-
-    .oneImageA:hover {
-        color: black;
-        text-decoration: none;
-    }
-
-    .oneImageA.blackBox:hover {
-        color: white;
-        text-decoration: none;
     }
 
     .oneImageAContainer {
@@ -842,21 +832,16 @@ transform:rotate(attr(data-value,deg,0);
         display: inline-block;
         color: black;
         border-bottom: 1px solid black;
+
+        &:hover {
+            color: inherit;
+            text-decoration: inherit;
+        }
     }
 
     .oneImageA.blackBox {
         color: white;
         border-bottom: 1px solid white;
-    }
-
-    .oneImageA:hover {
-        color: black;
-        text-decoration: none;
-    }
-
-    .oneImageA.blackBox:hover {
-        color: white;
-        text-decoration: none;
     }
 
     .oneImageImage {
