@@ -59,7 +59,7 @@
     "mdbreact": "^4.26.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
-    "node-sass": "^4.14.0",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-add-to-calendar": "^0.1.5",
