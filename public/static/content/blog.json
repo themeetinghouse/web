@@ -18,14 +18,14 @@
                 "style": "hero",
                 "header1": "Blog",
                 "status": "Live",
-                "sortOrder": "ASC"
+                "sortOrder": "DESC"
             },
             {
                 "type": "list",
                 "class": "blogs",
                 "style": "blogs",
                 "status": "Live",
-                "sortOrder": "ASC"
+                "sortOrder": "DESC"
             }
         ]
     }
