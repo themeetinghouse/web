@@ -3,30 +3,29 @@
         "name": "blog",
         "title": "Blog",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
                 "type": "blog",
                 "style": "hero",
-                "header1":"Blog",
+                "header1": "Blog",
                 "status": "Live",
-                "sortOrder": "DESC"
+                "sortOrder": "ASC"
             },
             {
                 "type": "list",
                 "class": "blogs",
                 "style": "blogs",
                 "status": "Live",
-                "sortOrder": "DESC"
+                "sortOrder": "ASC"
             }
         ]
     }
