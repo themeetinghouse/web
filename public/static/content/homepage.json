@@ -3,23 +3,22 @@
         "name": "homepage",
         "title": "The Meeting House - Welcome",
         "keywords": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Bruxy, Be In Christ, Spirituality, Christianity",
-        "description":"Homepage for The Meeting House",
+        "description": "Homepage for The Meeting House",
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true,
-            "showLive":true,
-            "weatherAlert":false
-            
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true,
+            "showLive": true,
+            "weatherAlert": false
         },
         "content": [
             {
                 "type": "hero",
                 "style": "full",
-                "showCovid":true,
+                "showCovid": true,
                 "image1": [
                     {
                         "src": "/static/images/homepage-1-1.jpg",
@@ -52,9 +51,8 @@
                 ],
                 "header1": "Hello Friend",
                 "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
-                "button1Text": "Explore Spirituality",
+                "button1Text": "Got questions?",
                 "button1Action": "/spirituality"
-                
             },
             {
                 "type": "content",
@@ -63,12 +61,11 @@
                 "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods?",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Community",
                         "navigateTo": "/community"
                     }
                 ],
-              
                 "image1": [
                     {
                         "src": "/static/images/homepage-2-new.jpg",
@@ -84,12 +81,11 @@
                 "text1": "We’re partnering with First Nations leaders and MCC to reduce the spread of COVID-19 in remote First Nations communities in northern Ontario. Find out how you can participate here.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Learn & Participate",
                         "navigateTo": "/pandemicresponse"
                     }
                 ],
-              
                 "image1": [
                     {
                         "src": "/static/images/pandemic-response-2.jpg",
@@ -105,12 +101,11 @@
                 "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's happening at The Meeting House and how you can connect.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Show Me More",
                         "navigateTo": "/corona"
                     }
                 ],
-              
                 "image1": [
                     {
                         "src": "/static/images/homepage-corona.jpg",
@@ -118,7 +113,6 @@
                     }
                 ]
             },
-           
             {
                 "type": "list",
                 "style": "imageList",
@@ -168,25 +162,23 @@
                 "header1": "Make a Difference",
                 "header2": "",
                 "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?",
-               
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Volunteer",
                         "navigateTo": "/volunteering"
                     },
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Compassion",
                         "navigateTo": "/compassion"
                     },
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Give",
                         "navigateTo": "/give"
                     }
                 ],
-              
                 "image1": [
                     {
                         "src": "/static/images/homepage-6-new.jpg",
@@ -202,12 +194,11 @@
                 "text1": "We're our best selves when we don't make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Let's Do This",
                         "navigateTo": "/go"
                     }
                 ],
-              
                 "image1": [
                     {
                         "src": "/static/images/homepage-3-new-update.jpg",
@@ -225,11 +216,11 @@
                     }
                 ],
                 "header1": "Locations",
-                "text1": "It's pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
-                "text2": "What are you doing this Sunday?",
+                "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
+                "text2": "Find local, connect online.",
                 "link1Text": "Show Map",
                 "link1Action": "/find-sunday-morning",
-                "class":"locations",
+                "class": "locations",
                 "showLocationSearch": true
             }
         ]
