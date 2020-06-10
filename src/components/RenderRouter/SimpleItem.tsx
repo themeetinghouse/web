@@ -37,12 +37,6 @@ export default class ContentItem extends React.Component<Props, State>  {
     console.log(to)
     window.location.href = to;
   }
-  navigateUrlNewWindow(to: string) {
-    window.open(
-      to,
-      '_blank' // <- This is what makes it open in a new window.
-    );
-  }
 
   render() {
     return (
