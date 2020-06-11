@@ -78,6 +78,11 @@
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"tmhMetadataFacebook": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
 		}
 	},
 	"analytics": {
