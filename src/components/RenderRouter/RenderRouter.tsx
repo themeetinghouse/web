@@ -32,6 +32,7 @@ const GoContentItem = React.lazy(() => import('./GoContentItem'));
 const PodcastItem = React.lazy(() => import('./PodcastItem'));
 const BlogItem = React.lazy(() => import('./BlogItem'));
 const BlogReader = React.lazy(() => import('./BlogReader'));
+const Tags = React.lazy(() => import('./OgTags'));
 
 
 interface Props extends RouteComponentProps {
@@ -46,6 +47,7 @@ class RenderRouter extends React.Component<Props, State> {
 
   renderItemNow(item: any, index: any) {
     switch (item.type) {
+      case "og-tags": return (<Tags key={index} content={item}></Tags>);
       case "header": return (<HeaderItem key={index} content={item}></HeaderItem>)
       case "content": return (<ContentItem key={index} content={item}></ContentItem>)
       case "videoPlayer": return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
