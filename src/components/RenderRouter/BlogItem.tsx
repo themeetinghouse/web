@@ -73,7 +73,7 @@ class BlogItem extends React.Component<Props, State> {
                     <div className="blog" >
                         <Helmet>
                             <meta property="og:url" content={"https://www.themeetinghouse.com/blogs"} />
-                            <meta property="og:title" content={this.state.publishedOnly[0].blogTitle} />
+                            <meta property="og:title" content="Blog" />
                             <meta property="og:description" content="" />
                             <meta property="og:type" content="website" />
                             <meta property="fb:app_id" content="" />

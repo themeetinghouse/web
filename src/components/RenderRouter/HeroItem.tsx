@@ -8,7 +8,6 @@ import "./HeroItem.scss"
 import Select from 'react-select';
 import DataLoader from './DataLoader';
 import moment from 'moment';
-import { Helmet } from "react-helmet";
 
 interface Props extends RouteComponentProps {
     content: any
@@ -17,8 +16,7 @@ interface Props extends RouteComponentProps {
 interface State {
     content: any,
     locationData: any,
-    arrowOpacity: any,
-    ogImageHeight: any
+    arrowOpacity: any
 }
 class HeroItem extends React.Component<Props, State> {
     static contextTypes = {
@@ -32,8 +30,7 @@ class HeroItem extends React.Component<Props, State> {
         this.state = {
             content: props.content,
             locationData: [],
-            arrowOpacity: 1,
-            ogImageHeight: 0
+            arrowOpacity: 1
         }
         this.navigate = this.navigate.bind(this);
         this.setData = this.setData.bind(this);
@@ -43,7 +40,6 @@ class HeroItem extends React.Component<Props, State> {
     componentDidMount() {
 
         this.dataLoader.loadData()
-        this.getHeight(this.imgUrl(1920) + this.state.content.image1[0].src)
     }
     setData(data: any) {
         this.setState({
@@ -199,34 +195,11 @@ class HeroItem extends React.Component<Props, State> {
         )
     }
 
-    getHeight(url: string) {
-        let img = new Image();
-        img.src = url;
-        img.onload = () => this.setState({ ogImageHeight: img.height })
-    }
-
-    ogImage() {
-        let imageUrl = null;
-        try {
-            imageUrl = this.imgUrl(1920) + this.state.content.image1[0].src;
-            return (this.state.ogImageHeight ?
-                <Helmet>
-                    <meta property="og:image" content={imageUrl} />
-                    <meta property="og:image:secure_url" content={imageUrl} />
-                    <meta property="og:image:width" content={"1920"} />
-                    <meta property="og:image:height" content={this.state.ogImageHeight.toString()} />
-                </Helmet> : null)
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
     render() {
         window.onscroll = () => { this.downArrowScroll() }
         if (this.state.content.style === "full") {
             return (
                 <div className="headerItem heroItem" >
-                    {this.ogImage()}
                     <div className="heroImageGradient" onClick={() => { this.scrollToNextPage() }}></div>
                     {this.renderHeroImage("heroImage")}
                     <div className="heroBlackBox" >

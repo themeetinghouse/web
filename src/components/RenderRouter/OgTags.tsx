@@ -8,20 +8,14 @@ interface Props extends RouteComponentProps {
 }
 interface State {
     content: any;
-    ogImageHeight: number;
 }
 class Tags extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            content: props.content,
-            ogImageHeight: 0
+            content: props.content
         }
 
-    }
-
-    componentDidMount() {
-        this.getHeight(this.imgUrl(1920) + this.state.content.image.src)
     }
 
     imgUrl(size: any) {
@@ -33,17 +27,11 @@ class Tags extends React.Component<Props, State> {
             return "https://www.themeetinghouse.com/cache/" + size
     }
 
-    getHeight(url: string) {
-        const img = new Image();
-        img.src = url;
-        img.onload = (): void => this.setState({ ogImageHeight: img.height })
-    }
-
     ogImage() {
         let imageUrl = null;
         try {
             imageUrl = this.imgUrl(1920) + this.state.content.image;
-            return (this.state.ogImageHeight ?
+            return (
                 <Helmet>
                     <meta property="og:url" content={this.state.content.url} />
                     <meta property="og:title" content={this.state.content.title} />
@@ -54,9 +42,8 @@ class Tags extends React.Component<Props, State> {
                     <meta property="og:image" content={imageUrl} />
                     <meta property="og:image:secure_url" content={imageUrl} />
                     <meta property="og:image:type" content="image/jpeg" />
-                    <meta property="og:image:width" content="1920" />
-                    <meta property="og:image:height" content={this.state.ogImageHeight.toString()} />
-                </Helmet> : null)
+                </Helmet>
+            )
         } catch (e) {
             console.error(e)
             return null
