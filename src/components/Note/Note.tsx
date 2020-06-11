@@ -29,7 +29,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       }
       else {
 
-        fetch('/static/content/notes.json').then(function (response) {
+        fetch('/static/content/notes-reader.json').then(function (response) {
           return response.json();
         })
           .then((myJson) => {
