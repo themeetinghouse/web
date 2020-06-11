@@ -76,7 +76,7 @@ class HomePage extends React.Component<Props, State> {
         jsonFile = 'blog-post'
         break;
       case 'note':
-        jsonFile = 'notes'
+        jsonFile = 'notes-reader'
         break;
       case 'default':
         jsonFile = props.match.params.id || 'homepage'
