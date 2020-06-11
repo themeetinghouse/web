@@ -14,8 +14,13 @@
             "showMenu":true
         },
         "content": [
-           
-            
+            {
+                "type": "og-tags",
+                "image": "/static/images/DistanceGroup.jpg",
+                "url": "https://www.themeetinghouse.com/distance-groups",
+                "title": "Distance Groups",
+                "description": ""
+            },
             {
                 "type": "distance-groups",
                 "header1": "Distance Groups"

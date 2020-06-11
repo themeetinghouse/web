@@ -16,7 +16,13 @@
             "navigateOnPopupClose":"/"
         },
         "content": [
-           
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/connect",
+                "title": "Connect",
+                "description": ""
+            },
             {
                 "type": "form",
                 "header1": "We'd love to get to know you.",

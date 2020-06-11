@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/corona-1.jpg",
+                "url": "https://www.themeetinghouse.com/corona",
+                "title": "Coronavirus",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

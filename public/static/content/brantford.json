@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/local-site-1-4.jpg",
+                "url": "https://www.themeetinghouse.com/brantford",
+                "title": "The Meeting House - Brantford",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "showCovid":true,

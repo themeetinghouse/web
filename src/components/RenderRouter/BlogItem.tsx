@@ -10,6 +10,7 @@ import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import format from 'date-fns/format';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { Helmet } from 'react-helmet';
 
 //needs an changes from video content to blog content...
 
@@ -54,7 +55,7 @@ class BlogItem extends React.Component<Props, State> {
                 listData: json.data.getBlogByBlogStatus.items
             })
             const today = format(new Date(), "yyyy-MM-dd")
-            var dateChecked = this.state.listData.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
+            const dateChecked = this.state.listData.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
             this.setState({ publishedOnly: dateChecked })
             console.log(this.state.publishedOnly)
         }).catch((e: any) => { console.log(e) })
@@ -70,6 +71,16 @@ class BlogItem extends React.Component<Props, State> {
             return (
                 this.state.publishedOnly !== null ?
                     <div className="blog" >
+                        <Helmet>
+                            <meta property="og:url" content={"https://www.themeetinghouse.com/blogs"} />
+                            <meta property="og:title" content={this.state.publishedOnly[0].blogTitle} />
+                            <meta property="og:description" content="" />
+                            <meta property="og:type" content="website" />
+                            <meta property="fb:app_id" content="" />
+                            <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
+                            <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
+                            <meta property="og:image:type" content="image/jpeg" />
+                        </Helmet>
                         <h1 className="blog-h1" >{this.props.content.header1}</h1>
                         <div className="blog-blackbox" >
                             <div className="blog-post-title" >{this.state.publishedOnly[0].blogTitle}</div>

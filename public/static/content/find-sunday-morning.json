@@ -14,7 +14,13 @@
             "showMenu":true
         },
         "content": [
-           
+            {
+                "type": "og-tags",
+                "image": "/static/images/sunday-morning-1.jpg",
+                "url": "https://www.themeetinghouse.com/find-sunday-morning",
+                "title": "Find Us",
+                "description": ""
+            },
             {
                 "type": "sunday-morning",
                 "header1":"Sunday Morning"

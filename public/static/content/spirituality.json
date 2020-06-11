@@ -14,6 +14,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/sc-1-1.jpg",
+                "url": "https://www.themeetinghouse.com/spirituality",
+                "title": "Spirtuality",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [
