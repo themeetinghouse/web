@@ -150,7 +150,8 @@ class TeachingItem extends React.Component<Props, State> {
     navigateUrlNewWindow(to: string) {
         window.open(
           to,
-          '_blank' // <- This is what makes it open in a new window.
+          '_blank', // <- This is what makes it open in a new window.
+          'noopener noreferrer'
         );
       }
     
