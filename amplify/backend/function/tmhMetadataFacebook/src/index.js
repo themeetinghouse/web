@@ -1,5 +1,6 @@
 const chromium = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
+const zlib = require('zlib');
 
 function success(body) {
     return buildResponse(200, body);
@@ -22,14 +23,14 @@ function buildResponse(statusCode, body) {
             }],
             'content-type': [{
                 key: 'Content-Type',
-                value: 'text/html'
+                value: 'text/html; charset=utf-8'
             }],
             'content-encoding': [{
                 key: 'Content-Encoding',
-                value: 'UTF-8'
+                value: 'gzip'
             }],
         },
-        bodyEncoding: 'text',
+        bodyEncoding: 'base64',
         body: body
     };
     return response
@@ -74,7 +75,9 @@ exports.handler = async (event, context, callback) => {
             browser.close();
             var head = "<!DOCTYPE html><html lang=\"en-US\"><head><title>The Meeting House</title>" + result.match(/<meta[^>]+>/gi).join("") + "</head><body>no content</body></html>";
             console.log(head)
-            return success(head);
+            const buffer = zlib.gzipSync(head);
+            const base64EncodedBody = buffer.toString('base64');
+            return success(base64EncodedBody);
         } catch (e) {
             return failure('Could not render!' + e.message + " " + "https://www.themeetinghouse.com" + request.uri);
         }
