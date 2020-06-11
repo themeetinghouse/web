@@ -3,15 +3,14 @@
         "name": "community",
         "title": "Community",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -25,20 +24,19 @@
                 ],
                 "header1": "Community",
                 "header2": "",
-                "text1": "At our core, we believe that we are created for relationship with God and with each other. When we come together in our local neighbourhoods and invite others, something powerful happens. Ready to meet new friends and build relationships?"
-              
+                "text1": "We believe that we are created for relationship with God and with each other. When we come together in our neighbourhoods and invite others, something powerful happens. Ready to meet new friends and build relationships?",
+                "button1Text": "Find Community",
+                "button1Action": "/find-homechurch"
             },
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Sonia's Story",
+                "header1": "Why church?",
                 "header2": "",
-
                 "text1": "“I wanted to spiritually find myself, but I didn't know how to do that. I pondered for a while about where I should go or what I could do. Is there such a thing as a church that isn't so uptight? Is there a place I could go to learn more?”",
-                
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Watch Sonia's Story",
                         "navigateTo": "/videos/spiritually-curious-Spiritually%20Curious/h5QnbV5y_nc"
                     }
@@ -50,15 +48,14 @@
                     }
                 ]
             },
-            
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"spiritually-curious",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"More Stories from our Community"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "spiritually-curious",
+                "selector": "all",
+                "sortOrder": "DESC",
+                "header1": "More Stories from our Community"
             },
             {
                 "type": "list",
@@ -68,7 +65,7 @@
                 "list": [
                     {
                         "title": "Sunday Morning",
-                        "text": "Want to join us this Sunday but aren't sure what to expect? We gather to hang out and learn how we can grow as followers of Jesus through music, teaching, and volunteering. This is what we call church: the gathering of people with a purpose.",
+                        "text": "Curious but not sure what to expect? We gather to learn how we can grow as followers of Jesus who love others well. Due to COVID-19, we have transitioned our physical gatherings to online every Sunday at 10:00am EDT.",
                         "imageSrc": "/static/images/community-3-1.jpg",
                         "imageAlt": "Three people standing by the doors of the Oakville site",
                         "navigateTo": "/sunday-morning"
@@ -88,8 +85,24 @@
                         "navigateTo": "/kids-and-youth"
                     }
                 ]
+            },
+            {
+                "type": "hero",
+                "style": "connect",
+                "image1": [
+                    {
+                        "src": "/static/images/GC1.jpg",
+                        "alt": "Two women drinking coffee."
+                    },
+                    {
+                        "src": "/static/images/GC2.jpg",
+                        "alt": "A man sitting outside on a ledge and looking up at the sky."
+                    }
+                ],
+                "header1": "Don't Miss Out",
+                "header2": "",
+                "text2": "We'd love to keep you in the loop about events, stories, and other important updates. We promise we won't spam you."
             }
-           
         ]
     }
 }
