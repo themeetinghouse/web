@@ -96,7 +96,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
         </div>
         <div className="VideoPlayerDescription" >{this.state.data.description}</div>
         <div className="VideoPlayerExtra">
-          {this.state.data.notesURL != null ? <div className="VideoPlayerSeriesNotes"><img className="button-icon" src="/static/svg/Notes-white.svg" alt=""/><a className="DownloadLink" target="_blank" rel="noopener noreferrer" href={this.state.data.notesURL}>Notes</a></div> : null}
+          {this.state.data.notesURL != null ? <div className="VideoPlayerSeriesNotes"><img className="button-icon" src="/static/svg/Notes-white.svg" alt=""/>
+            {this.state.data.notesURL.includes('media') ? 
+            <a className="DownloadLink" target="_blank" rel="noopener noreferrer" href={this.state.data.notesURL}>Notes</a> 
+            : <a className="DownloadLink" href={this.state.data.notesURL}>Notes</a>}
+          </div> : null}
           {this.state.data.videoURL != null ? <div className="VideoPlayerSeriesVideo"><img className="button-icon" src="/static/svg/Watch-white.svg" alt=""/><a className="DownloadLink" href={this.state.data.videoURL}>Download Video</a></div> : null}
           {this.state.data.audioURL != null ? <div className="VideoPlayerSeriesAudio"><img className="button-icon" src="/static/svg/Audio-white.svg" alt=""/><a className="DownloadLink"href={this.state.data.audioURL}>Download Audio</a></div> : null}
           <div className="VideoPlayerClear"></div>

@@ -148,11 +148,15 @@ class TeachingItem extends React.Component<Props, State> {
 
     }
     navigateUrlNewWindow(to: string) {
-        window.open(
-          to,
-          '_blank', // <- This is what makes it open in a new window.
-          'noopener noreferrer'
-        );
+        if (to.includes('media')) {
+            window.open(
+                to,
+                '_blank', // <- This is what makes it open in a new window.
+                'noopener noreferrer'
+              );
+        } else {
+            window.location.href = to;
+        }
       }
     
     //
