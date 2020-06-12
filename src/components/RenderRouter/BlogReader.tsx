@@ -96,7 +96,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               <meta property="og:title" content={this.state.data.blogTitle} />
               <meta property="og:description" content="" />
               <meta property="og:type" content="website" />
-              <meta property="fb:app_id" content="" />
+              <meta property="fb:app_id" content="579712102531269" />
               <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.data.blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
               <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.data.blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
               <meta property="og:image:type" content="image/jpeg" />
@@ -120,7 +120,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               <meta property="og:title" content={this.state.data.title} />
               <meta property="og:description" content="" />
               <meta property="og:type" content="website" />
-              <meta property="fb:app_id" content="" />
+              <meta property="fb:app_id" content="579712102531269" />
               <meta property="og:image" content={"https://www.themeetinghouse.com/static/images/og-logo.jpg"} />
               <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/images/og-logo.jpg"} />
               <meta property="og:image:type" content="image/jpeg" />

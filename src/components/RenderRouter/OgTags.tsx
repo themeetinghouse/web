@@ -37,7 +37,7 @@ class Tags extends React.Component<Props, State> {
                     <meta property="og:title" content={this.state.content.title} />
                     <meta property="og:description" content={this.state.content.description} />
                     <meta property="og:type" content="website" />
-                    <meta property="fb:app_id" content="" />
+                    <meta property="fb:app_id" content="579712102531269" />
 
                     <meta property="og:image" content={imageUrl} />
                     <meta property="og:image:secure_url" content={imageUrl} />

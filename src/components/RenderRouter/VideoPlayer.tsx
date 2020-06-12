@@ -80,7 +80,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
           <meta property="og:title" content={this.state.data.episodeTitle} />
           <meta property="og:description" content="" />
           <meta property="og:type" content="website" />
-          <meta property="fb:app_id" content="" />
+          <meta property="fb:app_id" content="579712102531269" />
           <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
           <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
           <meta property="og:image:type" content="image/jpeg" />
