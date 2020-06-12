@@ -779,6 +779,75 @@ export const onDeleteWebPage = /* GraphQL */ `
     }
   }
 `;
+export const onCreateLivestream = /* GraphQL */ `
+  subscription OnCreateLivestream {
+    onCreateLivestream {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateLivestream = /* GraphQL */ `
+  subscription OnUpdateLivestream {
+    onUpdateLivestream {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteLivestream = /* GraphQL */ `
+  subscription OnDeleteLivestream {
+    onDeleteLivestream {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateSpeaker = /* GraphQL */ `
   subscription OnCreateSpeaker {
     onCreateSpeaker {

@@ -779,6 +779,75 @@ export const deleteWebPage = /* GraphQL */ `
     }
   }
 `;
+export const createLivestream = /* GraphQL */ `
+  mutation CreateLivestream($input: CreateLivestreamInput!) {
+    createLivestream(input: $input) {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateLivestream = /* GraphQL */ `
+  mutation UpdateLivestream($input: UpdateLivestreamInput!) {
+    updateLivestream(input: $input) {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteLivestream = /* GraphQL */ `
+  mutation DeleteLivestream($input: DeleteLivestreamInput!) {
+    deleteLivestream(input: $input) {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createSpeaker = /* GraphQL */ `
   mutation CreateSpeaker($input: CreateSpeakerInput!) {
     createSpeaker(input: $input) {

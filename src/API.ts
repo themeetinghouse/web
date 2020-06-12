@@ -147,6 +147,44 @@ export type DeleteWebPageInput = {
   id?: string | null,
 };
 
+export type CreateLivestreamInput = {
+  id?: string | null,
+  date?: string | null,
+  startTime?: string | null,
+  videoStartTime?: string | null,
+  endTime?: string | null,
+  prerollYoutubeId?: string | null,
+  liveYoutubeId?: string | null,
+  showChat?: boolean | null,
+  showKids?: boolean | null,
+  menu?: Array< LiveMenuInput | null > | null,
+  titles?: Array< string | null > | null,
+};
+
+export type LiveMenuInput = {
+  title: string,
+  link: string,
+  linkType: string,
+};
+
+export type UpdateLivestreamInput = {
+  id: string,
+  date?: string | null,
+  startTime?: string | null,
+  videoStartTime?: string | null,
+  endTime?: string | null,
+  prerollYoutubeId?: string | null,
+  liveYoutubeId?: string | null,
+  showChat?: boolean | null,
+  showKids?: boolean | null,
+  menu?: Array< LiveMenuInput | null > | null,
+  titles?: Array< string | null > | null,
+};
+
+export type DeleteLivestreamInput = {
+  id?: string | null,
+};
+
 export type CreateSpeakerInput = {
   id?: string | null,
   name?: string | null,
@@ -632,6 +670,27 @@ export enum SearchableSortDirection {
   desc = "desc",
 }
 
+
+export type ModelLivestreamFilterInput = {
+  id?: ModelIDFilterInput | null,
+  date?: ModelStringFilterInput | null,
+  startTime?: ModelStringFilterInput | null,
+  videoStartTime?: ModelStringFilterInput | null,
+  endTime?: ModelStringFilterInput | null,
+  prerollYoutubeId?: ModelStringFilterInput | null,
+  liveYoutubeId?: ModelStringFilterInput | null,
+  showChat?: ModelBooleanFilterInput | null,
+  showKids?: ModelBooleanFilterInput | null,
+  titles?: ModelStringFilterInput | null,
+  and?: Array< ModelLivestreamFilterInput | null > | null,
+  or?: Array< ModelLivestreamFilterInput | null > | null,
+  not?: ModelLivestreamFilterInput | null,
+};
+
+export type ModelBooleanFilterInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+};
 
 export type ModelSpeakerFilterInput = {
   id?: ModelIDFilterInput | null,
@@ -1751,6 +1810,90 @@ export type DeleteWebPageMutation = {
         showLocationSearch: boolean | null,
       } | null > | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateLivestreamMutationVariables = {
+  input: CreateLivestreamInput,
+};
+
+export type CreateLivestreamMutation = {
+  createLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateLivestreamMutationVariables = {
+  input: UpdateLivestreamInput,
+};
+
+export type UpdateLivestreamMutation = {
+  updateLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteLivestreamMutationVariables = {
+  input: DeleteLivestreamInput,
+};
+
+export type DeleteLivestreamMutation = {
+  deleteLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -18721,6 +18864,68 @@ export type SearchWebPagesQuery = {
   } | null,
 };
 
+export type GetLivestreamQueryVariables = {
+  id: string,
+};
+
+export type GetLivestreamQuery = {
+  getLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListLivestreamsQueryVariables = {
+  filter?: ModelLivestreamFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListLivestreamsQuery = {
+  listLivestreams:  {
+    __typename: "ModelLivestreamConnection",
+    items:  Array< {
+      __typename: "Livestream",
+      id: string,
+      date: string | null,
+      startTime: string | null,
+      videoStartTime: string | null,
+      endTime: string | null,
+      prerollYoutubeId: string | null,
+      liveYoutubeId: string | null,
+      showChat: boolean | null,
+      showKids: boolean | null,
+      menu:  Array< {
+        __typename: "LiveMenu",
+        title: string,
+        link: string,
+        linkType: string,
+      } | null > | null,
+      titles: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type ListSpeakersQueryVariables = {
   filter?: ModelSpeakerFilterInput | null,
   limit?: number | null,
@@ -27982,6 +28187,78 @@ export type OnDeleteWebPageSubscription = {
         showLocationSearch: boolean | null,
       } | null > | null,
     } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateLivestreamSubscription = {
+  onCreateLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateLivestreamSubscription = {
+  onUpdateLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteLivestreamSubscription = {
+  onDeleteLivestream:  {
+    __typename: "Livestream",
+    id: string,
+    date: string | null,
+    startTime: string | null,
+    videoStartTime: string | null,
+    endTime: string | null,
+    prerollYoutubeId: string | null,
+    liveYoutubeId: string | null,
+    showChat: boolean | null,
+    showKids: boolean | null,
+    menu:  Array< {
+      __typename: "LiveMenu",
+      title: string,
+      link: string,
+      linkType: string,
+    } | null > | null,
+    titles: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
   } | null,

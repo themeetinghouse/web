@@ -2331,6 +2331,59 @@ export const searchWebPages = /* GraphQL */ `
     }
   }
 `;
+export const getLivestream = /* GraphQL */ `
+  query GetLivestream($id: ID!) {
+    getLivestream(id: $id) {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      showChat
+      showKids
+      menu {
+        title
+        link
+        linkType
+      }
+      titles
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listLivestreams = /* GraphQL */ `
+  query ListLivestreams(
+    $filter: ModelLivestreamFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listLivestreams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        date
+        startTime
+        videoStartTime
+        endTime
+        prerollYoutubeId
+        liveYoutubeId
+        showChat
+        showKids
+        menu {
+          title
+          link
+          linkType
+        }
+        titles
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listSpeakers = /* GraphQL */ `
   query ListSpeakers(
     $filter: ModelSpeakerFilterInput
