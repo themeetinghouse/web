@@ -14,6 +14,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/peacemakers-1.jpg",
+                "url": "https://www.themeetinghouse.com/peacemakers",
+                "title": "Peacemakers",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

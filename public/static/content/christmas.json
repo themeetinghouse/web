@@ -14,6 +14,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/christmas-eve-1.jpg",
+                "url": "https://www.themeetinghouse.com/christmas",
+                "title": "Christmas",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

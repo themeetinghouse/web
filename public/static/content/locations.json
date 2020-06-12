@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/locations-1-1.jpg",
+                "url": "https://www.themeetinghouse.com/locations",
+                "title": "Locations",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

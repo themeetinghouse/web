@@ -10,6 +10,7 @@ import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { Helmet } from 'react-helmet';
 
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
@@ -38,7 +39,7 @@ class TeachingItem extends React.Component<Props, State> {
         const { cookies } = props;
         if (cookies.get(this.props.content.group) == null)
             cookies.set(this.props.content.group, this.props.content.options[0], { path: '/' });
-        var teachingId = this.props.content.options.length<=1?0:this.props.content.options.indexOf(cookies.get(this.props.content.group))
+        const teachingId = this.props.content.options.length<=1?0:this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.state = {
             content: props.content,
             selection: cookies.get(this.props.content.group),
@@ -47,7 +48,7 @@ class TeachingItem extends React.Component<Props, State> {
             overlayData: null
         }
         if (this.props.content.class === "teaching-sunday") {
-            const getVideoByVideoType:any = API.graphql({
+            const getVideoByVideoType: any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -61,7 +62,7 @@ class TeachingItem extends React.Component<Props, State> {
             }).catch((e: any) => { console.log(e) })
         }
         else if (this.props.content.class === "bbq") {
-            const getVideoByVideoType:any = API.graphql({
+            const getVideoByVideoType: any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -76,22 +77,22 @@ class TeachingItem extends React.Component<Props, State> {
         }
         else if (this.props.content.class === "teaching-kids-youth") {
             console.log("teaching-kids-youth")
-            const getVideoByVideoType1:any = API.graphql({
+            const getVideoByVideoType1: any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const getVideoByVideoType2:any = API.graphql({
+            const getVideoByVideoType2: any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const getVideoByVideoType3:any = API.graphql({
+            const getVideoByVideoType3: any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            const getVideoByVideoType4:any = API.graphql({
+            const getVideoByVideoType4: any = API.graphql({
                 query: queries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-srhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -168,7 +169,16 @@ class TeachingItem extends React.Component<Props, State> {
                 this.state.listData !== null ?
                     (this.state.listData.length === this.props.content.options.length) || (this.props.content.options.length === 0) ?
                         <div className="teaching" >
-                            
+                        <Helmet>
+                            <meta property="og:url" content={this.props.content.class === "teaching-kids-youth" ? "https://www.themeetinghouse.com/teaching-kids-youth" : this.props.content.class === "bbq" ? "https://www.themeetinghouse.com/teaching-curated" : "https://www.themeetinghouse.com/teaching"} />
+                            <meta property="og:title" content="Teaching" />
+                            <meta property="og:description" content="" />
+                            <meta property="og:type" content="website" />
+                            <meta property="fb:app_id" content="579712102531269" />
+                            <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g,"")+".jpg"} />
+                            <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g,"")+".jpg"} />
+                            <meta property="og:image:type" content="image/jpeg" />
+                        </Helmet>
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>

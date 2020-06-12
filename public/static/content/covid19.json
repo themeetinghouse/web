@@ -16,6 +16,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/corona-1.jpg",
+                "url": "https://www.themeetinghouse.com/covid19",
+                "title": "COVID-19 Response",
+                "description": ""
+            },
+            {
                 "type": "simple",
                 "header1": "COVID-19 Response",
                 "header2": "The latest updates from The Meeting House.",
