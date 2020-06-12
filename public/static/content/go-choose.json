@@ -17,6 +17,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/go-choose",
+                "title": "Give",
+                "description": ""
+            },
+            {
                 "type": "give2",
                 "header1": "Go Campaign Pledge",
                 "header2": "The Go Campaign is our opportunity to engage people who have never meaningfully encountered the good news of Jesus, in new and innovative ways.",

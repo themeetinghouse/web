@@ -14,7 +14,13 @@
             "showMenu":true
         },
         "content": [
-           
+            {
+                "type": "og-tags",
+                "image": "/static/images/compassion-1-new.jpg",
+                "url": "https://www.themeetinghouse.com/compassion",
+                "title": "Compassion",
+                "description": ""
+            },
             {
                 "type": "hero",
                 "style": "full",

@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/kidsyouth-1-1.jpg",
+                "url": "https://www.themeetinghouse.com/kids-and-youth",
+                "title": "Kids and Youth",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

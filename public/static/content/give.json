@@ -17,6 +17,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/give",
+                "title": "Give",
+                "description": ""
+            },
+            {
                 "type": "give",
                 "header1": "We give because of love.",
                 "text1":"In this time of crisis, when we are unable to meet in person, The Meeting House remains a place where people can find hope, community, encouragement, and peace. God has been at work all along, preparing us to respond with love and practical care for our communities in these extraordinary days.",

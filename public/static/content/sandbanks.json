@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/local-site-1-4.jpg",
+                "url": "https://www.themeetinghouse.com/sandbanks",
+                "title": "The Meeting House - Sandbanks",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "showCovid":true,

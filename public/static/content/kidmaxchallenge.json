@@ -16,6 +16,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/kidmaxchallenge",
+                "title": "Kidmax Challenge",
+                "description": ""
+            },
+            {
                 "type": "simple",
                 "header1": "Kidmax Challenge",
                 "header2": "April Challenge: Dance Video",

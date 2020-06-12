@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/about-us-1-1-new.jpg",
+                "url": "https://www.themeetinghouse.com/about-us",
+                "title": "About Us",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

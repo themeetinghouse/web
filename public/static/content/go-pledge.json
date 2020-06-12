@@ -16,7 +16,13 @@
             "navigateOnPopupClose":"/go"
         },
         "content": [
-           
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/go-pledge",
+                "title": "Go Campaign - Pledge",
+                "description": ""
+            },
             {
                 "type": "iframe",
                 "src":"https://staff.themeetinghouse.com/pledges/pledgeForm.php",

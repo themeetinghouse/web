@@ -14,6 +14,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/pandemic-response-1.jpg",
+                "url": "https://www.themeetinghouse.com/pandemicresponse",
+                "title": "First Nations Pandemic Response",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [
@@ -24,10 +31,7 @@
                 ],
                 "header1": "First Nations Pandemic Response",
                 "header2": "",
-                "text1": "At the request of over a dozen First Nations communities in Ontario, we are raising $24,000 to purchase kits of sanitary items to help slow the spread of COVID-19.",
-                "button1Text": "Donate",
-                "button1Action": "https://donate.mcccanada.ca/cause/pandemic-response-kit-indigenous-communities",
-                "text2": "*Donations made directly to Mennonite Central Committee"
+                "text1": "Thank you for your overwhelming generosity to the First Nations Pandemic Response. Giving to this initiative has now closed. Stay tuned to hear the total amount raised on Sunday, June 21."
             },
             {
                 "type": "content",
