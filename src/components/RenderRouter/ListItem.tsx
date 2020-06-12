@@ -407,10 +407,7 @@ class ListItem extends React.Component<Props, State> {
 
     const dataLength = data.length
 
-    if (this.state.content.style === "horizontal") {
-      console.log('jooooooon')
-      console.log(this.state.content)
-      return (
+    if (this.state.content.style === "horizontal") return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
@@ -439,7 +436,6 @@ class ListItem extends React.Component<Props, State> {
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
-            }
     else if (this.state.content.style === "blogs") {
       data.sort((a: any, b: any) => this.sortByDate(a,b,"newFirst"))
 
