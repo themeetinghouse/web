@@ -78,11 +78,11 @@
                 "style": "oneImage",
                 "header1": "First Nations Pandemic Response",
                 "header2": "",
-                "text1": "We’re partnering with First Nations leaders and MCC to reduce the spread of COVID-19 in remote First Nations communities in northern Ontario. Find out how you can participate here.",
+                "text1": "Thank you for partnering with First Nations leaders and MCC to reduce the spread of COVID-19 in remote First Nations communities. Giving to this initiative has now closed, so stay tuned for updates on Sunday, June 21!",
                 "list": [
                     {
                         "type": "link",
-                        "title": "Learn & Participate",
+                        "title": "Learn More",
                         "navigateTo": "/pandemicresponse"
                     }
                 ],
