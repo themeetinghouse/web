@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/mad-1-1.jpg",
+                "url": "https://www.themeetinghouse.com/make-a-difference",
+                "title": "Make a Difference",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

@@ -14,7 +14,13 @@
             "showMenu":true
         },
         "content": [
-           
+            {
+                "type": "og-tags",
+                "image": "/static/images/homechurch-1-1.jpg",
+                "url": "https://www.themeetinghouse.com/homechurch",
+                "title": "Home Church",
+                "description": ""
+            },
             {
                 "type": "hero",
                 "style": "full",

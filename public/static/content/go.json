@@ -15,6 +15,14 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/Go-1.jpg",
+                "url": "https://www.themeetinghouse.com/go",
+                "title": "Go Campaign",
+                "description": ""
+            },
+            
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

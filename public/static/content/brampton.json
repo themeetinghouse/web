@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/local-site-1-2.jpg",
+                "url": "https://www.themeetinghouse.com/brampton",
+                "title": "The Meeting House - Brampton",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "showCovid":true,

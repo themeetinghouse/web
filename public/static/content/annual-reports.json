@@ -14,7 +14,13 @@
             "showMenu":true
         },
         "content": [
-           
+            {
+                "type": "og-tags",
+                "image": "/static/images/homepage-4-1.jpg",
+                "url": "https://www.themeetinghouse.com/annual-reports",
+                "title": "Annual Reports",
+                "description": ""
+            },
             {
                 "type": "list",
                 "style": "imageList",

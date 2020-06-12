@@ -16,6 +16,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/homepage-1-6.jpg",
+                "url": "https://www.themeetinghouse.com",
+                "title": "The Meeting House - Welcome",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "showCovid": true,

@@ -3,6 +3,7 @@ import React from 'react';
 import "./VideoPlayer.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Fade from 'react-bootstrap/Fade';
+import { Helmet } from 'react-helmet';
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -74,6 +75,16 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div className="VideoPlayerDiv" >
+        <Helmet>
+          <meta property="og:url" content={"https://www.themeetinghouse.com/videos/" + this.state.data.id} />
+          <meta property="og:title" content={this.state.data.episodeTitle} />
+          <meta property="og:description" content="" />
+          <meta property="og:type" content="website" />
+          <meta property="fb:app_id" content="579712102531269" />
+          <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
+          <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
+          <meta property="og:image:type" content="image/jpeg" />
+        </Helmet>
         <iframe title="Youtube Player" className="VideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.data.id + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
        <div className="VideoPlayerEpisodeTitle">{this.state.data.episodeTitle}<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
         <div className="VideoPlayerDetails">

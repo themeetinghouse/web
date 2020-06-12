@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/photos/staff/Matt_Thompson_app.jpg",
+                "url": "https://www.themeetinghouse.com/whitby",
+                "title": "Matt Thompson is a cool dude",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [

@@ -16,6 +16,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/gospel",
+                "title": "Gospel Cheat Sheet",
+                "description": ""
+            },
+            {
                 "type": "simple",
                 "header1": "Gospel Cheat Sheet",
                 "header2": "GETTING TO KNOW THE GOSPEL",

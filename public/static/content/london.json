@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/local-site-1-1.jpg",
+                "url": "https://www.themeetinghouse.com/london",
+                "title": "The Meeting House - London",
+                "description": ""
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "showCovid":true,
