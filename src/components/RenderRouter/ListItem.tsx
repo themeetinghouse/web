@@ -21,7 +21,8 @@ interface State {
   overlayData: any,
   urlHistoryState: any,
   showChampion: any,
-  showMoreVideos: boolean
+  showMoreVideos: boolean,
+  numberOfVideos: number
 }
 
 class ListItem extends React.Component<Props, State> {
@@ -66,7 +67,8 @@ class ListItem extends React.Component<Props, State> {
       listData: ((props.content.list == null) ? [] : props.content.list),
       overlayData: null,
       urlHistoryState: window.history.state,
-      showMoreVideos: false
+      showMoreVideos: false,
+      numberOfVideos: 100
     }
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
@@ -126,6 +128,15 @@ class ListItem extends React.Component<Props, State> {
       return dir === "newFirst" ? 1 : -1;
     }
     return 0;
+  }
+
+  renderMoreVideosCard() {
+    return (
+      <div onClick={() => this.setState({ numberOfVideos: this.state.numberOfVideos + 100 })} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+        <div className="LoadMoreVideosCard">
+          <div className="LoadMoreVideosText">Click to load more videos</div>
+        </div>
+      </div>)
   }
 
   renderVideo(item: any) {
@@ -394,26 +405,41 @@ class ListItem extends React.Component<Props, State> {
         return item[this.props.content.filterField].includes(this.props.content.filterValue)
       })
 
-    if (this.state.content.style === "horizontal") return (
+    const dataLength = data.length
+
+    if (this.state.content.style === "horizontal") {
+      console.log('jooooooon')
+      console.log(this.state.content)
+      return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
           <div className="ListItemDiv2" >
+            
+            {this.state.content.class === "videos" ?
             <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
-              {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index)
+              {data.slice(0,this.state.numberOfVideos).concat("card").map((item: any, index: any) => {
+                if (item === "card")
+                  return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null
 
+                return this.renderItemRouter(item, index)
               }
               )}
             </HorizontalScrollList>
+            : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
+              {data.map((item: any, index: any) => {
+                return this.renderItemRouter(item, index)
+              }
+              )}
+            </HorizontalScrollList>}
             <div className="ListItemDiv5" ></div>
           </div>
         </div>
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
     )
-
+            }
     else if (this.state.content.style === "blogs") {
       data.sort((a: any, b: any) => this.sortByDate(a,b,"newFirst"))
 

@@ -146,7 +146,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
                 <div ref={this.refCallback} className="HorizontalScrollListItemContainer" onScroll={this.handleScroll}>
                     { /* Each child will be sized to determine how many pages we need compared to the overall width of the container */}
                     {this.props.children && isArray(this.props.children) && this.props.children.map((child, index) => (
-                        <div className="HorizontalScrollListItem" key={index}>{child}</div>
+                        child ? <div className="HorizontalScrollListItem" key={index}>{child}</div> : null
                     ))}
                 </div>
                 <div ref={this.refCallbackScrollNav} className="ListItemScrollNav">
