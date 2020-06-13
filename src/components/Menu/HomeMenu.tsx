@@ -27,7 +27,7 @@ interface State {
   urlHistoryState: any,
   overlayData: any,
   isOpen: boolean,
-  userName: String,
+  userName: string,
   windowHeight: number,
   position: string,
   logoColor: string,
@@ -81,7 +81,7 @@ class HomeMenu extends React.Component<Props, State>  {
     })
       .then((myJson) => {
         myJson.forEach((item: any) => {
-          var rightNow = moment().tz("America/Toronto")
+          const rightNow = moment().tz("America/Toronto")
           console.log(rightNow.format())
           console.log(rightNow.weekday())
           //console.log(rightNow.day())
@@ -100,9 +100,9 @@ class HomeMenu extends React.Component<Props, State>  {
 
   }
   getWindowHeight() {
-    let deviceWindow = document.getElementById('navbar');
+    const deviceWindow = document.getElementById('navbar');
     if (deviceWindow != null) {
-      let deviceWindowHeight = window.outerHeight
+      const deviceWindowHeight = window.outerHeight
       //    console.log("from getinitiatlhight" + deviceWindowHeight);
       this.setState({
         windowHeight: deviceWindowHeight

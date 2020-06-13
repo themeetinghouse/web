@@ -8,20 +8,20 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 Amplify.configure(awsmobile);
 
 export default class ImportYoutube {
-//  "PLB5r2P47beqIUQHE5Ikn3SEfNJYDJyNJd",
-//    "PLB5r2P47beqIYwz0m_dI396C4YVpIjEj2",
-//    "PLB5r2P47beqKYbp8a36uynC-v8hO02VB0",
-//    "PLB5r2P47beqJA7FeErchE_2cb7D4gpGuX",
-//    "PLB5r2P47beqIgnrRwKBV3pk4r9KGvpw2A",
-//    "PLB5r2P47beqK0nNpYUVyM2_qoL704lagb",
-//"PLB5r2P47beqKRqdOdEbq530YFoV3--CKQ",
-//"PLB5r2P47beqKvK1vKg4u18oSIenrh76mo",
-//"PLB5r2P47beqI5FYN5flNYRoAVHiAIDVWR",
-//"PLB5r2P47beqKDcNPeL6ei1ntw8faQT1Bq",
-//"PLB5r2P47beqJ8yGRH4pzJAmwvxm2MiDee",
-//"PLB5r2P47beqKeE_Wv5nObxzZiZyOOAgXI",
-//"PLB5r2P47beqLbqdmqC3uBUjIicnMgwNI_",
-//"PLB5r2P47beqLL5uWqwJmAaocoKB1tFXF0",
+  //  "PLB5r2P47beqIUQHE5Ikn3SEfNJYDJyNJd",
+  //    "PLB5r2P47beqIYwz0m_dI396C4YVpIjEj2",
+  //    "PLB5r2P47beqKYbp8a36uynC-v8hO02VB0",
+  //    "PLB5r2P47beqJA7FeErchE_2cb7D4gpGuX",
+  //    "PLB5r2P47beqIgnrRwKBV3pk4r9KGvpw2A",
+  //    "PLB5r2P47beqK0nNpYUVyM2_qoL704lagb",
+  //"PLB5r2P47beqKRqdOdEbq530YFoV3--CKQ",
+  //"PLB5r2P47beqKvK1vKg4u18oSIenrh76mo",
+  //"PLB5r2P47beqI5FYN5flNYRoAVHiAIDVWR",
+  //"PLB5r2P47beqKDcNPeL6ei1ntw8faQT1Bq",
+  //"PLB5r2P47beqJ8yGRH4pzJAmwvxm2MiDee",
+  //"PLB5r2P47beqKeE_Wv5nObxzZiZyOOAgXI",
+  //"PLB5r2P47beqLbqdmqC3uBUjIicnMgwNI_",
+  //"PLB5r2P47beqLL5uWqwJmAaocoKB1tFXF0",
 
   ignorePlaylist = [
     "PLB5r2P47beqJ1dPnX_KEtviMgISzM19IG",
@@ -71,18 +71,17 @@ export default class ImportYoutube {
     const playlists: any = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
     playlists.then((json: any) => {
       this.setPlaylists(json);
-      if (json.data.getYoutubePlaylist.nextPageToken!=null)
+      if (json.data.getYoutubePlaylist.nextPageToken != null)
         this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
-      else
-      {
-        this.playlistData.forEach((item:any) => {
+      else {
+        this.playlistData.forEach((item: any) => {
           if (!this.ignorePlaylist.includes(item.id))
             this.loadPlaylist(item);
         })
       }
     }).catch((err: any) => {
       console.log(err);
-      this.playlistData.forEach((item:any) => {
+      this.playlistData.forEach((item: any) => {
         if (!this.ignorePlaylist.includes(item.id))
           this.loadPlaylist(item);
       })
@@ -131,7 +130,7 @@ export default class ImportYoutube {
           delete vid1.snippet['description']
         if (vid1.snippet.localized == null)
           delete vid1.snippet['localized']
-        var createVideo: any = API.graphql({
+        const createVideo: any = API.graphql({
           query: mutations.createVideo,
           variables: { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1 } },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS

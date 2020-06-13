@@ -95,12 +95,12 @@ class IndexApp extends React.Component<Props, State> {
         this.getVideos(null)
     }
     importYoutube() {
-        var z = new ImportYoutube()
+        const z = new ImportYoutube()
         z.reloadPlaylists()
 
     }
     listSeries(nextToken: any) {
-        var listSeries:any = API.graphql({
+        const listSeries: any = API.graphql({
             query: customQueries.listSeriess,
             variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -109,17 +109,17 @@ class IndexApp extends React.Component<Props, State> {
         listSeries.then((json: any) => {
             console.log({ "Success customQueries.listSeries: ": json });
             this.setState({
-                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort(function(a: any, b: any) {
-                    var nameA = a.id.toUpperCase();
-                    var nameB = b.id.toUpperCase();
+                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort(function (a: any, b: any) {
+                    const nameA = a.id.toUpperCase();
+                    const nameB = b.id.toUpperCase();
                     if (nameA < nameB) {
-                      return -1;
+                        return -1;
                     }
                     if (nameA > nameB) {
-                      return 1;
+                        return 1;
                     }
                     return 0;
-                  })
+                })
             })
             if (json.data.listSeriess.nextToken != null)
                 this.listSeries(json.data.listSeriess.nextToken)
@@ -128,24 +128,24 @@ class IndexApp extends React.Component<Props, State> {
     }
     getVideos(nextToken: any) {
         if (nextToken == null) {
-            var queryId = uuidv4()
+            const queryId = uuidv4()
             this.setState({ getVideoQueryId: queryId, getVideosState: "Loading Videos" },
                 () => { this.getVideosQID(nextToken, queryId) }
             )
         }
     }
     sortByPublished = (a: any, b: any) => {
-        var z = new Date(a.Youtube.snippet.publishedAt)
-        var y = new Date(b.Youtube.snippet.publishedAt)
+        const z = new Date(a.Youtube.snippet.publishedAt)
+        const y = new Date(b.Youtube.snippet.publishedAt)
         return z > y ? -1 : z < y ? 1 : 0;
     }
     getVideosQID(nextToken: any, queryId: any) {
         //console.log(this.state.getVideoQueryId)
         if (queryId === this.state.getVideoQueryId) {
-             
+
             //console.log(this.state.selectedVideoType)
             if (this.state.selectedVideoType === "") {
-                const listVideos:any = API.graphql({
+                const listVideos: any = API.graphql({
                     query: customQueries.listVideos,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -165,7 +165,7 @@ class IndexApp extends React.Component<Props, State> {
                 }).catch((e: any) => { console.log(e) })
             }
             else {
-                const getVideoByVideoType:any = API.graphql({
+                const getVideoByVideoType: any = API.graphql({
                     query: customQueries.getVideoByVideoType,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
@@ -221,7 +221,7 @@ class IndexApp extends React.Component<Props, State> {
         )
     }
     renderVideos() {
-        let z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
+        const z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
         return (
             <table className="divTable">
                 <thead>
@@ -240,9 +240,9 @@ class IndexApp extends React.Component<Props, State> {
                         return (
                             <tr key={video.id} className="divRow" onClick={(i: any) => { this.setState({ selectedVideo: null, toSaveVideo: null }, () => { this.setState({ selectedVideo: video, toSaveVideo: { id: video.id } }) }) }}>
                                 {z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInTable).map((item: any) => {
-                                    var list: any = item.id.split(".")
-                                    var value: any = video
-                                    for (var listItem of list) {
+                                    const list: any = item.id.split(".")
+                                    let value: any = video
+                                    for (const listItem of list) {
                                         value = value[listItem]
                                     }
                                     return (<td className="divCell" key={item.id}>{value}</td>)
@@ -262,7 +262,7 @@ class IndexApp extends React.Component<Props, State> {
         else {
             this.setState({ showError: "Saving" })
             console.log(this.state.toSaveVideo)
-            var updateVideo:any = API.graphql({
+            const updateVideo: any = API.graphql({
                 query: mutations.updateVideo,
                 variables: { input: this.state.toSaveVideo },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
@@ -270,19 +270,19 @@ class IndexApp extends React.Component<Props, State> {
             updateVideo.then((json: any) => {
                 console.log({ "Success queries.updateVideo: ": json });
                 this.setState({ showError: "Saved" })
-            }).catch((e: any) => { 
-                this.setState({showError: e.errors[0].message});
-                console.log(e) 
+            }).catch((e: any) => {
+                this.setState({ showError: e.errors[0].message });
+                console.log(e)
             })
         }
 
 
     }
     writeSeriesField(field: any, value: any) {
-        var tempSelectedVideo = this.state.selectedVideo
+        const tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
 
-        var toSaveVideo = this.state.toSaveVideo
+        const toSaveVideo = this.state.toSaveVideo
         toSaveVideo[field] = value
 
         toSaveVideo["seriesTitle"] = this.state.seriesList.filter((item: any) => item.id === value)[0].title
@@ -293,10 +293,10 @@ class IndexApp extends React.Component<Props, State> {
         console.log(toSaveVideo)
     }
     writeField(field: any, value: any) {
-        var tempSelectedVideo = this.state.selectedVideo
+        const tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
 
-        var toSaveVideo = this.state.toSaveVideo
+        const toSaveVideo = this.state.toSaveVideo
         toSaveVideo[field] = value
         this.setState({
             selectedVideo: tempSelectedVideo,
@@ -307,7 +307,7 @@ class IndexApp extends React.Component<Props, State> {
         return series.seriesType === videoType
     }
     renderVideoEditor() {
-        var z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
+        const z = this.state.videoTypes.filter((i: any) => i.id === this.state.selectedVideoType)[0]
 
         return (
             <div>
@@ -315,9 +315,9 @@ class IndexApp extends React.Component<Props, State> {
                     <tbody>
                         {this.state.selectedVideo ? z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInEditor).map((item: any) => {
 
-                            var list: any = item.id.split(".")
-                            var finalValue: any = this.state.selectedVideo
-                            for (var listItem of list) {
+                            const list: any = item.id.split(".")
+                            let finalValue: any = this.state.selectedVideo
+                            for (const listItem of list) {
                                 finalValue = finalValue[listItem]
                             }
 
@@ -366,7 +366,7 @@ class IndexApp extends React.Component<Props, State> {
         )
     }
     updateSeriesField(field: any, value: any) {
-        var toSaveSeries = this.state.toSaveSeries
+        const toSaveSeries = this.state.toSaveSeries
         toSaveSeries[field] = value
         if (toSaveSeries.seriesType === "adult-sunday")
             toSaveSeries.id = toSaveSeries.title
@@ -377,7 +377,7 @@ class IndexApp extends React.Component<Props, State> {
     }
     saveSeries() {
         if (this.state.toSaveSeries.title !== "" && this.state.toSaveSeries.seriesType !== "") {
-            var saveSeries:any = API.graphql({
+            const saveSeries: any = API.graphql({
                 query: mutations.createSeries,
                 variables: { input: this.state.toSaveSeries },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
@@ -390,7 +390,7 @@ class IndexApp extends React.Component<Props, State> {
             return true;
         }
         return false;
-    }  
+    }
     renderAddSeries() {
         return <Modal isOpen={this.state.showAddSeries}>
             <div>

@@ -34,7 +34,7 @@ class ContentItem extends React.Component<Props, State>  {
       return "https://www.themeetinghouse.com/cache/" + size
   }
   toggle = (id: any) => {
-    var list = this.state.isOpen
+    const list = this.state.isOpen
     list[id] = !list[id]
     this.setState({ isOpen: list })
   }
@@ -87,7 +87,7 @@ class ContentItem extends React.Component<Props, State>  {
   render() {
 
 
-    var image1
+    let image1
     if (this.state.content.image1 != null)
       image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 

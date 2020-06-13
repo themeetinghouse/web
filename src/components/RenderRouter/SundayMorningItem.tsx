@@ -31,7 +31,7 @@ interface State {
   postalCode: string,
 }
 
-declare var google: any;
+declare let google: any;
 
 const SITE_PIN_URL = "/static/svg/SiteLocationPin.svg";
 const SITE_PIN_SELECTED_URL = "/static/svg/SiteLocationPin-selected.svg";
@@ -58,7 +58,7 @@ export class ContentItem extends React.Component<Props, State>  {
       postalCode: "",
     }
     this.navigate = this.navigate.bind(this);
-    var jsonFile;
+    let jsonFile;
     if (this.state.content.alternate === "christmas")
       jsonFile = "/static/data/christmas.json"
     else if (this.state.content.alternate === "easter")
@@ -86,7 +86,7 @@ export class ContentItem extends React.Component<Props, State>  {
 
   componentDidUpdate() {
     if (this.state.selectedPlace) {
-      let siteListingDOM = document.getElementById("SITE-" + this.state.selectedPlace.id);
+      const siteListingDOM = document.getElementById("SITE-" + this.state.selectedPlace.id);
       console.log("siteListingDOM = %o, selectedPlace.id = %o", siteListingDOM, this.state.selectedPlace.id);
       if (siteListingDOM) {
         this.siteListScrollContainer.scrollTop = siteListingDOM.offsetTop - this.siteListScrollContainer.offsetTop;
@@ -142,17 +142,17 @@ export class ContentItem extends React.Component<Props, State>  {
   calculateDistances() {
     if (this.state.listData) {
       console.log("Calculating distances to sites...");
-      var service = new this.props.google.maps.DistanceMatrixService()
-      var destinations = this.state.listData.map((item: any) => {
+      const service = new this.props.google.maps.DistanceMatrixService()
+      const destinations = this.state.listData.map((item: any) => {
         return (new this.props.google.maps.LatLng(item.location.latitude, item.location.longitude))
       })
-      var start = new this.props.google.maps.LatLng(this.state.currentLatLng.lat, this.state.currentLatLng.lng)
+      const start = new this.props.google.maps.LatLng(this.state.currentLatLng.lat, this.state.currentLatLng.lng)
 
       service.getDistanceMatrix({ origins: [start], destinations: destinations, travelMode: this.state.travelMode }, (res: any, status: any) => {
         console.log(res)
         if (status === "OK") {
-          for (let distanceItem of res.rows[0].elements) {
-            let site = this.state.listData[res.rows[0].elements.indexOf(distanceItem)];
+          for (const distanceItem of res.rows[0].elements) {
+            const site = this.state.listData[res.rows[0].elements.indexOf(distanceItem)];
             console.log("Site: %o, distance: %o", site, distanceItem);
             site.distance = distanceItem;
           }
@@ -189,9 +189,9 @@ export class ContentItem extends React.Component<Props, State>  {
 
   getCalendarEventForLocation(locationItem: any) {
     if (this.state.content.alternate === "christmas") {
-      let nextSunday = moment(locationItem.serviceTimes, "MMMM D, h:mma");
+      const nextSunday = moment(locationItem.serviceTimes, "MMMM D, h:mma");
       console.log(nextSunday)
-      let event = {
+      const event = {
         title: 'Christmas at The Meeting House',
         description: 'Join us at The Meeting House for Christmas!',
         location: locationItem.location.address,
@@ -205,7 +205,7 @@ export class ContentItem extends React.Component<Props, State>  {
       let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
       serviceHour = serviceHour.substr(0, serviceHour.indexOf(":"));
       nextSunday = nextSunday.hour(+serviceHour);
-      let event = {
+      const event = {
         title: 'Church at The Meeting House',
         description: 'Join us at The Meeting House on Sunday!',
         location: locationItem.location.address,

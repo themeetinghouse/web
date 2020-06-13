@@ -39,7 +39,7 @@ class TeachingItem extends React.Component<Props, State> {
         const { cookies } = props;
         if (cookies.get(this.props.content.group) == null)
             cookies.set(this.props.content.group, this.props.content.options[0], { path: '/' });
-        const teachingId = this.props.content.options.length<=1?0:this.props.content.options.indexOf(cookies.get(this.props.content.group))
+        const teachingId = this.props.content.options.length <= 1 ? 0 : this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.state = {
             content: props.content,
             selection: cookies.get(this.props.content.group),
@@ -98,22 +98,22 @@ class TeachingItem extends React.Component<Props, State> {
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             getVideoByVideoType1.then((json1: any) => {
-                console.log({"Success queries.getVideoByVideoType: " :json1});
+                console.log({ "Success queries.getVideoByVideoType: ": json1 });
                 this.setState({
                     listData: json1.data.getVideoByVideoType.items
                 })
                 getVideoByVideoType2.then((json2: any) => {
-                    console.log({"Success queries.getVideoByVideoType: " : json2});
+                    console.log({ "Success queries.getVideoByVideoType: ": json2 });
                     this.setState({
                         listData: this.state.listData.concat(json2.data.getVideoByVideoType.items)
                     })
                     getVideoByVideoType3.then((json3: any) => {
-                        console.log({"Success queries.getVideoByVideoType: " : json3});
+                        console.log({ "Success queries.getVideoByVideoType: ": json3 });
                         this.setState({
                             listData: this.state.listData.concat(json3.data.getVideoByVideoType.items)
                         })
                         getVideoByVideoType4.then((json4: any) => {
-                            console.log({"Success queries.getVideoByVideoType: " : json4});
+                            console.log({ "Success queries.getVideoByVideoType: ": json4 });
                             this.setState({
                                 listData: this.state.listData.concat(json4.data.getVideoByVideoType.items)
                             })
@@ -139,9 +139,7 @@ class TeachingItem extends React.Component<Props, State> {
     setSelection(selection: string) {
         const { cookies } = this.props;
         cookies.set(this.props.content.group, selection, { path: '/' });
-        var teachingId;
-
-        teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group))
+        const teachingId = this.props.content.options.indexOf(cookies.get(this.props.content.group))
         this.setState({
             selection: selection,
             teachingId: teachingId
@@ -154,12 +152,12 @@ class TeachingItem extends React.Component<Props, State> {
                 to,
                 '_blank', // <- This is what makes it open in a new window.
                 'noopener noreferrer'
-              );
+            );
         } else {
             window.location.href = to;
         }
-      }
-    
+    }
+
     //
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
@@ -169,16 +167,16 @@ class TeachingItem extends React.Component<Props, State> {
                 this.state.listData !== null ?
                     (this.state.listData.length === this.props.content.options.length) || (this.props.content.options.length === 0) ?
                         <div className="teaching" >
-                        <Helmet>
-                            <meta property="og:url" content={this.props.content.class === "teaching-kids-youth" ? "https://www.themeetinghouse.com/teaching-kids-youth" : this.props.content.class === "bbq" ? "https://www.themeetinghouse.com/teaching-curated" : "https://www.themeetinghouse.com/teaching"} />
-                            <meta property="og:title" content="Teaching" />
-                            <meta property="og:description" content="" />
-                            <meta property="og:type" content="website" />
-                            <meta property="fb:app_id" content="579712102531269" />
-                            <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g,"")+".jpg"} />
-                            <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g,"")+".jpg"} />
-                            <meta property="og:image:type" content="image/jpeg" />
-                        </Helmet>
+                            <Helmet>
+                                <meta property="og:url" content={this.props.content.class === "teaching-kids-youth" ? "https://www.themeetinghouse.com/teaching-kids-youth" : this.props.content.class === "bbq" ? "https://www.themeetinghouse.com/teaching-curated" : "https://www.themeetinghouse.com/teaching"} />
+                                <meta property="og:title" content="Teaching" />
+                                <meta property="og:description" content="" />
+                                <meta property="og:type" content="website" />
+                                <meta property="fb:app_id" content="579712102531269" />
+                                <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
+                                <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
+                                <meta property="og:image:type" content="image/jpeg" />
+                            </Helmet>
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
@@ -186,12 +184,12 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teachingdiv teachingseriestitle" >{this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + "."} <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>  {this.state.listData[this.state.teachingId].Youtube.contentDetails.duration === null ? null : "•"} {this.state.listData[this.state.teachingId].Youtube.contentDetails.duration}</div>
                                 <div className="teachingdiv teachingdescription" > {this.state.listData[this.state.teachingId].description}</div>
                                 <div className="teachingdiv2" >
-                                    <Button size="lg" className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} ><img className="teachingButton-icon" src="/static/svg/Watch.svg" alt="watch icon"/>Watch</Button>
-                                    {this.state.listData[this.state.teachingId].notesURL!=null?<Button size="lg" className="teachingButton" onClick={() => { this.navigateUrlNewWindow(this.state.listData[this.state.teachingId].notesURL) }} ><img className="teachingButton-icon" src="/static/svg/Notes.svg" alt="notes icon"/>Notes</Button>:null}
+                                    <Button size="lg" className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} ><img className="teachingButton-icon" src="/static/svg/Watch.svg" alt="watch icon" />Watch</Button>
+                                    {this.state.listData[this.state.teachingId].notesURL != null ? <Button size="lg" className="teachingButton" onClick={() => { this.navigateUrlNewWindow(this.state.listData[this.state.teachingId].notesURL) }} ><img className="teachingButton-icon" src="/static/svg/Notes.svg" alt="notes icon" />Notes</Button> : null}
                                 </div>
-                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image-desktop" src={(this.state.content.class === "teaching-sunday"||this.state.listData[this.state.teachingId].videoTypes === "ky-kids"||this.state.listData[this.state.teachingId].videoTypes === "ky-youth"||this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh"||this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh"||this.state.listData[this.state.teachingId].videoTypes === "bbq")&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g,"")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image-desktop" src={(this.state.content.class === "teaching-sunday" || this.state.listData[this.state.teachingId].videoTypes === "ky-kids" || this.state.listData[this.state.teachingId].videoTypes === "ky-youth" || this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh" || this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh" || this.state.listData[this.state.teachingId].videoTypes === "bbq") && this.state.listData[this.state.teachingId].seriesTitle != null ? ("/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg") : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                             </div>
-                            <div className="mobile-image-container"><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image-mobile" src={(this.state.content.class === "teaching-sunday"||this.state.listData[this.state.teachingId].videoTypes === "ky-kids"||this.state.listData[this.state.teachingId].videoTypes === "ky-youth"||this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh"||this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh"||this.state.listData[this.state.teachingId].videoTypes === "bbq")&&this.state.listData[this.state.teachingId].seriesTitle!=null?("/static/photos/series/baby-hero/"+this.state.listData[this.state.teachingId].videoTypes+"-"+this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g,"")+".jpg"):this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                            <div className="mobile-image-container"><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image-mobile" src={(this.state.content.class === "teaching-sunday" || this.state.listData[this.state.teachingId].videoTypes === "ky-kids" || this.state.listData[this.state.teachingId].videoTypes === "ky-youth" || this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh" || this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh" || this.state.listData[this.state.teachingId].videoTypes === "bbq") && this.state.listData[this.state.teachingId].seriesTitle != null ? ("/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg") : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
                             <div className="teaching-mostrecent" >Most recent</div>
                             <div className="teaching-options" >
                                 {this.props.content.options.map((item: any, index: any) => {
