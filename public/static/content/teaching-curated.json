@@ -70,14 +70,6 @@
                 "selector":"all",
                 "sortOrder":"DESC",
                 "header1":"Youth"                
-            },
-            {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "selector":"custom-playlist",
-                "playlist": "Test2",
-                "header1":"Test"                
             }
             
         ]

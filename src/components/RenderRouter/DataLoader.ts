@@ -40,12 +40,20 @@ export default class DataLoader extends React.Component<Props, State> {
     async getVideosCustomPlaylist(nextToken: any): Promise<void> {
         try {
             const getCustomPlaylist: any = await API.graphql({
-                query: queries.getCustomPlaylist,
+                query: customQueries.getCustomPlaylist,
                 variables: { nextToken: nextToken, limit: 20, id: this.state.content.playlist },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             console.log("Success queries.getCustomPlaylist: " + getCustomPlaylist)
-            this.props.dataLoaded(getCustomPlaylist.data.getCustomPlaylist.videos.items)
+            console.log(getCustomPlaylist)
+            const loadedVideos: any = []
+            for (const item of getCustomPlaylist.data.getCustomPlaylist.videos.items) {
+                loadedVideos.push(item.video)
+            }
+            console.log(loadedVideos)
+            this.props.dataLoaded(loadedVideos)
+            if (getCustomPlaylist.data.getCustomPlaylist.videos.nextToken != null)
+                this.getVideosCustomPlaylist(getCustomPlaylist.data.getCustomPlaylist.videos.nextToken)
         } catch (e) {
             console.error(e)
         }
@@ -59,6 +67,7 @@ export default class DataLoader extends React.Component<Props, State> {
         });
         getSeries.then((json: any) => {
             console.log("Success queries.getSeries: " + json);
+            console.log(json)
             this.props.dataLoaded(
                 json.data.getSeries.videos.items
             )
