@@ -350,7 +350,10 @@ class IndexApp extends React.Component<Props, State> {
                 console.log({ "Success queries.updateVideo: ": updateVideo });
                 this.setState({ showError: "Saved" })
             } catch(e) {
-                this.setState({showError: e.errors[0].message});
+                if (!e.errors[0].message.includes('access'))
+                    this.setState({showError: e.errors[0].message});
+                else if (e.data)
+                    this.setState({ showError: "Saved" })
                 console.error(e)
             }
         }
