@@ -1750,6 +1750,848 @@ export const getTnSermonByIdent = /* GraphQL */ `
     }
   }
 `;
+export const customPlaylistVideoByPlaylist = /* GraphQL */ `
+  query CustomPlaylistVideoByPlaylist(
+    $customPlaylistID: ID
+    $videoID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelCustomPlaylistVideoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    CustomPlaylistVideoByPlaylist(
+      customPlaylistID: $customPlaylistID
+      videoID: $videoID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        videoID
+        customPlaylistID
+        createdAt
+        updatedAt
+        customPlaylist {
+          id
+          seriesType
+          title
+          description
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              videoID
+              customPlaylistID
+              createdAt
+              updatedAt
+              customPlaylist {
+                id
+                seriesType
+                title
+                description
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+              }
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+        video {
+          id
+          createdBy
+          createdDate
+          episodeTitle
+          originalEpisodeTitle
+          episodeNumber
+          seriesTitle
+          publishedDate
+          recordedDate
+          description
+          closedCaptioning
+          referencedMedia
+          campaigns
+          bibleVerses
+          topics
+          qandeh
+          length
+          YoutubeIdent
+          Youtube {
+            id
+            kind
+            etag
+            snippet {
+              publishedAt
+              channelId
+              title
+              description
+              thumbnails {
+                default {
+                  url
+                  width
+                  height
+                }
+                medium {
+                  url
+                  width
+                  height
+                }
+                high {
+                  url
+                  width
+                  height
+                }
+                standard {
+                  url
+                  width
+                  height
+                }
+                maxres {
+                  url
+                  width
+                  height
+                }
+              }
+              channelTitle
+              localized {
+                title
+                description
+              }
+            }
+            contentDetails {
+              videoId
+              videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
+            }
+          }
+          videoTypes
+          notesURL
+          videoURL
+          audioURL
+          createdAt
+          updatedAt
+          speakers {
+            items {
+              id
+              createdAt
+              updatedAt
+              speaker {
+                id
+                name
+                image
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+              }
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          series {
+            id
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          customPlaylists {
+            items {
+              id
+              videoID
+              customPlaylistID
+              createdAt
+              updatedAt
+              customPlaylist {
+                id
+                seriesType
+                title
+                description
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+              }
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+`;
+export const customPlaylistVideoByVideo = /* GraphQL */ `
+  query CustomPlaylistVideoByVideo(
+    $videoID: ID
+    $customPlaylistID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelCustomPlaylistVideoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    CustomPlaylistVideoByVideo(
+      videoID: $videoID
+      customPlaylistID: $customPlaylistID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        videoID
+        customPlaylistID
+        createdAt
+        updatedAt
+        customPlaylist {
+          id
+          seriesType
+          title
+          description
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              videoID
+              customPlaylistID
+              createdAt
+              updatedAt
+              customPlaylist {
+                id
+                seriesType
+                title
+                description
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+              }
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+        video {
+          id
+          createdBy
+          createdDate
+          episodeTitle
+          originalEpisodeTitle
+          episodeNumber
+          seriesTitle
+          publishedDate
+          recordedDate
+          description
+          closedCaptioning
+          referencedMedia
+          campaigns
+          bibleVerses
+          topics
+          qandeh
+          length
+          YoutubeIdent
+          Youtube {
+            id
+            kind
+            etag
+            snippet {
+              publishedAt
+              channelId
+              title
+              description
+              thumbnails {
+                default {
+                  url
+                  width
+                  height
+                }
+                medium {
+                  url
+                  width
+                  height
+                }
+                high {
+                  url
+                  width
+                  height
+                }
+                standard {
+                  url
+                  width
+                  height
+                }
+                maxres {
+                  url
+                  width
+                  height
+                }
+              }
+              channelTitle
+              localized {
+                title
+                description
+              }
+            }
+            contentDetails {
+              videoId
+              videoPublishedAt
+              duration
+              dimension
+              definition
+              caption
+              licensedContent
+              projection
+            }
+            status {
+              uploadStatus
+              privacyStatus
+              license
+              embeddable
+              publicStatsViewable
+            }
+          }
+          videoTypes
+          notesURL
+          videoURL
+          audioURL
+          createdAt
+          updatedAt
+          speakers {
+            items {
+              id
+              createdAt
+              updatedAt
+              speaker {
+                id
+                name
+                image
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+              }
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          series {
+            id
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          customPlaylists {
+            items {
+              id
+              videoID
+              customPlaylistID
+              createdAt
+              updatedAt
+              customPlaylist {
+                id
+                seriesType
+                title
+                description
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+              }
+              video {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                publishedDate
+                recordedDate
+                description
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+      }
+      nextToken
+    }
+  }
+`;
 export const blogBridgeBySeries = /* GraphQL */ `
   query BlogBridgeBySeries(
     $blogSeriesID: ID

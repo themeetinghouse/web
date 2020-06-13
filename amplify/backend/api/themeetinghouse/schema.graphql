@@ -598,8 +598,8 @@ type CustomPlaylistVideo
 id: ID!
 videoID: ID!
 customPlaylistID: ID!
-customPlaylist: CustomPlaylist! @connection(fields: ["customPlaylistID"]) @auth(rules:[ {allow:public, operations:[read]} ])
-video: Video! @connection(fields: ["videoID"]) @auth(rules:[ {allow:public, operations:[read]} ])
+customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"]) @auth(rules:[ {allow:public, operations:[read]} ])
+video: Video @connection(fields: ["videoID"]) @auth(rules:[ {allow:public, operations:[read]} ])
 }
 type Video 
  @model 
