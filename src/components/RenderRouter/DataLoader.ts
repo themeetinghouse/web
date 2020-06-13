@@ -36,6 +36,21 @@ export default class DataLoader extends React.Component<Props, State> {
              this.props.dataLoaded(this.state.listData)
          console.log(prevProps)
      }*/
+
+    async getVideosCustomPlaylist(nextToken: any): Promise<void> {
+        try {
+            const getCustomPlaylist: any = await API.graphql({
+                query: queries.getCustomPlaylist,
+                variables: { nextToken: nextToken, limit: 20, id: this.state.content.playlist },
+                authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+            console.log("Success queries.getCustomPlaylist: " + getCustomPlaylist)
+            this.props.dataLoaded(getCustomPlaylist.data.getCustomPlaylist.videos.items)
+        } catch (e) {
+            console.error(e)
+        }
+    } 
+
     getVideosSameSeries(nextToken: any, id: string) {
         const getSeries: any = API.graphql({
             query: customQueries.getSeries,
@@ -44,7 +59,6 @@ export default class DataLoader extends React.Component<Props, State> {
         });
         getSeries.then((json: any) => {
             console.log("Success queries.getSeries: " + json);
-            console.log(json)
             this.props.dataLoaded(
                 json.data.getSeries.videos.items
             )
@@ -179,6 +193,9 @@ export default class DataLoader extends React.Component<Props, State> {
                     break;
                 case "highlights":
                     this.getVideosSameSeries(null, "adult-sunday-shortcut-" + this.props.data.series.id)
+                    break;
+                case "custom-playlist":
+                    this.getVideosCustomPlaylist(null)
                     break;
                 default:
                     this.getVideos(null)
