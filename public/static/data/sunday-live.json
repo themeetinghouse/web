@@ -1,10 +1,9 @@
 [
     {
-        "name":"Sunday Morning Service",
-        "dayOfWeek":0,
-        "startTime":"9:45",
-        "endTime":"23:00",
-        "navigateTo":"/live"
+        "name": "Townhall",
+        "dayOfWeek": 0,
+        "startTime": "17:00",
+        "endTime": "23:00",
+        "navigateTo": "/live"
     }
-
 ]
