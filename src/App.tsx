@@ -16,6 +16,7 @@ const Admin = lazy(() => import('./pages/admin/index'));
 const ImportVideo = lazy(() => import('./pages/admin/import-video'));
 const CreateBlog = lazy(() => import('./pages/admin/create-blog'));
 const CreateNotes = lazy(() => import('./pages/admin/create-notes'));
+const AddLive = lazy(() => import('./pages/admin/add-live'));
 
 class App extends React.Component<Props, State>  {
   render() {
@@ -26,6 +27,7 @@ class App extends React.Component<Props, State>  {
           <Route path="/admin/import-video" render={() => <ImportVideo />} />
           <Route path="/admin/create-blog" render={() => <CreateBlog />} />
           <Route path="/admin/create-notes" render={() => <CreateNotes />} />
+          <Route path="/admin/add-live" render={() => <AddLive />} />
           <Route path="/admin" render={() => <Admin />} />
           <Route path="/videos/:series/:episode" render={props => <HomePage pageType="video" {...props} />} />
           <Route path="/videos/:series" render={props => <HomePage pageType="video" {...props} />} />
