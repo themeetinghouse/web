@@ -579,7 +579,13 @@ type CustomPlaylist
  ])
 {
   id: ID!
-  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"]) @auth(rules:[ {allow:public, operations:[read]} ])
+  videos: [CustomPlaylistVideo] 
+  @connection(keyName: "byCustomPlaylist", fields: ["id"])
+  @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+  ])
   seriesType: String
   title: String
   description: String
@@ -595,11 +601,23 @@ type CustomPlaylistVideo
   @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"], queryField: "CustomPlaylistVideoByPlaylist")
   @key(name: "byVideo", fields: ["videoID", "customPlaylistID"], queryField: "CustomPlaylistVideoByVideo") 
 {
-id: ID!
-videoID: ID!
-customPlaylistID: ID!
-customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"]) @auth(rules:[ {allow:public, operations:[read]} ])
-video: Video @connection(fields: ["videoID"]) @auth(rules:[ {allow:public, operations:[read]} ])
+  id: ID!
+  videoID: ID!
+  customPlaylistID: ID!
+  customPlaylist: CustomPlaylist 
+  @connection(fields: ["customPlaylistID"])
+  @auth(rules:[
+    {allow:public, operations:[read]},
+    {allow:private, operations:[read],provider:iam},
+    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+  ])
+  video: Video
+  @connection(fields: ["videoID"])
+  @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+  ])
 }
 type Video 
  @model 
@@ -622,7 +640,13 @@ type Video
   episodeNumber:Int
   seriesTitle:String
   series:Series  @connection(name: "VideosSeries")
-  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"]) @auth(rules:[ {allow:public, operations:[read]} ])
+  customPlaylists: [CustomPlaylistVideo] 
+  @connection(keyName: "byVideo", fields: ["id"])
+  @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+  ])
   publishedDate:String
   recordedDate:String
   description:String
