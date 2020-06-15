@@ -4,15 +4,20 @@ import "./VideoPlayer.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
 import Fade from 'react-bootstrap/Fade';
 import { Helmet } from 'react-helmet';
+import { isMobileOnly } from 'react-device-detect';
 import {
   FacebookShareButton,
   EmailShareButton,
-  TwitterShareButton
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton
 } from "react-share";
 import {
   FacebookIcon,
   EmailIcon,
-  TwitterIcon
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon
 } from "react-share";
 
 interface Props {
@@ -36,7 +41,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
   shareButton() {
     return (
-    <Dropdown>
+    <Dropdown drop={"down"}>
       <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share.svg" alt=""/>Share</Dropdown.Toggle>
         <Fade timeout={1000}>
           <Dropdown.Menu className="ShareMenu">
@@ -65,6 +70,25 @@ export default class VideoPlayer extends React.Component<Props, State> {
               body={"I wanted to share this video with you:"}>
               <Dropdown.Item className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item>
             </EmailShareButton>
+
+            {isMobileOnly ?
+            
+            <div>
+              <WhatsappShareButton 
+                className="ShareOption" 
+                url={(this.state.data.seriesTitle && this.state.data.id) ? "https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id : window.location.href}
+                title={this.state.data.Youtube ? this.state.data.Youtube.snippet.title : "Check out this video from The Meeting House"}>
+                <Dropdown.Item className="dropitem"><WhatsappIcon className="social-share-icon" size={32} round />WhatsApp</Dropdown.Item>
+              </WhatsappShareButton> 
+
+              <TelegramShareButton 
+                className="ShareOption" 
+                url={(this.state.data.seriesTitle && this.state.data.id) ? "https://www.themeetinghouse.com/videos/" + this.state.data.seriesTitle.replace(/\s/g, "%20") + "/" + this.state.data.id : window.location.href}
+                title={this.state.data.Youtube ? this.state.data.Youtube.snippet.title : "Check out this video from The Meeting House"}>
+                <Dropdown.Item className="dropitem"><TelegramIcon className="social-share-icon" size={32} round />Telegram</Dropdown.Item>
+              </TelegramShareButton>
+            </div>
+            : null}
 
           </Dropdown.Menu>
         </Fade>
