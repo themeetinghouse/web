@@ -130,7 +130,7 @@ class IndexApp extends React.Component<Props, State> {
                 playlistsList: this.state.playlistsList.concat(listCustomPlaylists.data.listCustomPlaylists.items).sort((a: any, b: any) => this.sortById(a,b))
             })
             if (listCustomPlaylists.data.listCustomPlaylists.nextToken != null)
-                this.listSeries(listCustomPlaylists.data.listCustomPlaylists.nextToken)
+                this.listCustomPlaylists(listCustomPlaylists.data.listCustomPlaylists.nextToken)
         } catch(e) {
             console.error(e)
         }
@@ -250,7 +250,7 @@ class IndexApp extends React.Component<Props, State> {
                 <select className="dropdown" onChange={(e: any) => { this.setState({ selectedVideo: null, videoList: [], addToPlaylists: [], removeFromPlaylists: [], selectedPlaylist: '', selectedVideoType: e.target.value }) }}>
                     {
                         this.state.videoTypes.map((item: any) => {
-                            return (<option key={item.id} value={item.id}>{item.name}</option>)
+                            return (<option className="dropdown-option" key={item.id} value={item.id}>{item.name}</option>)
                         })
 
                     }
@@ -314,7 +314,7 @@ class IndexApp extends React.Component<Props, State> {
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
             console.log({ "Success queries.getVideo: ": getVideo })
-            if (getVideo.data.getVideo.customPlaylists.items) {
+            if (getVideo.data.getVideo.customPlaylists) {
                 const addTo: any = [] 
                 for (const item of getVideo.data.getVideo.customPlaylists.items) {
                     addTo.concat(item.customPlaylistID)
@@ -323,7 +323,7 @@ class IndexApp extends React.Component<Props, State> {
             }
 
         } catch (e) {
-            if (e.data.getVideo.customPlaylists.items) {
+            if (e.data.getVideo.customPlaylists) {
                 const addTo: any = [] 
                 for (const item of e.data.getVideo.customPlaylists.items) {
                     addTo.concat(item.customPlaylistID)
@@ -575,7 +575,7 @@ class IndexApp extends React.Component<Props, State> {
                     variables: { input: this.state.toSavePlaylist },
                     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
                 });
-                console.log({ "Success mutations.saveSeries: ": savePlaylist });
+                console.log({ "Success mutations.createCustomPlaylist: ": savePlaylist });
             } catch(e) {
                 console.error(e)
             }
