@@ -19,7 +19,7 @@ import { Input, Spinner } from 'reactstrap';
 import HomeChurchContactModal from 'components/HomeChurchContactModal/HomeChurchContactModal';
 //import { getDay } from 'date-fns';
 
-declare var google: any;
+declare let google: any;
 
 Amplify.configure(awsmobile);
 
@@ -128,19 +128,19 @@ export class ContentItem extends React.Component<Props, State>  {
             .forEach((groupTypeItem: any) => {
               //console.log("HomeChurchItem.constructor(): F1ListGroupTypes response - groupTypeItem = %o", groupTypeItem);
               // Get the home churches for this location and update the loading progress when done
-              let f1LocationId = groupTypeItem.id;
-              let loadGroupPromise = this.getRetryableGraphQLOperationPromise(queries.f1ListGroups, { itemId: f1LocationId })
+              const f1LocationId = groupTypeItem.id;
+              const loadGroupPromise = this.getRetryableGraphQLOperationPromise(queries.f1ListGroups, { itemId: f1LocationId })
                 .then((listGroupsResponse: any) => {
-                  let openGroupsForLocation = listGroupsResponse.data.F1ListGroups.groups.group.filter((item: any) => (item.isOpen === "true" && item.isSearchable === "true"));
-                  let eventIdsForLocation = openGroupsForLocation.map((g: any) => g.event.id);
+                  const openGroupsForLocation = listGroupsResponse.data.F1ListGroups.groups.group.filter((item: any) => (item.isOpen === "true" && item.isSearchable === "true"));
+                  const eventIdsForLocation = openGroupsForLocation.map((g: any) => g.event.id);
                   //console.log("HomeChurchItem.constructor(): location: %o, eventIds = %o", groupTypeItem.name, eventIdsForLocation);
 
                   // Get the schedules for the home churches in this location
                   return this.getRetryableGraphQLOperationPromise(queries.f1ListEventSchedules, { itemId: eventIdsForLocation })
                     .then((listEventSchedulesResponse: any) => {
                       //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
-                      for (let group of openGroupsForLocation) {
-                        let eventSchedule = listEventSchedulesResponse.data.F1ListEventSchedules.find((s: any) => s.id === group.event.id);
+                      for (const group of openGroupsForLocation) {
+                        const eventSchedule = listEventSchedulesResponse.data.F1ListEventSchedules.find((s: any) => s.id === group.event.id);
                         group.schedule = eventSchedule.event.schedules.schedule[0];
                       }
                       allGroups.push(...openGroupsForLocation);
@@ -164,11 +164,11 @@ export class ContentItem extends React.Component<Props, State>  {
   // This will create a promise that will retry until successful.  Need to do this because AWS returns random
   // errors when trying to run this many queries in parallel...
   getRetryableGraphQLOperationPromise(query: any, args: any): Promise<any> {
-    const qry:any=API.graphql(graphqlOperation(query, args))
-     return qry.catch((error: any) => {
-        console.log("Promise failure caught: %o", error);
-        return this.getRetryableGraphQLOperationPromise(query, args);
-      })
+    const qry: any = API.graphql(graphqlOperation(query, args))
+    return qry.catch((error: any) => {
+      console.log("Promise failure caught: %o", error);
+      return this.getRetryableGraphQLOperationPromise(query, args);
+    })
   }
 
   componentDidMount() {
@@ -177,7 +177,7 @@ export class ContentItem extends React.Component<Props, State>  {
 
   componentDidUpdate() {
     if (this.state.selectedPlace) {
-      let hcListingDOM = document.getElementById("HC-" + this.state.selectedPlace.id);
+      const hcListingDOM = document.getElementById("HC-" + this.state.selectedPlace.id);
       console.log("hcListingDOM = %o, selectedPlace.id = %o", hcListingDOM, this.state.selectedPlace.id);
       if (hcListingDOM) {
         this.homeChurchListScrollContainer.scrollTop = hcListingDOM.offsetTop - this.homeChurchListScrollContainer.offsetTop;
@@ -191,11 +191,11 @@ export class ContentItem extends React.Component<Props, State>  {
       return 0;
     }
     else {
-      var radlat1 = Math.PI * lat1 / 180;
-      var radlat2 = Math.PI * lat2 / 180;
-      var theta = lng1 - lng2;
-      var radtheta = Math.PI * theta / 180;
-      var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      const radlat1 = Math.PI * lat1 / 180;
+      const radlat2 = Math.PI * lat2 / 180;
+      const theta = lng1 - lng2;
+      const radtheta = Math.PI * theta / 180;
+      let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
       if (dist > 1) {
         dist = 1;
       }
@@ -238,8 +238,8 @@ export class ContentItem extends React.Component<Props, State>  {
   }
 
   distanceSorter = (loc1: any, loc2: any) => {
-    let dist1 = this.calculateDistance(this.state.currentLatLng.lat, this.state.currentLatLng.lng, +loc1.location.address.latitude || 0, +loc1.location.address.longitude || 0)
-    let dist2 = this.calculateDistance(this.state.currentLatLng.lat, this.state.currentLatLng.lng, +loc2.location.address.latitude || 0, +loc2.location.address.longitude || 0)
+    const dist1 = this.calculateDistance(this.state.currentLatLng.lat, this.state.currentLatLng.lng, +loc1.location.address.latitude || 0, +loc1.location.address.longitude || 0)
+    const dist2 = this.calculateDistance(this.state.currentLatLng.lat, this.state.currentLatLng.lng, +loc2.location.address.latitude || 0, +loc2.location.address.longitude || 0)
     return (dist1 < dist2 ? -1 : 1);
   }
 
@@ -261,11 +261,11 @@ export class ContentItem extends React.Component<Props, State>  {
     // Filter the list of Home Churches by the selected site
     locationItem = locationItem || { value: "all" };
     console.log("HomeChurchItem.handleSiteSelection(): locationItem: %o", locationItem);
-    let filteredGroups = this.state.groups.filter((g: any) => locationItem.value === "all" || (g.groupType.id === Location_ID_to_F1_Group_Type_Map[locationItem.value]));
-    var bounds = new this.props.google.maps.LatLngBounds();
+    const filteredGroups = this.state.groups.filter((g: any) => locationItem.value === "all" || (g.groupType.id === Location_ID_to_F1_Group_Type_Map[locationItem.value]));
+    const bounds = new this.props.google.maps.LatLngBounds();
     bounds.extend(this.state.currentLatLng);
     for (let i = 0; i < filteredGroups.length; i++) {
-      let p = { lat: +filteredGroups[i].location.address.latitude, lng: +filteredGroups[i].location.address.longitude };
+      const p = { lat: +filteredGroups[i].location.address.latitude, lng: +filteredGroups[i].location.address.longitude };
       //console.log("HomeChurchItem.handleSiteSelection(): map bounds point:%o", p);
       if (p.lat !== 0 && p.lng !== 0) {
         bounds.extend(p);
@@ -296,8 +296,8 @@ export class ContentItem extends React.Component<Props, State>  {
   }
 
   formatGroupAddress(group: any) {
-    let address = [];
-    for (let field of ['address1', 'address2', 'address3', 'city', 'postalCode']) {
+    const address = [];
+    for (const field of ['address1', 'address2', 'address3', 'city', 'postalCode']) {
       if (group.location.address[field]) {
         address.push(group.location.address[field]);
       }
@@ -308,14 +308,14 @@ export class ContentItem extends React.Component<Props, State>  {
   getCalendarEventForLocation(group: any) {
     let nextMeeting = moment();
     //console.log('HomeChurchItem.getCalendarEventForLocation(): group = %o', group);
-    for (let dayNum of [0, 1, 2, 3, 4, 5, 6]) {
+    for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
       if (group.schedule.recurrences.recurrence.recurrenceWeekly['occurOn' + moment().day(dayNum).format("dddd")]) {
-        let nextMeetingTime = moment(group.schedule.startTime);
+        const nextMeetingTime = moment(group.schedule.startTime);
         nextMeeting = moment().day(dayNum).hours(nextMeetingTime.get('hours')).minutes(nextMeetingTime.get('minutes'));
         break;
       }
     }
-    let event = {
+    const event = {
       title: group.name,
       description: 'Join us at home church!',
       location: this.formatGroupAddress(group).join(', '),
@@ -378,8 +378,8 @@ export class ContentItem extends React.Component<Props, State>  {
       return moment(item.startDate).format('dddd') + "s"
   }
   render() {
-    var inititalCenter: any;
-    var initalZoom;
+    let inititalCenter: any;
+    let initalZoom;
     if (this.state.content.class === "home-church") {
       inititalCenter = { lat: 44, lng: -78.0 }
       initalZoom = 6
@@ -388,7 +388,7 @@ export class ContentItem extends React.Component<Props, State>  {
       initalZoom = 1
     }
 
-    let filteredGroups = (this.state.groups || []).filter((item: any) => (
+    const filteredGroups = (this.state.groups || []).filter((item: any) => (
       item.isPublic && (this.state.filterLocation.value === "all" || (item.groupType.id === Location_ID_to_F1_Group_Type_Map[this.state.filterLocation.value]))
     ));
 
@@ -442,7 +442,7 @@ export class ContentItem extends React.Component<Props, State>  {
                   <div className="LoadingContainer">
                     <div className="LoadingTitleContainer"><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div>
                     {this.state.locations.map((location: any) => {
-                      let isLocationLoaded = this.state.locationsLoaded.includes(Location_ID_to_F1_Group_Type_Map[location.id as string]);
+                      const isLocationLoaded = this.state.locationsLoaded.includes(Location_ID_to_F1_Group_Type_Map[location.id as string]);
                       return (
                         <div className={"LoadingItem " + (isLocationLoaded ? "Loaded" : "")} key={location.id}>
                           <img alt="Loading Icon" className="LoadingImage" src="/static/svg/Home-Church-Location.svg"></img>

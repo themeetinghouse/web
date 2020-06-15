@@ -12,7 +12,8 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from 'reactstrap';
 
 
 
@@ -30,34 +31,35 @@ interface Props {
 }
 interface State {
   isOpen: boolean,
-  userName: String
+  userName: string
 }
 export default class Menu extends React.Component<Props, State> {
-  constructor(props:Props) {
+  constructor(props: Props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      userName:  ""
+      userName: ""
 
     };
   }
-    getState = async() => {
-      Auth.currentAuthenticatedUser().then(user => {
-        console.log(user.username);
-        this.setState({userName:user.username});
-      }
-      ).catch(() => {
-         console.log("no user");
-         this.setState({userName:"No User"});
-        }
-      )};
-      
-  
-    componentDidMount() {
-      this.getState();
+  getState = async () => {
+    Auth.currentAuthenticatedUser().then(user => {
+      console.log(user.username);
+      this.setState({ userName: user.username });
     }
+    ).catch(() => {
+      console.log("no user");
+      this.setState({ userName: "No User" });
+    }
+    )
+  };
+
+
+  componentDidMount() {
+    this.getState();
+  }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -65,11 +67,11 @@ export default class Menu extends React.Component<Props, State> {
   }
   signOut = () => {
     Auth.signOut()
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
-  
+
   render() {
     return (
       <div className="navbar-custom">
@@ -78,7 +80,7 @@ export default class Menu extends React.Component<Props, State> {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-{/*              <NavItem>
+              {/*              <NavItem>
                 <NavLink href="/admin/videos">Videos</NavLink>
               </NavItem>
               <NavItem>
@@ -118,13 +120,13 @@ export default class Menu extends React.Component<Props, State> {
                 <NavLink href="/admin/create-notes">Notes</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/admin/create-blog" style={{color: "green"}}>Blog</NavLink>
+                <NavLink href="/admin/create-blog" style={{ color: "green" }}>Blog</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/admin/import-video">Import Video</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/themeetinghouse" style={{color: "green"}}>GitHub</NavLink>
+                <NavLink href="https://github.com/themeetinghouse" style={{ color: "green" }}>GitHub</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -135,8 +137,8 @@ export default class Menu extends React.Component<Props, State> {
                     Profile
                   </DropdownItem>
                   <DropdownItem >
-                  <div onClick={this.signOut}>
-                    Logout
+                    <div onClick={this.signOut}>
+                      Logout
                     </div>
                   </DropdownItem>
                 </DropdownMenu>

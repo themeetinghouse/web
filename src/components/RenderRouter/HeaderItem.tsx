@@ -16,7 +16,7 @@ export default class HeaderItem extends React.Component<Props, State> {
     }
     parallaxDetail = [200, 250];
     render() {
-        var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+        const image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
         return (
             <div className="headerItem">

@@ -55,8 +55,8 @@ export class ContentItem extends React.Component<Props, State>  {
   onInfoWindowClose() { }
 
   render() {
-    var inititalCenter: any;
-    var initalZoom;
+    let inititalCenter: any;
+    let initalZoom;
     if (this.state.content.class === "home-church") {
       inititalCenter = {
         lat: 44,

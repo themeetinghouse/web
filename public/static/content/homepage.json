@@ -3,7 +3,7 @@
         "name": "homepage",
         "title": "The Meeting House - Welcome",
         "keywords": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Bruxy, Be In Christ, Spirituality, Christianity",
-        "description": "Homepage for The Meeting House",
+        "description": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,
@@ -20,7 +20,7 @@
                 "image": "/static/images/homepage-1-6.jpg",
                 "url": "https://www.themeetinghouse.com",
                 "title": "The Meeting House - Welcome",
-                "description": ""
+                "description": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing."
             },
             {
                 "type": "hero",

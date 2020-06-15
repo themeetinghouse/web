@@ -70,7 +70,12 @@ exports.handler = async (event, context, callback) => {
 
         try {
             let page = await browser.newPage();
-            await page.goto("https://www.themeetinghouse.com" + request.uri);
+            console.log(request.uri)
+            if (request.uri == "/index.html")
+                await page.goto("https://www.themeetinghouse.com/");
+            else
+                await page.goto("https://www.themeetinghouse.com" + request.uri);
+            // await page.waitForSelector("meta[property='og:image:type']")
             const result = await page.content();
             browser.close();
             var head = "<!DOCTYPE html><html lang=\"en-US\"><head><title>The Meeting House</title>" + result.match(/<meta[^>]+>/gi).join("") + "</head><body>no content</body></html>";

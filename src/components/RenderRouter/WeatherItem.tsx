@@ -48,7 +48,7 @@ class HeroItem extends React.Component<Props, State> {
         let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
         serviceHour = serviceHour.substr(0, serviceHour.indexOf(":"));
         nextSunday = nextSunday.hour(+serviceHour);
-        let event = {
+        const event = {
             title: 'Church at The Meeting House',
             description: 'Join us at The Meeting House on Sunday!',
             location: locationItem.location.address,
@@ -74,20 +74,20 @@ class HeroItem extends React.Component<Props, State> {
 
     }
     smoothScrollTo(endX: any, endY: any, duration: any) {
-        let startX = window.scrollX || window.pageXOffset,
+        const startX = window.scrollX || window.pageXOffset,
             startY = window.scrollY || window.pageYOffset,
             distanceX = endX - startX,
             distanceY = endY - startY,
             startTime = new Date().getTime();
 
         // Easing function
-        let easeInOutQuart = function (time: any, from: any, distance: any, duration: any) {
+        const easeInOutQuart = function (time: any, from: any, distance: any, duration: any) {
             if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
             return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
         };
 
-        let timer = window.setInterval(function () {
-            let time = new Date().getTime() - startTime,
+        const timer = window.setInterval(function () {
+            const time = new Date().getTime() - startTime,
                 newX = easeInOutQuart(time, startX, distanceX, duration),
                 newY = easeInOutQuart(time, startY, distanceY, duration);
             if (time >= duration) {
@@ -97,7 +97,7 @@ class HeroItem extends React.Component<Props, State> {
         }, 1000 / 60); // 60 fps
     }
     scrollToNextPage() {
-        let pos = window.outerHeight;
+        const pos = window.outerHeight;
         if ('scrollBehavior' in document.documentElement.style) { //Checks if browser supports scroll function
             window.scroll({
                 top: pos,
@@ -135,9 +135,9 @@ class HeroItem extends React.Component<Props, State> {
                     <hr className="weatheroHr"></hr>
                     <div className="weatherText1" >{this.state.content.text1}</div>
                     <div className="weatherText1" ><b>Closed Locations</b>
-                        {this.state.content.list.map((item: any) => {
+                        {this.state.content.list.map((item: any, index: any) => {
                             return (
-                                <div>{item.title}</div>
+                                <div key={index}>{item.title}</div>
                             )
                         })}
                     </div>

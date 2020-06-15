@@ -67,7 +67,7 @@ export default class DataLoader extends React.Component<Props, State> {
                 )
             } else {
                 this.props.dataLoaded(
-                    json.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle === this.state.content.selector)
+                    json.data.getVideoByVideoType.items.filter((item: any) => item.seriesTitle === this.state.content.selector)
                 )
             }
             if (json.data.getVideoByVideoType.nextToken != null)
@@ -76,21 +76,21 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => {
             console.log({ "Error: ": e })
             if (this.state.content.selector === "all") {
-                if (e.data){
-                this.props.dataLoaded(
-                    e.data.getVideoByVideoType.items
-                )
+                if (e.data) {
+                    this.props.dataLoaded(
+                        e.data.getVideoByVideoType.items
+                    )
                 }
             }
             else {
                 if (e.data)
-                this.props.dataLoaded(
-                    e.data.getVideoByVideoType.items.filter((item:any) => item.seriesTitle === this.state.content.selector)
-                )
+                    this.props.dataLoaded(
+                        e.data.getVideoByVideoType.items.filter((item: any) => item.seriesTitle === this.state.content.selector)
+                    )
             }
             if (e.data)
-            if (e.data.getVideoByVideoType.nextToken != null)
-                this.getVideos(e.data.getVideoByVideoType.nextToken)
+                if (e.data.getVideoByVideoType.nextToken != null)
+                    this.getVideos(e.data.getVideoByVideoType.nextToken)
         })
     }
     getSpeakers(nextToken: any) {
@@ -107,7 +107,7 @@ export default class DataLoader extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
     getBlogs(nextToken: any) {
-        const getBlogByBlogStatus: any = API.graphql(graphqlOperation(queries.getBlogByBlogStatus, { nextToken: nextToken, blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: 200}));
+        const getBlogByBlogStatus: any = API.graphql(graphqlOperation(queries.getBlogByBlogStatus, { nextToken: nextToken, blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: 200 }));
         getBlogByBlogStatus.then((json: any) => {
             console.log("Success queries.getBlogByBlogStatus: " + json);
             console.log(json)
@@ -155,8 +155,8 @@ export default class DataLoader extends React.Component<Props, State> {
             console.log("Success queries.getFBEvents: " + json);
             console.log(json)
             this.props.dataLoaded(this.filterEvents(json.data.getFBEvents.data).sort((a: any, b: any) => {
-                var a_time: Date = new Date(a.start_time.substring(0, a.start_time.length - 2) + ":" + a.start_time.substring(a.start_time.length - 2))
-                var b_time: Date = new Date(b.start_time.substring(0, b.start_time.length - 2) + ":" + b.start_time.substring(b.start_time.length - 2))
+                const a_time: Date = new Date(a.start_time.substring(0, a.start_time.length - 2) + ":" + a.start_time.substring(a.start_time.length - 2))
+                const b_time: Date = new Date(b.start_time.substring(0, b.start_time.length - 2) + ":" + b.start_time.substring(b.start_time.length - 2))
                 return a_time > b_time;
             }))
 
@@ -167,7 +167,7 @@ export default class DataLoader extends React.Component<Props, State> {
             return items;
         else
             return items.filter((item: any) => {
-                var start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
+                const start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
                 return (new Date() < start_date)
             })
     }

@@ -18,11 +18,11 @@ class HorizontalScrollList extends React.Component<Props, State> {
 
     scrollContainerElement: any;
     scrollNavElement: any;
-    pageWidth: number = 0;
-    pageWidthActual: number = 0;
-    scrollableContentWidth: number = 0;
-    itemsPerPage: number = 0;
-    useSmoothScroll: boolean = false;
+    pageWidth = 0;
+    pageWidthActual = 0;
+    scrollableContentWidth = 0;
+    itemsPerPage = 0;
+    useSmoothScroll = false;
     scrollTimer: any;
 
     constructor(props: Props) {
@@ -87,15 +87,15 @@ class HorizontalScrollList extends React.Component<Props, State> {
 
     smoothScrollTo(element: any, distanceX: any, duration: any) {
         const startX = element.scrollLeft;
-        let startTime = new Date().getTime();
+        const startTime = new Date().getTime();
 
         if (this.scrollTimer) {
             window.clearInterval(this.scrollTimer);
         }
 
-        let easeOutQuart = function (t: number): number { return 1 - (--t) * t * t * t };
+        const easeOutQuart = function (t: number): number { return 1 - (--t) * t * t * t };
         this.scrollTimer = window.setInterval(() => {
-            let time = (new Date().getTime() - startTime) / duration,
+            const time = (new Date().getTime() - startTime) / duration,
                 newX = startX + (distanceX * easeOutQuart(time));
             if (time >= 1) {
                 window.clearInterval(this.scrollTimer);
@@ -104,7 +104,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
             }
             element.scrollLeft = newX;
         }, 1000 / 60); // 60 fps
-    };
+    }
 
     getScrollLineClickHandler(scrollIndex: any) {
         return () => {
@@ -129,7 +129,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
 
     handleScroll = (event: any) => {
         if (this.state.numPages !== -1 && !this.useSmoothScroll) {
-            let element = event.target;
+            const element = event.target;
             let newCurrentPage = Math.floor(element.scrollLeft / (this.pageWidth - 10));
             if (element.scrollLeft >= (this.scrollableContentWidth - this.pageWidthActual - 10)) {
                 newCurrentPage = this.state.numPages - 1;

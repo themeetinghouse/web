@@ -119,8 +119,8 @@ class ListItem extends React.Component<Props, State> {
   }
 
   sortByDate(a: any, b: any, dir: "oldFirst" | "newFirst") {
-    var nameA = a.publishedDate.toUpperCase();
-    var nameB = b.publishedDate.toUpperCase();
+    const nameA = a.publishedDate.toUpperCase();
+    const nameB = b.publishedDate.toUpperCase();
     if (nameA > nameB) {
       return dir === "newFirst" ? -1 : 1;
     }
@@ -183,7 +183,7 @@ class ListItem extends React.Component<Props, State> {
       <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl("/posts/" + item.id)}>
         <img alt={item.title + " series image"}
           className="BlogSquareImage"
-          src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g,"")+".jpg"}
+          src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
           onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
@@ -191,7 +191,7 @@ class ListItem extends React.Component<Props, State> {
           <div className="BlogDesc">{item.description}</div>
         </div>
       </div>
-      )
+    )
   }
 
   fallbackToImage(
@@ -249,19 +249,19 @@ class ListItem extends React.Component<Props, State> {
   }
   renderEvent(item: any) {
 
-    var start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
-    var durationStr = start_date.toLocaleTimeString(navigator.language, {
+    const start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
+    let durationStr = start_date.toLocaleTimeString(navigator.language, {
       hour: '2-digit',
       minute: '2-digit'
     });
     if (item.end_date != null) {
-      var end_date = new Date(item.end_date.substring(0, item.end_date.length - 2) + ":" + item.end_date.substring(item.end_date.length - 2))
+      const end_date = new Date(item.end_date.substring(0, item.end_date.length - 2) + ":" + item.end_date.substring(item.end_date.length - 2))
       durationStr = durationStr + "-" + end_date.toLocaleTimeString(navigator.language, {
         hour: '2-digit',
         minute: '2-digit'
       });
     }
-    var description
+    let description
     if (item.description.length > 300) {
       if (item.description.indexOf(" ", 300) === -1)
         description = item.description
@@ -399,7 +399,7 @@ class ListItem extends React.Component<Props, State> {
   }
 
   render() {
-    var data
+    let data
     (this.props.content.filterField == null) ? data = this.state.listData :
       data = this.state.listData.filter((item: any) => {
         return item[this.props.content.filterField].includes(this.props.content.filterValue)
@@ -413,23 +413,23 @@ class ListItem extends React.Component<Props, State> {
           <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
           {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
           <div className="ListItemDiv2" >
-            
-            {this.state.content.class === "videos" ?
-            <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
-              {data.slice(0,this.state.numberOfVideos).concat("card").map((item: any, index: any) => {
-                if (item === "card")
-                  return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null
 
-                return this.renderItemRouter(item, index)
-              }
-              )}
-            </HorizontalScrollList>
-            : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
-              {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index)
-              }
-              )}
-            </HorizontalScrollList>}
+            {this.state.content.class === "videos" ?
+              <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
+                {data.slice(0, this.state.numberOfVideos).concat("card").map((item: any, index: any) => {
+                  if (item === "card")
+                    return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null
+
+                  return this.renderItemRouter(item, index)
+                }
+                )}
+              </HorizontalScrollList>
+              : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
+                {data.map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index)
+                }
+                )}
+              </HorizontalScrollList>}
             <div className="ListItemDiv5" ></div>
           </div>
         </div>
@@ -437,41 +437,41 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
     else if (this.state.content.style === "blogs") {
-      data.sort((a: any, b: any) => this.sortByDate(a,b,"newFirst"))
+      data.sort((a: any, b: any) => this.sortByDate(a, b, "newFirst"))
 
       const today = format(new Date(), "yyyy-MM-dd")
-      var dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
+      const dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
 
       return (
-      <div className="ListItemDiv1 BlogItem" >
-        <div className="BlogItemContainer">
+        <div className="ListItemDiv1 BlogItem" >
+          <div className="BlogItemContainer">
             {dateChecked.map((item: any, index: any) => {
               return this.renderItemRouter(item, index)
             }
             )}
+          </div>
         </div>
-      </div>
       )
     }
 
     else if (this.state.content.style === "horizontal-video-player") {
       if (!data.length) {
         return null
-      } 
+      }
       //videos are not stored in order within a series, so we sort here
-      data.sort((a: any, b: any) => this.sortByDate(a,b,"oldFirst"))
+      data.sort((a: any, b: any) => this.sortByDate(a, b, "oldFirst"))
       return (
         <div className="ListItem horizontal-video-player" >
           <div className="ListItemDiv1 horizontal-video-player" >
             <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
             {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-              <div className="WatchPageContainer">
-                {data.map((item: any, index: any) => {
-                  return this.renderItemRouter(item, index)
-                }
-                )}
-              </div>
-          <div className="HorizontalLine"></div>
+            <div className="WatchPageContainer">
+              {data.map((item: any, index: any) => {
+                return this.renderItemRouter(item, index)
+              }
+              )}
+            </div>
+            <div className="HorizontalLine"></div>
           </div>
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
@@ -479,7 +479,7 @@ class ListItem extends React.Component<Props, State> {
     }
 
     else if (this.state.content.style === "curious-ui") {
-      data.sort(function(a: any, b: any) { return a.episodeNumber - b.episodeNumber})
+      data.sort(function (a: any, b: any) { return a.episodeNumber - b.episodeNumber })
       return (
         <div className="ListItem horizontal" >
           <div className="ListItemDiv1" >
