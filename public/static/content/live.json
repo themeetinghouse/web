@@ -16,18 +16,30 @@
         },
         "content": [
             {
-                "title": "Townhall",
+                "title": "Livestream",
                 "type": "liveVideoPlayer",
-                "liveYoutubeId": "7uaFlAwNBnk",
-                "preRollYoutubeId": "7uaFlAwNBnk",
+                "liveYoutubeId": "x30KdEn1tdc",
+                "preRollYoutubeId": "na1g4ht-yNs",
                 "showLiveVideos": true,
                 "showAlternateLiveVideos": false,
-                "showKidsVideos": false,
                 "showNotes": false,
+                "showKidsVideos": true,
                 "menu": [
+                    {
+                        "title": "Kidmax",
+                        "linkto": "http://www.kidsandyouth.themeetinghouse.com/blog"
+                    },
+                    {
+                        "title": "Notes",
+                        "linkto": "web-notes"
+                    },
                     {
                         "title": "Connect",
                         "linkto": "http://www.themeetinghouse.com/connect"
+                    },
+                    {
+                        "title": "Music",
+                        "linkto": "http://media.themeetinghouse.com/podcast/handouts/Music.pdf"
                     },
                     {
                         "title": "Give",
