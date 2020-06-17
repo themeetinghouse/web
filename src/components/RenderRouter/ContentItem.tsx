@@ -5,11 +5,18 @@ import "./ContentItem.scss"
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 interface Props extends RouteComponentProps {
-  content: any
+  content: any;
 }
 interface State {
-  content: any
+  content: any;
 }
+
+interface BannerImage {
+  src: string;
+  alt: string;
+  linkto?: string;
+}
+
 class ContentItem extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props);
@@ -18,10 +25,13 @@ class ContentItem extends React.Component<Props, State>  {
     }
   }
   navigateTo(location: any) {
-    this.props.history.push(location, "as")
-    const unblock = this.props.history.block('Are you sure you want to leave this page?');
-    unblock();
-
+    if (location.includes("http")) {
+      window.open(location, '_blank', 'noopener noreferrer')
+    } else {
+      this.props.history.push(location, "as")
+      const unblock = this.props.history.block('Are you sure you want to leave this page?');
+      unblock();
+    }
   }
   imgUrl(size: any) {
     if (window.location.hostname === "localhost")
@@ -265,6 +275,20 @@ class ContentItem extends React.Component<Props, State>  {
           <div className="greyTwoClear"></div>
 
         </div>
+      )
+    }
+    else if (this.state.content.style === "banner-cards") {
+      const banners: BannerImage[] = this.state.content.images;
+      return (
+        banners.length === 2 ?
+          <div className="ContentItem bannerCards">
+              {this.state.content.images.map((img: BannerImage, index: number) => {
+                return img.linkto ? 
+                <img onClick={(): void => this.navigateTo(img.linkto)} className="bannerCardImage canClick" key={index} src={img.src} alt={img.alt}></img>
+                : <img className="bannerCardImage cannotClick" key={index} src={img.src} alt={img.alt}></img>
+              })}
+          </div> 
+          : null
       )
     }
     else if (this.state.content.style === "greenTwoText") {
