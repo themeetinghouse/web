@@ -3,16 +3,27 @@ import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./WeatherItem.scss"
-import DataLoader from './DataLoader';
 import moment from 'moment';
 
+interface Content {
+    style: string
+
+    header1: string
+    header2: string
+    text1: string
+
+    list: Array<{
+        type: string
+        title: string
+    }>
+}
+
 interface Props extends RouteComponentProps {
-    content: any
+    content: Content
     data: any
 }
 interface State {
-    content: any,
-    locationData: any,
+    content: Content
     arrowOpacity: any
 }
 class HeroItem extends React.Component<Props, State> {
@@ -20,29 +31,16 @@ class HeroItem extends React.Component<Props, State> {
         router: PropTypes.object,
         history: PropTypes.object
     }
-    dataLoader: DataLoader
 
     constructor(props: Props, context: any) {
         super(props, context);
         this.state = {
             content: props.content,
-            locationData: [],
             arrowOpacity: 1
         }
         this.navigate = this.navigate.bind(this);
-        this.setData = this.setData.bind(this);
-        this.dataLoader = new DataLoader({ ...this.props, dataLoaded: (data: any) => { this.setData(data) } }, this.state)
+    }
 
-    }
-    componentDidMount() {
-
-        this.dataLoader.loadData()
-    }
-    setData(data: any) {
-        this.setState({
-            locationData: this.state.locationData.concat(data)
-        })
-    }
     getCalendarEventForLocation(locationItem: any) {
         let nextSunday = (moment().day() === 0 ? moment().add(1, "week") : moment().day(0)).startOf("day");
         let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length - 1];

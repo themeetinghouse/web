@@ -78,9 +78,7 @@ interface State {
   contactHomeChurchId: any,
 }
 
-export class ContentItem extends React.Component<Props, State>  {
-
-  dataLoader: DataLoader;
+export class ContentItem extends React.Component<Props, State> {
   selectControl: any;
   inputControl: any;
   homeChurchListScrollContainer: any;
@@ -104,16 +102,13 @@ export class ContentItem extends React.Component<Props, State>  {
       currentLatLng: DEFAULT_LAT_LNG,
       showContactModal: false,
       contactHomeChurchId: null,
-    }
+    };
 
-    this.dataLoader = new DataLoader({
-      ...this.props, data: {}, dataLoaded: (data: any) => {
-        data.sort((l1: any, l2: any) => l1.name.localeCompare(l2.name));
-        console.log("HomeChurchItem.constructor(): Got locations: %o", data);
-        this.setState({ locations: data });
-      }
-    }, { content: { class: "locations" } })
-    this.dataLoader.loadData();
+    DataLoader.getLocations({ class: 'locations' }).then((locations) => {
+      locations.sort((l1: any, l2: any) => l1.name.localeCompare(l2.name));
+      console.log('HomeChurchItem.constructor(): Got locations: %o', locations);
+      this.setState({ locations });
+    });
 
     if (this.state.content.class === "home-church") {
 

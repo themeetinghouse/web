@@ -2,9 +2,8 @@ import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 //import * as customQueries from '../../graphql-custom/customQueries';
 
-//import * as queries from '../../graphql/queries';
-import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 //{ API, graphqlOperation } 
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
