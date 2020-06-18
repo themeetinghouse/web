@@ -49,6 +49,9 @@ interface State {
     showError: any
     showAddSeries: any
     getVideosState: any
+    deleteConfirmation: string
+    toDeleteVideo: string
+    showDeleteVideo: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -66,6 +69,7 @@ class AuthIndexApp extends React.Component<Props, State> {
     }
 }
 class IndexApp extends React.Component<Props, State> {
+    deleteConfirmation = "Delete forever"
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -80,7 +84,10 @@ class IndexApp extends React.Component<Props, State> {
             toSaveSeries: { id: "", title: "", startDate: "", endDate: "", seriesType: "" },
             videoEditorValues: {},
             showError: "",
-            getVideosState: "Starting Up"
+            getVideosState: "Starting Up",
+            deleteConfirmation: "",
+            toDeleteVideo: "",
+            showDeleteVideo: false
         }
         fetch('/static/data/import-video.json').then(function (response) {
             return response.json();
@@ -216,6 +223,7 @@ class IndexApp extends React.Component<Props, State> {
                     }
                 </select>
                 <button className="adminButton" onClick={() => { this.setState({ showAddSeries: true }) }}>Add Series</button>
+                <button className="adminButton" onClick={() => { this.setState({ showDeleteVideo: true }) }}>Delete Video</button>
                 <div>{this.state.getVideosState}</div>
             </div>
         )
@@ -278,6 +286,40 @@ class IndexApp extends React.Component<Props, State> {
 
 
     }
+
+    async delete() {
+        if (this.state.deleteConfirmation === this.deleteConfirmation && this.state.toDeleteVideo) {
+            try {
+                const deleteVideo: any = await API.graphql({
+                query: mutations.deleteVideo,
+                variables: { input: {id: this.state.toDeleteVideo} },
+                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+        
+                console.log({ "Success mutations.deleteVideo: ": deleteVideo });
+                this.setState({
+                toDeleteVideo: '',
+                deleteConfirmation: '',
+                showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`
+                })
+                return true
+            } catch(e) {
+                if (e.data && e.data.deleteVideo) {
+                    this.setState({
+                        toDeleteVideo: '',
+                        deleteConfirmation: '',
+                        showError: `Deleted: ${e.data.deleteVideo.id}`
+                    })
+                }
+                console.error(e)
+                return true
+            }
+        } else {
+            this.setState({ showError: 'Must type confirmation message and videoID' })
+            return false
+        }
+    }
+
     writeSeriesField(field: any, value: any) {
         const tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
@@ -409,6 +451,16 @@ class IndexApp extends React.Component<Props, State> {
             </div>
         </Modal>
     }
+    renderDeleteVideo() {
+        return <Modal isOpen={this.state.showDeleteVideo}>
+            <div>
+                <div>Enter ID: <input value={this.state.toDeleteVideo} onChange={(item: any) => this.setState({ toDeleteVideo: item.target.value })} /></div>
+                <div>Type &quot;Delete forever&quot;: <input value={this.state.deleteConfirmation} onChange={(item: any) => this.setState({ deleteConfirmation: item.target.value })} /></div>
+                <button onClick={() => { if (this.delete()) this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>SAVE</button>
+                <button style={{background: 'red'}} onClick={() => { this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>CANCEL</button>
+            </div>
+        </Modal>
+    }
     render() {
         return (
             <div>
@@ -420,6 +472,7 @@ class IndexApp extends React.Component<Props, State> {
                 </div>
                 {this.renderVideoEditor()}
                 {this.renderAddSeries()}
+                {this.renderDeleteVideo()}
                 <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
             </div >
         );
