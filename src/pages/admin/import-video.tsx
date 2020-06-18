@@ -456,8 +456,8 @@ class IndexApp extends React.Component<Props, State> {
             <div>
                 <div>Enter ID: <input value={this.state.toDeleteVideo} onChange={(item: any) => this.setState({ toDeleteVideo: item.target.value })} /></div>
                 <div>Type &quot;Delete forever&quot;: <input value={this.state.deleteConfirmation} onChange={(item: any) => this.setState({ deleteConfirmation: item.target.value })} /></div>
-                <button onClick={() => { if (this.delete()) this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>SAVE</button>
-                <button style={{background: 'red'}} onClick={() => { this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>CANCEL</button>
+                <button style={{background: 'orange'}} onClick={() => { if (this.delete()) this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>DELETE</button>
+                <button style={{background: 'grey'}} onClick={() => { this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>CANCEL</button>
             </div>
         </Modal>
     }
