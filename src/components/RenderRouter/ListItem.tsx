@@ -355,11 +355,11 @@ class ListItem extends React.Component<Props, State> {
       </div>
     )
   }
-  renderSeries(item: any) {
+  renderSeries(item: any, index: any) {
     if (item.videos.items.length > 0) {
       console.log(item.seriesType + "-" + item.title + ".jpg")
       return (
-        <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => a.episodeNumber > b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
+        <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => index === 0 ? b.episodeNumber - a.episodeNumber : a.episodeNumber - b.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
           <img alt={item.title + " series image"}
             className="ListItemImage2"
             src={"/static/photos/series/" + item.seriesType + "-" + item.title.replace("?", "") + ".jpg"}
@@ -388,7 +388,7 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === "compassion")
       return this.renderCompassion(item)
     else if (this.state.content.class === "series")
-      return this.renderSeries(item)
+      return this.renderSeries(item, index)
     else if (this.state.content.class === "curious")
       return this.renderCurious(item)
     else if (this.state.content.class === "watch-page")
