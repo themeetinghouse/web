@@ -49,7 +49,6 @@ interface State {
     showError: any
     showAddSeries: any
     getVideosState: any
-    deleteConfirmation: string
     toDeleteVideo: string
     showDeleteVideo: boolean
 }
@@ -69,7 +68,6 @@ class AuthIndexApp extends React.Component<Props, State> {
     }
 }
 class IndexApp extends React.Component<Props, State> {
-    deleteConfirmation = "Delete forever"
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -85,7 +83,6 @@ class IndexApp extends React.Component<Props, State> {
             videoEditorValues: {},
             showError: "",
             getVideosState: "Starting Up",
-            deleteConfirmation: "",
             toDeleteVideo: "",
             showDeleteVideo: false
         }
@@ -288,7 +285,7 @@ class IndexApp extends React.Component<Props, State> {
     }
 
     async delete() {
-        if (this.state.deleteConfirmation === this.deleteConfirmation && this.state.toDeleteVideo) {
+        if (this.state.toDeleteVideo) {
             try {
                 const deleteVideo: any = await API.graphql({
                 query: mutations.deleteVideo,
@@ -299,24 +296,21 @@ class IndexApp extends React.Component<Props, State> {
                 console.log({ "Success mutations.deleteVideo: ": deleteVideo });
                 this.setState({
                 toDeleteVideo: '',
-                deleteConfirmation: '',
-                showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`
+                showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
+                showDeleteVideo: false
                 })
-                return true
             } catch(e) {
                 if (e.data && e.data.deleteVideo) {
                     this.setState({
                         toDeleteVideo: '',
-                        deleteConfirmation: '',
-                        showError: `Deleted: ${e.data.deleteVideo.id}`
+                        showError: `Deleted: ${e.data.deleteVideo.id}`,
+                        showDeleteVideo: false
                     })
                 }
                 console.error(e)
-                return true
             }
         } else {
-            this.setState({ showError: 'Must type confirmation message and videoID' })
-            return false
+            this.setState({ showError: 'videoID required for delete operation' })
         }
     }
 
@@ -455,9 +449,8 @@ class IndexApp extends React.Component<Props, State> {
         return <Modal isOpen={this.state.showDeleteVideo}>
             <div>
                 <div>Enter ID: <input value={this.state.toDeleteVideo} onChange={(item: any) => this.setState({ toDeleteVideo: item.target.value })} /></div>
-                <div>Type &quot;Delete forever&quot;: <input value={this.state.deleteConfirmation} onChange={(item: any) => this.setState({ deleteConfirmation: item.target.value })} /></div>
-                <button style={{background: 'orange'}} onClick={() => { if (this.delete()) this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>DELETE</button>
-                <button style={{background: 'grey'}} onClick={() => { this.setState({ showDeleteVideo: false, deleteConfirmation: '', toDeleteVideo: '' }) }}>CANCEL</button>
+                <button style={{background: 'orange'}} onClick={() => this.delete()}>DELETE</button>
+                <button style={{background: 'grey'}} onClick={() => { this.setState({ showDeleteVideo: false, toDeleteVideo: '' }) }}>CANCEL</button>
             </div>
         </Modal>
     }
