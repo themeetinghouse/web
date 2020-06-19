@@ -44,16 +44,16 @@ export default class Menu extends React.Component<Props, State> {
 
     };
   }
-  getState = async () => {
-    Auth.currentAuthenticatedUser().then(user => {
+  async getState() {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
       console.log(user.username);
       this.setState({ userName: user.username });
-    }
-    ).catch(() => {
-      console.log("no user");
+    } catch(e) {
+      console.error(e)
+      console.log("no user")
       this.setState({ userName: "No User" });
     }
-    )
   };
 
 
