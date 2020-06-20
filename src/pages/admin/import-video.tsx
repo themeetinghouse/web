@@ -571,7 +571,7 @@ class IndexApp extends React.Component<Props, State> {
         return false;
     }  
     async savePlaylist(): Promise<void> {
-        if (this.state.toSavePlaylist.title !== "") {
+        if (this.state.toSavePlaylist.title) {
             try {
                 const savePlaylist: any = await API.graphql({
                     query: mutations.createCustomPlaylist,
