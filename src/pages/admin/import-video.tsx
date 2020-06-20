@@ -74,6 +74,9 @@ class AuthIndexApp extends React.Component<Props, State> {
         }
     }
 }
+
+const customPlaylistTypes = ['teaching-recommendations']
+
 class IndexApp extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
@@ -533,6 +536,14 @@ class IndexApp extends React.Component<Props, State> {
             </div>
         )
     }
+    updateCustomPlaylistField(field: string, value: string) {
+        const toSave = this.state.toSavePlaylist
+        toSave[field] = value
+        if (field === "title")
+            toSave['id'] = value
+        this.setState({ toSavePlaylist: toSave })
+    }
+
     updateSeriesField(field: any, value: any) {
         const toSaveSeries = this.state.toSaveSeries
         toSaveSeries[field] = value
@@ -559,7 +570,7 @@ class IndexApp extends React.Component<Props, State> {
         }
         return false;
     }  
-    async savePlaylist(): Promise<boolean> {
+    async savePlaylist(): Promise<void> {
         if (this.state.toSavePlaylist.title !== "") {
             try {
                 const savePlaylist: any = await API.graphql({
@@ -568,12 +579,14 @@ class IndexApp extends React.Component<Props, State> {
                     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
                 });
                 console.log({ "Success mutations.createCustomPlaylist: ": savePlaylist });
+                this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} })
             } catch(e) {
                 console.error(e)
+                this.setState({ showAddCustomPlaylist: false })
             }
-            return true
+        } else {
+            this.setState({ showError: 'Playlist needs title' })
         }
-        return false;
     }  
     renderAddSeries() {
         return <Modal isOpen={this.state.showAddSeries}>
@@ -599,9 +612,17 @@ class IndexApp extends React.Component<Props, State> {
         return <Modal isOpen={this.state.showAddCustomPlaylist}>
             <div>
                 <div>id: {this.state.toSavePlaylist.id}</div>
-                <div>Name: <input value={this.state.toSavePlaylist.title} onChange={(item: any) => {this.setState({ toSavePlaylist: {id: item.target.value, title: item.target.value} })}}/></div>
-                <button onClick={() => { if (this.savePlaylist()) this.setState({ showAddCustomPlaylist: false }) }}>Save</button>
-                <button style={{background: 'red'}} onClick={() => { this.setState({ showAddCustomPlaylist: false }) }}>Cancel</button>
+                <div>Name: <input value={this.state.toSavePlaylist.title} onChange={(item: any) => { this.updateCustomPlaylistField("title", item.target.value) }}/></div>
+                <div>Playlist Type: <select className="dropdown2" value={this.state.toSavePlaylist.seriesType} onChange={(item: any) => { this.updateCustomPlaylistField("seriesType", item.target.value) }} >
+                    <option key='null' value='null'>None Selected</option>
+                    {
+                        customPlaylistTypes.map((item: string, index: number) => {
+                            return (<option key={index} value={item}>{item}</option>)
+                        })
+                    }
+                </select></div>
+                <button onClick={() => { this.savePlaylist() }}>Save</button>
+                <button style={{background: 'red'}} onClick={() => { this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} }) }}>Cancel</button>
             </div>
         </Modal>
     }
