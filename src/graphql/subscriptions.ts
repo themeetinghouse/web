@@ -797,6 +797,7 @@ export const onCreateLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -820,6 +821,7 @@ export const onUpdateLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -843,6 +845,7 @@ export const onDeleteLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -887,6 +890,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -917,6 +921,7 @@ export const onCreateSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -987,6 +992,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1027,6 +1033,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1090,6 +1097,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1157,6 +1165,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1187,6 +1196,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -1257,6 +1267,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1297,6 +1308,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1360,6 +1372,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1427,6 +1440,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1457,6 +1471,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -1527,6 +1542,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1567,6 +1583,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1630,6 +1647,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1698,6 +1716,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -1792,6 +1811,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -1897,6 +1917,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2001,6 +2022,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2165,6 +2187,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2294,6 +2317,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2388,6 +2412,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -2493,6 +2518,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2597,6 +2623,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2761,6 +2788,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2890,6 +2918,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2984,6 +3013,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -3089,6 +3119,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3193,6 +3224,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3357,6 +3389,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3467,6 +3500,7 @@ export const onCreateSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -3567,6 +3601,7 @@ export const onCreateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3629,6 +3664,7 @@ export const onCreateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3731,6 +3767,7 @@ export const onCreateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3812,6 +3849,7 @@ export const onCreateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3969,6 +4007,7 @@ export const onUpdateSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -4069,6 +4108,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4131,6 +4171,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4233,6 +4274,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4314,6 +4356,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4471,6 +4514,7 @@ export const onDeleteSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -4571,6 +4615,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4633,6 +4678,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4735,6 +4781,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4816,6 +4863,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4998,6 +5046,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5028,6 +5077,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5098,6 +5148,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5138,6 +5189,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5201,6 +5253,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5275,6 +5328,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5305,6 +5359,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5375,6 +5430,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5415,6 +5471,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5478,6 +5535,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5552,6 +5610,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5582,6 +5641,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5652,6 +5712,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5692,6 +5753,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5755,6 +5817,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5831,6 +5894,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -5925,6 +5989,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -6030,6 +6095,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6134,6 +6200,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6298,6 +6365,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6435,6 +6503,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6529,6 +6598,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -6634,6 +6704,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6738,6 +6809,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6902,6 +6974,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7039,6 +7112,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7133,6 +7207,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -7238,6 +7313,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7342,6 +7418,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7506,6 +7583,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7605,6 +7683,7 @@ export const onCreateVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -7713,6 +7792,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7743,6 +7823,7 @@ export const onCreateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -7813,6 +7894,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7853,6 +7935,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7916,6 +7999,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7960,6 +8044,7 @@ export const onCreateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8030,6 +8115,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8070,6 +8156,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8133,6 +8220,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8192,6 +8280,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8310,6 +8399,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8340,6 +8430,7 @@ export const onCreateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8410,6 +8501,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8450,6 +8542,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8513,6 +8606,7 @@ export const onCreateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8551,6 +8645,7 @@ export const onUpdateVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -8659,6 +8754,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8689,6 +8785,7 @@ export const onUpdateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8759,6 +8856,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8799,6 +8897,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8862,6 +8961,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8906,6 +9006,7 @@ export const onUpdateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8976,6 +9077,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9016,6 +9118,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9079,6 +9182,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9138,6 +9242,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9256,6 +9361,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9286,6 +9392,7 @@ export const onUpdateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9356,6 +9463,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9396,6 +9504,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9459,6 +9568,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9497,6 +9607,7 @@ export const onDeleteVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -9605,6 +9716,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9635,6 +9747,7 @@ export const onDeleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9705,6 +9818,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9745,6 +9859,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9808,6 +9923,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9852,6 +9968,7 @@ export const onDeleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9922,6 +10039,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9962,6 +10080,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10025,6 +10144,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10084,6 +10204,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10202,6 +10323,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10232,6 +10354,7 @@ export const onDeleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -10302,6 +10425,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10342,6 +10466,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10405,6 +10530,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10534,6 +10660,7 @@ export const onCreateBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10719,6 +10846,7 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10904,6 +11032,7 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -11115,6 +11244,7 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -11451,6 +11581,7 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -11787,6 +11918,7 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -12032,6 +12164,7 @@ export const onCreateBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -12102,6 +12235,7 @@ export const onCreateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12142,6 +12276,7 @@ export const onCreateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12205,6 +12340,7 @@ export const onCreateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12264,6 +12400,7 @@ export const onCreateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12434,6 +12571,7 @@ export const onCreateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12554,6 +12692,7 @@ export const onUpdateBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -12624,6 +12763,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12664,6 +12804,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12727,6 +12868,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12786,6 +12928,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12956,6 +13099,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13076,6 +13220,7 @@ export const onDeleteBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -13146,6 +13291,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13186,6 +13332,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13249,6 +13396,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13308,6 +13456,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13478,6 +13627,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
