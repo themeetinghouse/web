@@ -314,23 +314,12 @@ class IndexApp extends React.Component<Props, State> {
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
             console.log({ "Success queries.getVideo: ": getVideo })
-            if (getVideo.data.getVideo.customPlaylists) {
-                const addTo: any = [] 
-                for (const item of getVideo.data.getVideo.customPlaylists.items) {
-                    addTo.concat(item.customPlaylistID)
-                }
-                this.setState({ addToPlaylists: addTo })
-            }
-
+            if (getVideo.data.getVideo.customPlaylistIDs)
+                this.setState({ addToPlaylists: getVideo.data.getVideo.customPlaylistIDs })
         } catch (e) {
-            if (e.data.getVideo.customPlaylists) {
-                const addTo: any = [] 
-                for (const item of e.data.getVideo.customPlaylists.items) {
-                    addTo.concat(item.customPlaylistID)
-                }
-                this.setState({ addToPlaylists: addTo })
-            }
             console.error(e)
+            if (e.data.getVideo.customPlaylistIDs)
+                this.setState({ addToPlaylists: e.data.getVideo.customPlaylistIDs })
         }
     } 
     async save(): Promise<void> {
@@ -370,6 +359,8 @@ class IndexApp extends React.Component<Props, State> {
                     toRemove.splice(i,1)
             }
         }
+
+        this.writeField('customPlaylistIDs',toAdd)
 
         for (const playlist of toAdd) {
             const connectionID = this.state.selectedVideo.id + '-' + playlist
@@ -429,6 +420,7 @@ class IndexApp extends React.Component<Props, State> {
         } else {
             this.setState({ showError: 'videoID required for delete operation' })
         }
+    }
     removePlaylist(item: string): void {
         const removedIndex = this.state.addToPlaylists.indexOf(item)
         const temp = this.state.addToPlaylists
