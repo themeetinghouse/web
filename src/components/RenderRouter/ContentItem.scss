@@ -471,6 +471,23 @@ transform:rotate(attr(data-value,deg,0);
         padding-bottom: 5vw;
     }
 
+    .ContentItem.bannerCards {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        margin-bottom: 5vw;
+    }
+
+    .bannerCardImage {
+        $width: 38.33vw;
+        height: (248/552)*$width;
+        margin-right: 1.67vw;
+    }
+
+    .bannerCardImage.canClick:hover {
+        cursor: pointer;
+    }
+
     .greyTwoText {
         left: 0vw;
         position: relative;
@@ -924,6 +941,22 @@ transform:rotate(attr(data-value,deg,0);
         // padding-bottom: 5vw;
         // padding-top: 45vw;
         display: relative;
+    }
+
+    .ContentItem.bannerCards {
+        position: relative;
+        width: 80vw;
+        padding: 10vw 5vw 0vw;
+    }
+
+    .bannerCardImage {
+        $width: 88.53vw;
+        height: (248/552)*$width;
+        margin-bottom: 6.4vw;
+    }
+
+    .bannerCardImage.canClick:hover {
+        cursor: pointer;
     }
 
     .ContentItemMarginBottom {
