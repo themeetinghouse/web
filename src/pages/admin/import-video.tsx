@@ -23,9 +23,6 @@ Amplify.configure(awsmobile);
 const federated = {
     facebookAppId: '579712102531269'
 };
-interface Props {
-    authState?: any
-}
 interface State {
     getVideoQueryId: any
     videoTypes: any
@@ -41,8 +38,9 @@ interface State {
     getVideosState: any
 }
 
-class Index extends React.Component<Props, State> {
-    constructor(props: Props) {
+// eslint-disable-next-line @typescript-eslint/ban-types
+class Index extends React.Component<{}, State> {
+    constructor(props) {
         super(props)
         this.state = {
             showAddSeries: false,
@@ -163,7 +161,8 @@ class Index extends React.Component<Props, State> {
             }
         }
     }
-    componentDidUpdate(prevProps: Props, prevState: State) {
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    componentDidUpdate(prevProps: {}, prevState: State) {
         if (this.state.selectedVideoType !== prevState.selectedVideoType)
             this.getVideos(null)
     }

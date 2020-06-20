@@ -28,9 +28,6 @@ const federated = {
   facebookAppId: '579712102531269'
 };
 
-interface Props {
-    authState?: any
-}
 interface State {
   editorState: any
   showPreview: boolean
@@ -51,9 +48,10 @@ interface State {
   title: string
 }
 
-class Index extends React.Component<Props, State> {
+// eslint-disable-next-line @typescript-eslint/ban-types
+class Index extends React.Component<{}, State> {
   deleteConfirmation = "Delete forever";
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.state = { 
       // input
