@@ -1189,58 +1189,6 @@ export const getCustomPlaylist = `
           customPlaylistID
           createdAt
           updatedAt
-          customPlaylist {
-            id
-            seriesType
-            title
-            description
-            createdAt
-            updatedAt
-            videos {
-              items {
-                id
-                videoID
-                customPlaylistID
-                createdAt
-                updatedAt
-                customPlaylist {
-                  id
-                  seriesType
-                  title
-                  description
-                  createdAt
-                  updatedAt
-                }
-                video {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  publishedDate
-                  recordedDate
-                  description
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
-          }
           video {
             id
             createdBy
@@ -1326,47 +1274,6 @@ export const getCustomPlaylist = `
             audioURL
             createdAt
             updatedAt
-            speakers {
-              items {
-                id
-                createdAt
-                updatedAt
-                speaker {
-                  id
-                  name
-                  image
-                  createdAt
-                  updatedAt
-                }
-                video {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  publishedDate
-                  recordedDate
-                  description
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
-            }
             series {
               id
               seriesType
@@ -1425,50 +1332,6 @@ export const getCustomPlaylist = `
                 }
                 nextToken
               }
-            }
-            customPlaylists {
-              items {
-                id
-                videoID
-                customPlaylistID
-                createdAt
-                updatedAt
-                customPlaylist {
-                  id
-                  seriesType
-                  title
-                  description
-                  createdAt
-                  updatedAt
-                }
-                video {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  publishedDate
-                  recordedDate
-                  description
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  createdAt
-                  updatedAt
-                }
-              }
-              nextToken
             }
           }
         }
