@@ -17,6 +17,7 @@ import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import DatePicker from "react-datepicker";
+import { EmptyProps } from '../../utils';
 import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
@@ -64,10 +65,9 @@ interface State {
   understandBlogSeries: string
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-class Index extends React.Component<{},State> {
+class Index extends React.Component<EmptyProps,State> {
   deleteConfirmation = "Delete forever";
-  constructor(props) {
+  constructor(props: EmptyProps) {
     super(props);
     this.state = { 
       // text input
@@ -107,8 +107,6 @@ class Index extends React.Component<{},State> {
       blogToEditID: null,
       blogToEditObject: null,
 
-      // determines if we create a new blog or update an existing blog
-      // always start with new post
       editMode: false,
 
       // mutation inputs

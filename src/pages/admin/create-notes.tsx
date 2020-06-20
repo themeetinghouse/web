@@ -20,6 +20,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import getDay from 'date-fns/getDay';
+import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 
@@ -48,10 +49,9 @@ interface State {
   title: string
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-class Index extends React.Component<{}, State> {
+class Index extends React.Component<EmptyProps, State> {
   deleteConfirmation = "Delete forever";
-  constructor(props) {
+  constructor(props: EmptyProps) {
     super(props);
     this.state = { 
       // input

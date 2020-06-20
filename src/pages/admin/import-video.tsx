@@ -15,6 +15,7 @@ import "./import-video.scss"
 import awsmobile from '../../aws-exports';
 import { v4 as uuidv4 } from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
+import { EmptyProps } from '../../utils'
 import { Modal } from 'reactstrap';
 
 //import { Button } from 'reactstrap';
@@ -40,9 +41,8 @@ interface State {
     showDeleteVideo: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-class Index extends React.Component<{}, State> {
-    constructor(props) {
+class Index extends React.Component<EmptyProps, State> {
+    constructor(props: EmptyProps) {
         super(props)
         this.state = {
             showAddSeries: false,
@@ -165,8 +165,7 @@ class Index extends React.Component<{}, State> {
             }
         }
     }
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    componentDidUpdate(prevProps: {}, prevState: State) {
+    componentDidUpdate(prevProps: EmptyProps, prevState: State) {
         if (this.state.selectedVideoType !== prevState.selectedVideoType)
             this.getVideos(null)
     }
