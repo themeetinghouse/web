@@ -524,6 +524,7 @@ type Livestream
   showKids: Boolean
   menu: [LiveMenu]
   titles: [String]
+  homepageLink: String
 }
 type Speaker
  @model
@@ -579,13 +580,7 @@ type CustomPlaylist
  ])
 {
   id: ID!
-  videos: [CustomPlaylistVideo] 
-  @connection(keyName: "byCustomPlaylist", fields: ["id"])
-  @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
-  ])
+  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"])
   seriesType: String
   title: String
   description: String
@@ -598,26 +593,14 @@ type CustomPlaylistVideo
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
-  @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"], queryField: "CustomPlaylistVideoByPlaylist")
-  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"], queryField: "CustomPlaylistVideoByVideo") 
+  @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"])
+  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"]) 
 {
   id: ID!
   videoID: ID!
   customPlaylistID: ID!
-  customPlaylist: CustomPlaylist 
-  @connection(fields: ["customPlaylistID"])
-  @auth(rules:[
-    {allow:public, operations:[read]},
-    {allow:private, operations:[read],provider:iam},
-    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
-  ])
-  video: Video
-  @connection(fields: ["videoID"])
-  @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
-  ])
+  customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
+  video: Video @connection(fields: ["videoID"])
 }
 type Video 
  @model 
@@ -640,13 +623,8 @@ type Video
   episodeNumber:Int
   seriesTitle:String
   series:Series  @connection(name: "VideosSeries")
-  customPlaylists: [CustomPlaylistVideo] 
-  @connection(keyName: "byVideo", fields: ["id"])
-  @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
-  ])
+  customPlaylistIDs: [String]
+  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"])
   publishedDate:String
   recordedDate:String
   description:String

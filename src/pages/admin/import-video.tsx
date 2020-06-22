@@ -49,6 +49,8 @@ interface State {
     showError: any
     showAddSeries: any
     getVideosState: any
+    toDeleteVideo: string
+    showDeleteVideo: boolean
 }
 
 class AuthIndexApp extends React.Component<Props, State> {
@@ -80,7 +82,9 @@ class IndexApp extends React.Component<Props, State> {
             toSaveSeries: { id: "", title: "", startDate: "", endDate: "", seriesType: "" },
             videoEditorValues: {},
             showError: "",
-            getVideosState: "Starting Up"
+            getVideosState: "Starting Up",
+            toDeleteVideo: "",
+            showDeleteVideo: false
         }
         fetch('/static/data/import-video.json').then(function (response) {
             return response.json();
@@ -216,6 +220,7 @@ class IndexApp extends React.Component<Props, State> {
                     }
                 </select>
                 <button className="adminButton" onClick={() => { this.setState({ showAddSeries: true }) }}>Add Series</button>
+                <button className="adminButton" onClick={() => { this.setState({ showDeleteVideo: true }) }}>Delete Video</button>
                 <div>{this.state.getVideosState}</div>
             </div>
         )
@@ -278,6 +283,37 @@ class IndexApp extends React.Component<Props, State> {
 
 
     }
+
+    async delete() {
+        if (this.state.toDeleteVideo) {
+            try {
+                const deleteVideo: any = await API.graphql({
+                query: mutations.deleteVideo,
+                variables: { input: {id: this.state.toDeleteVideo} },
+                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+        
+                console.log({ "Success mutations.deleteVideo: ": deleteVideo });
+                this.setState({
+                toDeleteVideo: '',
+                showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
+                showDeleteVideo: false
+                })
+            } catch(e) {
+                if (e.data && e.data.deleteVideo) {
+                    this.setState({
+                        toDeleteVideo: '',
+                        showError: `Deleted: ${e.data.deleteVideo.id}`,
+                        showDeleteVideo: false
+                    })
+                }
+                console.error(e)
+            }
+        } else {
+            this.setState({ showError: 'videoID required for delete operation' })
+        }
+    }
+
     writeSeriesField(field: any, value: any) {
         const tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
@@ -409,6 +445,15 @@ class IndexApp extends React.Component<Props, State> {
             </div>
         </Modal>
     }
+    renderDeleteVideo() {
+        return <Modal isOpen={this.state.showDeleteVideo}>
+            <div>
+                <div>Enter ID: <input value={this.state.toDeleteVideo} onChange={(item: any) => this.setState({ toDeleteVideo: item.target.value })} /></div>
+                <button style={{background: 'orange'}} onClick={() => this.delete()}>DELETE</button>
+                <button style={{background: 'grey'}} onClick={() => { this.setState({ showDeleteVideo: false, toDeleteVideo: '' }) }}>CANCEL</button>
+            </div>
+        </Modal>
+    }
     render() {
         return (
             <div>
@@ -420,6 +465,7 @@ class IndexApp extends React.Component<Props, State> {
                 </div>
                 {this.renderVideoEditor()}
                 {this.renderAddSeries()}
+                {this.renderDeleteVideo()}
                 <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
             </div >
         );
