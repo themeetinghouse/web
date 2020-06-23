@@ -6,6 +6,9 @@
     color: #ffffff;
     font-size: 10px;
 }
+.dropdown-option {
+    color: black;
+}
 .getVidState{color:#ffffff;}
 .dropdown2 {
     width: 20vw;
@@ -103,4 +106,8 @@ table th,table td{
     font-size:10px;
     margin:1px;
     padding:1px;
+}
+
+.PlaylistSelections:hover {
+    color: red;
 }
