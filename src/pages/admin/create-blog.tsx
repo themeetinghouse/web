@@ -4,7 +4,7 @@ import { Editor } from 'react-draft-wysiwyg'
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
-import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
@@ -17,6 +17,7 @@ import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import DatePicker from "react-datepicker";
+import { EmptyProps } from '../../utils';
 import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
@@ -24,21 +25,9 @@ import './create-blog.scss';
 
 Amplify.configure(awsmobile);
 const federated = {
-    google_client_id: '',
-    facebook_app_id: '579712102531269',
-    amazon_client_id: ''
+  facebookAppId: '579712102531269'
 };
 
-const Index = () => (
-    <div>
-        <Authenticator federated={federated} hide={[Greetings, SignOut]}>
-            <AuthIndexApp></AuthIndexApp>
-        </Authenticator>
-    </div>
-)
-interface Props {
-    authState?: any
-}
 interface State {
   editorState: any
   title: string
@@ -76,24 +65,9 @@ interface State {
   understandBlogSeries: string
 }
 
-class AuthIndexApp extends React.Component<Props, State> {
-
-  render() {
-      if (this.props.authState === "signedIn") {
-          return (
-              <div>
-                  <IndexApp></IndexApp>
-              </div>
-          );
-      } else {
-          return null;
-      }
-  }
-}
-
-class IndexApp extends React.Component<Props, State> {
+class Index extends React.Component<EmptyProps,State> {
   deleteConfirmation = "Delete forever";
-  constructor(props: Props) {
+  constructor(props: EmptyProps) {
     super(props);
     this.state = { 
       // text input
@@ -133,8 +107,6 @@ class IndexApp extends React.Component<Props, State> {
       blogToEditID: null,
       blogToEditObject: null,
 
-      // determines if we create a new blog or update an existing blog
-      // always start with new post
       editMode: false,
 
       // mutation inputs
@@ -742,17 +714,19 @@ class IndexApp extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="blog-container">
-        <AdminMenu></AdminMenu>
-        {this.renderAlert()}
-        {this.renderEditBlogModal()}
-        {this.renderNewBlogSeriesModal()}
-        {this.renderToolbar()}
-        {this.renderTextInput()}
-        <div className="preview">
-          {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"blog"}></BlogPreview> : null}
+      <AmplifyAuthenticator federated={federated}>
+        <div className="blog-container">
+          <AdminMenu></AdminMenu>
+          {this.renderAlert()}
+          {this.renderEditBlogModal()}
+          {this.renderNewBlogSeriesModal()}
+          {this.renderToolbar()}
+          {this.renderTextInput()}
+          <div className="preview">
+            {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"blog"}></BlogPreview> : null}
+          </div>
         </div>
-      </div>
+      </AmplifyAuthenticator>
     );
   }
 }

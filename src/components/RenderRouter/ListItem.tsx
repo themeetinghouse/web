@@ -460,7 +460,10 @@ class ListItem extends React.Component<Props, State> {
         return null
       }
       //videos are not stored in order within a series, so we sort here
-      data.sort((a: any, b: any) => this.sortByDate(a, b, "oldFirst"))
+      if (data[0].videoTypes === "questions") 
+        data.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber)
+      else 
+        data.sort((a: any, b: any) => this.sortByDate(a, b, "oldFirst"))
       return (
         <div className="ListItem horizontal-video-player" >
           <div className="ListItemDiv1 horizontal-video-player" >

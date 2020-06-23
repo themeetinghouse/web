@@ -161,6 +161,8 @@
                 "style": "twoImage",
                 "status": "Live",
                 "header1": "Recent Blog Entries",
+                "sortOrder": "DESC",
+                "limit": 2,
                 "button1Action": "/blogs"
             },
             {
