@@ -957,6 +957,82 @@ export const createSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -1232,6 +1308,82 @@ export const updateSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -1507,6 +1659,82 @@ export const deleteSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -1748,6 +1976,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -1874,6 +2103,82 @@ export const createSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -1949,6 +2254,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2054,6 +2360,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2219,6 +2526,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2349,6 +2657,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2475,6 +2784,82 @@ export const updateSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -2550,6 +2935,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2655,6 +3041,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2820,6 +3207,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2950,6 +3338,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3076,6 +3465,82 @@ export const deleteSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -3151,6 +3616,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3256,6 +3722,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3421,6 +3888,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3563,6 +4031,82 @@ export const createSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -4070,6 +4614,82 @@ export const updateSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -4577,6 +5197,82 @@ export const deleteSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -5113,6 +5809,82 @@ export const createCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5395,6 +6167,82 @@ export const updateCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5677,6 +6525,82 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5926,6 +6850,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6052,6 +6977,82 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -6127,6 +7128,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6232,6 +7234,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6397,6 +7400,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6535,6 +7539,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6661,6 +7666,82 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -6736,6 +7817,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6841,6 +7923,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7006,6 +8089,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7144,6 +8228,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7270,6 +8355,82 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -7345,6 +8506,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7450,6 +8612,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7615,6 +8778,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7746,6 +8910,82 @@ export const createVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -7859,6 +9099,82 @@ export const createVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8080,6 +9396,82 @@ export const createVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8466,6 +9858,82 @@ export const createVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8708,6 +10176,82 @@ export const updateVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -8821,6 +10365,82 @@ export const updateVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9042,6 +10662,82 @@ export const updateVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9428,6 +11124,82 @@ export const updateVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9670,6 +11442,82 @@ export const deleteVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -9783,6 +11631,82 @@ export const deleteVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -10004,6 +11928,82 @@ export const deleteVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -10390,6 +12390,82 @@ export const deleteVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -11276,6 +13352,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -11613,6 +13690,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -11950,6 +14028,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -12200,6 +14279,82 @@ export const createBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -12728,6 +14883,82 @@ export const updateBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -13256,6 +15487,82 @@ export const deleteBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
