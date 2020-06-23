@@ -10,32 +10,20 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify'
-import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import "./import-video.scss"
 import awsmobile from '../../aws-exports';
 import { v4 as uuidv4 } from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
+import { EmptyProps } from '../../utils'
 import { Modal } from 'reactstrap';
 
 //import { Button } from 'reactstrap';
 //import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 Amplify.configure(awsmobile);
 const federated = {
-    google_client_id: '',
-    facebook_app_id: '579712102531269',
-    amazon_client_id: ''
+    facebookAppId: '579712102531269'
 };
-
-const Index = () => (
-    <div>
-        <Authenticator federated={federated} hide={[Greetings, SignOut]}>
-            <AuthIndexApp></AuthIndexApp>
-        </Authenticator>
-    </div>
-)
-interface Props {
-    authState?: any
-}
 interface State {
     getVideoQueryId: any
     videoTypes: any
@@ -53,22 +41,8 @@ interface State {
     showDeleteVideo: boolean
 }
 
-class AuthIndexApp extends React.Component<Props, State> {
-
-    render() {
-        if (this.props.authState === "signedIn") {
-            return (
-                <div>
-                    <IndexApp></IndexApp>
-                </div>
-            );
-        } else {
-            return null;
-        }
-    }
-}
-class IndexApp extends React.Component<Props, State> {
-    constructor(props: Props) {
+class Index extends React.Component<EmptyProps, State> {
+    constructor(props: EmptyProps) {
         super(props)
         this.state = {
             showAddSeries: false,
@@ -191,7 +165,7 @@ class IndexApp extends React.Component<Props, State> {
             }
         }
     }
-    componentDidUpdate(prevProps: Props, prevState: State) {
+    componentDidUpdate(prevProps: EmptyProps, prevState: State) {
         if (this.state.selectedVideoType !== prevState.selectedVideoType)
             this.getVideos(null)
     }
@@ -456,18 +430,21 @@ class IndexApp extends React.Component<Props, State> {
     }
     render() {
         return (
-            <div>
-                <AdminMenu></AdminMenu>
-                {this.renderHeader()}
-                <div className="videoSelectBox">
-                    {this.renderVideos()}
-                    {this.renderYoutube()}
-                </div>
-                {this.renderVideoEditor()}
-                {this.renderAddSeries()}
-                {this.renderDeleteVideo()}
-                <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
-            </div >
+            <AmplifyAuthenticator federated={federated}>
+                <div>
+                    <AdminMenu></AdminMenu>
+                    {this.renderHeader()}
+                    <div className="videoSelectBox">
+                        {this.renderVideos()}
+                        {this.renderYoutube()}
+                    </div>
+                    {this.renderVideoEditor()}
+                    {this.renderAddSeries()}
+                    {this.renderDeleteVideo()}
+                    <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
+                </div >
+            </AmplifyAuthenticator>
+
         );
     }
 }

@@ -4,7 +4,7 @@ import { Editor } from 'react-draft-wysiwyg'
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
-import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
@@ -20,26 +20,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import getDay from 'date-fns/getDay';
+import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 
 Amplify.configure(awsmobile);
 const federated = {
-    google_client_id: '',
-    facebook_app_id: '579712102531269',
-    amazon_client_id: ''
+  facebookAppId: '579712102531269'
 };
 
-const Index = () => (
-    <div>
-        <Authenticator federated={federated} hide={[Greetings, SignOut]}>
-            <AuthIndexApp></AuthIndexApp>
-        </Authenticator>
-    </div>
-)
-interface Props {
-    authState?: any
-}
 interface State {
   editorState: any
   showPreview: boolean
@@ -60,24 +49,9 @@ interface State {
   title: string
 }
 
-class AuthIndexApp extends React.Component<Props, State> {
-
-  render() {
-      if (this.props.authState === "signedIn") {
-          return (
-              <div>
-                  <IndexApp></IndexApp>
-              </div>
-          );
-      } else {
-          return null;
-      }
-  }
-}
-
-class IndexApp extends React.Component<Props, State> {
+class Index extends React.Component<EmptyProps, State> {
   deleteConfirmation = "Delete forever";
-  constructor(props: Props) {
+  constructor(props: EmptyProps) {
     super(props);
     this.state = { 
       // input
@@ -402,16 +376,19 @@ class IndexApp extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="note-container">
-        <AdminMenu></AdminMenu>
-        {this.renderAlert()}
-        {this.renderEditModal()}
-        {this.renderToolbar()}
-        {this.renderTextInput()}
-        <div className="preview">
-          {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"notes"}></BlogPreview> : null}
+      <AmplifyAuthenticator federated={federated}>
+        <div className="note-container">
+          <AdminMenu></AdminMenu>
+          {this.renderAlert()}
+          {this.renderEditModal()}
+          {this.renderToolbar()}
+          {this.renderTextInput()}
+          <div className="preview">
+            {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"notes"}></BlogPreview> : null}
+          </div>
         </div>
-      </div>
+      </AmplifyAuthenticator>
+
     );
   }
 }
