@@ -45,7 +45,7 @@ class BlogItem extends React.Component<Props, State> {
         }
         const getBlogByBlogStatus: any = API.graphql({
             query: queries.getBlogByBlogStatus,
-            variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder },
+            variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: this.state.content.limit },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
         getBlogByBlogStatus.then((json: any) => {
