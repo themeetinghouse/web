@@ -2,7 +2,8 @@ type Query {
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
   getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
-  getYoutubeVideo(videoId: String): YoutubePlaylistItems!
+  getYoutubeVideoContentDetails(videoId: String): YoutubePlaylistItems!
+  getYoutubeVideoStatistics(videoId: String): YoutubePlaylistItems!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
   downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
   getTakenoteSeries(user:Int,start:Int,count:Int): [TakeNoteSeries]
@@ -424,6 +425,7 @@ type YoutubePlaylistItemsItem
   snippet: YoutubeSnippet
   contentDetails: YoutubePlaylistItemDetails
   status: YoutubeStatus
+  statistics: YoutubeStatistics
 }
 type YoutubePlaylistItemsItem2
  { 
@@ -446,6 +448,13 @@ type YoutubePlaylistItemDetails{
   contentRating: YoutubeContentRating
   regionRestriction: YoutubeRegionRestriction
   hasCustomThumbnail: Boolean
+}
+type YoutubeStatistics{
+    viewCount: String
+    likeCount: String
+    dislikeCount: String
+    favoriteCount: String
+    commentCount: String
 }
 type YoutubeRegionRestriction{
   allowed: [String]
