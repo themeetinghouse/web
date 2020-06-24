@@ -2,6 +2,7 @@
 import React from 'react';
 import "./VideoPlayer.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
+import YouTube from 'react-youtube';
 import Fade from 'react-bootstrap/Fade';
 import { Helmet } from 'react-helmet';
 import { isMobileOnly } from 'react-device-detect';
@@ -27,16 +28,41 @@ interface Props {
 interface State {
   data: any,
   content: any,
+  videoPlayer: any
+  watchPageVideoElements: HTMLCollection
 }
+
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
       content: props.content,
-      data: props.data
+      data: props.data,
+      videoPlayer: null,
+      watchPageVideoElements: document.getElementsByClassName('WatchPageVideo whiteText')
     }
     console.log({"VideoPlayer":props.data})
+  }
 
+  setVideoPlayer(event: {target: any}): void {
+    this.setState({ videoPlayer: event.target })
+  }
+
+  pauseVideo(): void {
+    if (this.state.videoPlayer.f)
+      this.state.videoPlayer.pauseVideo()
+  }
+
+  componentDidUpdate(): void {
+    for (let i=0;i<this.state.watchPageVideoElements.length;i++) {
+      this.state.watchPageVideoElements[i].addEventListener('click', ()=>this.pauseVideo())
+    }
+  }
+
+  componentWillUnmount(): void {
+    for (let i=0;i<this.state.watchPageVideoElements.length;i++) {
+      this.state.watchPageVideoElements[i].removeEventListener('click', ()=>this.pauseVideo())
+    }
   }
 
   shareButton() {
@@ -109,7 +135,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
           <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
           <meta property="og:image:type" content="image/jpeg" />
         </Helmet>
-        <iframe title="Youtube Player" className="VideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.data.id + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <YouTube videoId={this.state.data.id} className="VideoPlayerIframe" opts={{ playerVars: { color: 'white', autoplay: 1, cc_load_policy: 1, controls: 1, modestbranding: 1, rel: 0, origin: 'https://www.themeetinghouse.com/', enablejsapi: 1 }}} onReady={(e)=>this.setVideoPlayer(e)}></YouTube>
        <div className="VideoPlayerEpisodeTitle">{this.state.data.episodeTitle}<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
         <div className="VideoPlayerDetails">
           {(this.state.data.seriesTitle != null) ?

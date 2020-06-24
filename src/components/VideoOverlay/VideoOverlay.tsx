@@ -6,11 +6,6 @@ import Amplify from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
 import "./VideoOverlay.scss"
 
-/*Analytics.record({
-  name: 'pageVisit',
-  attributes: { page: 'VideoPlayer', video: this.state.data.id }
-});
-*/
 Amplify.configure(awsconfig);
 
 interface Props {
@@ -19,22 +14,16 @@ interface Props {
   content?: any
 }
 interface State {
-  videoVisible: boolean
   data: any
   content: any
-  
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
       data: props.data,
-      videoVisible: false,
       content: this.props.content
     }
-    /* 
-      }*/
-
   }
   componentDidUpdate(prevProps: Props) {
     // Typical usage (don't forget to compare props):
