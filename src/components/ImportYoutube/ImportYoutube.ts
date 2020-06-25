@@ -76,14 +76,14 @@ export default class ImportYoutube {
       else {
         this.playlistData.forEach((item: any) => {
           if (!this.ignorePlaylist.includes(item.id))
-            this.loadPlaylist(item);
+            this.loadPlaylist(item, "");
         })
       }
     }).catch((err: any) => {
       console.log(err);
       this.playlistData.forEach((item: any) => {
         if (!this.ignorePlaylist.includes(item.id))
-          this.loadPlaylist(item);
+          this.loadPlaylist(item, "");
       })
 
     });
@@ -93,14 +93,15 @@ export default class ImportYoutube {
 
   }
 
-  loadPlaylist(data: any) {
+  loadPlaylist(data: any, pageToken: string) {
     console.log("loadPlaylist: " + data.id);
-    const playlistItems: any = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id }));
+    const playlistItems: any = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id, pageToken: pageToken }));
     playlistItems.then((json: any) => {
-      //console.log("Success queries.getYoutubePlaylistItems: " + json)
       json.data.getYoutubePlaylistItems.items.forEach((item: any) => {
         this.loadVideo(item)
       })
+      if (json.data.getYoutubePlaylistItems.nextPageToken !== null)
+        this.loadPlaylist(data, json.data.getYoutubePlaylistItems.nextPageToken)
     }).catch((err: any) => {
       console.log(err)
       console.log("Error queries.getYoutubePlaylistItems: " + err)
@@ -130,6 +131,8 @@ export default class ImportYoutube {
           delete vid1.snippet['description']
         if (vid1.snippet.localized == null)
           delete vid1.snippet['localized']
+        if (vid1.statistics == null)
+          delete vid1.statistics
         const createVideo: any = API.graphql({
           query: mutations.createVideo,
           variables: { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1 } },
