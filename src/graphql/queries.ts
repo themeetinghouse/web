@@ -63,6 +63,82 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -70,6 +146,13 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+        }
+        statistics {
+          viewCount
+          likeCount
+          dislikeCount
+          favoriteCount
+          commentCount
         }
       }
     }
@@ -136,6 +219,82 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -143,6 +302,13 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+        }
+        statistics {
+          viewCount
+          likeCount
+          dislikeCount
+          favoriteCount
+          commentCount
         }
       }
     }
@@ -199,6 +365,318 @@ export const getYoutubePlaylist = /* GraphQL */ `
             title
             description
           }
+        }
+      }
+    }
+  }
+`;
+export const getYoutubeVideoContentDetails = /* GraphQL */ `
+  query GetYoutubeVideoContentDetails($videoId: String) {
+    getYoutubeVideoContentDetails(videoId: $videoId) {
+      kind
+      etag
+      pageInfo {
+        totalResults
+        resultsPerPage
+      }
+      nextPageToken
+      items {
+        id
+        kind
+        etag
+        snippet {
+          publishedAt
+          channelId
+          title
+          description
+          thumbnails {
+            default {
+              url
+              width
+              height
+            }
+            medium {
+              url
+              width
+              height
+            }
+            high {
+              url
+              width
+              height
+            }
+            standard {
+              url
+              width
+              height
+            }
+            maxres {
+              url
+              width
+              height
+            }
+          }
+          channelTitle
+          localized {
+            title
+            description
+          }
+        }
+        contentDetails {
+          videoId
+          videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
+        }
+        statistics {
+          viewCount
+          likeCount
+          dislikeCount
+          favoriteCount
+          commentCount
+        }
+      }
+    }
+  }
+`;
+export const getYoutubeVideoStatistics = /* GraphQL */ `
+  query GetYoutubeVideoStatistics($videoId: String) {
+    getYoutubeVideoStatistics(videoId: $videoId) {
+      kind
+      etag
+      pageInfo {
+        totalResults
+        resultsPerPage
+      }
+      nextPageToken
+      items {
+        id
+        kind
+        etag
+        snippet {
+          publishedAt
+          channelId
+          title
+          description
+          thumbnails {
+            default {
+              url
+              width
+              height
+            }
+            medium {
+              url
+              width
+              height
+            }
+            high {
+              url
+              width
+              height
+            }
+            standard {
+              url
+              width
+              height
+            }
+            maxres {
+              url
+              width
+              height
+            }
+          }
+          channelTitle
+          localized {
+            title
+            description
+          }
+        }
+        contentDetails {
+          videoId
+          videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
+        }
+        statistics {
+          viewCount
+          likeCount
+          dislikeCount
+          favoriteCount
+          commentCount
         }
       }
     }
@@ -416,6 +894,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -478,6 +957,82 @@ export const fuzzySearchVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -521,6 +1076,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -552,6 +1108,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -625,6 +1182,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -656,6 +1214,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -789,6 +1348,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -820,6 +1380,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -1750,848 +2311,6 @@ export const getTnSermonByIdent = /* GraphQL */ `
     }
   }
 `;
-export const customPlaylistVideoByPlaylist = /* GraphQL */ `
-  query CustomPlaylistVideoByPlaylist(
-    $customPlaylistID: ID
-    $videoID: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelCustomPlaylistVideoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    CustomPlaylistVideoByPlaylist(
-      customPlaylistID: $customPlaylistID
-      videoID: $videoID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        videoID
-        customPlaylistID
-        createdAt
-        updatedAt
-        customPlaylist {
-          id
-          seriesType
-          title
-          description
-          createdAt
-          updatedAt
-          videos {
-            items {
-              id
-              videoID
-              customPlaylistID
-              createdAt
-              updatedAt
-              customPlaylist {
-                id
-                seriesType
-                title
-                description
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-        }
-        video {
-          id
-          createdBy
-          createdDate
-          episodeTitle
-          originalEpisodeTitle
-          episodeNumber
-          seriesTitle
-          publishedDate
-          recordedDate
-          description
-          closedCaptioning
-          referencedMedia
-          campaigns
-          bibleVerses
-          topics
-          qandeh
-          length
-          YoutubeIdent
-          Youtube {
-            id
-            kind
-            etag
-            snippet {
-              publishedAt
-              channelId
-              title
-              description
-              thumbnails {
-                default {
-                  url
-                  width
-                  height
-                }
-                medium {
-                  url
-                  width
-                  height
-                }
-                high {
-                  url
-                  width
-                  height
-                }
-                standard {
-                  url
-                  width
-                  height
-                }
-                maxres {
-                  url
-                  width
-                  height
-                }
-              }
-              channelTitle
-              localized {
-                title
-                description
-              }
-            }
-            contentDetails {
-              videoId
-              videoPublishedAt
-              duration
-              dimension
-              definition
-              caption
-              licensedContent
-              projection
-            }
-            status {
-              uploadStatus
-              privacyStatus
-              license
-              embeddable
-              publicStatsViewable
-            }
-          }
-          videoTypes
-          notesURL
-          videoURL
-          audioURL
-          createdAt
-          updatedAt
-          speakers {
-            items {
-              id
-              createdAt
-              updatedAt
-              speaker {
-                id
-                name
-                image
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-          series {
-            id
-            seriesType
-            title
-            description
-            image
-            startDate
-            endDate
-            createdAt
-            updatedAt
-            videos {
-              items {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-              nextToken
-            }
-            blogs {
-              items {
-                id
-                author
-                createdBy
-                createdDate
-                publishedDate
-                expirationDate
-                blogStatus
-                description
-                content
-                blogTitle
-                topics
-                tags
-                createdAt
-                updatedAt
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogSeries {
-                  nextToken
-                }
-              }
-              nextToken
-            }
-          }
-          customPlaylists {
-            items {
-              id
-              videoID
-              customPlaylistID
-              createdAt
-              updatedAt
-              customPlaylist {
-                id
-                seriesType
-                title
-                description
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-        }
-      }
-      nextToken
-    }
-  }
-`;
-export const customPlaylistVideoByVideo = /* GraphQL */ `
-  query CustomPlaylistVideoByVideo(
-    $videoID: ID
-    $customPlaylistID: ModelIDKeyConditionInput
-    $sortDirection: ModelSortDirection
-    $filter: ModelCustomPlaylistVideoFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    CustomPlaylistVideoByVideo(
-      videoID: $videoID
-      customPlaylistID: $customPlaylistID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        videoID
-        customPlaylistID
-        createdAt
-        updatedAt
-        customPlaylist {
-          id
-          seriesType
-          title
-          description
-          createdAt
-          updatedAt
-          videos {
-            items {
-              id
-              videoID
-              customPlaylistID
-              createdAt
-              updatedAt
-              customPlaylist {
-                id
-                seriesType
-                title
-                description
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-        }
-        video {
-          id
-          createdBy
-          createdDate
-          episodeTitle
-          originalEpisodeTitle
-          episodeNumber
-          seriesTitle
-          publishedDate
-          recordedDate
-          description
-          closedCaptioning
-          referencedMedia
-          campaigns
-          bibleVerses
-          topics
-          qandeh
-          length
-          YoutubeIdent
-          Youtube {
-            id
-            kind
-            etag
-            snippet {
-              publishedAt
-              channelId
-              title
-              description
-              thumbnails {
-                default {
-                  url
-                  width
-                  height
-                }
-                medium {
-                  url
-                  width
-                  height
-                }
-                high {
-                  url
-                  width
-                  height
-                }
-                standard {
-                  url
-                  width
-                  height
-                }
-                maxres {
-                  url
-                  width
-                  height
-                }
-              }
-              channelTitle
-              localized {
-                title
-                description
-              }
-            }
-            contentDetails {
-              videoId
-              videoPublishedAt
-              duration
-              dimension
-              definition
-              caption
-              licensedContent
-              projection
-            }
-            status {
-              uploadStatus
-              privacyStatus
-              license
-              embeddable
-              publicStatsViewable
-            }
-          }
-          videoTypes
-          notesURL
-          videoURL
-          audioURL
-          createdAt
-          updatedAt
-          speakers {
-            items {
-              id
-              createdAt
-              updatedAt
-              speaker {
-                id
-                name
-                image
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-          series {
-            id
-            seriesType
-            title
-            description
-            image
-            startDate
-            endDate
-            createdAt
-            updatedAt
-            videos {
-              items {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-              nextToken
-            }
-            blogs {
-              items {
-                id
-                author
-                createdBy
-                createdDate
-                publishedDate
-                expirationDate
-                blogStatus
-                description
-                content
-                blogTitle
-                topics
-                tags
-                createdAt
-                updatedAt
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogSeries {
-                  nextToken
-                }
-              }
-              nextToken
-            }
-          }
-          customPlaylists {
-            items {
-              id
-              videoID
-              customPlaylistID
-              createdAt
-              updatedAt
-              customPlaylist {
-                id
-                seriesType
-                title
-                description
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                closedCaptioning
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                Youtube {
-                  id
-                  kind
-                  etag
-                }
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-                createdAt
-                updatedAt
-                speakers {
-                  nextToken
-                }
-                series {
-                  id
-                  seriesType
-                  title
-                  description
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                customPlaylists {
-                  nextToken
-                }
-              }
-            }
-            nextToken
-          }
-        }
-      }
-      nextToken
-    }
-  }
-`;
 export const blogBridgeBySeries = /* GraphQL */ `
   query BlogBridgeBySeries(
     $blogSeriesID: ID
@@ -2714,6 +2433,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -2972,6 +2692,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3191,6 +2912,7 @@ export const getLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -3219,6 +2941,7 @@ export const listLivestreams = /* GraphQL */ `
           linkType
         }
         titles
+        homepageLink
         createdAt
         updatedAt
       }
@@ -3267,6 +2990,7 @@ export const listSpeakers = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3298,6 +3022,7 @@ export const listSpeakers = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3396,6 +3121,7 @@ export const getSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -3426,6 +3152,7 @@ export const getSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -3461,6 +3188,82 @@ export const getSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -3496,6 +3299,7 @@ export const getSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -3536,6 +3340,7 @@ export const getSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -3599,6 +3404,7 @@ export const getSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -3667,6 +3473,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3698,6 +3505,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3761,6 +3569,7 @@ export const getSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -3823,6 +3632,82 @@ export const getSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -3866,6 +3751,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3897,6 +3783,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3970,6 +3857,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -4001,6 +3889,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -4134,6 +4023,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -4165,6 +4055,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -4263,6 +4154,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4315,6 +4207,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -4377,6 +4270,82 @@ export const listSpeakerVideoss = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -4415,6 +4384,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4477,6 +4447,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4579,6 +4550,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4654,6 +4626,7 @@ export const listSeriess = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -4689,6 +4662,82 @@ export const listSeriess = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -4724,6 +4773,7 @@ export const listSeriess = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -4764,6 +4814,7 @@ export const listSeriess = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -4827,6 +4878,7 @@ export const listSeriess = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -4886,6 +4938,7 @@ export const listSeriess = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -4992,6 +5045,7 @@ export const getSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -5054,6 +5108,82 @@ export const getSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -5092,6 +5222,7 @@ export const getSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -5154,6 +5285,7 @@ export const getSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -5256,6 +5388,7 @@ export const getSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -5337,6 +5470,7 @@ export const getSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -5509,6 +5643,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5544,6 +5679,82 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5579,6 +5790,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5619,6 +5831,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5682,6 +5895,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5741,6 +5955,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5873,6 +6088,7 @@ export const listCustomPlaylists = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -5904,6 +6120,7 @@ export const listCustomPlaylists = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6009,6 +6226,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -6039,6 +6257,7 @@ export const getCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -6074,6 +6293,82 @@ export const getCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -6109,6 +6404,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -6149,6 +6445,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -6212,6 +6509,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -6255,6 +6553,7 @@ export const listVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -6317,6 +6616,82 @@ export const listVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -6360,6 +6735,7 @@ export const listVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6391,6 +6767,7 @@ export const listVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6464,6 +6841,7 @@ export const listVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6495,6 +6873,7 @@ export const listVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6628,6 +7007,7 @@ export const listVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6659,6 +7039,7 @@ export const listVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6728,6 +7109,7 @@ export const getVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -6790,6 +7172,82 @@ export const getVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -6836,6 +7294,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -6866,6 +7325,7 @@ export const getVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -6901,6 +7361,82 @@ export const getVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -6936,6 +7472,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -6976,6 +7513,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7039,6 +7577,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7083,6 +7622,7 @@ export const getVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -7118,6 +7658,82 @@ export const getVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -7153,6 +7769,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7193,6 +7810,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7256,6 +7874,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7315,6 +7934,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7433,6 +8053,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7463,6 +8084,7 @@ export const getVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -7498,6 +8120,82 @@ export const getVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -7533,6 +8231,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7573,6 +8272,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7636,6 +8336,7 @@ export const getVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7687,6 +8388,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -7749,6 +8451,82 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -7792,6 +8570,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7823,6 +8602,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7896,6 +8676,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7927,6 +8708,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -8060,6 +8842,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -8091,6 +8874,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -8175,6 +8959,7 @@ export const getVideoByVideoType = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -8237,6 +9022,82 @@ export const getVideoByVideoType = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -8280,6 +9141,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -8311,6 +9173,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -8384,6 +9247,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -8415,6 +9279,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -8548,6 +9413,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -8579,6 +9445,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -8659,6 +9526,7 @@ export const searchVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -8721,6 +9589,82 @@ export const searchVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -8764,6 +9708,7 @@ export const searchVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -8795,6 +9740,7 @@ export const searchVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -8868,6 +9814,7 @@ export const searchVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -8899,6 +9846,7 @@ export const searchVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -9032,6 +9980,7 @@ export const searchVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -9063,6 +10012,7 @@ export const searchVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -9320,6 +10270,7 @@ export const getBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9445,6 +10396,7 @@ export const listBlogs = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -9476,6 +10428,7 @@ export const listBlogs = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -9691,6 +10644,7 @@ export const getBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9726,6 +10680,82 @@ export const getBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9761,6 +10791,7 @@ export const getBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9801,6 +10832,7 @@ export const getBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9864,6 +10896,7 @@ export const getBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9923,6 +10956,7 @@ export const getBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10093,6 +11127,7 @@ export const getBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10228,6 +11263,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -10259,6 +11295,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -10485,6 +11522,7 @@ export const searchBlogs = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -10516,6 +11554,7 @@ export const searchBlogs = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus

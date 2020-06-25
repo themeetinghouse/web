@@ -36,6 +36,29 @@ export default class DataLoader extends React.Component<Props, State> {
              this.props.dataLoaded(this.state.listData)
          console.log(prevProps)
      }*/
+
+    async getVideosCustomPlaylist(nextToken: any): Promise<void> {
+        try {
+            const getCustomPlaylist: any = await API.graphql({
+                query: customQueries.getCustomPlaylist,
+                variables: { nextToken: nextToken, limit: 20, id: this.state.content.playlist },
+                authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+            console.log("Success queries.getCustomPlaylist: " + getCustomPlaylist)
+            console.log(getCustomPlaylist)
+            const loadedVideos: any = []
+            for (const item of getCustomPlaylist.data.getCustomPlaylist.videos.items) {
+                loadedVideos.push(item.video)
+            }
+            console.log(loadedVideos)
+            this.props.dataLoaded(loadedVideos)
+            if (getCustomPlaylist.data.getCustomPlaylist.videos.nextToken != null)
+                this.getVideosCustomPlaylist(getCustomPlaylist.data.getCustomPlaylist.videos.nextToken)
+        } catch (e) {
+            console.error(e)
+        }
+    } 
+
     getVideosSameSeries(nextToken: any, id: string) {
         const getSeries: any = API.graphql({
             query: customQueries.getSeries,
@@ -179,6 +202,9 @@ export default class DataLoader extends React.Component<Props, State> {
                     break;
                 case "highlights":
                     this.getVideosSameSeries(null, "adult-sunday-shortcut-" + this.props.data.series.id)
+                    break;
+                case "custom-playlist":
+                    this.getVideosCustomPlaylist(null)
                     break;
                 default:
                     this.getVideos(null)

@@ -82,26 +82,6 @@
             },
             {
                 "type": "content",
-                "style": "oneImage",
-                "header1": "First Nations Pandemic Response",
-                "header2": "",
-                "text1": "Thank you for partnering with First Nations leaders and MCC to reduce the spread of COVID-19 in remote First Nations communities. Giving to this initiative has now closed, so stay tuned for updates on Sunday, June 21!",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Learn More",
-                        "navigateTo": "/pandemicresponse"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/pandemic-response-2.jpg",
-                        "alt": "Lyndsay Mollins Koene, an MCC employee, with a First Nations woman."
-                    }
-                ]
-            },
-            {
-                "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "COVID-19 Adjustments",
                 "header2": "",
@@ -161,6 +141,8 @@
                 "style": "twoImage",
                 "status": "Live",
                 "header1": "Recent Blog Entries",
+                "sortOrder": "DESC",
+                "limit": 2,
                 "button1Action": "/blogs"
             },
             {

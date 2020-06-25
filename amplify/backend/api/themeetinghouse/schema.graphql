@@ -2,6 +2,8 @@ type Query {
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
   getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
+  getYoutubeVideoContentDetails(videoId: String): YoutubePlaylistItems!
+  getYoutubeVideoStatistics(videoId: String): YoutubePlaylistItems!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
   downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
   getTakenoteSeries(user:Int,start:Int,count:Int): [TakeNoteSeries]
@@ -423,6 +425,7 @@ type YoutubePlaylistItemsItem
   snippet: YoutubeSnippet
   contentDetails: YoutubePlaylistItemDetails
   status: YoutubeStatus
+  statistics: YoutubeStatistics
 }
 type YoutubePlaylistItemsItem2
  { 
@@ -442,7 +445,92 @@ type YoutubePlaylistItemDetails{
   caption: String
   licensedContent: Boolean
   projection: String
-} 
+  contentRating: YoutubeContentRating
+  regionRestriction: YoutubeRegionRestriction
+  hasCustomThumbnail: Boolean
+}
+type YoutubeStatistics{
+    viewCount: String
+    likeCount: String
+    dislikeCount: String
+    favoriteCount: String
+    commentCount: String
+}
+type YoutubeRegionRestriction{
+  allowed: [String]
+  blocked: [String]
+}
+type YoutubeContentRating{
+  acbRating: String
+  agcomRating: String
+  anatelRating: String
+  bbfcRating: String
+  bfvcRating: String
+  bmukkRating: String
+  catvRating: String
+  catvfrRating: String
+  cbfcRating: String
+  cccRating: String
+  cceRating: String
+  chfilmRating: String
+  chvrsRating: String
+  cicfRating: String
+  cnaRating: String
+  cncRating: String
+  csaRating: String
+  cscfRating: String
+  czfilmRating: String
+  djctqRating: String
+  djctqRatingReasons: [String]
+  ecbmctRating: String
+  eefilmRating: String
+  egfilmRating: String
+  eirinRating: String
+  fcbmRating: String
+  fcoRating: String
+  fmocRating: String
+  fpbRating: String
+  fpbRatingReasons: [String]
+  fskRating: String
+  grfilmRating: String
+  icaaRating: String
+  ifcoRating: String
+  ilfilmRating: String
+  incaaRating: String
+  kfcbRating: String
+  kijkwijzerRating: String
+  kmrbRating: String
+  lsfRating: String
+  mccaaRating: String
+  mccypRating: String
+  mcstRating: String
+  mdaRating: String
+  medietilsynetRating: String
+  mekuRating: String
+  mibacRating: String
+  mocRating: String
+  moctwRating: String
+  mpaaRating: String
+  mpaatRating: String
+  mtrcbRating: String
+  nbcRating: String
+  nbcplRating: String
+  nfrcRating: String
+  nfvcbRating: String
+  nkclvRating: String
+  oflcRating: String
+  pefilmRating: String
+  rcnofRating: String
+  resorteviolenciaRating: String
+  rtcRating: String
+  rteRating: String
+  russiaRating: String
+  skfilmRating: String
+  smaisRating: String
+  smsaRating: String
+  tvpgRating: String
+  ytRating: String
+}
 type YoutubeStatus{
   uploadStatus: String
   privacyStatus: String
@@ -524,6 +612,7 @@ type Livestream
   showKids: Boolean
   menu: [LiveMenu]
   titles: [String]
+  homepageLink: String
 }
 type Speaker
  @model
@@ -579,7 +668,7 @@ type CustomPlaylist
  ])
 {
   id: ID!
-  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"]) @auth(rules:[ {allow:public, operations:[read]} ])
+  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"])
   seriesType: String
   title: String
   description: String
@@ -592,14 +681,14 @@ type CustomPlaylistVideo
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
-  @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"], queryField: "CustomPlaylistVideoByPlaylist")
-  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"], queryField: "CustomPlaylistVideoByVideo") 
+  @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"])
+  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"]) 
 {
-id: ID!
-videoID: ID!
-customPlaylistID: ID!
-customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"]) @auth(rules:[ {allow:public, operations:[read]} ])
-video: Video @connection(fields: ["videoID"]) @auth(rules:[ {allow:public, operations:[read]} ])
+  id: ID!
+  videoID: ID!
+  customPlaylistID: ID!
+  customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
+  video: Video @connection(fields: ["videoID"])
 }
 type Video 
  @model 
@@ -622,7 +711,8 @@ type Video
   episodeNumber:Int
   seriesTitle:String
   series:Series  @connection(name: "VideosSeries")
-  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"]) @auth(rules:[ {allow:public, operations:[read]} ])
+  customPlaylistIDs: [String]
+  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"])
   publishedDate:String
   recordedDate:String
   description:String

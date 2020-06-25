@@ -4,38 +4,27 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 
 //import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
+import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 //{ API, graphqlOperation } 
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify'
-import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import "./import-video.scss"
 import awsmobile from '../../aws-exports';
 import { v4 as uuidv4 } from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
+import { EmptyProps } from '../../utils'
 import { Modal } from 'reactstrap';
 
 //import { Button } from 'reactstrap';
 //import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 Amplify.configure(awsmobile);
 const federated = {
-    google_client_id: '',
-    facebook_app_id: '579712102531269',
-    amazon_client_id: ''
+    facebookAppId: '579712102531269'
 };
-
-const Index = () => (
-    <div>
-        <Authenticator federated={federated} hide={[Greetings, SignOut]}>
-            <AuthIndexApp></AuthIndexApp>
-        </Authenticator>
-    </div>
-)
-interface Props {
-    authState?: any
-}
 interface State {
     getVideoQueryId: any
     videoTypes: any
@@ -43,44 +32,48 @@ interface State {
     selectedVideo: any
     videoList: any
     seriesList: any
+    playlistsList: any
     toSaveVideo: any
     toSaveSeries: any
+    toSavePlaylist: any
     videoEditorValues: any
     showError: any
-    showAddSeries: any
+    showAddSeries: boolean
+    showAddCustomPlaylist: boolean
     getVideosState: any
+    toDeleteVideo: string
+    showDeleteVideo: boolean
+    addToPlaylists: any
+    removeFromPlaylists: any
+    selectedPlaylist: any
 }
 
-class AuthIndexApp extends React.Component<Props, State> {
+const customPlaylistTypes = ['teaching-recommendations']
 
-    render() {
-        if (this.props.authState === "signedIn") {
-            return (
-                <div>
-                    <IndexApp></IndexApp>
-                </div>
-            );
-        } else {
-            return null;
-        }
-    }
-}
-class IndexApp extends React.Component<Props, State> {
-    constructor(props: Props) {
+class Index extends React.Component<EmptyProps, State> {
+    constructor(props: EmptyProps) {
         super(props)
         this.state = {
             showAddSeries: false,
+            showAddCustomPlaylist: false,
             getVideoQueryId: null,
             videoTypes: [],
             selectedVideoType: "",
             selectedVideo: null,
             videoList: [],
             seriesList: [],
+            playlistsList: [],
             toSaveVideo: {},
             toSaveSeries: { id: "", title: "", startDate: "", endDate: "", seriesType: "" },
+            toSavePlaylist: { id: "", title: "" },
             videoEditorValues: {},
             showError: "",
-            getVideosState: "Starting Up"
+            getVideosState: "Starting Up",
+            toDeleteVideo: "",
+            showDeleteVideo: false,
+            addToPlaylists: [],
+            removeFromPlaylists: [],
+            selectedPlaylist: ''
         }
         fetch('/static/data/import-video.json').then(function (response) {
             return response.json();
@@ -90,6 +83,7 @@ class IndexApp extends React.Component<Props, State> {
                 this.setState({ videoTypes: myJson })
             }).catch((e) => { console.log({ "Exception: ": e }) })
         this.listSeries(null)
+        this.listCustomPlaylists(null)
     }
     componentDidMount() {
         this.getVideos(null)
@@ -99,6 +93,25 @@ class IndexApp extends React.Component<Props, State> {
         z.reloadPlaylists()
 
     }
+
+    async listCustomPlaylists(nextToken: any): Promise<void> {
+        try {
+            const listCustomPlaylists: any = await API.graphql({
+                query: queries.listCustomPlaylists,
+                variables: { nextToken: nextToken, limit: 200 },
+                authMode: GRAPHQL_AUTH_MODE.API_KEY
+            });
+            console.log({ "Success queries.listCustomPlaylist": listCustomPlaylists})
+            this.setState({
+                playlistsList: this.state.playlistsList.concat(listCustomPlaylists.data.listCustomPlaylists.items).sort((a: any, b: any) => this.sortById(a,b))
+            })
+            if (listCustomPlaylists.data.listCustomPlaylists.nextToken != null)
+                this.listCustomPlaylists(listCustomPlaylists.data.listCustomPlaylists.nextToken)
+        } catch(e) {
+            console.error(e)
+        }
+    } 
+
     listSeries(nextToken: any) {
         const listSeries: any = API.graphql({
             query: customQueries.listSeriess,
@@ -109,23 +122,26 @@ class IndexApp extends React.Component<Props, State> {
         listSeries.then((json: any) => {
             console.log({ "Success customQueries.listSeries: ": json });
             this.setState({
-                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort(function (a: any, b: any) {
-                    const nameA = a.id.toUpperCase();
-                    const nameB = b.id.toUpperCase();
-                    if (nameA < nameB) {
-                        return -1;
-                    }
-                    if (nameA > nameB) {
-                        return 1;
-                    }
-                    return 0;
-                })
+                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => this.sortById(a,b))
+
             })
             if (json.data.listSeriess.nextToken != null)
                 this.listSeries(json.data.listSeriess.nextToken)
 
         }).catch((e: any) => { console.log(e) })
     }
+    sortById(a: any, b: any) {
+        const nameA = a.id.toUpperCase();
+        const nameB = b.id.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+    }
+
     getVideos(nextToken: any) {
         if (nextToken == null) {
             const queryId = uuidv4()
@@ -187,7 +203,7 @@ class IndexApp extends React.Component<Props, State> {
             }
         }
     }
-    componentDidUpdate(prevProps: Props, prevState: State) {
+    componentDidUpdate(prevProps: EmptyProps, prevState: State) {
         if (this.state.selectedVideoType !== prevState.selectedVideoType)
             this.getVideos(null)
     }
@@ -207,15 +223,17 @@ class IndexApp extends React.Component<Props, State> {
             <div className="header">
                 <button className="adminButton" onClick={() => this.importYoutube()}>Add All New</button>
                 <button className="adminButton">Add Unlisted</button>
-                <select className="dropdown" onChange={(e: any) => { this.setState({ selectedVideo: null, videoList: [], selectedVideoType: e.target.value }) }}>
+                <select className="dropdown" onChange={(e: any) => { this.setState({ selectedVideo: null, videoList: [], addToPlaylists: [], removeFromPlaylists: [], selectedPlaylist: '', selectedVideoType: e.target.value }) }}>
                     {
                         this.state.videoTypes.map((item: any) => {
-                            return (<option key={item.id} value={item.id}>{item.name}</option>)
+                            return (<option className="dropdown-option" key={item.id} value={item.id}>{item.name}</option>)
                         })
 
                     }
                 </select>
                 <button className="adminButton" onClick={() => { this.setState({ showAddSeries: true }) }}>Add Series</button>
+                <button className="adminButton" onClick={() => { this.setState({ showDeleteVideo: true }) }}>Delete Video</button>
+                <button className="adminButton" onClick={() => { this.setState({ showAddCustomPlaylist: true }) }}>Add Custom Playlist</button>
                 <div>{this.state.getVideosState}</div>
             </div>
         )
@@ -238,7 +256,7 @@ class IndexApp extends React.Component<Props, State> {
                     {this.state.videoList.map((video: any) => {
 
                         return (
-                            <tr key={video.id} className="divRow" onClick={(i: any) => { this.setState({ selectedVideo: null, toSaveVideo: null }, () => { this.setState({ selectedVideo: video, toSaveVideo: { id: video.id } }) }) }}>
+                            <tr key={video.id} className="divRow" onClick={() => { this.handleVideoSelection(video) }}>
                                 {z != null ? z.columns != null ? z.columns.filter((i: any) => i.showInTable).map((item: any) => {
                                     const list: any = item.id.split(".")
                                     let value: any = video
@@ -255,29 +273,140 @@ class IndexApp extends React.Component<Props, State> {
             </table>
         )
     }
-    save() {
+
+    async handleVideoSelection(video: any): Promise<void> {
+        this.setState({ 
+            selectedVideo: null,
+            toSaveVideo: null,
+            addToPlaylists: [],
+            removeFromPlaylists: [],
+            selectedPlaylist: '' 
+        }, () => { this.setState({ selectedVideo: video, toSaveVideo: { id: video.id } }) })
+
+        try {
+            const getVideo: any = await API.graphql({
+                query: queries.getVideo,
+                variables: { id: video.id },
+                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+            });
+            console.log({ "Success queries.getVideo: ": getVideo })
+            if (getVideo.data.getVideo.customPlaylistIDs)
+                this.setState({ addToPlaylists: getVideo.data.getVideo.customPlaylistIDs })
+        } catch (e) {
+            console.error(e)
+            if (e.data.getVideo.customPlaylistIDs)
+                this.setState({ addToPlaylists: e.data.getVideo.customPlaylistIDs })
+        }
+    } 
+    async save(): Promise<void> {
         if ((this.state.toSaveVideo.videoTypes === undefined && this.state.toSaveVideo.publishedDate !== undefined) || (this.state.toSaveVideo.videoTypes !== undefined && this.state.toSaveVideo.publishedDate === undefined)) {
             this.setState({ showError: "Must set both videoType and publishedDate" })
         }
         else {
             this.setState({ showError: "Saving" })
             console.log(this.state.toSaveVideo)
-            const updateVideo: any = API.graphql({
-                query: mutations.updateVideo,
-                variables: { input: this.state.toSaveVideo },
-                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-            });
-            updateVideo.then((json: any) => {
-                console.log({ "Success queries.updateVideo: ": json });
+            this.handleCustomPlaylists()
+            try {
+                const updateVideo: any = await API.graphql({
+                    query: mutations.updateVideo,
+                    variables: { input: this.state.toSaveVideo },
+                    authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+                console.log({ "Success queries.updateVideo: ": updateVideo });
                 this.setState({ showError: "Saved" })
-            }).catch((e: any) => {
-                this.setState({ showError: e.errors[0].message });
-                console.log(e)
-            })
+            } catch(e) {
+                if (!e.errors[0].message.includes('access'))
+                    this.setState({showError: e.errors[0].message});
+                else if (e.data)
+                    this.setState({ showError: "Saved" })
+                console.error(e)
+            }
+        }
+    }
+
+    async handleCustomPlaylists(): Promise<void> {
+
+        const toAdd = this.state.addToPlaylists
+        const toRemove = this.state.removeFromPlaylists
+
+        for (const add of toAdd) {
+            for (let i = toRemove.length; i--;) {
+                if (toRemove[i] === add)
+                    toRemove.splice(i,1)
+            }
         }
 
+        this.writeField('customPlaylistIDs',toAdd)
+
+        for (const playlist of toAdd) {
+            const connectionID = this.state.selectedVideo.id + '-' + playlist
+            try {
+                const createCustomPlaylistVideo: any = await API.graphql({
+                    query: mutations.createCustomPlaylistVideo,
+                    variables: { input: { id: connectionID, videoID: this.state.selectedVideo.id, customPlaylistID: playlist } },
+                    authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+                console.log({ "Success mutations.createCustomPlaylistVideo": createCustomPlaylistVideo })
+            } catch(e) {
+                console.error(e)
+            }
+        }
+
+        for (const playlist of toRemove) {
+            const connectionID = this.state.selectedVideo.id + '-' + playlist
+            try {
+                const deleteCustomPlaylistVideo: any = await API.graphql({
+                    query: mutations.deleteCustomPlaylistVideo,
+                    variables: { input: { id: connectionID } },
+                    authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+                console.log({ "Success mutations.deleteCustomPlaylistVideo": deleteCustomPlaylistVideo })
+            } catch(e) {
+                console.error(e)
+            }
+        }
 
     }
+
+    async delete() {
+        if (this.state.toDeleteVideo) {
+            try {
+                const deleteVideo: any = await API.graphql({
+                query: mutations.deleteVideo,
+                variables: { input: {id: this.state.toDeleteVideo} },
+                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+        
+                console.log({ "Success mutations.deleteVideo: ": deleteVideo });
+                this.setState({
+                toDeleteVideo: '',
+                showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
+                showDeleteVideo: false
+                })
+            } catch(e) {
+                if (e.data && e.data.deleteVideo) {
+                    this.setState({
+                        toDeleteVideo: '',
+                        showError: `Deleted: ${e.data.deleteVideo.id}`,
+                        showDeleteVideo: false
+                    })
+                }
+                console.error(e)
+            }
+        } else {
+            this.setState({ showError: 'videoID required for delete operation' })
+        }
+    }
+    removePlaylist(item: string): void {
+        const removedIndex = this.state.addToPlaylists.indexOf(item)
+        const temp = this.state.addToPlaylists
+        const temp2 = temp.splice(removedIndex,1)
+        this.setState({ 
+            addToPlaylists: temp,
+            removeFromPlaylists: this.state.removeFromPlaylists.concat(temp2) 
+        })
+    }
+
     writeSeriesField(field: any, value: any) {
         const tempSelectedVideo = this.state.selectedVideo
         tempSelectedVideo[field] = value
@@ -353,7 +482,22 @@ class IndexApp extends React.Component<Props, State> {
                                                                     })
                                                                 }
                                                             </select> :
-                                                            finalValue
+                                                            item.type === "CustomPlaylist" ? 
+                                                                
+                                                                <div>
+                                                                    <select className="dropdown2" onChange={(e: any) => this.setState({ selectedPlaylist: e.target.value })}>
+                                                                        <option key="null" value="null">None Selected</option>
+                                                                        {
+                                                                            this.state.playlistsList.map((item2: any) => {
+                                                                                return (<option key={item2.id} value={item2.id}>{item2.id}</option>)
+                                                                            })
+                                                                        }
+                                                                    </select><button className="adminButton" style={{float: 'right'}} onClick={() => {if (this.state.selectedPlaylist && !this.state.addToPlaylists.includes(this.state.selectedPlaylist)) {this.setState({addToPlaylists: this.state.addToPlaylists.concat(this.state.selectedPlaylist)})} }}>Add</button>
+                                                                    <div> 
+                                                                        Selected: {this.state.addToPlaylists.map((playlist: string) => {return <span className="PlaylistSelections" onClick={() => this.removePlaylist(playlist)} key={playlist}>{playlist} &nbsp;</span>}) }
+                                                                    </div>
+                                                                </div> :
+                                                                finalValue
                                     }
                                 </td>
                             </tr>)
@@ -365,6 +509,14 @@ class IndexApp extends React.Component<Props, State> {
             </div>
         )
     }
+    updateCustomPlaylistField(field: string, value: string) {
+        const toSave = this.state.toSavePlaylist
+        toSave[field] = value
+        if (field === "title")
+            toSave['id'] = value
+        this.setState({ toSavePlaylist: toSave })
+    }
+
     updateSeriesField(field: any, value: any) {
         const toSaveSeries = this.state.toSaveSeries
         toSaveSeries[field] = value
@@ -390,7 +542,25 @@ class IndexApp extends React.Component<Props, State> {
             return true;
         }
         return false;
-    }
+    }  
+    async savePlaylist(): Promise<void> {
+        if (this.state.toSavePlaylist.title) {
+            try {
+                const savePlaylist: any = await API.graphql({
+                    query: mutations.createCustomPlaylist,
+                    variables: { input: this.state.toSavePlaylist },
+                    authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                });
+                console.log({ "Success mutations.createCustomPlaylist: ": savePlaylist });
+                this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} })
+            } catch(e) {
+                console.error(e)
+                this.setState({ showAddCustomPlaylist: false })
+            }
+        } else {
+            this.setState({ showError: 'Playlist needs title' })
+        }
+    }  
     renderAddSeries() {
         return <Modal isOpen={this.state.showAddSeries}>
             <div>
@@ -405,23 +575,56 @@ class IndexApp extends React.Component<Props, State> {
                         })
                     }
                 </select></div>
-                <button onClick={() => { if (this.saveSeries()) this.setState({ showAddSeries: false }) }}></button>
+                <button onClick={() => { if (this.saveSeries()) this.setState({ showAddSeries: false }) }}>Save</button>
+                <button style={{background: 'red'}} onClick={() => { this.setState({ showAddSeries: false }) }}>Cancel</button>
+            </div>
+        </Modal>
+    }
+
+    renderAddCustomPlaylist() {
+        return <Modal isOpen={this.state.showAddCustomPlaylist}>
+            <div>
+                <div>id: {this.state.toSavePlaylist.id}</div>
+                <div>Name: <input value={this.state.toSavePlaylist.title} onChange={(item: any) => { this.updateCustomPlaylistField("title", item.target.value) }}/></div>
+                <div>Playlist Type: <select className="dropdown2" value={this.state.toSavePlaylist.seriesType} onChange={(item: any) => { this.updateCustomPlaylistField("seriesType", item.target.value) }} >
+                    <option key='null' value='null'>None Selected</option>
+                    {
+                        customPlaylistTypes.map((item: string, index: number) => {
+                            return (<option key={index} value={item}>{item}</option>)
+                        })
+                    }
+                </select></div>
+                <button onClick={() => { this.savePlaylist() }}>Save</button>
+                <button style={{background: 'red'}} onClick={() => { this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} }) }}>Cancel</button>
+            </div>
+        </Modal>
+    }
+    renderDeleteVideo() {
+        return <Modal isOpen={this.state.showDeleteVideo}>
+            <div>
+                <div>Enter ID: <input value={this.state.toDeleteVideo} onChange={(item: any) => this.setState({ toDeleteVideo: item.target.value })} /></div>
+                <button style={{background: 'orange'}} onClick={() => this.delete()}>DELETE</button>
+                <button style={{background: 'grey'}} onClick={() => { this.setState({ showDeleteVideo: false, toDeleteVideo: '' }) }}>CANCEL</button>
             </div>
         </Modal>
     }
     render() {
         return (
-            <div>
-                <AdminMenu></AdminMenu>
-                {this.renderHeader()}
-                <div className="videoSelectBox">
-                    {this.renderVideos()}
-                    {this.renderYoutube()}
-                </div>
-                {this.renderVideoEditor()}
-                {this.renderAddSeries()}
-                <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
-            </div >
+            <AmplifyAuthenticator federated={federated}>
+                <div>
+                    <AdminMenu></AdminMenu>
+                    {this.renderHeader()}
+                    <div className="videoSelectBox">
+                        {this.renderVideos()}
+                        {this.renderYoutube()}
+                    </div>
+                    {this.renderVideoEditor()}
+                    {this.renderAddSeries()}
+                    {this.renderDeleteVideo()}
+                    {this.renderAddCustomPlaylist()}
+                    <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
+                </div >
+            </AmplifyAuthenticator>
         );
     }
 }

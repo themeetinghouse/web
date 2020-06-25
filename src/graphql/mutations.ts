@@ -797,6 +797,7 @@ export const createLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -820,6 +821,7 @@ export const updateLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -843,6 +845,7 @@ export const deleteLivestream = /* GraphQL */ `
         linkType
       }
       titles
+      homepageLink
       createdAt
       updatedAt
     }
@@ -887,6 +890,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -917,6 +921,7 @@ export const createSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -952,6 +957,82 @@ export const createSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -987,6 +1068,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1027,6 +1109,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1090,6 +1173,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1157,6 +1241,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1187,6 +1272,7 @@ export const updateSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -1222,6 +1308,82 @@ export const updateSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -1257,6 +1419,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1297,6 +1460,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1360,6 +1524,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1427,6 +1592,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1457,6 +1623,7 @@ export const deleteSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -1492,6 +1659,82 @@ export const deleteSpeaker = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -1527,6 +1770,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1567,6 +1811,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1630,6 +1875,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -1698,6 +1944,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -1729,6 +1976,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -1792,6 +2040,7 @@ export const createSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -1854,6 +2103,82 @@ export const createSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -1897,6 +2222,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -1928,6 +2254,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2001,6 +2328,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2032,6 +2360,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2165,6 +2494,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2196,6 +2526,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2294,6 +2625,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2325,6 +2657,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2388,6 +2721,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -2450,6 +2784,82 @@ export const updateSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -2493,6 +2903,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2524,6 +2935,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2597,6 +3009,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2628,6 +3041,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2761,6 +3175,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2792,6 +3207,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2890,6 +3306,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -2921,6 +3338,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -2984,6 +3402,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -3046,6 +3465,82 @@ export const deleteSpeakerVideos = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -3089,6 +3584,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3120,6 +3616,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3193,6 +3690,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3224,6 +3722,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3357,6 +3856,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -3388,6 +3888,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -3467,6 +3968,7 @@ export const createSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -3529,6 +4031,82 @@ export const createSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -3567,6 +4145,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3629,6 +4208,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3731,6 +4311,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3812,6 +4393,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -3969,6 +4551,7 @@ export const updateSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -4031,6 +4614,82 @@ export const updateSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -4069,6 +4728,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4131,6 +4791,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4233,6 +4894,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4314,6 +4976,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4471,6 +5134,7 @@ export const deleteSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          customPlaylistIDs
           publishedDate
           recordedDate
           description
@@ -4533,6 +5197,82 @@ export const deleteSeries = /* GraphQL */ `
               caption
               licensedContent
               projection
+              contentRating {
+                acbRating
+                agcomRating
+                anatelRating
+                bbfcRating
+                bfvcRating
+                bmukkRating
+                catvRating
+                catvfrRating
+                cbfcRating
+                cccRating
+                cceRating
+                chfilmRating
+                chvrsRating
+                cicfRating
+                cnaRating
+                cncRating
+                csaRating
+                cscfRating
+                czfilmRating
+                djctqRating
+                djctqRatingReasons
+                ecbmctRating
+                eefilmRating
+                egfilmRating
+                eirinRating
+                fcbmRating
+                fcoRating
+                fmocRating
+                fpbRating
+                fpbRatingReasons
+                fskRating
+                grfilmRating
+                icaaRating
+                ifcoRating
+                ilfilmRating
+                incaaRating
+                kfcbRating
+                kijkwijzerRating
+                kmrbRating
+                lsfRating
+                mccaaRating
+                mccypRating
+                mcstRating
+                mdaRating
+                medietilsynetRating
+                mekuRating
+                mibacRating
+                mocRating
+                moctwRating
+                mpaaRating
+                mpaatRating
+                mtrcbRating
+                nbcRating
+                nbcplRating
+                nfrcRating
+                nfvcbRating
+                nkclvRating
+                oflcRating
+                pefilmRating
+                rcnofRating
+                resorteviolenciaRating
+                rtcRating
+                rteRating
+                russiaRating
+                skfilmRating
+                smaisRating
+                smsaRating
+                tvpgRating
+                ytRating
+              }
+              regionRestriction {
+                allowed
+                blocked
+              }
+              hasCustomThumbnail
             }
             status {
               uploadStatus
@@ -4571,6 +5311,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4633,6 +5374,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4735,6 +5477,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4816,6 +5559,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                customPlaylistIDs
                 publishedDate
                 recordedDate
                 description
@@ -4998,6 +5742,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5028,6 +5773,7 @@ export const createCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5063,6 +5809,82 @@ export const createCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5098,6 +5920,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5138,6 +5961,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5201,6 +6025,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5275,6 +6100,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5305,6 +6131,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5340,6 +6167,82 @@ export const updateCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5375,6 +6278,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5415,6 +6319,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5478,6 +6383,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5552,6 +6458,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5582,6 +6489,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -5617,6 +6525,82 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -5652,6 +6636,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5692,6 +6677,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5755,6 +6741,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -5831,6 +6818,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -5862,6 +6850,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -5925,6 +6914,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -5987,6 +6977,82 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -6030,6 +7096,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6061,6 +7128,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6134,6 +7202,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6165,6 +7234,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6298,6 +7368,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6329,6 +7400,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6435,6 +7507,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6466,6 +7539,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6529,6 +7603,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -6591,6 +7666,82 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -6634,6 +7785,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6665,6 +7817,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6738,6 +7891,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6769,6 +7923,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -6902,6 +8057,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -6933,6 +8089,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7039,6 +8196,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7070,6 +8228,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7133,6 +8292,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        customPlaylistIDs
         publishedDate
         recordedDate
         description
@@ -7195,6 +8355,82 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
             caption
             licensedContent
             projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
           }
           status {
             uploadStatus
@@ -7238,6 +8474,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7269,6 +8506,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7342,6 +8580,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7373,6 +8612,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7506,6 +8746,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -7537,6 +8778,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -7605,6 +8847,7 @@ export const createVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -7667,6 +8910,82 @@ export const createVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -7713,6 +9032,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7743,6 +9063,7 @@ export const createVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -7778,6 +9099,82 @@ export const createVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -7813,6 +9210,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7853,6 +9251,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7916,6 +9315,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -7960,6 +9360,7 @@ export const createVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -7995,6 +9396,82 @@ export const createVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8030,6 +9507,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8070,6 +9548,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8133,6 +9612,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8192,6 +9672,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8310,6 +9791,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8340,6 +9822,7 @@ export const createVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8375,6 +9858,82 @@ export const createVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8410,6 +9969,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8450,6 +10010,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8513,6 +10074,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8551,6 +10113,7 @@ export const updateVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -8613,6 +10176,82 @@ export const updateVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -8659,6 +10298,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8689,6 +10329,7 @@ export const updateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8724,6 +10365,82 @@ export const updateVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8759,6 +10476,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8799,6 +10517,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8862,6 +10581,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -8906,6 +10626,7 @@ export const updateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -8941,6 +10662,82 @@ export const updateVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -8976,6 +10773,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9016,6 +10814,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9079,6 +10878,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9138,6 +10938,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9256,6 +11057,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9286,6 +11088,7 @@ export const updateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9321,6 +11124,82 @@ export const updateVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9356,6 +11235,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9396,6 +11276,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9459,6 +11340,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9497,6 +11379,7 @@ export const deleteVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      customPlaylistIDs
       publishedDate
       recordedDate
       description
@@ -9559,6 +11442,82 @@ export const deleteVideo = /* GraphQL */ `
           caption
           licensedContent
           projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+          }
+          regionRestriction {
+            allowed
+            blocked
+          }
+          hasCustomThumbnail
         }
         status {
           uploadStatus
@@ -9605,6 +11564,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9635,6 +11595,7 @@ export const deleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9670,6 +11631,82 @@ export const deleteVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9705,6 +11742,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9745,6 +11783,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9808,6 +11847,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9852,6 +11892,7 @@ export const deleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -9887,6 +11928,82 @@ export const deleteVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -9922,6 +12039,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -9962,6 +12080,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10025,6 +12144,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10084,6 +12204,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10202,6 +12323,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10232,6 +12354,7 @@ export const deleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -10267,6 +12390,82 @@ export const deleteVideo = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -10302,6 +12501,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10342,6 +12542,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10405,6 +12606,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10534,6 +12736,7 @@ export const createBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10719,6 +12922,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -10904,6 +13108,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -11115,6 +13320,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -11146,6 +13352,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -11451,6 +13658,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -11482,6 +13690,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -11787,6 +13996,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              customPlaylistIDs
               publishedDate
               recordedDate
               description
@@ -11818,6 +14028,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                   caption
                   licensedContent
                   projection
+                  hasCustomThumbnail
                 }
                 status {
                   uploadStatus
@@ -12032,6 +14243,7 @@ export const createBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -12067,6 +14279,82 @@ export const createBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -12102,6 +14390,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12142,6 +14431,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12205,6 +14495,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12264,6 +14555,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12434,6 +14726,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12554,6 +14847,7 @@ export const updateBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -12589,6 +14883,82 @@ export const updateBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -12624,6 +14994,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12664,6 +15035,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12727,6 +15099,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12786,6 +15159,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -12956,6 +15330,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13076,6 +15451,7 @@ export const deleteBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            customPlaylistIDs
             publishedDate
             recordedDate
             description
@@ -13111,6 +15487,82 @@ export const deleteBlog = /* GraphQL */ `
                 caption
                 licensedContent
                 projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
               }
               status {
                 uploadStatus
@@ -13146,6 +15598,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13186,6 +15639,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13249,6 +15703,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13308,6 +15763,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description
@@ -13478,6 +15934,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  customPlaylistIDs
                   publishedDate
                   recordedDate
                   description

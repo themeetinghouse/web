@@ -182,26 +182,31 @@ export default class VideoPlayer extends React.Component<Props, State> {
             </div>
             : null
           }
+          {this.state.content.showKidsVideos ?
+            <div>
+              <div className="LiveVideoPlayerEpisodeTitle">Parent Blog</div>
+              <div className="LiveVideoPlayerText">For Church at Home activities and more, check out the <a href="http://kidsandyouth.themeetinghouse.com/blog/">Parent Blog</a></div>
+              <div className="LiveVideoPlayerEpisodeTitle">Kidmax (6-10 Years Old)</div>
+              {this.state.kidData ?
+                <iframe title="Kids Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                : null
+              }
+              <div className="LiveVideoPlayerEpisodeTitle">JrHigh (11-13 Years Old)</div>
+              {this.state.kidData ?
+                this.state.kidData[1] ?
+                  <iframe title="Jr High Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[1].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                  : null : null
+              }
+              <div className="LiveVideoPlayerEpisodeTitle">Youth (14-18 Years Old)</div>
+              {this.state.kidData ?
+                this.state.kidData[2] ?
+                  <iframe title="Youth Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[2].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                  : null : null
+              }
+            </div>
+            :
+            null}
 
-          <div className="LiveVideoPlayerEpisodeTitle">Parent Blog</div>
-          <div className="LiveVideoPlayerText">For Church at Home activities and more, check out the <a href="http://kidsandyouth.themeetinghouse.com/blog/">Parent Blog</a></div>
-          <div className="LiveVideoPlayerEpisodeTitle">Kidmax (6-10 Years Old)</div>
-          {this.state.kidData ?
-            <iframe title="Kids Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-            : null
-          }
-          <div className="LiveVideoPlayerEpisodeTitle">JrHigh (11-13 Years Old)</div>
-          {this.state.kidData ?
-            this.state.kidData[1] ?
-              <iframe title="Jr High Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[1].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-              : null : null
-          }
-          <div className="LiveVideoPlayerEpisodeTitle">Youth (14-18 Years Old)</div>
-          {this.state.kidData ?
-            this.state.kidData[2] ?
-              <iframe title="Youth Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[2].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-              : null : null
-          }
         </div>
 
       </div>
