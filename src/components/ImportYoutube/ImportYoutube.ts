@@ -270,7 +270,7 @@ export default class ImportYoutube {
   async writeYoutube(vid1: any) {
     try {
       const getVideoByYoutubeIdent: any = await API.graphql(graphqlOperation(customqueries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
-      if (getVideoByYoutubeIdent.data.getVideoByYoutubeIdent.items.length === 0) {
+      if (getVideoByYoutubeIdent.data.getVideoByYoutubeIdent.items.length === 0 && vid1.status.privacyStatus !== "private") {
         console.log({"Write Youtube": vid1})
         console.log(getVideoByYoutubeIdent)
 
@@ -299,7 +299,7 @@ export default class ImportYoutube {
           console.error({ "Error mutations.createVideo": err });
           console.log(vid1)
         }
-      } else if (moment().diff(vid1.contentDetails.videoPublishedAt, 'days') <= 365) {
+      } else if (moment().diff(vid1.contentDetails.videoPublishedAt, 'days') <= 365 && vid1.status.privacyStatus !== "private") {
 
         //we will pull viewCount for videos posted within the last year...
 
