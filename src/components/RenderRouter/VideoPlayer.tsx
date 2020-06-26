@@ -65,6 +65,19 @@ export default class VideoPlayer extends React.Component<Props, State> {
     }
   }
 
+  formatVideoDuration(length: string): string {
+    let duration = parseInt(length, 10)
+    let hours = 0
+    if (duration < 60) {
+      return length + 'm'
+    }
+    while (duration > 59) {
+      duration-=60
+      hours+=1
+    }
+    return `${hours.toString()}h ${duration.toString()}m`
+  }
+
   shareButton() {
     return (
     <Dropdown drop={"down"}>
@@ -148,10 +161,10 @@ export default class VideoPlayer extends React.Component<Props, State> {
               <div className="VideoPlayerInfoText">Date</div>
               <div className="VideoPlayerPublishedTitle" >{this.state.data.publishedDate}</div>
             </div> : null}
-          {(this.state.data.duration != null) ?
+          {(this.state.data.length) ?
             <div className="VideoPlayerDuration">
               <div className="VideoPlayerInfoText">Duration</div>
-              <div className="VideoPlayerDurationTitle" >{this.state.data.duration}</div>
+              <div className="VideoPlayerDurationTitle" >{this.formatVideoDuration(this.state.data.length)}</div>
             </div> : null}
           <div className="VideoPlayerClear"></div>
         </div>

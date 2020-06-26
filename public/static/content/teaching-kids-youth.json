@@ -37,7 +37,8 @@
                 "subclass":"kidmax-live",
                 "selector":"all",
                 "sortOrder":"DESC",
-                "header1":"Kidmax Live"                
+                "header1":"Kidmax Live",
+                "showEpisodeNumbers":false                
             },
             {
                 "type":"list",

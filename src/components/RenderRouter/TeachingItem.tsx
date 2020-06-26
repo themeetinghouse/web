@@ -158,7 +158,19 @@ class TeachingItem extends React.Component<Props, State> {
         }
     }
 
-    //
+    formatVideoDuration(length: string): string {
+        let duration = parseInt(length, 10)
+        let hours = 0
+        if (duration < 60) {
+          return length + 'm'
+        }
+        while (duration > 59) {
+          duration-=60
+          hours+=1
+        }
+        return `${hours.toString()}h ${duration.toString()}m`
+      }
+    
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
         if (this.state.content.style === "hero") {
@@ -181,8 +193,12 @@ class TeachingItem extends React.Component<Props, State> {
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
-                                <div className="teachingdiv teachingseriestitle" >{this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + "."} <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>  {this.state.listData[this.state.teachingId].Youtube.contentDetails.duration === null ? null : "•"} {this.state.listData[this.state.teachingId].Youtube.contentDetails.duration}</div>
-                                <div className="teachingdiv teachingdescription" > {this.state.listData[this.state.teachingId].description}</div>
+                                <div className="teachingdiv teachingseriestitle" >
+                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "} 
+                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>  
+                                    {this.state.listData[this.state.teachingId].length ? ` • ${this.formatVideoDuration(this.state.listData[this.state.teachingId].length)}` : null}
+                                </div>
+                                <div className="teachingdiv teachingdescription" >{this.state.listData[this.state.teachingId].description}</div>
                                 <div className="teachingdiv2" >
                                     <Button size="lg" className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} ><img className="teachingButton-icon" src="/static/svg/Watch.svg" alt="watch icon" />Watch</Button>
                                     {this.state.listData[this.state.teachingId].notesURL != null ? <Button size="lg" className="teachingButton" onClick={() => { this.navigateUrlNewWindow(this.state.listData[this.state.teachingId].notesURL) }} ><img className="teachingButton-icon" src="/static/svg/Notes.svg" alt="notes icon" />Notes</Button> : null}
