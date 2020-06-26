@@ -268,10 +268,10 @@ export default class ImportYoutube {
      });*/
   }
   async writeYoutube(vid1: any) {
-    console.log({"Write Youtube": vid1});
     try {
       const getVideoByYoutubeIdent: any = await API.graphql(graphqlOperation(customqueries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
       if (getVideoByYoutubeIdent.data.getVideoByYoutubeIdent.items.length === 0) {
+        console.log({"Write Youtube": vid1})
         console.log(getVideoByYoutubeIdent)
 
         console.log("Do mutations.createVideo")
