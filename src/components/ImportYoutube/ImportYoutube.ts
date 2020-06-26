@@ -25,6 +25,17 @@ export default class ImportYoutube {
   //"PLB5r2P47beqLL5uWqwJmAaocoKB1tFXF0",
 
   ignorePlaylist = [
+    'PLB5r2P47beqJ88_Mli1WLjBihZR4NuYt-',
+    'PLB5r2P47beqLrZyEDb_sFgAdOo6J5lw_C',
+    'PLB5r2P47beqIOfvkI91lxnmjydQkDPRPS',
+    'PLB5r2P47beqK_JHnTT5CaPTtkNQq2YLdn',
+    'PLB5r2P47beqJdtrGFXDBfZAqDptKEQ0_O',
+    'PLB5r2P47beqIY710hbZY6LKkeCkUqTaSq',
+    'PLB5r2P47beqJc8MQC_cE7xkuXrGLtLQc_',
+    'PLB5r2P47beqK-67PIAF4b1nQgh6cwayAO',
+    'PLB5r2P47beqIBg0asFXBh-MngqOAlLkLi',
+    'PLB5r2P47beqK7DIDEmLspWog35Bn9Dum5',
+    'PLB5r2P47beqJiefBSnOlZqbGWQDOu7QcX',
     'PLB5r2P47beqJ7NVigp8KO4mhKraDcZPg-',
     'PLB5r2P47beqKvK1vKg4u18oSIenrh76mo',
     'PLB5r2P47beqLk_zHn3VtNHMCYn8f42SWD',
