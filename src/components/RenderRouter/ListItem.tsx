@@ -1,105 +1,192 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
-import DataLoader from './DataLoader';
+import DataLoader, {
+  StaffData,
+  OverseerData,
+  EventData,
+  CompassionData,
+  DataQuery,
+  VideoByVideoTypeData,
+  SpeakerData,
+  BlogData,
+  SeriesData,
+  SeriesByTypeData,
+  SeriesQuery,
+  CustomPlaylistQuery,
+  CustomPlaylistVideoData,
+  VideoSeriesQuery,
+} from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
-import "./ListItem.scss";
+import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
 
 interface Props extends RouteComponentProps {
-  content: any,
-  data: any,
-  pageConfig: any
-
+  content: any;
+  data: any;
+  pageConfig: any;
 }
 interface State {
-  content: any,
-  listData: any,
-  overlayData: any,
-  urlHistoryState: any,
-  showChampion: any,
-  showMoreVideos: boolean,
-  numberOfVideos: number
+  content: DataQuery & {
+    style: string;
+    header1: string;
+    header2: string;
+    text1: string;
+
+    showEpisodeNumbers: boolean;
+    hovertag: string;
+  };
+  listData: ListData[];
+  overlayData: any;
+  urlHistoryState: any;
+  showChampion: any;
+  showMoreVideos: boolean;
+  numberOfVideos: number;
 }
+
+type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
+
+type ListData =
+  | SpeakerData
+  | VideoData
+  | StaffData
+  | OverseerData
+  | EventData
+  | CompassionData
+  | SeriesByTypeData
+  | BlogData;
 
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
     router: PropTypes.object,
-    history: PropTypes.object
-  }
+    history: PropTypes.object,
+  };
   videoOverlayClose() {
     this.setState({
-      overlayData: null
-    })
-    window.history.pushState({}, "Videos", this.state.urlHistoryState)
-
+      overlayData: null,
+    });
+    window.history.pushState({}, 'Videos', this.state.urlHistoryState);
   }
   showYears(start: any, end: any) {
     if (start === null || end === null)
-      return null
+      return null;
     else
       if (new Date(start).getFullYear() === new Date(end).getFullYear())
-        return new Date(start).getFullYear() + " • "
+        return new Date(start).getFullYear() + ' • ';
       else
-        return new Date(start).getFullYear() + " - " + new Date(end).getFullYear() + " • "
+        return new Date(start).getFullYear() + ' - ' + new Date(end).getFullYear() + ' • ';
   }
   handleClick(data: any) {
     this.setState({
       overlayData: data,
-      urlHistoryState: window.location.href
-    })
+      urlHistoryState: window.location.href,
+    });
     if (data.series == null)
-      console.log({ "You need to create a series for:": data })
+      console.log({ 'You need to create a series for:': data });
     else
-      window.history.pushState({}, "Videos", "/videos/" + data.series.id + "/" + data.id)
+      window.history.pushState({}, 'Videos', '/videos/' + data.series.id + '/' + data.id);
   }
 
-  dataLoader: DataLoader
   constructor(props: Props) {
     super(props);
 
     this.state = {
       showChampion: false,
       content: props.content,
-      listData: ((props.content.list == null) ? [] : props.content.list),
+      listData: props.content.list ?? [],
       overlayData: null,
       urlHistoryState: window.history.state,
       showMoreVideos: false,
-      numberOfVideos: 100
-    }
+      numberOfVideos: 100,
+    };
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
     this.setData = this.setData.bind(this);
-    this.dataLoader = new DataLoader({ ...this.props, dataLoaded: (data: any) => { this.setData(data) } }, this.state)
   }
 
   videoHandler() {
     this.setState({
       showMoreVideos: true,
-    })
+    });
   }
 
-  componentDidMount() {
-    this.dataLoader.loadData()
+  async componentDidMount() {
+    const dataLoaded = (data: ListData[]) => this.setData(data);
+    let data: ListData[];
+    const query: DataQuery = this.props.content;
+    switch (query.class) {
+      case 'speakers':
+        await DataLoader.getSpeakers(query, dataLoaded);
+        return;
+      case 'staff':
+        data = await DataLoader.loadStaff(query);
+        break;
+      case 'overseers':
+        data = await DataLoader.loadOverseers();
+        break;
+      case 'events':
+        data = await DataLoader.loadEvents(query);
+        break;
+      case 'compassion':
+        data = await DataLoader.loadCompassion();
+        break;
+      case 'series':
+        await DataLoader.getSeriesByType(query, dataLoaded);
+        return;
+      case 'videos':
+      case 'curious':
+      case 'watch-page':
+        let id: string;
+        switch (query.selector) {
+          case 'sameSeries':
+            id = this.props.data?.series?.id;
+            data = await DataLoader.getSeriesVideos({
+              ...(query as SeriesQuery),
+              id,
+            });
+            break;
+          case 'highlights':
+            id = 'adult-sunday-shortcut-' + this.props?.data?.series?.id;
+            data = await DataLoader.getSeriesVideos({
+              ...(query as SeriesQuery),
+              id,
+            });
+            break;
+          case 'custom-playlist':
+            data = await DataLoader.getVideosCustomPlaylist(
+              query as CustomPlaylistQuery
+            );
+            break;
+          default:
+            await DataLoader.getVideos(query as VideoSeriesQuery, dataLoaded);
+            return;
+        }
+        break;
+      case 'blogs':
+        await DataLoader.getBlogs(query, dataLoaded);
+        return;
+      default:
+        console.error(`unknown list data type ${this.state.content.class}`);
+        return;
+    }
+    this.setData(data);
   }
+
   setData(data: any) {
     this.setState({
-      listData: this.state.listData.concat(data)
-    })
+      listData: this.state.listData.concat(data),
+    });
   }
   imgUrl(size: any) {
-
-    if (window.location.hostname === "localhost") {
-
-      return "https://localhost:3006"
-    }
-    else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/" + size
+    if (window.location.hostname === 'localhost') {
+      return 'https://localhost:3006';
+    } else if (window.location.hostname.includes('beta'))
+      return 'https://beta.themeetinghouse.com/cache/' + size;
     else
-      return "https://www.themeetinghouse.com/cache/" + size
+      return 'https://www.themeetinghouse.com/cache/' + size;
   }
   navigateUrlNewWindow(to: string) {
     window.open(
@@ -112,86 +199,99 @@ class ListItem extends React.Component<Props, State> {
     window.location.href = to;
   }
   navigate(to: string) {
-    this.props.history.push(to, "as")
+    this.props.history.push(to, 'as');
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
     unblock();
 
   }
 
-  sortByDate(a: any, b: any, dir: "oldFirst" | "newFirst") {
-    const nameA = a.publishedDate.toUpperCase();
-    const nameB = b.publishedDate.toUpperCase();
+  sortByDate(a: BlogData, b: BlogData, dir: 'oldFirst' | 'newFirst') {
+    const nameA = (a?.publishedDate ?? '').toUpperCase();
+    const nameB = (b?.publishedDate ?? '').toUpperCase();
     if (nameA > nameB) {
-      return dir === "newFirst" ? -1 : 1;
+      return dir === 'newFirst' ? -1 : 1;
     }
     if (nameA < nameB) {
-      return dir === "newFirst" ? 1 : -1;
+      return dir === 'newFirst' ? 1 : -1;
     }
     return 0;
   }
 
   renderMoreVideosCard() {
     return (
-      <div onClick={() => this.setState({ numberOfVideos: this.state.numberOfVideos + 100 })} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+      <div onClick={() => this.setState({ numberOfVideos: this.state.numberOfVideos + 100 })} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div className="LoadMoreVideosCard">
           <div className="LoadMoreVideosText">Click to load more videos</div>
         </div>
-      </div>)
+      </div>);
   }
 
-  renderVideo(item: any) {
+  renderVideo(item: VideoData): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
     return (
-      <div onClick={() => { this.handleClick(item) }} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+      <div onClick={() => { this.handleClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div>
-          <img alt="TBD" className="ListItemVideoThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+          <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
           <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + ". "}{item.episodeTitle}</div>
-          <div className="ListItemSeriesTitle" >{item.seriesTitle != null ? item.seriesTitle : null}</div>
+          <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
+          <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
           <div className="ListItemPublishedDate">{item.publishedDate}</div>
         </div>
 
-      </div>)
+      </div>);
   }
 
-  renderWatchPageVideo(item: any) {
+  renderWatchPageVideo(item: VideoData): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
     return (
-      <div onClick={() => { this.handleClick(item) }} key={item.id} className={"WatchPageVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+      <div onClick={() => { this.handleClick(item); }} key={item.id} className={'WatchPageVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div>
-          <img alt="TBD" className="WatchPageThumb" src={item.Youtube.snippet.thumbnails.high.url} />
+          <img alt="TBD" className="WatchPageThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
           <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="WatchPageEpisodeTitle">{item.episodeNumber && item.videoTypes !== "adult-sunday-shortcut" ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
+          <div className="WatchPageEpisodeTitle">{item.episodeNumber && item.videoTypes !== 'adult-sunday-shortcut' ? item.episodeNumber + '. ' : null}{item.episodeTitle}</div>
           <div className="WatchPagePublishedDate">{item.publishedDate}</div>
         </div>
 
-      </div>)
+      </div>);
   }
 
-  renderCurious(item: any) {
+  renderCurious(item: VideoData): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
     return (
       <div className="CuriousWrapper">
-        <div onClick={() => this.handleClick(item)} key={item.id} className={"ListItemVideo" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >
+        <div onClick={() => this.handleClick(item)} key={item.id} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
           <div className="CuriousBox">
-            <div className="CuriousText">{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + ". "}{item.episodeTitle}</div>
+            <div className="CuriousText">{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '}{item.episodeTitle}</div>
             <div className="WatchVideoTag">{this.state.content.hovertag}</div>
           </div>
         </div>
-      </div>)
+      </div>);
   }
 
-  renderBlogs(item: any) {
+  renderBlogs(item: BlogData): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
     return (
-      <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl("/posts/" + item.id)}>
-        <img alt={item.title + " series image"}
+      <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl('/posts/' + item.id)}>
+        <img alt={item.blogTitle + ' series image'}
           className="BlogSquareImage"
-          src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-          onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
+          src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
+          onError={this.fallbackToImage('/static/NoCompassionLogo.png')}
+        />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
-          <div className="BlogDetails">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
+          <div className="BlogDetails">by <span className="author-only">{item.author}</span> on{' '}{item.publishedDate}</div>
           <div className="BlogDesc">{item.description}</div>
         </div>
       </div>
-    )
+    );
   }
 
   fallbackToImage(
@@ -205,33 +305,32 @@ class ListItem extends React.Component<Props, State> {
     };
   }
 
-  renderSpeaker(item: any) {
-
+  renderSpeaker(item: SpeakerData): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
     return (
-      <div key={item.id} className="ListItemTeachingImageDiv" >
-        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png" onError={this.fallbackToImage("/static/Individual.png")} />
-        <div className="ListItemEpisodeLength" >{item.name}</div>
-        <div>{item.videos.items.length === 10 ? item.videos.items.length + "+" : item.videos.items.length} Episodes</div>
+      <div key={item.id} className="ListItemTeachingImageDiv">
+        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png" onError={this.fallbackToImage('/static/Individual.png')} />
+        <div className="ListItemEpisodeLength">{item.name}</div>
+        <div>{item?.videos?.items?.length === 10 ? item.videos.items.length + '+' : item?.videos?.items?.length} Episodes</div>
       </div>
-    )
-
+    );
   }
 
-
-  renderOverseer(item: any, index: any) {
-    const imgsrc: any = "/static/photos/overseers/" + item.FirstName + "_" + item.LastName + "_app.jpg"
+  renderOverseer(item: OverseerData, index: number): JSX.Element {
+    const imgsrc: any = '/static/photos/overseers/' + item.FirstName + '_' + item.LastName + '_app.jpg';
     return (
-      <div key={index} className="ListItemDiv3" >
-
-        <img alt={item.photoAlt} className="ListItemImage2"
-          onError={this.fallbackToImage("/static/Individual.png")}
+      <div key={index} className="ListItemDiv3">
+        <img alt={`${item.FirstName} ${item.LastName}`} className="ListItemImage2"
+          onError={this.fallbackToImage('/static/Individual.png')}
           src={this.imgUrl(640) + imgsrc}
-          srcSet={this.imgUrl(80) + imgsrc + " 80w," +
-            this.imgUrl(120) + imgsrc + " 120w," +
-            this.imgUrl(180) + imgsrc + " 180w," +
-            this.imgUrl(320) + imgsrc + " 320w," +
-            this.imgUrl(480) + imgsrc + " 480w," +
-            this.imgUrl(640) + imgsrc + " 640w"}
+          srcSet={this.imgUrl(80) + imgsrc + ' 80w,' +
+            this.imgUrl(120) + imgsrc + ' 120w,' +
+            this.imgUrl(180) + imgsrc + ' 180w,' +
+            this.imgUrl(320) + imgsrc + ' 320w,' +
+            this.imgUrl(480) + imgsrc + ' 480w,' +
+            this.imgUrl(640) + imgsrc + ' 640w'}
           sizes="(max-width: 320px) 80px,
                   (max-width: 480px) 120px,
                   (max-width: 640px) 180px,
@@ -245,38 +344,42 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemPosition" >{item.Position}</div>
 
       </div>
-    )
+    );
   }
-  renderEvent(item: any) {
 
-    const start_date = new Date(item.start_time.substring(0, item.start_time.length - 2) + ":" + item.start_time.substring(item.start_time.length - 2))
+  renderEvent(item: EventData): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
+
+    const start_date = new Date(item?.start_time?.substring(0, item.start_time.length - 2) + ':' + item?.start_time?.substring(item.start_time.length - 2));
     let durationStr = start_date.toLocaleTimeString(navigator.language, {
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
     });
-    if (item.end_date != null) {
-      const end_date = new Date(item.end_date.substring(0, item.end_date.length - 2) + ":" + item.end_date.substring(item.end_date.length - 2))
-      durationStr = durationStr + "-" + end_date.toLocaleTimeString(navigator.language, {
+    if (item.end_time) {
+      const end_date = new Date(item.end_time.substring(0, item.end_time.length - 2) + ':' + item.end_time.substring(item.end_time.length - 2));
+      durationStr = durationStr + '-' + end_date.toLocaleTimeString(navigator.language, {
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
       });
     }
-    let description
-    if (item.description.length > 300) {
-      if (item.description.indexOf(" ", 300) === -1)
-        description = item.description
+    let description;
+    if (item.description && item.description.length > 300) {
+      if (item.description.indexOf(' ', 300) === -1)
+        description = item.description;
       else
-        description = item.description.substring(0, item.description.indexOf(" ", 300)) + "..."
+        description = item.description.substring(0, item.description.indexOf(' ', 300)) + '...';
     }
     else
-      description = item.description
+      description = item.description;
     return (
-      <div key={item.id} onClick={() => { this.navigateUrlNewWindow("https://facebook.com/" + item.id) }} className="ListItemEvents" >
-        <div style={{ float: "left", marginLeft: "10px", marginRight: "40px" }}>
-          <div style={{ fontFamily: "Graphik Web", lineHeight: "3vw", fontSize: "2vw", fontWeight: "bold" }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
-          <div style={{ fontFamily: "Graphik Web", lineHeight: "3vw", fontSize: "4vw", fontWeight: "bold" }}>{start_date.getDate()}</div>
+      <div key={item.id ?? ''} onClick={() => { this.navigateUrlNewWindow('https://facebook.com/' + item.id) }} className="ListItemEvents" >
+        <div style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}>
+          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
+          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold' }}>{start_date.getDate()}</div>
         </div>
-        <div style={{ margin: "10px" }}>
+        <div style={{ margin: '10px' }}>
           <div className="ListItemEventsDescription" >{item.name}</div>
           <div className="ListItemEventsDescription2" >{description}</div>
           {item.place != null ? item.place.name != null ? <div className="ListItemEventsLocation" >{item.place.name}</div> : null : null}
@@ -284,41 +387,41 @@ class ListItem extends React.Component<Props, State> {
           {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
         <Button className="ListItemEventButton" onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
     */}       </div>
-        <div style={{ clear: "left" }}></div>
+        <div style={{ clear: 'left' }}></div>
 
       </div>
-    )
+    );
 
   }
   easterEgg() {
-    this.setState({ showChampion: true })
+    this.setState({ showChampion: true });
   }
   renderStaff(item: any, index: any) {
-    const imgsrc = "/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"
+    const imgsrc = '/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg';
     return (
       <div key={index} className="ListItemDiv3" >
-        {item.FirstName === "James" ? <div>
+        {item.FirstName === 'James' ? <div>
           <Konami action={() => { this.easterEgg() }}></Konami>
           {this.state.showChampion ?
-            (<div><Fireworks style={{ position: "fixed", width: "100%", height: "100%", left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
-              <img alt={item.photoAlt} className="ListItemImage2" style={{ position: "fixed", left: "30%", width: "30%", top: "10%", zIndex: 200004 }}
-                onError={this.fallbackToImage("/static/Individual.png")}
-                src={"/static/photos/" + (item.Staff == null ? "coordinators" : "staff") + "/" + (item.Staff == null ? item.sites[0] + "_" : "") + item.FirstName + "_" + item.LastName + "_app.jpg"} />
-              <h1 style={{ color: "#ffffff", fontSize: 100, position: "fixed", width: "80%", height: "20%", left: "10%", top: "70%", zIndex: 200006 }}>Young Adults Champion</h1></div>)
+            (<div><Fireworks style={{ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
+              <img alt={item.photoAlt} className="ListItemImage2" style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
+                onError={this.fallbackToImage('/static/Individual.png')}
+                src={'/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg'} />
+              <h1 style={{ color: '#ffffff', fontSize: 100, position: 'fixed', width: '80%', height: '20%', left: '10%', top: '70%', zIndex: 200006, }}>Young Adults Champion</h1></div>)
             : null}
         </div>
           : null
         }
 
         <img alt={item.photoAlt} className="ListItemImage2"
-          onError={this.fallbackToImage("/static/Individual.png")}
+          onError={this.fallbackToImage('/static/Individual.png')}
           src={this.imgUrl(640) + imgsrc}
-          srcSet={this.imgUrl(80) + imgsrc + " 80w," +
-            this.imgUrl(120) + imgsrc + " 120w," +
-            this.imgUrl(180) + imgsrc + " 180w," +
-            this.imgUrl(320) + imgsrc + " 320w," +
-            this.imgUrl(480) + imgsrc + " 480w," +
-            this.imgUrl(640) + imgsrc + " 640w"}
+          srcSet={this.imgUrl(80) + imgsrc + ' 80w,' +
+            this.imgUrl(120) + imgsrc + ' 120w,' +
+            this.imgUrl(180) + imgsrc + ' 180w,' +
+            this.imgUrl(320) + imgsrc + ' 320w,' +
+            this.imgUrl(480) + imgsrc + ' 480w,' +
+            this.imgUrl(640) + imgsrc + ' 640w'}
           sizes="(max-width: 320px) 80px,
                   (max-width: 480px) 120px,
                   (max-width: 640px) 180px,
@@ -329,105 +432,121 @@ class ListItem extends React.Component<Props, State> {
 
         <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
         <div className="ListItemPosition" >{item.Position}</div>
-        {item.Email != null ? <div className="ListItemEmail"><a className="ListItemEmailText" href={"mailto:" + item.Email}>Email</a></div> : null}
+        {item.Email != null ? <div className="ListItemEmail"><a className="ListItemEmailText" href={'mailto:' + item.Email}>Email</a></div> : null}
         {item.Phone != null ? <div className="ListItemPhone">{item.Phone}</div> : null}
-        {item.facebook != null ? <a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a> : null}
-        {item.instagram != null ? <a href={"https://twitter.com/" + item.instagram} className="ListItemA" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
-        {item.twitter != null ? <a href={"https://www.instagram.com//" + item.twitter} className="ListItemA" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
+        {item.facebook != null ? <a href={'https://www.facebook.com/' + item.facebook} className="ListItemA" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a> : null}
+        {item.instagram != null ? <a href={'https://twitter.com/' + item.instagram} className="ListItemA" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
+        {item.twitter != null ? <a href={'https://www.instagram.com//' + item.twitter} className="ListItemA" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
 
       </div>
-    )
+    );
   }
   renderCompassion(item: any) {
     return (
       <div key={item.id} className="ListItemCompassion" >
-        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image} onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
+        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image} onError={this.fallbackToImage('/static/NoCompassionLogo.png')} />
         <div className="ListItemEventsDescription" >{item.name}</div>
         <div className="ListItemEventsDescription2" >{item.description}</div>
         <div>{item.location}</div>
         {item.website != null ? (<div className="ListItemWebsiteContainer"><a className="ListItemWebsite" href={item.website}>Website</a></div>) : null}
-        {item.facebook != null ? (<a href={"https://www.facebook.com/" + item.facebook} className="ListItemA" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
-        {item.twitter != null ? (<a href={"https://twitter.com/" + item.twitter} className="ListItemA" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
-        {item.instagram != null ? (<a href={"https://www.instagram.com//" + item.instagram} className="ListItemA" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
+        {item.facebook != null ? (<a href={'https://www.facebook.com/' + item.facebook} className="ListItemA" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
+        {item.twitter != null ? (<a href={'https://twitter.com/' + item.twitter} className="ListItemA"><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
+        {item.instagram != null ? (<a href={'https://www.instagram.com//' + item.instagram} className="ListItemA" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
 
 
 
       </div>
-    )
+    );
   }
-  renderSeries(item: any) {
-    const seriesEnded = format(new Date(), "yyyy-MM-dd") > item.endDate
-    if (item.videos.items.length > 0) {
-      console.log(item.seriesType + "-" + item.title + ".jpg")
+  renderSeries(item: SeriesByTypeData) {
+    if (!item) {
+      return null;
+    }
+    const seriesEnded = item.endDate && format(new Date(), 'yyyy-MM-dd') > item.endDate;
+    const videos = item.videos?.items ?? [];
+    if (videos.length > 0) {
+      console.log(item.seriesType + '-' + item.title + '.jpg');
       return (
-        <div onClick={() => this.handleClick(item.videos.items.sort((a: any, b: any) => seriesEnded ? a.episodeNumber - b.episodeNumber : b.episodeNumber - a.episodeNumber)[0])} key={item.id} className="ListItemVideo" >
-          <img alt={item.title + " series image"}
+        <div onClick={() => this.handleClick(videos.sort((a, b) => {
+          const aNumber = a?.episodeNumber ?? 0;
+          const bNumber = b?.episodeNumber ?? 0;
+          return seriesEnded ? aNumber - bNumber : bNumber - aNumber;
+        })[0])}
+          key={item.id} className="ListItemVideo">
+          <img alt={item.title + ' series image'}
             className="ListItemImage2"
-            src={"/static/photos/series/" + item.seriesType + "-" + item.title.replace("?", "") + ".jpg"}
-            onError={this.fallbackToImage("/static/NoCompassionLogo.png")} />
+            src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
+            onError={this.fallbackToImage('/static/NoCompassionLogo.png')}
+          />
           <div className="ListItemName" >{item.title}</div>
-          <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{item.videos.items.length} {item.videos.items.length === 1 ? "Episode" : "Episodes"}</div>
+          <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
         </div>
-      )
+      );
     }
     else {
-      console.log({ "None:": item })
-      return null
+      console.log({ 'None:': item });
+      return null;
     }
   }
-  renderItemRouter(item: any, index: any) {
-    if (this.state.content.class === "speakers")
-      return this.renderSpeaker(item)
-    else if (this.state.content.class === "videos")
-      return this.renderVideo(item)
-    else if (this.state.content.class === "staff")
-      return this.renderStaff(item, index)
-    else if (this.state.content.class === "overseers")
-      return this.renderOverseer(item, index)
-    else if (this.state.content.class === "events")
-      return this.renderEvent(item)
-    else if (this.state.content.class === "compassion")
-      return this.renderCompassion(item)
-    else if (this.state.content.class === "series")
-      return this.renderSeries(item)
-    else if (this.state.content.class === "curious")
-      return this.renderCurious(item)
-    else if (this.state.content.class === "watch-page")
-      return this.renderWatchPageVideo(item)
-    else if (this.state.content.class === "blogs")
-      return this.renderBlogs(item)
-    else return null
+  renderItemRouter(item: ListData, index: number) {
+    if (this.state.content.class === 'speakers')
+      return this.renderSpeaker(item as SpeakerData);
+    else if (this.state.content.class === 'videos')
+      return this.renderVideo(item as VideoData);
+    else if (this.state.content.class === 'staff')
+      return this.renderStaff(item as StaffData, index);
+    else if (this.state.content.class === 'overseers')
+      return this.renderOverseer(item as OverseerData, index);
+    else if (this.state.content.class === 'events')
+      return this.renderEvent(item as EventData);
+    else if (this.state.content.class === 'compassion')
+      return this.renderCompassion(item as CompassionData);
+    else if (this.state.content.class === 'series')
+      return this.renderSeries(item as SeriesByTypeData);
+    else if (this.state.content.class === 'curious')
+      return this.renderCurious(item as VideoData);
+    else if (this.state.content.class === 'watch-page')
+      return this.renderWatchPageVideo(item as VideoData);
+    else if (this.state.content.class === 'blogs')
+      return this.renderBlogs(item as BlogData);
+    else return null;
   }
 
   render() {
-    let data
-    (this.props.content.filterField == null) ? data = this.state.listData :
-      data = this.state.listData.filter((item: any) => {
-        return item[this.props.content.filterField].includes(this.props.content.filterValue)
-      })
+    const data: Array<ListData | string> =
+      this.props.content.filterField == null
+        ? this.state.listData
+        : this.state.listData.filter((item) => {
+          if (!item) {
+            return false;
+          }
+          return (item[
+            this.props.content.filterField as keyof ListData
+          ] as string).includes(this.props.content.filterValue);
+        });
 
-    const dataLength = data.length
+    const dataLength = data.length;
 
-    if (this.state.content.style === "horizontal") return (
+    if (this.state.content.style === 'horizontal') return (
       <div className="ListItem horizontal" >
         <div className="ListItemDiv1" >
-          <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
-          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+          <h1 className={'ListItemH1' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1">{this.state.content.text1}</div>) : null}
           <div className="ListItemDiv2" >
 
-            {this.state.content.class === "videos" ?
-              <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
-                {data.slice(0, this.state.numberOfVideos).concat("card").map((item: any, index: any) => {
-                  if (item === "card")
-                    return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null
+            {this.state.content.class === 'videos' ?
+              <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
+                {data.slice(0, this.state.numberOfVideos).concat('card').map((item, index) => {
+                  if (item === 'card')
+                    return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null;
 
-                  return this.renderItemRouter(item, index)
+                  return this.renderItemRouter(item as ListData, index);
                 }
                 )}
               </HorizontalScrollList>
-              : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === "white"}>
+              : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
                 {data.map((item: any, index: any) => {
-                  return this.renderItemRouter(item, index)
+                  return this.renderItemRouter(item, index);
                 }
                 )}
               </HorizontalScrollList>}
@@ -436,42 +555,43 @@ class ListItem extends React.Component<Props, State> {
         </div>
         <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
       </div>
-    )
-    else if (this.state.content.style === "blogs") {
-      data.sort((a: any, b: any) => this.sortByDate(a, b, "newFirst"))
+    );
+    else if (this.state.content.style === 'blogs') {
+      data.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
 
-      const today = format(new Date(), "yyyy-MM-dd")
-      const dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate))
+      const today = format(new Date(), 'yyyy-MM-dd');
+      const dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate));
 
       return (
         <div className="ListItemDiv1 BlogItem" >
           <div className="BlogItemContainer">
             {dateChecked.map((item: any, index: any) => {
-              return this.renderItemRouter(item, index)
+              return this.renderItemRouter(item, index);
             }
             )}
           </div>
         </div>
-      )
+      );
     }
 
-    else if (this.state.content.style === "horizontal-video-player") {
+    else if (this.state.content.style === 'horizontal-video-player') {
       if (!data.length) {
-        return null
+        return null;
       }
+      const videoData = data as VideoData[];
       //videos are not stored in order within a series, so we sort here
-      if (data[0].videoTypes === "questions") 
-        data.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber)
-      else 
-        data.sort((a: any, b: any) => this.sortByDate(a, b, "oldFirst"))
+      if (videoData[0]?.videoTypes === 'questions')
+        data.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber);
+      else
+        data.sort((a: any, b: any) => this.sortByDate(a, b, 'oldFirst'));
       return (
-        <div className="ListItem horizontal-video-player" >
-          <div className="ListItemDiv1 horizontal-video-player" >
-            <h1 className={"ListItemH1 horizontal-video-player" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
+        <div className="ListItem horizontal-video-player">
+          <div className="ListItemDiv1 horizontal-video-player">
+            <h1 className={'ListItemH1 horizontal-video-player' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.state.content.header1}</h1>
             {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
             <div className="WatchPageContainer">
               {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index)
+                return this.renderItemRouter(item, index);
               }
               )}
             </div>
@@ -479,20 +599,20 @@ class ListItem extends React.Component<Props, State> {
           </div>
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
-      )
+      );
     }
 
-    else if (this.state.content.style === "curious-ui") {
-      data.sort(function (a: any, b: any) { return a.episodeNumber - b.episodeNumber })
+    else if (this.state.content.style === 'curious-ui') {
+      data.sort(function (a: any, b: any) { return a.episodeNumber - b.episodeNumber });
       return (
         <div className="ListItem horizontal" >
           <div className="ListItemDiv1" >
-            <h1 className={"ListItemH1" + (this.props.pageConfig.logoColor === "white" ? " whiteText" : "")} >{this.state.content.header1}</h1>
-            {this.state.content.text1 != null ? (<div className="CuriousText1" >{this.state.content.text1}</div>) : null}
+            <h1 className={'ListItemH1' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.state.content.header1}</h1>
+            {this.state.content.text1 != null ? (<div className="CuriousText1">{this.state.content.text1}</div>) : null}
             <div className="hide-mobile">
               <div className="CuriousContainer">
                 {data.slice(0, 6).map((item: any, index: any) => {
-                  return this.renderItemRouter(item, index)
+                  return this.renderItemRouter(item, index);
                 }
                 )}
               </div>
@@ -500,7 +620,7 @@ class ListItem extends React.Component<Props, State> {
 
             <div className="hide-desktop">
               {data.slice(0, 3).map((item: any, index: any) => {
-                return this.renderItemRouter(item, index)
+                return this.renderItemRouter(item, index);
               }
               )}
               {!this.state.showMoreVideos ? <button className="MoreVideos" onClick={this.videoHandler}>Load 3 More Questions</button> : null}
@@ -509,10 +629,10 @@ class ListItem extends React.Component<Props, State> {
           </div>
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
-      )
+      );
     }
 
-    else if (this.state.content.style === "vertical") {
+    else if (this.state.content.style === 'vertical') {
       if (data.length > 0) {
         return (
           <div className="ListItem horizontal" >
@@ -522,26 +642,25 @@ class ListItem extends React.Component<Props, State> {
               <div className="ListItemSpeakersDiv" >
                 <HorizontalScrollList>
                   {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index)
+                    return this.renderItemRouter(item, index);
                   })}
                 </HorizontalScrollList>
               </div>
             </div>
           </div>
-        )
+        );
       } else {
-        return null
+        return null;
       }
     }
-    else if (this.state.content.style === "horizontalBig") return (
+    else if (this.state.content.style === 'horizontalBig') return (
       <div className="ListItem horizontalBig" >
         <div className="ListItemDiv1 ListItemAllSeries" >
           <h1 className="ListItemH1" >{this.state.content.header1}</h1>
           <div className="ListItemDiv6" >
             <HorizontalScrollList>
               {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index)
-
+                return this.renderItemRouter(item, index);
               })}
             </HorizontalScrollList>
             <div className="ListItemDiv5" ></div>
@@ -552,7 +671,7 @@ class ListItem extends React.Component<Props, State> {
 
       </div>
     )
-    else if (this.state.content.style === "imageList") return (
+    else if (this.state.content.style === 'imageList') return (
       <div className="ListItem imageList" >
         <div className="ListItemDiv1" >
           <h1 className="ListItemH1ImageList" >{this.state.content.header1}</h1>
@@ -567,22 +686,22 @@ class ListItem extends React.Component<Props, State> {
                     <div
                       onClick={() => {
                         if (item.navigateTo)
-                          this.navigate(item.navigateTo)
+                          this.navigate(item.navigateTo);
                         else
                           if (item.url)
-                            this.navigateUrl(item.url)
+                            this.navigateUrl(item.url);
                       }}
-                      className={"imageList " + (item.url || item.navigateTo ? "hoverText" : "noHoverText")}>
+                      className={'imageList ' + (item.url || item.navigateTo ? 'hoverText' : 'noHoverText')}>
                       <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
                     <img className="ListItemH1ImageList2" src={this.imgUrl(480) + item.imageSrc} alt={item.imageAlt}
-                      srcSet={this.imgUrl(320) + item.imageSrc + " 320w," +
-                        this.imgUrl(480) + item.imageSrc + " 480w," +
-                        this.imgUrl(640) + item.imageSrc + " 640w," +
-                        this.imgUrl(1280) + item.imageSrc + " 1280w," +
-                        this.imgUrl(1920) + item.imageSrc + " 1920w," +
-                        this.imgUrl(2560) + item.imageSrc + " 2560w"}
+                      srcSet={this.imgUrl(320) + item.imageSrc + ' 320w,' +
+                        this.imgUrl(480) + item.imageSrc + ' 480w,' +
+                        this.imgUrl(640) + item.imageSrc + ' 640w,' +
+                        this.imgUrl(1280) + item.imageSrc + ' 1280w,' +
+                        this.imgUrl(1920) + item.imageSrc + ' 1920w,' +
+                        this.imgUrl(2560) + item.imageSrc + ' 2560w'}
                       sizes="(max-width: 320px) 320px,
                                (max-width: 480px) 480px,
                                (max-width: 640px) 640px,
@@ -591,16 +710,16 @@ class ListItem extends React.Component<Props, State> {
                                 2560px"
                     />
                   </div>
-                )
+                );
               })
             }
           </div>
         </div>
 
       </div>
-    )
-    return (null)
+    );
+    return null;
   }
 }
 
-export default withRouter(ListItem)
+export default withRouter(ListItem);
