@@ -1,42 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="shortcut icon" id="dark-mode" href="%PUBLIC_URL%/favicon-dark-mode.svg" type="image/svg+xml"/>
-  <link rel="shortcut icon" id="light-mode" href="%PUBLIC_URL%/favicon-light-mode.svg" type="image/svg+xml"/>
-  <script>
-      const lightSchemeIcon = document.querySelector('link#light-mode');
-      const darkSchemeIcon = document.querySelector('link#dark-mode');
-      const matcher = window.matchMedia("(prefers-color-scheme:dark)");
-      matcher.addListener(onUpdate);
-      function onUpdate() {
-        if (matcher.matches) {
-          lightSchemeIcon.remove();
-          removePngIcons();
-          document.head.append(darkSchemeIcon);
-        } else {
-          darkSchemeIcon.remove();
-          removePngIcons();
-          document.head.append(lightSchemeIcon);
-        }
-      }
-
-      function addPngIcons(sizes, href) {
-        const isAndroid = navigator.userAgent.match(/Android/i);
-        if (isAndroid) {
-          const link = document.createElement('link');
-          link.rel = "icon";
-          link.type = "image/png";
-          link.sizes = sizes;
-          link.href = href;
-          document.head.append(link);
-        }
-      }
-
-      addPngIcons("192x192","/static/icons/android-icon-192x192.png");
-      addPngIcons("32x32","/static/icons/favicon-32x32.png");
-      addPngIcons("96x96","/static/icons/favicon-96x96.png");
-      addPngIcons("16x16","/static/icons/favicon-16x16.png");
-      onUpdate();
-  </script>
+  <script type="text/javascript" src="handleIcons.js"></script>
   <head> 
     <meta charset="utf-8" />
     <link rel="preload" href="/static/fonts/commercial-type-1906-WOIKTV-web/Graphik-Bold-Web.woff" as="font" type="font/woff2" crossorigin="anonymous"/>
