@@ -716,6 +716,7 @@ type Video
   publishedDate:String
   recordedDate:String
   description:String
+  viewCount:String
   closedCaptioning:[String]
   referencedMedia:[String]
   campaigns:[String]
