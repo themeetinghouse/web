@@ -58,8 +58,13 @@
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Full-time Careers",
-                "text1": "We're not currently hiring, but stay tuned for updates!",
- 
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Parry Sound Lead Pastor",
+                        "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
+                    }
+                ],
     
 
                 "image1": [
