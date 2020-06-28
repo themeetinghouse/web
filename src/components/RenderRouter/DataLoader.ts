@@ -485,7 +485,7 @@ export default class DataLoader {
     const data: LocationData[] = await response.json();
     return data.filter((location) => {
       if (!query.filterField) {
-        return false;
+        return true;
       }
       return location[query.filterField as 'id'] === query.filterValue;
     });
