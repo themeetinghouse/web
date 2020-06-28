@@ -425,6 +425,62 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+          "name" : "fuzzySearchVideosByType",
+          "description" : null,
+          "args" : [ {
+            "name" : "videoType",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
+            "name" : "filter",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
+            "name" : "sort",
+            "description" : null,
+            "type" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "fuzzySearchableVideoSortInput",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
+            "name" : "limit",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
+            "name" : "nextToken",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
+          "type" : {
+            "kind" : "OBJECT",
+            "name" : "fuzzySearchableVideoConnection",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "F1ListGroupTypes",
           "description" : null,
           "args" : [ ],
@@ -5158,6 +5214,17 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+          "name" : "viewCount",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "closedCaptioning",
           "description" : null,
           "args" : [ ],
@@ -6316,6 +6383,15 @@
           "defaultValue" : null
         }, {
           "name" : "description",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringFilterInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "viewCount",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -12155,6 +12231,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "viewCount",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "SearchableStringFilterInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "closedCaptioning",
           "description" : null,
           "type" : {
@@ -12589,6 +12674,11 @@
           "deprecationReason" : null
         }, {
           "name" : "description",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "viewCount",
           "description" : null,
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -16485,6 +16575,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "viewCount",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "closedCaptioning",
           "description" : null,
           "type" : {
@@ -17834,6 +17933,15 @@
           "defaultValue" : null
         }, {
           "name" : "description",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "viewCount",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",

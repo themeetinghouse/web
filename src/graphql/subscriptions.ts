@@ -894,6 +894,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -925,6 +926,7 @@ export const onCreateSpeaker = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -1072,6 +1074,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1113,6 +1116,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1177,6 +1181,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1245,6 +1250,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1276,6 +1282,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -1423,6 +1430,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1464,6 +1472,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1528,6 +1537,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1596,6 +1606,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1627,6 +1638,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -1774,6 +1786,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1815,6 +1828,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1879,6 +1893,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -1948,6 +1963,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -2044,6 +2060,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -2226,6 +2243,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -2332,6 +2350,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -2498,6 +2517,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -2629,6 +2649,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -2725,6 +2746,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -2907,6 +2929,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3013,6 +3036,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3179,6 +3203,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3310,6 +3335,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3406,6 +3432,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -3588,6 +3615,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3694,6 +3722,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3860,6 +3889,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3972,6 +4002,7 @@ export const onCreateSeries = /* GraphQL */ `
           publishedDate
           recordedDate
           description
+          viewCount
           closedCaptioning
           referencedMedia
           campaigns
@@ -4149,6 +4180,7 @@ export const onCreateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4212,6 +4244,7 @@ export const onCreateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4315,6 +4348,7 @@ export const onCreateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4397,6 +4431,7 @@ export const onCreateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4555,6 +4590,7 @@ export const onUpdateSeries = /* GraphQL */ `
           publishedDate
           recordedDate
           description
+          viewCount
           closedCaptioning
           referencedMedia
           campaigns
@@ -4732,6 +4768,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4795,6 +4832,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4898,6 +4936,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4980,6 +5019,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5138,6 +5178,7 @@ export const onDeleteSeries = /* GraphQL */ `
           publishedDate
           recordedDate
           description
+          viewCount
           closedCaptioning
           referencedMedia
           campaigns
@@ -5315,6 +5356,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5378,6 +5420,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5481,6 +5524,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5563,6 +5607,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5746,6 +5791,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -5777,6 +5823,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -5924,6 +5971,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -5965,6 +6013,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6029,6 +6078,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6104,6 +6154,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6135,6 +6186,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -6282,6 +6334,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6323,6 +6376,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6387,6 +6441,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6462,6 +6517,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6493,6 +6549,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -6640,6 +6697,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6681,6 +6739,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6745,6 +6804,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6822,6 +6882,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -6918,6 +6979,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -7100,6 +7162,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7206,6 +7269,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7372,6 +7436,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7511,6 +7576,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7607,6 +7673,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -7789,6 +7856,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7895,6 +7963,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8061,6 +8130,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8200,6 +8270,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8296,6 +8367,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -8478,6 +8550,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8584,6 +8657,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8750,6 +8824,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8851,6 +8926,7 @@ export const onCreateVideo = /* GraphQL */ `
       publishedDate
       recordedDate
       description
+      viewCount
       closedCaptioning
       referencedMedia
       campaigns
@@ -9036,6 +9112,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9067,6 +9144,7 @@ export const onCreateVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -9214,6 +9292,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9255,6 +9334,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9319,6 +9399,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9364,6 +9445,7 @@ export const onCreateVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -9511,6 +9593,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9552,6 +9635,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9616,6 +9700,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9676,6 +9761,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9795,6 +9881,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -9826,6 +9913,7 @@ export const onCreateVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -9973,6 +10061,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10014,6 +10103,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10078,6 +10168,7 @@ export const onCreateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10117,6 +10208,7 @@ export const onUpdateVideo = /* GraphQL */ `
       publishedDate
       recordedDate
       description
+      viewCount
       closedCaptioning
       referencedMedia
       campaigns
@@ -10302,6 +10394,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10333,6 +10426,7 @@ export const onUpdateVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -10480,6 +10574,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10521,6 +10616,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10585,6 +10681,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10630,6 +10727,7 @@ export const onUpdateVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -10777,6 +10875,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10818,6 +10917,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10882,6 +10982,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10942,6 +11043,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11061,6 +11163,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11092,6 +11195,7 @@ export const onUpdateVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -11239,6 +11343,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11280,6 +11385,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11344,6 +11450,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11383,6 +11490,7 @@ export const onDeleteVideo = /* GraphQL */ `
       publishedDate
       recordedDate
       description
+      viewCount
       closedCaptioning
       referencedMedia
       campaigns
@@ -11568,6 +11676,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11599,6 +11708,7 @@ export const onDeleteVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -11746,6 +11856,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11787,6 +11898,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11851,6 +11963,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11896,6 +12009,7 @@ export const onDeleteVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -12043,6 +12157,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12084,6 +12199,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12148,6 +12264,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12208,6 +12325,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12327,6 +12445,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12358,6 +12477,7 @@ export const onDeleteVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -12505,6 +12625,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12546,6 +12667,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12610,6 +12732,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12740,6 +12863,7 @@ export const onCreateBlogSeries = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -12926,6 +13050,7 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -13112,6 +13237,7 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -13324,6 +13450,7 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -13662,6 +13789,7 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -14000,6 +14128,7 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -14247,6 +14376,7 @@ export const onCreateBlog = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -14394,6 +14524,7 @@ export const onCreateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -14435,6 +14566,7 @@ export const onCreateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -14499,6 +14631,7 @@ export const onCreateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -14559,6 +14692,7 @@ export const onCreateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -14730,6 +14864,7 @@ export const onCreateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -14851,6 +14986,7 @@ export const onUpdateBlog = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -14998,6 +15134,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15039,6 +15176,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15103,6 +15241,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15163,6 +15302,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15334,6 +15474,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15455,6 +15596,7 @@ export const onDeleteBlog = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -15602,6 +15744,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15643,6 +15786,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15707,6 +15851,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15767,6 +15912,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -15938,6 +16084,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns

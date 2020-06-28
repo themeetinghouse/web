@@ -898,6 +898,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -1080,6 +1081,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -1186,6 +1188,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -1352,6 +1355,580 @@ export const fuzzySearchVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+      nextToken
+    }
+  }
+`;
+export const fuzzySearchVideosByType = /* GraphQL */ `
+  query FuzzySearchVideosByType(
+    $videoType: String
+    $filter: String
+    $sort: fuzzySearchableVideoSortInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    fuzzySearchVideosByType(
+      videoType: $videoType
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        createdBy
+        createdDate
+        episodeTitle
+        originalEpisodeTitle
+        episodeNumber
+        seriesTitle
+        customPlaylistIDs
+        publishedDate
+        recordedDate
+        description
+        viewCount
+        closedCaptioning
+        referencedMedia
+        campaigns
+        bibleVerses
+        topics
+        qandeh
+        length
+        YoutubeIdent
+        Youtube {
+          id
+          kind
+          etag
+          snippet {
+            publishedAt
+            channelId
+            title
+            description
+            thumbnails {
+              default {
+                url
+                width
+                height
+              }
+              medium {
+                url
+                width
+                height
+              }
+              high {
+                url
+                width
+                height
+              }
+              standard {
+                url
+                width
+                height
+              }
+              maxres {
+                url
+                width
+                height
+              }
+            }
+            channelTitle
+            localized {
+              title
+              description
+            }
+          }
+          contentDetails {
+            videoId
+            videoPublishedAt
+            duration
+            dimension
+            definition
+            caption
+            licensedContent
+            projection
+            contentRating {
+              acbRating
+              agcomRating
+              anatelRating
+              bbfcRating
+              bfvcRating
+              bmukkRating
+              catvRating
+              catvfrRating
+              cbfcRating
+              cccRating
+              cceRating
+              chfilmRating
+              chvrsRating
+              cicfRating
+              cnaRating
+              cncRating
+              csaRating
+              cscfRating
+              czfilmRating
+              djctqRating
+              djctqRatingReasons
+              ecbmctRating
+              eefilmRating
+              egfilmRating
+              eirinRating
+              fcbmRating
+              fcoRating
+              fmocRating
+              fpbRating
+              fpbRatingReasons
+              fskRating
+              grfilmRating
+              icaaRating
+              ifcoRating
+              ilfilmRating
+              incaaRating
+              kfcbRating
+              kijkwijzerRating
+              kmrbRating
+              lsfRating
+              mccaaRating
+              mccypRating
+              mcstRating
+              mdaRating
+              medietilsynetRating
+              mekuRating
+              mibacRating
+              mocRating
+              moctwRating
+              mpaaRating
+              mpaatRating
+              mtrcbRating
+              nbcRating
+              nbcplRating
+              nfrcRating
+              nfvcbRating
+              nkclvRating
+              oflcRating
+              pefilmRating
+              rcnofRating
+              resorteviolenciaRating
+              rtcRating
+              rteRating
+              russiaRating
+              skfilmRating
+              smaisRating
+              smsaRating
+              tvpgRating
+              ytRating
+            }
+            regionRestriction {
+              allowed
+              blocked
+            }
+            hasCustomThumbnail
+          }
+          status {
+            uploadStatus
+            privacyStatus
+            license
+            embeddable
+            publicStatsViewable
+          }
+        }
+        videoTypes
+        notesURL
+        videoURL
+        audioURL
+        createdAt
+        updatedAt
+        speakers {
+          items {
+            id
+            createdAt
+            updatedAt
+            speaker {
+              id
+              name
+              image
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            video {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        series {
+          id
+          seriesType
+          title
+          description
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          blogs {
+            items {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              content
+              blogTitle
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+        }
+        customPlaylists {
+          items {
+            id
+            videoID
+            customPlaylistID
+            createdAt
+            updatedAt
+            customPlaylist {
+              id
+              seriesType
+              title
+              description
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            video {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -2437,6 +3014,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -2696,6 +3274,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -2994,6 +3573,7 @@ export const listSpeakers = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3125,6 +3705,7 @@ export const getSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -3156,6 +3737,7 @@ export const getSpeaker = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -3303,6 +3885,7 @@ export const getSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -3344,6 +3927,7 @@ export const getSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -3408,6 +3992,7 @@ export const getSpeaker = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -3477,6 +4062,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3573,6 +4159,7 @@ export const getSpeakerVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -3755,6 +4342,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -3861,6 +4449,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -4027,6 +4616,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -4158,6 +4748,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4211,6 +4802,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
           publishedDate
           recordedDate
           description
+          viewCount
           closedCaptioning
           referencedMedia
           campaigns
@@ -4388,6 +4980,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4451,6 +5044,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4554,6 +5148,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -4630,6 +5225,7 @@ export const listSeriess = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -4777,6 +5373,7 @@ export const listSeriess = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -4818,6 +5415,7 @@ export const listSeriess = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -4882,6 +5480,7 @@ export const listSeriess = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -4942,6 +5541,7 @@ export const listSeriess = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -5049,6 +5649,7 @@ export const getSeries = /* GraphQL */ `
           publishedDate
           recordedDate
           description
+          viewCount
           closedCaptioning
           referencedMedia
           campaigns
@@ -5226,6 +5827,7 @@ export const getSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5289,6 +5891,7 @@ export const getSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5392,6 +5995,7 @@ export const getSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5474,6 +6078,7 @@ export const getSeries = /* GraphQL */ `
                 publishedDate
                 recordedDate
                 description
+                viewCount
                 closedCaptioning
                 referencedMedia
                 campaigns
@@ -5647,6 +6252,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -5794,6 +6400,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -5835,6 +6442,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -5899,6 +6507,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -5959,6 +6568,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6092,6 +6702,7 @@ export const listCustomPlaylists = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -6230,6 +6841,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6261,6 +6873,7 @@ export const getCustomPlaylist = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -6408,6 +7021,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6449,6 +7063,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6513,6 +7128,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -6557,6 +7173,7 @@ export const listVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -6739,6 +7356,7 @@ export const listVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -6845,6 +7463,7 @@ export const listVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7011,6 +7630,7 @@ export const listVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -7113,6 +7733,7 @@ export const getVideo = /* GraphQL */ `
       publishedDate
       recordedDate
       description
+      viewCount
       closedCaptioning
       referencedMedia
       campaigns
@@ -7298,6 +7919,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7329,6 +7951,7 @@ export const getVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -7476,6 +8099,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7517,6 +8141,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7581,6 +8206,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7626,6 +8252,7 @@ export const getVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -7773,6 +8400,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7814,6 +8442,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7878,6 +8507,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -7938,6 +8568,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -8057,6 +8688,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -8088,6 +8720,7 @@ export const getVideo = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -8235,6 +8868,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -8276,6 +8910,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -8340,6 +8975,7 @@ export const getVideo = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -8392,6 +9028,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -8574,6 +9211,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8680,6 +9318,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8846,6 +9485,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -8963,6 +9603,7 @@ export const getVideoByVideoType = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -9145,6 +9786,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -9251,6 +9893,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -9417,6 +10060,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -9530,6 +10174,7 @@ export const searchVideos = /* GraphQL */ `
         publishedDate
         recordedDate
         description
+        viewCount
         closedCaptioning
         referencedMedia
         campaigns
@@ -9712,6 +10357,7 @@ export const searchVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -9818,6 +10464,7 @@ export const searchVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -9984,6 +10631,7 @@ export const searchVideos = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -10274,6 +10922,7 @@ export const getBlogSeries = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10400,6 +11049,7 @@ export const listBlogs = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -10648,6 +11298,7 @@ export const getBlog = /* GraphQL */ `
             publishedDate
             recordedDate
             description
+            viewCount
             closedCaptioning
             referencedMedia
             campaigns
@@ -10795,6 +11446,7 @@ export const getBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10836,6 +11488,7 @@ export const getBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10900,6 +11553,7 @@ export const getBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -10960,6 +11614,7 @@ export const getBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11131,6 +11786,7 @@ export const getBlog = /* GraphQL */ `
                   publishedDate
                   recordedDate
                   description
+                  viewCount
                   closedCaptioning
                   referencedMedia
                   campaigns
@@ -11267,6 +11923,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
@@ -11526,6 +12183,7 @@ export const searchBlogs = /* GraphQL */ `
               publishedDate
               recordedDate
               description
+              viewCount
               closedCaptioning
               referencedMedia
               campaigns
