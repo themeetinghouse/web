@@ -1,0 +1,228 @@
+// Base style: >= 1024
+.CloseTeachingSearch {
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+.Header1 {
+    font-weight: bold;
+    font-size: 24px;
+    padding-bottom: 2vw;
+}
+
+.SearchItem {
+    position: relative;
+    z-index: 99;
+    left: 20vw;
+    width: 80vw;
+}
+
+.SearchItemInput {
+    font-family: Graphik Web;
+    font-size: 32px;
+    font-weight: bolder;
+    width: 70vw;
+    border: none;
+}
+
+*:focus {
+    outline: none; /* Chrome */
+}
+
+::placeholder{
+    color: #C8C8C8;
+    opacity: 1;
+}
+
+.SearchItemDiv {
+    width: 77.5vw;
+    margin: 18px 0px 30px 0px;
+    border-top: solid 2px #C8C8C8
+}
+
+.SearchResultItem{
+    cursor: pointer;
+    padding-bottom: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid #EFEFF0;
+    width: 100%;
+}
+
+.SearchResultItem .Thumb {
+    display: inline-block;
+    object-fit: contain;
+    margin-right: 30px;
+    width: 20%;
+    vertical-align: top;
+}
+
+.SearchResultItem .Content{
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 60%;
+}
+
+.SearchResultItem .ContentType{
+    display: inline-block;
+    padding: 8px 20px 8px 20px;
+    margin-bottom: 20px;
+    background: #54565A;
+    border-radius: 50px;
+
+    font-family: Graphik Web;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.SearchResultItem .Title{
+    margin-bottom: 10px;
+
+    font-family: Graphik Web;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #1A1A1A;
+}
+
+.SearchResultItem .Description{
+    width: 100%;
+    font-family: Graphik Web;
+    font-size: 16px;
+    line-height: 24px;
+    color: #54565A;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.SearchResultItem .Link{
+    margin-top: 50px;
+    height: 30px;
+    width: 25px;
+    float: right;
+}
+
+// Tablet
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+    .VideoOverlayClose{
+        $size: 20px;
+
+        top: 25px;
+        left: 94vw;
+        width: $size;
+        height: $size;
+    }
+
+    .SearchItem {
+        top: 9vw;
+        left: 0px;
+        margin: 0px 15px 0px 15px;
+    }
+
+    .SearchItemInput{
+        width:100%;
+
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .SearchItemDiv{
+        width: 100%;
+        margin-top: 13px;
+    }
+
+    .SearchLink{
+        $link-width: 24.25vw;
+
+        width: $link-width;
+
+        img{
+            width: $link-width;
+        }
+    }
+
+    .SearchLinks .HomeChurch{
+        $link-width: 44vw;
+
+        width: $link-width;
+
+        img{
+            width: $link-width;
+        }
+    }
+}
+
+// Mobile
+@media (max-width: 767px) {
+
+
+    .VideoOverlayClose{
+        $size: 15px;
+
+        top: 18px;
+        left: 92vw;
+        width: $size;
+        height: $size;
+    }
+
+    .SearchItem {
+        top: 12vw;
+        left: 0px;
+        margin: 0px 15px 0px 15px;
+    }
+
+    .SearchItemInput{
+        width:100%;
+
+        font-size: 32px;
+        line-height: 40px;
+        margin-top: 26px;
+
+    }
+
+    .SearchItemDiv{
+        width: 100%;
+        margin-top: 13px;
+    }
+
+    .SearchLink{
+        $link-width: 44vw;
+
+        width: $link-width;
+
+        img{
+            width: $link-width;
+        }
+    }
+
+    .SearchLinks .HomeChurch{
+        $link-width: 100%;
+
+        width: $link-width;
+        margin-bottom: 10px;
+
+        img{
+            width: $link-width;
+        }
+    }
+
+    .SearchLinks .Articles{
+        float: right;
+    }
+
+    .SearchResultItem .Content{
+        width: 90%;
+    }
+
+    .SearchResultItem .Thumb{
+        display: none;
+    }
+}
