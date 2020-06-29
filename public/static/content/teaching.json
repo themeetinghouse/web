@@ -47,6 +47,17 @@
 
             {
                 "type":"list",
+                "style":"horizontal",
+                "class":"videos",
+                "subclass":"adult-sunday",
+                "selector":"popular",
+                "showEpisodeNumbers":false,                
+                "numberOfDays":120,
+                "header1":"Popular"                
+            },
+
+            {
+                "type":"list",
                 "style":"horizontalBig",
                 "class":"series",
                 "subclass":"adult-sunday",

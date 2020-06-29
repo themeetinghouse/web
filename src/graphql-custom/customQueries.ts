@@ -830,6 +830,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       publishedDate
       description
       length
+      viewCount
       YoutubeIdent
       Youtube {
         id

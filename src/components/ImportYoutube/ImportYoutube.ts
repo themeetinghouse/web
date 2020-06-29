@@ -326,25 +326,24 @@ export default class ImportYoutube {
         }
       } else if (moment().diff(vid1.contentDetails.videoPublishedAt, 'days') <= 365 && vid1.status.privacyStatus !== "private") {
 
-        //we will pull viewCount for videos posted within the last year...
-
-        /*try {
-          const getYoutubeVideoStatistics: any = await API.graphql(graphqlOperation(queries.getYoutubeVideoStatistics  , { videoId: vid1.contentDetails.videoId }));
-          console.log(getYoutubeVideoStatistics.data.getYoutubeVideoStatistics.statistics.viewCount)
-          if (getYoutubeVideoStatistics.data.getYoutubeVideoStatistics.statistics) {
+        try {
+          const getYoutubeVideoStatistics: any = await API.graphql(graphqlOperation(queries.getYoutubeVideoStatistics, { videoId: vid1.contentDetails.videoId }));
+          const viewCount = getYoutubeVideoStatistics.data.getYoutubeVideoStatistics.items[0]?.statistics.viewCount
+          if (viewCount && parseInt(viewCount, 10) >= 1000) {
             try {
               const updateVideo: any = await API.graphql({
                 query: mutations.updateVideo,
-                variables: { input: { id: vid1.contentDetails.videoId, viewCount: vid1.contentDetails.videoId } },
+                variables: { input: { id: vid1.contentDetails.videoId, viewCount: viewCount } },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
               });
+              console.log({ "Success mutations.updateVideo": updateVideo });
             } catch(err) {
               console.error(err)
             }
-          } 
+          }
         } catch(err) {
           console.error(err)
-        }*/
+        }
       }
     } catch(err) {
       console.error({ "Error queries.getVideoByYoutubeIdent: ": err })
