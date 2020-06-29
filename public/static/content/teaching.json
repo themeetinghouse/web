@@ -53,6 +53,7 @@
                 "selector":"popular",
                 "showEpisodeNumbers":false,                
                 "numberOfDays":120,
+                "minViews":1200,
                 "header1":"Popular"                
             },
 

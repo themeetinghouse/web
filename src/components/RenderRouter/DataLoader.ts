@@ -44,6 +44,7 @@ export interface VideoSeriesQuery extends DataLoaderQuery {
   sortOrder: ModelSortDirection;
   subclass: string;
   numberOfDays: number;
+  minViews: number;
 }
 
 export interface SeriesQuery extends DataLoaderQuery {
@@ -310,6 +311,10 @@ export default class DataLoader {
       console.error('Warning: numberOfDays cannot be greater than 365')
       return;
     }
+    if (!query.minViews) {
+      console.error('Warning: minViews must be declared')
+      return;
+    }
     const startDate = moment().subtract(query.numberOfDays, 'days').format('YYYY-MM-DD')
     const variables: GetVideoByVideoTypeQueryVariables = {
       nextToken: nextToken,
@@ -327,7 +332,7 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= 1200 : true))
+      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : true))
       if (json?.data?.getVideoByVideoType?.nextToken) {
         await this.getPopularVideos(
           query,
@@ -338,7 +343,7 @@ export default class DataLoader {
     } catch (e) {
       console.error({ 'Error: ': e });
       if (e.data) {
-        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= 1200 : true));
+        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : true));
       }
       if (e.data) {
         if (e.data.getVideoByVideoType.nextToken) {
