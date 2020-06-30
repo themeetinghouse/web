@@ -154,7 +154,7 @@ class TeachingItem extends React.Component<Props, State> {
                 'noopener noreferrer'
             );
         } else {
-            window.location.href = to;
+            window.location.href = to.split('.com')[1];
         }
     }
 
@@ -162,15 +162,15 @@ class TeachingItem extends React.Component<Props, State> {
         let duration = parseInt(length, 10)
         let hours = 0
         if (duration < 60) {
-          return length + 'm'
+            return length + 'm'
         }
         while (duration > 59) {
-          duration-=60
-          hours+=1
+            duration -= 60
+            hours += 1
         }
         return `${hours.toString()}h ${duration.toString()}m`
-      }
-    
+    }
+
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
         if (this.state.content.style === "hero") {
@@ -194,8 +194,8 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
                                 <div className="teachingdiv teachingseriestitle" >
-                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "} 
-                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>  
+                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "}
+                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>
                                     {this.state.listData[this.state.teachingId].length ? ` • ${this.formatVideoDuration(this.state.listData[this.state.teachingId].length)}` : null}
                                 </div>
                                 <div className="teachingdiv teachingdescription" >{this.state.listData[this.state.teachingId].description}</div>
