@@ -668,6 +668,15 @@ export const getVideo = `query GetVideo($id: ID!) {
   }
 }
 `;
+
+export const getVideoCustomPlaylists = `query GetVideo($id: ID!) {
+  getVideo(id: $id) {
+    id
+    customPlaylistIDs
+  }
+}
+`;
+
 export const listVideos = `query ListVideos(
   $filter: ModelVideoFilterInput
   $limit: Int

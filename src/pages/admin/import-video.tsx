@@ -100,16 +100,16 @@ class Index extends React.Component<EmptyProps, State> {
                 variables: { nextToken: nextToken, limit: 200 },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            console.log({ "Success queries.listCustomPlaylist": listCustomPlaylists})
+            console.log({ "Success queries.listCustomPlaylist": listCustomPlaylists })
             this.setState({
-                playlistsList: this.state.playlistsList.concat(listCustomPlaylists.data.listCustomPlaylists.items).sort((a: any, b: any) => this.sortById(a,b))
+                playlistsList: this.state.playlistsList.concat(listCustomPlaylists.data.listCustomPlaylists.items).sort((a: any, b: any) => this.sortById(a, b))
             })
             if (listCustomPlaylists.data.listCustomPlaylists.nextToken != null)
                 this.listCustomPlaylists(listCustomPlaylists.data.listCustomPlaylists.nextToken)
-        } catch(e) {
+        } catch (e) {
             console.error(e)
         }
-    } 
+    }
 
     listSeries(nextToken: any) {
         const listSeries: any = API.graphql({
@@ -121,7 +121,7 @@ class Index extends React.Component<EmptyProps, State> {
         listSeries.then((json: any) => {
             console.log({ "Success customQueries.listSeries: ": json });
             this.setState({
-                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => this.sortById(a,b))
+                seriesList: this.state.seriesList.concat(json.data.listSeriess.items).sort((a: any, b: any) => this.sortById(a, b))
 
             })
             if (json.data.listSeriess.nextToken != null)
@@ -133,10 +133,10 @@ class Index extends React.Component<EmptyProps, State> {
         const nameA = a.id.toUpperCase();
         const nameB = b.id.toUpperCase();
         if (nameA < nameB) {
-          return -1;
+            return -1;
         }
         if (nameA > nameB) {
-          return 1;
+            return 1;
         }
         return 0;
     }
@@ -274,29 +274,29 @@ class Index extends React.Component<EmptyProps, State> {
     }
 
     async handleVideoSelection(video: any): Promise<void> {
-        this.setState({ 
+        this.setState({
             selectedVideo: null,
             toSaveVideo: null,
             addToPlaylists: [],
             removeFromPlaylists: [],
-            selectedPlaylist: '' 
+            selectedPlaylist: ''
         }, () => { this.setState({ selectedVideo: video, toSaveVideo: { id: video.id } }) })
 
         try {
-            const getVideo: any = await API.graphql({
-                query: queries.getVideo,
+            const json: any = await API.graphql({
+                query: customQueries.getVideoCustomPlaylists,
                 variables: { id: video.id },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
-            console.log({ "Success queries.getVideo: ": getVideo })
-            if (getVideo.data.getVideo.customPlaylistIDs)
-                this.setState({ addToPlaylists: getVideo.data.getVideo.customPlaylistIDs })
+            console.log({ "Success customQueries.getVideoCustomPlaylists: ": json })
+            if (json.data.getVideo.customPlaylistIDs)
+                this.setState({ addToPlaylists: json.data.getVideo.customPlaylistIDs })
         } catch (e) {
             console.error(e)
             if (e.data.getVideo.customPlaylistIDs)
                 this.setState({ addToPlaylists: e.data.getVideo.customPlaylistIDs })
         }
-    } 
+    }
     async save(): Promise<void> {
         if ((this.state.toSaveVideo.videoTypes === undefined && this.state.toSaveVideo.publishedDate !== undefined) || (this.state.toSaveVideo.videoTypes !== undefined && this.state.toSaveVideo.publishedDate === undefined)) {
             this.setState({ showError: "Must set both videoType and publishedDate" })
@@ -313,9 +313,9 @@ class Index extends React.Component<EmptyProps, State> {
                 });
                 console.log({ "Success queries.updateVideo: ": updateVideo });
                 this.setState({ showError: "Saved" })
-            } catch(e) {
+            } catch (e) {
                 if (!e.errors[0].message.includes('access'))
-                    this.setState({showError: e.errors[0].message});
+                    this.setState({ showError: e.errors[0].message });
                 else if (e.data)
                     this.setState({ showError: "Saved" })
                 console.error(e)
@@ -331,11 +331,11 @@ class Index extends React.Component<EmptyProps, State> {
         for (const add of toAdd) {
             for (let i = toRemove.length; i--;) {
                 if (toRemove[i] === add)
-                    toRemove.splice(i,1)
+                    toRemove.splice(i, 1)
             }
         }
 
-        this.writeField('customPlaylistIDs',toAdd)
+        this.writeField('customPlaylistIDs', toAdd)
 
         for (const playlist of toAdd) {
             const connectionID = this.state.selectedVideo.id + '-' + playlist
@@ -346,7 +346,7 @@ class Index extends React.Component<EmptyProps, State> {
                     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
                 });
                 console.log({ "Success mutations.createCustomPlaylistVideo": createCustomPlaylistVideo })
-            } catch(e) {
+            } catch (e) {
                 console.error(e)
             }
         }
@@ -360,7 +360,7 @@ class Index extends React.Component<EmptyProps, State> {
                     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
                 });
                 console.log({ "Success mutations.deleteCustomPlaylistVideo": deleteCustomPlaylistVideo })
-            } catch(e) {
+            } catch (e) {
                 console.error(e)
             }
         }
@@ -371,18 +371,18 @@ class Index extends React.Component<EmptyProps, State> {
         if (this.state.toDeleteVideo) {
             try {
                 const deleteVideo: any = await API.graphql({
-                query: mutations.deleteVideo,
-                variables: { input: {id: this.state.toDeleteVideo} },
-                authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                    query: mutations.deleteVideo,
+                    variables: { input: { id: this.state.toDeleteVideo } },
+                    authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
                 });
-        
+
                 console.log({ "Success mutations.deleteVideo: ": deleteVideo });
                 this.setState({
-                toDeleteVideo: '',
-                showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
-                showDeleteVideo: false
+                    toDeleteVideo: '',
+                    showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
+                    showDeleteVideo: false
                 })
-            } catch(e) {
+            } catch (e) {
                 if (e.data && e.data.deleteVideo) {
                     this.setState({
                         toDeleteVideo: '',
@@ -399,10 +399,10 @@ class Index extends React.Component<EmptyProps, State> {
     removePlaylist(item: string): void {
         const removedIndex = this.state.addToPlaylists.indexOf(item)
         const temp = this.state.addToPlaylists
-        const temp2 = temp.splice(removedIndex,1)
-        this.setState({ 
+        const temp2 = temp.splice(removedIndex, 1)
+        this.setState({
             addToPlaylists: temp,
-            removeFromPlaylists: this.state.removeFromPlaylists.concat(temp2) 
+            removeFromPlaylists: this.state.removeFromPlaylists.concat(temp2)
         })
     }
 
@@ -481,8 +481,8 @@ class Index extends React.Component<EmptyProps, State> {
                                                                     })
                                                                 }
                                                             </select> :
-                                                            item.type === "CustomPlaylist" ? 
-                                                                
+                                                            item.type === "CustomPlaylist" ?
+
                                                                 <div>
                                                                     <select className="dropdown2" onChange={(e: any) => this.setState({ selectedPlaylist: e.target.value })}>
                                                                         <option key="null" value="null">None Selected</option>
@@ -491,9 +491,9 @@ class Index extends React.Component<EmptyProps, State> {
                                                                                 return (<option key={item2.id} value={item2.id}>{item2.id}</option>)
                                                                             })
                                                                         }
-                                                                    </select><button className="adminButton" style={{float: 'right'}} onClick={() => {if (this.state.selectedPlaylist && !this.state.addToPlaylists.includes(this.state.selectedPlaylist)) {this.setState({addToPlaylists: this.state.addToPlaylists.concat(this.state.selectedPlaylist)})} }}>Add</button>
-                                                                    <div> 
-                                                                        Selected: {this.state.addToPlaylists.map((playlist: string) => {return <span className="PlaylistSelections" onClick={() => this.removePlaylist(playlist)} key={playlist}>{playlist} &nbsp;</span>}) }
+                                                                    </select><button className="adminButton" style={{ float: 'right' }} onClick={() => { if (this.state.selectedPlaylist && !this.state.addToPlaylists.includes(this.state.selectedPlaylist)) { this.setState({ addToPlaylists: this.state.addToPlaylists.concat(this.state.selectedPlaylist) }) } }}>Add</button>
+                                                                    <div>
+                                                                        Selected: {this.state.addToPlaylists.map((playlist: string) => { return <span className="PlaylistSelections" onClick={() => this.removePlaylist(playlist)} key={playlist}>{playlist} &nbsp;</span> })}
                                                                     </div>
                                                                 </div> :
                                                                 finalValue
@@ -541,7 +541,7 @@ class Index extends React.Component<EmptyProps, State> {
             return true;
         }
         return false;
-    }  
+    }
     async savePlaylist(): Promise<void> {
         if (this.state.toSavePlaylist.title) {
             try {
@@ -552,14 +552,14 @@ class Index extends React.Component<EmptyProps, State> {
                 });
                 console.log({ "Success mutations.createCustomPlaylist: ": savePlaylist });
                 this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} })
-            } catch(e) {
+            } catch (e) {
                 console.error(e)
                 this.setState({ showAddCustomPlaylist: false })
             }
         } else {
             this.setState({ showError: 'Playlist needs title' })
         }
-    }  
+    }
     renderAddSeries() {
         return <Modal isOpen={this.state.showAddSeries}>
             <div>
@@ -575,7 +575,7 @@ class Index extends React.Component<EmptyProps, State> {
                     }
                 </select></div>
                 <button onClick={() => { if (this.saveSeries()) this.setState({ showAddSeries: false }) }}>Save</button>
-                <button style={{background: 'red'}} onClick={() => { this.setState({ showAddSeries: false }) }}>Cancel</button>
+                <button style={{ background: 'red' }} onClick={() => { this.setState({ showAddSeries: false }) }}>Cancel</button>
             </div>
         </Modal>
     }
@@ -584,7 +584,7 @@ class Index extends React.Component<EmptyProps, State> {
         return <Modal isOpen={this.state.showAddCustomPlaylist}>
             <div>
                 <div>id: {this.state.toSavePlaylist.id}</div>
-                <div>Name: <input value={this.state.toSavePlaylist.title} onChange={(item: any) => { this.updateCustomPlaylistField("title", item.target.value) }}/></div>
+                <div>Name: <input value={this.state.toSavePlaylist.title} onChange={(item: any) => { this.updateCustomPlaylistField("title", item.target.value) }} /></div>
                 <div>Playlist Type: <select className="dropdown2" value={this.state.toSavePlaylist.seriesType} onChange={(item: any) => { this.updateCustomPlaylistField("seriesType", item.target.value) }} >
                     <option key='null' value='null'>None Selected</option>
                     {
@@ -594,7 +594,7 @@ class Index extends React.Component<EmptyProps, State> {
                     }
                 </select></div>
                 <button onClick={() => { this.savePlaylist() }}>Save</button>
-                <button style={{background: 'red'}} onClick={() => { this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} }) }}>Cancel</button>
+                <button style={{ background: 'red' }} onClick={() => { this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} }) }}>Cancel</button>
             </div>
         </Modal>
     }
@@ -602,8 +602,8 @@ class Index extends React.Component<EmptyProps, State> {
         return <Modal isOpen={this.state.showDeleteVideo}>
             <div>
                 <div>Enter ID: <input value={this.state.toDeleteVideo} onChange={(item: any) => this.setState({ toDeleteVideo: item.target.value })} /></div>
-                <button style={{background: 'orange'}} onClick={() => this.delete()}>DELETE</button>
-                <button style={{background: 'grey'}} onClick={() => { this.setState({ showDeleteVideo: false, toDeleteVideo: '' }) }}>CANCEL</button>
+                <button style={{ background: 'orange' }} onClick={() => this.delete()}>DELETE</button>
+                <button style={{ background: 'grey' }} onClick={() => { this.setState({ showDeleteVideo: false, toDeleteVideo: '' }) }}>CANCEL</button>
             </div>
         </Modal>
     }
