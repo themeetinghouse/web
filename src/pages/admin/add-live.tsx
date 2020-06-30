@@ -3,30 +3,18 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-
+import { EmptyProps } from '../../utils';
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify'
-import { Authenticator, SignOut, Greetings } from 'aws-amplify-react';
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import "./add-live.scss"
 import awsmobile from '../../aws-exports';
 
 Amplify.configure(awsmobile);
 const federated = {
-    google_client_id: '',
-    facebook_app_id: '579712102531269',
-    amazon_client_id: ''
+    facebookAppId: '579712102531269'
 };
 
-const Index = () => (
-    <div>
-        <Authenticator federated={federated} hide={[Greetings, SignOut]}>
-            <AuthIndexApp></AuthIndexApp>
-        </Authenticator>
-    </div>
-)
-interface Props {
-    authState?: any;
-}
 interface State {
     videoTypes: any;
     selectedVideoType: any;
@@ -47,22 +35,8 @@ interface State {
     showKids: number;
 }
 
-class AuthIndexApp extends React.Component<Props, State> {
-
-    render() {
-        if (this.props.authState === "signedIn") {
-            return (
-                <div>
-                    <IndexApp></IndexApp>
-                </div>
-            );
-        } else {
-            return null;
-        }
-    }
-}
-class IndexApp extends React.Component<Props, State> {
-    constructor(props: Props) {
+class Index extends React.Component<EmptyProps, State> {
+    constructor(props: EmptyProps) {
         super(props)
         this.state = {
             videoTypes: [],
@@ -86,32 +60,32 @@ class IndexApp extends React.Component<Props, State> {
         this.listLivestreams(null)
     }
 
-    async listLivestreams (nextToken: any): Promise<void> {
+    async listLivestreams(nextToken: any): Promise<void> {
         try {
-            const listLivestreams: any = await API.graphql({
-                query: queries.listLivestreams ,
+            const json: any = await API.graphql({
+                query: queries.listLivestreams,
                 variables: { nextToken: nextToken, limit: 200 },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
-            console.log({ "Success queries.listLivestreams ": listLivestreams })
+            console.log({ "Success queries.listLivestreams ": JSON })
             this.setState({
-                playlistsList: this.state.playlistsList.concat(listLivestreams.data.listLivestreams.items).sort((a: any, b: any) => this.sortById(a,b))
+                playlistsList: this.state.playlistsList.concat(json.data.listLivestreams.items).sort((a: any, b: any) => this.sortById(a, b))
             })
-            if (listLivestreams.data.listLivestreams.nextToken != null)
-                this.listLivestreams(listLivestreams.data.listLivestreams.nextToken)
-        } catch(e) {
+            if (json.data.listLivestreams.nextToken != null)
+                this.listLivestreams(json.data.listLivestreams.nextToken)
+        } catch (e) {
             console.error(e)
         }
-    } 
+    }
 
     sortById(a: any, b: any): number {
         const nameA = a.id.toUpperCase();
         const nameB = b.id.toUpperCase();
         if (nameA < nameB) {
-          return -1;
+            return -1;
         }
         if (nameA > nameB) {
-          return 1;
+            return 1;
         }
         return 0;
     }
@@ -164,9 +138,9 @@ class IndexApp extends React.Component<Props, State> {
                 });
                 console.log({ "Success queries.updateVideo: ": updateVideo });
                 this.setState({ showError: "Saved" })
-            } catch(e) {
+            } catch (e) {
                 if (!e.errors[0].message.includes('access'))
-                    this.setState({showError: e.errors[0].message});
+                    this.setState({ showError: e.errors[0].message });
                 else if (e.data)
                     this.setState({ showError: "Saved" })
                 console.error(e)
@@ -189,7 +163,7 @@ class IndexApp extends React.Component<Props, State> {
 
     renderEditor() {
         return (
-            <div style={{width: '50%'}}>
+            <div style={{ width: '50%' }}>
                 <div className="divRow">Date</div>
                 <div className="divRow">Start Time</div>
                 <div className="divRow">Video Start Time</div>
@@ -202,20 +176,22 @@ class IndexApp extends React.Component<Props, State> {
                 <div className="divRow">
                     Show Kids Videos
                 </div>
-                <button onClick={(e: any) => this.save()}>Save</button>
+                <button onClick={() => this.save()}>Save</button>
             </div>
         )
     }
     render() {
         return (
-            <div>
-                <AdminMenu></AdminMenu>
-                <div className="videoSelectBox">
-                    {this.renderLivestreams()}
-                </div>
-                {this.renderEditor()}
-                <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
-            </div >
+            <AmplifyAuthenticator federated={federated}>
+                <div>
+                    <AdminMenu></AdminMenu>
+                    <div className="videoSelectBox">
+                        {this.renderLivestreams()}
+                    </div>
+                    {this.renderEditor()}
+                    <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
+                </div >
+            </AmplifyAuthenticator>
         );
     }
 }
