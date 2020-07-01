@@ -1,9 +1,0 @@
-[
-    {
-        "name": "Live",
-        "dayOfWeek": 0,
-        "startHour": 6,
-        "endHour": 23,
-        "navigateTo": "/live"
-    }
-]

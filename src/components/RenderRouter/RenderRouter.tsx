@@ -53,7 +53,7 @@ class RenderRouter extends React.Component<Props, State> {
       case "videoPlayer": return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
       case "blog": return (<BlogItem key={index} content={item}></BlogItem>);
       case "post": return (<BlogReader data={this.props.data} key={index} content={item}></BlogReader>);
-      case "liveVideoPlayer": return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
+      case "liveVideoPlayer": return (<VideoPlayerLive key={index} content={item}></VideoPlayerLive>);
       case "list": return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
       case "svg": return (<SVGItem key={index} content={item}></SVGItem>);
       case "hero": return (<HeroItem data={this.props.data} key={index} content={item}></HeroItem>);
