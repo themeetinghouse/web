@@ -125,12 +125,12 @@ class Index extends React.Component<EmptyProps, State> {
     }
 
     sortByDate(a: any, b: any): number {
-        const nameA = a.date.toUpperCase();
-        const nameB = b.date.toUpperCase();
-        if (nameA < nameB) {
+        const nameA = a.date
+        const nameB = b.date
+        if (nameA > nameB) {
             return -1;
         }
-        if (nameA > nameB) {
+        if (nameA < nameB) {
             return 1;
         }
         return 0;
@@ -230,11 +230,6 @@ class Index extends React.Component<EmptyProps, State> {
                 }
             }
         })
-
-        if (this.state.liveObject.homepageLink.length > 12) {
-            this.setState({ alert: 'error: hompage link cannot be longer than 12 characters' })
-            test = false
-        }
 
         if (this.state.liveObject.prerollYoutubeId === '' && this.state.liveObject.startTime !== this.state.liveObject.videoStartTime) {
             this.setState({ alert: 'error: startTime must equal videoStartTime if there is no preroll video' })
@@ -373,8 +368,8 @@ class Index extends React.Component<EmptyProps, State> {
                         <input className="livestream-input" type="text" value={this.state.liveObject.prerollYoutubeId} onChange={(e) => this.handleChange('prerollYoutubeId', e.target.value)}></input>
                         <label>liveYoutubeId</label><br />
                         <input className="livestream-input" type="text" required value={this.state.liveObject.liveYoutubeId} onChange={(e) => this.handleChange('liveYoutubeId', e.target.value)}></input>
-                        <label>homepageLink</label><br />
-                        <input className="livestream-input" type="text" required value={this.state.liveObject.homepageLink} onChange={(e) => this.handleChange('homepageLink', e.target.value)}></input>
+                        <label>homepageLink <span style={{ fontSize: 10 }}>({this.state.liveObject.homepageLink.length}/12 characters)</span></label><br />
+                        <input maxLength={12} className="livestream-input" type="text" required value={this.state.liveObject.homepageLink} onChange={(e) => this.handleChange('homepageLink', e.target.value)}></input>
 
                         <input type="checkbox" checked={this.state.liveObject.showChat} onChange={() => this.handleChange('showChat', !this.state.liveObject.showChat)}></input>
                         <label> show Chat</label><br />
