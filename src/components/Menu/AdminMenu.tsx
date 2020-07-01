@@ -105,7 +105,7 @@ export default class Menu extends React.Component<EmptyProps, State> {
                 <NavLink href="/admin/import-kids">Import Kids</NavLink>
 </NavItem>*/}
               <NavItem>
-                <NavLink href="/admin/add-live">Livestream</NavLink>
+                <NavLink href="/admin/livestream">Livestream</NavLink>
               </NavItem>
               <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>

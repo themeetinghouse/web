@@ -8,7 +8,7 @@ import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify'
 import { Modal } from 'reactstrap';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
-import "./add-live.scss"
+import "./livestream.scss"
 import awsmobile from '../../aws-exports';
 import isSafari from 'react-device-detect';
 import moment from 'moment';
@@ -233,6 +233,11 @@ class Index extends React.Component<EmptyProps, State> {
 
         if (this.state.liveObject.homepageLink.length > 12) {
             this.setState({ alert: 'error: hompage link cannot be longer than 12 characters' })
+            test = false
+        }
+
+        if (this.state.liveObject.prerollYoutubeId === '' && this.state.liveObject.startTime !== this.state.liveObject.videoStartTime) {
+            this.setState({ alert: 'error: startTime must equal videoStartTime if there is no preroll video' })
             test = false
         }
 
