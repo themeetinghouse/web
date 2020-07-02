@@ -30,7 +30,7 @@ class App extends React.Component<Props, State>  {
           <Route path="/videos/:series/:episode" render={props => <HomePage pageType="video" {...props} />} />
           <Route path="/videos/:series" render={props => <HomePage pageType="video" {...props} />} />
           <Route path="/posts/:blog" render={props => <HomePage pageType="blog" {...props} />} />
-          <Route path="/notes/:note" render={props => <HomePage pageType="note" {...props} />} />
+          <Route path="/notes" render={props => <HomePage pageType="note" {...props} />} />
           <Route path="/:id" render={props => <HomePage pageType="default" {...props} />} />
         </Switch>
       </Suspense>

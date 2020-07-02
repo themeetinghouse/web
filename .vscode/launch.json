@@ -13,16 +13,31 @@
                 "<node_internals>/**"
             ]
         },
-        
-
         {
             "name": "Attach to packager",
             "cwd": "${workspaceFolder}",
             "type": "reactnative",
             "request": "attach"
+        },
+        {
+            "name": "Debug CRA Tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/react-scripts",
+            "args": [
+                "test",
+                "--runInBand",
+                "--no-cache",
+                "--watchAll=false"
+            ],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "env": {
+                "CI": "true"
+            },
+            "disableOptimisticBPs": true
         }
-      
-
-       
     ]
 }
