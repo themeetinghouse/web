@@ -1,0 +1,249 @@
+@media (min-width: 768px) {
+    $width: 18vw;
+    $height: $width*(9/16);
+    .ArchiveItemDiv1 {
+        position: relative;
+        z-index: 99;
+        left: 20vw;
+        width: 80vw;
+        top: 3vw;
+    }
+
+    .ArchiveItemGrid {
+        display: grid;
+        grid-template-columns: repeat(4,$width);
+        grid-template-rows: auto;
+        column-gap: 1vw;
+        row-gap: 1vw;
+        padding-bottom: 3vw;
+    }
+
+    .ArchiveItemVideoThumb {
+        width: $width;
+        object-fit: cover;
+        height: $height;
+    }
+
+    .ArchiveItemPlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $height;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .ArchiveItemVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        :hover {
+            .ArchiveItemPlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .ArchiveItemEpisodeNum,
+    .ArchiveItemName {
+        width: $width;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .ArchiveItemSeriesTitle,
+    .ArchiveItemPublishedDate,
+    .ArchiveItemYearEpisode {
+        width: $width;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .ArchiveItemImage2 {
+        width: $width;
+    }
+
+    .ArchiveItemH1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        color: #1A1A1A;
+        font-weight: bold;
+        font-size: 3vw;
+        font-family: Graphik Web;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    $width: 24vw;
+    $height: $width*(9/16);
+    .ArchiveItemDiv1 {
+        position: relative;
+        z-index: 99;
+        left: 20vw;
+        width: 80vw;
+        top: 3vw;
+    }
+
+    .ArchiveItemGrid {
+        display: grid;
+        grid-template-columns: repeat(3,$width);
+        grid-template-rows: auto;
+        column-gap: 1vw;
+        row-gap: 1vw;
+        padding-bottom: 4vw;
+    }
+
+    .ArchiveItemVideoThumb {
+        width: $width;
+        object-fit: cover;
+        height: $height;
+    }
+
+    .ArchiveItemPlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $height;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .ArchiveItemVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        :hover {
+            .ArchiveItemPlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .ArchiveItemEpisodeNum,
+    .ArchiveItemName {
+        width: $width;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .ArchiveItemSeriesTitle,
+    .ArchiveItemPublishedDate,
+    .ArchiveItemYearEpisode {
+        width: $width;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .ArchiveItemImage2 {
+        width: $width;
+    }
+
+    .ArchiveItemH1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        color: #1A1A1A;
+        font-weight: bold;
+        font-size: 5vw;
+        font-family: Graphik Web;
+    }
+}
+@media (max-width: 767px) {
+    $width: 44vw;
+    $height: $width*(9/16);
+    .ArchiveItemDiv1 {
+        position: relative;
+        z-index: 99;
+        padding: 10vw 5vw 0vw;
+    }
+
+    .ArchiveItemGrid {
+        display: grid;
+        grid-template-columns: repeat(2,$width);
+        grid-template-rows: auto;
+        column-gap: 2vw;
+        row-gap: 2vw;
+        padding-bottom: 6vw;
+    }
+
+    .ArchiveItemVideoThumb {
+        width: $width;
+        margin-right: 1vw;
+        object-fit: cover;
+        height: $height;
+    }
+
+    .ArchiveItemPlayImageOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $height;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        img {
+            height: 100%;
+        }
+    }
+
+    .ArchiveItemVideo {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        :hover {
+            .ArchiveItemPlayImageOverlay {
+                opacity: 0.75;
+            }
+        }
+    }
+
+    .ArchiveItemEpisodeNum,
+    .ArchiveItemName {
+        width: $width;
+        font-weight: bold;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .ArchiveItemSeriesTitle,
+    .ArchiveItemPublishedDate,
+    .ArchiveItemYearEpisode {
+        width: $width;
+        white-space: normal;
+        font-family: Graphik Web;
+    }
+
+    .ArchiveItemImage2 {
+        width: $width;
+    }
+
+    .ArchiveItemH1 {
+        position: relative;
+        left: 0vw;
+        width: 80vw;
+        color: #1A1A1A;
+        font-size: 10vw;
+        font-weight: 700;
+        font-family: Graphik Web;
+    }
+}

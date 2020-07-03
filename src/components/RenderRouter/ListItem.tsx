@@ -44,10 +44,11 @@ interface State {
   urlHistoryState: any;
   showChampion: any;
   showMoreVideos: boolean;
-  numberOfVideos: number;
 }
 
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
+
+type SeriesData2 = SeriesData | string | null;
 
 type ListData =
   | SpeakerData
@@ -104,8 +105,7 @@ class ListItem extends React.Component<Props, State> {
       listData: props.content.list ?? [],
       overlayData: null,
       urlHistoryState: window.history.state,
-      showMoreVideos: false,
-      numberOfVideos: 100,
+      showMoreVideos: false
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
@@ -223,10 +223,21 @@ class ListItem extends React.Component<Props, State> {
   }
 
   renderMoreVideosCard() {
+    const temp = this.state.content as any
     return (
-      <div onClick={() => this.setState({ numberOfVideos: this.state.numberOfVideos + 100 })} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <div key='load-more-card' onClick={() => window.location.href = '/video-archive/' + temp.subclass} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div className="LoadMoreVideosCard">
-          <div className="LoadMoreVideosText">Click to load more videos</div>
+          <div className="LoadMoreVideosText">View all videos</div>
+        </div>
+      </div>);
+  }
+
+  renderMoreSeriesCard() {
+    const temp = this.state.content as any
+    return (
+      <div key='load-more-card' onClick={() => window.location.href = '/series-archive/' + temp.subclass} >
+        <div className="LoadMoreSeriesCard">
+          <div className="LoadMoreSeriesText">View all series</div>
         </div>
       </div>);
   }
@@ -530,7 +541,7 @@ class ListItem extends React.Component<Props, State> {
           ] as string).includes(this.props.content.filterValue);
         });
 
-    const dataLength = data.length;
+    const dataLength = data.length
 
     if (this.state.content.style === 'horizontal') return (
       <div className="ListItem horizontal" >
@@ -541,9 +552,9 @@ class ListItem extends React.Component<Props, State> {
 
             {this.state.content.class === 'videos' ?
               <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                {data.slice(0, this.state.numberOfVideos).concat('card').map((item, index) => {
+                {data.concat(this.state.content.selector === 'limited' && this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item, index) => {
                   if (item === 'card')
-                    return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null;
+                    return this.renderMoreVideosCard();
 
                   return this.renderItemRouter(item as ListData, index);
                 }
@@ -658,24 +669,37 @@ class ListItem extends React.Component<Props, State> {
         return null;
       }
     }
-    else if (this.state.content.style === 'horizontalBig') return (
-      <div className="ListItem horizontalBig" >
-        <div className="ListItemDiv1 ListItemAllSeries" >
-          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-          <div className="ListItemDiv6" >
-            <HorizontalScrollList>
-              {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index);
-              })}
-            </HorizontalScrollList>
-            <div className="ListItemDiv5" ></div>
+    else if (this.state.content.style === 'horizontalBig') {
 
+      const seriesData = data as SeriesData2[]
+      return (
+        <div className="ListItem horizontalBig" >
+          <div className="ListItemDiv1 ListItemAllSeries" >
+            <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+            <div className="ListItemDiv6" >
+              {this.state.content.class === 'series' ?
+                <HorizontalScrollList>
+                  {seriesData.concat(this.state.content.selector === 'limited' && this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item: any, index: any) => {
+                    if (item === 'card')
+                      return this.renderMoreSeriesCard();
+                    return this.renderItemRouter(item, index);
+                  })}
+                </HorizontalScrollList>
+                : <HorizontalScrollList>
+                  {data.map((item: any, index: any) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </HorizontalScrollList>}
+              <div className="ListItemDiv5" ></div>
+
+            </div>
           </div>
-        </div>
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
 
-      </div>
-    )
+        </div>
+      )
+    }
+
     else if (this.state.content.style === 'imageList') return (
       <div className="ListItem imageList" >
         <div className="ListItemDiv1" >

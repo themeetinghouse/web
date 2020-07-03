@@ -12,6 +12,7 @@ const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderR
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
 const Blog = React.lazy(() => import('../components/Blog/Blog'));
 const Note = React.lazy(() => import('../components/Note/Note'));
+const Archive = React.lazy(() => import('../components/Archive/Archive'));
 
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
@@ -20,7 +21,7 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
-type PageType = 'default' | 'video' | 'blog' | 'note';
+type PageType = 'default' | 'video' | 'blog' | 'note' | 'video-archive' | 'series-archive';
 
 Amplify.configure(awsconfig);
 
@@ -30,6 +31,7 @@ interface Params {
   episode?: string;
   series?: string;
   note?: string;
+  videoType?: string;
 }
 
 interface Props extends RouteComponentProps<Params> {
@@ -77,6 +79,12 @@ class HomePage extends React.Component<Props, State> {
         break;
       case 'note':
         jsonFile = 'notes-reader'
+        break;
+      case 'video-archive':
+        jsonFile = 'series-archive'
+        break;
+      case 'series-archive':
+        jsonFile = 'video-archive'
         break;
       case 'default':
         jsonFile = props.match.params.id || 'homepage'
@@ -174,10 +182,7 @@ class HomePage extends React.Component<Props, State> {
         this.setState({ data: json.data.getBlog })
         console.log(this.state.data);
       }).catch((e: Error) => { console.error(e) })
-    }
-
-    else if (pageType === 'note') {
-      console.log(this.props.match.params.note)      
+    } else if (pageType === 'note') {
       const getNotes: any = API.graphql({
         query: queries.getNotes,
         variables: { id: this.props.match.params.note },
@@ -190,7 +195,6 @@ class HomePage extends React.Component<Props, State> {
       }).catch((e: Error) => { console.error(e) })
     }
   }
-
 
   navigateUrl(to: string) {
     window.location.href = to;
@@ -218,6 +222,10 @@ class HomePage extends React.Component<Props, State> {
         return <Blog data={this.state.data}></Blog>
       case 'note':
         return <Note data={this.state.data}></Note>
+      case 'video-archive':
+        return <Archive data={this.props.match.params.videoType} queryType='video'></Archive>
+      case 'series-archive':
+        return <Archive data={this.props.match.params.videoType} queryType='series'></Archive>
       case 'default':
         if (this.state.content?.page.pageConfig) {
           const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig;

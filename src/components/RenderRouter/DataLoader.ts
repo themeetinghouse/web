@@ -42,6 +42,7 @@ export interface VideoSeriesQuery extends DataLoaderQuery {
 
   sortOrder: ModelSortDirection;
   subclass: string;
+  limit?: number;
 }
 
 export interface SeriesQuery extends DataLoaderQuery {
@@ -67,6 +68,8 @@ export interface SeriesByTypeQuery extends DataLoaderQuery {
 
   sortOrder: ModelSortDirection;
   subclass: string;
+  selector?: string;
+  limit?: number;
 }
 
 export interface StaffQuery extends DataLoaderQuery {
@@ -244,7 +247,7 @@ export default class DataLoader {
     const variables: GetVideoByVideoTypeQueryVariables = {
       nextToken: nextToken,
       sortDirection: query.sortOrder,
-      limit: 20,
+      limit: query.limit ?? 20,
       videoTypes: query.subclass,
       publishedDate: { lt: 'a' },
     };
@@ -258,14 +261,14 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      if (query.selector === 'all') {
+      if (query.selector === 'all' || query.selector === 'limited') {
         dataLoaded(items);
       } else {
         dataLoaded(
           items.filter((item) => item?.seriesTitle === query.selector)
         );
       }
-      if (json?.data?.getVideoByVideoType?.nextToken) {
+      if (json?.data?.getVideoByVideoType?.nextToken && query.selector !== 'limited') {
         await this.getVideos(
           query,
           dataLoaded,
@@ -274,7 +277,7 @@ export default class DataLoader {
       }
     } catch (e) {
       console.error({ 'Error: ': e });
-      if (query.selector === 'all') {
+      if (query.selector === 'all' || query.selector === 'limited') {
         if (e.data) {
           dataLoaded(e.data.getVideoByVideoType.items);
         }
@@ -288,7 +291,7 @@ export default class DataLoader {
         }
       }
       if (e.data) {
-        if (e.data.getVideoByVideoType.nextToken) {
+        if (e.data.getVideoByVideoType.nextToken && query.selector !== 'limited') {
           await this.getVideos(
             query,
             dataLoaded,
@@ -364,7 +367,7 @@ export default class DataLoader {
     const variables: GetSeriesBySeriesTypeQueryVariables = {
       nextToken: nextToken,
       sortDirection: query.sortOrder,
-      limit: 50,
+      limit: query.limit ?? 50,
       seriesType: query.subclass,
       startDate: { lt: 'a' },
     };
@@ -377,7 +380,7 @@ export default class DataLoader {
       const json = await getSeriesBySeriesType;
       console.debug({ 'Success queries.getSeriesBySeriesType': json });
       dataLoaded(json?.data?.getSeriesBySeriesType?.items ?? []);
-      if (json?.data?.getSeriesBySeriesType?.nextToken) {
+      if (json?.data?.getSeriesBySeriesType?.nextToken && query.selector !== 'limited') {
         await this.getSeriesByType(
           query,
           dataLoaded,

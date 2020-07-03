@@ -3,66 +3,67 @@
         "name": "teaching",
         "title": "Teaching",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
-            
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
                 "type": "teaching",
                 "style": "hero",
                 "class": "teaching-sunday",
-                "header1":"Teaching - Sunday Teaching",
-                "options":[],
-                "group":"teaching",
-                "subclass":"adult-sunday",
-                "sortOrder":"DESC"
-
+                "header1": "Teaching - Sunday Teaching",
+                "options": [],
+                "group": "teaching",
+                "subclass": "adult-sunday",
+                "sortOrder": "DESC"
             },
-
             {
                 "type": "teachingsearch",
                 "style": "teaching",
-                "header1":"Search the Archives",
-                "text1":"Try \"Grace\"",
-                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
+                "header1": "Search the Archives",
+                "text1": "Try \"Grace\"",
+                "trending": [
+                    "Unconditional Love",
+                    "Freedom",
+                    "New Covenant",
+                    "Heaven"
+                ]
             },
-
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"adult-sunday",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Teaching Videos"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "adult-sunday",
+                "selector": "limited",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "All Teaching Videos"
             },
-
             {
-                "type":"list",
-                "style":"horizontalBig",
-                "class":"series",
-                "subclass":"adult-sunday",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Teaching Series"                
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "series",
+                "subclass": "adult-sunday",
+                "selector": "limited",
+                "limit": 20,
+                "sortOrder": "DESC",
+                "header1": "All Teaching Series"
             },
-
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"livestream-services",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Sunday Livestreams"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "livestream-services",
+                "selector": "limited",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "Sunday Livestreams"
             }
         ]
     }
