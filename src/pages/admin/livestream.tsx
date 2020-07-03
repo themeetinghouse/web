@@ -187,8 +187,8 @@ class Index extends React.Component<EmptyProps, State> {
         let test = true;
 
         this.state.liveObject.menu.forEach(menuItem => {
-            if (menuItem.linkType === 'link' && (menuItem.link === '' || menuItem.title === '')) {
-                this.setState({ alert: 'error: linkType \'link\' need a valid link and title' })
+            if (menuItem.linkType === 'link' && menuItem.link === '') {
+                this.setState({ alert: 'error: linkType \'link\' needs a valid link' })
                 test = false
             }
 
@@ -388,7 +388,7 @@ class Index extends React.Component<EmptyProps, State> {
     renderAlert() {
         return (
             <Modal isOpen={Boolean(this.state.alert)}>
-                <div>{this.state.alert}</div>
+                <div style={{ color: this.state.alert.includes('error') ? 'red' : 'black' }}>{this.state.alert}</div>
                 <button onClick={() => this.setState({ alert: '' })}>OK</button>
             </Modal>
         )
