@@ -61,6 +61,11 @@
                 "list": [
                     {
                         "type":"link",
+                        "title": "Lead Pastor",
+                        "navigateTo": "/static/pdfs/careers/2020 Lead Pastor.pdf"
+                    },
+                    {
+                        "type":"link",
                         "title": "Parry Sound Lead Pastor",
                         "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
                     }
