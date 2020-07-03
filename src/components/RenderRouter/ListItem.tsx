@@ -120,6 +120,7 @@ class ListItem extends React.Component<Props, State> {
 
   async componentDidMount() {
     const dataLoaded = (data: ListData[]) => this.setData(data);
+    const checkNext = () => null;
     let data: ListData[];
     const query: DataQuery = this.props.content;
     switch (query.class) {
@@ -139,7 +140,7 @@ class ListItem extends React.Component<Props, State> {
         data = await DataLoader.loadCompassion();
         break;
       case 'series':
-        await DataLoader.getSeriesByType(query, dataLoaded);
+        await DataLoader.getSeriesByType(query, dataLoaded, checkNext);
         return;
       case 'videos':
       case 'curious':
@@ -166,7 +167,7 @@ class ListItem extends React.Component<Props, State> {
             );
             break;
           default:
-            await DataLoader.getVideos(query as VideoSeriesQuery, dataLoaded);
+            await DataLoader.getVideos(query as VideoSeriesQuery, dataLoaded, checkNext);
             return;
         }
         break;
@@ -227,7 +228,7 @@ class ListItem extends React.Component<Props, State> {
     return (
       <div key='load-more-card' onClick={() => window.location.href = '/video-archive/' + temp.subclass} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div className="LoadMoreVideosCard">
-          <div className="LoadMoreVideosText">View all videos</div>
+          <div className="LoadMoreVideosText">Click for more videos</div>
         </div>
       </div>);
   }
@@ -237,7 +238,7 @@ class ListItem extends React.Component<Props, State> {
     return (
       <div key='load-more-card' onClick={() => window.location.href = '/series-archive/' + temp.subclass} >
         <div className="LoadMoreSeriesCard">
-          <div className="LoadMoreSeriesText">View all series</div>
+          <div className="LoadMoreSeriesText">Click for more series</div>
         </div>
       </div>);
   }

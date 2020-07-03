@@ -1,3 +1,96 @@
+.LoadingArchivesDiv1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+}
+
+.LoadingArchivesText {
+    margin-top: 20px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+}
+  
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: black;
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+-webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+-webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+-webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+-webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+-webkit-animation-delay: 0s;
+        animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+-webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+} 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+}
+}
+
+@keyframes sk-cubeGridScaleDelay {
+0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+} 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+} 
+}
+
+@mixin two-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+@mixin one-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 @media (min-width: 768px) {
     $width: 18vw;
     $height: $width*(9/16);
@@ -57,6 +150,7 @@
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
+        @include two-line()
     }
 
     .ArchiveItemSeriesTitle,
@@ -65,6 +159,7 @@
         width: $width;
         white-space: normal;
         font-family: Graphik Web;
+        @include one-line()
     }
 
     .ArchiveItemImage2 {
@@ -79,6 +174,43 @@
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
+    }
+
+    .ArchiveSelectByYear {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 3vw;
+        width: 70vw;
+    }
+
+    .SelectByYearOption {
+        background: black;
+        color: white;
+        padding: 7px 16px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        border-radius: 50px;
+        font-family: Graphik Web;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background: #54565A;
+        }
+    }
+
+    .SelectedYearOption {
+        background: white;
+        color: black;
+        padding: 6px 15px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        border-radius: 50px;
+        border: 1px black solid;
+        font-family: Graphik Web;
+        font-weight: bold;
+        cursor: pointer;
     }
 }
 
@@ -141,6 +273,7 @@
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
+        @include two-line()
     }
 
     .ArchiveItemSeriesTitle,
@@ -149,6 +282,7 @@
         width: $width;
         white-space: normal;
         font-family: Graphik Web;
+        @include one-line()
     }
 
     .ArchiveItemImage2 {
@@ -163,6 +297,43 @@
         font-weight: bold;
         font-size: 5vw;
         font-family: Graphik Web;
+    }
+
+    .ArchiveSelectByYear {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 3vw;
+        width: 70vw;
+    }
+
+    .SelectByYearOption {
+        background: black;
+        color: white;
+        padding: 7px 16px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        border-radius: 50px;
+        font-family: Graphik Web;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background: #54565A;
+        }
+    }
+
+    .SelectedYearOption {
+        background: white;
+        color: black;
+        padding: 6px 15px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        border-radius: 50px;
+        border: 1px black solid;
+        font-family: Graphik Web;
+        font-weight: bold;
+        cursor: pointer;
     }
 }
 @media (max-width: 767px) {
@@ -223,6 +394,7 @@
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
+        @include two-line()
     }
 
     .ArchiveItemSeriesTitle,
@@ -231,6 +403,7 @@
         width: $width;
         white-space: normal;
         font-family: Graphik Web;
+        @include one-line()
     }
 
     .ArchiveItemImage2 {
@@ -245,5 +418,42 @@
         font-size: 10vw;
         font-weight: 700;
         font-family: Graphik Web;
+    }
+
+    .ArchiveSelectByYear {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        padding-bottom: 6vw;
+        width: 90vw;
+    }
+
+    .SelectByYearOption {
+        background: black;
+        color: white;
+        padding: 7px 16px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        border-radius: 50px;
+        font-family: Graphik Web;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background: #54565A;
+        }
+    }
+
+    .SelectedYearOption {
+        background: white;
+        color: black;
+        padding: 6px 15px;
+        margin-right: 8px;
+        margin-bottom: 4px;
+        border-radius: 50px;
+        border: 1px black solid;
+        font-family: Graphik Web;
+        font-weight: bold;
+        cursor: pointer;
     }
 }

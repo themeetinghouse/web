@@ -24,7 +24,9 @@ interface State {
     listData: listData[]
     overlayData: any
     urlHistoryState: any
-    year: number | number[]
+    selectedYear: string
+    yearOptions: string[]
+    currentNextToken: string | null
 }
 class ArchiveItem extends React.Component<Props, State> {
 
@@ -34,19 +36,22 @@ class ArchiveItem extends React.Component<Props, State> {
             listData: [],
             overlayData: null,
             urlHistoryState: window.history.state,
-            year: 2020
+            selectedYear: 'All',
+            yearOptions: ['All'],
+            currentNextToken: 'placeholder'
         }
     }
 
     async componentDidMount() {
         const dataLoaded = (data: listData[]) => this.setData(data);
+        const checkNext = (data: string | null) => this.setState({ currentNextToken: data })
         const query = { selector: 'all', class: this.props.content.class, subclass: this.props.data, sortOrder: this.props.content.sortOrder };
         switch (query.class) {
             case 'series':
-                await DataLoader.getSeriesByType(query, dataLoaded);
+                await DataLoader.getSeriesByType(query, dataLoaded, checkNext);
                 return;
             case 'videos':
-                await DataLoader.getVideos(query, dataLoaded);
+                await DataLoader.getVideos(query, dataLoaded, checkNext);
                 return;
             default:
                 console.error(`unknown list data type ${this.props.content.class}`);
@@ -54,31 +59,43 @@ class ArchiveItem extends React.Component<Props, State> {
         }
     }
 
+    componentDidUpdate() {
+        console.log(this.state.currentNextToken)
+    }
+
     binVideosByYear(data: VideoByVideoTypeData[]) {
         const binned: VideoByVideoTypeData[][] = []
         let temp = []
+        const years: string[] = ['All']
         for (let i = 0; i < data.length; i++) {
             temp.push(data[i])
             if (data[i]?.publishedDate?.slice(0, 4) !== data[i + 1]?.publishedDate?.slice(0, 4)) {
+                const temp2 = data[i]?.publishedDate?.slice(0, 4)
+                if (temp2)
+                    years.push(temp2)
                 binned.push(temp)
                 temp = []
             }
         }
 
-        return binned
+        return { binned: binned, years: years }
     }
 
     binSeriesByYear(data: SeriesByTypeData[]) {
         const binned: SeriesByTypeData[][] = []
         let temp = []
+        const years: string[] = ['All']
         for (let i = 0; i < data.length; i++) {
             temp.push(data[i])
             if (data[i]?.startDate?.slice(0, 4) !== data[i + 1]?.startDate?.slice(0, 4)) {
+                const temp2 = data[i]?.startDate?.slice(0, 4)
+                if (temp2)
+                    years.push(temp2)
                 binned.push(temp)
                 temp = []
             }
         }
-        return binned
+        return { binned: binned, years: years }
     }
 
     setData(data: any) {
@@ -120,6 +137,16 @@ class ArchiveItem extends React.Component<Props, State> {
         };
     }
 
+    renderYearSelector(options: string[]) {
+        return (
+            <div className="ArchiveSelectByYear">
+                {options.map((option, index) => {
+                    return <div className={this.state.selectedYear === option ? "SelectedYearOption" : "SelectByYearOption"} key={index} onClick={() => this.setState({ selectedYear: option })}>{option}</div>
+                })}
+            </div>
+        )
+    }
+
     renderVideo(item: VideoByVideoTypeData): JSX.Element | null {
         if (!item) {
             return null;
@@ -143,7 +170,6 @@ class ArchiveItem extends React.Component<Props, State> {
         const seriesEnded = item.endDate && format(new Date(), 'yyyy-MM-dd') > item.endDate;
         const videos = item.videos?.items ?? [];
         if (videos.length > 0) {
-            console.log(item.seriesType + '-' + item.title + '.jpg');
             return (
                 <div onClick={() => this.handleClick(videos.sort((a, b) => {
                     const aNumber = a?.episodeNumber ?? 0;
@@ -162,13 +188,12 @@ class ArchiveItem extends React.Component<Props, State> {
             );
         }
         else {
-            console.log({ 'None:': item });
             return null;
         }
     }
 
     render() {
-        if (this.props.data && this.state.listData.length > 0) {
+        if (this.props.data && !this.state.currentNextToken && this.state.listData.length > 0) {
             const videoData = this.state.listData as VideoByVideoTypeData[]
             const seriesData = this.state.listData as SeriesByTypeData[]
 
@@ -177,7 +202,8 @@ class ArchiveItem extends React.Component<Props, State> {
                     const binnedSeriesData = this.binSeriesByYear(seriesData);
                     return (
                         <div className="ArchiveItemDiv1">
-                            {binnedSeriesData.map((item, index) => {
+                            {this.renderYearSelector(binnedSeriesData.years)}
+                            {binnedSeriesData.binned.filter(i => this.state.selectedYear === 'All' ? true : i[0]?.startDate?.slice(0, 4) === this.state.selectedYear.toString()).map((item, index) => {
                                 return (
                                     <div key={index} >
                                         <h1 className="ArchiveItemH1">{item[0]?.startDate?.slice(0, 4)}</h1>
@@ -196,7 +222,8 @@ class ArchiveItem extends React.Component<Props, State> {
                     const binnedVideoData = this.binVideosByYear(videoData);
                     return (
                         <div className="ArchiveItemDiv1">
-                            {binnedVideoData.map((item, index) => {
+                            {this.renderYearSelector(binnedVideoData.years)}
+                            {binnedVideoData.binned.filter(i => this.state.selectedYear === 'All' ? true : i[0]?.publishedDate?.slice(0, 4) === this.state.selectedYear.toString()).map((item, index) => {
                                 return (
                                     <div key={index} >
                                         <h1 className="ArchiveItemH1">{item[0]?.publishedDate?.slice(0, 4)}</h1>
@@ -215,6 +242,24 @@ class ArchiveItem extends React.Component<Props, State> {
                     return null
             }
         } else {
+            if (this.state.listData.length > 0) {
+                return (
+                    <div className="LoadingArchivesDiv1">
+                        <div className="sk-cube-grid">
+                            <div className="sk-cube sk-cube1"></div>
+                            <div className="sk-cube sk-cube2"></div>
+                            <div className="sk-cube sk-cube3"></div>
+                            <div className="sk-cube sk-cube4"></div>
+                            <div className="sk-cube sk-cube5"></div>
+                            <div className="sk-cube sk-cube6"></div>
+                            <div className="sk-cube sk-cube7"></div>
+                            <div className="sk-cube sk-cube8"></div>
+                            <div className="sk-cube sk-cube9"></div>
+                        </div>
+                        <div className="LoadingArchivesText">Loading</div>
+                    </div>
+                )
+            }
             return null
         }
     }

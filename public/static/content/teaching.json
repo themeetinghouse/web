@@ -63,7 +63,7 @@
                 "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
-                "header1": "Sunday Livestreams"
+                "header1": "Sunday Livestream"
             }
         ]
     }

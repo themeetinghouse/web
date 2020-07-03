@@ -242,12 +242,13 @@ export default class DataLoader {
   static async getVideos(
     query: VideoSeriesQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
+    checkNextToken: OnDataListener<string | null>,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetVideoByVideoTypeQueryVariables = {
       nextToken: nextToken,
       sortDirection: query.sortOrder,
-      limit: query.limit ?? 20,
+      limit: query.limit ?? 50,
       videoTypes: query.subclass,
       publishedDate: { lt: 'a' },
     };
@@ -268,10 +269,14 @@ export default class DataLoader {
           items.filter((item) => item?.seriesTitle === query.selector)
         );
       }
+      if (!json?.data?.getVideoByVideoType?.nextToken) {
+        checkNextToken(null);
+      }
       if (json?.data?.getVideoByVideoType?.nextToken && query.selector !== 'limited') {
         await this.getVideos(
           query,
           dataLoaded,
+          checkNextToken,
           json.data.getVideoByVideoType.nextToken
         );
       }
@@ -290,11 +295,15 @@ export default class DataLoader {
           );
         }
       }
+      if (!e?.data?.getVideoByVideoType?.nextToken) {
+        checkNextToken(null);
+      }
       if (e.data) {
         if (e.data.getVideoByVideoType.nextToken && query.selector !== 'limited') {
           await this.getVideos(
             query,
             dataLoaded,
+            checkNextToken,
             e.data.getVideoByVideoType.nextToken
           );
         }
@@ -362,12 +371,13 @@ export default class DataLoader {
   static async getSeriesByType(
     query: SeriesByTypeQuery,
     dataLoaded: OnDataListener<SeriesByTypeData[]>,
+    checkNextToken: OnDataListener<string | null>,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetSeriesBySeriesTypeQueryVariables = {
       nextToken: nextToken,
       sortDirection: query.sortOrder,
-      limit: query.limit ?? 50,
+      limit: query.limit ?? 20,
       seriesType: query.subclass,
       startDate: { lt: 'a' },
     };
@@ -380,10 +390,14 @@ export default class DataLoader {
       const json = await getSeriesBySeriesType;
       console.debug({ 'Success queries.getSeriesBySeriesType': json });
       dataLoaded(json?.data?.getSeriesBySeriesType?.items ?? []);
+      if (!json?.data?.getSeriesBySeriesType?.nextToken) {
+        checkNextToken(null);
+      }
       if (json?.data?.getSeriesBySeriesType?.nextToken && query.selector !== 'limited') {
         await this.getSeriesByType(
           query,
           dataLoaded,
+          checkNextToken,
           json.data.getSeriesBySeriesType.nextToken
         );
       }
