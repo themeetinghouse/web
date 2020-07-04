@@ -25,6 +25,9 @@
             white-space: nowrap;
             font-size: 12px;
             line-height: 41px;
+            font-weight: normal;
+            background: #ffffff;
+            border: none;
             height: 43px;
             padding: 0 10px;
             cursor: pointer;
@@ -71,14 +74,15 @@
 
 .ContactLeadersButton {
       font-family: Graphik Web;
-      color: #000000;
-      background-color: #ffffff;
+      color: #000000 !important;
+      background: #ffffff !important;
       border-width: 0px;
       border-radius: 0;
       font-size: 16px;
       text-decoration: none;
       font-weight:normal;
       cursor: pointer;
+      padding: 12px 0px;
 
       &.ContactLeadersButton:hover{
           border-width: 0px;
