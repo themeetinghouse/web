@@ -4,7 +4,7 @@ import * as queries from '../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 
-import { withRouter, RouteComponentProps, } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import ReactGA from 'react-ga';
@@ -21,7 +21,7 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
-type PageType = 'default' | 'video' | 'blog' | 'note' | 'video-archive' | 'series-archive';
+type PageType = 'default' | 'video' | 'blog' | 'note' | 'archive';
 
 Amplify.configure(awsconfig);
 
@@ -31,7 +31,6 @@ interface Params {
   episode?: string;
   series?: string;
   note?: string;
-  videoType?: string;
 }
 
 interface Props extends RouteComponentProps<Params> {
@@ -80,11 +79,8 @@ class HomePage extends React.Component<Props, State> {
       case 'note':
         jsonFile = 'notes-reader'
         break;
-      case 'video-archive':
-        jsonFile = 'series-archive'
-        break;
-      case 'series-archive':
-        jsonFile = 'video-archive'
+      case 'archive':
+        jsonFile = 'archive'
         break;
       case 'default':
         jsonFile = props.match.params.id || 'homepage'
@@ -222,10 +218,8 @@ class HomePage extends React.Component<Props, State> {
         return <Blog data={this.state.data}></Blog>
       case 'note':
         return <Note data={this.state.data}></Note>
-      case 'video-archive':
-        return <Archive data={this.props.match.params.videoType} queryType='video'></Archive>
-      case 'series-archive':
-        return <Archive data={this.props.match.params.videoType} queryType='series'></Archive>
+      case 'archive':
+        return <Archive {...this.props}></Archive>
       case 'default':
         if (this.state.content?.page.pageConfig) {
           const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig;

@@ -28,7 +28,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "bbq",
-                "selector": "limited",
                 "limit": 50,
                 "sortOrder": "DESC",
                 "header1": "All BBQ Videos"
@@ -38,7 +37,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "meditation",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "Guided Prayer Meditation"
             },
@@ -47,7 +45,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "after-party",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "The After Party"
             },
@@ -56,7 +53,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "life-story",
-                "selector": "limited",
                 "limit": 50,
                 "sortOrder": "DESC",
                 "header1": "Life Stories"
@@ -66,7 +62,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-youth",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "Youth"

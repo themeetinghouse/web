@@ -44,7 +44,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "kidmax-live",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "Kidmax Live",
                 "showEpisodeNumbers": false
@@ -54,7 +53,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-kids",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "Kids"
@@ -64,7 +62,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-jrhigh",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "Jr. High"
@@ -74,7 +71,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-youth",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "Youth"
@@ -84,7 +80,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-srhigh",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "Sr. High"
@@ -94,7 +89,6 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-kids",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "All Kids Series"
             },
@@ -103,7 +97,6 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-jrhigh",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "All Jr. High Series"
             },
@@ -112,7 +105,6 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-youth",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "All Youth Series"
             },
@@ -121,7 +113,6 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-srhigh",
-                "selector": "all",
                 "sortOrder": "DESC",
                 "header1": "All Sr. High Series"
             },

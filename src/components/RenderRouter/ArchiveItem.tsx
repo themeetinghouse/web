@@ -1,4 +1,3 @@
-
 import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import "./ArchiveItem.scss"
@@ -16,17 +15,17 @@ Amplify.configure(awsmobile);
 type listData = SeriesByTypeData | VideoByVideoTypeData
 
 interface Props extends RouteComponentProps {
-    content: any,
-    data: any,
-    pageConfig: any,
+    content: any;
+    data: any;
+    pageConfig: any;
 }
 interface State {
-    listData: listData[]
-    overlayData: any
-    urlHistoryState: any
-    selectedYear: string
-    yearOptions: string[]
-    currentNextToken: string | null
+    listData: listData[];
+    overlayData: listData;
+    urlHistoryState: string | null;
+    selectedYear: string;
+    yearOptions: string[];
+    currentNextToken: string | null;
 }
 class ArchiveItem extends React.Component<Props, State> {
 
@@ -35,23 +34,24 @@ class ArchiveItem extends React.Component<Props, State> {
         this.state = {
             listData: [],
             overlayData: null,
-            urlHistoryState: window.history.state,
+            urlHistoryState: null,
             selectedYear: 'All',
             yearOptions: ['All'],
             currentNextToken: 'placeholder'
         }
     }
 
+
     async componentDidMount() {
         const dataLoaded = (data: listData[]) => this.setData(data);
-        const checkNext = (data: string | null) => this.setState({ currentNextToken: data })
-        const query = { selector: 'all', class: this.props.content.class, subclass: this.props.data, sortOrder: this.props.content.sortOrder };
+        const listenForNullToken = (data: null) => this.setState({ currentNextToken: data })
+        const query = { class: this.props.content.class, subclass: this.props.data, sortOrder: this.props.content.sortOrder };
         switch (query.class) {
             case 'series':
-                await DataLoader.getSeriesByType(query, dataLoaded, checkNext);
+                await DataLoader.getSeriesByType(query, dataLoaded, listenForNullToken);
                 return;
             case 'videos':
-                await DataLoader.getVideos(query, dataLoaded, checkNext);
+                await DataLoader.getVideos(query, dataLoaded, listenForNullToken);
                 return;
             default:
                 console.error(`unknown list data type ${this.props.content.class}`);
@@ -59,46 +59,36 @@ class ArchiveItem extends React.Component<Props, State> {
         }
     }
 
-    componentDidUpdate() {
-        console.log(this.state.currentNextToken)
+    sliceDate = (item: any) => {
+        if (item?.startDate) {
+            return item?.startDate?.slice(0, 4)
+        }
+
+        if (item?.publishedDate) {
+            return item?.publishedDate?.slice(0, 4)
+        }
+
+        return null
     }
 
-    binVideosByYear(data: VideoByVideoTypeData[]) {
-        const binned: VideoByVideoTypeData[][] = []
+    binByYear<T>(data: T[], selector: (item: T) => string | undefined | null) {
+        const binned = []
         let temp = []
         const years: string[] = ['All']
         for (let i = 0; i < data.length; i++) {
             temp.push(data[i])
-            if (data[i]?.publishedDate?.slice(0, 4) !== data[i + 1]?.publishedDate?.slice(0, 4)) {
-                const temp2 = data[i]?.publishedDate?.slice(0, 4)
-                if (temp2)
-                    years.push(temp2)
+            const temp2 = selector(data[i])
+            if (temp2 !== selector(data[i + 1])) {
                 binned.push(temp)
                 temp = []
-            }
-        }
-
-        return { binned: binned, years: years }
-    }
-
-    binSeriesByYear(data: SeriesByTypeData[]) {
-        const binned: SeriesByTypeData[][] = []
-        let temp = []
-        const years: string[] = ['All']
-        for (let i = 0; i < data.length; i++) {
-            temp.push(data[i])
-            if (data[i]?.startDate?.slice(0, 4) !== data[i + 1]?.startDate?.slice(0, 4)) {
-                const temp2 = data[i]?.startDate?.slice(0, 4)
                 if (temp2)
                     years.push(temp2)
-                binned.push(temp)
-                temp = []
             }
         }
-        return { binned: binned, years: years }
+        return { binned, years }
     }
 
-    setData(data: any) {
+    setData(data: listData[]) {
         this.setState({
             listData: this.state.listData.concat(data),
         });
@@ -118,14 +108,17 @@ class ArchiveItem extends React.Component<Props, State> {
         });
     }
 
-    showYears(start: any, end: any) {
+    showYears(start: string | null, end: string | null) {
         if (start === null || end === null)
             return null;
+
+        const startYear = new Date(start).getFullYear()
+        const endYear = new Date(end).getFullYear()
+
+        if (startYear === endYear)
+            return startYear + ' • ';
         else
-            if (new Date(start).getFullYear() === new Date(end).getFullYear())
-                return new Date(start).getFullYear() + ' • ';
-            else
-                return new Date(start).getFullYear() + ' - ' + new Date(end).getFullYear() + ' • ';
+            return startYear + ' - ' + endYear + ' • ';
     }
 
     fallbackToImage(fallbackUrl: string): EventHandler<SyntheticEvent<HTMLImageElement>> {
@@ -192,78 +185,58 @@ class ArchiveItem extends React.Component<Props, State> {
         }
     }
 
+    renderMedia(item: any) {
+        if (item?.publishedDate)
+            return this.renderVideo(item)
+        if (item?.startDate)
+            return this.renderSeries(item)
+
+        return null
+    }
+
     render() {
         if (this.props.data && !this.state.currentNextToken && this.state.listData.length > 0) {
-            const videoData = this.state.listData as VideoByVideoTypeData[]
-            const seriesData = this.state.listData as SeriesByTypeData[]
-
-            switch (this.props.content.class) {
-                case 'series':
-                    const binnedSeriesData = this.binSeriesByYear(seriesData);
-                    return (
-                        <div className="ArchiveItemDiv1">
-                            {this.renderYearSelector(binnedSeriesData.years)}
-                            {binnedSeriesData.binned.filter(i => this.state.selectedYear === 'All' ? true : i[0]?.startDate?.slice(0, 4) === this.state.selectedYear.toString()).map((item, index) => {
-                                return (
-                                    <div key={index} >
-                                        <h1 className="ArchiveItemH1">{item[0]?.startDate?.slice(0, 4)}</h1>
-                                        <div className="ArchiveItemGrid">
-                                            {item.map(item2 => {
-                                                return this.renderSeries(item2)
-                                            })}
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                            <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-                        </div>
-                    )
-                case 'videos':
-                    const binnedVideoData = this.binVideosByYear(videoData);
-                    return (
-                        <div className="ArchiveItemDiv1">
-                            {this.renderYearSelector(binnedVideoData.years)}
-                            {binnedVideoData.binned.filter(i => this.state.selectedYear === 'All' ? true : i[0]?.publishedDate?.slice(0, 4) === this.state.selectedYear.toString()).map((item, index) => {
-                                return (
-                                    <div key={index} >
-                                        <h1 className="ArchiveItemH1">{item[0]?.publishedDate?.slice(0, 4)}</h1>
-                                        <div className="ArchiveItemGrid">
-                                            {item.map(item2 => {
-                                                return this.renderVideo(item2)
-                                            })}
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                            <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-                        </div>
-                    )
-                default:
-                    return null
-            }
+            const binnedData = this.binByYear(this.state.listData, this.sliceDate);
+            return (
+                <div className="ArchiveItemDiv1">
+                    {this.renderYearSelector(binnedData.years)}
+                    {binnedData.binned.filter(i => this.state.selectedYear === 'All' || this.sliceDate(i[0]) === this.state.selectedYear.toString()).map((item, index) => {
+                        return (
+                            <div key={index} >
+                                <h1 className="ArchiveItemH1">{this.sliceDate(item[0])}</h1>
+                                <div className="ArchiveItemGrid">
+                                    {item.map(item2 => {
+                                        return this.renderMedia(item2)
+                                    })}
+                                </div>
+                            </div>
+                        )
+                    })}
+                    <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+                </div>
+            )
         } else {
-            if (this.state.listData.length > 0) {
-                return (
-                    <div className="LoadingArchivesDiv1">
-                        <div className="sk-cube-grid">
-                            <div className="sk-cube sk-cube1"></div>
-                            <div className="sk-cube sk-cube2"></div>
-                            <div className="sk-cube sk-cube3"></div>
-                            <div className="sk-cube sk-cube4"></div>
-                            <div className="sk-cube sk-cube5"></div>
-                            <div className="sk-cube sk-cube6"></div>
-                            <div className="sk-cube sk-cube7"></div>
-                            <div className="sk-cube sk-cube8"></div>
-                            <div className="sk-cube sk-cube9"></div>
-                        </div>
-                        <div className="LoadingArchivesText">Loading</div>
-                    </div>
-                )
+            if (this.state.listData.length === 0) {
+                return null;
             }
-            return null
+            return (
+                <div className="LoadingArchivesDiv1">
+                    <div className="sk-cube-grid">
+                        <div className="sk-cube sk-cube1"></div>
+                        <div className="sk-cube sk-cube2"></div>
+                        <div className="sk-cube sk-cube3"></div>
+                        <div className="sk-cube sk-cube4"></div>
+                        <div className="sk-cube sk-cube5"></div>
+                        <div className="sk-cube sk-cube6"></div>
+                        <div className="sk-cube sk-cube7"></div>
+                        <div className="sk-cube sk-cube8"></div>
+                        <div className="sk-cube sk-cube9"></div>
+                    </div>
+                    <div className="LoadingArchivesText">Loading</div>
+                </div>
+            )
         }
     }
 }
-
 
 export default withRouter(ArchiveItem)

@@ -1,42 +1,40 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import RenderRouter from '../RenderRouter/RenderRouter'
 import Amplify from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
 
 Amplify.configure(awsconfig);
 
-interface Props {
-    data: any
-    queryType: 'video' | 'series'
+interface Params {
+    archiveType?: string;
+    subclass?: string;
 }
+
 interface State {
     content: any
 }
-export default class VideoPlayer extends React.Component<Props, State> {
-    constructor(props: Props) {
+export default class Archive extends React.Component<RouteComponentProps<Params>, State> {
+    constructor(props: RouteComponentProps<Params>) {
         super(props);
         this.state = {
             content: null
         }
-        switch (this.props.queryType) {
-            case 'video':
-                fetch('/static/content/video-archive.json').then(function (response) {
-                    return response.json();
-                }).then((myJson) => this.setState({ content: myJson }))
-                break;
+        let pageType = ''
+        if (this.props.match.params.archiveType === 'series')
+            pageType = 'series-archive'
+        else if (this.props.match.params.archiveType === 'video')
+            pageType = 'video-archive'
 
-            case 'series':
-                fetch('/static/content/series-archive.json').then(function (response) {
-                    return response.json();
-                }).then((myJson) => this.setState({ content: myJson }))
-                break;
-        }
+        fetch(`/static/content/${pageType}.json`).then(function (response) {
+            return response.json();
+        }).then((myJson) => this.setState({ content: myJson }))
     }
 
     render() {
         return (
             <div>
-                <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
+                <RenderRouter data={this.props.match.params.subclass} content={this.state.content}></RenderRouter>
             </div>)
     }
 }

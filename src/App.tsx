@@ -31,8 +31,7 @@ class App extends React.Component<Props, State>  {
           <Route path="/videos/:series" render={props => <HomePage pageType="video" {...props} />} />
           <Route path="/posts/:blog" render={props => <HomePage pageType="blog" {...props} />} />
           <Route path="/notes/:note" render={props => <HomePage pageType="note" {...props} />} />
-          <Route path="/video-archive/:videoType" render={props => <HomePage pageType="video-archive" {...props} />} />
-          <Route path="/series-archive/:videoType" render={props => <HomePage pageType="series-archive" {...props} />} />
+          <Route path="/archive/:archiveType/:subclass" render={props => <HomePage pageType="archive" {...props} />} />
           <Route path="/:id" render={props => <HomePage pageType="default" {...props} />} />
         </Switch>
       </Suspense>

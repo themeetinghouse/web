@@ -38,7 +38,7 @@ export interface CustomPlaylistQuery extends DataLoaderQuery {
 export interface VideoSeriesQuery extends DataLoaderQuery {
   class: 'videos' | 'curious' | 'watch-page';
 
-  selector: string;
+  selector?: string;
 
   sortOrder: ModelSortDirection;
   subclass: string;
@@ -242,7 +242,7 @@ export default class DataLoader {
   static async getVideos(
     query: VideoSeriesQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
-    checkNextToken: OnDataListener<string | null>,
+    checkNextToken: OnDataListener<null>,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetVideoByVideoTypeQueryVariables = {
@@ -262,7 +262,7 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      if (query.selector === 'all' || query.selector === 'limited') {
+      if (!query.selector || query.selector === 'all' || query.limit) {
         dataLoaded(items);
       } else {
         dataLoaded(
@@ -272,7 +272,7 @@ export default class DataLoader {
       if (!json?.data?.getVideoByVideoType?.nextToken) {
         checkNextToken(null);
       }
-      if (json?.data?.getVideoByVideoType?.nextToken && query.selector !== 'limited') {
+      if (json?.data?.getVideoByVideoType?.nextToken && !query.limit) {
         await this.getVideos(
           query,
           dataLoaded,
@@ -282,7 +282,7 @@ export default class DataLoader {
       }
     } catch (e) {
       console.error({ 'Error: ': e });
-      if (query.selector === 'all' || query.selector === 'limited') {
+      if (!query.selector || query.selector === 'all' || query.limit) {
         if (e.data) {
           dataLoaded(e.data.getVideoByVideoType.items);
         }
@@ -299,7 +299,7 @@ export default class DataLoader {
         checkNextToken(null);
       }
       if (e.data) {
-        if (e.data.getVideoByVideoType.nextToken && query.selector !== 'limited') {
+        if (e.data.getVideoByVideoType.nextToken && !query.limit) {
           await this.getVideos(
             query,
             dataLoaded,
@@ -371,7 +371,7 @@ export default class DataLoader {
   static async getSeriesByType(
     query: SeriesByTypeQuery,
     dataLoaded: OnDataListener<SeriesByTypeData[]>,
-    checkNextToken: OnDataListener<string | null>,
+    checkNextToken: OnDataListener<null>,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetSeriesBySeriesTypeQueryVariables = {
@@ -393,7 +393,7 @@ export default class DataLoader {
       if (!json?.data?.getSeriesBySeriesType?.nextToken) {
         checkNextToken(null);
       }
-      if (json?.data?.getSeriesBySeriesType?.nextToken && query.selector !== 'limited') {
+      if (json?.data?.getSeriesBySeriesType?.nextToken && !query.limit) {
         await this.getSeriesByType(
           query,
           dataLoaded,

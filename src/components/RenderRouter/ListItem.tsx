@@ -226,7 +226,7 @@ class ListItem extends React.Component<Props, State> {
   renderMoreVideosCard() {
     const temp = this.state.content as any
     return (
-      <div key='load-more-card' onClick={() => window.location.href = '/video-archive/' + temp.subclass} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <div key='load-more-card' onClick={() => window.location.href = '/archive/video/' + temp.subclass} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div className="LoadMoreVideosCard">
           <div className="LoadMoreVideosText">Click for more videos</div>
         </div>
@@ -236,7 +236,7 @@ class ListItem extends React.Component<Props, State> {
   renderMoreSeriesCard() {
     const temp = this.state.content as any
     return (
-      <div key='load-more-card' onClick={() => window.location.href = '/series-archive/' + temp.subclass} >
+      <div key='load-more-card' onClick={() => window.location.href = '/archive/series/' + temp.subclass} >
         <div className="LoadMoreSeriesCard">
           <div className="LoadMoreSeriesText">Click for more series</div>
         </div>
