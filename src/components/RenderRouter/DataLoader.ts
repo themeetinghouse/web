@@ -3,6 +3,7 @@ import * as customQueries from '../../graphql-custom/customQueries';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
+import moment from 'moment';
 import {
   GetSeriesQuery,
   GetSeriesQueryVariables,
@@ -42,6 +43,8 @@ export interface VideoSeriesQuery extends DataLoaderQuery {
 
   sortOrder: ModelSortDirection;
   subclass: string;
+  numberOfDays: number;
+  minViews: number;
 }
 
 export interface SeriesQuery extends DataLoaderQuery {
@@ -290,6 +293,61 @@ export default class DataLoader {
       if (e.data) {
         if (e.data.getVideoByVideoType.nextToken) {
           await this.getVideos(
+            query,
+            dataLoaded,
+            e.data.getVideoByVideoType.nextToken
+          );
+        }
+      }
+    }
+  }
+
+  static async getPopularVideos(
+    query: VideoSeriesQuery,
+    dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
+    nextToken: string | null = null
+  ): Promise<void> {
+    if (query.numberOfDays > 365) {
+      console.error('Warning: numberOfDays cannot be greater than 365')
+      return;
+    }
+    if (!query.minViews) {
+      console.error('Warning: minViews must be declared')
+      return;
+    }
+    const startDate = moment().subtract(query.numberOfDays, 'days').format('YYYY-MM-DD')
+    const variables: GetVideoByVideoTypeQueryVariables = {
+      nextToken: nextToken,
+      limit: 20,
+      videoTypes: query.subclass,
+      publishedDate: { gt: startDate },
+    };
+    const getVideoByVideoType = API.graphql({
+      query: customQueries.getVideoByVideoType,
+      variables,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<GetVideoByVideoTypeQuery>>;
+    try {
+      const json = await getVideoByVideoType;
+      console.debug('Success queries.getVideoByVideoType: ' + json);
+      console.debug(json);
+      const items = json?.data?.getVideoByVideoType?.items ?? [];
+      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : true))
+      if (json?.data?.getVideoByVideoType?.nextToken) {
+        await this.getPopularVideos(
+          query,
+          dataLoaded,
+          json.data.getVideoByVideoType.nextToken
+        );
+      }
+    } catch (e) {
+      console.error({ 'Error: ': e });
+      if (e.data) {
+        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : true));
+      }
+      if (e.data) {
+        if (e.data.getVideoByVideoType.nextToken) {
+          await this.getPopularVideos(
             query,
             dataLoaded,
             e.data.getVideoByVideoType.nextToken
