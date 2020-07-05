@@ -59,19 +59,18 @@ class ArchiveItem extends React.Component<Props, State> {
         }
     }
 
-    sliceDate = (item: any) => {
-        if (item?.startDate) {
+    sliceDate = (item: listData) => {
+        if (!item)
+            return null
+        if ("startDate" in item)
             return item?.startDate?.slice(0, 4)
-        }
-
-        if (item?.publishedDate) {
+        if ("publishedDate" in item)
             return item?.publishedDate?.slice(0, 4)
-        }
 
         return null
     }
 
-    binByYear<T>(data: T[], selector: (item: T) => string | undefined | null) {
+    binByYear(data: listData[], selector: (item: listData) => string | undefined | null) {
         const binned = []
         let temp = []
         const years: string[] = ['All']
@@ -185,10 +184,12 @@ class ArchiveItem extends React.Component<Props, State> {
         }
     }
 
-    renderMedia(item: any) {
-        if (item?.publishedDate)
+    renderMedia(item: listData) {
+        if (!item)
+            return null
+        if ("publishedDate" in item)
             return this.renderVideo(item)
-        if (item?.startDate)
+        if ("startDate" in item)
             return this.renderSeries(item)
 
         return null
