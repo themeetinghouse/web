@@ -40,17 +40,26 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "adult-sunday",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "All Teaching Videos"
             },
             {
                 "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "adult-sunday",
+                "selector": "popular",
+                "showEpisodeNumbers": false,
+                "numberOfDays": 120,
+                "minViews": 1200,
+                "header1": "Popular"
+            },
+            {
+                "type": "list",
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "adult-sunday",
-                "selector": "limited",
                 "limit": 20,
                 "sortOrder": "DESC",
                 "header1": "All Teaching Series"
@@ -60,7 +69,6 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "livestream-services",
-                "selector": "limited",
                 "limit": 52,
                 "sortOrder": "DESC",
                 "header1": "Sunday Livestream"

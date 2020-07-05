@@ -4,14 +4,14 @@ import * as queries from '../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { withRouter, Switch, RouteComponentProps, Route } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
 import ReactGA from 'react-ga';
 const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
 const Blog = React.lazy(() => import('../components/Blog/Blog'));
-const Note = React.lazy(() => import('../components/Note/Note'));
+const Notes = React.lazy(() => import('../components/Notes/Notes'));
 const Archive = React.lazy(() => import('../components/Archive/Archive'));
 
 if (window.location.hostname === "localhost")
@@ -113,7 +113,7 @@ class HomePage extends React.Component<Props, State> {
         }).catch((e) => {
           console.log(e)
         })
-    } else {
+    } else if (jsonFile !== 'notes-reader') {
       fetch('/static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
         console.log(response)
         return response.json();
@@ -178,17 +178,6 @@ class HomePage extends React.Component<Props, State> {
         this.setState({ data: json.data.getBlog })
         console.log(this.state.data);
       }).catch((e: Error) => { console.error(e) })
-    } else if (pageType === 'note') {
-      const getNotes: any = API.graphql({
-        query: queries.getNotes,
-        variables: { id: this.props.match.params.note },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      getNotes.then((json: any) => {
-        console.log({ "Success queries.getNotes: ": json });
-        this.setState({ data: json.data.getNotes })
-        console.log(this.state.data);
-      }).catch((e: Error) => { console.error(e) })
     }
   }
 
@@ -211,24 +200,32 @@ class HomePage extends React.Component<Props, State> {
   }
 
   render() {
-    switch (this.props.pageType) {
-      case 'video':
-        return <VideoOverlay onClose={() => this.navigateHome("/")} data={this.state.data}></VideoOverlay>
-      case 'blog':
-        return <Blog data={this.state.data}></Blog>
-      case 'note':
-        return <Note data={this.state.data}></Note>
-      case 'archive':
-        return <Archive {...this.props}></Archive>
-      case 'default':
-        if (this.state.content?.page.pageConfig) {
-          const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig;
-          if (isPopup) {
-            return <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
-          }
-        }
-        return <RenderRouter data={null} content={this.state.content}></RenderRouter>
-    }
+    const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig ?? {};
+
+    return (
+      <Switch>
+        <Route path={["/videos/:series/:episode", "/vidoes/:series"]}>
+          <VideoOverlay onClose={() => this.navigateHome("/")} data={this.state.data}></VideoOverlay>
+        </Route>
+        <Route path="/posts/:blog">
+          <Blog data={this.state.data} />
+        </Route>
+        <Route path="/notes/:date?">
+          <Notes />
+        </Route>
+        <Route path="/notes/:date?">
+          <Notes />
+        </Route>
+        <Route path="/archive/:archiveType/:subclass">
+          <Archive {...this.props} />
+        </Route>
+        <Route path="*">
+          {isPopup
+            ? <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+            : <RenderRouter data={null} content={this.state.content}></RenderRouter>}
+        </Route>
+      </Switch>
+    );
   }
 }
 

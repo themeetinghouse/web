@@ -668,6 +668,15 @@ export const getVideo = `query GetVideo($id: ID!) {
   }
 }
 `;
+
+export const getVideoCustomPlaylists = `query GetVideo($id: ID!) {
+  getVideo(id: $id) {
+    id
+    customPlaylistIDs
+  }
+}
+`;
+
 export const listVideos = `query ListVideos(
   $filter: ModelVideoFilterInput
   $limit: Int
@@ -830,6 +839,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       publishedDate
       description
       length
+      viewCount
       YoutubeIdent
       Youtube {
         id
