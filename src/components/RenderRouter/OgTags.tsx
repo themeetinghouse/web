@@ -2,6 +2,7 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+import { tmhImageUrl } from 'components/ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
     content: any;
@@ -18,19 +19,10 @@ class Tags extends React.Component<Props, State> {
 
     }
 
-    imgUrl(size: any) {
-        if (window.location.hostname === "localhost")
-            return "https://localhost:3006"
-        else if (window.location.hostname.includes("beta"))
-            return "https://beta.themeetinghouse.com/cache/" + size
-        else
-            return "https://www.themeetinghouse.com/cache/" + size
-    }
-
     ogImage() {
         let imageUrl = null;
         try {
-            imageUrl = this.imgUrl(1920) + this.state.content.image;
+            imageUrl = tmhImageUrl(1920, this.state.content.image);
             return (
                 <Helmet>
                     <meta property="og:url" content={this.state.content.url} />

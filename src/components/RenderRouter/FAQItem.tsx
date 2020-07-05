@@ -3,6 +3,8 @@ import React from 'react';
 import { Button, Collapse } from 'reactstrap';
 import "./FAQItem.scss"
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ItemImage } from 'components/types';
 
 interface Props extends RouteComponentProps {
   content: any
@@ -25,14 +27,7 @@ class ContentItem extends React.Component<Props, State>  {
     unblock();
 
   }
-  imgUrl(size: any) {
-    if (window.location.hostname === "localhost")
-      return "https://localhost:3006"
-    else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/" + size
-    else
-      return "https://www.themeetinghouse.com/cache/" + size
-  }
+
   toggle = (id: any) => {
     const list = this.state.isOpen
     list[id] = !list[id]
@@ -85,11 +80,10 @@ class ContentItem extends React.Component<Props, State>  {
       : null
   }
   render() {
-
-
-    let image1
-    if (this.state.content.image1 != null)
+    let image1: ItemImage | undefined;
+    if (this.state.content.image1 !== null) {
       image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+    }
 
     return (
       <div className="FAQItem faq">
@@ -100,21 +94,7 @@ class ContentItem extends React.Component<Props, State>  {
             <div className={this.state.content.style === "white" ? "faqText whiteText" : "faqText"} >{this.state.content.text1}</div>
             {this.renderList(image1)}
           </div>
-          {image1 ?
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="faqImage right"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            /> : null}
+          <ScaledImage image={image1} className="faqImage right" />
         </div>
       </div>
     )

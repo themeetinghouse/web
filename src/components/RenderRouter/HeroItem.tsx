@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import AddToCalendar from 'react-add-to-calendar';
@@ -8,6 +8,7 @@ import "./HeroItem.scss"
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import moment from 'moment';
+import ScaledImage from 'components/ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
   content: LocationQuery;
@@ -124,19 +125,12 @@ class HeroItem extends React.Component<Props, State> {
   navigateEmail(to: any) {
     this.navigateUrl("mailto:" + to)
   }
-  imgUrl(size: any) {
-    if (window.location.hostname === "localhost")
-      return "https://localhost:3006"
-    else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/" + size
-    else
-      return "https://www.themeetinghouse.com/cache/" + size
-  }
-  fadeIn(obj: any) {
 
-    obj.target.style.transition = "opacity 1s";
-    obj.target.style.opacity = "1";
+  private fadeIn(style: CSSStyleDeclaration) {
+    style.transition = "opacity 1s";
+    style.opacity = "1";
   }
+
   downArrowScroll() {
     //console.log(window.scrollY)
     const downArrow = document.getElementById('downArrow')
@@ -169,32 +163,20 @@ class HeroItem extends React.Component<Props, State> {
   }
 
   renderHeroImage(className: string) {
-    const image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
-    let onLoad = (_: any) => { };
-    let style;
-    if (className === "heroImage") {
-      onLoad = item => this.fadeIn(item)
+    const image1 = this.state.content.image1[
+      Math.floor(Math.random() * this.state.content.image1.length)
+    ];
+    let onLoad: EventHandler<SyntheticEvent<HTMLImageElement>> | undefined;
+    let style: CSSProperties | undefined;
+    if (className === 'heroImage') {
+      onLoad = (event) => this.fadeIn(event.currentTarget.style);
       style = { opacity: 0 };
     }
     return (
-      image1.src.includes(".svg") ?
+      image1.src.includes('.svg') ?
         <img src={image1.src} alt={image1.alt} className={className} /> :
-        <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className={className}
-          style={style} onLoad={onLoad}
-          srcSet={this.imgUrl(320) + image1.src + " 320w," +
-            this.imgUrl(480) + image1.src + " 480w," +
-            this.imgUrl(640) + image1.src + " 640w," +
-            this.imgUrl(1280) + image1.src + " 1280w," +
-            this.imgUrl(1920) + image1.src + " 1920w," +
-            this.imgUrl(2560) + image1.src + " 2560w"}
-          sizes="(max-width: 320px) 320px,
-                        (max-width: 480px) 480px,
-                        (max-width: 640px) 640px,
-                        (max-width: 1280px) 1280px,
-                        (max-width: 1920) 1920,
-                        2560px"
-        />
-    )
+        <ScaledImage image={image1} className={className} style={style} onLoad={onLoad} />
+    );
   }
 
   render() {
