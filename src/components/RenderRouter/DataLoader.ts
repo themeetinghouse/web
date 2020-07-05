@@ -242,7 +242,7 @@ export default class DataLoader {
   static async getVideos(
     query: VideoSeriesQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
-    checkNextToken: OnDataListener<null>,
+    checkNextToken: (data: null) => void,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetVideoByVideoTypeQueryVariables = {
@@ -371,7 +371,7 @@ export default class DataLoader {
   static async getSeriesByType(
     query: SeriesByTypeQuery,
     dataLoaded: OnDataListener<SeriesByTypeData[]>,
-    checkNextToken: OnDataListener<null>,
+    checkNextToken: (data: null) => void,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetSeriesBySeriesTypeQueryVariables = {
