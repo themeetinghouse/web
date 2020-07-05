@@ -427,7 +427,7 @@ export class ContentItem extends React.Component<Props, State> {
                 options={this.state.locations.map((item: any) => ({ label: item.name, value: item.id }))}></Select>}
               <Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode} ref={(ref: any) => this.inputControl = ref}></Input>
               {/* <Button className="ClearAllButton" onClick={this.clearLocationSelection}>Clear All</Button> */}
-              <a className="ClearAllButton" onClick={this.clearLocationSelection} tabIndex={0}>Clear All</a>
+              <button className="ClearAllButton" onClick={this.clearLocationSelection} tabIndex={0}>Clear All</button>
             </div>
 
             <div className="HomeChurchItemListData" ref={(ref) => this.homeChurchListScrollContainer = ref}>
@@ -466,7 +466,7 @@ export class ContentItem extends React.Component<Props, State> {
                       </div>
                       : null
                     }
-                    <a className="ContactLeadersButton" onClick={this.getContactLeadersHandler(item)} tabIndex={0}><img className="ContactLeadersIcon" src="/static/svg/Contact.svg" alt="Contact Icon" />Contact Leaders</a>
+                    <button className="ContactLeadersButton" onClick={this.getContactLeadersHandler(item)} tabIndex={0}><img className="ContactLeadersIcon" src="/static/svg/Contact.svg" alt="Contact Icon" />Contact Leaders</button>
                   </div>
                 </div>
               ))}
