@@ -19,6 +19,17 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { ListLivestreamsQuery } from '../../API';
 
+interface SubMenuItem {
+  name: string;
+  location: string;
+}
+
+interface MainMenuItem {
+  name: string;
+  location: string,
+  children?: SubMenuItem[];
+}
+
 interface Props extends RouteComponentProps {
   pageConfig: any
 
@@ -40,6 +51,7 @@ interface State {
   showLiveEvent: boolean,
   liveTitle?: string | null,
   expand: any
+  showNotes: boolean
 }
 
 class HomeMenu extends React.Component<Props, State>  {
@@ -69,7 +81,8 @@ class HomeMenu extends React.Component<Props, State>  {
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
       showLiveEvent: false,
-      expand: null
+      expand: null,
+      showNotes: moment.tz('America/Toronto').isoWeekday() === 7 || (moment.tz('America/Toronto').isoWeekday() === 1 && moment.tz('America/Toronto').hour() <= 12)
     };
     this.getLive()
     this.handleScroll = this.handleScroll.bind(this)
@@ -194,22 +207,22 @@ class HomeMenu extends React.Component<Props, State>  {
             <Nav navbar className={this.state.movingMenu ? "ml-auto " + this.state.position : "ml-auto fixed"}>
               {
                 this.state.MainMenuItems ?
-                  this.state.MainMenuItems.map((item: any) => {
+                  this.state.MainMenuItems.map((item: MainMenuItem) => {
                     return (
                       <div key={item.location} className="linkContainer">
-                        <NavLink className="bigNav" style={{ fontWeight: (item.location.includes(this.props.location.pathname) && this.props.location.pathname !== "/") || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "bold" : "normal", display: "inline-block" }} key={item.location} href={item.location}>
+                        <NavLink className="bigNav" style={{ fontWeight: (item.location.includes(this.props.location.pathname) && this.props.location.pathname !== "/") || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ? "bold" : "normal", display: "inline-block" }} key={item.location} href={item.location}>
                           {item.name}
                         </NavLink>
                         {item.children != null ?
                           <Button className="expanderButton" onClick={() => { this.state.expand === item.location ? this.setState({ expand: null }) : this.setState({ expand: item.location }) }}>
-                            <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "vertical-line xstate" : "vertical-line"}></div>
-                            <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ? "horizontal-line xstate" : "horizontal-line"}></div>
+                            <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ? "vertical-line xstate" : "vertical-line"}></div>
+                            <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ? "horizontal-line xstate" : "horizontal-line"}></div>
                           </Button>
                           : null}
-                        {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map((a: any) => a.location).includes(this.props.location.pathname)) ?
+                        {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ?
                           (item.children != null ?
 
-                            item.children.map((item2: any) => {
+                            item.children.filter(i => i.name === 'Notes' ? this.state.showNotes : true).map(item2 => {
                               return (<NavLink className="smallNav" key={item2.location} href={item2.location} style={{ fontWeight: (item2.location === this.props.location.pathname && this.props.location.pathname !== "/") ? "bold" : "normal" }}>{item2.name}</NavLink>)
                             }) : null)
                           : null)}
