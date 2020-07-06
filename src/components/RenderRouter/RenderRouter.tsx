@@ -34,6 +34,7 @@ const BlogItem = React.lazy(() => import('./BlogItem'));
 const BlogReader = React.lazy(() => import('./BlogReader'));
 const Tags = React.lazy(() => import('./OgTags'));
 const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
+const PaymentItem = React.lazy(() => import('./PaymentItem'));
 
 interface Props extends RouteComponentProps {
   content: any
@@ -69,6 +70,7 @@ class RenderRouter extends React.Component<Props, State> {
       case "instagram": return (<InstagramItem key={index} content={item}></InstagramItem>);
       case "iframe": return (<IFrameItem key={index} content={item}></IFrameItem>);
       case "search": return (<SearchItem key={index} content={item}></SearchItem>);
+      case "payment": return (<PaymentItem key={index} content={item}></PaymentItem>);
       case "give": return (<GiveItem key={index} content={item}></GiveItem>);
       case "give2": return (<Give2Item key={index} content={item}></Give2Item>);
       case "faq": return (<FAQItem key={index} content={item}></FAQItem>);
