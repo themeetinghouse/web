@@ -4,6 +4,7 @@ import { ItemImage } from 'components/types';
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
   image?: ItemImage;
   fallbackUrl?: string;
+  breakpointSizes: { [maxWidth: string]: number };
 }
 
 export function tmhImageUrl(size: number, imageSrc: string) {
@@ -31,32 +32,32 @@ export function fallbackToImage(fallbackUrl: string | undefined): EventHandler<S
 }
 
 export default function ScaledImage(props: Props): ReactElement<Props> | null {
-  if (!props?.image?.src) {
+  const { image, fallbackUrl, breakpointSizes: breakpoints, ...htmlProps } = props;
+
+  if (!image?.src) {
     return null;
   }
 
-  const srcSet = [
-    tmhImageUrl(320, props.image.src),
-    tmhImageUrl(480, props.image.src),
-    tmhImageUrl(640, props.image.src),
-    tmhImageUrl(1280, props.image.src),
-    tmhImageUrl(1920, props.image.src),
-    tmhImageUrl(2560, props.image.src),
-  ].join(',');
+  const imageSizes = Object.entries(breakpoints);
+  imageSizes.sort(([a], [b]) => Number(a) - Number(b))
 
-  const { image, fallbackUrl, ...htmlProps } = props;
+  if (imageSizes.length === 0) {
+    return null;
+  }
+
+  const srcSet = imageSizes.map(([, size]) => tmhImageUrl(size, image.src)).join(',');
+
+  let sizesAttr = imageSizes.slice(0, imageSizes.length - 2).map(([breakpoint, size]) => `(max-width: ${breakpoint}px) ${size}px`).join(', ')
+  const largestSize = imageSizes[imageSizes.length - 1][1];
+  sizesAttr += `, ${largestSize}px`;
+
   return (
     <img
-      src={tmhImageUrl(2560, image.src).split(' ')[0]}
+      src={tmhImageUrl(largestSize, image.src).split(' ')[0]}
       alt={image.alt}
       onError={fallbackToImage(fallbackUrl)}
       srcSet={srcSet}
-      sizes="(max-width: 320px) 320px,
-             (max-width: 480px) 480px,
-             (max-width: 640px) 640px,
-             (max-width: 1280px) 1280px,
-             (max-width: 1920px) 1920px,
-             2560px"
+      sizes={sizesAttr}
       {...htmlProps}
     />
   );

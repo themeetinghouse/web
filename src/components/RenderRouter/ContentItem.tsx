@@ -66,6 +66,15 @@ class ContentItem extends React.Component<Props, State>  {
     let image1
     if (this.state.content.image1 != null)
       image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+
+    const heroBreakpoints = {
+      320: 320,
+      480: 480,
+      640: 640,
+      1280: 1280,
+      1920: 1920,
+      2560: 2560,
+    };
     if (this.state.content.style === "oneImage") {
 
       return (
@@ -77,7 +86,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText" >{this.state.content.text1}</div>
               <div className="oneImageList" >{this.renderList()}</div>
             </div>
-            <ScaledImage image={image1} className="oneImageImage" />
+            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -93,7 +102,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <ScaledImage image={image1} className="oneImageImage" />
+            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -109,7 +118,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList("black")}
             </div>
-            <ScaledImage image={image1} className="oneImageImage" />
+            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -125,7 +134,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList("black")}
             </div>
-            <ScaledImage image={image1} className="oneImageImage right secondImg" />
+            <ScaledImage image={image1} className="oneImageImage right secondImg" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -141,7 +150,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <ScaledImage image={image1} className="oneImageImage right secondImg" />
+            <ScaledImage image={image1} className="oneImageImage right secondImg" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -157,7 +166,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <ScaledImage image={image1} className="oneImageImage right secondImg bottom" />
+            <ScaledImage image={image1} className="oneImageImage right secondImg bottom" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -198,12 +207,12 @@ class ContentItem extends React.Component<Props, State>  {
       return (
         banners.length === 2 ?
           <div className="ContentItem bannerCards">
-              {this.state.content.images.map((img: BannerImage, index: number) => {
-                return img.linkto ? 
+            {this.state.content.images.map((img: BannerImage, index: number) => {
+              return img.linkto ?
                 <img onClick={(): void => this.navigateTo(img.linkto)} className="bannerCardImage canClick" key={index} src={img.src} alt={img.alt}></img>
                 : <img className="bannerCardImage cannotClick" key={index} src={img.src} alt={img.alt}></img>
-              })}
-          </div> 
+            })}
+          </div>
           : null
       )
     }

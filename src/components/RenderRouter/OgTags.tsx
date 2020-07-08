@@ -20,9 +20,8 @@ class Tags extends React.Component<Props, State> {
     }
 
     ogImage() {
-        let imageUrl = null;
         try {
-            imageUrl = tmhImageUrl(1920, this.state.content.image);
+            const imageUrl = tmhImageUrl(1920, this.state.content.image);
             return (
                 <Helmet>
                     <meta property="og:url" content={this.state.content.url} />

@@ -307,14 +307,20 @@ class ListItem extends React.Component<Props, State> {
   }
 
   renderOverseer(item: OverseerData, index: number): JSX.Element {
-    const src = `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`;
     const image = {
-      src,
+      src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
       alt: `${item.FirstName} ${item.LastName}`,
     }
     return (
       <div key={index} className="ListItemDiv3">
-        <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/Individual.png" />
+        <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/Individual.png" breakpointSizes={{
+          320: 80,
+          480: 120,
+          640: 180,
+          1280: 320,
+          1920: 480,
+          2560: 640,
+        }} />
         <div className="ListItemName">{item.FirstName} {item.LastName}</div>
         <div className="ListItemPosition">{item.Position}</div>
       </div>
@@ -387,24 +393,15 @@ class ListItem extends React.Component<Props, State> {
           : null
         }
 
-        <img alt={item.photoAlt} className="ListItemImage2"
-          onError={fallbackToImage('/static/Individual.png')}
-          src={tmhImageUrl(640, imgsrc)}
-          srcSet={[
-            tmhImageUrl(80, imgsrc),
-            tmhImageUrl(120, imgsrc),
-            tmhImageUrl(180, imgsrc),
-            tmhImageUrl(320, imgsrc),
-            tmhImageUrl(480, imgsrc),
-            tmhImageUrl(640, imgsrc),
-          ].join(', ')}
-          sizes="(max-width: 320px) 80px,
-                 (max-width: 480px) 120px,
-                 (max-width: 640px) 180px,
-                 (max-width: 1280px) 320px,
-                 (max-width: 1920px) 480px,
-                 640px"
-        />
+        <ScaledImage image={{ src: imgsrc, alt: item.photoAlt }} className="ListItemImage2" fallbackUrl="/static/Individual.png"
+          breakpointSizes={{
+            320: 80,
+            480: 120,
+            640: 180,
+            1280: 320,
+            1920: 480,
+            2560: 640,
+          }} />
 
         <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
         <div className="ListItemPosition" >{item.Position}</div>
@@ -671,12 +668,15 @@ class ListItem extends React.Component<Props, State> {
                       <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
-                    <ScaledImage
-                      image={{
-                        src: item.imageSrc,
-                        alt: item.imageAlt,
-                      }}
-                      className="ListItemH1ImageList2" />
+                    <ScaledImage className="ListItemH1ImageList2" image={{ src: item.imageSrc, alt: item.imageAlt }}
+                      breakpointSizes={{
+                        320: 320,
+                        480: 480,
+                        640: 640,
+                        1280: 1280,
+                        1920: 1920,
+                        2560: 2560,
+                      }} />
                   </div>
                 );
               })

@@ -175,7 +175,14 @@ class HeroItem extends React.Component<Props, State> {
     return (
       image1.src.includes('.svg') ?
         <img src={image1.src} alt={image1.alt} className={className} /> :
-        <ScaledImage image={image1} className={className} style={style} onLoad={onLoad} />
+        <ScaledImage image={image1} className={className} style={style} onLoad={onLoad} breakpointSizes={{
+          320: 320,
+          480: 480,
+          640: 640,
+          1280: 1280,
+          1920: 1920,
+          2560: 2560,
+        }} />
     );
   }
 

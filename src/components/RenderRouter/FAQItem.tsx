@@ -94,7 +94,14 @@ class ContentItem extends React.Component<Props, State>  {
             <div className={this.state.content.style === "white" ? "faqText whiteText" : "faqText"} >{this.state.content.text1}</div>
             {this.renderList(image1)}
           </div>
-          <ScaledImage image={image1} className="faqImage right" />
+          <ScaledImage image={image1} className="faqImage right" breakpointSizes={{
+            320: 320,
+            480: 480,
+            640: 640,
+            1280: 1280,
+            1920: 1920,
+            2560: 2560,
+          }} />
         </div>
       </div>
     )
