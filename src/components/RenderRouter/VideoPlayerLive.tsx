@@ -7,18 +7,19 @@ import { API } from 'aws-amplify';
 //import moment from 'moment';
 import moment from 'moment-timezone';
 import { Helmet } from 'react-helmet';
+import { ListLivestreamsQuery } from '../../API';
+
+type LiveData = NonNullable<NonNullable<NonNullable<ListLivestreamsQuery['listLivestreams']>['items']>[0]>;
 
 interface Props {
   content: any,
-  data: any
 }
 interface State {
-  data: any,
   content: any,
   listData: any,
   kidData: any,
   isLive: boolean,
-  liveEventJson: any,
+  liveEvent: LiveData | null,
   currentSundayDate: any
 }
 export default class VideoPlayer extends React.Component<Props, State> {
@@ -28,19 +29,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
       listData: null,
       kidData: null,
       content: props.content,
-      data: props.data,
       isLive: false,
-      liveEventJson: null,
+      liveEvent: null,
       currentSundayDate: moment().tz("America/Toronto").isoWeekday(7).format('YYYY-MM-DD')
     }
-    fetch('/static/data/sunday-live.json').then(function (response) {
-      return response.json();
-    })
-      .then((myJson) => {
-        this.setState({ liveEventJson: myJson })
-
-      })
-    console.log({ "VideoPlayer": props.data })
+    this.getLive()
     const getVideoByVideoType: any = API.graphql({
       query: queries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 2, videoTypes: 'adult-sunday', publishedDate: { lt: "a" } },
@@ -100,27 +93,42 @@ export default class VideoPlayer extends React.Component<Props, State> {
     }).catch((e: any) => { console.log(e) })
 
   }
+
+  async getLive() {
+    const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
+    try {
+      const json: any = await API.graphql({
+        query: queries.listLivestreams,
+        variables: { filter: { date: { eq: today } } },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      const livestreams: ListLivestreamsQuery = json.data
+      livestreams?.listLivestreams?.items?.forEach(item => {
+        const rightNow = moment().tz("America/Toronto").format('HH:mm')
+        const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
+        if (showTime) {
+          this.setState({ liveEvent: item })
+        }
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   tick() {
-    this.state.liveEventJson.forEach((item: any) => {
-
-      const start = moment.tz(item.startTime, 'HH:mm', "America/Toronto")
-      const end = moment.tz(item.endTime, 'HH:mm', "America/Toronto")
-      const rightNow = moment().tz("America/Toronto")
-      console.log(rightNow.format())
-      console.log(rightNow.weekday())
-      console.log(start.format())
-      //console.log(rightNow.day())
-
-      const pastStart = rightNow.isAfter(start)
-      const beforeEnd = rightNow.isBefore(end)
-      if (item.dayOfWeek === rightNow.weekday() && pastStart === true && beforeEnd === true) {
+    const start = this.state.liveEvent?.videoStartTime
+    const end = this.state.liveEvent?.endTime
+    const rightNow = moment().tz("America/Toronto").format('HH:mm')
+    if (start && end) {
+      const showTime = rightNow >= start && rightNow <= end
+      if (showTime) {
         console.log("ShowLive")
         this.setState({ isLive: true })
       }
-      else {
-        this.setState({ isLive: false })
-      }
-    })
+    }
+    else {
+      this.setState({ isLive: false })
+    }
   }
   interval: any
   componentDidMount() {
@@ -132,84 +140,94 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   render() {
-    return (
-      <div className="LiveVideoPlayerDiv" >
-        <Helmet>
-          <meta property="og:url" content="https://www.themeetinghouse.com/live" />
-          <meta property="og:title" content="The Meeting House - Live" />
-          <meta property="og:description" content="" />
-          <meta property="og:type" content="website" />
-          <meta property="fb:app_id" content="579712102531269" />
-          <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"} />
-          <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.content.liveYoutubeId + "/maxresdefault.jpg"} />
-          <meta property="og:image:type" content="image/jpeg" />
-        </Helmet>
-        <div>
-
-          {this.state.content.showLiveVideos ?
+    if (this.state.liveEvent) {
+      return (
+        <div className="LiveVideoPlayerDiv" >
+          <Helmet>
+            <meta property="og:url" content="https://www.themeetinghouse.com/live" />
+            <meta property="og:title" content="The Meeting House - Live" />
+            <meta property="og:description" content="" />
+            <meta property="og:type" content="website" />
+            <meta property="fb:app_id" content="579712102531269" />
+            <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
+            <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
+            <meta property="og:image:type" content="image/jpeg" />
+          </Helmet>
+          <div>
             <div>
               <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
               <div className="LiveVideoPlayerSeriesMenuContainer" >
-                {this.state.content.menu.map((item: any) => {
+                {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ? this.state.liveEvent.menu.map((item: any, index: number) => {
 
-                  if (item.title === "Notes" && item.linkto === "web-notes") {
-                    return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
-                  } else {
-                    return <div className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
-                  }
+                  if (item.linkType === "notes")
+                    return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
+                  else if (item.linkType === "link")
+                    return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.link}>{item.title}</a></div>
+                  else
+                    return null
 
-                })}
+                }) : null}
               </div>
               {this.state.isLive ?
                 <div>
-                  <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe><br />
+                  <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                  {this.state.liveEvent.showChat ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe> : null}
+                  <br />
                 </div> :
                 <div>
-                  <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.preRollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  <iframe title="Teaching Pre-roll Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe><br />
+                  <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.prerollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                  {this.state.liveEvent.showChat ? <iframe title="Teaching Pre-roll Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.prerollYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe> : null}
+                  <br />
                 </div>
               }
             </div>
-            : null
-          }
-          {this.state.content.showAlternateLiveVideos ?
-            <div>
-              <div className="LiveVideoPlayerEpisodeTitle">Livestream</div>
-              <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.liveYoutubeId + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-              <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.content.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe><br />
-
-            </div>
-            : null
-          }
-          {this.state.content.showKidsVideos ?
-            <div>
-              <div className="LiveVideoPlayerEpisodeTitle">Parent Blog</div>
-              <div className="LiveVideoPlayerText">For Church at Home activities and more, check out the <a href="http://kidsandyouth.themeetinghouse.com/blog/">Parent Blog</a></div>
-              <div className="LiveVideoPlayerEpisodeTitle">Kidmax (6-10 Years Old)</div>
-              {this.state.kidData ?
-                <iframe title="Kids Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                : null
-              }
-              <div className="LiveVideoPlayerEpisodeTitle">JrHigh (11-13 Years Old)</div>
-              {this.state.kidData ?
-                this.state.kidData[1] ?
-                  <iframe title="Jr High Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[1].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  : null : null
-              }
-              <div className="LiveVideoPlayerEpisodeTitle">Youth (14-18 Years Old)</div>
-              {this.state.kidData ?
-                this.state.kidData[2] ?
-                  <iframe title="Youth Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[2].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  : null : null
-              }
-            </div>
-            :
-            null}
-
+            {this.state.liveEvent.showKids ?
+              <div>
+                <div className="LiveVideoPlayerEpisodeTitle">Parent Blog</div>
+                <div className="LiveVideoPlayerText">For Church at Home activities and more, check out the <a href="http://kidsandyouth.themeetinghouse.com/blog/">Parent Blog</a></div>
+                <div className="LiveVideoPlayerEpisodeTitle">Kidmax (6-10 Years Old)</div>
+                {this.state.kidData ?
+                  <iframe title="Kids Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                  : null
+                }
+                <div className="LiveVideoPlayerEpisodeTitle">JrHigh (11-13 Years Old)</div>
+                {this.state.kidData ?
+                  this.state.kidData[1] ?
+                    <iframe title="Jr High Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[1].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                    : null : null
+                }
+                <div className="LiveVideoPlayerEpisodeTitle">Youth (14-18 Years Old)</div>
+                {this.state.kidData ?
+                  this.state.kidData[2] ?
+                    <iframe title="Youth Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[2].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                    : null : null
+                }
+              </div>
+              :
+              null}
+          </div>
         </div>
+      )
+    } else {
+      return (
+        <div className="LiveVideoPlayerDiv" >
+          <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
+          <div className="LiveVideoPlayerSeriesMenuContainer" >
+            {this.state.content.menu.map((item: any, index: number) => {
 
-      </div>
-    )
+              if (item.title === "Notes" && item.linkto === "web-notes")
+                return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
+              else
+                return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
+
+            })}
+          </div>
+          <div>
+            <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.content.preRollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe><br />
+          </div>
+        </div>
+      )
+    }
+
   }
 }

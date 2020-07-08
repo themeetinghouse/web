@@ -254,7 +254,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
               <div className="SundayMorningFormItemContainer" >
                 <Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode}></Input>
-                <a className="ClearAllButton" onClick={this.clearLocationSelection} tabIndex={0}>Use current location</a>
+                <button className="ClearAllButton" onClick={this.clearLocationSelection} tabIndex={0}>Use current location</button>
               </div>
 
               <div className="SundayMorningItemListData" ref={(ref) => this.siteListScrollContainer = ref}>

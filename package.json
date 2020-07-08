@@ -7,7 +7,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "VERSION=`sentry-cli releases propose-version`;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;HTTPS=true PORT=3006 react-scripts start",
     "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;react-scripts build;sentry-cli releases finalize $VERSION;sentry-cli releases deploys $VERSION new -e prod;",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile amplify",
@@ -95,6 +95,7 @@
   },
   "devDependencies": {
     "@sentry/cli": "^1.54.0",
+    "@testing-library/react": "^10.4.3",
     "@types/draft-js": "^0.10.41",
     "@types/draftjs-to-html": "^0.8.0",
     "@types/googlemaps": "^3.39.8",
@@ -119,6 +120,7 @@
     "eslint": "^7.2.0",
     "eslint-plugin-react": "^7.20.0",
     "jest": "^26.1.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "ts-jest": "^26.1.0",
     "tslint": "^6.1.2"
   }

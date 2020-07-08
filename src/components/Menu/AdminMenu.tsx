@@ -14,34 +14,23 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import { EmptyProps } from '../../utils';
 
-
-
-//const bootstrap = require('react-bootstrap');
-
-//import Popper from 'popper.js'
-//import Head from 'next/head'
 import "../../bootstrap-override.css"
-//import console = require('console');
 import "./adminmenu.scss"
 
-
-interface Props {
-
-}
 interface State {
   isOpen: boolean,
   userName: string
 }
-export default class Menu extends React.Component<Props, State> {
-  constructor(props: Props) {
+export default class Menu extends React.Component<EmptyProps, State> {
+  constructor(props: EmptyProps) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
       userName: ""
-
     };
   }
   async getState() {
@@ -49,13 +38,12 @@ export default class Menu extends React.Component<Props, State> {
       const user = await Auth.currentAuthenticatedUser()
       console.log(user.username);
       this.setState({ userName: user.username });
-    } catch(e) {
+    } catch (e) {
       console.error(e)
       console.log("no user")
       this.setState({ userName: "No User" });
     }
-  };
-
+  }
 
   componentDidMount() {
     this.getState();
@@ -117,17 +105,25 @@ export default class Menu extends React.Component<Props, State> {
                 <NavLink href="/admin/import-kids">Import Kids</NavLink>
 </NavItem>*/}
               <NavItem>
+                <NavLink href="/admin/livestream">Livestream</NavLink>
+              </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
+              <NavItem>
                 <NavLink href="/admin/create-notes">Notes</NavLink>
               </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
-                <NavLink href="/admin/create-blog" style={{ color: "green" }}>Blog</NavLink>
+                <NavLink href="/admin/create-blog">Blog</NavLink>
               </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
                 <NavLink href="/admin/import-video">Import Video</NavLink>
               </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
-                <NavLink href="https://github.com/themeetinghouse" style={{ color: "green" }}>GitHub</NavLink>
+                <NavLink href="https://github.com/themeetinghouse">GitHub</NavLink>
               </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   {this.state.userName}

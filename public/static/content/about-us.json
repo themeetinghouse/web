@@ -189,6 +189,12 @@
                     },
                     {
                         "type":"link",
+                        "title": "COVID-19 FAQs",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
                         "title": "COVID-19 Gatherings",
                         "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf",
                         "openNewBrowser":true
