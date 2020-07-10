@@ -78,6 +78,30 @@
 
             {
                 "type": "content",
+                "style": "oneImage",
+                "header1": "Resources",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "COVID-19 FAQs",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "COVID-19 Gatherings",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf"
+                    }
+                ],
+
+                "image1": [
+                    {
+                        "src": "/static/images/make-a-difference-3.jpg",
+                        "alt": "A woman is on her phone outside."
+                    }
+                ]
+            },
+            {
+                "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Giving",
                 "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
