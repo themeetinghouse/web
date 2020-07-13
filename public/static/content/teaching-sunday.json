@@ -3,43 +3,47 @@
         "name": "teaching-sunday",
         "title": "Sunday Teaching",
         "keywords": "Sunday teaching, sermons, messages, meeting house teaching, Bruxy Cavey teaching, anabaptist",
-        "description":"Collection of teaching videos, sermons, and messages from The Meeting House.",
-
+        "description": "Collection of teaching videos, sermons, and messages from The Meeting House.",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
-           
             {
                 "type": "teaching",
                 "style": "hero",
                 "class": "teaching-sunday",
-                "header1":"Sunday Teaching",
-                "options":["Oakville","Regional"],
-                "group":"teaching",
-                "sortOrder":"DESC"
-
+                "header1": "Sunday Teaching",
+                "options": [
+                    "Oakville",
+                    "Regional"
+                ],
+                "group": "teaching",
+                "sortOrder": "DESC"
             },
             {
                 "type": "teachingsearch",
                 "style": "teaching",
-                "header1":"Search the Archives",
-                "text1":"Try \"Grace\"",
-                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
+                "header1": "Search the Archives",
+                "text1": "Try \"Grace\"",
+                "trending": [
+                    "Unconditional Love",
+                    "Freedom",
+                    "New Covenant",
+                    "Heaven"
+                ]
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"bbq",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Teaching Videos"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "bbq",
+                "sortOrder": "DESC",
+                "header1": "All Teaching Videos"
             }
         ]
     }

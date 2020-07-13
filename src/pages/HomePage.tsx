@@ -12,6 +12,7 @@ const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderR
 const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
 const Blog = React.lazy(() => import('../components/Blog/Blog'));
 const Notes = React.lazy(() => import('../components/Notes/Notes'));
+const Archive = React.lazy(() => import('../components/Archive/Archive'));
 
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
@@ -20,7 +21,7 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
-type PageType = 'default' | 'video' | 'blog' | 'note';
+type PageType = 'default' | 'video' | 'blog' | 'note' | 'archive';
 
 Amplify.configure(awsconfig);
 
@@ -77,6 +78,9 @@ class HomePage extends React.Component<Props, State> {
         break;
       case 'note':
         jsonFile = 'notes-reader'
+        break;
+      case 'archive':
+        jsonFile = 'archive'
         break;
       case 'default':
         jsonFile = props.match.params.id || 'homepage'
@@ -177,7 +181,6 @@ class HomePage extends React.Component<Props, State> {
     }
   }
 
-
   navigateUrl(to: string) {
     window.location.href = to;
   }
@@ -209,6 +212,12 @@ class HomePage extends React.Component<Props, State> {
         </Route>
         <Route path="/notes/:date?">
           <Notes />
+        </Route>
+        <Route path="/notes/:date?">
+          <Notes />
+        </Route>
+        <Route path="/archive/:archiveType/:subclass">
+          <Archive {...this.props} />
         </Route>
         <Route path="*">
           {isPopup

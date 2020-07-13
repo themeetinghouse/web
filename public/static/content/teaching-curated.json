@@ -3,75 +3,69 @@
         "name": "teaching-curated",
         "title": "Curated Teaching",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
-           
             {
                 "type": "teaching",
                 "style": "hero",
-                "class":"bbq",
-                "subclass":"bbq",
-                "header1":"Bruxy's Bag of Questions (BBQs)",
-                "options":[],
-                "group":"bbq",
-                "sortOrder":"DESC"
-
+                "class": "bbq",
+                "subclass": "bbq",
+                "header1": "Bruxy's Bag of Questions (BBQs)",
+                "options": [],
+                "group": "bbq",
+                "sortOrder": "DESC"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"bbq",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All BBQ Videos"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "bbq",
+                "limit": 50,
+                "sortOrder": "DESC",
+                "header1": "All BBQ Videos"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"meditation",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Guided Prayer Meditation"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "meditation",
+                "sortOrder": "DESC",
+                "header1": "Guided Prayer Meditation"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"after-party",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"The After Party"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "after-party",
+                "sortOrder": "DESC",
+                "header1": "The After Party"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"life-story",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Life Stories"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "life-story",
+                "limit": 50,
+                "sortOrder": "DESC",
+                "header1": "Life Stories"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"ky-youth",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Youth"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "ky-youth",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "Youth"
             }
-            
         ]
     }
 }
