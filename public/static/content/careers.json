@@ -83,7 +83,18 @@
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Part-time Careers",
-                "text1": "We're not currently hiring, but stay tuned for updates!",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Kitchener Pastoral Associate",
+                        "navigateTo": "/static/pdfs/careers/KIT Pastoral Associate 2020.pdf"
+                    },
+                    {
+                        "type":"link",
+                        "title": "Newmarket Pastoral Associate",
+                        "navigateTo": "/static/pdfs/careers/NMK Pastoral Associate 2020.pdf"
+                    }
+                ],
 
 
                 "image1": [
