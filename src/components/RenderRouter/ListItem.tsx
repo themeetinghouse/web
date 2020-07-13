@@ -17,12 +17,14 @@ import DataLoader, {
   CustomPlaylistQuery,
   CustomPlaylistVideoData,
   VideoSeriesQuery,
+  PopularVideosQuery,
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
+import ScaledImage, { fallbackToImage, tmhImageUrl } from 'components/ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -44,10 +46,11 @@ interface State {
   urlHistoryState: any;
   showChampion: any;
   showMoreVideos: boolean;
-  numberOfVideos: number;
 }
 
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
+
+type SeriesData2 = SeriesData | string | null;
 
 type ListData =
   | SpeakerData
@@ -104,8 +107,7 @@ class ListItem extends React.Component<Props, State> {
       listData: props.content.list ?? [],
       overlayData: null,
       urlHistoryState: window.history.state,
-      showMoreVideos: false,
-      numberOfVideos: 100,
+      showMoreVideos: false
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.navigate = this.navigate.bind(this);
@@ -120,6 +122,7 @@ class ListItem extends React.Component<Props, State> {
 
   async componentDidMount() {
     const dataLoaded = (data: ListData[]) => this.setData(data);
+    const checkNext = () => null;
     let data: ListData[];
     const query: DataQuery = this.props.content;
     switch (query.class) {
@@ -139,7 +142,7 @@ class ListItem extends React.Component<Props, State> {
         data = await DataLoader.loadCompassion();
         break;
       case 'series':
-        await DataLoader.getSeriesByType(query, dataLoaded);
+        await DataLoader.getSeriesByType(query, dataLoaded, checkNext);
         return;
       case 'videos':
       case 'curious':
@@ -166,10 +169,10 @@ class ListItem extends React.Component<Props, State> {
             );
             break;
           case 'popular':
-            await DataLoader.getPopularVideos(query as VideoSeriesQuery, dataLoaded);
+            await DataLoader.getPopularVideos(query as PopularVideosQuery, dataLoaded);
             return;
           default:
-            await DataLoader.getVideos(query as VideoSeriesQuery, dataLoaded);
+            await DataLoader.getVideos(query as VideoSeriesQuery, dataLoaded, checkNext);
             return;
         }
         break;
@@ -188,14 +191,7 @@ class ListItem extends React.Component<Props, State> {
       listData: this.state.listData.concat(data),
     });
   }
-  imgUrl(size: any) {
-    if (window.location.hostname === 'localhost') {
-      return 'https://localhost:3006';
-    } else if (window.location.hostname.includes('beta'))
-      return 'https://beta.themeetinghouse.com/cache/' + size;
-    else
-      return 'https://www.themeetinghouse.com/cache/' + size;
-  }
+
   navigateUrlNewWindow(to: string) {
     window.open(
       to,
@@ -228,14 +224,25 @@ class ListItem extends React.Component<Props, State> {
   sortByViews(a: VideoData, b: VideoData) {
     if (!a?.viewCount || !b?.viewCount)
       return -1
-    return parseInt(b.viewCount,10) - parseInt(a.viewCount,10)
+    return parseInt(b.viewCount, 10) - parseInt(a.viewCount, 10)
   }
 
   renderMoreVideosCard() {
+    const temp = this.state.content as any
     return (
-      <div onClick={() => this.setState({ numberOfVideos: this.state.numberOfVideos + 100 })} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <div key='load-more-card' onClick={() => window.location.href = '/archive/video/' + temp.subclass} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div className="LoadMoreVideosCard">
-          <div className="LoadMoreVideosText">Click to load more videos</div>
+          <div className="LoadMoreVideosText">Click for more videos</div>
+        </div>
+      </div>);
+  }
+
+  renderMoreSeriesCard() {
+    const temp = this.state.content as any
+    return (
+      <div key='load-more-card' onClick={() => window.location.href = '/archive/series/' + temp.subclass} >
+        <div className="LoadMoreSeriesCard">
+          <div className="LoadMoreSeriesText">Click for more series</div>
         </div>
       </div>);
   }
@@ -297,7 +304,7 @@ class ListItem extends React.Component<Props, State> {
         <img alt={item.blogTitle + ' series image'}
           className="BlogSquareImage"
           src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
-          onError={this.fallbackToImage('/static/NoCompassionLogo.png')}
+          onError={fallbackToImage('/static/NoCompassionLogo.png')}
         />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
@@ -308,24 +315,13 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  fallbackToImage(
-    fallbackUrl: string
-  ): EventHandler<SyntheticEvent<HTMLImageElement>> {
-    return function (event: SyntheticEvent<HTMLImageElement>) {
-      if (!event.currentTarget.src.endsWith(fallbackUrl)) {
-        event.currentTarget.src = fallbackUrl;
-        event.currentTarget.srcset = '';
-      }
-    };
-  }
-
   renderSpeaker(item: SpeakerData): JSX.Element | null {
     if (!item) {
       return null;
     }
     return (
       <div key={item.id} className="ListItemTeachingImageDiv">
-        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png" onError={this.fallbackToImage('/static/Individual.png')} />
+        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png" onError={fallbackToImage('/static/Individual.png')} />
         <div className="ListItemEpisodeLength">{item.name}</div>
         <div>{item?.videos?.items?.length === 10 ? item.videos.items.length + '+' : item?.videos?.items?.length} Episodes</div>
       </div>
@@ -333,30 +329,22 @@ class ListItem extends React.Component<Props, State> {
   }
 
   renderOverseer(item: OverseerData, index: number): JSX.Element {
-    const imgsrc: any = '/static/photos/overseers/' + item.FirstName + '_' + item.LastName + '_app.jpg';
+    const image = {
+      src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
+      alt: `${item.FirstName} ${item.LastName}`,
+    }
     return (
       <div key={index} className="ListItemDiv3">
-        <img alt={`${item.FirstName} ${item.LastName}`} className="ListItemImage2"
-          onError={this.fallbackToImage('/static/Individual.png')}
-          src={this.imgUrl(640) + imgsrc}
-          srcSet={this.imgUrl(80) + imgsrc + ' 80w,' +
-            this.imgUrl(120) + imgsrc + ' 120w,' +
-            this.imgUrl(180) + imgsrc + ' 180w,' +
-            this.imgUrl(320) + imgsrc + ' 320w,' +
-            this.imgUrl(480) + imgsrc + ' 480w,' +
-            this.imgUrl(640) + imgsrc + ' 640w'}
-          sizes="(max-width: 320px) 80px,
-                  (max-width: 480px) 120px,
-                  (max-width: 640px) 180px,
-                  (max-width: 1280px) 320px,
-                  (max-width: 1920) 480px,
-                  640px"
-        />
-
-
-        <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-        <div className="ListItemPosition" >{item.Position}</div>
-
+        <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/Individual.png" breakpointSizes={{
+          320: 80,
+          480: 120,
+          640: 180,
+          1280: 320,
+          1920: 480,
+          2560: 640,
+        }} />
+        <div className="ListItemName">{item.FirstName} {item.LastName}</div>
+        <div className="ListItemPosition">{item.Position}</div>
       </div>
     );
   }
@@ -419,7 +407,7 @@ class ListItem extends React.Component<Props, State> {
           {this.state.showChampion ?
             (<div><Fireworks style={{ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
               <img alt={item.photoAlt} className="ListItemImage2" style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
-                onError={this.fallbackToImage('/static/Individual.png')}
+                onError={fallbackToImage('/static/Individual.png')}
                 src={'/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg'} />
               <h1 style={{ color: '#ffffff', fontSize: 100, position: 'fixed', width: '80%', height: '20%', left: '10%', top: '70%', zIndex: 200006, }}>Young Adults Champion</h1></div>)
             : null}
@@ -427,22 +415,15 @@ class ListItem extends React.Component<Props, State> {
           : null
         }
 
-        <img alt={item.photoAlt} className="ListItemImage2"
-          onError={this.fallbackToImage('/static/Individual.png')}
-          src={this.imgUrl(640) + imgsrc}
-          srcSet={this.imgUrl(80) + imgsrc + ' 80w,' +
-            this.imgUrl(120) + imgsrc + ' 120w,' +
-            this.imgUrl(180) + imgsrc + ' 180w,' +
-            this.imgUrl(320) + imgsrc + ' 320w,' +
-            this.imgUrl(480) + imgsrc + ' 480w,' +
-            this.imgUrl(640) + imgsrc + ' 640w'}
-          sizes="(max-width: 320px) 80px,
-                  (max-width: 480px) 120px,
-                  (max-width: 640px) 180px,
-                  (max-width: 1280px) 320px,
-                  (max-width: 1920) 480px,
-                  640px"
-        />
+        <ScaledImage image={{ src: imgsrc, alt: item.photoAlt }} className="ListItemImage2" fallbackUrl="/static/Individual.png"
+          breakpointSizes={{
+            320: 80,
+            480: 120,
+            640: 180,
+            1280: 320,
+            1920: 480,
+            2560: 640,
+          }} />
 
         <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
         <div className="ListItemPosition" >{item.Position}</div>
@@ -458,7 +439,7 @@ class ListItem extends React.Component<Props, State> {
   renderCompassion(item: any) {
     return (
       <div key={item.id} className="ListItemCompassion" >
-        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image} onError={this.fallbackToImage('/static/NoCompassionLogo.png')} />
+        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image} onError={fallbackToImage('/static/NoCompassionLogo.png')} />
         <div className="ListItemEventsDescription" >{item.name}</div>
         <div className="ListItemEventsDescription2" >{item.description}</div>
         <div>{item.location}</div>
@@ -490,7 +471,7 @@ class ListItem extends React.Component<Props, State> {
           <img alt={item.title + ' series image'}
             className="ListItemImage2"
             src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-            onError={this.fallbackToImage('/static/NoCompassionLogo.png')}
+            onError={fallbackToImage('/static/NoCompassionLogo.png')}
           />
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
@@ -539,7 +520,7 @@ class ListItem extends React.Component<Props, State> {
           ] as string).includes(this.props.content.filterValue);
         });
 
-    const dataLength = data.length;
+    const dataLength = data.length
 
     if (this.state.content.style === 'horizontal') {
       const videoData = data as VideoData[];
@@ -549,23 +530,23 @@ class ListItem extends React.Component<Props, State> {
             <h1 className={'ListItemH1' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >{this.state.content.header1}</h1>
             {this.state.content.text1 != null ? (<div className="ListItemText1">{this.state.content.text1}</div>) : null}
             <div className="ListItemDiv2" >
-  
+
               {this.state.content.class === 'videos' ?
-                this.state.content.selector === 'popular' ? 
+                this.state.content.selector === 'popular' ?
                   <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                    {videoData.slice(0, 100).sort((a,b) => this.sortByViews(a,b)).map((item, index) => {
+                    {videoData.slice(0, 100).sort((a, b) => this.sortByViews(a, b)).map((item, index) => {
                       return this.renderItemRouter(item as ListData, index);
                     }
                     )}
                   </HorizontalScrollList>
                   : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                  {data.slice(0, this.state.numberOfVideos).concat('card').map((item, index) => {
-                    if (item === 'card')
-                      return dataLength > this.state.numberOfVideos ? this.renderMoreVideosCard() : null;
-  
-                    return this.renderItemRouter(item as ListData, index);
-                  }
-                  )}
+                    {data.concat(this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item, index) => {
+                      if (item === 'card')
+                        return this.renderMoreVideosCard();
+
+                      return this.renderItemRouter(item as ListData, index);
+                    }
+                    )}
                   </HorizontalScrollList>
                 : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
                   {data.map((item: any, index: any) => {
@@ -677,24 +658,37 @@ class ListItem extends React.Component<Props, State> {
         return null;
       }
     }
-    else if (this.state.content.style === 'horizontalBig') return (
-      <div className="ListItem horizontalBig" >
-        <div className="ListItemDiv1 ListItemAllSeries" >
-          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-          <div className="ListItemDiv6" >
-            <HorizontalScrollList>
-              {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index);
-              })}
-            </HorizontalScrollList>
-            <div className="ListItemDiv5" ></div>
+    else if (this.state.content.style === 'horizontalBig') {
 
+      const seriesData = data as SeriesData2[]
+      return (
+        <div className="ListItem horizontalBig" >
+          <div className="ListItemDiv1 ListItemAllSeries" >
+            <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+            <div className="ListItemDiv6" >
+              {this.state.content.class === 'series' ?
+                <HorizontalScrollList>
+                  {seriesData.concat(this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item: any, index: any) => {
+                    if (item === 'card')
+                      return this.renderMoreSeriesCard();
+                    return this.renderItemRouter(item, index);
+                  })}
+                </HorizontalScrollList>
+                : <HorizontalScrollList>
+                  {data.map((item: any, index: any) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </HorizontalScrollList>}
+              <div className="ListItemDiv5" ></div>
+
+            </div>
           </div>
-        </div>
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
 
-      </div>
-    )
+        </div>
+      )
+    }
+
     else if (this.state.content.style === 'imageList') return (
       <div className="ListItem imageList" >
         <div className="ListItemDiv1" >
@@ -719,20 +713,15 @@ class ListItem extends React.Component<Props, State> {
                       <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
                       <div className="ListItemDiv11" >{item.text}</div>
                     </div>
-                    <img className="ListItemH1ImageList2" src={this.imgUrl(480) + item.imageSrc} alt={item.imageAlt}
-                      srcSet={this.imgUrl(320) + item.imageSrc + ' 320w,' +
-                        this.imgUrl(480) + item.imageSrc + ' 480w,' +
-                        this.imgUrl(640) + item.imageSrc + ' 640w,' +
-                        this.imgUrl(1280) + item.imageSrc + ' 1280w,' +
-                        this.imgUrl(1920) + item.imageSrc + ' 1920w,' +
-                        this.imgUrl(2560) + item.imageSrc + ' 2560w'}
-                      sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-                    />
+                    <ScaledImage className="ListItemH1ImageList2" image={{ src: item.imageSrc, alt: item.imageAlt }}
+                      breakpointSizes={{
+                        320: 320,
+                        480: 480,
+                        640: 640,
+                        1280: 1280,
+                        1920: 1920,
+                        2560: 2560,
+                      }} />
                   </div>
                 );
               })
