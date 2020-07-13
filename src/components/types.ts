@@ -1,3 +1,4 @@
+
 export interface SundayMorningItemContent {
   type: 'sunday-morning';
 
@@ -18,4 +19,7 @@ export interface HomeChurchItemContent {
   class: 'home-church';
 
   header1: string;
+export interface ItemImage {
+  src: string;
+  alt: string;
 }

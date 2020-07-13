@@ -50,7 +50,7 @@ const liveInit = {
     id: '',
     date: '',
     startTime: '06:00',
-    videoStartTime: '09:45',
+    videoStartTime: '10:00',
     endTime: '13:00',
     prerollYoutubeId: 'na1g4ht-yNs',
     liveYoutubeId: '',
@@ -105,6 +105,55 @@ class Index extends React.Component<EmptyProps, State> {
         this.listLivestreams(null)
     }
 
+    defaultAfterPartyMenu() {
+        return [
+            {
+                title: 'Give',
+                link: 'https://www.themeetinghouse.com/give',
+                linkType: 'link',
+            },
+            {
+                title: 'Connect',
+                link: 'https://www.themeetinghouse.com/connect',
+                linkType: 'link',
+            },
+            {
+                title: 'Notes',
+                link: '',
+                linkType: 'notes',
+            }
+        ]
+    }
+
+    defaultMenu() {
+        return [
+            {
+                title: 'Give',
+                link: 'https://www.themeetinghouse.com/give',
+                linkType: 'link',
+            },
+            {
+                title: 'Music',
+                link: 'http://media.themeetinghouse.com/podcast/handouts/Music.pdf',
+                linkType: 'link',
+            },
+            {
+                title: 'Connect',
+                link: 'https://www.themeetinghouse.com/connect',
+                linkType: 'link',
+            },
+            {
+                title: 'Notes',
+                link: '',
+                linkType: 'notes',
+            },
+            {
+                title: 'Kidmax',
+                link: 'http://www.kidsandyouth.themeetinghouse.com/blog',
+                linkType: 'link',
+            },
+        ]
+    }
 
     async listLivestreams(nextToken: any): Promise<void> {
         try {
@@ -380,8 +429,10 @@ class Index extends React.Component<EmptyProps, State> {
                         {this.state.liveObject.menu.map((item, index) => this.renderMenuEditor(item, index))}
                     </div>
                 </form>
-                <button style={{ background: 'green', border: 0, height: 50 }} onClick={() => this.addMenuItem()}>+ menu item</button>
-                <button style={{ background: 'red', border: 0, height: 50 }} onClick={() => this.deleteMenuItem()}>- menu item</button>
+                <button style={{ background: 'green', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.addMenuItem()}>+ menu item</button>
+                <button style={{ background: 'red', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteMenuItem()}>- menu item</button>
+                <button style={{ border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultMenu()) }>Default Menu</button>
+                <button style={{ background: 'grey', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultAfterPartyMenu()) }>After Party Menu</button>
             </div>
         )
     }

@@ -54,24 +54,22 @@
             {
                 "type": "list",
                 "style": "curious-ui",
-                "class":"curious",
-                "subclass":"questions",
-                "selector":"all",
-                "sortOrder":"ASC",
-                "showEpisodeNumbers":false,
+                "class": "curious",
+                "subclass": "questions",
+                "sortOrder": "ASC",
+                "showEpisodeNumbers": false,
                 "hovertag": "Watch Video",
                 "header1": "Starting Questions",
                 "text1": "Short videos that are a great starting point if you are interested in some of the basics when it comes to Jesus, God, and spirituality."
-               
             },
             {
                 "type": "list",
                 "style": "horizontal",
-                "class":"videos",
-                "subclass":"bbq",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "showEpisodeNumbers":false,
+                "class": "videos",
+                "subclass": "bbq",
+                "limit": 50,
+                "sortOrder": "DESC",
+                "showEpisodeNumbers": false,
                 "header1": "Popular Questions About Christianity",
                 "text1": "Dive a little deeper than our starting questions and check out some of the most popular questions we've received."
             },
@@ -92,13 +90,12 @@
                 ],
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Community",
                         "navigateTo": "/community"
                     }
                 ]
             }
-            
         ]
     }
 }

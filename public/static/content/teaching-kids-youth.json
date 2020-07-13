@@ -3,131 +3,132 @@
         "name": "teaching-kids+youth",
         "title": "Kids and Youth Teaching",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
                 "type": "teaching",
                 "style": "hero",
-                "class":"teaching-kids-youth",
-                "header1":"Kids & Youth Teaching",
-                "options":["Kids","Jr. High","Youth","Sr. High"],
-                "group":"kids+youth",
-                "sortOrder":"DESC"
+                "class": "teaching-kids-youth",
+                "header1": "Kids & Youth Teaching",
+                "options": [
+                    "Kids",
+                    "Jr. High",
+                    "Youth",
+                    "Sr. High"
+                ],
+                "group": "kids+youth",
+                "sortOrder": "DESC"
             },
             {
                 "type": "teachingsearch",
                 "style": "teaching",
-                "header1":"Search the Archives",
-                "text1":"Try \"Grace\"",
-                "trending":["Unconditional Love", "Freedom", "New Covenant","Heaven"]
+                "header1": "Search the Archives",
+                "text1": "Try \"Grace\"",
+                "trending": [
+                    "Unconditional Love",
+                    "Freedom",
+                    "New Covenant",
+                    "Heaven"
+                ]
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"kidmax-live",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Kidmax Live",
-                "showEpisodeNumbers":false                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "kidmax-live",
+                "sortOrder": "DESC",
+                "header1": "Kidmax Live",
+                "showEpisodeNumbers": false
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"ky-kids",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Kids"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "ky-kids",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "Kids"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"ky-jrhigh",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Jr. High"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "ky-jrhigh",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "Jr. High"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"ky-youth",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Youth"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "ky-youth",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "Youth"
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"ky-srhigh",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Sr. High"                
-            },
-           
-            {
-                "type":"list",
-                "style":"horizontalBig",
-                "class":"series",
-                "subclass":"ky-kids",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Kids Series"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "ky-srhigh",
+                "limit": 52,
+                "sortOrder": "DESC",
+                "header1": "Sr. High"
             },
             {
-                "type":"list",
-                "style":"horizontalBig",
-                "class":"series",
-                "subclass":"ky-jrhigh",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Jr. High Series"                
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "series",
+                "subclass": "ky-kids",
+                "sortOrder": "DESC",
+                "header1": "All Kids Series"
             },
             {
-                "type":"list",
-                "style":"horizontalBig",
-                "class":"series",
-                "subclass":"ky-youth",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Youth Series"                
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "series",
+                "subclass": "ky-jrhigh",
+                "sortOrder": "DESC",
+                "header1": "All Jr. High Series"
             },
             {
-                "type":"list",
-                "style":"horizontalBig",
-                "class":"series",
-                "subclass":"ky-srhigh",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"All Sr. High Series"                
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "series",
+                "subclass": "ky-youth",
+                "sortOrder": "DESC",
+                "header1": "All Youth Series"
+            },
+            {
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "series",
+                "subclass": "ky-srhigh",
+                "sortOrder": "DESC",
+                "header1": "All Sr. High Series"
             },
             {
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Curriculum?",
                 "text1": "Interested in using our curriculum? Visit our dedicated site for Sunday morning teaching, midweek resources, and The Parent Blog. ",
-            
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Kids & Youth Curriculum",
                         "navigateTo": "http://kidsandyouth.themeetinghouse.com",
-                        "openNewBrowser":true
+                        "openNewBrowser": true
                     }
                 ],
-
                 "image1": [
                     {
                         "src": "/static/images/teach-ky-1.jpg",

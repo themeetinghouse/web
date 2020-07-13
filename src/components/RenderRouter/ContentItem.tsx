@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import "./ContentItem.scss"
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import ScaledImage from 'components/ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -33,14 +34,7 @@ class ContentItem extends React.Component<Props, State>  {
       unblock();
     }
   }
-  imgUrl(size: any) {
-    if (window.location.hostname === "localhost")
-      return "https://localhost:3006"
-    else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/" + size
-    else
-      return "https://www.themeetinghouse.com/cache/" + size
-  }
+
   renderList(boxColor = "grey") {
     return this.state.content.list ?
       this.state.content.list.map((item: any, id: any) => {
@@ -72,6 +66,15 @@ class ContentItem extends React.Component<Props, State>  {
     let image1
     if (this.state.content.image1 != null)
       image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+
+    const heroBreakpoints = {
+      320: 320,
+      480: 480,
+      640: 640,
+      1280: 1280,
+      1920: 1920,
+      2560: 2560,
+    };
     if (this.state.content.style === "oneImage") {
 
       return (
@@ -83,20 +86,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText" >{this.state.content.text1}</div>
               <div className="oneImageList" >{this.renderList()}</div>
             </div>
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="oneImageImage"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            />
+            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -112,20 +102,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="oneImageImage"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            />
+            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -141,20 +118,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList("black")}
             </div>
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="oneImageImage"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            />
+            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -170,20 +134,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList("black")}
             </div>
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="oneImageImage right secondImg"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            />
+            <ScaledImage image={image1} className="oneImageImage right secondImg" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -199,20 +150,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="oneImageImage right secondImg"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            />
+            <ScaledImage image={image1} className="oneImageImage right secondImg" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -228,20 +166,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <img src={this.imgUrl(2560) + image1.src} alt={image1.alt} className="oneImageImage right secondImg bottom"
-              srcSet={this.imgUrl(320) + image1.src + " 320w," +
-                this.imgUrl(480) + image1.src + " 480w," +
-                this.imgUrl(640) + image1.src + " 640w," +
-                this.imgUrl(1280) + image1.src + " 1280w," +
-                this.imgUrl(1920) + image1.src + " 1920w," +
-                this.imgUrl(2560) + image1.src + " 2560w"}
-              sizes="(max-width: 320px) 320px,
-                               (max-width: 480px) 480px,
-                               (max-width: 640px) 640px,
-                               (max-width: 1280px) 1280px,
-                               (max-width: 1920) 1920,
-                                2560px"
-            />
+            <ScaledImage image={image1} className="oneImageImage right secondImg bottom" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -282,12 +207,12 @@ class ContentItem extends React.Component<Props, State>  {
       return (
         banners.length === 2 ?
           <div className="ContentItem bannerCards">
-              {this.state.content.images.map((img: BannerImage, index: number) => {
-                return img.linkto ? 
+            {this.state.content.images.map((img: BannerImage, index: number) => {
+              return img.linkto ?
                 <img onClick={(): void => this.navigateTo(img.linkto)} className="bannerCardImage canClick" key={index} src={img.src} alt={img.alt}></img>
                 : <img className="bannerCardImage cannotClick" key={index} src={img.src} alt={img.alt}></img>
-              })}
-          </div> 
+            })}
+          </div>
           : null
       )
     }
