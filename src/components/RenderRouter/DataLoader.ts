@@ -34,15 +34,21 @@ export interface CustomPlaylistQuery extends DataLoaderQuery {
   selector: 'custom-playlist';
 
   playlist: string;
+
+  limit?: number;
 }
 
 export interface VideoSeriesQuery extends DataLoaderQuery {
   class: 'videos' | 'curious' | 'watch-page';
 
-  selector: string;
+  selector?: string;
 
   sortOrder: ModelSortDirection;
   subclass: string;
+  limit?: number;
+}
+
+export interface PopularVideosQuery extends VideoSeriesQuery {
   numberOfDays: number;
   minViews: number;
 }
@@ -53,6 +59,7 @@ export interface SeriesQuery extends DataLoaderQuery {
   selector: 'sameSeries' | 'highlights';
 
   id: string;
+  limit?: number;
 }
 
 export interface SpeakerQuery extends DataLoaderQuery {
@@ -70,6 +77,8 @@ export interface SeriesByTypeQuery extends DataLoaderQuery {
 
   sortOrder: ModelSortDirection;
   subclass: string;
+  selector?: string;
+  limit?: number;
 }
 
 export interface StaffQuery extends DataLoaderQuery {
@@ -147,6 +156,7 @@ export type DataQuery =
   | EventQuery
   | CompassionQuery
   | VideoSeriesQuery
+  | PopularVideosQuery
   | SeriesQuery
   | SeriesByTypeQuery
   | BlogQuery
@@ -242,12 +252,13 @@ export default class DataLoader {
   static async getVideos(
     query: VideoSeriesQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
+    checkNextToken: (data: null) => void,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetVideoByVideoTypeQueryVariables = {
       nextToken: nextToken,
       sortDirection: query.sortOrder,
-      limit: 20,
+      limit: query.limit ?? 50,
       videoTypes: query.subclass,
       publishedDate: { lt: 'a' },
     };
@@ -261,23 +272,27 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      if (query.selector === 'all') {
+      if (!query.selector || query.selector === 'all' || query.limit) {
         dataLoaded(items);
       } else {
         dataLoaded(
           items.filter((item) => item?.seriesTitle === query.selector)
         );
       }
-      if (json?.data?.getVideoByVideoType?.nextToken) {
+      if (!json?.data?.getVideoByVideoType?.nextToken) {
+        checkNextToken(null);
+      }
+      if (json?.data?.getVideoByVideoType?.nextToken && !query.limit) {
         await this.getVideos(
           query,
           dataLoaded,
+          checkNextToken,
           json.data.getVideoByVideoType.nextToken
         );
       }
     } catch (e) {
       console.error({ 'Error: ': e });
-      if (query.selector === 'all') {
+      if (!query.selector || query.selector === 'all' || query.limit) {
         if (e.data) {
           dataLoaded(e.data.getVideoByVideoType.items);
         }
@@ -290,11 +305,15 @@ export default class DataLoader {
           );
         }
       }
+      if (!e?.data?.getVideoByVideoType?.nextToken) {
+        checkNextToken(null);
+      }
       if (e.data) {
-        if (e.data.getVideoByVideoType.nextToken) {
+        if (e.data.getVideoByVideoType.nextToken && !query.limit) {
           await this.getVideos(
             query,
             dataLoaded,
+            checkNextToken,
             e.data.getVideoByVideoType.nextToken
           );
         }
@@ -303,7 +322,7 @@ export default class DataLoader {
   }
 
   static async getPopularVideos(
-    query: VideoSeriesQuery,
+    query: PopularVideosQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
     nextToken: string | null = null
   ): Promise<void> {
@@ -332,7 +351,7 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : true))
+      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : true))
       if (json?.data?.getVideoByVideoType?.nextToken) {
         await this.getPopularVideos(
           query,
@@ -343,7 +362,7 @@ export default class DataLoader {
     } catch (e) {
       console.error({ 'Error: ': e });
       if (e.data) {
-        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : true));
+        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : true));
       }
       if (e.data) {
         if (e.data.getVideoByVideoType.nextToken) {
@@ -417,12 +436,13 @@ export default class DataLoader {
   static async getSeriesByType(
     query: SeriesByTypeQuery,
     dataLoaded: OnDataListener<SeriesByTypeData[]>,
+    checkNextToken: (data: null) => void,
     nextToken: string | null = null
   ): Promise<void> {
     const variables: GetSeriesBySeriesTypeQueryVariables = {
       nextToken: nextToken,
       sortDirection: query.sortOrder,
-      limit: 50,
+      limit: query.limit ?? 20,
       seriesType: query.subclass,
       startDate: { lt: 'a' },
     };
@@ -435,10 +455,14 @@ export default class DataLoader {
       const json = await getSeriesBySeriesType;
       console.debug({ 'Success queries.getSeriesBySeriesType': json });
       dataLoaded(json?.data?.getSeriesBySeriesType?.items ?? []);
-      if (json?.data?.getSeriesBySeriesType?.nextToken) {
+      if (!json?.data?.getSeriesBySeriesType?.nextToken) {
+        checkNextToken(null);
+      }
+      if (json?.data?.getSeriesBySeriesType?.nextToken && !query.limit) {
         await this.getSeriesByType(
           query,
           dataLoaded,
+          checkNextToken,
           json.data.getSeriesBySeriesType.nextToken
         );
       }

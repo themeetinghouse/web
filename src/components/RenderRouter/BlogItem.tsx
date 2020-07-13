@@ -3,7 +3,6 @@ import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
-import { withCookies } from 'react-cookie';
 import "./BlogItem.scss"
 import * as queries from '../../graphql/queries';
 import Amplify, { API } from 'aws-amplify';
@@ -12,19 +11,14 @@ import format from 'date-fns/format';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { Helmet } from 'react-helmet';
 
-//needs an changes from video content to blog content...
-
-//import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
-    content: any,
-    cookies: any
+    content: any
 }
 interface State {
     content: any,
     listData: any,
-    overlayData: any,
     publishedOnly: any
 }
 class BlogItem extends React.Component<Props, State> {
@@ -40,7 +34,6 @@ class BlogItem extends React.Component<Props, State> {
         this.state = {
             content: props.content,
             listData: null,
-            overlayData: null,
             publishedOnly: null
         }
         const getBlogByBlogStatus: any = API.graphql({
@@ -130,4 +123,4 @@ class BlogItem extends React.Component<Props, State> {
 }
 
 
-export default withCookies(withRouter(BlogItem))
+export default withRouter(BlogItem)
