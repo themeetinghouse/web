@@ -351,7 +351,7 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : true))
+      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : false))
       if (json?.data?.getVideoByVideoType?.nextToken) {
         await this.getPopularVideos(
           query,
@@ -362,7 +362,7 @@ export default class DataLoader {
     } catch (e) {
       console.error({ 'Error: ': e });
       if (e.data) {
-        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : true));
+        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : false));
       }
       if (e.data) {
         if (e.data.getVideoByVideoType.nextToken) {
