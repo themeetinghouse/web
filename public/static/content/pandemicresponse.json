@@ -105,7 +105,7 @@
             },
             {
                 "type": "faq",
-                "header1":"FAQ",
+                "header1": "FAQ",
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-9.jpg",
@@ -147,8 +147,7 @@
                         "type": "question",
                         "question": "Can I purchase the items in the kit myself?",
                         "answer": [
-                            "No. We want to play our part in limiting the spread of COVID-19, which is why we don’t want to encourage our community to leave their homes to purchase the kits. Additionally, by bulk ordering items in the kits, our partners will be able to distribute the kits sooner." 
-                        
+                            "No. We want to play our part in limiting the spread of COVID-19, which is why we don’t want to encourage our community to leave their homes to purchase the kits. Additionally, by bulk ordering items in the kits, our partners will be able to distribute the kits sooner."
                         ]
                     },
                     {
