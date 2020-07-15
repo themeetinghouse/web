@@ -18,10 +18,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/og-logo.jpg",
+                "image": "/static/images/og-images/connect.jpg",
                 "url": "https://www.themeetinghouse.com/connect",
                 "title": "Connect",
-                "description": ""
+                "description": "We'd love to get to know you. Fill out this form and we'll be in touch!"
             },
             {
                 "type": "form",

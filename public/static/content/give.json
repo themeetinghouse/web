@@ -18,10 +18,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/og-logo.jpg",
+                "image": "/static/images/og-images/give.jpg",
                 "url": "https://www.themeetinghouse.com/give",
                 "title": "Give",
-                "description": ""
+                "description": "We're so grateful for the generosity of our community. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible."
             },
             {
                 "type": "give",

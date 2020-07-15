@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/homechurch-1-1.jpg",
+                "image": "/static/images/og-images/homechurch.jpg",
                 "url": "https://www.themeetinghouse.com/homechurch",
                 "title": "Home Church",
-                "description": ""
+                "description": "Home Church is pretty much the best thing we have going. We meet online during the week to hang out, build relationships, and dive into Sunday's teaching together. Learn more, find community, and get connected."
             },
             {
                 "type": "hero",

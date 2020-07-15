@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/sunday-morning-1.jpg",
+                "image": "/static/images/og-images/find-sunday-morning.jpg",
                 "url": "https://www.themeetinghouse.com/find-sunday-morning",
                 "title": "Find Us",
-                "description": ""
+                "description": "We've got 20+ locations across Southern Ontario - find one near you."
             },
             {
                 "type": "sunday-morning",

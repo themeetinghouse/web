@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/about-us-1-1-new.jpg",
+                "image": "/static/images/og-images/about-us.jpg",
                 "url": "https://www.themeetinghouse.com/about-us",
                 "title": "About Us",
-                "description": ""
+                "description": "Get to know us better. We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message."
             },
             {
                 "type": "hero",
