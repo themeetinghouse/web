@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/careers-1.jpg",
+                "image": "/static/images/og-images/careers.jpg",
                 "url": "https://www.themeetinghouse.com/careers",
-                "title": "Staff and Careers",
-                "description": ""
+                "title": "Want to work with us?",
+                "description": "Check out these awesome job postings at The Meeting House."
             },
             {
                 "type": "hero",

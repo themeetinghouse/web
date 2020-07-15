@@ -15,10 +15,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/community-1.jpg",
+                "image": "/static/images/og-images/community.jpg",
                 "url": "https://www.themeetinghouse.com/community",
                 "title": "Community",
-                "description": ""
+                "description": "We are created for relationship with God and with each other. When we come together in our neighbourhoods and invite others, something powerful happens. Ready to meet new friends and build relationships?"
             },
             {
                 "type": "hero",

@@ -15,10 +15,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/og-logo.jpg",
+                "image": "/static/images/og-images/teaching-podcasts.jpg",
                 "url": "https://www.themeetinghouse.com/teaching-podcasts",
                 "title": "Podcasts",
-                "description": ""
+                "description": "Podcast time is the best time. Tune in to The Meeting House Sunday morning teaching, catch a discussion from the leadership team, or learn from the experts."
             },
             {
                 "type": "list",

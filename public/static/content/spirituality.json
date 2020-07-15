@@ -15,10 +15,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/sc-1-1.jpg",
+                "image": "/static/images/og-images/spirituality.jpg",
                 "url": "https://www.themeetinghouse.com/spirituality",
                 "title": "Spirtuality",
-                "description": ""
+                "description": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. Check out some stories from people exploring spirituality at The Meeting House."
             },
             {
                 "type": "hero",

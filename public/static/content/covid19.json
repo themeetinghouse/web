@@ -17,10 +17,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/corona-1.jpg",
+                "image": "/static/images/og-images/covid19.jpg",
                 "url": "https://www.themeetinghouse.com/covid19",
                 "title": "COVID-19 Response",
-                "description": ""
+                "description": "Check out the latest updates from The Meeting House's Covid-19 response."
             },
             {
                 "type": "simple",

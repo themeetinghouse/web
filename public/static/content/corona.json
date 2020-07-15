@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/corona-1.jpg",
+                "image": "/static/images/og-images/corona.jpg",
                 "url": "https://www.themeetinghouse.com/corona",
-                "title": "Coronavirus",
-                "description": ""
+                "title": "How has The Meeting House adapted to the Covid-19 pandemic?",
+                "description": "Responding to this global pandemic has made life a lot different for all of us. Until things get back to normal, we've made several significant changes to serve our communities well and love those who are struggling during this difficult time."
             },
             {
                 "type": "hero",
