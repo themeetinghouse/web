@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/og-images/find-homechurch.jpg",
+                "image": "/static/images/og-images/find-home-church.jpg",
                 "url": "https://www.themeetinghouse.com/find-home-church",
                 "title": "Find a Home Church",
-                "description": "We meet during the week to develop relationships, study and apply Sunday’s teaching, and care for our neighbourhoods."
+                "description": "Check out our list of 100+ Home Churches and get plugged in to community."
             },
             {
                 "type": "home-church",

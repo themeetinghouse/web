@@ -16,10 +16,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/local-site-1-1.jpg",
+                "image": "/static/images/og-images/downtowntoronto.jpg",
                 "url": "https://www.themeetinghouse.com/toronto-downtown",
                 "title": "The Meeting House - Downtown Toronto",
-                "description": ""
+                "description": "Our Downtown Toronto site is pretty great. Learn more about our location, people, Home Churches, events, and more."
             },
             {
                 "type": "hero",
