@@ -3,15 +3,14 @@
         "name": "homechurch",
         "title": "Home Church",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -19,7 +18,7 @@
                 "image": "/static/images/og-images/homechurch.jpg",
                 "url": "https://www.themeetinghouse.com/homechurch",
                 "title": "Home Church",
-                "description": "Home Church is pretty much the best thing we have going. We meet online during the week to hang out, build relationships, and dive into Sunday's teaching together. Learn more, find community, and get connected."
+                "description": "It's pretty much the best thing we have going. We meet online during the week to hang out, build relationships, and dive into Sunday's teaching together."
             },
             {
                 "type": "hero",
@@ -32,24 +31,23 @@
                 ],
                 "header1": "Home Church",
                 "header2": "",
-                "text1": "We believe something really good happens when we intentionally come together in our neighbourhoods to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life.",
-                "button1Text": "Watch Andrea's Story",
+                "text1": "We believe something really good happens when we intentionally come together to share life, grow deeper spiritual friendships, and create space for real conversations about how we can live the Jesus-centred life.",
+                "button1Text": "Show Me Home Church",
                 "button1Action": "/videos/spiritually-curious-Spiritually%20Curious/SP3pD2plP04"
             },
             {
                 "type": "content",
                 "style": "greyTwoText",
-                "header1":"What is Home Church?",
-                "header2":"",
-                "text1":"We meet during the week in homes to develop relationships, study and apply Sunday’s teaching, and care for our neighbourhoods. Home Churches are open and welcoming to new friends and visitors; you can show up this week and jump right in! It's a casual vibe with snacks, discussion, prayer, and the opportunity to ask questions. Our Home Churches are made up of even smaller groups called huddles. We believe discipleship is most fully realized in the small authentic community of a Home Church huddle where we can develop rich and healthy relationships with fellow disciples of Jesus.",
+                "header1": "What is Home Church?",
+                "header2": "",
+                "text1": "We meet during the week in homes to develop relationships, study and apply Sunday’s teaching, and care for our neighbourhoods. Home Churches are open and welcome to new people; show up this week and jump right in! It's a casual vibe with snacks, discussion, prayer, and the opportunity to ask questions. Our Home Churches are made up of even smaller groups called huddles. We believe discipleship is most fully realized in the small authentic community of a Home Church huddle where we can develop deep relationships with fellow disciples of Jesus.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find a Home Church",
                         "navigateTo": "/find-home-church"
                     }
                 ]
-            
             },
             {
                 "type": "content",
@@ -59,7 +57,7 @@
                 "text1": "As a result of COVID-19, our home churches have transitioned to online gatherings. If you're looking to connect with community online now's a better time than ever! Find a home church and connect with its leader for more details.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Home Church Search",
                         "navigateTo": "find-home-church"
                     }
@@ -77,8 +75,6 @@
                 "header1": "Family Friendly",
                 "header2": "",
                 "text1": "Some Home Churches are designed with the entire family in mind, so kids and youth are welcome to join. Home Church leaders will help tailor the discussion to include everyone or create space where kids can learn and participate with friends their age.",
-                
-               
                 "image1": [
                     {
                         "src": "/static/images/homechurch-2-1.jpg",
