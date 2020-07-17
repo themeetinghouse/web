@@ -28,7 +28,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "bbq",
-                "limit": 50,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "All BBQ Videos"
             },
@@ -53,7 +53,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "life-story",
-                "limit": 50,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Life Stories"
             },
@@ -62,7 +62,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-youth",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Youth"
             }
