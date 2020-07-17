@@ -17,10 +17,10 @@
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/homepage-1-6.jpg",
+                "image": "/static/images/og-images/homepage.jpg",
                 "url": "https://www.themeetinghouse.com",
-                "title": "The Meeting House - Welcome",
-                "description": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing."
+                "title": "The Meeting House - Spiritually curious?",
+                "description": "When’s the last time someone asked you what you believe? We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing."
             },
             {
                 "type": "hero",
