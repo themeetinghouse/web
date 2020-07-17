@@ -65,14 +65,21 @@ class BlogItem extends React.Component<Props, State> {
                 this.state.publishedOnly !== null ?
                     <div className="blog" >
                         <Helmet>
-                            <meta property="og:url" content={"https://www.themeetinghouse.com/blogs"} />
-                            <meta property="og:title" content="Blog" />
+                            <meta property="og:url" content="https://www.themeetinghouse.com/blog" />
+                            <meta property="og:title" content="The Meeting House - Blog" />
                             <meta property="og:description" content="" />
                             <meta property="og:type" content="website" />
                             <meta property="fb:app_id" content="579712102531269" />
                             <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
                             <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
                             <meta property="og:image:type" content="image/jpeg" />
+
+                            <meta property="twitter:title" content="The Meeting House - Blog" />
+                            <meta property="twitter:creator" content="@TheMeetingHouse" />
+                            <meta property="twitter:image" content={"https://www.themeetinghouse.com/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} />
+                            <meta property="twitter:description" content="" />
+                            <meta property="twitter:url" content="https://www.themeetinghouse.com/blog" />
+                            <meta property="twitter:card" content="summary" />
                         </Helmet>
                         <h1 className="blog-h1" >{this.props.content.header1}</h1>
                         <div className="blog-blackbox" >

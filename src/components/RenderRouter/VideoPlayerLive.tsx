@@ -152,6 +152,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
             <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
             <meta property="og:image:type" content="image/jpeg" />
+
+            <meta property="twitter:title" content="The Meeting House - Live" />
+            <meta property="twitter:creator" content="@TheMeetingHouse" />
+            <meta property="twitter:image" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
+            <meta property="twitter:description" content="" />
+            <meta property="twitter:url" content="https://www.themeetinghouse.com/live" />
+            <meta property="twitter:card" content="summary" />
           </Helmet>
           <div>
             <div>
