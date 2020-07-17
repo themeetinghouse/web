@@ -1,4 +1,4 @@
-import React, { EventHandler, SyntheticEvent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
@@ -24,7 +24,7 @@ import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
-import ScaledImage, { fallbackToImage, tmhImageUrl } from 'components/ScaledImage/ScaledImage';
+import ScaledImage, { fallbackToImage } from '../ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
