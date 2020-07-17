@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { EventHandler, SyntheticEvent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
