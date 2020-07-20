@@ -31,9 +31,7 @@
                     }
                 ],
                 "header1": "Compassion",
-                "text1": "We recognize all people as unique individuals made in the image of God. Compassion requires a willingness to join people in their suffering and journey with them. As we pursue relationships with people who are vulnerable, we experience mutual transformation.",
-                "button1Text": "Pandemic Response",
-                "button1Action": "/pandemicresponse"
+                "text1": "We recognize all people as unique individuals made in the image of God. Compassion requires a willingness to join people in their suffering and journey with them. As we pursue relationships with people who are vulnerable, we experience mutual transformation."
             },
             {
                 "type": "content",
@@ -51,27 +49,6 @@
                 "text1": "We intentionally demonstrate the love and teachings of Jesus.",
                 "filterField":"sites",                 
                 "filterValue": "crossregional"
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "First Nations Pandemic Response",
-                "header2": "",
-                "text1": "We’re partnering with First Nations leaders and MCC to reduce the spread of COVID-19 in remote First Nations communities in northern Ontario. Find out how you can participate here.",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Learn & Participate",
-                        "navigateTo": "/pandemicresponse"
-                    }
-                ],
-              
-                "image1": [
-                    {
-                        "src": "/static/images/pandemic-response-2.jpg",
-                        "alt": "Lyndsay Mollins Koene, an MCC employee, with a First Nations woman."
-                    }
-                ]
             },
             {
                 "type": "content",
@@ -107,7 +84,7 @@
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Local Compassion Fund Application",
-                "text1": "This fund is now open for Grant Cycle One of 2020.",
+                "text1": "This fund is now closed. The next application window will open September 2020.",
                 "list": [
                     {
                         "type":"link",
