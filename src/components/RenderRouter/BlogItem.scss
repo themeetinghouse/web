@@ -1,10 +1,12 @@
+@import '../../theme.scss';
+
 @media (min-width: 768px) {
     .blogButton {
         position: relative;
         font-family: Graphik Web !important;
         border-radius:0 !important;
         background-color: #ffffff !important;
-        color:#000000 !important;
+        color:$onyxblacktext !important;
         font-weight:bold!important;
         margin-right:2vw;
         font-size: 16px;
@@ -33,7 +35,8 @@
         top: 3vw;
         font-size: 3vw;
         font-weight: bold;
-        font-family: Graphik Web;
+        font-family: Graphik Web;        
+        color: $onyxblacktext;
     }
 
     .blog-blackbox {
@@ -44,7 +47,7 @@
         width: 50vw;
         top: 10vw;
         height: 42vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         color: #ffffff;
     }
 
@@ -184,7 +187,7 @@
         font-family: Graphik Web !important;
         border-radius:0 !important;
         background-color: #ffffff !important;
-        color:#000000 !important;
+        color:$onyxblacktext !important;
         font-weight:bold!important;
         margin-right:2vw;
         font-size: 16px;
@@ -214,6 +217,7 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .blog-blackbox {
@@ -224,7 +228,7 @@
         width: 50vw;
         top: 10vw;
         height: 42vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         color: #ffffff;
     }
 
@@ -364,6 +368,7 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .blog-blackbox {
@@ -373,7 +378,7 @@
         left: 0vw;
         width: 100vw;
         top: 16vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         color: #ffffff;
         padding-bottom: 30vw;
     }
@@ -442,7 +447,7 @@
     .blogButton {
       line-height: 5vw!important;
       background-color: #ffffff!important;
-      color: #000000!important;
+      color: $onyxblacktext!important;
       font-weight: 800!important;
       border-radius:0!important;
       margin-right:5vw;

@@ -129,7 +129,7 @@ class HeroItem extends React.Component<Props, State> {
             return (
                 <div className="weather weatherPartial" >
                     <h1 className="weatherH1" >{this.state.content.header1}</h1>
-                    {this.state.content.header2 && <h2 className="weatherHeroH2">{this.state.content.header2}</h2>}
+                    {this.state.content.header2 && <h2 className="weatherH2">{this.state.content.header2}</h2>}
                     <hr className="weatheroHr"></hr>
                     <div className="weatherText1" >{this.state.content.text1}</div>
                     <div className="weatherText1" ><b>Closed Locations</b>
@@ -139,7 +139,6 @@ class HeroItem extends React.Component<Props, State> {
                             )
                         })}
                     </div>
-
                     <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>
 
                 </div>

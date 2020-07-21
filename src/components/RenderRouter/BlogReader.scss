@@ -1,3 +1,5 @@
+@import '../../theme.scss';
+
 .download-custom {
     border-radius: 0;
     color: #ffffff;
@@ -14,11 +16,9 @@
         border-color: #1A1A1A;
     }
 }
-.blog-body p {
+.blog-body * {
     font-family: Graphik Web !important;
-}
-.blog-body span {
-    font-family: Graphik Web !important;
+    color: $onyxblacktext !important;
 }
 
 @media (min-width: 768px) {
