@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
@@ -54,6 +54,15 @@ class BlogItem extends React.Component<Props, State> {
         }).catch((e: any) => { console.log(e) })
     }
 
+    fallbackToImage(fallbackUrl: string): EventHandler<SyntheticEvent<HTMLImageElement>> {
+        return function (event: SyntheticEvent<HTMLImageElement>) {
+            if (!event.currentTarget.src.endsWith(fallbackUrl)) {
+                event.currentTarget.src = fallbackUrl;
+                event.currentTarget.srcset = '';
+            }
+        };
+    }
+
     navigateUrl(to: string) {
         window.location.href = to;
     }
@@ -89,9 +98,21 @@ class BlogItem extends React.Component<Props, State> {
                             <div className="blogdiv2" >
                                 <Button size="lg" className="blogButton" onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}>Read More</Button>
                             </div>
-                            <div><img alt="TBD" className="blog-image-desktop" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)} /></div>
+                            <div>
+                                <img
+                                    alt="TBD" className="blog-image-desktop"
+                                    src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                    onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}
+                                    onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')}
+                                />
+                            </div>
                         </div>
-                        <div className="mobile-image-container"><img alt="TBD" className="blog-image-mobile" src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"} onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)} /></div>
+                        <div className="mobile-image-container">
+                            <img alt="TBD" className="blog-image-mobile"
+                                src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}
+                                onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')} />
+                        </div>
                     </div> : null
             )
         } else if (this.state.content.style === "twoImage") {
@@ -106,11 +127,13 @@ class BlogItem extends React.Component<Props, State> {
                                     <img alt={item.id + " series image"}
                                         className="BlogSquareImage twoImage"
                                         src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-                                        onClick={() => this.navigateUrl("/posts/" + item.id)} />
+                                        onClick={() => this.navigateUrl("/posts/" + item.id)}
+                                        onError={this.fallbackToImage('/static/photos/blogs/square/fallback.jpg')} />
                                     <img alt={item.id + " series image"}
                                         className="BlogBannerImage twoImage"
                                         src={"/static/photos/blogs/banner/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-                                        onClick={() => this.navigateUrl("/posts/" + item.id)} />
+                                        onClick={() => this.navigateUrl("/posts/" + item.id)}
+                                        onError={this.fallbackToImage('/static/photos/blogs/banner/fallback.jpg')} />
                                     <div className="BlogTwoImageTextContainer">
                                         <div className="blog-post-title twoImage">{item.blogTitle}</div>
                                         <div className="blogauthor twoImage">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>

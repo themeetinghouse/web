@@ -108,16 +108,21 @@ class ArchiveItem extends React.Component<Props, State> {
     }
 
     showYears(start: string | null, end: string | null) {
-        if (start === null || end === null)
+        const validStart = start && !isNaN(new Date(start).getFullYear())
+        const validEnd = end && !isNaN(new Date(end).getFullYear())
+        const isValid = validStart && validEnd
+
+        if (validStart && !validEnd)
+            return new Date(start as string).getFullYear() + ' • ';
+        if (!validStart && validEnd)
+            return new Date(end as string).getFullYear() + ' • ';
+        if (!isValid) {
+            console.error('startDate and endDate invalid')
             return null;
-
-        const startYear = new Date(start).getFullYear()
-        const endYear = new Date(end).getFullYear()
-
-        if (startYear === endYear)
-            return startYear + ' • ';
-        else
-            return startYear + ' - ' + endYear + ' • ';
+        }
+        if (new Date(start as string).getFullYear() === new Date(end as string).getFullYear())
+            return new Date(start as string).getFullYear() + ' • ';
+        return new Date(start as string).getFullYear() + ' - ' + new Date(end as string).getFullYear() + ' • ';
     }
 
     fallbackToImage(fallbackUrl: string): EventHandler<SyntheticEvent<HTMLImageElement>> {
@@ -172,7 +177,7 @@ class ArchiveItem extends React.Component<Props, State> {
                     <img alt={item.title + ' series image'}
                         className="ArchiveItemImage2"
                         src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-                        onError={this.fallbackToImage('/static/NoCompassionLogo.png')}
+                        onError={this.fallbackToImage('/static/photos/series/series-fallback.jpg')}
                     />
                     <div className="ArchiveItemName" >{item.title}</div>
                     <div className="ArchiveItemYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>

@@ -78,14 +78,22 @@ class ListItem extends React.Component<Props, State> {
     });
     window.history.pushState({}, 'Videos', this.state.urlHistoryState);
   }
-  showYears(start: any, end: any) {
-    if (start === null || end === null)
+  showYears(start: string | null, end: string | null) {
+    const validStart = start && !isNaN(new Date(start).getFullYear())
+    const validEnd = end && !isNaN(new Date(end).getFullYear())
+    const isValid = validStart && validEnd
+
+    if (validStart && !validEnd)
+      return new Date(start as string).getFullYear() + ' • ';
+    if (!validStart && validEnd)
+      return new Date(end as string).getFullYear() + ' • ';
+    if (!isValid) {
+      console.error('startDate and endDate invalid')
       return null;
-    else
-      if (new Date(start).getFullYear() === new Date(end).getFullYear())
-        return new Date(start).getFullYear() + ' • ';
-      else
-        return new Date(start).getFullYear() + ' - ' + new Date(end).getFullYear() + ' • ';
+    }
+    if (new Date(start as string).getFullYear() === new Date(end as string).getFullYear())
+      return new Date(start as string).getFullYear() + ' • ';
+    return new Date(start as string).getFullYear() + ' - ' + new Date(end as string).getFullYear() + ' • ';
   }
   handleClick(data: any) {
     this.setState({
@@ -304,7 +312,7 @@ class ListItem extends React.Component<Props, State> {
         <img alt={item.blogTitle + ' series image'}
           className="BlogSquareImage"
           src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
-          onError={fallbackToImage('/static/NoCompassionLogo.png')}
+          onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
         />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
@@ -471,7 +479,7 @@ class ListItem extends React.Component<Props, State> {
           <img alt={item.title + ' series image'}
             className="ListItemImage2"
             src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-            onError={fallbackToImage('/static/NoCompassionLogo.png')}
+            onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
           />
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
