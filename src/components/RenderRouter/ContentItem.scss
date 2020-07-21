@@ -496,7 +496,8 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .bannerCardImage {
-        $width: 38.33vw;
+        $width: 37.67vw;
+        width: $width;
         height: (248/552)*$width;
         margin-right: 1.67vw;
     }
@@ -1011,7 +1012,8 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .bannerCardImage {
-        $width: 88.53vw;
+        $width: 90vw;
+        width: $width;
         height: (248/552)*$width;
         margin-bottom: 6.4vw;
     }
