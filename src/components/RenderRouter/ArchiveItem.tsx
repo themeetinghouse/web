@@ -177,7 +177,7 @@ class ArchiveItem extends React.Component<Props, State> {
                     <img alt={item.title + ' series image'}
                         className="ArchiveItemImage2"
                         src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-                        onError={this.fallbackToImage('/static/NoCompassionLogo.png')}
+                        onError={this.fallbackToImage('/static/photos/series/series-fallback.jpg')}
                     />
                     <div className="ArchiveItemName" >{item.title}</div>
                     <div className="ArchiveItemYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>

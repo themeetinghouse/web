@@ -312,7 +312,7 @@ class ListItem extends React.Component<Props, State> {
         <img alt={item.blogTitle + ' series image'}
           className="BlogSquareImage"
           src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
-          onError={fallbackToImage('/static/NoCompassionLogo.png')}
+          onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
         />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
@@ -479,7 +479,7 @@ class ListItem extends React.Component<Props, State> {
           <img alt={item.title + ' series image'}
             className="ListItemImage2"
             src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-            onError={fallbackToImage('/static/NoCompassionLogo.png')}
+            onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
           />
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>

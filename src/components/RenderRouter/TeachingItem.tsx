@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
@@ -158,19 +158,28 @@ class TeachingItem extends React.Component<Props, State> {
         }
     }
 
+    fallbackToImage(fallbackUrl: string): EventHandler<SyntheticEvent<HTMLImageElement>> {
+        return function (event: SyntheticEvent<HTMLImageElement>) {
+            if (!event.currentTarget.src.endsWith(fallbackUrl)) {
+                event.currentTarget.src = fallbackUrl;
+                event.currentTarget.srcset = '';
+            }
+        };
+    }
+
     formatVideoDuration(length: string): string {
         let duration = parseInt(length, 10)
         let hours = 0
         if (duration < 60) {
-          return length + 'm'
+            return length + 'm'
         }
         while (duration > 59) {
-          duration-=60
-          hours+=1
+            duration -= 60
+            hours += 1
         }
         return `${hours.toString()}h ${duration.toString()}m`
-      }
-    
+    }
+
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
         if (this.state.content.style === "hero") {
@@ -194,8 +203,8 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
                                 <div className="teachingdiv teachingseriestitle" >
-                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "} 
-                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>  
+                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "}
+                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>
                                     {this.state.listData[this.state.teachingId].length ? ` • ${this.formatVideoDuration(this.state.listData[this.state.teachingId].length)}` : null}
                                 </div>
                                 <div className="teachingdiv teachingdescription" >{this.state.listData[this.state.teachingId].description}</div>
@@ -203,9 +212,23 @@ class TeachingItem extends React.Component<Props, State> {
                                     <Button size="lg" className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} ><img className="teachingButton-icon" src="/static/svg/Watch.svg" alt="watch icon" />Watch</Button>
                                     {this.state.listData[this.state.teachingId].notesURL != null ? <Button size="lg" className="teachingButton" onClick={() => { this.navigateUrlNewWindow(this.state.listData[this.state.teachingId].notesURL) }} ><img className="teachingButton-icon" src="/static/svg/Notes.svg" alt="notes icon" />Notes</Button> : null}
                                 </div>
-                                <div><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image-desktop" src={(this.state.content.class === "teaching-sunday" || this.state.listData[this.state.teachingId].videoTypes === "ky-kids" || this.state.listData[this.state.teachingId].videoTypes === "ky-youth" || this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh" || this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh" || this.state.listData[this.state.teachingId].videoTypes === "bbq") && this.state.listData[this.state.teachingId].seriesTitle != null ? ("/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg") : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                                <div>
+                                    <img
+                                        onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}
+                                        alt="TBD" className="teaching-image-desktop"
+                                        src={(this.state.content.class === "teaching-sunday" || this.state.listData[this.state.teachingId].videoTypes === "ky-kids" || this.state.listData[this.state.teachingId].videoTypes === "ky-youth" || this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh" || this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh" || this.state.listData[this.state.teachingId].videoTypes === "bbq") && this.state.listData[this.state.teachingId].seriesTitle != null ? ("/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg") : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url}
+                                        onError={this.fallbackToImage('/static/photos/series/baby-hero/babyhero-fallback.jpg')}
+                                    />
+                                </div>
                             </div>
-                            <div className="mobile-image-container"><img onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} alt="TBD" className="teaching-image-mobile" src={(this.state.content.class === "teaching-sunday" || this.state.listData[this.state.teachingId].videoTypes === "ky-kids" || this.state.listData[this.state.teachingId].videoTypes === "ky-youth" || this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh" || this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh" || this.state.listData[this.state.teachingId].videoTypes === "bbq") && this.state.listData[this.state.teachingId].seriesTitle != null ? ("/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg") : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url} /></div>
+                            <div className="mobile-image-container">
+                                <img
+                                    onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}
+                                    alt="TBD" className="teaching-image-mobile"
+                                    src={(this.state.content.class === "teaching-sunday" || this.state.listData[this.state.teachingId].videoTypes === "ky-kids" || this.state.listData[this.state.teachingId].videoTypes === "ky-youth" || this.state.listData[this.state.teachingId].videoTypes === "ky-jrhigh" || this.state.listData[this.state.teachingId].videoTypes === "ky-srhigh" || this.state.listData[this.state.teachingId].videoTypes === "bbq") && this.state.listData[this.state.teachingId].seriesTitle != null ? ("/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg") : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails.standard.url}
+                                    onError={this.fallbackToImage('/static/photos/series/baby-hero/babyhero-fallback.jpg')}
+                                />
+                            </div>
                             <div className="teaching-mostrecent" >Most recent</div>
                             <div className="teaching-options" >
                                 {this.props.content.options.map((item: any, index: any) => {
