@@ -378,8 +378,8 @@ class ListItem extends React.Component<Props, State> {
     return (
       <div key={item.id ?? ''} onClick={() => { this.navigateUrlNewWindow('https://facebook.com/' + item.id) }} className="ListItemEvents" >
         <div style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}>
-          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
-          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold' }}>{start_date.getDate()}</div>
+          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
+          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.getDate()}</div>
         </div>
         <div style={{ margin: '10px' }}>
           <div className="ListItemEventsDescription" >{item.name}</div>

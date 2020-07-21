@@ -1,720 +1,735 @@
+@import "../../theme";
+
 @media (min-width: 768px) {
+  .faqText {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
+  .FAQFloatLeft {
+    float: "left";
+    cursor: pointer;
+    color: $onyxblacktext;
+  }
+  .FAQFloatRight {
+    float: "right";
+  }
+  .FAQFullWidth {
+    width: 90%;
+    color: $onyxblacktext;
+    float: left;
+  }
+  .FAQPartialWidth {
+    width: 30%;
+    float: left;
+  }
+  .FAQQuestion {
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 2vw;
+  }
 
-    .faqText {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-      
-    }
-    .FAQFloatLeft{float:"left"}
-    .FAQFloatRight {float:"right"}
-    .FAQFullWidth{width:90%;
-        float:left;}
-    .FAQPartialWidth{width:30%;
-        float:left;}
-    .FAQQuestion {
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-        font-weight: bold;
-        margin-top: 2vw;
-    }
+  .FAQAnswer {
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .FAQAnswer {
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-       
-    }
+  .faqText.white {
+    color: #ffffff;
+  }
 
-    .faqText.white {
-        color: #ffffff;
-    }
+  .faqA {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .faqA {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
+  .faqImage {
+    position: absolute;
+    height: 35vw;
+    width: 35vw;
+    left: 0vw;
+    object-fit: cover;
+    top: 2.5vw;
+    // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+  }
 
-    }
+  .faqImage.right {
+    position: absolute;
+    height: 35vw;
+    width: 35vw;
+    left: 45vw;
+    object-fit: cover;
+    top: 2.5vw;
+    // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+  }
 
-    .faqImage {
-        position: absolute;
-        height: 35vw;
-        width: 35vw;
-        left: 0vw;
-        object-fit: cover;
-        top: 2.5vw;
-        // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
-    }
+  .faqGreyBox {
+    padding: 0vw;
+    position: relative;
+    width: 50vw;
+    left: 20vw;
+    top: 0vw;
+  }
 
-    .faqImage.right {
-        position: absolute;
-        height: 35vw;
-        width: 35vw;
-        left: 45vw;
-        object-fit: cover;
-        top: 2.5vw;
-        // box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
-    }
+  .faqGreyBox.right {
+    padding: 0vw;
+    position: relative;
+    width: 40vw;
 
-    .faqGreyBox {
-        padding: 0vw;
-        position: relative;
-        width: 50vw;
-        left: 20vw;
-        top: 0vw;
+    left: 0vw;
+    top: 0vw;
+  }
+  .faqGreyBox.full {
+    padding: 0vw;
+    position: relative;
+    width: 60vw;
 
-    }
+    left: 0vw;
+    top: 0vw;
+  }
+  .faqBlackBox {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0vw;
+    background-color: #000000;
+  }
 
-    .faqGreyBox.right {
-        padding: 0vw;
-        position: relative;
-        width: 40vw;
+  .faqBlackBox.right {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #000000;
+  }
 
-        left: 0vw;
-        top: 0vw;
+  .faqGreenBox {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0vw;
+    background-color: #2b583b;
+  }
 
-    }
-    .faqGreyBox.full {
-        padding: 0vw;
-        position: relative;
-        width: 60vw;
+  .faqGreenBox.right {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #2b583b;
+  }
 
-        left: 0vw;
-        top: 0vw;
+  .faqH1 {
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+  .whiteText {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+  }
 
-    }
-    .faqBlackBox {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 30vw;
-        top: 0vw;
-        background-color: #000000;
-    }
+  .faqPosition {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    z-index: 100;
+  }
 
-    .faqBlackBox.right {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 0vw;
-        top: 0vw;
-        background-color: #000000;
-    }
+  .FAQItem.faq {
+    position: static;
+    padding-bottom: 5vw;
+  }
 
-    .faqGreenBox {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 30vw;
-        top: 0vw;
-        background-color: #2b583b;
-    }
+  .greyTwoText {
+    left: 0vw;
+    position: relative;
+    width: 100vw;
+    background-color: #efeff0;
+    margin-top: -5vh;
+    margin-bottom: 5vw;
+  }
 
-    .faqGreenBox.right {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 0vw;
-        top: 0vw;
-        background-color: #2b583b;
-    }
+  .greyTwoTextH1 {
+    position: relative;
+    float: left;
+    margin: 1vw;
+    margin-top: 3vw;
+    left: 20vw;
+    font-weight: bold;
+    width: 30vw;
+    height: 20vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .faqH1 {
-        font-weight: bold;
-        font-size: 3vw;
-        font-family: Graphik Web;
-      
-    }
-    .whiteText {
-        color:#ffffff!important;
-        background-color:#000000!important;
-    }
+  .greyTwoTextText {
+    left: 20vw;
+    position: relative;
+    margin: 1vw;
+    margin-top: 3vw;
 
-    .faqPosition {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        z-index: 100;
-    }
+    float: left;
+    width: 45vw;
+    height: 20vw;
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+  }
 
-    .FAQItem.faq {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .greyTwoClear {
+    clear: left;
+  }
 
-    .greyTwoText {
-        left: 0vw;
-        position: relative;
-        width: 100vw;
-        background-color: #EFEFF0;
-        margin-top: -5vh;
-        margin-bottom: 5vw;
-    }
+  .greenTwoText {
+    left: 0vw;
+    position: relative;
+    width: 100vw;
+    background-color: #2b583b;
+    margin-top: -5vh;
+    margin-bottom: 5vw;
+  }
 
-    .greyTwoTextH1 {
-        position: relative;
-        float: left;
-        margin: 1vw;
-        margin-top: 3vw;
-        left: 20vw;
-        font-weight: bold;
-        width: 30vw;
-        height: 20vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .greenTwoTextH1 {
+    position: relative;
+    float: left;
+    margin: 1vw;
+    margin-top: 3vw;
+    left: 20vw;
+    font-weight: bold;
+    width: 30vw;
+    height: 20vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    color: #ffffff;
+  }
 
-    .greyTwoTextText {
-        left: 20vw;
-        position: relative;
-        margin: 1vw;
-        margin-top: 3vw;
+  .greenTwoTextText {
+    left: 20vw;
+    position: relative;
+    margin: 1vw;
+    margin-top: 3vw;
 
-        float: left;
-        width: 45vw;
-        height: 20vw;
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-    }
+    float: left;
+    width: 45vw;
+    height: 20vw;
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    color: #ffffff;
+  }
 
-    .greyTwoClear {
-        clear: left;
-    }
+  .greenTwoClear {
+    clear: left;
+  }
 
-
-
-
-
-    .greenTwoText {
-        left: 0vw;
-        position: relative;
-        width: 100vw;
-        background-color: #2b583b;
-        margin-top: -5vh;
-        margin-bottom: 5vw;
-    }
-
-    .greenTwoTextH1 {
-        position: relative;
-        float: left;
-        margin: 1vw;
-        margin-top: 3vw;
-        left: 20vw;
-        font-weight: bold;
-        width: 30vw;
-        height: 20vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-
-    .greenTwoTextText {
-        left: 20vw;
-        position: relative;
-        margin: 1vw;
-        margin-top: 3vw;
-
-        float: left;
-        width: 45vw;
-        height: 20vw;
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-
-    .greenTwoClear {
-        clear: left;
-    }
-
-    .contentButton {
-        margin-top: 1.5vw !important;
-        color: #ffffff !important;
-        background-color: #000000 !important;
-        border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
-        font-weight: 800 !important;
-        font-family: Graphik Web !important;
-
-    }
-
+  .contentButton {
+    margin-top: 1.5vw !important;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-radius: 0 !important;
+    padding: 1rem 1.5rem !important;
+    font-weight: 800 !important;
+    font-family: Graphik Web !important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .FAQFloatLeft{float:"left"}
-    .FAQFloatRight {float:"right"}
-    .FAQFullWidth{width:90%;
-        float:left;}
-    .FAQPartialWidth{width:30%;
-        float:left;}
-    .whiteText {
-        color:#ffffff!important;
-        background-color:#000000!important;
-    }
+  .FAQFloatLeft {
+    float: "left";
+    cursor: pointer;
+    color: $onyxblacktext;
+  }
+  .FAQFloatRight {
+    float: "right";
+  }
+  .FAQFullWidth {
+    width: 90%;
+    color: $onyxblacktext;
+    float: left;
+  }
+  .FAQPartialWidth {
+    width: 30%;
+    float: left;
+  }
+  .whiteText {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+  }
 
-   
-    .FAQQuestion{
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-        font-weight:bold;
-    }
-    .FAQAnswer{
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-    }
-    .faqText {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .FAQQuestion {
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    font-weight: bold;
+  }
+  .FAQAnswer {
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+  .faqText {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .FAQQuestion {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        font-weight: bold;
-    }
+  .FAQQuestion {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    font-weight: bold;
+  }
 
-    .faqEventDetails {
-        font-family: Graphik Web;
-        color: #ffffff;
-        font-size: 1.5vw;
-        margin-top: 1vw;
-        margin-bottom: 0.5vw;
-    }
+  .faqEventDetails {
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 1.5vw;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
+  }
 
-    .faqText.white {
-        color: #ffffff;
-    }
+  .faqText.white {
+    color: #ffffff;
+  }
 
-    .faqA {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
+  .faqA {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    }
+  .faqImage {
+    position: absolute;
+    height: 35vw;
+    width: 35vw;
+    left: 0vw;
+    object-fit: cover;
+    top: 2.5vw;
+    //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+  }
 
-    .faqImage {
-        position: absolute;
-        height: 35vw;
-        width: 35vw;
-        left: 0vw;
-        object-fit: cover;
-        top: 2.5vw;
-        //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
-    }
+  .faqImage.right {
+    position: absolute;
+    height: 35vw;
+    width: 35vw;
+    left: 45vw;
+    object-fit: cover;
+    top: 2.5vw;
+    //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+  }
 
-    .faqImage.right {
-        position: absolute;
-        height: 35vw;
-        width: 35vw;
-        left: 45vw;
-        object-fit: cover;
-        top: 2.5vw;
-        //   box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
-    }
+  .faqGreyBox {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
 
-    .faqGreyBox {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
+    left: 30vw;
+    top: 0vw;
+  }
 
-        left: 30vw;
-        top: 0vw;
+  .faqGreyBox.right {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
 
-    }
+    left: 0vw;
+    top: 0vw;
+  }
 
-    .faqGreyBox.right {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
+  .faqBlackBox {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0vw;
+    background-color: #000000;
+  }
 
-        left: 0vw;
-        top: 0vw;
+  .faqBlackBox.right {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #000000;
+  }
 
-    }
+  .faqGreenBox {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0vw;
+    background-color: #2b583b;
+  }
 
-    .faqBlackBox {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 30vw;
-        top: 0vw;
-        background-color: #000000;
-    }
+  .faqGreenBox.right {
+    padding: 10vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #2b583b;
+  }
 
-    .faqBlackBox.right {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 0vw;
-        top: 0vw;
-        background-color: #000000;
-    }
+  .faqH1 {
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .faqGreenBox {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 30vw;
-        top: 0vw;
-        background-color: #2b583b;
-    }
+  .faqH1.white {
+    color: #ffffff;
+  }
 
-    .faqGreenBox.right {
-        padding: 10vw;
-        position: relative;
-        width: 50vw;
-        height: 40vw;
-        left: 0vw;
-        top: 0vw;
-        background-color: #2b583b;
-    }
+  .faqPosition {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    z-index: 100;
+  }
 
-    .faqH1 {
-        font-weight: bold;
-        font-size: 3vw;
-        font-family: Graphik Web;
-    }
+  .FAQItem.faq {
+    position: static;
+    padding-bottom: 5vw;
+  }
 
-    .faqH1.white {
-        color: #ffffff;
-    }
+  .greyTwoText {
+    left: 0vw;
+    position: relative;
+    width: 100vw;
+    background-color: #efeff0;
+    margin-top: 0vh !important;
+    margin-bottom: 5vw;
+  }
 
-    .faqPosition {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        z-index: 100;
-    }
+  .greyTwoTextH1 {
+    position: relative;
+    float: left;
+    margin: 1vw;
+    margin-top: 3vw;
+    left: 20vw;
+    font-weight: bold;
+    width: 30vw;
+    height: 20vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .FAQItem.faq {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .greyTwoTextText {
+    left: 20vw;
+    position: relative;
+    margin: 1vw;
+    margin-top: 3vw;
+    float: left;
+    width: 45vw;
+    height: 20vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .greyTwoText {
-        left: 0vw;
-        position: relative;
-        width: 100vw;
-        background-color: #EFEFF0;
-        margin-top: 0vh !important;
-        margin-bottom: 5vw;
-    }
+  .greyTwoClear {
+    clear: left;
+  }
 
-    .greyTwoTextH1 {
-        position: relative;
-        float: left;
-        margin: 1vw;
-        margin-top: 3vw;
-        left: 20vw;
-        font-weight: bold;
-        width: 30vw;
-        height: 20vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .greenTwoText {
+    left: 0vw;
+    position: relative;
+    width: 100vw;
+    background-color: #2b583b;
+    margin-top: -5vh;
+    margin-bottom: 5vw;
+  }
 
-    .greyTwoTextText {
-        left: 20vw;
-        position: relative;
-        margin: 1vw;
-        margin-top: 3vw;
-        float: left;
-        width: 45vw;
-        height: 20vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .greenTwoTextH1 {
+    position: relative;
+    float: left;
+    margin: 1vw;
+    margin-top: 3vw;
+    left: 20vw;
+    font-weight: bold;
+    width: 30vw;
+    height: 20vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    color: #ffffff;
+  }
 
-    .greyTwoClear {
-        clear: left;
-    }
+  .greenTwoTextText {
+    left: 20vw;
+    position: relative;
+    margin: 1vw;
+    margin-top: 3vw;
 
+    float: left;
+    width: 45vw;
+    height: 20vw;
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    color: #ffffff;
+  }
 
+  .greenTwoClear {
+    clear: left;
+  }
 
-    .greenTwoText {
-        left: 0vw;
-        position: relative;
-        width: 100vw;
-        background-color: #2b583b;
-        margin-top: -5vh;
-        margin-bottom: 5vw;
-    }
-
-    .greenTwoTextH1 {
-        position: relative;
-        float: left;
-        margin: 1vw;
-        margin-top: 3vw;
-        left: 20vw;
-        font-weight: bold;
-        width: 30vw;
-        height: 20vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-
-    .greenTwoTextText {
-        left: 20vw;
-        position: relative;
-        margin: 1vw;
-        margin-top: 3vw;
-
-        float: left;
-        width: 45vw;
-        height: 20vw;
-        font-size: 1.2vw;
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-
-    .greenTwoClear {
-        clear: left;
-    }
-
-    .contentButton {
-        margin-top: 1.5vw !important;
-        color: #ffffff !important;
-        background-color: #000000 !important;
-        border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
-        font-weight: 800 !important;
-        font-family: Graphik Web !important;
-    }
+  .contentButton {
+    margin-top: 1.5vw !important;
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-radius: 0 !important;
+    padding: 1rem 1.5rem !important;
+    font-weight: 800 !important;
+    font-family: Graphik Web !important;
+  }
 }
 
 @media (max-width: 767px) {
-    .FAQFloatLeft{float:"right"}
-    .FAQFloatRight {float:"right"}
-    .FAQFullWidth{width:90%;
-        float:left;}
-    .FAQPartialWidth{width:90%;
-        float:left;}
-    .faqText {
-        font-size: 5vw;
-        font-family: Graphik Web;
-    }
-    .FAQQuestion{
-        font-size: 6vw;
-        font-family: Graphik Web;
-        font-weight:bold;
-    }
-    .FAQAnswer{
-        font-size: 5vw;
-        font-family: Graphik Web;
-    }
-    .faqText {
-        font-size: 5vw;
-        font-family: Graphik Web;
-        line-height: 7.5vw;
-    }
+  .FAQFloatLeft {
+    float: "right";
+    cursor: pointer;
+    color: $onyxblacktext;
+  }
+  .FAQFloatRight {
+    float: "right";
+  }
+  .FAQFullWidth {
+    width: 90%;
+    color: $onyxblacktext;
+    float: left;
+  }
+  .FAQPartialWidth {
+    width: 90%;
+    float: left;
+  }
+  .faqText {
+    font-size: 5vw;
+    font-family: Graphik Web;
+  }
+  .FAQQuestion {
+    font-size: 6vw;
+    font-family: Graphik Web;
+    font-weight: bold;
+  }
+  .FAQAnswer {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+  .faqText {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    line-height: 7.5vw;
+  }
 
-    .faqText.white {
-        color: #ffffff;
-    }
+  .faqText.white {
+    color: #ffffff;
+  }
 
-    .faqA {
-        font-size: 5vw;
-        font-family: Graphik Web;
-        line-height: 7.5vw;
-        margin-top: 13vw;
-        display: inline-block;
-        // border-bottom-width: 1px;
-        // border-bottom-style: solid;
-        // padding-bottom: 3px;
-        text-decoration: underline;
+  .faqA {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    line-height: 7.5vw;
+    margin-top: 13vw;
+    display: inline-block;
+    // border-bottom-width: 1px;
+    // border-bottom-style: solid;
+    // padding-bottom: 3px;
+    text-decoration: underline;
+  }
 
-    }
+  .faqImage {
+    position: absolute;
+    height: 90vw;
+    width: 90vw;
+    left: 5vw;
+    object-fit: cover;
+    top: -60vw;
+    padding-top: 20vw;
+    //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
+  }
 
-    .faqImage {
-        position: absolute;
-        height: 90vw;
-        width: 90vw;
-        left: 5vw;
-        object-fit: cover;
-        top: -60vw;
-        padding-top: 20vw;
-        //  box-shadow: '0px 20px 40px rgba(26, 26, 26, 0.16)';
-    }
+  .secondImg {
+    // top: 125vw;
+    margin-top: 190vw !important;
+  }
 
-    .secondImg {
-        // top: 125vw;
-        margin-top: 190vw !important;
-    }
+  .faqGreyBox {
+    margin-top: 0vw;
+    padding: 40vw 6vw 10vw;
+    position: relative;
+    width: 100vw;
+    //height: 145vw;
+    left: 0vw;
+    top: 0vw;
+  }
 
-    .faqGreyBox {
-        margin-top: 0vw;
-        padding: 40vw 6vw 10vw;
-        position: relative;
-        width: 100vw;
-        //height: 145vw;
-        left: 0vw;
-        top: 0vw;
+  .faqBlackBox {
+    // margin-top: 120vw;
+    padding: 6vw;
+    padding-top: 20vw;
+    position: relative;
+    width: 100vw;
+    //height: 175vw;
+    padding-bottom: 65vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #000000;
+  }
 
-    }
+  .faqGreenBox {
+    // margin-top: 120vw;
+    padding: 6vw;
+    padding-top: 20vw;
+    position: relative;
+    width: 100vw;
+    //height: 175vw;
+    padding-bottom: 65vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #2b583b;
+  }
 
-    .faqBlackBox {
-        // margin-top: 120vw;
-        padding: 6vw;
-        padding-top: 20vw;
-        position: relative;
-        width: 100vw;
-        //height: 175vw;
-        padding-bottom: 65vw;
-        left: 0vw;
-        top: 0vw;
-        background-color: #000000;
-    }
+  .faqH1 {
+    font-weight: bold;
+    font-size: 10vw;
+    font-family: Graphik Web;
+    line-height: 12.5vw;
+    color: $onyxblacktext;
+  }
 
-    .faqGreenBox {
-        // margin-top: 120vw;
-        padding: 6vw;
-        padding-top: 20vw;
-        position: relative;
-        width: 100vw;
-        //height: 175vw;
-        padding-bottom: 65vw;
-        left: 0vw;
-        top: 0vw;
-        background-color: #2b583b;
-    }
+  .faqEventDetails {
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 3vw;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
+  }
 
-    .faqH1 {
-        font-weight: bold;
-        font-size: 10vw;
-        font-family: Graphik Web;
-        line-height: 12.5vw;
-    }
+  .faqH1.white {
+    color: #ffffff;
+  }
 
-    .faqEventDetails {
-        font-family: Graphik Web;
-        color: #ffffff;
-        font-size: 3vw;
-        margin-top: 1vw;
-        margin-bottom: 0.5vw;
-    }
+  .faqPosition {
+    position: relative;
+    left: 0vw;
+    width: 100vw;
+    z-index: 100;
+  }
 
-    .faqH1.white {
-        color: #ffffff;
-    }
+  .FAQItem.faq {
+    position: static;
+    // padding-bottom: 5vw;
+    // padding-top: 45vw;
+    display: relative;
+  }
 
-    .faqPosition {
-        position: relative;
-        left: 0vw;
-        width: 100vw;
-        z-index: 100;
-    }
+  .FAQItemMarginBottom {
+    margin-bottom: 55vw;
+  }
 
-    .FAQItem.faq {
-        position: static;
-        // padding-bottom: 5vw;
-        // padding-top: 45vw;
-        display: relative;
-    }
+  .greyTwoText {
+    left: 0vw;
+    position: relative;
+    width: 100vw;
+    background-color: #efeff0;
+    // margin-top: -23vh;
+    margin-bottom: 5vw;
+  }
 
-    .FAQItemMarginBottom {
-        margin-bottom: 55vw;
-    }
+  .greyTwoTextH1 {
+    position: relative;
+    float: left;
+    // margin: 1vw;
+    margin-top: 8vw;
+    margin-bottom: 0vw;
+    left: 5vw;
+    font-weight: bold;
+    // width: 93vw;
+    // height: 20vw;
+    // font-size: 6.4vw;
+    font-family: Graphik Web;
+    text-align: center;
+  }
 
-    .greyTwoText {
-        left: 0vw;
-        position: relative;
-        width: 100vw;
-        background-color: #EFEFF0;
-        // margin-top: -23vh;
-        margin-bottom: 5vw;
-    }
+  .greyTwoTextText {
+    left: 5vw;
+    position: relative;
+    margin: 1vw;
+    margin-top: 3vw;
+    margin-bottom: 100%;
+    float: left;
+    width: 90%;
+    height: 35vw;
+    font-size: 5vw;
+    line-height: 7.5vw;
+    font-family: Graphik Web;
+    text-align: center;
+  }
 
-    .greyTwoTextH1 {
-        position: relative;
-        float: left;
-        // margin: 1vw;
-        margin-top: 8vw;
-        margin-bottom: 0vw;
-        left: 5vw;
-        font-weight: bold;
-        // width: 93vw;
-        // height: 20vw;
-        // font-size: 6.4vw;
-        font-family: Graphik Web;
-        text-align: center;
-    }
+  .greyTwoClear {
+    clear: left;
+  }
 
-    .greyTwoTextText {
-        left: 5vw;
-        position: relative;
-        margin: 1vw;
-        margin-top: 3vw;
-        margin-bottom: 100%;
-        float: left;
-        width: 90%;
-        height: 35vw;
-        font-size: 5vw;
-        line-height: 7.5vw;
-        font-family: Graphik Web;
-        text-align: center;
-    }
+  .greenTwoText {
+    left: 0vw;
+    position: relative;
+    width: 100vw;
+    background-color: #2b583b;
+    // margin-top: -23vh;
+    margin-bottom: 5vw;
+  }
 
-    .greyTwoClear {
-        clear: left;
-    }
+  .greenTwoTextH1 {
+    position: relative;
+    float: left;
+    margin: 1vw;
+    margin-top: 16vw;
+    margin-bottom: 10vw;
+    left: 5vw;
+    font-weight: bold;
+    width: 93vw;
+    height: 20vw;
+    font-size: 6.4vw;
+    font-family: Graphik Web;
+    color: #ffffff;
+  }
 
+  .greenTwoTextText {
+    left: 5vw;
+    position: relative;
+    margin: 1vw;
+    margin-top: 3vw;
+    margin-bottom: 100%;
+    float: left;
+    width: 90%;
+    height: 35vw;
+    font-size: 5vw;
+    line-height: 7.5vw;
+    font-family: Graphik Web;
+    color: #ffffff;
+  }
 
+  .greenTwoClear {
+    clear: left;
+  }
 
-
-    .greenTwoText {
-        left: 0vw;
-        position: relative;
-        width: 100vw;
-        background-color: #2b583b;
-        // margin-top: -23vh;
-        margin-bottom: 5vw;
-    }
-
-    .greenTwoTextH1 {
-        position: relative;
-        float: left;
-        margin: 1vw;
-        margin-top: 16vw;
-        margin-bottom: 10vw;
-        left: 5vw;
-        font-weight: bold;
-        width: 93vw;
-        height: 20vw;
-        font-size: 6.4vw;
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-
-    .greenTwoTextText {
-        left: 5vw;
-        position: relative;
-        margin: 1vw;
-        margin-top: 3vw;
-        margin-bottom: 100%;
-        float: left;
-        width: 90%;
-        height: 35vw;
-        font-size: 5vw;
-        line-height: 7.5vw;
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-
-    .greenTwoClear {
-        clear: left;
-    }
-
-    .bottom {
-        top: unset;
-        bottom: -40vw;
-    }
-    .whiteText {
-        color:#ffffff!important;
-        background-color:#000000!important;
-    }
-
+  .bottom {
+    top: unset;
+    bottom: -40vw;
+  }
+  .whiteText {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+  }
 }

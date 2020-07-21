@@ -1,3 +1,5 @@
+@import '../../theme.scss';
+
 .LoadingArchivesDiv1 {
     display: flex;
     align-items: center;
@@ -11,7 +13,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 20px;
-    color: black;
+    color: $onyxblacktext;
 }
 
 .sk-cube-grid {
@@ -22,7 +24,7 @@
 .sk-cube-grid .sk-cube {
     width: 33%;
     height: 33%;
-    background-color: black;
+    background-color: $onyxblacktext;
     float: left;
     -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
             animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
@@ -150,7 +152,8 @@
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
-        @include two-line()
+        @include two-line();
+        color: $onyxblacktext;
     }
 
     .ArchiveItemSeriesTitle,
@@ -159,7 +162,8 @@
         width: $width;
         white-space: normal;
         font-family: Graphik Web;
-        @include one-line()
+        @include one-line();
+        color: $onyxblacktext;
     }
 
     .ArchiveItemImage2 {
@@ -185,7 +189,7 @@
     }
 
     .SelectByYearOption {
-        background: black;
+        background: $onyxblacktext;
         color: white;
         padding: 7px 16px;
         margin-right: 8px;
@@ -202,12 +206,12 @@
 
     .SelectedYearOption {
         background: white;
-        color: black;
+        color: $onyxblacktext;
         padding: 6px 15px;
         margin-right: 8px;
         margin-bottom: 4px;
         border-radius: 50px;
-        border: 1px black solid;
+        border: 1px $onyxblacktext solid;
         font-family: Graphik Web;
         font-weight: bold;
         cursor: pointer;
@@ -273,7 +277,8 @@
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
-        @include two-line()
+        @include two-line();    
+        color: $onyxblacktext;
     }
 
     .ArchiveItemSeriesTitle,
@@ -282,7 +287,8 @@
         width: $width;
         white-space: normal;
         font-family: Graphik Web;
-        @include one-line()
+        @include one-line();
+        color: $onyxblacktext;
     }
 
     .ArchiveItemImage2 {
@@ -308,7 +314,7 @@
     }
 
     .SelectByYearOption {
-        background: black;
+        background: $onyxblacktext;
         color: white;
         padding: 7px 16px;
         margin-right: 8px;
@@ -325,12 +331,12 @@
 
     .SelectedYearOption {
         background: white;
-        color: black;
+        color: $onyxblacktext;
         padding: 6px 15px;
         margin-right: 8px;
         margin-bottom: 4px;
         border-radius: 50px;
-        border: 1px black solid;
+        border: 1px $onyxblacktext solid;
         font-family: Graphik Web;
         font-weight: bold;
         cursor: pointer;
@@ -394,7 +400,8 @@
         font-weight: bold;
         white-space: normal;
         font-family: Graphik Web;
-        @include two-line()
+        @include two-line();
+        color: $onyxblacktext;
     }
 
     .ArchiveItemSeriesTitle,
@@ -403,7 +410,8 @@
         width: $width;
         white-space: normal;
         font-family: Graphik Web;
-        @include one-line()
+        @include one-line();
+        color: $onyxblacktext;
     }
 
     .ArchiveItemImage2 {
@@ -429,7 +437,7 @@
     }
 
     .SelectByYearOption {
-        background: black;
+        background: $onyxblacktext;
         color: white;
         padding: 7px 16px;
         margin-right: 8px;
@@ -446,12 +454,12 @@
 
     .SelectedYearOption {
         background: white;
-        color: black;
+        color: $onyxblacktext;
         padding: 6px 15px;
         margin-right: 8px;
         margin-bottom: 4px;
         border-radius: 50px;
-        border: 1px black solid;
+        border: 1px $onyxblacktext solid;
         font-family: Graphik Web;
         font-weight: bold;
         cursor: pointer;
