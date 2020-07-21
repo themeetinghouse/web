@@ -24,7 +24,7 @@ import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
-import ScaledImage, { fallbackToImage } from '../ScaledImage/ScaledImage';
+import ScaledImage, { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
