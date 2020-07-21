@@ -29,10 +29,16 @@ class Tags extends React.Component<Props, State> {
                     <meta property="og:description" content={this.state.content.description} />
                     <meta property="og:type" content="website" />
                     <meta property="fb:app_id" content="579712102531269" />
-
                     <meta property="og:image" content={imageUrl} />
                     <meta property="og:image:secure_url" content={imageUrl} />
                     <meta property="og:image:type" content="image/jpeg" />
+
+                    <meta property="twitter:title" content={this.state.content.title} />
+                    <meta property="twitter:creator" content="@TheMeetingHouse" />
+                    <meta property="twitter:image" content={imageUrl} />
+                    <meta property="twitter:description" content={this.state.content.description} />
+                    <meta property="twitter:url" content={this.state.content.url} />
+                    <meta property="twitter:card" content="summary" />
                 </Helmet>
             )
         } catch (e) {

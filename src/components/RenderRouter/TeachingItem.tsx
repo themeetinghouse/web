@@ -162,15 +162,15 @@ class TeachingItem extends React.Component<Props, State> {
         let duration = parseInt(length, 10)
         let hours = 0
         if (duration < 60) {
-          return length + 'm'
+            return length + 'm'
         }
         while (duration > 59) {
-          duration-=60
-          hours+=1
+            duration -= 60
+            hours += 1
         }
         return `${hours.toString()}h ${duration.toString()}m`
-      }
-    
+    }
+
     render() {
         // const [cookies, setCookie] = useCookies([this.props.content.group]);
         if (this.state.content.style === "hero") {
@@ -188,14 +188,21 @@ class TeachingItem extends React.Component<Props, State> {
                                 <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
                                 <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
                                 <meta property="og:image:type" content="image/jpeg" />
+
+                                <meta property="twitter:title" content="Teaching" />
+                                <meta property="twitter:creator" content="@TheMeetingHouse" />
+                                <meta property="twitter:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
+                                <meta property="twitter:description" content="" />
+                                <meta property="twitter:url" content={this.props.content.class === "teaching-kids-youth" ? "https://www.themeetinghouse.com/teaching-kids-youth" : this.props.content.class === "bbq" ? "https://www.themeetinghouse.com/teaching-curated" : "https://www.themeetinghouse.com/teaching"} />
+                                <meta property="twitter:card" content="summary" />
                             </Helmet>
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
                                 <div className="teaching-episode-title" >{this.state.listData[this.state.teachingId].episodeTitle}</div>
                                 <div className="teachingdiv teachingseriestitle" >
-                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "} 
-                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>  
+                                    {this.state.listData[this.state.teachingId].episodeNumber === null ? null : "E" + this.state.listData[this.state.teachingId].episodeNumber + ". "}
+                                    <span className="titleOnly" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }}>{this.state.listData[this.state.teachingId].seriesTitle}</span>
                                     {this.state.listData[this.state.teachingId].length ? ` • ${this.formatVideoDuration(this.state.listData[this.state.teachingId].length)}` : null}
                                 </div>
                                 <div className="teachingdiv teachingdescription" >{this.state.listData[this.state.teachingId].description}</div>

@@ -1,12 +1,11 @@
 import * as React from 'react';
 import * as Sentry from '@sentry/browser'
-
-interface Props { }
+import { EmptyProps } from '../../utils'
 interface State {
     error: any
 }
-export default class ErrorBoundary extends React.Component<Props, State>  {
-    constructor(props: Props) {
+export default class ErrorBoundary extends React.Component<EmptyProps, State>  {
+    constructor(props: EmptyProps) {
         super(props);
         this.state = { error: null };
     }
