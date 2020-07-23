@@ -16,6 +16,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-images/live.jpg",
+                "url": "https://www.themeetinghouse.com/live",
+                "title": "The Meeting House - Livestream",
+                "description": ""
+            },
+            {
                 "title": "Livestream",
                 "type": "liveVideoPlayer",
                 "liveYoutubeId": "THIS IS NOW SET FROM THE ADMIN INTERFACE",
