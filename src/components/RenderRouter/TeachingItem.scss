@@ -1,10 +1,12 @@
+@import '../../theme';
+
 @media (min-width: 768px) {
     .teachingButton {
         position: relative;
         font-family: Graphik Web !important;
         border-radius:0 !important;
         background-color:#ffffff !important;
-        color:#000000 !important;
+        color:$onyxblacktext !important;
         font-weight:bold!important;
         margin-right:2vw;
         font-size: 1vw;
@@ -12,7 +14,7 @@
 
     .titleOnly {
         border-bottom: solid 1px;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
         cursor: pointer;
     }
 
@@ -32,6 +34,7 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+        color:$onyxblacktext;
     }
 
     .teaching-blackbox {
@@ -42,7 +45,7 @@
         width: 50vw;
         top: 10vw;
         height: 42vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         color: #ffffff;
     }
 
@@ -94,9 +97,9 @@
     .TeachingSelected {
         font-family: Graphik Web;
         font-weight: bold;
-        color: black;
+        color: $onyxblacktext;
         font-size:1vw;
-        border-bottom: black solid;
+        border-bottom: $onyxblacktext solid;
         padding-bottom: 1px;
     }
 
@@ -145,7 +148,7 @@
         font-family: Graphik Web !important;
         border-radius:0 !important;
         background-color:#ffffff !important;
-        color:#000000 !important;
+        color:$onyxblacktext !important;
         font-weight:bold!important;
         margin-right:2vw;
     }
@@ -161,6 +164,7 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+        color:$onyxblacktext;
     }
 
     .teaching-blackbox {
@@ -171,7 +175,7 @@
         width: 50vw;
         top: 10vw;
         height: 42vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         color: #ffffff;
     }
 
@@ -223,9 +227,9 @@
     .TeachingSelected {
         font-family: Graphik Web;
         font-weight: bold;
-        color: black;
+        color: $onyxblacktext;
         font-size:1vw;
-        border-bottom: black solid;
+        border-bottom: $onyxblacktext solid;
         padding-bottom: 1px;
         cursor: pointer;
     }
@@ -267,11 +271,12 @@
         font-size: 3vw;
         font-weight: bold;
         font-family: Graphik Web;
+        color:$onyxblacktext;
     }
 
     .titleOnly {
         border-bottom: solid 1px;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
         cursor: pointer;
     }
 
@@ -281,7 +286,7 @@
         left: 0vw;
         width: 100vw;
         top: 16vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         color: #ffffff;
         padding-bottom: 30vw;
     }
@@ -339,8 +344,8 @@
         cursor: pointer;
         font-family: Graphik Web;
         font-weight: bold;
-        color: black;
-        border-bottom: black solid;
+        color: $onyxblacktext;
+        border-bottom: $onyxblacktext solid;
         padding-bottom: 1px;
     }
 
@@ -381,7 +386,7 @@
     .teachingButton {
       line-height: 5vw!important;
       background-color: #ffffff!important;
-      color: #000000!important;
+      color: $onyxblacktext!important;
       font-weight: 800!important;
       border-radius:0!important;
       margin-right:5vw;

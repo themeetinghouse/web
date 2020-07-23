@@ -1,4 +1,4 @@
-@import "../../custom.scss";
+@import "../../theme";
 
 .HomeChurchFormItemContainer {
       display: flex;
@@ -31,7 +31,7 @@
             height: 43px;
             padding: 0 10px;
             cursor: pointer;
-            color: $onyxblack;
+            color: $onyxblacktext;
             &:hover {
                   text-decoration: underline !important;
             }
@@ -65,16 +65,18 @@
       font-weight: 800;
       letter-spacing: -0.3px;
       margin-top: 15px;
+      color: $onyxblacktext;
 }
 .HomeChurchTimeOfDay {
       font-weight: 800;
       letter-spacing: -0.3px;
       margin-bottom: 15px;
+      color: $onyxblacktext;
 }
 
 .ContactLeadersButton {
       font-family: Graphik Web;
-      color: #000000 !important;
+      color: $onyxblacktext !important;
       background: #ffffff !important;
       border-width: 0px;
       border-radius: 0;
@@ -88,7 +90,7 @@
           border-width: 0px;
           border-radius: 0;
           background-color:#ffffff;
-          color:#000000;
+          color:$onyxblacktext;
           text-decoration: underline !important;
           font-weight:normal;
   
@@ -117,7 +119,7 @@
       }
       .react-add-to-calendar__button {
           font-family: Graphik Web;
-          color: #000000;
+          color: $onyxblacktext;
           border-width: 0px;
           border-radius: 0;
           font-size: 16px;
@@ -134,7 +136,7 @@
           z-index: 100;
           top: 48px;
           background: white;
-          border: 1px solid #000000;
+          border: 1px solid $onyxblacktext;
           padding: 10px 20px 0 20px;
           ul {
               list-style-type: none;
@@ -142,7 +144,7 @@
               font-family: Graphik Web;
               font-size: 14px;
               a {
-                  color: #000000 !important;
+                  color: $onyxblacktext !important;
                   vertical-align: middle;
               }
               li {
@@ -194,6 +196,7 @@
                 vertical-align: middle;
                 padding-left: 10px;
                 font-weight: 700;
+                color: $onyxblacktext;
             }
       }
         .LoadingItem {
@@ -210,6 +213,7 @@
               }
               .LoadingLocationLabel {
                   vertical-align: middle;
+                  color: $onyxblacktext;
               }
               .LoadingImage {
                     display: inline-block;
@@ -290,13 +294,15 @@
             font-size: 48px;
             font-family: Graphik Web;
             font-weight: bold;
+            color: $onyxblacktext;
         }
 
         .HomeChurchH3 {
             font-size: 24px;
             font-family: Graphik Web;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 15px;          
+            color: $onyxblacktext;
             cursor: pointer;
             &:hover {
                   text-decoration: underline;
@@ -398,11 +404,13 @@
             font-size: 24px;
             font-family: Graphik Web;
             font-weight: bold;
+            color: $onyxblacktext;
         }
 
         .HomeChurchH3 {
             font-size: 20px;
             font-family: Graphik Web;
+            color: $onyxblacktext;
         }
         .HomeChurchAddress,
         .HomeChurchDistances {
@@ -410,11 +418,13 @@
             font-family: Graphik Web;
         }
       .HomeChurchDayOfWeek {
-            font-size: 14px
+            font-size: 14px;
+            color: $onyxblacktext;
       }
       .HomeChurchTimeOfDay {
             font-size: 14px;
             margin-bottom: 10px;
+            color: $onyxblacktext;
       }    
       .ContactLeadersButton {
             font-size: 14px;      
@@ -486,6 +496,7 @@
             font-size: 24px;
             font-family: Graphik Web;
             font-weight: bold;
+            color: $onyxblacktext;
         }
 
         .HomeChurchH3 {
@@ -493,7 +504,7 @@
             font-family: Graphik Web;
             line-height: 8.55vw;
             font-weight: 800;
-            color: #000000;
+            color: $onyxblacktext;
         }
         .HomeChurchAddress,
         .HomeChurchDistances {

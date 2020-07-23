@@ -1,3 +1,5 @@
+@import '../../theme';
+
 @media (min-width: 768px) {
   .SimpleFormId {
     border: 0px;
@@ -46,7 +48,7 @@ ul.SimpleItemNumber {
     font-family: Graphik Web !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background-color: #000000 !important;
+    background-color: $onyxblacktext !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
   }
@@ -102,7 +104,7 @@ ul.SimpleItemNumber {
   }
   .SimpleItemOtherWayButton {
     font-family: Graphik Web;
-    background-color: #000000;
+    background-color: $onyxblacktext;
     color: #ffffff;
     border-width: 0px;
     margin: 0px;
@@ -113,7 +115,7 @@ ul.SimpleItemNumber {
 
   .SimpleItemOtherWayButton:hover {
     font-family: Graphik Web;
-    background-color: #000000;
+    background-color: $onyxblacktext;
     color: #0000ff;
     border-width: 0px;
     margin: 0px;
@@ -132,8 +134,8 @@ ul.SimpleItemNumber {
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: #000000;
-    color: #000000;
+    border-color: $onyxblacktext;
+    color: $onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -233,7 +235,7 @@ ul.SimpleItemNumber {
     font-family: Graphik Web !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background-color: #000000 !important;
+    background-color: $onyxblacktext !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
   }
@@ -290,8 +292,8 @@ ul.SimpleItemNumber {
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: #000000;
-    color: #000000;
+    border-color: $onyxblacktext;
+    color: $onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -393,7 +395,7 @@ ul.SimpleItemNumber {
     font-family: Graphik Web !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background-color: #000000 !important;
+    background-color: $onyxblacktext !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
   }
@@ -454,8 +456,8 @@ ul.SimpleItemNumber {
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: #000000;
-    color: #000000;
+    border-color: $onyxblacktext;
+    color: $onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -513,14 +515,14 @@ ul.SimpleItemNumber {
 
   .SimpleItemOtherWayButton {
     width: 100%;
-    color: #000000;
+    color: $onyxblacktext;
     background-color:#ffffff;
 
   }
   a.SimpleItemOtherWayButton {
     width: 100%;
     color: #ffffff;
-    background-color:#000000;
+    background-color:$onyxblacktext;
 
   }
   .SimpleItemBottom {

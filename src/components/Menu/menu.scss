@@ -1,3 +1,5 @@
+@import '../../theme';
+
 .navbar-brand,
 .navbar-nav {
     font-family: Graphik Web;
@@ -24,7 +26,7 @@
     .vertical-line {
         transition: 0.5s;
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         width: 2px;
         height: 12px;
         left: 50%;
@@ -36,7 +38,7 @@
     .horizontal-line {
         transition: 0.5s;
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         width: 12px;
         height: 2px;
         left: 50%;
@@ -70,7 +72,7 @@
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.8vw;
-        color:#000000;
+        color:$onyxblacktext;
         font-family: Graphik Web;
         font-weight:bold;
         font-size:2vw;
@@ -167,13 +169,13 @@
         margin-top: 0px;
         margin-bottom: 5px;
         padding: 0;
-        color: #000000;
+        color: $onyxblacktext;
         padding-bottom: 0vw;
     }
 
     .bigNav {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
         //line-height: 1.3vw;
         // font-weight: bold;
         font-size: 1.33vw;
@@ -254,7 +256,7 @@
     .vertical-line {
         transition: 0.5s;
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         width: 2px;
         height: 12px;
         left: 50%;
@@ -266,7 +268,7 @@
     .horizontal-line {
         transition: 0.5s;
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         width: 12px;
         height: 2px;
         left: 50%;
@@ -299,7 +301,7 @@
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.8vw;
-        color:#000000;
+        color:$onyxblacktext;
         font-family: Graphik Web;
         font-weight:bold;
         font-size:2vw;
@@ -337,7 +339,7 @@
     }
     .navbar a {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
 
 
         //line-height: 1.3vw;
@@ -350,12 +352,12 @@
         margin-top:0px;
         margin-bottom:5px;
         padding:0;
-        color: #000000;
+        color: $onyxblacktext;
         padding-bottom: 0vw;
     }
     .bigNav {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
         //line-height: 1.3vw;
         // font-weight: bold;
         font-size: 1.33vw;
@@ -424,7 +426,7 @@
     .vertical-line {
         transition: 0.5s;
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         width: 2px;
         height: 10px;
         left: 50%;
@@ -436,7 +438,7 @@
     .horizontal-line {
         transition: 0.5s;
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         width: 10px;
         height: 2px;
         left: 50%;
@@ -471,7 +473,7 @@
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.0vw;
-        color:#000000;
+        color:$onyxblacktext;
         font-family: Graphik Web;
         font-weight:bold;
         font-size:6vw;     
@@ -531,7 +533,7 @@
    }
     .navbar a {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
 
 
         //line-height: 1.3vw;
@@ -544,13 +546,13 @@
         margin-top:8px;
         margin-bottom:3px;
         padding:0;
-        color: #000000;
+        color: $onyxblacktext;
         padding-bottom: 0vw;
         margin:20px 15px 15px 65px;
     }
     .bigNav {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
         //line-height: 1.3vw;
         // font-weight: bold;
         font-size: 4.5vw;
@@ -577,7 +579,7 @@
     }
     .navbar-custom.white{
         position: fixed;
-        background:#000000 !important;
+        background:$onyxblacktext !important;
         left: 0;
         right: 0;
         width: 100vw;

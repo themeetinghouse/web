@@ -53,7 +53,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-kids",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Kids"
             },
@@ -62,7 +62,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-jrhigh",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Jr. High"
             },
@@ -71,7 +71,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-youth",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Youth"
             },
@@ -80,7 +80,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "ky-srhigh",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Sr. High"
             },
@@ -89,6 +89,7 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-kids",
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "All Kids Series"
             },
@@ -97,6 +98,7 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-jrhigh",
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "All Jr. High Series"
             },
@@ -105,6 +107,7 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-youth",
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "All Youth Series"
             },
@@ -113,6 +116,7 @@
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "ky-srhigh",
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "All Sr. High Series"
             },

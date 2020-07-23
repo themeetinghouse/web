@@ -67,7 +67,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "bbq",
-                "limit": 50,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "showEpisodeNumbers": false,
                 "header1": "Popular Questions About Christianity",

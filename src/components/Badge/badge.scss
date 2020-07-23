@@ -1,3 +1,5 @@
+@import '../../theme';
+
 .tmh-badge {
     background-color: #EFEFF0;
     border-radius: 200px;
@@ -6,6 +8,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 12px;
+    color: $onyxblacktext;
 }
 
 @media (min-width: 768px) {

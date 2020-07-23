@@ -1,12 +1,18 @@
+@import '../../theme';
+
 .GoContentItemA {
-    color: black;
-    border-bottom: 1px solid black;
+    color: $onyxblacktext;
+    border-bottom: 1px solid $onyxblacktext;
     padding-bottom: 1px;
 
     &:hover {
-        color: black;
+        color: $onyxblacktext;
         text-decoration: inherit;
     }
+}
+
+.GoContentText {
+    color: $onyxblacktext;
 }
 
 @media (min-width: 768px) {
@@ -21,27 +27,31 @@
         font-family:Graphik Web;
         font-size:2vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentH2{
         font-family:Graphik Web;
         font-size:5vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentSubH1{
         font-family:Graphik Web;
         font-size:1.5vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentSubH2{
         font-family:Graphik Web;
         font-size:4vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentButton{
         font-family:Graphik Web;
         font-weight:bold;
         color:#ffffff;
-        background-color:#000000;
+        background-color:$onyxblacktext;
         border-color:#ffffff;
         margin-top:5vw;
 
@@ -74,27 +84,31 @@
         font-family:Graphik Web;
         font-size:2vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentH2{
         font-family:Graphik Web;
         font-size:5vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentSubH1{
         font-family:Graphik Web;
         font-size:1.5vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentSubH2{
         font-family:Graphik Web;
         font-size:4vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentButton{
         font-family:Graphik Web;
         font-weight:bold;
         color:#ffffff;
-        background-color:#000000;
+        background-color:$onyxblacktext;
         border-color:#ffffff;
         margin-top:5vw;
 
@@ -128,28 +142,32 @@
         font-size: 6.4vw;
         line-height: 8.55vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentH2{
         font-family:Graphik Web;
         font-size: 16vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentSubH1{
         font-family:Graphik Web;
         font-size: 6.4vw;
         line-height: 8.55vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentSubH2{
         font-family:Graphik Web;
         font-size: 16vw;
         font-weight:bold;
+        color: $onyxblacktext;
     }
     .GoContentButton{
         font-family:Graphik Web;
         font-weight:bold;
         color:#ffffff;
-        background-color:#000000;
+        background-color:$onyxblacktext;
         border-color:#ffffff;
         width: 100%;
         margin-bottom: 2.5vw;

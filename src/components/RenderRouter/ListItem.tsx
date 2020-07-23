@@ -24,7 +24,7 @@ import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
-import ScaledImage, { fallbackToImage } from '../ScaledImage/ScaledImage';
+import ScaledImage, { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -78,14 +78,22 @@ class ListItem extends React.Component<Props, State> {
     });
     window.history.pushState({}, 'Videos', this.state.urlHistoryState);
   }
-  showYears(start: any, end: any) {
-    if (start === null || end === null)
+  showYears(start: string | null, end: string | null) {
+    const validStart = start && !isNaN(new Date(start).getFullYear())
+    const validEnd = end && !isNaN(new Date(end).getFullYear())
+    const isValid = validStart && validEnd
+
+    if (validStart && !validEnd)
+      return new Date(start as string).getFullYear() + ' • ';
+    if (!validStart && validEnd)
+      return new Date(end as string).getFullYear() + ' • ';
+    if (!isValid) {
+      console.error('startDate and endDate invalid')
       return null;
-    else
-      if (new Date(start).getFullYear() === new Date(end).getFullYear())
-        return new Date(start).getFullYear() + ' • ';
-      else
-        return new Date(start).getFullYear() + ' - ' + new Date(end).getFullYear() + ' • ';
+    }
+    if (new Date(start as string).getFullYear() === new Date(end as string).getFullYear())
+      return new Date(start as string).getFullYear() + ' • ';
+    return new Date(start as string).getFullYear() + ' - ' + new Date(end as string).getFullYear() + ' • ';
   }
   handleClick(data: any) {
     this.setState({
@@ -304,7 +312,7 @@ class ListItem extends React.Component<Props, State> {
         <img alt={item.blogTitle + ' series image'}
           className="BlogSquareImage"
           src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
-          onError={fallbackToImage('/static/NoCompassionLogo.png')}
+          onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
         />
         <div className="BlogContentContainer">
           <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
@@ -378,8 +386,8 @@ class ListItem extends React.Component<Props, State> {
     return (
       <div key={item.id ?? ''} onClick={() => { this.navigateUrlNewWindow('https://facebook.com/' + item.id) }} className="ListItemEvents" >
         <div style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}>
-          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
-          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold' }}>{start_date.getDate()}</div>
+          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
+          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.getDate()}</div>
         </div>
         <div style={{ margin: '10px' }}>
           <div className="ListItemEventsDescription" >{item.name}</div>
@@ -471,7 +479,7 @@ class ListItem extends React.Component<Props, State> {
           <img alt={item.title + ' series image'}
             className="ListItemImage2"
             src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-            onError={fallbackToImage('/static/NoCompassionLogo.png')}
+            onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
           />
           <div className="ListItemName" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>

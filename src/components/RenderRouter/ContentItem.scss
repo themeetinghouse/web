@@ -1,3 +1,5 @@
+@import '../../theme';
+
 @media (min-width: 768px) {
     /*
   make each pie piece a rectangle twice as high as it is wide.
@@ -332,6 +334,7 @@ transform:rotate(attr(data-value,deg,0);
         font-size: 1.2vw;
         font-family: Graphik Web;
         margin-bottom: 1.5vw;
+        color: $coolgray11;
     }
 
     .oneImageText.white {
@@ -347,8 +350,8 @@ transform:rotate(attr(data-value,deg,0);
     .oneImageA {
         font-size: 1.2vw;
         font-family: Graphik Web;
-        color: black;
-        border-bottom: 1px solid black;
+        color: $onyxblacktext;
+        border-bottom: 1px solid $onyxblacktext;
         padding-bottom: 1px;
 
         &:hover {
@@ -417,7 +420,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 40vw;
         left: 30vw;
         top: 0vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
     }
 
     .oneImageBlackBox.right {
@@ -428,7 +431,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 40vw;
         left: 0vw;
         top: 0vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
     }
     .oneImageGreenBox {
         padding: 10vw;
@@ -453,9 +456,23 @@ transform:rotate(attr(data-value,deg,0);
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .oneImageH1.white {
+        color: #ffffff;
+    }
+
+    .oneImageH2 {
+        font-size: 2vw;
+        font-weight: normal;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+        margin-top: 2vw !important;
+        margin-bottom: 2vw !important;
+    }
+
+    .oneImageH2.white {
         color: #ffffff;
     }
 
@@ -508,6 +525,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 20vw;
         font-size: 1.5vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .greyTwoTextText {
@@ -521,6 +539,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 20vw;
         font-size: 1.2vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .greyTwoTextJustText {
@@ -579,7 +598,7 @@ transform:rotate(attr(data-value,deg,0);
     .contentButton {
         margin-top: 1.5vw !important;
         color: #ffffff !important;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-radius: 0 !important;
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
@@ -591,10 +610,24 @@ transform:rotate(attr(data-value,deg,0);
 
 }
 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    
+    .oneImageAContainer {
+        margin-bottom: 0.2vw;
+        height: 2.2vw;
+    }
+
+    .oneImageA {
+        font-size: 1vw;
+    }
+
+}
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .oneImageText {
         font-size: 1.2vw;
         font-family: Graphik Web;
+        color: $coolgray11;
     }
     .oneImageEventDetails{
         font-family: Graphik Web;
@@ -610,8 +643,8 @@ transform:rotate(attr(data-value,deg,0);
     .oneImageA {
         font-size: 1.2vw;
         font-family: Graphik Web;
-        color: black;
-        border-bottom: 1px solid black;
+        color: $onyxblacktext;
+        border-bottom: 1px solid $onyxblacktext;
         padding-bottom: 1px;
 
         &:hover {
@@ -627,7 +660,7 @@ transform:rotate(attr(data-value,deg,0);
     }
 
     .oneImageAContainer {
-        margin-bottom: 0.5vw;
+        margin-bottom: 0.2vw;
     }
 
     .oneImageImage {
@@ -680,7 +713,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 40vw;
         left: 30vw;
         top: 0vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
     }
 
     .oneImageBlackBox.right {
@@ -691,7 +724,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 40vw;
         left: 0vw;
         top: 0vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
     }
     .oneImageGreenBox {
         padding: 10vw;
@@ -716,9 +749,23 @@ transform:rotate(attr(data-value,deg,0);
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .oneImageH1.white {
+        color: #ffffff;
+    }
+
+    .oneImageH2 {
+        font-size: 2vw;
+        font-weight: normal;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+        margin-top: 2vw !important;
+        margin-bottom: 2vw !important;
+    }
+
+    .oneImageH2.white {
         color: #ffffff;
     }
 
@@ -754,6 +801,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 20vw;
         font-size: 1.5vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .greyTwoTextText {
@@ -767,6 +815,7 @@ transform:rotate(attr(data-value,deg,0);
         height: 20vw;
         font-size: 1.2vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .greyTwoTextJustText {
@@ -822,7 +871,7 @@ transform:rotate(attr(data-value,deg,0);
     .contentButton {
         margin-top: 1.5vw !important;
         color: #ffffff !important;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-radius: 0 !important;
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
@@ -835,6 +884,7 @@ transform:rotate(attr(data-value,deg,0);
         font-size: 5vw;
         font-family: Graphik Web;
         line-height: 7.5vw;
+        color: $coolgray11;
     }
 
     .oneImageText.white {
@@ -844,12 +894,11 @@ transform:rotate(attr(data-value,deg,0);
     .oneImageA {
         font-size: 4vw;
         font-family: Graphik Web;
-        line-height: 7.5vw;
+        line-height: 5.5vw;
         margin-top: 8vw;
         display: inline-block;
-        color: black;
-        border-bottom: 1px solid black;
-
+        color: $onyxblacktext;
+        border-bottom: 1px solid $onyxblacktext;
         &:hover {
             color: inherit;
             text-decoration: inherit;
@@ -897,7 +946,7 @@ transform:rotate(attr(data-value,deg,0);
         padding-bottom:65vw;
         left: 0vw;
         top: 0vw;
-        background-color: #000000;
+        background-color: $onyxblacktext;
     }
     .oneImageGreenBox{
         // margin-top: 120vw;
@@ -917,6 +966,7 @@ transform:rotate(attr(data-value,deg,0);
         font-size: 10vw;
         font-family: Graphik Web;
         line-height: 12.5vw;
+        color: $onyxblacktext;
     }
     .oneImageEventDetails{
         font-family: Graphik Web;
@@ -926,6 +976,17 @@ transform:rotate(attr(data-value,deg,0);
         margin-bottom: 0.5vw;
     }
     .oneImageH1.white {
+        color: #ffffff;
+    }
+
+    .oneImageH2 {
+        font-size: 7.5vw;
+        font-weight: normal;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+    }
+
+    .oneImageH2.white {
         color: #ffffff;
     }
 
@@ -988,6 +1049,7 @@ transform:rotate(attr(data-value,deg,0);
       //  height: 20vw;
         font-size: 6.4vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .greyTwoTextText {
@@ -1003,6 +1065,7 @@ transform:rotate(attr(data-value,deg,0);
         font-size: 5vw;
         line-height: 7.5vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .greyTwoClear {
@@ -1058,7 +1121,7 @@ transform:rotate(attr(data-value,deg,0);
     .contentButton {
         margin-top: 5vw !important;
         color: #ffffff !important;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-radius: 0 !important;
         padding: 1rem 1.5rem !important;
         font-weight: 800 !important;

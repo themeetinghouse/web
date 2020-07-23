@@ -1,4 +1,4 @@
-@import "../../custom";
+@import "../../theme";
 
 @media (min-width: 768px) {
 .covidButton{
@@ -14,7 +14,7 @@
     padding-left:12.5vw!important;
      border:0!important;
      padding-right:12.5vw!important;
-     color:#000000!important;
+     color:$onyxblacktext!important;
 }
     .HeroAddToCalendarButtonContainer {
         position: relative;
@@ -51,7 +51,7 @@
             top: 48px;
             background: white;
 
-            border: 1px solid #000000;
+            border: 1px solid $onyxblacktext;
             padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
@@ -59,7 +59,7 @@
                 font-family: Graphik Web;
                 font-size: 1vw;
                 a {
-                    color: #000000 !important;
+                    color: $onyxblacktext !important;
                     vertical-align: middle;
                 }
                 li {
@@ -358,7 +358,7 @@
 
     .heroPartialBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 10vw;
         width: 36vw;
@@ -368,7 +368,7 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 20vw;
         width: 36vw;
@@ -378,7 +378,7 @@
 
     .heroButton {
         margin-top: 1.5vw !important;
-        color: #000000 !important;
+        color: $onyxblacktext !important;
         background-color: #ffffff !important;
         border-radius: 0 !important;
         padding: 1rem 1.5rem !important;
@@ -444,7 +444,7 @@
         padding-left: 1.5vw;
         color: #ffffff;
         font-weight: normal;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
@@ -455,7 +455,8 @@
     }
     .heroItemButton {
         margin-top: 1.5vw;
-        color: #000000; background-color: #ffffff;
+        color: $onyxblacktext; 
+        background-color: #ffffff;
         border-radius: 0;
     }
     .HeroItemButtonA {
@@ -467,7 +468,7 @@
         color: white;
         border-bottom: solid 1px white;
         padding-bottom: 1px;
-        font-size: 1.5vw;
+        font-size: 1.1vw;
 
         &:hover {
             color: white;
@@ -506,7 +507,7 @@
         padding-left:12.5vw!important;
          border:0!important;
          padding-right:12.5vw!important;
-         color:#000000!important;
+         color:$onyxblacktext!important;
     }
     .covidButton{
         position:absolute; 
@@ -546,7 +547,7 @@
             z-index: 100;
             top: 48px;
             background: white;
-            border: 1px solid #000000;
+            border: 1px solid $onyxblacktext;
             padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
@@ -554,7 +555,7 @@
                 font-family: Graphik Web;
                 font-size: 1vw;
                 a {
-                    color: #000000 !important;
+                    color: $onyxblacktext !important;
                     vertical-align: middle;
                 }
                 li {
@@ -855,7 +856,7 @@
 
     .heroPartialBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 10vw;
         width: 36vw;
@@ -865,7 +866,7 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 20vw;
         width: 36vw;
@@ -875,7 +876,7 @@
 
     .heroButton {
         margin-top: 1.5vw !important;
-        color: #000000 !important;
+        color: $onyxblacktext !important;
         background-color: #ffffff !important;
         border-radius: 0 !important;
         padding: 1rem 1.5rem !important;
@@ -940,7 +941,7 @@
         font-size: 1vw !important;
         margin-top: 1vw;
         color: #ffffff;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
@@ -951,7 +952,8 @@
     }
     .heroItemButton {
         margin-top: 1.5vw;
-        color: #000000; background-color: #ffffff;
+        color: $onyxblacktext; 
+        background-color: #ffffff;
         border-radius: 0;
     }
     .HeroItemButtonA {
@@ -963,7 +965,7 @@
         color: white;
         border-bottom: solid 1px white;
         padding-bottom: 1px;
-        font-size: 1.5vw;
+        font-size: 1.1vw;
 
         &:hover {
             color: white;
@@ -1012,7 +1014,7 @@
          width:70vw!important;
          left:0vw!important;
          right:10vw!important;
-         color:#000000!important;
+         color:$onyxblacktext!important;
     }
     .covidButton{
         position:absolute; 
@@ -1052,7 +1054,7 @@
             z-index: 100;
             top: 48px;
             background: white;
-            border: 1px solid #000000;
+            border: 1px solid $onyxblacktext;
             padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
@@ -1060,7 +1062,7 @@
                 font-family: Graphik Web;
                 font-size: 1vw;
                 a {
-                    color: #000000 !important;
+                    color: $onyxblacktext !important;
                     vertical-align: middle;
                 }
                 li {
@@ -1318,7 +1320,7 @@
 
     .heroBlackBox {
         // position: absolute;
-        background-color: rgba(0, 0, 0, 1);
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 0vw;
         width: 100vw;
@@ -1329,14 +1331,14 @@
     }
 
     .heroPartialBlackBox {
-        background-color: black;
+        background-color: $onyxblacktext;
         width: 100vw;
         padding: 10vw 6vw 10vw 6vw;
     }
 
     .heroButton {
         margin-top: 15vw !important;
-        color: #000000 !important;
+        color: $onyxblacktext !important;
         background-color: #ffffff !important;
         border-radius: 0 !important;
         padding: 1rem 1.5rem !important;
@@ -1404,7 +1406,7 @@
         font-weight: normal;
         margin-top: 10vw;
         color: #ffffff;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
@@ -1415,7 +1417,7 @@
     }
     .heroItemButton {
         margin-top: 1.5vw;
-        color: #000000; background-color: #ffffff;
+        color: $onyxblacktext; background-color: #ffffff;
         border-radius: 0;
     }
     .HeroItemButtonA {

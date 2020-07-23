@@ -40,7 +40,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "adult-sunday",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Recent Teaching Videos"
             },
@@ -101,7 +101,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "livestream-services",
-                "limit": 52,
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Sunday Livestream"
             }

@@ -1,48 +1,67 @@
 
 import React from 'react';
-import { GoogleApiWrapper } from 'google-maps-react';
-//import {ProviderProps} from 'google-maps-react';
-import { Marker } from 'google-maps-react';
-import { Map } from 'google-maps-react';
+import { GoogleApiWrapper, IProvidedProps, Marker, Map } from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import "./DistanceGroupItem.scss"
-import { Button } from 'react-bootstrap';
+import { DistanceGroupItemContent } from 'components/types';
 
-
-
-interface Props extends RouteComponentProps {
-  content: any,
-  google: any
-
+interface Props extends RouteComponentProps, IProvidedProps {
+  content: DistanceGroupItemContent;
 }
+
 interface State {
-  content: any,
-  selectedPlace: any,
-  listData: any
+  listData: DistanceGroup[];
 }
 
-export class ContentItem extends React.Component<Props, State>  {
+interface DistanceGroup {
+  howManyPeopleAreLeadingTheGroup: number;
+  l1FirstName: string;
+  l1LastName: string;
+  l1Email: string;
+  l2FirstName?: string;
+  l2LastName?: string;
+  l2Email?: string;
+  l3FirstName?: string;
+  l3LastName?: string;
+  l3Email?: string;
+  l4FirstName?: string;
+  l4LastName?: string;
+  l4Email?: string;
+
+  name: string;
+
+  location: {
+    city: string;
+    state: string;
+    country: string;
+    latitude: string;
+    longitude: string;
+  };
+  frequency: string;
+  dayofweek: string;
+  howManyPeopleAreAttendingYourDistanceGroup: string;
+  wouldYouLikeToAddAnySocialMediaInfoToYourDistanceGroupListing: string;
+  facebook: string;
+  facebookLink: string;
+}
+
+export class DistanceGroupItem extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props);
     console.log(props)
     this.state = {
-      content: props.content,
-      selectedPlace: null,
-      listData: null
-    }
+      listData: [],
+    };
     this.navigate = this.navigate.bind(this);
-    if (this.state.content.class === "home-church") {
 
-    }
-    else {
-      fetch('/static/data/distance-groups.json').then(function (response) {
+    fetch('/static/data/distance-groups.json')
+      .then(function (response): Promise<Array<DistanceGroup>> {
         return response.json();
       })
-        .then((myJson) => {
-          this.setState({ listData: myJson });
-        })
-    }
+      .then((myJson) => {
+        this.setState({ listData: myJson });
+      })
   }
   navigate(to: string) {
     this.props.history.push(to, "as")
@@ -51,67 +70,45 @@ export class ContentItem extends React.Component<Props, State>  {
 
   }
 
-  onMarkerClick() { }
-  onInfoWindowClose() { }
-
   render() {
-    let inititalCenter: any;
-    let initalZoom;
-    if (this.state.content.class === "home-church") {
-      inititalCenter = {
-        lat: 44,
-        lng: -78.0
-
-      }
-      initalZoom = 6
+    const inititalCenter = {
+      lat: 0,
+      lng: -0
     }
-    else {
-      inititalCenter = {
-        lat: 0,
-        lng: -0
-      }
-      initalZoom = 1
-    }
+    const initalZoom = 1
 
     return (
 
       <div className="ContentItem oneImage distancegroupitem1" >
         <div className="distancegroupitemdiv1" >
           <div  >
-            <h1  >{this.state.content.header1}</h1>
+            <h1  >{this.props.content.header1}</h1>
             <div className="distancegroupitemdiv2" >
-              <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} className="distancegroupmap" >
-                {this.state.listData != null ? this.state.listData.map((item: any, index: any) => {
-                  return (<Marker key={index} onClick={this.onMarkerClick}
-                    position={{ lat: item.location.latitude, lng: item.location.longitude }} />
-                  )
-                }) : null}
-              </Map>
+              <div className="distancegroupmap">
+                <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} >
+                  {this.state.listData.map((item, index) =>
+                    <Marker key={index}
+                      position={{
+                        lat: Number(item.location.latitude),
+                        lng: Number(item.location.longitude),
+                      }} />
+                  )}
+                </Map>
+              </div>
             </div>
             <div className="distancegroupitemdiv3" >
-              {this.state.listData != null ? this.state.listData.map((item: any) => {
-                if (this.state.content.class === "home-church") {
-                  return (
-                    <div >{item.name}
-                      <Button onClick={() => this.navigate(item.id)}>Site Page</Button>
-                    </div>
-                  )
-                }
-                else {
-                  return (
-                    <div className="distancegroupitemdiv4" >
-                      <h3>{item.name}</h3>
-                      <div>{item.dayofweek}/{item.frequency}</div>
-                      <div>Leaders: <a href={"mailto:" + item.l1Email}>{item.l1FirstName} {item.l1LastName} ({item.l1Email})</a></div>
-                      {item.l2Email != null ? <div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div> : null}
-                      {item.l3Email != null ? <div><a href={"mailto:" + item.l3Email}>{item.l3FirstName} {item.l3LastName} ({item.l3Email})</a></div> : null}
-                      {item.l4Email != null ? <div><a href={"mailto:" + item.l4Email}>{item.l4FirstName} {item.l4LastName} ({item.l4Email})</a></div> : null}
-                      {item.facebook != null ? <div ><a href={item.facebookLink} className="distancegroupitemA" ><img className="distancegroupitemImage" src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div> : null}
+              {this.state.listData.map((item, index) => (
+                <div key={index} className="distancegroupitemdiv4" >
+                  <h3>{item.name}</h3>
+                  <div>{item.dayofweek}/{item.frequency}</div>
+                  <div>Leaders: <a href={"mailto:" + item.l1Email}>{item.l1FirstName} {item.l1LastName} ({item.l1Email})</a></div>
+                  {item.l2Email ? <div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div> : null}
+                  {item.l3Email ? <div><a href={"mailto:" + item.l3Email}>{item.l3FirstName} {item.l3LastName} ({item.l3Email})</a></div> : null}
+                  {item.l4Email ? <div><a href={"mailto:" + item.l4Email}>{item.l4FirstName} {item.l4LastName} ({item.l4Email})</a></div> : null}
+                  {item.facebook ? <div ><a href={item.facebookLink} className="distancegroupitemA" ><img className="distancegroupitemImage" src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div> : null}
 
-                    </div>
-                  )
-                }
-              }) : null}
+                </div>
+              ))}
 
             </div>
           </div>
@@ -124,4 +121,4 @@ export class ContentItem extends React.Component<Props, State>  {
 
 export default GoogleApiWrapper({
   apiKey: ('AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0')
-})(withRouter(ContentItem))
+})(withRouter(DistanceGroupItem))

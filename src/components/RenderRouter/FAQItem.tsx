@@ -81,7 +81,7 @@ class ContentItem extends React.Component<Props, State>  {
   }
   render() {
     let image1: ItemImage | undefined;
-    if (this.state.content.image1 !== null) {
+    if (this.state.content.image1) {
       image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
     }
 
