@@ -88,11 +88,6 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Kitchener Pastoral Associate",
-                        "navigateTo": "/static/pdfs/careers/KIT Pastoral Associate 2020.pdf"
-                    },
-                    {
-                        "type":"link",
                         "title": "Newmarket Pastoral Associate",
                         "navigateTo": "/static/pdfs/careers/NMK Pastoral Associate 2020.pdf"
                     }
