@@ -594,6 +594,10 @@ type LiveMenu {
   link: String!
   linkType: String!
 }
+type ZoomItem {
+  title: String!
+  link: String!
+}
 type Livestream
  @model
  @auth(rules:[
@@ -612,6 +616,7 @@ type Livestream
   showChat: Boolean
   showKids: Boolean
   menu: [LiveMenu]
+  zoom: [ZoomItem]
   titles: [String]
   homepageLink: String
 }
