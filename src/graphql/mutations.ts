@@ -796,6 +796,10 @@ export const createLivestream = /* GraphQL */ `
         link
         linkType
       }
+      zoom {
+        title
+        link
+      }
       titles
       homepageLink
       createdAt
@@ -820,6 +824,10 @@ export const updateLivestream = /* GraphQL */ `
         link
         linkType
       }
+      zoom {
+        title
+        link
+      }
       titles
       homepageLink
       createdAt
@@ -843,6 +851,10 @@ export const deleteLivestream = /* GraphQL */ `
         title
         link
         linkType
+      }
+      zoom {
+        title
+        link
       }
       titles
       homepageLink
