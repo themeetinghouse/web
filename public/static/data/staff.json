@@ -64,15 +64,6 @@
     },
     {
        "Staff":true,
-        "FirstName": "Bec",
-        "LastName": "Thomson",
-        "Phone": "905.287.7000, ext. 860",
-        "Position": "Research Pastor",
-        "sites": ["Site Leadership","Pastoral"],
-        "Email": "rebecca.Thomson@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
         "FirstName": "Brad",
         "LastName": "Eager",
         "Phone": "905.287.7000, ext. 833",
