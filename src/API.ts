@@ -158,6 +158,7 @@ export type CreateLivestreamInput = {
   showChat?: boolean | null,
   showKids?: boolean | null,
   menu?: Array< LiveMenuInput | null > | null,
+  zoom?: Array< ZoomItemInput | null > | null,
   titles?: Array< string | null > | null,
   homepageLink?: string | null,
 };
@@ -166,6 +167,11 @@ export type LiveMenuInput = {
   title: string,
   link: string,
   linkType: string,
+};
+
+export type ZoomItemInput = {
+  title: string,
+  link: string,
 };
 
 export type UpdateLivestreamInput = {
@@ -179,6 +185,7 @@ export type UpdateLivestreamInput = {
   showChat?: boolean | null,
   showKids?: boolean | null,
   menu?: Array< LiveMenuInput | null > | null,
+  zoom?: Array< ZoomItemInput | null > | null,
   titles?: Array< string | null > | null,
   homepageLink?: string | null,
 };
@@ -1930,6 +1937,11 @@ export type CreateLivestreamMutation = {
       link: string,
       linkType: string,
     } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
+    } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
     createdAt: string,
@@ -1959,6 +1971,11 @@ export type UpdateLivestreamMutation = {
       link: string,
       linkType: string,
     } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
+    } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
     createdAt: string,
@@ -1987,6 +2004,11 @@ export type DeleteLivestreamMutation = {
       title: string,
       link: string,
       linkType: string,
+    } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
     } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
@@ -22896,6 +22918,11 @@ export type GetLivestreamQuery = {
       link: string,
       linkType: string,
     } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
+    } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
     createdAt: string,
@@ -22928,6 +22955,11 @@ export type ListLivestreamsQuery = {
         title: string,
         link: string,
         linkType: string,
+      } | null > | null,
+      zoom:  Array< {
+        __typename: "ZoomItem",
+        title: string,
+        link: string,
       } | null > | null,
       titles: Array< string | null > | null,
       homepageLink: string | null,
@@ -33649,6 +33681,11 @@ export type OnCreateLivestreamSubscription = {
       link: string,
       linkType: string,
     } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
+    } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
     createdAt: string,
@@ -33674,6 +33711,11 @@ export type OnUpdateLivestreamSubscription = {
       link: string,
       linkType: string,
     } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
+    } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
     createdAt: string,
@@ -33698,6 +33740,11 @@ export type OnDeleteLivestreamSubscription = {
       title: string,
       link: string,
       linkType: string,
+    } | null > | null,
+    zoom:  Array< {
+      __typename: "ZoomItem",
+      title: string,
+      link: string,
     } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,

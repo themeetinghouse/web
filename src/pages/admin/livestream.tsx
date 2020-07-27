@@ -57,7 +57,8 @@ const liveInit = {
     showChat: true,
     showKids: true,
     menu: menuInit,
-    homepageLink: 'Live'
+    homepageLink: 'Live',
+    zoom: []
 }
 
 interface LiveMenu {
@@ -65,6 +66,12 @@ interface LiveMenu {
     title: string;
     link: string;
     linkType: string;
+}
+
+interface ZoomItem {
+    [key: string]: any;
+    title: string;
+    link: string;
 }
 
 interface LiveObject {
@@ -80,6 +87,7 @@ interface LiveObject {
     showKids: boolean;
     menu: LiveMenu[];
     homepageLink: string;
+    zoom: ZoomItem[];
 }
 
 interface State {
@@ -333,7 +341,7 @@ class Index extends React.Component<EmptyProps, State> {
         }
     }
 
-    handleChange(field: string, data: string | boolean | LiveMenu[]): void {
+    handleChange(field: string, data: string | boolean | LiveMenu[] | ZoomItem[]): void {
         const temp = this.state.liveObject
         temp[field] = data;
         this.setState({ liveObject: temp })
@@ -346,6 +354,24 @@ class Index extends React.Component<EmptyProps, State> {
         const temp = this.state.liveObject
         temp.menu[index][field] = data;
         this.setState({ liveObject: temp })
+    }
+
+    handleZoomChange(index: number, field: string, data: string): void {
+        const temp = this.state.liveObject
+        temp.zoom[index][field] = data;
+        this.setState({ liveObject: temp })
+    }
+
+    deleteZoomItem(): void {
+        const temp = this.state.liveObject.zoom
+        temp.pop()
+        this.handleChange('zoom', temp)
+    }
+
+    addZoomItem(): void {
+        const temp = this.state.liveObject.zoom
+        temp.push({ title: '', link: '' })
+        this.handleChange('zoom', temp)
     }
 
     deleteMenuItem(): void {
@@ -397,10 +423,20 @@ class Index extends React.Component<EmptyProps, State> {
         )
     }
 
+    renderZoomEditor(zoomItem: ZoomItem, index: number) {
+        return (
+            <div key={index}>
+                <label>Zoom item {index + 1}</label>
+                <input className="menu-input" type="text" value={zoomItem.title} onChange={(e) => this.handleZoomChange(index, 'title', e.target.value)}></input>
+                <input className="menu-input" type="text" value={zoomItem.link} onChange={(e) => this.handleZoomChange(index, 'link', e.target.value)}></input>
+            </div>
+        )
+    }
+
     renderEditor() {
         return (
             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <form style={{ display: 'flex', flexDirection: 'row', width: 850 }} onSubmit={(e) => this.submit(e)}>
+                <form style={{ display: 'flex', flexDirection: 'row', width: '100vw' }} onSubmit={(e) => this.submit(e)}>
                     <div style={{ flex: 1 }}>
                         <label>Date <span style={{ color: 'red' }}>{this.state.notSundayWarning}</span></label><br />
                         <input className="livestream-input" type="date" required value={this.state.liveObject.date} onChange={(e) => this.handleChange('date', e.target.value)}></input>
@@ -428,11 +464,18 @@ class Index extends React.Component<EmptyProps, State> {
                     <div style={{ flex: 2 }}>
                         {this.state.liveObject.menu.map((item, index) => this.renderMenuEditor(item, index))}
                     </div>
+                    <div style={{ flex: 2 }}>
+                        {this.state.liveObject.zoom.map((item, index) => this.renderZoomEditor(item, index))}
+                    </div>
                 </form>
-                <button style={{ background: 'green', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.addMenuItem()}>+ menu item</button>
-                <button style={{ background: 'red', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteMenuItem()}>- menu item</button>
-                <button style={{ border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultMenu()) }>Default Menu</button>
-                <button style={{ background: 'grey', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultAfterPartyMenu()) }>After Party Menu</button>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <button style={{ background: 'green', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.addMenuItem()}>+ menu item</button>
+                    <button style={{ background: 'red', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteMenuItem()}>- menu item</button>
+                    <button style={{ border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultMenu())}>Default Menu</button>
+                    <button style={{ background: 'grey', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultAfterPartyMenu())}>After Party Menu</button>
+                    <button style={{ background: 'lightgreen', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.addZoomItem()}>+ zoom item</button>
+                    <button style={{ background: 'mediumvioletred', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteZoomItem()}>- zoom item</button>
+                </div>
             </div>
         )
     }
