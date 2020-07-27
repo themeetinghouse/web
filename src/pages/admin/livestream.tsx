@@ -110,7 +110,7 @@ class Index extends React.Component<EmptyProps, State> {
             livestreamList: [],
             liveObject: liveInit
         }
-        this.listLivestreams(null)
+        this.listLivestreams()
     }
 
     defaultAfterPartyMenu() {
@@ -163,19 +163,17 @@ class Index extends React.Component<EmptyProps, State> {
         ]
     }
 
-    async listLivestreams(nextToken: any): Promise<void> {
+    async listLivestreams(): Promise<void> {
         try {
             const listLivestreams: any = await API.graphql({
                 query: queries.listLivestreams,
-                variables: { nextToken: nextToken, limit: 200 },
+                variables: { limit: 52 },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             console.log({ "Success queries.listCustomPlaylist": listLivestreams })
             this.setState({
                 livestreamList: this.state.livestreamList.concat(listLivestreams.data.listLivestreams.items).sort((a: any, b: any) => this.sortByDate(a, b))
             })
-            if (listLivestreams.data.listLivestreams.nextToken != null)
-                this.listLivestreams(listLivestreams.data.listLivestreams.nextToken)
         } catch (e) {
             console.error(e)
         }

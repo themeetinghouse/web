@@ -415,7 +415,7 @@ export default class DataLoader {
       limit: 200,
     };
     const getBlogByBlogStatus = API.graphql(
-      graphqlOperation(queries.getBlogByBlogStatus, vars)
+      graphqlOperation(customQueries.getBlogByBlogStatus, vars)
     ) as Promise<GraphQLResult<GetBlogByBlogStatusQuery>>;
     try {
       const json = await getBlogByBlogStatus;
