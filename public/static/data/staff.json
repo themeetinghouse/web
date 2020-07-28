@@ -722,10 +722,10 @@
     {
        "Staff":true,
         "FirstName": "Zulema",
-        "LastName": "Smith",
+        "LastName": "Evans",
         "Phone": "905.287.7000, ext. 832",
         "Position": "Jesus Collective Project Manager",
         "sites": ["Site Leadership"],
-        "Email": "Zulema.Smith@themeetinghouse.com"
+        "Email": "Zulema.Evans@themeetinghouse.com"
     }
 ]
