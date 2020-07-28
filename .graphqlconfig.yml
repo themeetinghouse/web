@@ -3,6 +3,7 @@ projects:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.ts
+      - src/pages/admin/queries.ts
     excludes:
       - ./amplify/**
     extensions:

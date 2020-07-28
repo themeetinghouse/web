@@ -1,4 +1,4 @@
-export const listCustomPlaylists = `
+export const listCustomPlaylistsAdmin = `
 query ListCustomPlaylists(
   $filter: ModelCustomPlaylistFilterInput
   $limit: Int
@@ -13,7 +13,7 @@ query ListCustomPlaylists(
 }
 `;
 
-export const getVideo = `query GetVideo($id: ID!) {
+export const getVideoAdmin = `query GetVideo($id: ID!) {
     getVideo(id: $id) {
       id
       customPlaylistIDs
@@ -21,7 +21,7 @@ export const getVideo = `query GetVideo($id: ID!) {
   }
 `;
 
-export const getVideoByVideoType = `query GetVideoByVideoType(
+export const getVideoByVideoTypeAdmin = `query GetVideoByVideoType(
     $videoTypes: String
     $publishedDate: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection

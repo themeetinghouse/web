@@ -96,7 +96,7 @@ class Index extends React.Component<EmptyProps, State> {
     async listCustomPlaylists(nextToken: any): Promise<void> {
         try {
             const listCustomPlaylists: any = await API.graphql({
-                query: adminQueries.listCustomPlaylists,
+                query: adminQueries.listCustomPlaylistsAdmin,
                 variables: { nextToken: nextToken, limit: 200 },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
@@ -181,7 +181,7 @@ class Index extends React.Component<EmptyProps, State> {
             }
             else {
                 const getVideoByVideoType: any = API.graphql({
-                    query: adminQueries.getVideoByVideoType,
+                    query: adminQueries.getVideoByVideoTypeAdmin,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });
@@ -284,7 +284,7 @@ class Index extends React.Component<EmptyProps, State> {
 
         try {
             const json: any = await API.graphql({
-                query: adminQueries.getVideo,
+                query: adminQueries.getVideoAdmin,
                 variables: { id: video.id },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });
