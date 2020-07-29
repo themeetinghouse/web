@@ -107,13 +107,7 @@ class HeroItem extends React.Component<Props, State> {
         }
 
     }
-    navigateUrl(to: string) {
-        window.location.href = to;
-    }
 
-    navigateEmail(to: any) {
-        this.navigateUrl("mailto:" + to)
-    }
     imgUrl(size: any) {
         if (window.location.hostname === "localhost")
             return "https://localhost:3006"

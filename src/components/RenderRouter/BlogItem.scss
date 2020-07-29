@@ -1,24 +1,7 @@
 @import '../../theme.scss';
 
+.blog-item {
 @media (min-width: 768px) {
-    .blogButton {
-        position: relative;
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color: #ffffff !important;
-        color:$onyxblacktext !important;
-        font-weight:bold!important;
-        margin-right:2vw;
-        font-size: 16px;
-        height: 56px;
-        width: 133px;
-    }
-
-    .blogButton-icon {
-        padding-bottom: 2px;
-        padding-right: 18px;
-    }
-
     .blogdescription {
         padding-top: 2.2vw !important;
         width: 31vw;
@@ -166,40 +149,9 @@
         border-bottom: solid 1px #1A1A1A; 
         text-decoration: none !important;
     }
-    
-    .twoImageButton {
-        position: relative;
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color: #1A1A1A !important;
-        color:#ffffff !important;
-        font-weight:bold!important;
-        font-size: 1.1vw;
-        padding: 1.1vw 1.6vw;
-        height: 4vw;
-        margin-top: 3.3vw;
-    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .blogButton {
-        position: relative;
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color: #ffffff !important;
-        color:$onyxblacktext !important;
-        font-weight:bold!important;
-        margin-right:2vw;
-        font-size: 16px;
-        height: 56px;
-        width: 133px;
-    }
-
-    .blogButton-icon {
-        padding-bottom: 2px;
-        padding-right: 18px;
-    }
-
     .blogdescription {
         padding-top: 2.2vw !important;
         width: 31vw;
@@ -349,15 +301,6 @@
     }
     
     .twoImageButton {
-        position: relative;
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color: #1A1A1A !important;
-        color:#ffffff !important;
-        font-weight:bold!important;
-        font-size: 1.1vw;
-        padding: 1.1vw 1.6vw;
-        height: 4vw;
         margin-top: 3.3vw;
     }
 }
@@ -444,23 +387,6 @@
         padding-bottom: 11.2vw;
     }
 
-    .blogButton {
-      line-height: 5vw!important;
-      background-color: #ffffff!important;
-      color: $onyxblacktext!important;
-      font-weight: 800!important;
-      border-radius:0!important;
-      margin-right:5vw;
-      font-size: 4.5vw;
-      width: 40vw;
-      height: 15vw;
-    }
-
-    .blogButton-icon {
-        padding-bottom: 2px;
-        padding-right: 18px
-    }
-
     .blog.twoImage {
         height: auto;
         padding: 10vw 5vw 0vw;
@@ -527,15 +453,5 @@
         border-bottom: solid 1px #1A1A1A; 
         text-decoration: none !important;
     }
-    
-    .twoImageButton {
-        position: relative;
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color: #1A1A1A !important;
-        color:#ffffff !important;
-        font-weight:bold!important;
-        font-size: 4.26vw;
-        padding: 4.26vw 6.4vw;
-    }
+}
 }

@@ -1,26 +1,46 @@
 @import '../../theme';
+@import "../Link/Link";
+
+.teachingButton {
+    @include hollow-btn;
+
+    margin: 0;
+    margin-right: 2vw;
+
+    @media (min-width: 767px) {
+        margin: 0;
+        margin-right: 2vw;
+
+        font-size: 1.1vw;
+        padding: 1.1vw 1.6vw;
+        height: 4vw;
+    }
+
+    @media (max-width: 767px) {
+        margin: 0;
+        margin-right: 5vw;
+
+        font-size: 4.26vw;
+        line-height: 4.26vw;
+        padding: 4.26vw 6.4vw;
+    }
+}
+
+a.teachingButton {
+    margin-top: 0;
+}
+
+.teachingButton-icon {
+    padding-bottom: 2px;
+    padding-right: 18px;
+}
 
 @media (min-width: 768px) {
-    .teachingButton {
-        position: relative;
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color:#ffffff !important;
-        color:$onyxblacktext !important;
-        font-weight:bold!important;
-        margin-right:2vw;
-        font-size: 1vw;
-    }
 
     .titleOnly {
         border-bottom: solid 1px;
         padding-bottom: 1px;
         cursor: pointer;
-    }
-
-    .teachingButton-icon {
-        padding-bottom: 2px;
-        padding-right: 18px;
     }
 
     .teachingdescription {
@@ -144,20 +164,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .teachingButton {
-        font-family: Graphik Web !important;
-        border-radius:0 !important;
-        background-color:#ffffff !important;
-        color:$onyxblacktext !important;
-        font-weight:bold!important;
-        margin-right:2vw;
-    }
-
-    .teachingButton-icon {
-        padding-bottom: 1px;
-        padding-right: 18px
-    }
-
     .teaching-h1 {
         position: relative;
         top: 3vw;
@@ -381,22 +387,5 @@
         font-size: 4.3vw;
         line-height: 6.4vw;
         padding-bottom: 11.2vw;
-    }
-
-    .teachingButton {
-      line-height: 5vw!important;
-      background-color: #ffffff!important;
-      color: $onyxblacktext!important;
-      font-weight: 800!important;
-      border-radius:0!important;
-      margin-right:5vw;
-      font-size: 4.5vw;
-      width: 40vw;
-      height: 15vw;
-    }
-
-    .teachingButton-icon {
-        padding-bottom: 2px;
-        padding-right: 18px
     }
 }
