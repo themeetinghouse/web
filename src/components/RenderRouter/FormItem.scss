@@ -1,19 +1,17 @@
 @import '../../theme';
 
 @media (min-width: 768px) {
-
     .FormContainer {
-        height: 100vh;
+        text-align: center;
     }
 
     .FormItemH1 {
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
-        margin-top: 3vw;
-        text-align: left;
-        width: 40vw;
-        margin-left: 2.8125vw;
+        text-align: center;
+        margin-top: 3vw !important;
+        margin-bottom: 3vw !important;
     }
 
     .FormItemH1.white {
@@ -24,15 +22,6 @@
         color: $onyxblacktext;
     }
 
-    .FormContainer {
-        text-align: center;
-    }
-
-    .FormItem {
-        position: static;
-        display: inline-block;
-    }
-
     .FormItemText1 {
         font-size: 1.5vw;
         font-family: Graphik Web;
@@ -40,31 +29,25 @@
 
     .FormId {
         border: 0px;
-        width: 40vw;
-        height: 68vh;
+        width: 100vw;
+        height: calc(100vh - 9vw);
+        padding-bottom: 2vw;
     }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .FormId {
-        width: 72.5vw;
-    }
-
-    .FormItemH1 {
-        width: 60vw;
-        margin-left: 3vw;
-    }
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .FormContainer {
+        text-align: center;
+    }
+
     .FormItemH1 {
         font-weight: bold;
         font-size: 3vw;
         font-family: Graphik Web;
-        margin-top: 3vw;
+        text-align: center;
+        margin-top: 3vw !important;
+        margin-bottom: 3vw !important;
     }
-
 
     .FormItemH1.white {
         color: #ffffff;
@@ -74,15 +57,6 @@
         color: $onyxblacktext;
     }
 
-    .FormContainer {
-        text-align: center;
-    }
-
-    .FormItem {
-        position: static;
-        display: inline-block;
-    }
-
     .FormItemText1 {
         font-size: 1.5vw;
         font-family: Graphik Web;
@@ -90,26 +64,21 @@
 
     .FormId {
         border: 0px;
-        width: 60vw;
-        height: 75vh;
+        width: 100vw;
+        height: calc(100vh - 9vw);
+        padding-bottom: 2vw;
     }
 }
 
 @media (max-width: 767px) {
-
-    .FormContainer {
-        height: 100vh;
-        overflow: hidden !important;
-    }
-
     .FormItemH1 {
         font-weight: bold;
         font-size: 10vw;
         font-family: Graphik Web;
         line-height: 12.5vw;
         text-align: left;
+        margin-bottom: 0 !important;
     }
-
 
     .FormItemH1.white {
         color: #ffffff;
@@ -140,6 +109,6 @@
     .FormId {
         border: 0px;
         width: 100vw;
-        height: 50vh;
+        height: calc(100vh - 2*12.5vw - 25vw);
     }
 }
