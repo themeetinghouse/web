@@ -1,3 +1,37 @@
+export const getBlogByBlogStatus = /* GraphQL */ `
+  query GetBlogByBlogStatus(
+    $blogStatus: String
+    $publishedDate: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelBlogFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getBlogByBlogStatus(
+      blogStatus: $blogStatus
+      publishedDate: $publishedDate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        author
+        createdBy
+        createdDate
+        publishedDate
+        expirationDate
+        blogStatus
+        description
+        blogTitle
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 
 export const getSeries = `query GetSeries($id: ID!) {
   getSeries(id: $id) {
@@ -67,55 +101,6 @@ export const getSeries = `query GetSeries($id: ID!) {
         seriesTitle
         series {
           id
-          videos {
-            items {
-              id
-              createdBy
-              createdDate
-              speakers {
-                nextToken
-              }
-              episodeTitle
-              originalEpisodeTitle
-              episodeNumber
-              seriesTitle
-              series {
-                id
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-              }
-              publishedDate
-              recordedDate
-              description
-              referencedMedia
-              campaigns
-              bibleVerses
-              topics
-              qandeh
-              length
-              YoutubeIdent
-              Youtube {
-                id
-                kind
-                etag
-              }
-              videoTypes
-              notesURL
-              videoURL
-              audioURL
-            }
-            nextToken
-          }
-          seriesType
-          title
-          description
-          image
-          startDate
-          endDate
         }
         publishedDate
         recordedDate
@@ -128,70 +113,30 @@ export const getSeries = `query GetSeries($id: ID!) {
         length
         YoutubeIdent
         Youtube {
-          id
-          kind
-          etag
           snippet {
-            publishedAt
-            channelId
-            title
-            description
             thumbnails {
               default {
                 url
-                width
-                height
               }
               medium {
                 url
-                width
-                height
               }
               high {
                 url
-                width
-                height
               }
               standard {
                 url
-                width
-                height
               }
               maxres {
                 url
-                width
-                height
               }
             }
-            channelTitle
-            localized {
-              title
-              description
-            }
-          }
-          contentDetails {
-            videoId
-            videoPublishedAt
-            duration
-            dimension
-            definition
-            caption
-            licensedContent
-            projection
-          }
-          status {
-            uploadStatus
-            privacyStatus
-            license
-            embeddable
-            publicStatsViewable
           }
         }
         videoTypes
         notesURL
         videoURL
         audioURL
-
       }
       nextToken
     }
@@ -375,7 +320,6 @@ export const getVideo = `query GetVideo($id: ID!) {
             etag
             snippet {
               publishedAt
-              channelId
               title
               description
               channelTitle
@@ -548,7 +492,6 @@ export const getVideo = `query GetVideo($id: ID!) {
             etag
             snippet {
               publishedAt
-              channelId
               title
               description
               channelTitle
@@ -606,7 +549,6 @@ export const getVideo = `query GetVideo($id: ID!) {
       etag
       snippet {
         publishedAt
-        channelId
         title
         description
         thumbnails {
@@ -669,14 +611,6 @@ export const getVideo = `query GetVideo($id: ID!) {
 }
 `;
 
-export const getVideoCustomPlaylists = `query GetVideo($id: ID!) {
-  getVideo(id: $id) {
-    id
-    customPlaylistIDs
-  }
-}
-`;
-
 export const listVideos = `query ListVideos(
   $filter: ModelVideoFilterInput
   $limit: Int
@@ -716,7 +650,6 @@ export const listVideos = `query ListVideos(
         etag
         snippet {
           publishedAt
-          channelId
           title
           description
           thumbnails {
@@ -842,70 +775,30 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       viewCount
       YoutubeIdent
       Youtube {
-        id
-        kind
-        etag
         snippet {
-          publishedAt
-          channelId
-          title
-          description
           thumbnails {
             default {
               url
-              width
-              height
             }
             medium {
               url
-              width
-              height
             }
             high {
               url
-              width
-              height
             }
             standard {
               url
-              width
-              height
             }
             maxres {
               url
-              width
-              height
             }
           }
-          channelTitle
-          localized {
-            title
-            description
-          }
-        }
-        contentDetails {
-          videoId
-          videoPublishedAt
-          duration
-          dimension
-          definition
-          caption
-          licensedContent
-          projection
-        }
-        status {
-          uploadStatus
-          privacyStatus
-          license
-          embeddable
-          publicStatsViewable
         }
       }
       videoTypes
       notesURL
       videoURL
       audioURL
-
     }
     nextToken
   }
@@ -972,7 +865,6 @@ export const searchVideos = `query SearchVideos(
               etag
               snippet {
                 publishedAt
-                channelId
                 title
                 description
                 channelTitle
@@ -1064,7 +956,6 @@ export const searchVideos = `query SearchVideos(
               etag
               snippet {
                 publishedAt
-                channelId
                 title
                 description
                 channelTitle
@@ -1118,7 +1009,6 @@ export const searchVideos = `query SearchVideos(
         etag
         snippet {
           publishedAt
-          channelId
           title
           description
           thumbnails {
@@ -1224,7 +1114,6 @@ export const getCustomPlaylist = `
               etag
               snippet {
                 publishedAt
-                channelId
                 title
                 description
                 thumbnails {
