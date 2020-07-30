@@ -3,15 +3,14 @@
         "name": "sandbanks",
         "title": "The Meeting House - Sandbanks",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -24,7 +23,7 @@
             {
                 "type": "hero",
                 "style": "full",
-                "showCovid":true,
+                "showCovid": false,
                 "image1": [
                     {
                         "src": "/static/images/local-site-1-1.jpg",
@@ -42,30 +41,26 @@
                         "src": "/static/images/local-site-1-4.jpg",
                         "alt": "A large group of people hanging out together in an open concept living room for Home Church."
                     }
-
                 ],
                 "header1": "Sandbanks",
-
-                "button1Text":"Livestream",
-                "button1Action":"live",
+                "button1Text": "Livestream",
+                "button1Action": "live",
                 "text1": "Church Online Sundays @10:00am",
                 "text1a": "Sunday Service",
                 "text2a": "10:00 - 11:00 - Music & Teaching",
                 "text3a": "Includes full program for Infants to Grade 6",
                 "addToCalendar": false,
                 "contactPastor": true,
-                "class":"locations",
+                "class": "locations",
                 "filterField": "id",
                 "filterValue": "sandbanks"
             },
-           
             {
                 "type": "content",
                 "style": "greyTwoText",
-                "header1":"Extended Family Church",
-                "header2":"",
-                "text1":"In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
-            
+                "header1": "Extended Family Church",
+                "header2": "",
+                "text1": "In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
             },
             {
                 "type": "list",
@@ -73,7 +68,7 @@
                 "class": "staff",
                 "header1": "Our Team",
                 "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "SAND"
             },
             {
@@ -82,14 +77,15 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "facebookEvents": ["392241614911544"]
-
+                "facebookEvents": [
+                    "392241614911544"
+                ]
             },
             {
                 "type": "list",
                 "style": "grid",
                 "class": "instagram",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "sandbanks"
             },
             {
@@ -100,7 +96,7 @@
                 "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Out More",
                         "navigateTo": "/kids-and-youth"
                     }
@@ -149,7 +145,7 @@
                 "class": "compassion",
                 "header1": "Make a Difference",
                 "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "sandbanks"
             },
             {
