@@ -1,5 +1,15 @@
 @import '../../theme';
 
+@mixin link-underline {
+    text-decoration: none !important;
+    border-bottom: 1px solid $onyxblacktext;
+
+    &:hover {
+        color: inherit;
+
+    }
+}
+
 @media (min-width: 768px) {
     .ListItemEventButton {
         background-color: #ffffff00 !important;
@@ -267,8 +277,7 @@
         }
     }
 
-    .ListItemEpisodeNum,
-    .ListItemName {
+    .ListItemEpisodeNum {
         width: 20vw;
         font-weight: bold;
         white-space: normal;
@@ -282,9 +291,6 @@
 
     .ListItemSeriesTitle,
     .ListItemContact,
-    .ListItemPosition,
-    .ListItemEmail,
-    .ListItemPhone,
     .ListItemWebsite,
     .ListItemPublishedDate,
     .ListYearEpisode {
@@ -292,6 +298,32 @@
         white-space: normal;
         font-family: Graphik Web;
         color: $onyxblacktext;
+    }
+
+    .ListItemName {
+        width: 18vw;
+        font-weight: bold;
+        font-size: 1.1vw;
+        white-space: normal;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+    }
+
+    .ListItemEmail,
+    .ListItemPhone {
+        width: 18vw;
+        white-space: normal;
+        font-size: 1.1vw;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+    }
+
+    .ListItemPosition {
+        width: 18vw;
+        white-space: normal;
+        font-size: 1.1vw;
+        font-family: Graphik Web;
+        color: $coolgray11;
     }
 
     .ListItemWebsite {
@@ -305,21 +337,19 @@
 
     .ListItemEmailText {
         color: $onyxblacktext;
-        text-decoration: underline;
+        @include link-underline();
     }
 
-    .ListItemA {
+    .ListItemSocialLink {
+        display: inline-block;
+        width: 1.67vw;
+        height: 1.67vw;
+        margin-left: 1.67vw;
         color: #1A1A1A;
     }
 
     .ListItemFB {
         margin-right: 0.5vw;
-    }
-
-    .ListItemTwitter,
-    .ListItemInstagram {
-        margin-right: 0.5vw;
-        margin-left: 3vw;
     }
 
     .ListItemEvents {
@@ -566,6 +596,36 @@
         display: inline-block;
         margin-left: 2vw;
         width: 64vw;
+    }
+
+    $staffwidth: 38vw;
+
+    .StaffGridWrapper {
+        width: $staffwidth*2;
+        margin-right: 3vw;
+    }
+
+    .StaffGrid {
+        display: grid;
+        row-gap: 3vw;
+        grid-template-columns: repeat(2, $staffwidth);
+        grid-template-rows: repeat(3, 7.5vw);
+        margin-bottom: 4vw;
+    }
+
+    .StaffImage {
+        width: 7.5vw;
+        height: 7.5vw;
+        margin-right: 1.67vw;
+    }
+
+    .StaffContact {
+        margin-top: 0.5vw;
+    }
+
+    .StaffItem {
+        display: flex;
+        flex-direction: row;
     }
 }
 
@@ -879,21 +939,14 @@
 
     .ListItemEmailText {
         color: $onyxblacktext;
-        text-decoration: underline;
     }
 
-    .ListItemA {
+    .ListItemSocialLink {
         color: #1A1A1A;
     }
 
     .ListItemFB {
         margin-right: 0.5vw;
-    }
-
-    .ListItemTwitter,
-    .ListItemInstagram {
-        margin-right: 0.5vw;
-        margin-left: 3vw;
     }
 
     .ListItemEvents {
@@ -1241,6 +1294,74 @@
         opacity: 0.12;
     }
 
+    .ListItemText1 {
+        font-size: 2vw;
+    }
+
+    $staffwidth: 36vw;
+
+    .StaffGridWrapper {
+        width: $staffwidth*2;
+        margin-right: 6.5vw;
+    }
+
+    .StaffGrid {
+        display: grid;
+        row-gap: 3vw;
+        grid-template-columns: repeat(2, $staffwidth);
+        grid-template-rows: repeat(3, auto);
+        margin-bottom: 0;
+    }
+
+    .StaffImage {
+        width: 14vw;
+        height: 14vw;
+    }
+
+    .StaffItem {
+        display: block;
+    }
+
+    .ListItemName {
+        width: 30vw;
+        font-weight: bold;
+        font-size: 1.5vw;
+        white-space: normal;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+    }
+
+    .StaffContact {
+        margin-top: 0.5vw;
+        margin-bottom: 2vw;
+    }
+
+    .ListItemEmail,
+    .ListItemPhone {
+        width: 30vw;
+        white-space: normal;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+    }
+
+    .ListItemPosition {
+        width: 30vw;
+        white-space: normal;
+        font-size: 1.5vw;
+        font-family: Graphik Web;
+        color: $coolgray11;
+    }
+
+    .ListItemSocialLink {
+        display: inline-block;
+        width: 3vw;
+        height: 3vw;
+        margin-left: 0;
+        margin-right: 3vw;
+        color: #1A1A1A;
+    }
+
 }
 
 @media (max-width: 767px) {
@@ -1557,14 +1678,17 @@
         color: $onyxblacktext;
     }
 
+    .ListItemPosition { 
+        color: $coolgray11 !important;
+    }
+
     .ListItemWebsite {
         color: $onyxblacktext;
         text-decoration: underline;
     }
-
     .ListItemEmailText {
         color: $onyxblacktext;
-        text-decoration: underline;
+        @include link-underline();
     }
 
     .ListItemSeriesTitle,
@@ -1582,18 +1706,16 @@
       font-weight: 800;
     }
 
-    .ListItemA {
+    .ListItemSocialLink {
+        display: inline-block;
+        width: 6.4vw;
+        height: 6.4vw;
+        margin-right: 6vw;
         color: #1A1A1A;
     }
 
     .ListItemFB {
         margin-right: 0.5vw;
-    }
-
-    .ListItemTwitter,
-    .ListItemInstagram {
-        margin-right: 0.5vw;
-        margin-left: 3vw;
     }
 
     .ListItemEvents {
@@ -1836,6 +1958,16 @@
         display: inline-block;
         width: 86.5vw;
         padding-top: 6.4vw;
+    }
+
+    .StaffContact {
+        margin-top: 2vw;
+        margin-bottom: 6vw;
+    }
+
+    .StaffImage {
+        width: 28.8vw;
+        height: 28.8vw;
     }
 
 }

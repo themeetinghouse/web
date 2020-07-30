@@ -95,6 +95,8 @@ export interface StaffData {
   Position: string;
   sites: string[];
   Email: string;
+  instagram?: string;
+  twitter?: string;
 }
 
 export interface OverseerQuery extends DataLoaderQuery {
@@ -107,6 +109,8 @@ export interface OverseerData {
   Position: string;
   sites: string[];
 }
+
+export type PeopleData = StaffData | OverseerData
 
 export interface EventQuery extends DataLoaderQuery {
   class: 'events';

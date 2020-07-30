@@ -58,7 +58,7 @@
 
             {
                 "type": "list",
-                "style": "vertical",
+                "style": "staff",
                 "class": "staff",
                 "header1": "Our Team",
                 "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",

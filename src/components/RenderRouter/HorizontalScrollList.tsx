@@ -66,11 +66,15 @@ class HorizontalScrollList extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-
+        window.addEventListener('resize', () => { this.computePages() })
         if (this.scrollContainerElement && this.state.numPages === -1) {
             // This is the first time, so compute...
             this.computePages();
         }
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', () => { this.computePages() })
     }
 
     componentDidUpdate() {
