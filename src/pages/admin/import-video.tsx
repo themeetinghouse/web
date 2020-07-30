@@ -2,7 +2,7 @@ import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 //import * as customQueries from '../../graphql-custom/customQueries';
 
-import * as queries from '../../graphql/queries';
+import * as adminQueries from './queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 //{ API, graphqlOperation } 
@@ -96,7 +96,7 @@ class Index extends React.Component<EmptyProps, State> {
     async listCustomPlaylists(nextToken: any): Promise<void> {
         try {
             const listCustomPlaylists: any = await API.graphql({
-                query: queries.listCustomPlaylists,
+                query: adminQueries.listCustomPlaylistsAdmin,
                 variables: { nextToken: nextToken, limit: 200 },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
@@ -181,7 +181,7 @@ class Index extends React.Component<EmptyProps, State> {
             }
             else {
                 const getVideoByVideoType: any = API.graphql({
-                    query: customQueries.getVideoByVideoType,
+                    query: adminQueries.getVideoByVideoTypeAdmin,
                     variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200, videoTypes: this.state.selectedVideoType, publishedDate: { lt: "a" } },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 });
@@ -284,7 +284,7 @@ class Index extends React.Component<EmptyProps, State> {
 
         try {
             const json: any = await API.graphql({
-                query: customQueries.getVideoCustomPlaylists,
+                query: adminQueries.getVideoAdmin,
                 variables: { id: video.id },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
             });

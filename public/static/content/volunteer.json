@@ -25,11 +25,10 @@
             },
             {
                 "type": "form",
-                "header1": "Volunteer.",
+                "header1": "Volunteer",
                 "class":"formstack",
                 "style":"white",
-                "formId":"volunteer",
-                "height":"100vh"
+                "formId":"volunteer"
             }
         ]
     }

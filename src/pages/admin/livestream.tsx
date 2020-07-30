@@ -110,7 +110,7 @@ class Index extends React.Component<EmptyProps, State> {
             livestreamList: [],
             liveObject: liveInit
         }
-        this.listLivestreams(null)
+        this.listLivestreams()
     }
 
     defaultAfterPartyMenu() {
@@ -163,19 +163,17 @@ class Index extends React.Component<EmptyProps, State> {
         ]
     }
 
-    async listLivestreams(nextToken: any): Promise<void> {
+    async listLivestreams(): Promise<void> {
         try {
             const listLivestreams: any = await API.graphql({
                 query: queries.listLivestreams,
-                variables: { nextToken: nextToken, limit: 200 },
+                variables: { limit: 52 },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             console.log({ "Success queries.listCustomPlaylist": listLivestreams })
             this.setState({
                 livestreamList: this.state.livestreamList.concat(listLivestreams.data.listLivestreams.items).sort((a: any, b: any) => this.sortByDate(a, b))
             })
-            if (listLivestreams.data.listLivestreams.nextToken != null)
-                this.listLivestreams(listLivestreams.data.listLivestreams.nextToken)
         } catch (e) {
             console.error(e)
         }
@@ -242,6 +240,18 @@ class Index extends React.Component<EmptyProps, State> {
     validate(): boolean {
 
         let test = true;
+
+        this.state.liveObject.zoom.forEach(zoomItem => {
+            if (zoomItem.title === '') {
+                this.setState({ alert: 'error: zoom item titles cannot be empty' })
+                test = false
+            }
+
+            if (zoomItem.link === '') {
+                this.setState({ alert: `error: zoom item link cannot be empty` })
+                test = false
+            }
+        })
 
         this.state.liveObject.menu.forEach(menuItem => {
             if (menuItem.linkType === 'link' && menuItem.link === '') {
@@ -416,9 +426,9 @@ class Index extends React.Component<EmptyProps, State> {
         return (
             <div key={index}>
                 <label>Menu item {index + 1}</label>
-                <input className="menu-input" type="text" value={menuItem.title} onChange={(e) => this.handleMenuChange(index, 'title', e.target.value)}></input>
-                <input className="menu-input" type="text" value={menuItem.link} onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}></input>
-                <input className="menu-input" type="text" value={menuItem.linkType} onChange={(e) => this.handleMenuChange(index, 'linkType', e.target.value)}></input>
+                <input placeholder="title" className="menu-input" type="text" value={menuItem.title} onChange={(e) => this.handleMenuChange(index, 'title', e.target.value)}></input>
+                <input placeholder="url" className="menu-input" type="text" value={menuItem.link} onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}></input>
+                <input placeholder="link type" className="menu-input" type="text" value={menuItem.linkType} onChange={(e) => this.handleMenuChange(index, 'linkType', e.target.value)}></input>
             </div>
         )
     }
@@ -426,9 +436,9 @@ class Index extends React.Component<EmptyProps, State> {
     renderZoomEditor(zoomItem: ZoomItem, index: number) {
         return (
             <div key={index}>
-                <label>Zoom item {index + 1}</label>
-                <input className="menu-input" type="text" value={zoomItem.title} onChange={(e) => this.handleZoomChange(index, 'title', e.target.value)}></input>
-                <input className="menu-input" type="text" value={zoomItem.link} onChange={(e) => this.handleZoomChange(index, 'link', e.target.value)}></input>
+                <label>Zoom item {index + 1} [<span style={{ color: 'red' }} >{zoomItem.title.length}/30</span>]</label>
+                <input placeholder="title" maxLength={30} className="menu-input" type="text" value={zoomItem.title} onChange={(e) => this.handleZoomChange(index, 'title', e.target.value)}></input>
+                <input placeholder="url" className="menu-input" type="text" value={zoomItem.link} onChange={(e) => this.handleZoomChange(index, 'link', e.target.value)}></input>
             </div>
         )
     }
@@ -465,7 +475,7 @@ class Index extends React.Component<EmptyProps, State> {
                         {this.state.liveObject.menu.map((item, index) => this.renderMenuEditor(item, index))}
                     </div>
                     <div style={{ flex: 2 }}>
-                        {this.state.liveObject.zoom.map((item, index) => this.renderZoomEditor(item, index))}
+                        {this.state.liveObject.zoom ? this.state.liveObject.zoom.map((item, index) => this.renderZoomEditor(item, index)) : null}
                     </div>
                 </form>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -473,8 +483,8 @@ class Index extends React.Component<EmptyProps, State> {
                     <button style={{ background: 'red', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteMenuItem()}>- menu item</button>
                     <button style={{ border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultMenu())}>Default Menu</button>
                     <button style={{ background: 'grey', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.handleChange('menu', this.defaultAfterPartyMenu())}>After Party Menu</button>
-                    <button style={{ background: 'lightgreen', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.addZoomItem()}>+ zoom item</button>
-                    <button style={{ background: 'mediumvioletred', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteZoomItem()}>- zoom item</button>
+                    {this.state.liveObject.zoom ? <button style={{ background: 'lightgreen', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.addZoomItem()}>+ zoom item</button> : null}
+                    {this.state.liveObject.zoom ? <button style={{ background: 'mediumvioletred', border: 0, height: 50, fontSize: 12, padding: 5 }} onClick={() => this.deleteZoomItem()}>- zoom item</button> : null}
                 </div>
             </div>
         )

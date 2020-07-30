@@ -35,7 +35,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   shareButton() {
     return (
       <Dropdown>
-        <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share-white.svg" alt=""/>Share</Dropdown.Toggle>
+        <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share-white.svg" alt="" />Share</Dropdown.Toggle>
       </Dropdown>
     )
   }
@@ -44,7 +44,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     if (this.state.type === "blog") {
       return (
         <div className="blog-content">
-          <div>Below is a preview... To refresh, please toggle "Preview Your Work".</div>
+          <div>Below is a preview... To refresh, please toggle &quot;Preview Your Work&quot;</div>
           <h1 className="blog-h1" >{this.state.data.title}</h1>
           {this.state.data.author ? <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {format(this.state.data.publishDate, "yyyy-MM-dd")}</div> : null}
           <div className="ShareButtonDesktop">{this.shareButton()}</div>
@@ -54,7 +54,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     } else if (this.state.type === "notes") {
       return (
         <div className="blog-content">
-          <div>Below is a preview... To refresh, please toggle "Preview Your Work".</div>
+          <div>Below is a preview... To refresh, please toggle &quot;Preview Your Work&quot;</div>
           <h1 className="blog-h1" >{this.state.data.title}</h1>
           <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
         </div>

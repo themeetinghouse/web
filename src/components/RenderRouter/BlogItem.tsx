@@ -2,9 +2,8 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import PropTypes from "prop-types";
 import "./BlogItem.scss"
-import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import format from 'date-fns/format';
@@ -13,31 +12,39 @@ import { Helmet } from 'react-helmet';
 
 Amplify.configure(awsmobile);
 
+type BlogData = {
+    id: string;
+    author: string;
+    createdBy?: string;
+    createdDate?: string;
+    publishedDate: string;
+    expirationDate?: string;
+    blogStatus: string;
+    description: string;
+    blogTitle: string;
+    createdAt: string;
+    updatedAt?: string;
+}
+
 interface Props extends RouteComponentProps {
     content: any
 }
 interface State {
     content: any,
-    listData: any,
-    publishedOnly: any
+    listData: BlogData[],
+    publishedOnly: BlogData[],
 }
 class BlogItem extends React.Component<Props, State> {
 
-    static contextTypes = {
-        router: PropTypes.object,
-        history: PropTypes.object
-    }
-
-    constructor(props: Props, context: any) {
-        super(props, context);
-        console.log(context);
+    constructor(props: Props) {
+        super(props);
         this.state = {
             content: props.content,
-            listData: null,
-            publishedOnly: null
+            listData: [],
+            publishedOnly: [],
         }
         const getBlogByBlogStatus: any = API.graphql({
-            query: queries.getBlogByBlogStatus,
+            query: customQueries.getBlogByBlogStatus,
             variables: { blogStatus: this.state.content.status, sortDirection: this.state.content.sortOrder, limit: this.state.content.limit },
             authMode: GRAPHQL_AUTH_MODE.API_KEY
         });
@@ -71,7 +78,7 @@ class BlogItem extends React.Component<Props, State> {
         if (this.state.content.style === "hero") {
             console.log(this.props.content.class)
             return (
-                this.state.publishedOnly !== null ?
+                this.state.publishedOnly.length > 0 ?
                     <div className="blog" >
                         <Helmet>
                             <meta property="og:url" content="https://www.themeetinghouse.com/blog" />
@@ -118,10 +125,10 @@ class BlogItem extends React.Component<Props, State> {
         } else if (this.state.content.style === "twoImage") {
             console.log(this.props.content.class)
             return (
-                this.state.publishedOnly !== null ?
+                this.state.publishedOnly.length > 0 ?
                     <div className="blog twoImage" >
                         <h1 className="blog-h1 twoImage" >{this.props.content.header1}</h1>
-                        {this.state.publishedOnly.slice(0, 2).map((item: any, index: any) => {
+                        {this.state.publishedOnly.slice(0, 2).map((item, index) => {
                             return (
                                 <div key={index} className="BlogTwoImageItem">
                                     <img alt={item.id + " series image"}
@@ -151,6 +158,5 @@ class BlogItem extends React.Component<Props, State> {
         else return null
     }
 }
-
 
 export default withRouter(BlogItem)
