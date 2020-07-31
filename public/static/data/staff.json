@@ -103,7 +103,7 @@
         "FirstName": "Carrissa",
         "LastName": "Reffell",
         "Phone": "905.287.7000, ext. 7067",
-        "Position": "Events Admin & Associate (on leave)",
+        "Position": "Events Admin & Associate",
         "sites": ["Operations"],
         "Email": "Carrissa.Reffell@themeetinghouse.com"
     },
@@ -121,7 +121,7 @@
         "FirstName": "Chris",
         "LastName": "van Dijk",
         "Phone": "905.287.7000, ext. 847",
-        "Position": "Video Production Manager",
+        "Position": "Creative Manager",
         "sites": ["Communications"],
         "Email": "Chris.vanDijk@themeetinghouse.com"
     },
@@ -139,7 +139,7 @@
         "FirstName": "Christine",
         "LastName": "Gratton",
         "Phone": "905.287.7000, ext. 806",
-        "Position": "Communications Manager",
+        "Position": "Communications Manager (maternity leave)",
         "sites": ["Communications"],
         "Email": "Christine.Gratton@themeetinghouse.com"
     },
@@ -262,15 +262,6 @@
     },
     {
        "Staff":true,
-        "FirstName": "Jenny",
-        "LastName": "Nasmith Yandt",
-        "Phone": "905.287.7000, ext. 866",
-        "Position": "Ministry Support Associate",
-        "sites": ["OTTA"],
-        "Email": "Jenny.NasmithYandt@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
         "FirstName": "Jimmy",
         "LastName": "Rushton",
         "Phone": "905.287.7000, ext. 862",
@@ -310,7 +301,7 @@
         "FirstName": "Juanita",
         "LastName": "Broadbent",
         "Phone": "905.287.7000, ext. 834",
-        "Position": "Site Support Manager & Compassion Manager",
+        "Position": "Site Support Manager",
         "sites": ["Operations"],
         "Email": "Juanita.Broadbent@themeetinghouse.com"
     },
@@ -322,15 +313,6 @@
         "Position": "Finance Manager",
         "sites": ["Operations"],
         "Email": "Judy.Maranta@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
-        "FirstName": "Julie",
-        "LastName": "Pickett",
-        "Phone": "905.287.7000, ext. 7067",
-        "Position": "Events and Rentals Associate (on leave)",
-        "sites": ["Operations"],
-        "Email": "Julie@themeetinghouse.com"
     },
     {
        "Staff":true,
@@ -436,7 +418,7 @@
         "FirstName": "Lisa",
         "LastName": "Goetze",
         "Phone": "905.287.7000, ext. 819",
-        "Position": "Oakville Associate Pastor",
+        "Position": "Oakville Pastor",
         "sites": ["OAKV","Pastoral"],
         "Email": "Lisa.Goetze@themeetinghouse.com"
     },
@@ -454,7 +436,7 @@
         "FirstName": "Lucas",
         "LastName": "Belem",
         "Phone": "905.287.7000, ext. 821",
-        "Position": "Communications Project Coordinator & Administrator",
+        "Position": "Communications Project Manager",
         "sites": ["Communications"],
         "Email": "Lucas.Belem@themeetinghouse.com"
     },
@@ -490,7 +472,7 @@
         "FirstName": "Mark",
         "LastName": "Wall",
         "Phone": "905.287.7000, ext. 850",
-        "Position": "Discipleship Pastor & Kitchener Interim Lead Pastor",
+        "Position": "Leadership Pastor",
         "sites": ["Site Leadership", "KIT","Pastoral"],
         "Email": "Mark.Wall@themeetinghouse.com"
     },
@@ -544,7 +526,7 @@
         "FirstName": "Mike",
         "LastName": "Slack",
         "Phone": "905.287.7000, ext. 831",
-        "Position": "Oakville Associate Pastor",
+        "Position": "Oakville Pastor",
         "sites": ["OAKV","Pastoral"],
         "Email": "Mike.Slack@themeetinghouse.com"
     },
@@ -571,7 +553,7 @@
         "FirstName": "Natalie",
         "LastName": "Frisk",
         "Phone": "905.287.7000, ext. 826",
-        "Position": "Curriculum Pastor & Brantford Interim Lead Pastor",
+        "Position": "Curriculum Pastor & Brantford Lead Pastor",
         "sites": ["Communications","Pastoral","Children", "BRFD"],
         "Email": "Natalie.Frisk@themeetinghouse.com"
     },
@@ -607,19 +589,10 @@
         "FirstName": "Quincy",
         "LastName": "Bergman",
         "Phone": "905.287.7000, ext. 828",
-        "Position": "Oakville Associate Pastor",
+        "Position": "Oakville Pastor",
         "sites": ["OAKV","Pastoral"],
         "Email": "Quincy.Bergman@themeetinghouse.com"
     },
-    {
-        "Staff":true,
-         "FirstName": "Rachel",
-         "LastName": "Cuthill",
-         "Phone": "905.287.7000",
-         "Position": "Ministry Associate",
-         "sites": ["HMDT"],
-         "Email": "Rachel.Cuthill@themeetinghouse.com"
-     },
     {
        "Staff":true,
         "FirstName": "Rachel",
@@ -634,7 +607,7 @@
         "FirstName": "Rentia",
         "LastName": "van der Bijl",
         "Phone": "905.287.7000",
-        "Position": "Video Producer",
+        "Position": "Video Production Manager",
         "sites": ["Communications"],
         "Email": "Rentia.van der Bijl@themeetinghouse.com"
     },
@@ -688,7 +661,7 @@
         "FirstName": "Sarah",
         "LastName": "Wills",
         "Phone": "905.287.7000, ext. 7090",
-        "Position": "Payroll Coordinator/Operations Assistant",
+        "Position": "Payroll Coordinator",
         "sites": ["Operations"],
         "Email": "Sarah.Wills@themeetinghouse.com"
     },
@@ -697,7 +670,7 @@
         "FirstName": "Simon",
         "LastName": "Downey",
         "Phone": "905.287.7000, ext. 845",
-        "Position": "Newmarket Lead Pastor",
+        "Position": "Leadership Pastor",
         "sites": ["NMKT","Pastoral"],
         "Email": "Simon.Downey@themeetinghouse.com"
     },
