@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
+  PeopleData,
   StaffData,
   OverseerData,
   EventData,
@@ -46,6 +47,7 @@ interface State {
   overlayData: any;
   showChampion: any;
   showMoreVideos: boolean;
+  windowWidth: number;
 }
 
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
@@ -55,12 +57,13 @@ type SeriesData2 = SeriesData | string | null;
 type ListData =
   | SpeakerData
   | VideoData
-  | StaffData
+  | PeopleData
   | OverseerData
   | EventData
   | CompassionData
   | SeriesByTypeData
-  | BlogData;
+  | BlogData
+  | PeopleData[];
 
 const hideEpisodeNumbers = [
   'adult-sunday-shortcut',
@@ -113,7 +116,8 @@ class ListItem extends React.Component<Props, State> {
       content: props.content,
       listData: props.content.list ?? [],
       overlayData: null,
-      showMoreVideos: false
+      showMoreVideos: false,
+      windowWidth: window.innerWidth
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -126,6 +130,9 @@ class ListItem extends React.Component<Props, State> {
   }
 
   async componentDidMount() {
+
+    window.addEventListener('resize', () => { this.setState({ windowWidth: window.innerWidth }) })
+
     const dataLoaded = (data: ListData[]) => this.setData(data);
     const checkNext = () => null;
     let data: ListData[];
@@ -189,6 +196,10 @@ class ListItem extends React.Component<Props, State> {
         return;
     }
     this.setData(data);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', () => { this.setState({ windowWidth: window.innerWidth }) })
   }
 
   setData(data: any) {
@@ -317,23 +328,57 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  renderOverseer(item: OverseerData, index: number): JSX.Element {
-    const image = {
-      src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
-      alt: `${item.FirstName} ${item.LastName}`,
+  renderOverseer(items: OverseerData | OverseerData[], index: number): JSX.Element {
+    const isMobile = this.state.windowWidth < 768;
+    if (isMobile) {
+      const item = items as OverseerData;
+      const image = {
+        src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
+        alt: `${item.FirstName} ${item.LastName}`,
+      }
+      return (
+        <div key={index} className="ListItemDiv3">
+          <ScaledImage image={image} className="StaffImage" fallbackUrl="/static/Individual.png" breakpointSizes={{
+            320: 80,
+            480: 120,
+            640: 180,
+            1280: 320,
+            1920: 480,
+            2560: 640,
+          }} />
+          <div className="ListItemName">{item.FirstName} {item.LastName}</div>
+          <div className="ListItemPosition">{item.Position}</div>
+        </div>
+      );
     }
+
     return (
-      <div key={index} className="ListItemDiv3">
-        <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/Individual.png" breakpointSizes={{
-          320: 80,
-          480: 120,
-          640: 180,
-          1280: 320,
-          1920: 480,
-          2560: 640,
-        }} />
-        <div className="ListItemName">{item.FirstName} {item.LastName}</div>
-        <div className="ListItemPosition">{item.Position}</div>
+      <div key={index} className="StaffGridWrapper">
+        <div className="StaffGrid">
+          {(items as OverseerData[]).map((item, index: number) => {
+            const image = {
+              src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
+              alt: `${item.FirstName} ${item.LastName}`,
+            }
+            return (
+              <div key={index} className="StaffItem">
+                <ScaledImage image={image} className="StaffImage" fallbackUrl="/static/Individual.png"
+                  breakpointSizes={{
+                    320: 80,
+                    480: 120,
+                    640: 180,
+                    1280: 320,
+                    1920: 480,
+                    2560: 640,
+                  }} />
+                <div className="StaffInfo">
+                  <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+                  <div className="ListItemPosition" >{item.Position}</div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     );
   }
@@ -389,41 +434,76 @@ class ListItem extends React.Component<Props, State> {
   easterEgg() {
     this.setState({ showChampion: true });
   }
-  renderStaff(item: any, index: any) {
-    const imgsrc = '/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg';
-    return (
-      <div key={index} className="ListItemDiv3" >
-        {item.FirstName === 'James' ? <div>
-          <Konami action={() => { this.easterEgg() }}></Konami>
-          {this.state.showChampion ?
-            (<div><Fireworks style={{ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
-              <img alt={item.photoAlt} className="ListItemImage2" style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
-                onError={fallbackToImage('/static/Individual.png')}
-                src={'/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg'} />
-              <h1 style={{ color: '#ffffff', fontSize: 100, position: 'fixed', width: '80%', height: '20%', left: '10%', top: '70%', zIndex: 200006, }}>Young Adults Champion</h1></div>)
-            : null}
+  renderStaff(items: StaffData | StaffData[], index: number) {
+    const isMobile = this.state.windowWidth < 768;
+    if (isMobile) {
+      const data = items as StaffData
+      const imgsrc = '/static/photos/' + (data.Staff == null ? 'coordinators' : 'staff') + '/' + (data.Staff == null ? data.sites[0] + '_' : '') + data.FirstName + '_' + data.LastName + '_app.jpg';
+      return (
+        <div key={index} className="ListItemDiv3" >
+          {data.FirstName === 'James' ? <div>
+            <Konami action={() => { this.easterEgg() }}></Konami>
+            {this.state.showChampion ?
+              (<div><Fireworks style={{ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
+                <img alt={data.FirstName + ' ' + data.LastName} className="ListItemImage2" style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
+                  onError={fallbackToImage('/static/Individual.png')}
+                  src={'/static/photos/' + (data.Staff == null ? 'coordinators' : 'staff') + '/' + (data.Staff == null ? data.sites[0] + '_' : '') + data.FirstName + '_' + data.LastName + '_app.jpg'} />
+                <h1 style={{ color: '#ffffff', fontSize: 100, position: 'fixed', width: '80%', height: '20%', left: '10%', top: '70%', zIndex: 200006, }}>Young Adults Champion</h1></div>)
+              : null}
+          </div>
+            : null
+          }
+          <ScaledImage image={{ src: imgsrc, alt: data.FirstName + ' ' + data.LastName }} className="StaffImage" fallbackUrl="/static/Individual.png"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }} />
+          <div className="ListItemName" >{data.FirstName} {data.LastName}</div>
+          <div className="ListItemPosition" >{data.Position}</div>
+          <div className="StaffContact">
+            {data.Email ? <div className="ListItemEmail"><a className="ListItemEmailText" href={'mailto:' + data.Email}>Email</a></div> : null}
+            {data.Phone ? <div className="ListItemPhone"><a className="ListItemEmailText" href={'tel:' + data.Phone.split(',')[0]}>{data.Phone.split(',')[0]}</a> {data.Phone.split(',')[1]}</div> : null}
+          </div>
+          {data.instagram != null ? <a href={'https://twitter.com/' + data.instagram} className="ListItemSocialLink" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
+          {data.twitter != null ? <a href={'https://www.instagram.com//' + data.twitter} className="ListItemSocialLink" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
         </div>
-          : null
-        }
+      );
+    }
 
-        <ScaledImage image={{ src: imgsrc, alt: item.photoAlt }} className="ListItemImage2" fallbackUrl="/static/Individual.png"
-          breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }} />
-
-        <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-        <div className="ListItemPosition" >{item.Position}</div>
-        {item.Email != null ? <div className="ListItemEmail"><a className="ListItemEmailText" href={'mailto:' + item.Email}>Email</a></div> : null}
-        {item.Phone != null ? <div className="ListItemPhone">{item.Phone}</div> : null}
-        {item.facebook != null ? <a href={'https://www.facebook.com/' + item.facebook} className="ListItemA" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a> : null}
-        {item.instagram != null ? <a href={'https://twitter.com/' + item.instagram} className="ListItemA" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
-        {item.twitter != null ? <a href={'https://www.instagram.com//' + item.twitter} className="ListItemA" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
-
+    return (
+      <div key={index} className="StaffGridWrapper">
+        <div className="StaffGrid">
+          {(items as StaffData[]).map((item: any, index: number) => {
+            const imgsrc = '/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg';
+            return (
+              <div key={index} className="StaffItem">
+                <ScaledImage image={{ src: imgsrc, alt: item.photoAlt }} className="StaffImage" fallbackUrl="/static/Individual.png"
+                  breakpointSizes={{
+                    320: 80,
+                    480: 120,
+                    640: 180,
+                    1280: 320,
+                    1920: 480,
+                    2560: 640,
+                  }} />
+                <div className="StaffInfo">
+                  <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
+                  <div className="ListItemPosition" >{item.Position}</div>
+                  <div className="StaffContact">
+                    {item.Email ? <div className="ListItemEmail"><a className="ListItemEmailText" href={'mailto:' + item.Email}>{item.Email.toLowerCase()}</a></div> : null}
+                    {item.Phone ? <div className="ListItemPhone"><a className="ListItemEmailText" href={'tel:' + item.Phone.split(',')[0]}>{item.Phone.split(',')[0]}</a> {item.Phone.split(',')[1]}</div> : null}
+                  </div>
+                </div>
+                {item.instagram ? <a href={'https://twitter.com/' + item.twitter} className="ListItemSocialLink" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
+                {item.twitter ? <a href={'https://www.instagram.com/' + item.instagram} className="ListItemSocialLink" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
+              </div>
+            )
+          })}
+        </div>
       </div>
     );
   }
@@ -435,12 +515,9 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemEventsDescription2" >{item.description}</div>
         <div>{item.location}</div>
         {item.website != null ? (<div className="ListItemWebsiteContainer"><a className="ListItemWebsite" href={item.website}>Website</a></div>) : null}
-        {item.facebook != null ? (<a href={'https://www.facebook.com/' + item.facebook} className="ListItemA" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
-        {item.twitter != null ? (<a href={'https://twitter.com/' + item.twitter} className="ListItemA"><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
-        {item.instagram != null ? (<a href={'https://www.instagram.com//' + item.instagram} className="ListItemA" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
-
-
-
+        {item.facebook != null ? (<a href={'https://www.facebook.com/' + item.facebook} className="ListItemSocialLink" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
+        {item.twitter != null ? (<a href={'https://twitter.com/' + item.twitter} className="ListItemSocialLink"><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
+        {item.instagram != null ? (<a href={'https://www.instagram.com//' + item.instagram} className="ListItemSocialLink" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
       </div>
     );
   }
@@ -480,9 +557,9 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === 'videos')
       return this.renderVideo(item as VideoData);
     else if (this.state.content.class === 'staff')
-      return this.renderStaff(item as StaffData, index);
+      return this.renderStaff(item as StaffData | StaffData[], index);
     else if (this.state.content.class === 'overseers')
-      return this.renderOverseer(item as OverseerData, index);
+      return this.renderOverseer(item as OverseerData | OverseerData[], index);
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
     else if (this.state.content.class === 'compassion')
@@ -640,6 +717,41 @@ class ListItem extends React.Component<Props, State> {
                   {data.map((item: any, index: any) => {
                     return this.renderItemRouter(item, index);
                   })}
+                </HorizontalScrollList>
+              </div>
+            </div>
+          </div>
+        );
+      } else {
+        return null;
+      }
+    }
+    else if (this.state.content.style === 'staff') {
+      const peopleData = data as PeopleData[]
+      const isMobile = this.state.windowWidth < 768;
+      const binnedData: PeopleData[][] = []
+      if (data.length > 0) {
+        let temp: PeopleData[] = []
+        peopleData.forEach((item, index) => {
+          temp.push(item)
+          if ((index + 1) % 6 === 0 || index + 1 === data.length) {
+            binnedData.push(temp)
+            temp = []
+          }
+        })
+        return (
+          <div className="ListItem horizontal" >
+            <div className="ListItemDiv1" >
+              <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+              {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+              <div className="ListItemSpeakersDiv" >
+                <HorizontalScrollList>
+                  {isMobile ? peopleData.map((item, index) => {
+                    return this.renderItemRouter(item, index);
+                  })
+                    : binnedData.map((item, index) => {
+                      return this.renderItemRouter(item, index);
+                    })}
                 </HorizontalScrollList>
               </div>
             </div>

@@ -95,6 +95,8 @@ export interface StaffData {
   Position: string;
   sites: string[];
   Email: string;
+  instagram?: string;
+  twitter?: string;
 }
 
 export interface OverseerQuery extends DataLoaderQuery {
@@ -107,6 +109,8 @@ export interface OverseerData {
   Position: string;
   sites: string[];
 }
+
+export type PeopleData = StaffData | OverseerData
 
 export interface EventQuery extends DataLoaderQuery {
   class: 'events';
@@ -415,7 +419,7 @@ export default class DataLoader {
       limit: 200,
     };
     const getBlogByBlogStatus = API.graphql(
-      graphqlOperation(queries.getBlogByBlogStatus, vars)
+      graphqlOperation(customQueries.getBlogByBlogStatus, vars)
     ) as Promise<GraphQLResult<GetBlogByBlogStatusQuery>>;
     try {
       const json = await getBlogByBlogStatus;

@@ -3,15 +3,14 @@
         "name": "oakville",
         "title": "The Meeting House - Oakville",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -24,7 +23,7 @@
             {
                 "type": "hero",
                 "style": "full",
-                "showCovid":true,
+                "showCovid": false,
                 "image1": [
                     {
                         "src": "/static/images/local-site-1-1.jpg",
@@ -44,31 +43,28 @@
                     }
                 ],
                 "header1": "Oakville",
-
-                "button1Text":"Livestream",
-                "button1Action":"live",
+                "button1Text": "Livestream",
+                "button1Action": "live",
                 "text1": "Church Online Sundays @10:00am",
-                "text1a":"Sunday Service",
-                "text2a":"8:00 am-9:00 am",
-                "text3a":"9:30 am-10:30 am",
-                "text4a":"11:15 am-12:15 pm",
-                "text5a":"Includes full program for Infants to Grade 8",
-                "text6a":"7:00pm | Wednesdays | Youth Midweek for Grades 6 to 12",                
+                "text1a": "Sunday Service",
+                "text2a": "8:00 am-9:00 am",
+                "text3a": "9:30 am-10:30 am",
+                "text4a": "11:15 am-12:15 pm",
+                "text5a": "Includes full program for Infants to Grade 8",
+                "text6a": "7:00pm | Wednesdays | Youth Midweek for Grades 6 to 12",
                 "addToCalendar": false,
                 "contactPastor": true,
-                "class":"locations",
+                "class": "locations",
                 "filterField": "id",
                 "filterValue": "oakville"
             },
-          
-
             {
                 "type": "list",
-                "style": "vertical",
+                "style": "staff",
                 "class": "staff",
                 "header1": "Our Team",
                 "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "OAKV"
             },
             {
@@ -77,14 +73,16 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "facebookEvents": ["192337637474940","204669579590265"]
-
+                "facebookEvents": [
+                    "192337637474940",
+                    "204669579590265"
+                ]
             },
             {
                 "type": "list",
                 "style": "grid",
                 "class": "instagram",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "oakville"
             },
             {
@@ -95,7 +93,7 @@
                 "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Out More",
                         "navigateTo": "/kids-and-youth"
                     }
@@ -138,14 +136,13 @@
                 "link1Text": "Browse Home Churches in Oakville",
                 "link1Action": "/find-homechurch"
             },
-
             {
                 "type": "list",
                 "style": "vertical",
                 "class": "compassion",
                 "header1": "Make a Difference",
                 "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "oakville"
             },
             {

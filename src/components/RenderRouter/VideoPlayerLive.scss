@@ -111,6 +111,61 @@
             margin-top: 2vw;
             width: 70vw;
       }
+
+      .ZoomGrid {
+            margin-top: 5vw;
+            display: grid;
+            margin-left: 10vw;
+            gap: 1vw;
+            grid-template-columns: repeat(3, 26vw);
+      }
+
+      .ZoomItem {
+            transition: 0.5s;
+            position: relative;
+            width: 26vw;
+            height: 20.25vw;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none !important;
+      }
+
+      .ZoomText {
+            transition: 0.5s;
+            font-family: Graphik Web;
+            font-weight: bold;
+            font-size: 2.4vw;
+            width: 24vw;
+            text-align: center;
+            color: #1A1A1A;
+      }
+
+      .WatchVideoTag {
+            transition: 0.5s;
+            opacity: 0;
+            position: absolute;
+            font-family: Graphik Web;
+            font-size: 1.5vw;
+            color: #ffffff;
+            padding-top: 6vw;
+            border-bottom: 1px solid #ffffff;
+      }
+    
+      .ZoomItem:hover {
+            transition: 0.5s;
+            background-color: #1A1A1A;
+            .ZoomText {
+                  color: #ffffff;
+                  transition: 0.5s;
+                  transform: translateY(-3vw);
+            }
+            .WatchVideoTag {
+                  transition: 0.5s;
+                  opacity: 1;
+            }
+      }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -208,6 +263,62 @@
             position: relative;
             margin-top: 2vw;
             width: 70vw;
+      }
+
+      
+      .ZoomGrid {
+            margin-top: 5vw;
+            display: grid;
+            margin-left: 10vw;
+            gap: 1vw;
+            grid-template-columns: repeat(3, 26vw);
+      }
+
+      .ZoomItem {
+            transition: 0.5s;
+            position: relative;
+            width: 26vw;
+            height: 20.25vw;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none !important;
+      }
+
+      .ZoomText {
+            transition: 0.5s;
+            font-family: Graphik Web;
+            font-weight: bold;
+            width: 24vw;
+            font-size: 2.4vw;
+            text-align: center;
+            color: #1A1A1A;
+      }
+
+      .WatchVideoTag {
+            transition: 0.5s;
+            opacity: 0;
+            position: absolute;
+            font-family: Graphik Web;
+            font-size: 1.5vw;
+            color: #ffffff;
+            padding-top: 6vw;
+            border-bottom: 1px solid #ffffff;
+      }
+    
+      .ZoomItem:hover {
+            transition: 0.5s;
+            background-color: #1A1A1A;
+            .ZoomText {
+                  color: #ffffff;
+                  transition: 0.5s;
+                  transform: translateY(-3vw);
+            }
+            .WatchVideoTag {
+                  transition: 0.5s;
+                  opacity: 1;
+            }
       }
 }
 
@@ -342,5 +453,39 @@
             margin-left: 10vw;
             margin-right: 10vw;
             a{color:#ffffff}
+      }
+
+      .ZoomGrid {
+            margin-top: 5vw;
+            display: grid;
+            margin-left: 10vw;
+            gap: 2vw;
+            grid-template-columns: repeat(2, 39vw);
+      }
+
+      .ZoomItem {
+            transition: 0.5s;
+            position: relative;
+            width: 39vw;
+            height: 30.375vw;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none !important;
+      }
+
+      .ZoomText {
+            transition: 0.5s;
+            font-family: Graphik Web;
+            font-weight: bold;
+            font-size: 4vw;
+            width: 35vw;
+            text-align: center;
+            color: #1A1A1A;
+      }
+
+      .WatchVideoTag {
+            display: none;
       }
 }

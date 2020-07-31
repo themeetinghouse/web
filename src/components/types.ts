@@ -25,3 +25,13 @@ export interface ItemImage {
   src: string;
   alt: string;
 }
+
+export interface FormItem {
+  type: string;
+  header1: string;
+  class: string;
+  style: string;
+  formId: string;
+  header2?: string;
+  text1?: string;
+}

@@ -109,6 +109,26 @@
                         "alt": "Young woman sitting and learning from two friends around a table."
                     }
                 ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Virtual Learning Team",
+                "text1": "You're invited to join our Virtual Learning Team on Monday, Aug 10! We're hearing from our international compassion partners on peacebuilding, reconciliation, and the impacts of COVID-19 on global poverty.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Learn More and Register",
+                        "navigateTo": "https://www.eventbrite.ca/e/virtual-learning-team-tickets-110171846960"
+                    }
+                ],
+              
+                "image1": [
+                    {
+                        "src": "/static/images/compassion-4.jpg",
+                        "alt": "Group of six people from last year's Learning Team smiling at the camera."
+                    }
+                ]
             }
 
         ]

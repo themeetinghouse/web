@@ -57,14 +57,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return (
       <div>
         {(this.state.content != null) ?
-          <Modal dialogClassName={this.state.content.page.pageConfig.logoColor === "black" ? "modal-video white" : "modal-video "} show={this.props.data !== null} onHide={()=>null} style={{overflowY: this.state.content.page.content[0].type === "form" ? "hidden" : "scroll"}}>
+          <Modal dialogClassName={this.state.content.page.pageConfig.logoColor === "black" ? "modal-video white" : "modal-video "} show={this.props.data !== null} onHide={() => null} style={{ overflowY: this.state.content.page.content.filter((item: any) => item.type === 'form').length > 0 ? "hidden" : "scroll" }}>
             <Modal.Body className={this.state.content.page.pageConfig.logoColor === "black" ? "modal-body white" : "modal-body "}>
               <img className="VideoOverlayClose" src={this.state.content.page.pageConfig.logoColor === "black" ? "/static/svg/Close-Cancel.svg" : "/static/svg/Close-Cancel-White.svg"} alt="Close Window Icon" onClick={() => {
                 this.props.onClose()
               }} />
               <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
             </Modal.Body>
-            <Modal.Footer className={this.state.content.page.pageConfig.logoColor === "black" ? "modal-footer white" : "modal-footer"}/>
+            <Modal.Footer className={this.state.content.page.pageConfig.logoColor === "black" ? "modal-footer white" : "modal-footer"} />
           </Modal> : null}
       </div >)
 
