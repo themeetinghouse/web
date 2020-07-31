@@ -13,6 +13,16 @@
     &.inverted {
         background-color: $onyxblack;
         color: #fff;
+
+        &:hover {
+            background-color: $onyxblack;
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        color: $onyxblacktext;
+        background-color: #fff;
     }
 
     @media (min-width: 767px) {

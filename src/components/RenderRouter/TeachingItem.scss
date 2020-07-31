@@ -7,13 +7,17 @@
     margin: 0;
     margin-right: 2vw;
 
+    &.button-link {
+        height: initial;
+    }
+
     @media (min-width: 767px) {
         margin: 0;
         margin-right: 2vw;
 
         font-size: 1.1vw;
         padding: 1.1vw 1.6vw;
-        height: 4vw;
+        height: initial;
     }
 
     @media (max-width: 767px) {
