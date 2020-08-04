@@ -29,7 +29,6 @@
   "author": "George Bell",
   "license": "ISC",
   "dependencies": {
-    "-": "0.0.1",
     "@aws-amplify/ui-react": "^0.2.9",
     "@material-ui/core": "^4.10.2",
     "@sentry/browser": "^5.17.0",
@@ -41,7 +40,6 @@
     "draft-js": "^0.11.6",
     "draftjs-to-html": "^0.9.1",
     "fireworks-react": "^1.0.12",
-    "g": "^2.0.1",
     "gh-pages": "^2.1.1",
     "google-maps-react": "^2.0.6",
     "hooks": "^0.3.2",
@@ -52,7 +50,6 @@
     "moment": "^2.26.0",
     "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
-    "npm": "^6.14.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-add-to-calendar": "^0.1.5",
