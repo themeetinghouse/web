@@ -35,6 +35,7 @@ const BlogReader = React.lazy(() => import('./BlogReader'));
 const Tags = React.lazy(() => import('./OgTags'));
 const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
 const PaymentItem = React.lazy(() => import('./PaymentItem'));
+const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
 
 interface Props extends RouteComponentProps {
   content: any
@@ -77,6 +78,7 @@ class RenderRouter extends React.Component<Props, State> {
       case "simple": return (<SimpleItem key={index} content={item}></SimpleItem>);
       case "podcasts": return (<PodcastItem data={this.props.data} key={index} content={item}></PodcastItem>)
       case "weather": return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
+      case "teachingsearch": return (<TeachingSearch key={index} content={item}></TeachingSearch>);
       default: return null
     }
 

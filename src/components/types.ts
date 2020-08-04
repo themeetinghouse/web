@@ -26,6 +26,13 @@ export interface ItemImage {
   alt: string;
 }
 
+export interface SearchBarContentProp {
+  type: string;
+  style: string;
+  header1: string;
+  subclass: string;
+  text1: string;
+}
 export interface FormItem {
   type: string;
   header1: string;
