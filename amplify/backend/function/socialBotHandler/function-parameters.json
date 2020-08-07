@@ -1,0 +1,14 @@
+{
+    "permissions": {
+        "api": {
+            "themeetinghouse": [
+                "read"
+            ]
+        },
+        "hosting": {
+            "S3AndCloudFront": [
+                "read"
+            ]
+        }
+    }
+}

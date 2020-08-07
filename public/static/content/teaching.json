@@ -14,6 +14,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-images/teaching.jpg",
+                "url": "https://www.themeetinghouse.com/teaching",
+                "title": "Teaching",
+                "description": ""
+            },
+            {
                 "type": "teaching",
                 "style": "hero",
                 "class": "teaching-sunday",
@@ -27,13 +34,8 @@
                 "type": "teachingsearch",
                 "style": "teaching",
                 "header1": "Search the Archives",
-                "text1": "Try \"Grace\"",
-                "trending": [
-                    "Unconditional Love",
-                    "Freedom",
-                    "New Covenant",
-                    "Heaven"
-                ]
+                "subclass": "adult-sunday",
+                "text1": "Try \"Grace\""
             },
             {
                 "type": "list",
