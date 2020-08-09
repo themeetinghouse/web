@@ -28,18 +28,6 @@
                 "sortOrder": "DESC"
             },
             {
-                "type": "teachingsearch",
-                "style": "teaching",
-                "header1": "Search the Archives",
-                "text1": "Try \"Grace\"",
-                "trending": [
-                    "Unconditional Love",
-                    "Freedom",
-                    "New Covenant",
-                    "Heaven"
-                ]
-            },
-            {
                 "type": "list",
                 "style": "horizontal",
                 "class": "videos",
