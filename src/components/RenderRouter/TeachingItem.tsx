@@ -1,7 +1,6 @@
 
 import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { Button } from 'reactstrap';
 import PropTypes from "prop-types";
 import { withCookies } from 'react-cookie';
 import "./TeachingItem.scss"
@@ -11,6 +10,8 @@ import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { Helmet } from 'react-helmet';
+import { LinkButton } from 'components/Link/Link';
+import { Button } from 'reactstrap';
 
 //import uuidv4 from 'uuid/v4'
 Amplify.configure(awsmobile);
@@ -146,17 +147,6 @@ class TeachingItem extends React.Component<Props, State> {
         })
 
     }
-    navigateUrlNewWindow(to: string) {
-        if (to.includes('media')) {
-            window.open(
-                to,
-                '_blank', // <- This is what makes it open in a new window.
-                'noopener noreferrer'
-            );
-        } else {
-            window.location.href = to;
-        }
-    }
 
     fallbackToImage(fallbackUrl: string): EventHandler<SyntheticEvent<HTMLImageElement>> {
         return function (event: SyntheticEvent<HTMLImageElement>) {
@@ -217,7 +207,12 @@ class TeachingItem extends React.Component<Props, State> {
                                 <div className="teachingdiv teachingdescription" >{this.state.listData[this.state.teachingId].description}</div>
                                 <div className="teachingdiv2" >
                                     <Button size="lg" className="teachingButton" onClick={() => { this.handleClick(this.state.listData[this.state.teachingId]) }} ><img className="teachingButton-icon" src="/static/svg/Watch.svg" alt="watch icon" />Watch</Button>
-                                    {this.state.listData[this.state.teachingId].notesURL != null ? <Button size="lg" className="teachingButton" onClick={() => { this.navigateUrlNewWindow(this.state.listData[this.state.teachingId].notesURL) }} ><img className="teachingButton-icon" src="/static/svg/Notes.svg" alt="notes icon" />Notes</Button> : null}
+                                    {this.state.listData[this.state.teachingId].notesURL != null
+                                        ? <LinkButton size="lg" className="teachingButton" newWindow={this.state.listData[this.state.teachingId].notesURL.includes('media')} to={this.state.listData[this.state.teachingId].notesURL} >
+                                            <img className="teachingButton-icon" src="/static/svg/Notes.svg" alt="notes icon" />
+                                            Notes
+                                        </LinkButton>
+                                        : null}
                                 </div>
                                 <div>
                                     <img

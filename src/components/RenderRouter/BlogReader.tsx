@@ -16,6 +16,7 @@ import {
   EmailIcon,
   TwitterIcon
 } from "react-share";
+import { Link } from 'react-router-dom';
 
 interface Props {
   content: any,
@@ -32,10 +33,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
       content: props.content,
       data: props.data
     }
-  }
-
-  navigateUrl(to: string) {
-    window.location.href = to;
   }
 
   navigateNewUrl(to: string) {
@@ -90,7 +87,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
         case "blog":
           return (
-            <div className="blog">
+            <div className="blog-reader">
               <Helmet>
                 <meta property="og:url" content={"https://www.themeetinghouse.com/posts/" + this.state.data.id} />
                 <meta property="og:title" content={this.state.data.blogTitle} />
@@ -108,7 +105,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 <meta property="twitter:url" content={"https://www.themeetinghouse.com/posts/" + this.state.data.id} />
                 <meta property="twitter:card" content="summary" />
               </Helmet>
-              <div className="link-to-main-blog-page" onClick={() => this.navigateUrl("/blog")}>Blog<img className="dropdown-caret" src="/static/svg/Dropdown Caret.svg" alt=""></img></div>
+              <Link className="link-to-main-blog-page" to="/blog">Blog<img className="dropdown-caret" src="/static/svg/Dropdown Caret.svg" alt=""></img></Link>
               <div className="blog-content">
                 <h1 className="blog-h1" >{this.state.data.blogTitle}</h1>
                 <div className="blog-details">by <span className="blog-author">{this.state.data.author}</span> on {this.state.data.publishedDate}</div>
@@ -121,7 +118,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
         case "notes":
           return (
-            <div className="blog">
+            <div className="blog-reader">
               <Helmet>
                 <meta property="og:url" content={"https://www.themeetinghouse.com/notes/" + this.state.data.id} />
                 <meta property="og:title" content={this.state.data.title} />

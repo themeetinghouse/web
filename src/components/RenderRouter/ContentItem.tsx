@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { Button } from 'reactstrap';
 import "./ContentItem.scss"
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { Link, LinkButton } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -41,13 +41,21 @@ class ContentItem extends React.Component<Props, State>  {
         return (
           item.type === "button" ?
             <div key={id}>
-              <Button className="contentButton" onClick={() => { this.navigateTo(item.navigateTo) }}>{item.title}</Button>
+              <LinkButton
+                className="contentButton"
+                to={item.navigateTo}
+                newWindow={item.navigateTo.includes('http')}>
+                {item.title}
+              </LinkButton>
             </div>
             : item.type === "link" ?
-              <div className="oneImageAContainer" key={id}>{item.openNewBrowser ?
-                <a className={boxColor === "black" ? "oneImageA blackBox" : "oneImageA"} target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a> :
-                <a className={boxColor === "black" ? "oneImageA blackBox" : "oneImageA"} href={item.navigateTo}>{item.title}</a>
-              }</div>
+              <div className="oneImageAContainer" key={id}>
+                <Link className={boxColor === "black" ? "oneImageA blackBox" : "oneImageA"}
+                  newWindow={item.openNewBrowser}
+                  to={item.navigateTo}>
+                  {item.title}
+                </Link>
+              </div>
               : item.type === "text" ?
                 <div key={id}>
                   {item.title}
