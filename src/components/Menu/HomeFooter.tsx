@@ -1,6 +1,6 @@
 ﻿//import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { NavLink as RSNavLink } from 'reactstrap';
+import { NavLink } from 'reactstrap';
 import { isMobileOnly } from 'react-device-detect';
 import "./HomeFooter.scss"
 //const bootstrap = require('react-bootstrap');
@@ -10,24 +10,23 @@ import "./HomeFooter.scss"
 //import console = require('console');
 //import "./menu.scss"
 import { MDBRow, MDBCol, MDBFooter, MDBContainer } from 'mdbreact'
-import { NavLink } from 'components/Link/Link';
 export default class HomeFooter extends React.Component {
 
-  iconHandler(item: boolean) {
+  iconHandler(item:boolean) {
     if (!item) {
-      return (["Facebook", "Twitter", "YouTube", "Instagram"]);
-    } else {
-      return (["", "", "", ""]);
+      return (["Facebook", "Twitter", "YouTube", "Instagram"]); 
+    } else { 
+      return (["", "", "", ""]); 
     }
   }
 
-  renderIcons(links: string[]) {
-    return (
-      <div className="footerSocial">
+  renderIcons(links:string[]) {
+      return (
+        <div className="footerSocial">
         <span><a href="https://www.facebook.com/themeetinghousechurch/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img style={{ marginRight: "0.5vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} className="FooterSocialImg" src="/static/svg/Facebook.svg" alt="Facebook Logo" />{links[0]}</a></span>
-        <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />{links[1]}</a></span>
-        <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />{links[2]}</a></span>
-        <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />{links[3]}</a></span>
+      <span><a href="https://twitter.com/TheMeetingHouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Twitter.svg" alt="Twitter Logo" />{links[1]}</a></span>
+      <span><a href="https://www.youtube.com/themeetinghouse" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Youtube.svg" alt="Youtube Logo" />{links[2]}</a></span>
+      <span><a href="https://www.instagram.com/themeetinghouse/" rel="noopener noreferrer" target="_blank" className="FooterSocialA" style={{ whiteSpace: "nowrap", color: "#1A1A1A" }}><img className="FooterSocialImg" style={{ marginRight: "0.5vw", marginLeft: "3vw", marginTop: "2.5vw", marginBottom: "2.5vw" }} src="/static/svg/Instagram.svg" alt="Instagram Logo" />{links[3]}</a></span>
       </div>);
   }
 
@@ -37,10 +36,10 @@ export default class HomeFooter extends React.Component {
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
             <MDBCol md="6">
-              <NavLink className="FooterNavLink" to="/connect">Connect</NavLink>
-              <NavLink className="FooterNavLink" to="/about-us">About Us</NavLink>
-              <NavLink className="FooterNavLink" to="/careers">Staff &amp; Careers</NavLink>
-              <RSNavLink className="FooterNavLink" target="_blank" rel="noopener noreferrer" href="http://www.tmhrentals.com">Oakville Facility Rentals</RSNavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily: "Graphik Web", lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }} href="connect">Connect</NavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily: "Graphik Web", lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }} href="about-us">About Us</NavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily: "Graphik Web", lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }} href="careers">Staff &amp; Careers</NavLink>
+              <NavLink className="FooterNavLink" style={{ fontFamily: "Graphik Web", lineHeight: "32px", fontWeight: "bold", fontSize: "18px", color: "#1A1A1A" }} target="_blank" rel="noopener noreferrer" href="http://www.tmhrentals.com">Oakville Facility Rentals</NavLink>
               <br />
               <br />
               {/*              <img src="/static/google-play-badge.png" width="135" height="52" alt="Download App on Google Play Store" />

@@ -10,11 +10,6 @@
 .navbar-toggler {
     padding: 1px 1px 1px 1px;
 }
-
-.navbar-nav .nav-link {
-    text-decoration: none;
-}
-
 @media (min-width:768px) {
     .expanderButton {
         background-color: #ffffff00 !important;
@@ -84,10 +79,7 @@
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
         animation: glow 1s ease-in-out infinite alternate;
-        text-decoration: none;
-        &:hover {
-            color: initial;
-        }
+      
     }
 @keyframes glow {
     from {
@@ -316,10 +308,7 @@
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
         animation: glow 1s ease-in-out infinite alternate;
-        text-decoration: none;
-        &:hover {
-            color: initial;
-        }
+     
     }
 
 @keyframes glow {
@@ -491,10 +480,7 @@
            -webkit-animation: glow 2s ease-in-out infinite alternate;
         -moz-animation: glow 2s ease-in-out infinite alternate;
         animation: glow 2s ease-in-out infinite alternate;
-        text-decoration: none;
-        &:hover {
-            color: initial;
-        }
+     
     }
 
 @keyframes glow {

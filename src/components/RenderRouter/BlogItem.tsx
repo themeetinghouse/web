@@ -1,6 +1,7 @@
 
 import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import "./BlogItem.scss"
 import * as customQueries from '../../graphql-custom/customQueries';
 import Amplify, { API } from 'aws-amplify';
@@ -8,7 +9,6 @@ import awsmobile from '../../aws-exports';
 import format from 'date-fns/format';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { Helmet } from 'react-helmet';
-import { Link, LinkButton } from 'components/Link/Link';
 
 Amplify.configure(awsmobile);
 
@@ -70,17 +70,15 @@ class BlogItem extends React.Component<Props, State> {
         };
     }
 
+    navigateUrl(to: string) {
+        window.location.href = to;
+    }
+
     render() {
-        if (this.state.publishedOnly === null) {
-            return null;
-        }
         if (this.state.content.style === "hero") {
             console.log(this.props.content.class)
-            if (this.state.publishedOnly.length === 0) {
-                return null
-            }
             return (
-                <div className="blog-item">
+                this.state.publishedOnly.length > 0 ?
                     <div className="blog" >
                         <Helmet>
                             <meta property="og:url" content="https://www.themeetinghouse.com/blog" />
@@ -105,64 +103,57 @@ class BlogItem extends React.Component<Props, State> {
                             <div className="blogdiv blogauthor" >by <span className="author-underline">{this.state.publishedOnly[0].author}</span> on {this.state.publishedOnly[0].publishedDate}</div>
                             <div className="blogdiv blogdescription" >{this.state.publishedOnly[0].description}</div>
                             <div className="blogdiv2" >
-                                <LinkButton size="lg" to={"/posts/" + this.state.publishedOnly[0].id}>Read More</LinkButton>
+                                <Button size="lg" className="blogButton" onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}>Read More</Button>
                             </div>
                             <div>
-                                <Link to={"/posts/" + this.state.publishedOnly[0].id}>
-                                    <img
-                                        alt="TBD" className="blog-image-desktop"
-                                        src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-                                        onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')}
-                                    />
-                                </Link>
+                                <img
+                                    alt="TBD" className="blog-image-desktop"
+                                    src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                    onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}
+                                    onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')}
+                                />
                             </div>
                         </div>
                         <div className="mobile-image-container">
-                            <Link to={"/posts/" + this.state.publishedOnly[0].id}>
-                                <img alt="TBD" className="blog-image-mobile"
-                                    src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-                                    onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')} />
-                            </Link>
+                            <img alt="TBD" className="blog-image-mobile"
+                                src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0].blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                onClick={() => this.navigateUrl("/posts/" + this.state.publishedOnly[0].id)}
+                                onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')} />
                         </div>
-                    </div>
-                </div>
-            );
+                    </div> : null
+            )
         } else if (this.state.content.style === "twoImage") {
             console.log(this.props.content.class)
-            if (this.state.publishedOnly.length === 0) {
-                return null
-            }
             return (
-                <div className="blog-item">
+                this.state.publishedOnly.length > 0 ?
                     <div className="blog twoImage" >
                         <h1 className="blog-h1 twoImage" >{this.props.content.header1}</h1>
                         {this.state.publishedOnly.slice(0, 2).map((item, index) => {
                             return (
                                 <div key={index} className="BlogTwoImageItem">
-                                    <Link to={"/posts/" + item.id}>
-                                        <img alt={item.id + " series image"}
-                                            className="BlogSquareImage twoImage"
-                                            src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-                                            onError={this.fallbackToImage('/static/photos/blogs/square/fallback.jpg')} />
-                                        <img alt={item.id + " series image"}
-                                            className="BlogBannerImage twoImage"
-                                            src={"/static/photos/blogs/banner/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
-                                            onError={this.fallbackToImage('/static/photos/blogs/banner/fallback.jpg')} />
-                                    </Link>
+                                    <img alt={item.id + " series image"}
+                                        className="BlogSquareImage twoImage"
+                                        src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                        onClick={() => this.navigateUrl("/posts/" + item.id)}
+                                        onError={this.fallbackToImage('/static/photos/blogs/square/fallback.jpg')} />
+                                    <img alt={item.id + " series image"}
+                                        className="BlogBannerImage twoImage"
+                                        src={"/static/photos/blogs/banner/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
+                                        onClick={() => this.navigateUrl("/posts/" + item.id)}
+                                        onError={this.fallbackToImage('/static/photos/blogs/banner/fallback.jpg')} />
                                     <div className="BlogTwoImageTextContainer">
                                         <div className="blog-post-title twoImage">{item.blogTitle}</div>
                                         <div className="blogauthor twoImage">by <span className="author-only">{item.author}</span> on {item.publishedDate}</div>
                                         <div className="blogdescription twoImage">{item.description}</div>
-                                        <Link className="blog-read-more" to={"/posts/" + item.id}>Read More</Link>
+                                        <a className="blog-read-more" href={"/posts/" + item.id}>Read More</a>
                                     </div>
                                 </div>
                             )
                         }
                         )}
-                        <LinkButton size="lg" className="inverted twoImageButton" to="/blog">View All Blogs</LinkButton>
-                    </div>
-                </div>
-            );
+                        <Button size="lg" className="twoImageButton" onClick={() => this.navigateUrl("/blog")}>View All Blogs</Button>
+                    </div> : null
+            )
         }
         else return null
     }

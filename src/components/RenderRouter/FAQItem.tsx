@@ -1,11 +1,10 @@
 
 import React from 'react';
-import { Collapse } from 'reactstrap';
+import { Button, Collapse } from 'reactstrap';
 import "./FAQItem.scss"
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import ScaledImage from 'components/ScaledImage/ScaledImage';
 import { ItemImage } from 'components/types';
-import { Link, LinkButton } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
   content: any
@@ -21,6 +20,12 @@ class ContentItem extends React.Component<Props, State>  {
       content: props.content,
       isOpen: []
     }
+  }
+  navigateTo(location: any) {
+    this.props.history.push(location, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
   }
 
   toggle = (id: any) => {
@@ -53,12 +58,13 @@ class ContentItem extends React.Component<Props, State>  {
             </div> :
             item.type === "button" ?
               <div key={id}>
-                <LinkButton className="contentButton" to={item.navigateTo}>{item.title}</LinkButton>
+                <Button className="contentButton" onClick={() => { this.navigateTo(item.navigateTo) }}>{item.title}</Button>
               </div>
               : item.type === "link" ?
-                <div key={id}>
-                  <Link className="oneImageA" to={item.navigateTo} newWindow={item.openNewBrowser}>{item.title}</Link>
-                </div>
+                <div key={id}>{item.openNewBrowser ?
+                  <a className="oneImageA" target="_blank" rel="noopener noreferrer" href={item.navigateTo}>{item.title}</a> :
+                  <a className="oneImageA" href={item.navigateTo}>{item.title}</a>
+                }</div>
                 : item.type === "text" ?
                   <div key={id} className={item.class}>
                     {item.title}

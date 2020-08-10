@@ -6,6 +6,7 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
+  NavLink,
   Button
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
@@ -17,7 +18,6 @@ import * as queries from '../../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { ListLivestreamsQuery } from '../../API';
-import { Link, NavLink } from 'components/Link/Link';
 
 interface SubMenuItem {
   name: string;
@@ -36,7 +36,8 @@ interface Props extends RouteComponentProps {
 }
 interface State {
   MainMenuItems: any,
-  overlayType: string | null,
+  urlHistoryState: any,
+  overlayData: any,
   isOpen: boolean,
   userName: string,
   windowHeight: number,
@@ -66,7 +67,8 @@ class HomeMenu extends React.Component<Props, State>  {
     this.toggle = this.toggle.bind(this);
     this.state = {
       MainMenuItems: null,
-      overlayType: null,
+      urlHistoryState: null,
+      overlayData: null,
       isOpen: false,
       userName: "",
       liveTitle: "",
@@ -108,7 +110,12 @@ class HomeMenu extends React.Component<Props, State>  {
       console.error(err)
     }
   }
+  navigate(to: string) {
+    this.props.history.push(to, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
 
+  }
   getWindowHeight() {
     const deviceWindow = document.getElementById('navbar');
     if (deviceWindow != null) {
@@ -162,21 +169,34 @@ class HomeMenu extends React.Component<Props, State>  {
       .catch(err => console.log(err));
   }
 
+  videoOverlayClose() {
+    this.setState({
+      overlayData: null
+    })
+    window.history.pushState({}, "Videos", this.state.urlHistoryState)
+
+  }
+
+  handleSearchClick(data: any) {
+    this.setState({
+      overlayData: data,
+      urlHistoryState: window.location.href
+    })
+    window.history.pushState({}, "Search", "search")
+
+  }
   render() {
     // console.log(this.state.position)
     return (
 
       <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
-        <NavbarBrand tag={Link} className="brand" to="/">
-          <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" />
-          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" />) : null}
+        <NavbarBrand className="brand" href="/">
+          <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
+          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ? <Link className="liveEvent" to="/live">{this.state.liveTitle}</Link> : null}
-        {this.state.showSearch
-          ? <div>
-            <img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => this.setState({ overlayType: 'search' })} />
-            <VideoOverlay onClose={() => this.setState({ overlayType: null })} data={this.state.overlayType}></VideoOverlay>
-          </div>
+        {this.state.showLiveEvent ? <div className="liveEvent" onClick={() => { this.navigate('/live') }}>{this.state.liveTitle}</div> : null}
+        {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => { this.handleSearchClick("search") }} />
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
           : null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
           <NavbarToggler onClick={this.toggle}>
@@ -188,37 +208,23 @@ class HomeMenu extends React.Component<Props, State>  {
               {
                 this.state.MainMenuItems ?
                   this.state.MainMenuItems.map((item: MainMenuItem) => {
-                    const shouldExpand = (
-                      this.state.expand === item.location ||
-                      this.props.location.pathname === item.location ||
-                      item.children?.some(a => a.location == this.props.location.pathname)
-                    );
                     return (
                       <div key={item.location} className="linkContainer">
-                        <NavLink
-                          className="bigNav"
-                          activeStyle={{ fontWeight: 'bold' }}
-                          style={{ display: 'inline-block' }}
-                          key={item.location}
-                          to={item.location}>
+                        <NavLink className="bigNav" style={{ fontWeight: (item.location.includes(this.props.location.pathname) && this.props.location.pathname !== "/") || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ? "bold" : "normal", display: "inline-block" }} key={item.location} href={item.location}>
                           {item.name}
                         </NavLink>
                         {item.children != null ?
-                          <Button className="expanderButton" onClick={() => { this.setState({ expand: this.state.expand === item.location ? null : item.location }) }}>
-                            <div className={shouldExpand ? "vertical-line xstate" : "vertical-line"}></div>
-                            <div className={shouldExpand ? "horizontal-line xstate" : "horizontal-line"}></div>
+                          <Button className="expanderButton" onClick={() => { this.state.expand === item.location ? this.setState({ expand: null }) : this.setState({ expand: item.location }) }}>
+                            <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ? "vertical-line xstate" : "vertical-line"}></div>
+                            <div className={this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ? "horizontal-line xstate" : "horizontal-line"}></div>
                           </Button>
                           : null}
-                        {(shouldExpand ?
-                          item.children?.filter(i => i.name === 'Notes' ? this.state.showNotes : true).map(item2 =>
-                            <NavLink
-                              className="smallNav"
-                              key={item2.location}
-                              to={item2.location}
-                              activeStyle={{ fontWeight: 'bold' }}>
-                              {item2.name}
-                            </NavLink>
-                          )
+                        {(this.state.expand === item.location || this.props.location.pathname === item.location || (item.children != null && item.children.map(a => a.location).includes(this.props.location.pathname)) ?
+                          (item.children != null ?
+
+                            item.children.filter(i => i.name === 'Notes' ? this.state.showNotes : true).map(item2 => {
+                              return (<NavLink className="smallNav" key={item2.location} href={item2.location} style={{ fontWeight: (item2.location === this.props.location.pathname && this.props.location.pathname !== "/") ? "bold" : "normal" }}>{item2.name}</NavLink>)
+                            }) : null)
                           : null)}
                       </div>
                     )
