@@ -72,15 +72,10 @@ class ContentItem extends React.Component<Props, State>  {
   }
 
   render() {
-    const focusInputField = (input: HTMLInputElement) => {
-      if (input) {
-        setTimeout(() => { input.focus() }, 100);
-      }
-    };
     return (<div className="TeachingSearchItem">
       <div className="Header1">{this.props.content.header1}</div>
       <img src="/static/svg/Search.svg" alt="Search" className="SearchIcon"></img>
-      <input className="TeachingSearchItemInput" ref={focusInputField} value={this.state.currentInput} onChange={e => { this.search(e) }} placeholder={this.props.content.text1}></input>
+      <input className="TeachingSearchItemInput" value={this.state.currentInput} onChange={e => { this.search(e) }} placeholder={this.props.content.text1}></input>
       {this.state.searchResults.length && this.state.currentInput ? <img onClick={() => this.setState({ searchResults: [], currentInput: '' })} src="/static/svg/Close-Cancel.svg" alt="" className="CloseTeachingSearch"></img> : null}
       <div className={this.state.searchResults.length && this.state.currentInput ? "TeachingSearchItemDiv ShowResults" : "TeachingSearchItemDiv"}>
         {this.state.searchResults.length && this.state.currentInput ? <div className="TeachingSearchNumberOfVideos">{this.state.searchResults.length} Videos</div> : null}
