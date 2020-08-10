@@ -50,7 +50,7 @@ class ContentItem extends React.Component<Props, State>  {
             </div>
             : item.type === "link" ?
               <div className="oneImageAContainer" key={id}>
-                <Link className={boxColor === "black" ? "oneImageA blackBox" : "oneImageA"}
+                <Link className={boxColor === "black" ? "oneImageA inverted" : "oneImageA"}
                   newWindow={item.openNewBrowser}
                   to={item.navigateTo}>
                   {item.title}

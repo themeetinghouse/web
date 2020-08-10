@@ -1,5 +1,17 @@
 @import "../../theme";
 
+.HeroItemA2 {
+    font-size: 1.1vw;
+}
+
+.heroBlackBoxA {
+    font-size: 1.2vw;
+}
+
+.heroAContainer {
+    margin-top: 1vw;
+}
+
 @media (min-width: 768px) {
 .covidButton{
     position:absolute; 
@@ -459,44 +471,12 @@
         background-color: #ffffff;
         border-radius: 0;
     }
-    .HeroItemButtonA {
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-    .HeroItemA2 {
-        font-family: Graphik Web;
-        color: white;
-        border-bottom: solid 1px white;
-        padding-bottom: 1px;
-        font-size: 1.1vw;
-
-        &:hover {
-            color: white;
-            text-decoration: inherit;
-        }
-    }
 
     .divPartial {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 50vw; padding-bottom: 5vh;
-    }
-
-    .heroBlackBoxA {
-        color: white;
-        border-bottom: 1px solid white;
-        padding-bottom: 1px;
-        font-size: 1.2vw;
-
-        &:hover {
-            color: white;
-            text-decoration: inherit;
-        }
-    }
-
-    .heroAContainer {
-        margin-top: 1vw;
     }
 }
 
@@ -956,44 +936,12 @@
         background-color: #ffffff;
         border-radius: 0;
     }
-    .HeroItemButtonA {
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-    .HeroItemA2 {
-        font-family: Graphik Web;
-        color: white;
-        border-bottom: solid 1px white;
-        padding-bottom: 1px;
-        font-size: 1.1vw;
-
-        &:hover {
-            color: white;
-            text-decoration: inherit;
-        }
-    }
 
     .divPartial {
         position: relative;
         left: 20vw;
         width: 80vw;
         height: 50vw; padding-bottom: 5vh;
-    }
-
-    .heroBlackBoxA {
-        color: white;
-        border-bottom: 1px solid white;
-        padding-bottom: 1px;
-        font-size: 1.2vw;
-
-        &:hover {
-            color: white;
-            text-decoration: inherit;
-        }
-    }
-
-    .heroAContainer {
-        margin-top: 1vw;
     }
 }
 
@@ -1420,26 +1368,9 @@
         color: $onyxblacktext; background-color: #ffffff;
         border-radius: 0;
     }
-    .HeroItemButtonA {
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
+
     .HeroItemA2 {
-        font-family: Graphik Web;
-        color: white;
-        border-bottom: solid 1px white;
-        padding-bottom: 1px;
         font-size: 4vw;
-
-        &:hover {
-            color: white;
-            text-decoration: inherit;
-        }
-    }
-
-    .HeroItemA2:hover {
-        color: white;
-        text-decoration: none;
     }
 
     .divPartial {
@@ -1452,15 +1383,7 @@
     }
 
     .heroBlackBoxA {
-        color: white;
-        border-bottom: 1px solid white;
-        padding-bottom: 1px;
         font-size: 4vw;
-
-        &:hover {
-            color: white;
-            text-decoration: inherit;
-        }
     }
 
     .heroAContainer {

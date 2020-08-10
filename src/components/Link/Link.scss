@@ -47,9 +47,17 @@ a.button-link {
 a {
     color: $onyxblacktext;
     text-decoration: underline;
+    text-underline-offset: 0.25em;
+
+    &.link-plain {
+        text-decoration: none;
+    }
 
     &.inverted {
         color: #fff;
+        &:hover {
+            color: #fff;
+        }
     }
 
     &.container, &.container:hover {
@@ -58,6 +66,7 @@ a {
     }
 
     &:hover {
-        color: #00f;
+        color: #0056b3;
+        text-decoration: underline;
     }
 }
