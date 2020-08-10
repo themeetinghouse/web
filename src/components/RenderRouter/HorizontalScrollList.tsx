@@ -78,8 +78,8 @@ class HorizontalScrollList extends React.Component<Props, State> {
     }
 
     componentDidUpdate() {
-        const children = this.scrollContainerElement.getElementsByClassName("HorizontalScrollListItem");
-        if (children.length !== this.state.childrenLength) {        // Content continues to load asynchronously, so need to keep recomputing number of pages
+        const children = this.scrollContainerElement?.getElementsByClassName("HorizontalScrollListItem");
+        if (children && children.length !== this.state.childrenLength) {        // Content continues to load asynchronously, so need to keep recomputing number of pages
             this.computePages();
             this.setState({ childrenLength: children.length })
         }

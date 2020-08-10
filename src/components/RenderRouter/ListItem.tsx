@@ -558,7 +558,7 @@ class ListItem extends React.Component<Props, State> {
             src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
             onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
           />
-          <div className="ListItemName" >{item.title}</div>
+          <div className="ListItemEpisodeNum" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
         </div>
       );
