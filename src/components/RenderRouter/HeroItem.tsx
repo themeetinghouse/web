@@ -9,6 +9,7 @@ import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import moment from 'moment';
 import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { Link } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
   content: LocationQuery;
@@ -118,13 +119,6 @@ class HeroItem extends React.Component<Props, State> {
     }
 
   }
-  navigateUrl(to: string) {
-    window.location.href = to;
-  }
-
-  navigateEmail(to: any) {
-    this.navigateUrl("mailto:" + to)
-  }
 
   private fadeIn(style: CSSStyleDeclaration) {
     style.transition = "opacity 1s";
@@ -207,7 +201,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2" >{this.state.content.text6}</div>
             <div className="heroText2" >{this.state.content.text7}</div>
             {this.state.content.button1Text ? (<Button className="heroButton" onClick={() => { this.navigateTo(this.state.content.button1Action) }}>{this.state.content.button1Text}</Button>) : null}
-            {this.state.content.link1Text ? <div className="heroAContainer"><a className="heroBlackBoxA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a></div> : null}
+            {this.state.content.link1Text ? <div className="heroAContainer"><Link className="heroBlackBoxA" to={this.state.content.link1Action}>{this.state.content.link1Text}</Link></div> : null}
             {
               this.state.content.addToCalendar ?
                 this.state.locationData.length === 1 ?
@@ -270,7 +264,7 @@ class HeroItem extends React.Component<Props, State> {
                   : null}
               </div>) : null}
             {this.state.content.button1Text ? (<Button className="heroItemButton" onClick={() => { this.navigateTo(this.state.content.button1Action) }}>{this.state.content.button1Text}</Button>) : null}
-            <a className="HeroItemButtonA" href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+            <Link className="HeroItemButtonA" to={this.state.content.link1Action}>{this.state.content.link1Text}</Link>
             {this.state.content.addToCalendar ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />Add To Calendar</Button>) : null}
             {this.state.content.contactPastor ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/svg/Contact.svg" alt="Contact Icon" />Contact the Pastor</Button>) : null}
           </div>
@@ -314,7 +308,7 @@ class HeroItem extends React.Component<Props, State> {
                   : null}
               </div>) : null}
             {this.state.content.button1Text ? (<Button className="heroButton" onClick={() => { this.navigateTo(this.state.content.button1Action) }}>{this.state.content.button1Text}</Button>) : null}
-            {this.state.content.link1Text ? <div className="heroAContainer"><a className="HeroItemA2" href={this.state.content.link1Action}>{this.state.content.link1Text}</a></div> : null}
+            {this.state.content.link1Text ? <div className="heroAContainer"><Link className="HeroItemA2" to={this.state.content.link1Action}>{this.state.content.link1Text}</Link></div> : null}
             {this.state.content.addToCalendar ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>) : null}
             {this.state.content.contactPastor ? (<Button className="heroItemButton" onClick={this.navigate}><img src="/static/Contact.png" alt="Contact Icon" />Contact the Pastor</Button>) : null}
 

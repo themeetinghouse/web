@@ -1,10 +1,11 @@
 
 import React from 'react';
 import "./PaymentItem.scss"
-import { Button } from 'reactstrap';
+import ReactGA from 'react-ga';
+import { LinkButton, Link } from 'components/Link/Link';
+
 //const monerisCheckout=require("https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js")
 
-import ReactGA from 'react-ga';
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
 else if (window.location.hostname.includes("beta"))
@@ -221,20 +222,10 @@ export default class ContentItem extends React.Component<Props, State>  {
       monerisCheckout.remove();
     }
   }
-  navigateUrl(to: string) {
-    console.log(to)
-    window.location.href = to;
-  }
-  navigateUrlNewWindow(to: string) {
-    window.open(
-      to,
-      '_blank', // <- This is what makes it open in a new window.
-      'noopener noreferrer'
-    );
-  }
+
   renderPushPay() {
     return <div>
-      <Button className="GiveButton" onClick={() => { this.navigateUrlNewWindow("https://pushpay.com/g/themeetinghouse?src=hpp") }}>GIVE NOW</Button>
+      <LinkButton newWindow to="https://pushpay.com/g/themeetinghouse?src=hpp">GIVE NOW</LinkButton>
     </div>
   }
   renderPushPay2() {
@@ -358,7 +349,11 @@ export default class ContentItem extends React.Component<Props, State>  {
           </div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemOtherWays">2019 Tax Receipt</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://meetinghouse.infellowship.com/UserLogin") }}>{"Login & Download"}</button></div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://meetinghouse.infellowship.com/UserLogin">
+                Login &amp; Download
+              </Link>
+            </div>
           </div>
 
           <div style={{ clear: "both" }}></div>
@@ -368,12 +363,20 @@ export default class ContentItem extends React.Component<Props, State>  {
           </div>
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Give To Extended Family</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://tithe.ly/give_new/www/#/tithely/give-one-time/674673") }}>Alliston</button></div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://www.canadahelps.org/en/charities/west-lake-community-church/") }}>Sandbanks</button></div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://tithe.ly/give_new/www/#/tithely/give-one-time/674673">
+                Alliston
+              </Link>
+            </div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://www.canadahelps.org/en/charities/west-lake-community-church/">
+                Sandbanks
+              </Link>
+            </div>
 
           </div>
           <div className="GiveItemBottom"></div>
-        </form>
+        </form >
 
       </div >)
   }
