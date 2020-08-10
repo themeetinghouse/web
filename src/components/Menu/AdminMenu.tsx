@@ -1,7 +1,6 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth } from 'aws-amplify';
 import React from 'react';
-import { NavLink } from '../Link/Link';
 import {
   Collapse,
   Navbar,
@@ -9,7 +8,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink as RSNavLink,
+  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -106,25 +105,25 @@ export default class Menu extends React.Component<EmptyProps, State> {
                 <NavLink href="/admin/import-kids">Import Kids</NavLink>
 </NavItem>*/}
               <NavItem>
-                <NavLink to="/admin/livestream">Livestream</NavLink>
+                <NavLink href="/admin/livestream">Livestream</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
-                <NavLink to="/admin/create-notes">Notes</NavLink>
+                <NavLink href="/admin/create-notes">Notes</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
-                <NavLink to="/admin/create-blog">Blog</NavLink>
+                <NavLink href="/admin/create-blog">Blog</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
-                <NavLink to="/admin/import-video">Import Video</NavLink>
+                <NavLink href="/admin/import-video">Import Video</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <NavItem>
-                <RSNavLink href="https://github.com/themeetinghouse">GitHub</RSNavLink>
+                <NavLink href="https://github.com/themeetinghouse">GitHub</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
+              <NavItem><NavLink> | </NavLink></NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   {this.state.userName}

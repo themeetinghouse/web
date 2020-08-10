@@ -63,9 +63,8 @@ class HomePage extends React.Component<Props, State> {
         });
         const forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
         console.log(forwardTo)
-        if (forwardTo.length > 0) {
-          this.props.history.push(forwardTo[0].to)
-        }
+        if (forwardTo.length > 0)
+          this.navigateUrl(forwardTo[0].to)
       })
 
     const pageType = this.props.pageType ?? 'default';
@@ -125,7 +124,8 @@ class HomePage extends React.Component<Props, State> {
             console.log(this.state.content.page.pageConfig.weatherAlert)
             console.log(this.props.match.params.id)
             if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === "" || this.props.match.params.id === undefined)) {
-              this.props.history.push("/weather");
+              this.navigateTo("/weather");
+
             }
           });
         }).catch((e) => {
@@ -154,6 +154,7 @@ class HomePage extends React.Component<Props, State> {
             })
         })
     }
+    this.navigateHome = this.navigateHome.bind(this);
 
     if (pageType === 'video') {
       const getVideo: any = API.graphql({
@@ -180,13 +181,31 @@ class HomePage extends React.Component<Props, State> {
     }
   }
 
+  navigateUrl(to: string) {
+    window.location.href = to;
+  }
+
+  navigateTo(uri: any) {
+    console.log("Navigate to:" + uri)
+    this.props.history.push(uri, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
+  }
+  navigateHome(to: any) {
+    this.props.history.push(to, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
+  }
+
   render() {
     const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig ?? {};
 
     return (
       <Switch>
         <Route path={["/videos/:series/:episode", "/vidoes/:series"]}>
-          <VideoOverlay onClose={() => this.props.history.push("/")} data={this.state.data}></VideoOverlay>
+          <VideoOverlay onClose={() => this.navigateHome("/")} data={this.state.data}></VideoOverlay>
         </Route>
         <Route path="/posts/:blog">
           <Blog data={this.state.data} />
@@ -202,7 +221,7 @@ class HomePage extends React.Component<Props, State> {
         </Route>
         <Route path="*">
           {isPopup
-            ? <VideoOverlay onClose={() => this.props.history.push(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+            ? <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
             : <RenderRouter data={null} content={this.state.content}></RenderRouter>}
         </Route>
       </Switch>

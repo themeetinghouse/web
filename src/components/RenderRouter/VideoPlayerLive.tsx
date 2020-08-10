@@ -8,7 +8,6 @@ import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
 import { Helmet } from 'react-helmet';
 import { ListLivestreamsQuery } from '../../API';
-import { Link } from 'components/Link/Link';
 
 type LiveData = NonNullable<NonNullable<NonNullable<ListLivestreamsQuery['listLivestreams']>['items']>[0]>;
 
@@ -166,15 +165,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
               <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
               <div className="LiveVideoPlayerSeriesMenuContainer" >
                 {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ? this.state.liveEvent.menu.map((item: any, index: number) => {
-                  if (item.linkType !== 'notes' && item.linkType !== 'link') {
-                    return null;
-                  }
-                  const href = item.linkType === 'notes'
-                    ? `/notes/${this.state.currentSundayDate}`
-                    : item.link;
-                  return <div key={index} className="LiveVideoPlayerSeriesMenu">
-                    <Link newWindow to={href}>{item.title}</Link>
-                  </div>
+
+                  if (item.linkType === "notes")
+                    return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
+                  else if (item.linkType === "link")
+                    return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.link}>{item.title}</a></div>
+                  else
+                    return null
+
                 }) : null}
               </div>
               {this.state.isLive ?
@@ -232,12 +230,12 @@ export default class VideoPlayer extends React.Component<Props, State> {
           <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
           <div className="LiveVideoPlayerSeriesMenuContainer" >
             {this.state.content.menu.map((item: any, index: number) => {
-              const href = item.title === 'Notes' && item.linkto === 'web-notes'
-                ? `/notes/${this.state.currentSundayDate}`
-                : item.linkto;
-              return <div key={index} className="LiveVideoPlayerSeriesMenu">
-                <Link newWindow to={href}>{item.title}</Link>
-              </div>
+
+              if (item.title === "Notes" && item.linkto === "web-notes")
+                return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={"/notes/" + this.state.currentSundayDate}>{item.title}</a></div>
+              else
+                return <div key={index} className="LiveVideoPlayerSeriesMenu"><a target="_blank" rel="noopener noreferrer" href={item.linkto}>{item.title}</a></div>
+
             })}
           </div>
           <div>

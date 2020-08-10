@@ -1,8 +1,7 @@
 
 import React from 'react';
 import "./Give2Item.scss"
-import { LinkButton } from 'components/Link/Link';
-
+import { Button } from 'reactstrap';
 interface Props {
   content: any
 }
@@ -23,14 +22,18 @@ export default class ContentItem extends React.Component<Props, State>  {
     if (window.location.hostname === "localhost")
       return "https://localhost:3006"
     else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/" + size
+      return "https://beta.themeetinghouse.com/cache/"+size
     else
-      return "https://www.themeetinghouse.com/cache/" + size
+      return "https://www.themeetinghouse.com/cache/"+size
   }
-
+  
+  navigateUrl(to: string) {
+    console.log(to)
+    window.location.href = to;
+  }
   renderPushPay() {
     return <div>
-
+      
     </div>
   }
   renderPushPay2() {
@@ -63,8 +66,8 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div className="GiveItemText">{this.state.content.text3}</div>
           <div className="GiveItemText">{this.state.content.text4}</div>
           <div className="GiveItemText">{this.state.content.text5}</div>
-          <LinkButton className="inverted" to="go-pledge">Pledge Now</LinkButton>
-          <LinkButton className="inverted" to="go-give">Give Without Pledging</LinkButton>
+          <Button className="GiveButton" onClick={() => { this.navigateUrl("go-pledge") }}>Pledge Now</Button>
+          <Button className="GiveButton" onClick={() => { this.navigateUrl("go-give") }}>Give Without Pledging</Button>
           <div className="GiveItemBottom"></div>
         </form>
 

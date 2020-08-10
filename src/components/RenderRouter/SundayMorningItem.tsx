@@ -9,7 +9,6 @@ import AddToCalendar from 'react-add-to-calendar';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import "./SundayMorningItem.scss";
-import { LinkButton } from 'components/Link/Link';
 
 
 interface ListData {
@@ -63,6 +62,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
       currentLatLng: DEFAULT_LAT_LNG,
       postalCode: "",
     }
+    this.navigate = this.navigate.bind(this);
     let jsonFile;
     if (this.props.content.alternate === "christmas")
       jsonFile = "/static/data/christmas.json"
@@ -76,6 +76,13 @@ export class SundayMorningItem extends React.Component<Props, State> {
       .then((myJson) => {
         this.setState({ listData: myJson });
       })
+  }
+
+  private navigate(to: string) {
+    this.props.history.push(to, "as")
+    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    unblock();
+
   }
 
   componentDidMount() {
@@ -274,7 +281,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               : <div className="SundayMorningServiceTimes">{item.serviceTimes.map((t) => (t + ' am')).join(', ')}</div>}
                           </div>
                           <div className="SundayMorningItemDiv6" >
-                            <LinkButton className="SundayMorningButton1" to={item.id}>Visit Site Page</LinkButton>
+                            <button className="SundayMorningButton1" onClick={() => this.navigate(item.id)}>Visit Site Page</button>
                           </div>
                         </div>
                         <div className="SundayMorningButtonContainer">

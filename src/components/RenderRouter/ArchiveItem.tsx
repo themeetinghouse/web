@@ -97,11 +97,13 @@ class ArchiveItem extends React.Component<Props, State> {
         this.setState({
             overlayData: null,
         });
+        window.history.pushState({}, 'Videos', this.state.urlHistoryState);
     }
 
     handleClick(data: any) {
         this.setState({
             overlayData: data,
+            urlHistoryState: window.location.href,
         });
     }
 
