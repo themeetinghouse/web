@@ -1,6 +1,11 @@
 @import '../../theme.scss';
 
 .blog-item {
+
+.blog-read-more {
+    font-size: 1.1vw;
+}
+
 @media (min-width: 768px) {
     .blogdescription {
         padding-top: 2.2vw !important;
@@ -140,14 +145,6 @@
 
     .BlogTwoImageTextContainer {
         padding-top: 2.2vw;
-    }
-
-    .blog-read-more {
-        color: #1A1A1A !important;
-        font-size: 1.1vw;
-        padding-bottom: 1px;
-        border-bottom: solid 1px #1A1A1A; 
-        text-decoration: none !important;
     }
 }
 
@@ -290,14 +287,6 @@
 
     .BlogTwoImageTextContainer {
         padding-top: 2.2vw;
-    }
-
-    .blog-read-more {
-        color: #1A1A1A !important;
-        font-size: 1.1vw;
-        padding-bottom: 1px;
-        border-bottom: solid 1px #1A1A1A; 
-        text-decoration: none !important;
     }
     
     .twoImageButton {
@@ -447,11 +436,7 @@
     }
 
     .blog-read-more {
-        color: #1A1A1A !important;
         font-size: 4.26vw;
-        padding-bottom: 1px;
-        border-bottom: solid 1px #1A1A1A; 
-        text-decoration: none !important;
     }
 }
 }
