@@ -396,6 +396,15 @@
         "Email": "Lauren.Germain@themeetinghouse.com"
     },
     {
+        "Staff":true,
+         "FirstName": "Liam",
+         "LastName": "Dahl",
+         "Phone": "905.287.7000, ext. 7066",
+         "Position": "Events & Rentals Manager",
+         "sites": ["Operations"],
+         "Email": "Liam.dahl@themeetinghouse.com"
+     },
+    {
        "Staff":true,
         "FirstName": "Lindsay",
         "LastName": "Hart",
