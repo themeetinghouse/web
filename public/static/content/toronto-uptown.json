@@ -76,11 +76,9 @@
                 ]
             },
             {
-                "type": "list",
-                "style": "grid",
+                "type": "instagram",
                 "class": "instagram",
-                "filterField": "sites",
-                "filterValue": "toronto-uptown"
+                "username": "tmhuptowntoronto"
             },
             {
                 "type": "content",

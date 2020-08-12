@@ -68,7 +68,7 @@ class RenderRouter extends React.Component<Props, State> {
       case "distance-groups": return (<DistanceGroupItem key={index} content={item}></DistanceGroupItem>);
       case "home-church": return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
       case "form": return (<FormItem key={index} content={item}></FormItem>);
-      case "instagram": return (<InstagramItem key={index} content={item}></InstagramItem>);
+      case "instagram": return (<InstagramItem key={index} query={item}></InstagramItem>);
       case "iframe": return (<IFrameItem key={index} content={item}></IFrameItem>);
       case "search": return (<SearchItem key={index} content={item}></SearchItem>);
       case "payment": return (<PaymentItem key={index} content={item}></PaymentItem>);

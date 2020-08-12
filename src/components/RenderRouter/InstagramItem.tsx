@@ -1,47 +1,30 @@
 
-import React from 'react';
-import { buildUrl } from 'react-instafeed'
-//import useAbortableFetch from 'use-abortable-fetch'
-//import Image from '@components/Image'
+import React, { useState, useEffect } from 'react';
+import DataLoader, { InstagramData, InstagramQuery } from './DataLoader';
 
-interface Props {
-  content: any
+type Params = {
+  query: InstagramQuery
 }
-interface State {
-  content: any
-}
-const options = {
-  accessToken: 'access...',
-  clientId: 'client...',
-  get: 'user', // popular, user
-  locationId: null,
-  resolution: 'standard_resolution', // thumbnail, low_resolution, standard_resolution
-  sortBy: 'none', // none, least-commented, least-liked, least-recent, most-commented, most-liked, most-recent, random
-  tagName: null,
-  userId: 123,
-}
-export default class ContentItem extends React.Component<Props, State>  {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      content: props.content
+
+export default function InstagramItem({ query }: Params) {
+
+  const [images, setImages] = useState<InstagramData[]>([]);
+
+  useEffect(() => {
+    async function getInstagram() {
+      const images = await DataLoader.getInstagram(query);
+      setImages(images);
+      console.log(images.length)
     }
 
+    getInstagram();
+  }, [])
 
-  }
-
-  render() {
-    fetch(buildUrl(options)).then((data) => { console.log(data) }
-
-    ).catch((e) => { console.log(e) })
-
-    //    console.log(data)
-
-    return (
-      <div className="ContentItem oneImage InstagramItemDiv">
-
-      </div>
-    )
-
-  }
+  return (
+    <div className="ContentItem oneImage InstagramItemDiv">
+      {images.map(item => {
+        return <img key={item.uri} src={item.uri} alt={item.alt}></img>
+      })}
+    </div>
+  )
 }

@@ -87,6 +87,17 @@ export interface StaffQuery extends DataLoaderQuery {
   filterField: string;
 }
 
+export interface InstagramQuery extends DataLoaderQuery {
+  username: string;
+}
+
+export interface InstagramData {
+  uri: string;
+  shortCode: string;
+  alt: string;
+  timestamp: string
+}
+
 export interface StaffData {
   Staff?: boolean;
   FirstName: string;
@@ -435,6 +446,36 @@ export default class DataLoader {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  static async getInstagram(query: InstagramQuery): Promise<InstagramData[]> {
+    const url = `https://www.instagram.com/${query.username}/?__a=1`;
+    const images: InstagramData[] = [];
+
+    try {
+      const res = await fetch(url);
+      if (res.status !== 200) {
+        console.error({'Error': res.status})
+        return images;
+      }
+      const json = await res.json();
+      const media = json.graphql.user.edge_owner_to_timeline_media.edges;
+      console.log(json)
+      media.forEach((elem: any) => {
+        if (elem.node['__typename'] === 'GraphImage' || elem.node['__typename'] === 'GraphSidecar') {
+          images.push({
+            uri: elem.node.display_url, 
+            shortCode: elem.node.shortcode,
+            alt: elem.node.accessibility_caption,
+            timestamp: elem.node.taken_at_timestamp
+          })
+        }
+      })
+      return images;
+    } catch (e) {
+      console.error(e)
+    }
+    return images;
   }
 
   static async getSeriesByType(
