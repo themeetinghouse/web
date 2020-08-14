@@ -41,6 +41,7 @@ interface State {
 
     showEpisodeNumbers: boolean;
     hovertag: string;
+    skipFirstPost?: boolean;
   };
   listData: ListData[];
   overlayData: any;
@@ -647,6 +648,8 @@ class ListItem extends React.Component<Props, State> {
       );
     }
     else if (this.state.content.style === 'blogs') {
+      const startIndex = this.state.content.skipFirstPost ? 1 : 0;
+
       data.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
 
       const today = format(new Date(), 'yyyy-MM-dd');
@@ -655,7 +658,7 @@ class ListItem extends React.Component<Props, State> {
       return (
         <div className="ListItemDiv1 BlogItem" >
           <div className="BlogItemContainer">
-            {dateChecked.map((item: any, index: any) => {
+            {dateChecked.slice(startIndex).map((item: any, index: any) => {
               return this.renderItemRouter(item, index);
             }
             )}
