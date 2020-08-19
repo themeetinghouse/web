@@ -84,17 +84,17 @@
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Local Compassion Fund Application",
-                "text1": "This fund is now closed. The next application window will open September 2020.",
+                "text1": "The current application window is open from Sept 1-Oct 9, 2020.",
                 "list": [
                     {
                         "type":"link",
                         "title": "Grant Application Guidelines",
-                        "navigateTo": "https://drive.google.com/file/d/1uOJH0wHRzSBHNbh4vVz7_2m8e37oRkwf/view"
+                        "navigateTo": "https://drive.google.com/file/d/1UoliNnSU6OqjFKbwpcdWRg5Jkw5ZKSGE/view?usp=sharing"
                     },
                     {
                         "type":"link",
                         "title": "Assessment Criteria",
-                        "navigateTo": "https://drive.google.com/file/d/1-djNFZpdI1k3pRM6W2_On9eCD8fORbLr/view"
+                        "navigateTo": "https://drive.google.com/file/d/1QBgcORF5SkJ4Dn_5vR0Ub4O_wELo67Bc/view?usp=sharing"
                     },
                     {
                         "type":"link",
@@ -107,26 +107,6 @@
                     {
                         "src": "/static/images/compassion-3.jpg",
                         "alt": "Young woman sitting and learning from two friends around a table."
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Virtual Learning Team",
-                "text1": "You're invited to join our Virtual Learning Team on Monday, Aug 10! We're hearing from our international compassion partners on peacebuilding, reconciliation, and the impacts of COVID-19 on global poverty.",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Learn More and Register",
-                        "navigateTo": "https://www.eventbrite.ca/e/virtual-learning-team-tickets-110171846960"
-                    }
-                ],
-              
-                "image1": [
-                    {
-                        "src": "/static/images/compassion-4.jpg",
-                        "alt": "Group of six people from last year's Learning Team smiling at the camera."
                     }
                 ]
             }
