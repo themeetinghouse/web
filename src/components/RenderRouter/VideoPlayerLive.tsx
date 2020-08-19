@@ -189,10 +189,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
               }
               {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
                 <div className="ZoomGrid">
-                  {this.state.liveEvent.zoom.map((item: any, index: number) => {
-                    return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer" >
+                  {this.state.liveEvent.zoom.map((item, index) => {
+                    const watchText =
+                      item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
+                        : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
+                          : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
+                            : 'Watch'
+                    return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
                       <div className="ZoomText" >{item?.title}</div>
-                      <div className="WatchVideoTag">Join on Zoom</div>
+                      <div className="WatchVideoTag">{watchText}</div>
                     </a>
                   })}
                 </div> : null}

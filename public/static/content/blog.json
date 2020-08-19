@@ -32,7 +32,8 @@
                 "class": "blogs",
                 "style": "blogs",
                 "status": "Live",
-                "sortOrder": "DESC"
+                "sortOrder": "DESC",
+                "skipFirstPost": true
             }
         ]
     }
