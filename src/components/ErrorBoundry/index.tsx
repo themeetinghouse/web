@@ -15,9 +15,10 @@ export default class ErrorBoundary extends React.Component<EmptyProps, State>  {
         if (chunkFailedMessage.test(error.message)) {
             window.location.reload();
         }
-
-        this.setState({ error });
-        Sentry.captureException(error);
+        else {
+            this.setState({ error });
+            Sentry.captureException(error);
+        }
     }
     render() {
         if (this.state.error) {
