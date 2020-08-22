@@ -12407,9 +12407,9 @@ export const getNotes = /* GraphQL */ `
       id
       title
       content
-      imageA
-      imageB
-      imageC
+      questions
+      jsonContent
+      jsonQuestions
       pdf
       topics
       tags
@@ -12429,9 +12429,9 @@ export const listNotess = /* GraphQL */ `
         id
         title
         content
-        imageA
-        imageB
-        imageC
+        questions
+        jsonContent
+        jsonQuestions
         pdf
         topics
         tags

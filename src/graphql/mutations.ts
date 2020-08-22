@@ -16184,9 +16184,9 @@ export const createNotes = /* GraphQL */ `
       id
       title
       content
-      imageA
-      imageB
-      imageC
+      questions
+      jsonContent
+      jsonQuestions
       pdf
       topics
       tags
@@ -16201,9 +16201,9 @@ export const updateNotes = /* GraphQL */ `
       id
       title
       content
-      imageA
-      imageB
-      imageC
+      questions
+      jsonContent
+      jsonQuestions
       pdf
       topics
       tags
@@ -16218,9 +16218,9 @@ export const deleteNotes = /* GraphQL */ `
       id
       title
       content
-      imageA
-      imageB
-      imageC
+      questions
+      jsonContent
+      jsonQuestions
       pdf
       topics
       tags
