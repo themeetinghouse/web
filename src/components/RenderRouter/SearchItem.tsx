@@ -96,7 +96,7 @@ class ContentItem extends React.Component<Props, State>  {
         {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
           if (item.episodeTitle !== null)
             return (
-              <div key={item.id} onClick={(item2) => { this.openVideo(item) }} className="SearchResultItem">
+              <div key={item.id} onClick={() => { this.openVideo(item) }} className="SearchResultItem">
                 <img alt="TBD" className="Thumb" src={item.Youtube.snippet.thumbnails.high.url} />
                 <div className="Content">
                   <div className="ContentType">Video</div>

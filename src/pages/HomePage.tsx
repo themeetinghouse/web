@@ -128,7 +128,7 @@ class HomePage extends React.Component<Props, State> {
               this.props.history.push("/weather");
             }
           });
-        }).catch((e) => {
+        }).catch(() => {
           fetch('/static/redirect/' + jsonFile.toLowerCase() + '.json').then(function (response) {
             console.log(response)
             return response.json();
@@ -136,7 +136,7 @@ class HomePage extends React.Component<Props, State> {
             .then((myJson) => {
 
               this.setState({ content: myJson });
-            }).catch((e) => {
+            }).catch(() => {
               Analytics.record({
                 name: 'error',
                 attributes: { page: jsonFile }

@@ -1,11 +1,11 @@
 ﻿
-import React, { Container } from 'react';
+import React from 'react';
 
 import HomeMenu from '../components/Menu/HomeMenu.js';
 import { withRouter } from 'next/router'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import * as queries from '../src/graphql/queries';
-import * as mutations from '../src/graphql/mutations';
+//import * as mutations from '../src/graphql/mutations';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../src/aws-exports';
 
@@ -61,9 +61,9 @@ class Sites extends React.Component {
     else {
       return (
         <div>
-        <HomeMenu></HomeMenu>
+          <HomeMenu></HomeMenu>
           Welcome to {this.state.site} site
-         <div>{this.state.locationDetails.site_name}</div>
+          <div>{this.state.locationDetails.site_name}</div>
           <div>{this.state.locationDetails.directions}</div>
           <div>{this.state.locationDetails.welcome}</div>
           <div>{this.state.locationDetails.welcome_img}</div>
