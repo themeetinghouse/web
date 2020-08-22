@@ -349,21 +349,6 @@ transform:rotate(attr(data-value,deg,0);
     }
     .oneImageA {
         font-size: 1.2vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-        border-bottom: 1px solid $onyxblacktext;
-        padding-bottom: 1px;
-
-        &:hover {
-            color: inherit;
-            text-decoration: inherit;
-        }
-    }
-
-    .oneImageA.blackBox {
-        color: white;
-        border-bottom: 1px solid white;
-        padding-bottom: 1px;
     }
 
     .oneImageAContainer {
@@ -654,12 +639,6 @@ transform:rotate(attr(data-value,deg,0);
         }
     }
 
-    .oneImageA.blackBox {
-        color: white;
-        border-bottom: 1px solid white;
-        padding-bottom: 1px;
-    }
-
     .oneImageAContainer {
         margin-bottom: 0.2vw;
     }
@@ -904,11 +883,6 @@ transform:rotate(attr(data-value,deg,0);
             color: inherit;
             text-decoration: inherit;
         }
-    }
-
-    .oneImageA.blackBox {
-        color: white;
-        border-bottom: 1px solid white;
     }
 
     .oneImageImage {

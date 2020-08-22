@@ -3,7 +3,8 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
-import { NavLink } from 'reactstrap';
+import { NavLink } from 'components/Link/Link';
+
 Amplify.configure(awsmobile);
 const federated = {
   facebookAppId: '579712102531269'
@@ -15,9 +16,9 @@ class Index extends React.Component {
     return (
       <AmplifyAuthenticator federated={federated}>
         <div>
-          <AdminMenu/>
+          <AdminMenu />
           Welcome to The Meeting House Admin Site
-          <NavLink href="/">Back to Main Site</NavLink>
+          <NavLink to="/">Back to Main Site</NavLink>
         </div>
       </AmplifyAuthenticator>
     );

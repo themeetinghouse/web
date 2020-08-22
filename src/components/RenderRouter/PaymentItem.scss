@@ -38,15 +38,6 @@ ul.GiveItemNumber {
     font-size: 3vw;
   }
 
-  .GiveButton {
-    font-family: Graphik Web !important;
-    font-weight: bold !important;
-    color: #ffffff !important;
-    background-color: $onyxblacktext !important;
-    border-color: #ffffff !important;
-    border-radius: 0px !important;
-  }
-
   .GiveItemH2 {
     color: #ffffff;
     font-family: Graphik Web;
@@ -82,11 +73,18 @@ ul.GiveItemNumber {
     font-family: Graphik Web;
     background-color: $onyxblacktext;
     color: #ffffff;
-    border-width: 0px;
+    border: none;
     margin: 0px;
     padding: 0px;
     font-weight: normal;
     text-decoration: underline;
+
+    &:hover {
+      background-color: #000;
+      border: none;
+      color: #0000ff;
+      text-decoration: underline;
+    }
   }
 
   .GiveItemOtherWayButton2 {
@@ -99,17 +97,6 @@ ul.GiveItemNumber {
     font-weight: normal;
     text-decoration: underline;
     font-weight: bold;
-  }
-
-  .GiveItemOtherWayButton:hover {
-    font-family: Graphik Web;
-    background-color: $onyxblacktext;
-    color: #0000ff;
-    border-width: 0px;
-    margin: 0px;
-    padding: 0px;
-    font-weight: normal;
-    text-decoration: underline;
   }
 
   .GiveItemGreyBox {
@@ -220,15 +207,6 @@ ul.GiveItemNumber {
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 3vw;
-  }
-
-  .GiveButton {
-    font-family: Graphik Web !important;
-    font-weight: bold !important;
-    color: #ffffff !important;
-    background-color: $onyxblacktext !important;
-    border-color: #ffffff !important;
-    border-radius: 0px !important;
   }
 
   .GiveItemH2 {
@@ -362,16 +340,6 @@ ul.GiveItemNumber {
     font-weight: bold;
     font-size: 7vw;
     line-height: 10.67vw;
-  }
-
-  .GiveButton {
-    font-family: Graphik Web !important;
-    font-weight: bold !important;
-    color: #ffffff !important;
-    background-color: $onyxblacktext !important;
-    border-color: #ffffff !important;
-    border-radius: 0px !important;
-    font-size: 5vw;
   }
 
   .GiveItemH2 {

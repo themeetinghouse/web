@@ -1,0 +1,72 @@
+@import '../../theme';
+
+@mixin hollow-btn {
+    position: relative;
+    border-radius: 0;
+    background-color: #fff;
+    color: $onyxblacktext;
+    font-weight: bold;
+    text-decoration: none;
+
+    margin-right: 2vw;
+
+    &.inverted {
+        background-color: $onyxblack;
+        color: #fff;
+
+        &:hover {
+            background-color: $onyxblack;
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        color: $onyxblacktext;
+        background-color: #fff;
+    }
+
+    @media (min-width: 767px) {
+        font-size: 1.1vw;
+        padding: 1.1vw 1.6vw;
+        height: 4vw;
+        margin-top: 3.3vw;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 4.26vw;
+        line-height: 4.26vw;
+        padding: 4.26vw 6.4vw;
+    }
+}
+
+// A link that looks like a button
+a.button-link {
+    @include hollow-btn;
+}
+
+a {
+    color: $onyxblacktext;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+
+    &.link-plain {
+        text-decoration: none;
+    }
+
+    &.inverted {
+        color: #fff;
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    &.container, &.container:hover {
+        color: initial;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+}

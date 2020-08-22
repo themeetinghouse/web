@@ -26,6 +26,7 @@ import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
 import ScaledImage, { fallbackToImage } from 'components/ScaledImage/ScaledImage';
+import { Link } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -45,7 +46,6 @@ interface State {
   };
   listData: ListData[];
   overlayData: any;
-  urlHistoryState: any;
   showChampion: any;
   showMoreVideos: boolean;
   windowWidth: number;
@@ -76,11 +76,11 @@ class ListItem extends React.Component<Props, State> {
     router: PropTypes.object,
     history: PropTypes.object,
   };
+
   videoOverlayClose() {
     this.setState({
       overlayData: null,
     });
-    window.history.pushState({}, 'Videos', this.state.urlHistoryState);
   }
   showYears(start: string | null, end: string | null) {
     const validStart = start && !isNaN(new Date(start).getFullYear())
@@ -102,12 +102,11 @@ class ListItem extends React.Component<Props, State> {
   handleClick(data: any) {
     this.setState({
       overlayData: data,
-      urlHistoryState: window.location.href,
     });
     if (data.series == null)
       console.log({ 'You need to create a series for:': data });
     else
-      window.history.pushState({}, 'Videos', '/videos/' + data.series.id + '/' + data.id);
+      this.props.history.push('/videos/' + data.series.id + '/' + data.id);
   }
 
   constructor(props: Props) {
@@ -118,12 +117,10 @@ class ListItem extends React.Component<Props, State> {
       content: props.content,
       listData: props.content.list ?? [],
       overlayData: null,
-      urlHistoryState: window.history.state,
       showMoreVideos: false,
       windowWidth: window.innerWidth
     };
     this.videoHandler = this.videoHandler.bind(this);
-    this.navigate = this.navigate.bind(this);
     this.setData = this.setData.bind(this);
   }
 
@@ -212,23 +209,6 @@ class ListItem extends React.Component<Props, State> {
     });
   }
 
-  navigateUrlNewWindow(to: string) {
-    window.open(
-      to,
-      '_blank', // <- This is what makes it open in a new window.
-      'noopener noreferrer'
-    );
-  }
-  navigateUrl(to: string) {
-    window.location.href = to;
-  }
-  navigate(to: string) {
-    this.props.history.push(to, 'as');
-    const unblock = this.props.history.block('Are you sure you want to leave this page?');
-    unblock();
-
-  }
-
   sortByDate(a: BlogData, b: BlogData, dir: 'oldFirst' | 'newFirst') {
     const nameA = (a?.publishedDate ?? '').toUpperCase();
     const nameB = (b?.publishedDate ?? '').toUpperCase();
@@ -248,23 +228,22 @@ class ListItem extends React.Component<Props, State> {
   }
 
   renderMoreVideosCard() {
-    const temp = this.state.content as any
     return (
-      <div key='load-more-card' onClick={() => window.location.href = '/archive/video/' + temp.subclass} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <Link key='load-more-card' to={`/archive/video/${(this.state.content as VideoSeriesQuery).subclass}`}
+        className={'container ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
         <div className="LoadMoreVideosCard">
           <div className="LoadMoreVideosText">Click for more videos</div>
         </div>
-      </div>);
+      </Link>);
   }
 
   renderMoreSeriesCard() {
-    const temp = this.state.content as any
-    return (
-      <div key='load-more-card' onClick={() => window.location.href = '/archive/series/' + temp.subclass} >
-        <div className="LoadMoreSeriesCard">
-          <div className="LoadMoreSeriesText">Click for more series</div>
-        </div>
-      </div>);
+    return <Link key='load-more-card' to={`/archive/series/${(this.state.content as VideoSeriesQuery).subclass}`}
+      className="container ListItemVideo">
+      <div className="LoadMoreSeriesCard">
+        <div className="LoadMoreSeriesText">Click for more series</div>
+      </div>
+    </Link>;
   }
 
   renderVideo(item: VideoData): JSX.Element | null {
@@ -320,18 +299,20 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div className="BlogItem" key={item.id} onClick={() => this.navigateUrl('/posts/' + item.id)}>
-        <img alt={item.blogTitle + ' series image'}
-          className="BlogSquareImage"
-          src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
-          onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
-        />
-        <div className="BlogContentContainer">
-          <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
-          <div className="BlogDetails">by <span className="author-only">{item.author}</span> on{' '}{item.publishedDate}</div>
-          <div className="BlogDesc">{item.description}</div>
+      <Link className="container" to={'/posts/' + item.id} key={item.id}>
+        <div className="BlogItem">
+          <img alt={item.blogTitle + ' series image'}
+            className="BlogSquareImage"
+            src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
+            onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
+          />
+          <div className="BlogContentContainer">
+            <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
+            <div className="BlogDetails">by <span className="author-only">{item.author}</span> on{' '}{item.publishedDate}</div>
+            <div className="BlogDesc">{item.description}</div>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   }
 
@@ -430,22 +411,24 @@ class ListItem extends React.Component<Props, State> {
     else
       description = item.description;
     return (
-      <div key={item.id ?? ''} onClick={() => { this.navigateUrlNewWindow('https://facebook.com/' + item.id) }} className="ListItemEvents" >
-        <div style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}>
-          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
-          <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.getDate()}</div>
-        </div>
-        <div style={{ margin: '10px' }}>
-          <div className="ListItemEventsDescription" >{item.name}</div>
-          <div className="ListItemEventsDescription2" >{description}</div>
-          {item.place != null ? item.place.name != null ? <div className="ListItemEventsLocation" >{item.place.name}</div> : null : null}
-          <div className="ListItemEventsDuration" >{durationStr}</div>
-          {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
+      <Link key={item.id ?? ''} className="container" newWindow to={'https://facebook.com/' + item.id}>
+        <div className="ListItemEvents">
+          <div style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}>
+            <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
+            <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.getDate()}</div>
+          </div>
+          <div style={{ margin: '10px' }}>
+            <div className="ListItemEventsDescription" >{item.name}</div>
+            <div className="ListItemEventsDescription2" >{description}</div>
+            {item.place != null ? item.place.name != null ? <div className="ListItemEventsLocation" >{item.place.name}</div> : null : null}
+            <div className="ListItemEventsDuration" >{durationStr}</div>
+            {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
         <Button className="ListItemEventButton" onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
     */}       </div>
-        <div style={{ clear: 'left' }}></div>
+          <div style={{ clear: 'left' }}></div>
 
-      </div>
+        </div>
+      </Link >
     );
 
   }
@@ -822,20 +805,16 @@ class ListItem extends React.Component<Props, State> {
             <div className="ListItemDiv9" ></div>
             {
               data.map((item: any, index: any) => {
+                const href = item.navigateTo || item.url;
+                const body = <div className={'imageList ' + (href ? 'hoverText' : 'noHoverText')}>
+                  <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
+                  <div className="ListItemDiv11" >{item.text}</div>
+                </div>;
                 return (
                   <div className="ListItemDiv10" key={index}>
-                    <div
-                      onClick={() => {
-                        if (item.navigateTo)
-                          this.navigate(item.navigateTo);
-                        else
-                          if (item.url)
-                            this.navigateUrl(item.url);
-                      }}
-                      className={'imageList ' + (item.url || item.navigateTo ? 'hoverText' : 'noHoverText')}>
-                      <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
-                      <div className="ListItemDiv11" >{item.text}</div>
-                    </div>
+                    {href
+                      ? <Link className="container" to={href}>{body}</Link>
+                      : body}
                     <ScaledImage className="ListItemH1ImageList2" image={{ src: item.imageSrc, alt: item.imageAlt }}
                       breakpointSizes={{
                         320: 320,
