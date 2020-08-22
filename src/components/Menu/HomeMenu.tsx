@@ -191,7 +191,7 @@ class HomeMenu extends React.Component<Props, State>  {
                     const shouldExpand = (
                       this.state.expand === item.location ||
                       this.props.location.pathname === item.location ||
-                      item.children?.some(a => a.location == this.props.location.pathname)
+                      item.children?.some(a => a.location === this.props.location.pathname)
                     );
                     return (
                       <div key={item.location} className="linkContainer">
