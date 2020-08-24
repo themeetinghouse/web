@@ -9,7 +9,6 @@ import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { Helmet } from 'react-helmet';
 import { LinkButton } from 'components/Link/Link';
 import { Button } from 'reactstrap';
 
@@ -178,23 +177,6 @@ class TeachingItem extends React.Component<Props, State> {
                 this.state.listData !== null ?
                     (this.state.listData.length === this.props.content.options.length) || (this.props.content.options.length === 0) ?
                         <div className="teaching" >
-                            <Helmet>
-                                <meta property="og:url" content={this.props.content.class === "teaching-kids-youth" ? "https://www.themeetinghouse.com/teaching-kids-youth" : this.props.content.class === "bbq" ? "https://www.themeetinghouse.com/teaching-curated" : "https://www.themeetinghouse.com/teaching"} />
-                                <meta property="og:title" content="Teaching" />
-                                <meta property="og:description" content="" />
-                                <meta property="og:type" content="website" />
-                                <meta property="fb:app_id" content="579712102531269" />
-                                <meta property="og:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
-                                <meta property="og:image:secure_url" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
-                                <meta property="og:image:type" content="image/jpeg" />
-
-                                <meta property="twitter:title" content="Teaching" />
-                                <meta property="twitter:creator" content="@TheMeetingHouse" />
-                                <meta property="twitter:image" content={"https://www.themeetinghouse.com/static/photos/series/baby-hero/" + this.state.listData[this.state.teachingId].videoTypes + "-" + this.state.listData[this.state.teachingId].seriesTitle.replace(/\?|[']/g, "") + ".jpg"} />
-                                <meta property="twitter:description" content="" />
-                                <meta property="twitter:url" content={this.props.content.class === "teaching-kids-youth" ? "https://www.themeetinghouse.com/teaching-kids-youth" : this.props.content.class === "bbq" ? "https://www.themeetinghouse.com/teaching-curated" : "https://www.themeetinghouse.com/teaching"} />
-                                <meta property="twitter:card" content="summary" />
-                            </Helmet>
                             <h1 className="teaching-h1" >{this.props.content.header1}</h1>
                             <div className="teaching-blackbox" >
                                 <div className="teachingdiv" >{this.state.listData[this.state.teachingId].publishedDate}</div>
