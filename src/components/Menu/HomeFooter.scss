@@ -5,6 +5,13 @@
   text-decoration: none;
 }
 
+.HomeFooter a {
+  color: #1A1A1A;
+  &:hover {
+    color: #0056b3;
+  }
+}
+
 @media (min-width: 768px) {
     .HomeFooter.footer.font-small {
       color: #1A1A1A;
