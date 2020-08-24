@@ -2173,6 +2173,14 @@ export const emailHomeChurch = /* GraphQL */ `
     }
   }
 `;
+export const askQuestion = /* GraphQL */ `
+  query AskQuestion($email: String, $body: String) {
+    askQuestion(email: $email, body: $body) {
+      err
+      data
+    }
+  }
+`;
 export const getTnSeries = /* GraphQL */ `
   query GetTnSeries($id: ID!) {
     getTNSeries(id: $id) {
