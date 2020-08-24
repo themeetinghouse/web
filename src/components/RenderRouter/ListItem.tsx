@@ -807,7 +807,7 @@ class ListItem extends React.Component<Props, State> {
               data.map((item: any, index: any) => {
                 const href = item.navigateTo || item.url;
                 const body = <div className={'imageList ' + (href ? 'hoverText' : 'noHoverText')}>
-                  <h3 className="ListItemH3" ><img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" />{item.title}</h3>
+                  <h3 className="ListItemH3" >{href ? <img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" /> : null}{item.title}</h3>
                   <div className="ListItemDiv11" >{item.text}</div>
                 </div>;
                 return (
