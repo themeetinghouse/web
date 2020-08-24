@@ -32,6 +32,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return markup
   }
 
+  getNotesMarkup(type: 'notes' | 'questions') {
+    const notes = draftToHtml(convertToRaw(this.state.data.notesEditorState.getCurrentContent()));
+    const questions = draftToHtml(convertToRaw(this.state.data.questionsEditorState.getCurrentContent()));
+    if (type === 'notes')
+      return notes
+
+    return questions
+  }
+
   shareButton() {
     return (
       <Dropdown>
@@ -56,7 +65,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
         <div className="blog-content">
           <div>Below is a preview... To refresh, please toggle &quot;Preview Your Work&quot;</div>
           <h1 className="blog-h1" >{this.state.data.title}</h1>
-          <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
+          <div className="body">{ReactHtmlParser(this.getNotesMarkup('notes'))}</div>
+          <div style={{ borderBottom: 'black 1px solid', width: '48.33vw' }}></div>
+          <div className="body">{ReactHtmlParser(this.getNotesMarkup('questions'))}</div>
         </div>
       )
     } else {

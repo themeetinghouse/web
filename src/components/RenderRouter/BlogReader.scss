@@ -17,7 +17,7 @@
         border-color: #1A1A1A;
     }
 }
-.blog-body * {
+.blog-body *, .notes-body *, .questions-body * {
     font-family: Graphik Web !important;
     color: $onyxblacktext !important;
 }
@@ -59,7 +59,28 @@
         overflow-x: hidden;
         padding-bottom: 6vw;
     }
+
+    .notes-body {
+        padding-top: 3vw;
+        padding-bottom: 1vw;
+        font-family: Graphik Web;
+        width: 48.33vw;
+        overflow-x: hidden;
+    }
+
+    .questions-body {
+        padding-top: 1vw;
+        padding-bottom: 3vw;
+        font-family: Graphik Web;
+        width: 48.33vw;
+        overflow-x: hidden;
+    }
     
+    .notes-line {
+        border-bottom: black 1px solid;
+        width: 48.33vw;
+    }
+
     .button-icon {
         margin-right: 16px;
     }
@@ -164,7 +185,28 @@
         width: 48.33vw;
         overflow-x: hidden;
     }
-    
+
+    .notes-body {
+        padding-top: 3vw;
+        padding-bottom: 1vw;
+        font-family: Graphik Web;
+        width: 48.33vw;
+        overflow-x: hidden;
+    }
+
+    .questions-body {
+        padding-top: 1vw;
+        padding-bottom: 3vw;
+        font-family: Graphik Web;
+        width: 48.33vw;
+        overflow-x: hidden;
+    }
+
+    .notes-line {
+        border-bottom: black 1px solid;
+        width: 48.33vw;
+    }
+
     .button-icon {
         margin-right: 16px;
     }
@@ -267,6 +309,27 @@
         font-family: Graphik Web;
         width: 88.5vw;
         overflow-x: hidden;
+    }
+
+    .notes-body {
+        padding-top: 4vw;
+        padding-bottom: 2.5vw;
+        font-family: Graphik Web;
+        width: 88.5vw;
+        overflow-x: hidden;
+    }
+
+    .questions-body {
+        padding-top: 2.5vw;
+        padding-bottom: 4vw;
+        font-family: Graphik Web;
+        width: 88.5vw;
+        overflow-x: hidden;
+    }
+
+    .notes-line {
+        border-bottom: black 1px solid;
+        width: 88.5vw;
     }
     
     .button-icon {
