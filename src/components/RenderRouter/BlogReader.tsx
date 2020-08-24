@@ -144,7 +144,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 <div className="blog-content">
                   <h1 className="blog-h1" >{this.state.data.title}</h1>
                   {this.state.data.pdf ? <div className="ShareButtonDesktop">{this.downloadButton(this.state.data.pdf)}</div> : null}
-                  <div className="blog-body">{ReactHtmlParser(this.state.data.content)}</div>
+                  <div className={this.state.data.questions ? "notes-body" : "blog-body"}>{ReactHtmlParser(this.state.data.content)}</div>
+                  {this.state.data.questions ? <div className='notes-line' /> : null}
+                  {this.state.data.questions ? <div className="questions-body">{ReactHtmlParser(this.state.data.questions)}</div> : null}
                   {this.state.data.pdf ? <div className="ShareButtonMobile">{this.downloadButton(this.state.data.pdf)}</div> : null}
                 </div>}
             </div>
