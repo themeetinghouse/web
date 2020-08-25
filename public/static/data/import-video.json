@@ -2154,8 +2154,8 @@
         ]
     },
     {
-        "id": "music-sets",
-        "name": "Music Sets",
+        "id": "music",
+        "name": "Music",
         "columns": [
             {
                 "id": "episodeTitle",
