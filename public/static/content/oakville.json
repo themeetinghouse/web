@@ -110,6 +110,26 @@
                 ]
             },
             {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Care Ministries",
+                "header2": "",
+                "text1": "Our care ministries provide safe enviornemnts where people can recieve the spiritual care they need in safe and intentional community, with trained and caring facilitators.",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "View All Care Ministries",
+                        "navigateTo": "/care-ministries"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/care-ministries-1.jpg",
+                        "alt": "Two women sitting down together and talking as friends."
+                    }
+                ]
+            },
+            {
                 "type": "hero",
                 "style": "partial",
                 "image1": [
