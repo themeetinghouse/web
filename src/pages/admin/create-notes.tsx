@@ -319,10 +319,10 @@ class Index extends React.Component<EmptyProps, State> {
     const toolBarProps = {
       options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'textAlign', 'emoji', 'colorPicker', 'image', 'history'],
       inline: {
-        options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
+        options: ['bold', 'italic', 'underline', 'strikethrough'],
       },
       list: {
-        options: ['unordered', 'ordered'],
+        options: ['unordered'],
       },
       image: {
         uploadEnabled: true,
