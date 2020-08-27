@@ -802,6 +802,31 @@ type Blog
   tags:[String]
 }
 
+enum NoteDataType {
+  questions
+  notes
+}
+
+type Verse
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow:groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
+ ])
+  @key(name: "verseByNoteId", fields: ["noteId"])
+ {
+  id: ID!
+  key: String!
+  offset: Int!
+  length: Int!
+  dataType: NoteDataType!
+  content: String!
+  youVersionUri: String!
+  noteId: ID!
+  note: Notes @connection(fields: ["noteId"])
+ }
+
 type Notes 
  @model 
  @auth(rules:[
@@ -809,7 +834,6 @@ type Notes
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
  ])
-
 {
   id: ID!
   title:String
@@ -820,6 +844,7 @@ type Notes
   pdf:String
   topics:[String]
   tags:[String]
+  verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
 }
 
 type WebPage
