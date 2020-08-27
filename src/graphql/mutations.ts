@@ -16178,6 +16178,222 @@ export const deleteBlog = /* GraphQL */ `
     }
   }
 `;
+export const createVerse = /* GraphQL */ `
+  mutation CreateVerse($input: CreateVerseInput!) {
+    createVerse(input: $input) {
+      id
+      key
+      offset
+      length
+      dataType
+      content
+      youVersionUri
+      noteId
+      createdAt
+      updatedAt
+      note {
+        id
+        title
+        content
+        questions
+        jsonContent
+        jsonQuestions
+        pdf
+        topics
+        tags
+        createdAt
+        updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const updateVerse = /* GraphQL */ `
+  mutation UpdateVerse($input: UpdateVerseInput!) {
+    updateVerse(input: $input) {
+      id
+      key
+      offset
+      length
+      dataType
+      content
+      youVersionUri
+      noteId
+      createdAt
+      updatedAt
+      note {
+        id
+        title
+        content
+        questions
+        jsonContent
+        jsonQuestions
+        pdf
+        topics
+        tags
+        createdAt
+        updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const deleteVerse = /* GraphQL */ `
+  mutation DeleteVerse($input: DeleteVerseInput!) {
+    deleteVerse(input: $input) {
+      id
+      key
+      offset
+      length
+      dataType
+      content
+      youVersionUri
+      noteId
+      createdAt
+      updatedAt
+      note {
+        id
+        title
+        content
+        questions
+        jsonContent
+        jsonQuestions
+        pdf
+        topics
+        tags
+        createdAt
+        updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
 export const createNotes = /* GraphQL */ `
   mutation CreateNotes($input: CreateNotesInput!) {
     createNotes(input: $input) {
@@ -16192,6 +16408,62 @@ export const createNotes = /* GraphQL */ `
       tags
       createdAt
       updatedAt
+      verses {
+        items {
+          id
+          key
+          offset
+          length
+          dataType
+          content
+          youVersionUri
+          noteId
+          createdAt
+          updatedAt
+          note {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -16209,6 +16481,62 @@ export const updateNotes = /* GraphQL */ `
       tags
       createdAt
       updatedAt
+      verses {
+        items {
+          id
+          key
+          offset
+          length
+          dataType
+          content
+          youVersionUri
+          noteId
+          createdAt
+          updatedAt
+          note {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -16226,6 +16554,62 @@ export const deleteNotes = /* GraphQL */ `
       tags
       createdAt
       updatedAt
+      verses {
+        items {
+          id
+          key
+          offset
+          length
+          dataType
+          content
+          youVersionUri
+          noteId
+          createdAt
+          updatedAt
+          note {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
     }
   }
 `;

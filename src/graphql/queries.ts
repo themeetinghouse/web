@@ -12409,20 +12409,142 @@ export const searchBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getNotes = /* GraphQL */ `
-  query GetNotes($id: ID!) {
-    getNotes(id: $id) {
+export const getVerse = /* GraphQL */ `
+  query GetVerse($id: ID!) {
+    getVerse(id: $id) {
       id
-      title
+      key
+      offset
+      length
+      dataType
       content
-      questions
-      jsonContent
-      jsonQuestions
-      pdf
-      topics
-      tags
+      youVersionUri
+      noteId
       createdAt
       updatedAt
+      note {
+        id
+        title
+        content
+        questions
+        jsonContent
+        jsonQuestions
+        pdf
+        topics
+        tags
+        createdAt
+        updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const listVerses = /* GraphQL */ `
+  query ListVerses(
+    $filter: ModelVerseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listVerses(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        key
+        offset
+        length
+        dataType
+        content
+        youVersionUri
+        noteId
+        createdAt
+        updatedAt
+        note {
+          id
+          title
+          content
+          questions
+          jsonContent
+          jsonQuestions
+          pdf
+          topics
+          tags
+          createdAt
+          updatedAt
+          verses {
+            items {
+              id
+              key
+              offset
+              length
+              dataType
+              content
+              youVersionUri
+              noteId
+              createdAt
+              updatedAt
+              note {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                verses {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+      }
+      nextToken
     }
   }
 `;
@@ -12445,8 +12567,124 @@ export const listNotess = /* GraphQL */ `
         tags
         createdAt
         updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
       }
       nextToken
+    }
+  }
+`;
+export const getNotes = /* GraphQL */ `
+  query GetNotes($id: ID!) {
+    getNotes(id: $id) {
+      id
+      title
+      content
+      questions
+      jsonContent
+      jsonQuestions
+      pdf
+      topics
+      tags
+      createdAt
+      updatedAt
+      verses {
+        items {
+          id
+          key
+          offset
+          length
+          dataType
+          content
+          youVersionUri
+          noteId
+          createdAt
+          updatedAt
+          note {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
     }
   }
 `;
