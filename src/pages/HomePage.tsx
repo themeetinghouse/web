@@ -64,7 +64,13 @@ class HomePage extends React.Component<Props, State> {
         const forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
         console.log(forwardTo)
         if (forwardTo.length > 0) {
-          this.props.history.push(forwardTo[0].to)
+          const { to } = forwardTo[0];
+          // For relative paths use the history API. Anything else is probably an external link.
+          if (/^([-a-zA-Z0-9]+\/?)*$/.test(to)) {
+            this.props.history.push(to)
+          } else {
+            window.location.href = to;
+          }
         }
       })
 
