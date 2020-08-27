@@ -1,49 +1,44 @@
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GetBlogQuery } from 'API';
+import { API, Analytics } from 'aws-amplify';
+import React, { ReactElement, useEffect, useState } from 'react';
+import { useRouteMatch } from 'react-router-dom';
+import * as queries from '../../graphql/queries';
+import RenderRouter from '../RenderRouter/RenderRouter';
 
-import React from 'react';
-import RenderRouter from '../RenderRouter/RenderRouter'
-import Amplify from 'aws-amplify';
-import awsconfig from '../../../src/aws-exports';
+export default function Blog(): ReactElement | null {
+  const [data, setData] = useState<GetBlogQuery['getBlog'] | null | undefined>(null);
+  const [content, setContent] = useState(null);
 
-Amplify.configure(awsconfig);
+  const match = useRouteMatch<{ blog: string }>();
 
-interface Props {
-  data: any
-  content?: any
-}
-interface State {
-  data: any
-  content: any
+  useEffect(() => {
+    Analytics.record({
+      name: 'pageVisit',
+      attributes: { page: 'blog-post' }
+    });
 
-}
-export default class VideoPlayer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      data: props.data,
-      content: this.props.content
-    }
+    (async () => {
+      const response = await fetch('/static/content/blog-post.json');
+      const myJson = await response.json();
+      setContent(myJson);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const json = await (API.graphql({
+        query: queries.getBlog,
+        variables: { id: match.params.blog },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      }) as Promise<GraphQLResult<GetBlogQuery>>);
+      setData(json.data?.getBlog)
+    })();
+  }, [match.params.blog]);
+
+  if (!data || !content) {
+    return null;
   }
-  componentDidUpdate(prevProps: Props) {
-    if (this.props.data !== prevProps.data) {
-      if (this.props.data === null) {
-        this.setState({ content: null })
-      }
-      else {
 
-        fetch('/static/content/blog-post.json').then(function (response) {
-          return response.json();
-        })
-          .then((myJson) => {
-            this.setState({ content: myJson });
-          })
-      }
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        <RenderRouter data={this.props.data} content={this.state.content}></RenderRouter>
-      </div>)
-  }
+  return <RenderRouter data={data} content={content}></RenderRouter>
 }

@@ -94,7 +94,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText" >{this.state.content.text1}</div>
               <div className="oneImageList" >{this.renderList()}</div>
             </div>
-            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
+            <ScaledImage image={image1} className="oneImageImage" loading="lazy" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -110,7 +110,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
+            <ScaledImage image={image1} className="oneImageImage" loading="lazy" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -126,7 +126,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList("black")}
             </div>
-            <ScaledImage image={image1} className="oneImageImage" breakpointSizes={heroBreakpoints} />
+            <ScaledImage image={image1} className="oneImageImage" loading="lazy" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -142,7 +142,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList("black")}
             </div>
-            <ScaledImage image={image1} className="oneImageImage right secondImg" breakpointSizes={heroBreakpoints} />
+            <ScaledImage image={image1} className="oneImageImage right secondImg" loading="lazy" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -158,7 +158,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <ScaledImage image={image1} className="oneImageImage right secondImg" breakpointSizes={heroBreakpoints} />
+            <ScaledImage image={image1} className="oneImageImage right secondImg" loading="lazy" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )
@@ -174,7 +174,7 @@ class ContentItem extends React.Component<Props, State>  {
               <div className="oneImageText white" >{this.state.content.text1}</div>
               {this.renderList()}
             </div>
-            <ScaledImage image={image1} className="oneImageImage right secondImg bottom" breakpointSizes={heroBreakpoints} />
+            <ScaledImage image={image1} className="oneImageImage right secondImg bottom" loading="lazy" breakpointSizes={heroBreakpoints} />
           </div>
         </div>
       )

@@ -6,6 +6,14 @@ import Amplify from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
 import "./VideoOverlay.scss"
 
+const searchPageContent = fetch('/static/content/search.json').then(function (response) {
+  return response.json();
+});
+
+const playerPageContent = fetch('/static/content/video-player.json').then(function (response) {
+  return response.json();
+});
+
 Amplify.configure(awsconfig);
 
 interface Props {
@@ -30,25 +38,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
     if (this.props.data !== prevProps.data) {
       if (this.props.data === null) {
         this.setState({ content: null })
-      }
-      else if (this.props.data === "search") {
-        fetch('/static/content/search.json').then(function (response) {
-          return response.json();
+      } else if (this.props.data === "search") {
+        searchPageContent.then((myJson) => {
+          this.setState({ content: myJson });
         })
-          .then((myJson) => {
-            this.setState({ content: myJson });
-          })
-
-      }
-      else {
-
-        fetch('/static/content/video-player.json').then(function (response) {
-          return response.json();
+      } else {
+        playerPageContent.then((myJson) => {
+          this.setState({ content: myJson });
         })
-          .then((myJson) => {
-            this.setState({ content: myJson });
-          })
-
       }
     }
   }

@@ -813,6 +813,7 @@ class ListItem extends React.Component<Props, State> {
                       ? <Link className="container" to={href}>{body}</Link>
                       : body}
                     <ScaledImage className="ListItemH1ImageList2" image={{ src: item.imageSrc, alt: item.imageAlt }}
+                      loading="lazy"
                       breakpointSizes={{
                         320: 320,
                         480: 480,

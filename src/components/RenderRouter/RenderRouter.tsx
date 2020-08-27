@@ -5,6 +5,13 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { Helmet } from 'react-helmet'
 import ErrorBoundary from 'components/ErrorBoundry';
+import OgTags from './OgTags';
+import ContentItem from './ContentItem';
+import BlogItem from './BlogItem';
+import ListItem from './ListItem';
+import HeroItem from './HeroItem';
+import HomeMenu from 'components/Menu/HomeMenu';
+import HomeFooter from 'components/Menu/HomeFooter';
 
 const HeaderItem = React.lazy(() => import('./HeaderItem'));
 const InstagramItem = React.lazy(() => import('./InstagramItem'));
@@ -12,17 +19,12 @@ const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
 const WeatherItem = React.lazy(() => import('./WeatherItem'));
-const HomeMenu = React.lazy(() => import('../Menu/HomeMenu'));
-const HomeFooter = React.lazy(() => import('../Menu/HomeFooter'));
 const FAQItem = React.lazy(() => import('./FAQItem'));
-const ContentItem = React.lazy(() => import('./ContentItem'));
 const GiveItem = React.lazy(() => import('./GiveItem'));
 const Give2Item = React.lazy(() => import('./Give2Item'));
-const ListItem = React.lazy(() => import('./ListItem'));
 const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
 const VideoPlayerLive = React.lazy(() => import('./VideoPlayerLive'));
 const SVGItem = React.lazy(() => import('./SVGItem'));
-const HeroItem = React.lazy(() => import('./HeroItem'));
 const TeachingItem = React.lazy(() => import('./TeachingItem'));
 const DistanceGroupItem = React.lazy(() => import('./DistanceGroupItem'));
 const SundayMorningItem = React.lazy(() => import('./SundayMorningItem'));
@@ -30,9 +32,7 @@ const HomeChurchItem = React.lazy(() => import('./HomeChurchItem'));
 const FormItem = React.lazy(() => import('./FormItem'));
 const GoContentItem = React.lazy(() => import('./GoContentItem'));
 const PodcastItem = React.lazy(() => import('./PodcastItem'));
-const BlogItem = React.lazy(() => import('./BlogItem'));
 const BlogReader = React.lazy(() => import('./BlogReader'));
-const Tags = React.lazy(() => import('./OgTags'));
 const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
 const PaymentItem = React.lazy(() => import('./PaymentItem'));
 const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
@@ -49,7 +49,7 @@ class RenderRouter extends React.Component<Props, State> {
 
   renderItemNow(item: any, index: any) {
     switch (item.type) {
-      case "og-tags": return (<Tags key={index} content={item}></Tags>);
+      case "og-tags": return (<OgTags key={index} content={item}></OgTags>);
       case "video-archive":
       case "series-archive":
         return (<ArchiveItem pageConfig={this.props.content.page.pageConfig} key={index} content={item} data={this.props.data}></ArchiveItem>);

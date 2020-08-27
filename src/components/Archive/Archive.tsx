@@ -1,14 +1,14 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import RenderRouter from '../RenderRouter/RenderRouter'
-import Amplify from 'aws-amplify';
-import awsconfig from '../../../src/aws-exports';
+import { Analytics } from 'aws-amplify';
 
-Amplify.configure(awsconfig);
+const seriesContent = fetch(`/static/content/series-archive.json`).then(response => response.json());
+const videoContent = fetch(`/static/content/video-archive.json`).then(response => response.json());
 
 interface Params {
-    archiveType?: string;
-    subclass?: string;
+    archiveType: string;
+    subclass: string;
 }
 
 interface State {
@@ -20,15 +20,22 @@ export default class Archive extends React.Component<RouteComponentProps<Params>
         this.state = {
             content: null
         }
-        let pageType = ''
-        if (this.props.match.params.archiveType === 'series')
-            pageType = 'series-archive'
-        else if (this.props.match.params.archiveType === 'video')
-            pageType = 'video-archive'
+        let page: Promise<any>;
+        const { archiveType } = this.props.match.params;
+        if (archiveType === 'series') {
+            page = seriesContent;
+        } else {
+            page = videoContent;
+        }
 
-        fetch(`/static/content/${pageType}.json`).then(function (response) {
-            return response.json();
-        }).then((myJson) => this.setState({ content: myJson }))
+        page.then((myJson) => this.setState({ content: myJson }))
+    }
+
+    componentDidMount() {
+        Analytics.record({
+            name: 'pageVisit',
+            attributes: { page: 'archive' }
+        });
     }
 
     render() {

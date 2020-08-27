@@ -142,10 +142,12 @@ class BlogItem extends React.Component<Props, State> {
                                     <Link to={"/posts/" + item.id}>
                                         <img alt={item.id + " series image"}
                                             className="BlogSquareImage twoImage"
+                                            loading="lazy"
                                             src={"/static/photos/blogs/square/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
                                             onError={this.fallbackToImage('/static/photos/blogs/square/fallback.jpg')} />
                                         <img alt={item.id + " series image"}
                                             className="BlogBannerImage twoImage"
+                                            loading="lazy"
                                             src={"/static/photos/blogs/banner/" + item.blogTitle.replace(/\?|[']/g, "") + ".jpg"}
                                             onError={this.fallbackToImage('/static/photos/blogs/banner/fallback.jpg')} />
                                     </Link>

@@ -10,7 +10,7 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
 export function tmhImageUrl(size: number, imageSrc: string) {
   let baseUrl: string;
   if (window.location.hostname === 'localhost') {
-    baseUrl = 'https://localhost:3006';
+    baseUrl = 'https://localhost:3006/' + size;
   } else if (window.location.hostname.includes('beta')) {
     baseUrl = 'https://beta.themeetinghouse.com/cache/' + size;
   } else {
