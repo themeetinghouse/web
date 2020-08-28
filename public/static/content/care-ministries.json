@@ -1,0 +1,134 @@
+{
+    "page": {
+        "name": "care-ministries",
+        "title": "Care Ministries",
+        "keywords": "care ministry, prayer, healing",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
+        },
+        "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-images/care-ministries-1.jpg",
+                "url": "https://www.themeetinghouse.com/care-ministries",
+                "title": "Care Ministries",
+                "description": "Healing and care ministries at The Meeting House."
+            },
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/care-ministries-hero.jpg",
+                        "alt": "A woman is smiling and talking to a close friend at the kitchen counter."
+                    }
+                ],
+                "header1": "Care Ministries",
+                "header2": "",
+                "text1": "We want to position and empower people to receive the love, care, forgiveness, equipping, and healing they need to fully thrive in following Jesus. Scroll down to view all our care ministries."
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Healing Care",
+                "header2": "",
+                "text1": "A group-based, Christ-centred journey that leads participants to address unhealthy behaviours, attend to emotional upheaval, expose false beliefs, and ease deep emotional and spiritual wounds in a confidential and safe environment.",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "Connect with Healing Care",
+                        "navigateTo": "mailto:healingcare@themeetinghouse.com"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/care-ministries-5.jpg",
+                        "alt": "A young man standing outside in front of a waterfall."
+                    }
+                ]
+            },
+            {
+                "type": "list",
+                "style": "imageList",
+                "header1": "",
+                "text1": "",
+                "list": [
+                    {
+                        "title": "Stephen Ministry",
+                        "text": "Trained caregivers are here to journney with you through life's most difficult seasons. This partnership is designed around weekly one-on-one meetings, with other touchpoints through the week. Click here to connect with a Stephen Minister today.",
+                        "imageSrc": "/static/images/care-ministries-4.jpg",
+                        "imageAlt": "Two men greeting eachother.",
+                        "navigateTo": "mailto:oakville.stephenministry@themeetinghouse.com"
+                    },
+                    {
+                        "title": "Divorce Care",
+                        "text": "Led by others who have successfully recovered from divorce, this friendly, caring group will journey alongside you through one of life’s most difficult experiences. Click here to email a Divorce Care leader and get connected.",
+                        "imageSrc": "/static/images/care-ministries-6.jpg",
+                        "imageAlt": "A young man sits on a stoop outside of a building.",
+                        "navigateTo": "mailto:oakville.divorcecare@themeetinghouse.com"
+                    },
+                    {
+                        "title": "Parenting Teens & Tweens",
+                        "text": "Join our seasoned facilitators and other parents as we dive into a broad array of topics affecting parents and their teens today. Click here to email the leader and learn how you can participate.",
+                        "imageSrc": "/static/images/care-ministries-7.jpg",
+                        "imageAlt": "Two mothers discussing their children over coffee.",
+                        "navigateTo": "mailto:oakville.parentingteens@themeetinghouse.com"
+                    },
+                    {
+                        "title": "The Marriage Course",
+                        "text": "This course is for couples who want to make a good marriage better, those struggling with some area of their relationship, and those thinking about getting married. Click here to email the marriage course leader today.",
+                        "imageSrc": "/static/images/care-ministries-9.jpg",
+                        "imageAlt": "A young couple smiling and walking together in a field.",
+                        "navigateTo": "mailto:bruce.miller@themeetinghouse.com"
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Sunday Morning Prayer Team",
+                "header2": "",
+                "text1": "A live zoom prayer event every Sunday morning at 11:00am EDT. Prayer Team members provide caring, confidential prayer support.",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "Join Live Prayer Call",
+                        "navigateTo": "/prayer"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/care-ministries-3.jpg",
+                        "alt": "A group of people together on a zoom call."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Intercessory Prayer Team",
+                "header2": "",
+                "text1": "Intercessors bring the needs of others to God. They pray for individuals, groups, the church at home and abroad, and specific needs as they come up. Click the link below to email your prayer.",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "Submit Prayer Request",
+                        "navigateTo": "mailto:oakville.prayer@themeetinghouse.com"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/care-ministries-8.jpg",
+                        "alt": "A group of intercessory prayer volunteers sitting and praying together."
+                    }
+                ]
+            }
+        ]
+    }
+}

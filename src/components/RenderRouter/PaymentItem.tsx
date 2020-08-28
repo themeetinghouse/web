@@ -1,10 +1,11 @@
 
 import React from 'react';
 import "./PaymentItem.scss"
-import { Button } from 'reactstrap';
+import ReactGA from 'react-ga';
+import { LinkButton, Link } from 'components/Link/Link';
+
 //const monerisCheckout=require("https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js")
 
-import ReactGA from 'react-ga';
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
 else if (window.location.hostname.includes("beta"))
@@ -94,147 +95,11 @@ export default class ContentItem extends React.Component<Props, State>  {
       </div >
     )
   }
-  myErrorEvent = () => {
-    return null
-  }
-  request = {
-    "store_id": "moneris",
-    "api_token": "chktLZAMGtore3",
-    "checkout_id": "chkt5BF66neris",
-    "txn_total": "452.00",
-    "environment": "qa",
-    "action": "preload",
-    "order_no": "",
-    "cust_id": "chkt - cust - 0303",
-    "dynamic_descriptor": "dyndesc",
-    "language": "en",
-    "recur": {
-      "bill_now": "true",
-      "recur_amount": "1.00",
-      "start_date": "2020-1-1",
-      "recur_unit": "month",
-      "recur_period": "1",
-      "number_of_recurs": "10"
-    },
-    "cart": {
-      "items": [
-        {
-          "url": "https:\/\/example.com\/examples\/item1.jpg",
-          "description": "One item",
-          "product_code": "one_item",
-          "unit_cost": "100.00",
-          "quantity": "1"
-        },
-        {
-          "url": "https:\/\/example.com\/examples\/item2.jpg",
-          "description": "Two item",
-          "product_code": "two_item",
-          "unit_cost": "200.00",
-          "quantity": "1"
-        },
-        {
-          "url": "https:\/\/example.com\/examples\/item3.jpg",
-          "description": "Three item",
-          "product_code": "three_item",
-          "unit_cost": "100.00",
-          "quantity": "1"
-        }
-      ],
-      "subtotal": "400.00",
-      "tax": {
-        "amount": "52.00",
-        "description": "Taxes",
-        "rate": "13.00"
-      }
-    },
-    "contact_details": {
-      "first_name": "bill",
-      "last_name": "smith",
-      "email": "test@moneris.com",
-      "phone": "4165551234"
-    },
-    "shipping_details": {
-      "address_1": "1 main st",
-      "address_2": "Unit 2012",
-      "city": "Toronto",
-      "province": "ON",
-      "country": "CA",
-      "postal_code": "M1M1M1"
-    },
-    "billing_details": {
-      "address_1": "1 main st",
-      "address_2": "Unit 2000",
-      "city": "Toronto",
-      "province": "ON",
-      "country": "CA",
-      "postal_code": "M1M1M1"
-    }
-  }
-  url = "https://gatewayt.moneris.com/chkt/request/request.php"
-  async startPayment() {
-    const response = await fetch(this.url, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
+ 
 
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-        'Access-Control-Allow-Headers': 'X-PINGOTHER, Content-Type',
-        'Access-Control-Max-Age': '86400',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Content-Type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify(this.request)
-    })
-    console.log(response)
-    const script = document.createElement('script');
-    script.setAttribute('id', 'monerisCheckoutEmbed');
-    script.onload = function () {
-      const newScript = document.createElement('script');
-      const inlineScript = document.createTextNode('var myCheckout = new monerisCheckout(); \
-      myCheckout.setMode("qa"); \
-      myCheckout.setCheckoutDiv("monerisCheckout"); \
-      myCheckout.setCallback("page_loaded", this.myPageLoad); \
-      myCheckout.setCallback("cancel_transaction", this.myCancelTransaction); \
-      myCheckout.setCallback("error_event", this.myErrorEvent); \
-      myCheckout.setCallback("payment_receipt", this.myPaymentReceipt); \
-      myCheckout.setCallback("payment_complete", this.myPaymentComplete); \
-      ');
-      newScript.setAttribute('id', 'monerisCheckout');
-      newScript.appendChild(inlineScript);
-      document.getElementsByTagName('head')[0].appendChild(newScript);
-
-    };
-
-    script.src = "https://gatewayt.moneris.com/chkt/js/chkt_v1.00.js";
-    document.getElementsByTagName('head')[0].appendChild(script);
-
-  }
-  UNSAFE_componentWillMount() {
-    this.startPayment()
-  }
-  componentWillUnmount() {
-    const monerisCheckoutEmbed = document.getElementById('monerisCheckoutEmbed');
-    const monerisCheckout = document.getElementById('monerisCheckout');
-    if (monerisCheckoutEmbed && monerisCheckout) {
-      monerisCheckoutEmbed.remove();
-      monerisCheckout.remove();
-    }
-  }
-  navigateUrl(to: string) {
-    console.log(to)
-    window.location.href = to;
-  }
-  navigateUrlNewWindow(to: string) {
-    window.open(
-      to,
-      '_blank', // <- This is what makes it open in a new window.
-      'noopener noreferrer'
-    );
-  }
   renderPushPay() {
     return <div>
-      <Button className="GiveButton" onClick={() => { this.navigateUrlNewWindow("https://pushpay.com/g/themeetinghouse?src=hpp") }}>GIVE NOW</Button>
+      <LinkButton newWindow to="https://pushpay.com/g/themeetinghouse?src=hpp">GIVE NOW</LinkButton>
     </div>
   }
   renderPushPay2() {
@@ -358,7 +223,11 @@ export default class ContentItem extends React.Component<Props, State>  {
           </div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemOtherWays">2019 Tax Receipt</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://meetinghouse.infellowship.com/UserLogin") }}>{"Login & Download"}</button></div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://meetinghouse.infellowship.com/UserLogin">
+                Login &amp; Download
+              </Link>
+            </div>
           </div>
 
           <div style={{ clear: "both" }}></div>
@@ -368,12 +237,20 @@ export default class ContentItem extends React.Component<Props, State>  {
           </div>
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Give To Extended Family</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://tithe.ly/give_new/www/#/tithely/give-one-time/674673") }}>Alliston</button></div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://www.canadahelps.org/en/charities/west-lake-community-church/") }}>Sandbanks</button></div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://tithe.ly/give_new/www/#/tithely/give-one-time/674673">
+                Alliston
+              </Link>
+            </div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://www.canadahelps.org/en/charities/west-lake-community-church/">
+                Sandbanks
+              </Link>
+            </div>
 
           </div>
           <div className="GiveItemBottom"></div>
-        </form>
+        </form >
 
       </div >)
   }

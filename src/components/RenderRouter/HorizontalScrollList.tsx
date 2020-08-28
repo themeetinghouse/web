@@ -45,9 +45,9 @@ class HorizontalScrollList extends React.Component<Props, State> {
         this.setState({ numPages: numPages })
     }
     computePages() {
-        const children = this.scrollContainerElement.getElementsByClassName("HorizontalScrollListItem");
+        const children = this.scrollContainerElement?.getElementsByClassName("HorizontalScrollListItem");
         let numPages = this.state.numPages;
-        if (children.length > 0) {
+        if (children && children.length > 0) {
             const containerSize = this.scrollContainerElement.getBoundingClientRect();
             const childSize = children[0].getBoundingClientRect().width;
             this.itemsPerPage = Math.floor(containerSize.width / childSize);

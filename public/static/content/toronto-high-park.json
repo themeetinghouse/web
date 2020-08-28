@@ -108,47 +108,6 @@
                 ]
             },
             {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Bible 101",
-                "text1": "A four-week introductory course designed to give you an overview of the big story, the meta-narrative of the Bible, and how it all points to Jesus. Begins January 8, 2020.",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Register for Bible 101",
-                        "navigateTo": "https://meetinghouse.infellowship.com/Forms/433269",
-                        "openNewBrowser": true
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/bible101.jpg",
-                        "alt": "Friends sitting around a table reading a bible."
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "Jesus-Centred Parenting 201",
-                "header2": "",
-                "text1": "A four-week course designed to allow spiritual parents to join in the conversation around a Jesus-centred parenting approach. Begins January 5, 2020. ",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Register for Jesus-Centred Parenting",
-                        "navigateTo": "https://meetinghouse.infellowship.com/Forms/433272",
-                        "openNewBrowser": true
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/jesus-centredparenting201.jpg",
-                        "alt": "Mom and daugther sitting together."
-                    }
-                ]
-            },
-            {
                 "type": "hero",
                 "style": "partial",
                 "image1": [
@@ -172,7 +131,7 @@
                 "header1": "Home Church",
                 "header2": "",
                 "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
-                "link1Text": "Browse Home Churches in Toronto High Park",
+                "link1Text": "Browse Home Churches in High Park",
                 "link1Action": "/find-homechurch"
             },
             {

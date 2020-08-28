@@ -6,6 +6,7 @@ import App from './App'
 import { createBrowserHistory, History } from "history";
 import { CookiesProvider } from 'react-cookie';
 import { version } from './version'
+import ErrorBoundry from './components/ErrorBoundry'
 let env = "unknown"
 if (window.location.hostname === "localhost")
   env = "dev"
@@ -26,7 +27,9 @@ const history: History<any> = createBrowserHistory()
 render((
   <Router history={history}>
     <CookiesProvider>
-      <App />
+      <ErrorBoundry>
+        <App />
+      </ErrorBoundry>
     </CookiesProvider>
   </Router>),
   document.querySelector('#root')

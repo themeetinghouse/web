@@ -1,0 +1,9 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [{
+      "appID": "com.fluidesign.mobileroadie.13460",
+      "paths": ["/videos/*"]
+    }]
+  }
+}

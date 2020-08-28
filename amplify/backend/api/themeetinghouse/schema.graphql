@@ -18,12 +18,13 @@ type Query {
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
+  askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
 }
-type emailResponse{
+type emailResponse {
   err:String
   data:String
 }
-type F1ListEvent{
+type F1ListEvent {
   id:String
   event:F1ListEventSchedules
 }
@@ -801,6 +802,31 @@ type Blog
   tags:[String]
 }
 
+enum NoteDataType {
+  questions
+  notes
+}
+
+type Verse
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow:groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
+ ])
+  @key(name: "verseByNoteId", fields: ["noteId"])
+ {
+  id: ID!
+  key: String!
+  offset: Int!
+  length: Int!
+  dataType: NoteDataType!
+  content: String!
+  youVersionUri: String!
+  noteId: ID!
+  note: Notes @connection(fields: ["noteId"])
+ }
+
 type Notes 
  @model 
  @auth(rules:[
@@ -808,17 +834,17 @@ type Notes
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
  ])
-
 {
   id: ID!
   title:String
   content:String
-  imageA:String
-  imageB:String
-  imageC:String
+  questions:String
+  jsonContent:String
+  jsonQuestions:String
   pdf:String
   topics:[String]
   tags:[String]
+  verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
 }
 
 type WebPage

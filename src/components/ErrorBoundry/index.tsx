@@ -11,13 +11,14 @@ export default class ErrorBoundary extends React.Component<EmptyProps, State>  {
     }
     componentDidCatch(error: any) {
         const chunkFailedMessage = /Loading chunk [\d]+ failed/;
-
-        if (chunkFailedMessage.test(error.message)) {
+        const chunkCssFailedMessage = /Loading CSS chunk [\d]+ failed/;
+        if (chunkFailedMessage.test(error.message) || chunkCssFailedMessage.test(error.message)) {
             window.location.reload();
         }
-
-        this.setState({ error });
-        Sentry.captureException(error);
+        else {
+            this.setState({ error });
+            Sentry.captureException(error);
+        }
     }
     render() {
         if (this.state.error) {

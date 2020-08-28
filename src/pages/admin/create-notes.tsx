@@ -30,7 +30,8 @@ const federated = {
 };
 
 interface State {
-  editorState: any
+  notesEditorState: EditorState
+  questionsEditorState: EditorState
   showPreview: boolean
   notesList: any
   selectedTags: any
@@ -53,9 +54,10 @@ class Index extends React.Component<EmptyProps, State> {
   deleteConfirmation = "Delete forever";
   constructor(props: EmptyProps) {
     super(props);
-    this.state = { 
+    this.state = {
       // input
-      editorState: EditorState.createEmpty(),
+      notesEditorState: EditorState.createEmpty(),
+      questionsEditorState: EditorState.createEmpty(),
       date: null,
       pdf: '',
       title: 'Unlisted',
@@ -96,21 +98,21 @@ class Index extends React.Component<EmptyProps, State> {
       })
       console.log({ "Success customQueries.listNotess: ": listNotess });
       this.setState({
-        notesList: this.state.notesList.concat(listNotess.data.listNotess.items).sort(function(a: any, b: any) {
-        const nameA = a.id.toUpperCase();
-        const nameB = b.id.toUpperCase();
-        if (nameA < nameB) {
-          return 1;
-        }
-        if (nameA > nameB) {
-          return -1;
-        }
-        return 0;
+        notesList: this.state.notesList.concat(listNotess.data.listNotess.items).sort(function (a: any, b: any) {
+          const nameA = a.id.toUpperCase();
+          const nameB = b.id.toUpperCase();
+          if (nameA < nameB) {
+            return 1;
+          }
+          if (nameA > nameB) {
+            return -1;
+          }
+          return 0;
         })
       })
       if (listNotess.data.listNotess.nextToken != null)
         this.listNotes(listNotess.data.listNotess.nextToken)
-    } catch(e) { console.error(e) }
+    } catch (e) { console.error(e) }
   }
 
   async handleDeleteNote() {
@@ -118,7 +120,7 @@ class Index extends React.Component<EmptyProps, State> {
       try {
         const deleteNotes: any = await API.graphql({
           query: mutations.deleteNotes,
-          variables: { input: {'id': this.state.delete} },
+          variables: { input: { 'id': this.state.delete } },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
         })
         console.log({ "Success mutations.deleteNotes: ": deleteNotes });
@@ -127,7 +129,7 @@ class Index extends React.Component<EmptyProps, State> {
           understand: '',
           showAlert: `⚠️ Deleted: ${deleteNotes.data.deleteNotes.id}`
         })
-      } catch(e) {
+      } catch (e) {
         console.error(e)
       }
     } else {
@@ -135,15 +137,27 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
+  convertDraftToMarkup(es: EditorState) {
+    const temp = es.getCurrentContent();
+    const raw = convertToRaw(temp);
+    return draftToHtml(raw);
+  }
+
+  convertDraftToRaw(es: EditorState) {
+    const temp = es.getCurrentContent();
+    const raw = convertToRaw(temp);
+    return JSON.stringify(raw)
+  }
+
   async handleSave() {
-    if (!this.state.editorState.getCurrentContent().hasText() || this.state.date === null) {
+    if (!this.state.notesEditorState.getCurrentContent().hasText() || this.state.date === null) {
       this.setState({ showAlert: "⚠️ You need a valid content and date to save." })
       return false;
     }
-    const contentState = this.state.editorState.getCurrentContent();
-    const raw = convertToRaw(contentState);
-    const html = draftToHtml(raw)
-    this.updateField('content', html)
+    this.updateField('content', this.convertDraftToMarkup(this.state.notesEditorState))
+    this.updateField('questions', this.convertDraftToMarkup(this.state.questionsEditorState))
+    this.updateField('jsonContent', this.convertDraftToRaw(this.state.notesEditorState))
+    this.updateField('jsonQuestions', this.convertDraftToRaw(this.state.questionsEditorState))
     this.updateField('tags', this.state.selectedTags)
     this.updateField('title', this.state.title)
     this.updateField('pdf', this.state.pdf)
@@ -154,9 +168,9 @@ class Index extends React.Component<EmptyProps, State> {
         variables: { input: this.state.noteObject },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
-      console.log({ "Success mutations.createNotes: ": updateNotes});
+      console.log({ "Success mutations.createNotes: ": updateNotes });
       this.setState({ showAlert: `✅ Saved: ${updateNotes.data.updateNotes.id}` })
-    } catch(e) {
+    } catch (e) {
       console.error(e)
       try {
         const createNotes: any = await API.graphql({
@@ -164,9 +178,9 @@ class Index extends React.Component<EmptyProps, State> {
           variables: { input: this.state.noteObject },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
         });
-        console.log({ "Success mutations.createNotes: ": createNotes});
+        console.log({ "Success mutations.createNotes: ": createNotes });
         this.setState({ showAlert: `✅ Created: ${createNotes.data.createNotes.id}` })
-      } catch(e) {
+      } catch (e) {
         console.error(e)
       }
     }
@@ -178,19 +192,31 @@ class Index extends React.Component<EmptyProps, State> {
       if (conditionFunction()) resolve();
       else setTimeout(() => poll(resolve), 250);
     }
-  
+
     return new Promise(poll);
+  }
+
+  convertMarkupToDraft(data: string) {
+    const blocksfromHtml = htmlToDraft(data);
+    const { contentBlocks, entityMap } = blocksfromHtml;
+    return ContentState.createFromBlockArray(contentBlocks, entityMap);
   }
 
   async handleEdit() {
     this.setState({ showEditModal: true });
     await this.waitForSelection(() => this.state.noteEditObject);
-    const blocksfromHtml = htmlToDraft(this.state.noteEditObject.content);
-    const { contentBlocks, entityMap } = blocksfromHtml;
-    const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
-    const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date())    
+    const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date());
+    if (this.state.noteEditObject.questions) {
+      this.setState({
+        questionsEditorState: EditorState.createWithContent(this.convertMarkupToDraft(this.state.noteEditObject.questions)),
+      })
+    } else {
+      this.setState({
+        questionsEditorState: EditorState.createEmpty(),
+      })
+    }
     this.setState({
-      editorState: EditorState.createWithContent(contentState),
+      notesEditorState: EditorState.createWithContent(this.convertMarkupToDraft(this.state.noteEditObject.content)),
       selectedTags: this.state.noteEditObject.tags,
       date: date,
       title: this.state.noteEditObject.title,
@@ -206,18 +232,19 @@ class Index extends React.Component<EmptyProps, State> {
     try {
       note.id = format(this.state.date, "yyyy-MM-dd")
       this.setState({ noteObject: note })
-    } catch(e) {
-      this.setState({ showAlert: 'If you are reading this, you likely didn\'t select a date. Please select a date :)'})
+    } catch (e) {
+      this.setState({ showAlert: 'If you are reading this, you likely didn\'t select a date. Please select a date :)' })
       console.error(e)
     }
   }
 
   handleRemoveTag(item: string): void {
-    this.setState({selectedTags: this.state.selectedTags.filter((elem: any)=>elem!==item)})
+    this.setState({ selectedTags: this.state.selectedTags.filter((elem: any) => elem !== item) })
     this.updateField('tags', this.state.selectedTags)
   }
 
-  onChange = (editorState: any) => this.setState({ editorState });
+  onNotesChange = (notesEditorState: EditorState) => this.setState({ notesEditorState });
+  onQuestionsChange = (questionsEditorState: EditorState) => this.setState({ questionsEditorState });
 
   handlePublishDate = (date: any) => {
     this.setState({
@@ -240,18 +267,18 @@ class Index extends React.Component<EmptyProps, State> {
 
   renderEditModal() {
     return <Modal isOpen={this.state.showEditModal}>
-        <div>Edit existing notes</div>
-        <select onChange={(event: any) => this.setState({ noteEdit: event.target.value})}>
-          <option key="null" value="null">None Selected</option>
-          {this.state.notesList.map((item: any) => {return <option key={item.id} value={item.id}>{item.id}</option>})}
-        </select>
-        <button 
-          onClick={() => this.setState({ 
-            showEditModal: false, 
-            noteEditObject: this.state.notesList.filter((post: any) => post.id === this.state.noteEdit)[0]
-            })
-          }>DONE</button>
-      </Modal>
+      <div>Edit existing notes</div>
+      <select onChange={(event: any) => this.setState({ noteEdit: event.target.value })}>
+        <option key="null" value="null">None Selected</option>
+        {this.state.notesList.map((item: any) => { return <option key={item.id} value={item.id}>{item.id}</option> })}
+      </select>
+      <button
+        onClick={() => this.setState({
+          showEditModal: false,
+          noteEditObject: this.state.notesList.filter((post: any) => post.id === this.state.noteEdit)[0]
+        })
+        }>DONE</button>
+    </Modal>
   }
 
   renderMoreOptions() {
@@ -260,94 +287,105 @@ class Index extends React.Component<EmptyProps, State> {
 
         <label>
           Add tags:
-          <input type="text" value={this.state.currentTag} onChange={event => this.setState({ currentTag: event.target.value})} />
+          <input type="text" value={this.state.currentTag} onChange={event => this.setState({ currentTag: event.target.value })} />
         </label>
-        <button className="tags-button" onClick={()=>this.setState({selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: ''}) }>Confirm Tag</button>
-        <button className="tags-button" style={{background: "red"}} onClick={() => {this.setState({ selectedTags: [] }); this.updateField('tags', this.state.selectedTags)} }>Clear All Tags</button>
+        <button className="tags-button" onClick={() => this.setState({ selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: '' })}>Confirm Tag</button>
+        <button className="tags-button" style={{ background: "red" }} onClick={() => { this.setState({ selectedTags: [] }); this.updateField('tags', this.state.selectedTags) }}>Clear All Tags</button>
         <div>
-          <b>Current tags (click on tag to delete):</b> 
-          {this.state.selectedTags.map((item: string, index: number) => 
-            <div className="tags-item" key={index} onClick={() => this.handleRemoveTag(item) }>
-              {index===(this.state.selectedTags.length-1) ? item : item + ", "}
+          <b>Current tags (click on tag to delete):</b>
+          {this.state.selectedTags.map((item: string, index: number) =>
+            <div className="tags-item" key={index} onClick={() => this.handleRemoveTag(item)}>
+              {index === (this.state.selectedTags.length - 1) ? item : item + ", "}
             </div>
           )}
         </div>
-          <br/>
-      
+        <br />
+
         <label>
-        Delete existing notes (teaching date):
-          <input style={{width: 400, height: 20}} type="text" value={this.state.delete} onChange={(event: any) => this.setState({ delete: event.target.value})} />
+          Delete existing notes (teaching date):
+          <input style={{ width: 400, height: 20 }} type="text" value={this.state.delete} onChange={(event: any) => this.setState({ delete: event.target.value })} />
         </label>
         <label>
           Type &quot;{this.deleteConfirmation}&quot;:
-          <input style={{width: 400, height: 20}} type="text" value={this.state.understand} onChange={(event: any) => this.setState({ understand: event.target.value})} />
+          <input style={{ width: 400, height: 20 }} type="text" value={this.state.understand} onChange={(event: any) => this.setState({ understand: event.target.value })} />
         </label>
-        <button className="tags-button" style={{background: "red"}} onClick={()=>this.handleDeleteNote()}>DELETE</button>
+        <button className="tags-button" style={{ background: "red" }} onClick={() => this.handleDeleteNote()}>DELETE</button>
 
       </div>
     )
   }
 
   renderTextInput() {
+    const toolBarProps = {
+      options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'textAlign', 'emoji', 'colorPicker', 'image', 'history'],
+      inline: {
+        options: ['bold', 'italic', 'underline', 'strikethrough'],
+      },
+      list: {
+        options: ['unordered'],
+      },
+      image: {
+        uploadEnabled: true,
+        uploadCallback: async (file: any) => {
+          const filepath = "notesuploads/" + uuidv1() + file.name;
+          await Storage.put(filepath, file, {
+            contentType: "image/*",
+            acl: "public-read"
+          })
+          const download = "https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/" + filepath;
+          return { data: { link: download } }
+        },
+        previewImage: true,
+        alt: {
+          present: true,
+          mandatory: true
+        },
+        defaultSize: {
+          height: 'auto',
+          width: '100%',
+        },
+        alignmentEnabled: false
+      }
+    }
+
     return (
       <div className="editor-container">
 
         <label>
           Title:
-          <input type="text" style={{width:400}} value={this.state.title} onChange={(event: any)=> this.setState({ title: event.target.value })}/>
+          <input type="text" style={{ width: 400 }} value={this.state.title} onChange={(event: any) => this.setState({ title: event.target.value })} />
         </label>
         <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
 
+        <h2>Notes</h2>
         <Editor
-          editorState={this.state.editorState}
-          onEditorStateChange={this.onChange}
+          editorState={this.state.notesEditorState}
+          onEditorStateChange={this.onNotesChange}
           spellCheck={true}
-          toolbar={{
-            options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'textAlign', 'emoji', 'colorPicker', 'image', 'history'],
-            inline: {
-              options: ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript'],
-            },
-            list: {
-              options: ['unordered', 'ordered'],
-            },
-            image: {
-              uploadEnabled: true,
-              uploadCallback: async (file: any) => {
-                  const filepath = "notesuploads/" + uuidv1() + file.name;
-                  await Storage.put(filepath, file, {
-                      contentType: "image/*",
-                      acl: "public-read"
-                  })
-                  const download = "https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/" + filepath;
-                  return { data: { link: download } }
-              },
-              previewImage: true,
-              alt: { 
-                present: true, 
-                mandatory: true 
-              },
-              defaultSize: {
-                  height: 'auto',
-                  width: '100%',
-              },
-              alignmentEnabled: false
-            }
-          }}
+          toolbar={toolBarProps}
+        />
+
+        <h2>Questions</h2>
+        <Editor
+          editorState={this.state.questionsEditorState}
+          onEditorStateChange={this.onQuestionsChange}
+          spellCheck={true}
+          toolbar={toolBarProps}
         />
         <div>
           <b className="calendar-label">Teaching date</b>
-          <DatePicker 
-            selected={this.state.date} 
-            onChange={this.handlePublishDate} 
+          <DatePicker
+            selected={this.state.date}
+            onChange={this.handlePublishDate}
             dateFormat="yyyy-MM-dd"
           />
-          <div style={{color:"red"}}>{this.state.dateWarning}</div>
+          <div style={{ color: "red" }}>{this.state.dateWarning}</div>
         </div>
         <div>
-        <label>
-          PDF Link:
-          <input type="url" style={{width:800}} value={this.state.pdf} onChange={(event: any)=> this.setState({ pdf: event.target.value })}/>
-        </label>
+          <label>
+            PDF Link:
+          <input type="url" style={{ width: 800 }} value={this.state.pdf} onChange={(event: any) => this.setState({ pdf: event.target.value })} />
+          </label>
         </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
       </div>
@@ -357,10 +395,10 @@ class Index extends React.Component<EmptyProps, State> {
   renderToolbar() {
     return (
       <div className="toolbar-button-container">
-        <button className="toolbar-button" onClick={()=>this.handleSave()}>SAVE</button><br/>
-        <button className="toolbar-button" onClick={()=>this.handleEdit()}>Edit existing notes</button><br/>
-        <button className="toolbar-button" onClick={()=>this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br/>
-        <button className="toolbar-button" onClick={()=>this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{width: 150}}>Scroll to bottom of page for preview</div> : null}<br/>
+        <button className="toolbar-button" onClick={() => this.handleSave()}>SAVE</button><br />
+        <button className="toolbar-button" onClick={() => this.handleEdit()}>Edit existing notes</button><br />
+        <button className="toolbar-button" onClick={() => this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br />
+        <button className="toolbar-button" onClick={() => this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{ width: 150 }}>Scroll to bottom of page for preview</div> : null}<br />
       </div>
     )
   }

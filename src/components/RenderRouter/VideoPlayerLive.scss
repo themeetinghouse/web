@@ -124,7 +124,7 @@
             transition: 0.5s;
             position: relative;
             width: 26vw;
-            height: 20.25vw;
+            height: (9/16)*26vw;
             background: white;
             display: flex;
             justify-content: center;
@@ -136,7 +136,7 @@
             transition: 0.5s;
             font-family: Graphik Web;
             font-weight: bold;
-            font-size: 2.4vw;
+            font-size: 2.1vw;
             width: 24vw;
             text-align: center;
             color: #1A1A1A;
@@ -147,7 +147,7 @@
             opacity: 0;
             position: absolute;
             font-family: Graphik Web;
-            font-size: 1.5vw;
+            font-size: 1.4vw;
             color: #ffffff;
             padding-top: 6vw;
             border-bottom: 1px solid #ffffff;
@@ -159,7 +159,7 @@
             .ZoomText {
                   color: #ffffff;
                   transition: 0.5s;
-                  transform: translateY(-3vw);
+                  transform: translateY(-2.5vw);
             }
             .WatchVideoTag {
                   transition: 0.5s;
@@ -278,7 +278,7 @@
             transition: 0.5s;
             position: relative;
             width: 26vw;
-            height: 20.25vw;
+            height: (9/16)*26vw;
             background: white;
             display: flex;
             justify-content: center;
@@ -291,7 +291,7 @@
             font-family: Graphik Web;
             font-weight: bold;
             width: 24vw;
-            font-size: 2.4vw;
+            font-size: 2.1vw;
             text-align: center;
             color: #1A1A1A;
       }
@@ -301,7 +301,7 @@
             opacity: 0;
             position: absolute;
             font-family: Graphik Web;
-            font-size: 1.5vw;
+            font-size: 1.4vw;
             color: #ffffff;
             padding-top: 6vw;
             border-bottom: 1px solid #ffffff;
@@ -313,7 +313,7 @@
             .ZoomText {
                   color: #ffffff;
                   transition: 0.5s;
-                  transform: translateY(-3vw);
+                  transform: translateY(-2.5vw);
             }
             .WatchVideoTag {
                   transition: 0.5s;
@@ -467,7 +467,7 @@
             transition: 0.5s;
             position: relative;
             width: 39vw;
-            height: 30.375vw;
+            height: (9/16)*36vw;
             background: white;
             display: flex;
             justify-content: center;
@@ -479,7 +479,7 @@
             transition: 0.5s;
             font-family: Graphik Web;
             font-weight: bold;
-            font-size: 4vw;
+            font-size: 3.5vw;
             width: 35vw;
             text-align: center;
             color: #1A1A1A;

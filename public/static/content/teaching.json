@@ -44,7 +44,7 @@
                 "subclass": "adult-sunday",
                 "limit": 25,
                 "sortOrder": "DESC",
-                "header1": "Recent Teaching Videos"
+                "header1": "Latest Teaching"
             },
             {
                 "type": "content",
@@ -71,7 +71,7 @@
                 "showEpisodeNumbers": false,
                 "numberOfDays": 120,
                 "minViews": 1200,
-                "header1": "Popular Teaching Videos"
+                "header1": "Popular Teaching"
             },
             {
                 "type": "list",

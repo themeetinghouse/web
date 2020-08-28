@@ -2173,6 +2173,14 @@ export const emailHomeChurch = /* GraphQL */ `
     }
   }
 `;
+export const askQuestion = /* GraphQL */ `
+  query AskQuestion($email: String, $body: String) {
+    askQuestion(email: $email, body: $body) {
+      err
+      data
+    }
+  }
+`;
 export const getTnSeries = /* GraphQL */ `
   query GetTnSeries($id: ID!) {
     getTNSeries(id: $id) {
@@ -12401,20 +12409,142 @@ export const searchBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getNotes = /* GraphQL */ `
-  query GetNotes($id: ID!) {
-    getNotes(id: $id) {
+export const getVerse = /* GraphQL */ `
+  query GetVerse($id: ID!) {
+    getVerse(id: $id) {
       id
-      title
+      key
+      offset
+      length
+      dataType
       content
-      imageA
-      imageB
-      imageC
-      pdf
-      topics
-      tags
+      youVersionUri
+      noteId
       createdAt
       updatedAt
+      note {
+        id
+        title
+        content
+        questions
+        jsonContent
+        jsonQuestions
+        pdf
+        topics
+        tags
+        createdAt
+        updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const listVerses = /* GraphQL */ `
+  query ListVerses(
+    $filter: ModelVerseFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listVerses(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        key
+        offset
+        length
+        dataType
+        content
+        youVersionUri
+        noteId
+        createdAt
+        updatedAt
+        note {
+          id
+          title
+          content
+          questions
+          jsonContent
+          jsonQuestions
+          pdf
+          topics
+          tags
+          createdAt
+          updatedAt
+          verses {
+            items {
+              id
+              key
+              offset
+              length
+              dataType
+              content
+              youVersionUri
+              noteId
+              createdAt
+              updatedAt
+              note {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                verses {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+      }
+      nextToken
     }
   }
 `;
@@ -12429,16 +12559,132 @@ export const listNotess = /* GraphQL */ `
         id
         title
         content
-        imageA
-        imageB
-        imageC
+        questions
+        jsonContent
+        jsonQuestions
         pdf
         topics
         tags
         createdAt
         updatedAt
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+            note {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
       }
       nextToken
+    }
+  }
+`;
+export const getNotes = /* GraphQL */ `
+  query GetNotes($id: ID!) {
+    getNotes(id: $id) {
+      id
+      title
+      content
+      questions
+      jsonContent
+      jsonQuestions
+      pdf
+      topics
+      tags
+      createdAt
+      updatedAt
+      verses {
+        items {
+          id
+          key
+          offset
+          length
+          dataType
+          content
+          youVersionUri
+          noteId
+          createdAt
+          updatedAt
+          note {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
     }
   }
 `;

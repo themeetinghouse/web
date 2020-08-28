@@ -504,7 +504,7 @@ class Index extends React.Component<EmptyProps, State> {
                         }
                     </tbody>
                 </table >
-                <button onClick={(e: any) => this.save()}>Save</button>
+                <button onClick={() => this.save()}>Save</button>
             </div>
         )
     }

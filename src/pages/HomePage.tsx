@@ -63,8 +63,15 @@ class HomePage extends React.Component<Props, State> {
         });
         const forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
         console.log(forwardTo)
-        if (forwardTo.length > 0)
-          this.navigateUrl(forwardTo[0].to)
+        if (forwardTo.length > 0) {
+          const { to } = forwardTo[0];
+          // For relative paths use the history API. Anything else is probably an external link.
+          if (/^([-a-zA-Z0-9]+\/?)*$/.test(to)) {
+            this.props.history.push(to)
+          } else {
+            window.location.href = to;
+          }
+        }
       })
 
     const pageType = this.props.pageType ?? 'default';
@@ -124,11 +131,10 @@ class HomePage extends React.Component<Props, State> {
             console.log(this.state.content.page.pageConfig.weatherAlert)
             console.log(this.props.match.params.id)
             if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === "" || this.props.match.params.id === undefined)) {
-              this.navigateTo("/weather");
-
+              this.props.history.push("/weather");
             }
           });
-        }).catch((e) => {
+        }).catch(() => {
           fetch('/static/redirect/' + jsonFile.toLowerCase() + '.json').then(function (response) {
             console.log(response)
             return response.json();
@@ -136,7 +142,7 @@ class HomePage extends React.Component<Props, State> {
             .then((myJson) => {
 
               this.setState({ content: myJson });
-            }).catch((e) => {
+            }).catch(() => {
               Analytics.record({
                 name: 'error',
                 attributes: { page: jsonFile }
@@ -154,7 +160,6 @@ class HomePage extends React.Component<Props, State> {
             })
         })
     }
-    this.navigateHome = this.navigateHome.bind(this);
 
     if (pageType === 'video') {
       const getVideo: any = API.graphql({
@@ -181,31 +186,13 @@ class HomePage extends React.Component<Props, State> {
     }
   }
 
-  navigateUrl(to: string) {
-    window.location.href = to;
-  }
-
-  navigateTo(uri: any) {
-    console.log("Navigate to:" + uri)
-    this.props.history.push(uri, "as")
-    const unblock = this.props.history.block('Are you sure you want to leave this page?');
-    unblock();
-
-  }
-  navigateHome(to: any) {
-    this.props.history.push(to, "as")
-    const unblock = this.props.history.block('Are you sure you want to leave this page?');
-    unblock();
-
-  }
-
   render() {
     const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig ?? {};
 
     return (
       <Switch>
         <Route path={["/videos/:series/:episode", "/vidoes/:series"]}>
-          <VideoOverlay onClose={() => this.navigateHome("/")} data={this.state.data}></VideoOverlay>
+          <VideoOverlay onClose={() => this.props.history.push("/")} data={this.state.data}></VideoOverlay>
         </Route>
         <Route path="/posts/:blog">
           <Blog data={this.state.data} />
@@ -221,7 +208,7 @@ class HomePage extends React.Component<Props, State> {
         </Route>
         <Route path="*">
           {isPopup
-            ? <VideoOverlay onClose={() => this.navigateHome(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
+            ? <VideoOverlay onClose={() => this.props.history.push(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
             : <RenderRouter data={null} content={this.state.content}></RenderRouter>}
         </Route>
       </Switch>
