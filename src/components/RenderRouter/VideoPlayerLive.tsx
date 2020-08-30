@@ -162,16 +162,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
             <FacebookShareButton
               className="ShareOption"
-              // if the data is null (unlikely), window.location.href will work for ~98% of situations. the rest of the time the user is sent to https://www.themeetinghouse.com/teaching
               url="https://www.themeetinghouse.com/live"
-              quote="Check out The Meeting House livestream">
+              quote="The Meeting House Livestream">
               <Dropdown.Item className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item>
             </FacebookShareButton>
 
             <TwitterShareButton
               className="ShareOption"
               url="https://www.themeetinghouse.com/live"
-              title="Check out The Meeting House livestream"
+              title="The Meeting House Livestream"
               via="TheMeetingHouse"
               related={["TheMeetingHouse"]}>
               <Dropdown.Item className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item>
@@ -180,7 +179,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <EmailShareButton
               className="ShareOption"
               url="https://www.themeetinghouse.com/live"
-              title="Check out The Meeting House livestream">
+              subject="The Meeting House Livestream">
               <Dropdown.Item className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item>
             </EmailShareButton>
 
@@ -189,14 +188,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 <WhatsappShareButton
                   className="ShareOption"
                   url="https://www.themeetinghouse.com/live"
-                  title="Check out The Meeting House livestream">
+                  title="The Meeting House Livestream">
                   <Dropdown.Item className="dropitem"><WhatsappIcon className="social-share-icon" size={32} round />WhatsApp</Dropdown.Item>
                 </WhatsappShareButton>
 
                 <TelegramShareButton
                   className="ShareOption"
                   url="https://www.themeetinghouse.com/live"
-                  title="Check out The Meeting House livestream">
+                  title="The Meeting House Livestream">
                   <Dropdown.Item className="dropitem"><TelegramIcon className="social-share-icon" size={32} round />Telegram</Dropdown.Item>
                 </TelegramShareButton>
               </Fragment>
