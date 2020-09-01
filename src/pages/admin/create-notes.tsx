@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditorState, ContentState, convertToRaw } from 'draft-js';
+import { EditorState, ContentState, convertToRaw, RawDraftContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg'
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
@@ -23,6 +23,15 @@ import getDay from 'date-fns/getDay';
 import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
+import Bible from './bible';
+
+interface BibleVerseJSON {
+  key: string;
+  offset: number;
+  length: number;
+  youVersionUri: string;
+  queryString: string;
+}
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -48,6 +57,9 @@ interface State {
   pdf: string
   dateWarning: string
   title: string
+  showHelp: boolean
+  statusMessage: string
+  unsaved: boolean
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -72,6 +84,8 @@ class Index extends React.Component<EmptyProps, State> {
       showEditModal: false,
       showAlert: '',
       dateWarning: '',
+      showHelp: false,
+      statusMessage: '',
 
       // imports
       notesList: [],
@@ -83,7 +97,9 @@ class Index extends React.Component<EmptyProps, State> {
       understand: '',
 
       // upload object
-      noteObject: {}
+      noteObject: {},
+
+      unsaved: true
     }
     this.listNotes(null);
   }
@@ -149,11 +165,139 @@ class Index extends React.Component<EmptyProps, State> {
     return JSON.stringify(raw)
   }
 
+  async getBiblePassages() {
+
+    if (this.state.unsaved) {
+      this.setState({ showAlert: '⚠️ Please save before checking Bible passages.' })
+      return
+    }
+
+    this.setState({ statusMessage: 'deleting old verses' })
+    let oldVerses = []
+
+    try {
+      const getNotes: any = await API.graphql({
+        query: queries.getNotes,
+        variables: { id: format(this.state.date, "yyyy-MM-dd") },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      });
+      oldVerses = getNotes.data.getNotes.verses.items
+    } catch (e) {
+      console.error(e)
+    }
+
+    for (const verse of oldVerses) {
+      try {
+        const deleteVerse: any = await API.graphql({
+          query: mutations.deleteVerse,
+          variables: { input: { id: verse.id } },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+        });
+        console.log(deleteVerse)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    const notes = this.state.notesEditorState.getCurrentContent();
+    const questions = this.state.questionsEditorState.getCurrentContent();
+
+    const rawNotes = convertToRaw(notes);
+    const rawQuestions = convertToRaw(questions);
+
+    this.saveBiblePassages(rawNotes, 'notes');
+    this.saveBiblePassages(rawQuestions, 'questions');
+
+    if (!this.state.showAlert) {
+      this.setState({ showAlert: 'Bible passages ok!' })
+    }
+  }
+
+  async saveBiblePassages(raw: RawDraftContentState, type: 'notes' | 'questions'): Promise<void> {
+    this.setState({ statusMessage: `finding verses in ${type}` })
+    const data = Bible.parseJSON(raw);
+    const bibleJSON: BibleVerseJSON[] = [];
+    const errors: string[] = [];
+
+    data.forEach((item) => {
+      const queryObject = Bible.getQueryString(item.passageRef)
+      if (queryObject !== 'invalid')
+        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset })
+      else
+        errors.push(item.passageRef)
+    })
+
+    if (errors.length > 0) {
+      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
+      this.setState({ statusMessage: '' })
+      return;
+    }
+
+    const passages: string[] = []
+
+    this.setState({ statusMessage: `processing verses in ${type}` })
+
+    for (const query of bibleJSON) {
+      try {
+        const apiKey = '';
+        const bibleId = '78a9f6124f344018-01'; // NIV
+        const res = await fetch(`https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${query.queryString}?content-type=json&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
+          headers: {
+            'api-key': apiKey
+          },
+        });
+        const json = await res.json();
+        if (json?.data?.content) {
+          passages.push(JSON.stringify(json?.data?.content))
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    this.setState({ statusMessage: `saving verses in ${type}` })
+
+    if (passages.length === bibleJSON.length) {
+      for (let i = 0; i < bibleJSON.length; i++) {
+
+        const currentJSON = bibleJSON[i];
+
+        const input = {
+          id: `${type}-${format(this.state.date, "yyyy-MM-dd")}-${currentJSON.key}-${currentJSON.offset}-${currentJSON.length}`,
+          key: currentJSON.key,
+          offset: currentJSON.offset,
+          length: currentJSON.length,
+          dataType: type,
+          content: passages[i],
+          youVersionUri: currentJSON.youVersionUri,
+          noteId: format(this.state.date, "yyyy-MM-dd")
+        }
+        try {
+          const createVerse: any = await API.graphql({
+            query: mutations.createVerse,
+            variables: { input },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+          });
+          console.log({ "Success mutations.createVerse: ": createVerse });
+        } catch (e) {
+          console.error(e)
+        }
+      }
+    } else {
+      this.setState({ showAlert: 'something went wrong' })
+    }
+
+    this.setState({ statusMessage: '' })
+  }
+
   async handleSave() {
     if (!this.state.notesEditorState.getCurrentContent().hasText() || this.state.date === null) {
       this.setState({ showAlert: "⚠️ You need a valid content and date to save." })
       return false;
     }
+
+    this.setState({ statusMessage: 'saving...' })
+
     this.updateField('content', this.convertDraftToMarkup(this.state.notesEditorState))
     this.updateField('questions', this.convertDraftToMarkup(this.state.questionsEditorState))
     this.updateField('jsonContent', this.convertDraftToRaw(this.state.notesEditorState))
@@ -162,6 +306,7 @@ class Index extends React.Component<EmptyProps, State> {
     this.updateField('title', this.state.title)
     this.updateField('pdf', this.state.pdf)
 
+    this.setState({ unsaved: false })
     try {
       const updateNotes: any = await API.graphql({
         query: mutations.updateNotes,
@@ -169,7 +314,7 @@ class Index extends React.Component<EmptyProps, State> {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
       console.log({ "Success mutations.createNotes: ": updateNotes });
-      this.setState({ showAlert: `✅ Saved: ${updateNotes.data.updateNotes.id}` })
+      this.setState({ showAlert: `✅ Saved: ${updateNotes.data.updateNotes.id}. Please don't forget to click the Bible passages button.` })
     } catch (e) {
       console.error(e)
       try {
@@ -179,11 +324,14 @@ class Index extends React.Component<EmptyProps, State> {
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
         });
         console.log({ "Success mutations.createNotes: ": createNotes });
-        this.setState({ showAlert: `✅ Created: ${createNotes.data.createNotes.id}` })
+        this.setState({ showAlert: `✅ Created: ${createNotes.data.createNotes.id}. Please don't forget to click the Bible passages button.` })
       } catch (e) {
         console.error(e)
       }
     }
+
+    this.setState({ statusMessage: '' })
+
   }
 
   waitForSelection(conditionFunction: () => boolean) {
@@ -231,7 +379,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     try {
       note.id = format(this.state.date, "yyyy-MM-dd")
-      this.setState({ noteObject: note })
+      this.setState({ noteObject: note, unsaved: true })
     } catch (e) {
       this.setState({ showAlert: 'If you are reading this, you likely didn\'t select a date. Please select a date :)' })
       console.error(e)
@@ -243,12 +391,13 @@ class Index extends React.Component<EmptyProps, State> {
     this.updateField('tags', this.state.selectedTags)
   }
 
-  onNotesChange = (notesEditorState: EditorState) => this.setState({ notesEditorState });
-  onQuestionsChange = (questionsEditorState: EditorState) => this.setState({ questionsEditorState });
+  onNotesChange = (notesEditorState: EditorState) => this.setState({ notesEditorState, unsaved: true });
+  onQuestionsChange = (questionsEditorState: EditorState) => this.setState({ questionsEditorState, unsaved: true });
 
   handlePublishDate = (date: any) => {
     this.setState({
-      date: date
+      date: date,
+      unsaved: true
     });
 
     const dayofweek = getDay(date)
@@ -384,7 +533,7 @@ class Index extends React.Component<EmptyProps, State> {
         <div>
           <label>
             PDF Link:
-          <input type="url" style={{ width: 800 }} value={this.state.pdf} onChange={(event: any) => this.setState({ pdf: event.target.value })} />
+            <input type="url" style={{ width: 800 }} value={this.state.pdf} onChange={(event: any) => this.setState({ pdf: event.target.value })} />
           </label>
         </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
@@ -399,14 +548,37 @@ class Index extends React.Component<EmptyProps, State> {
         <button className="toolbar-button" onClick={() => this.handleEdit()}>Edit existing notes</button><br />
         <button className="toolbar-button" onClick={() => this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br />
         <button className="toolbar-button" onClick={() => this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{ width: 150 }}>Scroll to bottom of page for preview</div> : null}<br />
+        <button className="toolbar-button" onClick={() => this.getBiblePassages()}>Bible passages</button><br />
+        <button className="toolbar-button" onClick={() => this.setState({ showHelp: true })}>Help</button><br />
+        <span>{this.state.statusMessage}</span>
       </div>
     )
+  }
+
+  renderHelp() {
+    return <Modal isOpen={this.state.showHelp}>
+      <div>Solutions to common issues with Bible verses:</div>
+      <ul>
+        <li>Ensure there are no extra spaces</li>
+        <li>Ensure that you are using hyphens (-), not dashes</li>
+        <li>Use the full book name (e.g. 1 Corinthians, not 1 Cor)</li>
+      </ul>
+      <div>Here are the five accepted formats for Bible veres:</div>
+      <ul>
+        <li>Genesis 1 (just chapter)</li>
+        <li>Genesis 2-3 (chapter to chapter)</li>
+        <li>John 3:16 (chapter, verse)</li>
+        <li>John 3:16-17 (verse to verse, one chapter)</li>
+        <li>John 3:1-4:5 (verse to verse, multiple chapters)</li>
+      </ul>
+      <button onClick={() => this.setState({ showHelp: false })}>Close</button>
+    </Modal>
   }
 
   renderAlert() {
     return (
       <Modal isOpen={Boolean(this.state.showAlert)}>
-        <div>{this.state.showAlert}</div>
+        <div style={{ whiteSpace: 'pre-wrap' }} >{this.state.showAlert}</div>
         <button onClick={() => this.setState({ showAlert: '' })}>OK</button>
       </Modal>
     )
@@ -417,6 +589,7 @@ class Index extends React.Component<EmptyProps, State> {
       <AmplifyAuthenticator federated={federated}>
         <div className="note-container">
           <AdminMenu></AdminMenu>
+          {this.renderHelp()}
           {this.renderAlert()}
           {this.renderEditModal()}
           {this.renderToolbar()}
