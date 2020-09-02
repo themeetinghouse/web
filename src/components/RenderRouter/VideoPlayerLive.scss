@@ -1,4 +1,20 @@
+.dropdown-toggle:after {
+      display: none;
+}
+
+.button-icon {
+      margin-right: 16px;
+}
+
 @media (min-width: 768px) {
+      .LiveVideoPlayerTitle {
+            font-family: Graphik Web;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 3vw;
+            margin-left: 10vw;
+      }
+
       .LiveVideoPlayerDiv {
             position: relative;
             top: 0;
@@ -11,7 +27,6 @@
 
       }
 
-
       .LiveVideoPlayerDetails {
             left: 10vw;
             position: relative;
@@ -21,7 +36,7 @@
             margin-left: 10vw;
             padding-top: 2vw;
             width: 80vw;
-            height: 45vw;
+            height: (9/16)*80vw;
       }
 
       .LiveVideoPlayerInfoText {
@@ -97,7 +112,6 @@
       }
 
       .LiveVideoPlayerExtra {
-            margin-top: 3vw;
             position: relative;
             left: 10vw;
             width: 80vw;
@@ -166,9 +180,66 @@
                   opacity: 1;
             }
       }
+
+      .LiveMenuLink {
+            color: #ffffff !important;
+            border-bottom: solid;
+            padding-bottom: 1px;
+            text-decoration: none !important;
+      }
+
+      #share-custom {
+            border-radius: 0;
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            font-family: Graphik Web;
+            font-weight: bold;
+            width: 200px;
+            margin-top: 5px;
+            box-shadow: none !important;
+      }
+
+      .ShareButtonDesktop {
+            float: right;
+            margin-right: 10vw;
+      }
+
+      .ShareButtonMobile {
+            display:none;
+      }
+
+      .social-share-icon {
+            margin-right: 20px;
+      }
+
+      .ShareMenu {
+            border-radius: 0;
+      }
+      
+      .ShareOption {
+            text-align: left;
+      }
+
+      .dropitem {
+            width: 200px;
+      }
+
+      .dropitem:hover {
+            background-color: #C8C8C8;
+            border: none;
+      }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      .LiveVideoPlayerTitle {
+            font-family: Graphik Web;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 3vw;
+            margin-left: 10vw;
+      }
+
       .LiveVideoPlayerDiv {
             position: relative;
             top: 0;
@@ -195,7 +266,7 @@
             margin-left: 10vw;
             padding-top: 2vw;
             width: 80vw;
-            height: 45vw;
+            height: (9/16)*80vw;
       }
 
       .LiveVideoPlayerInfoText {
@@ -250,7 +321,6 @@
       }
 
       .LiveVideoPlayerExtra {
-            margin-top: 3vw;
             position: relative;
             left: 10vw;
             width: 80vw;
@@ -320,9 +390,63 @@
                   opacity: 1;
             }
       }
+
+      #share-custom {
+            border-radius: 0;
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            font-family: Graphik Web;
+            font-weight: bold;
+            width: 200px;
+            margin-top: 5px;
+            box-shadow: none !important;
+      }
+
+      .ShareButtonDesktop {
+            float: right;
+            margin-right: 10vw;
+      }
+
+      .ShareButtonMobile {
+            display:none;
+      }
+
+      .social-share-icon {
+            margin-right: 20px;
+      }
+
+      .ShareMenu {
+            border-radius: 0;
+      }
+      
+      .ShareOption {
+            text-align: left;
+      }
+
+      .dropitem {
+            width: 200px;
+      }
+
+      .dropitem:hover {
+            background-color: #C8C8C8;
+            border: none;
+      }
 }
 
 @media (max-width: 767px) {
+      .LiveVideoPlayerTitle {
+            font-family: Graphik Web;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 8.55vw;
+            line-height: 10.65vw;
+            margin-left: 0vw;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            margin-top: 7vw;
+      }
+
       .LiveVideoPlayerSeriesMenuContainer{
             float: right;
             margin-right: 8vw;
@@ -358,10 +482,16 @@
       }
 
       .LiveVideoPlayerIframe {
-            margin-left: 10vw;
             padding-top: 2vw;
-            width: 80vw;
-            height: 45vw;
+            width: 100vw;
+            height: 58vw;
+      }
+
+      .KidmaxVideo {
+            padding-top: 2vw;
+            width: 90vw;
+            height: (9/16)*90vw;
+            margin-left: 5vw;
       }
 
       .LiveVideoPlayerInfoText {
@@ -382,7 +512,7 @@
             color: #ffffff;
             font-size: 5vw;
             clear: both;
-            margin-left: 10vw;
+            margin-left: 5vw;
             margin-top:5vw;
       }
       .LiveVideoPlayerSeriesVideo,
@@ -392,6 +522,7 @@
             margin-right: 2vw;
             color: #ffffff;
             font-family: Graphik Web;
+            margin-bottom: 5vw;
       }
 
       .LiveVideoPlayerSeries,
@@ -413,12 +544,12 @@
       }
 
       .LiveVideoPlayerExtra {
-            margin-top: 3vw;
             position: relative;
-            left: 10vw;
-            width: 80vw;
-            font-family: Graphik Web;
-            color: #C8C8C8;
+            left: 5vw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 5vw;
       }
 
       .LiveVideoPlayerDescription {
@@ -458,16 +589,16 @@
       .ZoomGrid {
             margin-top: 5vw;
             display: grid;
-            margin-left: 10vw;
+            margin-left: 5vw;
             gap: 2vw;
-            grid-template-columns: repeat(2, 39vw);
+            grid-template-columns: repeat(2, 44vw);
       }
 
       .ZoomItem {
             transition: 0.5s;
             position: relative;
-            width: 39vw;
-            height: (9/16)*36vw;
+            width: 44vw;
+            height: (9/16)*44vw;
             background: white;
             display: flex;
             justify-content: center;
@@ -487,5 +618,54 @@
 
       .WatchVideoTag {
             display: none;
+      }
+
+      .LiveMenuLink {
+            color: #ffffff !important;
+            border-bottom: solid;
+            padding-bottom: 1px;
+            text-decoration: none !important;
+            margin-right: 5vw;
+      }
+
+      #share-custom {
+            border-radius: 0;
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            font-family: Graphik Web;
+            font-weight: bold;
+            width: 125px;
+            box-shadow: none !important;
+      }
+
+      .ShareButtonDesktop {
+            display: none;
+      }
+
+      .ShareButtonMobile {
+            margin-left: 5vw;
+      }
+
+      .social-share-icon {
+            margin-right: 20px;
+      }
+
+      .ShareMenu {
+            border-radius: 0;
+            width: 180px;
+      }
+
+      .ShareOption {
+            text-align: left;
+      }
+
+      .dropitem {
+            width: 178px;
+      }
+
+      .dropitem:hover {
+            background-color: #C8C8C8;
+            border: none;
       }
 }
