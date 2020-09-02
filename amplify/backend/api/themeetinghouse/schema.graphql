@@ -716,7 +716,7 @@ type CustomPlaylistVideo
   customPlaylistID: ID!
   customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
   video: Video @connection(fields: ["videoID"])
-}
+} 
 type Video 
  @model 
  @searchable
