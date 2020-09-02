@@ -7,7 +7,7 @@ exports.handler = async (event) => {
 
     try {
         const data =
-            await fetch(`https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passage}?content-type=text&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
+            await fetch(`https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passage}?content-type=json&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
                 headers: {
                     'api-key': apiKey
                 },
