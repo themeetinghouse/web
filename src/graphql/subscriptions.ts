@@ -16613,3 +16613,63 @@ export const onDeleteNotes = /* GraphQL */ `
     }
   }
 `;
+export const onCreateComment = /* GraphQL */ `
+  subscription OnCreateComment($owner: String!) {
+    onCreateComment(owner: $owner) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateComment = /* GraphQL */ `
+  subscription OnUpdateComment($owner: String!) {
+    onUpdateComment(owner: $owner) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteComment = /* GraphQL */ `
+  subscription OnDeleteComment($owner: String!) {
+    onDeleteComment(owner: $owner) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;

@@ -12709,3 +12709,87 @@ export const getNotes = /* GraphQL */ `
     }
   }
 `;
+export const getComment = /* GraphQL */ `
+  query GetComment($id: ID!) {
+    getComment(id: $id) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listComments = /* GraphQL */ `
+  query ListComments(
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        comment
+        tags
+        noteType
+        commentType
+        noteId
+        textSnippet
+        imageUri
+        key
+        date
+        time
+        owner
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCommentsByOwner = /* GraphQL */ `
+  query GetCommentsByOwner(
+    $owner: String
+    $noteId: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getCommentsByOwner(
+      owner: $owner
+      noteId: $noteId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        comment
+        tags
+        noteType
+        commentType
+        noteId
+        textSnippet
+        imageUri
+        key
+        date
+        time
+        owner
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
