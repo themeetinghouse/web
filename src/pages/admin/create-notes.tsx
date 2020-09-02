@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditorState, ContentState, convertToRaw, RawDraftContentState } from 'draft-js';
+import { EditorState, ContentState, convertToRaw, RawDraftContentState, convertFromRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg'
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
@@ -354,17 +354,23 @@ class Index extends React.Component<EmptyProps, State> {
     this.setState({ showEditModal: true });
     await this.waitForSelection(() => this.state.noteEditObject);
     const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date());
-    if (this.state.noteEditObject.questions) {
+    if (this.state.noteEditObject.jsonQuestions) {
+      const jsonQuestions = JSON.parse(this.state.noteEditObject.jsonQuestions);
+      const questions = convertFromRaw(jsonQuestions);
       this.setState({
-        questionsEditorState: EditorState.createWithContent(this.convertMarkupToDraft(this.state.noteEditObject.questions)),
+        questionsEditorState: EditorState.createWithContent(questions),
       })
     } else {
       this.setState({
         questionsEditorState: EditorState.createEmpty(),
       })
     }
+
+    const jsonNotes = JSON.parse(this.state.noteEditObject.jsonContent);
+    const notes = convertFromRaw(jsonNotes);
+
     this.setState({
-      notesEditorState: EditorState.createWithContent(this.convertMarkupToDraft(this.state.noteEditObject.content)),
+      notesEditorState: EditorState.createWithContent(notes),
       selectedTags: this.state.noteEditObject.tags,
       date: date,
       title: this.state.noteEditObject.title,
