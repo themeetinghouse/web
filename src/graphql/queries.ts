@@ -2,6 +2,27 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getBiblePassage = /* GraphQL */ `
+  query GetBiblePassage($bibleId: String, $passage: String) {
+    getBiblePassage(bibleId: $bibleId, passage: $passage) {
+      data {
+        id
+        bibleId
+        orgId
+        content
+        reference
+        copyright
+      }
+      meta {
+        fums
+        fumsId
+        fumsJsInclude
+        fumsJs
+        fumsNoScript
+      }
+    }
+  }
+`;
 export const getYoutubeVideoSearch = /* GraphQL */ `
   query GetYoutubeVideoSearch($videoId: String) {
     getYoutubeVideoSearch(videoId: $videoId) {
