@@ -9,7 +9,7 @@ import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
@@ -239,14 +239,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     for (const query of bibleJSON) {
       try {
-        const apiKey = '';
-        const bibleId = '78a9f6124f344018-01'; // NIV
-        const res = await fetch(`https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${query.queryString}?content-type=json&include-notes=false&include-titles=true&include-chapter-numbers=false&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
-          headers: {
-            'api-key': apiKey
-          },
-        });
-        const json = await res.json();
+        const json: any = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString }))
         if (json?.data?.content) {
           passages.push(JSON.stringify(json?.data?.content))
         }
