@@ -847,6 +847,29 @@ type Notes
   verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
 }
 
+enum CommentDataType {
+  biblePassage
+  image
+  text
+}
+
+type Comment @model 
+  @auth(rules: [{ allow: owner, ownerField: "owner", operations: [create, update, delete, read] }])  
+  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
+  id: ID!
+  comment: String!
+  tags: [String]
+  noteType: NoteDataType!
+  commentType: CommentDataType!
+  noteId: String!
+  textSnippet: String
+  imageUri: String
+  key: String!
+  date: String!
+  time: String!
+  owner: String!
+}
+
 type WebPage
  @model 
  @searchable
