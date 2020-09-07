@@ -813,7 +813,7 @@ class ListItem extends React.Component<Props, State> {
                 return (
                   <div className="ListItemDiv10" key={index}>
                     {href
-                      ? <Link className="container" to={href}>{body}</Link>
+                      ? <Link className="container" style={{ display: 'inline-block' }} to={href}>{body}</Link>
                       : body}
                     <ScaledImage className="ListItemH1ImageList2" image={{ src: item.imageSrc, alt: item.imageAlt }}
                       breakpointSizes={{
@@ -831,7 +831,7 @@ class ListItem extends React.Component<Props, State> {
           </div>
         </div>
 
-      </div>
+      </div >
     );
     return null;
   }
