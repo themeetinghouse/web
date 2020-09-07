@@ -41,10 +41,11 @@
             {
                 "type": "blog",
                 "style": "twoImage",
-                "status": "",
+                "status": "Live",
                 "header1": "Recent News and Updates",
                 "sortOrder": "DESC",
-                "limit": 2
+                "limit": 2,
+                "blogSeries": "News"
             },
             {
                 "type": "list",
