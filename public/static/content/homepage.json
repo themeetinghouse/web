@@ -89,8 +89,8 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Show Me More",
-                        "navigateTo": "/corona"
+                        "title": "Read Latest Updates",
+                        "navigateTo": "/covid"
                     }
                 ],
                 "image1": [
