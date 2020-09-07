@@ -91,7 +91,9 @@ class BlogItem extends React.Component<Props, State> {
                     const today = moment();
                     const publishedOnly: NonNullable<NonNullable<NonNullable<NonNullable<NonNullable<GetBlogSeriesQuery['getBlogSeries']>['blogs']>['items']>[0]>['blogPost']>[] = [];
                     this.state.blogSeries.forEach(item => {
-                        if ((item?.blogPost?.publishedDate && moment(item?.blogPost?.publishedDate, 'YYYY-MM-DD').isSameOrBefore(today)) && (item?.blogPost?.expirationDate === 'none' || moment(item?.blogPost?.expirationDate, 'YYYY-MM-DD').isAfter(today))) {
+                        if ((item?.blogPost?.publishedDate && moment(item?.blogPost?.publishedDate, 'YYYY-MM-DD').isSameOrBefore(today))
+                            && (item?.blogPost?.expirationDate === 'none' || moment(item?.blogPost?.expirationDate, 'YYYY-MM-DD').isAfter(today))
+                            && (item?.blogPost.blogStatus === 'Live')) {
                             publishedOnly.push(item?.blogPost);
                         }
                     })
