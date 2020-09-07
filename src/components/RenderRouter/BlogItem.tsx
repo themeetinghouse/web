@@ -46,9 +46,11 @@ class BlogItem extends React.Component<Props, State> {
 
     async getBlogsByStatus(): Promise<void> {
         try {
+            const today = moment();
+            const todayString = today.format('YYYY-MM-DD');
             const json = await API.graphql({
                 query: customQueries.getBlogByBlogStatus,
-                variables: { blogStatus: this.props.content.status, sortDirection: this.props.content.sortOrder, limit: this.props.content.limit },
+                variables: { publishedDate: { le: todayString }, blogStatus: this.props.content.status, sortDirection: this.props.content.sortOrder, limit: this.props.content.limit },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             }) as GraphQLResult<GetBlogByBlogStatusQuery>;
 
@@ -58,11 +60,9 @@ class BlogItem extends React.Component<Props, State> {
                 this.setState({
                     blogs: json.data.getBlogByBlogStatus.items
                 })
-                const today = moment();
                 if (this.state.blogs) {
                     const dateChecked =
-                        this.state.blogs.filter(post =>
-                            (post?.publishedDate && moment(post?.publishedDate, 'YYYY-MM-DD').isSameOrBefore(today)) && (post?.expirationDate === 'none' || moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)))
+                        this.state.blogs.filter(post => (post?.expirationDate === 'none' || moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)))
                     console.debug(dateChecked)
                     this.setState({ publishedOnly: dateChecked })
                 }
@@ -74,6 +74,7 @@ class BlogItem extends React.Component<Props, State> {
 
     async getBlogSeries(): Promise<void> {
         try {
+            const today = moment();
             const json = await API.graphql({
                 query: queries.getBlogSeries,
                 variables: { id: this.props.content.blogSeries },
@@ -86,9 +87,7 @@ class BlogItem extends React.Component<Props, State> {
                 this.setState({
                     blogSeries: json.data.getBlogSeries.blogs.items
                 })
-
                 if (this.state.blogSeries) {
-                    const today = moment();
                     const publishedOnly: NonNullable<NonNullable<NonNullable<NonNullable<NonNullable<GetBlogSeriesQuery['getBlogSeries']>['blogs']>['items']>[0]>['blogPost']>[] = [];
                     this.state.blogSeries.forEach(item => {
                         if ((item?.blogPost?.publishedDate && moment(item?.blogPost?.publishedDate, 'YYYY-MM-DD').isSameOrBefore(today))
