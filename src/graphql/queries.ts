@@ -12430,6 +12430,76 @@ export const searchBlogs = /* GraphQL */ `
     }
   }
 `;
+export const getInstagram = /* GraphQL */ `
+  query GetInstagram($id: ID!) {
+    getInstagram(id: $id) {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listInstagrams = /* GraphQL */ `
+  query ListInstagrams(
+    $filter: ModelInstagramFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listInstagrams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        locationId
+        thumbnails {
+          src
+          config_width
+          config_height
+        }
+        altText
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getInstagramByLocation = /* GraphQL */ `
+  query GetInstagramByLocation(
+    $locationId: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelInstagramFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getInstagramByLocation(
+      locationId: $locationId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        locationId
+        thumbnails {
+          src
+          config_width
+          config_height
+        }
+        altText
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getVerse = /* GraphQL */ `
   query GetVerse($id: ID!) {
     getVerse(id: $id) {

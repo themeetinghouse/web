@@ -16178,6 +16178,54 @@ export const onDeleteBlog = /* GraphQL */ `
     }
   }
 `;
+export const onCreateInstagram = /* GraphQL */ `
+  subscription OnCreateInstagram {
+    onCreateInstagram {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateInstagram = /* GraphQL */ `
+  subscription OnUpdateInstagram {
+    onUpdateInstagram {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteInstagram = /* GraphQL */ `
+  subscription OnDeleteInstagram {
+    onDeleteInstagram {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateVerse = /* GraphQL */ `
   subscription OnCreateVerse {
     onCreateVerse {

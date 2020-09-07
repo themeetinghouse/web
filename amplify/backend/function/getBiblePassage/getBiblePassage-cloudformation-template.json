@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
-					"S3Key": "amplify-builds/getBiblePassage-6a735471486550355873-build.zip"
+					"S3Key": "amplify-builds/getBiblePassage-3266656a383779414965-build.zip"
 				}
 			}
 		},
