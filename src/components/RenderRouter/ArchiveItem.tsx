@@ -103,6 +103,10 @@ class ArchiveItem extends React.Component<Props, State> {
         this.setState({
             overlayData: data,
         });
+        if (data.series == null)
+            console.error({ 'You need to create a series for:': data });
+        else
+            this.props.history.push('/videos/' + data.series.id + '/' + data.id);
     }
 
     showYears(start: string | null, end: string | null) {
