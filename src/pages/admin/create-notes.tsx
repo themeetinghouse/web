@@ -8,7 +8,7 @@ import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API, graphqlOperation } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
@@ -24,6 +24,7 @@ import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 import Bible from './bible';
+import { GetBiblePassageQuery } from '../../API';
 
 interface BibleVerseJSON {
   key: string;
@@ -207,10 +208,6 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.saveBiblePassages(rawNotes, 'notes');
     this.saveBiblePassages(rawQuestions, 'questions');
-
-    if (!this.state.showAlert) {
-      this.setState({ showAlert: 'Bible passages ok!' })
-    }
   }
 
   async saveBiblePassages(raw: RawDraftContentState, type: 'notes' | 'questions'): Promise<void> {
@@ -239,9 +236,9 @@ class Index extends React.Component<EmptyProps, State> {
 
     for (const query of bibleJSON) {
       try {
-        const json: any = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString }))
-        if (json?.data?.content) {
-          passages.push(JSON.stringify(json?.data?.content))
+        const json = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString })) as GraphQLResult<GetBiblePassageQuery>
+        if (json?.data?.getBiblePassage?.data?.content) {
+          passages.push(JSON.stringify(json?.data?.getBiblePassage?.data?.content))
         }
       } catch (e) {
         console.error(e)
