@@ -53,6 +53,12 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Lisana",
+    "LastName": "Walks",
+    "sites": ["NMKT"],
+    "Position": "Compassion Coordinator"
+  },
+  {
     "FirstName": "April",
     "LastName": "Yorke",
     "sites": ["OTTA"],
@@ -87,6 +93,12 @@
     "FirstName": "Danielle",
     "LastName": "Fry",
     "sites": ["HMDT"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Jenna",
+    "LastName": "Buist",
+    "sites": ["HMMT"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -139,6 +151,12 @@
     "FirstName": "Kat",
     "LastName": "Misztal-McCubbing",
     "sites": ["TOHP"],
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Nour",
+    "LastName": "Aziz",
+    "sites": ["TOUP"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -339,6 +357,20 @@
     "Position": "Kidmax Coordinator"
   },
   {
+    "FirstName": "Madeleine",
+    "LastName": "Neufeld",
+    "sites": ["WATL"],
+    "Email": "kidmax.waterloo@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Max",
+    "LastName": "Chute",
+    "sites": ["WATL"],
+    "Email": "kidmax.waterloo@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
     "FirstName": "Esther",
     "LastName": "Hazzard",
     "sites": ["BRAM"],
@@ -470,12 +502,6 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Keltan",
-    "LastName": "Dakins",
-    "sites": ["TOUP"],
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Emily",
     "LastName": "Piche",
     "sites": ["WAT"],
@@ -589,13 +615,6 @@
     "sites": ["TOUP"],
     "Email": "russ.skinner@themeetinghouse.com",
     "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Sarah",
-    "LastName": "Stratton-Snyder",
-    "sites": ["BRFD"],
-    "Email": "sarah.strattonsnyder@themeetinghouse.com",
-    "Position": "Welcome Coordinator"
   },
   {
     "FirstName": "Lisa",
