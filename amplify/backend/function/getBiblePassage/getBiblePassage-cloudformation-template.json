@@ -33,12 +33,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"QandEh",
+						"getBiblePassage",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"QandEh",
+									"getBiblePassage",
 									"-",
 									{
 										"Ref": "env"
@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
-					"S3Key": "amplify-builds/QandEh-31506d396d39696e6373-build.zip"
+					"S3Key": "amplify-builds/getBiblePassage-3266656a383779414965-build.zip"
 				}
 			}
 		},
@@ -78,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"themeetinghouseLambdaRole2b221474",
+						"themeetinghouseLambdaRole0504fc41",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"themeetinghouseLambdaRole2b221474",
+									"themeetinghouseLambdaRole0504fc41",
 									"-",
 									{
 										"Ref": "env"

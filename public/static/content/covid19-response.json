@@ -1,6 +1,6 @@
 {
     "page": {
-        "name": "covid19",
+        "name": "covid-19-response",
         "title": "COVID-19 Response",
         "keywords": "",
         "description": "",
@@ -90,22 +90,14 @@
                     {
                         "class": "SimpleItemText",
                         "text": "We pray for God’s provision, leading, and the wisdom of the Holy Spirit during this situation. We pray for the health and safety of our church, our cities, our neighbours, and our world. And we continue to pray for Spirit-led courage and creativity as we ask God to use us to serve and love people well."
-                    }
-                    ,
+                    },
                     {
-                        "type":"video",
+                        "type": "video",
                         "class": "SimpleVideoPlayerIframe",
                         "id": "WaG1S6Laa-4"
                     }
                 ]
-                
-                
-
-                
-
-
-
-     }
+            }
         ]
     }
 }

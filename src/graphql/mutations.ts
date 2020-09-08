@@ -16178,6 +16178,54 @@ export const deleteBlog = /* GraphQL */ `
     }
   }
 `;
+export const createInstagram = /* GraphQL */ `
+  mutation CreateInstagram($input: CreateInstagramInput!) {
+    createInstagram(input: $input) {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateInstagram = /* GraphQL */ `
+  mutation UpdateInstagram($input: UpdateInstagramInput!) {
+    updateInstagram(input: $input) {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteInstagram = /* GraphQL */ `
+  mutation DeleteInstagram($input: DeleteInstagramInput!) {
+    deleteInstagram(input: $input) {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createVerse = /* GraphQL */ `
   mutation CreateVerse($input: CreateVerseInput!) {
     createVerse(input: $input) {
@@ -16610,6 +16658,66 @@ export const deleteNotes = /* GraphQL */ `
         }
         nextToken
       }
+    }
+  }
+`;
+export const createComment = /* GraphQL */ `
+  mutation CreateComment($input: CreateCommentInput!) {
+    createComment(input: $input) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateComment = /* GraphQL */ `
+  mutation UpdateComment($input: UpdateCommentInput!) {
+    updateComment(input: $input) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteComment = /* GraphQL */ `
+  mutation DeleteComment($input: DeleteCommentInput!) {
+    deleteComment(input: $input) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
     }
   }
 `;

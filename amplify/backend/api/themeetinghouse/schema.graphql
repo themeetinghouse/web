@@ -1,4 +1,5 @@
 type Query {
+  getBiblePassage(bibleId: String, passage: String):BibleResponse @function(name: "getBiblePassage-${env}")
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
   getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
@@ -19,6 +20,25 @@ type Query {
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
+}
+type BibleResponse {
+  data: BibleData
+  meta: BibleMetaData
+}
+type BibleData {
+  id: String
+  bibleId: String
+  orgId: String
+  content: String
+  reference: String
+  copyright: String
+}
+type BibleMetaData {
+  fums: String
+  fumsId: String
+  fumsJsInclude: String
+  fumsJs: String
+  fumsNoScript: String
 }
 type emailResponse {
   err:String
@@ -696,7 +716,7 @@ type CustomPlaylistVideo
   customPlaylistID: ID!
   customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
   video: Video @connection(fields: ["videoID"])
-}
+} 
 type Video 
  @model 
  @searchable
@@ -802,6 +822,29 @@ type Blog
   tags:[String]
 }
 
+type InstagramThumbnail 
+{
+  src: String
+  config_width: Int
+  config_height: Int
+}
+
+type Instagram 
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
+ ])
+ @key(name: "instagramByLocation", fields: ["locationId"], queryField: "getInstagramByLocation") 
+ 
+{
+  id: ID!
+  locationId: String
+  thumbnails: [InstagramThumbnail]
+  altText: String
+}
+
 enum NoteDataType {
   questions
   notes
@@ -845,6 +888,29 @@ type Notes
   topics:[String]
   tags:[String]
   verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
+}
+
+enum CommentDataType {
+  biblePassage
+  image
+  text
+}
+
+type Comment @model 
+  @auth(rules: [{ allow: owner, ownerField: "owner", operations: [create, update, delete, read] }])  
+  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
+  id: ID!
+  comment: String!
+  tags: [String]
+  noteType: NoteDataType!
+  commentType: CommentDataType!
+  noteId: String!
+  textSnippet: String
+  imageUri: String
+  key: String!
+  date: String!
+  time: String!
+  owner: String!
 }
 
 type WebPage

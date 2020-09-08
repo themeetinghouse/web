@@ -2,6 +2,27 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getBiblePassage = /* GraphQL */ `
+  query GetBiblePassage($bibleId: String, $passage: String) {
+    getBiblePassage(bibleId: $bibleId, passage: $passage) {
+      data {
+        id
+        bibleId
+        orgId
+        content
+        reference
+        copyright
+      }
+      meta {
+        fums
+        fumsId
+        fumsJsInclude
+        fumsJs
+        fumsNoScript
+      }
+    }
+  }
+`;
 export const getYoutubeVideoSearch = /* GraphQL */ `
   query GetYoutubeVideoSearch($videoId: String) {
     getYoutubeVideoSearch(videoId: $videoId) {
@@ -12409,6 +12430,76 @@ export const searchBlogs = /* GraphQL */ `
     }
   }
 `;
+export const getInstagram = /* GraphQL */ `
+  query GetInstagram($id: ID!) {
+    getInstagram(id: $id) {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listInstagrams = /* GraphQL */ `
+  query ListInstagrams(
+    $filter: ModelInstagramFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listInstagrams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        locationId
+        thumbnails {
+          src
+          config_width
+          config_height
+        }
+        altText
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getInstagramByLocation = /* GraphQL */ `
+  query GetInstagramByLocation(
+    $locationId: String
+    $sortDirection: ModelSortDirection
+    $filter: ModelInstagramFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getInstagramByLocation(
+      locationId: $locationId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        locationId
+        thumbnails {
+          src
+          config_width
+          config_height
+        }
+        altText
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getVerse = /* GraphQL */ `
   query GetVerse($id: ID!) {
     getVerse(id: $id) {
@@ -12685,6 +12776,90 @@ export const getNotes = /* GraphQL */ `
         }
         nextToken
       }
+    }
+  }
+`;
+export const getComment = /* GraphQL */ `
+  query GetComment($id: ID!) {
+    getComment(id: $id) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listComments = /* GraphQL */ `
+  query ListComments(
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        comment
+        tags
+        noteType
+        commentType
+        noteId
+        textSnippet
+        imageUri
+        key
+        date
+        time
+        owner
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCommentsByOwner = /* GraphQL */ `
+  query GetCommentsByOwner(
+    $owner: String
+    $noteId: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelCommentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getCommentsByOwner(
+      owner: $owner
+      noteId: $noteId
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        comment
+        tags
+        noteType
+        commentType
+        noteId
+        textSnippet
+        imageUri
+        key
+        date
+        time
+        owner
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
   }
 `;

@@ -44,7 +44,7 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Watch Sonia's Story",
+                        "title": "Watch Video",
                         "navigateTo": "/videos/spiritually-curious-Spiritually%20Curious/h5QnbV5y_nc"
                     }
                 ],
@@ -62,7 +62,7 @@
                 "subclass": "spiritually-curious",
                 "selector": "all",
                 "sortOrder": "DESC",
-                "header1": "More Stories from our Community"
+                "header1": "More Spiritually Curious Stories"
             },
             {
                 "type": "list",
@@ -71,15 +71,8 @@
                 "text1": "When we're not practicing social distancing because of COVID-19, these are the ways we typically connect.",
                 "list": [
                     {
-                        "title": "Sunday Morning",
-                        "text": "Curious but not sure what to expect? We gather to learn how we can grow as followers of Jesus who love others well. Due to COVID-19, we have transitioned our physical gatherings to online every Sunday at 10:00am EDT.",
-                        "imageSrc": "/static/images/community-3-1.jpg",
-                        "imageAlt": "Three people standing by the doors of the Oakville site",
-                        "navigateTo": "/sunday-morning"
-                    },
-                    {
                         "title": "Home Church",
-                        "text": "*In response to COVID-19 our home churches have transitioned to online gatherings.* During the week, we meet in homes to study and apply Sunday's teaching, build relationships in smaller groups, and care for our neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.",
+                        "text": "In response to COVID-19 our home churches are now meeting online. During the week, we meet in small groups to study and apply Sunday's teaching, build relationships, and care for our neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.",
                         "imageSrc": "/static/images/community-3-2.jpg",
                         "imageAlt": "Three people sitting around a dining room table eating snacks",
                         "navigateTo": "/homechurch"
@@ -90,6 +83,13 @@
                         "imageSrc": "/static/images/community-3-3.jpg",
                         "imageAlt": "Two kids smiling",
                         "navigateTo": "/kids-and-youth"
+                    },
+                    {
+                        "title": "Sunday Livestream",
+                        "text": "Curious but not sure what to expect? We gather to learn how we can grow as followers of Jesus who love others well. Due to COVID-19, we have transitioned our physical gatherings to online every Sunday at 10:00am EDT.",
+                        "imageSrc": "/static/images/community-3-1.jpg",
+                        "imageAlt": "Three people standing by the doors of the Oakville site",
+                        "navigateTo": "/sunday-morning"
                     }
                 ]
             },

@@ -1,14 +1,27 @@
 
-import React from 'react';
-import "./VideoPlayerLive.scss"
+import React, { Fragment } from 'react';
+import "./VideoPlayerLive.scss";
 import * as queries from '../../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
-//import moment from 'moment';
 import moment from 'moment-timezone';
-import { Helmet } from 'react-helmet';
 import { ListLivestreamsQuery } from '../../API';
 import { Link } from 'components/Link/Link';
+import { isMobile, isMobileOnly } from 'react-device-detect';
+import Fade from 'react-bootstrap/Fade';
+import Dropdown from 'react-bootstrap/Dropdown';
+import {
+  FacebookShareButton,
+  EmailShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  EmailIcon,
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon
+} from "react-share";
 
 type LiveData = NonNullable<NonNullable<NonNullable<ListLivestreamsQuery['listLivestreams']>['items']>[0]>;
 
@@ -140,114 +153,138 @@ export default class VideoPlayer extends React.Component<Props, State> {
     clearInterval(this.interval);
   }
 
+  shareButton() {
+    return (
+      <Dropdown drop={"down"}>
+        <Dropdown.Toggle id="share-custom"><img className="button-icon" src="/static/svg/Share.svg" alt="" />Share</Dropdown.Toggle>
+        <Fade timeout={1000}>
+          <Dropdown.Menu className="ShareMenu">
+
+            <FacebookShareButton
+              className="ShareOption"
+              url="https://www.themeetinghouse.com/live"
+              quote="The Meeting House Livestream">
+              <Dropdown.Item className="dropitem"><FacebookIcon className="social-share-icon" size={32} round />Facebook</Dropdown.Item>
+            </FacebookShareButton>
+
+            <TwitterShareButton
+              className="ShareOption"
+              url="https://www.themeetinghouse.com/live"
+              title="The Meeting House Livestream"
+              via="TheMeetingHouse"
+              related={["TheMeetingHouse"]}>
+              <Dropdown.Item className="dropitem"><TwitterIcon className="social-share-icon" size={32} round />Twitter</Dropdown.Item>
+            </TwitterShareButton>
+
+            <EmailShareButton
+              className="ShareOption"
+              url="https://www.themeetinghouse.com/live"
+              subject="The Meeting House Livestream">
+              <Dropdown.Item className="dropitem"><EmailIcon className="social-share-icon" size={32} round />Email</Dropdown.Item>
+            </EmailShareButton>
+
+            {isMobileOnly ?
+              <Fragment>
+                <WhatsappShareButton
+                  className="ShareOption"
+                  url="https://www.themeetinghouse.com/live"
+                  title="The Meeting House Livestream">
+                  <Dropdown.Item className="dropitem"><WhatsappIcon className="social-share-icon" size={32} round />WhatsApp</Dropdown.Item>
+                </WhatsappShareButton>
+
+                <TelegramShareButton
+                  className="ShareOption"
+                  url="https://www.themeetinghouse.com/live"
+                  title="The Meeting House Livestream">
+                  <Dropdown.Item className="dropitem"><TelegramIcon className="social-share-icon" size={32} round />Telegram</Dropdown.Item>
+                </TelegramShareButton>
+              </Fragment>
+              : null}
+
+          </Dropdown.Menu>
+        </Fade>
+      </Dropdown>
+    )
+  }
+
   render() {
     if (this.state.liveEvent) {
-      return (
-        <div className="LiveVideoPlayerDiv" >
-          <Helmet>
-            <meta property="og:url" content="https://www.themeetinghouse.com/live" />
-            <meta property="og:title" content="The Meeting House - Live" />
-            <meta property="og:description" content="" />
-            <meta property="og:type" content="website" />
-            <meta property="fb:app_id" content="579712102531269" />
-            <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
-            <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
-            <meta property="og:image:type" content="image/jpeg" />
-
-            <meta property="twitter:title" content="The Meeting House - Live" />
-            <meta property="twitter:creator" content="@TheMeetingHouse" />
-            <meta property="twitter:image" content={"https://img.youtube.com/vi/" + this.state.liveEvent.liveYoutubeId + "/maxresdefault.jpg"} />
-            <meta property="twitter:description" content="" />
-            <meta property="twitter:url" content="https://www.themeetinghouse.com/live" />
-            <meta property="twitter:card" content="summary" />
-          </Helmet>
+      return <div className="LiveVideoPlayerDiv" >
+        {this.state.isLive ?
           <div>
-            <div>
-              <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
-              <div className="LiveVideoPlayerSeriesMenuContainer" >
-                {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ? this.state.liveEvent.menu.map((item: any, index: number) => {
-                  if (item.linkType !== 'notes' && item.linkType !== 'link') {
+            <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+            <div className="LiveVideoPlayerTitle">Church Livestream<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
+            <br />
+            {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
+              <div className="LiveVideoPlayerExtra" >
+                {this.state.liveEvent.menu.map((item, index) => {
+                  if (item?.linkType !== 'notes' && item?.linkType !== 'link') {
                     return null;
                   }
-                  const href = item.linkType === 'notes'
+                  const href = item?.linkType === 'notes'
                     ? `/notes/${this.state.currentSundayDate}`
-                    : item.link;
-                  return <div key={index} className="LiveVideoPlayerSeriesMenu">
-                    <Link newWindow to={href}>{item.title}</Link>
+                    : item?.link;
+
+                  const svg =
+                    item?.title === 'Notes' ? 'Notes-white' :
+                      item?.title === 'Give' ? 'Give-white' :
+                        item?.title === 'Music' ? 'Teaching-white' :
+                          item?.title === 'Kidmax' ? 'Family Friendly-white' :
+                            item?.title === 'Connect' ? 'User-white' : 'New Window-white'
+
+                  return <div key={index} className="LiveVideoPlayerSeriesNotes">
+                    {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
+                    <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
                   </div>
-                }) : null}
-              </div>
-              {this.state.isLive ?
-                <div>
-                  <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  {this.state.liveEvent.showChat ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe> : null}
-                  <br />
-                </div> :
-                <div>
-                  <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.prerollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  {this.state.liveEvent.showChat ? <iframe title="Teaching Pre-roll Chat" frameBorder="0" className="LiveVideoPlayerIframe" height="270" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.prerollYoutubeId + "&embed_domain=www.themeetinghouse.com"} width="480"></iframe> : null}
-                  <br />
-                </div>
-              }
-              {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
-                <div className="ZoomGrid">
-                  {this.state.liveEvent.zoom.map((item, index) => {
-                    const watchText =
-                      item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
-                        : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
-                          : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
-                            : 'Watch'
-                    return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
-                      <div className="ZoomText" >{item?.title}</div>
-                      <div className="WatchVideoTag">{watchText}</div>
-                    </a>
-                  })}
-                </div> : null}
-            </div>
-            {this.state.liveEvent.showKids ?
-              <div>
-                <div className="LiveVideoPlayerEpisodeTitle">Parent Blog</div>
-                <div className="LiveVideoPlayerText">For Church at Home activities and more, check out the <a href="http://kidsandyouth.themeetinghouse.com/blog/">Parent Blog</a></div>
-                <div className="LiveVideoPlayerEpisodeTitle">Kidmax (6-10 Years Old)</div>
-                {this.state.kidData ?
-                  <iframe title="Kids Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                  : null
-                }
-                <div className="LiveVideoPlayerEpisodeTitle">JrHigh (11-13 Years Old)</div>
-                {this.state.kidData ?
-                  this.state.kidData[1] ?
-                    <iframe title="Jr High Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[1].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                    : null : null
-                }
-                <div className="LiveVideoPlayerEpisodeTitle">Youth (14-18 Years Old)</div>
-                {this.state.kidData ?
-                  this.state.kidData[2] ?
-                    <iframe title="Youth Video" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[2].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-                    : null : null
-                }
-              </div>
-              :
-              null}
+                })}
+              </div> : null}
+            <div className="ShareButtonMobile">{this.shareButton()}</div>
+            {this.state.liveEvent.showChat && !isMobile ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"}></iframe> : <div style={{ height: '10vw' }} />}
+            {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
+              <div className="ZoomGrid">
+                {this.state.liveEvent.zoom.map((item, index) => {
+                  const watchText =
+                    item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
+                      : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
+                        : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
+                          : 'Watch'
+                  return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
+                    <div className="ZoomText" >{item?.title}</div>
+                    <div className="WatchVideoTag">{watchText}</div>
+                  </a>
+                })}
+              </div> : null}
           </div>
-        </div>
-      )
+          : <div>
+            <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.prerollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+            <div className="LiveVideoPlayerTitle">Church Livestream Pre-Show</div>
+            <br />
+          </div>}
+        {this.state.liveEvent.showKids ?
+          <div>
+            <div className="LiveVideoPlayerEpisodeTitle">Grades 1-5</div>
+            {this.state.kidData ?
+              <iframe title="Kids Video" className="LiveVideoPlayerIframe KidmaxVideo" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              : null
+            }
+            <div className="LiveVideoPlayerEpisodeTitle">Jr. High</div>
+            {this.state.kidData && this.state.kidData[1] ?
+              <iframe title="Jr High Video" className="LiveVideoPlayerIframe KidmaxVideo" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[1].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              : null
+            }
+            <div className="LiveVideoPlayerEpisodeTitle">Youth</div>
+            {this.state.kidData && this.state.kidData[2] ?
+              <iframe title="Youth Video" className="LiveVideoPlayerIframe KidmaxVideo" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[2].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              : null
+            }
+          </div> : null}
+      </div>
     } else {
       return (
         <div className="LiveVideoPlayerDiv" >
-          <div className="LiveVideoPlayerEpisodeTitleMain">{this.state.content.title}</div>
-          <div className="LiveVideoPlayerSeriesMenuContainer" >
-            {this.state.content.menu.map((item: any, index: number) => {
-              const href = item.title === 'Notes' && item.linkto === 'web-notes'
-                ? `/notes/${this.state.currentSundayDate}`
-                : item.linkto;
-              return <div key={index} className="LiveVideoPlayerSeriesMenu">
-                <Link newWindow to={href}>{item.title}</Link>
-              </div>
-            })}
-          </div>
-          <div>
-            <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/na1g4ht-yNs?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe><br />
-          </div>
+          <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/na1g4ht-yNs?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe><br />
+          <div className="LiveVideoPlayerTitle">Church Livestream</div>
+          <div className="LiveVideoPlayerDescription" style={{ margin: 0 }} >We aren&apos;t live right now. Join us on Sundays at 10:00am Eastern.</div>
         </div>
       )
     }

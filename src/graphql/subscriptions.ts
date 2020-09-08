@@ -16178,6 +16178,54 @@ export const onDeleteBlog = /* GraphQL */ `
     }
   }
 `;
+export const onCreateInstagram = /* GraphQL */ `
+  subscription OnCreateInstagram {
+    onCreateInstagram {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateInstagram = /* GraphQL */ `
+  subscription OnUpdateInstagram {
+    onUpdateInstagram {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteInstagram = /* GraphQL */ `
+  subscription OnDeleteInstagram {
+    onDeleteInstagram {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateVerse = /* GraphQL */ `
   subscription OnCreateVerse {
     onCreateVerse {
@@ -16610,6 +16658,66 @@ export const onDeleteNotes = /* GraphQL */ `
         }
         nextToken
       }
+    }
+  }
+`;
+export const onCreateComment = /* GraphQL */ `
+  subscription OnCreateComment($owner: String!) {
+    onCreateComment(owner: $owner) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateComment = /* GraphQL */ `
+  subscription OnUpdateComment($owner: String!) {
+    onUpdateComment(owner: $owner) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteComment = /* GraphQL */ `
+  subscription OnDeleteComment($owner: String!) {
+    onDeleteComment(owner: $owner) {
+      id
+      comment
+      tags
+      noteType
+      commentType
+      noteId
+      textSnippet
+      imageUri
+      key
+      date
+      time
+      owner
+      createdAt
+      updatedAt
     }
   }
 `;

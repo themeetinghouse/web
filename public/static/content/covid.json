@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "corona",
-        "title": "corona",
+        "name": "covid",
+        "title": "covid",
         "keywords": "",
         "description": "",
         "pageConfig": {
@@ -11,34 +11,42 @@
             "showSearch": true,
             "showFooter": true,
             "showMenu": true,
-            "showLive":true
+            "showLive": true
         },
         "content": [
             {
                 "type": "og-tags",
-                "image": "/static/images/og-images/corona.jpg",
-                "url": "https://www.themeetinghouse.com/corona",
-                "title": "How has The Meeting House adapted to the Covid-19 pandemic?",
-                "description": "Responding to this global pandemic has made life a lot different for all of us. Until things get back to normal, we've made several significant changes to serve our communities well and love those who are struggling during this difficult time."
+                "image": "/static/images/og-images/covid-1-2.jpg",
+                "url": "https://www.themeetinghouse.com/covid",
+                "title": "News and Updates about COVID-19 and The Meeting House.",
+                "description": "Responding to this pandemic has made life different for all of us. As we navigate this new normal, we've made several changes to serve our communities well and love those who are struggling during this difficult time."
             },
             {
                 "type": "hero",
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/corona-1.jpg",
-                        "alt": "Young man sitting on indoors, reflecting and looking outside his window."
+                        "src": "/static/images/covid-1-1.jpg",
+                        "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
                     },
                     {
-                        "src": "/static/images/corona-1-2.jpg",
-                        "alt": "Young woman sits on the stairs on a sunny day and looks off camera."
+                        "src": "/static/images/covid-1-2.jpg",
+                        "alt": "Young man in a face mask is sitting and talking with friends."
                     }
                 ],
                 "header1": "Church During COVID-19",
                 "header2": "",
-                "text1": "Responding to this global pandemic has made life a lot different for all of us. Until things get back to normal, we've made several significant changes to serve our communities well and love those who are struggling during this difficult time."
+                "text1": "Responding to this pandemic has made life different for all of us. As we navigate the new normal, we've made several changes to serve our communities and love those who are struggling during this difficult time."
             },
-
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Live",
+                "header1": "Recent News and Updates",
+                "sortOrder": "DESC",
+                "limit": 2,
+                "blogSeries": "News"
+            },
             {
                 "type": "list",
                 "style": "imageList",
@@ -75,24 +83,22 @@
                     }
                 ]
             },
-
             {
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Resources",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "COVID-19 FAQs",
                         "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf"
                     },
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "COVID-19 Gatherings",
                         "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf"
                     }
                 ],
-
                 "image1": [
                     {
                         "src": "/static/images/make-a-difference-3.jpg",
@@ -107,12 +113,11 @@
                 "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Give Today",
                         "navigateTo": "https://pushpay.com/g/themeetinghouse"
                     }
                 ],
-
                 "image1": [
                     {
                         "src": "/static/images/corona-7.jpg",
@@ -120,7 +125,6 @@
                     }
                 ]
             },
-            
             {
                 "type": "hero",
                 "style": "connect",
