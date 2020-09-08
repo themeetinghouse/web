@@ -42,3 +42,13 @@ export interface FormItem {
   header2?: string;
   text1?: string;
 }
+
+export interface BlogItemContent {
+  type: "blog",
+  style: "twoImage" | "hero",
+  status: "Live",
+  header1?: string,
+  sortOrder?: "DESC" | "ASC",
+  limit?: number,
+  blogSeries?: string
+}
