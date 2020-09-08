@@ -822,6 +822,7 @@ type Blog
   tags:[String]
 }
 
+
 type InstagramThumbnail 
 {
   src: String
@@ -837,7 +838,7 @@ type Instagram
    {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
  ])
  @key(name: "instagramByLocation", fields: ["locationId"], queryField: "getInstagramByLocation") 
- 
+
 {
   id: ID!
   locationId: String
