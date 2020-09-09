@@ -20720,6 +20720,13 @@ export type GetFbEventsQuery = {
       } | null,
       start_time: string | null,
       id: string | null,
+      event_times:  Array< {
+        __typename: "FBTime",
+        start_time: string | null,
+        end_time: string | null,
+        id: string | null,
+        ticket_uri: string | null,
+      } | null > | null,
     } | null > | null,
     paging:  {
       __typename: "FBPaging",
