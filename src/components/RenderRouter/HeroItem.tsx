@@ -74,8 +74,8 @@ class HeroItem extends React.Component<Props, State> {
     unblock();
 
   }
-  navigateTo(location: any) {
-    if (location.includes("http")) {
+  navigateTo(location: string) {
+    if (location.includes(".")) {
       window.location.href = location
     } else {
       this.props.history.push(location, "as")
