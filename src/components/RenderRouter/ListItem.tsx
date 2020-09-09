@@ -423,7 +423,7 @@ class ListItem extends React.Component<Props, State> {
             {item.place != null ? item.place.name != null ? <div className="ListItemEventsLocation" >{item.place.name}</div> : null : null}
             {item.event_times ?
               item.event_times[0]?.ticket_uri ?
-                <div><a href={item.event_times[0].ticket_uri}>Sign Up</a></div> : null
+                <div><a href={item.event_times[0].ticket_uri}>Register</a></div> : null
               : null}
             <div className="ListItemEventsDuration" >{durationStr}</div>
             {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
