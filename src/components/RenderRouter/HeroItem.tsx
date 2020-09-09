@@ -9,7 +9,7 @@ import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import moment from 'moment';
 import ScaledImage from 'components/ScaledImage/ScaledImage';
-import { Link } from 'components/Link/Link';
+import { Link, LinkButton } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
   content: LocationQuery;
@@ -200,7 +200,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2" >{this.state.content.text5}</div>
             <div className="heroText2" >{this.state.content.text6}</div>
             <div className="heroText2" >{this.state.content.text7}</div>
-            {this.state.content.button1Text ? (<Button className="heroButton" onClick={() => { this.navigateTo(this.state.content.button1Action) }}>{this.state.content.button1Text}</Button>) : null}
+            {this.state.content.button1Text ? (<LinkButton className="heroButton" to={this.state.content.button1Action}>{this.state.content.button1Text}</LinkButton>) : null}
             {this.state.content.link1Text ? <div className="heroAContainer"><Link className="heroBlackBoxA inverted" to={this.state.content.link1Action}>{this.state.content.link1Text}</Link></div> : null}
             {
               this.state.content.addToCalendar ?
@@ -219,11 +219,9 @@ class HeroItem extends React.Component<Props, State> {
                 : null
               : null}
             <br />
-
           </div>
           {this.state.content.showCovid ? <div className="covidButton"><Button onClick={() => { this.navigateTo("covid19") }} className="covidButtonDetail">COVID-19 Update</Button></div> : null}
           <div><img id="downArrow" style={{ opacity: this.state.arrowOpacity, cursor: "pointer" }} src="/static/svg/DownArrow.svg" className="downarrow animated bounce" alt="Down Arrow" onClick={() => { this.scrollToNextPage() }} /> </div>
-
         </div>
 
       )
