@@ -13,7 +13,8 @@ exports.handler = async (event) => {
                 },
             });
         const json = await data.json();
-        return json
+        const temp = { ...json.data, content: JSON.stringify(json.data.content) }
+        return { meta: json.meta, data: temp }
     } catch (e) {
         console.log(e)
     }
