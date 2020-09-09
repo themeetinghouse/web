@@ -4,7 +4,6 @@ import "./VideoPlayer.scss";
 import Dropdown from 'react-bootstrap/Dropdown';
 import YouTube from 'react-youtube';
 import Fade from 'react-bootstrap/Fade';
-import { Helmet } from 'react-helmet';
 import { isMobileOnly } from 'react-device-detect';
 import {
   FacebookShareButton,
@@ -137,23 +136,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     return (
       <div className="VideoPlayerDiv" >
-        <Helmet>
-          <meta property="og:url" content={"https://www.themeetinghouse.com/videos/" + this.state.data.id} />
-          <meta property="og:title" content={this.state.data.episodeTitle} />
-          <meta property="og:description" content={this.state.data.description} />
-          <meta property="og:type" content="website" />
-          <meta property="fb:app_id" content="579712102531269" />
-          <meta property="og:image" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
-          <meta property="og:image:secure_url" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
-          <meta property="og:image:type" content="image/jpeg" />
-
-          <meta property="twitter:title" content={this.state.data.episodeTitle} />
-          <meta property="twitter:creator" content="@TheMeetingHouse" />
-          <meta property="twitter:image" content={"https://img.youtube.com/vi/" + this.state.data.id + "/maxresdefault.jpg"} />
-          <meta property="twitter:description" content={this.state.data.description} />
-          <meta property="twitter:url" content={"https://www.themeetinghouse.com/videos/" + this.state.data.id} />
-          <meta property="twitter:card" content="summary" />
-        </Helmet>
         <YouTube videoId={this.state.data.id} className="VideoPlayerIframe" opts={{ playerVars: { color: 'white', autoplay: 1, cc_load_policy: 1, controls: 1, modestbranding: 1, rel: 0, origin: 'https://www.themeetinghouse.com/', enablejsapi: 1 } }} onReady={(e) => this.setVideoPlayer(e)}></YouTube>
         <div className="VideoPlayerEpisodeTitle">{this.state.data.episodeTitle}<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
         <div className="VideoPlayerDetails">
