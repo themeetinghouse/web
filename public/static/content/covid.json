@@ -55,14 +55,14 @@
                 "list": [
                     {
                         "title": "Sunday Service",
-                        "text": "We'll be live-streaming our service every Sunday at 10:00am EDT on our website. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
+                        "text": "We'll continue live-streaming our services every Sunday at 10:00am EDT on our website for at least the rest of 2020. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
                         "imageSrc": "/static/images/corona-2.jpg",
                         "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
                         "navigateTo": "/live"
                     },
                     {
                         "title": "Home Church",
-                        "text": "During the week we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our Home Churches will continue to meet online. Click here to find a group you can connect with.",
+                        "text": "During the week, we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our Home Churches will continue to meet online. Click here to find a group you can connect with.",
                         "imageSrc": "/static/images/corona-3.jpg",
                         "imageAlt": "Online home church meeting using zoom.",
                         "navigateTo": "/home-church"
@@ -97,6 +97,11 @@
                         "type": "link",
                         "title": "COVID-19 Gatherings",
                         "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf"
+                    },
+                    {
+                        "type": "link",
+                        "title": "Sunday Gatherings Update",
+                        "navigateTo": "https://www.themeetinghouse.com/posts/Important%20News%20About%20Sunday%20Gatherings"
                     }
                 ],
                 "image1": [
