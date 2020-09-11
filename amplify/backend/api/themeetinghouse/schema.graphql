@@ -104,6 +104,12 @@ type FBData{
   data: [FBEvent]
   paging: FBPaging
 }
+type FBTime{
+  start_time:String
+  end_time:String
+  id:String
+  ticket_uri:String
+}
 type FBEvent{
   description:String
   end_time: String
@@ -111,6 +117,7 @@ type FBEvent{
   place: FBPlace
   start_time: String
   id: String
+  event_times:[FBTime]
 }
 type fuzzySearchableVideoConnection {
   items: [Video]
@@ -822,6 +829,7 @@ type Blog
   tags:[String]
 }
 
+
 type InstagramThumbnail 
 {
   src: String
@@ -837,7 +845,7 @@ type Instagram
    {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
  ])
  @key(name: "instagramByLocation", fields: ["locationId"], queryField: "getInstagramByLocation") 
- 
+
 {
   id: ID!
   locationId: String

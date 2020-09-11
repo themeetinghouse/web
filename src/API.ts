@@ -559,13 +559,69 @@ export type DeleteBlogInput = {
   id?: string | null,
 };
 
+export type CreateInstagramInput = {
+  id?: string | null,
+  locationId?: string | null,
+  thumbnails?: Array< InstagramThumbnailInput | null > | null,
+  altText?: string | null,
+};
+
+export type InstagramThumbnailInput = {
+  src?: string | null,
+  config_width?: number | null,
+  config_height?: number | null,
+};
+
+export type UpdateInstagramInput = {
+  id: string,
+  locationId?: string | null,
+  thumbnails?: Array< InstagramThumbnailInput | null > | null,
+  altText?: string | null,
+};
+
+export type DeleteInstagramInput = {
+  id?: string | null,
+};
+
+export type CreateVerseInput = {
+  id?: string | null,
+  key: string,
+  offset: number,
+  length: number,
+  dataType: NoteDataType,
+  content: string,
+  youVersionUri: string,
+  noteId: string,
+};
+
+export enum NoteDataType {
+  questions = "questions",
+  notes = "notes",
+}
+
+
+export type UpdateVerseInput = {
+  id: string,
+  key?: string | null,
+  offset?: number | null,
+  length?: number | null,
+  dataType?: NoteDataType | null,
+  content?: string | null,
+  youVersionUri?: string | null,
+  noteId?: string | null,
+};
+
+export type DeleteVerseInput = {
+  id?: string | null,
+};
+
 export type CreateNotesInput = {
   id?: string | null,
   title?: string | null,
   content?: string | null,
-  imageA?: string | null,
-  imageB?: string | null,
-  imageC?: string | null,
+  questions?: string | null,
+  jsonContent?: string | null,
+  jsonQuestions?: string | null,
   pdf?: string | null,
   topics?: Array< string | null > | null,
   tags?: Array< string | null > | null,
@@ -575,15 +631,56 @@ export type UpdateNotesInput = {
   id: string,
   title?: string | null,
   content?: string | null,
-  imageA?: string | null,
-  imageB?: string | null,
-  imageC?: string | null,
+  questions?: string | null,
+  jsonContent?: string | null,
+  jsonQuestions?: string | null,
   pdf?: string | null,
   topics?: Array< string | null > | null,
   tags?: Array< string | null > | null,
 };
 
 export type DeleteNotesInput = {
+  id?: string | null,
+};
+
+export type CreateCommentInput = {
+  id?: string | null,
+  comment: string,
+  tags?: Array< string | null > | null,
+  noteType: NoteDataType,
+  commentType: CommentDataType,
+  noteId: string,
+  textSnippet?: string | null,
+  imageUri?: string | null,
+  key: string,
+  date: string,
+  time: string,
+  owner: string,
+};
+
+export enum CommentDataType {
+  biblePassage = "biblePassage",
+  image = "image",
+  text = "text",
+}
+
+
+export type UpdateCommentInput = {
+  id: string,
+  comment?: string | null,
+  tags?: Array< string | null > | null,
+  noteType?: NoteDataType | null,
+  commentType?: CommentDataType | null,
+  noteId?: string | null,
+  textSnippet?: string | null,
+  imageUri?: string | null,
+  key?: string | null,
+  date?: string | null,
+  time?: string | null,
+  owner?: string | null,
+};
+
+export type DeleteCommentInput = {
   id?: string | null,
 };
 
@@ -1024,19 +1121,70 @@ export enum SearchableBlogSortableFields {
 }
 
 
+export type ModelInstagramFilterInput = {
+  id?: ModelIDFilterInput | null,
+  locationId?: ModelStringFilterInput | null,
+  altText?: ModelStringFilterInput | null,
+  and?: Array< ModelInstagramFilterInput | null > | null,
+  or?: Array< ModelInstagramFilterInput | null > | null,
+  not?: ModelInstagramFilterInput | null,
+};
+
+export type ModelVerseFilterInput = {
+  id?: ModelIDFilterInput | null,
+  key?: ModelStringFilterInput | null,
+  offset?: ModelIntFilterInput | null,
+  length?: ModelIntFilterInput | null,
+  dataType?: ModelNoteDataTypeFilterInput | null,
+  content?: ModelStringFilterInput | null,
+  youVersionUri?: ModelStringFilterInput | null,
+  noteId?: ModelIDFilterInput | null,
+  and?: Array< ModelVerseFilterInput | null > | null,
+  or?: Array< ModelVerseFilterInput | null > | null,
+  not?: ModelVerseFilterInput | null,
+};
+
+export type ModelNoteDataTypeFilterInput = {
+  eq?: NoteDataType | null,
+  ne?: NoteDataType | null,
+};
+
 export type ModelNotesFilterInput = {
   id?: ModelIDFilterInput | null,
   title?: ModelStringFilterInput | null,
   content?: ModelStringFilterInput | null,
-  imageA?: ModelStringFilterInput | null,
-  imageB?: ModelStringFilterInput | null,
-  imageC?: ModelStringFilterInput | null,
+  questions?: ModelStringFilterInput | null,
+  jsonContent?: ModelStringFilterInput | null,
+  jsonQuestions?: ModelStringFilterInput | null,
   pdf?: ModelStringFilterInput | null,
   topics?: ModelStringFilterInput | null,
   tags?: ModelStringFilterInput | null,
   and?: Array< ModelNotesFilterInput | null > | null,
   or?: Array< ModelNotesFilterInput | null > | null,
   not?: ModelNotesFilterInput | null,
+};
+
+export type ModelCommentFilterInput = {
+  id?: ModelIDFilterInput | null,
+  comment?: ModelStringFilterInput | null,
+  tags?: ModelStringFilterInput | null,
+  noteType?: ModelNoteDataTypeFilterInput | null,
+  commentType?: ModelCommentDataTypeFilterInput | null,
+  noteId?: ModelStringFilterInput | null,
+  textSnippet?: ModelStringFilterInput | null,
+  imageUri?: ModelStringFilterInput | null,
+  key?: ModelStringFilterInput | null,
+  date?: ModelStringFilterInput | null,
+  time?: ModelStringFilterInput | null,
+  owner?: ModelStringFilterInput | null,
+  and?: Array< ModelCommentFilterInput | null > | null,
+  or?: Array< ModelCommentFilterInput | null > | null,
+  not?: ModelCommentFilterInput | null,
+};
+
+export type ModelCommentDataTypeFilterInput = {
+  eq?: CommentDataType | null,
+  ne?: CommentDataType | null,
 };
 
 export type CreateTnSeriesMutationVariables = {
@@ -18970,6 +19118,315 @@ export type DeleteBlogMutation = {
   } | null,
 };
 
+export type CreateInstagramMutationVariables = {
+  input: CreateInstagramInput,
+};
+
+export type CreateInstagramMutation = {
+  createInstagram:  {
+    __typename: "Instagram",
+    id: string,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateInstagramMutationVariables = {
+  input: UpdateInstagramInput,
+};
+
+export type UpdateInstagramMutation = {
+  updateInstagram:  {
+    __typename: "Instagram",
+    id: string,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteInstagramMutationVariables = {
+  input: DeleteInstagramInput,
+};
+
+export type DeleteInstagramMutation = {
+  deleteInstagram:  {
+    __typename: "Instagram",
+    id: string,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateVerseMutationVariables = {
+  input: CreateVerseInput,
+};
+
+export type CreateVerseMutation = {
+  createVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
+export type UpdateVerseMutationVariables = {
+  input: UpdateVerseInput,
+};
+
+export type UpdateVerseMutation = {
+  updateVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
+export type DeleteVerseMutationVariables = {
+  input: DeleteVerseInput,
+};
+
+export type DeleteVerseMutation = {
+  deleteVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
 export type CreateNotesMutationVariables = {
   input: CreateNotesInput,
 };
@@ -18980,14 +19437,76 @@ export type CreateNotesMutation = {
     id: string,
     title: string | null,
     content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
     pdf: string | null,
     topics: Array< string | null > | null,
     tags: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -19001,14 +19520,76 @@ export type UpdateNotesMutation = {
     id: string,
     title: string | null,
     content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
     pdf: string | null,
     topics: Array< string | null > | null,
     tags: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -19022,14 +19603,176 @@ export type DeleteNotesMutation = {
     id: string,
     title: string | null,
     content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
     pdf: string | null,
     topics: Array< string | null > | null,
     tags: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type CreateCommentMutationVariables = {
+  input: CreateCommentInput,
+};
+
+export type CreateCommentMutation = {
+  createComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateCommentMutationVariables = {
+  input: UpdateCommentInput,
+};
+
+export type UpdateCommentMutation = {
+  updateComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteCommentMutationVariables = {
+  input: DeleteCommentInput,
+};
+
+export type DeleteCommentMutation = {
+  deleteComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type GetBiblePassageQueryVariables = {
+  bibleId?: string | null,
+  passage?: string | null,
+};
+
+export type GetBiblePassageQuery = {
+  getBiblePassage:  {
+    __typename: "BibleResponse",
+    data:  {
+      __typename: "BibleData",
+      id: string | null,
+      bibleId: string | null,
+      orgId: string | null,
+      content: string | null,
+      reference: string | null,
+      copyright: string | null,
+    } | null,
+    meta:  {
+      __typename: "BibleMetaData",
+      fums: string | null,
+      fumsId: string | null,
+      fumsJsInclude: string | null,
+      fumsJs: string | null,
+      fumsNoScript: string | null,
+    } | null,
   } | null,
 };
 
@@ -19977,6 +20720,13 @@ export type GetFbEventsQuery = {
       } | null,
       start_time: string | null,
       id: string | null,
+      event_times:  Array< {
+        __typename: "FBTime",
+        start_time: string | null,
+        end_time: string | null,
+        id: string | null,
+        ticket_uri: string | null,
+      } | null > | null,
     } | null > | null,
     paging:  {
       __typename: "FBPaging",
@@ -21486,6 +22236,19 @@ export type EmailHomeChurchQueryVariables = {
 
 export type EmailHomeChurchQuery = {
   emailHomeChurch:  {
+    __typename: "emailResponse",
+    err: string | null,
+    data: string | null,
+  } | null,
+};
+
+export type AskQuestionQueryVariables = {
+  email?: string | null,
+  body?: string | null,
+};
+
+export type AskQuestionQuery = {
+  askQuestion:  {
     __typename: "emailResponse",
     err: string | null,
     data: string | null,
@@ -32775,24 +33538,237 @@ export type SearchBlogsQuery = {
   } | null,
 };
 
-export type GetNotesQueryVariables = {
+export type GetInstagramQueryVariables = {
   id: string,
 };
 
-export type GetNotesQuery = {
-  getNotes:  {
-    __typename: "Notes",
+export type GetInstagramQuery = {
+  getInstagram:  {
+    __typename: "Instagram",
     id: string,
-    title: string | null,
-    content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
-    pdf: string | null,
-    topics: Array< string | null > | null,
-    tags: Array< string | null > | null,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
     createdAt: string,
     updatedAt: string,
+  } | null,
+};
+
+export type ListInstagramsQueryVariables = {
+  filter?: ModelInstagramFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListInstagramsQuery = {
+  listInstagrams:  {
+    __typename: "ModelInstagramConnection",
+    items:  Array< {
+      __typename: "Instagram",
+      id: string,
+      locationId: string | null,
+      thumbnails:  Array< {
+        __typename: "InstagramThumbnail",
+        src: string | null,
+        config_width: number | null,
+        config_height: number | null,
+      } | null > | null,
+      altText: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetInstagramByLocationQueryVariables = {
+  locationId?: string | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelInstagramFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type GetInstagramByLocationQuery = {
+  getInstagramByLocation:  {
+    __typename: "ModelInstagramConnection",
+    items:  Array< {
+      __typename: "Instagram",
+      id: string,
+      locationId: string | null,
+      thumbnails:  Array< {
+        __typename: "InstagramThumbnail",
+        src: string | null,
+        config_width: number | null,
+        config_height: number | null,
+      } | null > | null,
+      altText: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetVerseQueryVariables = {
+  id: string,
+};
+
+export type GetVerseQuery = {
+  getVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
+export type ListVersesQueryVariables = {
+  filter?: ModelVerseFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListVersesQuery = {
+  listVerses:  {
+    __typename: "ModelVerseConnection",
+    items:  Array< {
+      __typename: "Verse",
+      id: string,
+      key: string,
+      offset: number,
+      length: number,
+      dataType: NoteDataType,
+      content: string,
+      youVersionUri: string,
+      noteId: string,
+      createdAt: string,
+      updatedAt: string,
+      note:  {
+        __typename: "Notes",
+        id: string,
+        title: string | null,
+        content: string | null,
+        questions: string | null,
+        jsonContent: string | null,
+        jsonQuestions: string | null,
+        pdf: string | null,
+        topics: Array< string | null > | null,
+        tags: Array< string | null > | null,
+        createdAt: string,
+        updatedAt: string,
+        verses:  {
+          __typename: "ModelVerseConnection",
+          items:  Array< {
+            __typename: "Verse",
+            id: string,
+            key: string,
+            offset: number,
+            length: number,
+            dataType: NoteDataType,
+            content: string,
+            youVersionUri: string,
+            noteId: string,
+            createdAt: string,
+            updatedAt: string,
+            note:  {
+              __typename: "Notes",
+              id: string,
+              title: string | null,
+              content: string | null,
+              questions: string | null,
+              jsonContent: string | null,
+              jsonQuestions: string | null,
+              pdf: string | null,
+              topics: Array< string | null > | null,
+              tags: Array< string | null > | null,
+              createdAt: string,
+              updatedAt: string,
+              verses:  {
+                __typename: "ModelVerseConnection",
+                nextToken: string | null,
+              } | null,
+            } | null,
+          } | null > | null,
+          nextToken: string | null,
+        } | null,
+      } | null,
+    } | null > | null,
+    nextToken: string | null,
   } | null,
 };
 
@@ -32810,12 +33786,230 @@ export type ListNotessQuery = {
       id: string,
       title: string | null,
       content: string | null,
-      imageA: string | null,
-      imageB: string | null,
-      imageC: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
       pdf: string | null,
       topics: Array< string | null > | null,
       tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetNotesQueryVariables = {
+  id: string,
+};
+
+export type GetNotesQuery = {
+  getNotes:  {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
+    pdf: string | null,
+    topics: Array< string | null > | null,
+    tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type GetCommentQueryVariables = {
+  id: string,
+};
+
+export type GetCommentQuery = {
+  getComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListCommentsQueryVariables = {
+  filter?: ModelCommentFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCommentsQuery = {
+  listComments:  {
+    __typename: "ModelCommentConnection",
+    items:  Array< {
+      __typename: "Comment",
+      id: string,
+      comment: string,
+      tags: Array< string | null > | null,
+      noteType: NoteDataType,
+      commentType: CommentDataType,
+      noteId: string,
+      textSnippet: string | null,
+      imageUri: string | null,
+      key: string,
+      date: string,
+      time: string,
+      owner: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetCommentsByOwnerQueryVariables = {
+  owner?: string | null,
+  noteId?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelCommentFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type GetCommentsByOwnerQuery = {
+  getCommentsByOwner:  {
+    __typename: "ModelCommentConnection",
+    items:  Array< {
+      __typename: "Comment",
+      id: string,
+      comment: string,
+      tags: Array< string | null > | null,
+      noteType: NoteDataType,
+      commentType: CommentDataType,
+      noteId: string,
+      textSnippet: string | null,
+      imageUri: string | null,
+      key: string,
+      date: string,
+      time: string,
+      owner: string,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -50598,20 +51792,367 @@ export type OnDeleteBlogSubscription = {
   } | null,
 };
 
+export type OnCreateInstagramSubscription = {
+  onCreateInstagram:  {
+    __typename: "Instagram",
+    id: string,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateInstagramSubscription = {
+  onUpdateInstagram:  {
+    __typename: "Instagram",
+    id: string,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteInstagramSubscription = {
+  onDeleteInstagram:  {
+    __typename: "Instagram",
+    id: string,
+    locationId: string | null,
+    thumbnails:  Array< {
+      __typename: "InstagramThumbnail",
+      src: string | null,
+      config_width: number | null,
+      config_height: number | null,
+    } | null > | null,
+    altText: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateVerseSubscription = {
+  onCreateVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
+export type OnUpdateVerseSubscription = {
+  onUpdateVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
+export type OnDeleteVerseSubscription = {
+  onDeleteVerse:  {
+    __typename: "Verse",
+    id: string,
+    key: string,
+    offset: number,
+    length: number,
+    dataType: NoteDataType,
+    content: string,
+    youVersionUri: string,
+    noteId: string,
+    createdAt: string,
+    updatedAt: string,
+    note:  {
+      __typename: "Notes",
+      id: string,
+      title: string | null,
+      content: string | null,
+      questions: string | null,
+      jsonContent: string | null,
+      jsonQuestions: string | null,
+      pdf: string | null,
+      topics: Array< string | null > | null,
+      tags: Array< string | null > | null,
+      createdAt: string,
+      updatedAt: string,
+      verses:  {
+        __typename: "ModelVerseConnection",
+        items:  Array< {
+          __typename: "Verse",
+          id: string,
+          key: string,
+          offset: number,
+          length: number,
+          dataType: NoteDataType,
+          content: string,
+          youVersionUri: string,
+          noteId: string,
+          createdAt: string,
+          updatedAt: string,
+          note:  {
+            __typename: "Notes",
+            id: string,
+            title: string | null,
+            content: string | null,
+            questions: string | null,
+            jsonContent: string | null,
+            jsonQuestions: string | null,
+            pdf: string | null,
+            topics: Array< string | null > | null,
+            tags: Array< string | null > | null,
+            createdAt: string,
+            updatedAt: string,
+            verses:  {
+              __typename: "ModelVerseConnection",
+              items:  Array< {
+                __typename: "Verse",
+                id: string,
+                key: string,
+                offset: number,
+                length: number,
+                dataType: NoteDataType,
+                content: string,
+                youVersionUri: string,
+                noteId: string,
+                createdAt: string,
+                updatedAt: string,
+              } | null > | null,
+              nextToken: string | null,
+            } | null,
+          } | null,
+        } | null > | null,
+        nextToken: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
 export type OnCreateNotesSubscription = {
   onCreateNotes:  {
     __typename: "Notes",
     id: string,
     title: string | null,
     content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
     pdf: string | null,
     topics: Array< string | null > | null,
     tags: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -50621,14 +52162,76 @@ export type OnUpdateNotesSubscription = {
     id: string,
     title: string | null,
     content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
     pdf: string | null,
     topics: Array< string | null > | null,
     tags: Array< string | null > | null,
     createdAt: string,
     updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -50638,12 +52241,146 @@ export type OnDeleteNotesSubscription = {
     id: string,
     title: string | null,
     content: string | null,
-    imageA: string | null,
-    imageB: string | null,
-    imageC: string | null,
+    questions: string | null,
+    jsonContent: string | null,
+    jsonQuestions: string | null,
     pdf: string | null,
     topics: Array< string | null > | null,
     tags: Array< string | null > | null,
+    createdAt: string,
+    updatedAt: string,
+    verses:  {
+      __typename: "ModelVerseConnection",
+      items:  Array< {
+        __typename: "Verse",
+        id: string,
+        key: string,
+        offset: number,
+        length: number,
+        dataType: NoteDataType,
+        content: string,
+        youVersionUri: string,
+        noteId: string,
+        createdAt: string,
+        updatedAt: string,
+        note:  {
+          __typename: "Notes",
+          id: string,
+          title: string | null,
+          content: string | null,
+          questions: string | null,
+          jsonContent: string | null,
+          jsonQuestions: string | null,
+          pdf: string | null,
+          topics: Array< string | null > | null,
+          tags: Array< string | null > | null,
+          createdAt: string,
+          updatedAt: string,
+          verses:  {
+            __typename: "ModelVerseConnection",
+            items:  Array< {
+              __typename: "Verse",
+              id: string,
+              key: string,
+              offset: number,
+              length: number,
+              dataType: NoteDataType,
+              content: string,
+              youVersionUri: string,
+              noteId: string,
+              createdAt: string,
+              updatedAt: string,
+              note:  {
+                __typename: "Notes",
+                id: string,
+                title: string | null,
+                content: string | null,
+                questions: string | null,
+                jsonContent: string | null,
+                jsonQuestions: string | null,
+                pdf: string | null,
+                topics: Array< string | null > | null,
+                tags: Array< string | null > | null,
+                createdAt: string,
+                updatedAt: string,
+              } | null,
+            } | null > | null,
+            nextToken: string | null,
+          } | null,
+        } | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type OnCreateCommentSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnCreateCommentSubscription = {
+  onCreateComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateCommentSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnUpdateCommentSubscription = {
+  onUpdateComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteCommentSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnDeleteCommentSubscription = {
+  onDeleteComment:  {
+    __typename: "Comment",
+    id: string,
+    comment: string,
+    tags: Array< string | null > | null,
+    noteType: NoteDataType,
+    commentType: CommentDataType,
+    noteId: string,
+    textSnippet: string | null,
+    imageUri: string | null,
+    key: string,
+    date: string,
+    time: string,
+    owner: string,
     createdAt: string,
     updatedAt: string,
   } | null,
