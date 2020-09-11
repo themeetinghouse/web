@@ -238,7 +238,7 @@ class Index extends React.Component<EmptyProps, State> {
       try {
         const json = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString })) as GraphQLResult<GetBiblePassageQuery>
         if (json?.data?.getBiblePassage?.data?.content) {
-          passages.push(JSON.stringify(json?.data?.getBiblePassage?.data?.content))
+          passages.push(json?.data?.getBiblePassage?.data?.content)
         }
       } catch (e) {
         console.error(e)
@@ -277,7 +277,7 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({ showAlert: 'something went wrong' })
     }
 
-    this.setState({ statusMessage: '' })
+    this.setState({ statusMessage: 'done' })
   }
 
   async handleSave() {
