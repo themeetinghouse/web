@@ -110,7 +110,7 @@
                     {
                         "type": "link",
                         "title": "Visit The Parent Blog",
-                        "navigateTo": "http://parents.themeetinghouse.com",
+                        "navigateTo": "/parents",
                         "openNewBrowser": true
                     }
                 ],
