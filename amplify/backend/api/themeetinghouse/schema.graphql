@@ -896,7 +896,7 @@ type Notes
   jsonQuestions:String
   episodeDescription:String
   episodeNumber:Int
-  seriesId:ID!
+  seriesId:ID
   series:Series @connection(fields: ["seriesId"])
   pdf:String
   topics:[String]
@@ -912,8 +912,7 @@ enum CommentDataType {
 
 type Comment @model @searchable
   @auth(rules: [{ allow: owner }])
-  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner")
-  @key(name: "commentsByNoteId", fields: ["noteId"], queryField: "getCommentsByNoteId") {
+  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
   id: ID!
   comment: String!
   tags: [String]
@@ -925,7 +924,7 @@ type Comment @model @searchable
   key: String!
   date: String!
   time: String!
-   owner: String!
+  owner: String!
 }
 
 type WebPage
