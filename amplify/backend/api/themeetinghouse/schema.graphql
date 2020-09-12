@@ -912,6 +912,7 @@ enum CommentDataType {
 
 type Comment @model @searchable
   @auth(rules: [{ allow: owner }])
+  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner")
   @key(name: "commentsByNoteId", fields: ["noteId"], queryField: "getCommentsByNoteId") {
   id: ID!
   comment: String!
@@ -924,6 +925,7 @@ type Comment @model @searchable
   key: String!
   date: String!
   time: String!
+   owner: String!
 }
 
 type WebPage
