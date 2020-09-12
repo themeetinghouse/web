@@ -896,7 +896,7 @@ type Notes
   jsonQuestions:String
   episodeDescription:String
   episodeNumber:Int
-  seriesId:ID
+  seriesId:ID!
   series:Series @connection(fields: ["seriesId"])
   pdf:String
   topics:[String]

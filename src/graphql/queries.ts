@@ -15977,41 +15977,6 @@ export const getCommentsByOwner = /* GraphQL */ `
     }
   }
 `;
-export const getCommentsByNoteId = /* GraphQL */ `
-  query GetCommentsByNoteId(
-    $noteId: String
-    $sortDirection: ModelSortDirection
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    getCommentsByNoteId(
-      noteId: $noteId
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        comment
-        tags
-        noteType
-        commentType
-        noteId
-        textSnippet
-        imageUri
-        key
-        date
-        time
-        owner
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
 export const searchComments = /* GraphQL */ `
   query SearchComments(
     $filter: SearchableCommentFilterInput

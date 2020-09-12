@@ -43647,38 +43647,6 @@ export type GetCommentsByOwnerQuery = {
   } | null,
 };
 
-export type GetCommentsByNoteIdQueryVariables = {
-  noteId?: string | null,
-  sortDirection?: ModelSortDirection | null,
-  filter?: ModelCommentFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type GetCommentsByNoteIdQuery = {
-  getCommentsByNoteId:  {
-    __typename: "ModelCommentConnection",
-    items:  Array< {
-      __typename: "Comment",
-      id: string,
-      comment: string,
-      tags: Array< string | null > | null,
-      noteType: NoteDataType,
-      commentType: CommentDataType,
-      noteId: string,
-      textSnippet: string | null,
-      imageUri: string | null,
-      key: string,
-      date: string,
-      time: string,
-      owner: string,
-      createdAt: string,
-      updatedAt: string,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
 export type SearchCommentsQueryVariables = {
   filter?: SearchableCommentFilterInput | null,
   sort?: SearchableCommentSortInput | null,
