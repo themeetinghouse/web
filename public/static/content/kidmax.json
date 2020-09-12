@@ -50,7 +50,7 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Watch Preschool Video",
+                        "title": "Watch the Preschool Video",
                         "navigateTo": "/videos/preschool-Preschool/w2HCAfS4Td8",
                         "openNewBrowser": true
                     },
@@ -83,7 +83,7 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Watch Kids Video",
+                        "title": "Watch the Kids Video",
                         "navigateTo": "/videos/Kids-ky-kids/mtTj-jtvyE4",
                         "openNewBrowser": true
                     },
