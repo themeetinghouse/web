@@ -8,6 +8,7 @@ import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
+import * as adminQueries from './queries';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API, graphqlOperation } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
@@ -24,7 +25,7 @@ import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 import Bible from './bible';
-import { GetBiblePassageQuery } from '../../API';
+import { GetBiblePassageQuery, GetSeriesBySeriesTypeQuery } from '../../API';
 
 interface BibleVerseJSON {
   key: string;
@@ -61,6 +62,10 @@ interface State {
   showHelp: boolean
   statusMessage: string
   unsaved: boolean
+  description: string
+  episodeNumber: number
+  seriesId: string
+  seriesList: any[]
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -74,6 +79,9 @@ class Index extends React.Component<EmptyProps, State> {
       date: null,
       pdf: '',
       title: 'Unlisted',
+      description: '',
+      episodeNumber: 0,
+      seriesId: '',
 
       // tags
       selectedTags: [],
@@ -92,6 +100,7 @@ class Index extends React.Component<EmptyProps, State> {
       notesList: [],
       noteEdit: null,
       noteEditObject: null,
+      seriesList: [],
 
       // the power to delete things
       delete: '',
@@ -103,6 +112,37 @@ class Index extends React.Component<EmptyProps, State> {
       unsaved: true
     }
     this.listNotes(null);
+    this.listSeries();
+  }
+
+  async listSeries(nextToken?: string) {
+    try {
+      const json = await API.graphql({
+        query: adminQueries.getSeriesBySeriesTypeAdmin,
+        variables: { nextToken: nextToken, limit: 200, seriesType: 'adult-sunday' },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      }) as GraphQLResult<GetSeriesBySeriesTypeQuery>
+
+      console.debug(json);
+      this.setState({
+        seriesList: this.state.seriesList.concat(json.data?.getSeriesBySeriesType?.items).sort((a: any, b: any) => this.sortById(a, b))
+      })
+      if (json.data?.getSeriesBySeriesType?.nextToken)
+        this.listSeries(json.data.getSeriesBySeriesType.nextToken)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+  sortById(a: any, b: any) {
+    const nameA = a.id.toUpperCase();
+    const nameB = b.id.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
   }
 
   async listNotes(nextToken: any) {
@@ -286,6 +326,21 @@ class Index extends React.Component<EmptyProps, State> {
       return false;
     }
 
+    if (this.state.episodeNumber <= 0) {
+      this.setState({ showAlert: "⚠️ Invalid episode number." })
+      return false;
+    }
+
+    if (!this.state.description) {
+      this.setState({ showAlert: "⚠️ Please add an episode description." })
+      return false;
+    }
+
+    if (!this.state.seriesId) {
+      this.setState({ showAlert: "⚠️ Please select a series." })
+      return false;
+    }
+
     this.setState({ statusMessage: 'saving...' })
 
     this.updateField('content', this.convertDraftToMarkup(this.state.notesEditorState))
@@ -364,7 +419,10 @@ class Index extends React.Component<EmptyProps, State> {
       selectedTags: this.state.noteEditObject.tags,
       date: date,
       title: this.state.noteEditObject.title,
-      pdf: this.state.noteEditObject.pdf
+      pdf: this.state.noteEditObject.pdf,
+      episodeNumber: this.state.noteEditObject.episodeNumber,
+      description: this.state.noteEditObject.description,
+      seriesId: this.state.noteEditObject.seriesId
     })
     this.updateField('title', this.state.noteEditObject.title) // call updateField to set id
   }
@@ -495,12 +553,31 @@ class Index extends React.Component<EmptyProps, State> {
 
     return (
       <div className="editor-container">
+        <div style={{ display: 'flex', flexDirection: 'row' }} >
+          <label>
+            Title:
+          <input type="text" style={{ width: 400 }} value={this.state.title} onChange={event => this.setState({ title: event.target.value })} />
+          </label>
+          <label>
+            Episode Number:
+          <input type="number" style={{ width: 150 }} value={this.state.episodeNumber} onChange={event => this.setState({ episodeNumber: parseInt(event.target.value, 10) })} />
+          </label>
+          <label>
+            Series:
+          <select value={this.state.seriesId} onChange={e => this.setState({ seriesId: e.target.value })}>
+              <option value='' >none selected</option>
+              {this.state.seriesList.map(series => {
+                return <option key={series.id} value={series.id}>{series.id}</option>
+              })}
+            </select>
+          </label>
+        </div>
+        <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
 
         <label>
-          Title:
-          <input type="text" style={{ width: 400 }} value={this.state.title} onChange={(event: any) => this.setState({ title: event.target.value })} />
+          Episode Description:
+          <textarea style={{ width: '80vw' }} value={this.state.description} onChange={event => this.setState({ description: event.target.value })} />
         </label>
-        <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
 
         <h2>Notes</h2>
         <Editor
