@@ -81,7 +81,7 @@ class Index extends React.Component<EmptyProps, State> {
       title: 'Unlisted',
       description: '',
       episodeNumber: 0,
-      seriesId: '',
+      seriesId: '000',
 
       // tags
       selectedTags: [],
@@ -335,11 +335,6 @@ class Index extends React.Component<EmptyProps, State> {
 
     if (!this.state.description) {
       this.setState({ showAlert: "⚠️ Please add an episode description." })
-      return false;
-    }
-
-    if (!this.state.seriesId) {
-      this.setState({ showAlert: "⚠️ Please select a series." })
       return false;
     }
 
