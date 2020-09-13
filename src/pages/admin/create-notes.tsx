@@ -352,6 +352,9 @@ class Index extends React.Component<EmptyProps, State> {
     this.updateField('tags', this.state.selectedTags)
     this.updateField('title', this.state.title)
     this.updateField('pdf', this.state.pdf)
+    this.updateField('seriesId', this.state.seriesId)
+    this.updateField('episodeDescription', this.state.description)
+    this.updateField('episodeNumber', this.state.episodeNumber)
 
     this.setState({ unsaved: false })
     try {
@@ -364,6 +367,9 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({ showAlert: `✅ Saved: ${updateNotes.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.` })
     } catch (e) {
       console.error(e)
+      if (e.data?.updateNotes?.id) {
+        this.setState({ showAlert: `✅ Saved: ${e.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.` })
+      }
       try {
         const createNotes = await API.graphql({
           query: mutations.createNotes,
@@ -374,6 +380,9 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({ showAlert: `✅ Created: ${createNotes.data?.createNotes?.id}. Please don't forget to click the Bible passages button.` })
       } catch (e) {
         console.error(e)
+        if (e.data?.createNotes?.id) {
+          this.setState({ showAlert: `✅ Saved: ${e.data?.createNotes?.id}. Please don't forget to click the Bible passages button.` })
+        }
       }
     }
 
