@@ -33,6 +33,7 @@ interface BibleVerseJSON {
   length: number;
   youVersionUri: string;
   queryString: string;
+  passageRef: string;
 }
 
 Amplify.configure(awsmobile);
@@ -250,6 +251,8 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.saveBiblePassages(rawNotes, 'notes');
     this.saveBiblePassages(rawQuestions, 'questions');
+
+    this.setState({ statusMessage: 'done' })
   }
 
   async saveBiblePassages(raw: RawDraftContentState, type: 'notes' | 'questions'): Promise<void> {
@@ -261,7 +264,7 @@ class Index extends React.Component<EmptyProps, State> {
     data.forEach((item) => {
       const queryObject = Bible.getQueryString(item.passageRef)
       if (queryObject !== 'invalid')
-        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset })
+        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset, passageRef: item.passageRef })
       else
         errors.push(item.passageRef)
     })
@@ -281,10 +284,18 @@ class Index extends React.Component<EmptyProps, State> {
         const json = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString })) as GraphQLResult<GetBiblePassageQuery>
         if (json?.data?.getBiblePassage?.data?.content) {
           passages.push(json?.data?.getBiblePassage?.data?.content)
+        } else {
+          errors.push(query.passageRef)
         }
       } catch (e) {
         console.error(e)
       }
+    }
+
+    if (errors.length > 0) {
+      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
+      this.setState({ statusMessage: '' })
+      return;
     }
 
     this.setState({ statusMessage: `saving verses in ${type}` })
@@ -318,8 +329,6 @@ class Index extends React.Component<EmptyProps, State> {
     } else {
       this.setState({ showAlert: 'something went wrong' })
     }
-
-    this.setState({ statusMessage: 'done' })
   }
 
   async handleSave() {
