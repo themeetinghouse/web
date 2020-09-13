@@ -2,7 +2,7 @@
 import React, { Fragment } from 'react';
 import "./VideoPlayerLive.scss";
 import * as queries from '../../graphql/queries';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
 import { ListLivestreamsQuery } from '../../API';
@@ -34,7 +34,6 @@ interface State {
   kidData: any,
   isLive: boolean,
   liveEvent: LiveData | null,
-  currentSundayDate: any
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -45,7 +44,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
       content: props.content,
       isLive: false,
       liveEvent: null,
-      currentSundayDate: moment().tz("America/Toronto").isoWeekday(7).format('YYYY-MM-DD')
     }
     this.getLive()
     const getVideoByVideoType: any = API.graphql({
@@ -111,13 +109,12 @@ export default class VideoPlayer extends React.Component<Props, State> {
   async getLive() {
     const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
     try {
-      const json: any = await API.graphql({
+      const json = await API.graphql({
         query: queries.listLivestreams,
         variables: { filter: { date: { eq: today } } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      const livestreams: ListLivestreamsQuery = json.data
-      livestreams?.listLivestreams?.items?.forEach(item => {
+      }) as GraphQLResult<ListLivestreamsQuery>;
+      json.data?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
         const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
         if (showTime) {
@@ -218,12 +215,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
             {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
               <div className="LiveVideoPlayerExtra" >
                 {this.state.liveEvent.menu.map((item, index) => {
-                  if (item?.linkType !== 'notes' && item?.linkType !== 'link') {
-                    return null;
-                  }
-                  const href = item?.linkType === 'notes'
-                    ? `/notes/${this.state.currentSundayDate}`
-                    : item?.link;
+                  const href = item?.link
+                  if (!href)
+                    return null
 
                   const svg =
                     item?.title === 'Notes' ? 'Notes-white' :

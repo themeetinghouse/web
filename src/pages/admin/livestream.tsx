@@ -21,27 +21,27 @@ const federated = {
 const menuInit = [
     {
         title: 'Give',
-        link: 'https://www.themeetinghouse.com/give',
+        link: '/give',
         linkType: 'link',
     },
     {
         title: 'Music',
-        link: 'http://media.themeetinghouse.com/podcast/handouts/Music.pdf',
+        link: 'https://media.themeetinghouse.com/podcast/handouts/Music.pdf',
         linkType: 'link',
     },
     {
         title: 'Connect',
-        link: 'https://www.themeetinghouse.com/connect',
+        link: '/connect',
         linkType: 'link',
     },
     {
         title: 'Notes',
-        link: '',
+        link: '/notes',
         linkType: 'notes',
     },
     {
         title: 'Kidmax',
-        link: 'http://www.kidsandyouth.themeetinghouse.com/blog',
+        link: '/kidmax',
         linkType: 'link',
     },
 ]
@@ -117,18 +117,18 @@ class Index extends React.Component<EmptyProps, State> {
         return [
             {
                 title: 'Give',
-                link: 'https://www.themeetinghouse.com/give',
+                link: '/give',
                 linkType: 'link',
             },
             {
                 title: 'Connect',
-                link: 'https://www.themeetinghouse.com/connect',
+                link: '/connect',
                 linkType: 'link',
             },
             {
                 title: 'Notes',
-                link: '',
-                linkType: 'notes',
+                link: '/notes',
+                linkType: 'link',
             }
         ]
     }
@@ -137,27 +137,27 @@ class Index extends React.Component<EmptyProps, State> {
         return [
             {
                 title: 'Give',
-                link: 'https://www.themeetinghouse.com/give',
+                link: '/give',
                 linkType: 'link',
             },
             {
                 title: 'Music',
-                link: 'http://media.themeetinghouse.com/podcast/handouts/Music.pdf',
+                link: 'https://media.themeetinghouse.com/podcast/handouts/Music.pdf',
                 linkType: 'link',
             },
             {
                 title: 'Connect',
-                link: 'https://www.themeetinghouse.com/connect',
+                link: '/connect',
                 linkType: 'link',
             },
             {
                 title: 'Notes',
-                link: '',
-                linkType: 'notes',
+                link: '/notes',
+                linkType: 'link',
             },
             {
                 title: 'Kidmax',
-                link: 'http://www.kidsandyouth.themeetinghouse.com/blog',
+                link: '/kidmax',
                 linkType: 'link',
             },
         ]
@@ -254,18 +254,13 @@ class Index extends React.Component<EmptyProps, State> {
         })
 
         this.state.liveObject.menu.forEach(menuItem => {
-            if (menuItem.linkType === 'link' && menuItem.link === '') {
-                this.setState({ alert: 'error: linkType \'link\' needs a valid link' })
+            if (menuItem.link === '') {
+                this.setState({ alert: 'error: need a valid link' })
                 test = false
             }
 
             if (menuItem.title === '') {
                 this.setState({ alert: 'error: menu titles cannot be empty' })
-                test = false
-            }
-
-            if (menuItem.linkType !== 'notes' && menuItem.linkType !== 'link') {
-                this.setState({ alert: `error: invalid linkType ${menuItem.linkType}` })
                 test = false
             }
         })
@@ -392,7 +387,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     addMenuItem(): void {
         const temp = this.state.liveObject.menu
-        temp.push({ title: '', link: '', linkType: '' })
+        temp.push({ title: '', link: '', linkType: 'link' })
         this.handleChange('menu', temp)
     }
 
@@ -428,7 +423,6 @@ class Index extends React.Component<EmptyProps, State> {
                 <label>Menu item {index + 1}</label>
                 <input placeholder="title" className="menu-input" type="text" value={menuItem.title} onChange={(e) => this.handleMenuChange(index, 'title', e.target.value)}></input>
                 <input placeholder="url" className="menu-input" type="text" value={menuItem.link} onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}></input>
-                <input placeholder="link type" className="menu-input" type="text" value={menuItem.linkType} onChange={(e) => this.handleMenuChange(index, 'linkType', e.target.value)}></input>
             </div>
         )
     }
