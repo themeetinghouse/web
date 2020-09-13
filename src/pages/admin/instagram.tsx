@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
+import * as mutations from '../../graphql/mutations';
+import * as queries from '../../graphql/queries';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
+import { API } from 'aws-amplify';
+import { CreateInstagramInput, CreateInstagramMutation, GetInstagramQuery, } from 'API';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -28,20 +33,23 @@ const locations = [
     "tmhrichmond",
     "tmhuptowntoronto",
     "tmhwaterloo",
+    "themeetinghouse",
 ]
 
-class Index extends React.Component {
+export default function Index(): JSX.Element {
 
-    getPosts() {
+    const [done, setDone] = useState(false)
+
+    function getPosts() {
         for (const location of locations) {
-            this.getPostsForLocation(location);
+            getPostsForLocation(location);
         }
     }
 
-    async getPostsForLocation(location: string): Promise<void> {
+    async function getPostsForLocation(location: string): Promise<void> {
 
         const url = `https://www.instagram.com/${location}/?__a=1`;
-        const images: any[] = [];
+        const images: CreateInstagramInput[] = [];
         try {
             const res = await fetch(url);
             if (res.status !== 200) {
@@ -54,23 +62,42 @@ class Index extends React.Component {
                     images.push({
                         thumbnails: elem.node.thumbnail_resources,
                         id: elem.node.shortcode,
-                        alt: elem.node.accessibility_caption,
+                        altText: elem.node.accessibility_caption,
                         locationId: location
                     })
                 }
             })
-            console.debug(images)
+            for (const image of images) {
+                try {
+                    const getInstagram = await API.graphql({
+                        query: queries.getInstagram,
+                        variables: { id: image.id },
+                        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                    }) as GraphQLResult<GetInstagramQuery>;
+
+                    if (!getInstagram.data?.getInstagram) {
+                        const createInstagram = await API.graphql({
+                            query: mutations.createInstagram,
+                            variables: { input: image },
+                            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                        }) as GraphQLResult<CreateInstagramMutation>;
+                        console.log(createInstagram);
+                    }
+                } catch (e) {
+                    console.error(e)
+                }
+            }
+            setDone(true)
         } catch (e) {
             console.error(e)
+            setDone(true)
         }
     }
 
-    render() {
-        return (
-            <AmplifyAuthenticator federated={federated}>
-                <button id="get-posts-button" onClick={() => this.getPosts()}>Get Posts</button>
-            </AmplifyAuthenticator>
-        );
-    }
+    return (
+        <AmplifyAuthenticator federated={federated}>
+            <button id="get-posts-button" onClick={() => getPosts()}>Get Posts</button>
+            {done ? <div id="done-indicator">Done</div> : null}
+        </AmplifyAuthenticator>
+    );
 }
-export default Index; 
