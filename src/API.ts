@@ -570,6 +570,7 @@ export type CreateInstagramInput = {
   locationId?: string | null,
   thumbnails?: Array< InstagramThumbnailInput | null > | null,
   altText?: string | null,
+  timestamp?: number | null,
 };
 
 export type InstagramThumbnailInput = {
@@ -583,6 +584,7 @@ export type UpdateInstagramInput = {
   locationId?: string | null,
   thumbnails?: Array< InstagramThumbnailInput | null > | null,
   altText?: string | null,
+  timestamp?: number | null,
 };
 
 export type DeleteInstagramInput = {
@@ -1131,9 +1133,19 @@ export type ModelInstagramFilterInput = {
   id?: ModelIDFilterInput | null,
   locationId?: ModelStringFilterInput | null,
   altText?: ModelStringFilterInput | null,
+  timestamp?: ModelIntFilterInput | null,
   and?: Array< ModelInstagramFilterInput | null > | null,
   or?: Array< ModelInstagramFilterInput | null > | null,
   not?: ModelInstagramFilterInput | null,
+};
+
+export type ModelIntKeyConditionInput = {
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
 };
 
 export type ModelVerseFilterInput = {
@@ -22256,6 +22268,7 @@ export type CreateInstagramMutation = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -22277,6 +22290,7 @@ export type UpdateInstagramMutation = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -22298,6 +22312,7 @@ export type DeleteInstagramMutation = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -41741,6 +41756,7 @@ export type GetInstagramQuery = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -41766,6 +41782,7 @@ export type ListInstagramsQuery = {
         config_height: number | null,
       } | null > | null,
       altText: string | null,
+      timestamp: number | null,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -41775,6 +41792,7 @@ export type ListInstagramsQuery = {
 
 export type GetInstagramByLocationQueryVariables = {
   locationId?: string | null,
+  timestamp?: ModelIntKeyConditionInput | null,
   sortDirection?: ModelSortDirection | null,
   filter?: ModelInstagramFilterInput | null,
   limit?: number | null,
@@ -41795,6 +41813,7 @@ export type GetInstagramByLocationQuery = {
         config_height: number | null,
       } | null > | null,
       altText: string | null,
+      timestamp: number | null,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -64544,6 +64563,7 @@ export type OnCreateInstagramSubscription = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -64561,6 +64581,7 @@ export type OnUpdateInstagramSubscription = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -64578,6 +64599,7 @@ export type OnDeleteInstagramSubscription = {
       config_height: number | null,
     } | null > | null,
     altText: string | null,
+    timestamp: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,

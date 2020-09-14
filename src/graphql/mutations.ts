@@ -18931,6 +18931,7 @@ export const createInstagram = /* GraphQL */ `
         config_height
       }
       altText
+      timestamp
       createdAt
       updatedAt
     }
@@ -18947,6 +18948,7 @@ export const updateInstagram = /* GraphQL */ `
         config_height
       }
       altText
+      timestamp
       createdAt
       updatedAt
     }
@@ -18963,6 +18965,7 @@ export const deleteInstagram = /* GraphQL */ `
         config_height
       }
       altText
+      timestamp
       createdAt
       updatedAt
     }

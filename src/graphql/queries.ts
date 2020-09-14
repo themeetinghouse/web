@@ -14255,6 +14255,7 @@ export const getInstagram = /* GraphQL */ `
         config_height
       }
       altText
+      timestamp
       createdAt
       updatedAt
     }
@@ -14276,6 +14277,7 @@ export const listInstagrams = /* GraphQL */ `
           config_height
         }
         altText
+        timestamp
         createdAt
         updatedAt
       }
@@ -14286,6 +14288,7 @@ export const listInstagrams = /* GraphQL */ `
 export const getInstagramByLocation = /* GraphQL */ `
   query GetInstagramByLocation(
     $locationId: String
+    $timestamp: ModelIntKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelInstagramFilterInput
     $limit: Int
@@ -14293,6 +14296,7 @@ export const getInstagramByLocation = /* GraphQL */ `
   ) {
     getInstagramByLocation(
       locationId: $locationId
+      timestamp: $timestamp
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit
@@ -14307,6 +14311,7 @@ export const getInstagramByLocation = /* GraphQL */ `
           config_height
         }
         altText
+        timestamp
         createdAt
         updatedAt
       }
