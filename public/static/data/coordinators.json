@@ -34,6 +34,12 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Monica",
+    "LastName": "Lamain",
+    "sites": ["BRFD"],
+    "Position": "Compassion Coordinator"
+  },
+  {
     "FirstName": "Jennifer",
     "LastName": "Stevens",
     "sites": ["BURL"],
@@ -236,40 +242,6 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Brittany",
-    "LastName": "Scott",
-    "sites": ["BRAM"],
-    "Email": "brittany.chisholm@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Lauren",
-    "LastName": "Webster",
-    "sites": ["BURL"],
-    "Email": "lauren.webster@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Jacqueline",
-    "LastName": "Wilcox",
-    "sites": ["HMAN"],
-    "Email": "jacqueline.wilcox@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Emily",
-    "LastName": "Van Kampen",
-    "sites": ["HMDT"],
-    "Email": "emily.vankampen@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Wendy",
-    "LastName": "Cuell",
-    "sites": ["HMMT"],
-    "Position": "Kidmax Coordinator"
-  },
-  {
     "FirstName": "Jenn",
     "LastName": "Kuntz",
     "sites": ["KIT"],
@@ -347,13 +319,6 @@
     "FirstName": "Natasha",
     "LastName": "Kleffman",
     "sites": ["TOHP"],
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Sarah",
-    "LastName": "Mahimwala",
-    "sites": ["TOUP"],
-    "Email": "sarah.mahimwala@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
