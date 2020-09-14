@@ -78,7 +78,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     });
     const getVideoByVideoType4: any = API.graphql({
       query: queries.getVideoByVideoType,
-      variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-srhigh", publishedDate: { lt: "a" } },
+      variables: { sortDirection: "DESC", limit: 1, videoTypes: "preschool", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     getVideoByVideoType1.then((json1: any) => {
@@ -262,8 +262,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
           </div>}
         {this.state.liveEvent.showKids ?
           <div>
+            <div className="LiveVideoPlayerEpisodeTitle">Preschool</div>
+            {this.state.kidData && this.state.kidData[3] ?
+              <iframe title="Preschool Video" className="LiveVideoPlayerIframe KidmaxVideo" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[3].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+              : null
+            }
             <div className="LiveVideoPlayerEpisodeTitle">Grades 1-5</div>
-            {this.state.kidData ?
+            {this.state.kidData && this.state.kidData[0] ?
               <iframe title="Kids Video" className="LiveVideoPlayerIframe KidmaxVideo" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.kidData[0].id + "?color=white&autoplay=0&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
               : null
             }

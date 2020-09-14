@@ -50,8 +50,8 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Coming Soon - Watch Preschool Video",
-                        "navigateTo": "",
+                        "title": "Watch the Preschool Video",
+                        "navigateTo": "/videos/preschool-Preschool/w2HCAfS4Td8",
                         "openNewBrowser": true
                     },
                     {
@@ -83,8 +83,8 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Coming Soon - Watch Kids Video",
-                        "navigateTo": "",
+                        "title": "Watch the Kids Video",
+                        "navigateTo": "/videos/Kids-ky-kids/mtTj-jtvyE4",
                         "openNewBrowser": true
                     },
                     {
@@ -110,7 +110,7 @@
                     {
                         "type": "link",
                         "title": "Visit The Parent Blog",
-                        "navigateTo": "http://parents.themeetinghouse.com",
+                        "navigateTo": "/parents",
                         "openNewBrowser": true
                     }
                 ],

@@ -8,20 +8,20 @@ class S3Handler {
 
   readStream({ Bucket, Key }) {
     //    console.log("readStream")
-    //    console.log(Key)
-    return S3.getObject({ Bucket: Bucket, Key: Key }).createReadStream().on('error', error => {
+    //console.log(Key.replace(new RegExp("%20", "g"), " "))
+    return S3.getObject({ Bucket: Bucket, Key: Key.replace(new RegExp("%20", "g"), " ") }).createReadStream().on('error', error => {
       //      console.log("readStream error")
       console.log(error)
     });;
   }
   exists(Bucket, Key) {
     //    console.log("Exists")
-    return S3.headObject({ Bucket: Bucket, Key: Key },
+    return S3.headObject({ Bucket: Bucket, Key: Key.replace(new RegExp("%20", "g"), " ") },
       function (err, data) {
-        if (err) 
+        if (err)
           console.log(err, err.stack); // an error occurred
-        else 
-          data=data
+        else
+          data = data
         //console.log(data);           // successful response
       }
     )
@@ -36,7 +36,7 @@ class S3Handler {
         ContentType: "image/" + format,
         Body: passThrough,
         Bucket: Bucket,
-        Key: Key
+        Key: Key.replace(new RegExp("%20", "g"), " ")
       }).promise().catch((error) => {
         //console.log("writeStream Error"); 
         console.log(error)

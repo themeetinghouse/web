@@ -85,3 +85,28 @@ query GetVideoByVideoType(
     }
   }
   `;
+
+export const getSeriesBySeriesTypeAdmin = /* GraphQL */ `
+  query GetSeriesBySeriesType(
+    $seriesType: String
+    $startDate: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSeriesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getSeriesBySeriesType(
+      seriesType: $seriesType
+      startDate: $startDate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+`;
