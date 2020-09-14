@@ -25,7 +25,7 @@ import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 import Bible from './bible';
-import { CreateNotesMutation, GetBiblePassageQuery, GetNotesQuery, GetSeriesBySeriesTypeQuery, ListNotessQuery, UpdateNotesMutation } from '../../API';
+import { CreateNotesMutation, CreateVerseInput, GetBiblePassageQuery, GetNotesQuery, GetSeriesBySeriesTypeQuery, ListNotessQuery, NoteDataType, UpdateNotesMutation } from '../../API';
 
 interface BibleVerseJSON {
   key: string;
@@ -33,6 +33,7 @@ interface BibleVerseJSON {
   length: number;
   youVersionUri: string;
   queryString: string;
+  passageRef: string;
 }
 
 Amplify.configure(awsmobile);
@@ -215,7 +216,7 @@ class Index extends React.Component<EmptyProps, State> {
     }
 
     this.setState({ statusMessage: 'deleting old verses' })
-    let oldVerses: NonNullable<NonNullable<GetNotesQuery['getNotes']>['verses']>['items'] = []
+    let oldVerses: NonNullable<NonNullable<NonNullable<GetNotesQuery['getNotes']>['verses']>['items']> = []
 
     try {
       const getNotes = await API.graphql({
@@ -226,6 +227,8 @@ class Index extends React.Component<EmptyProps, State> {
       if (getNotes.data?.getNotes?.verses?.items)
         oldVerses = getNotes.data.getNotes.verses.items
     } catch (e) {
+      if (e.data?.getNotes?.verses?.items)
+        oldVerses = e.data.getNotes.verses.items;
       console.error(e)
     }
 
@@ -250,6 +253,8 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.saveBiblePassages(rawNotes, 'notes');
     this.saveBiblePassages(rawQuestions, 'questions');
+
+    this.setState({ statusMessage: 'done' })
   }
 
   async saveBiblePassages(raw: RawDraftContentState, type: 'notes' | 'questions'): Promise<void> {
@@ -261,7 +266,7 @@ class Index extends React.Component<EmptyProps, State> {
     data.forEach((item) => {
       const queryObject = Bible.getQueryString(item.passageRef)
       if (queryObject !== 'invalid')
-        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset })
+        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset, passageRef: item.passageRef })
       else
         errors.push(item.passageRef)
     })
@@ -279,12 +284,23 @@ class Index extends React.Component<EmptyProps, State> {
     for (const query of bibleJSON) {
       try {
         const json = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString })) as GraphQLResult<GetBiblePassageQuery>
+
+        console.log(json)
+
         if (json?.data?.getBiblePassage?.data?.content) {
           passages.push(json?.data?.getBiblePassage?.data?.content)
+        } else {
+          errors.push(query.passageRef)
         }
       } catch (e) {
         console.error(e)
       }
+    }
+
+    if (errors.length > 0) {
+      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
+      this.setState({ statusMessage: '' })
+      return;
     }
 
     this.setState({ statusMessage: `saving verses in ${type}` })
@@ -294,16 +310,19 @@ class Index extends React.Component<EmptyProps, State> {
 
         const currentJSON = bibleJSON[i];
 
-        const input = {
+        const input: CreateVerseInput = {
           id: `${type}-${format(this.state.date, "yyyy-MM-dd")}-${currentJSON.key}-${currentJSON.offset}-${currentJSON.length}`,
           key: currentJSON.key,
           offset: currentJSON.offset,
           length: currentJSON.length,
-          dataType: type,
+          dataType: NoteDataType[type],
           content: passages[i],
           youVersionUri: currentJSON.youVersionUri,
           noteId: format(this.state.date, "yyyy-MM-dd")
         }
+
+        console.log(input)
+
         try {
           const createVerse = await API.graphql({
             query: mutations.createVerse,
@@ -318,8 +337,6 @@ class Index extends React.Component<EmptyProps, State> {
     } else {
       this.setState({ showAlert: 'something went wrong' })
     }
-
-    this.setState({ statusMessage: 'done' })
   }
 
   async handleSave() {

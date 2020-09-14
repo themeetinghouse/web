@@ -74,7 +74,7 @@ export default class Bible {
             'revelation': 'REV'
         }
 
-        console.log(biblePassage)
+        console.debug(biblePassage)
 
         const ref = biblePassage.trim().toLowerCase();
         ref.replace('song of solomon', 'song');
