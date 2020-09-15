@@ -67,7 +67,8 @@ export default function Index(): JSX.Element {
             thumbnails: elem.node.thumbnail_resources,
             id: elem.node.shortcode,
             altText: elem.node.accessibility_caption,
-            locationId: location
+            locationId: location,
+            timestamp: elem.node.taken_at_timestamp
           })
         }
       })
