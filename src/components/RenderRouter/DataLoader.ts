@@ -28,6 +28,11 @@ export interface DataLoaderQuery {
   class: string;
 }
 
+export interface SeriesCollectionQuery extends DataLoaderQuery {
+  class: 'series-collection';
+  collection: string[];
+}
+
 export interface CustomPlaylistQuery extends DataLoaderQuery {
   class: 'videos' | 'curious' | 'watch-page';
 
@@ -164,7 +169,8 @@ export type DataQuery =
   | SeriesQuery
   | SeriesByTypeQuery
   | BlogQuery
-  | CustomPlaylistQuery;
+  | CustomPlaylistQuery
+  | SeriesCollectionQuery;
 
 export type SeriesData = NonNullable<
   NonNullable<NonNullable<GetSeriesQuery['getSeries']>['videos']>['items']
@@ -173,6 +179,8 @@ export type SeriesData = NonNullable<
 export type SeriesByTypeData = NonNullable<
   NonNullable<GetSeriesBySeriesTypeQuery['getSeriesBySeriesType']>['items']
 >[0];
+
+export type SeriesCollectionData = NonNullable<GetSeriesQuery>['getSeries'];
 
 export type VideoByVideoTypeData = NonNullable<
   NonNullable<GetVideoByVideoTypeQuery['getVideoByVideoType']>['items']
@@ -355,7 +363,7 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : false))
+      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false))
       if (json?.data?.getVideoByVideoType?.nextToken) {
         await this.getPopularVideos(
           query,
@@ -366,7 +374,7 @@ export default class DataLoader {
     } catch (e) {
       console.error({ 'Error: ': e });
       if (e.data) {
-        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount,10) >= query.minViews : false));
+        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false));
       }
       if (e.data) {
         if (e.data.getVideoByVideoType.nextToken) {
@@ -434,6 +442,32 @@ export default class DataLoader {
       }
     } catch (e) {
       console.error(e);
+    }
+  }
+
+  static async getSeriesCollection(
+    query: SeriesCollectionQuery,
+    dataLoaded: OnDataListener<SeriesCollectionData[]>,
+  ): Promise<void> {
+    let temp: SeriesCollectionData[] = [];
+    for (let i = 0; i < query.collection.length; i++) {
+      try {
+        const getSeries = API.graphql({
+          query: customQueries.getSeries,
+          variables: { id: query.collection[i] },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        }) as Promise<GraphQLResult<GetSeriesQuery>>;
+        const json = await getSeries;
+        console.debug({ 'Success queries.getSeries': json });
+        if (json?.data?.getSeries)
+          temp.push(json?.data?.getSeries)
+        if ((i + 1) % 5 === 0 || i === query.collection.length - 1) {
+          dataLoaded(temp);
+          temp = [];
+        }
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
