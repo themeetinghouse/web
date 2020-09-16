@@ -298,15 +298,6 @@
     },
     {
        "Staff":true,
-        "FirstName": "Juanita",
-        "LastName": "Broadbent",
-        "Phone": "905.287.7000, ext. 834",
-        "Position": "Site Support Manager",
-        "sites": ["Operations"],
-        "Email": "Juanita.Broadbent@themeetinghouse.com"
-    },
-    {
-       "Staff":true,
         "FirstName": "Judy",
         "LastName": "Maranta",
         "Phone": "905.287.7000, ext. 7013",
@@ -697,7 +688,7 @@
         "FirstName": "Tammy",
         "LastName": "Lembo",
         "Phone": "905.287.7000, ext. 830",
-        "Position": "Curriculum Assistant",
+        "Position": "Curriculum Assistant (on leave)",
         "sites": ["Operations"],
         "Email": "Tammy.Lembo@themeetinghouse.com"
     },
