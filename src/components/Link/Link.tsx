@@ -16,7 +16,8 @@ export function Link({ to, newWindow, ...props }: Props): ReactElement<Props> {
     if (newWindow) {
         props = { ...newWindowProps, ...props };
     }
-    return typeof to === 'string' && (/^https?:\/\//.test(to) || to.includes('mailto:'))
+    const regex = new RegExp(/https?:\/\/|mailto|.pdf/)
+    return typeof to === 'string' && regex.test(to)
         ? <a href={to} {...props}>{props.children}</a>
         : <RRLink to={to} {...props}>{props.children}</RRLink>
 }

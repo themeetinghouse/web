@@ -488,6 +488,14 @@
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
+        "id": 55,
+        "sites": ["waterloo"],
+        "name": "Adventure 4 Change",
+        "description": "Adventure4Change addresses issues related to poverty and inequity for children, families, and youth by bringing together people committed to transformational change. As partners, we develop and foster meaningful relationships with the community to change and impact their lives and ours.",
+        "image": "/static/photos/compassion/Adventure4Change.jpg",
+        "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
         "id": 56,
         "sites": ["crossregional"],
         "name": "Peacebuilding",

@@ -104,6 +104,12 @@ type FBData{
   data: [FBEvent]
   paging: FBPaging
 }
+type FBTime{
+  start_time:String
+  end_time:String
+  id:String
+  ticket_uri:String
+}
 type FBEvent{
   description:String
   end_time: String
@@ -111,6 +117,7 @@ type FBEvent{
   place: FBPlace
   start_time: String
   id: String
+  event_times:[FBTime]
 }
 type fuzzySearchableVideoConnection {
   items: [Video]
@@ -685,6 +692,7 @@ type Series
   image: String
   startDate: String
   endDate: String
+  notes: [Notes] @connection(keyName: "notesBySeriesId", fields: ["id"])
 }
 type CustomPlaylist
   @model
@@ -822,6 +830,30 @@ type Blog
   tags:[String]
 }
 
+
+type InstagramThumbnail 
+{
+  src: String
+  config_width: Int
+  config_height: Int
+}
+
+type Instagram 
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
+ ])
+ @key(name: "instagramByLocation", fields: ["locationId", "timestamp"], queryField: "getInstagramByLocation") 
+{
+  id: ID!
+  locationId: String
+  thumbnails: [InstagramThumbnail]
+  altText: String
+  timestamp: Int
+}
+
 enum NoteDataType {
   questions
   notes
@@ -854,6 +886,7 @@ type Notes
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
  ])
+ @key(name: "notesBySeriesId", fields: ["seriesId"])
 {
   id: ID!
   title:String
@@ -861,6 +894,10 @@ type Notes
   questions:String
   jsonContent:String
   jsonQuestions:String
+  episodeDescription:String
+  episodeNumber:Int
+  seriesId:ID!
+  series:Series @connection(fields: ["seriesId"])
   pdf:String
   topics:[String]
   tags:[String]
@@ -873,8 +910,8 @@ enum CommentDataType {
   text
 }
 
-type Comment @model 
-  @auth(rules: [{ allow: owner, ownerField: "owner", operations: [create, update, delete, read] }])  
+type Comment @model @searchable
+  @auth(rules: [{ allow: owner }])
   @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
   id: ID!
   comment: String!

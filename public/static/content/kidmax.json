@@ -50,14 +50,20 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Coming Soon - Watch Preschool Video",
-                        "navigateTo": "",
+                        "title": "Watch the Preschool Video",
+                        "navigateTo": "/videos/preschool-Preschool/w2HCAfS4Td8",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
-                        "title": "Coming Soon - Download Preschool Lesson",
-                        "navigateTo": "",
+                        "title": "Download Preschool Lesson",
+                        "navigateTo": "/static/pdfs/kidmax-files/PS-Lesson.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Download Preschool Activities",
+                        "navigateTo": "/static/pdfs/kidmax-files/PS-Activities.pdf",
                         "openNewBrowser": true
                     }
                 ]
@@ -77,14 +83,20 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Coming Soon - Watch Kids Video",
-                        "navigateTo": "",
+                        "title": "Watch the Kids Video",
+                        "navigateTo": "/videos/Kids-ky-kids/mtTj-jtvyE4",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
-                        "title": "Coming Soon - Download Kids Lesson",
-                        "navigateTo": "",
+                        "title": "Download Kids Lesson",
+                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Lesson.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Download Kids Activities",
+                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Activities.pdf",
                         "openNewBrowser": true
                     }
                 ]
@@ -98,7 +110,7 @@
                     {
                         "type": "link",
                         "title": "Visit The Parent Blog",
-                        "navigateTo": "http://parents.themeetinghouse.com",
+                        "navigateTo": "/parents",
                         "openNewBrowser": true
                     }
                 ],

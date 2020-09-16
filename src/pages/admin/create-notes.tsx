@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditorState, ContentState, convertToRaw } from 'draft-js';
+import { EditorState, ContentState, convertToRaw, RawDraftContentState, convertFromRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg'
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
@@ -8,8 +8,9 @@ import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify';
+import * as adminQueries from './queries';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
+import { API, graphqlOperation } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
@@ -23,6 +24,17 @@ import getDay from 'date-fns/getDay';
 import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
+import Bible from './bible';
+import { CreateNotesMutation, CreateVerseInput, GetBiblePassageQuery, GetNotesQuery, GetSeriesBySeriesTypeQuery, ListNotessQuery, NoteDataType, UpdateNotesMutation } from '../../API';
+
+interface BibleVerseJSON {
+  key: string;
+  offset: number;
+  length: number;
+  youVersionUri: string;
+  queryString: string;
+  passageRef: string;
+}
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -33,10 +45,10 @@ interface State {
   notesEditorState: EditorState
   questionsEditorState: EditorState
   showPreview: boolean
-  notesList: any
-  selectedTags: any
+  notesList: any[]
+  selectedTags: (string | null)[]
   noteObject: any
-  noteEditObject?: any
+  noteEditObject: GetNotesQuery['getNotes']
   showAlert: string
   currentTag: string
   moreOptions: boolean
@@ -48,6 +60,13 @@ interface State {
   pdf: string
   dateWarning: string
   title: string
+  showHelp: boolean
+  statusMessage: string
+  unsaved: boolean
+  description: string
+  episodeNumber: number
+  seriesId: string
+  seriesList: any[]
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -61,6 +80,9 @@ class Index extends React.Component<EmptyProps, State> {
       date: null,
       pdf: '',
       title: 'Unlisted',
+      description: '',
+      episodeNumber: 0,
+      seriesId: '000',
 
       // tags
       selectedTags: [],
@@ -72,33 +94,68 @@ class Index extends React.Component<EmptyProps, State> {
       showEditModal: false,
       showAlert: '',
       dateWarning: '',
+      showHelp: false,
+      statusMessage: '',
 
       // imports
       notesList: [],
       noteEdit: null,
       noteEditObject: null,
+      seriesList: [],
 
       // the power to delete things
       delete: '',
       understand: '',
 
       // upload object
-      noteObject: {}
+      noteObject: {},
+
+      unsaved: true
     }
-    this.listNotes(null);
+    this.listNotes();
+    this.listSeries();
   }
 
-  async listNotes(nextToken: any) {
-
+  async listSeries(nextToken?: string) {
     try {
-      const listNotess: any = await API.graphql({
+      const json = await API.graphql({
+        query: adminQueries.getSeriesBySeriesTypeAdmin,
+        variables: { nextToken: nextToken, limit: 200, seriesType: 'adult-sunday' },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      }) as GraphQLResult<GetSeriesBySeriesTypeQuery>
+
+      console.debug(json);
+      this.setState({
+        seriesList: this.state.seriesList.concat(json.data?.getSeriesBySeriesType?.items).sort((a: any, b: any) => this.sortById(a, b))
+      })
+      if (json.data?.getSeriesBySeriesType?.nextToken)
+        this.listSeries(json.data.getSeriesBySeriesType.nextToken)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+  sortById(a: any, b: any) {
+    const nameA = a.id.toUpperCase();
+    const nameB = b.id.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  }
+
+  async listNotes(nextToken?: string) {
+    try {
+      const listNotess = await API.graphql({
         query: queries.listNotess,
         variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
-      })
+      }) as GraphQLResult<ListNotessQuery>;
       console.log({ "Success customQueries.listNotess: ": listNotess });
       this.setState({
-        notesList: this.state.notesList.concat(listNotess.data.listNotess.items).sort(function (a: any, b: any) {
+        notesList: this.state.notesList?.concat(listNotess.data?.listNotess?.items).sort(function (a: any, b: any) {
           const nameA = a.id.toUpperCase();
           const nameB = b.id.toUpperCase();
           if (nameA < nameB) {
@@ -110,9 +167,11 @@ class Index extends React.Component<EmptyProps, State> {
           return 0;
         })
       })
-      if (listNotess.data.listNotess.nextToken != null)
+      if (listNotess.data?.listNotess?.nextToken)
         this.listNotes(listNotess.data.listNotess.nextToken)
-    } catch (e) { console.error(e) }
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   async handleDeleteNote() {
@@ -149,11 +208,155 @@ class Index extends React.Component<EmptyProps, State> {
     return JSON.stringify(raw)
   }
 
+  async getBiblePassages() {
+
+    if (this.state.unsaved) {
+      this.setState({ showAlert: '⚠️ Please save before checking Bible passages.' })
+      return
+    }
+
+    this.setState({ statusMessage: 'deleting old verses' })
+    let oldVerses: NonNullable<NonNullable<NonNullable<GetNotesQuery['getNotes']>['verses']>['items']> = []
+
+    try {
+      const getNotes = await API.graphql({
+        query: queries.getNotes,
+        variables: { id: format(this.state.date, "yyyy-MM-dd") },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+      }) as GraphQLResult<GetNotesQuery>;
+      if (getNotes.data?.getNotes?.verses?.items)
+        oldVerses = getNotes.data.getNotes.verses.items
+    } catch (e) {
+      if (e.data?.getNotes?.verses?.items)
+        oldVerses = e.data.getNotes.verses.items;
+      console.error(e)
+    }
+
+    for (const verse of oldVerses) {
+      try {
+        const deleteVerse = await API.graphql({
+          query: mutations.deleteVerse,
+          variables: { input: { id: verse?.id } },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+        });
+        console.log(deleteVerse)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    const notes = this.state.notesEditorState.getCurrentContent();
+    const questions = this.state.questionsEditorState.getCurrentContent();
+
+    const rawNotes = convertToRaw(notes);
+    const rawQuestions = convertToRaw(questions);
+
+    this.saveBiblePassages(rawNotes, 'notes');
+    this.saveBiblePassages(rawQuestions, 'questions');
+
+    this.setState({ statusMessage: 'done' })
+  }
+
+  async saveBiblePassages(raw: RawDraftContentState, type: 'notes' | 'questions'): Promise<void> {
+    this.setState({ statusMessage: `finding verses in ${type}` })
+    const data = Bible.parseJSON(raw);
+    const bibleJSON: BibleVerseJSON[] = [];
+    const errors: string[] = [];
+
+    data.forEach((item) => {
+      const queryObject = Bible.getQueryString(item.passageRef)
+      if (queryObject !== 'invalid')
+        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset, passageRef: item.passageRef })
+      else
+        errors.push(item.passageRef)
+    })
+
+    if (errors.length > 0) {
+      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
+      this.setState({ statusMessage: '' })
+      return;
+    }
+
+    const passages: string[] = []
+
+    this.setState({ statusMessage: `processing verses in ${type}` })
+
+    for (const query of bibleJSON) {
+      try {
+        const json = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString })) as GraphQLResult<GetBiblePassageQuery>
+
+        console.log(json)
+
+        if (json?.data?.getBiblePassage?.data?.content) {
+          passages.push(json?.data?.getBiblePassage?.data?.content)
+        } else {
+          errors.push(query.passageRef)
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    if (errors.length > 0) {
+      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
+      this.setState({ statusMessage: '' })
+      return;
+    }
+
+    this.setState({ statusMessage: `saving verses in ${type}` })
+
+    if (passages.length === bibleJSON.length) {
+      for (let i = 0; i < bibleJSON.length; i++) {
+
+        const currentJSON = bibleJSON[i];
+
+        const input: CreateVerseInput = {
+          id: `${type}-${format(this.state.date, "yyyy-MM-dd")}-${currentJSON.key}-${currentJSON.offset}-${currentJSON.length}`,
+          key: currentJSON.key,
+          offset: currentJSON.offset,
+          length: currentJSON.length,
+          dataType: NoteDataType[type],
+          content: passages[i],
+          youVersionUri: currentJSON.youVersionUri,
+          noteId: format(this.state.date, "yyyy-MM-dd")
+        }
+
+        console.log(input)
+
+        try {
+          const createVerse = await API.graphql({
+            query: mutations.createVerse,
+            variables: { input },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+          });
+          console.log({ "Success mutations.createVerse: ": createVerse });
+        } catch (e) {
+          console.error(e)
+        }
+      }
+    } else {
+      this.setState({ showAlert: 'something went wrong' })
+    }
+  }
+
   async handleSave() {
     if (!this.state.notesEditorState.getCurrentContent().hasText() || this.state.date === null) {
       this.setState({ showAlert: "⚠️ You need a valid content and date to save." })
       return false;
     }
+
+    if (this.state.episodeNumber <= 0) {
+      this.setState({ showAlert: "⚠️ Invalid episode number." })
+      return false;
+    }
+
+    if (!this.state.description) {
+      this.setState({ showAlert: "⚠️ Please add an episode description." })
+      return false;
+    }
+
+    this.setState({ statusMessage: 'saving...' })
+
     this.updateField('content', this.convertDraftToMarkup(this.state.notesEditorState))
     this.updateField('questions', this.convertDraftToMarkup(this.state.questionsEditorState))
     this.updateField('jsonContent', this.convertDraftToRaw(this.state.notesEditorState))
@@ -161,29 +364,42 @@ class Index extends React.Component<EmptyProps, State> {
     this.updateField('tags', this.state.selectedTags)
     this.updateField('title', this.state.title)
     this.updateField('pdf', this.state.pdf)
+    this.updateField('seriesId', this.state.seriesId)
+    this.updateField('episodeDescription', this.state.description)
+    this.updateField('episodeNumber', this.state.episodeNumber)
 
+    this.setState({ unsaved: false })
     try {
-      const updateNotes: any = await API.graphql({
+      const updateNotes = await API.graphql({
         query: mutations.updateNotes,
         variables: { input: this.state.noteObject },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      });
+      }) as GraphQLResult<UpdateNotesMutation>
       console.log({ "Success mutations.createNotes: ": updateNotes });
-      this.setState({ showAlert: `✅ Saved: ${updateNotes.data.updateNotes.id}` })
+      this.setState({ showAlert: `✅ Saved: ${updateNotes.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.` })
     } catch (e) {
       console.error(e)
+      if (e.data?.updateNotes?.id) {
+        this.setState({ showAlert: `✅ Saved: ${e.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.` })
+      }
       try {
-        const createNotes: any = await API.graphql({
+        const createNotes = await API.graphql({
           query: mutations.createNotes,
           variables: { input: this.state.noteObject },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-        });
+        }) as GraphQLResult<CreateNotesMutation>
         console.log({ "Success mutations.createNotes: ": createNotes });
-        this.setState({ showAlert: `✅ Created: ${createNotes.data.createNotes.id}` })
+        this.setState({ showAlert: `✅ Created: ${createNotes.data?.createNotes?.id}. Please don't forget to click the Bible passages button.` })
       } catch (e) {
         console.error(e)
+        if (e.data?.createNotes?.id) {
+          this.setState({ showAlert: `✅ Saved: ${e.data?.createNotes?.id}. Please don't forget to click the Bible passages button.` })
+        }
       }
     }
+
+    this.setState({ statusMessage: '' })
+
   }
 
   waitForSelection(conditionFunction: () => boolean) {
@@ -204,25 +420,36 @@ class Index extends React.Component<EmptyProps, State> {
 
   async handleEdit() {
     this.setState({ showEditModal: true });
-    await this.waitForSelection(() => this.state.noteEditObject);
-    const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date());
-    if (this.state.noteEditObject.questions) {
+    await this.waitForSelection(() => Boolean(this.state.noteEditObject));
+    if (this.state.noteEditObject && this.state.noteEditObject.jsonContent) {
+      const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date());
+      if (this.state.noteEditObject.jsonQuestions) {
+        const jsonQuestions = JSON.parse(this.state.noteEditObject.jsonQuestions);
+        const questions = convertFromRaw(jsonQuestions);
+        this.setState({
+          questionsEditorState: EditorState.createWithContent(questions),
+        })
+      } else {
+        this.setState({
+          questionsEditorState: EditorState.createEmpty(),
+        })
+      }
+
+      const jsonNotes = JSON.parse(this.state.noteEditObject.jsonContent);
+      const notes = convertFromRaw(jsonNotes);
+
       this.setState({
-        questionsEditorState: EditorState.createWithContent(this.convertMarkupToDraft(this.state.noteEditObject.questions)),
+        notesEditorState: EditorState.createWithContent(notes),
+        selectedTags: this.state.noteEditObject.tags ?? [],
+        date: date,
+        title: this.state.noteEditObject.title ?? '',
+        pdf: this.state.noteEditObject.pdf ?? '',
+        episodeNumber: this.state.noteEditObject.episodeNumber ?? 0,
+        description: this.state.noteEditObject.episodeDescription ?? '',
+        seriesId: this.state.noteEditObject.seriesId
       })
-    } else {
-      this.setState({
-        questionsEditorState: EditorState.createEmpty(),
-      })
+      this.updateField('title', this.state.noteEditObject.title) // call updateField to set id
     }
-    this.setState({
-      notesEditorState: EditorState.createWithContent(this.convertMarkupToDraft(this.state.noteEditObject.content)),
-      selectedTags: this.state.noteEditObject.tags,
-      date: date,
-      title: this.state.noteEditObject.title,
-      pdf: this.state.noteEditObject.pdf
-    })
-    this.updateField('title', this.state.noteEditObject.title) // call updateField to set id
   }
 
   updateField(field: any, value: any) {
@@ -231,7 +458,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     try {
       note.id = format(this.state.date, "yyyy-MM-dd")
-      this.setState({ noteObject: note })
+      this.setState({ noteObject: note, unsaved: true })
     } catch (e) {
       this.setState({ showAlert: 'If you are reading this, you likely didn\'t select a date. Please select a date :)' })
       console.error(e)
@@ -239,16 +466,17 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   handleRemoveTag(item: string): void {
-    this.setState({ selectedTags: this.state.selectedTags.filter((elem: any) => elem !== item) })
+    this.setState({ selectedTags: this.state.selectedTags.filter(elem => elem !== item) })
     this.updateField('tags', this.state.selectedTags)
   }
 
-  onNotesChange = (notesEditorState: EditorState) => this.setState({ notesEditorState });
-  onQuestionsChange = (questionsEditorState: EditorState) => this.setState({ questionsEditorState });
+  onNotesChange = (notesEditorState: EditorState) => this.setState({ notesEditorState, unsaved: true });
+  onQuestionsChange = (questionsEditorState: EditorState) => this.setState({ questionsEditorState, unsaved: true });
 
   handlePublishDate = (date: any) => {
     this.setState({
-      date: date
+      date: date,
+      unsaved: true
     });
 
     const dayofweek = getDay(date)
@@ -268,14 +496,14 @@ class Index extends React.Component<EmptyProps, State> {
   renderEditModal() {
     return <Modal isOpen={this.state.showEditModal}>
       <div>Edit existing notes</div>
-      <select onChange={(event: any) => this.setState({ noteEdit: event.target.value })}>
+      <select onChange={event => this.setState({ noteEdit: event.target.value })}>
         <option key="null" value="null">None Selected</option>
-        {this.state.notesList.map((item: any) => { return <option key={item.id} value={item.id}>{item.id}</option> })}
+        {this.state.notesList.map(item => { return <option key={item?.id} value={item?.id}>{item?.id}</option> })}
       </select>
       <button
         onClick={() => this.setState({
           showEditModal: false,
-          noteEditObject: this.state.notesList.filter((post: any) => post.id === this.state.noteEdit)[0]
+          noteEditObject: this.state.notesList.filter(post => post?.id === this.state.noteEdit)[0]
         })
         }>DONE</button>
     </Modal>
@@ -284,7 +512,6 @@ class Index extends React.Component<EmptyProps, State> {
   renderMoreOptions() {
     return (
       <div>
-
         <label>
           Add tags:
           <input type="text" value={this.state.currentTag} onChange={event => this.setState({ currentTag: event.target.value })} />
@@ -293,21 +520,21 @@ class Index extends React.Component<EmptyProps, State> {
         <button className="tags-button" style={{ background: "red" }} onClick={() => { this.setState({ selectedTags: [] }); this.updateField('tags', this.state.selectedTags) }}>Clear All Tags</button>
         <div>
           <b>Current tags (click on tag to delete):</b>
-          {this.state.selectedTags.map((item: string, index: number) =>
-            <div className="tags-item" key={index} onClick={() => this.handleRemoveTag(item)}>
+          {this.state.selectedTags.map((item, index: number) => {
+            return <div className="tags-item" key={index} onClick={() => this.handleRemoveTag(item ?? '')}>
               {index === (this.state.selectedTags.length - 1) ? item : item + ", "}
             </div>
-          )}
+          })}
         </div>
         <br />
 
         <label>
           Delete existing notes (teaching date):
-          <input style={{ width: 400, height: 20 }} type="text" value={this.state.delete} onChange={(event: any) => this.setState({ delete: event.target.value })} />
+          <input style={{ width: 400, height: 20 }} type="text" value={this.state.delete} onChange={event => this.setState({ delete: event.target.value })} />
         </label>
         <label>
           Type &quot;{this.deleteConfirmation}&quot;:
-          <input style={{ width: 400, height: 20 }} type="text" value={this.state.understand} onChange={(event: any) => this.setState({ understand: event.target.value })} />
+          <input style={{ width: 400, height: 20 }} type="text" value={this.state.understand} onChange={event => this.setState({ understand: event.target.value })} />
         </label>
         <button className="tags-button" style={{ background: "red" }} onClick={() => this.handleDeleteNote()}>DELETE</button>
 
@@ -350,12 +577,31 @@ class Index extends React.Component<EmptyProps, State> {
 
     return (
       <div className="editor-container">
+        <div style={{ display: 'flex', flexDirection: 'row' }} >
+          <label>
+            Title:
+          <input type="text" style={{ width: 400 }} value={this.state.title} onChange={event => this.setState({ title: event.target.value })} />
+          </label>
+          <label>
+            Episode Number:
+          <input type="number" style={{ width: 150 }} value={this.state.episodeNumber} onChange={event => this.setState({ episodeNumber: parseInt(event.target.value, 10) })} />
+          </label>
+          <label>
+            Series:
+          <select value={this.state.seriesId} onChange={e => this.setState({ seriesId: e.target.value })}>
+              <option value='' >none selected</option>
+              {this.state.seriesList.map(series => {
+                return <option key={series.id} value={series.id}>{series.id}</option>
+              })}
+            </select>
+          </label>
+        </div>
+        <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
 
         <label>
-          Title:
-          <input type="text" style={{ width: 400 }} value={this.state.title} onChange={(event: any) => this.setState({ title: event.target.value })} />
+          Episode Description:
+          <textarea style={{ width: '80vw' }} value={this.state.description} onChange={event => this.setState({ description: event.target.value })} />
         </label>
-        <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
 
         <h2>Notes</h2>
         <Editor
@@ -384,7 +630,7 @@ class Index extends React.Component<EmptyProps, State> {
         <div>
           <label>
             PDF Link:
-          <input type="url" style={{ width: 800 }} value={this.state.pdf} onChange={(event: any) => this.setState({ pdf: event.target.value })} />
+            <input type="url" style={{ width: 800 }} value={this.state.pdf} onChange={event => this.setState({ pdf: event.target.value })} />
           </label>
         </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
@@ -399,14 +645,37 @@ class Index extends React.Component<EmptyProps, State> {
         <button className="toolbar-button" onClick={() => this.handleEdit()}>Edit existing notes</button><br />
         <button className="toolbar-button" onClick={() => this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br />
         <button className="toolbar-button" onClick={() => this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{ width: 150 }}>Scroll to bottom of page for preview</div> : null}<br />
+        <button className="toolbar-button" onClick={() => this.getBiblePassages()}>Bible passages</button><br />
+        <button className="toolbar-button" onClick={() => this.setState({ showHelp: true })}>Help</button><br />
+        <span>{this.state.statusMessage}</span>
       </div>
     )
+  }
+
+  renderHelp() {
+    return <Modal isOpen={this.state.showHelp}>
+      <div>Solutions to common issues with Bible verses:</div>
+      <ul>
+        <li>Ensure there are no extra spaces</li>
+        <li>Ensure that you are using hyphens (-), not dashes</li>
+        <li>Use the full book name (e.g. 1 Corinthians, not 1 Cor)</li>
+      </ul>
+      <div>Here are the five accepted formats for Bible veres:</div>
+      <ul>
+        <li>Genesis 1 (just chapter)</li>
+        <li>Genesis 2-3 (chapter to chapter)</li>
+        <li>John 3:16 (chapter, verse)</li>
+        <li>John 3:16-17 (verse to verse, one chapter)</li>
+        <li>John 3:1-4:5 (verse to verse, multiple chapters)</li>
+      </ul>
+      <button onClick={() => this.setState({ showHelp: false })}>Close</button>
+    </Modal>
   }
 
   renderAlert() {
     return (
       <Modal isOpen={Boolean(this.state.showAlert)}>
-        <div>{this.state.showAlert}</div>
+        <div style={{ whiteSpace: 'pre-wrap' }} >{this.state.showAlert}</div>
         <button onClick={() => this.setState({ showAlert: '' })}>OK</button>
       </Modal>
     )
@@ -417,6 +686,7 @@ class Index extends React.Component<EmptyProps, State> {
       <AmplifyAuthenticator federated={federated}>
         <div className="note-container">
           <AdminMenu></AdminMenu>
+          {this.renderHelp()}
           {this.renderAlert()}
           {this.renderEditModal()}
           {this.renderToolbar()}

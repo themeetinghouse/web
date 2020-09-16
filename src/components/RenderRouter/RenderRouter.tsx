@@ -32,7 +32,6 @@ const GoContentItem = React.lazy(() => import('./GoContentItem'));
 const PodcastItem = React.lazy(() => import('./PodcastItem'));
 const BlogItem = React.lazy(() => import('./BlogItem'));
 const BlogReader = React.lazy(() => import('./BlogReader'));
-const Tags = React.lazy(() => import('./OgTags'));
 const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
 const PaymentItem = React.lazy(() => import('./PaymentItem'));
 const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
@@ -49,7 +48,7 @@ class RenderRouter extends React.Component<Props, State> {
 
   renderItemNow(item: any, index: any) {
     switch (item.type) {
-      case "og-tags": return (<Tags key={index} content={item}></Tags>);
+      case "og-tags": return null;
       case "video-archive":
       case "series-archive":
         return (<ArchiveItem pageConfig={this.props.content.page.pageConfig} key={index} content={item} data={this.props.data}></ArchiveItem>);

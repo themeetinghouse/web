@@ -846,6 +846,12 @@ export const getFbEvents = /* GraphQL */ `
         }
         start_time
         id
+        event_times {
+          start_time
+          end_time
+          id
+          ticket_uri
+        }
       }
       paging {
         cursors {
@@ -1171,6 +1177,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -1278,6 +1287,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -1324,12 +1336,69 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -1443,6 +1512,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -1744,6 +1816,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -1851,6 +1926,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -1897,12 +1975,69 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -2016,6 +2151,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -3116,6 +3254,39 @@ export const blogBridgeBySeries = /* GraphQL */ `
               }
               nextToken
             }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
           }
           blogSeries {
             items {
@@ -3371,6 +3542,39 @@ export const blogBridgeByPost = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
                   nextToken
                 }
               }
@@ -3677,6 +3881,9 @@ export const listSpeakers = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -4001,6 +4208,25 @@ export const getSpeaker = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             customPlaylists {
               items {
@@ -4166,6 +4392,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -4448,6 +4677,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -4555,6 +4787,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -4601,12 +4836,69 @@ export const getSpeakerVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -4720,6 +5012,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -5154,6 +5449,39 @@ export const listSpeakerVideoss = /* GraphQL */ `
               }
               nextToken
             }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
           }
           customPlaylists {
             items {
@@ -5489,6 +5817,25 @@ export const listSeriess = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             customPlaylists {
               items {
@@ -5615,6 +5962,25 @@ export const listSeriess = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             blogSeries {
               items {
@@ -5645,6 +6011,136 @@ export const listSeriess = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -6001,6 +6497,39 @@ export const getSeries = /* GraphQL */ `
               }
               nextToken
             }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
           }
           customPlaylists {
             items {
@@ -6188,6 +6717,39 @@ export const getSeries = /* GraphQL */ `
               }
               nextToken
             }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
           }
           blogSeries {
             items {
@@ -6237,6 +6799,200 @@ export const getSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+        }
+        nextToken
+      }
+      notes {
+        items {
+          id
+          title
+          content
+          questions
+          jsonContent
+          jsonQuestions
+          episodeDescription
+          episodeNumber
+          seriesId
+          pdf
+          topics
+          tags
+          createdAt
+          updatedAt
+          series {
+            id
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          verses {
+            items {
+              id
+              key
+              offset
+              length
+              dataType
+              content
+              youVersionUri
+              noteId
+              createdAt
+              updatedAt
+              note {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
                   nextToken
                 }
               }
@@ -6516,6 +7272,25 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             customPlaylists {
               items {
@@ -6642,6 +7417,25 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             blogSeries {
               items {
@@ -6672,6 +7466,136 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -6806,6 +7730,9 @@ export const listCustomPlaylists = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -7130,6 +8057,25 @@ export const getCustomPlaylist = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -7462,6 +8408,9 @@ export const listVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -7569,6 +8518,9 @@ export const listVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -7615,12 +8567,69 @@ export const listVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -7734,6 +8743,9 @@ export const listVideos = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -8215,6 +9227,25 @@ export const getVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             customPlaylists {
               items {
@@ -8516,6 +9547,25 @@ export const getVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             customPlaylists {
               items {
@@ -8642,6 +9692,25 @@ export const getVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             blogSeries {
               items {
@@ -8672,6 +9741,136 @@ export const getVideo = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -8977,6 +10176,25 @@ export const getVideo = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -9317,6 +10535,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -9424,6 +10645,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -9470,12 +10694,69 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -9589,6 +10870,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -9892,6 +11176,9 @@ export const getVideoByVideoType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -9999,6 +11286,9 @@ export const getVideoByVideoType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -10045,12 +11335,69 @@ export const getVideoByVideoType = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -10164,6 +11511,9 @@ export const getVideoByVideoType = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -10463,6 +11813,9 @@ export const searchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -10570,6 +11923,9 @@ export const searchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -10616,12 +11972,69 @@ export const searchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -10737,6 +12150,9 @@ export const searchVideos = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -10832,6 +12248,9 @@ export const listBlogSeriess = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -10989,6 +12408,25 @@ export const getBlogSeries = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -11155,6 +12593,9 @@ export const listBlogs = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -11201,12 +12642,69 @@ export const listBlogs = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -11273,6 +12771,9 @@ export const listBlogs = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -11562,6 +13063,25 @@ export const getBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             customPlaylists {
               items {
@@ -11688,6 +13208,25 @@ export const getBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
             }
             blogSeries {
               items {
@@ -11718,6 +13257,136 @@ export const getBlog = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -11853,6 +13522,25 @@ export const getBlog = /* GraphQL */ `
                   description
                   content
                   blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
                   topics
                   tags
                   createdAt
@@ -12029,6 +13717,9 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -12075,12 +13766,69 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -12147,6 +13895,9 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   nextToken
                 }
                 blogs {
+                  nextToken
+                }
+                notes {
                   nextToken
                 }
               }
@@ -12289,6 +14040,9 @@ export const searchBlogs = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               customPlaylists {
                 items {
@@ -12335,12 +14089,69 @@ export const searchBlogs = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
                   createdAt
                   updatedAt
                 }
@@ -12409,6 +14220,9 @@ export const searchBlogs = /* GraphQL */ `
                 blogs {
                   nextToken
                 }
+                notes {
+                  nextToken
+                }
               }
               blogSeries {
                 items {
@@ -12427,6 +14241,81 @@ export const searchBlogs = /* GraphQL */ `
       }
       nextToken
       total
+    }
+  }
+`;
+export const getInstagram = /* GraphQL */ `
+  query GetInstagram($id: ID!) {
+    getInstagram(id: $id) {
+      id
+      locationId
+      thumbnails {
+        src
+        config_width
+        config_height
+      }
+      altText
+      timestamp
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listInstagrams = /* GraphQL */ `
+  query ListInstagrams(
+    $filter: ModelInstagramFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listInstagrams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        locationId
+        thumbnails {
+          src
+          config_width
+          config_height
+        }
+        altText
+        timestamp
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getInstagramByLocation = /* GraphQL */ `
+  query GetInstagramByLocation(
+    $locationId: String
+    $timestamp: ModelIntKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelInstagramFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getInstagramByLocation(
+      locationId: $locationId
+      timestamp: $timestamp
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        locationId
+        thumbnails {
+          src
+          config_width
+          config_height
+        }
+        altText
+        timestamp
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
   }
 `;
@@ -12450,11 +14339,227 @@ export const getVerse = /* GraphQL */ `
         questions
         jsonContent
         jsonQuestions
+        episodeDescription
+        episodeNumber
+        seriesId
         pdf
         topics
         tags
         createdAt
         updatedAt
+        series {
+          id
+          seriesType
+          title
+          description
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          blogs {
+            items {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              content
+              blogTitle
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+        }
         verses {
           items {
             id
@@ -12474,11 +14579,34 @@ export const getVerse = /* GraphQL */ `
               questions
               jsonContent
               jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
               pdf
               topics
               tags
               createdAt
               updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
               verses {
                 items {
                   id
@@ -12527,11 +14655,144 @@ export const listVerses = /* GraphQL */ `
           questions
           jsonContent
           jsonQuestions
+          episodeDescription
+          episodeNumber
+          seriesId
           pdf
           topics
           tags
           createdAt
           updatedAt
+          series {
+            id
+            seriesType
+            title
+            description
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                content
+                blogTitle
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
           verses {
             items {
               id
@@ -12551,11 +14812,25 @@ export const listVerses = /* GraphQL */ `
                 questions
                 jsonContent
                 jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
                 pdf
                 topics
                 tags
                 createdAt
                 updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
                 verses {
                   nextToken
                 }
@@ -12583,11 +14858,227 @@ export const listNotess = /* GraphQL */ `
         questions
         jsonContent
         jsonQuestions
+        episodeDescription
+        episodeNumber
+        seriesId
         pdf
         topics
         tags
         createdAt
         updatedAt
+        series {
+          id
+          seriesType
+          title
+          description
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          blogs {
+            items {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              content
+              blogTitle
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+        }
         verses {
           items {
             id
@@ -12607,11 +15098,34 @@ export const listNotess = /* GraphQL */ `
               questions
               jsonContent
               jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
               pdf
               topics
               tags
               createdAt
               updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
               verses {
                 items {
                   id
@@ -12645,35 +15159,565 @@ export const getNotes = /* GraphQL */ `
       questions
       jsonContent
       jsonQuestions
+      episodeDescription
+      episodeNumber
+      seriesId
       pdf
       topics
       tags
       createdAt
       updatedAt
-      verses {
-        items {
-          id
-          key
-          offset
-          length
-          dataType
-          content
-          youVersionUri
-          noteId
-          createdAt
-          updatedAt
-          note {
+      series {
+        id
+        seriesType
+        title
+        description
+        image
+        startDate
+        endDate
+        createdAt
+        updatedAt
+        videos {
+          items {
+            id
+            createdBy
+            createdDate
+            episodeTitle
+            originalEpisodeTitle
+            episodeNumber
+            seriesTitle
+            customPlaylistIDs
+            publishedDate
+            recordedDate
+            description
+            viewCount
+            closedCaptioning
+            referencedMedia
+            campaigns
+            bibleVerses
+            topics
+            qandeh
+            length
+            YoutubeIdent
+            Youtube {
+              id
+              kind
+              etag
+              snippet {
+                publishedAt
+                channelId
+                title
+                description
+                channelTitle
+                localized {
+                  title
+                  description
+                }
+              }
+              contentDetails {
+                videoId
+                videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
+              }
+            }
+            videoTypes
+            notesURL
+            videoURL
+            audioURL
+            createdAt
+            updatedAt
+            speakers {
+              items {
+                id
+                createdAt
+                updatedAt
+                speaker {
+                  id
+                  name
+                  image
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            customPlaylists {
+              items {
+                id
+                videoID
+                customPlaylistID
+                createdAt
+                updatedAt
+                customPlaylist {
+                  id
+                  seriesType
+                  title
+                  description
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        blogs {
+          items {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            content
+            blogTitle
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
             id
             title
             content
             questions
             jsonContent
             jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
             pdf
             topics
             tags
             createdAt
             updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
             verses {
               items {
                 id
@@ -12693,6 +15737,151 @@ export const getNotes = /* GraphQL */ `
                   questions
                   jsonContent
                   jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+      }
+      verses {
+        items {
+          id
+          key
+          offset
+          length
+          dataType
+          content
+          youVersionUri
+          noteId
+          createdAt
+          updatedAt
+          note {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
                   pdf
                   topics
                   tags
@@ -12790,6 +15979,40 @@ export const getCommentsByOwner = /* GraphQL */ `
         updatedAt
       }
       nextToken
+    }
+  }
+`;
+export const searchComments = /* GraphQL */ `
+  query SearchComments(
+    $filter: SearchableCommentFilterInput
+    $sort: SearchableCommentSortInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    searchComments(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        comment
+        tags
+        noteType
+        commentType
+        noteId
+        textSnippet
+        imageUri
+        key
+        date
+        time
+        owner
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
     }
   }
 `;

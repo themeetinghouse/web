@@ -86,6 +86,11 @@
                 "header1": "Part-time Careers",
                 "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
                 "list": [
+                    {
+                        "type":"link",
+                        "title": "Kitchener-Waterloo Youth Coordinator",
+                        "navigateTo": "/static/pdfs/careers/KW Youth Coordinator 2020.pdf"
+                    }
                 ],
 
 
