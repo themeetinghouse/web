@@ -154,12 +154,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Kat",
-    "LastName": "Misztal-McCubbing",
-    "sites": ["TOHP"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Nour",
     "LastName": "Aziz",
     "sites": ["TOUP"],
@@ -461,12 +455,6 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Becky",
-    "LastName": "Voll",
-    "sites": ["TOHP"],
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Emily",
     "LastName": "Piche",
     "sites": ["WAT"],
@@ -568,13 +556,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Ronny",
-    "LastName": "Juarez",
-    "sites": ["TOHP"],
-    "Email": "ronny.juarez@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Russ",
     "LastName": "Skinner",
     "sites": ["TOUP"],
@@ -622,12 +603,6 @@
     "FirstName": "Angela",
     "LastName": "Kong",
     "sites": ["RHLL"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Ara",
-    "LastName": "Ehamparam",
-    "sites": ["TOHP"],
     "Position": "Welcome Coordinator"
   },
   {
