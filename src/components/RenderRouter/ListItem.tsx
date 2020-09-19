@@ -19,6 +19,7 @@ import DataLoader, {
   CustomPlaylistVideoData,
   VideoSeriesQuery,
   PopularVideosQuery,
+  SeriesCollectionData
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import './ListItem.scss';
@@ -64,7 +65,8 @@ type ListData =
   | CompassionData
   | SeriesByTypeData
   | BlogData
-  | PeopleData[];
+  | PeopleData[]
+  | SeriesCollectionData;
 
 const hideEpisodeNumbers = [
   'adult-sunday-shortcut',
@@ -157,6 +159,9 @@ class ListItem extends React.Component<Props, State> {
       case 'series':
         await DataLoader.getSeriesByType(query, dataLoaded, checkNext);
         return;
+      case 'series-collection':
+        await DataLoader.getSeriesCollection(query, dataLoaded);
+        return
       case 'videos':
       case 'curious':
       case 'watch-page':
@@ -571,6 +576,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
       return this.renderSeries(item as SeriesByTypeData);
+    else if (this.state.content.class === 'series-collection')
+      return this.renderSeries(item as SeriesCollectionData);
     else if (this.state.content.class === 'curious')
       return this.renderCurious(item as VideoData);
     else if (this.state.content.class === 'watch-page')
