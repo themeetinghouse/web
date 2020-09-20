@@ -373,18 +373,17 @@ export default class DataLoader {
       }
     } catch (e) {
       console.error({ 'Error: ': e });
-      if (e.data) {
+      if (e.data?.getVideoByVideoType?.items) {
         dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false));
       }
-      if (e.data) {
-        if (e.data.getVideoByVideoType.nextToken) {
-          await this.getPopularVideos(
-            query,
-            dataLoaded,
-            e.data.getVideoByVideoType.nextToken
-          );
-        }
+      if (e.data?.getVideoByVideoType?.nextToken) {
+        await this.getPopularVideos(
+          query,
+          dataLoaded,
+          e.data.getVideoByVideoType.nextToken
+        );
       }
+
     }
   }
 
