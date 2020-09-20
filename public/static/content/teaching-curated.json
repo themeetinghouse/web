@@ -41,6 +41,21 @@
             },
             {
                 "type": "list",
+                "style": "horizontalBig",
+                "class": "series-collection",
+                "collection": [
+                "The Jesus Scandals",
+                "Big Buts of the Bible",
+                "Inglorious Pastors",
+                "Blind Religion",
+                "revOLUtion",
+                "Grace Anatomy",
+                "The Look of Love"
+                ],
+                "header1": "The Jesus-Centred Life"
+                },
+            {
+                "type": "list",
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "meditation",
