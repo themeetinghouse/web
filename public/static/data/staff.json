@@ -108,6 +108,15 @@
         "Email": "Carrissa.Reffell@themeetinghouse.com"
     },
     {
+        "Staff":true,
+         "FirstName": "Chris",
+         "LastName": "Chase",
+         "Phone": "905.287.7000",
+         "Position": "Newmarket Lead Pastor",
+         "sites": ["Site Leadership", "NMKT","Pastoral"],
+         "Email": "Chris.Chase@themeetinghouse.com"
+     },
+    {
        "Staff":true,
         "FirstName": "Chris",
         "LastName": "Murphy",
@@ -355,7 +364,7 @@
         "FirstName": "Laura",
         "LastName": "Hanna",
         "Phone": "905.287.7000, ext. 815",
-        "Position": "Compassion Manager (on maternity leave)",
+        "Position": "Compassion Manager",
         "sites": ["Site Leadership"],
         "Email": "Laura.Hanna@themeetinghouse.com"
     },
@@ -575,6 +584,15 @@
         "sites": ["Communications"],
         "Email": "Olivia.Vanderwal@themeetinghouse.com"
     },
+    {
+        "Staff":true,
+         "FirstName": "Patti",
+         "LastName": "Larsen",
+         "Phone": "905.287.7000",
+         "Position": "Interim Pastoral Associate",
+         "sites": ["Site Leadership", "KIT","Pastoral"],
+         "Email": "Patti.Larsen@themeetinghouse.com"
+     },
     {
        "Staff":true,
         "FirstName": "Phil",
