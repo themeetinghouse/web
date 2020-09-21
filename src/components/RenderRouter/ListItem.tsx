@@ -299,6 +299,12 @@ class ListItem extends React.Component<Props, State> {
       </div>);
   }
 
+  getBlogImageURI(title: string | undefined | null, style: 'baby-hero' | 'banner' | 'square'): string {
+    if (!title)
+      return ''
+    return `/static/photos/blogs/${style}/` + encodeURIComponent(title.replace(/\?|[']/g, "")) + ".jpg"
+  }
+
   renderBlogs(item: BlogData): JSX.Element | null {
     if (!item) {
       return null;
@@ -308,7 +314,7 @@ class ListItem extends React.Component<Props, State> {
         <div className="BlogItem">
           <img alt={item.blogTitle + ' series image'}
             className="BlogSquareImage"
-            src={'/static/photos/blogs/square/' + (item.blogTitle ?? '').replace(/\?|[']/g, '') + '.jpg'}
+            src={this.getBlogImageURI(item.blogTitle, 'square')}
             onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
           />
           <div className="BlogContentContainer">
