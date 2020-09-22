@@ -31,15 +31,16 @@
                     }
                 ],
                 "header1": "Compassion",
-                "text1": "We recognize all people as unique individuals made in the image of God. Compassion requires a willingness to join people in their suffering and journey with them. As we pursue relationships with people who are vulnerable, we experience mutual transformation."
+                "text1": "All people are created in the image of God and have infinite worth. Therefore we love, serve, and partner with vulnerable people as we journey toward relationship, justice, and peace.",
+                "button1Text": "Connect with Us",
+                "button1Action": "/kidmax-connect"
             },
             {
                 "type": "content",
                 "style": "greyTwoText",
-                "header1":"We work for justice in our neighbourhoods and around the world.",
+                "header1":"Why Compassion",
                 "header2":"",
-                "text1":"We care for people and want to ensure our actions don't cause more harm than good. That's why education is our top priority. We stop to learn about the issues facing those around us and strive to make informed decisions before taking action. We walk with vulnerable people, relying on their experience and understanding of  their environments, and provide support when we are invited. We expect the journey to change us as we engage in changing the world for the better."
-            
+                "text1":"Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love."
             },
             {
                 "type": "list",
@@ -49,6 +50,14 @@
                 "text1": "In collaboration with our partners, we've developed four focus areas that we support.",
                 "filterField":"sites",                 
                 "filterValue": "crossregional"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "compassion",
+                "sortOrder": "DESC",
+                "header1": "Compassion"
             },
             {
                 "type": "content",
