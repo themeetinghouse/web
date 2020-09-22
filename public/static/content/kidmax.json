@@ -33,7 +33,7 @@
                 "header2": "",
                 "text1": "All our lessons and downloads in one place! Scroll down to view the activities, lessons, and videos we've uploaded for this week (updated every Friday). New and looking to connect? Click below.",
                 "button1Text": "Connect With Us",
-                "button1Action": "https://meeting.formstack.com/forms/newfamilyconnect"
+                "button1Action": "/kidmax-connect"
             },
             {
                 "type": "content",
