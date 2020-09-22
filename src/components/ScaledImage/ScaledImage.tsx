@@ -38,6 +38,12 @@ export default function ScaledImage(props: Props): ReactElement<Props> | null {
     return null;
   }
 
+  Object.entries = Object.entries || function entriesPolyFill(obj: Props['breakpointSizes']): [string, number][] {
+    return Object.keys(obj).map(key => {
+      return [key, obj[key]];
+    });
+  }
+
   const imageSizes = Object.entries(breakpoints);
   imageSizes.sort(([a], [b]) => Number(a) - Number(b))
 
