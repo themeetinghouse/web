@@ -74,6 +74,11 @@
 			"providerPlugin": "awscloudformation",
 			"build": true
 		},
+		"socialBotHandler": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		},
 		"S3Triggerd90d52fa": {
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
