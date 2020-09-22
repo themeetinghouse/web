@@ -30,14 +30,16 @@
   {
     "FirstName": "Melinda",
     "LastName": "Lubbers",
-    "sites": ["BRAM"],
-    "Position": "Compassion Coordinator"
+    "sites": ["BRFD"],
+    "Email": "melinda.lubbers@themeetinghouse.com",
+    "Position": "Compassion Coordinator (Local)"
   },
   {
     "FirstName": "Monica",
     "LastName": "Lamain",
     "sites": ["BRFD"],
-    "Position": "Compassion Coordinator"
+    "Email": "monica.lamain@themeetinghouse.com",
+    "Position": "Compassion Coordinator (Global)"
   },
   {
     "FirstName": "Jennifer",
@@ -472,7 +474,7 @@
     "LastName": "Baker",
     "sites": ["BRFD"],
     "Email": "joyce.baker@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
+    "Position": "Parish Administrator"
   },
   {
     "FirstName": "Jamie",

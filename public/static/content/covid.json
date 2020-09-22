@@ -69,10 +69,10 @@
                     },
                     {
                         "title": "Kids",
-                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. The latest video curriculum for Grades 1-5 is located in the teaching section of our website and will also be added to our live-stream page every Sunday morning. You can access the activities and lesson plans (updated weekly) by clicking here.",
+                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. Our teaching videos are located in the teaching section of our website and will also be added to our live-stream page every Sunday morning. You can access the activities and lesson plans (updated weekly) by clicking here.",
                         "imageSrc": "/static/images/corona-5.jpg",
                         "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
-                        "navigateTo": "/parents"
+                        "navigateTo": "/kidmax"
                     },
                     {
                         "title": "Youth",

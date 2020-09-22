@@ -31,9 +31,9 @@
                 ],
                 "header1": "Kidmax",
                 "header2": "",
-                "text1": "All our lessons and downloads in one place! Scroll down to view the activities, lessons, and videos we've uploaded for this week. New and looking to connect? Click below to email Jen, our Kidmax pastor.",
-                "button1Text": "Email Kidmax Pastor",
-                "button1Action": "mailto:jennifer.mcwilliams@themeetinghouse.com"
+                "text1": "All our lessons and downloads in one place! Scroll down to view the activities, lessons, and videos we've uploaded for this week (updated every Friday). New and looking to connect? Click below.",
+                "button1Text": "Connect With Us",
+                "button1Action": "https://meeting.formstack.com/forms/newfamilyconnect"
             },
             {
                 "type": "content",
@@ -65,8 +65,8 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Grades 1-5",
-                "header2": "Ages 6-10",
+                "header1": "Kids",
+                "header2": "Grades 1-5",
                 "text1": "Here's what our Grade 1-5 students are learning this week:",
                 "image1": [
                     {
@@ -105,6 +105,18 @@
                         "type": "link",
                         "title": "Visit The Parent Blog",
                         "navigateTo": "/parents",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Connect Locally",
+                        "navigateTo": "/locations",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Follow Us on Instagram",
+                        "navigateTo": "https://www.instagram.com/tmhkidmax/",
                         "openNewBrowser": true
                     }
                 ],
