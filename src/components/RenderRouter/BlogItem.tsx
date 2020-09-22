@@ -114,6 +114,12 @@ class BlogItem extends React.Component<Props, State> {
         };
     }
 
+    getImageURI(title: string | undefined | null, style: 'baby-hero' | 'banner' | 'square'): string {
+        if (!title)
+            return ''
+        return `/static/photos/blogs/${style}/` + encodeURIComponent(title.replace(/\?|[']/g, "")) + ".jpg"
+    }
+
     render() {
         if (this.state.publishedOnly === null) {
             return null;
@@ -138,7 +144,7 @@ class BlogItem extends React.Component<Props, State> {
                                 <Link to={"/posts/" + this.state.publishedOnly[0]?.id}>
                                     <img
                                         alt="TBD" className="blog-image-desktop"
-                                        src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0]?.blogTitle?.replace(/\?|[']/g, "") + ".jpg"}
+                                        src={this.getImageURI(this.state.publishedOnly[0]?.blogTitle, 'baby-hero')}
                                         onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')}
                                     />
                                 </Link>
@@ -146,8 +152,9 @@ class BlogItem extends React.Component<Props, State> {
                         </div>
                         <div className="mobile-image-container">
                             <Link to={"/posts/" + this.state.publishedOnly[0]?.id}>
-                                <img alt="TBD" className="blog-image-mobile"
-                                    src={"/static/photos/blogs/baby-hero/" + this.state.publishedOnly[0]?.blogTitle?.replace(/\?|[']/g, "") + ".jpg"}
+                                <img
+                                    alt="TBD" className="blog-image-mobile"
+                                    src={this.getImageURI(this.state.publishedOnly[0]?.blogTitle, 'baby-hero')}
                                     onError={this.fallbackToImage('/static/photos/blogs/baby-hero/fallback.jpg')} />
                             </Link>
                         </div>
@@ -163,11 +170,11 @@ class BlogItem extends React.Component<Props, State> {
                                     <Link to={"/posts/" + item?.id}>
                                         <img alt={item?.id + " series image"}
                                             className="BlogSquareImage twoImage"
-                                            src={"/static/photos/blogs/square/" + item?.blogTitle?.replace(/\?|[']/g, "") + ".jpg"}
+                                            src={this.getImageURI(item?.blogTitle, 'square')}
                                             onError={this.fallbackToImage('/static/photos/blogs/square/fallback.jpg')} />
                                         <img alt={item?.id + " series image"}
                                             className="BlogBannerImage twoImage"
-                                            src={"/static/photos/blogs/banner/" + item?.blogTitle?.replace(/\?|[']/g, "") + ".jpg"}
+                                            src={this.getImageURI(item?.blogTitle, 'banner')}
                                             onError={this.fallbackToImage('/static/photos/blogs/banner/fallback.jpg')} />
                                     </Link>
                                     <div className="BlogTwoImageTextContainer">
