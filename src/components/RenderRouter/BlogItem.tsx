@@ -12,7 +12,7 @@ import { BlogItemContent } from '../types';
 import ScaledImage from '../ScaledImage/ScaledImage';
 
 type BlogSeries = NonNullable<NonNullable<GetBlogSeriesQuery['getBlogSeries']>['blogs']>['items'];
-type BlogSeriesPosts = Array<NonNullable<NonNullable<BlogSeries>[0]>['blogPost']>
+type BlogSeriesPosts = Array<NonNullable<NonNullable<BlogSeries>[0]>['blogPost']>;
 type Blogs = NonNullable<GetBlogByBlogStatusQuery['getBlogByBlogStatus']>['items'];
 
 interface Props {
