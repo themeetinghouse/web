@@ -48,10 +48,32 @@ class ArchiveItem extends React.Component<Props, State> {
         const query = { class: this.props.content.class, subclass: this.props.data, sortOrder: this.props.content.sortOrder };
         switch (query.class) {
             case 'series':
-                await DataLoader.getSeriesByType(query, dataLoaded, listenForNullToken);
+                async function loadSeriesByType() {
+                    await DataLoader.getSeriesByType(query, dataLoaded, listenForNullToken);
+                }
+                loadSeriesByType().then(() => {
+                    if (this.state.listData.length === 0) {
+                        //no data returned
+                        this.props.history.replace("/not-found")
+                    } else {
+                        console.log(this.state.listData)
+                    }
+                })
                 return;
             case 'videos':
-                await DataLoader.getVideos(query, dataLoaded, listenForNullToken);
+                async function loadVideos() {
+                    await DataLoader.getVideos(query, dataLoaded, listenForNullToken);
+                }
+                loadVideos().then(() => {
+                    if (this.state.listData.length === 0) {
+                        //no data returned
+                        this.props.history.replace("/not-found")
+                    } else {
+                        console.log(this.state.listData)
+                    }
+
+                })
+
                 return;
             default:
                 console.error(`unknown list data type ${this.props.content.class}`);
