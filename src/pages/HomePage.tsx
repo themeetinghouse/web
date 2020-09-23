@@ -1,14 +1,12 @@
-import React from 'react';
-import '../custom.scss';
-import * as queries from '../graphql/queries';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify';
-import { withRouter, Switch, RouteComponentProps, Route } from 'react-router-dom';
-import Amplify, { Analytics } from 'aws-amplify';
-import awsconfig from '../../src/aws-exports';
+import Amplify from 'aws-amplify';
+import React, { ReactNode } from 'react';
 import ReactGA from 'react-ga';
-const RenderRouter = React.lazy(() => import('../components/RenderRouter/RenderRouter'));
-const VideoOverlay = React.lazy(() => import('../components/VideoOverlay/VideoOverlay'));
+import { Route, Switch, withRouter, Redirect, RouteComponentProps } from 'react-router-dom';
+import awsconfig from '../../src/aws-exports';
+import '../custom.scss';
+import ContentPage from 'components/ContentPage';
+
+const Videos = React.lazy(() => import('../components/Videos'));
 const Blog = React.lazy(() => import('../components/Blog/Blog'));
 const Notes = React.lazy(() => import('../components/Notes/Notes'));
 const Archive = React.lazy(() => import('../components/Archive/Archive'));
@@ -20,217 +18,65 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
-type PageType = 'default' | 'video' | 'blog' | 'note' | 'archive' | 'playlist';
-
 Amplify.configure(awsconfig);
 
-export interface RouteParams {
-  id?: string;
-  blog?: string;
-  episode?: string;
-  series?: string;
-  note?: string;
-  playlist?: string;
-}
-
-interface Props extends RouteComponentProps<RouteParams> {
-  pageType: PageType;
-}
+const redirectData = fetch('/static/data/redirect.json').then<Array<{
+  id: string;
+  to: string;
+}>>((response) => response.json());
 
 interface State {
-  content?: any;
-  data: any;
+  redirects?: Array<{ id: string; to: string }>;
 }
 
-class HomePage extends React.Component<Props, State> {
-  constructor(props: Props) {
+class HomePage extends React.Component<RouteComponentProps, State> {
+  private unregisterGAListener: (() => void) | null = null;
+
+  constructor(props: RouteComponentProps) {
     super(props);
 
-    this.state = {
-      content: null,
-      data: null
-    }
-    console.log(props)
-    fetch('/static/data/redirect.json').then(function (response) {
-      return response.json();
-    })
-      .then((myJson) => {
-        console.log(props.match.params.id)
-        ReactGA.pageview(window.location.pathname + window.location.search);
-        Analytics.record({
-          name: 'pageForward',
-          attributes: { page: props.match.params.id }
-        });
-        const forwardTo = myJson.filter((a: any) => { return a.id === props.match.params.id })
-        console.log(forwardTo)
-        if (forwardTo.length > 0) {
-          const { to } = forwardTo[0];
-          // For relative paths use the history API. Anything else is probably an external link.
-          if (/^([-a-zA-Z0-9]+\/?)*$/.test(to)) {
-            this.props.history.push(to)
-          } else {
-            window.location.href = to;
-          }
-        }
-      })
+    this.state = {};
+  }
 
-    const pageType = this.props.pageType ?? 'default';
-    let jsonFile: string;
-    switch (pageType) {
-      case 'video':
-        jsonFile = 'video-player'
-        break;
-      case 'blog':
-        jsonFile = 'blog-post'
-        break;
-      case 'note':
-        jsonFile = 'notes-reader'
-        break;
-      case 'archive':
-        jsonFile = 'archive'
-        break;
-      case 'playlist':
-        jsonFile = 'video-playlist'
-        break;
-      case 'default':
-        jsonFile = props.match.params.id || 'homepage'
-        break;
-    }
-    ReactGA.pageview(window.location.pathname + window.location.search);
-    Analytics.record({
-      name: 'pageVisit',
-      attributes: { page: jsonFile }
+  componentDidMount() {
+    redirectData.then((redirects) => {
+      this.setState({ redirects });
     });
-    if (jsonFile === "test") {
-      fetch('/static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
-        console.log(response)
-        return response.json();
-      })
-        .then((myJson) => {
-          console.log(myJson)
-          this.setState({ content: myJson });
-          myJson.page.test.forEach((items: any) => {
-            fetch('/static/content/' + items.toLowerCase() + '.json').then(function (response) {
-              console.log(response)
-              return response.json();
-            })
-              .then((myJson2) => {
-                const c = this.state.content
-                c.page.content = c.page.content.concat(myJson2.page.content)
-                this.setState({ content: c });
-              }).catch((e) => { console.log(e) })
-          })
-        }).catch((e) => {
-          console.log(e)
-        })
-    } else if (jsonFile !== 'notes-reader') {
-      fetch('/static/content/' + jsonFile.toLowerCase() + '.json').then(function (response) {
-        console.log(response)
-        return response.json();
-      })
-        .then((myJson) => {
 
-          this.setState({ content: myJson }, () => {
-            console.log(this.state.content.page.pageConfig.weatherAlert)
-            console.log(this.props.match.params.id)
-            if (this.state.content.page.pageConfig.weatherAlert && (this.props.match.params.id === "" || this.props.match.params.id === undefined)) {
-              this.props.history.push("/weather");
-            }
-          });
-        }).catch(() => {
-          fetch('/static/redirect/' + jsonFile.toLowerCase() + '.json').then(function (response) {
-            console.log(response)
-            return response.json();
-          })
-            .then((myJson) => {
+    this.unregisterGAListener = this.props.history.listen(location => {
+      ReactGA.pageview(location.pathname + location.search);
+    });
+  }
 
-              this.setState({ content: myJson });
-            }).catch(() => {
-              Analytics.record({
-                name: 'error',
-                attributes: { page: jsonFile }
-              });
-              fetch('/static/content/404.json').then(function (response) {
-                console.log(response)
-                return response.json();
-              })
-                .then((myJson) => {
-
-                  this.setState({ content: myJson });
-                }).catch((e) => {
-                  console.log(e)
-                })
-            })
-        })
-    }
-
-    if (pageType === 'video' || pageType === 'playlist') {
-      const getVideo: any = API.graphql({
-        query: queries.getVideo,
-        variables: { id: this.props.match.params.episode },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      getVideo.then((json: any) => {
-        console.log({ "Success queries.getVideo: ": json });
-        if (json.data.getVideo === null) this.props.history.replace("/not-found")
-        else { this.setState({ data: json.data.getVideo }) }
-      }).catch((error: Error) => {
-        console.error(error)
-        Analytics.record({
-          name: 'error',
-          attributes: { page: jsonFile }
-        });
-        this.props.history.replace("/not-found")
-      })
-    } else if (pageType === 'blog') {
-      const getBlog: any = API.graphql({
-        query: queries.getBlog,
-        variables: { id: this.props.match.params.blog },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      getBlog.then((json: any) => {
-        console.log({ "Success queries.getBlog: ": json });
-        if (json.data.getBlog === null) this.props.history.replace("/not-found")
-        else { this.setState({ data: json.data.getBlog }) }
-        console.log(this.state.data);
-      }).catch((error: Error) => {
-        console.error(error)
-        Analytics.record({
-          name: 'error',
-          attributes: { page: jsonFile }
-        });
-        this.props.history.replace("/not-found")
-      })
-    }
+  componentWillUnmount() {
+    this.unregisterGAListener?.();
   }
 
 
 
   render() {
-    const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig ?? {};
+    const { redirects } = this.state;
+    if (!redirects) {
+      return null;
+    }
 
     return (
-      <Switch>
-        <Route path={["/videos/:series/:episode", "/videos/:series", "/playlist/:playlist/:episode"]}>
-          <VideoOverlay onClose={() => this.props.history.push("/")} data={this.state.data} isPlaylist={this.props.pageType === 'playlist'} ></VideoOverlay>
-        </Route>
-        <Route path="/posts/:blog">
-          <Blog data={this.state.data} />
-        </Route>
-        <Route path="/notes/:date?">
-          <Notes />
-        </Route>
-        <Route path="/notes/:date?">
-          <Notes />
-        </Route>
-        <Route path="/archive/:archiveType/:subclass">
-          <Archive {...this.props} />
-        </Route>
-        <Route path="*">
-          {isPopup
-            ? <VideoOverlay onClose={() => this.props.history.push(navigateOnPopupClose)} content={this.state.content} data={{ id: this.props.match.params.episode }}></VideoOverlay>
-            : <RenderRouter data={null} content={this.state.content}></RenderRouter>}
-        </Route>
+      <Switch location={this.props.location}>
+        {
+          redirects.map(redirect => {
+            return redirect.to.startsWith('http')
+              ? <Route key={redirect.id} exact from={'/' + redirect.id} render={(): ReactNode | undefined => {
+                window.location.href = redirect.to;
+                return undefined;
+              }} />
+              : <Redirect key={redirect.id} exact from={'/' + redirect.id} to={redirect.to} />;
+          })
+        }
+        <Route path={["/videos/:series/:episode", "/videos/:series"]} component={Videos} />
+        <Route path="/posts/:blog" component={Blog} />
+        <Route path="/notes/:date?" component={Notes} />
+        <Route path="/archive/:archiveType(series|video)/:subclass" component={Archive} />
+        <Route component={ContentPage} />
       </Switch>
     );
   }
