@@ -59,6 +59,12 @@
                         "title": "Download Preschool Lesson",
                         "navigateTo": "/static/pdfs/kidmax-files/PS-Lesson.pdf",
                         "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Download Preschool Activities",
+                        "navigateTo": "/static/pdfs/kidmax-files/PS-Activities.pdf",
+                        "openNewBrowser": true
                     }
                 ]
             },
@@ -85,12 +91,6 @@
                         "type": "link",
                         "title": "Download Kids Lesson",
                         "navigateTo": "/static/pdfs/kidmax-files/Kids-Lesson.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "Download Kids Activities",
-                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Activities.pdf",
                         "openNewBrowser": true
                     }
                 ]
