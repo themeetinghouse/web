@@ -75,6 +75,21 @@
             },
             {
                 "type": "list",
+                "style": "horizontal",
+                "class": "random-suggested-playlist",
+                "header1": "Suggestions"
+            },
+            {
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "playlists",
+                "header1": "Playlists",
+                "forceToTop": [
+                  "", "Angels, Demons, and Spirits", "Christian Theology", "Gods Good News", "Heaven and Hell", "Looking for a Place to Start", "Love and Relationship", "Mental Health", "Other Religions", "Spiritual Practices", "The Jesus Centred Life", "Women and The Church"
+                ]
+            },
+            {
+                "type": "list",
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "adult-sunday",
