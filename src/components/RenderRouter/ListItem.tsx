@@ -118,14 +118,14 @@ class ListItem extends React.Component<Props, State> {
       this.props.history.push('/videos/' + data.series.id + '/' + data.id);
   }
 
-  handlePlaylistClick(data: any) {
+  handlePlaylistClick(data: any, clickedOnFullPlaylist?: boolean) {
     this.setState({
-      overlayData: data,
+      overlayData: clickedOnFullPlaylist ? data.video : data,
     });
-    if (data.series == null)
+    if (data.series === null && !clickedOnFullPlaylist)
       console.log({ 'You need to create a series for:': data });
     else
-      this.props.history.push('/playlist/' + this.state.randomPlaylistId + '/' + data.id);
+      this.props.history.push('/playlist/' + (clickedOnFullPlaylist ? data.customPlaylistID : this.state.randomPlaylistId) + '/' + (clickedOnFullPlaylist ? data.video.id : data.id));
   }
 
   constructor(props: Props) {
@@ -138,7 +138,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
       showMoreVideos: false,
       windowWidth: window.innerWidth,
-      randomPlaylistId: ''
+      randomPlaylistId: this.props?.match?.params?.playlist ?? ""
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -311,11 +311,11 @@ class ListItem extends React.Component<Props, State> {
     </div>
   }
 
-  renderWatchPageVideo(item: VideoData): JSX.Element | null {
+  renderWatchPageVideo(item: VideoData, isPlaylist?: boolean): JSX.Element | null {
     if (!item) {
       return null;
     }
-    return <div onClick={() => { this.handleClick(item); }} key={item.id} className={'WatchPageVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+    return <div onClick={() => { isPlaylist ? this.handlePlaylistClick(item) : this.handleClick(item) }} key={item.id} className={'WatchPageVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
       <img alt="TBD" className="WatchPageThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
       <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
       <div className="WatchPageEpisodeTitle">{item.episodeNumber && !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : "") ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
@@ -579,17 +579,16 @@ class ListItem extends React.Component<Props, State> {
     }
     const videos = item.videos?.items ?? [];
     if (videos.length > 0) {
-      return (
-        <div
-          key={item.id} className="ListItemVideo">
-          <img alt={item.title + ' playlist'}
-            className="ListItemImage2"
-            src={'/static/photos/playlist/' + (item.title ?? '').replace('?', '') + '.jpg'}
-            onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
-          />
-          <div className="ListItemEpisodeNum" >{item.title}</div>
-        </div>
-      );
+      return <div
+        onClick={() => this.handlePlaylistClick(videos[0], true)}
+        key={item.id} className="ListItemVideo">
+        <img alt={item.title + ' playlist'}
+          className="ListItemImage2"
+          src={'/static/photos/playlists/' + (item.title ?? '').replace(/\?|[']/g, "") + '.jpg'}
+          onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
+        />
+        <div className="ListItemEpisodeNum" >{item.title}</div>
+      </div>
     } else {
       console.log({ 'None:': item });
       return null;
@@ -650,7 +649,7 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === 'watch-page')
       return this.renderWatchPageVideo(item as VideoData);
     else if (this.state.content.class === 'watch-page-playlist')
-      return this.renderWatchPageVideo(item as VideoData);
+      return this.renderWatchPageVideo(item as VideoData, true);
     else if (this.state.content.class === 'blogs')
       return this.renderBlogs(item as BlogData);
     else if (this.state.content.class === 'random-suggested-playlist')
@@ -690,7 +689,7 @@ class ListItem extends React.Component<Props, State> {
               <div className="ListItemDiv5" ></div>
             </div>
           </div>
-          <VideoOverlay isPlaylist onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
       }
 
@@ -761,22 +760,35 @@ class ListItem extends React.Component<Props, State> {
         data.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber);
       else
         data.sort((a: any, b: any) => this.sortByDate(a, b, 'oldFirst'));
-      return (
-        <div className="ListItem horizontal-video-player">
+
+      if (this.state.content.class === 'watch-page-playlist') {
+        return <div className="ListItem horizontal-video-player">
           <div className="ListItemDiv1 horizontal-video-player">
-            <h1 className={'ListItemH1 horizontal-video-player' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.state.content.header1}</h1>
-            {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+            <h1 className={'ListItemH1 horizontal-video-player' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.props?.match?.params?.playlist}</h1>
             <div className="WatchPageContainer">
               {data.map((item: any, index: any) => {
                 return this.renderItemRouter(item, index);
-              }
-              )}
+              })}
             </div>
             <div className="HorizontalLine"></div>
           </div>
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
         </div>
-      );
+      }
+
+      return <div className="ListItem horizontal-video-player">
+        <div className="ListItemDiv1 horizontal-video-player">
+          <h1 className={'ListItemH1 horizontal-video-player' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.state.content.header1}</h1>
+          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
+          <div className="WatchPageContainer">
+            {data.map((item: any, index: any) => {
+              return this.renderItemRouter(item, index);
+            })}
+          </div>
+          <div className="HorizontalLine"></div>
+        </div>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+      </div>
     }
 
     else if (this.state.content.style === 'curious-ui') {
