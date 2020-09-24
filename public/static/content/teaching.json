@@ -98,6 +98,19 @@
                 "header1": "All Teaching Series"
             },
             {
+                "type": "list",
+                "style": "horizontal",
+                "class": "random-suggested-playlist",
+                "header1": "Suggestions"
+            },
+            {
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "playlists",
+                "header1": "Playlists",
+                "forceToTop": []
+            },
+            {
                 "type": "content",
                 "style": "banner-cards",
                 "images": [

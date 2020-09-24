@@ -19,7 +19,9 @@ import DataLoader, {
   CustomPlaylistVideoData,
   VideoSeriesQuery,
   PopularVideosQuery,
-  SeriesCollectionData
+  SeriesCollectionData,
+  CustomPlaylistsData,
+  CustomPlaylistsQuery, RandomCustomPlaylistData
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import './ListItem.scss';
@@ -28,8 +30,9 @@ import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
 import ScaledImage, { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 import { Link } from 'components/Link/Link';
+import { RouteParams } from '../../pages/HomePage'
 
-interface Props extends RouteComponentProps {
+interface Props extends RouteComponentProps<RouteParams> {
   content: any;
   data: any;
   pageConfig: any;
@@ -50,6 +53,7 @@ interface State {
   showChampion: any;
   showMoreVideos: boolean;
   windowWidth: number;
+  randomPlaylistId: string;
 }
 
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
@@ -66,7 +70,10 @@ type ListData =
   | SeriesByTypeData
   | BlogData
   | PeopleData[]
-  | SeriesCollectionData;
+  | SeriesCollectionData
+  | CustomPlaylistsData
+  | RandomCustomPlaylistData
+  | NonNullable<RandomCustomPlaylistData>['video']
 
 const hideEpisodeNumbers = [
   'adult-sunday-shortcut',
@@ -111,6 +118,16 @@ class ListItem extends React.Component<Props, State> {
       this.props.history.push('/videos/' + data.series.id + '/' + data.id);
   }
 
+  handlePlaylistClick(data: any) {
+    this.setState({
+      overlayData: data,
+    });
+    if (data.series == null)
+      console.log({ 'You need to create a series for:': data });
+    else
+      this.props.history.push('/playlist/' + this.state.randomPlaylistId + '/' + data.id);
+  }
+
   constructor(props: Props) {
     super(props);
 
@@ -120,7 +137,8 @@ class ListItem extends React.Component<Props, State> {
       listData: props.content.list ?? [],
       overlayData: null,
       showMoreVideos: false,
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      randomPlaylistId: ''
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -137,6 +155,7 @@ class ListItem extends React.Component<Props, State> {
     window.addEventListener('resize', () => { this.setState({ windowWidth: window.innerWidth }) })
 
     const dataLoaded = (data: ListData[]) => this.setData(data);
+    const getPlaylistId = (id: string) => this.setState({ randomPlaylistId: id })
     const checkNext = () => null;
     let data: ListData[];
     const query: DataQuery = this.props.content;
@@ -162,9 +181,16 @@ class ListItem extends React.Component<Props, State> {
       case 'series-collection':
         await DataLoader.getSeriesCollection(query, dataLoaded);
         return
+      case 'playlists':
+        await DataLoader.listCustomPlaylists(dataLoaded);
+        return
+      case 'random-suggested-playlist':
+        await DataLoader.getRandomPlaylist(dataLoaded, getPlaylistId);
+        return
       case 'videos':
       case 'curious':
       case 'watch-page':
+      case 'watch-page-playlist':
         let id: string;
         switch (query.selector) {
           case 'sameSeries':
@@ -180,6 +206,10 @@ class ListItem extends React.Component<Props, State> {
               ...(query as SeriesQuery),
               id,
             });
+            break;
+          case 'same-playlist':
+            const playlist = this.props?.match?.params?.playlist ?? '';
+            data = await DataLoader.getVideosCustomPlaylistById(playlist);
             break;
           case 'custom-playlist':
             data = await DataLoader.getVideosCustomPlaylist(
@@ -232,6 +262,10 @@ class ListItem extends React.Component<Props, State> {
     return parseInt(b.viewCount, 10) - parseInt(a.viewCount, 10)
   }
 
+  sortPlaylistsAlpha(a: CustomPlaylistsData, b: CustomPlaylistsData) {
+    return (a?.title as string).localeCompare(b?.title as string)
+  }
+
   renderMoreVideosCard() {
     return (
       <Link key='load-more-card' to={`/archive/video/${(this.state.content as VideoSeriesQuery).subclass}`}
@@ -255,33 +289,38 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
-    return (
-      <div onClick={() => { this.handleClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-        <div>
-          <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
-          <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
-          <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
-          <div className="ListItemPublishedDate">{item.publishedDate}</div>
-        </div>
+    return <div onClick={() => { this.handleClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
+      <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
+      <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
+      <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
+      <div className="ListItemPublishedDate">{item.publishedDate}</div>
+    </div>
+  }
 
-      </div>);
+  renderPlaylistVideo(item: NonNullable<RandomCustomPlaylistData>['video']): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
+    return <div onClick={() => { this.handlePlaylistClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
+      <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
+      <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
+      <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
+      <div className="ListItemPublishedDate">{item.publishedDate}</div>
+    </div>
   }
 
   renderWatchPageVideo(item: VideoData): JSX.Element | null {
     if (!item) {
       return null;
     }
-    return (
-      <div onClick={() => { this.handleClick(item); }} key={item.id} className={'WatchPageVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-        <div>
-          <img alt="TBD" className="WatchPageThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
-          <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-          <div className="WatchPageEpisodeTitle">{item.episodeNumber && !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : "") ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
-          <div className="WatchPagePublishedDate">{item.publishedDate}</div>
-        </div>
-
-      </div>);
+    return <div onClick={() => { this.handleClick(item); }} key={item.id} className={'WatchPageVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <img alt="TBD" className="WatchPageThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
+      <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
+      <div className="WatchPageEpisodeTitle">{item.episodeNumber && !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : "") ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
+      <div className="WatchPagePublishedDate">{item.publishedDate}</div>
+    </div>;
   }
 
   renderCurious(item: VideoData): JSX.Element | null {
@@ -534,6 +573,29 @@ class ListItem extends React.Component<Props, State> {
       </div>
     );
   }
+  renderPlaylist(item: CustomPlaylistsData) {
+    if (!item) {
+      return null;
+    }
+    const videos = item.videos?.items ?? [];
+    if (videos.length > 0) {
+      return (
+        <div
+          key={item.id} className="ListItemVideo">
+          <img alt={item.title + ' playlist'}
+            className="ListItemImage2"
+            src={'/static/photos/playlist/' + (item.title ?? '').replace('?', '') + '.jpg'}
+            onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
+          />
+          <div className="ListItemEpisodeNum" >{item.title}</div>
+        </div>
+      );
+    } else {
+      console.log({ 'None:': item });
+      return null;
+    }
+  }
+
   renderSeries(item: SeriesByTypeData) {
     if (!item) {
       return null;
@@ -579,14 +641,20 @@ class ListItem extends React.Component<Props, State> {
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
       return this.renderSeries(item as SeriesByTypeData);
+    else if (this.state.content.class === 'playlists')
+      return this.renderPlaylist(item as CustomPlaylistsData);
     else if (this.state.content.class === 'series-collection')
       return this.renderSeries(item as SeriesCollectionData);
     else if (this.state.content.class === 'curious')
       return this.renderCurious(item as VideoData);
     else if (this.state.content.class === 'watch-page')
       return this.renderWatchPageVideo(item as VideoData);
+    else if (this.state.content.class === 'watch-page-playlist')
+      return this.renderWatchPageVideo(item as VideoData);
     else if (this.state.content.class === 'blogs')
       return this.renderBlogs(item as BlogData);
+    else if (this.state.content.class === 'random-suggested-playlist')
+      return this.renderPlaylistVideo(item as NonNullable<RandomCustomPlaylistData>['video']);
     else return null;
   }
 
@@ -607,6 +675,25 @@ class ListItem extends React.Component<Props, State> {
 
     if (this.state.content.style === 'horizontal') {
       const videoData = data as VideoData[];
+      const randomPlayList = data as RandomCustomPlaylistData[];
+      if (this.state.content.class === 'random-suggested-playlist') {
+        return <div className="ListItem horizontal">
+          <div className="ListItemDiv1" >
+            <h1 className='ListItemH1'>{this.state.content.header1}</h1>
+            <div className="ListItemDiv2" >
+              <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
+                {randomPlayList.map((item: any, index) => {
+                  return this.renderItemRouter(item.video, index);
+                }
+                )}
+              </HorizontalScrollList>
+              <div className="ListItemDiv5" ></div>
+            </div>
+          </div>
+          <VideoOverlay isPlaylist onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+        </div>
+      }
+
       return (
         <div className="ListItem horizontal" >
           <div className="ListItemDiv1" >
@@ -779,34 +866,52 @@ class ListItem extends React.Component<Props, State> {
       }
     }
     else if (this.state.content.style === 'horizontalBig') {
-
-      const seriesData = data as SeriesData2[]
-      return (
-        <div className="ListItem horizontalBig" >
+      const seriesData = data as SeriesData2[];
+      const playlistData = data as CustomPlaylistsData[];
+      if (this.state.content.class === 'playlists') {
+        const content = this.state.content as CustomPlaylistsQuery;
+        return <div className="ListItem horizontalBig" >
           <div className="ListItemDiv1 ListItemAllSeries" >
             <h1 className="ListItemH1" >{this.state.content.header1}</h1>
             <div className="ListItemDiv6" >
-              {this.state.content.class === 'series' ?
-                <HorizontalScrollList>
-                  {seriesData.concat(this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item: any, index: any) => {
-                    if (item === 'card')
-                      return this.renderMoreSeriesCard();
+              <HorizontalScrollList>
+                {playlistData
+                  .sort((a, b) => this.sortPlaylistsAlpha(a, b))
+                  .sort((a, b) => { return content.forceToTop.includes(b?.title as string) ? 1 : content.forceToTop.includes(a?.title as string) ? -1 : 0 })
+                  .map((item, index) => {
                     return this.renderItemRouter(item, index);
                   })}
-                </HorizontalScrollList>
-                : <HorizontalScrollList>
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </HorizontalScrollList>}
-              <div className="ListItemDiv5" ></div>
-
+              </HorizontalScrollList>
+              <div className="ListItemDiv5"></div>
             </div>
           </div>
           <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-
         </div>
-      )
+      }
+
+      return <div className="ListItem horizontalBig" >
+        <div className="ListItemDiv1 ListItemAllSeries" >
+          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
+          <div className="ListItemDiv6" >
+            {this.state.content.class === 'series' ?
+              <HorizontalScrollList>
+                {seriesData.concat(this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item: any, index: any) => {
+                  if (item === 'card')
+                    return this.renderMoreSeriesCard();
+                  return this.renderItemRouter(item, index);
+                })}
+              </HorizontalScrollList>
+              : <HorizontalScrollList>
+                {data.map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index);
+                })}
+              </HorizontalScrollList>}
+            <div className="ListItemDiv5" ></div>
+          </div>
+        </div>
+        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+      </div>
+
     }
 
     else if (this.state.content.style === 'imageList') return (

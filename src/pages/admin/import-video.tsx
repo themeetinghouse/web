@@ -1,13 +1,9 @@
 import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
-//import * as customQueries from '../../graphql-custom/customQueries';
-
 import * as adminQueries from './queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
-//{ API, graphqlOperation } 
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify'
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
@@ -17,9 +13,8 @@ import { v4 as uuidv4 } from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 import { EmptyProps } from '../../utils'
 import { Modal } from 'reactstrap';
+import { DeleteCustomPlaylistMutation } from 'API';
 
-//import { Button } from 'reactstrap';
-//import ImportYoutube from '../../components/ImportYoutube/ImportYoutube'
 Amplify.configure(awsmobile);
 const federated = {
     facebookAppId: '579712102531269'
@@ -42,6 +37,8 @@ interface State {
     getVideosState: any
     toDeleteVideo: string
     showDeleteVideo: boolean
+    toDeletePlaylist: string
+    showDeletePlaylist: boolean
     addToPlaylists: any
     removeFromPlaylists: any
     selectedPlaylist: any
@@ -70,6 +67,8 @@ class Index extends React.Component<EmptyProps, State> {
             getVideosState: "Starting Up",
             toDeleteVideo: "",
             showDeleteVideo: false,
+            toDeletePlaylist: "",
+            showDeletePlaylist: false,
             addToPlaylists: [],
             removeFromPlaylists: [],
             selectedPlaylist: ''
@@ -231,7 +230,8 @@ class Index extends React.Component<EmptyProps, State> {
                     }
                 </select>
                 <button className="adminButton" onClick={() => { this.setState({ showAddSeries: true }) }}>Add Series</button>
-                <button className="adminButton" onClick={() => { this.setState({ showDeleteVideo: true }) }}>Delete Video</button>
+                <button className="adminButton" onClick={() => { this.setState({ showDeleteVideo: true }) }}>Delete a Video</button>
+                <button className="adminButton" onClick={() => { this.setState({ showDeletePlaylist: true }) }}>Delete a Playlist</button>
                 <button className="adminButton" onClick={() => { this.setState({ showAddCustomPlaylist: true }) }}>Add Custom Playlist</button>
                 <div>{this.state.getVideosState}</div>
             </div>
@@ -365,6 +365,35 @@ class Index extends React.Component<EmptyProps, State> {
             }
         }
 
+    }
+
+    async deletePlaylist() {
+        if (this.state.toDeletePlaylist) {
+            try {
+                const deletePlaylist = await API.graphql({
+                    query: mutations.deleteCustomPlaylist,
+                    variables: { input: { id: this.state.toDeletePlaylist } },
+                    authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+                }) as GraphQLResult<DeleteCustomPlaylistMutation>
+                console.log({ "Success mutations.deleteVideo: ": deletePlaylist });
+                this.setState({
+                    toDeletePlaylist: '',
+                    showError: `Deleted: ${deletePlaylist?.data?.deleteCustomPlaylist?.id}`,
+                    showDeletePlaylist: false
+                })
+            } catch (e) {
+                if (e.data && e.data.deleteCustomPlaylist) {
+                    this.setState({
+                        toDeletePlaylist: '',
+                        showError: `Deleted: ${e.data.deleteCustomPlaylist.id}`,
+                        showDeletePlaylist: false
+                    })
+                }
+                console.error(e)
+            }
+        } else {
+            this.setState({ showError: 'videoID required for delete operation' })
+        }
     }
 
     async delete() {
@@ -607,6 +636,15 @@ class Index extends React.Component<EmptyProps, State> {
             </div>
         </Modal>
     }
+    renderDeletePlaylist() {
+        return <Modal isOpen={this.state.showDeletePlaylist}>
+            <div>
+                <div>Enter ID: <input value={this.state.toDeletePlaylist} onChange={item => this.setState({ toDeletePlaylist: item.target.value })} /></div>
+                <button style={{ background: 'orange' }} onClick={() => this.deletePlaylist()}>DELETE</button>
+                <button style={{ background: 'grey' }} onClick={() => { this.setState({ showDeletePlaylist: false, toDeletePlaylist: '' }) }}>CANCEL</button>
+            </div>
+        </Modal>
+    }
     render() {
         return (
             <AmplifyAuthenticator federated={federated}>
@@ -620,6 +658,7 @@ class Index extends React.Component<EmptyProps, State> {
                     {this.renderVideoEditor()}
                     {this.renderAddSeries()}
                     {this.renderDeleteVideo()}
+                    {this.renderDeletePlaylist()}
                     {this.renderAddCustomPlaylist()}
                     <div style={{ color: "#ff0000" }}>{this.state.showError}</div>
                 </div >

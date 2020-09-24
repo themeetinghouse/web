@@ -12,6 +12,7 @@ interface Props {
   data: any
   onClose(): void
   content?: any
+  isPlaylist?: boolean
 }
 interface State {
   data: any
@@ -26,29 +27,27 @@ export default class VideoPlayer extends React.Component<Props, State> {
     }
   }
   componentDidUpdate(prevProps: Props) {
-    // Typical usage (don't forget to compare props):
     if (this.props.data !== prevProps.data) {
       if (this.props.data === null) {
         this.setState({ content: null })
-      }
-      else if (this.props.data === "search") {
+      } else if (this.props.data === "search") {
         fetch('/static/content/search.json').then(function (response) {
           return response.json();
+        }).then((myJson) => {
+          this.setState({ content: myJson });
         })
-          .then((myJson) => {
-            this.setState({ content: myJson });
-          })
-
-      }
-      else {
-
+      } else if (this.props.isPlaylist) {
+        fetch('/static/content/video-playlist.json').then(function (response) {
+          return response.json();
+        }).then((myJson) => {
+          this.setState({ content: myJson });
+        })
+      } else {
         fetch('/static/content/video-player.json').then(function (response) {
           return response.json();
+        }).then((myJson) => {
+          this.setState({ content: myJson });
         })
-          .then((myJson) => {
-            this.setState({ content: myJson });
-          })
-
       }
     }
   }
