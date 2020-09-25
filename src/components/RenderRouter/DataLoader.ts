@@ -20,12 +20,19 @@ import {
   GetFbEventsQueryVariables,
   GetCustomPlaylistQuery,
   GetCustomPlaylistQueryVariables,
-} from 'API';
+  ListCustomPlaylistsQuery,
+  ListCustomPlaylistsQueryVariables
+} from '../../API';
 
 Amplify.configure(awsmobile);
 
 export interface DataLoaderQuery {
   class: string;
+}
+
+export interface CustomPlaylistsQuery extends DataLoaderQuery {
+  class: 'playlists' | 'random-suggested-playlist';
+  forceToTop: string[];
 }
 
 export interface SeriesCollectionQuery extends DataLoaderQuery {
@@ -34,7 +41,7 @@ export interface SeriesCollectionQuery extends DataLoaderQuery {
 }
 
 export interface CustomPlaylistQuery extends DataLoaderQuery {
-  class: 'videos' | 'curious' | 'watch-page';
+  class: 'videos' | 'curious' | 'watch-page' | 'watch-page-playlist';
 
   selector: 'custom-playlist';
 
@@ -170,7 +177,8 @@ export type DataQuery =
   | SeriesByTypeQuery
   | BlogQuery
   | CustomPlaylistQuery
-  | SeriesCollectionQuery;
+  | SeriesCollectionQuery
+  | CustomPlaylistsQuery;
 
 export type SeriesData = NonNullable<
   NonNullable<NonNullable<GetSeriesQuery['getSeries']>['videos']>['items']
@@ -198,6 +206,10 @@ export type EventData = NonNullable<
   NonNullable<GetFbEventsQuery['getFBEvents']>['data']
 >[0];
 
+export type CustomPlaylistsData = NonNullable<NonNullable<ListCustomPlaylistsQuery['listCustomPlaylists']>['items']>[0];
+
+export type RandomCustomPlaylistData = NonNullable<NonNullable<NonNullable<CustomPlaylistsData>['videos']>['items']>[0];
+
 export type CustomPlaylistVideoData = NonNullable<
   NonNullable<
     NonNullable<
@@ -213,6 +225,26 @@ function parseFBDate(date: string): Date {
 }
 
 export default class DataLoader {
+  static async getVideosCustomPlaylistById(playlist: string): Promise<CustomPlaylistVideoData[]> {
+    try {
+      const variables: GetCustomPlaylistQueryVariables = {
+        id: playlist
+      };
+      const getCustomPlaylist = await API.graphql({
+        query: customQueries.getCustomPlaylist,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as GraphQLResult<GetCustomPlaylistQuery>;
+      const loadedVideos: CustomPlaylistVideoData[] = [];
+      for (const item of getCustomPlaylist.data?.getCustomPlaylist?.videos?.items ?? []) {
+        loadedVideos.push(item?.video ?? null);
+      }
+      return loadedVideos;
+    } catch (e) {
+      console.error(e);
+    }
+    return [];
+  }
   static async getVideosCustomPlaylist(
     query: CustomPlaylistQuery
   ): Promise<CustomPlaylistVideoData[]> {
@@ -501,6 +533,69 @@ export default class DataLoader {
           dataLoaded,
           checkNextToken,
           json.data.getSeriesBySeriesType.nextToken
+        );
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  static async getRandomPlaylist(
+    dataLoaded: OnDataListener<RandomCustomPlaylistData[]>,
+    playlistId: (id: string) => void
+  ): Promise<void> {
+    const variables: ListCustomPlaylistsQueryVariables = {
+      limit: 20,
+    };
+    try {
+      const listCustomPlaylists = API.graphql({
+        query: customQueries.listCustomPlaylists,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<ListCustomPlaylistsQuery>>;
+      const json = await listCustomPlaylists;
+      if (json?.data?.listCustomPlaylists) {
+        const max = json?.data?.listCustomPlaylists?.items?.length;
+        if (max) {
+          let loop = true;
+          while (loop) {
+            const index = Math.floor(Math.random() * Math.floor(max));
+            if (json?.data?.listCustomPlaylists?.items && json?.data?.listCustomPlaylists?.items.length > index && json?.data?.listCustomPlaylists?.items[index]?.videos?.items) {
+              if (json?.data?.listCustomPlaylists?.items[index]?.videos?.items?.length) {
+                dataLoaded(json?.data?.listCustomPlaylists?.items[index]?.videos?.items ?? [])
+                playlistId(json.data.listCustomPlaylists?.items[index]?.id ?? 'error')
+                loop = false
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  static async listCustomPlaylists(
+    dataLoaded: OnDataListener<CustomPlaylistsData[]>,
+    nextToken: string | null = null
+  ): Promise<void> {
+    const variables: ListCustomPlaylistsQueryVariables = {
+      nextToken: nextToken,
+      limit: 20,
+    };
+    const listCustomPlaylists = API.graphql({
+      query: queries.listCustomPlaylists,
+      variables,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<ListCustomPlaylistsQuery>>;
+    try {
+      const json = await listCustomPlaylists;
+      console.debug({ 'Success queries.listCustomPlaylists': json });
+      dataLoaded(json?.data?.listCustomPlaylists?.items ?? []);
+      if (json?.data?.listCustomPlaylists?.nextToken) {
+        await this.listCustomPlaylists(
+          dataLoaded,
+          json.data.listCustomPlaylists.nextToken
         );
       }
     } catch (e) {

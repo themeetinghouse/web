@@ -33,6 +33,7 @@ class App extends React.Component<Props, State>  {
           <Route path="/admin" render={() => <Admin />} />
           <Route path="/videos/:series/:episode" render={props => <HomePage pageType="video" {...props} />} />
           <Route path="/videos/:series" render={props => <HomePage pageType="video" {...props} />} />
+          <Route path="/playlist/:playlist/:episode" render={props => <HomePage pageType="playlist" {...props} />} />
           <Route path="/posts/:blog" render={props => <HomePage pageType="blog" {...props} />} />
           <Route path="/archive/:archiveType/:subclass" render={props => <HomePage pageType="archive" {...props} />} />
           <Route path="/notes" render={props => <HomePage pageType="note" {...props} />} />

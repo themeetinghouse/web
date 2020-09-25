@@ -3,7 +3,6 @@ import '../custom.scss';
 import * as queries from '../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
-
 import { withRouter, Switch, RouteComponentProps, Route } from 'react-router-dom';
 import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from '../../src/aws-exports';
@@ -21,19 +20,20 @@ else if (window.location.hostname.includes("beta"))
 else
   ReactGA.initialize('UA-4554612-3');
 
-type PageType = 'default' | 'video' | 'blog' | 'note' | 'archive';
+type PageType = 'default' | 'video' | 'blog' | 'note' | 'archive' | 'playlist';
 
 Amplify.configure(awsconfig);
 
-interface Params {
+export interface RouteParams {
   id?: string;
   blog?: string;
   episode?: string;
   series?: string;
   note?: string;
+  playlist?: string;
 }
 
-interface Props extends RouteComponentProps<Params> {
+interface Props extends RouteComponentProps<RouteParams> {
   pageType: PageType;
 }
 
@@ -88,6 +88,9 @@ class HomePage extends React.Component<Props, State> {
         break;
       case 'archive':
         jsonFile = 'archive'
+        break;
+      case 'playlist':
+        jsonFile = 'video-playlist'
         break;
       case 'default':
         jsonFile = props.match.params.id || 'homepage'
@@ -161,7 +164,7 @@ class HomePage extends React.Component<Props, State> {
         })
     }
 
-    if (pageType === 'video') {
+    if (pageType === 'video' || pageType === 'playlist') {
       const getVideo: any = API.graphql({
         query: queries.getVideo,
         variables: { id: this.props.match.params.episode },
@@ -179,7 +182,6 @@ class HomePage extends React.Component<Props, State> {
         });
         this.props.history.replace("/not-found")
       })
-
     } else if (pageType === 'blog') {
       const getBlog: any = API.graphql({
         query: queries.getBlog,
@@ -202,13 +204,15 @@ class HomePage extends React.Component<Props, State> {
     }
   }
 
+
+
   render() {
     const { isPopup = false, navigateOnPopupClose = false } = this.state.content?.page.pageConfig ?? {};
 
     return (
       <Switch>
-        <Route path={["/videos/:series/:episode", "/videos/:series"]}>
-          <VideoOverlay onClose={() => this.props.history.push("/")} data={this.state.data}></VideoOverlay>
+        <Route path={["/videos/:series/:episode", "/videos/:series", "/playlist/:playlist/:episode"]}>
+          <VideoOverlay onClose={() => this.props.history.push("/")} data={this.state.data} isPlaylist={this.props.pageType === 'playlist'} ></VideoOverlay>
         </Route>
         <Route path="/posts/:blog">
           <Blog data={this.state.data} />
