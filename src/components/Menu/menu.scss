@@ -61,9 +61,9 @@
     }
 
     .search{
-        height:5vh;
-        width:4vw;
-        padding:12px;
+        height:60px;
+        width:80px;
+        padding:16px;
         right:0;
         position:fixed;
         z-index:101;
@@ -251,11 +251,11 @@
 }
 @media (min-width:768px) and (max-width:1300px){
     .search{
-        width:9.5vw;
-        height:6vh;
-        padding:16px;
+        height:60px;
+        width:80px;
     }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .expanderButton {
         background-color: #ffffff00 !important;
@@ -302,8 +302,6 @@
     }
 
     .search{
-        height:4vw;
-        right:0;
         position:fixed;
         z-index:101;
         background-color:#ffffff;
