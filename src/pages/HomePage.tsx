@@ -169,9 +169,17 @@ class HomePage extends React.Component<Props, State> {
       });
       getVideo.then((json: any) => {
         console.log({ "Success queries.getVideo: ": json });
-        this.setState({ data: json.data.getVideo })
+        if (json.data.getVideo === null) this.props.history.replace("/not-found")
+        else { this.setState({ data: json.data.getVideo }) }
+      }).catch((error: Error) => {
+        console.error(error)
+        Analytics.record({
+          name: 'error',
+          attributes: { page: jsonFile }
+        });
+        this.props.history.replace("/not-found")
+      })
 
-      }).catch((e: any) => { console.log(e) })
     } else if (pageType === 'blog') {
       const getBlog: any = API.graphql({
         query: queries.getBlog,
@@ -180,9 +188,17 @@ class HomePage extends React.Component<Props, State> {
       });
       getBlog.then((json: any) => {
         console.log({ "Success queries.getBlog: ": json });
-        this.setState({ data: json.data.getBlog })
+        if (json.data.getBlog === null) this.props.history.replace("/not-found")
+        else { this.setState({ data: json.data.getBlog }) }
         console.log(this.state.data);
-      }).catch((e: Error) => { console.error(e) })
+      }).catch((error: Error) => {
+        console.error(error)
+        Analytics.record({
+          name: 'error',
+          attributes: { page: jsonFile }
+        });
+        this.props.history.replace("/not-found")
+      })
     }
   }
 
@@ -191,7 +207,7 @@ class HomePage extends React.Component<Props, State> {
 
     return (
       <Switch>
-        <Route path={["/videos/:series/:episode", "/vidoes/:series"]}>
+        <Route path={["/videos/:series/:episode", "/videos/:series"]}>
           <VideoOverlay onClose={() => this.props.history.push("/")} data={this.state.data}></VideoOverlay>
         </Route>
         <Route path="/posts/:blog">
