@@ -344,6 +344,12 @@ class ListItem extends React.Component<Props, State> {
     return `/static/photos/blogs/${style}/` + encodeURIComponent(title.replace(/\?|[']/g, "")) + ".jpg"
   }
 
+  getPlaylistImageURI(title: string | null): string {
+    if (!title)
+      return ''
+    return `/static/photos/playlists/` + encodeURIComponent(title.replace(/\?|[']/g, "")) + ".png"
+  }
+
   renderBlogs(item: BlogData): JSX.Element | null {
     if (!item) {
       return null;
@@ -584,7 +590,7 @@ class ListItem extends React.Component<Props, State> {
         key={item.id} className="ListItemVideo">
         <img alt={item.title + ' playlist'}
           className="ListItemImage2"
-          src={'/static/photos/playlists/' + (item.title ?? '').replace(/\?|[']/g, "") + '.jpg'}
+          src={this.getPlaylistImageURI(item?.title)}
           onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
         />
         <div className="ListItemEpisodeNum" >{item.title}</div>
