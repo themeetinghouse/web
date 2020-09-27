@@ -46,7 +46,7 @@
                 "type": "list",
                 "style": "vertical",
                 "class": "compassion",
-                "header1": "What We Do",
+                "header1": "Our Focus",
                 "text1": "In collaboration with our partners, we've developed four focus areas that we support.",
                 "filterField":"sites",                 
                 "filterValue": "crossregional"
