@@ -127,7 +127,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   tick() {
-    const start = this.state.liveEvent?.videoStartTime
+    const start = this.state.liveEvent?.startTime
     const end = this.state.liveEvent?.endTime
     const rightNow = moment().tz("America/Toronto").format('HH:mm')
     if (start && end) {
