@@ -127,7 +127,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   tick() {
-    const start = this.state.liveEvent?.startTime
+    const start = this.state.liveEvent?.videoStartTime
     const end = this.state.liveEvent?.endTime
     const rightNow = moment().tz("America/Toronto").format('HH:mm')
     if (start && end) {
@@ -212,48 +212,49 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
             <div className="LiveVideoPlayerTitle">Church Livestream<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
             <br />
-            {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
-              <div className="LiveVideoPlayerExtra" >
-                {this.state.liveEvent.menu.map((item, index) => {
-                  const href = item?.link
-                  if (!href)
-                    return null
-
-                  const svg =
-                    item?.title === 'Notes' ? 'Notes-white' :
-                      item?.title === 'Give' ? 'Give-white' :
-                        item?.title === 'Music' ? 'Teaching-white' :
-                          item?.title === 'Kidmax' ? 'Family Friendly-white' :
-                            item?.title === 'Connect' ? 'User-white' : 'New Window-white'
-
-                  return <div key={index} className="LiveVideoPlayerSeriesNotes">
-                    {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
-                    <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
-                  </div>
-                })}
-              </div> : null}
-            <div className="ShareButtonMobile">{this.shareButton()}</div>
-            {this.state.liveEvent.showChat && !isMobile ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"}></iframe> : <div style={{ height: '10vw' }} />}
-            {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
-              <div className="ZoomGrid">
-                {this.state.liveEvent.zoom.map((item, index) => {
-                  const watchText =
-                    item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
-                      : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
-                        : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
-                          : 'Watch'
-                  return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
-                    <div className="ZoomText" >{item?.title}</div>
-                    <div className="WatchVideoTag">{watchText}</div>
-                  </a>
-                })}
-              </div> : null}
           </div>
           : <div>
             <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.prerollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
             <div className="LiveVideoPlayerTitle">Church Livestream Pre-Show</div>
             <br />
           </div>}
+        {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
+          <div className="LiveVideoPlayerExtra" >
+            {this.state.liveEvent.menu.map((item, index) => {
+              const href = item?.link
+              if (!href)
+                return null
+
+              const svg =
+                item?.title === 'Notes' ? 'Notes-white' :
+                  item?.title === 'Give' ? 'Give-white' :
+                    item?.title === 'Music' ? 'Teaching-white' :
+                      item?.title === 'Kidmax' ? 'Family Friendly-white' :
+                        item?.title === 'Connect' ? 'User-white' : 'New Window-white'
+
+              return <div key={index} className="LiveVideoPlayerSeriesNotes">
+                {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
+                <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
+              </div>
+            })}
+          </div> : null}
+        <div className="ShareButtonMobile">{this.shareButton()}</div>
+        {this.state.liveEvent.showChat && !isMobile ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"}></iframe> : <div style={{ height: '10vw' }} />}
+        {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
+          <div className="ZoomGrid">
+            {this.state.liveEvent.zoom.map((item, index) => {
+              const watchText =
+                item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
+                  : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
+                    : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
+                      : 'Watch'
+              return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
+                <div className="ZoomText" >{item?.title}</div>
+                <div className="WatchVideoTag">{watchText}</div>
+              </a>
+            })}
+          </div> : null}
+
         {this.state.liveEvent.showKids ?
           <div>
             <div className="LiveVideoPlayerEpisodeTitle">Preschool</div>
