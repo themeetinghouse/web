@@ -53,7 +53,7 @@
                     },
                     {
                         "src": "/static/images/homepage-1-8.jpg",
-                        "alt": "Young woman in a face mask is sitting and smiling as she talks to a friend off camera."
+                        "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
                     }
                 ],
                 "header1": "Hello Friend",
@@ -95,8 +95,8 @@
                 ],
                 "image1": [
                     {
-                        "src": "/static/images/homepage-corona.jpg",
-                        "alt": "Bruxy Cavey teaching during a Meeting House Sunday morning livestream."
+                        "src": "/static/images/homepage-covid-1.jpg",
+                        "alt": "A woman wearing a mask looking directly at the camera."
                     }
                 ]
             },
