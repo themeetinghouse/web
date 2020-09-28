@@ -1,11 +1,21 @@
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { GetCustomNotes } from "API";
 import { Analytics, API } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import moment from 'moment-timezone';
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { getNotesCustom } from '../../graphql-custom/customQueries';
+
+type GetCustomNotes = {
+  getNotes: {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    questions: string | null,
+    pdf: string | null,
+  }
+};
 
 type NoteData = GetCustomNotes['getNotes'];
 

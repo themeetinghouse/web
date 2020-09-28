@@ -42768,17 +42768,6 @@ export type GetNotesQueryVariables = {
   id: string,
 };
 
-export type GetCustomNotes = {
-  getNotes: {
-    __typename: "Notes",
-    id: string,
-    title: string | null,
-    content: string | null,
-    questions: string | null,
-    pdf: string | null,
-  }
-};
-
 export type GetNotesQuery = {
   getNotes:  {
     __typename: "Notes",
