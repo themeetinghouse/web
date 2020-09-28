@@ -85,7 +85,10 @@ build/
 dist/
 node_modules/
 awsconfiguration.json
-#amplify/team-provider-info.json
+amplifyconfiguration.json
+amplify-build-config.json
+amplify-gradle-config.json
+amplifytools.xcconfig
 out/
 
 # Elastic Beanstalk Files
@@ -99,3 +102,4 @@ images-sized
 google*.html
 amplify/mock-data
 src/version.js
+

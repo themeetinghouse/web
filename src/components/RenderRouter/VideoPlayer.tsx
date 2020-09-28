@@ -20,14 +20,14 @@ import {
 import { Link } from 'components/Link/Link';
 
 interface Props {
-  content: any,
-  data: any
+  content: any;
+  data: any;
 }
 interface State {
-  data: any,
-  content: any,
-  videoPlayer: any
-  watchPageVideoElements: HTMLCollection
+  data: any;
+  content: any;
+  videoPlayer: any;
+  watchPageVideoElements: HTMLCollection;
 }
 
 export default class VideoPlayer extends React.Component<Props, State> {
@@ -39,7 +39,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
       videoPlayer: null,
       watchPageVideoElements: document.getElementsByClassName('WatchPageVideo whiteText')
     }
-    console.log({ "VideoPlayer": props.data })
   }
 
   setVideoPlayer(event: { target: any }): void {
@@ -47,7 +46,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   pauseVideo(): void {
-    if (this.state.videoPlayer.f)
+    if (this.state.videoPlayer?.f)
       this.state.videoPlayer.pauseVideo()
   }
 

@@ -1,14 +1,15 @@
 {
-    "permissions": {
-        "api": {
-            "themeetinghouse": [
-                "read"
-            ]
-        },
-        "hosting": {
-            "S3AndCloudFront": [
-                "read"
-            ]
-        }
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "read"
+      ]
+    },
+    "hosting": {
+      "S3AndCloudFront": [
+        "read"
+      ]
     }
+  },
+  "lambdaLayers": []
 }

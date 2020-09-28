@@ -3,15 +3,14 @@
         "name": "video-player",
         "title": "Video Player",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": false,
-            "logoColor":"white",
-            "showSearch":false,
-            "showFooter":false,
-            "showMenu":false
+            "logoColor": "white",
+            "showSearch": false,
+            "showFooter": false,
+            "showMenu": false
         },
         "content": [
             {

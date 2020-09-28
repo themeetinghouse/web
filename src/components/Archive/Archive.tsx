@@ -28,7 +28,18 @@ export default class Archive extends React.Component<RouteComponentProps<Params>
 
         fetch(`/static/content/${pageType}.json`).then(function (response) {
             return response.json();
-        }).then((myJson) => this.setState({ content: myJson }))
+        }).then((myJson) => {
+            this.setState({ content: myJson })
+        }).catch((error: Error) => {
+            console.error(error)
+            fetch('/static/content/404.json').then(function (response) {
+                return response.json();
+            }).then((myJson) => {
+                this.setState({ content: myJson });
+            }).catch((e: Error) => {
+                console.error(e)
+            })
+        })
     }
 
     render() {

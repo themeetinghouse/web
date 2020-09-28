@@ -30,14 +30,16 @@
   {
     "FirstName": "Melinda",
     "LastName": "Lubbers",
-    "sites": ["BRAM"],
-    "Position": "Compassion Coordinator"
+    "sites": ["BRFD"],
+    "Email": "melinda.lubbers@themeetinghouse.com",
+    "Position": "Compassion Coordinator (Local)"
   },
   {
     "FirstName": "Monica",
     "LastName": "Lamain",
     "sites": ["BRFD"],
-    "Position": "Compassion Coordinator"
+    "Email": "monica.lamain@themeetinghouse.com",
+    "Position": "Compassion Coordinator (Global)"
   },
   {
     "FirstName": "Jennifer",
@@ -151,12 +153,6 @@
     "LastName": "Blekkenhorst",
     "sites": ["TODT"],
     "Email": "erica.blekkenhorst@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Kat",
-    "LastName": "Misztal-McCubbing",
-    "sites": ["TOHP"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -461,12 +457,6 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Becky",
-    "LastName": "Voll",
-    "sites": ["TOHP"],
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Emily",
     "LastName": "Piche",
     "sites": ["WAT"],
@@ -484,7 +474,7 @@
     "LastName": "Baker",
     "sites": ["BRFD"],
     "Email": "joyce.baker@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
+    "Position": "Parish Administrator"
   },
   {
     "FirstName": "Jamie",
@@ -568,13 +558,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Ronny",
-    "LastName": "Juarez",
-    "sites": ["TOHP"],
-    "Email": "ronny.juarez@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Russ",
     "LastName": "Skinner",
     "sites": ["TOUP"],
@@ -622,12 +605,6 @@
     "FirstName": "Angela",
     "LastName": "Kong",
     "sites": ["RHLL"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Ara",
-    "LastName": "Ehamparam",
-    "sites": ["TOHP"],
     "Position": "Welcome Coordinator"
   },
   {

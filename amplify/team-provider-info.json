@@ -75,7 +75,8 @@
       "DeploymentBucketName": "themeetinghouse-master-20190802000153-deployment",
       "UnauthRoleName": "themeetinghouse-master-20190802000153-unauthRole",
       "StackName": "themeetinghouse-master-20190802000153",
-      "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/themeetinghouse-master-20190802000153/441d9390-b4da-11e9-b84e-0a56ba5f6f9e"
+      "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/themeetinghouse-master-20190802000153/441d9390-b4da-11e9-b84e-0a56ba5f6f9e",
+      "AmplifyAppId": "d2x6ivhviflav1"
     },
     "categories": {
       "auth": {
@@ -110,7 +111,8 @@
       "function": {
         "themeetinghousea5cd4619": {},
         "S3AndCloudFront": {},
-        "emailHomeChurch": {}
+        "emailHomeChurch": {},
+        "socialBotHandler": {}
       }
     }
   }

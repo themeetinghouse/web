@@ -1,3 +1,176 @@
+export const listCustomPlaylists = /* GraphQL */ `
+  query ListCustomPlaylists(
+    $filter: ModelCustomPlaylistFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCustomPlaylists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        seriesType
+        title
+        description
+        createdAt
+        updatedAt
+        videos {
+          items {
+            id
+            videoID
+            customPlaylistID
+            createdAt
+            updatedAt
+            customPlaylist {
+              id
+              seriesType
+              title
+              description
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            video {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  title
+                  description
+                  thumbnails {
+                    default {
+                      url
+                      width
+                      height
+                    }
+                    medium {
+                      url
+                      width
+                      height
+                    }
+                    high {
+                      url
+                      width
+                      height
+                    }
+                    standard {
+                      url
+                      width
+                      height
+                    }
+                    maxres {
+                      url
+                      width
+                      height
+                    }
+                  }
+                  channelTitle
+                  localized {
+                    title
+                    description
+                  }
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+      nextToken
+    }
+  }
+`;
+
 export const getBlogByBlogStatus = /* GraphQL */ `
   query GetBlogByBlogStatus(
     $blogStatus: String

@@ -20,7 +20,7 @@ type Query {
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
-}
+} 
 type BibleResponse {
   data: BibleData
   meta: BibleMetaData

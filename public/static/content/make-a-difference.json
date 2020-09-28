@@ -36,7 +36,7 @@
                 ],
                 "header1": "Make a Difference",
                 "header2": "",
-                "text1": "We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?"
+                "text1": "We want to use our time, money, and resources to love and serve people on the margins. Are you looking to get involved?"
               
             },
             {
@@ -52,7 +52,7 @@
                     },
                     {
                         "title": "Compassion",
-                        "text": "We believe that all people are created in the image of God and have infinite worth. Therefore, we love, serve, and partner with vulnerable people as we journey together towards relationship, justice, and peace.",
+                        "text": "All people are created in the image of God and have infinite worth. Therefore we love, serve, and partner with vulnerable people as we journey toward relationship, justice, and peace.",
                         "imageSrc": "/static/images/make-a-difference-2.jpg",
                         "imageAlt": "Two people crossing a road",
                         "navigateTo": "/compassion"
