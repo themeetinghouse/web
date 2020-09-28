@@ -25,7 +25,7 @@
                 "style": "hero",
                 "class": "bbq",
                 "subclass": "bbq",
-                "header1": "Bruxy's Bag of Questions (BBQs)",
+                "header1": "Bruxy's Bag of Questions",
                 "options": [],
                 "group": "bbq",
                 "sortOrder": "DESC"
@@ -37,30 +37,45 @@
                 "subclass": "bbq",
                 "limit": 25,
                 "sortOrder": "DESC",
-                "header1": "All BBQ Videos"
+                "header1": "Bruxy's Bag of Questions"
+            },
+            {
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "playlists",
+                "header1": "Teaching by Topic",
+                "forceToTop": [
+                    "The Bible"
+                ]
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "random-suggested-playlist",
+                "header1": "Suggested Videos"
             },
             {
                 "type": "list",
                 "style": "horizontalBig",
                 "class": "series-collection",
                 "collection": [
-                "The Jesus and the Scandals",
-                "Big Buts of the Bible",
-                "Inglorious Pastors",
-                "Blind Religion",
-                "reVOLUtion",
-                "Grace Anatomy",
-                "The Look of Love"
+                    "The Jesus and the Scandals",
+                    "Big Buts of the Bible",
+                    "Inglorious Pastors",
+                    "Blind Religion",
+                    "reVOLUtion",
+                    "Grace Anatomy",
+                    "The Look of Love"
                 ],
                 "header1": "The Jesus-Centred Life"
-                },
+            },
             {
                 "type": "list",
                 "style": "horizontal",
                 "class": "videos",
-                "subclass": "meditation",
+                "subclass": "music",
                 "sortOrder": "DESC",
-                "header1": "Guided Prayer Meditation"
+                "header1": "Live Music Worship"
             },
             {
                 "type": "list",
@@ -69,24 +84,6 @@
                 "subclass": "after-party",
                 "sortOrder": "DESC",
                 "header1": "The After Party"
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "life-story",
-                "limit": 25,
-                "sortOrder": "DESC",
-                "header1": "Life Stories"
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "ky-youth",
-                "limit": 25,
-                "sortOrder": "DESC",
-                "header1": "Youth"
             }
         ]
     }

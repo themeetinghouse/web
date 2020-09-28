@@ -75,21 +75,6 @@
             },
             {
                 "type": "list",
-                "style": "horizontal",
-                "class": "random-suggested-playlist",
-                "header1": "Suggestions"
-            },
-            {
-                "type": "list",
-                "style": "horizontalBig",
-                "class": "playlists",
-                "header1": "Playlists",
-                "forceToTop": [
-                    "The Bible"
-                ]
-            },
-            {
-                "type": "list",
                 "style": "horizontalBig",
                 "class": "series",
                 "subclass": "adult-sunday",
