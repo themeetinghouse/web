@@ -60,7 +60,6 @@ export default function Notes() {
   }, [date, lastSunday, history]);
 
   useEffect(() => {
-    console.log("Loading page data")
     async function fetchPageData() {
       const response = await fetch('/static/content/notes-reader.json');
       const json = await response.json();
@@ -74,5 +73,5 @@ export default function Notes() {
   if (content && noteData) {
     return <RenderRouter data={noteData} content={content}></RenderRouter>
   }
-  return <h1>Loading or empty</h1>
+  return null
 }
