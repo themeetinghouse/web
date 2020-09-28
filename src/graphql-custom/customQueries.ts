@@ -918,6 +918,17 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
   }
 }
 `;
+export const getNotesCustom = `query GetNotes($id: ID!) {
+  getNotes(id: $id) {
+    id
+    pdf
+    title
+    content
+    questions
+  }
+}
+`;
+
 export const getVideoByVideoType = `query GetVideoByVideoType(
   $videoTypes: String
   $publishedDate: ModelStringKeyConditionInput

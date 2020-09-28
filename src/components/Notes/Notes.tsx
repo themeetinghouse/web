@@ -1,13 +1,13 @@
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { GetNotesQuery } from "API";
+import { GetCustomNotes } from "API";
 import { Analytics, API } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import moment from 'moment-timezone';
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import * as queries from '../../graphql/queries';
+import { getNotesCustom } from '../../graphql-custom/customQueries';
 
-type NoteData = GetNotesQuery['getNotes'];
+type NoteData = GetCustomNotes['getNotes'];
 
 interface Params {
   date?: string
@@ -37,10 +37,10 @@ export default function Notes() {
 
       try {
         const json = await (API.graphql({
-          query: queries.getNotes,
+          query: getNotesCustom,
           variables: { id: date },
           authMode: GRAPHQL_AUTH_MODE.API_KEY
-        }) as Promise<GraphQLResult<GetNotesQuery>>);
+        }) as Promise<GraphQLResult<GetCustomNotes>>);
 
         if (json.data?.getNotes) {
           setNoteData(json.data?.getNotes);
@@ -60,6 +60,7 @@ export default function Notes() {
   }, [date, lastSunday, history]);
 
   useEffect(() => {
+    console.log("Loading page data")
     async function fetchPageData() {
       const response = await fetch('/static/content/notes-reader.json');
       const json = await response.json();
@@ -73,5 +74,5 @@ export default function Notes() {
   if (content && noteData) {
     return <RenderRouter data={noteData} content={content}></RenderRouter>
   }
-  return null
+  return <h1>Loading or empty</h1>
 }
