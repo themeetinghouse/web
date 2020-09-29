@@ -26,14 +26,6 @@ export interface ItemImage {
   alt: string;
 }
 
-export interface GetCustomNotes {
-  id: string,
-  title: string | null,
-  content: string | null,
-  questions: string | null,
-  pdf: string | null,
-}
-
 export interface SearchBarContentProp {
   type: string;
   style: string;
