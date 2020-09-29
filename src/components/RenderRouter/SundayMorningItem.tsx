@@ -274,7 +274,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               : <div className="SundayMorningServiceTimes">{item.serviceTimes.map((t) => (t + ' am')).join(', ')}</div>}
                           </div>
                           <div className="SundayMorningItemDiv6" >
-                            <LinkButton className="SundayMorningButton1" to={item.id}>Visit Page</LinkButton>
+                            <LinkButton className="SundayMorningButton1" style={{ backgroundColor: "#1a1a1a", color: "#fff" }} to={item.id}>Visit Page</LinkButton>
                           </div>
                         </div>
                         <div className="SundayMorningButtonContainer">
