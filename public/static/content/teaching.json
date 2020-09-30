@@ -51,14 +51,14 @@
                 "style": "banner-cards",
                 "images": [
                     {
+                        "src": "/static/photos/banners/promo_jesusandjustice.png",
+                        "alt": "Graphic for the Jesus and Justice teaching series.",
+                        "linkto": "/videos/Jesus%20and%20Justice/O4Pqvv4ciP8"
+                    },
+                    {
                         "src": "/static/photos/banners/promo_peaceofmind.png",
                         "alt": "Graphic for Peace of Mind God and Mental Health teaching series.",
                         "linkto": "/videos/Peace%20of%20Mind/07jUBhJicCo"
-                    },
-                    {
-                        "src": "/static/photos/banners/promo_afterparty.png",
-                        "alt": "Graphic promoting The Meeting House After Party podcast.",
-                        "linkto": "https://podcasts.apple.com/podcast/id215990014"
                     }
                 ]
             },
@@ -72,21 +72,6 @@
                 "numberOfDays": 120,
                 "minViews": 1200,
                 "header1": "Popular Teaching"
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "random-suggested-playlist",
-                "header1": "Suggestions"
-            },
-            {
-                "type": "list",
-                "style": "horizontalBig",
-                "class": "playlists",
-                "header1": "Playlists",
-                "forceToTop": [
-                  "", "Angels, Demons, and Spirits", "Christian Theology", "Gods Good News", "Heaven and Hell", "Looking for a Place to Start", "Love and Relationship", "Mental Health", "Other Religions", "Spiritual Practices", "The Jesus Centred Life", "Women and The Church"
-                ]
             },
             {
                 "type": "list",

@@ -46,8 +46,8 @@
                 "type": "list",
                 "style": "vertical",
                 "class": "compassion",
-                "header1": "What We Do",
-                "text1": "In collaboration with our partners, we've developed four focus areas that we support.",
+                "header1": "Our Focus",
+                "text1": "In collaboration with our partners, we've developed four focus areas to streamline our efforts for greatest impact",
                 "filterField":"sites",                 
                 "filterValue": "crossregional"
             },
@@ -57,7 +57,7 @@
                 "class": "videos",
                 "subclass": "compassion",
                 "sortOrder": "DESC",
-                "header1": "Compassion"
+                "header1": "Videos"
             },
             {
                 "type": "content",

@@ -383,6 +383,7 @@
         white-space: normal;
         font-family: Graphik Web;
         color: $coolgray11;
+        word-wrap: break-word;
     }
 
     .ListItemEventsLocation {
@@ -966,7 +967,6 @@
         display: inline-block;
         width: 23vw;
         margin-right: 2vw;
-
         vertical-align: top;
     }
 
@@ -982,6 +982,7 @@
         white-space: normal;
         font-family: Graphik Web;
         color: $coolgray11;
+        word-wrap: break-word;
     }
 
     .ListItem.imageList {
@@ -1751,6 +1752,7 @@
         font-family: Graphik Web;
         margin-bottom: 20vw;
         color: $coolgray11;
+        word-wrap: break-word;
     }
 
     .ListItemEventsLocation {
