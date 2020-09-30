@@ -61,14 +61,16 @@
     }
 
     .search{
-        height:75px;
-        width:105px;
-        padding:16px;
+        height:3.889vw;
+        width:5vw;
+        min-height:56px;
+        min-width:72px;
         right:0;
         position:fixed;
         z-index:101;
         background-color: #ffffff;
         cursor:pointer;
+        padding:1vw;
     }
 
     .liveEvent{
@@ -249,12 +251,7 @@
         height: 14vh
       }
 }
-@media (min-width:768px) and (max-width:1300px){
-    .search{
-        height:65px;
-        width:80px;
-    }
-}
+
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .expanderButton {
@@ -302,6 +299,7 @@
     }
 
     .search{
+        padding:1.3vw;
         position:fixed;
         z-index:101;
         background-color:#ffffff;
