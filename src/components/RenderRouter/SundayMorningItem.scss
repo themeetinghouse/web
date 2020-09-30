@@ -136,7 +136,8 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 88vh;
+        height: 98vh;
+        top:-2vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -162,7 +163,7 @@
     .SundayMorningItemDiv6 {
         margin-left: auto;
         margin-right: 10px;
-        padding-top: 10px;
+        padding-top:10px
     }
 
     .SundayMorningItemListData {
@@ -266,6 +267,11 @@
         margin:0.1vw;
         font-weight:normal;
         width:11vw;
+    }
+    #customBlackButton{
+        color: #ffffff;
+        background-color: #1a1a1a;
+        margin-top:0;
     }
     .SundayMorningButton1:hover{
         border-width: 0px;
@@ -486,7 +492,7 @@
 
 @media (max-width: 767px) {
     .SundayMorningItem {
-
+        
         padding-bottom: 10vw;
         padding-top: 5vh;
     }
@@ -502,6 +508,7 @@
         // left: 0vw;
         width: 100%;
         height: 50vh;
+        //max-height:380px;
         top: 25vw;
     }
 
