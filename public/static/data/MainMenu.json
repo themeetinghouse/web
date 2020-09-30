@@ -57,6 +57,16 @@
     },
     {
         "name": "Locations",
-        "location": "/locations"
+        "location": "/locations",
+        "children": [
+            {
+                "name": "Sunday Morning",
+                "location": "/find-sunday-morning"
+            },
+            {
+                "name": "Home Church",
+                "location": "/find-homechurch"
+            }
+        ]
     }
 ]
