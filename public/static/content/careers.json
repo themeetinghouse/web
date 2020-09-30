@@ -62,11 +62,6 @@
                 "list": [
                     {
                         "type":"link",
-                        "title": "Communications Project Coordinator & Administrator",
-                        "navigateTo": "/static/pdfs/careers/Comms Project Coordinator & Administrator.pdf"
-                    },
-                    {
-                        "type":"link",
                         "title": "Lead Pastor",
                         "navigateTo": "/static/pdfs/careers/2020 Lead Pastor.pdf"
                     },
