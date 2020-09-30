@@ -252,7 +252,11 @@
       }
 }
 
-
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .search{
+        padding:1.6vw;
+    }
+}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .expanderButton {
         background-color: #ffffff00 !important;
