@@ -1,13 +1,23 @@
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { GetNotesQuery } from "API";
 import { Analytics, API } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import moment from 'moment-timezone';
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import * as queries from '../../graphql/queries';
+import { getNotesCustom } from '../../graphql-custom/customQueries';
 
-type NoteData = GetNotesQuery['getNotes'];
+type GetCustomNotes = {
+  getNotes: {
+    __typename: "Notes",
+    id: string,
+    title: string | null,
+    content: string | null,
+    questions: string | null,
+    pdf: string | null,
+  }
+};
+
+type NoteData = GetCustomNotes['getNotes'];
 
 interface Params {
   date?: string
@@ -37,10 +47,10 @@ export default function Notes() {
 
       try {
         const json = await (API.graphql({
-          query: queries.getNotes,
+          query: getNotesCustom,
           variables: { id: date },
           authMode: GRAPHQL_AUTH_MODE.API_KEY
-        }) as Promise<GraphQLResult<GetNotesQuery>>);
+        }) as Promise<GraphQLResult<GetCustomNotes>>);
 
         if (json.data?.getNotes) {
           setNoteData(json.data?.getNotes);
