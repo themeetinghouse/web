@@ -51,7 +51,7 @@
                     {
                         "type": "link",
                         "title": "Watch the Preschool Video",
-                        "navigateTo": "/videos/preschool-Preschool/Y8SqRda0nd8",
+                        "navigateTo": "/videos/preschool-Preschool/B1Ku1NEgG_M",
                         "openNewBrowser": true
                     },
                     {
@@ -64,6 +64,12 @@
                         "type": "link",
                         "title": "Download Preschool Activities",
                         "navigateTo": "/static/pdfs/kidmax-files/PS-Activities.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Download Preschool Key Verse Colouring Page",
+                        "navigateTo": "/static/pdfs/kidmax-files/PS-Colouring.pdf",
                         "openNewBrowser": true
                     }
                 ]
@@ -84,13 +90,19 @@
                     {
                         "type": "link",
                         "title": "Watch the Kids Video",
-                        "navigateTo": "/videos/Kids-ky-kids/Vo0OfMxFWtE",
+                        "navigateTo": "/videos/Kids-ky-kids/N_j_1wv_61I",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
                         "title": "Download Kids Lesson",
                         "navigateTo": "/static/pdfs/kidmax-files/Kids-Lesson.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Download Kids Key Verse Colouring Page",
+                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Colouring.pdf",
                         "openNewBrowser": true
                     }
                 ]
