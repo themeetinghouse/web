@@ -4,12 +4,12 @@ import ReactGA from 'react-ga';
 import { Route, Switch, withRouter, Redirect, RouteComponentProps } from 'react-router-dom';
 import awsconfig from '../../src/aws-exports';
 import '../custom.scss';
-import ContentPage from 'components/ContentPage';
+import ContentPage from 'components/Loaders/ContentPage';
 
-const Videos = React.lazy(() => import('../components/Videos'));
-const Blog = React.lazy(() => import('../components/Blog/Blog'));
-const Notes = React.lazy(() => import('../components/Notes/Notes'));
-const Archive = React.lazy(() => import('../components/Archive/Archive'));
+const Videos = React.lazy(() => import('../components/Loaders/Videos'));
+const Blog = React.lazy(() => import('../components/Loaders/Blog'));
+const Notes = React.lazy(() => import('../components/Loaders/Notes'));
+const Archive = React.lazy(() => import('../components/Loaders/Archive'));
 
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');

@@ -1,8 +1,8 @@
 import { Analytics } from "aws-amplify";
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
-import RenderRouter from './RenderRouter/RenderRouter';
-import VideoOverlay from '../components/VideoOverlay/VideoOverlay'
+import RenderRouter from '../RenderRouter/RenderRouter';
+import VideoOverlay from '../VideoOverlay/VideoOverlay'
 
 const notFoundPageContent = fetch('/static/content/404.json').then((response) => response.json());
 

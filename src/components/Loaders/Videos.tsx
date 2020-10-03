@@ -3,8 +3,8 @@ import { GetVideoQuery } from 'API';
 import { API, Analytics } from 'aws-amplify';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import * as queries from '../graphql/queries';
-import VideoOverlay from './VideoOverlay/VideoOverlay';
+import * as queries from '../../graphql/queries';
+import VideoOverlay from '../VideoOverlay/VideoOverlay';
 
 interface Params {
     isPlaylist?: boolean
