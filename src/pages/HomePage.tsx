@@ -25,6 +25,16 @@ const redirectData = fetch('/static/data/redirect.json').then<Array<{
   to: string;
 }>>((response) => response.json());
 
+export interface RouteParams {
+  id?: string;
+  blog?: string;
+  episode?: string;
+  series?: string;
+  note?: string;
+  playlist?: string;
+}
+
+
 interface State {
   redirects?: Array<{ id: string; to: string }>;
 }
@@ -52,8 +62,6 @@ class HomePage extends React.Component<RouteComponentProps, State> {
     this.unregisterGAListener?.();
   }
 
-
-
   render() {
     const { redirects } = this.state;
     if (!redirects) {
@@ -73,6 +81,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
           })
         }
         <Route path={["/videos/:series/:episode", "/videos/:series"]} component={Videos} />
+        <Route path="/playlist/:playlist/:episode" component={() => <Videos isPlaylist />} />
         <Route path="/posts/:blog" component={Blog} />
         <Route path="/notes/:date?" component={Notes} />
         <Route path="/archive/:archiveType(series|video)/:subclass" component={Archive} />

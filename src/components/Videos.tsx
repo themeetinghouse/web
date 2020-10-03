@@ -6,7 +6,11 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 import * as queries from '../graphql/queries';
 import VideoOverlay from './VideoOverlay/VideoOverlay';
 
-export default function Videos(): ReactElement | null {
+interface Params {
+    isPlaylist?: boolean
+}
+
+export default function Videos({ isPlaylist }: Params): ReactElement | null {
     const history = useHistory();
     const match = useRouteMatch<{ episode?: string }>();
 
@@ -15,7 +19,7 @@ export default function Videos(): ReactElement | null {
     useEffect(() => {
         Analytics.record({
             name: 'pageVisit',
-            attributes: { page: 'video-player' }
+            attributes: { page: isPlaylist ? 'video-playlist' : 'video-player' }
         });
     }, []);
 
@@ -27,12 +31,21 @@ export default function Videos(): ReactElement | null {
                     variables: { id: match.params.episode },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 }) as Promise<GraphQLResult<GetVideoQuery>>);
-                setData(json.data?.getVideo);
+
+                if (!json.data?.getVideo)
+                    history.replace("/not-found")
+                else
+                    setData(json.data?.getVideo);
             } catch (e) {
                 console.error(e);
+                Analytics.record({
+                    name: 'error',
+                    attributes: { page: isPlaylist ? 'video-playlist' : 'video-player' }
+                });
+                history.replace("/not-found")
             }
         })();
     }, [match.params.episode]);
 
-    return <VideoOverlay onClose={() => history.push("/")} data={data} > </VideoOverlay>
+    return <VideoOverlay onClose={() => history.push("/")} data={data} isPlaylist={isPlaylist} />
 } 

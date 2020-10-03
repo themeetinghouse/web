@@ -1,4 +1,3 @@
-
 import React from 'react';
 import RenderRouter from '../RenderRouter/RenderRouter'
 import { Modal } from 'react-bootstrap'
@@ -9,6 +8,10 @@ const searchPageContent = fetch('/static/content/search.json').then(function (re
 });
 
 const playerPageContent = fetch('/static/content/video-player.json').then(function (response) {
+  return response.json();
+});
+
+const playlistPageContent = fetch('/static/content/video-playlist.json').then(function (response) {
   return response.json();
 });
 
@@ -34,8 +37,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
     if (this.props.data !== prevProps.data) {
       if (this.props.data === null) {
         this.setState({ content: null })
-      }
-      else if (this.props.data === "search") {
+      } else if (this.props.isPlaylist) {
+        playlistPageContent.then((myJson) => {
+          this.setState({ content: myJson });
+        })
+      } else if (this.props.data === "search") {
         searchPageContent.then((myJson) => {
           this.setState({ content: myJson });
         })
