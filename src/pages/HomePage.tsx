@@ -34,7 +34,6 @@ export interface RouteParams {
   playlist?: string;
 }
 
-
 interface State {
   redirects?: Array<{ id: string; to: string }>;
 }
@@ -44,7 +43,6 @@ class HomePage extends React.Component<RouteComponentProps, State> {
 
   constructor(props: RouteComponentProps) {
     super(props);
-
     this.state = {};
   }
 

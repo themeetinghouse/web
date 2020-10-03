@@ -19,7 +19,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
     useEffect(() => {
         Analytics.record({
             name: 'pageVisit',
-            attributes: { page: isPlaylist ? 'video-playlist' : 'video-player' }
+            attributes: { page: 'video-player' }
         });
     }, []);
 
@@ -40,12 +40,12 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
                 console.error(e);
                 Analytics.record({
                     name: 'error',
-                    attributes: { page: isPlaylist ? 'video-playlist' : 'video-player' }
+                    attributes: { page: 'video-player' }
                 });
                 history.replace("/not-found")
             }
         })();
-    }, [match.params.episode]);
+    }, [match.params.episode, history]);
 
     return <VideoOverlay onClose={() => history.push("/")} data={data} isPlaylist={isPlaylist} />
 } 

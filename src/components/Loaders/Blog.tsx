@@ -48,7 +48,7 @@ export default function Blog(): ReactElement | null {
       }
     }
     load();
-  }, [match.params.blog]);
+  }, [match.params.blog, history]);
 
   if (!data || !content) {
     return null;

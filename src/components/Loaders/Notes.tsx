@@ -40,6 +40,12 @@ export default function Notes() {
   const lastSunday = getLastSunday();
 
   useEffect(() => {
+
+    Analytics.record({
+      name: 'pageVisit',
+      attributes: { page: 'notes' }
+    });
+
     async function fetchNoteData(date: string | undefined) {
       if (!date) {
         date = lastSunday;

@@ -36,7 +36,7 @@ export default function ContentPage(): ReactElement | null {
                 }
                 setContent(content);
                 return;
-            } catch (e) { }
+            } catch (e) { console.error(e) }
 
             Analytics.record({
                 name: 'error',
