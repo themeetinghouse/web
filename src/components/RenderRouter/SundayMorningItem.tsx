@@ -214,7 +214,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
             <div className="SundayMorningItemDiv2" >
               <div className="SundayMorningMap">
-                <Map google={this.props.google} zoom={6} initialCenter={{ lat: 44, lng: -78.0 }} mapTypeControl={false} onReady={(_props, map) => { this.map = map }}>
+                <Map google={this.props.google} zoom={6} initialCenter={{ lat: 44, lng: -78.0 }} mapTypeControl={false} fullscreenControl={false} onReady={(_props, map) => { this.map = map }}>
                   <Marker icon={CURRENT_LOCATION_URL} position={{ ...this.state.currentLatLng }} />
                   {this.state.listData.map((item, index) => {
                     return (<Marker key={index} onClick={this.getMarkerClickHandler(item)} icon={this.state.selectedPlace === item ? SITE_PIN_SELECTED_URL : SITE_PIN_URL}
