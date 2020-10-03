@@ -3,7 +3,7 @@ import { GetVideoQuery } from 'API';
 import { API, Analytics } from 'aws-amplify';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 
 interface Params {
@@ -27,7 +27,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
         (async () => {
             try {
                 const json = await (API.graphql({
-                    query: queries.getVideo,
+                    query: customQueries.getVideo,
                     variables: { id: match.params.episode },
                     authMode: GRAPHQL_AUTH_MODE.API_KEY
                 }) as Promise<GraphQLResult<GetVideoQuery>>);
