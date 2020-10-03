@@ -1,41 +1,30 @@
-
 import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import PropTypes from "prop-types";
 import { withCookies } from 'react-cookie';
 import "./TeachingItem.scss"
-import * as queries from '../../graphql/queries';
-import Amplify, { API } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
+import * as customQueries from '../../graphql-custom/customQueries';
+import { API } from 'aws-amplify';
 import VideoOverlay from '../VideoOverlay/VideoOverlay'
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { LinkButton } from 'components/Link/Link';
 import { Button } from 'reactstrap';
 
-//import uuidv4 from 'uuid/v4'
-Amplify.configure(awsmobile);
-
 interface Props extends RouteComponentProps {
-    content: any,
-    cookies: any
+    content: any;
+    cookies: any;
 }
 interface State {
-    content: any,
-    selection: string | null
-    listData: any,
-    teachingId: any,
-    overlayData: any
+    content: any;
+    selection: string | null;
+    listData: any;
+    teachingId: any;
+    overlayData: any;
 }
 class TeachingItem extends React.Component<Props, State> {
 
-    static contextTypes = {
-        router: PropTypes.object,
-        history: PropTypes.object
-    }
 
-    constructor(props: Props, context: any) {
-        super(props, context);
-        console.log(context);
+    constructor(props: Props) {
+        super(props);
         const { cookies } = props;
         if (cookies.get(this.props.content.group) == null)
             cookies.set(this.props.content.group, this.props.content.options[0], { path: '/' });
@@ -49,12 +38,12 @@ class TeachingItem extends React.Component<Props, State> {
         }
         if (this.props.content.class === "teaching-sunday") {
             const getVideoByVideoType: any = API.graphql({
-                query: queries.getVideoByVideoType,
+                query: customQueries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             getVideoByVideoType.then((json: any) => {
-                console.log("Success queries.getVideoByVideoType: " + json);
+                console.log("Success customQueries.getVideoByVideoType: " + json);
                 console.log(json)
                 this.setState({
                     listData: json.data.getVideoByVideoType.items
@@ -63,12 +52,12 @@ class TeachingItem extends React.Component<Props, State> {
         }
         else if (this.props.content.class === "bbq") {
             const getVideoByVideoType: any = API.graphql({
-                query: queries.getVideoByVideoType,
+                query: customQueries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 2, videoTypes: this.state.content.subclass, publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             getVideoByVideoType.then((json: any) => {
-                console.log("Success queries.getVideoByVideoType: " + json);
+                console.log("Success customQueries.getVideoByVideoType: " + json);
                 console.log(json)
                 this.setState({
                     listData: json.data.getVideoByVideoType.items
@@ -78,42 +67,42 @@ class TeachingItem extends React.Component<Props, State> {
         else if (this.props.content.class === "teaching-kids-youth") {
             console.log("teaching-kids-youth")
             const getVideoByVideoType1: any = API.graphql({
-                query: queries.getVideoByVideoType,
+                query: customQueries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             const getVideoByVideoType2: any = API.graphql({
-                query: queries.getVideoByVideoType,
+                query: customQueries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             const getVideoByVideoType3: any = API.graphql({
-                query: queries.getVideoByVideoType,
+                query: customQueries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             const getVideoByVideoType4: any = API.graphql({
-                query: queries.getVideoByVideoType,
+                query: customQueries.getVideoByVideoType,
                 variables: { sortDirection: this.state.content.sortOrder, limit: 1, videoTypes: "ky-srhigh", publishedDate: { lt: "a" } },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             });
             getVideoByVideoType1.then((json1: any) => {
-                console.log({ "Success queries.getVideoByVideoType: ": json1 });
+                console.log({ "Success customQueries.getVideoByVideoType: ": json1 });
                 this.setState({
                     listData: json1.data.getVideoByVideoType.items
                 })
                 getVideoByVideoType2.then((json2: any) => {
-                    console.log({ "Success queries.getVideoByVideoType: ": json2 });
+                    console.log({ "Success customQueries.getVideoByVideoType: ": json2 });
                     this.setState({
                         listData: this.state.listData.concat(json2.data.getVideoByVideoType.items)
                     })
                     getVideoByVideoType3.then((json3: any) => {
-                        console.log({ "Success queries.getVideoByVideoType: ": json3 });
+                        console.log({ "Success customQueries.getVideoByVideoType: ": json3 });
                         this.setState({
                             listData: this.state.listData.concat(json3.data.getVideoByVideoType.items)
                         })
                         getVideoByVideoType4.then((json4: any) => {
-                            console.log({ "Success queries.getVideoByVideoType: ": json4 });
+                            console.log({ "Success customQueries.getVideoByVideoType: ": json4 });
                             this.setState({
                                 listData: this.state.listData.concat(json4.data.getVideoByVideoType.items)
                             })

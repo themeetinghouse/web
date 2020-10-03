@@ -2,7 +2,6 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
 import "./BlogItem.scss"
 import * as customQueries from '../../graphql-custom/customQueries';
-import * as queries from '../../graphql/queries';
 import { API } from 'aws-amplify';
 import moment from 'moment';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
@@ -83,7 +82,7 @@ class BlogItem extends React.Component<Props, State> {
         try {
             const today = moment();
             const json = await API.graphql({
-                query: queries.getBlogSeries,
+                query: customQueries.getBlogSeries,
                 variables: { id: this.props.content.blogSeries },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             }) as GraphQLResult<GetBlogSeriesQuery>;

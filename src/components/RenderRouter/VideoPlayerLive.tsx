@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import "./VideoPlayerLive.scss";
 import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
@@ -47,55 +48,54 @@ export default class VideoPlayer extends React.Component<Props, State> {
     }
     this.getLive()
     const getVideoByVideoType: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 2, videoTypes: 'adult-sunday', publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     getVideoByVideoType.then((json: any) => {
-      console.log("Success queries.getVideoByVideoType: " + json);
-      console.log(json)
+      console.log("Success customQueries.getVideoByVideoType: " + json);
       this.setState({
         listData: json.data.getVideoByVideoType.items
       })
     }).catch((e: any) => { console.log(e) })
 
     const getVideoByVideoType1: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     const getVideoByVideoType2: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     const getVideoByVideoType3: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     const getVideoByVideoType4: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "preschool", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     getVideoByVideoType1.then((json1: any) => {
-      console.log({ "Success queries.getVideoByVideoType: ": json1 });
+      console.log({ "Success customQueries.getVideoByVideoType: ": json1 });
       this.setState({
         kidData: json1.data.getVideoByVideoType.items
       })
       getVideoByVideoType2.then((json2: any) => {
-        console.log({ "Success queries.getVideoByVideoType: ": json2 });
+        console.log({ "Success customQueries.getVideoByVideoType: ": json2 });
         this.setState({
           kidData: this.state.kidData.concat(json2.data.getVideoByVideoType.items)
         })
         getVideoByVideoType3.then((json3: any) => {
-          console.log({ "Success queries.getVideoByVideoType: ": json3 });
+          console.log({ "Success customQueries.getVideoByVideoType: ": json3 });
           this.setState({
             kidData: this.state.kidData.concat(json3.data.getVideoByVideoType.items)
           })
           getVideoByVideoType4.then((json4: any) => {
-            console.log({ "Success queries.getVideoByVideoType: ": json4 });
+            console.log({ "Success customQueries.getVideoByVideoType: ": json4 });
             this.setState({
               kidData: this.state.kidData.concat(json4.data.getVideoByVideoType.items)
             })
