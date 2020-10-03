@@ -43,7 +43,7 @@
                 "text1": "Here's what we're learning in preschool this week:",
                 "image1": [
                     {
-                        "src": "/static/images/PS-Big Idea.jpg",
+                        "src": "/static/images/PS-Bigidea.jpg",
                         "alt": "This month's big idea: God created a very good world"
                     }
                 ],
@@ -82,7 +82,7 @@
                 "text1": "Here's what our Grade 1-5 students are learning this week:",
                 "image1": [
                     {
-                        "src": "/static/images/Kids-Big Idea2.jpg",
+                        "src": "/static/images/Kids-Bigidea.png",
                         "alt": "This week's big idea: Sin polluted God's perfect world."
                     }
                 ],
@@ -97,6 +97,12 @@
                         "type": "link",
                         "title": "Download Kids Lesson",
                         "navigateTo": "/static/pdfs/kidmax-files/Kids-Lesson.pdf",
+                        "openNewBrowser": true
+                    },
+                    {
+                        "type": "link",
+                        "title": "Download Kids Activities",
+                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Activities.pdf",
                         "openNewBrowser": true
                     },
                     {
