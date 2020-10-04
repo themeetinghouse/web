@@ -61,11 +61,10 @@
     }
 
     .search{
-        display:none;
-        height:3.889vw;
+        height:5vw;
         width:5vw;
-        min-height:56px;
-        min-width:72px;
+//        min-height:56px;
+//        min-width:72px;
         right:0;
         position:fixed;
         z-index:101;
@@ -253,11 +252,6 @@
       }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .search{
-        padding:1.6vw;
-    }
-}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .expanderButton {
         background-color: #ffffff00 !important;
@@ -304,7 +298,9 @@
     }
 
     .search{
-        padding:1.3vw;
+        height:5vw;
+        width:5vw;
+//        padding:1.3vw;
         position:fixed;
         z-index:101;
         background-color:#ffffff;
@@ -475,7 +471,6 @@
     }
 
     .search{
-        display:none;
         height:8vw;
         left:73vw;
         position:absolute;
