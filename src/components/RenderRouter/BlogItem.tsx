@@ -2,19 +2,16 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
 import "./BlogItem.scss"
 import * as customQueries from '../../graphql-custom/customQueries';
-import * as queries from '../../graphql/queries';
-import Amplify, { API } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
-import moment from 'moment'
+import { API } from 'aws-amplify';
+import moment from 'moment';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { Link, LinkButton } from 'components/Link/Link';
 import { GetBlogSeriesQuery, GetBlogByBlogStatusQuery } from 'API';
 import { BlogItemContent } from '../types';
-
-Amplify.configure(awsmobile);
+import ScaledImage from '../ScaledImage/ScaledImage';
 
 type BlogSeries = NonNullable<NonNullable<GetBlogSeriesQuery['getBlogSeries']>['blogs']>['items'];
-type BlogSeriesPosts = Array<NonNullable<NonNullable<BlogSeries>[0]>['blogPost']>
+type BlogSeriesPosts = Array<NonNullable<NonNullable<BlogSeries>[0]>['blogPost']>;
 type Blogs = NonNullable<GetBlogByBlogStatusQuery['getBlogByBlogStatus']>['items'];
 
 interface Props {
@@ -25,6 +22,7 @@ interface State {
     blogs: Blogs;
     blogSeries: BlogSeries;
     publishedOnly: BlogSeriesPosts | Blogs;
+    screenWidth: number;
 }
 
 class BlogItem extends React.Component<Props, State> {
@@ -35,13 +33,21 @@ class BlogItem extends React.Component<Props, State> {
             blogs: [],
             blogSeries: [],
             publishedOnly: [],
+            screenWidth: window.innerWidth,
         }
 
         if (this.props.content.blogSeries)
             this.getBlogSeries();
         else
             this.getBlogsByStatus();
+    }
 
+    componentDidMount() {
+        window.addEventListener('resize', () => this.setState({ screenWidth: window.innerWidth }))
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', () => this.setState({ screenWidth: window.innerWidth }))
     }
 
     async getBlogsByStatus(): Promise<void> {
@@ -76,7 +82,7 @@ class BlogItem extends React.Component<Props, State> {
         try {
             const today = moment();
             const json = await API.graphql({
-                query: queries.getBlogSeries,
+                query: customQueries.getBlogSeries,
                 variables: { id: this.props.content.blogSeries },
                 authMode: GRAPHQL_AUTH_MODE.API_KEY
             }) as GraphQLResult<GetBlogSeriesQuery>;
@@ -165,17 +171,38 @@ class BlogItem extends React.Component<Props, State> {
                     <div className="blog twoImage" >
                         <h1 className="blog-h1 twoImage" >{this.props.content.header1}</h1>
                         {this.state.publishedOnly.slice(0, 2).map((item, index) => {
+
+                            const imageSquare = {
+                                src: this.getImageURI(item?.blogTitle, 'square'),
+                                alt: `blog post:" ${item?.id}`,
+                            }
+                            const imageBanner = {
+                                src: this.getImageURI(item?.blogTitle, 'banner'),
+                                alt: `blog post:" ${item?.id}`,
+                            }
                             return (
                                 <div key={index} className="BlogTwoImageItem">
                                     <Link to={"/posts/" + item?.id}>
-                                        <img alt={item?.id + " series image"}
-                                            className="BlogSquareImage twoImage"
-                                            src={this.getImageURI(item?.blogTitle, 'square')}
-                                            onError={this.fallbackToImage('/static/photos/blogs/square/fallback.jpg')} />
-                                        <img alt={item?.id + " series image"}
-                                            className="BlogBannerImage twoImage"
-                                            src={this.getImageURI(item?.blogTitle, 'banner')}
-                                            onError={this.fallbackToImage('/static/photos/blogs/banner/fallback.jpg')} />
+                                        {this.state.screenWidth > 768 ?
+                                            <ScaledImage image={imageBanner} className="BlogBannerImage twoImage" fallbackUrl='/static/photos/blogs/banner/fallback.jpg'
+                                                breakpointSizes={{
+                                                    320: 160,
+                                                    480: 240,
+                                                    640: 320,
+                                                    1280: 640,
+                                                    1920: 960,
+                                                    2560: 1280,
+                                                }} /> :
+                                            <ScaledImage image={imageSquare} className="BlogSquareImage twoImage" fallbackUrl='/static/photos/blogs/square/fallback.jpg'
+                                                breakpointSizes={{
+                                                    320: 320,
+                                                    480: 480,
+                                                    640: 640,
+                                                    1280: 1280,
+                                                    1920: 1920,
+                                                    2560: 2560,
+                                                }} />
+                                        }
                                     </Link>
                                     <div className="BlogTwoImageTextContainer">
                                         <div className="blog-post-title twoImage">{item?.blogTitle}</div>

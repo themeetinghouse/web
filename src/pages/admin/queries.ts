@@ -1,3 +1,11 @@
+export const getInstagram = /* GraphQL */ `
+  query GetInstagram($id: ID!) {
+    getInstagram(id: $id) {
+      id
+    }
+  }
+`;
+
 export const listCustomPlaylistsAdmin = /* GraphQL */ `
 query ListCustomPlaylists(
   $filter: ModelCustomPlaylistFilterInput

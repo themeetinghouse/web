@@ -165,11 +165,10 @@ class HomeMenu extends React.Component<Props, State>  {
   render() {
     // console.log(this.state.position)
     return (
-
       <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
         <NavbarBrand tag={Link} className="brand" to="/">
-          <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" />
-          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" />) : null}
+          <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
+          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className="logoText" />) : null}
         </NavbarBrand>
         {this.state.showLiveEvent ? <Link className="liveEvent" to="/live">{this.state.liveTitle}</Link> : null}
         {this.state.showSearch

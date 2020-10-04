@@ -241,7 +241,6 @@ export default class ImportYoutube {
   setPlaylists(json: any) {
     console.log("setPlaylists: " + json);
     this.playlistData = this.playlistData.concat(json.data.getYoutubePlaylist.items)
-
   }
 
   loadPlaylists(nextPageToken: any) {
@@ -296,7 +295,7 @@ export default class ImportYoutube {
     try {
       const getVideoByYoutubeIdent: any = await API.graphql(graphqlOperation(customqueries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
       if (getVideoByYoutubeIdent.data.getVideoByYoutubeIdent.items.length === 0 && vid1.status.privacyStatus !== "private") {
-        console.log({"Write Youtube": vid1})
+        console.log({ "Write Youtube": vid1 })
         console.log(getVideoByYoutubeIdent)
 
         console.log("Do mutations.createVideo")
@@ -309,9 +308,9 @@ export default class ImportYoutube {
           delete vid1.snippet['localized']
         if (vid1.statistics == null)
           delete vid1.statistics
-        
+
         try {
-          const getYoutubeVideoContentDetails: any = await API.graphql(graphqlOperation(queries.getYoutubeVideoContentDetails , { videoId: vid1.contentDetails.videoId }));
+          const getYoutubeVideoContentDetails: any = await API.graphql(graphqlOperation(queries.getYoutubeVideoContentDetails, { videoId: vid1.contentDetails.videoId }));
           const fullContentDetails = getYoutubeVideoContentDetails.data?.getYoutubeVideoContentDetails?.items[0]?.contentDetails?.duration ?? ""
           const duration = fullContentDetails === "" ? "" : Math.round(moment.duration(fullContentDetails).as('minutes')).toString()
           const createVideo: any = await API.graphql({
@@ -320,7 +319,7 @@ export default class ImportYoutube {
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
           });
           console.log({ "Success mutations.createVideo": createVideo });
-        } catch(err) {
+        } catch (err) {
           console.error({ "Error mutations.createVideo": err });
           console.log(vid1)
         }
@@ -337,16 +336,16 @@ export default class ImportYoutube {
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
               });
               console.log({ "Success mutations.updateVideo": updateVideo });
-            } catch(err) {
+            } catch (err) {
               console.error(err)
             }
           }
-        } catch(err) {
+        } catch (err) {
           console.error(err)
         }
       }
-    } catch(err) {
+    } catch (err) {
       console.error({ "Error queries.getVideoByYoutubeIdent: ": err })
     }
-  } 
+  }
 }
