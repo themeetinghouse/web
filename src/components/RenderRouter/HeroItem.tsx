@@ -66,7 +66,7 @@ class HeroItem extends React.Component<Props, State> {
   }
 
   locationChange(item: any) {
-    this.navigateTo(item.value)
+    this.props.history.push('/' + item.value)
   }
   navigate() {
     this.props.history.push("spirituality", "as")
