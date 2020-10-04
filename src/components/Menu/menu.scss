@@ -61,13 +61,17 @@
     }
 
     .search{
-        height:4vw;
-        left:95vw;
-        position:absolute;
-        z-index:100;
-        background-color: #ffffff00;
+        display:none;
+        height:3.889vw;
+        width:5vw;
+        min-height:56px;
+        min-width:72px;
+        right:0;
+        position:fixed;
+        z-index:101;
+        background-color: #ffffff;
         cursor:pointer;
-        margin-top:0.5vw;
+        padding:1.1vw;
     }
 
     .liveEvent{
@@ -248,6 +252,12 @@
         height: 14vh
       }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .search{
+        padding:1.6vw;
+    }
+}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .expanderButton {
         background-color: #ffffff00 !important;
@@ -294,13 +304,11 @@
     }
 
     .search{
-        height:4vw;
-        left:95vw;
-        position:absolute;
-        z-index:100;
-        background-color: #ffffff00;
+        padding:1.3vw;
+        position:fixed;
+        z-index:101;
+        background-color:#ffffff;
         cursor:pointer;
-        margin-top:0.5vw;
     }
     .liveEvent{
         right:7vw;
@@ -467,6 +475,7 @@
     }
 
     .search{
+        display:none;
         height:8vw;
         left:73vw;
         position:absolute;
