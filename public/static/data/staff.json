@@ -225,15 +225,6 @@
         "Email": "George.Bell@themeetinghouse.com"
     },
     {
-       "Staff":true,
-        "FirstName": "Heidi",
-        "LastName": "Konig",
-        "Phone":"905.287.7000, ext. 863",
-        "Position": "Parry Sound Interim Lead Pastor",
-        "sites": ["PAR", "Pastoral"],
-        "Email": "Heidi.Konig@themeetinghouse.com"
-    },
-    {
         "Staff":true,
          "FirstName": "Ian",
          "LastName": "Jongema",
@@ -265,8 +256,8 @@
         "FirstName": "Jennifer",
         "LastName": "McWilliams",
         "Phone": "905.287.7000, ext. 838",
-        "Position": "Children's Pastor",
-        "sites": ["Site Leadership","Pastoral","Children"],
+        "Position": "Parry Sound Lead Pastor",
+        "sites": ["PAR","Pastoral"],
         "Email": "Jennifer.McWilliams@themeetinghouse.com"
     },
     {

@@ -75,7 +75,7 @@
   {
     "FirstName": "Amanda",
     "LastName": "Shaw",
-    "sites": ["PRSN"],
+    "sites": ["PAR"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -531,6 +531,13 @@
     "Position": "Weekend Service Producer"
   },
   {
+    "FirstName": "Rosi",
+    "LastName": "Simon",
+    "sites": ["PAR"],
+    "Email": "rosi.simon@themeetinghouse.com",
+    "Position": "Parish Administrator"
+  },
+  {
     "FirstName": "Anthony",
     "LastName": "Mak",
     "sites": ["RHLL"],
@@ -692,10 +699,10 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Hanna",
-    "LastName": "Coppes",
-    "sites": ["PRSN"],
-    "Email": "hanna.coppes@themeetinghouse.com",
+    "FirstName": "Josh",
+    "LastName": "Schwindt",
+    "sites": ["PAR"],
+    "Email": "josh.schwindt@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {
