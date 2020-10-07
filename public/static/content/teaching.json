@@ -70,8 +70,20 @@
                 "selector": "popular",
                 "showEpisodeNumbers": false,
                 "numberOfDays": 120,
-                "minViews": 1200,
+                "minViews": 900,
                 "header1": "Popular Teaching"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "adult-sunday-shortcut",
+                "selector": "popular",
+                "showEpisodeNumbers": false,
+                "numberOfDays": 120,
+                "minViews": 0,
+                "numberOfVideos": 10,
+                "header1": "Popular Highlights"
             },
             {
                 "type": "list",
