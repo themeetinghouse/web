@@ -6,7 +6,7 @@ import App from './App'
 import { createBrowserHistory, History } from "history";
 import { CookiesProvider } from 'react-cookie';
 import { version } from './version'
-import ErrorBoundry from './components/ErrorBoundry'
+import ErrorBoundry from './components/ErrorBoundry';
 let env = "unknown"
 if (window.location.hostname === "localhost")
   env = "dev"

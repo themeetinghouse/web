@@ -3,7 +3,7 @@ import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import * as mutations from '../../graphql/mutations';
-import * as queries from '../../graphql/queries';
+import * as adminQueries from './queries';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { CreateInstagramInput, CreateInstagramMutation, GetInstagramQuery, } from 'API';
@@ -75,7 +75,7 @@ export default function Index(): JSX.Element {
       for (const image of images) {
         try {
           const getInstagram = await API.graphql({
-            query: queries.getInstagram,
+            query: adminQueries.getInstagram,
             variables: { id: image.id },
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
           }) as GraphQLResult<GetInstagramQuery>;

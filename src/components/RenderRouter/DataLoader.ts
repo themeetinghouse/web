@@ -584,7 +584,7 @@ export default class DataLoader {
       limit: 20,
     };
     const listCustomPlaylists = API.graphql({
-      query: queries.listCustomPlaylists,
+      query: customQueries.listCustomPlaylists,
       variables,
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
     }) as Promise<GraphQLResult<ListCustomPlaylistsQuery>>;

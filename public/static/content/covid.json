@@ -51,32 +51,32 @@
                 "type": "list",
                 "style": "imageList",
                 "header1": "Life at The Meeting House",
-                "text1": "Our purpose and vision haven't changed, but we've made the following transitions for the forseeable future.",
+                "text1": "Our purpose and vision haven't changed, but here's how we're adjusting to our new reality:",
                 "list": [
                     {
-                        "title": "Sunday Service",
-                        "text": "We'll continue live-streaming our services every Sunday at 10:00am EDT on our website for at least the rest of 2020. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
+                        "title": "Sunday Livestream",
+                        "text": "We're livestreaming to our website every Sunday at 10:00am EDT. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
                         "imageSrc": "/static/images/corona-2.jpg",
                         "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
                         "navigateTo": "/live"
                     },
                     {
                         "title": "Home Church",
-                        "text": "During the week, we come together in smaller groups to share life, grow deeper spiritual friendships, and create an open dialogue about how we can live the Jesus-centred life. Our Home Churches will continue to meet online. Click here to find a group you can connect with.",
+                        "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendships, ask questions, and talk openly about living out the teachings of Jesus. Our Home Churches are currently meeting online. Click here to find a group you can connect with.",
                         "imageSrc": "/static/images/corona-3.jpg",
                         "imageAlt": "Online home church meeting using zoom.",
                         "navigateTo": "/home-church"
                     },
                     {
                         "title": "Kids",
-                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. Our teaching videos are located in the teaching section of our website and will also be added to our live-stream page every Sunday morning. You can access the activities and lesson plans (updated weekly) by clicking here.",
+                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. You can access the videos, activities, and lesson plans (updated weekly) by clicking here.",
                         "imageSrc": "/static/images/corona-5.jpg",
                         "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
                         "navigateTo": "/kidmax"
                     },
                     {
                         "title": "Youth",
-                        "text": "Our Jr High and Sr High video curriculum is available online. All midweek youth programming has transitioned to online. To connect with a local youth pastor or coordinator and get details about online midweek programming, click here and select your location.",
+                        "text": "Our Jr High and Sr High video curriculum is available online. All midweek youth programming has transitioned to online. Click here to connect with a local youth pastor or coordinator and get details about online midweek programming.",
                         "imageSrc": "/static/images/corona-6.jpg",
                         "imageAlt": "A high school student is exploring nature by himself.",
                         "navigateTo": "/youth"
@@ -86,7 +86,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1": "Resources",
+                "header1": "Practical Resources",
                 "list": [
                     {
                         "type": "link",
@@ -138,9 +138,9 @@
                         "alt": "A man sitting outside on a ledge and looking up at the sky."
                     }
                 ],
-                "header1": "Stay Connected",
+                "header1": "Stay in the Loop",
                 "header2": "",
-                "text2": "Make sure you get all the latest news and announcements and know about all the new resources and media we're creating. Subscribe to our email list today."
+                "text2": "The simplest way of making sure you never miss important information and always know what's going on during these unprecedented times. Subscribe to our email list today."
             }
         ]
     }

@@ -136,7 +136,8 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 88vh;
+        height: 98vh;
+        top:-2vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -162,11 +163,12 @@
     .SundayMorningItemDiv6 {
         margin-left: auto;
         margin-right: 10px;
-        padding-top: 10px;
+        padding-top:10px;
     }
 
     .SundayMorningItemListData {
         overflow-y: auto;
+        overflow-x: hidden;
         height: 80vh;
     }
 
@@ -260,11 +262,21 @@
         background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
+                padding:0.5vw 1vw 0.5vw 1vw;
         margin:0.1vw;
         font-weight:normal;
-        width:11vw;
+    }
+    #customBlackButton{
+        color: #ffffff;
+        background-color: #1a1a1a;
+        font-size:1vw;
+        margin-top:0;
+        min-width:132px;
+        min-height:40px;
+        line-height: 14px;
+        width:9.167vw;
+        height:2.778vw;
+
     }
     .SundayMorningButton1:hover{
         border-width: 0px;
@@ -312,6 +324,12 @@
     }
 }
 
+@media (min-width: 1025px) and (max-width: 1100px) {
+    #customBlackButton{
+        line-height: 2vw;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     .SundayMorningButtonContainer {
         width: 190px;
@@ -319,6 +337,10 @@
 
     .emailButton {
         margin-left: 0 !important;
+    }
+    #customBlackButton{
+        font-size:1.3vw;
+        line-height: 1.6vw;
     }
 }
 
@@ -340,7 +362,7 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 88vh;
+        height: 100vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -485,7 +507,6 @@
 
 @media (max-width: 767px) {
     .SundayMorningItem {
-
         padding-bottom: 10vw;
         padding-top: 5vh;
     }
@@ -624,6 +645,19 @@
         padding:5px 10px;
         font-weight:normal;
         white-space: nowrap;
+    }
+
+    #customBlackButton{
+        color: #ffffff;
+        background-color: #1a1a1a;
+        min-width:132px;
+        min-height:40px;
+        padding-top:12px;
+        padding-bottom:12px;
+        padding-right:24px;
+        padding-left:24px;
+        line-height: 18px;
+        font-size:12px;
     }
     .SundayMorningButton1:hover{
         border-width: 0px;

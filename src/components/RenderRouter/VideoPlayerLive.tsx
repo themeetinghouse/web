@@ -2,6 +2,7 @@
 import React, { Fragment } from 'react';
 import "./VideoPlayerLive.scss";
 import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
@@ -47,55 +48,54 @@ export default class VideoPlayer extends React.Component<Props, State> {
     }
     this.getLive()
     const getVideoByVideoType: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 2, videoTypes: 'adult-sunday', publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     getVideoByVideoType.then((json: any) => {
-      console.log("Success queries.getVideoByVideoType: " + json);
-      console.log(json)
+      console.log("Success customQueries.getVideoByVideoType: " + json);
       this.setState({
         listData: json.data.getVideoByVideoType.items
       })
     }).catch((e: any) => { console.log(e) })
 
     const getVideoByVideoType1: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-kids", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     const getVideoByVideoType2: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-jrhigh", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     const getVideoByVideoType3: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "ky-youth", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     const getVideoByVideoType4: any = API.graphql({
-      query: queries.getVideoByVideoType,
+      query: customQueries.getVideoByVideoType,
       variables: { sortDirection: "DESC", limit: 1, videoTypes: "preschool", publishedDate: { lt: "a" } },
       authMode: GRAPHQL_AUTH_MODE.API_KEY
     });
     getVideoByVideoType1.then((json1: any) => {
-      console.log({ "Success queries.getVideoByVideoType: ": json1 });
+      console.log({ "Success customQueries.getVideoByVideoType: ": json1 });
       this.setState({
         kidData: json1.data.getVideoByVideoType.items
       })
       getVideoByVideoType2.then((json2: any) => {
-        console.log({ "Success queries.getVideoByVideoType: ": json2 });
+        console.log({ "Success customQueries.getVideoByVideoType: ": json2 });
         this.setState({
           kidData: this.state.kidData.concat(json2.data.getVideoByVideoType.items)
         })
         getVideoByVideoType3.then((json3: any) => {
-          console.log({ "Success queries.getVideoByVideoType: ": json3 });
+          console.log({ "Success customQueries.getVideoByVideoType: ": json3 });
           this.setState({
             kidData: this.state.kidData.concat(json3.data.getVideoByVideoType.items)
           })
           getVideoByVideoType4.then((json4: any) => {
-            console.log({ "Success queries.getVideoByVideoType: ": json4 });
+            console.log({ "Success customQueries.getVideoByVideoType: ": json4 });
             this.setState({
               kidData: this.state.kidData.concat(json4.data.getVideoByVideoType.items)
             })
@@ -212,48 +212,49 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <iframe title="Live Teaching" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
             <div className="LiveVideoPlayerTitle">Church Livestream<div className="ShareButtonDesktop">{this.shareButton()}</div></div>
             <br />
-            {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
-              <div className="LiveVideoPlayerExtra" >
-                {this.state.liveEvent.menu.map((item, index) => {
-                  const href = item?.link
-                  if (!href)
-                    return null
-
-                  const svg =
-                    item?.title === 'Notes' ? 'Notes-white' :
-                      item?.title === 'Give' ? 'Give-white' :
-                        item?.title === 'Music' ? 'Teaching-white' :
-                          item?.title === 'Kidmax' ? 'Family Friendly-white' :
-                            item?.title === 'Connect' ? 'User-white' : 'New Window-white'
-
-                  return <div key={index} className="LiveVideoPlayerSeriesNotes">
-                    {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
-                    <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
-                  </div>
-                })}
-              </div> : null}
-            <div className="ShareButtonMobile">{this.shareButton()}</div>
-            {this.state.liveEvent.showChat && !isMobile ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"}></iframe> : <div style={{ height: '10vw' }} />}
-            {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
-              <div className="ZoomGrid">
-                {this.state.liveEvent.zoom.map((item, index) => {
-                  const watchText =
-                    item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
-                      : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
-                        : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
-                          : 'Watch'
-                  return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
-                    <div className="ZoomText" >{item?.title}</div>
-                    <div className="WatchVideoTag">{watchText}</div>
-                  </a>
-                })}
-              </div> : null}
           </div>
           : <div>
             <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.prerollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
             <div className="LiveVideoPlayerTitle">Church Livestream Pre-Show</div>
             <br />
           </div>}
+        {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
+          <div className="LiveVideoPlayerExtra" >
+            {this.state.liveEvent.menu.map((item, index) => {
+              const href = item?.link
+              if (!href)
+                return null
+
+              const svg =
+                item?.title === 'Notes' ? 'Notes-white' :
+                  item?.title === 'Give' ? 'Give-white' :
+                    item?.title === 'Music' ? 'Teaching-white' :
+                      item?.title === 'Kidmax' ? 'Family Friendly-white' :
+                        item?.title === 'Connect' ? 'User-white' : 'New Window-white'
+
+              return <div key={index} className="LiveVideoPlayerSeriesNotes">
+                {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
+                <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
+              </div>
+            })}
+          </div> : null}
+        <div className="ShareButtonMobile">{this.shareButton()}</div>
+        {this.state.liveEvent.showChat && !isMobile ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"}></iframe> : <div style={{ height: '10vw' }} />}
+        {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
+          <div className="ZoomGrid">
+            {this.state.liveEvent.zoom.map((item, index) => {
+              const watchText =
+                item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
+                  : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
+                    : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
+                      : 'Watch'
+              return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
+                <div className="ZoomText" >{item?.title}</div>
+                <div className="WatchVideoTag">{watchText}</div>
+              </a>
+            })}
+          </div> : null}
+
         {this.state.liveEvent.showKids ?
           <div>
             <div className="LiveVideoPlayerEpisodeTitle">Preschool</div>

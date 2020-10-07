@@ -1,3 +1,31 @@
+export const getBlogSeries = /* GraphQL */ `
+  query GetBlogSeries($id: ID!) {
+    getBlogSeries(id: $id) {
+      id
+      title
+      blogs {
+        items {
+          id
+          blogSeriesID
+          blogPostID
+          createdAt
+          updatedAt
+          blogPost {
+            id
+            author
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            blogTitle
+          }
+        }
+        nextToken
+      }
+    }
+  }
+`;
+
 export const listCustomPlaylists = /* GraphQL */ `
   query ListCustomPlaylists(
     $filter: ModelCustomPlaylistFilterInput
@@ -7,159 +35,39 @@ export const listCustomPlaylists = /* GraphQL */ `
     listCustomPlaylists(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        seriesType
         title
-        description
-        createdAt
-        updatedAt
         videos {
           items {
             id
             videoID
             customPlaylistID
-            createdAt
-            updatedAt
-            customPlaylist {
-              id
-              seriesType
-              title
-              description
-              createdAt
-              updatedAt
-              videos {
-                items {
-                  id
-                  videoID
-                  customPlaylistID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-            }
             video {
               id
-              createdBy
-              createdDate
               episodeTitle
-              originalEpisodeTitle
               episodeNumber
               seriesTitle
-              customPlaylistIDs
               publishedDate
-              recordedDate
-              description
-              viewCount
-              closedCaptioning
-              referencedMedia
-              campaigns
-              bibleVerses
-              topics
-              qandeh
               length
-              YoutubeIdent
               Youtube {
-                id
-                kind
-                etag
                 snippet {
-                  publishedAt
-                  title
-                  description
                   thumbnails {
                     default {
                       url
-                      width
-                      height
                     }
                     medium {
                       url
-                      width
-                      height
                     }
                     high {
                       url
-                      width
-                      height
                     }
                     standard {
                       url
-                      width
-                      height
                     }
                     maxres {
                       url
-                      width
-                      height
                     }
                   }
-                  channelTitle
-                  localized {
-                    title
-                    description
-                  }
                 }
-                contentDetails {
-                  videoId
-                  videoPublishedAt
-                  duration
-                  dimension
-                  definition
-                  caption
-                  licensedContent
-                  projection
-                }
-                status {
-                  uploadStatus
-                  privacyStatus
-                  license
-                  embeddable
-                  publicStatsViewable
-                }
-              }
-              videoTypes
-              notesURL
-              videoURL
-              audioURL
-              createdAt
-              updatedAt
-              speakers {
-                items {
-                  id
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              series {
-                id
-                seriesType
-                title
-                description
-                image
-                startDate
-                endDate
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-                blogs {
-                  nextToken
-                }
-                notes {
-                  nextToken
-                }
-              }
-              customPlaylists {
-                items {
-                  id
-                  videoID
-                  customPlaylistID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
               }
             }
           }
@@ -390,315 +298,35 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
   }
 }
 `;
+
+export const getBlog = /* GraphQL */ `
+  query GetBlog($id: ID!) {
+    getBlog(id: $id) {
+      id
+      author
+      createdBy
+      createdDate
+      publishedDate
+      expirationDate
+      blogStatus
+      description
+      content
+      blogTitle
+      topics
+      tags
+    }
+  }
+`;
+
 export const getVideo = `query GetVideo($id: ID!) {
   getVideo(id: $id) {
     id
-    createdBy
-    createdDate
-    speakers {
-      items {
-        id
-        video {
-          id
-          createdBy
-          createdDate
-          speakers {
-            items {
-              id
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-
-              }
-              speaker {
-                id
-                name
-                image
-              }
-            }
-            nextToken
-          }
-          episodeTitle
-          originalEpisodeTitle
-          episodeNumber
-          seriesTitle
-          series {
-            id
-            videos {
-              items {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-
-              }
-              nextToken
-            }
-            seriesType
-            title
-            description
-            image
-            startDate
-            endDate
-          }
-          publishedDate
-          recordedDate
-          description
-          referencedMedia
-          campaigns
-          bibleVerses
-          topics
-          qandeh
-          length
-          YoutubeIdent
-          Youtube {
-            id
-            kind
-            etag
-            snippet {
-              publishedAt
-              title
-              description
-              channelTitle
-              localized {
-                title
-                description
-              }
-            }
-            contentDetails {
-              videoId
-              videoPublishedAt
-              duration
-              dimension
-              definition
-              caption
-              licensedContent
-              projection
-            }
-            status {
-              uploadStatus
-              privacyStatus
-              license
-              embeddable
-              publicStatsViewable
-            }
-          }
-          videoTypes
-        }
-        speaker {
-          id
-          name
-          image
-          videos {
-            items {
-              id
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-
-              }
-              speaker {
-                id
-                name
-                image
-              }
-            }
-            nextToken
-          }
-        }
-      }
-      nextToken
-    }
     episodeTitle
     originalEpisodeTitle
     episodeNumber
     seriesTitle
     series {
       id
-      videos {
-        items {
-          id
-          createdBy
-          createdDate
-          speakers {
-            items {
-              id
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-              }
-              speaker {
-                id
-                name
-                image
-              }
-            }
-            nextToken
-          }
-          episodeTitle
-          originalEpisodeTitle
-          episodeNumber
-          seriesTitle
-          series {
-            id
-            videos {
-              items {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                seriesTitle
-                publishedDate
-                recordedDate
-                description
-                referencedMedia
-                campaigns
-                bibleVerses
-                topics
-                qandeh
-                length
-                YoutubeIdent
-                videoTypes
-                notesURL
-                videoURL
-                audioURL
-
-              }
-              nextToken
-            }
-            seriesType
-            title
-            description
-            image
-            startDate
-            endDate
-          }
-          publishedDate
-          recordedDate
-          description
-          referencedMedia
-          campaigns
-          bibleVerses
-          topics
-          qandeh
-          length
-          YoutubeIdent
-          Youtube {
-            id
-            kind
-            etag
-            snippet {
-              publishedAt
-              title
-              description
-              channelTitle
-              localized {
-                title
-                description
-              }
-            }
-            contentDetails {
-              videoId
-              videoPublishedAt
-              duration
-              dimension
-              definition
-              caption
-              licensedContent
-              projection
-            }
-            status {
-              uploadStatus
-              privacyStatus
-              license
-              embeddable
-              publicStatsViewable
-            }
-          }
-          videoTypes
-          notesURL
-          videoURL
-          audioURL
-
-        }
-        nextToken
-      }
       seriesType
       title
       description
@@ -709,77 +337,12 @@ export const getVideo = `query GetVideo($id: ID!) {
     publishedDate
     recordedDate
     description
-    referencedMedia
-    campaigns
-    bibleVerses
-    topics
-    qandeh
     length
     YoutubeIdent
-    Youtube {
-      id
-      kind
-      etag
-      snippet {
-        publishedAt
-        title
-        description
-        thumbnails {
-          default {
-            url
-            width
-            height
-          }
-          medium {
-            url
-            width
-            height
-          }
-          high {
-            url
-            width
-            height
-          }
-          standard {
-            url
-            width
-            height
-          }
-          maxres {
-            url
-            width
-            height
-          }
-        }
-        channelTitle
-        localized {
-          title
-          description
-        }
-      }
-      contentDetails {
-        videoId
-        videoPublishedAt
-        duration
-        dimension
-        definition
-        caption
-        licensedContent
-        projection
-      }
-      status {
-        uploadStatus
-        privacyStatus
-        license
-        embeddable
-        publicStatsViewable
-      }
-    }
     videoTypes
     notesURL
     videoURL
     audioURL
-
   }
 }
 `;
@@ -918,6 +481,17 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
   }
 }
 `;
+export const getNotesCustom = `query GetNotes($id: ID!) {
+  getNotes(id: $id) {
+    id
+    pdf
+    title
+    content
+    questions
+  }
+}
+`;
+
 export const getVideoByVideoType = `query GetVideoByVideoType(
   $videoTypes: String
   $publishedDate: ModelStringKeyConditionInput
