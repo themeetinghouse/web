@@ -3,10 +3,15 @@ import * as customqueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
+import { GetVideoByYoutubeIdentQuery, GetYoutubePlaylistItemsQuery, GetYoutubePlaylistQuery, GetYoutubeVideoContentDetailsQuery, GetYoutubeVideoStatisticsQuery } from '../../API';
+import { DeepPartial } from '../../utils';
 import moment from 'moment';
 
 Amplify.configure(awsmobile);
+
+type YouTubePlaylist = NonNullable<GetYoutubePlaylistQuery['getYoutubePlaylist']['items']>[0];
+type YouTubeVideo = DeepPartial<NonNullable<GetYoutubePlaylistItemsQuery['getYoutubePlaylistItems']['items']>[0]>;
 
 export default class ImportYoutube {
   //  "PLB5r2P47beqIUQHE5Ikn3SEfNJYDJyNJd",
@@ -237,28 +242,28 @@ export default class ImportYoutube {
     'PL118D891714998551',
     'PL5289D934890ED35A'
   ]
-  playlistData = []
-  setPlaylists(json: any) {
+  playlistData: NonNullable<GetYoutubePlaylistQuery['getYoutubePlaylist']['items']> = []
+  setPlaylists(json: GraphQLResult<GetYoutubePlaylistQuery>) {
     console.log("setPlaylists: " + json);
-    this.playlistData = this.playlistData.concat(json.data.getYoutubePlaylist.items)
+    this.playlistData = this.playlistData.concat(json.data?.getYoutubePlaylist?.items ?? [])
   }
 
-  loadPlaylists(nextPageToken: any) {
-    const playlists: any = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken }));
-    playlists.then((json: any) => {
+  loadPlaylists(nextPageToken: string) {
+    const playlists = API.graphql(graphqlOperation(queries.getYoutubePlaylist, { nextPageToken: nextPageToken })) as Promise<GraphQLResult<GetYoutubePlaylistQuery>>;
+    playlists.then((json) => {
       this.setPlaylists(json);
-      if (json.data.getYoutubePlaylist.nextPageToken != null)
+      if (json.data?.getYoutubePlaylist.nextPageToken)
         this.loadPlaylists(json.data.getYoutubePlaylist.nextPageToken)
       else {
-        this.playlistData.forEach((item: any) => {
-          if (!this.ignorePlaylist.includes(item.id))
+        this.playlistData.forEach(item => {
+          if (!this.ignorePlaylist.includes(item?.id ?? ''))
             this.loadPlaylist(item, "");
         })
       }
-    }).catch((err: any) => {
+    }).catch((err: Error) => {
       console.log(err);
-      this.playlistData.forEach((item: any) => {
-        if (!this.ignorePlaylist.includes(item.id))
+      this.playlistData.forEach(item => {
+        if (!this.ignorePlaylist.includes(item?.id ?? ''))
           this.loadPlaylist(item, "");
       })
 
@@ -266,24 +271,24 @@ export default class ImportYoutube {
   }
   reloadPlaylists() {
     this.loadPlaylists("");
-
   }
 
-  loadPlaylist(data: any, pageToken: string) {
-    console.log("loadPlaylist: " + data.id);
-    const playlistItems: any = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data.id, pageToken: pageToken }));
-    playlistItems.then((json: any) => {
-      json.data.getYoutubePlaylistItems.items.forEach((item: any) => {
-        this.loadVideo(item)
-      })
-      if (json.data.getYoutubePlaylistItems.nextPageToken !== null)
+  loadPlaylist(data: YouTubePlaylist, pageToken: string) {
+    console.log("loadPlaylist: " + data?.id);
+    const playlistItems = API.graphql(graphqlOperation(queries.getYoutubePlaylistItems, { playlistId: data?.id, pageToken: pageToken })) as Promise<GraphQLResult<GetYoutubePlaylistItemsQuery>>;
+    playlistItems.then((json) => {
+      if (json.data?.getYoutubePlaylistItems.items)
+        json.data.getYoutubePlaylistItems.items.forEach((item) => {
+          this.loadVideo(item)
+        })
+      if (json.data?.getYoutubePlaylistItems.nextPageToken)
         this.loadPlaylist(data, json.data.getYoutubePlaylistItems.nextPageToken)
-    }).catch((err: any) => {
+    }).catch((err: Error) => {
       console.log(err)
       console.log("Error queries.getYoutubePlaylistItems: " + err)
     });
   }
-  loadVideo(data: any) {
+  loadVideo(data: YouTubeVideo) {
 
     this.writeYoutube(data)
     /*const closedCaptionList = API.graphql(graphqlOperation(queries.getYoutubeCaptionlist, { videoId: data.contentDetails.videoId }));
@@ -291,31 +296,37 @@ export default class ImportYoutube {
        this.setCaptionItems(json);
      });*/
   }
-  async writeYoutube(vid1: any) {
+  async writeYoutube(vid1: YouTubeVideo) {
     try {
-      const getVideoByYoutubeIdent: any = await API.graphql(graphqlOperation(customqueries.getVideoByYoutubeIdent, { YoutubeIdent: vid1.contentDetails.videoId }));
-      if (getVideoByYoutubeIdent.data.getVideoByYoutubeIdent.items.length === 0 && vid1.status.privacyStatus !== "private") {
+      const getVideoByYoutubeIdent = await API.graphql(graphqlOperation(customqueries.getVideoByYoutubeIdent, { YoutubeIdent: vid1?.contentDetails?.videoId })) as GraphQLResult<GetVideoByYoutubeIdentQuery>;
+      let videoType = '';
+      const items = getVideoByYoutubeIdent.data?.getVideoByYoutubeIdent?.items;
+      if (items && items.length > 0 && items[0]?.videoTypes)
+        videoType = items[0]?.videoTypes;
+
+      if (items?.length === 0 && vid1?.status?.privacyStatus !== "private") {
         console.log({ "Write Youtube": vid1 })
         console.log(getVideoByYoutubeIdent)
 
-        console.log("Do mutations.createVideo")
-        delete vid1['id'];
-
-        delete vid1['selected'];
-        if (vid1.snippet.description === "")
-          delete vid1.snippet['description']
-        if (vid1.snippet.localized == null)
-          delete vid1.snippet['localized']
-        if (vid1.statistics == null)
-          delete vid1.statistics
+        if (vid1) {
+          delete vid1['id'];
+          if (vid1.snippet?.description === "")
+            delete vid1.snippet['description']
+          if (vid1.snippet?.localized === null)
+            delete vid1.snippet['localized']
+          if (vid1.statistics === null)
+            delete vid1.statistics
+        }
 
         try {
-          const getYoutubeVideoContentDetails: any = await API.graphql(graphqlOperation(queries.getYoutubeVideoContentDetails, { videoId: vid1.contentDetails.videoId }));
-          const fullContentDetails = getYoutubeVideoContentDetails.data?.getYoutubeVideoContentDetails?.items[0]?.contentDetails?.duration ?? ""
-          const duration = fullContentDetails === "" ? "" : Math.round(moment.duration(fullContentDetails).as('minutes')).toString()
-          const createVideo: any = await API.graphql({
+          const getYoutubeVideoContentDetails = await API.graphql(graphqlOperation(queries.getYoutubeVideoContentDetails, { videoId: vid1?.contentDetails?.videoId })) as GraphQLResult<GetYoutubeVideoContentDetailsQuery>;
+          let duration = '';
+          const items2 = getYoutubeVideoContentDetails.data?.getYoutubeVideoContentDetails?.items
+          if (items2 && items2.length > 0 && items2[0]?.contentDetails?.duration)
+            duration = Math.round(moment.duration(items2[0]?.contentDetails?.duration).as('minutes')).toString();
+          const createVideo = await API.graphql({
             query: mutations.createVideo,
-            variables: { input: { id: vid1.contentDetails.videoId, YoutubeIdent: vid1.contentDetails.videoId, Youtube: vid1, length: duration } },
+            variables: { input: { id: vid1?.contentDetails?.videoId, YoutubeIdent: vid1?.contentDetails?.videoId, Youtube: vid1, length: duration } },
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
           });
           console.log({ "Success mutations.createVideo": createVideo });
@@ -323,16 +334,18 @@ export default class ImportYoutube {
           console.error({ "Error mutations.createVideo": err });
           console.log(vid1)
         }
-      } else if (moment().diff(vid1.contentDetails.videoPublishedAt, 'days') <= 365 && vid1.status.privacyStatus !== "private") {
-
+      } else if (moment().diff(vid1?.contentDetails?.videoPublishedAt, 'days') <= 365 && vid1?.status?.privacyStatus !== "private") {
         try {
-          const getYoutubeVideoStatistics: any = await API.graphql(graphqlOperation(queries.getYoutubeVideoStatistics, { videoId: vid1.contentDetails.videoId }));
-          const viewCount = getYoutubeVideoStatistics.data.getYoutubeVideoStatistics.items[0]?.statistics.viewCount
-          if (viewCount && parseInt(viewCount, 10) >= 1000) {
+          const getYoutubeVideoStatistics = await API.graphql(graphqlOperation(queries.getYoutubeVideoStatistics, { videoId: vid1?.contentDetails?.videoId })) as GraphQLResult<GetYoutubeVideoStatisticsQuery>;
+          let viewCount = '';
+          const items3 = getYoutubeVideoStatistics?.data?.getYoutubeVideoStatistics?.items;
+          if (items3 && items3.length > 0 && items3[0]?.statistics?.viewCount)
+            viewCount = items3[0]?.statistics?.viewCount
+          if (viewCount && (videoType === 'adult-sunday' || videoType === 'adult-sunday-shortcut')) {
             try {
-              const updateVideo: any = await API.graphql({
+              const updateVideo = await API.graphql({
                 query: mutations.updateVideo,
-                variables: { input: { id: vid1.contentDetails.videoId, viewCount: viewCount } },
+                variables: { input: { id: vid1?.contentDetails?.videoId, viewCount: viewCount } },
                 authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
               });
               console.log({ "Success mutations.updateVideo": updateVideo });
