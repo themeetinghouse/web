@@ -394,7 +394,6 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      console.log(items)
       if (query.numberOfVideos) {
         dataLoaded(items
           .sort((a, b) => parseInt(a?.viewCount ?? '0', 10) - parseInt(b?.viewCount ?? '0', 10))

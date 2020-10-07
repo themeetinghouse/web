@@ -261,7 +261,7 @@ export default class ImportYoutube {
         })
       }
     }).catch((err: Error) => {
-      console.log(err);
+      console.error(err);
       this.playlistData.forEach(item => {
         if (!this.ignorePlaylist.includes(item?.id ?? ''))
           this.loadPlaylist(item, "");
@@ -284,8 +284,7 @@ export default class ImportYoutube {
       if (json.data?.getYoutubePlaylistItems.nextPageToken)
         this.loadPlaylist(data, json.data.getYoutubePlaylistItems.nextPageToken)
     }).catch((err: Error) => {
-      console.log(err)
-      console.log("Error queries.getYoutubePlaylistItems: " + err)
+      console.error("Error queries.getYoutubePlaylistItems: " + err)
     });
   }
   loadVideo(data: YouTubeVideo) {
