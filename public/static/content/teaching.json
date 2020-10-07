@@ -80,7 +80,7 @@
                 "subclass": "adult-sunday-shortcut",
                 "selector": "popular",
                 "showEpisodeNumbers": false,
-                "numberOfDays": 120,
+                "numberOfDays": 60,
                 "minViews": 0,
                 "numberOfVideos": 10,
                 "header1": "Popular Highlights"
