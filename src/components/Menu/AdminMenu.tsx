@@ -108,23 +108,18 @@ export default class Menu extends React.Component<EmptyProps, State> {
               <NavItem>
                 <NavLink to="/admin/livestream">Livestream</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
               <NavItem>
                 <NavLink to="/admin/create-notes">Notes</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
               <NavItem>
                 <NavLink to="/admin/create-blog">Blog</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
               <NavItem>
                 <NavLink to="/admin/import-video">Import Video</NavLink>
               </NavItem>
-              <NavItem> | </NavItem>
               <NavItem>
                 <RSNavLink href="https://github.com/themeetinghouse">GitHub</RSNavLink>
               </NavItem>
-              <NavItem> | </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   {this.state.userName}

@@ -419,7 +419,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     renderMenuEditor(menuItem: LiveMenu, index: number) {
         return (
-            <div key={index}>
+            <div key={index} style={{ display: 'flex', flexDirection: 'column' }} >
                 <label>Menu item {index + 1}</label>
                 <input placeholder="title" className="menu-input" type="text" value={menuItem.title} onChange={(e) => this.handleMenuChange(index, 'title', e.target.value)}></input>
                 <input placeholder="url" className="menu-input" type="text" value={menuItem.link} onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}></input>
@@ -429,7 +429,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     renderZoomEditor(zoomItem: ZoomItem, index: number) {
         return (
-            <div key={index}>
+            <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
                 <label>Zoom item {index + 1} [<span style={{ color: 'red' }} >{zoomItem.title.length}/30</span>]</label>
                 <input placeholder="title" maxLength={30} className="menu-input" type="text" value={zoomItem.title} onChange={(e) => this.handleZoomChange(index, 'title', e.target.value)}></input>
                 <input placeholder="url" className="menu-input" type="text" value={zoomItem.link} onChange={(e) => this.handleZoomChange(index, 'link', e.target.value)}></input>
@@ -442,28 +442,35 @@ class Index extends React.Component<EmptyProps, State> {
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <form style={{ display: 'flex', flexDirection: 'row', width: '100vw' }} onSubmit={(e) => this.submit(e)}>
                     <div style={{ flex: 1 }}>
-                        <label>Date <span style={{ color: 'red' }}>{this.state.notSundayWarning}</span></label><br />
-                        <input className="livestream-input" type="date" required value={this.state.liveObject.date} onChange={(e) => this.handleChange('date', e.target.value)}></input>
-                        <label>startTime <span style={{ cursor: 'pointer' }} onClick={() => this.setState({ alert: 'When the link appears on the homepage' })}>ⓘ</span></label><br />
-                        <input className="livestream-input" type="time" required value={this.state.liveObject.startTime} onChange={(e) => this.handleChange('startTime', e.target.value)}></input>
-                        <label>videoStartTime <span style={{ cursor: 'pointer' }} onClick={() => this.setState({ alert: 'When the video is scheduled to start' })}>ⓘ</span></label><br />
-                        <input className="livestream-input" type="time" required value={this.state.liveObject.videoStartTime} onChange={(e) => this.handleChange('videoStartTime', e.target.value)}></input>
-                        <label>endTime <span style={{ cursor: 'pointer' }} onClick={() => this.setState({ alert: 'When the link disappears from the homepage' })}>ⓘ</span></label><br />
-                        <input className="livestream-input" type="time" required value={this.state.liveObject.endTime} onChange={(e) => this.handleChange('endTime', e.target.value)}></input>
-                        <button type="submit">Save Livestream</button><br />
+                        <label>Date <span style={{ color: 'red' }}>{this.state.notSundayWarning}</span><br />
+                            <input className="livestream-input" type="date" required value={this.state.liveObject.date} onChange={(e) => this.handleChange('date', e.target.value)}></input>
+                        </label>
+                        <label>startTime <span style={{ cursor: 'pointer' }} onClick={() => this.setState({ alert: 'When the link appears on the homepage' })}>ⓘ</span><br />
+                            <input className="livestream-input" type="time" required value={this.state.liveObject.startTime} onChange={(e) => this.handleChange('startTime', e.target.value)}></input>
+                        </label>
+                        <label>videoStartTime <span style={{ cursor: 'pointer' }} onClick={() => this.setState({ alert: 'When the video is scheduled to start' })}>ⓘ</span><br />
+                            <input className="livestream-input" type="time" required value={this.state.liveObject.videoStartTime} onChange={(e) => this.handleChange('videoStartTime', e.target.value)}></input>
+                        </label>
+                        <label>endTime <span style={{ cursor: 'pointer' }} onClick={() => this.setState({ alert: 'When the link disappears from the homepage' })}>ⓘ</span><br />
+                            <input className="livestream-input" type="time" required value={this.state.liveObject.endTime} onChange={(e) => this.handleChange('endTime', e.target.value)}></input>
+                        </label>
+                        <button type="submit">Save Livestream</button>
                     </div>
                     <div style={{ flex: 1 }}>
-                        <label>prerollYoutubeID</label><br />
-                        <input className="livestream-input" type="text" value={this.state.liveObject.prerollYoutubeId} onChange={(e) => this.handleChange('prerollYoutubeId', e.target.value)}></input>
-                        <label>liveYoutubeId</label><br />
-                        <input className="livestream-input" type="text" required value={this.state.liveObject.liveYoutubeId} onChange={(e) => this.handleChange('liveYoutubeId', e.target.value)}></input>
-                        <label>homepageLink <span style={{ fontSize: 10 }}>({this.state.liveObject.homepageLink.length}/12 characters)</span></label><br />
-                        <input maxLength={12} className="livestream-input" type="text" required value={this.state.liveObject.homepageLink} onChange={(e) => this.handleChange('homepageLink', e.target.value)}></input>
-
+                        <label>prerollYoutubeID<br />
+                            <input className="livestream-input" type="text" value={this.state.liveObject.prerollYoutubeId} onChange={(e) => this.handleChange('prerollYoutubeId', e.target.value)}></input>
+                        </label>
+                        <label>liveYoutubeId<br />
+                            <input className="livestream-input" type="text" required value={this.state.liveObject.liveYoutubeId} onChange={(e) => this.handleChange('liveYoutubeId', e.target.value)}></input>
+                        </label>
+                        <label>homepageLink <span style={{ fontSize: 10 }}>({this.state.liveObject.homepageLink.length}/12 characters)</span><br />
+                            <input maxLength={12} className="livestream-input" type="text" required value={this.state.liveObject.homepageLink} onChange={(e) => this.handleChange('homepageLink', e.target.value)}></input>
+                        </label>
+                        <br />
                         <input type="checkbox" checked={this.state.liveObject.showChat} onChange={() => this.handleChange('showChat', !this.state.liveObject.showChat)}></input>
-                        <label> show Chat</label><br />
+                        <label> show Chat</label>
                         <input type="checkbox" checked={this.state.liveObject.showKids} onChange={() => this.handleChange('showKids', !this.state.liveObject.showKids)}></input>
-                        <label> show Kids</label><br />
+                        <label> show Kids</label>
                     </div>
                     <div style={{ flex: 2 }}>
                         {this.state.liveObject.menu.map((item, index) => this.renderMenuEditor(item, index))}
