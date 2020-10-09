@@ -73,6 +73,7 @@
                 "style": "horizontal",
                 "class": "videos",
                 "subclass": "preschool",
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Preschool Videos"
             },
@@ -113,7 +114,8 @@
                 "type": "list",
                 "style": "horizontal",
                 "class": "videos",
-                "subclass": "kids",
+                "subclass": "ky-kids",
+                "limit": 25,
                 "sortOrder": "DESC",
                 "header1": "Kids Videos"
             },
