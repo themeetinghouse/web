@@ -50,12 +50,6 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "Watch the Preschool Video",
-                        "navigateTo": "/videos/preschool-Preschool/tzDKwzeRCL8",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
                         "title": "Download Preschool Lesson",
                         "navigateTo": "/static/pdfs/kidmax-files/PS-Lesson.pdf",
                         "openNewBrowser": true
@@ -75,6 +69,14 @@
                 ]
             },
             {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "preschool",
+                "sortOrder": "DESC",
+                "header1": "Preschool Videos"
+            },
+            {
                 "type": "content",
                 "style": "oneImageBlackRight",
                 "header1": "Kids",
@@ -87,12 +89,6 @@
                     }
                 ],
                 "list": [
-                    {
-                        "type": "link",
-                        "title": "Watch the Kids Video",
-                        "navigateTo": "/videos/Kids-ky-kids/kTQuBHVsX-I",
-                        "openNewBrowser": true
-                    },
                     {
                         "type": "link",
                         "title": "Download Kids Lesson",
@@ -112,6 +108,14 @@
                         "openNewBrowser": true
                     }
                 ]
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "kids",
+                "sortOrder": "DESC",
+                "header1": "Kids Videos"
             },
             {
                 "type": "content",
