@@ -135,17 +135,17 @@
                 "style": "connect",
                 "image1": [
                     {
-                        "src": "/static/images/GC1.jpg",
-                        "alt": "Two women drinking coffee."
+                        "src": "/static/images/GC5.jpg",
+                        "alt": "Friends hanging out together and playing music at a campfire."
                     },
                     {
                         "src": "/static/images/GC2.jpg",
                         "alt": "A man sitting outside on a ledge and looking up at the sky."
                     }
                 ],
-                "header1": "Get Connected",
+                "header1": "First step towards community.",
                 "header2": "",
-                "text2": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. "
+                "text2": "No need to take big leaps. Drop your email below and we'll send you some of our favourite content and suggest some small next steps you can take."
             }
         ]
     }
