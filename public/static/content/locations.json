@@ -33,22 +33,6 @@
                 "text1": "Our hope is to create spaces for spiritual seekers to come and ask questions, develop authentic relationships, and meaningfully engage the life and teachings of Jesus."
             },
             {
-                "type": "hero",
-                "style": "partial",
-                "image1": [
-                    {
-                        "src": "/static/svg/Map.svg",
-                        "alt": "A map of meeting house churches."
-                    }
-                ],
-                "header1": "Find Your Community",
-                "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
-                "link1Text": "Show Map",
-                "link1Action": "/find-sunday-morning",
-                "class": "locations",
-                "showLocationSearch": true
-            },
-            {
                 "type": "content",
                 "style": "oneImage",
                 "header1": "Home Church",
@@ -69,8 +53,24 @@
                 ]
             },
             {
+                "type": "hero",
+                "style": "partial",
+                "image1": [
+                    {
+                        "src": "/static/svg/Map.svg",
+                        "alt": "A map of meeting house churches."
+                    }
+                ],
+                "header1": "Find Your Community",
+                "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
+                "link1Text": "Show Map",
+                "link1Action": "/find-sunday-morning",
+                "class": "locations",
+                "showLocationSearch": true
+            },
+            {
                 "type": "content",
-                "style": "oneImageBlackRight",
+                "style": "oneImage",
                 "header1": "Jesus Collective",
                 "header2": "",
                 "text1": "We believe a more connected, relational network of churches and leaders could give greater unity, voice, and visibility to this Jesus-centred, third-way movement. Want to learn more? ",
@@ -88,6 +88,23 @@
                         "alt": "Jesus Collective Logo"
                     }
                 ]
+            },
+            {
+                "type": "hero",
+                "style": "connect",
+                "image1": [
+                    {
+                        "src": "/static/images/GC5.jpg",
+                        "alt": "Friends sitting outside by a fire and hanging out together."
+                    },
+                    {
+                        "src": "/static/images/GC3.jpg",
+                        "alt": "A young woman is talking to her friends in the church lobby."
+                    }
+                ],
+                "header1": "What's your first step?",
+                "header2": "",
+                "text2": "Not ready to connect with one of our locations but still interested in exploring the teachings of Jesus? Drop your email below and we'll send you some of our favourite content and help you navigate your next step."
             }
         ]
     }
