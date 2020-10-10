@@ -63,6 +63,7 @@ export interface VideoSeriesQuery extends DataLoaderQuery {
 export interface PopularVideosQuery extends VideoSeriesQuery {
   numberOfDays: number;
   minViews: number;
+  numberOfVideos?: number;
 }
 
 export interface SeriesQuery extends DataLoaderQuery {
@@ -368,21 +369,19 @@ export default class DataLoader {
   static async getPopularVideos(
     query: PopularVideosQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
-    nextToken: string | null = null
   ): Promise<void> {
     if (query.numberOfDays > 365) {
       console.error('Warning: numberOfDays cannot be greater than 365')
       return;
     }
-    if (!query.minViews) {
+    if (query.minViews === undefined) {
       console.error('Warning: minViews must be declared')
       return;
     }
-    const startDate = moment().subtract(query.numberOfDays, 'days').format('YYYY-MM-DD')
+    const startDate = moment().subtract(query.numberOfDays, 'days').format('YYYY-MM-DD');
     const variables: GetVideoByVideoTypeQueryVariables = {
-      nextToken: nextToken,
-      limit: 20,
       videoTypes: query.subclass,
+      limit: 50,
       publishedDate: { gt: startDate },
     };
     const getVideoByVideoType = API.graphql({
@@ -395,27 +394,30 @@ export default class DataLoader {
       console.debug('Success queries.getVideoByVideoType: ' + json);
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
-      dataLoaded(items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false))
-      if (json?.data?.getVideoByVideoType?.nextToken) {
-        await this.getPopularVideos(
-          query,
-          dataLoaded,
-          json.data.getVideoByVideoType.nextToken
-        );
+      if (query.numberOfVideos) {
+        dataLoaded(items
+          .sort((a, b) => parseInt(a?.viewCount ?? '0', 10) - parseInt(b?.viewCount ?? '0', 10))
+          .slice(0, query.numberOfVideos)
+        )
+      } else {
+        dataLoaded(items
+          .filter(item => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false)
+        )
       }
     } catch (e) {
       console.error({ 'Error: ': e });
       if (e.data?.getVideoByVideoType?.items) {
-        dataLoaded(e.data.getVideoByVideoType.items.filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false));
+        if (query.numberOfVideos) {
+          dataLoaded(e.data.getVideoByVideoType.items
+            .sort((a: VideoByVideoTypeData, b: VideoByVideoTypeData) => parseInt(a?.viewCount ?? '0', 10) - parseInt(b?.viewCount ?? '0', 10))
+            .slice(0, query.numberOfVideos)
+          )
+        } else {
+          dataLoaded(e.data.getVideoByVideoType.items
+            .filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false)
+          );
+        }
       }
-      if (e.data?.getVideoByVideoType?.nextToken) {
-        await this.getPopularVideos(
-          query,
-          dataLoaded,
-          e.data.getVideoByVideoType.nextToken
-        );
-      }
-
     }
   }
 
