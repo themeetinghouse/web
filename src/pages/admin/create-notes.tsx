@@ -660,7 +660,7 @@ class Index extends React.Component<EmptyProps, State> {
         <li>Ensure that you are using hyphens (-), not dashes</li>
         <li>Use the full book name (e.g. 1 Corinthians, not 1 Cor)</li>
       </ul>
-      <div>Here are the five accepted formats for Bible veres:</div>
+      <div>Here are the five accepted formats for Bible verses:</div>
       <ul>
         <li>Genesis 1 (just chapter)</li>
         <li>Genesis 2-3 (chapter to chapter)</li>
