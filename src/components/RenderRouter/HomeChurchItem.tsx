@@ -24,6 +24,7 @@ import * as queries from '../../graphql/queries';
 import DataLoader, { LocationData } from './DataLoader';
 import "./HomeChurchItem.scss";
 
+
 Amplify.configure(awsmobile);
 
 const HOME_CHURCH_PIN_URL = "/static/svg/HomeChurchPin.svg";
@@ -132,44 +133,47 @@ export class ContentItem extends React.Component<Props, State> {
       const allGroups: F1Group[] = [];
       const locationsLoaded: string[] = [];
 
-      this.getRetryableGraphQLOperationPromise<F1ListGroupTypesQuery, unknown>(queries.f1ListGroupTypes, {})
+      this.getRetryableGraphQLOperationPromise<F1ListGroupTypesQuery, {}>(queries.f1ListGroupTypes, {})
         .then((listGroupTypesResponse) => {
-          (listGroupTypesResponse.data?.F1ListGroupTypes?.groupTypes?.groupType ?? [])
+          (listGroupTypesResponse?.data?.F1ListGroupTypes?.groupTypes?.groupType ?? [])
             .filter((item) => item?.isWebEnabled === 'true')
             .forEach((groupTypeItem) => {
               //console.log("HomeChurchItem.constructor(): F1ListGroupTypes response - groupTypeItem = %o", groupTypeItem);
               // Get the home churches for this location and update the loading progress when done
               const f1LocationId = groupTypeItem?.id;
+              //              console.log(f1LocationId)
               const loadGroupPromise = this.getRetryableGraphQLOperationPromise<F1ListGroupsQuery, F1ListGroupsQueryVariables>(queries.f1ListGroups, { itemId: f1LocationId })
                 .then((listGroupsResponse) => {
-                  const openGroupsForLocation: Array<F1Group> = (listGroupsResponse.data?.F1ListGroups?.groups?.group ?? []).filter(
+                  const openGroupsForLocation: Array<F1Group> = (listGroupsResponse?.data?.F1ListGroups?.groups?.group ?? []).filter(
                     (item: F1Group | null): item is F1Group =>
                       item?.isOpen === 'true' && item.isSearchable === 'true'
                   );
                   const eventIdsForLocation = openGroupsForLocation.map((g) => g.event?.id ?? null);
                   //console.log("HomeChurchItem.constructor(): location: %o, eventIds = %o", groupTypeItem.name, eventIdsForLocation);
-
-                  // Get the schedules for the home churches in this location
-                  return this.getRetryableGraphQLOperationPromise<F1ListEventSchedulesQuery, F1ListEventSchedulesQueryVariables>(queries.f1ListEventSchedules, { itemId: eventIdsForLocation })
-                    .then((listEventSchedulesResponse) => {
-                      //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
-                      for (const group of openGroupsForLocation) {
-                        const eventSchedule = (
-                          listEventSchedulesResponse.data?.F1ListEventSchedules ??
-                          []
-                        ).find((s) => s?.id === group.event?.id);
-                        const schedules = eventSchedule?.event?.schedules?.schedule;
-                        if (schedules) {
-                          group.schedule = schedules[0];
+                  //        console.log(eventIdsForLocation)
+                  if (eventIdsForLocation)
+                    // Get the schedules for the home churches in this location
+                    return this.getRetryableGraphQLOperationPromise<F1ListEventSchedulesQuery, F1ListEventSchedulesQueryVariables>(queries.f1ListEventSchedules, { itemId: eventIdsForLocation })
+                      .then((listEventSchedulesResponse) => {
+                        //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
+                        for (const group of openGroupsForLocation) {
+                          const eventSchedule = (
+                            listEventSchedulesResponse?.data?.F1ListEventSchedules ??
+                            []
+                          ).find((s) => s?.id === group.event?.id);
+                          const schedules = eventSchedule?.event?.schedules?.schedule;
+                          if (schedules) {
+                            group.schedule = schedules[0];
+                          }
                         }
-                      }
-                      allGroups.push(...openGroupsForLocation);
-                      if (f1LocationId) {
-                        locationsLoaded.push(f1LocationId);
-                      }
-                      this.setState({ groups: Array.from(allGroups), locationsLoaded: Array.from(locationsLoaded) });
-                      //console.log("HomeChurchItem.constructor(): All groups (so far): %o", allGroups);
-                    });
+                        allGroups.push(...openGroupsForLocation);
+                        if (f1LocationId) {
+                          locationsLoaded.push(f1LocationId);
+                        }
+                        this.setState({ groups: Array.from(allGroups), locationsLoaded: Array.from(locationsLoaded) });
+                        //console.log("HomeChurchItem.constructor(): All groups (so far): %o", allGroups);
+                      });
+
                 }
                 );
               loadGroupPromises.push(loadGroupPromise);
@@ -185,13 +189,28 @@ export class ContentItem extends React.Component<Props, State> {
 
   // This will create a promise that will retry until successful.  Need to do this because AWS returns random
   // errors when trying to run this many queries in parallel...
-  private async getRetryableGraphQLOperationPromise<T extends Record<string, unknown>, V>(query: string, args: V): Promise<GraphQLResult<T>> {
+  private async getRetryableGraphQLOperationPromise<T extends Record<string, unknown>, V extends F1ListGroupsQueryVariables | F1ListEventSchedulesQueryVariables | {}>(query: string, args: V, retry?: number): Promise<GraphQLResult<T> | null> {
+
+
+    if ((args as F1ListEventSchedulesQueryVariables).itemId?.length == 0)
+      return Promise.resolve(null)
+
+    if (!retry)
+      retry = 5
+
     const qry = API.graphql(graphqlOperation(query, args)) as Promise<GraphQLResult<T>>;
+
+
     try {
       return await qry;
     } catch (error) {
       console.log('Promise failure caught: %o', error);
-      return this.getRetryableGraphQLOperationPromise(query, args);
+      if (retry > 0) {
+        console.log(retry)
+        return this.getRetryableGraphQLOperationPromise(query, args, --retry);
+      }
+      else
+        return Promise.resolve(null)
     }
   }
 
