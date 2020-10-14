@@ -88,6 +88,21 @@
             {
                 "type": "list",
                 "style": "horizontalBig",
+                "class": "series-collection",
+                "collection": [
+                    "Her Story",
+                    "The Death and Life of God",
+                    "Origins",
+                    "Peacemakers",
+                    "Radication Reformation: Our Anabaptist Story",
+                    "Inspired",
+                    "Questioning God"
+                ],
+                "header1": "Popular Series"
+            },
+            {
+                "type": "list",
+                "style": "horizontalBig",
                 "class": "series",
                 "subclass": "adult-sunday",
                 "limit": 20,
