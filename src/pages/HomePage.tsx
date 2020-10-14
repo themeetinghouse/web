@@ -62,6 +62,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
 
   render() {
     const { redirects } = this.state;
+    const regex = new RegExp(/https?:|\.pdf/)
     if (!redirects) {
       return null;
     }
@@ -70,7 +71,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
       <Switch location={this.props.location}>
         {
           redirects.map(redirect => {
-            return redirect.to.startsWith('http')
+            return regex.test(redirect.to)
               ? <Route key={redirect.id} exact from={'/' + redirect.id} render={(): ReactNode | undefined => {
                 window.location.href = redirect.to;
                 return undefined;

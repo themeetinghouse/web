@@ -1,9 +1,10 @@
+@use './admin.scss';
+
 .dropdown {
     width: 20vw;
     display: inline-block;
     margin: 1px;
     padding: 1px;
-    color: #ffffff;
     font-size: 10px;
 }
 .dropdown-option {
@@ -106,6 +107,7 @@ table th,table td{
     font-size:10px;
     margin:1px;
     padding:1px;
+    width:100%;
 }
 
 .PlaylistSelections:hover {

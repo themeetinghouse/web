@@ -70,8 +70,37 @@
                 "selector": "popular",
                 "showEpisodeNumbers": false,
                 "numberOfDays": 120,
-                "minViews": 1200,
+                "minViews": 900,
                 "header1": "Popular Teaching"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "adult-sunday-shortcut",
+                "selector": "popular",
+                "showEpisodeNumbers": false,
+                "numberOfDays": 60,
+                "minViews": 0,
+                "numberOfVideos": 10,
+                "header1": "Popular Highlights"
+            },
+            {
+                "type": "list",
+                "style": "horizontalBig",
+                "class": "series-collection",
+                "collection": [
+                    "Her Story",
+                    "The Death and Life of God",
+                    "Origins",
+                    "Peacemakers",
+                    "Radication Reformation: Our Anabaptist Story",
+                    "Inspired",
+                    "A Questioning God",
+                    "Jesus People",
+                    "The Body of Christ"
+                ],
+                "header1": "Popular Series"
             },
             {
                 "type": "list",
