@@ -192,7 +192,7 @@ export class ContentItem extends React.Component<Props, State> {
   private async getRetryableGraphQLOperationPromise<T extends Record<string, unknown>, V extends F1ListGroupsQueryVariables | F1ListEventSchedulesQueryVariables | {}>(query: string, args: V, retry?: number): Promise<GraphQLResult<T> | null> {
 
 
-    if ((args as F1ListEventSchedulesQueryVariables).itemId?.length == 0)
+    if ((args as F1ListEventSchedulesQueryVariables).itemId?.length === 0)
       return Promise.resolve(null)
 
     if (!retry)
