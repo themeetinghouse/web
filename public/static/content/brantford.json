@@ -147,15 +147,15 @@
                 "style": "connect",
                 "image1": [
                     {
-                        "src": "/static/images/GC1.jpg",
+                        "src": "/static/images/email-connect-1.jpg",
                         "alt": "Two women drinking coffee."
                     },
                     {
-                        "src": "/static/images/GC2.jpg",
+                        "src": "/static/images/email-connect-2.jpg",
                         "alt": "A man and woman talking outside."
                     },
                     {
-                        "src": "/static/images/GC3.jpg",
+                        "src": "/static/images/email-connect-3.jpg",
                         "alt": "Man sitting on a bench in a lobby looking out a window."
                     },
                     {

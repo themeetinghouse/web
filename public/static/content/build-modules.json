@@ -31,16 +31,16 @@
             {
                 "type": "content",
                 "style": "greyTwoText",
-                "header1":"Header 1",
-                "header2":"",
-                "text1":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "header1": "Header 1",
+                "header2": "",
+                "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 "text2": "",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Link title",
                         "navigateTo": "/build-module",
-                        "openNewBrowser":true
+                        "openNewBrowser": true
                     }
                 ]
             },
@@ -107,28 +107,30 @@
                 "style": "connect",
                 "image1": [
                     {
-                        "src": "/static/images/GC1.jpg",
+                        "src": "/static/images/email-connect-1.jpg",
                         "alt": "alt text"
                     },
                     {
-                        "src": "/static/images/GC2.jpg",
+                        "src": "/static/images/email-connect-2.jpg",
                         "alt": "alt text"
                     }
                 ],
                 "header1": "Header",
                 "header2": "",
                 "text2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            }, 
+            },
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Header 1",
-                "header2":"",
-                "text1":"",
-                "image1":[{
-                    "src":"/static/images/about-us-2-3.jpg",
-                    "alt":"alt text"
-                }]
+                "header1": "Header 1",
+                "header2": "",
+                "text1": "",
+                "image1": [
+                    {
+                        "src": "/static/images/about-us-2-3.jpg",
+                        "alt": "alt text"
+                    }
+                ]
             }
         ]
     }
