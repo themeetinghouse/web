@@ -103,6 +103,7 @@
             {
                 "type": "list",
                 "style": "imageList",
+                "class": "user-defined",
                 "header1": "Teaching",
                 "text1": "Explore the life and teaching of Jesus as well as practical applications for your daily life.",
                 "list": [
@@ -210,7 +211,8 @@
                 ],
                 "header1": "So, what now?",
                 "header2": "",
-                "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some our favourite starting content and suggest a practical next step."
+                "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some our favourite starting content and suggest a practical next step.",
+                "hasFooter": true
             },
             {
                 "type": "hero",

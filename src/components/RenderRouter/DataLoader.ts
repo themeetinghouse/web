@@ -134,6 +134,9 @@ export interface EventQuery extends DataLoaderQuery {
 export interface CompassionQuery extends DataLoaderQuery {
   class: 'compassion';
 }
+export interface UserDefinedQuery extends DataLoaderQuery {
+  class: 'user-defined';
+}
 
 export interface CompassionData {
   id: number;
@@ -179,7 +182,8 @@ export type DataQuery =
   | BlogQuery
   | CustomPlaylistQuery
   | SeriesCollectionQuery
-  | CustomPlaylistsQuery;
+  | CustomPlaylistsQuery
+  | UserDefinedQuery;
 
 export type SeriesData = NonNullable<
   NonNullable<NonNullable<GetSeriesQuery['getSeries']>['videos']>['items']
