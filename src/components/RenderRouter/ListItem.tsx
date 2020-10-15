@@ -611,6 +611,10 @@ class ListItem extends React.Component<Props, State> {
     const videos = item.videos?.items ?? [];
     if (videos.length > 0) {
       console.log(item.seriesType + '-' + item.title + '.jpg');
+      const image = {
+        src: '/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg',
+        alt: `${item.title} series image`
+      }
       return (
         <div onClick={() => this.handleClick(videos.sort((a, b) => {
           const aNumber = a?.episodeNumber ?? 0;
@@ -618,11 +622,18 @@ class ListItem extends React.Component<Props, State> {
           return seriesEnded ? aNumber - bNumber : bNumber - aNumber;
         })[0])}
           key={item.id} className="ListItemVideo">
-          <img alt={item.title + ' series image'}
-            className="ListItemImage2"
-            src={'/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg'}
-            onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
-          />
+
+
+          <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/photos/series/series-fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }} />
+
           <div className="ListItemEpisodeNum" >{item.title}</div>
           <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
         </div>

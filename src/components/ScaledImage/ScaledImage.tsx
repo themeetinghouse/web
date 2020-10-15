@@ -58,7 +58,6 @@ export default function ScaledImage(props: Props): ReactElement<Props> | null {
   sizesAttr += `, ${largestSize}px`;
 
   const uri = tmhImageUrl(largestSize, image.src);
-
   return (
     <img
       src={uri.substring(0, uri.lastIndexOf(" ") + 1)}
