@@ -356,14 +356,21 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
+    const image = {
+      src: this.getBlogImageURI(item.blogTitle, 'square'),
+      alt: item.blogTitle + ' series image'
+    }
     return (
       <Link className="container" to={'/posts/' + item.id} key={item.id}>
         <div className="BlogItem">
-          <img alt={item.blogTitle + ' series image'}
-            className="BlogSquareImage"
-            src={this.getBlogImageURI(item.blogTitle, 'square')}
-            onError={fallbackToImage('/static/photos/blogs/square/fallback.jpg')}
-          />
+          <ScaledImage image={image} className="BlogSquareImage" fallbackUrl="/static/photos/blogs/square/fallback.jpg" breakpointSizes={{
+            320: 80,
+            480: 120,
+            640: 180,
+            1280: 320,
+            1920: 480,
+            2560: 640,
+          }} />
           <div className="BlogContentContainer">
             <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
             <div className="BlogDetails">by <span className="author-only">{item.author}</span> on{' '}{item.publishedDate}</div>
@@ -505,7 +512,9 @@ class ListItem extends React.Component<Props, State> {
             <Konami action={() => { this.easterEgg() }}></Konami>
             {this.state.showChampion ?
               (<div><Fireworks style={{ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
-                <img alt={data.FirstName + ' ' + data.LastName} className="ListItemImage2" style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
+                <img alt={data.FirstName + ' ' + data.LastName}
+                  className="ListItemImage2"
+                  style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
                   onError={fallbackToImage('/static/Individual.png')}
                   src={'/static/photos/' + (data.Staff == null ? 'coordinators' : 'staff') + '/' + (data.Staff == null ? data.sites[0] + '_' : '') + data.FirstName + '_' + data.LastName + '_app.jpg'} />
                 <h1 style={{ color: '#ffffff', fontSize: 100, position: 'fixed', width: '80%', height: '20%', left: '10%', top: '70%', zIndex: 200006, }}>Young Adults Champion</h1></div>)
@@ -568,9 +577,21 @@ class ListItem extends React.Component<Props, State> {
     );
   }
   renderCompassion(item: any) {
+    const image = {
+      src: item.image,
+      alt: item.imageAlt
+    }
     return (
       <div key={item.id} className="ListItemCompassion" >
-        <img alt={item.imageAlt} className="ListItemCompassionLogo" src={item.image} onError={fallbackToImage('/static/NoCompassionLogo.png')} />
+        <ScaledImage image={image} className="ListItemCompassionLogo" fallbackUrl="/static/NoCompassionLogo.png" breakpointSizes={{
+          320: 80,
+          480: 120,
+          640: 180,
+          1280: 320,
+          1920: 480,
+          2560: 640,
+        }} />
+
         <div className="ListItemEventsDescription" >{item.name}</div>
         <div className="ListItemEventsDescription2" >{item.description}</div>
         <div>{item.location}</div>
@@ -587,14 +608,21 @@ class ListItem extends React.Component<Props, State> {
     }
     const videos = item.videos?.items ?? [];
     if (videos.length > 0) {
+      const image = {
+        src: this.getPlaylistImageURI(item?.title),
+        alt: item.title + ' playlist'
+      }
       return <div
         onClick={() => this.handlePlaylistClick(videos[0], true)}
         key={item.id} className="ListItemVideo">
-        <img alt={item.title + ' playlist'}
-          className="ListItemImage2"
-          src={this.getPlaylistImageURI(item?.title)}
-          onError={fallbackToImage('/static/photos/series/series-fallback.jpg')}
-        />
+        <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/photos/series/series-fallback.jpg" breakpointSizes={{
+          320: 80,
+          480: 120,
+          640: 180,
+          1280: 320,
+          1920: 480,
+          2560: 640,
+        }} />
         <div className="ListItemEpisodeNum" >{item.title}</div>
       </div>
     } else {
