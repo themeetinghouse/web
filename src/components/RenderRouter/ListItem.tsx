@@ -728,10 +728,12 @@ class ListItem extends React.Component<Props, State> {
             <h1 className='ListItemH1'>{this.state.content.header1}</h1>
             <div className="ListItemDiv2" >
               <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                {randomPlayList.map((item: any, index) => {
-                  return this.renderItemRouter(item.video, index);
+                {randomPlayList
+                  .sort((a, b) => (a?.video?.publishedDate ?? '').localeCompare(b?.video?.publishedDate ?? ''))
+                  .map((item: any, index) => {
+                    return this.renderItemRouter(item.video, index);
+                  })
                 }
-                )}
               </HorizontalScrollList>
               <div className="ListItemDiv5" ></div>
             </div>
