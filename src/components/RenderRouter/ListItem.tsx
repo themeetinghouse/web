@@ -227,6 +227,8 @@ class ListItem extends React.Component<Props, State> {
       case 'blogs':
         await DataLoader.getBlogs(query, dataLoaded);
         return;
+      case 'user-defined':
+        return;
       default:
         console.error(`unknown list data type ${this.state.content.class}`);
         return;

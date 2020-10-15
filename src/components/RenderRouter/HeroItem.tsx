@@ -141,7 +141,7 @@ class HeroItem extends React.Component<Props, State> {
             method="post" id="mc-embedded-subscribe-form"
             name="mc-embedded-subscribe-form" className="validate" target="_blank">
             <div className="emailDiv" aria-hidden="true">
-              <input className="emailInput" type="text" name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826" value="" />
+              <input className="emailInput" type="text" name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826" defaultValue="" />
             </div>
             <div id="mc_embed_signup_scroll" className="signupButtons">
               <div className="emailWrapper">
@@ -318,23 +318,32 @@ class HeroItem extends React.Component<Props, State> {
       )
     } else if (this.state.content.style === "connect") {
       return (
-        <div className="partialConnect" >
-          {this.renderHeroImage("partialConnectImage")}
-          <div className="partialConnectBox" >
-            <h1 className="heroH1" >{this.state.content.header1}</h1>
-            {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
-            <hr className="heroHr"></hr>
-            <div className="heroText1" >{this.state.content.text1}</div>
-            <div className="heroText2" >{this.state.content.text2}</div>
-            <div className="heroText2" >{this.state.content.text3}</div>
-            <div className="heroText2" >{this.state.content.text4}</div>
-            <div className="heroText2" >{this.state.content.text5}</div>
-            <div className="heroText2" >{this.state.content.text6}</div>
-            <div className="heroText2" >{this.state.content.text7}</div>
-            {this.renderEmailSignup()}
+        <>
+          <div className="partialConnect" >
+            {this.renderHeroImage("partialConnectImage")}
+            <div className="partialConnectBox" >
+              <h1 className="heroH1" >{this.state.content.header1}</h1>
+              {this.state.content.header2 && <h2 className="heroH2">{this.state.content.header2}</h2>}
+              <hr className="heroHr"></hr>
+              <div className="heroText1" >{this.state.content.text1}</div>
+              <div className="heroText2" >{this.state.content.text2}</div>
+              <div className="heroText2" >{this.state.content.text3}</div>
+              <div className="heroText2" >{this.state.content.text4}</div>
+              <div className="heroText2" >{this.state.content.text5}</div>
+              <div className="heroText2" >{this.state.content.text6}</div>
+              <div className="heroText2" >{this.state.content.text7}</div>
+              {this.renderEmailSignup()}
+            </div>
           </div>
-        </div>
+          {console.log(this.state.content.hasFooter)}
+          {
+            this.state.content.hasFooter ?
+              <div style={{ height: "5vw" }}></div>
+              : null
+          }
+        </>
       )
+
     }
     else return null
   }
