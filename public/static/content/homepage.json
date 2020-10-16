@@ -109,16 +109,16 @@
                 "list": [
                     {
                         "title": "Sunday Teaching",
-                        "text": "The video from our live Sunday services, including notes, questions, audio and additional content. Check out what we're learning, or search through various topics in our teaching archive.",
+                        "text": "All of our teaching videos and series, including notes, questions, audio, and additional content. Check out what we're learning, or find what you're looking for in our video playlists.",
                         "imageSrc": "/static/images/homepage-4-1-new.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
                         "navigateTo": "/teaching"
                     },
                     {
                         "title": "Livestream",
-                        "text": "",
-                        "imageSrc": "/static/images/homepage-4-2-new.jpg",
-                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
+                        "text": "We're live every Sunday at 10:00am EDT. A one hour livestream expereince with stories, music, and teaching. If you're looking for a good first step, this is it. See you this Sunday!",
+                        "imageSrc": "/static/images/corona-2.jpg",
+                        "imageAlt": "Screen shot of Bruxy teaching during Sunday morning livestream at The Meeting House.",
                         "navigateTo": "/live"
                     },
                     {
