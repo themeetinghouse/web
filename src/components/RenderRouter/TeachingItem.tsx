@@ -121,8 +121,10 @@ class TeachingItem extends React.Component<Props, State> {
     handleClick(data: any) {
         this.setState({
             overlayData: data
-
         })
+        if (data.series) {
+            this.props.history.push(`/videos/${data.series.id}/${data.id}`)
+        }
     }
 
     setSelection(selection: string) {
