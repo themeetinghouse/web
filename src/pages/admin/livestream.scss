@@ -1,47 +1,48 @@
 @use './admin.scss';
 
 .livestream-input {
-    width: 200px;
+  width: 200px;
 }
 
-.videoSelectBox{
-    display:flex;
-    flex-direction:row;
-    width:100vw;
+.videoSelectBox {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
 }
 .divTable {
-    background-color: #eee;
-    border: 1px solid #666666;
-    border-spacing: 5px;
-    font-size: 10px;
-    height:20vh;
-    overflow:auto;
-    width:70vw;
-    margin:0;
+  background-color: #eee;
+  border: 1px solid #666666;
+  border-spacing: 5px;
+  font-size: 10px;
+  height: 20vh;
+  overflow: auto;
+  width: 70vw;
+  margin: 0;
 }
 
 .divRow {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .divCell {
-    font-size: 10px;
-    padding:1px;
+  font-size: 10px;
+  padding: 1px;
 }
 tr:hover {
-    background-color: #ffff99;
-    cursor: pointer;
-  }
-table thead tr{
-    display:block;
+  background-color: #ffff99;
+  cursor: pointer;
+}
+table thead tr {
+  display: block;
 }
 
-table th,table td{
-    width:100px;//fixed width
+table th,
+table td {
+  width: 100px; //fixed width
 }
 
-.divTable  tbody{
-  display:block;
-  height:200px;
-  overflow:auto;//set tbody to auto
+.divTable tbody {
+  display: block;
+  height: 200px;
+  overflow: auto; //set tbody to auto
 }

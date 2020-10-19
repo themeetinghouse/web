@@ -673,7 +673,7 @@
   {
     "FirstName": "Patti",
     "LastName": "Larsen",
-    "sites": ["KIT","WAT"],
+    "sites": ["KIT", "WAT"],
     "Email": "patti.larsen@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
@@ -733,4 +733,4 @@
     "Email": "alyssa.esparaz@themeetinghouse.com",
     "Position": "Youth Coordinator"
   }
- ]
+]

@@ -10,7 +10,10 @@ export const API = {
     .mockImplementation((): Promise<GraphQLResult> => Promise.resolve({})),
 };
 
-export function graphqlOperation(query: any, variables?: Record<string, unknown>) {
+export function graphqlOperation(
+  query: any,
+  variables?: Record<string, unknown>
+) {
   return {
     query,
     variables,

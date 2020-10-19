@@ -1,56 +1,56 @@
 [
-    {
-        "FirstName": "Maggie",
-        "LastName": "John",
-        "Position":"Executive, Chair",
-        "sites": ["overseer"]
-    },
-    {
-        "FirstName": "Cody",
-        "LastName": "Buchenauer",
-        "Position":"Executive, Treasurer Finance & Audit, Chair",
-        "sites": ["overseer"]
-    },
-    {
-        "FirstName": "Mario",
-        "LastName": "Ferlanti",
-        "Position":"Nominating, Chair",
-        "sites": ["overseer"]
-    },
-    {
-        "FirstName": "Vincent",
-        "LastName": "John",
-        "Position":"Nominating",
-        "sites": ["overseer"]
-    }, 
-    {
-        "FirstName": "Yohan",
-        "LastName": "Mahimwala",
-        "Position":"Finance & Audit",
-        "sites": ["overseer"]
-    },      	         
-    {
-        "FirstName": "Bruce",
-        "LastName": "Miller",
-        "Position":"Governance",
-        "sites": ["overseer"]
-    }, 
-    {
-        "FirstName": "Nathan",
-        "LastName": "Piche",
-        "Position":"Executive, Secretary",
-        "sites": ["overseer"]
-    }, 
-    {
-        "FirstName": "Angela",
-        "LastName": "Rose",
-        "Position":"Governance",
-        "sites": ["overseer"]
-    },  
-    {
-        "FirstName": "Carole Ann",
-        "LastName": "Stephen",
-        "Position":"Nominating",
-        "sites": ["overseer"]
-    }
+  {
+    "FirstName": "Maggie",
+    "LastName": "John",
+    "Position": "Executive, Chair",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Cody",
+    "LastName": "Buchenauer",
+    "Position": "Executive, Treasurer Finance & Audit, Chair",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Mario",
+    "LastName": "Ferlanti",
+    "Position": "Nominating, Chair",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Vincent",
+    "LastName": "John",
+    "Position": "Nominating",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Yohan",
+    "LastName": "Mahimwala",
+    "Position": "Finance & Audit",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Bruce",
+    "LastName": "Miller",
+    "Position": "Governance",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Nathan",
+    "LastName": "Piche",
+    "Position": "Executive, Secretary",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Angela",
+    "LastName": "Rose",
+    "Position": "Governance",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Carole Ann",
+    "LastName": "Stephen",
+    "Position": "Nominating",
+    "sites": ["overseer"]
+  }
 ]

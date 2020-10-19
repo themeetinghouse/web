@@ -1,107 +1,101 @@
 {
-    "page": {
-        "name": "careers",
-        "title": "Careers",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "careers",
+    "title": "Careers",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-images/careers.jpg",
-                "url": "https://www.themeetinghouse.com/careers",
-                "title": "Want to work with us?",
-                "description": "Check out these awesome job postings at The Meeting House."
-            },
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/careers-1.jpg",
-                        "alt": "A pastor from The Meeting House is similing and looking off camera."
-                    }
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/careers.jpg",
+        "url": "https://www.themeetinghouse.com/careers",
+        "title": "Want to work with us?",
+        "description": "Check out these awesome job postings at The Meeting House."
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/careers-1.jpg",
+            "alt": "A pastor from The Meeting House is similing and looking off camera."
+          }
+        ],
+        "header1": "Staff & Careers",
+        "text1": "We've got some good people. These are the folks that help make community, discipleship, and church things happen. Keep scrolling to connect with us or explore career opportunities.",
+        "text2": "",
+        "link1Text": "",
+        "link1Action": ""
+      },
 
-                ],
-                "header1": "Staff & Careers",
-                "text1": "We've got some good people. These are the folks that help make community, discipleship, and church things happen. Keep scrolling to connect with us or explore career opportunities.",
-                "text2": "",
-                "link1Text": "",
-                "link1Action": ""
+      {
+        "type": "list",
+        "style": "staff",
+        "class": "staff",
+        "header1": "Staff",
+        "text1": "Some call us the dream team."
+      },
+      {
+        "type": "list",
+        "style": "staff",
+        "class": "overseers",
+        "header1": "Overseers",
+        "text1": "Overseers are a group of Elders selected to represent and oversee our entire ministry. Our senior staff report to this team. The Overseers focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community."
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Full-time Careers",
+        "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
+        "list": [
+          {
+            "type": "link",
+            "title": "Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/2020 Lead Pastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Parry Sound Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
+          }
+        ],
 
-            },
-
-            {
-                "type": "list",
-                "style": "staff",
-                "class": "staff",
-                "header1": "Staff",
-                "text1": "Some call us the dream team."
-            },
-            {
-                "type": "list",
-                "style": "staff",
-                "class": "overseers",
-                "header1": "Overseers",
-                "text1": "Overseers are a group of Elders selected to represent and oversee our entire ministry. Our senior staff report to this team. The Overseers focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community."
-                
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Full-time Careers",
-                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/2020 Lead Pastor.pdf"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Parry Sound Lead Pastor",
-                        "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
-                    }
-                ],
-    
-
-                "image1": [
-                    {
-                        "src": "/static/images/careers-2.jpg",
-                        "alt": "Staff member from The Meeting House smiling and looking off camera."
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "Part-time Careers",
-                "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Kitchener-Waterloo Youth Coordinator",
-                        "navigateTo": "/static/pdfs/careers/KW Youth Coordinator 2020.pdf"
-                    }
-                ],
-
-
-                "image1": [
-                    {
-                        "src": "/static/images/careers-3.jpg",
-                        "alt": "Staff member from The Meeting House is talking and smiling."
-                    }
-                ]
-            }
-           
+        "image1": [
+          {
+            "src": "/static/images/careers-2.jpg",
+            "alt": "Staff member from The Meeting House smiling and looking off camera."
+          }
         ]
-    }
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Part-time Careers",
+        "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
+        "list": [
+          {
+            "type": "link",
+            "title": "Kitchener-Waterloo Youth Coordinator",
+            "navigateTo": "/static/pdfs/careers/KW Youth Coordinator 2020.pdf"
+          }
+        ],
+
+        "image1": [
+          {
+            "src": "/static/images/careers-3.jpg",
+            "alt": "Staff member from The Meeting House is talking and smiling."
+          }
+        ]
+      }
+    ]
+  }
 }

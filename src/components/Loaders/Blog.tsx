@@ -7,7 +7,9 @@ import { getBlog } from '../../graphql-custom/customQueries';
 import RenderRouter from '../RenderRouter/RenderRouter';
 
 export default function Blog(): ReactElement | null {
-  const [data, setData] = useState<GetBlogQuery['getBlog'] | null | undefined>(null);
+  const [data, setData] = useState<GetBlogQuery['getBlog'] | null | undefined>(
+    null
+  );
   const [content, setContent] = useState(null);
 
   const match = useRouteMatch<{ blog: string }>();
@@ -16,8 +18,10 @@ export default function Blog(): ReactElement | null {
   useEffect(() => {
     Analytics.record({
       name: 'pageVisit',
-      attributes: { page: 'blog-post' }
-    }).catch((e) => { console.log(e) });
+      attributes: { page: 'blog-post' },
+    }).catch((e) => {
+      console.log(e);
+    });
 
     (async () => {
       const response = await fetch('/static/content/blog-post.json');
@@ -32,21 +36,21 @@ export default function Blog(): ReactElement | null {
         const json = await (API.graphql({
           query: getBlog,
           variables: { id: match.params.blog },
-          authMode: GRAPHQL_AUTH_MODE.API_KEY
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
         }) as Promise<GraphQLResult<GetBlogQuery>>);
-        if (!json.data?.getBlog)
-          history.replace("/not-found")
-        else
-          setData(json.data?.getBlog)
+        if (!json.data?.getBlog) history.replace('/not-found');
+        else setData(json.data?.getBlog);
       } catch (e) {
-        console.error(e)
+        console.error(e);
         Analytics.record({
           name: 'error',
-          attributes: { page: 'blog-post' }
-        }).catch((e) => { console.log(e) });
-        history.replace("/not-found")
+          attributes: { page: 'blog-post' },
+        }).catch((e) => {
+          console.log(e);
+        });
+        history.replace('/not-found');
       }
-    }
+    };
     load();
   }, [match.params.blog, history]);
 
@@ -54,5 +58,5 @@ export default function Blog(): ReactElement | null {
     return null;
   }
 
-  return <RenderRouter data={data} content={content}></RenderRouter>
+  return <RenderRouter data={data} content={content}></RenderRouter>;
 }

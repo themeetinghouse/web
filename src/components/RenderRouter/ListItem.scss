@@ -1,1975 +1,1965 @@
 @import '../../theme';
 
 @mixin link-underline {
-    text-decoration: none !important;
-    border-bottom: 1px solid $onyxblacktext;
+  text-decoration: none !important;
+  border-bottom: 1px solid $onyxblacktext;
 
-    &:hover {
-        color: inherit;
-
-    }
+  &:hover {
+    color: inherit;
+  }
 }
 
 @media (min-width: 768px) {
-    .ListItemEventButton {
-        background-color: #ffffff00 !important;
-        color: $onyxblacktext !important;
-        border: 0px !important;
-    }
+  .ListItemEventButton {
+    background-color: #ffffff00 !important;
+    color: $onyxblacktext !important;
+    border: 0px !important;
+  }
 
-    .ListItem.horizontal,
-    .ListItem.horizontalBig {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .ListItem.horizontal,
+  .ListItem.horizontalBig {
+    position: static;
+    padding-bottom: 5vw;
+  }
 
-    .ListItemDiv1 {
-        position: relative;
-        z-index: 99;
-        left: 20vw;
-        width: 80vw;
-    }
+  .ListItemDiv1 {
+    position: relative;
+    z-index: 99;
+    left: 20vw;
+    width: 80vw;
+  }
 
-    .ListItemDiv1.horizontal-video-player {
-        position: relative;
-        z-index: 99;
-        left: 10vw;
-    }
+  .ListItemDiv1.horizontal-video-player {
+    position: relative;
+    z-index: 99;
+    left: 10vw;
+  }
 
-    .ListItem.horizontal-video-player {
-        margin-bottom: 3vw;
-    }
+  .ListItem.horizontal-video-player {
+    margin-bottom: 3vw;
+  }
 
-    .ListItemDiv2 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        white-space: nowrap;
-    }
+  .ListItemDiv2 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    white-space: nowrap;
+  }
 
-    .ListItemDiv3 {
-        display: inline-block;
-        vertical-align: top;
-    }
+  .ListItemDiv3 {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    .ListItemDiv4 {
-        font-weight: bold;
-    }
+  .ListItemDiv4 {
+    font-weight: bold;
+  }
 
-    .ListItemDiv5 {
-        clear: left;
-    }
+  .ListItemDiv5 {
+    clear: left;
+  }
 
-    .ListItemDiv6 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        white-space: nowrap;
-    }
+  .ListItemDiv6 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    white-space: nowrap;
+  }
 
-    .ListItemDiv7 {
-        width: 80vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        padding-bottom: 1vw;
-        color: $coolgray11;
-    }
+  .ListItemDiv7 {
+    width: 80vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    padding-bottom: 1vw;
+    color: $coolgray11;
+  }
 
-    .ListItemDiv8 {
-        position: relative;
-    }
+  .ListItemDiv8 {
+    position: relative;
+  }
 
-    .ListItemDiv9 {
-        position: absolute;
-        left: 12.5vw;
-        width: 5vw;
-        bottom: 0vw;
-        top: 0vw;
-        border: solid 10px $onyxblacktext;
-    }
+  .ListItemDiv9 {
+    position: absolute;
+    left: 12.5vw;
+    width: 5vw;
+    bottom: 0vw;
+    top: 0vw;
+    border: solid 10px $onyxblacktext;
+  }
 
-    .ListItemDiv10 {
-        position: relative;
-        z-index: 99;
-    }
+  .ListItemDiv10 {
+    position: relative;
+    z-index: 99;
+  }
 
-    .ListItemDiv11 {
-        width: 31vw;
-        font-size: 1.25vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .ListItemDiv11 {
+    width: 31vw;
+    font-size: 1.25vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .ListItemH1 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        font-weight: bold;
-        font-size: 3vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemH1 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemH1.whiteText {
-        color: #ffffff
-    }
+  .ListItemH1.whiteText {
+    color: #ffffff;
+  }
 
-    .ListItemH1.horizontal-video-player {
-        font-size: 2vw;
-    }
+  .ListItemH1.horizontal-video-player {
+    font-size: 2vw;
+  }
 
-    .ListItemH1ImageList {
-        font-size: 3vw;
-        font-weight: bold;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemH1ImageList {
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemH1ImageList2 {
-        position: absolute;
-        height: 20vw;
-        width: 30vw;
-        left: 0vw;
-        object-fit: cover;
-        top: 2.5vw;
-    }
+  .ListItemH1ImageList2 {
+    position: absolute;
+    height: 20vw;
+    width: 30vw;
+    left: 0vw;
+    object-fit: cover;
+    top: 2.5vw;
+  }
 
-    .ListItemH3 {
-        width: 40vw;
-        font-size: 2vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext
-    }
+  .ListItemH3 {
+    width: 40vw;
+    font-size: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemImage {
-        height: 10vw;
-        margin-right: 1vw;
-    }
+  .ListItemImage {
+    height: 10vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemCompassionLogo {
-        height: 13vw;
-        margin-right: 1vw;
-    }
+  .ListItemCompassionLogo {
+    height: 13vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemImage2 {
-        width: 20vw;
-        margin-right: 1vw;
-    }
+  .ListItemImage2 {
+    width: 20vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemTeachingImageDiv {
-        display: inline-block;
-        vertical-align: top;
-    }
+  .ListItemTeachingImageDiv {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    .ListItemTeachingImage {
-        height: 10vw;
-        margin-right: 1vw;
-    }
+  .ListItemTeachingImage {
+    height: 10vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemSpeakersDiv {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        white-space: nowrap;
-    }
+  .ListItemSpeakersDiv {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    white-space: nowrap;
+  }
 
-    .ListItemText1 {
-        position: relative;
-        left: 0vw;
-        width: 75vw;
-        font-size: 1.25vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .ListItemText1 {
+    position: relative;
+    left: 0vw;
+    width: 75vw;
+    font-size: 1.25vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .ListItemVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        :hover {
-            .ListItemPlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
+  .ListItemVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    :hover {
+      .ListItemPlayImageOverlay {
+        opacity: 0.75;
+      }
     }
+  }
 
-    .ListItemVideo.whiteText {
-        color: #ffffff
-    }
+  .ListItemVideo.whiteText {
+    color: #ffffff;
+  }
 
-    .ListItemVideoThumb {
-        width: 20vw;
-        margin-right: 1vw;
-        object-fit: cover;
-        height: 11.25vw;
-    }
+  .ListItemVideoThumb {
+    width: 20vw;
+    margin-right: 1vw;
+    object-fit: cover;
+    height: 11.25vw;
+  }
 
-    .LoadMoreVideosCard {
-        transition: 0.5s;
-        width: 20vw;
-        margin-right: 1vw;
-        height: 11.25vw;
-        border: 4px solid $onyxblacktext;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .LoadMoreVideosCard {
+    transition: 0.5s;
+    width: 20vw;
+    margin-right: 1vw;
+    height: 11.25vw;
+    border: 4px solid $onyxblacktext;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .LoadMoreVideosCard:hover {
-        transition: 0.5s;
-        background: $onyxblacktext;
-        .LoadMoreVideosText {
-            transition: 0.5s;
-            color: white
-        }
-    }
-
+  .LoadMoreVideosCard:hover {
+    transition: 0.5s;
+    background: $onyxblacktext;
     .LoadMoreVideosText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        color: $onyxblacktext;
+      transition: 0.5s;
+      color: white;
     }
+  }
 
-    .LoadMoreSeriesCard {
-        cursor: pointer;
-        transition: 0.5s;
-        width: 20vw;
-        height: 20vw*(1248/1056);
-        margin-right: 1vw;
-        border: 4px solid $onyxblacktext;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .LoadMoreVideosText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: $onyxblacktext;
+  }
 
-    .LoadMoreSeriesCard:hover {
-        transition: 0.5s;
-        background: $onyxblacktext;
-        .LoadMoreSeriesText {
-            transition: 0.5s;
-            color: white
-        }
-    }
+  .LoadMoreSeriesCard {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 20vw;
+    height: 20vw * (1248/1056);
+    margin-right: 1vw;
+    border: 4px solid $onyxblacktext;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .LoadMoreSeriesCard:hover {
+    transition: 0.5s;
+    background: $onyxblacktext;
     .LoadMoreSeriesText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        color: $onyxblacktext;
+      transition: 0.5s;
+      color: white;
     }
+  }
 
-    .ListItemPlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 12vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
-    }
+  .LoadMoreSeriesText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: $onyxblacktext;
+  }
 
-    .ListItemEpisodeNum {
-        width: 20vw;
-        font-weight: bold;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
+  .ListItemPlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
+  }
 
-    .ListItemEpisodeLength {
-        font-weight: bold;
-    }
+  .ListItemEpisodeNum {
+    width: 20vw;
+    font-weight: bold;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemSeriesTitle,
-    .ListItemContact,
-    .ListItemWebsite,
-    .ListItemPublishedDate,
-    .ListYearEpisode {
-        width: 20vw;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemEpisodeLength {
+    font-weight: bold;
+  }
 
-    .ListItemName {
-        width: 18vw;
-        font-weight: bold;
-        font-size: 1.1vw;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemSeriesTitle,
+  .ListItemContact,
+  .ListItemWebsite,
+  .ListItemPublishedDate,
+  .ListYearEpisode {
+    width: 20vw;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemEmail,
-    .ListItemPhone {
-        width: 18vw;
-        white-space: normal;
-        font-size: 1.1vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemName {
+    width: 18vw;
+    font-weight: bold;
+    font-size: 1.1vw;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemPosition {
-        width: 18vw;
-        white-space: normal;
-        font-size: 1.1vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .ListItemEmail,
+  .ListItemPhone {
+    width: 18vw;
+    white-space: normal;
+    font-size: 1.1vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemWebsite {
-        color: $onyxblacktext;
-        text-decoration: underline;
-    }
+  .ListItemPosition {
+    width: 18vw;
+    white-space: normal;
+    font-size: 1.1vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .ListItemWebsiteContainer {
-        margin-top: 1vw;
-    }
+  .ListItemWebsite {
+    color: $onyxblacktext;
+    text-decoration: underline;
+  }
 
-    .ListItemEmailText {
-        color: $onyxblacktext;
-        @include link-underline();
-    }
+  .ListItemWebsiteContainer {
+    margin-top: 1vw;
+  }
 
-    .ListItemSocialLink {
-        display: inline-block;
-        width: 1.67vw;
-        height: 1.67vw;
-        margin-left: 1.67vw;
-        color: #1A1A1A;
-    }
+  .ListItemEmailText {
+    color: $onyxblacktext;
+    @include link-underline();
+  }
 
-    .ListItemFB {
-        margin-right: 0.5vw;
-    }
+  .ListItemSocialLink {
+    display: inline-block;
+    width: 1.67vw;
+    height: 1.67vw;
+    margin-left: 1.67vw;
+    color: #1a1a1a;
+  }
 
-    .ListItemEvents {
-        display: relative;
-        width: 53vw;
-        margin-right: 2vw;
-        vertical-align: top;
-    }
+  .ListItemFB {
+    margin-right: 0.5vw;
+  }
 
-    .ListItemEvents:hover {
-        background-color: #EFEFF0;
-        cursor:pointer;
-    }
+  .ListItemEvents {
+    display: relative;
+    width: 53vw;
+    margin-right: 2vw;
+    vertical-align: top;
+  }
 
-    .ListItemCompassion {
-        display: inline-block;
-        width: 23vw;
-        margin-right: 2vw;
-        vertical-align: top;
-    }
+  .ListItemEvents:hover {
+    background-color: #efeff0;
+    cursor: pointer;
+  }
 
-    .ListItemEventsDescription {
-        white-space: normal;
-        font-weight: bold;
-        font-size: 2vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemCompassion {
+    display: inline-block;
+    width: 23vw;
+    margin-right: 2vw;
+    vertical-align: top;
+  }
 
-    .ListItemEventsDescription2 {
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $coolgray11;
-        word-wrap: break-word;
-    }
+  .ListItemEventsDescription {
+    white-space: normal;
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemEventsLocation {
-        font-family: Graphik Web;
-        font-weight: bold;
-        margin-top: 10px;
-        color: $onyxblacktext;
-    }
+  .ListItemEventsDescription2 {
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $coolgray11;
+    word-wrap: break-word;
+  }
 
-    .ListItemEventsDuration {
-        font-family: Graphik Web;
-        margin-top: 10px;
-        color: $onyxblacktext;
-    }
+  .ListItemEventsLocation {
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 10px;
+    color: $onyxblacktext;
+  }
 
-    .ListItem.imageList {
-        position: static;
-        width: 100vw;
-        padding-bottom: 5vw;
-    }
+  .ListItemEventsDuration {
+    font-family: Graphik Web;
+    margin-top: 10px;
+    color: $onyxblacktext;
+  }
 
-    .CuriousBox {
-        transition: 0.5s;
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 24vw;
-        height: 13.5vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .ListItem.imageList {
+    position: static;
+    width: 100vw;
+    padding-bottom: 5vw;
+  }
 
-    .CuriousWrapper {
-        position: relative;
-        width: 24vw;
-        height: 13.5vw;
-        margin-bottom: 1.67vw;
-    }
+  .CuriousBox {
+    transition: 0.5s;
+    position: relative;
+    border: 4px solid $onyxblacktext;
+    width: 24vw;
+    height: 13.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .CuriousWrapper {
+    position: relative;
+    width: 24vw;
+    height: 13.5vw;
+    margin-bottom: 1.67vw;
+  }
+  .CuriousText {
+    transition: 0.5s;
+    position: relative;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 1.5vw;
+    flex: 0 0 18vw;
+    text-align: center;
+    color: $onyxblacktext;
+  }
+
+  .WatchVideoTag {
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute;
+    font-family: Graphik Web;
+    font-size: 1vw;
+    color: #ffffff;
+    padding-top: 4vw;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .CuriousBox:hover {
+    transition: 0.5s;
+    background-color: $onyxblacktext;
     .CuriousText {
-        transition: 0.5s;
-        position: relative;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        flex: 0 0 18vw;
-        text-align: center;
-        color: $onyxblacktext;
+      color: #ffffff;
+      transition: 0.5s;
+      transform: translateY(-2vw);
     }
-
     .WatchVideoTag {
-        transition: 0.5s;
-        opacity: 0;
-        position: absolute;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        color: #ffffff;
-        padding-top: 4vw;
-        border-bottom: 1px solid #ffffff;
+      transition: 0.5s;
+      opacity: 1;
     }
+  }
+  .CuriousContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 24vw);
+    grid-template-rows: 15.17vw;
+    column-gap: 1.67vw;
+  }
 
-    .CuriousBox:hover {
-        transition: 0.5s;
-        background-color: $onyxblacktext;
-        .CuriousText {
-            color: #ffffff;
-            transition: 0.5s;
-            transform: translateY(-2vw);
-        }
-        .WatchVideoTag {
-            transition: 0.5s;
-            opacity: 1;
-        }
-    }
-    .CuriousContainer {
-        display: grid;
-        grid-template-columns: repeat(3,24vw);
-        grid-template-rows: 15.17vw;
-        column-gap: 1.67vw;
-    }
+  .WatchPageContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 18.33vw);
+    grid-template-rows: auto;
+    column-gap: 1.67vw;
+    row-gap: 1.67vw;
+  }
 
-    .WatchPageContainer {
-        display: grid;
-        grid-template-columns: repeat(4,18.33vw);
-        grid-template-rows: auto;
-        column-gap: 1.67vw;
-        row-gap: 1.67vw;
-    }
+  .WatchPageThumb {
+    width: 18.33vw;
+    object-fit: cover;
+    height: 10.27vw;
+  }
 
-    .WatchPageThumb {
-        width: 18.33vw;
-        object-fit: cover;
-        height: 10.27vw;
+  .WatchPageVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    :hover {
+      .WatchPagePlayImageOverlay {
+        opacity: 0.75;
+      }
     }
+  }
 
-    .WatchPageVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        :hover {
-            .WatchPagePlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
+  .WatchPageVideo.whiteText {
+    color: #ffffff;
+  }
+
+  .WatchPagePlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
+  }
 
-    .WatchPageVideo.whiteText {
-        color: #ffffff
-    }
+  .WatchPageEpisodeTitle {
+    width: 18.5vw;
+    font-weight: bold;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .WatchPagePlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 10vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
-    }
+  .WatchPagePublishedDate {
+    width: 20vw;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .WatchPageEpisodeTitle {
-        width: 18.5vw;
-        font-weight: bold;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
+  .HorizontalLine {
+    margin-top: 3.75vw;
+    height: 8px;
+    background: #ffffff;
+    opacity: 0.12;
+  }
 
-    .WatchPagePublishedDate {
-        width: 20vw;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
+  .hide-desktop {
+    display: none;
+  }
 
-    .HorizontalLine {
-        margin-top: 3.75vw;
-        height: 8px;
-        background: #ffffff;
-        opacity: 0.12;
-    }
+  .CuriousText1 {
+    position: relative;
+    left: 0vw;
+    width: 45vw;
+    font-size: 1.25vw;
+    font-family: Graphik Web;
+    margin-bottom: 4vw;
+    color: $coolgray11;
+  }
 
-    .hide-desktop {
-        display: none;
-    }
+  .arrow {
+    float: right;
+    padding-top: 1px;
+    width: 32px;
+  }
 
-    .CuriousText1 {
-        position: relative;
-        left: 0vw;
-        width: 45vw;
-        font-size: 1.25vw;
-        font-family: Graphik Web;
-        margin-bottom: 4vw;
-        color: $coolgray11;
-    }
+  .blogarrow {
+    float: right;
+  }
 
-    .arrow {
-        float: right;
-        padding-top: 1px;
-        width: 32px;
-    }
+  .author-only {
+    color: #1a1a1a;
+    //border-bottom: solid #1A1A1A 1px;
+    //padding-bottom: 1px;
+  }
 
-    .blogarrow {
-        float: right;
-    }
+  .BlogItem {
+    display: flex;
+    align-items: top;
+    margin-bottom: 3.3vw;
+    width: 78vw;
+  }
 
-    .author-only {
-        color: #1A1A1A;
-        //border-bottom: solid #1A1A1A 1px;
-        //padding-bottom: 1px;
-    }
+  .BlogItem:hover {
+    cursor: pointer;
+  }
 
-    .BlogItem {
-        display: flex;
-        align-items: top;
-        margin-bottom: 3.3vw;
-        width: 78vw;
-    }
+  .BlogSquareImage {
+    width: 8.33vw;
+    height: 8.33vw;
+  }
 
-    .BlogItem:hover {
-        cursor:pointer;
-    }
+  .BlogDesc {
+    color: #54565a;
+    margin-top: 1vw;
+    width: 50vw;
+    font-size: 1.1vw;
+  }
 
-    .BlogSquareImage {
-        width: 8.33vw;
-        height: 8.33vw;
-    }
+  .BlogDetails {
+    color: #54565a;
+    font-size: 0.83vw;
+  }
 
-    .BlogDesc {
-        color: #54565A;
-        margin-top: 1vw;
-        width: 50vw;
-        font-size: 1.1vw;
-    }
+  .BlogTitle {
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 1.1vw;
+  }
 
-    .BlogDetails {
-        color: #54565A;
-        font-size: 0.83vw;
-    }
+  .BlogContentContainer {
+    display: inline-block;
+    margin-left: 2vw;
+    width: 64vw;
+  }
 
-    .BlogTitle {
-        color: #1A1A1A;
-        font-weight: bold;
-        font-size: 1.1vw;
-    }
+  $staffwidth: 38vw;
 
-    .BlogContentContainer {
-        display: inline-block;
-        margin-left: 2vw;
-        width: 64vw;
-    }
+  .StaffGridWrapper {
+    width: $staffwidth * 2;
+    margin-right: 3vw;
+  }
 
-    $staffwidth: 38vw;
+  .StaffGrid {
+    display: grid;
+    row-gap: 3vw;
+    grid-template-columns: repeat(2, $staffwidth);
+    grid-template-rows: repeat(3, 7.5vw);
+    margin-bottom: 4vw;
+  }
 
-    .StaffGridWrapper {
-        width: $staffwidth*2;
-        margin-right: 3vw;
-    }
+  .StaffImage {
+    width: 7.5vw;
+    height: 7.5vw;
+    margin-right: 1.67vw;
+  }
 
-    .StaffGrid {
-        display: grid;
-        row-gap: 3vw;
-        grid-template-columns: repeat(2, $staffwidth);
-        grid-template-rows: repeat(3, 7.5vw);
-        margin-bottom: 4vw;
-    }
+  .StaffContact {
+    margin-top: 0.5vw;
+  }
 
-    .StaffImage {
-        width: 7.5vw;
-        height: 7.5vw;
-        margin-right: 1.67vw;
-    }
-
-    .StaffContact {
-        margin-top: 0.5vw;
-    }
-
-    .StaffItem {
-        display: flex;
-        flex-direction: row;
-    }
+  .StaffItem {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .ListItemH1.horizontal-video-player {
-        font-size: 3vw;
-    }
+  .ListItemH1.horizontal-video-player {
+    font-size: 3vw;
+  }
 
-    .ListItem.horizontal-video-player {
-        margin-bottom: 3vw;
-    }
+  .ListItem.horizontal-video-player {
+    margin-bottom: 3vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .ListItemEventButton {
-        background-color: #ffffff00 !important;
-        color: $onyxblacktext !important;
-        border: 0px !important;
-    }
+  .ListItemEventButton {
+    background-color: #ffffff00 !important;
+    color: $onyxblacktext !important;
+    border: 0px !important;
+  }
 
-    .ListItem.horizontal,
-    .ListItem.horizontalBig {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .ListItem.horizontal,
+  .ListItem.horizontalBig {
+    position: static;
+    padding-bottom: 5vw;
+  }
 
-    .ListItemDiv1 {
-        position: relative;
-        z-index: 99;
-        left: 20vw;
-        width: 80vw;
-    }
+  .ListItemDiv1 {
+    position: relative;
+    z-index: 99;
+    left: 20vw;
+    width: 80vw;
+  }
 
-    .ListItemDiv1.horizontal-video-player {
-        position: relative;
-        z-index: 99;
-        left: 10vw;
-        width: 80vw;
-    }
+  .ListItemDiv1.horizontal-video-player {
+    position: relative;
+    z-index: 99;
+    left: 10vw;
+    width: 80vw;
+  }
 
-    .ListItemDiv2 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        white-space: nowrap;
-    }
+  .ListItemDiv2 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    white-space: nowrap;
+  }
 
-    .ListItemDiv3 {
-        display: inline-block;
-        vertical-align: top;
-    }
+  .ListItemDiv3 {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    .ListItemDiv4 {
-        font-weight: bold;
-    }
+  .ListItemDiv4 {
+    font-weight: bold;
+  }
 
-    .ListItemDiv5 {
-        clear: left;
-    }
+  .ListItemDiv5 {
+    clear: left;
+  }
 
-    .ListItemDiv6 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        white-space: nowrap;
-    }
+  .ListItemDiv6 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    white-space: nowrap;
+  }
 
-    .ListItemDiv7 {
-        width: 80vw;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        padding-bottom: 1vw;
-        color: $coolgray11;
-    }
+  .ListItemDiv7 {
+    width: 80vw;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    padding-bottom: 1vw;
+    color: $coolgray11;
+  }
 
-    .ListItemDiv8 {
-        position: relative;
-    }
+  .ListItemDiv8 {
+    position: relative;
+  }
 
-    .ListItemDiv9 {
-        position: absolute;
-        left: 12.5vw;
-        width: 5vw;
-        bottom: 0vw;
-        top: 0vw;
-        border: solid 10px $onyxblacktext;
-    }
+  .ListItemDiv9 {
+    position: absolute;
+    left: 12.5vw;
+    width: 5vw;
+    bottom: 0vw;
+    top: 0vw;
+    border: solid 10px $onyxblacktext;
+  }
 
-    .ListItemDiv10 {
-        position: relative;
-        z-index: 99;
-    }
+  .ListItemDiv10 {
+    position: relative;
+    z-index: 99;
+  }
 
-    .ListItemDiv11 {
-        width: 31vw;
-        font-size: 1.25vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .ListItemDiv11 {
+    width: 31vw;
+    font-size: 1.25vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .ListItemH1 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        font-weight: bold;
-        font-size: 3vw;
-        color: $onyxblacktext;
-    }
+  .ListItemH1 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    font-weight: bold;
+    font-size: 3vw;
+    color: $onyxblacktext;
+  }
 
-    .ListItemH1.whiteText {
-        color: #ffffff
-    }
+  .ListItemH1.whiteText {
+    color: #ffffff;
+  }
 
-    .ListItemH1.horizontal-video-player {
-        font-size: 2vw;
-    }
+  .ListItemH1.horizontal-video-player {
+    font-size: 2vw;
+  }
 
-    .ListItemH1ImageList {
-        font-size: 3vw;
-        font-weight: bold;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemH1ImageList {
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemH1ImageList2 {
-        position: absolute;
-        height: 20vw;
-        width: 30vw;
-        left: 0vw;
-        object-fit: cover;
-        top: 2.5vw;
-    }
+  .ListItemH1ImageList2 {
+    position: absolute;
+    height: 20vw;
+    width: 30vw;
+    left: 0vw;
+    object-fit: cover;
+    top: 2.5vw;
+  }
 
-    .ListItemH3 {
-        width: 40vw;
-        font-size: 2vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemH3 {
+    width: 40vw;
+    font-size: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemImage {
-        height: 10vw;
-        margin-right: 1vw;
-    }
+  .ListItemImage {
+    height: 10vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemCompassionLogo {
-        height: 13vw;
-        margin-right: 1vw;
-    }
+  .ListItemCompassionLogo {
+    height: 13vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemImage2 {
-        width: 20vw;
-        margin-right: 1vw;
-    }
+  .ListItemImage2 {
+    width: 20vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemTeachingImageDiv {
-        display: inline-block;
-        vertical-align: top;
-    }
+  .ListItemTeachingImageDiv {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    .ListItemTeachingImage {
-        height: 10vw;
-        margin-right: 1vw;
-    }
+  .ListItemTeachingImage {
+    height: 10vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemSpeakersDiv {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        white-space: nowrap;
-    }
+  .ListItemSpeakersDiv {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    white-space: nowrap;
+  }
 
-    .ListItemText1 {
-        position: relative;
-        left: 0vw;
-        width: 75vw;
-        font-size: 1.25vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
+  .ListItemText1 {
+    position: relative;
+    left: 0vw;
+    width: 75vw;
+    font-size: 1.25vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
+  .ListItemVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    :hover {
+      .ListItemPlayImageOverlay {
+        opacity: 0.75;
+      }
     }
-    .ListItemVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        :hover {
-            .ListItemPlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
-    }
+  }
 
+  .ListItemVideo.whiteText {
+    color: #ffffff;
+  }
 
-    .ListItemVideo.whiteText {
-        color: #ffffff
-    }
+  .ListItemVideoThumb {
+    width: 20vw;
+    margin-right: 1vw;
+    object-fit: cover;
+    height: 11.25vw;
+  }
 
-    .ListItemVideoThumb {
-        width: 20vw;
-        margin-right: 1vw;
-        object-fit: cover;
-        height: 11.25vw;
-    }
+  .LoadMoreVideosCard {
+    transition: 0.5s;
+    width: 20vw;
+    margin-right: 1vw;
+    height: 11.25vw;
+    border: 4px solid $onyxblacktext;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .LoadMoreVideosCard {
-        transition: 0.5s;
-        width: 20vw;
-        margin-right: 1vw;
-        height: 11.25vw;
-        border: 4px solid $onyxblacktext;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .LoadMoreVideosCard:hover {
-        transition: 0.5s;
-        background: $onyxblacktext;
-        .LoadMoreVideosText {
-            transition: 0.5s;
-            color: white
-        }
-    }
-
+  .LoadMoreVideosCard:hover {
+    transition: 0.5s;
+    background: $onyxblacktext;
     .LoadMoreVideosText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        color: $onyxblacktext;
+      transition: 0.5s;
+      color: white;
     }
+  }
 
-    .LoadMoreSeriesCard {
-        cursor: pointer;
-        transition: 0.5s;
-        width: 20vw;
-        height: 20vw*(1248/1056);
-        margin-right: 1vw;
-        border: 4px solid $onyxblacktext;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .LoadMoreVideosText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: $onyxblacktext;
+  }
 
-    .LoadMoreSeriesCard:hover {
-        transition: 0.5s;
-        background: $onyxblacktext;
-        .LoadMoreSeriesText {
-            transition: 0.5s;
-            color: white
-        }
-    }
+  .LoadMoreSeriesCard {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 20vw;
+    height: 20vw * (1248/1056);
+    margin-right: 1vw;
+    border: 4px solid $onyxblacktext;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .LoadMoreSeriesCard:hover {
+    transition: 0.5s;
+    background: $onyxblacktext;
     .LoadMoreSeriesText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        color: $onyxblacktext;
+      transition: 0.5s;
+      color: white;
     }
+  }
 
-    .ListItemPlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 12vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
+  .LoadMoreSeriesText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: $onyxblacktext;
+  }
+
+  .ListItemPlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
-    .ListItemEpisodeNum,
-    .ListItemName {
-        width: 20vw;
-        font-weight: bold;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
+  }
+  .ListItemEpisodeNum,
+  .ListItemName {
+    width: 20vw;
+    font-weight: bold;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+
+  .ListItemEpisodeLength {
+    font-weight: bold;
+  }
+
+  .ListItemSeriesTitle,
+  .ListItemContact,
+  .ListItemPosition,
+  .ListItemEmail,
+  .ListItemPhone,
+  .ListItemWebsite,
+  .ListItemPublishedDate,
+  .ListYearEpisode {
+    width: 20vw;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+
+  .ListItemWebsite {
+    color: $onyxblacktext;
+    text-decoration: underline;
+  }
+
+  .ListItemWebsiteContainer {
+    margin-top: 1vw;
+  }
+
+  .ListItemEmailText {
+    color: $onyxblacktext;
+  }
+
+  .ListItemSocialLink {
+    color: #1a1a1a;
+  }
+
+  .ListItemFB {
+    margin-right: 0.5vw;
+  }
+
+  .ListItemEvents {
+    display: relative;
+    width: 53vw;
+    margin-right: 2vw;
+
+    vertical-align: top;
+  }
+
+  .ListItemEvents:hover {
+    background-color: #efeff0;
+    cursor: pointer;
+  }
+
+  .ListItemCompassion {
+    display: inline-block;
+    width: 23vw;
+    margin-right: 2vw;
+    vertical-align: top;
+  }
+
+  .ListItemEventsDescription {
+    white-space: normal;
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+
+  .ListItemEventsDescription2 {
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $coolgray11;
+    word-wrap: break-word;
+  }
+
+  .ListItem.imageList {
+    position: static;
+    width: 100vw;
+    padding-bottom: 5vw;
+  }
+
+  .CuriousBox {
+    transition: 0.5s;
+    position: relative;
+    border: 4px solid $onyxblacktext;
+    width: 36vw;
+    height: 20.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .CuriousWrapper {
+    position: relative;
+    width: 36vw;
+    height: 20.25vw;
+    margin-bottom: 2.5vw;
+  }
+
+  .CuriousText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 1.5vw;
+    flex: 0 0 18vw;
+    text-align: center;
+    color: $onyxblacktext;
+  }
+
+  .hide-desktop {
+    display: none;
+  }
+
+  .CuriousContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 36vw);
+    grid-template-rows: 22.75vw;
+    column-gap: 2.5vw;
+  }
+
+  .CuriousText1 {
+    position: relative;
+    left: 0vw;
+    font-size: 1.25vw;
+    font-family: Graphik Web;
+    margin-bottom: 4vw;
+    color: $coolgray11;
+  }
+
+  .arrow {
+    float: right;
+    width: 32px;
+    padding: 0;
+  }
+
+  .WatchPageContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 18.33vw);
+    grid-template-rows: auto;
+    column-gap: 1.67vw;
+    row-gap: 3.33vw;
+  }
+
+  .WatchPageThumb {
+    width: 18.33vw;
+    object-fit: cover;
+    height: 10.27vw;
+  }
+
+  .WatchPageVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    :hover {
+      .WatchPagePlayImageOverlay {
+        opacity: 0.75;
+      }
     }
+  }
 
-    .ListItemEpisodeLength {
-        font-weight: bold;
+  .WatchPageVideo.whiteText {
+    color: #ffffff;
+  }
+
+  .WatchPagePlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
+  }
 
-    .ListItemSeriesTitle,
-    .ListItemContact,
-    .ListItemPosition,
-    .ListItemEmail,
-    .ListItemPhone,
-    .ListItemWebsite,
-    .ListItemPublishedDate,
-    .ListYearEpisode {
-        width: 20vw;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .WatchPageEpisodeTitle {
+    width: 18.5vw;
+    font-weight: bold;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .ListItemWebsite {
-        color: $onyxblacktext;
-        text-decoration: underline;
-    }
+  .WatchPagePublishedDate {
+    width: 20vw;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .ListItemWebsiteContainer {
-        margin-top: 1vw;
-    }
+  .HorizontalLine {
+    margin-top: 3.75vw;
+    height: 8px;
+    background: #ffffff;
+    opacity: 0.12;
+  }
 
-    .ListItemEmailText {
-        color: $onyxblacktext;
-    }
+  .BlogItem {
+    display: flex;
+    align-items: top;
+    margin-bottom: 3.3vw;
+    width: 78vw;
+  }
 
-    .ListItemSocialLink {
-        color: #1A1A1A;
-    }
+  .BlogItem:hover {
+    cursor: pointer;
+  }
 
-    .ListItemFB {
-        margin-right: 0.5vw;
-    }
+  .BlogSquareImage {
+    width: 8.33vw;
+    height: 8.33vw;
+  }
 
-    .ListItemEvents {
-        display: relative;
-        width: 53vw;
-        margin-right: 2vw;
+  .BlogDesc {
+    color: #54565a;
+    margin-top: 1vw;
+    width: 50vw;
+    font-size: 1.1vw;
+  }
 
-        vertical-align: top;
-    }
+  .BlogDetails {
+    color: #54565a;
+    font-size: 0.83vw;
+  }
 
-    .ListItemEvents:hover {
-        background-color: #EFEFF0;
-        cursor:pointer;
-    }
+  .BlogTitle {
+    color: #1a1a1a;
+    font-weight: bold;
+  }
 
-    .ListItemCompassion {
-        display: inline-block;
-        width: 23vw;
-        margin-right: 2vw;
-        vertical-align: top;
-    }
-
-    .ListItemEventsDescription {
-        white-space: normal;
-        font-weight: bold;
-        font-size: 2vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
-
-    .ListItemEventsDescription2 {
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $coolgray11;
-        word-wrap: break-word;
-    }
-
-    .ListItem.imageList {
-        position: static;
-        width: 100vw;
-        padding-bottom: 5vw;
-    }
-
-    .CuriousBox {
-        transition: 0.5s;
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 36vw;
-        height: 20.25vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .CuriousWrapper {
-        position: relative;
-        width: 36vw;
-        height: 20.25vw;
-        margin-bottom: 2.5vw;
-    }
-
-    .CuriousText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        flex: 0 0 18vw;
-        text-align: center;
-        color: $onyxblacktext;
-    }
-
-    .hide-desktop {
-        display: none;
-    }
-
-    .CuriousContainer {
-        display: grid;
-        grid-template-columns: repeat(3,36vw);
-        grid-template-rows: 22.75vw;
-        column-gap: 2.5vw;
-    }
-
-    .CuriousText1 {
-        position: relative;
-        left: 0vw;
-        font-size: 1.25vw;
-        font-family: Graphik Web;
-        margin-bottom: 4vw;
-        color: $coolgray11;
-    }
-
-    .arrow {
-        float: right;
-        width: 32px;
-        padding: 0;
-    }
-
-    
-    .WatchPageContainer {
-        display: grid;
-        grid-template-columns: repeat(4,18.33vw);
-        grid-template-rows: auto;
-        column-gap: 1.67vw;
-        row-gap: 3.33vw;
-    }
-
-    .WatchPageThumb {
-        width: 18.33vw;
-        object-fit: cover;
-        height: 10.27vw;
-    }
-
-    .WatchPageVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        :hover {
-            .WatchPagePlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
-    }
-
-    .WatchPageVideo.whiteText {
-        color: #ffffff
-    }
-
-    .WatchPagePlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 10vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
-    }
-
-    .WatchPageEpisodeTitle {
-        width: 18.5vw;
-        font-weight: bold;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
-
-    .WatchPagePublishedDate {
-        width: 20vw;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
-
-    .HorizontalLine {
-        margin-top: 3.75vw;
-        height: 8px;
-        background: #ffffff;
-        opacity: 0.12;
-    }
-
-    .BlogItem {
-        display: flex;
-        align-items: top;
-        margin-bottom: 3.3vw;
-        width: 78vw;
-    }
-
-    .BlogItem:hover {
-        cursor:pointer;
-    }
-
-    .BlogSquareImage {
-        width: 8.33vw;
-        height: 8.33vw;
-    }
-
-    .BlogDesc {
-        color: #54565A;
-        margin-top: 1vw;
-        width: 50vw;
-        font-size: 1.1vw
-    }
-
-    .BlogDetails {
-        color: #54565A;
-        font-size: 0.83vw
-    }
-
-    .BlogTitle {
-        color: #1A1A1A;
-        font-weight: bold;
-    }
-
-    .BlogContentContainer {
-        display: inline-block;
-        margin-left: 2vw;
-        width: 64vw;
-        font-size: 1.1vw
-    }
-
+  .BlogContentContainer {
+    display: inline-block;
+    margin-left: 2vw;
+    width: 64vw;
+    font-size: 1.1vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .CuriousBox {
-        transition: 0.5s;
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 36vw;
-        height: 20.25vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .CuriousBox {
+    transition: 0.5s;
+    position: relative;
+    border: 4px solid $onyxblacktext;
+    width: 36vw;
+    height: 20.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .CuriousWrapper {
-        position: relative;
-        width: 36vw;
-        height: 20.25vw;
-        margin-bottom: 2.5vw;
-    }
+  .CuriousWrapper {
+    position: relative;
+    width: 36vw;
+    height: 20.25vw;
+    margin-bottom: 2.5vw;
+  }
 
+  .CuriousText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 2.4vw;
+    flex: 0 0 30vw;
+    text-align: center;
+    color: $onyxblacktext;
+  }
+
+  .hide-desktop {
+    display: none;
+  }
+
+  .CuriousContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 36vw);
+    grid-template-rows: 22.75vw;
+    column-gap: 2.5vw;
+  }
+
+  .CuriousText1 {
+    position: relative;
+    left: 0vw;
+    width: 75vw;
+    font-size: 2vw;
+    font-family: Graphik Web;
+    margin-bottom: 4vw;
+    color: $coolgray11;
+  }
+
+  .WatchVideoTag {
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute;
+    font-family: Graphik Web;
+    font-size: 1.5vw;
+    color: #ffffff;
+    padding-top: 6vw;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .CuriousBox:hover {
+    transition: 0.5s;
+    background-color: $onyxblacktext;
     .CuriousText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 2.4vw;
-        flex: 0 0 30vw;
-        text-align: center;
-        color: $onyxblacktext;
+      color: #ffffff;
+      transition: 0.5s;
+      transform: translateY(-3vw);
     }
-
-    .hide-desktop {
-        display: none;
-    }
-
-    .CuriousContainer {
-        display: grid;
-        grid-template-columns: repeat(2,36vw);
-        grid-template-rows: 22.75vw;
-        column-gap: 2.5vw;
-    }
-
-    .CuriousText1 {
-        position: relative;
-        left: 0vw;
-        width: 75vw;
-        font-size: 2vw;
-        font-family: Graphik Web;
-        margin-bottom: 4vw;
-        color: $coolgray11;
-    }
-
     .WatchVideoTag {
-        transition: 0.5s;
-        opacity: 0;
-        position: absolute;
-        font-family: Graphik Web;
-        font-size: 1.5vw;
-        color: #ffffff;
-        padding-top: 6vw;
-        border-bottom: 1px solid #ffffff;
+      transition: 0.5s;
+      opacity: 1;
     }
+  }
 
-    .CuriousBox:hover {
-        transition: 0.5s;
-        background-color: $onyxblacktext;
-        .CuriousText {
-            color: #ffffff;
-            transition: 0.5s;
-            transform: translateY(-3vw);
-        }
-        .WatchVideoTag {
-            transition: 0.5s;
-            opacity: 1;
-        }
+  .WatchPageContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 38vw);
+    grid-template-rows: auto;
+    column-gap: 3.125vw;
+    row-gap: 2vw;
+  }
+
+  .WatchPageThumb {
+    width: 38vw;
+    object-fit: cover;
+    height: 22.98vw;
+  }
+
+  .WatchPageVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    :hover {
+      .WatchPagePlayImageOverlay {
+        opacity: 0.75;
+      }
     }
+  }
 
-    
-    .WatchPageContainer {
-        display: grid;
-        grid-template-columns: repeat(2,38vw);
-        grid-template-rows: auto;
-        column-gap: 3.125vw;
-        row-gap: 2vw;
+  .WatchPageVideo.whiteText {
+    color: #ffffff;
+  }
+
+  .WatchPagePlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
+  }
 
-    .WatchPageThumb {
-        width: 38vw;
-        object-fit: cover;
-        height: 22.98vw;
-    }
+  .WatchPageEpisodeTitle {
+    width: 38vw;
+    font-weight: bold;
+    font-size: 2vw;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .WatchPageVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        :hover {
-            .WatchPagePlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
-    }
+  .WatchPagePublishedDate {
+    width: 30vw;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .WatchPageVideo.whiteText {
-        color: #ffffff
-    }
+  .HorizontalLine {
+    margin-top: 3.75vw;
+    height: 8px;
+    background: #ffffff;
+    opacity: 0.12;
+  }
 
-    .WatchPagePlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 24vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
-    }
+  .ListItemText1 {
+    font-size: 2vw;
+  }
 
-    .WatchPageEpisodeTitle {
-        width: 38vw;
-        font-weight: bold;
-        font-size: 2vw;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
+  $staffwidth: 36vw;
 
-    .WatchPagePublishedDate {
-        width: 30vw;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
+  .StaffGridWrapper {
+    width: $staffwidth * 2;
+    margin-right: 6.5vw;
+  }
 
-    .HorizontalLine {
-        margin-top: 3.75vw;
-        height: 8px;
-        background: #ffffff;
-        opacity: 0.12;
-    }
+  .StaffGrid {
+    display: grid;
+    row-gap: 3vw;
+    grid-template-columns: repeat(2, $staffwidth);
+    grid-template-rows: repeat(3, auto);
+    margin-bottom: 0;
+  }
 
-    .ListItemText1 {
-        font-size: 2vw;
-    }
+  .StaffImage {
+    width: 14vw;
+    height: 14vw;
+  }
 
-    $staffwidth: 36vw;
+  .StaffItem {
+    display: block;
+  }
 
-    .StaffGridWrapper {
-        width: $staffwidth*2;
-        margin-right: 6.5vw;
-    }
+  .ListItemName {
+    width: 30vw;
+    font-weight: bold;
+    font-size: 1.5vw;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .StaffGrid {
-        display: grid;
-        row-gap: 3vw;
-        grid-template-columns: repeat(2, $staffwidth);
-        grid-template-rows: repeat(3, auto);
-        margin-bottom: 0;
-    }
+  .StaffContact {
+    margin-top: 0.5vw;
+    margin-bottom: 2vw;
+  }
 
-    .StaffImage {
-        width: 14vw;
-        height: 14vw;
-    }
+  .ListItemEmail,
+  .ListItemPhone {
+    width: 30vw;
+    white-space: normal;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .StaffItem {
-        display: block;
-    }
+  .ListItemPosition {
+    width: 30vw;
+    white-space: normal;
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .ListItemName {
-        width: 30vw;
-        font-weight: bold;
-        font-size: 1.5vw;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
-
-    .StaffContact {
-        margin-top: 0.5vw;
-        margin-bottom: 2vw;
-    }
-
-    .ListItemEmail,
-    .ListItemPhone {
-        width: 30vw;
-        white-space: normal;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
-
-    .ListItemPosition {
-        width: 30vw;
-        white-space: normal;
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
-
-    .ListItemSocialLink {
-        display: inline-block;
-        width: 3vw;
-        height: 3vw;
-        margin-left: 0;
-        margin-right: 3vw;
-        color: #1A1A1A;
-    }
-
+  .ListItemSocialLink {
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+    margin-left: 0;
+    margin-right: 3vw;
+    color: #1a1a1a;
+  }
 }
 
 @media (max-width: 767px) {
-    .ListItemEventButton {
-        background-color: #ffffff00 !important;
-        color: $onyxblacktext !important;
-        border: 0px !important;
-    }
+  .ListItemEventButton {
+    background-color: #ffffff00 !important;
+    color: $onyxblacktext !important;
+    border: 0px !important;
+  }
 
-    .ListItem.horizontal,
-    .ListItem.horizontalBig {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .ListItem.horizontal,
+  .ListItem.horizontalBig {
+    position: static;
+    padding-bottom: 5vw;
+  }
 
-    .ListItemDiv1 {
-        position: relative;
-        z-index: 99;
-        width: 80vw;
-        padding: 10vw 5vw 0vw;
-        // margin-top: 65vw;
-    }
+  .ListItemDiv1 {
+    position: relative;
+    z-index: 99;
+    width: 80vw;
+    padding: 10vw 5vw 0vw;
+    // margin-top: 65vw;
+  }
 
-    .ListItemDiv1.horizontal-video-player {
-        padding: 0vw 5vw 0vw;
-    }
+  .ListItemDiv1.horizontal-video-player {
+    padding: 0vw 5vw 0vw;
+  }
 
-    .ListItem.horizontal-video-player {
-        margin-bottom: 10vw;
-    }
+  .ListItem.horizontal-video-player {
+    margin-bottom: 10vw;
+  }
 
-    .ListItemDiv2 {
-        position: relative;
-        left: 0vw;
-        width: 95vw;
-        white-space: nowrap;
-    }
+  .ListItemDiv2 {
+    position: relative;
+    left: 0vw;
+    width: 95vw;
+    white-space: nowrap;
+  }
 
-    .ListItemDiv3 {
-        display: inline-block;
-        vertical-align: top;
-        width: 50vw;
-    }
+  .ListItemDiv3 {
+    display: inline-block;
+    vertical-align: top;
+    width: 50vw;
+  }
 
-    .ListItemDiv4 {
-        font-weight: bold;
-    }
+  .ListItemDiv4 {
+    font-weight: bold;
+  }
 
-    .ListItemDiv5 {
-        clear: left;
-    }
+  .ListItemDiv5 {
+    clear: left;
+  }
 
-    .ListItemDiv6 {
-        position: relative;
-        left: 0vw;
-        width: 95vw;
-        white-space: nowrap;
-    }
+  .ListItemDiv6 {
+    position: relative;
+    left: 0vw;
+    width: 95vw;
+    white-space: nowrap;
+  }
 
-    .ListItemDiv7 {
-        width: 90vw;
-        font-size: 5vw;
-        font-family: Graphik Web;
-        // padding-bottom: 1vw;
-        margin-bottom: 30vw;
-        color: $coolgray11;
-    }
+  .ListItemDiv7 {
+    width: 90vw;
+    font-size: 5vw;
+    font-family: Graphik Web;
+    // padding-bottom: 1vw;
+    margin-bottom: 30vw;
+    color: $coolgray11;
+  }
 
-    .ListItemDiv8 {
-        position: relative;
-        width: 89vw;
-    }
+  .ListItemDiv8 {
+    position: relative;
+    width: 89vw;
+  }
 
-    .ListItemDiv9 {
-      position: absolute;
-      left: -25vw;
-      width: 75vw;
-      height: 15vh;
-      bottom: 0vw;
-      top: -15vw;
-      border: solid 10px $onyxblacktext;
-      z-index: -50;
-    }
+  .ListItemDiv9 {
+    position: absolute;
+    left: -25vw;
+    width: 75vw;
+    height: 15vh;
+    bottom: 0vw;
+    top: -15vw;
+    border: solid 10px $onyxblacktext;
+    z-index: -50;
+  }
 
-    .ListItemDiv10 {
-        // position: relative;
-        z-index: 99;
-        // top: 25vw;
-        // height: 75vh;
-        display: flex;
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        // margin-top: 25vw;
-        margin-bottom: 15vw;
-    }
-    //
-    // .ListItemDiv10:nth-last-child(1) {
-    //     margin-bottom: 30vw;
-    // }
+  .ListItemDiv10 {
+    // position: relative;
+    z-index: 99;
+    // top: 25vw;
+    // height: 75vh;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    // margin-top: 25vw;
+    margin-bottom: 15vw;
+  }
+  //
+  // .ListItemDiv10:nth-last-child(1) {
+  //     margin-bottom: 30vw;
+  // }
 
-    .ListItemDiv11 {
-        width: 88.5vw;
-        font-size: 4.27vw;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .ListItemDiv11 {
+    width: 88.5vw;
+    font-size: 4.27vw;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .ListItemH1 {
-        position: relative;
-        left: 0vw;
-        width: 80vw;
-        color: $onyxblacktext;
-        margin-bottom: 8.55vw;;
-        font-size: 10vw;
-        font-weight: 700;
-        font-family: Graphik Web;
-    }
+  .ListItemH1 {
+    position: relative;
+    left: 0vw;
+    width: 80vw;
+    color: $onyxblacktext;
+    margin-bottom: 8.55vw;
+    font-size: 10vw;
+    font-weight: 700;
+    font-family: Graphik Web;
+  }
 
-    .ListItemH1.whiteText {
-        color: #ffffff
-    }
+  .ListItemH1.whiteText {
+    color: #ffffff;
+  }
 
-    .ListItemH1.horizontal-video-player {
-        font-size: 7vw;
-    }
+  .ListItemH1.horizontal-video-player {
+    font-size: 7vw;
+  }
 
-    .ListItemH1ImageList {
-        font-size: 10vw;
-        font-weight: bold;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemH1ImageList {
+    font-size: 10vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemH1ImageList2 {
-        // position: absolute;
-        height: 100%;
-        width: 100%;
-        left: 0vw;
-        object-fit: contain;
-        // top: -40vw;
-    }
+  .ListItemH1ImageList2 {
+    // position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0vw;
+    object-fit: contain;
+    // top: -40vw;
+  }
 
-    .ListItemH3 {
-        width: 75vw;
-        font-size: 6.4vw;
-        font-weight: bold;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemH3 {
+    width: 75vw;
+    font-size: 6.4vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemImage {
-        height: 10vw;
-        margin-right: 1vw;
-    }
+  .ListItemImage {
+    height: 10vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemCompassionLogo {
-        height: 100%;
-        width: 100%;
-        // margin-right: 1vw;
-        margin-bottom: 5.5vw;
-    }
+  .ListItemCompassionLogo {
+    height: 100%;
+    width: 100%;
+    // margin-right: 1vw;
+    margin-bottom: 5.5vw;
+  }
 
-    .ListItemImage2 {
-        width: 100%;
-        margin-right: 1vw;
-    }
+  .ListItemImage2 {
+    width: 100%;
+    margin-right: 1vw;
+  }
 
-    .ListItemTeachingImageDiv {
-        display: inline-block;
-        vertical-align: top;
-    }
+  .ListItemTeachingImageDiv {
+    display: inline-block;
+    vertical-align: top;
+  }
 
-    .ListItemTeachingImage {
-        height: 10vw;
-        margin-right: 1vw;
-    }
+  .ListItemTeachingImage {
+    height: 10vw;
+    margin-right: 1vw;
+  }
 
-    .ListItemSpeakersDiv {
-        position: relative;
-        left: 0vw;
-        width: 95vw;
-        white-space: nowrap;
-    }
+  .ListItemSpeakersDiv {
+    position: relative;
+    left: 0vw;
+    width: 95vw;
+    white-space: nowrap;
+  }
 
-    .ListItemText1 {
-        position: relative;
-        left: 0vw;
-        width: 90vw;
-        font-size: 5.33vw;
-        line-height: 7.5vw;
-        font-family: Graphik Web;
-        margin-bottom: 10vw;
-        color: $coolgray11;
-    }
+  .ListItemText1 {
+    position: relative;
+    left: 0vw;
+    width: 90vw;
+    font-size: 5.33vw;
+    line-height: 7.5vw;
+    font-family: Graphik Web;
+    margin-bottom: 10vw;
+    color: $coolgray11;
+  }
 
-
-    .ListItemVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        width: 90%;
-        margin-right: 6.4vw;
-        position: relative;
-        :hover {
-            .ListItemPlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
+  .ListItemVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    width: 90%;
+    margin-right: 6.4vw;
+    position: relative;
+    :hover {
+      .ListItemPlayImageOverlay {
+        opacity: 0.75;
+      }
     }
-    .ListItemVideo.whiteText {
-        color: #ffffff
-    }
+  }
+  .ListItemVideo.whiteText {
+    color: #ffffff;
+  }
 
-    .ListItemVideoThumb {
-        width: 65vw;
-        margin-right: 1vw;
-        object-fit: cover;
-        height: 42.1875vw;
-    }
+  .ListItemVideoThumb {
+    width: 65vw;
+    margin-right: 1vw;
+    object-fit: cover;
+    height: 42.1875vw;
+  }
 
-    .LoadMoreVideosCard {
-        transition: 0.5s;
-        width: 65vw;
-        margin-right: 1vw;
-        height: 42.1875vw;
-        border: 4px solid $onyxblacktext;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .LoadMoreVideosCard {
+    transition: 0.5s;
+    width: 65vw;
+    margin-right: 1vw;
+    height: 42.1875vw;
+    border: 4px solid $onyxblacktext;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .LoadMoreVideosCard:hover {
-        transition: 0.5s;
-        background: $onyxblacktext;
-        .LoadMoreVideosText {
-            transition: 0.5s;
-            color: white
-        }
-    }
-
+  .LoadMoreVideosCard:hover {
+    transition: 0.5s;
+    background: $onyxblacktext;
     .LoadMoreVideosText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 5vw;
-        color: $onyxblacktext;
+      transition: 0.5s;
+      color: white;
     }
+  }
 
-    .LoadMoreSeriesCard {
-        cursor: pointer;
-        transition: 0.5s;
-        width: 70vw;
-        margin-right: 1vw;
-        height: 70vw*(1248/1056);
-        border: 4px solid $onyxblacktext;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .LoadMoreVideosText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 5vw;
+    color: $onyxblacktext;
+  }
 
-    .LoadMoreSeriesCard:hover {
-        transition: 0.5s;
-        background: $onyxblacktext;
-        .LoadMoreSeriesText {
-            transition: 0.5s;
-            color: white
-        }
-    }
+  .LoadMoreSeriesCard {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 70vw;
+    margin-right: 1vw;
+    height: 70vw * (1248/1056);
+    border: 4px solid $onyxblacktext;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .LoadMoreSeriesCard:hover {
+    transition: 0.5s;
+    background: $onyxblacktext;
     .LoadMoreSeriesText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 5vw;
-        color: $onyxblacktext;
+      transition: 0.5s;
+      color: white;
     }
-    .ListItemPlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 75vw;
-        height: 42.1875vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
-    }
-    .ListItemEpisodeNum,
-    .ListItemName {
-        width: 100%;
-        font-weight: bold;
-        white-space: normal;
-        font-family: Graphik Web;
-        padding-top: 2vw;
-        color: $onyxblacktext;
-    }
+  }
 
-    .ListItemEpisodeLength {
-        font-weight: bold;
+  .LoadMoreSeriesText {
+    transition: 0.5s;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 5vw;
+    color: $onyxblacktext;
+  }
+  .ListItemPlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75vw;
+    height: 42.1875vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
+  }
+  .ListItemEpisodeNum,
+  .ListItemName {
+    width: 100%;
+    font-weight: bold;
+    white-space: normal;
+    font-family: Graphik Web;
+    padding-top: 2vw;
+    color: $onyxblacktext;
+  }
 
+  .ListItemEpisodeLength {
+    font-weight: bold;
+  }
 
-    .ListItemContact,
-    .ListItemPosition,
-    .ListItemEmail,
-    .ListItemPhone,
-    .ListItemWebsite {
-        //width: 20vw;
-        white-space: normal;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .ListItemContact,
+  .ListItemPosition,
+  .ListItemEmail,
+  .ListItemPhone,
+  .ListItemWebsite {
+    //width: 20vw;
+    white-space: normal;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .ListItemPosition { 
-        color: $coolgray11 !important;
-    }
+  .ListItemPosition {
+    color: $coolgray11 !important;
+  }
 
-    .ListItemWebsite {
-        color: $onyxblacktext;
-        text-decoration: underline;
-    }
-    .ListItemEmailText {
-        color: $onyxblacktext;
-        @include link-underline();
-    }
+  .ListItemWebsite {
+    color: $onyxblacktext;
+    text-decoration: underline;
+  }
+  .ListItemEmailText {
+    color: $onyxblacktext;
+    @include link-underline();
+  }
 
-    .ListItemSeriesTitle,
-    .ListItemPublishedDate,
-    .ListYearEpisode {
-      width: 100%;
-      white-space: normal;
-      font-family: Graphik Web;
-      font-size: 3.2vw;
-      line-height: 4.8vw;
-      color: $onyxblacktext;
-    }
+  .ListItemSeriesTitle,
+  .ListItemPublishedDate,
+  .ListYearEpisode {
+    width: 100%;
+    white-space: normal;
+    font-family: Graphik Web;
+    font-size: 3.2vw;
+    line-height: 4.8vw;
+    color: $onyxblacktext;
+  }
 
-    .ListItemSeriesTitle {
-      font-weight: 800;
-    }
+  .ListItemSeriesTitle {
+    font-weight: 800;
+  }
 
-    .ListItemSocialLink {
-        display: inline-block;
-        width: 6.4vw;
-        height: 6.4vw;
-        margin-right: 6vw;
-        color: #1A1A1A;
-    }
+  .ListItemSocialLink {
+    display: inline-block;
+    width: 6.4vw;
+    height: 6.4vw;
+    margin-right: 6vw;
+    color: #1a1a1a;
+  }
 
-    .ListItemFB {
-        margin-right: 0.5vw;
-    }
+  .ListItemFB {
+    margin-right: 0.5vw;
+  }
 
-    .ListItemEvents {
-        display: relative;
-        width: 75vw;
-        margin-right: 2vw;
-        vertical-align: top;
-    }
+  .ListItemEvents {
+    display: relative;
+    width: 75vw;
+    margin-right: 2vw;
+    vertical-align: top;
+  }
 
-    .ListItemEvents:hover {
-        background-color: #EFEFF0;
-    }
+  .ListItemEvents:hover {
+    background-color: #efeff0;
+  }
 
-    .ListItemCompassion {
-        display: block;
-        width: 100%;
-        padding-right: 5vw;
-    }
+  .ListItemCompassion {
+    display: block;
+    width: 100%;
+    padding-right: 5vw;
+  }
 
-    .ListItemEventsDescription {
-        white-space: normal;
-        font-family: Graphik Web;
-        font-size: 6.4vw;
-        line-height: 8.55vw;
-        font-weight: 700;
-        margin-bottom: .5rem;
-        width: 73vw;
-        color: $onyxblacktext;
-    }
+  .ListItemEventsDescription {
+    white-space: normal;
+    font-family: Graphik Web;
+    font-size: 6.4vw;
+    line-height: 8.55vw;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    width: 73vw;
+    color: $onyxblacktext;
+  }
 
-    .ListItemEventsDescription2 {
-        white-space: normal;
-        font-family: Graphik Web;
-        margin-bottom: 20vw;
-        color: $coolgray11;
-        word-wrap: break-word;
-    }
+  .ListItemEventsDescription2 {
+    white-space: normal;
+    font-family: Graphik Web;
+    margin-bottom: 20vw;
+    color: $coolgray11;
+    word-wrap: break-word;
+  }
 
-    .ListItemEventsLocation {
-        white-space: normal;
-        font-family: Graphik Web;
-        font-weight: bold;
-        margin-top: 10px;
-        color: $onyxblacktext;
-    }
+  .ListItemEventsLocation {
+    white-space: normal;
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 10px;
+    color: $onyxblacktext;
+  }
 
-    .ListItemEventsDuration {
-        font-family: Graphik Web;
-        margin-top: 10px;
-        color: $onyxblacktext;
-    }
+  .ListItemEventsDuration {
+    font-family: Graphik Web;
+    margin-top: 10px;
+    color: $onyxblacktext;
+  }
 
-    .ListItem.imageList {
-        position: static;
-        width: 100vw;
-        padding-bottom: 5vw;
-    }
+  .ListItem.imageList {
+    position: static;
+    width: 100vw;
+    padding-bottom: 5vw;
+  }
 
-    .ListItemAllSeries {
-        margin-top: 0;
-    }
+  .ListItemAllSeries {
+    margin-top: 0;
+  }
 
-    .CuriousBox {
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 90vw;
-        height: 58.41vw;
-        margin-bottom: 24px;
-        margin-right: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .CuriousBox {
+    position: relative;
+    border: 4px solid $onyxblacktext;
+    width: 90vw;
+    height: 58.41vw;
+    margin-bottom: 24px;
+    margin-right: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .CuriousText {
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 6.4vw;
-        flex: 0 0 80vw;
-        text-align: center;
-        color: $onyxblacktext;
-    }
+  .CuriousText {
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 6.4vw;
+    flex: 0 0 80vw;
+    text-align: center;
+    color: $onyxblacktext;
+  }
 
-    .WatchVideoTag {
-        opacity: 0;
-        position: absolute;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        color: #ffffff;
-        margin-top: 2vw;
-        border-bottom: 1px solid #ffffff;
-    }
-    
-    .MoreVideos {
-        position: relative;
-        font-family: Graphik Web;
-        font-size: 4.2vw;
-        font-weight: normal;
-        color: $onyxblacktext !important;
-        background: #ffffff00 !important;
-        border-top: #ffffff00 !important;
-        border-left: #ffffff00 !important;
-        border-right: #ffffff00 !important;
-        outline: #ffffff00 !important;
-        border-bottom: 1px solid $onyxblacktext !important;
-        padding: 0px 0px 0px 0px;
-        margin-left: 2px;
-    }
+  .WatchVideoTag {
+    opacity: 0;
+    position: absolute;
+    font-family: Graphik Web;
+    font-size: 1vw;
+    color: #ffffff;
+    margin-top: 2vw;
+    border-bottom: 1px solid #ffffff;
+  }
 
-    .hide-mobile {
-        display: none;
-    }
+  .MoreVideos {
+    position: relative;
+    font-family: Graphik Web;
+    font-size: 4.2vw;
+    font-weight: normal;
+    color: $onyxblacktext !important;
+    background: #ffffff00 !important;
+    border-top: #ffffff00 !important;
+    border-left: #ffffff00 !important;
+    border-right: #ffffff00 !important;
+    outline: #ffffff00 !important;
+    border-bottom: 1px solid $onyxblacktext !important;
+    padding: 0px 0px 0px 0px;
+    margin-left: 2px;
+  }
 
-    .CuriousText1 {
-        position: relative;
-        left: 0vw;
-        width: 95vw;
-        font-size: 5.33vw;
-        font-family: Graphik Web;
-        margin-bottom: 12.8vw;
-        color: $coolgray11;
-    }
+  .hide-mobile {
+    display: none;
+  }
 
-    .arrow {
-        position: relative;
-        left: 12.5vw;
-        float: right;
-        width: 32px;
-    }
+  .CuriousText1 {
+    position: relative;
+    left: 0vw;
+    width: 95vw;
+    font-size: 5.33vw;
+    font-family: Graphik Web;
+    margin-bottom: 12.8vw;
+    color: $coolgray11;
+  }
 
-    
-    .WatchPageContainer {
-        display: inline-block;
-    }
+  .arrow {
+    position: relative;
+    left: 12.5vw;
+    float: right;
+    width: 32px;
+  }
 
-    .WatchPageThumb {
-        width: 88.53vw;
-        object-fit: cover;
-        height: 53.33vw;
-    }
+  .WatchPageContainer {
+    display: inline-block;
+  }
 
-    .WatchPageVideo {
-        cursor: pointer;
-        display: inline-block;
-        vertical-align: top;
-        position: relative;
-        margin-bottom: 10vw;
-        :hover {
-            .WatchPagePlayImageOverlay {
-                opacity: 0.75;
-            }
-        }
-    }
+  .WatchPageThumb {
+    width: 88.53vw;
+    object-fit: cover;
+    height: 53.33vw;
+  }
 
-    .WatchPageVideo.whiteText {
-        color: #ffffff
+  .WatchPageVideo {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin-bottom: 10vw;
+    :hover {
+      .WatchPagePlayImageOverlay {
+        opacity: 0.75;
+      }
     }
+  }
 
-    .WatchPagePlayImageOverlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 50vw;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        img {
-            height: 100%;
-        }
+  .WatchPageVideo.whiteText {
+    color: #ffffff;
+  }
+
+  .WatchPagePlayImageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vw;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    img {
+      height: 100%;
     }
+  }
 
-    .WatchPageEpisodeTitle {
-        width: 88.53vw;
-        font-weight: bold;
-        font-size: 6.4vw;
-        white-space: normal;
-        font-family: Graphik Web;
-    }
+  .WatchPageEpisodeTitle {
+    width: 88.53vw;
+    font-weight: bold;
+    font-size: 6.4vw;
+    white-space: normal;
+    font-family: Graphik Web;
+  }
 
-    .WatchPagePublishedDate {
-        width: 80vw;
-        white-space: normal;
-        font-size: 4.8vw;
-        font-family: Graphik Web;
-    }
+  .WatchPagePublishedDate {
+    width: 80vw;
+    white-space: normal;
+    font-size: 4.8vw;
+    font-family: Graphik Web;
+  }
 
-    .HorizontalLine {
-        margin-top: 3.75vw;
-        height: 8px;
-        width: 88.53vw;
-        background: #ffffff;
-        opacity: 0.12;
-    }
+  .HorizontalLine {
+    margin-top: 3.75vw;
+    height: 8px;
+    width: 88.53vw;
+    background: #ffffff;
+    opacity: 0.12;
+  }
 
-    .blogarrow {
-        float: right;
-    }
+  .blogarrow {
+    float: right;
+  }
 
-    .author-only {
-        color: #1A1A1A;
-        //border-bottom: solid #1A1A1A 1px;
-        //padding-bottom: 1px;
-    }
+  .author-only {
+    color: #1a1a1a;
+    //border-bottom: solid #1A1A1A 1px;
+    //padding-bottom: 1px;
+  }
 
-    .BlogItem {
-        margin-bottom: 12.8vw;
-        width: 88.5vw;
-    }
+  .BlogItem {
+    margin-bottom: 12.8vw;
+    width: 88.5vw;
+  }
 
-    .BlogItem:hover {
-        cursor:pointer;
-    }
+  .BlogItem:hover {
+    cursor: pointer;
+  }
 
-    .BlogSquareImage {
-        width: 41.6vw;
-        height: 41.6vw;
-    }
+  .BlogSquareImage {
+    width: 41.6vw;
+    height: 41.6vw;
+  }
 
-    .BlogDesc {
-        color: #54565A;
-        margin-top: 1vw;
-        width: 88.5vw;
-        font-size: 4.26vw;
-        padding-top: 4.26vw;
-    }
+  .BlogDesc {
+    color: #54565a;
+    margin-top: 1vw;
+    width: 88.5vw;
+    font-size: 4.26vw;
+    padding-top: 4.26vw;
+  }
 
-    .BlogDetails {
-        color: #54565A;
-        font-size: 3.2vw;
-    }
+  .BlogDetails {
+    color: #54565a;
+    font-size: 3.2vw;
+  }
 
-    .BlogTitle {
-        color: #1A1A1A;
-        font-weight: bold;
-        font-size: 4.26vw;
-    }
+  .BlogTitle {
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 4.26vw;
+  }
 
-    .BlogContentContainer {
-        display: inline-block;
-        width: 86.5vw;
-        padding-top: 6.4vw;
-    }
+  .BlogContentContainer {
+    display: inline-block;
+    width: 86.5vw;
+    padding-top: 6.4vw;
+  }
 
-    .StaffContact {
-        margin-top: 2vw;
-        margin-bottom: 6vw;
-    }
+  .StaffContact {
+    margin-top: 2vw;
+    margin-bottom: 6vw;
+  }
 
-    .StaffImage {
-        width: 28.8vw;
-        height: 28.8vw;
-    }
-
+  .StaffImage {
+    width: 28.8vw;
+    height: 28.8vw;
+  }
 }

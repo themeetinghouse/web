@@ -1,125 +1,124 @@
 {
-    "page": {
-        "name": "compassion",
+  "page": {
+    "name": "compassion",
+    "title": "Compassion",
+    "keywords": "",
+    "description": "",
+
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/compassion.jpg",
+        "url": "https://www.themeetinghouse.com/compassion",
         "title": "Compassion",
-        "keywords": "",
-        "description":"",
+        "description": "We work for justice in our neighbourhoods and around the world. Learn more about how we walk with vulnerable people, prioritize education before action, and invest in peacebuilding, poverty alleviation, and discipleship development."
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/compassion-1-new.jpg",
+            "alt": "Two people crossing a street"
+          }
+        ],
+        "header1": "Compassion",
+        "text1": "All people are created in the image of God and have infinite worth. Therefore we love, serve, and partner with vulnerable people as we journey toward relationship, justice, and peace.",
+        "button1Text": "Connect with Us",
+        "button1Action": "/kidmax-connect"
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Why Compassion",
+        "header2": "",
+        "text1": "Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love."
+      },
+      {
+        "type": "list",
+        "style": "vertical",
+        "class": "compassion",
+        "header1": "Our Focus",
+        "text1": "In collaboration with our partners, we've developed four focus areas to streamline our efforts for greatest impact",
+        "filterField": "sites",
+        "filterValue": "crossregional"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "compassion",
+        "sortOrder": "DESC",
+        "header1": "Videos"
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Local Compassion Fund",
+        "text1": "This fund provides us with an opportunity to further invest financially in local organizations we partner with across southern Ontario who are having a positive impact in our community.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Final Report 2020-21",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
+          },
+          {
+            "type": "link",
+            "title": "Final Report 2019-20",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
+          },
+          {
+            "type": "link",
+            "title": "Final Report 2018-19",
+            "navigateTo": "https://meeting.formstack.com/forms/lcf_final_report_2018_19"
+          }
+        ],
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-images/compassion.jpg",
-                "url": "https://www.themeetinghouse.com/compassion",
-                "title": "Compassion",
-                "description": "We work for justice in our neighbourhoods and around the world. Learn more about how we walk with vulnerable people, prioritize education before action, and invest in peacebuilding, poverty alleviation, and discipleship development."
-            },
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/compassion-1-new.jpg",
-                        "alt": "Two people crossing a street"
-                    }
-                ],
-                "header1": "Compassion",
-                "text1": "All people are created in the image of God and have infinite worth. Therefore we love, serve, and partner with vulnerable people as we journey toward relationship, justice, and peace.",
-                "button1Text": "Connect with Us",
-                "button1Action": "/kidmax-connect"
-            },
-            {
-                "type": "content",
-                "style": "greyTwoText",
-                "header1":"Why Compassion",
-                "header2":"",
-                "text1":"Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love."
-            },
-            {
-                "type": "list",
-                "style": "vertical",
-                "class": "compassion",
-                "header1": "Our Focus",
-                "text1": "In collaboration with our partners, we've developed four focus areas to streamline our efforts for greatest impact",
-                "filterField":"sites",                 
-                "filterValue": "crossregional"
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "compassion",
-                "sortOrder": "DESC",
-                "header1": "Videos"
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Local Compassion Fund",
-                "text1": "This fund provides us with an opportunity to further invest financially in local organizations we partner with across southern Ontario who are having a positive impact in our community.",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Final Report 2020-21",
-                        "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Final Report 2019-20",
-                        "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Final Report 2018-19",
-                        "navigateTo": "https://meeting.formstack.com/forms/lcf_final_report_2018_19"
-                    }
-                ],
-              
-                "image1": [
-                    {
-                        "src": "/static/images/compassion-2-new.jpg",
-                        "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions."
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "Local Compassion Fund Application",
-                "text1": "The application window for 2020 is now closed.",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Grant Application Guidelines",
-                        "navigateTo": "https://drive.google.com/file/d/1UoliNnSU6OqjFKbwpcdWRg5Jkw5ZKSGE/view?usp=sharing"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Assessment Criteria",
-                        "navigateTo": "https://drive.google.com/file/d/1QBgcORF5SkJ4Dn_5vR0Ub4O_wELo67Bc/view?usp=sharing"
-                    },
-                    {
-                        "type":"link",
-                        "title": "Application Process Tutorial Video",
-                        "navigateTo": "https://youtu.be/VpqnMVWoxJI"
-                    }
-                ],
-              
-                "image1": [
-                    {
-                        "src": "/static/images/compassion-3.jpg",
-                        "alt": "Young woman sitting and learning from two friends around a table."
-                    }
-                ]
-            }
-
+        "image1": [
+          {
+            "src": "/static/images/compassion-2-new.jpg",
+            "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions."
+          }
         ]
-    }
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Local Compassion Fund Application",
+        "text1": "The application window for 2020 is now closed.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Grant Application Guidelines",
+            "navigateTo": "https://drive.google.com/file/d/1UoliNnSU6OqjFKbwpcdWRg5Jkw5ZKSGE/view?usp=sharing"
+          },
+          {
+            "type": "link",
+            "title": "Assessment Criteria",
+            "navigateTo": "https://drive.google.com/file/d/1QBgcORF5SkJ4Dn_5vR0Ub4O_wELo67Bc/view?usp=sharing"
+          },
+          {
+            "type": "link",
+            "title": "Application Process Tutorial Video",
+            "navigateTo": "https://youtu.be/VpqnMVWoxJI"
+          }
+        ],
+
+        "image1": [
+          {
+            "src": "/static/images/compassion-3.jpg",
+            "alt": "Young woman sitting and learning from two friends around a table."
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -1,23 +1,23 @@
 @media (min-width: 768px) {
-    .SVGItem.full {
-        position: static;
-        padding-left: 0vw;
-        padding-bottom: 5vw;
-    }
+  .SVGItem.full {
+    position: static;
+    padding-left: 0vw;
+    padding-bottom: 5vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .SVGItem.full {
-        position: static;
-        padding-left: 0vw;
-        padding-bottom: 5vw;
-    }
+  .SVGItem.full {
+    position: static;
+    padding-left: 0vw;
+    padding-bottom: 5vw;
+  }
 }
 
 @media (max-width: 767px) {
-    .SVGItem.full {
-        position: static;
-        padding-left: 0vw;
-        padding-bottom: 5vw;
-    }
+  .SVGItem.full {
+    position: static;
+    padding-left: 0vw;
+    padding-bottom: 5vw;
+  }
 }

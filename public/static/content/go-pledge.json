@@ -1,34 +1,34 @@
 {
-    "page": {
-        "name": "go-pledge",
-        "title": "Go Campaign - Pledge",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "go-pledge",
+    "title": "Go Campaign - Pledge",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": false,
-            "logoColor":"white",
-            "showSearch":false,
-            "showFooter":false,
-            "showMenu":false,
-            "isPopup":true,
-            "navigateOnPopupClose":"/go"
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-logo.jpg",
-                "url": "https://www.themeetinghouse.com/go-pledge",
-                "title": "Go Campaign - Pledge",
-                "description": ""
-            },
-            {
-                "type": "iframe",
-                "src":"https://staff.themeetinghouse.com/pledges/pledgeForm.php",
-                "height":"1200px",
-                "isInPopup":true
-            }
-        ]
-    }
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": false,
+      "logoColor": "white",
+      "showSearch": false,
+      "showFooter": false,
+      "showMenu": false,
+      "isPopup": true,
+      "navigateOnPopupClose": "/go"
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-logo.jpg",
+        "url": "https://www.themeetinghouse.com/go-pledge",
+        "title": "Go Campaign - Pledge",
+        "description": ""
+      },
+      {
+        "type": "iframe",
+        "src": "https://staff.themeetinghouse.com/pledges/pledgeForm.php",
+        "height": "1200px",
+        "isInPopup": true
+      }
+    ]
+  }
 }

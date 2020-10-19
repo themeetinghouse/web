@@ -1,17 +1,23 @@
-
 import { GraphQLResult } from '@aws-amplify/api/lib/types';
 import {
   F1ListEventSchedulesQuery,
   F1ListEventSchedulesQueryVariables,
   F1ListGroupsQuery,
   F1ListGroupsQueryVariables,
-  F1ListGroupTypesQuery
+  F1ListGroupTypesQuery,
 } from 'API';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import Badge from 'components/Badge/Badge';
 import HomeChurchContactModal from 'components/HomeChurchContactModal/HomeChurchContactModal';
 import { HomeChurchItemContent } from 'components/types';
-import { GoogleApiWrapper, IMarkerProps, InfoWindow, IProvidedProps, Map, Marker } from 'google-maps-react';
+import {
+  GoogleApiWrapper,
+  IMarkerProps,
+  InfoWindow,
+  IProvidedProps,
+  Map,
+  Marker,
+} from 'google-maps-react';
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
@@ -22,38 +28,37 @@ import { Input, Spinner } from 'reactstrap';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import DataLoader, { LocationData } from './DataLoader';
-import "./HomeChurchItem.scss";
-
+import './HomeChurchItem.scss';
 
 Amplify.configure(awsmobile);
 
-const HOME_CHURCH_PIN_URL = "/static/svg/HomeChurchPin.svg";
-const HOME_CHURCH_PIN_SELECTED_URL = "/static/svg/HomeChurchPin-selected.svg";
-const CURRENT_LOCATION_URL = "/static/svg/CurrentLocation.svg";
+const HOME_CHURCH_PIN_URL = '/static/svg/HomeChurchPin.svg';
+const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';
+const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
 
 const Location_ID_to_F1_Group_Type_Map: Record<string, string> = {
-  "alliston": "62948",
-  "ancaster": "58251",
-  "brampton": "58224",
-  "brantford": "58225",
-  "burlington": "58248",
-  "hamilton-downtown": "58249",
-  "hamilton-mountain": "58250",
-  "kitchener": "58253",
-  "london": "58254",
-  "newmarket": "58069",
-  "oakville": "58082",
-  "ottawa": "58255",
-  "owen-sound": "58252",
-  "parry-sound": "58256",
-  "richmond-hill": "58081",
-  "sandbanks": "62947",
-  "toronto-downtown": "58083",
-  "toronto-east": "58258",
-  "toronto-high-park": "58257",
-  "toronto-uptown": "58259",
-  "waterloo": "57909",
+  alliston: '62948',
+  ancaster: '58251',
+  brampton: '58224',
+  brantford: '58225',
+  burlington: '58248',
+  'hamilton-downtown': '58249',
+  'hamilton-mountain': '58250',
+  kitchener: '58253',
+  london: '58254',
+  newmarket: '58069',
+  oakville: '58082',
+  ottawa: '58255',
+  'owen-sound': '58252',
+  'parry-sound': '58256',
+  'richmond-hill': '58081',
+  sandbanks: '62947',
+  'toronto-downtown': '58083',
+  'toronto-east': '58258',
+  'toronto-high-park': '58257',
+  'toronto-uptown': '58259',
+  waterloo: '57909',
 };
 
 interface Props extends RouteComponentProps, IProvidedProps {
@@ -107,11 +112,11 @@ export class ContentItem extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    console.log(props)
+    console.log(props);
     this.state = {
       selectedPlace: null,
-      filterLocation: { value: "all" },
-      postalCode: "",
+      filterLocation: { value: 'all' },
+      postalCode: '',
       locationsLoaded: [],
       allLocationsLoaded: false,
       mapBounds: null,
@@ -128,89 +133,110 @@ export class ContentItem extends React.Component<Props, State> {
       this.setState({ locations });
     });
 
-    if (this.props.content.class === "home-church") {
+    if (this.props.content.class === 'home-church') {
       const loadGroupPromises: Array<Promise<void>> = [];
       const allGroups: F1Group[] = [];
       const locationsLoaded: string[] = [];
 
-      this.getRetryableGraphQLOperationPromise<F1ListGroupTypesQuery, {}>(queries.f1ListGroupTypes, {})
-        .then((listGroupTypesResponse) => {
-          (listGroupTypesResponse?.data?.F1ListGroupTypes?.groupTypes?.groupType ?? [])
-            .filter((item) => item?.isWebEnabled === 'true')
-            .forEach((groupTypeItem) => {
-              //console.log("HomeChurchItem.constructor(): F1ListGroupTypes response - groupTypeItem = %o", groupTypeItem);
-              // Get the home churches for this location and update the loading progress when done
-              const f1LocationId = groupTypeItem?.id;
-              //              console.log(f1LocationId)
-              const loadGroupPromise = this.getRetryableGraphQLOperationPromise<F1ListGroupsQuery, F1ListGroupsQueryVariables>(queries.f1ListGroups, { itemId: f1LocationId })
-                .then((listGroupsResponse) => {
-                  const openGroupsForLocation: Array<F1Group> = (listGroupsResponse?.data?.F1ListGroups?.groups?.group ?? []).filter(
-                    (item: F1Group | null): item is F1Group =>
-                      item?.isOpen === 'true' && item.isSearchable === 'true'
-                  );
-                  const eventIdsForLocation = openGroupsForLocation.map((g) => g.event?.id ?? null);
-                  //console.log("HomeChurchItem.constructor(): location: %o, eventIds = %o", groupTypeItem.name, eventIdsForLocation);
-                  //        console.log(eventIdsForLocation)
-                  if (eventIdsForLocation)
-                    // Get the schedules for the home churches in this location
-                    return this.getRetryableGraphQLOperationPromise<F1ListEventSchedulesQuery, F1ListEventSchedulesQueryVariables>(queries.f1ListEventSchedules, { itemId: eventIdsForLocation })
-                      .then((listEventSchedulesResponse) => {
-                        //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
-                        for (const group of openGroupsForLocation) {
-                          const eventSchedule = (
-                            listEventSchedulesResponse?.data?.F1ListEventSchedules ??
-                            []
-                          ).find((s) => s?.id === group.event?.id);
-                          const schedules = eventSchedule?.event?.schedules?.schedule;
-                          if (schedules) {
-                            group.schedule = schedules[0];
-                          }
-                        }
-                        allGroups.push(...openGroupsForLocation);
-                        if (f1LocationId) {
-                          locationsLoaded.push(f1LocationId);
-                        }
-                        this.setState({ groups: Array.from(allGroups), locationsLoaded: Array.from(locationsLoaded) });
-                        //console.log("HomeChurchItem.constructor(): All groups (so far): %o", allGroups);
-                      });
-
-                }
+      this.getRetryableGraphQLOperationPromise<F1ListGroupTypesQuery, {}>(
+        queries.f1ListGroupTypes,
+        {}
+      ).then((listGroupTypesResponse) => {
+        (
+          listGroupTypesResponse?.data?.F1ListGroupTypes?.groupTypes
+            ?.groupType ?? []
+        )
+          .filter((item) => item?.isWebEnabled === 'true')
+          .forEach((groupTypeItem) => {
+            //console.log("HomeChurchItem.constructor(): F1ListGroupTypes response - groupTypeItem = %o", groupTypeItem);
+            // Get the home churches for this location and update the loading progress when done
+            const f1LocationId = groupTypeItem?.id;
+            //              console.log(f1LocationId)
+            const loadGroupPromise = this.getRetryableGraphQLOperationPromise<
+              F1ListGroupsQuery,
+              F1ListGroupsQueryVariables
+            >(queries.f1ListGroups, { itemId: f1LocationId }).then(
+              (listGroupsResponse) => {
+                const openGroupsForLocation: Array<F1Group> = (
+                  listGroupsResponse?.data?.F1ListGroups?.groups?.group ?? []
+                ).filter(
+                  (item: F1Group | null): item is F1Group =>
+                    item?.isOpen === 'true' && item.isSearchable === 'true'
                 );
-              loadGroupPromises.push(loadGroupPromise);
-            });
-          Promise.all(loadGroupPromises).then(() => {
-            // When everything has resolved, we have loaded all locations
-            console.log('ALL LOCATIONS LOADED');
-            this.setState({ allLocationsLoaded: true });
+                const eventIdsForLocation = openGroupsForLocation.map(
+                  (g) => g.event?.id ?? null
+                );
+                //console.log("HomeChurchItem.constructor(): location: %o, eventIds = %o", groupTypeItem.name, eventIdsForLocation);
+                //        console.log(eventIdsForLocation)
+                if (eventIdsForLocation)
+                  // Get the schedules for the home churches in this location
+                  return this.getRetryableGraphQLOperationPromise<
+                    F1ListEventSchedulesQuery,
+                    F1ListEventSchedulesQueryVariables
+                  >(queries.f1ListEventSchedules, {
+                    itemId: eventIdsForLocation,
+                  }).then((listEventSchedulesResponse) => {
+                    //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
+                    for (const group of openGroupsForLocation) {
+                      const eventSchedule = (
+                        listEventSchedulesResponse?.data
+                          ?.F1ListEventSchedules ?? []
+                      ).find((s) => s?.id === group.event?.id);
+                      const schedules =
+                        eventSchedule?.event?.schedules?.schedule;
+                      if (schedules) {
+                        group.schedule = schedules[0];
+                      }
+                    }
+                    allGroups.push(...openGroupsForLocation);
+                    if (f1LocationId) {
+                      locationsLoaded.push(f1LocationId);
+                    }
+                    this.setState({
+                      groups: Array.from(allGroups),
+                      locationsLoaded: Array.from(locationsLoaded),
+                    });
+                    //console.log("HomeChurchItem.constructor(): All groups (so far): %o", allGroups);
+                  });
+              }
+            );
+            loadGroupPromises.push(loadGroupPromise);
           });
+        Promise.all(loadGroupPromises).then(() => {
+          // When everything has resolved, we have loaded all locations
+          console.log('ALL LOCATIONS LOADED');
+          this.setState({ allLocationsLoaded: true });
         });
+      });
     }
   }
 
   // This will create a promise that will retry until successful.  Need to do this because AWS returns random
   // errors when trying to run this many queries in parallel...
-  private async getRetryableGraphQLOperationPromise<T extends Record<string, unknown>, V extends F1ListGroupsQueryVariables | F1ListEventSchedulesQueryVariables | {}>(query: string, args: V, retry?: number): Promise<GraphQLResult<T> | null> {
-
-
+  private async getRetryableGraphQLOperationPromise<
+    T extends Record<string, unknown>,
+    V extends
+      | F1ListGroupsQueryVariables
+      | F1ListEventSchedulesQueryVariables
+      | {}
+  >(query: string, args: V, retry?: number): Promise<GraphQLResult<T> | null> {
     if ((args as F1ListEventSchedulesQueryVariables).itemId?.length === 0)
-      return Promise.resolve(null)
+      return Promise.resolve(null);
 
-    if (!retry)
-      retry = 5
+    if (!retry) retry = 5;
 
-    const qry = API.graphql(graphqlOperation(query, args)) as Promise<GraphQLResult<T>>;
-
+    const qry = API.graphql(graphqlOperation(query, args)) as Promise<
+      GraphQLResult<T>
+    >;
 
     try {
       return await qry;
     } catch (error) {
       console.log('Promise failure caught: %o', error);
       if (retry > 0) {
-        console.log(retry)
+        console.log(retry);
         return this.getRetryableGraphQLOperationPromise(query, args, --retry);
-      }
-      else
-        return Promise.resolve(null)
+      } else return Promise.resolve(null);
     }
   }
 
@@ -220,30 +246,43 @@ export class ContentItem extends React.Component<Props, State> {
 
   componentDidUpdate() {
     if (this.state.selectedPlace) {
-      const hcListingDOM = document.getElementById("HC-" + this.state.selectedPlace.id);
-      console.log("hcListingDOM = %o, selectedPlace.id = %o", hcListingDOM, this.state.selectedPlace.id);
+      const hcListingDOM = document.getElementById(
+        'HC-' + this.state.selectedPlace.id
+      );
+      console.log(
+        'hcListingDOM = %o, selectedPlace.id = %o',
+        hcListingDOM,
+        this.state.selectedPlace.id
+      );
       if (hcListingDOM && this.homeChurchListScrollContainer) {
-        this.homeChurchListScrollContainer.scrollTop = hcListingDOM.offsetTop - this.homeChurchListScrollContainer.offsetTop;
+        this.homeChurchListScrollContainer.scrollTop =
+          hcListingDOM.offsetTop - this.homeChurchListScrollContainer.offsetTop;
         //hcListingDOM.scrollIntoView();
       }
     }
   }
 
-  private calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number) {
-    if ((lat1 === lat2) && (lng1 === lng2)) {
+  private calculateDistance(
+    lat1: number,
+    lng1: number,
+    lat2: number,
+    lng2: number
+  ) {
+    if (lat1 === lat2 && lng1 === lng2) {
       return 0;
-    }
-    else {
-      const radlat1 = Math.PI * lat1 / 180;
-      const radlat2 = Math.PI * lat2 / 180;
+    } else {
+      const radlat1 = (Math.PI * lat1) / 180;
+      const radlat2 = (Math.PI * lat2) / 180;
       const theta = lng1 - lng2;
-      const radtheta = Math.PI * theta / 180;
-      let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      const radtheta = (Math.PI * theta) / 180;
+      let dist =
+        Math.sin(radlat1) * Math.sin(radlat2) +
+        Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
       if (dist > 1) {
         dist = 1;
       }
       dist = Math.acos(dist);
-      dist = dist * 180 / Math.PI;
+      dist = (dist * 180) / Math.PI;
       dist = dist * 60 * 1.1515; // Compute in Miles
       dist = dist * 1.609344; // Compute in KM
       return dist;
@@ -253,18 +292,26 @@ export class ContentItem extends React.Component<Props, State> {
   private async setGeoLocation(postalCode?: string): Promise<void> {
     let newLatLng = DEFAULT_LAT_LNG;
     if (postalCode) {
-      new google.maps.Geocoder().geocode({ address: postalCode }, (results, status) => {
-        if (status === 'OK') {
-          newLatLng = { lat: results[0].geometry.location.lat(), lng: results[0].geometry.location.lng() };
+      new google.maps.Geocoder().geocode(
+        { address: postalCode },
+        (results, status) => {
+          if (status === 'OK') {
+            newLatLng = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+            };
+          }
+          this.setState({ currentLatLng: newLatLng });
         }
-        this.setState({ currentLatLng: newLatLng });
-      }
       );
     } else {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            newLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+            newLatLng = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
             this.setState({ currentLatLng: newLatLng });
           },
           () => {
@@ -279,16 +326,28 @@ export class ContentItem extends React.Component<Props, State> {
   }
 
   private distanceSorter = (loc1: F1Group, loc2: F1Group) => {
-    const dist1 = this.calculateDistance(this.state.currentLatLng.lat, this.state.currentLatLng.lng, Number(loc1?.location?.address?.latitude ?? '0'), Number(loc1?.location?.address?.longitude ?? '0'));
-    const dist2 = this.calculateDistance(this.state.currentLatLng.lat, this.state.currentLatLng.lng, Number(loc2?.location?.address?.latitude ?? '0'), Number(loc2?.location?.address?.longitude ?? '0'));
-    return (dist1 < dist2 ? -1 : 1);
+    const dist1 = this.calculateDistance(
+      this.state.currentLatLng.lat,
+      this.state.currentLatLng.lng,
+      Number(loc1?.location?.address?.latitude ?? '0'),
+      Number(loc1?.location?.address?.longitude ?? '0')
+    );
+    const dist2 = this.calculateDistance(
+      this.state.currentLatLng.lat,
+      this.state.currentLatLng.lng,
+      Number(loc2?.location?.address?.latitude ?? '0'),
+      Number(loc2?.location?.address?.longitude ?? '0')
+    );
+    return dist1 < dist2 ? -1 : 1;
   };
 
-  private getMarkerClickHandler(item: F1Group): (props?: IMarkerProps, marker?: google.maps.Marker) => void {
+  private getMarkerClickHandler(
+    item: F1Group
+  ): (props?: IMarkerProps, marker?: google.maps.Marker) => void {
     return (_props?: IMarkerProps, marker?: google.maps.Marker) => {
       console.log('Marker clicked: %o', marker);
       this.setState({ selectedPlaceMarker: marker, selectedPlace: item });
-    }
+    };
   }
 
   private getHomeChurchClickHandler(item: F1Group): () => void {
@@ -297,15 +356,27 @@ export class ContentItem extends React.Component<Props, State> {
     };
   }
 
-  private handleSiteSelection = (locationItem: { label?: string; value: string } | null) => {
+  private handleSiteSelection = (
+    locationItem: { label?: string; value: string } | null
+  ) => {
     // Filter the list of Home Churches by the selected site
     const location = locationItem ?? { value: 'all' };
-    console.log('HomeChurchItem.handleSiteSelection(): locationItem: %o', locationItem);
-    const filteredGroups = this.state.groups.filter((g) => location.value === 'all' || g.groupType?.id === Location_ID_to_F1_Group_Type_Map[location.value]);
+    console.log(
+      'HomeChurchItem.handleSiteSelection(): locationItem: %o',
+      locationItem
+    );
+    const filteredGroups = this.state.groups.filter(
+      (g) =>
+        location.value === 'all' ||
+        g.groupType?.id === Location_ID_to_F1_Group_Type_Map[location.value]
+    );
     const bounds = new this.props.google.maps.LatLngBounds();
     bounds.extend(this.state.currentLatLng);
     for (let i = 0; i < filteredGroups.length; i++) {
-      const p = { lat: Number(filteredGroups[i].location?.address?.latitude), lng: Number(filteredGroups[i].location?.address?.longitude) };
+      const p = {
+        lat: Number(filteredGroups[i].location?.address?.latitude),
+        lng: Number(filteredGroups[i].location?.address?.longitude),
+      };
       //console.log("HomeChurchItem.handleSiteSelection(): map bounds point:%o", p);
       if (p.lat !== 0 && p.lng !== 0) {
         bounds.extend(p);
@@ -314,19 +385,25 @@ export class ContentItem extends React.Component<Props, State> {
     this.setState({ filterLocation: location, mapBounds: bounds });
   };
 
-  private handlePostalCodeChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  private handlePostalCodeChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const value = event.target.value;
     this.setState({ postalCode: value });
     const regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
     const isValid = regex.test(value);
-    console.log("HomeChurchItem.handlePostalCodeChange(): Postal Code value: %o.  Valid? %b", value, regex.test(value));
+    console.log(
+      'HomeChurchItem.handlePostalCodeChange(): Postal Code value: %o.  Valid? %b',
+      value,
+      regex.test(value)
+    );
     if (isValid) {
       await this.setGeoLocation(value);
     } else if (!value) {
       await this.setGeoLocation();
     }
     this.handleSiteSelection(this.state.filterLocation);
-  }
+  };
 
   private async clearLocationSelection() {
     this.setState({ postalCode: '' });
@@ -339,7 +416,13 @@ export class ContentItem extends React.Component<Props, State> {
 
   private formatGroupAddress(group: F1Group) {
     const address: Array<string | null> = [];
-    for (const field of ['address1', 'address2', 'address3', 'city', 'postalCode'] as Array<keyof NonNullable<F1Group['location']>['address']>) {
+    for (const field of [
+      'address1',
+      'address2',
+      'address3',
+      'city',
+      'postalCode',
+    ] as Array<keyof NonNullable<F1Group['location']>['address']>) {
       if (group?.location?.address && group.location.address[field]) {
         address.push(group.location.address[field]);
       }
@@ -351,15 +434,17 @@ export class ContentItem extends React.Component<Props, State> {
     let nextMeeting = moment();
     //console.log('HomeChurchItem.getCalendarEventForLocation(): group = %o', group);
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
-      const recurrenceWeekly = group.schedule?.recurrences?.recurrence?.recurrenceWeekly as Record<
-        string,
-        string
-      > | undefined | null;
+      const recurrenceWeekly = group.schedule?.recurrences?.recurrence
+        ?.recurrenceWeekly as Record<string, string> | undefined | null;
       if (
-        recurrenceWeekly && recurrenceWeekly['occurOn' + moment().day(dayNum).format('dddd')]
+        recurrenceWeekly &&
+        recurrenceWeekly['occurOn' + moment().day(dayNum).format('dddd')]
       ) {
         const nextMeetingTime = moment(group.schedule?.startTime);
-        nextMeeting = moment().day(dayNum).hours(nextMeetingTime.get('hours')).minutes(nextMeetingTime.get('minutes'));
+        nextMeeting = moment()
+          .day(dayNum)
+          .hours(nextMeetingTime.get('hours'))
+          .minutes(nextMeetingTime.get('minutes'));
         break;
       }
     }
@@ -368,15 +453,15 @@ export class ContentItem extends React.Component<Props, State> {
       description: 'Join us at home church!',
       location: this.formatGroupAddress(group).join(', '),
       startTime: nextMeeting.format(),
-      endTime: moment(nextMeeting).add(2, "hours").format()
-    }
+      endTime: moment(nextMeeting).add(2, 'hours').format(),
+    };
     return event;
   }
 
   private getContactLeadersHandler(item: F1Group) {
     return () => {
       // Open a modal with a form...
-      this.setState({ contactHomeChurchId: item.id })
+      this.setState({ contactHomeChurchId: item.id });
       this.handleToggleModal();
     };
   }
@@ -388,7 +473,7 @@ export class ContentItem extends React.Component<Props, State> {
   private styleSelect: Partial<Styles> = {
     container: (provided: CSSProperties) => ({
       ...provided,
-      height: "43px",
+      height: '43px',
     }),
     control: (provided: CSSProperties) => ({
       ...provided,
@@ -396,150 +481,291 @@ export class ContentItem extends React.Component<Props, State> {
     }),
     indicatorSeparator: (provided: CSSProperties) => ({
       ...provided,
-      display: "none"
+      display: 'none',
     }),
     menu: (provided: CSSProperties) => ({
       ...provided,
       borderRadius: 0,
-      marginTop: 2
+      marginTop: 2,
     }),
   };
   private getDayOfWeek(item: F1Group['schedule']) {
     if (item?.recurrences?.recurrence?.recurrenceWeekly)
       if (item.recurrences.recurrence.recurrenceWeekly.occurOnSunday)
-        return "Sundays"
+        return 'Sundays';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnMonday)
-        return "Mondays"
+        return 'Mondays';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnTuesday)
-        return "Tuesdays"
+        return 'Tuesdays';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnWednesday)
-        return "Wednesdays"
+        return 'Wednesdays';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnThursday)
-        return "Thursdays"
+        return 'Thursdays';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnFriday)
-        return "Fridays"
+        return 'Fridays';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnSaturday)
-        return "Saturdays";
-      else
-        return moment(item.startDate).format('dddd') + 's';
-    else
-      return moment(item?.startDate).format('dddd') + 's';
+        return 'Saturdays';
+      else return moment(item.startDate).format('dddd') + 's';
+    else return moment(item?.startDate).format('dddd') + 's';
   }
   render() {
     const inititalCenter = { lat: 44, lng: -78.0 };
     const initalZoom = 6;
 
-    const filteredGroups = (this.state.groups || []).filter((item) => (
-      item.isPublic && (this.state.filterLocation.value === "all" || item.groupType?.id === Location_ID_to_F1_Group_Type_Map[this.state.filterLocation.value])
-    ));
+    const filteredGroups = (this.state.groups || []).filter(
+      (item) =>
+        item.isPublic &&
+        (this.state.filterLocation.value === 'all' ||
+          item.groupType?.id ===
+            Location_ID_to_F1_Group_Type_Map[this.state.filterLocation.value])
+    );
 
     filteredGroups.sort(this.distanceSorter);
 
     return (
-
       <div className="HomeChurchItem">
         <div className="HomeChurchItemDiv1">
-
           <h1 className="HomeChurchH1">{this.props.content.header1}</h1>
           <div className="HomeChurchItemDiv2">
             <div className="HomeChurchItemMap">
-              <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} bounds={this.state.mapBounds ?? undefined} mapTypeControl={false} onReady={(_props, map) => (this.map = map)}>
-                <Marker icon={CURRENT_LOCATION_URL} position={{ ...this.state.currentLatLng }} />
+              <Map
+                google={this.props.google}
+                zoom={initalZoom}
+                initialCenter={inititalCenter}
+                bounds={this.state.mapBounds ?? undefined}
+                mapTypeControl={false}
+                onReady={(_props, map) => (this.map = map)}
+              >
+                <Marker
+                  icon={CURRENT_LOCATION_URL}
+                  position={{ ...this.state.currentLatLng }}
+                />
                 {filteredGroups.map((item) => {
                   const { latitude, longitude } = item.location?.address ?? {};
                   if (!latitude || !longitude) {
                     console.error(`missing address coordinates in ${item}`);
                     return null;
                   }
-                  return <Marker key={item.id ?? ''} onClick={this.getMarkerClickHandler(item)} icon={this.state.selectedPlace === item ? HOME_CHURCH_PIN_SELECTED_URL : HOME_CHURCH_PIN_URL}
-                    position={{ lat: Number(latitude), lng: Number(longitude) }} />
-                })
-                }
+                  return (
+                    <Marker
+                      key={item.id ?? ''}
+                      onClick={this.getMarkerClickHandler(item)}
+                      icon={
+                        this.state.selectedPlace === item
+                          ? HOME_CHURCH_PIN_SELECTED_URL
+                          : HOME_CHURCH_PIN_URL
+                      }
+                      position={{
+                        lat: Number(latitude),
+                        lng: Number(longitude),
+                      }}
+                    />
+                  );
+                })}
                 <InfoWindow
                   google={this.props.google}
                   // These types are wrong, they should be optional. So just cast to fix the issues.
                   map={this.map as google.maps.Map}
                   marker={this.state.selectedPlaceMarker as google.maps.Marker}
-                  visible={true}>
-                  {
-                    this.state.selectedPlace ? (
-                      <div>
-                        <div className="HomeChurchItemMapInfoWindowDiv1">{this.state.selectedPlace.name}</div>
-                        <div className="HomeChurchItemMapInfoWindowDiv2"><Badge>{this.state.selectedPlace.churchCampus?.name}</Badge></div>
-                        <div className="HomeChurchItemMapInfoWindowDiv3">{this.state.selectedPlace.description}</div>
-                        <div className="HomeChurchItemMapInfoWindowDayOfWeek">{this.getDayOfWeek(this.state.selectedPlace.schedule)} {(this.state.selectedPlace.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1 ? "(every " + this.state.selectedPlace.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency + " weeks)" : null}</div>
-                        <div className="HomeChurchItemMapInfoWindowTimeOfDay">{moment(this.state.selectedPlace.schedule?.startTime).format('h:mm a')}</div>
-
+                  visible={true}
+                >
+                  {this.state.selectedPlace ? (
+                    <div>
+                      <div className="HomeChurchItemMapInfoWindowDiv1">
+                        {this.state.selectedPlace.name}
                       </div>
-                    ) : <div></div>
-                  }
+                      <div className="HomeChurchItemMapInfoWindowDiv2">
+                        <Badge>
+                          {this.state.selectedPlace.churchCampus?.name}
+                        </Badge>
+                      </div>
+                      <div className="HomeChurchItemMapInfoWindowDiv3">
+                        {this.state.selectedPlace.description}
+                      </div>
+                      <div className="HomeChurchItemMapInfoWindowDayOfWeek">
+                        {this.getDayOfWeek(this.state.selectedPlace.schedule)}{' '}
+                        {(this.state.selectedPlace.schedule?.recurrences
+                          ?.recurrence?.recurrenceWeekly?.recurrenceFrequency ??
+                          0) > 1
+                          ? '(every ' +
+                            this.state.selectedPlace.schedule?.recurrences
+                              ?.recurrence?.recurrenceWeekly
+                              ?.recurrenceFrequency +
+                            ' weeks)'
+                          : null}
+                      </div>
+                      <div className="HomeChurchItemMapInfoWindowTimeOfDay">
+                        {moment(
+                          this.state.selectedPlace.schedule?.startTime
+                        ).format('h:mm a')}
+                      </div>
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
                 </InfoWindow>
               </Map>
             </div>
           </div>
           <div className="HomeChurchItemDiv3">
-
-            <div className="HomeChurchFormItemContainer" >
-              {<Select
-                onChange={(value) => this.handleSiteSelection(value as { label: string; value: string } | null)}
-                placeholder="All sites" className="LocationSelect" styles={this.styleSelect} ref={(ref) => this.selectControl = ref} menuShouldScrollIntoView={true}
-                options={this.state.locations.map((item) => ({ label: item.name, value: item.id }))}></Select>}
-              <Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode}></Input>
+            <div className="HomeChurchFormItemContainer">
+              {
+                <Select
+                  onChange={(value) =>
+                    this.handleSiteSelection(
+                      value as { label: string; value: string } | null
+                    )
+                  }
+                  placeholder="All sites"
+                  className="LocationSelect"
+                  styles={this.styleSelect}
+                  ref={(ref) => (this.selectControl = ref)}
+                  menuShouldScrollIntoView={true}
+                  options={this.state.locations.map((item) => ({
+                    label: item.name,
+                    value: item.id,
+                  }))}
+                ></Select>
+              }
+              <Input
+                className="PostalCodeInput"
+                placeholder="Add postal code"
+                onChange={this.handlePostalCodeChange}
+                value={this.state.postalCode}
+              ></Input>
               {/* <Button className="ClearAllButton" onClick={this.clearLocationSelection}>Clear All</Button> */}
-              <button className="ClearAllButton" onClick={() => this.clearLocationSelection()} tabIndex={0}>Clear All</button>
+              <button
+                className="ClearAllButton"
+                onClick={() => this.clearLocationSelection()}
+                tabIndex={0}
+              >
+                Clear All
+              </button>
             </div>
 
-            <div className="HomeChurchItemListData" ref={(ref) => this.homeChurchListScrollContainer = ref}>
-
-              <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
+            <div
+              className="HomeChurchItemListData"
+              ref={(ref) => (this.homeChurchListScrollContainer = ref)}
+            >
+              <ReactCSSTransitionGroup
+                transitionName="HomeChurchLoading"
+                transitionLeaveTimeout={750}
+                transitionEnterTimeout={300}
+              >
                 {!this.state.allLocationsLoaded ? (
                   <div className="LoadingContainer">
-                    <div className="LoadingTitleContainer"><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div>
+                    <div className="LoadingTitleContainer">
+                      <Spinner color="dark" />
+                      <span className="LoadingTitle">
+                        Loading home church listings
+                      </span>
+                    </div>
                     {this.state.locations.map((location) => {
-                      const isLocationLoaded = this.state.locationsLoaded.includes(Location_ID_to_F1_Group_Type_Map[location.id]);
+                      const isLocationLoaded = this.state.locationsLoaded.includes(
+                        Location_ID_to_F1_Group_Type_Map[location.id]
+                      );
                       return (
-                        <div className={"LoadingItem " + (isLocationLoaded ? "Loaded" : "")} key={location.id}>
-                          <img alt="Loading Icon" className="LoadingImage" src="/static/svg/Home-Church-Location.svg"></img>
-                          <img alt="Loaded Icon" className="LoadedImage" src="/static/svg/Check-green.svg"></img>
-                          <span className="LoadingLocationLabel">{location.name}</span>
+                        <div
+                          className={
+                            'LoadingItem ' + (isLocationLoaded ? 'Loaded' : '')
+                          }
+                          key={location.id}
+                        >
+                          <img
+                            alt="Loading Icon"
+                            className="LoadingImage"
+                            src="/static/svg/Home-Church-Location.svg"
+                          ></img>
+                          <img
+                            alt="Loaded Icon"
+                            className="LoadedImage"
+                            src="/static/svg/Check-green.svg"
+                          ></img>
+                          <span className="LoadingLocationLabel">
+                            {location.name}
+                          </span>
                         </div>
-                      )
+                      );
                     })}
                   </div>
                 ) : null}
               </ReactCSSTransitionGroup>
 
               {filteredGroups.map((item) => (
-                <div className="HomeChurchItemDiv5" key={item.id ?? undefined} id={"HC-" + item.id} >
-                  <h3 className={"HomeChurchH3 " + (this.state.selectedPlace === item ? "selected" : "")} onClick={this.getHomeChurchClickHandler(item)}>{item.name}</h3>
-                  <div className="HomeChurchAddress">{item.description}</div>
-                  <div className="HomeChurchSiteAffiliation"><Badge>{item.churchCampus?.name}</Badge></div>
-                  <div className="HomeChurchDayOfWeek">{this.getDayOfWeek(item.schedule)} {(item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1 ? "(every " + item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency + " weeks)" : null}</div>
-                  <div className="HomeChurchTimeOfDay">{moment(item.schedule?.startTime).format('h:mm a')}</div>
-                  <div className="HomeChurchButtonContainer">
-                    {item.schedule?.recurrences?.recurrence?.recurrenceWeekly
-                      ?
-                      <div className="AddToCalendarButtonContainer">
-                        <img className="AddToCalendarIcon" src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon" />
-                        <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}></AddToCalendar>
-                      </div>
-                      : null
+                <div
+                  className="HomeChurchItemDiv5"
+                  key={item.id ?? undefined}
+                  id={'HC-' + item.id}
+                >
+                  <h3
+                    className={
+                      'HomeChurchH3 ' +
+                      (this.state.selectedPlace === item ? 'selected' : '')
                     }
-                    <button className="ContactLeadersButton" onClick={this.getContactLeadersHandler(item)} tabIndex={0}><img className="ContactLeadersIcon" src="/static/svg/Contact.svg" alt="Contact Icon" />Contact Leaders</button>
+                    onClick={this.getHomeChurchClickHandler(item)}
+                  >
+                    {item.name}
+                  </h3>
+                  <div className="HomeChurchAddress">{item.description}</div>
+                  <div className="HomeChurchSiteAffiliation">
+                    <Badge>{item.churchCampus?.name}</Badge>
+                  </div>
+                  <div className="HomeChurchDayOfWeek">
+                    {this.getDayOfWeek(item.schedule)}{' '}
+                    {(item.schedule?.recurrences?.recurrence?.recurrenceWeekly
+                      ?.recurrenceFrequency ?? 0) > 1
+                      ? '(every ' +
+                        item.schedule?.recurrences?.recurrence?.recurrenceWeekly
+                          ?.recurrenceFrequency +
+                        ' weeks)'
+                      : null}
+                  </div>
+                  <div className="HomeChurchTimeOfDay">
+                    {moment(item.schedule?.startTime).format('h:mm a')}
+                  </div>
+                  <div className="HomeChurchButtonContainer">
+                    {item.schedule?.recurrences?.recurrence
+                      ?.recurrenceWeekly ? (
+                      <div className="AddToCalendarButtonContainer">
+                        <img
+                          className="AddToCalendarIcon"
+                          src="/static/svg/Calendar, Add To.svg"
+                          alt="Calendar Icon"
+                        />
+                        <AddToCalendar
+                          buttonLabel="Add to Calendar"
+                          event={this.getCalendarEventForLocation(item)}
+                        ></AddToCalendar>
+                      </div>
+                    ) : null}
+                    <button
+                      className="ContactLeadersButton"
+                      onClick={this.getContactLeadersHandler(item)}
+                      tabIndex={0}
+                    >
+                      <img
+                        className="ContactLeadersIcon"
+                        src="/static/svg/Contact.svg"
+                        alt="Contact Icon"
+                      />
+                      Contact Leaders
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div >
-        <HomeChurchContactModal show={this.state.showContactModal} handleClose={() => this.handleToggleModal()} homeChurchId={this.state.contactHomeChurchId}></HomeChurchContactModal>
-      </div >
-
-    )
-
+        </div>
+        <HomeChurchContactModal
+          show={this.state.showContactModal}
+          handleClose={() => this.handleToggleModal()}
+          homeChurchId={this.state.contactHomeChurchId}
+        ></HomeChurchContactModal>
+      </div>
+    );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0')
-})(withRouter(ContentItem))
+  apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
+})(withRouter(ContentItem));

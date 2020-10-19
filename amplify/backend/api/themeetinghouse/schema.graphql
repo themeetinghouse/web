@@ -1,26 +1,53 @@
 type Query {
-  getBiblePassage(bibleId: String, passage: String):BibleResponse @function(name: "getBiblePassage-${env}")
+  getBiblePassage(bibleId: String, passage: String): BibleResponse
+    @function(name: "getBiblePassage-${env}")
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
-  getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
+  getYoutubePlaylistItems(
+    playlistId: String
+    pageToken: String
+  ): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
   getYoutubeVideoContentDetails(videoId: String): YoutubePlaylistItems!
   getYoutubeVideoStatistics(videoId: String): YoutubePlaylistItems!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
-  downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
-  getTakenoteSeries(user:Int,start:Int,count:Int): [TakeNoteSeries]
-  getTakenoteSermon(seriesId:String,user:Int):[TakeNoteSermon]
-  getTakenoteSermonVerses(sermondId:String):TakeNoteSermonVerses
-  getTakenoteLocations:[TakeNoteLocations]
-  getFBEvents(pageId:String):FBData
-  getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
-  fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
-  fuzzySearchVideosByType(videoType: String, filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
-  F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
-  F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
-  F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
-  emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
-  askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
-} 
+  downloadYoutubeCaption(
+    videoId: String
+    tlang: String
+    trackKind: String
+    name: String
+  ): YoutubeCaptionDownload!
+  getTakenoteSeries(user: Int, start: Int, count: Int): [TakeNoteSeries]
+  getTakenoteSermon(seriesId: String, user: Int): [TakeNoteSermon]
+  getTakenoteSermonVerses(sermondId: String): TakeNoteSermonVerses
+  getTakenoteLocations: [TakeNoteLocations]
+  getFBEvents(pageId: String): FBData
+  getTakenoteNotes(sermonId: String, noteType: String): TakeNoteNotes
+  fuzzySearchVideos(
+    filter: String
+    sort: fuzzySearchableVideoSortInput
+    limit: Int
+    nextToken: String
+  ): fuzzySearchableVideoConnection
+  fuzzySearchVideosByType(
+    videoType: String
+    filter: String
+    sort: fuzzySearchableVideoSortInput
+    limit: Int
+    nextToken: String
+  ): fuzzySearchableVideoConnection
+  F1ListGroupTypes: F1ListGroupTypes @function(name: "F1ListGroupTypes")
+  F1ListGroups(itemId: String): F1ListGroups @function(name: "F1ListGroups")
+  F1ListEventSchedules(itemId: [String]): [F1ListEvent]
+    @function(name: "F1ListEventSchedules")
+  emailHomeChurch(
+    name: String
+    email: String
+    message: String
+    homeChurchId: String
+  ): emailResponse @function(name: "emailHomeChurch-${env}")
+  askQuestion(email: String, body: String): emailResponse
+    @function(name: "QandEh-${env}")
+}
 type BibleResponse {
   data: BibleData
   meta: BibleMetaData
@@ -41,12 +68,12 @@ type BibleMetaData {
   fumsNoScript: String
 }
 type emailResponse {
-  err:String
-  data:String
+  err: String
+  data: String
 }
 type F1ListEvent {
-  id:String
-  event:F1ListEventSchedules
+  id: String
+  event: F1ListEventSchedules
 }
 enum fuzzySearchableSortDirection {
   asc
@@ -79,7 +106,7 @@ input fuzzySearchableVideoSortInput {
   direction: fuzzySearchableSortDirection
 }
 
-type FBLocation{
+type FBLocation {
   city: String
   country: String
   latitude: Float
@@ -88,366 +115,364 @@ type FBLocation{
   street: String
   zip: String
 }
-type FBPlace{
- name: String
+type FBPlace {
+  name: String
   location: FBLocation
   id: String
 }
-type FBPaging{
-  cursors:FBCursors
+type FBPaging {
+  cursors: FBCursors
 }
-type FBCursors{
-  before:String
-  after:String
+type FBCursors {
+  before: String
+  after: String
 }
-type FBData{
+type FBData {
   data: [FBEvent]
   paging: FBPaging
 }
-type FBTime{
-  start_time:String
-  end_time:String
-  id:String
-  ticket_uri:String
-}
-type FBEvent{
-  description:String
+type FBTime {
+  start_time: String
   end_time: String
-  name:String
+  id: String
+  ticket_uri: String
+}
+type FBEvent {
+  description: String
+  end_time: String
+  name: String
   place: FBPlace
   start_time: String
   id: String
-  event_times:[FBTime]
+  event_times: [FBTime]
 }
 type fuzzySearchableVideoConnection {
   items: [Video]
   nextToken: String
 }
-type F1ListEventSchedules{
-  schedules:F1ListEventSchedule
+type F1ListEventSchedules {
+  schedules: F1ListEventSchedule
 }
 
-type F1ListGroups{
-  groups:F1ListGroup
+type F1ListGroups {
+  groups: F1ListGroup
 }
-type F1ListGroup{
-  group:[F1ListGroup2]
+type F1ListGroup {
+  group: [F1ListGroup2]
 }
-type F1ListEventSchedule{
-  schedule:[F1ListEventSchedule2]
+type F1ListEventSchedule {
+  schedule: [F1ListEventSchedule2]
 }
-type F1ListGroup2Campus{
-  id:String
-  name:String
+type F1ListGroup2Campus {
+  id: String
+  name: String
 }
-type F1ListGroup2GroupType{
-  id:String
-  name:String
+type F1ListGroup2GroupType {
+  id: String
+  name: String
 }
-type F1ListGroup2DateRangeType{
-  id:String
-  name:String
+type F1ListGroup2DateRangeType {
+  id: String
+  name: String
 }
-type F1ListEventScheduleReccurenceType{
-  name:String
+type F1ListEventScheduleReccurenceType {
+  name: String
 }
-type F1ListEventSchedule2{
-   id:String
-  name:String
-  description:String
-  startTime:String
-  endTime:String
-  numberRecurrences:String
-  startDate:String
-  endDate:String
-  recurrenceType:F1ListEventScheduleReccurenceType
-  recurrences:F1ListEventScheduleRecurrences
-  createdDate:String
-  createByPerson:String
-  lastUpdatedDate:String
-  lastUpdatedByPerson:String
+type F1ListEventSchedule2 {
+  id: String
+  name: String
+  description: String
+  startTime: String
+  endTime: String
+  numberRecurrences: String
+  startDate: String
+  endDate: String
+  recurrenceType: F1ListEventScheduleReccurenceType
+  recurrences: F1ListEventScheduleRecurrences
+  createdDate: String
+  createByPerson: String
+  lastUpdatedDate: String
+  lastUpdatedByPerson: String
 }
-type F1ListEventScheduleRecurrences{
-  recurrence:F1ListEventScheduleRecurrence
+type F1ListEventScheduleRecurrences {
+  recurrence: F1ListEventScheduleRecurrence
 }
-type F1ListEventScheduleRecurrence{
-  recurrenceWeekly:F1ListEventScheduleRecurrenceWeekly
-  recurrenceMonthly:F1ListEventScheduleRecurrenceMonthly
+type F1ListEventScheduleRecurrence {
+  recurrenceWeekly: F1ListEventScheduleRecurrenceWeekly
+  recurrenceMonthly: F1ListEventScheduleRecurrenceMonthly
 }
-type F1ListEventScheduleRecurrenceWeekly{
-  recurrenceFrequency:Int
-  occurOnSunday:Boolean
-  occurOnMonday:Boolean
-  occurOnTuesday:Boolean
-  occurOnWednesday:Boolean
-  occurOnThursday:Boolean
-  occurOnFriday:Boolean
-  occurOnSaturday:Boolean
+type F1ListEventScheduleRecurrenceWeekly {
+  recurrenceFrequency: Int
+  occurOnSunday: Boolean
+  occurOnMonday: Boolean
+  occurOnTuesday: Boolean
+  occurOnWednesday: Boolean
+  occurOnThursday: Boolean
+  occurOnFriday: Boolean
+  occurOnSaturday: Boolean
 }
-type F1ListEventScheduleRecurrenceMonthly{
-  recurrenceFrequency:Int
-  recurrenceOffset:Int
-  monthDay:String
-  monthWeekDay:String
-
+type F1ListEventScheduleRecurrenceMonthly {
+  recurrenceFrequency: Int
+  recurrenceOffset: Int
+  monthDay: String
+  monthWeekDay: String
 }
-type F1ListGroup2{
-  id:String
-  name:String
-  description:String
-  startDate:String
-  expirationDate:String
-  isOpen:String
-  isPublic:String
-  hasChildcare:String
-  isSearchable:String
-  churchCampus:F1ListGroup2Campus
-  groupType:F1ListGroup2GroupType
-  groupURL:String
-  gender:F1ListGroup2Gender
-  maritalStatus:F1ListGroup2MaritalStatus
-  startAgeRange:String
-  endAgeRange:String
-  dateRangeType:F1ListGroup2DateRangeType
-  leadersCount:String
-  membersCount:String
-  openProspectsCount:String
-  event:F1ListGroup2Event
-  createdDate:String
-  lastUpdatedDate:String
-  isLocationPrivate:String
-  location:F1ListGroup2Location
+type F1ListGroup2 {
+  id: String
+  name: String
+  description: String
+  startDate: String
+  expirationDate: String
+  isOpen: String
+  isPublic: String
+  hasChildcare: String
+  isSearchable: String
+  churchCampus: F1ListGroup2Campus
+  groupType: F1ListGroup2GroupType
+  groupURL: String
+  gender: F1ListGroup2Gender
+  maritalStatus: F1ListGroup2MaritalStatus
+  startAgeRange: String
+  endAgeRange: String
+  dateRangeType: F1ListGroup2DateRangeType
+  leadersCount: String
+  membersCount: String
+  openProspectsCount: String
+  event: F1ListGroup2Event
+  createdDate: String
+  lastUpdatedDate: String
+  isLocationPrivate: String
+  location: F1ListGroup2Location
 }
-type F1ListGroup2Address{
-  address1:String
-  address2:String
-  address3:String
-  city:String
-  stProvince:String
-  postalCode:String
-  county:String
-  country:String
-  carrierRoute:String
-  deliveryPoint:String
-  latitude:String
-  longitude:String
-  createdDate:String
-  lastUpdatedDate:String     
+type F1ListGroup2Address {
+  address1: String
+  address2: String
+  address3: String
+  city: String
+  stProvince: String
+  postalCode: String
+  county: String
+  country: String
+  carrierRoute: String
+  deliveryPoint: String
+  latitude: String
+  longitude: String
+  createdDate: String
+  lastUpdatedDate: String
 }
-type F1ListGroup2Location{
-  id:String
-  name:String
-  description:String
-  isOnline:String
-  url:String
-  address:F1ListGroup2Address
-  createdDate:String
-  lastUpdatedDate:String
+type F1ListGroup2Location {
+  id: String
+  name: String
+  description: String
+  isOnline: String
+  url: String
+  address: F1ListGroup2Address
+  createdDate: String
+  lastUpdatedDate: String
 }
-type F1ListGroup2Event{
-  id:String
-  name:String
-
+type F1ListGroup2Event {
+  id: String
+  name: String
 }
-type F1ListGroup2MaritalStatus{
-   name:String
+type F1ListGroup2MaritalStatus {
+  name: String
 }
-type F1ListGroup2Gender{
- name:String
+type F1ListGroup2Gender {
+  name: String
 }
-type F1ListGroupTypes{
-  groupTypes:F1ListGroupType
+type F1ListGroupTypes {
+  groupTypes: F1ListGroupType
 }
-type F1ListGroupType{
-  groupType:[F1ListGroupType2]
+type F1ListGroupType {
+  groupType: [F1ListGroupType2]
 }
-type F1ListGroupType2{
-  id:String
-  name:String
-  description:String
-  isWebEnabled:String
-  isSearchable:String
+type F1ListGroupType2 {
+  id: String
+  name: String
+  description: String
+  isWebEnabled: String
+  isSearchable: String
 }
-type TakeNoteNotes{
-  homeChurchNotes:[TakeNoteNote]
-  sermonNotes:[TakeNoteNote]
-  sermonVerses:[TakeNoteVerse]
-  homeChurchVerses:[TakeNoteVerse]
+type TakeNoteNotes {
+  homeChurchNotes: [TakeNoteNote]
+  sermonNotes: [TakeNoteNote]
+  sermonVerses: [TakeNoteVerse]
+  homeChurchVerses: [TakeNoteVerse]
 }
-type TakeNoteNote{
-  id:Int
-  noteType:String
-  content:String
-  position:Int
-  timecode:String
-  sermons_FK:String
+type TakeNoteNote {
+  id: Int
+  noteType: String
+  content: String
+  position: Int
+  timecode: String
+  sermons_FK: String
 }
-type TakeNoteVerse{
-  id:String
-  chapterVerse:String
-  translation:String
-  content:String
-  sermons_FK:Int
-  notes_FK:String
+type TakeNoteVerse {
+  id: String
+  chapterVerse: String
+  translation: String
+  content: String
+  sermons_FK: Int
+  notes_FK: String
 }
-type TakeNoteLocationGPS{
-  longitude:Float,
-  latitude:Float
+type TakeNoteLocationGPS {
+  longitude: Float
+  latitude: Float
 }
-type TakeNoteLocations{
-    _id:String,
-    id:String,
-    name:String,
-    categories:[String],
-    location:TakeNoteLocationGPS,
-    state:String
+type TakeNoteLocations {
+  _id: String
+  id: String
+  name: String
+  categories: [String]
+  location: TakeNoteLocationGPS
+  state: String
 }
-type TakeNoteSermonVerses{
-    sermonVerses:[TakeNoteVerses]
+type TakeNoteSermonVerses {
+  sermonVerses: [TakeNoteVerses]
 }
-type TakeNoteVerses{
-  id:String,
-  chapterVerse:String,
-  translation:String,
-  content:String,
-  sermons_FK:String,
-  notes_FK:String
+type TakeNoteVerses {
+  id: String
+  chapterVerse: String
+  translation: String
+  content: String
+  sermons_FK: String
+  notes_FK: String
 }
-type TakeNoteSeries{
-  id:String,
-  title:String,
-  description:String,
-  imageUrl:String,
-  public:Int,
-  thumbnail:String,
-  startDate:String,
-  endDate:String,
-  sermonCommentCount:Int,
-  homeChurchCommentCount:Int
+type TakeNoteSeries {
+  id: String
+  title: String
+  description: String
+  imageUrl: String
+  public: Int
+  thumbnail: String
+  startDate: String
+  endDate: String
+  sermonCommentCount: Int
+  homeChurchCommentCount: Int
 }
-type TakeNoteMediaEntry{
-  id:String,
-  type:String,
-  contentType:String,
-  kind:String,
-  label:String,
-  url:String
+type TakeNoteMediaEntry {
+  id: String
+  type: String
+  contentType: String
+  kind: String
+  label: String
+  url: String
 }
-type TakeNoteSermon{
-  id:String,
-  title:String,
-  speaker:String,
-  deliveryDate:String,
-  description:String,
-  audioUrl:String,
-  mediaEntries:[TakeNoteMediaEntry],
-  public:Int,
-  series_FK:String,
-  sermonNoteCount:Int,
-  quoteNoteCount:Int,
-  homeChurchNoteCount:Int,
-  sermonCommentCount:Int
+type TakeNoteSermon {
+  id: String
+  title: String
+  speaker: String
+  deliveryDate: String
+  description: String
+  audioUrl: String
+  mediaEntries: [TakeNoteMediaEntry]
+  public: Int
+  series_FK: String
+  sermonNoteCount: Int
+  quoteNoteCount: Int
+  homeChurchNoteCount: Int
+  sermonCommentCount: Int
 }
-
 
 type TNSeries
-@model
-@key(fields:["id"])
- @key(name: "BySeriesIdent", fields: ["TNident"], queryField:"getTNSeriesByIdent")
-
-{
-  id:ID!
-  TNident:String,
-  title:String,
-  description:String,
-  imageUrl:String,
-  public:Int,
-  thumbnail:String,
-  startDate:String,
-  endDate:String,
-  sermonCommentCount:Int,
-  homeChurchCommentCount:Int
-  sermons:[TNSermon] @connection(name: "SeriesSermons")
+  @model
+  @key(fields: ["id"])
+  @key(
+    name: "BySeriesIdent"
+    fields: ["TNident"]
+    queryField: "getTNSeriesByIdent"
+  ) {
+  id: ID!
+  TNident: String
+  title: String
+  description: String
+  imageUrl: String
+  public: Int
+  thumbnail: String
+  startDate: String
+  endDate: String
+  sermonCommentCount: Int
+  homeChurchCommentCount: Int
+  sermons: [TNSermon] @connection(name: "SeriesSermons")
 }
 
-type TNMediaEntry{
-  type:String,
-  contentType:String,
-  kind:String,
-  label:String,
-  url:String
+type TNMediaEntry {
+  type: String
+  contentType: String
+  kind: String
+  label: String
+  url: String
 }
 
 type TNSermon
-@model
-@key(fields:["id"])
- @key(name: "BySermonIdent", fields: ["TNident"], queryField:"getTNSermonByIdent")
-
-{
-  id:ID!
-  TNident:String,
-  title:String,
-  speaker:String,
-  deliveryDate:String,
-  description:String,
-  audioUrl:String,
-  mediaEntries:[TNMediaEntry],
-  public:Int,
-  series_FK:String,
-  series:TNSeries @connection(name: "SeriesSermons")
-  sermonNoteCount:Int,
-  quoteNoteCount:Int,
-  homeChurchNoteCount:Int,
-  sermonCommentCount:Int
-
+  @model
+  @key(fields: ["id"])
+  @key(
+    name: "BySermonIdent"
+    fields: ["TNident"]
+    queryField: "getTNSermonByIdent"
+  ) {
+  id: ID!
+  TNident: String
+  title: String
+  speaker: String
+  deliveryDate: String
+  description: String
+  audioUrl: String
+  mediaEntries: [TNMediaEntry]
+  public: Int
+  series_FK: String
+  series: TNSeries @connection(name: "SeriesSermons")
+  sermonNoteCount: Int
+  quoteNoteCount: Int
+  homeChurchNoteCount: Int
+  sermonCommentCount: Int
 }
-type YoutubeCaptionDownload{
-  transcript:YoutubeCaptionText
+type YoutubeCaptionDownload {
+  transcript: YoutubeCaptionText
 }
-type YoutubeCaptionText{
-  text:[YoutubeCaptionDetails]
-} 
-type YoutubeCaptionDetails{
-  dur:Float
-  start:Float
-  content:String
+type YoutubeCaptionText {
+  text: [YoutubeCaptionDetails]
 }
-type YoutubeCaptionList{
-
-   kind: String
+type YoutubeCaptionDetails {
+  dur: Float
+  start: Float
+  content: String
+}
+type YoutubeCaptionList {
+  kind: String
   etag: String
   items: [YoutubeCaptionItem]
 }
-type YoutubeCaptionItem{
-  kind:String
-  etag:String
-  id:String
-  snippet:YoutubeCaptionSnippet
+type YoutubeCaptionItem {
+  kind: String
+  etag: String
+  id: String
+  snippet: YoutubeCaptionSnippet
 }
-type YoutubeCaptionSnippet{
-  videoId:String
-  lastUpdated:String
-  trackKind:String
-  language:String
-  name:String
-  audioTrackType:String
-  isCC:String
-  isLarge:String
-  isEasyReader:String
-  isDraft:String
-  isAutoSynced:String
-  status:String
+type YoutubeCaptionSnippet {
+  videoId: String
+  lastUpdated: String
+  trackKind: String
+  language: String
+  name: String
+  audioTrackType: String
+  isCC: String
+  isLarge: String
+  isEasyReader: String
+  isDraft: String
+  isAutoSynced: String
+  status: String
 }
 
-type YoutubePlaylistItems{
+type YoutubePlaylistItems {
   kind: String
   etag: String
   pageInfo: YoutubePageInfo
   nextPageToken: String
   items: [YoutubePlaylistItemsItem]
 }
-type YoutubePlaylistItemsItem
- { 
+type YoutubePlaylistItemsItem {
   id: ID
   kind: String
   etag: String
@@ -456,8 +481,7 @@ type YoutubePlaylistItemsItem
   status: YoutubeStatus
   statistics: YoutubeStatistics
 }
-type YoutubePlaylistItemsItem2
- { 
+type YoutubePlaylistItemsItem2 {
   id: ID
   kind: String
   etag: String
@@ -465,7 +489,7 @@ type YoutubePlaylistItemsItem2
   contentDetails: YoutubePlaylistItemDetails
   status: YoutubeStatus
 }
-type YoutubePlaylistItemDetails{
+type YoutubePlaylistItemDetails {
   videoId: String
   videoPublishedAt: String
   duration: String
@@ -478,18 +502,18 @@ type YoutubePlaylistItemDetails{
   regionRestriction: YoutubeRegionRestriction
   hasCustomThumbnail: Boolean
 }
-type YoutubeStatistics{
-    viewCount: String
-    likeCount: String
-    dislikeCount: String
-    favoriteCount: String
-    commentCount: String
+type YoutubeStatistics {
+  viewCount: String
+  likeCount: String
+  dislikeCount: String
+  favoriteCount: String
+  commentCount: String
 }
-type YoutubeRegionRestriction{
+type YoutubeRegionRestriction {
   allowed: [String]
   blocked: [String]
 }
-type YoutubeContentRating{
+type YoutubeContentRating {
   acbRating: String
   agcomRating: String
   anatelRating: String
@@ -560,40 +584,35 @@ type YoutubeContentRating{
   tvpgRating: String
   ytRating: String
 }
-type YoutubeStatus{
+type YoutubeStatus {
   uploadStatus: String
   privacyStatus: String
   license: String
   embeddable: Boolean
   publicStatsViewable: Boolean
 }
-type YoutubePageInfo
-{
+type YoutubePageInfo {
   totalResults: Int
   resultsPerPage: Int
 }
 
-type YoutubeThumbnails
-{
+type YoutubeThumbnails {
   default: YoutubeThumbnail
   medium: YoutubeThumbnail
   high: YoutubeThumbnail
   standard: YoutubeThumbnail
   maxres: YoutubeThumbnail
 }
-type YoutubeLocalized
-{
+type YoutubeLocalized {
   title: String
   description: String
 }
-type YoutubeThumbnail
-{
+type YoutubeThumbnail {
   url: String
   width: Int
   height: Int
 }
-type YoutubeSnippet
-{
+type YoutubeSnippet {
   publishedAt: String
   channelId: String
   title: String
@@ -602,15 +621,13 @@ type YoutubeSnippet
   channelTitle: String
   localized: YoutubeLocalized
 }
-type YoutubePlayListItem 
-{  
+type YoutubePlayListItem {
   kind: String
   etag: String
   id: String
   snippet: YoutubeSnippet
 }
-type YoutubePlayList
-{
+type YoutubePlayList {
   kind: String
   etag: String
   nextPageToken: String
@@ -627,20 +644,26 @@ type ZoomItem {
   link: String!
 }
 type Livestream
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-{
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  ) {
   id: ID!
   date: String
   startTime: String
-  videoStartTime: String  
-  endTime:String
+  videoStartTime: String
+  endTime: String
   prerollYoutubeId: String
-  liveYoutubeId: String 
+  liveYoutubeId: String
   showChat: Boolean
   showKids: Boolean
   menu: [LiveMenu]
@@ -649,43 +672,64 @@ type Livestream
   homepageLink: String
 }
 type Speaker
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-{
-   id:ID!
-   name:String
-   image:String
-   videos:[SpeakerVideos] @connection(name: "SpeakerVideos")
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  ) {
+  id: ID!
+  name: String
+  image: String
+  videos: [SpeakerVideos] @connection(name: "SpeakerVideos")
 }
 type SpeakerVideos
   @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-{
-  id:ID!
-  video:Video @connection(name: "VideosSpeaker")
-  speaker:Speaker @connection(name: "SpeakerVideos")
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  ) {
+  id: ID!
+  video: Video @connection(name: "VideosSpeaker")
+  speaker: Speaker @connection(name: "SpeakerVideos")
 }
 type Series
   @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
- @key(name: "BySeriesTypes",fields: ["seriesType","startDate"], queryField:"getSeriesBySeriesType")
-
-{
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(
+    name: "BySeriesTypes"
+    fields: ["seriesType", "startDate"]
+    queryField: "getSeriesBySeriesType"
+  ) {
   id: ID!
-  videos: [Video] @connection(name: "VideosSeries",limit: 50)
-  blogs: [Blog] @connection(name: "BlogInVideoSeries",limit: 20)
+  videos: [Video] @connection(name: "VideosSeries", limit: 50)
+  blogs: [Blog] @connection(name: "BlogInVideoSeries", limit: 20)
   seriesType: String
   title: String
   description: String
@@ -696,88 +740,121 @@ type Series
 }
 type CustomPlaylist
   @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-{
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  ) {
   id: ID!
-  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"])
+  videos: [CustomPlaylistVideo]
+    @connection(keyName: "byCustomPlaylist", fields: ["id"])
   seriesType: String
   title: String
   description: String
 }
 
 type CustomPlaylistVideo
- @model(queries: null)
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
+  @model(queries: null)
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  )
   @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"])
-  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"]) 
-{
+  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"]) {
   id: ID!
   videoID: ID!
   customPlaylistID: ID!
   customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
   video: Video @connection(fields: ["videoID"])
-} 
-type Video 
- @model 
- @searchable
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-  @key(name: "ByYoutubeIdent", fields: ["YoutubeIdent"], queryField:"getVideoByYoutubeIdent")
- @key(name: "ByVideoTypes",fields: ["videoTypes","publishedDate"], queryField:"getVideoByVideoType")
-
-{
+}
+type Video
+  @model
+  @searchable
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Admin"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(
+    name: "ByYoutubeIdent"
+    fields: ["YoutubeIdent"]
+    queryField: "getVideoByYoutubeIdent"
+  )
+  @key(
+    name: "ByVideoTypes"
+    fields: ["videoTypes", "publishedDate"]
+    queryField: "getVideoByVideoType"
+  ) {
   id: ID!
   createdBy: String
   createdDate: String
-  speakers:[SpeakerVideos] @connection(name: "VideosSpeaker")
-  episodeTitle:String
-  originalEpisodeTitle:String
-  episodeNumber:Int
-  seriesTitle:String
-  series:Series  @connection(name: "VideosSeries")
+  speakers: [SpeakerVideos] @connection(name: "VideosSpeaker")
+  episodeTitle: String
+  originalEpisodeTitle: String
+  episodeNumber: Int
+  seriesTitle: String
+  series: Series @connection(name: "VideosSeries")
   customPlaylistIDs: [String]
-  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"])
-  publishedDate:String
-  recordedDate:String
-  description:String
-  viewCount:String
-  closedCaptioning:[String]
-  referencedMedia:[String]
-  campaigns:[String]
-  bibleVerses:[String]
-  topics:[String]
-  qandeh:[String]
-  length:String
-  YoutubeIdent:String!
-  Youtube:YoutubePlaylistItemsItem2
-  videoTypes:String
-  notesURL:String
-  videoURL:String
-  audioURL:String
+  customPlaylists: [CustomPlaylistVideo]
+    @connection(keyName: "byVideo", fields: ["id"])
+  publishedDate: String
+  recordedDate: String
+  description: String
+  viewCount: String
+  closedCaptioning: [String]
+  referencedMedia: [String]
+  campaigns: [String]
+  bibleVerses: [String]
+  topics: [String]
+  qandeh: [String]
+  length: String
+  YoutubeIdent: String!
+  Youtube: YoutubePlaylistItemsItem2
+  videoTypes: String
+  notesURL: String
+  videoURL: String
+  audioURL: String
 }
 
 type BlogSeries
   @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
- ])
-
-{
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Bloggers"]
+        provider: userPools
+      }
+    ]
+  ) {
   id: ID!
-  blogs: [BlogSeriesBridge] @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
+  blogs: [BlogSeriesBridge]
+    @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
   seriesType: String
   title: String
   description: String
@@ -787,66 +864,99 @@ type BlogSeries
 }
 
 type BlogSeriesBridge
- @model(queries: null)
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
- ])
-  @key(name: "byBlogSeries", fields: ["blogSeriesID", "blogPostID"], queryField: "blogBridgeBySeries")
-  @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost") 
-{
-id: ID!
-blogSeriesID: ID
-blogPostID: ID
-blogSeries: BlogSeries @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
-blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
+  @model(queries: null)
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Bloggers"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(
+    name: "byBlogSeries"
+    fields: ["blogSeriesID", "blogPostID"]
+    queryField: "blogBridgeBySeries"
+  )
+  @key(
+    name: "byBlogPost"
+    fields: ["blogPostID", "blogSeriesID"]
+    queryField: "blogBridgeByPost"
+  ) {
+  id: ID!
+  blogSeriesID: ID
+  blogPostID: ID
+  blogSeries: BlogSeries
+    @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
+  blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
 }
 
-type Blog 
- @model 
- @searchable
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
- ])
-  @key(name: "ByBlogStatus",fields: ["blogStatus","publishedDate"], queryField:"getBlogByBlogStatus")
-
-{
+type Blog
+  @model
+  @searchable
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Bloggers"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(
+    name: "ByBlogStatus"
+    fields: ["blogStatus", "publishedDate"]
+    queryField: "getBlogByBlogStatus"
+  ) {
   id: ID!
   author: String
   createdBy: String
   createdDate: String
   publishedDate: String
   expirationDate: String
-  series:Series @connection(name: "BlogInVideoSeries")
-  blogSeries:[BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
-  blogStatus:String
-  description:String
-  content:String
-  blogTitle:String
-  topics:[String]
-  tags:[String]
+  series: Series @connection(name: "BlogInVideoSeries")
+  blogSeries: [BlogSeriesBridge]
+    @connection(name: "BlogIsIn", keyField: "blogPostID")
+  blogStatus: String
+  description: String
+  content: String
+  blogTitle: String
+  topics: [String]
+  tags: [String]
 }
 
-
-type InstagramThumbnail 
-{
+type InstagramThumbnail {
   src: String
   config_width: Int
   config_height: Int
 }
 
-type Instagram 
- @model 
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
- ])
- @key(name: "instagramByLocation", fields: ["locationId", "timestamp"], queryField: "getInstagramByLocation") 
-{
+type Instagram
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Instagram"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(
+    name: "instagramByLocation"
+    fields: ["locationId", "timestamp"]
+    queryField: "getInstagramByLocation"
+  ) {
   id: ID!
   locationId: String
   thumbnails: [InstagramThumbnail]
@@ -860,14 +970,20 @@ enum NoteDataType {
 }
 
 type Verse
- @model 
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow:groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
- ])
-  @key(name: "verseByNoteId", fields: ["noteId"])
- {
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Notes"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(name: "verseByNoteId", fields: ["noteId"]) {
   id: ID!
   key: String!
   offset: Int!
@@ -877,31 +993,37 @@ type Verse
   youVersionUri: String!
   noteId: ID!
   note: Notes @connection(fields: ["noteId"])
- }
+}
 
-type Notes 
- @model 
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
- ])
- @key(name: "notesBySeriesId", fields: ["seriesId"])
-{
+type Notes
+  @model
+  @auth(
+    rules: [
+      { allow: public, operations: [read] }
+      { allow: private, operations: [read], provider: iam }
+      {
+        allow: groups
+        operations: [read, update, delete, create]
+        groups: ["Notes"]
+        provider: userPools
+      }
+    ]
+  )
+  @key(name: "notesBySeriesId", fields: ["seriesId"]) {
   id: ID!
-  title:String
-  content:String
-  questions:String
-  jsonContent:String
-  jsonQuestions:String
-  episodeDescription:String
-  episodeNumber:Int
-  seriesId:ID!
-  series:Series @connection(fields: ["seriesId"])
-  pdf:String
-  topics:[String]
-  tags:[String]
-  verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
+  title: String
+  content: String
+  questions: String
+  jsonContent: String
+  jsonQuestions: String
+  episodeDescription: String
+  episodeNumber: Int
+  seriesId: ID!
+  series: Series @connection(fields: ["seriesId"])
+  pdf: String
+  topics: [String]
+  tags: [String]
+  verses: [Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
 }
 
 enum CommentDataType {
@@ -910,9 +1032,15 @@ enum CommentDataType {
   text
 }
 
-type Comment @model @searchable
+type Comment
+  @model
+  @searchable
   @auth(rules: [{ allow: owner }])
-  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
+  @key(
+    name: "commentsByOwner"
+    fields: ["owner", "noteId"]
+    queryField: "getCommentsByOwner"
+  ) {
   id: ID!
   comment: String!
   tags: [String]
@@ -928,65 +1056,55 @@ type Comment @model @searchable
 }
 
 type WebPage
- @model 
- @searchable
- @auth(rules:[{allow:public, operations:[read]}])
- 
-{
-  id:ID
-  page:WebPageInfo
+  @model
+  @searchable
+  @auth(rules: [{ allow: public, operations: [read] }]) {
+  id: ID
+  page: WebPageInfo
 }
-type WebPageInfo
-{
-  name:String
-  title:String
-  keywords:String
-  description:String
-  pageConfig:WebPageConfig
-  content:[WebPageContent]
-
+type WebPageInfo {
+  name: String
+  title: String
+  keywords: String
+  description: String
+  pageConfig: WebPageConfig
+  content: [WebPageContent]
 }
-type WebPageConfig
-{
+type WebPageConfig {
   movingMenu: Boolean
   showLogoText: Boolean
-  logoColor:String
-  showSearch:Boolean
-  showFooter:Boolean
-  showMenu:Boolean
+  logoColor: String
+  showSearch: Boolean
+  showFooter: Boolean
+  showMenu: Boolean
 }
-type WebPageImage
-{
-  src:String
-  alt:String
+type WebPageImage {
+  src: String
+  alt: String
 }
-type WebPageList
-{
-  title:String
-  text:String
-  imageSrc:String
-  imageAlt:String
-  navigateTo:String
+type WebPageList {
+  title: String
+  text: String
+  imageSrc: String
+  imageAlt: String
+  navigateTo: String
 }
-type WebPageContent
-{
-  type:String
-  style:String
-  image1:[WebPageImage]
-  header1:String
-  header2:String
-  text1:String
-  text2:String
-  link1Text:String
-  link1Action:String
-  link2Text:String
-  link2Action:String
-  link3Text:String
-  link3Action:String
-  button1Text:String
-  button1Action:String
-  list:WebPageList
-  showLocationSearch:Boolean
+type WebPageContent {
+  type: String
+  style: String
+  image1: [WebPageImage]
+  header1: String
+  header2: String
+  text1: String
+  text2: String
+  link1Text: String
+  link1Action: String
+  link2Text: String
+  link2Action: String
+  link3Text: String
+  link3Action: String
+  button1Text: String
+  button1Action: String
+  list: WebPageList
+  showLocationSearch: Boolean
 }
-
-    

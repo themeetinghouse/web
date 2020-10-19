@@ -1,26 +1,28 @@
-const AWS = require("aws-sdk");
-const stream = require("stream");
+const AWS = require('aws-sdk');
+const stream = require('stream');
 
 const S3 = new AWS.S3();
 
 class S3Handler {
-  constructor() { }
+  constructor() {}
 
   readStream({ Bucket, Key }) {
-    return S3.getObject({ Bucket: Bucket, Key: decodeURIComponent(Key) }).createReadStream().on('error', error => {
-      console.log(error)
-    });;
+    return S3.getObject({ Bucket: Bucket, Key: decodeURIComponent(Key) })
+      .createReadStream()
+      .on('error', (error) => {
+        console.log(error);
+      });
   }
   exists(Bucket, Key) {
-    return S3.headObject({ Bucket: Bucket, Key: decodeURIComponent(Key) },
+    return S3.headObject(
+      { Bucket: Bucket, Key: decodeURIComponent(Key) },
       function (err, data) {
-        if (err)
-          console.log(err, err.stack); // an error occurred
-        else
-          data = data
+        if (err) console.log(err, err.stack);
+        // an error occurred
+        else data = data;
         //console.log(data);           // successful response
       }
-    )
+    );
   }
   writeStream({ Bucket, Key, format }) {
     //    console.log("writeStream")
@@ -28,15 +30,17 @@ class S3Handler {
     return {
       writeStream: passThrough,
       uploaded: S3.upload({
-        ACL: "public-read",
-        ContentType: "image/" + format,
+        ACL: 'public-read',
+        ContentType: 'image/' + format,
         Body: passThrough,
         Bucket: Bucket,
-        Key: decodeURIComponent(Key)
-      }).promise().catch((error) => {
-        //console.log("writeStream Error"); 
-        console.log(error)
+        Key: decodeURIComponent(Key),
       })
+        .promise()
+        .catch((error) => {
+          //console.log("writeStream Error");
+          console.log(error);
+        }),
     };
   }
 }

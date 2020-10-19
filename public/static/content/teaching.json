@@ -1,141 +1,141 @@
 {
-    "page": {
-        "name": "teaching",
-        "title": "Teaching",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-images/teaching.jpg",
-                "url": "https://www.themeetinghouse.com/teaching",
-                "title": "Teaching Videos",
-                "description": "Videos to help you explore the life and teachings of Jesus."
-            },
-            {
-                "type": "teaching",
-                "style": "hero",
-                "class": "teaching-sunday",
-                "header1": "Sunday Teaching",
-                "options": [],
-                "group": "teaching",
-                "subclass": "adult-sunday",
-                "sortOrder": "DESC"
-            },
-            {
-                "type": "teachingsearch",
-                "style": "teaching",
-                "header1": "Search the Archives",
-                "subclass": "adult-sunday",
-                "text1": "Try \"Grace\""
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "adult-sunday",
-                "limit": 25,
-                "sortOrder": "DESC",
-                "header1": "Latest Teaching"
-            },
-            {
-                "type": "content",
-                "style": "banner-cards",
-                "images": [
-                    {
-                        "src": "/static/photos/banners/promo_jesusandjustice.png",
-                        "alt": "Graphic for the Jesus and Justice teaching series.",
-                        "linkto": "/videos/Jesus%20and%20Justice/O4Pqvv4ciP8"
-                    },
-                    {
-                        "src": "/static/photos/banners/promo_peaceofmind.png",
-                        "alt": "Graphic for Peace of Mind God and Mental Health teaching series.",
-                        "linkto": "/videos/Peace%20of%20Mind/07jUBhJicCo"
-                    }
-                ]
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "adult-sunday",
-                "selector": "popular",
-                "showEpisodeNumbers": false,
-                "numberOfDays": 120,
-                "minViews": 900,
-                "header1": "Popular Teaching"
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "adult-sunday-shortcut",
-                "selector": "popular",
-                "showEpisodeNumbers": false,
-                "numberOfDays": 60,
-                "minViews": 0,
-                "numberOfVideos": 10,
-                "header1": "Popular Highlights"
-            },
-            {
-                "type": "list",
-                "style": "horizontalBig",
-                "class": "series-collection",
-                "collection": [
-                    "Her Story",
-                    "The Death and Life of God",
-                    "Origins",
-                    "Peacemakers",
-                    "Radication Reformation: Our Anabaptist Story",
-                    "Inspired",
-                    "A Questioning God",
-                    "Jesus People",
-                    "The Body of Christ"
-                ],
-                "header1": "Popular Series"
-            },
-            {
-                "type": "list",
-                "style": "horizontalBig",
-                "class": "series",
-                "subclass": "adult-sunday",
-                "limit": 20,
-                "sortOrder": "DESC",
-                "header1": "All Teaching Series"
-            },
-            {
-                "type": "content",
-                "style": "banner-cards",
-                "images": [
-                    {
-                        "src": "/static/photos/banners/promo_themissingpeace.png",
-                        "alt": "Graphic for The Missing Peace teaching series.",
-                        "linkto": "/videos/The%20Missing%20Peace/IU9UwY_OVgg"
-                    },
-                    {
-                        "src": "/static/photos/banners/promo_welcomehome.png",
-                        "alt": "Graphic for the Welcome Home teaching series.",
-                        "linkto": "/videos/Welcome%20Home/kM7UNPYJqUU"
-                    }
-                ]
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "livestream-services",
-                "limit": 25,
-                "sortOrder": "DESC",
-                "header1": "Sunday Livestream"
-            }
+  "page": {
+    "name": "teaching",
+    "title": "Teaching",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/teaching.jpg",
+        "url": "https://www.themeetinghouse.com/teaching",
+        "title": "Teaching Videos",
+        "description": "Videos to help you explore the life and teachings of Jesus."
+      },
+      {
+        "type": "teaching",
+        "style": "hero",
+        "class": "teaching-sunday",
+        "header1": "Sunday Teaching",
+        "options": [],
+        "group": "teaching",
+        "subclass": "adult-sunday",
+        "sortOrder": "DESC"
+      },
+      {
+        "type": "teachingsearch",
+        "style": "teaching",
+        "header1": "Search the Archives",
+        "subclass": "adult-sunday",
+        "text1": "Try \"Grace\""
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "adult-sunday",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Latest Teaching"
+      },
+      {
+        "type": "content",
+        "style": "banner-cards",
+        "images": [
+          {
+            "src": "/static/photos/banners/promo_jesusandjustice.png",
+            "alt": "Graphic for the Jesus and Justice teaching series.",
+            "linkto": "/videos/Jesus%20and%20Justice/O4Pqvv4ciP8"
+          },
+          {
+            "src": "/static/photos/banners/promo_peaceofmind.png",
+            "alt": "Graphic for Peace of Mind God and Mental Health teaching series.",
+            "linkto": "/videos/Peace%20of%20Mind/07jUBhJicCo"
+          }
         ]
-    }
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "adult-sunday",
+        "selector": "popular",
+        "showEpisodeNumbers": false,
+        "numberOfDays": 120,
+        "minViews": 900,
+        "header1": "Popular Teaching"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "adult-sunday-shortcut",
+        "selector": "popular",
+        "showEpisodeNumbers": false,
+        "numberOfDays": 60,
+        "minViews": 0,
+        "numberOfVideos": 10,
+        "header1": "Popular Highlights"
+      },
+      {
+        "type": "list",
+        "style": "horizontalBig",
+        "class": "series-collection",
+        "collection": [
+          "Her Story",
+          "The Death and Life of God",
+          "Origins",
+          "Peacemakers",
+          "Radication Reformation: Our Anabaptist Story",
+          "Inspired",
+          "A Questioning God",
+          "Jesus People",
+          "The Body of Christ"
+        ],
+        "header1": "Popular Series"
+      },
+      {
+        "type": "list",
+        "style": "horizontalBig",
+        "class": "series",
+        "subclass": "adult-sunday",
+        "limit": 20,
+        "sortOrder": "DESC",
+        "header1": "All Teaching Series"
+      },
+      {
+        "type": "content",
+        "style": "banner-cards",
+        "images": [
+          {
+            "src": "/static/photos/banners/promo_themissingpeace.png",
+            "alt": "Graphic for The Missing Peace teaching series.",
+            "linkto": "/videos/The%20Missing%20Peace/IU9UwY_OVgg"
+          },
+          {
+            "src": "/static/photos/banners/promo_welcomehome.png",
+            "alt": "Graphic for the Welcome Home teaching series.",
+            "linkto": "/videos/Welcome%20Home/kM7UNPYJqUU"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "livestream-services",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Sunday Livestream"
+      }
+    ]
+  }
 }

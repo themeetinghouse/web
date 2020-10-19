@@ -1,11 +1,8 @@
 {
-    "AppSyncApiName": "themeetinghouse",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": "false",
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authcognitodevtmh",
-            "Outputs.UserPoolId"
-        ]
-    }
+  "AppSyncApiName": "themeetinghouse",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": "false",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": ["authcognitodevtmh", "Outputs.UserPoolId"]
+  }
 }

@@ -1,279 +1,275 @@
 // Base style: >= 1024
 .SearchItem {
-    position: relative;
-    top: 1.5vw;
-    left: 15vw;
+  position: relative;
+  top: 1.5vw;
+  left: 15vw;
 }
 
 .SearchItemInput {
-    width: 70vw;
-    height: 56px;
+  width: 70vw;
+  height: 56px;
 
-    font-family: Graphik Web;
-    font-size: 48px;
-    font-weight: bolder;
-    line-height: 56px;
-    letter-spacing: -0.5px;
+  font-family: Graphik Web;
+  font-size: 48px;
+  font-weight: bolder;
+  line-height: 56px;
+  letter-spacing: -0.5px;
 
-    border: none;
+  border: none;
 }
 
 *:focus {
-    outline: none; /* Chrome */
+  outline: none; /* Chrome */
 }
 
-::placeholder{
-    color: #C8C8C8;
-    opacity: 1;
+::placeholder {
+  color: #c8c8c8;
+  opacity: 1;
 }
 
 .SearchItemDiv {
-    width: 70vw;
-    margin: 18px 0px 30px 0px;
-    border-top: solid 2px #1A1A1A;
+  width: 70vw;
+  margin: 18px 0px 30px 0px;
+  border-top: solid 2px #1a1a1a;
 }
 
-.SearchLinks{
-    margin-top: 10px;
+.SearchLinks {
+  margin-top: 10px;
 }
 
-.SearchLink{
-    $link-width: 17vw;
-    $link-height: 160px;
+.SearchLink {
+  $link-width: 17vw;
+  $link-height: 160px;
 
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
+  width: $link-width;
+  height: $link-height;
+  margin-right: 1.5vw;
+  vertical-align: top;
+
+  img {
+    position: absolute;
     width: $link-width;
     height: $link-height;
-    margin-right: 1.5vw;
-    vertical-align: top;
 
-    img{
-        position: absolute;
-        width: $link-width;
-        height: $link-height;
+    border: solid 1px #aaaaac;
+    filter: grayscale(75%);
+  }
+  p {
+    position: relative;
+    text-align: center;
+    top: 50px;
 
-        border: solid 1px #aaaaac;
-        filter: grayscale(75%);
-    }
-    p{
-        position: relative;
-        text-align: center;
-        top: 50px;
-        
-        font-family: Graphik Web;
-        font-size: 32px;
-        font-weight: bold;
-    
-        color: #FFFFFF;
-    }
+    font-family: Graphik Web;
+    font-size: 32px;
+    font-weight: bold;
+
+    color: #ffffff;
+  }
 }
 
-.SearchLinks .HomeChurch{
-    $link-width: 33vw;
+.SearchLinks .HomeChurch {
+  $link-width: 33vw;
 
+  width: $link-width;
+
+  img {
     width: $link-width;
+  }
+  p {
+    text-align: left;
+    top: 41px;
+    left: 30px;
+    width: 200px;
+    line-height: 40px;
 
-    img{
-        width: $link-width;
+    img {
+      margin: 4px 0px 0px 15px;
+      height: 35px;
+      width: 35px;
+      border: none;
     }
-    p{
-        text-align: left;
-        top: 41px;
-        left: 30px;
-        width: 200px;
-        line-height: 40px;
-        
-        img{
-            margin: 4px 0px 0px 15px;
-            height: 35px;
-            width: 35px;
-            border: none;
-        }
-    }
+  }
 }
 
-.SearchLinks .Articles{
-    margin-right: 0px;
+.SearchLinks .Articles {
+  margin-right: 0px;
 }
 
-.SearchResultItem{
-    cursor: pointer;
-    padding-bottom: 15px;
-    padding-top: 20px;
-    border-bottom: 1px solid #EFEFF0;
-    width: 100%;
+.SearchResultItem {
+  cursor: pointer;
+  padding-bottom: 15px;
+  padding-top: 20px;
+  border-bottom: 1px solid #efeff0;
+  width: 100%;
 }
 
 .SearchResultItem .Thumb {
-    display: inline-block;
-    object-fit: contain;
-    margin-right: 30px;
-    width: 20%;
-    vertical-align: top;
+  display: inline-block;
+  object-fit: contain;
+  margin-right: 30px;
+  width: 20%;
+  vertical-align: top;
 }
 
-.SearchResultItem .Content{
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
-    width: 60%;
+.SearchResultItem .Content {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  width: 60%;
 }
 
-.SearchResultItem .ContentType{
-    display: inline-block;
-    padding: 8px 20px 8px 20px;
-    margin-bottom: 20px;
-    background: #54565A;
-    border-radius: 50px;
+.SearchResultItem .ContentType {
+  display: inline-block;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 20px;
+  background: #54565a;
+  border-radius: 50px;
 
-    font-family: Graphik Web;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 18px;
-    color: #FFFFFF;
+  font-family: Graphik Web;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ffffff;
 }
 
-.SearchResultItem .Title{
-    margin-bottom: 10px;
+.SearchResultItem .Title {
+  margin-bottom: 10px;
 
-    font-family: Graphik Web;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: bold;
-    color: #1A1A1A;
+  font-family: Graphik Web;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #1a1a1a;
 }
 
-.SearchResultItem .Description{
-    width: 100%;
-    font-family: Graphik Web;
-    font-size: 16px;
-    line-height: 24px;
-    color: #54565A;
+.SearchResultItem .Description {
+  width: 100%;
+  font-family: Graphik Web;
+  font-size: 16px;
+  line-height: 24px;
+  color: #54565a;
 }
 
-.SearchResultItem .Link{
-    margin-top: 50px;
-    height: 30px;
-    width: 25px;
-    float: right;
+.SearchResultItem .Link {
+  margin-top: 50px;
+  height: 30px;
+  width: 25px;
+  float: right;
 }
 
 // Tablet
 @media (min-width: 768px) and (max-width: 1024px) {
-   
+  .VideoOverlayClose {
+    $size: 20px;
 
-    .VideoOverlayClose{
-        $size: 20px;
+    top: 25px;
+    left: 94vw;
+    width: $size;
+    height: $size;
+  }
 
-        top: 25px;
-        left: 94vw;
-        width: $size;
-        height: $size;
+  .SearchItem {
+    top: 9vw;
+    left: 0px;
+    margin: 0px 15px 0px 15px;
+  }
+
+  .SearchItemInput {
+    width: 100%;
+
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .SearchItemDiv {
+    width: 100%;
+    margin-top: 13px;
+  }
+
+  .SearchLink {
+    $link-width: 24.25vw;
+
+    width: $link-width;
+
+    img {
+      width: $link-width;
     }
+  }
 
-    .SearchItem {
-        top: 9vw;
-        left: 0px;
-        margin: 0px 15px 0px 15px;
+  .SearchLinks .HomeChurch {
+    $link-width: 44vw;
+
+    width: $link-width;
+
+    img {
+      width: $link-width;
     }
-
-    .SearchItemInput{
-        width:100%;
-
-        font-size: 32px;
-        line-height: 40px;
-    }
-
-    .SearchItemDiv{
-        width: 100%;
-        margin-top: 13px;
-    }
-
-    .SearchLink{
-        $link-width: 24.25vw;
-    
-        width: $link-width;
-    
-        img{
-            width: $link-width;
-        }
-    }
-
-    .SearchLinks .HomeChurch{
-        $link-width: 44vw;
-    
-        width: $link-width;
-    
-        img{
-            width: $link-width;
-        }
-    }
+  }
 }
 
 // Mobile
 @media (max-width: 767px) {
- 
+  .VideoOverlayClose {
+    $size: 15px;
 
-    .VideoOverlayClose{
-        $size: 15px;
+    top: 18px;
+    left: 92vw;
+    width: $size;
+    height: $size;
+  }
 
-        top: 18px;
-        left: 92vw;
-        width: $size;
-        height: $size;
+  .SearchItem {
+    top: 12vw;
+    left: 0px;
+    margin: 0px 15px 0px 15px;
+  }
+
+  .SearchItemInput {
+    width: 100%;
+
+    font-size: 32px;
+    line-height: 40px;
+    margin-top: 26px;
+  }
+
+  .SearchItemDiv {
+    width: 100%;
+    margin-top: 13px;
+  }
+
+  .SearchLink {
+    $link-width: 44vw;
+
+    width: $link-width;
+
+    img {
+      width: $link-width;
     }
-  
-    .SearchItem {
-        top: 12vw;
-        left: 0px;
-        margin: 0px 15px 0px 15px;
-    }
+  }
 
-    .SearchItemInput{
-        width:100%;
+  .SearchLinks .HomeChurch {
+    $link-width: 100%;
 
-        font-size: 32px;
-        line-height: 40px;
-	margin-top: 26px;
-    }
+    width: $link-width;
+    margin-bottom: 10px;
 
-    .SearchItemDiv{
-        width: 100%;
-        margin-top: 13px;
+    img {
+      width: $link-width;
     }
+  }
 
-    .SearchLink{
-        $link-width: 44vw;
-    
-        width: $link-width;
-    
-        img{
-            width: $link-width;
-        }
-    }
+  .SearchLinks .Articles {
+    float: right;
+  }
 
-    .SearchLinks .HomeChurch{
-        $link-width: 100%;
-    
-        width: $link-width;
-        margin-bottom: 10px;
+  .SearchResultItem .Content {
+    width: 90%;
+  }
 
-        img{
-            width: $link-width;
-        }
-    }
-
-    .SearchLinks .Articles{
-        float: right;
-    }
-    
-    .SearchResultItem .Content{
-        width: 90%;
-    }
-
-    .SearchResultItem .Thumb{
-        display: none;
-    }
+  .SearchResultItem .Thumb {
+    display: none;
+  }
 }

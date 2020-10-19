@@ -1,102 +1,102 @@
 {
-    "page": {
-        "name": "kids-and-youth",
+  "page": {
+    "name": "kids-and-youth",
+    "title": "Kids and Youth",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/kidsyouth-1-1.jpg",
+        "url": "https://www.themeetinghouse.com/kids-and-youth",
         "title": "Kids and Youth",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/kidsyouth-1-1.jpg",
-                "url": "https://www.themeetinghouse.com/kids-and-youth",
-                "title": "Kids and Youth",
-                "description": ""
-            },
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/kidsyouth-1-1.jpg",
-                        "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
-                    }
-                ],
-                "header1": "Kids and Youth",
-                "header2": "",
-                "text1": "We love kids and youth—and because of that we highly value the time we have with them, and work to create the best curriculum and programs possible."
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Kidmax",
-                "header2": "Our children's program for Infants to Grade 5",
-                "text1": "We exist to help kids understand and live Jesus' message, develop relationships through group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples.",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "View & Download Kidmax Content",
-                        "navigateTo": "/kidmax"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/kidsyouth-2-1.jpg",
-                        "alt": "Kids laughing and playing together in our kidmax program."
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "Youth",
-                "header2": "",
-                "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr. Highs (grades 6-8) and Sr. Highs (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Visit our Youth Website",
-                        "navigateTo": "/youth"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/kidsyouth-2-2.jpg",
-                        "alt": "Kids laughing and playing together in our kidmax program."
-                    }
-                ]
-            },
-            {
-                "type": "list",
-                "style": "imageList",
-                "header1": "",
-                "text1": "",
-                "list": [
-                    {
-                        "title": "Parents and Guardians",
-                        "text": "We are passionate about helping with spiritual parenting. Click here to see what your kids learned last Sunday and acces helpful resources.",
-                        "imageSrc": "/static/images/kidsyouth-2-3.jpg",
-                        "imageAlt": "Two parents walking with their young child.",
-                        "navigateTo": "http://www.http://parents.themeetinghouse.com",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "title": "Curriculum",
-                        "text": "Our mission is to develop lifelong followers of Jesus. Our approach is to teach stories within the context of the overarching Biblical narrative, so that kids and youth can learn each story and how it connects to God’s big story. Click here to preview.",
-                        "imageSrc": "/static/images/kidsyouth-4.jpg",
-                        "imageAlt": "Two parents and their daughter sitting together outside",
-                        "navigateTo": "http://www.http://kidsandyouth.themeetinghouse.com/",
-                        "openNewBrowser": true
-                    }
-                ]
-            }
+        "description": ""
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-1-1.jpg",
+            "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
+          }
+        ],
+        "header1": "Kids and Youth",
+        "header2": "",
+        "text1": "We love kids and youth—and because of that we highly value the time we have with them, and work to create the best curriculum and programs possible."
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Kidmax",
+        "header2": "Our children's program for Infants to Grade 5",
+        "text1": "We exist to help kids understand and live Jesus' message, develop relationships through group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples.",
+        "list": [
+          {
+            "type": "link",
+            "title": "View & Download Kidmax Content",
+            "navigateTo": "/kidmax"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-2-1.jpg",
+            "alt": "Kids laughing and playing together in our kidmax program."
+          }
         ]
-    }
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Youth",
+        "header2": "",
+        "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr. Highs (grades 6-8) and Sr. Highs (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Visit our Youth Website",
+            "navigateTo": "/youth"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-2-2.jpg",
+            "alt": "Kids laughing and playing together in our kidmax program."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "style": "imageList",
+        "header1": "",
+        "text1": "",
+        "list": [
+          {
+            "title": "Parents and Guardians",
+            "text": "We are passionate about helping with spiritual parenting. Click here to see what your kids learned last Sunday and acces helpful resources.",
+            "imageSrc": "/static/images/kidsyouth-2-3.jpg",
+            "imageAlt": "Two parents walking with their young child.",
+            "navigateTo": "http://www.http://parents.themeetinghouse.com",
+            "openNewBrowser": true
+          },
+          {
+            "title": "Curriculum",
+            "text": "Our mission is to develop lifelong followers of Jesus. Our approach is to teach stories within the context of the overarching Biblical narrative, so that kids and youth can learn each story and how it connects to God’s big story. Click here to preview.",
+            "imageSrc": "/static/images/kidsyouth-4.jpg",
+            "imageAlt": "Two parents and their daughter sitting together outside",
+            "navigateTo": "http://www.http://kidsandyouth.themeetinghouse.com/",
+            "openNewBrowser": true
+          }
+        ]
+      }
+    ]
+  }
 }

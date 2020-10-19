@@ -1,248 +1,248 @@
 [
-    {
-        "id": "alliston",
-        "name": "Alliston",
-        "pastorEmail":"michael.kotsopoulos@themeetinghouse.com",
-        "location": {
-            "longitude": -79.870798,
-            "latitude": 44.149035,
-            "address": "Gibson Centre, 63 Tupper Street West"
-        },
-        "serviceTimes": ["April 10 - 10:30am","April 12 - 10:30am"]
+  {
+    "id": "alliston",
+    "name": "Alliston",
+    "pastorEmail": "michael.kotsopoulos@themeetinghouse.com",
+    "location": {
+      "longitude": -79.870798,
+      "latitude": 44.149035,
+      "address": "Gibson Centre, 63 Tupper Street West"
     },
-    
+    "serviceTimes": ["April 10 - 10:30am", "April 12 - 10:30am"]
+  },
 
-    {
-        "id": "ancaster",
-        "name": "Ancaster",
-        "pastorEmail":"Matt.Collins@themeetinghouse.com",
-        "location": {
-            "longitude": -79.95394369999997,
-            "latitude": 43.2272571,
-            "address": "SilverCity Ancaster, 771 Golf Links Road"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "ancaster",
+    "name": "Ancaster",
+    "pastorEmail": "Matt.Collins@themeetinghouse.com",
+    "location": {
+      "longitude": -79.95394369999997,
+      "latitude": 43.2272571,
+      "address": "SilverCity Ancaster, 771 Golf Links Road"
     },
-    {
-        "id": "brampton",
-        "name": "Brampton",
-        "pastorEmail":"Christine.Gerber@themeetinghouse.com",
-        "location": {
-            "longitude": -79.768112,
-            "latitude": 43.733024,
-            "address": "SilverCity Brampton, 50 Great Lakes Drive"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "brampton",
+    "name": "Brampton",
+    "pastorEmail": "Christine.Gerber@themeetinghouse.com",
+    "location": {
+      "longitude": -79.768112,
+      "latitude": 43.733024,
+      "address": "SilverCity Brampton, 50 Great Lakes Drive"
     },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
-    {
-        "id": "brantford",
-        "name": "Brantford",
-        "pastorEmail":"Natalie.Frisk@themeetinghouse.com",
-        "location": {
-            "longitude": -80.278012,
-            "latitude": 43.182376,
-            "address": "Galaxy Cinemas Brantford, 300 King George Road"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "brantford",
+    "name": "Brantford",
+    "pastorEmail": "Natalie.Frisk@themeetinghouse.com",
+    "location": {
+      "longitude": -80.278012,
+      "latitude": 43.182376,
+      "address": "Galaxy Cinemas Brantford, 300 King George Road"
     },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
-    {
-        "id": "burlington",
-        "name": "Burlington",
-        "pastorEmail":"John.Latta@themeetinghouse.com",
-        "location": {
-            "longitude": -79.829876,
-            "latitude": 43.343507,
-            "address": "SilverCity Burlington, 1250 Brant Street"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "burlington",
+    "name": "Burlington",
+    "pastorEmail": "John.Latta@themeetinghouse.com",
+    "location": {
+      "longitude": -79.829876,
+      "latitude": 43.343507,
+      "address": "SilverCity Burlington, 1250 Brant Street"
     },
-    
-    {
-        "id": "hamilton-downtown",
-        "name": "Hamilton - Downtown",
-        "pastorEmail":"Jimmy.Rushton@themeetinghouse.com",
-        "location": {
-            "longitude": -79.8702504,
-            "latitude": 43.26213,
-            "address": "The Meeting House Downtown Hamilton, 130 Victoria Avenue North"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
-    {
-        "id": "toronto-downtown",
-        "name": "Toronto - Downtown",
-        "pastorEmail":"Anita.Giardina@themeetinghouse.com",
-        "location": {
-            "longitude": -79.391418,
-            "latitude": 43.648869,
-            "address": "Scotiabank Theatre Toronto, 259 Richmond Street West"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "hamilton-downtown",
+    "name": "Hamilton - Downtown",
+    "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
+    "location": {
+      "longitude": -79.8702504,
+      "latitude": 43.26213,
+      "address": "The Meeting House Downtown Hamilton, 130 Victoria Avenue North"
     },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
+  {
+    "id": "toronto-downtown",
+    "name": "Toronto - Downtown",
+    "pastorEmail": "Anita.Giardina@themeetinghouse.com",
+    "location": {
+      "longitude": -79.391418,
+      "latitude": 43.648869,
+      "address": "Scotiabank Theatre Toronto, 259 Richmond Street West"
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
-    {
-        "id": "hamilton-mountain",
-        "name": "Hamilton Mountain",
-        "pastorEmail":"Dagmar.Morgan-Sinclair@themeetinghouse.com",
-        "location": {
-            "longitude": -79.808856,
-            "latitude": 43.193331,
-            "address": "SilverCity Hamilton Mountain, 795 Paramount Drive"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "hamilton-mountain",
+    "name": "Hamilton Mountain",
+    "pastorEmail": "Dagmar.Morgan-Sinclair@themeetinghouse.com",
+    "location": {
+      "longitude": -79.808856,
+      "latitude": 43.193331,
+      "address": "SilverCity Hamilton Mountain, 795 Paramount Drive"
     },
-  
-    {
-        "id": "toronto-east",
-        "name": "Toronto - East",
-        "pastorEmail":"Robin.Ellingwood@themeetinghouse.com",
-        "location": {
-            "longitude":-79.3166538,
-            "latitude": 43.6664844,
-            "address": "The Beach Cinemas, 1651 Queen Street East"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    },
-     
-    {
-        "id": "toronto-high-park",
-        "name": "Toronto - High Park",
-        "pastorEmail":"Rob.Schellenberg@themeetinghouse.com",
-        "location": {
-            "longitude": -79.4803124,
-            "latitude": 43.6488127,
-            "address": "Windermere United Church, 356 Windermere Ave"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    },
- 
-    {
-        "id": "kitchener",
-        "name": "Kitchener",
-        "pastorEmail":"Mark.Wall@themeetinghouse.com",
-        "location": {
-            "longitude": -80.387502,
-            "latitude": 43.4054,
-            "address": "Landmark Cinemas 12, 135 Gateway Park Drive"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
-    {
-        "id": "london",
-        "name": "London",
-        "pastorEmail":"Phil.Prendergast@themeetinghouse.com",
-        "location": {
-            "longitude": -81.278295,
-            "latitude": 43.027068,
-            "address": "SilverCity London, 1680 Richmond Street"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "toronto-east",
+    "name": "Toronto - East",
+    "pastorEmail": "Robin.Ellingwood@themeetinghouse.com",
+    "location": {
+      "longitude": -79.3166538,
+      "latitude": 43.6664844,
+      "address": "The Beach Cinemas, 1651 Queen Street East"
     },
- 
-    {
-        "id": "newmarket",
-        "name": "Newmarket",
-        "pastorEmail":"Simon.Downey@themeetinghouse.com",
-        "location": {
-            "longitude": -79.555998,
-            "latitude": 43.79428,
-            "address": "SilverCity Newmarket, 18195 Yonge Street"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    },
-    {
-        "id": "oakville",
-        "name": "Oakville",
-        "pastorEmail":"Karmyn.Bokma@themeetinghouse.com",
-        "location": {
-            "longitude": -79.685926,
-            "latitude": 43.511459,
-            "address": "2700 Bristol Circle"
-        },
-        "serviceTimes": ["April 10 - 9:30am, 11:15am","April 12 - 8am, 9:30am, 11:15am"]
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
+  {
+    "id": "toronto-high-park",
+    "name": "Toronto - High Park",
+    "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
+    "location": {
+      "longitude": -79.4803124,
+      "latitude": 43.6488127,
+      "address": "Windermere United Church, 356 Windermere Ave"
     },
-    {
-        "id": "ottawa",
-        "name": "Ottawa",
-        "pastorEmail":"Eric.Versluis@themeetinghouse.com",
-        "location": {
-            "longitude": -75.613528,
-            "latitude": 45.431384,
-            "address": "Lansdowne Cineplex, 325 Marché Way"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
 
-    {
-        "id": "owen-sound",
-        "name": "Owen Sound",
-        "pastorEmail":"",
-        "location": {
-            "longitude": -80.933555,
-            "latitude": 44.573804,
-            "address": "St. Mary's High School, 555 15th Street East"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+  {
+    "id": "kitchener",
+    "name": "Kitchener",
+    "pastorEmail": "Mark.Wall@themeetinghouse.com",
+    "location": {
+      "longitude": -80.387502,
+      "latitude": 43.4054,
+      "address": "Landmark Cinemas 12, 135 Gateway Park Drive"
     },
-    {
-        "id": "parry-sound",
-        "name": "Parry Sound",
-        "pastorEmail":"Heidi.Konig@themeetinghouse.com",
-        "location": {
-            "longitude": -80.036396,
-            "latitude": 45.35407,
-            "address": "The Sound Hub, 86 Gibson St."
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+
+  {
+    "id": "london",
+    "name": "London",
+    "pastorEmail": "Phil.Prendergast@themeetinghouse.com",
+    "location": {
+      "longitude": -81.278295,
+      "latitude": 43.027068,
+      "address": "SilverCity London, 1680 Richmond Street"
     },
-    {
-        "id": "richmond-hill",
-        "name": "Richmond Hill",
-        "pastorEmail":"Melissa.Ytsma@themeetinghouse.com",
-        "location": {
-            "longitude": -79.4291884,
-            "latitude": 43.8408015,
-            "address": "SilverCity Richmond Hill, 8725 Yonge Street"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+
+  {
+    "id": "newmarket",
+    "name": "Newmarket",
+    "pastorEmail": "Simon.Downey@themeetinghouse.com",
+    "location": {
+      "longitude": -79.555998,
+      "latitude": 43.79428,
+      "address": "SilverCity Newmarket, 18195 Yonge Street"
     },
-    { 
-        "id": "sandbanks",
-        "name": "Sandbanks",
-        "pastorEmail":"brent.babcock@themeetinghouse.com",
-        "location": {
-            "longitude": -77.2674762,
-            "latitude": 43.9188665,
-            "address": "The Meeting House Sandbanks, 1901 County Rd 12, Prince Edward County"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "oakville",
+    "name": "Oakville",
+    "pastorEmail": "Karmyn.Bokma@themeetinghouse.com",
+    "location": {
+      "longitude": -79.685926,
+      "latitude": 43.511459,
+      "address": "2700 Bristol Circle"
     },
-    {
-        "id": "toronto-uptown",
-        "name": "Toronto - Uptown",
-        "pastorEmail":"Jared.Erhardt@themeetinghouse.com",
-        "location": {
-            "longitude": -79.455526,
-            "latitude": 43.725822,
-            "address": "Yorkdale Cineplex, 3401 Dufferin Street"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
+    "serviceTimes": [
+      "April 10 - 9:30am, 11:15am",
+      "April 12 - 8am, 9:30am, 11:15am"
+    ]
+  },
+  {
+    "id": "ottawa",
+    "name": "Ottawa",
+    "pastorEmail": "Eric.Versluis@themeetinghouse.com",
+    "location": {
+      "longitude": -75.613528,
+      "latitude": 45.431384,
+      "address": "Lansdowne Cineplex, 325 Marché Way"
     },
-    {
-        "id": "waterloo",
-        "name": "Waterloo",
-        "pastorEmail":"Jordan.Duerrstein@themeetinghouse.com",
-        "location": {
-            "longitude": -80.527216,
-            "latitude": 43.498807,
-            "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
-        },
-        "serviceTimes": ["April 10 - 10am","April 12 - 10am"]
-    }
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+
+  {
+    "id": "owen-sound",
+    "name": "Owen Sound",
+    "pastorEmail": "",
+    "location": {
+      "longitude": -80.933555,
+      "latitude": 44.573804,
+      "address": "St. Mary's High School, 555 15th Street East"
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "parry-sound",
+    "name": "Parry Sound",
+    "pastorEmail": "Heidi.Konig@themeetinghouse.com",
+    "location": {
+      "longitude": -80.036396,
+      "latitude": 45.35407,
+      "address": "The Sound Hub, 86 Gibson St."
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "richmond-hill",
+    "name": "Richmond Hill",
+    "pastorEmail": "Melissa.Ytsma@themeetinghouse.com",
+    "location": {
+      "longitude": -79.4291884,
+      "latitude": 43.8408015,
+      "address": "SilverCity Richmond Hill, 8725 Yonge Street"
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "sandbanks",
+    "name": "Sandbanks",
+    "pastorEmail": "brent.babcock@themeetinghouse.com",
+    "location": {
+      "longitude": -77.2674762,
+      "latitude": 43.9188665,
+      "address": "The Meeting House Sandbanks, 1901 County Rd 12, Prince Edward County"
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "toronto-uptown",
+    "name": "Toronto - Uptown",
+    "pastorEmail": "Jared.Erhardt@themeetinghouse.com",
+    "location": {
+      "longitude": -79.455526,
+      "latitude": 43.725822,
+      "address": "Yorkdale Cineplex, 3401 Dufferin Street"
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  },
+  {
+    "id": "waterloo",
+    "name": "Waterloo",
+    "pastorEmail": "Jordan.Duerrstein@themeetinghouse.com",
+    "location": {
+      "longitude": -80.527216,
+      "latitude": 43.498807,
+      "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
+    },
+    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
+  }
 ]

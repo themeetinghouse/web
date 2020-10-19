@@ -1,118 +1,118 @@
 @import '../../theme';
 
 @media (min-width: 768px) {
-    .FormContainer {
-        text-align: center;
-    }
+  .FormContainer {
+    text-align: center;
+  }
 
-    .FormItemH1 {
-        font-weight: bold;
-        font-size: 3vw;
-        font-family: Graphik Web;
-        text-align: center;
-        margin-top: 3vw !important;
-        margin-bottom: 3vw !important;
-    }
+  .FormItemH1 {
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Graphik Web;
+    text-align: center;
+    margin-top: 3vw !important;
+    margin-bottom: 3vw !important;
+  }
 
-    .FormItemH1.white {
-        color: #ffffff;
-    }
+  .FormItemH1.white {
+    color: #ffffff;
+  }
 
-    .FormItemH1.black {
-        color: $onyxblacktext;
-    }
+  .FormItemH1.black {
+    color: $onyxblacktext;
+  }
 
-    .FormItemText1 {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .FormItemText1 {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .FormId {
-        border: 0px;
-        width: 100vw;
-        height: calc(100vh - 9vw);
-        padding-bottom: 2vw;
-    }
+  .FormId {
+    border: 0px;
+    width: 100vw;
+    height: calc(100vh - 9vw);
+    padding-bottom: 2vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .FormContainer {
-        text-align: center;
-    }
+  .FormContainer {
+    text-align: center;
+  }
 
-    .FormItemH1 {
-        font-weight: bold;
-        font-size: 3vw;
-        font-family: Graphik Web;
-        text-align: center;
-        margin-top: 3vw !important;
-        margin-bottom: 3vw !important;
-    }
+  .FormItemH1 {
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Graphik Web;
+    text-align: center;
+    margin-top: 3vw !important;
+    margin-bottom: 3vw !important;
+  }
 
-    .FormItemH1.white {
-        color: #ffffff;
-    }
+  .FormItemH1.white {
+    color: #ffffff;
+  }
 
-    .FormItemH1.black {
-        color: $onyxblacktext;
-    }
+  .FormItemH1.black {
+    color: $onyxblacktext;
+  }
 
-    .FormItemText1 {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .FormItemText1 {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .FormId {
-        border: 0px;
-        width: 100vw;
-        height: calc(100vh - 9vw);
-        padding-bottom: 2vw;
-    }
+  .FormId {
+    border: 0px;
+    width: 100vw;
+    height: calc(100vh - 9vw);
+    padding-bottom: 2vw;
+  }
 }
 
 @media (max-width: 767px) {
-    .FormItemH1 {
-        font-weight: bold;
-        font-size: 10vw;
-        font-family: Graphik Web;
-        line-height: 12.5vw;
-        text-align: left;
-        margin-bottom: 0 !important;
-    }
+  .FormItemH1 {
+    font-weight: bold;
+    font-size: 10vw;
+    font-family: Graphik Web;
+    line-height: 12.5vw;
+    text-align: left;
+    margin-bottom: 0 !important;
+  }
 
-    .FormItemH1.white {
-        color: #ffffff;
-    }
+  .FormItemH1.white {
+    color: #ffffff;
+  }
 
-    .FormItemH1.black {
-        color: $onyxblacktext;
-        padding-top: 25vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
-    }
+  .FormItemH1.black {
+    color: $onyxblacktext;
+    padding-top: 25vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
 
-    .FormContainer {
-        text-align: center;
-    }
+  .FormContainer {
+    text-align: center;
+  }
 
-    .FormItem {
-        position: static;
-        display: inline-block;
-        padding-bottom: 5vw;
-    }
+  .FormItem {
+    position: static;
+    display: inline-block;
+    padding-bottom: 5vw;
+  }
 
-    .FormItemText1 {
-        font-size: 1.5vw;
-        font-family: Graphik Web;
-    }
+  .FormItemText1 {
+    font-size: 1.5vw;
+    font-family: Graphik Web;
+  }
 
-    .FormId {
-        border: 0px;
-        width: 100vw;
-        height: calc(100vh - 2*12.5vw - 25vw);
-    }
+  .FormId {
+    border: 0px;
+    width: 100vw;
+    height: calc(100vh - 2 * 12.5vw - 25vw);
+  }
 
-    .FormPadding {
-        padding-bottom: 15vh;
-    }
+  .FormPadding {
+    padding-bottom: 15vh;
+  }
 }

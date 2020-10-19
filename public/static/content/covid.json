@@ -1,147 +1,147 @@
 {
-    "page": {
-        "name": "covid",
-        "title": "Covid",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true,
-            "showLive": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-images/covid-1-2.jpg",
-                "url": "https://www.themeetinghouse.com/covid",
-                "title": "News and Updates about COVID-19 and The Meeting House.",
-                "description": "Responding to this pandemic has made life different for all of us. As we navigate this new normal, we've made several changes to serve our communities well and love those who are struggling during this difficult time."
-            },
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/covid-1-1.jpg",
-                        "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
-                    },
-                    {
-                        "src": "/static/images/covid-1-2.jpg",
-                        "alt": "Young man in a face mask is sitting and talking with friends."
-                    }
-                ],
-                "header1": "Church During COVID-19",
-                "header2": "",
-                "text1": "Responding to this pandemic has made life different for all of us. As we navigate the new normal, we've made several changes to serve our communities and love those who are struggling during this difficult time."
-            },
-            {
-                "type": "blog",
-                "style": "twoImage",
-                "status": "Live",
-                "header1": "Recent News and Updates",
-                "sortOrder": "DESC",
-                "limit": 2,
-                "blogSeries": "News"
-            },
-            {
-                "type": "list",
-                "style": "imageList",
-                "header1": "Life at The Meeting House",
-                "text1": "Our purpose and vision haven't changed, but here's how we're adjusting to our new reality:",
-                "list": [
-                    {
-                        "title": "Sunday Livestream",
-                        "text": "We're livestreaming to our website every Sunday at 10:00am EDT. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
-                        "imageSrc": "/static/images/corona-2.jpg",
-                        "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
-                        "navigateTo": "/live"
-                    },
-                    {
-                        "title": "Home Church",
-                        "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendships, ask questions, and talk openly about living out the teachings of Jesus. Our Home Churches are currently meeting online. Click here to find a group you can connect with.",
-                        "imageSrc": "/static/images/corona-3.jpg",
-                        "imageAlt": "Online home church meeting using zoom.",
-                        "navigateTo": "/home-church"
-                    },
-                    {
-                        "title": "Kids",
-                        "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. You can access the videos, activities, and lesson plans (updated weekly) by clicking here.",
-                        "imageSrc": "/static/images/corona-5.jpg",
-                        "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
-                        "navigateTo": "/kidmax"
-                    },
-                    {
-                        "title": "Youth",
-                        "text": "Our Jr High and Sr High video curriculum is available online. All midweek youth programming has transitioned to online. Click here to connect with a local youth pastor or coordinator and get details about online midweek programming.",
-                        "imageSrc": "/static/images/corona-6.jpg",
-                        "imageAlt": "A high school student is exploring nature by himself.",
-                        "navigateTo": "/youth"
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Practical Resources",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "COVID-19 FAQs",
-                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf"
-                    },
-                    {
-                        "type": "link",
-                        "title": "COVID-19 Gatherings",
-                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/make-a-difference-3.jpg",
-                        "alt": "A woman is on her phone outside."
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "Giving",
-                "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Give Today",
-                        "navigateTo": "https://pushpay.com/g/themeetinghouse"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/corona-7.jpg",
-                        "alt": "A viewer is watching The Meeting House livestream on their laptop."
-                    }
-                ]
-            },
-            {
-                "type": "hero",
-                "style": "connect",
-                "image1": [
-                    {
-                        "src": "/static/images/email-connect-1.jpg",
-                        "alt": "Two women drinking coffee."
-                    },
-                    {
-                        "src": "/static/images/email-connect-2.jpg",
-                        "alt": "A young woman is talking to her friends in the church lobby."
-                    }
-                ],
-                "header1": "Get The Latest News",
-                "header2": "Never miss an update.",
-                "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandmeic."
-            }
+  "page": {
+    "name": "covid",
+    "title": "Covid",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true,
+      "showLive": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/covid-1-2.jpg",
+        "url": "https://www.themeetinghouse.com/covid",
+        "title": "News and Updates about COVID-19 and The Meeting House.",
+        "description": "Responding to this pandemic has made life different for all of us. As we navigate this new normal, we've made several changes to serve our communities well and love those who are struggling during this difficult time."
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/covid-1-1.jpg",
+            "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
+          },
+          {
+            "src": "/static/images/covid-1-2.jpg",
+            "alt": "Young man in a face mask is sitting and talking with friends."
+          }
+        ],
+        "header1": "Church During COVID-19",
+        "header2": "",
+        "text1": "Responding to this pandemic has made life different for all of us. As we navigate the new normal, we've made several changes to serve our communities and love those who are struggling during this difficult time."
+      },
+      {
+        "type": "blog",
+        "style": "twoImage",
+        "status": "Live",
+        "header1": "Recent News and Updates",
+        "sortOrder": "DESC",
+        "limit": 2,
+        "blogSeries": "News"
+      },
+      {
+        "type": "list",
+        "style": "imageList",
+        "header1": "Life at The Meeting House",
+        "text1": "Our purpose and vision haven't changed, but here's how we're adjusting to our new reality:",
+        "list": [
+          {
+            "title": "Sunday Livestream",
+            "text": "We're livestreaming to our website every Sunday at 10:00am EDT. We've got incredible music, stories, and teaching lined up, as well as a live chat with awesome hosts. We can't wait to connect with you this Sunday.",
+            "imageSrc": "/static/images/corona-2.jpg",
+            "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
+            "navigateTo": "/live"
+          },
+          {
+            "title": "Home Church",
+            "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendships, ask questions, and talk openly about living out the teachings of Jesus. Our Home Churches are currently meeting online. Click here to find a group you can connect with.",
+            "imageSrc": "/static/images/corona-3.jpg",
+            "imageAlt": "Online home church meeting using zoom.",
+            "navigateTo": "/home-church"
+          },
+          {
+            "title": "Kids",
+            "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. You can access the videos, activities, and lesson plans (updated weekly) by clicking here.",
+            "imageSrc": "/static/images/corona-5.jpg",
+            "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
+            "navigateTo": "/kidmax"
+          },
+          {
+            "title": "Youth",
+            "text": "Our Jr High and Sr High video curriculum is available online. All midweek youth programming has transitioned to online. Click here to connect with a local youth pastor or coordinator and get details about online midweek programming.",
+            "imageSrc": "/static/images/corona-6.jpg",
+            "imageAlt": "A high school student is exploring nature by himself.",
+            "navigateTo": "/youth"
+          }
         ]
-    }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Practical Resources",
+        "list": [
+          {
+            "type": "link",
+            "title": "COVID-19 FAQs",
+            "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf"
+          },
+          {
+            "type": "link",
+            "title": "COVID-19 Gatherings",
+            "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/make-a-difference-3.jpg",
+            "alt": "A woman is on her phone outside."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Giving",
+        "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Give Today",
+            "navigateTo": "https://pushpay.com/g/themeetinghouse"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/corona-7.jpg",
+            "alt": "A viewer is watching The Meeting House livestream on their laptop."
+          }
+        ]
+      },
+      {
+        "type": "hero",
+        "style": "connect",
+        "image1": [
+          {
+            "src": "/static/images/email-connect-1.jpg",
+            "alt": "Two women drinking coffee."
+          },
+          {
+            "src": "/static/images/email-connect-2.jpg",
+            "alt": "A young woman is talking to her friends in the church lobby."
+          }
+        ],
+        "header1": "Get The Latest News",
+        "header2": "Never miss an update.",
+        "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandmeic."
+      }
+    ]
+  }
 }

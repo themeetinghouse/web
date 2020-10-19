@@ -1,84 +1,87 @@
 {
-    "page": {
-        "name": "go",
-        "title": "Go Campaign",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "go",
+    "title": "Go Campaign",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/Go-1.jpg",
-                "url": "https://www.themeetinghouse.com/go",
-                "title": "Go Campaign",
-                "description": ""
-            },
-            
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/Go-1.jpg",
-                        "alt": "Description"
-                    }
-                ],
-                "header1": "Go Campaign",
-                "header2": "",
-                "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
-                "button1Text": "Watch Video",
-                "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1":"It's how we love people.",
-                "header2":"",
-                "text1":"We want to explore new and innovative ways of engaging people in our neighbourhoods and around the world who have never meaningfully encountered the good news of Jesus.",
-                "list": [
-                    {
-                        "type":"button",
-                        "title": "Pledge and Give",
-                        "navigateTo": "/go-choose"
-                    }
-                ],
-               
-                "image1":[{
-                    "src":"/static/images/Go-2.jpg",
-                    "alt":"Man with crossed arms in discussion"
-                }]
-            },
-            {
-                "type": "content",
-                "style": "goRegionalEventsOneImageBlackRight",
-                "header1":"Go Regional Events 2020",
-                "header2":"",
-                "text1":"We're coming to six cities across Ontario to hang out with you! If you've got questions or ideas when it comes to our Go campaign, this will be your opportunity to interact with our core community, senior leadership, and lead pastors.",
-                "list": [
-                    {
-                        "type":"link",
-                        "title": "Register Here",
-                        "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
-                    }
-                ],
-               
-                "image1":[{
-                    "src":"/static/images/Go-3.jpg",
-                    "alt":"Group of people sitting together for an information night about the Go Capaign."
-                }]
-            },
-            {
-                "type":"goContent"
-            }
-            
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/Go-1.jpg",
+        "url": "https://www.themeetinghouse.com/go",
+        "title": "Go Campaign",
+        "description": ""
+      },
+
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/Go-1.jpg",
+            "alt": "Description"
+          }
+        ],
+        "header1": "Go Campaign",
+        "header2": "",
+        "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+        "button1Text": "Watch Video",
+        "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "It's how we love people.",
+        "header2": "",
+        "text1": "We want to explore new and innovative ways of engaging people in our neighbourhoods and around the world who have never meaningfully encountered the good news of Jesus.",
+        "list": [
+          {
+            "type": "button",
+            "title": "Pledge and Give",
+            "navigateTo": "/go-choose"
+          }
+        ],
+
+        "image1": [
+          {
+            "src": "/static/images/Go-2.jpg",
+            "alt": "Man with crossed arms in discussion"
+          }
         ]
-    }
+      },
+      {
+        "type": "content",
+        "style": "goRegionalEventsOneImageBlackRight",
+        "header1": "Go Regional Events 2020",
+        "header2": "",
+        "text1": "We're coming to six cities across Ontario to hang out with you! If you've got questions or ideas when it comes to our Go campaign, this will be your opportunity to interact with our core community, senior leadership, and lead pastors.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register Here",
+            "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
+          }
+        ],
+
+        "image1": [
+          {
+            "src": "/static/images/Go-3.jpg",
+            "alt": "Group of people sitting together for an information night about the Go Capaign."
+          }
+        ]
+      },
+      {
+        "type": "goContent"
+      }
+    ]
+  }
 }

@@ -1,1142 +1,914 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "An auto-generated nested stack.",
-    "Metadata": {},
-    "Parameters": {
-        "ElasticSearchAccessIAMRoleName": {
-            "Type": "String",
-            "Description": "The name of the IAM role assumed by AppSync for Elasticsearch.",
-            "Default": "AppSyncElasticsearchRole"
-        },
-        "AppSyncApiId": {
-            "Type": "String",
-            "Description": "The id of the AppSync API associated with this project."
-        },
-        "AppSyncApiName": {
-            "Type": "String",
-            "Description": "The name of the AppSync API",
-            "Default": "AppSyncSimpleTransform"
-        },
-        "env": {
-            "Type": "String",
-            "Description": "The environment name. e.g. Dev, Test, or Production",
-            "Default": "NONE"
-        },
-        "S3DeploymentBucket": {
-            "Type": "String",
-            "Description": "The S3 bucket containing all deployment assets for the project."
-        },
-        "S3DeploymentRootKey": {
-            "Type": "String",
-            "Description": "An S3 key relative to the S3DeploymentBucket that points to the root\nof the deployment directory."
-        },
-        "ElasticSearchInstanceType": {
-            "Type": "String",
-            "Description": "The type of instance to launch into the Elasticsearch domain.",
-            "Default": "t2.small.elasticsearch",
-            "AllowedValues": [
-                "t2.small.elasticsearch",
-                "t2.medium.elasticsearch",
-                "c4.large.elasticsearch",
-                "c4.xlarge.elasticsearch",
-                "c4.2xlarge.elasticsearch",
-                "c4.4xlarge.elasticsearch",
-                "c4.8xlarge.elasticsearch",
-                "m3.medium.elasticsearch",
-                "m3.large.elasticsearch",
-                "m3.xlarge.elasticsearch",
-                "m3.2xlarge.elasticsearch",
-                "m4.large.elasticsearch",
-                "m4.xlarge.elasticsearch",
-                "m4.2xlarge.elasticsearch",
-                "m4.4xlarge.elasticsearch",
-                "m4.10xlarge.elasticsearch",
-                "r3.large.elasticsearch",
-                "r3.xlarge.elasticsearch",
-                "r3.2xlarge.elasticsearch",
-                "r3.4xlarge.elasticsearch",
-                "r3.8xlarge.elasticsearch",
-                "r4.large.elasticsearch",
-                "r4.xlarge.elasticsearch",
-                "r4.2xlarge.elasticsearch",
-                "r4.4xlarge.elasticsearch",
-                "r4.8xlarge.elasticsearch",
-                "r4.16xlarge.elasticsearch",
-                "i2.xlarge.elasticsearch",
-                "i2.2xlarge.elasticsearch",
-                "i3.large.elasticsearch",
-                "i3.xlarge.elasticsearch",
-                "i3.2xlarge.elasticsearch",
-                "i3.4xlarge.elasticsearch",
-                "i3.8xlarge.elasticsearch",
-                "i3.16xlarge.elasticsearch"
-            ]
-        },
-        "ElasticSearchEBSVolumeGB": {
-            "Type": "Number",
-            "Description": "The size in GB of the EBS volumes that contain our data.",
-            "Default": 10
-        },
-        "ElasticSearchInstanceCount": {
-            "Type": "Number",
-            "Description": "The number of instances to launch into the Elasticsearch domain.",
-            "Default": 1
-        }
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "An auto-generated nested stack.",
+  "Metadata": {},
+  "Parameters": {
+    "ElasticSearchAccessIAMRoleName": {
+      "Type": "String",
+      "Description": "The name of the IAM role assumed by AppSync for Elasticsearch.",
+      "Default": "AppSyncElasticsearchRole"
     },
-    "Resources": {
-        "GraphQLAPI": {
-            "Type": "AWS::AppSync::GraphQLApi",
-            "Properties": {
-                "Name": {
-                    "Fn::If": [
-                        "HasEnvironmentParameter",
-                        {
-                            "Fn::Join": [
-                                "-",
-                                [
-                                    {
-                                        "Ref": "AppSyncApiName"
-                                    },
-                                    {
-                                        "Ref": "env"
-                                    }
-                                ]
-                            ]
-                        },
-                        {
-                            "Ref": "AppSyncApiName"
-                        }
-                    ]
-                },
-                "AuthenticationType": "API_KEY",
-                "AdditionalAuthenticationProviders": [
-                    {
-                        "AuthenticationType": "AWS_IAM"
-                    }
-                ]
-            }
-        },
-        "TakeNoteDataSource": {
-            "Type": "AWS::AppSync::DataSource",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "Name": "TakeNoteHTTP",
-                "Type": "HTTP",
-                "HttpConfig": {
-                    "Endpoint": "http://takenoteapp.com/"
-                }
-            }
-        },
-        "YoutubePlaylistDataSource": {
-            "Type": "AWS::AppSync::DataSource",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "Name": "YoutubeHTTP",
-                "Type": "HTTP",
-                "HttpConfig": {
-                    "Endpoint": "https://www.googleapis.com/"
-                }
-            }
-        },
-        "FBDataSource": {
-            "Type": "AWS::AppSync::DataSource",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "Name": "FacebookHTTP",
-                "Type": "HTTP",
-                "HttpConfig": {
-                    "Endpoint": "https://graph.facebook.com/"
-                }
-            }
-        },
-        "YoutubeCaptionDataSource": {
-            "Type": "AWS::AppSync::DataSource",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "Name": "YoutubeCaptionHTTP",
-                "Type": "HTTP",
-                "HttpConfig": {
-                    "Endpoint": "https://video.google.com/"
-                }
-            }
-        },
-        "GetTakeNoteLocationsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "TakeNoteDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getTakenoteLocations",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteLocations",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteLocations",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "fuzzySearchVideosResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": "ElasticSearchDomain",
-                "FieldName": "fuzzySearchVideos",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideos",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideos",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "fuzzySearchVideosByTypeResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": "ElasticSearchDomain",
-                "FieldName": "fuzzySearchVideosByType",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideosByType",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideosByType",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetTakeNoteNotesResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "TakeNoteDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getTakenoteNotes",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteNotes",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteNotes",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetTakeNoteSermonVersesResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "TakeNoteDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getTakenoteSermonVerses",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteSermonVerses",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteSermonVerses",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetTakeNoteSermonResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "TakeNoteDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getTakenoteSermon",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteSermon",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteSermon",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetTakeNoteSeriesResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "TakeNoteDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getTakenoteSeries",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteSeries",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getTakenoteSeries",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "DownloadYoutubeCaptionResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubeCaptionDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "downloadYoutubeCaption",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "downloadYoutubeCaption",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "downloadYoutubeCaption",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubeVideoContentDetailsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubeVideoContentDetails",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoContentDetails",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoContentDetails",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubeVideoStatisticsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubeVideoStatistics",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoStatistics",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoStatistics",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubeCaptionlistResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubeCaptionlist",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeCaptionlist",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeCaptionlist",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubePlaylistResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubePlaylist",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylist",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylist",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubePlaylistItemsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubePlaylistItems",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylistItems",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylistItems",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetFBEventsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "FBDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getFBEvents",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getFBEvents",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getFBEvents",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubeVideoSearchResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubeVideoSearch",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoSearch",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoSearch",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        }
+    "AppSyncApiId": {
+      "Type": "String",
+      "Description": "The id of the AppSync API associated with this project."
     },
-    "Conditions": {
-        "HasEnvironmentParameter": {
-            "Fn::Not": [
-                {
-                    "Fn::Equals": [
-                        {
-                            "Ref": "env"
-                        },
-                        "NONE"
-                    ]
-                }
-            ]
-        },
-        "AlwaysFalse": {
-            "Fn::Equals": [
-                "true",
-                "false"
-            ]
-        }
+    "AppSyncApiName": {
+      "Type": "String",
+      "Description": "The name of the AppSync API",
+      "Default": "AppSyncSimpleTransform"
+    },
+    "env": {
+      "Type": "String",
+      "Description": "The environment name. e.g. Dev, Test, or Production",
+      "Default": "NONE"
+    },
+    "S3DeploymentBucket": {
+      "Type": "String",
+      "Description": "The S3 bucket containing all deployment assets for the project."
+    },
+    "S3DeploymentRootKey": {
+      "Type": "String",
+      "Description": "An S3 key relative to the S3DeploymentBucket that points to the root\nof the deployment directory."
+    },
+    "ElasticSearchInstanceType": {
+      "Type": "String",
+      "Description": "The type of instance to launch into the Elasticsearch domain.",
+      "Default": "t2.small.elasticsearch",
+      "AllowedValues": [
+        "t2.small.elasticsearch",
+        "t2.medium.elasticsearch",
+        "c4.large.elasticsearch",
+        "c4.xlarge.elasticsearch",
+        "c4.2xlarge.elasticsearch",
+        "c4.4xlarge.elasticsearch",
+        "c4.8xlarge.elasticsearch",
+        "m3.medium.elasticsearch",
+        "m3.large.elasticsearch",
+        "m3.xlarge.elasticsearch",
+        "m3.2xlarge.elasticsearch",
+        "m4.large.elasticsearch",
+        "m4.xlarge.elasticsearch",
+        "m4.2xlarge.elasticsearch",
+        "m4.4xlarge.elasticsearch",
+        "m4.10xlarge.elasticsearch",
+        "r3.large.elasticsearch",
+        "r3.xlarge.elasticsearch",
+        "r3.2xlarge.elasticsearch",
+        "r3.4xlarge.elasticsearch",
+        "r3.8xlarge.elasticsearch",
+        "r4.large.elasticsearch",
+        "r4.xlarge.elasticsearch",
+        "r4.2xlarge.elasticsearch",
+        "r4.4xlarge.elasticsearch",
+        "r4.8xlarge.elasticsearch",
+        "r4.16xlarge.elasticsearch",
+        "i2.xlarge.elasticsearch",
+        "i2.2xlarge.elasticsearch",
+        "i3.large.elasticsearch",
+        "i3.xlarge.elasticsearch",
+        "i3.2xlarge.elasticsearch",
+        "i3.4xlarge.elasticsearch",
+        "i3.8xlarge.elasticsearch",
+        "i3.16xlarge.elasticsearch"
+      ]
+    },
+    "ElasticSearchEBSVolumeGB": {
+      "Type": "Number",
+      "Description": "The size in GB of the EBS volumes that contain our data.",
+      "Default": 10
+    },
+    "ElasticSearchInstanceCount": {
+      "Type": "Number",
+      "Description": "The number of instances to launch into the Elasticsearch domain.",
+      "Default": 1
     }
+  },
+  "Resources": {
+    "GraphQLAPI": {
+      "Type": "AWS::AppSync::GraphQLApi",
+      "Properties": {
+        "Name": {
+          "Fn::If": [
+            "HasEnvironmentParameter",
+            {
+              "Fn::Join": [
+                "-",
+                [
+                  {
+                    "Ref": "AppSyncApiName"
+                  },
+                  {
+                    "Ref": "env"
+                  }
+                ]
+              ]
+            },
+            {
+              "Ref": "AppSyncApiName"
+            }
+          ]
+        },
+        "AuthenticationType": "API_KEY",
+        "AdditionalAuthenticationProviders": [
+          {
+            "AuthenticationType": "AWS_IAM"
+          }
+        ]
+      }
+    },
+    "TakeNoteDataSource": {
+      "Type": "AWS::AppSync::DataSource",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "Name": "TakeNoteHTTP",
+        "Type": "HTTP",
+        "HttpConfig": {
+          "Endpoint": "http://takenoteapp.com/"
+        }
+      }
+    },
+    "YoutubePlaylistDataSource": {
+      "Type": "AWS::AppSync::DataSource",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "Name": "YoutubeHTTP",
+        "Type": "HTTP",
+        "HttpConfig": {
+          "Endpoint": "https://www.googleapis.com/"
+        }
+      }
+    },
+    "FBDataSource": {
+      "Type": "AWS::AppSync::DataSource",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "Name": "FacebookHTTP",
+        "Type": "HTTP",
+        "HttpConfig": {
+          "Endpoint": "https://graph.facebook.com/"
+        }
+      }
+    },
+    "YoutubeCaptionDataSource": {
+      "Type": "AWS::AppSync::DataSource",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "Name": "YoutubeCaptionHTTP",
+        "Type": "HTTP",
+        "HttpConfig": {
+          "Endpoint": "https://video.google.com/"
+        }
+      }
+    },
+    "GetTakeNoteLocationsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["TakeNoteDataSource", "Name"]
+        },
+        "FieldName": "getTakenoteLocations",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getTakenoteLocations", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getTakenoteLocations", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "fuzzySearchVideosResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": "ElasticSearchDomain",
+        "FieldName": "fuzzySearchVideos",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "fuzzySearchVideos", "req", "vtl"]]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "fuzzySearchVideos", "res", "vtl"]]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "fuzzySearchVideosByTypeResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": "ElasticSearchDomain",
+        "FieldName": "fuzzySearchVideosByType",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "fuzzySearchVideosByType", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "fuzzySearchVideosByType", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetTakeNoteNotesResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["TakeNoteDataSource", "Name"]
+        },
+        "FieldName": "getTakenoteNotes",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getTakenoteNotes", "req", "vtl"]]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getTakenoteNotes", "res", "vtl"]]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetTakeNoteSermonVersesResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["TakeNoteDataSource", "Name"]
+        },
+        "FieldName": "getTakenoteSermonVerses",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getTakenoteSermonVerses", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getTakenoteSermonVerses", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetTakeNoteSermonResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["TakeNoteDataSource", "Name"]
+        },
+        "FieldName": "getTakenoteSermon",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getTakenoteSermon", "req", "vtl"]]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getTakenoteSermon", "res", "vtl"]]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetTakeNoteSeriesResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["TakeNoteDataSource", "Name"]
+        },
+        "FieldName": "getTakenoteSeries",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getTakenoteSeries", "req", "vtl"]]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getTakenoteSeries", "res", "vtl"]]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "DownloadYoutubeCaptionResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubeCaptionDataSource", "Name"]
+        },
+        "FieldName": "downloadYoutubeCaption",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "downloadYoutubeCaption", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "downloadYoutubeCaption", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetYoutubeVideoContentDetailsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubePlaylistDataSource", "Name"]
+        },
+        "FieldName": "getYoutubeVideoContentDetails",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeVideoContentDetails", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeVideoContentDetails", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetYoutubeVideoStatisticsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubePlaylistDataSource", "Name"]
+        },
+        "FieldName": "getYoutubeVideoStatistics",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeVideoStatistics", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeVideoStatistics", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetYoutubeCaptionlistResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubePlaylistDataSource", "Name"]
+        },
+        "FieldName": "getYoutubeCaptionlist",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeCaptionlist", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeCaptionlist", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetYoutubePlaylistResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubePlaylistDataSource", "Name"]
+        },
+        "FieldName": "getYoutubePlaylist",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getYoutubePlaylist", "req", "vtl"]]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getYoutubePlaylist", "res", "vtl"]]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetYoutubePlaylistItemsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubePlaylistDataSource", "Name"]
+        },
+        "FieldName": "getYoutubePlaylistItems",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubePlaylistItems", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubePlaylistItems", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetFBEventsResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["FBDataSource", "Name"]
+        },
+        "FieldName": "getFBEvents",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getFBEvents", "req", "vtl"]]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [".", ["Query", "getFBEvents", "res", "vtl"]]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "GetYoutubeVideoSearchResolver": {
+      "Type": "AWS::AppSync::Resolver",
+      "Properties": {
+        "ApiId": {
+          "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": {
+          "Fn::GetAtt": ["YoutubePlaylistDataSource", "Name"]
+        },
+        "FieldName": "getYoutubeVideoSearch",
+        "TypeName": "Query",
+        "RequestMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeVideoSearch", "req", "vtl"]
+                ]
+              }
+            }
+          ]
+        },
+        "ResponseMappingTemplateS3Location": {
+          "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+            {
+              "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+              },
+              "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+              },
+              "ResolverFileName": {
+                "Fn::Join": [
+                  ".",
+                  ["Query", "getYoutubeVideoSearch", "res", "vtl"]
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Conditions": {
+    "HasEnvironmentParameter": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "env"
+            },
+            "NONE"
+          ]
+        }
+      ]
+    },
+    "AlwaysFalse": {
+      "Fn::Equals": ["true", "false"]
+    }
+  }
 }
