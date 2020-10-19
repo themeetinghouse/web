@@ -5,7 +5,7 @@ node_modules
 coverage
 
 # production
-build
+build/
 public/react.development.js
 public/react.production.min.js
 public/react-dom.development.js
@@ -16,16 +16,12 @@ public/react-dom-server.browser.production.min.js
 # misc
 .DS_Store
 npm-debug.log
-
 .next
 
 # OSX
-#
 .DS_Store
 
 # Xcode
-#
-build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -44,15 +40,12 @@ DerivedData
 project.xcworkspace
 
 # Android/IntelliJ
-#
-build/
 .idea
 .gradle
 local.properties
 *.iml
 
 # node.js
-#
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -76,7 +69,7 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-#amplify
+# amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/backend/amplify-meta.json
@@ -96,10 +89,17 @@ out/
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 
-backup
+backup/
 
 images-sized
 google*.html
 amplify/mock-data
 src/version.js
 
+# editor
+*.code-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
