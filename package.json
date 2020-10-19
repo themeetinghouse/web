@@ -123,10 +123,21 @@
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-react": "^7.20.6",
+    "husky": ">=4",
     "jest": "^26.4.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
+    "lint-staged": ">=10",
     "prettier": "^2.1.2",
     "ts-jest": "^26.2.0",
     "tslint": "^6.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,html,css,scss,md}": "prettier --write"
   }
 }
