@@ -1,0 +1,30 @@
+{
+    "page": {
+        "name": "give",
+        "title": "Give",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor": "white",
+            "showSearch": false,
+            "showFooter": false,
+            "showMenu": false,
+            "isPopup": true,
+            "navigateOnPopupClose": "/"
+        },
+        "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-logo.jpg",
+                "url": "https://www.themeetinghouse.com/payment-test",
+                "title": "Give",
+                "description": ""
+            },
+            {
+                "type": "payment"
+            }
+        ]
+    }
+}

@@ -82,7 +82,6 @@
             "Description": "The number of instances to launch into the Elasticsearch domain.",
             "Default": 1
         }
-       
     },
     "Resources": {
         "GraphQLAPI": {
@@ -239,12 +238,7 @@
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "ElasticSearchDataSource",
-                        "Name"
-                    ]
-                },
+                "DataSourceName": "ElasticSearchDomain",
                 "FieldName": "fuzzySearchVideos",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
@@ -295,10 +289,66 @@
                         }
                     ]
                 }
-            },
-            "DependsOn": [
-                "ElasticSearchDataSource"
-            ]
+            }
+        },
+        "fuzzySearchVideosByTypeResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "DataSourceName": "ElasticSearchDomain",
+                "FieldName": "fuzzySearchVideosByType",
+                "TypeName": "Query",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "fuzzySearchVideosByType",
+                                        "req",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "fuzzySearchVideosByType",
+                                        "res",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
         },
         "GetTakeNoteNotesResolver": {
             "Type": "AWS::AppSync::Resolver",
@@ -620,6 +670,134 @@
                 }
             }
         },
+        "GetYoutubeVideoContentDetailsResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "DataSourceName": {
+                    "Fn::GetAtt": [
+                        "YoutubePlaylistDataSource",
+                        "Name"
+                    ]
+                },
+                "FieldName": "getYoutubeVideoContentDetails",
+                "TypeName": "Query",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "getYoutubeVideoContentDetails",
+                                        "req",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "getYoutubeVideoContentDetails",
+                                        "res",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "GetYoutubeVideoStatisticsResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "DataSourceName": {
+                    "Fn::GetAtt": [
+                        "YoutubePlaylistDataSource",
+                        "Name"
+                    ]
+                },
+                "FieldName": "getYoutubeVideoStatistics",
+                "TypeName": "Query",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "getYoutubeVideoStatistics",
+                                        "req",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": {
+                                "Fn::Join": [
+                                    ".",
+                                    [
+                                        "Query",
+                                        "getYoutubeVideoStatistics",
+                                        "res",
+                                        "vtl"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
         "GetYoutubeCaptionlistResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
@@ -745,191 +923,6 @@
                             }
                         }
                     ]
-                }
-            }
-        },
-        "ElasticSearchAccessIAMRole": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-                "RoleName": {
-                    "Fn::If": [
-                        "HasEnvironmentParameter",
-                        {
-                            "Fn::Join": [
-                                "-",
-                                [
-                                    {
-                                        "Ref": "ElasticSearchAccessIAMRoleName"
-                                    },
-                                    {
-                                        "Fn::GetAtt": [
-                                            "GraphQLAPI",
-                                            "ApiId"
-                                        ]
-                                    },
-                                    {
-                                        "Ref": "env"
-                                    }
-                                ]
-                            ]
-                        },
-                        {
-                            "Fn::Join": [
-                                "-",
-                                [
-                                    {
-                                        "Ref": "ElasticSearchAccessIAMRoleName"
-                                    },
-                                    {
-                                        "Fn::GetAtt": [
-                                            "GraphQLAPI",
-                                            "ApiId"
-                                        ]
-                                    }
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": "appsync.amazonaws.com"
-                            },
-                            "Action": "sts:AssumeRole"
-                        }
-                    ]
-                },
-                "Policies": [
-                    {
-                        "PolicyName": "ElasticsearchAccess",
-                        "PolicyDocument": {
-                            "Version": "2012-10-17",
-                            "Statement": [
-                                {
-                                    "Action": [
-                                        "es:ESHttpPost",
-                                        "es:ESHttpDelete",
-                                        "es:ESHttpHead",
-                                        "es:ESHttpGet",
-                                        "es:ESHttpPost",
-                                        "es:ESHttpPut"
-                                    ],
-                                    "Effect": "Allow",
-                                    "Resource": {
-                                        "Fn::Join": [
-                                            "",
-                                            [
-                                                {
-                                                    "Fn::GetAtt": [
-                                                        "ElasticSearchDomain",
-                                                        "DomainArn"
-                                                    ]
-                                                },
-                                                "/*"
-                                            ]
-                                        ]
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        "ElasticSearchDataSource": {
-            "Type": "AWS::AppSync::DataSource",
-            "Properties": {
-                "ApiId": {
-                    "Fn::GetAtt": [
-                        "GraphQLAPI",
-                        "ApiId"
-                    ]
-                },
-                "Name": "ElasticSearchDomain",
-                "Type": "AMAZON_ELASTICSEARCH",
-                "ServiceRoleArn": {
-                    "Fn::GetAtt": [
-                        "ElasticSearchAccessIAMRole",
-                        "Arn"
-                    ]
-                },
-                "ElasticsearchConfig": {
-                    "AwsRegion": {
-                        "Fn::Select": [
-                            3,
-                            {
-                                "Fn::Split": [
-                                    ":",
-                                    {
-                                        "Fn::GetAtt": [
-                                            "ElasticSearchDomain",
-                                            "DomainArn"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    "Endpoint": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "https://",
-                                {
-                                    "Fn::GetAtt": [
-                                        "ElasticSearchDomain",
-                                        "DomainEndpoint"
-                                    ]
-                                }
-                            ]
-                        ]
-                    }
-                }
-            },
-            "DependsOn": "ElasticSearchDomain"
-        },
-        "ElasticSearchDomain": {
-            "Type": "AWS::Elasticsearch::Domain",
-            "Properties": {
-                "DomainName": {
-                    "Fn::If": [
-                        "HasEnvironmentParameter",
-                        {
-                            "Ref": "AWS::NoValue"
-                        },
-                        {
-                            "Fn::Join": [
-                                "-",
-                                [
-                                    "d",
-                                    {
-                                        "Ref": "AppSyncApiId"
-                                    }
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                "ElasticsearchVersion": "6.2",
-                "ElasticsearchClusterConfig": {
-                    "ZoneAwarenessEnabled": false,
-                    "InstanceCount": {
-                        "Ref": "ElasticSearchInstanceCount"
-                    },
-                    "InstanceType": {
-                        "Ref": "ElasticSearchInstanceType"
-                    }
-                },
-                "EBSOptions": {
-                    "EBSEnabled": true,
-                    "VolumeType": "gp2",
-                    "VolumeSize": {
-                        "Ref": "ElasticSearchEBSVolumeGB"
-                    }
                 }
             }
         },

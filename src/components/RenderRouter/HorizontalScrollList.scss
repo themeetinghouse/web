@@ -1,9 +1,11 @@
+@import '../../theme';
+
 @media (min-width: 768px) {
     .HorizontalScrollListContainer{
         position: relative;
 
         .HorizontalScrollListItemContainer {
-            overflow-x: scroll;
+            overflow-x: hidden;
 
             &::-webkit-scrollbar {
                 width: 12px;
@@ -50,7 +52,7 @@
                     //min-width: 2vw;
                     max-width: 8vw;
                     border-radius: 2px;
-                    background-color: #000000;
+                    background-color: $onyxblacktext;
                     margin: 0 0.5vw;
                 }
                 max-width: 8vw;
@@ -68,7 +70,7 @@
             }
 
             .ScrollButton {
-                background: black;
+                background: $onyxblacktext;
                 height: 4vw;
                 width: 5vw;
                 margin: 0.5vw;

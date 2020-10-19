@@ -1,6 +1,7 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth } from 'aws-amplify';
 import React from 'react';
+import { NavLink } from '../Link/Link';
 import {
   Collapse,
   Navbar,
@@ -8,56 +9,46 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  NavLink as RSNavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from 'reactstrap';
+import { EmptyProps } from '../../utils';
 
-
-
-//const bootstrap = require('react-bootstrap');
-
-//import Popper from 'popper.js'
-//import Head from 'next/head'
 import "../../bootstrap-override.css"
-//import console = require('console');
 import "./adminmenu.scss"
 
-
-interface Props {
-
-}
 interface State {
   isOpen: boolean,
-  userName: String
+  userName: string
 }
-export default class Menu extends React.Component<Props, State> {
-  constructor(props:Props) {
+export default class Menu extends React.Component<EmptyProps, State> {
+  constructor(props: EmptyProps) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
-      userName:  ""
-
+      userName: ""
     };
   }
-    getState = async() => {
-      Auth.currentAuthenticatedUser().then(user => {
-        console.log(user.username);
-        this.setState({userName:user.username});
-      }
-      ).catch(() => {
-         console.log("no user");
-         this.setState({userName:"No User"});
-        }
-      )};
-      
-  
-    componentDidMount() {
-      this.getState();
+  async getState() {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      console.log(user.username);
+      this.setState({ userName: user.username });
+    } catch (e) {
+      console.error(e)
+      console.log("no user")
+      this.setState({ userName: "No User" });
     }
+  }
+
+  componentDidMount() {
+    this.getState();
+  }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -65,11 +56,11 @@ export default class Menu extends React.Component<Props, State> {
   }
   signOut = () => {
     Auth.signOut()
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
-  
+
   render() {
     return (
       <div className="navbar-custom">
@@ -78,7 +69,7 @@ export default class Menu extends React.Component<Props, State> {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-{/*              <NavItem>
+              {/*              <NavItem>
                 <NavLink href="/admin/videos">Videos</NavLink>
               </NavItem>
               <NavItem>
@@ -115,10 +106,19 @@ export default class Menu extends React.Component<Props, State> {
                 <NavLink href="/admin/import-kids">Import Kids</NavLink>
 </NavItem>*/}
               <NavItem>
-                <NavLink href="/admin/import-video">Import Video</NavLink>
+                <NavLink to="/admin/livestream">Livestream</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/themeetinghouse">GitHub</NavLink>
+                <NavLink to="/admin/create-notes">Notes</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/admin/create-blog">Blog</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="/admin/import-video">Import Video</NavLink>
+              </NavItem>
+              <NavItem>
+                <RSNavLink href="https://github.com/themeetinghouse">GitHub</RSNavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -129,8 +129,8 @@ export default class Menu extends React.Component<Props, State> {
                     Profile
                   </DropdownItem>
                   <DropdownItem >
-                  <div onClick={this.signOut}>
-                    Logout
+                    <div onClick={this.signOut}>
+                      Logout
                     </div>
                   </DropdownItem>
                 </DropdownMenu>

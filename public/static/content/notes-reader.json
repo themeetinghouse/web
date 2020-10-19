@@ -1,0 +1,23 @@
+{
+    "page": {
+        "name": "notes",
+        "title": "Notes",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "post",
+                "style": "notes"
+            }
+        ]
+    }
+}

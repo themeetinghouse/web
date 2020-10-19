@@ -1,0 +1,82 @@
+{
+    "page": {
+        "name": "easter",
+        "title": "Easter",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true,
+            "showLive":true
+        },
+        "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/easter-1.jpg",
+                "url": "https://www.themeetinghouse.com/easter",
+                "title": "Easter",
+                "description": ""
+            },
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/easter-1.jpg",
+                        "alt": "Young woman sitting on a park bench outside similing."
+                    }
+                ],
+                "header1": "Easter Online",
+                "header2": "",
+                "text1": "Being together looks a little different these days, but we still value coming together online to celebrate. Join us online as we explore the loneliness Jesus experienced in his death and how his life brings us all together. "
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Livestream Services",
+                "header2": "Nice and simple.",
+                "text1": "Let's get together online at 10:00am this Good Friday April 10 and on Easter Sunday April 12. Our livestream services will be 70 minutes long with music, communion, stories, teaching, and reflecting on the meaning of Jesus' death and resurrection.",
+              
+                "image1": [
+                    {
+                        "src": "/static/images/easter-2.jpg",
+                        "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+                    }
+                ]
+            },
+            {
+                "type": "list",
+                "style": "imageList",
+                "header1": "Easter Weekend Game Plan",
+                "text1": "Stay home and stay together. Best of both worlds coming at you this weekend.",
+                "list": [
+                    {
+                        "title": "Good Friday",
+                        "text": "Live-streaming on Friday April 10 at 10:00am EDT. Our online experience will take about 70 minutes and include music, prayer, readings from the Bible, a short message, and communion, as well as meditation and contemplation. Heads up: our communion will be a BYOC (bring your own communion) affair.",
+                        "imageSrc": "/static/images/easter-3.png",
+                        "imageAlt": "Good Friday promotional graphic.",
+                        "navigateTo": "/live"
+                    },
+                    {
+                        "title": "Easter Sunday",
+                        "text": "Back at it with the livestream on Sunday April 12 at 10:00am EDT as we celebrate together online! We'll have about 70 minutes together to sing, reflect, connect, and learn about the life of Jesus!",
+                        "imageSrc": "/static/images/easter-4.png",
+                        "imageAlt": "Easter Sunday promotional graphic.",
+                        "navigateTo": ""
+                    },
+                    {
+                        "title": "Easter Activities",
+                        "text": "If you spending Easter with kids age 0 to Grade 5, we have some really fun Good Friday & Easter activities for them! Head to parents.themeetinghouse.com to check it out!",
+                        "imageSrc": "/static/images/easter-5.png",
+                        "imageAlt": "Easter promotional graphic for kids activities.",
+                        "navigateTo": "/kidseaster"
+                    }
+                ]
+            }
+        ]
+    }
+}

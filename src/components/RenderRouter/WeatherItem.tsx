@@ -3,16 +3,27 @@ import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./WeatherItem.scss"
-import DataLoader from './DataLoader';
 import moment from 'moment';
 
+interface Content {
+    style: string
+
+    header1: string
+    header2: string
+    text1: string
+
+    list: Array<{
+        type: string
+        title: string
+    }>
+}
+
 interface Props extends RouteComponentProps {
-    content: any
+    content: Content
     data: any
 }
 interface State {
-    content: any,
-    locationData: any,
+    content: Content
     arrowOpacity: any
 }
 class HeroItem extends React.Component<Props, State> {
@@ -20,35 +31,22 @@ class HeroItem extends React.Component<Props, State> {
         router: PropTypes.object,
         history: PropTypes.object
     }
-    dataLoader: DataLoader
 
     constructor(props: Props, context: any) {
         super(props, context);
         this.state = {
             content: props.content,
-            locationData: [],
             arrowOpacity: 1
         }
         this.navigate = this.navigate.bind(this);
-        this.setData = this.setData.bind(this);
-        this.dataLoader = new DataLoader({ ...this.props, dataLoaded: (data: any) => { this.setData(data) } }, this.state)
+    }
 
-    }
-    componentDidMount() {
-
-        this.dataLoader.loadData()
-    }
-    setData(data: any) {
-        this.setState({
-            locationData: this.state.locationData.concat(data)
-        })
-    }
     getCalendarEventForLocation(locationItem: any) {
         let nextSunday = (moment().day() === 0 ? moment().add(1, "week") : moment().day(0)).startOf("day");
         let serviceHour = locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
         serviceHour = serviceHour.substr(0, serviceHour.indexOf(":"));
         nextSunday = nextSunday.hour(+serviceHour);
-        let event = {
+        const event = {
             title: 'Church at The Meeting House',
             description: 'Join us at The Meeting House on Sunday!',
             location: locationItem.location.address,
@@ -74,20 +72,20 @@ class HeroItem extends React.Component<Props, State> {
 
     }
     smoothScrollTo(endX: any, endY: any, duration: any) {
-        let startX = window.scrollX || window.pageXOffset,
+        const startX = window.scrollX || window.pageXOffset,
             startY = window.scrollY || window.pageYOffset,
             distanceX = endX - startX,
             distanceY = endY - startY,
             startTime = new Date().getTime();
 
         // Easing function
-        let easeInOutQuart = function (time: any, from: any, distance: any, duration: any) {
+        const easeInOutQuart = function (time: any, from: any, distance: any, duration: any) {
             if ((time /= duration / 2) < 1) return distance / 2 * time * time * time * time + from;
             return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
         };
 
-        let timer = window.setInterval(function () {
-            let time = new Date().getTime() - startTime,
+        const timer = window.setInterval(function () {
+            const time = new Date().getTime() - startTime,
                 newX = easeInOutQuart(time, startX, distanceX, duration),
                 newY = easeInOutQuart(time, startY, distanceY, duration);
             if (time >= duration) {
@@ -95,9 +93,9 @@ class HeroItem extends React.Component<Props, State> {
             }
             window.scrollTo(newX, newY);
         }, 1000 / 60); // 60 fps
-    };
+    }
     scrollToNextPage() {
-        let pos = window.outerHeight;
+        const pos = window.outerHeight;
         if ('scrollBehavior' in document.documentElement.style) { //Checks if browser supports scroll function
             window.scroll({
                 top: pos,
@@ -109,13 +107,7 @@ class HeroItem extends React.Component<Props, State> {
         }
 
     }
-    navigateUrl(to: string) {
-        window.location.href = to;
-    }
 
-    navigateEmail(to: any) {
-        this.navigateUrl("mailto:" + to)
-    }
     imgUrl(size: any) {
         if (window.location.hostname === "localhost")
             return "https://localhost:3006"
@@ -131,18 +123,17 @@ class HeroItem extends React.Component<Props, State> {
             return (
                 <div className="weather weatherPartial" >
                     <h1 className="weatherH1" >{this.state.content.header1}</h1>
-                    {this.state.content.header2 && <h2 className="weatherHeroH2">{this.state.content.header2}</h2>}
+                    {this.state.content.header2 && <h2 className="weatherH2">{this.state.content.header2}</h2>}
                     <hr className="weatheroHr"></hr>
                     <div className="weatherText1" >{this.state.content.text1}</div>
                     <div className="weatherText1" ><b>Closed Locations</b>
-                        {this.state.content.list.map((item: any) => {
+                        {this.state.content.list.map((item: any, index: any) => {
                             return (
-                                <div>{item.title}</div>
+                                <div key={index}>{item.title}</div>
                             )
                         })}
                     </div>
-
-                    <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>                  
+                    <div className="heroText1 weatherText3" ><b>All other locations are open.</b></div>
 
                 </div>
             )

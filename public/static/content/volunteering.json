@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "connect",
-        "title": "Connect",
+        "name": "volunteering",
+        "title": "Volunteering",
         "keywords": "",
         "description":"",
 
@@ -14,6 +14,13 @@
             "showMenu":true
         },
         "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-images/volunteering.jpg",
+                "url": "https://www.themeetinghouse.com/volunteering",
+                "title": "Volunteering",
+                "description": "When we serve in practical ways, we participate in what God is doing in our community, and we grow in our own faith in Jesus. When you volunteer your time to serve in our church, you contribute to what God wants to accomplish through The Meeting House. We don’t want you to miss out."
+            },
             {
                 "type": "content",
                 "style": "oneImage",

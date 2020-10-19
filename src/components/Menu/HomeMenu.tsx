@@ -1,6 +1,4 @@
-﻿//import 'bootstrap/dist/css/bootstrap.min.css';
-//import '../../src/custom.scss';
-import { Auth } from 'aws-amplify';
+﻿import { Auth } from 'aws-amplify';
 import React from 'react';
 import {
   Collapse,
@@ -8,24 +6,39 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavLink
+  Button
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from "../VideoOverlay/VideoOverlay";
-//import MainMenuItems from '';
+import HamburgerMenu from 'react-hamburger-menu';
 import "./menu.scss"
+import moment from 'moment-timezone'
+import * as queries from '../../graphql/queries';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { API } from 'aws-amplify';
+import { ListLivestreamsQuery } from '../../API';
+import { Link, NavLink } from 'components/Link/Link';
+
+interface SubMenuItem {
+  name: string;
+  location: string;
+}
+
+interface MainMenuItem {
+  name: string;
+  location: string,
+  children?: SubMenuItem[];
+}
 
 interface Props extends RouteComponentProps {
-  //logoColor?:string,
   pageConfig: any
 
 }
 interface State {
   MainMenuItems: any,
-  urlHistoryState: any,
-  overlayData: any,
+  overlayType: string | null,
   isOpen: boolean,
-  userName: String,
+  userName: string,
   windowHeight: number,
   position: string,
   logoColor: string,
@@ -35,14 +48,11 @@ interface State {
   movingMenu: boolean,
   showLive: boolean,
   showLiveEvent: boolean,
-  liveEvent: any
+  liveTitle?: string | null,
+  expand: any
+  showNotes: boolean
 }
-//const bootstrap = require('react-bootstrap');
 
-//import Popper from 'popper.js'
-//import Head from 'next/head'
-//import "../../bootstrap-override.css"
-//import console = require('console');
 class HomeMenu extends React.Component<Props, State>  {
   constructor(props: any) {
     super(props);
@@ -56,10 +66,10 @@ class HomeMenu extends React.Component<Props, State>  {
     this.toggle = this.toggle.bind(this);
     this.state = {
       MainMenuItems: null,
-      urlHistoryState: null,
-      overlayData: null,
+      overlayType: null,
       isOpen: false,
       userName: "",
+      liveTitle: "",
       windowHeight: 0,
       position: "unfix",
       movingMenu: this.props.pageConfig.movingMenu,
@@ -69,31 +79,40 @@ class HomeMenu extends React.Component<Props, State>  {
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
       showLiveEvent: false,
-      liveEvent: ""
+      expand: null,
+      showNotes: moment.tz('America/Toronto').isoWeekday() === 7 || (moment.tz('America/Toronto').isoWeekday() === 1 && moment.tz('America/Toronto').hour() <= 12)
     };
+    this.getLive()
     this.handleScroll = this.handleScroll.bind(this)
-    fetch('./static/data/live-event.json').then(function (response) {
-      return response.json();
-    })
-      .then((myJson) => {
-        myJson.forEach((item: any) => {
-          if (this.state.showLive && item.dayOfWeek === new Date().getDay() && item.startHour <= new Date().getHours() && item.endHour >= new Date().getHours()) {
-            console.log("ShowLive")
-            this.setState({ liveEvent: item.navigateTo, showLiveEvent: true })
-          }
-        })
-      })
   }
-  navigate(to: string) {
-    this.props.history.push(to, "as")
-    const unblock = this.props.history.block('Are you sure you want to leave this page?');
-    unblock();
 
+  async getLive() {
+    const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
+    try {
+      const json: any = await API.graphql({
+        query: queries.listLivestreams,
+        variables: { filter: { date: { eq: today } } },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY
+      });
+      const livestreams: ListLivestreamsQuery = json.data
+      livestreams?.listLivestreams?.items?.forEach(item => {
+        const rightNow = moment().tz("America/Toronto").format('HH:mm')
+        const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
+
+        if (showTime && this.state.showLive) {
+          console.log("ShowLive")
+          this.setState({ liveTitle: item?.homepageLink, showLiveEvent: true })
+        }
+      })
+    } catch (err) {
+      console.error(err)
+    }
   }
+
   getWindowHeight() {
-    let deviceWindow = document.getElementById('navbar');
+    const deviceWindow = document.getElementById('navbar');
     if (deviceWindow != null) {
-      let deviceWindowHeight = window.outerHeight
+      const deviceWindowHeight = window.outerHeight
       //    console.log("from getinitiatlhight" + deviceWindowHeight);
       this.setState({
         windowHeight: deviceWindowHeight
@@ -129,6 +148,9 @@ class HomeMenu extends React.Component<Props, State>  {
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
   }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -140,54 +162,62 @@ class HomeMenu extends React.Component<Props, State>  {
       .catch(err => console.log(err));
   }
 
-  videoOverlayClose() {
-    this.setState({
-      overlayData: null
-    })
-    window.history.pushState({}, "Videos", this.state.urlHistoryState)
-
-  }
-
-  handleSearchClick(data: any) {
-    this.setState({
-      overlayData: data,
-      urlHistoryState: window.location.href
-    })
-    window.history.pushState({}, "Search", "search")
-
-  }
   render() {
     // console.log(this.state.position)
     return (
-
-      <div className={"navbar-custom " + this.state.logoColor} id="navbar">
-        <NavbarBrand className="brand" href="/">
-          <img src={"/static/logos/house-" + this.state.logoColor + ".png"} alt="Logo: Stylized House" className="logoHouse" onClick={() => { this.props.history.push("/") }} />
-          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + ".png"} alt="Logo: The Meeting House" className="logoText" onClick={() => { this.props.history.push("/") }} />) : null}
+      <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
+        <NavbarBrand tag={Link} className="brand" to="/">
+          <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
+          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className="logoText" />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ? <div className="liveEvent" onClick={() => { this.navigate(this.state.liveEvent) }}>Notes</div> : null}
-        {this.state.showSearch ? <div><img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => { this.handleSearchClick("search") }} />
-          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay></div>
+        {this.state.showLiveEvent ? <Link className="liveEvent" to="/live">{this.state.liveTitle}</Link> : null}
+        {this.state.showSearch
+          ? <div>
+            <img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => this.setState({ overlayType: 'search' })} />
+            <VideoOverlay onClose={() => this.setState({ overlayType: null })} data={this.state.overlayType}></VideoOverlay>
+          </div>
           : null}
         {this.state.showMenu ? <Navbar color="white" expand="md" className={"navbar fixed-left"}>
-          <NavbarToggler className={"navbar-light"} onClick={this.toggle} />
+          <NavbarToggler onClick={this.toggle}>
+            <HamburgerMenu isOpen={this.state.isOpen} menuClicked={this.toggle.bind(this)} width={24} height={16} strokeWidth={2} borderRadius={45} color="black" />
+          </NavbarToggler>
           <div className="navbar-expander">&nbsp;</div>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar className={this.state.movingMenu ? "ml-auto " + this.state.position : "ml-auto fixed"}>
               {
                 this.state.MainMenuItems ?
-                  this.state.MainMenuItems.map((item:any) => {
+                  this.state.MainMenuItems.map((item: MainMenuItem) => {
+                    const shouldExpand = (
+                      this.state.expand === item.location ||
+                      this.props.location.pathname === item.location ||
+                      item.children?.some(a => a.location === this.props.location.pathname)
+                    );
                     return (
-                      <div key={item.location}>
-                        <NavLink className="bigNav" key={item.location} href={item.location}>
+                      <div key={item.location} className="linkContainer">
+                        <NavLink
+                          className="bigNav"
+                          activeStyle={{ fontWeight: 'bold' }}
+                          style={{ display: 'inline-block' }}
+                          key={item.location}
+                          to={item.location}>
                           {item.name}
                         </NavLink>
-                        {(this.props.location.pathname === item.location || (item.children != null && item.children.map((a:any) => a.location).includes(this.props.location.pathname)) ?
-                          (item.children != null ?
-
-                            item.children.map((item2:any) => {
-                              return (<NavLink className="smallNav" key={item2.location} href={item2.location}>{item2.name}</NavLink>)
-                            }) : null)
+                        {item.children != null ?
+                          <Button className="expanderButton" onClick={() => { this.setState({ expand: this.state.expand === item.location ? null : item.location }) }}>
+                            <div className={shouldExpand ? "vertical-line xstate" : "vertical-line"}></div>
+                            <div className={shouldExpand ? "horizontal-line xstate" : "horizontal-line"}></div>
+                          </Button>
+                          : null}
+                        {(shouldExpand ?
+                          item.children?.filter(i => i.name === 'Notes' ? this.state.showNotes : true).map(item2 =>
+                            <NavLink
+                              className="smallNav"
+                              key={item2.location}
+                              to={item2.location}
+                              activeStyle={{ fontWeight: 'bold' }}>
+                              {item2.name}
+                            </NavLink>
+                          )
                           : null)}
                       </div>
                     )

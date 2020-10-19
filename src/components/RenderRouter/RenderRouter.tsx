@@ -1,29 +1,39 @@
 
 import React from 'react';
-import HeaderItem from './HeaderItem';
-import ContentItem from './ContentItem';
-import GiveItem from './GiveItem';
-import Give2Item from './Give2Item';
-import ListItem from './ListItem';
-import VideoPlayer from './VideoPlayer';
-import VideoPlayerLive from './VideoPlayerLive';
-import SVGItem from './SVGItem';
-import HeroItem from './HeroItem';
-import TeachingItem from './TeachingItem';
-import DistanceGroupItem from './DistanceGroupItem';
-import SundayMorningItem from './SundayMorningItem';
-import HomeChurchItem from './HomeChurchItem';
-import FormItem from './FormItem';
-import GoContentItem from './GoContentItem';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import HomeMenu from '../Menu/HomeMenu';
-import HomeFooter from '../Menu/HomeFooter';
-import InstagramItem from './InstagramItem';
-import SearchItem from './SearchItem';
-import IFrameItem from './IFrameItem';
-import WeatherItem from './WeatherItem';
-import FAQItem from './FAQItem'
 import { Helmet } from 'react-helmet'
+import ErrorBoundary from 'components/ErrorBoundry';
+import ContentItem from './ContentItem';
+import BlogItem from './BlogItem';
+import ListItem from './ListItem';
+import HeroItem from './HeroItem';
+import HomeMenu from 'components/Menu/HomeMenu';
+import HomeFooter from 'components/Menu/HomeFooter';
+
+const HeaderItem = React.lazy(() => import('./HeaderItem'));
+const InstagramItem = React.lazy(() => import('./InstagramItem'));
+const SimpleItem = React.lazy(() => import('./SimpleItem'));
+const SearchItem = React.lazy(() => import('./SearchItem'));
+const IFrameItem = React.lazy(() => import('./IFrameItem'));
+const WeatherItem = React.lazy(() => import('./WeatherItem'));
+const FAQItem = React.lazy(() => import('./FAQItem'));
+const GiveItem = React.lazy(() => import('./GiveItem'));
+const Give2Item = React.lazy(() => import('./Give2Item'));
+const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
+const VideoPlayerLive = React.lazy(() => import('./VideoPlayerLive'));
+const SVGItem = React.lazy(() => import('./SVGItem'));
+const TeachingItem = React.lazy(() => import('./TeachingItem'));
+const DistanceGroupItem = React.lazy(() => import('./DistanceGroupItem'));
+const SundayMorningItem = React.lazy(() => import('./SundayMorningItem'));
+const HomeChurchItem = React.lazy(() => import('./HomeChurchItem'));
+const FormItem = React.lazy(() => import('./FormItem'));
+const GoContentItem = React.lazy(() => import('./GoContentItem'));
+const PodcastItem = React.lazy(() => import('./PodcastItem'));
+const BlogReader = React.lazy(() => import('./BlogReader'));
+const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
+const PaymentItem = React.lazy(() => import('./PaymentItem'));
+const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
+
 interface Props extends RouteComponentProps {
   content: any
   data: any
@@ -34,51 +44,51 @@ interface State {
 
 class RenderRouter extends React.Component<Props, State> {
 
+  renderItemNow(item: any, index: any) {
+    switch (item.type) {
+      case "og-tags": return null;
+      case "video-archive":
+      case "series-archive":
+        return (<ArchiveItem pageConfig={this.props.content.page.pageConfig} key={index} content={item} data={this.props.data}></ArchiveItem>);
+      case "header": return (<HeaderItem key={index} content={item}></HeaderItem>)
+      case "content": return (<ContentItem key={index} content={item}></ContentItem>)
+      case "videoPlayer": return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
+      case "blog": return (<BlogItem key={index} content={item}></BlogItem>);
+      case "post": return (<BlogReader data={this.props.data} key={index} content={item}></BlogReader>);
+      case "liveVideoPlayer": return (<VideoPlayerLive key={index} content={item}></VideoPlayerLive>);
+      case "list": return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
+      case "svg": return (<SVGItem key={index} content={item}></SVGItem>);
+      case "hero": return (<HeroItem data={this.props.data} key={index} content={item}></HeroItem>);
+      case "goContent": return (<GoContentItem key={index} content={item}></GoContentItem>);
+      case "teaching": return (<TeachingItem key={index} content={item}></TeachingItem>);
+      case "sunday-morning": return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
+      case "distance-groups": return (<DistanceGroupItem key={index} content={item}></DistanceGroupItem>);
+      case "home-church": return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
+      case "form": return (<FormItem key={index} content={item}></FormItem>);
+      case "instagram": return (<InstagramItem key={index} content={item}></InstagramItem>);
+      case "iframe": return (<IFrameItem key={index} content={item}></IFrameItem>);
+      case "search": return (<SearchItem key={index} content={item}></SearchItem>);
+      case "payment": return (<PaymentItem key={index} content={item}></PaymentItem>);
+      case "give": return (<GiveItem key={index} content={item}></GiveItem>);
+      case "give2": return (<Give2Item key={index} content={item}></Give2Item>);
+      case "faq": return (<FAQItem key={index} content={item}></FAQItem>);
+      case "simple": return (<SimpleItem key={index} content={item}></SimpleItem>);
+      case "podcasts": return (<PodcastItem data={this.props.data} key={index} content={item}></PodcastItem>)
+      case "weather": return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
+      case "teachingsearch": return (<TeachingSearch key={index} content={item}></TeachingSearch>);
+      default: return null
+    }
+
+
+  }
   renderItem() {
     if (this.props.content != null)
       return this.props.content.page.content.map((item: any, index: any) => {
         console.log(item.type)
-        if (item.type === "header")
-          return (<HeaderItem key={index} content={item}></HeaderItem>)
-        else if (item.type === "content")
-          return (<ContentItem key={index} content={item}></ContentItem>);
-        else if (item.type === "videoPlayer")
-          return (<VideoPlayer data={this.props.data} key={index} content={item}></VideoPlayer>);
-          else if (item.type === "liveVideoPlayer")
-          return (<VideoPlayerLive data={this.props.data} key={index} content={item}></VideoPlayerLive>);
-        else if (item.type === "list")
-          return (<ListItem pageConfig={this.props.content.page.pageConfig} data={this.props.data} key={index} content={item}></ListItem>);
-        else if (item.type === "svg")
-          return (<SVGItem key={index} content={item}></SVGItem>);
-        else if (item.type === "hero")
-          return (<HeroItem data={this.props.data} key={index} content={item}></HeroItem>);
-        else if (item.type === "goContent")
-          return (<GoContentItem key={index} content={item}></GoContentItem>);
-        else if (item.type === "teaching")
-          return (<TeachingItem key={index} content={item}></TeachingItem>);
-        else if (item.type === "sunday-morning")
-          return (<SundayMorningItem key={index} content={item}></SundayMorningItem>);
-        else if (item.type === "distance-groups")
-          return (<DistanceGroupItem key={index} content={item}></DistanceGroupItem>);
-        else if (item.type === "home-church")
-          return (<HomeChurchItem key={index} content={item}></HomeChurchItem>);
-        else if (item.type === "form")
-          return (<FormItem key={index} content={item}></FormItem>);
-        else if (item.type === "instagram")
-          return (<InstagramItem key={index} content={item}></InstagramItem>);
-        else if (item.type === "iframe")
-          return (<IFrameItem key={index} content={item}></IFrameItem>);
-        else if (item.type === "search")
-          return (<SearchItem key={index} content={item}></SearchItem>);
-        else if (item.type === "give")
-          return (<GiveItem key={index} content={item}></GiveItem>);
-        else if (item.type === "give2")
-          return (<Give2Item key={index} content={item}></Give2Item>);
-        else if (item.type === "faq")
-          return (<FAQItem key={index} content={item}></FAQItem>);
-        else if (item.type==="weather")
-        return (<WeatherItem data={this.props.data} key={index} content={item}></WeatherItem>);
-        else return null
+        return <ErrorBoundary key={index}>
+          {this.renderItemNow(item, index)}
+        </ErrorBoundary>
+
       })
     else return null
   }

@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Button } from 'reactstrap';
+import { Link } from 'components/Link/Link';
+
 interface Props {
     content: any
 }
@@ -16,7 +18,7 @@ export default class HeaderItem extends React.Component<Props, State> {
     }
     parallaxDetail = [200, 250];
     render() {
-        var image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
+        const image1 = this.state.content.image1[Math.floor(Math.random() * this.state.content.image1.length)];
 
         return (
             <div className="headerItem">
@@ -26,7 +28,7 @@ export default class HeaderItem extends React.Component<Props, State> {
                     <div className="headerText1" >{this.state.content.text1}</div>
                     <div className="headerText2" >{this.state.content.text2}</div>
                     <Button>{this.state.content.button1Text}</Button>
-                    <a href={this.state.content.link1Action}>{this.state.content.link1Text}</a>
+                    <Link to={this.state.content.link1Action}>{this.state.content.link1Text}</Link>
                     <img src={image1.src} alt={image1.alt} className="example-mask" style={{ maskImage: 'url("' + this.state.content.image1Mask + '")', WebkitMaskImage: 'url("' + this.state.content.image1Mask + '")', width: this.state.content.image1Width }} />
                 </div>
             </div>

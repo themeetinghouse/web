@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "search.exclude": {
+      "**/node_modules": false
+    },
+    "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+    "typescript.tsdk": "node_modules/typescript/lib"
+  }
+}

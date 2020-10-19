@@ -1,7 +1,10 @@
 type Query {
+  getBiblePassage(bibleId: String, passage: String):BibleResponse @function(name: "getBiblePassage-${env}")
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
   getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
+  getYoutubeVideoContentDetails(videoId: String): YoutubePlaylistItems!
+  getYoutubeVideoStatistics(videoId: String): YoutubePlaylistItems!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
   downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
   getTakenoteSeries(user:Int,start:Int,count:Int): [TakeNoteSeries]
@@ -11,16 +14,37 @@ type Query {
   getFBEvents(pageId:String):FBData
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
+  fuzzySearchVideosByType(videoType: String, filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
+  askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
+} 
+type BibleResponse {
+  data: BibleData
+  meta: BibleMetaData
 }
-type emailResponse{
+type BibleData {
+  id: String
+  bibleId: String
+  orgId: String
+  content: String
+  reference: String
+  copyright: String
+}
+type BibleMetaData {
+  fums: String
+  fumsId: String
+  fumsJsInclude: String
+  fumsJs: String
+  fumsNoScript: String
+}
+type emailResponse {
   err:String
   data:String
 }
-type F1ListEvent{
+type F1ListEvent {
   id:String
   event:F1ListEventSchedules
 }
@@ -80,6 +104,12 @@ type FBData{
   data: [FBEvent]
   paging: FBPaging
 }
+type FBTime{
+  start_time:String
+  end_time:String
+  id:String
+  ticket_uri:String
+}
 type FBEvent{
   description:String
   end_time: String
@@ -87,6 +117,7 @@ type FBEvent{
   place: FBPlace
   start_time: String
   id: String
+  event_times:[FBTime]
 }
 type fuzzySearchableVideoConnection {
   items: [Video]
@@ -423,6 +454,7 @@ type YoutubePlaylistItemsItem
   snippet: YoutubeSnippet
   contentDetails: YoutubePlaylistItemDetails
   status: YoutubeStatus
+  statistics: YoutubeStatistics
 }
 type YoutubePlaylistItemsItem2
  { 
@@ -442,7 +474,92 @@ type YoutubePlaylistItemDetails{
   caption: String
   licensedContent: Boolean
   projection: String
-} 
+  contentRating: YoutubeContentRating
+  regionRestriction: YoutubeRegionRestriction
+  hasCustomThumbnail: Boolean
+}
+type YoutubeStatistics{
+    viewCount: String
+    likeCount: String
+    dislikeCount: String
+    favoriteCount: String
+    commentCount: String
+}
+type YoutubeRegionRestriction{
+  allowed: [String]
+  blocked: [String]
+}
+type YoutubeContentRating{
+  acbRating: String
+  agcomRating: String
+  anatelRating: String
+  bbfcRating: String
+  bfvcRating: String
+  bmukkRating: String
+  catvRating: String
+  catvfrRating: String
+  cbfcRating: String
+  cccRating: String
+  cceRating: String
+  chfilmRating: String
+  chvrsRating: String
+  cicfRating: String
+  cnaRating: String
+  cncRating: String
+  csaRating: String
+  cscfRating: String
+  czfilmRating: String
+  djctqRating: String
+  djctqRatingReasons: [String]
+  ecbmctRating: String
+  eefilmRating: String
+  egfilmRating: String
+  eirinRating: String
+  fcbmRating: String
+  fcoRating: String
+  fmocRating: String
+  fpbRating: String
+  fpbRatingReasons: [String]
+  fskRating: String
+  grfilmRating: String
+  icaaRating: String
+  ifcoRating: String
+  ilfilmRating: String
+  incaaRating: String
+  kfcbRating: String
+  kijkwijzerRating: String
+  kmrbRating: String
+  lsfRating: String
+  mccaaRating: String
+  mccypRating: String
+  mcstRating: String
+  mdaRating: String
+  medietilsynetRating: String
+  mekuRating: String
+  mibacRating: String
+  mocRating: String
+  moctwRating: String
+  mpaaRating: String
+  mpaatRating: String
+  mtrcbRating: String
+  nbcRating: String
+  nbcplRating: String
+  nfrcRating: String
+  nfvcbRating: String
+  nkclvRating: String
+  oflcRating: String
+  pefilmRating: String
+  rcnofRating: String
+  resorteviolenciaRating: String
+  rtcRating: String
+  rteRating: String
+  russiaRating: String
+  skfilmRating: String
+  smaisRating: String
+  smsaRating: String
+  tvpgRating: String
+  ytRating: String
+}
 type YoutubeStatus{
   uploadStatus: String
   privacyStatus: String
@@ -500,7 +617,37 @@ type YoutubePlayList
   pageInfo: YoutubePageInfo
   items: [YoutubePlayListItem]
 }
-
+type LiveMenu {
+  title: String!
+  link: String!
+  linkType: String!
+}
+type ZoomItem {
+  title: String!
+  link: String!
+}
+type Livestream
+ @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+{
+  id: ID!
+  date: String
+  startTime: String
+  videoStartTime: String  
+  endTime:String
+  prerollYoutubeId: String
+  liveYoutubeId: String 
+  showChat: Boolean
+  showKids: Boolean
+  menu: [LiveMenu]
+  zoom: [ZoomItem]
+  titles: [String]
+  homepageLink: String
+}
 type Speaker
  @model
  @auth(rules:[
@@ -538,13 +685,46 @@ type Series
 {
   id: ID!
   videos: [Video] @connection(name: "VideosSeries",limit: 50)
+  blogs: [Blog] @connection(name: "BlogInVideoSeries",limit: 20)
   seriesType: String
   title: String
   description: String
   image: String
   startDate: String
   endDate: String
+  notes: [Notes] @connection(keyName: "notesBySeriesId", fields: ["id"])
 }
+type CustomPlaylist
+  @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+{
+  id: ID!
+  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"])
+  seriesType: String
+  title: String
+  description: String
+}
+
+type CustomPlaylistVideo
+ @model(queries: null)
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+  @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"])
+  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"]) 
+{
+  id: ID!
+  videoID: ID!
+  customPlaylistID: ID!
+  customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
+  video: Video @connection(fields: ["videoID"])
+} 
 type Video 
  @model 
  @searchable
@@ -566,9 +746,12 @@ type Video
   episodeNumber:Int
   seriesTitle:String
   series:Series  @connection(name: "VideosSeries")
+  customPlaylistIDs: [String]
+  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"])
   publishedDate:String
   recordedDate:String
   description:String
+  viewCount:String
   closedCaptioning:[String]
   referencedMedia:[String]
   campaigns:[String]
@@ -584,6 +767,165 @@ type Video
   audioURL:String
 }
 
+type BlogSeries
+  @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
+ ])
+
+{
+  id: ID!
+  blogs: [BlogSeriesBridge] @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
+  seriesType: String
+  title: String
+  description: String
+  image: String
+  startDate: String
+  endDate: String
+}
+
+type BlogSeriesBridge
+ @model(queries: null)
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
+ ])
+  @key(name: "byBlogSeries", fields: ["blogSeriesID", "blogPostID"], queryField: "blogBridgeBySeries")
+  @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost") 
+{
+id: ID!
+blogSeriesID: ID
+blogPostID: ID
+blogSeries: BlogSeries @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
+blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
+}
+
+type Blog 
+ @model 
+ @searchable
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
+ ])
+  @key(name: "ByBlogStatus",fields: ["blogStatus","publishedDate"], queryField:"getBlogByBlogStatus")
+
+{
+  id: ID!
+  author: String
+  createdBy: String
+  createdDate: String
+  publishedDate: String
+  expirationDate: String
+  series:Series @connection(name: "BlogInVideoSeries")
+  blogSeries:[BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
+  blogStatus:String
+  description:String
+  content:String
+  blogTitle:String
+  topics:[String]
+  tags:[String]
+}
+
+
+type InstagramThumbnail 
+{
+  src: String
+  config_width: Int
+  config_height: Int
+}
+
+type Instagram 
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
+ ])
+ @key(name: "instagramByLocation", fields: ["locationId", "timestamp"], queryField: "getInstagramByLocation") 
+{
+  id: ID!
+  locationId: String
+  thumbnails: [InstagramThumbnail]
+  altText: String
+  timestamp: Int
+}
+
+enum NoteDataType {
+  questions
+  notes
+}
+
+type Verse
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow:groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
+ ])
+  @key(name: "verseByNoteId", fields: ["noteId"])
+ {
+  id: ID!
+  key: String!
+  offset: Int!
+  length: Int!
+  dataType: NoteDataType!
+  content: String!
+  youVersionUri: String!
+  noteId: ID!
+  note: Notes @connection(fields: ["noteId"])
+ }
+
+type Notes 
+ @model 
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
+ ])
+ @key(name: "notesBySeriesId", fields: ["seriesId"])
+{
+  id: ID!
+  title:String
+  content:String
+  questions:String
+  jsonContent:String
+  jsonQuestions:String
+  episodeDescription:String
+  episodeNumber:Int
+  seriesId:ID!
+  series:Series @connection(fields: ["seriesId"])
+  pdf:String
+  topics:[String]
+  tags:[String]
+  verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
+}
+
+enum CommentDataType {
+  biblePassage
+  image
+  text
+}
+
+type Comment @model @searchable
+  @auth(rules: [{ allow: owner }])
+  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
+  id: ID!
+  comment: String!
+  tags: [String]
+  noteType: NoteDataType!
+  commentType: CommentDataType!
+  noteId: String!
+  textSnippet: String
+  imageUri: String
+  key: String!
+  date: String!
+  time: String!
+  owner: String!
+}
 
 type WebPage
  @model 

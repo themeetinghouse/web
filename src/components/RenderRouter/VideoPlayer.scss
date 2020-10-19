@@ -6,13 +6,13 @@
             width: 100%;
             height: 100%;
             padding: 0;
-            overflow: auto;
             margin-bottom: 5vw;
       }
 
       .VideoPlayerDetails {
             left: 10vw;
             position: relative;
+            max-width: 50vw;
       }
 
       .VideoPlayerIframe {
@@ -39,7 +39,7 @@
       .VideoPlayerSeriesAudio,
       .VideoPlayerSeriesNotes {
             float: left;
-            margin-right: 2vw;
+            margin-right: 3vw;
             color: #ffffff;
             font-family: Graphik Web;
       }
@@ -74,8 +74,66 @@
             left: 10vw;
             position: relative;
             margin-top: 2vw;
-            width: 70vw;
+            width: 50vw;
       }
+
+      .DownloadLink {
+            color: #ffffff !important;
+            border-bottom: solid;
+            padding-bottom: 1px;
+            text-decoration: none !important;
+      }
+
+      .button-icon {
+            margin-right: 16px;
+      }
+
+      .dropdown-toggle:after {
+            display: none;
+      }
+
+      #share-custom {
+            border-radius: 0;
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            font-family: Graphik Web;
+            font-weight: bold;
+            width: 200px;
+            margin-top: 5px;
+            box-shadow: none !important;
+      }
+
+      .ShareButtonDesktop {
+            float: right;
+            margin-right: 10vw;
+      }
+
+      .ShareButtonMobile {
+            display:none;
+      }
+
+      .social-share-icon {
+            margin-right: 20px;
+      }
+
+      .ShareMenu {
+            border-radius: 0;
+      }
+
+      .dropitem {
+            width: 200px;
+      }
+
+      .dropitem:hover {
+            background-color: #C8C8C8;
+            border: none;
+      }
+
+      .ShareOption {
+            text-align: left;
+      }
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -86,13 +144,13 @@
             width: 100%;
             height: 100%;
             padding: 0;
-            overflow: auto;
             margin-bottom: 5vw;
       }
 
       .VideoPlayerDetails {
             left: 10vw;
             position: relative;
+            max-width: 50vw;
       }
 
       .VideoPlayerIframe {
@@ -166,8 +224,7 @@
             width: 100%;
             height: 100%;
             padding: 0;
-            overflow: auto;
-            margin-bottom: 5vw;
+            margin-bottom: 10vw;
             margin-top:20vw;
       }
 
@@ -207,9 +264,10 @@
       .VideoPlayerSeriesAudio,
       .VideoPlayerSeriesNotes {
             float: left;
-            margin-right: 2vw;
+            margin-right: 5vw;
             color: #ffffff;
             font-family: Graphik Web;
+            margin-bottom: 10vw;
       }
 
       .VideoPlayerSeries,
@@ -237,7 +295,7 @@
       .VideoPlayerExtra {
             margin-top: 3vw;
             position: relative;
-            left: 10vw;
+            left: 5vw;
       }
 
       .VideoPlayerDescription {
@@ -249,5 +307,62 @@
             width: 100%;
             padding-left: 5vw;
             padding-right: 5vw;
+      }
+
+      .DownloadLink {
+            color: #ffffff !important;
+            border-bottom: solid;
+            padding-bottom: 1px;
+            text-decoration: none !important;
+            margin-right: 5vw;
+      }
+
+      .button-icon {
+            margin-right: 16px;
+      }
+
+      .dropdown-toggle:after {
+            display: none;
+      }
+
+      #share-custom {
+            border-radius: 0;
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            font-family: Graphik Web;
+            font-weight: bold;
+            width: 125px;
+            box-shadow: none !important;
+      }
+
+      .ShareButtonDesktop {
+            display: none;
+      }
+
+      .ShareButtonMobile {
+            margin-left: 5vw;
+      }
+
+      .social-share-icon {
+            margin-right: 20px;
+      }
+
+      .ShareMenu {
+            border-radius: 0;
+            width: 180px;
+      }
+
+      .dropitem {
+            width: 178px;
+      }
+
+      .dropitem:hover {
+            background-color: #C8C8C8;
+            border: none;
+      }
+
+      .ShareOption {
+            text-align: left;
       }
 }

@@ -19,15 +19,103 @@
     .ClearAllButton {
           white-space: nowrap;
           font-size: 12px;
+          font-weight: normal;
+          background: #ffffff;
+          border: none;
           line-height: 41px;
           height: 43px;
           padding: 0 10px;
           cursor: pointer;
-          color: $onyxblack;
+          color: $onyxblacktext;
           &:hover {
                 text-decoration: underline !important;
           }
     }
+}
+
+.AddToCalendarButtonContainer {
+    position: relative;
+    display: inline-block;
+    padding: 12px 30px 12px 0;
+
+    .AddToCalendarIcon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-right: 0;
+        padding-left: 0;
+        pointer-events: none;
+        top: 50%;
+        font-size: 12px;
+        transform: translateY(-50%);
+    }
+    .react-add-to-calendar__button {
+        font-family: Graphik Web;
+        color: $onyxblacktext;
+        border-width: 0px;
+        border-radius: 0;
+        font-size: 16px;
+        font-weight:normal;
+        padding-left: 35px;
+        text-decoration: none !important;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline !important;
+        }
+    }
+    .react-add-to-calendar__dropdown {
+        position: absolute;
+        z-index: 100;
+        top: 48px;
+        background: white;
+        border: 1px solid $onyxblacktext;
+        padding: 10px 20px 0 20px;
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-family: Graphik Web;
+            font-size: 14px;
+            a {
+                color: $onyxblacktext !important;
+                vertical-align: middle;
+            }
+            li {
+                position: relative;
+                vertical-align: middle;
+            }
+            a::before {
+                width: 15px;
+                height: 15px;
+                vertical-align: middle;
+                background-size: contain;
+                background-position-y: center;
+                background-repeat: no-repeat;
+                display: inline-block;
+                content: "";
+                margin: 5px 5px 8px 0;
+
+            }
+            a.apple-link::before {
+                background-image: url("/static/svg/Apple.svg");
+            }
+            a.outlook-link::before {
+                background-image: url("/static/svg/Outlook.svg");
+            }
+            a.outlookcom-link::before {
+                background-image: url("/static/svg/Outlook.svg");
+            }
+            a.yahoo-link::before {
+                background-image: url("/static/svg/Yahoo.svg");
+            }
+            a.google-link::before {
+                background-image: url("/static/svg/Google.svg");
+            }
+        }
+    }
+}
+
+.ContactPastorIcon {
+    padding-bottom: 2px;
 }
 
 @media (min-width: 768px) {
@@ -48,7 +136,8 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 88vh;
+        height: 98vh;
+        top:-2vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -74,11 +163,12 @@
     .SundayMorningItemDiv6 {
         margin-left: auto;
         margin-right: 10px;
-        padding-top: 10px;
+        padding-top:10px;
     }
 
     .SundayMorningItemListData {
         overflow-y: auto;
+        overflow-x: hidden;
         height: 80vh;
     }
 
@@ -86,6 +176,7 @@
         font-size: 3vw;
         font-family: Graphik Web;
         font-weight: bold;
+        color: $onyxblacktext;
     }
 
     .SundayMorningH3 {
@@ -94,6 +185,7 @@
         font-weight: bold;
         margin-top: 15px;
         margin-bottom: 15px;
+        color: $onyxblacktext;
         cursor: pointer;
         &:hover {
               text-decoration: underline;
@@ -123,6 +215,7 @@
         font-family: Graphik Web;
         font-size: 16px;
         font-weight: 600;
+        color: $onyxblacktext;
     }
 
     .SundayMorningMap {
@@ -148,7 +241,7 @@
     .SundayMorningButton{
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
         font-size: 1.2vw;
@@ -166,14 +259,24 @@
     .SundayMorningButton1 {
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
+                padding:0.5vw 1vw 0.5vw 1vw;
         margin:0.1vw;
         font-weight:normal;
-        width:11vw;
+    }
+    #customBlackButton{
+        color: #ffffff;
+        background-color: #1a1a1a;
+        font-size:1vw;
+        margin-top:0;
+        min-width:132px;
+        min-height:40px;
+        line-height: 14px;
+        width:9.167vw;
+        height:2.778vw;
+
     }
     .SundayMorningButton1:hover{
         border-width: 0px;
@@ -181,7 +284,7 @@
     }
     .SundayMorningButton2 {
         font-family: Graphik Web;
-        color: #000000;
+        color: $onyxblacktext;
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
@@ -204,7 +307,41 @@
         height:25px;
     }
 
+    .emailButton {
+        background-color: #ffffff00 !important;
+        border: none !important;
+        color: $onyxblacktext !important;
+        outline: none !important;
+        display: inline-block;
+        font-weight: normal;
+        margin-left: 1vw;
+        padding: 0 10px 0 0;
+    }
 
+    .emailText {
+        color: $onyxblacktext !important;
+        padding: 0 0 0 0;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1100px) {
+    #customBlackButton{
+        line-height: 2vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .SundayMorningButtonContainer {
+        width: 190px;
+    }
+
+    .emailButton {
+        margin-left: 0 !important;
+    }
+    #customBlackButton{
+        font-size:1.3vw;
+        line-height: 1.6vw;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -225,7 +362,7 @@
         position: absolute;
         left: 40vw;
         width: 40vw;
-        height: 88vh;
+        height: 100vh;
     }
 
     .SundayMorningItemDiv3 {
@@ -262,11 +399,13 @@
         font-size: 3vw;
         font-family: Graphik Web;
         font-weight: bold;
+        color: $onyxblacktext;
     }
 
     .SundayMorningH3 {
         font-size: 2vw;
         font-family: Graphik Web;
+        color: $onyxblacktext;
     }
 
     .SundayMorningMap {
@@ -285,7 +424,7 @@
     .SundayMorningButton{
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
         font-size: 1.2vw;
@@ -303,7 +442,7 @@
     .SundayMorningButton1 {
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
         font-size: 1.2vw;
@@ -318,7 +457,7 @@
     }
     .SundayMorningButton2 {
         font-family: Graphik Web;
-        color: #000000;
+        color: $onyxblacktext;
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
@@ -340,10 +479,6 @@
         padding-right:10px;
         height:25px;
     }
-
-    .ContactLeadersButton {
-        font-size: 14px;      
-    }        
   
     .AddToCalendarButtonContainer {
         .react-add-to-calendar__button {
@@ -351,11 +486,27 @@
         }
     }        
 
+    .emailButton {
+        background-color: #ffffff00 !important;
+        border: none !important;
+        color: $onyxblacktext !important;
+        outline: none !important;
+        display: inline-block;
+        font-weight: normal;
+        margin-left: 1vw;
+        padding: 0 10px 0 0;
+    }
+
+    .emailText {
+        color: $onyxblacktext !important;
+        font-size: 14px;
+        padding: 0 0 0 0;
+    }
+
 }
 
 @media (max-width: 767px) {
     .SundayMorningItem {
-
         padding-bottom: 10vw;
         padding-top: 5vh;
     }
@@ -408,6 +559,7 @@
         font-size: 24px;
         font-family: Graphik Web;
         font-weight: bold;
+        color: $onyxblacktext;
     }
 
     .SundayMorningH3 {
@@ -418,6 +570,7 @@
         margin-bottom: 15px;
         margin-right: 120px;
         cursor: pointer;
+        color: $onyxblacktext;
         &:hover {
               text-decoration: underline;
         }
@@ -461,12 +614,13 @@
         font-family: Graphik Web;
         font-size: 16px;
         font-weight: 600;
+        color: $onyxblacktext;
     }
 
     .SundayMorningButton {
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
         font-size: 1.2vw;
@@ -484,7 +638,7 @@
     .SundayMorningButton1 {
         font-family: Graphik Web;
         color: #ffffff;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         border-width: 0px;
         border-radius: 0;
         font-size: 14px;
@@ -492,13 +646,26 @@
         font-weight:normal;
         white-space: nowrap;
     }
+
+    #customBlackButton{
+        color: #ffffff;
+        background-color: #1a1a1a;
+        min-width:132px;
+        min-height:40px;
+        padding-top:12px;
+        padding-bottom:12px;
+        padding-right:24px;
+        padding-left:24px;
+        line-height: 18px;
+        font-size:12px;
+    }
     .SundayMorningButton1:hover{
         border-width: 0px;
         border-radius: 0;
     }
     .SundayMorningButton2 {
         font-family: Graphik Web;
-        color: #000000;
+        color: $onyxblacktext;
         background-color: #ffffff;
         border-width: 0px;
         border-radius: 0;
@@ -521,12 +688,6 @@
         padding-right:10px;
         height:25px;
     }
-
-    .ContactLeadersButton {
-        font-size: 14px;    
-        padding-left: 5px;
-        padding-right: 0;
-    }        
   
     .AddToCalendarButtonContainer {
 
@@ -535,5 +696,22 @@
             font-size: 14px;
         }
     }        
+
+    .emailButton {
+        background-color: #ffffff00 !important;
+        border: none !important;
+        color: $onyxblacktext !important;
+        outline: none !important;
+        display: inline-block;
+        font-weight: normal;
+        margin-left: 1vw;
+        padding: 0 10px 0 0;
+    }
+
+    .emailText {
+        color: $onyxblacktext !important;
+        font-size: 14px;
+        padding: 0 0 0 0;
+    }
 
 }

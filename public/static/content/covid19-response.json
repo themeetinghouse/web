@@ -1,0 +1,103 @@
+{
+    "page": {
+        "name": "covid-19-response",
+        "title": "COVID-19 Response",
+        "keywords": "",
+        "description": "",
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor": "white",
+            "showSearch": false,
+            "showFooter": false,
+            "showMenu": false,
+            "isPopup": true,
+            "navigateOnPopupClose": "/"
+        },
+        "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-images/covid19.jpg",
+                "url": "https://www.themeetinghouse.com/covid19",
+                "title": "COVID-19 Response",
+                "description": "Check out the latest updates from The Meeting House's COVID-19 response."
+            },
+            {
+                "type": "simple",
+                "header1": "COVID-19 Response",
+                "header2": "The latest updates from The Meeting House.",
+                "text": [
+                    {
+                        "class": "SimpleItemText",
+                        "text": "As the situation around COVID-19 continues to develop with growing uncertainty and new challenges, we will continue to update you regularly to stay connected as a church family."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "To offer some clarity as we all make adjustments to our lives, we wanted to share our plans for what life at The Meeting House will look like in the coming weeks. We believe these are the most loving and proactive steps we can take to care for our church family, our neighbours, and our broader community."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-We will not be having in-person Sunday services at any of our locations for the foreseeable future."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-We will transition to online church services via livestream every Sunday at 10:00am on our website."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-Our pastors will continue to work with our home church elders to find the best solutions to help our home churches connect online and support one another, care for our kids and youth, and love our neighbours."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-Many of our home churches are continuing to meet online during this time for support, community, prayer, discussion, and connection. If you are looking for community during this crisis please reach out and connect with one of our home church leaders."
+                    },
+                    {
+                        "class": "SimpleItemTextTab",
+                        "text": "-We know that pausing in-person Sunday services impacts the donations we receive and need to fuel our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage the good news of Jesus. To give, go to our home page and select Make A Difference."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "For deeper thoughts about our role as followers of Jesus, and the role of the church during this season, check out the reflective video we recently filmed with Bruxy at the bottom of this page."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "Thank you for your continued support and prayers as we navigate the changing circumstances in this current reality. Please continue to pray for our entire church family as we lean into our vision and continue to find new and innovative ways of introducing spiritually curious people to the Jesus-centred life."
+                    },
+                    {
+                        "class": "SimpleItemTextBold",
+                        "text": "How We Respond to COVID-19 (March 13, 2020)"
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "In light of the rapidly developing situation around COVID-19, we realize that there is a lot of fear and uncertainty as we navigate the constantly changing stream of news and updates. This is a complicated time for our world and our communities."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "However, in all this we want to remain firmly grounded in the truth and fix our attention on Jesus. We do not make decisions out of fear but instead follow his example to love our neighbours and to care for those around us who may be more vulnerable."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "While we are making these changes and taking precautionary measures, we are not shutting down our mission or compromising our purpose and vision."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "This is an opportunity for our mission to take a different form. We want to use digital tools and media to engage in online community building, supporting not only our church family but connecting with others who are isolated and aren’t able to engage in community and fellowship."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "We want to be a church that is always moving forward and reaching people in every context. We know that God will use what we have to continue building his kingdom as we seek to introduce spiritually curious people to the Jesus-centred life."
+                    },
+                    {
+                        "class": "SimpleItemText",
+                        "text": "We pray for God’s provision, leading, and the wisdom of the Holy Spirit during this situation. We pray for the health and safety of our church, our cities, our neighbours, and our world. And we continue to pray for Spirit-led courage and creativity as we ask God to use us to serve and love people well."
+                    },
+                    {
+                        "type": "video",
+                        "class": "SimpleVideoPlayerIframe",
+                        "id": "WaG1S6Laa-4"
+                    }
+                ]
+            }
+        ]
+    }
+}

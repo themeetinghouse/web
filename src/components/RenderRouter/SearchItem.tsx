@@ -9,7 +9,7 @@ import * as queries from '../../graphql/queries';
 
 Amplify.configure(awsmobile);
 
-interface Props extends RouteComponentProps{
+interface Props extends RouteComponentProps {
   content: any
 
 }
@@ -18,7 +18,7 @@ interface State {
   searchResults: any
 }
 
- class ContentItem extends React.Component<Props, State>  {
+class ContentItem extends React.Component<Props, State>  {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -30,19 +30,19 @@ interface State {
     if (window.location.hostname === "localhost")
       return "https://localhost:3006"
     else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/"+size
+      return "https://beta.themeetinghouse.com/cache/" + size
     else
-      return "https://www.themeetinghouse.com/cache/"+size
+      return "https://www.themeetinghouse.com/cache/" + size
   }
   doSearch(e: any) {
-    var targetValue = e.target.value
+    const targetValue = e.target.value
     this.search(targetValue, null)
   }
-  
+
   search(e: any, nextId: any) {
 
     console.log(e)
-    const fuzzySearchVideos:any = API.graphql(graphqlOperation(queries.fuzzySearchVideos, { filter: e, limit: 10, nextToken: nextId }));
+    const fuzzySearchVideos: any = API.graphql(graphqlOperation(queries.fuzzySearchVideos, { filter: e, limit: 10, nextToken: nextId }));
     fuzzySearchVideos.then((json: any) => {
       console.log(json)
       if (nextId == null)
@@ -57,35 +57,35 @@ interface State {
   }
   openVideo(item: any) {
     console.log(item)
-    console.log("/videos/"+item.series.id+"/"+item.id)
-    this.navigateTo("/videos/"+item.series.id+"/"+item.id)
-//    this.navigateTo("/videos/"+item.series+"/"+item.episodeId)
+    console.log("/videos/" + item.series.id + "/" + item.id)
+    this.navigateTo("/videos/" + item.series.id + "/" + item.id)
+    //    this.navigateTo("/videos/"+item.series+"/"+item.episodeId)
   }
-  
-  navigateTo(location:any) {
+
+  navigateTo(location: any) {
     this.props.history.push(location, "as")
     const unblock = this.props.history.block('Are you sure you want to leave this page?');
     unblock();
 
-}
-  
+  }
+
   render() {
-    const focusInputField = (input:any) => {
+    const focusInputField = (input: any) => {
       if (input) {
-        setTimeout(() => {input.focus()}, 100);
+        setTimeout(() => { input.focus() }, 100);
       }
     };
     return (<div className="SearchItem" >
       <input className="SearchItemInput" autoFocus={true} ref={focusInputField} onChange={(e: any) => { this.doSearch(e) }} placeholder="Search..."></input>
       <div className="SearchItemDiv">
-        <div className="TrendingSearches"/>
+        <div className="TrendingSearches" />
         <div className="SearchLinks">
           <div className="SearchLink HomeChurch" >
-            <img style={{objectFit:"cover"}} onClick={()=>{this.navigateTo("/find-homechurch")}} src="/static/images/HC1.jpg"/>
+            <img style={{ objectFit: "cover" }} alt="Homechurch" onClick={() => { this.navigateTo("/find-homechurch") }} src="/static/images/HC1.jpg" />
             <p>Find a home church <img alt="Go" src="\static\svg\ArrowRight.svg" /></p>
           </div>
-          <div style={{objectFit:"cover"}} onClick={()=>{this.navigateTo("/teaching")}} className="SearchLink Videos">
-            <img className="Image" src="/static/images/homepage-4-1.jpg" />
+          <div style={{ objectFit: "cover" }} onClick={() => { this.navigateTo("/teaching") }} className="SearchLink Videos">
+            <img className="Image" alt="teaching" src="/static/images/homepage-4-1.jpg" />
             <p>Videos</p>
           </div>
           {/* <div className="SearchLink Articles">
@@ -93,23 +93,23 @@ interface State {
             <p>Articles</p>
           </div> */}
         </div>
-          {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
-            if (item.episodeTitle !== null)
-              return (
-                <div key={item.id} onClick={(item2) => { this.openVideo(item) }} className="SearchResultItem">
-                  <img alt="TBD" className="Thumb" src={item.Youtube.snippet.thumbnails.high.url} />
-                  <div className="Content">
-                    <div className="ContentType">Video</div> 
-                    <div className="Title">{item.episodeTitle} - {item.seriesTitle}</div>
-                    <div className="Description">{item.description}</div>
-                  </div>
-                  <div className="Link">
-                    <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-                  </div>
-                </div>)
-            else
-              return null
-          }) : null}
+        {this.state.searchResults !== null ? this.state.searchResults.map((item: any) => {
+          if (item.episodeTitle !== null)
+            return (
+              <div key={item.id} onClick={() => { this.openVideo(item) }} className="SearchResultItem">
+                <img alt="TBD" className="Thumb" src={item.Youtube.snippet.thumbnails.high.url} />
+                <div className="Content">
+                  <div className="ContentType">Video</div>
+                  <div className="Title">{item.episodeTitle} - {item.seriesTitle}</div>
+                  <div className="Description">{item.description}</div>
+                </div>
+                <div className="Link">
+                  <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+                </div>
+              </div>)
+          else
+            return null
+        }) : null}
       </div>
     </div>)
   }

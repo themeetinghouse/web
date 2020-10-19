@@ -3,20 +3,27 @@
         "name": "oakville",
         "title": "The Meeting House - Oakville",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-images/oakville.jpg",
+                "url": "https://www.themeetinghouse.com/oakville",
+                "title": "The Meeting House - Oakville",
+                "description": "Our Oakville site is pretty great. Learn more about our location, people, Home Churches, events, and more."
+            },
+            {
                 "type": "hero",
                 "style": "full",
+                "showCovid": false,
                 "image1": [
                     {
                         "src": "/static/images/local-site-1-1.jpg",
@@ -36,27 +43,28 @@
                     }
                 ],
                 "header1": "Oakville",
-                "text1":"Sunday Service",
-                "text2":"8:00 am-9:00 am",
-                "text3":"9:30 am-10:30 am",
-                "text4":"11:15 am-12:15 pm",
-                "text5":"Includes full program for Infants to Grade 8",
-                "text6":"7:00pm | Wednesdays | Youth Midweek for Grades 6 to 12",                
-                "addToCalendar": true,
+                "button1Text": "Livestream",
+                "button1Action": "live",
+                "text1": "Church Online Sundays @10:00am",
+                "text1a": "Sunday Service",
+                "text2a": "8:00 am-9:00 am",
+                "text3a": "9:30 am-10:30 am",
+                "text4a": "11:15 am-12:15 pm",
+                "text5a": "Includes full program for Infants to Grade 8",
+                "text6a": "7:00pm | Wednesdays | Youth Midweek for Grades 6 to 12",
+                "addToCalendar": false,
                 "contactPastor": true,
-                "class":"locations",
+                "class": "locations",
                 "filterField": "id",
                 "filterValue": "oakville"
             },
-          
-
             {
                 "type": "list",
-                "style": "vertical",
+                "style": "staff",
                 "class": "staff",
                 "header1": "Our Team",
                 "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "OAKV"
             },
             {
@@ -65,14 +73,16 @@
                 "class": "events",
                 "header1": "Upcoming Events",
                 "header2": "",
-                "facebookEvents": ["192337637474940","204669579590265"]
-
+                "facebookEvents": [
+                    "192337637474940",
+                    "204669579590265"
+                ]
             },
             {
                 "type": "list",
                 "style": "grid",
                 "class": "instagram",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "oakville"
             },
             {
@@ -83,7 +93,7 @@
                 "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Out More",
                         "navigateTo": "/kids-and-youth"
                     }
@@ -96,6 +106,26 @@
                     {
                         "src": "/static/images/KY2.jpg",
                         "alt": "Two boys laughing."
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Care Ministries",
+                "header2": "",
+                "text1": "Our care ministries provide safe environments where people can recieve the spiritual care they need in safe and intentional community, with trained and caring facilitators.",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "View All Care Ministries",
+                        "navigateTo": "/care-ministries"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/care-ministries-1.jpg",
+                        "alt": "Two women sitting down together and talking as friends."
                     }
                 ]
             },
@@ -126,33 +156,31 @@
                 "link1Text": "Browse Home Churches in Oakville",
                 "link1Action": "/find-homechurch"
             },
-
             {
                 "type": "list",
                 "style": "vertical",
                 "class": "compassion",
                 "header1": "Make a Difference",
                 "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
-                "filterField":"sites",                 
+                "filterField": "sites",
                 "filterValue": "oakville"
             },
             {
                 "type": "hero",
-                "style": "partialNoFooter",
+                "style": "connect",
                 "image1": [
                     {
-                        "src": "/static/images/GC1.jpg",
-                        "alt": "Two women drinking coffee."
+                        "src": "/static/images/email-connect-5.jpg",
+                        "alt": "Friends hanging out together and playing music at a campfire."
                     },
                     {
-                        "src": "/static/images/GC2.jpg",
-                        "alt": "A man sitting outside on a ledge and looking up at the sky."
+                        "src": "/static/images/email-connect-2.jpg",
+                        "alt": "A young woman is talking to her friends in the church lobby."
                     }
                 ],
-                "header1": "Get Connected",
+                "header1": "First step towards community.",
                 "header2": "",
-                "text1": "Stay in the loop! We want to make sure you know about all the events, hangouts, and other good stuff we have going on. ",
-                "showEmailSignup":true
+                "text2": "No need to take big leaps. Drop your email below and we'll send you some of our favourite content and suggest some small next steps you can take."
             }
         ]
     }

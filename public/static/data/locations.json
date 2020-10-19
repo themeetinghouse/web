@@ -9,7 +9,7 @@
             "latitude": 44.149035,
             "address": "Gibson Centre, 63 Tupper Street West"
         },
-        "serviceTimes": ["10:30"]
+        "serviceTimes": ["10:00"]
     },
     {
         "id": "sandbanks",
@@ -215,8 +215,8 @@
         "name": "Toronto - Uptown",
         "pastorEmail":"Jared.Erhardt@themeetinghouse.com",
         "location": {
-            "longitude": -79.58688,
-            "latitude": 43.70752,
+            "longitude": -79.455526,
+            "latitude": 43.725822,
             "address": "Yorkdale Cineplex, 3401 Dufferin Street"
         },
         "serviceTimes": ["10:00"]
@@ -228,7 +228,7 @@
         "location": {
             "longitude": -80.527216,
             "latitude": 43.498807,
-            "address": "Galaxy Cinemas | Conestoga Mall, 550 King Street North"
+            "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
         },
         "serviceTimes": ["10:00"]
     }

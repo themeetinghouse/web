@@ -2,22 +2,30 @@
     "page": {
         "name": "homepage",
         "title": "The Meeting House - Welcome",
-        "keywords": "Church, Toronto, Anabaptist, Theatre, Jesus, Homechurch, Bruxy, Be In Christ, Ontario",
-        "description":"Homepage for The Meeting House",
+        "keywords": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Bruxy, Be In Christ, Spirituality, Christianity",
+        "description": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
         "pageConfig": {
             "movingMenu": true,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true,
-            "showLive":true,
-            "weatherAlert":false
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true,
+            "showLive": true,
+            "weatherAlert": false
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-images/homepage.jpg",
+                "url": "https://www.themeetinghouse.com",
+                "title": "The Meeting House - Spiritually curious?",
+                "description": "When’s the last time someone asked you what you believe? We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing."
+            },
+            {
                 "type": "hero",
                 "style": "full",
+                "showCovid": false,
                 "image1": [
                     {
                         "src": "/static/images/homepage-1-1.jpg",
@@ -44,13 +52,13 @@
                         "alt": "Young woman talking to a friend outside on a backyard patio."
                     },
                     {
-                        "src": "/static/images/homepage-1-7.jpg",
-                        "alt": "Young woman in a hat and winter coat is laughing and talking to a friend."
+                        "src": "/static/images/homepage-1-8.jpg",
+                        "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
                     }
                 ],
                 "header1": "Hello Friend",
-                "text1": "When’s the last time someone asked you what you believe? You know, about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but helping you explore is our favourite thing.",
-                "button1Text": "Explore Spirituality",
+                "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
+                "button1Text": "Got questions?",
                 "button1Action": "/spirituality"
             },
             {
@@ -60,15 +68,14 @@
                 "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods?",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Find Community",
                         "navigateTo": "/community"
                     }
                 ],
-              
                 "image1": [
                     {
-                        "src": "/static/images/homepage-2.jpg",
+                        "src": "/static/images/homepage-2-new.jpg",
                         "alt": "Group of friends from church sitting together and talking."
                     }
                 ]
@@ -76,68 +83,67 @@
             {
                 "type": "content",
                 "style": "oneImageBlackRight",
-                "header1": "Peacemakers",
+                "header1": "COVID-19 Updates",
                 "header2": "",
-                "text1": "This is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. As the church, we journey with people who have been marginalized through violence by working to meet their tangible needs.",
+                "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's changing at The Meeting House as we head into the fall.",
                 "list": [
                     {
-                        "type":"link",
-                        "title": "Find Out More",
-                        "navigateTo": "/peacemakers"
+                        "type": "link",
+                        "title": "Read Latest Updates",
+                        "navigateTo": "/covid"
                     }
                 ],
-              
                 "image1": [
                     {
-                        "src": "/static/images/peacemakers-1.jpg",
-                        "alt": "Man sharing First Nations peace practices and rituals with a group."
+                        "src": "/static/images/homepage-covid-1.jpg",
+                        "alt": "A woman wearing a mask looking directly at the camera."
                     }
                 ]
             },
-           
             {
                 "type": "list",
                 "style": "imageList",
+                "class": "user-defined",
                 "header1": "Teaching",
                 "text1": "Explore the life and teaching of Jesus as well as practical applications for your daily life.",
                 "list": [
                     {
                         "title": "Sunday Teaching",
-                        "text": "The video from our live Sunday services, including notes, reflection questions, and additional content. See what you missed last week, or search through topics in our teaching archive.",
-                        "imageSrc": "/static/images/homepage-4-1.jpg",
+                        "text": "All of our teaching videos and series, including notes, questions, audio, and additional content. Check out what we're learning, or find what you're looking for in our video playlists.",
+                        "imageSrc": "/static/images/homepage-4-1-new.jpg",
                         "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
                         "navigateTo": "/teaching"
                     },
                     {
+                        "title": "Livestream",
+                        "text": "We're live every Sunday at 10:00am EDT. A one hour livestream expereince with stories, music, and teaching. If you're looking for a good first step, this is it. See you this Sunday!",
+                        "imageSrc": "/static/images/corona-2.jpg",
+                        "imageAlt": "Screen shot of Bruxy teaching during Sunday morning livestream at The Meeting House.",
+                        "navigateTo": "/live"
+                    },
+                    {
                         "title": "Podcasts",
-                        "text": "Our Sunday morning teaching, all in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our own leaders and staff team.",
-                        "imageSrc": "/static/images/homepage-4-2.jpg",
+                        "text": "All of our Sunday teaching in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our leaders, staff, and special guests.",
+                        "imageSrc": "/static/images/homepage-4-2-new.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
                         "navigateTo": "/teaching-podcasts"
                     },
                     {
-                        "title": "Videos",
-                        "text": "Our video library featuring stories of people and communities who show us what it looks like to live the Jesus-centred life.",
-                        "imageSrc": "/static/images/homepage-4-3.jpg",
-                        "imageAlt": "Production volunteer recording a Meeting House video.",
-                        "navigateTo": "/teaching-curated"
-                    },
-                    {
                         "title": "Kids & Youth Curriculum",
-                        "text": "Through Sunday morning teaching, midweek resources, and The Parent Blog, our kids and youth curriculum is designed to partner parents and leaders with the resources to disciple their kids and youth well.",
-                        "imageSrc": "/static/images/homepage-4-4.jpg",
+                        "text": "Through Sunday morning teaching, midweek group resources, and The Parent Blog, our kids and youth curriculum is designed to partner with parents and leaders and equip them with resources to disciple their kids and youth well.",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
                         "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
                         "navigateTo": "/teaching-kids-youth"
                     }
                 ]
             },
             {
-                "type": "list",
+                "type": "blog",
                 "style": "twoImage",
+                "status": "Live",
                 "header1": "Recent Blog Entries",
-                "header2": ".",
-                "text1": "Part of being a disciple of Jesus is actually taking action and making a difference in this world. We do this through compassion initiatives where we love our neighbours both close and far away, volunteering and giving financially to support the work of our church and other kingdom projects.",
-                "button1Text": "View All Blogs",
+                "sortOrder": "DESC",
+                "limit": 2,
                 "button1Action": "/blogs"
             },
             {
@@ -146,28 +152,26 @@
                 "header1": "Make a Difference",
                 "header2": "",
                 "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?",
-               
                 "list": [
                     {
-                        "type":"link",
-                        "title": "Volunteering",
+                        "type": "link",
+                        "title": "Volunteer",
                         "navigateTo": "/volunteering"
                     },
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Compassion",
                         "navigateTo": "/compassion"
                     },
                     {
-                        "type":"link",
-                        "title": "Giving",
+                        "type": "link",
+                        "title": "Give",
                         "navigateTo": "/give"
                     }
                 ],
-              
                 "image1": [
                     {
-                        "src": "/static/images/homepage-6.jpg",
+                        "src": "/static/images/homepage-6-new.jpg",
                         "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
                     }
                 ]
@@ -180,18 +184,35 @@
                 "text1": "We're our best selves when we don't make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Let's Do This",
                         "navigateTo": "/go"
                     }
                 ],
-              
                 "image1": [
                     {
-                        "src": "/static/images/homepage-3.jpg",
+                        "src": "/static/images/homepage-3-new-update.jpg",
                         "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
                     }
                 ]
+            },
+            {
+                "type": "hero",
+                "style": "connect",
+                "image1": [
+                    {
+                        "src": "/static/images/email-connect-1.jpg",
+                        "alt": "Two women drinking coffee."
+                    },
+                    {
+                        "src": "/static/images/email-connect-3.jpg",
+                        "alt": "A young woman is talking to her friends in the church lobby."
+                    }
+                ],
+                "header1": "So, what now?",
+                "header2": "",
+                "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some our favourite starting content and suggest a practical next step.",
+                "hasFooter": true
             },
             {
                 "type": "hero",
@@ -203,11 +224,11 @@
                     }
                 ],
                 "header1": "Locations",
-                "text1": "It's pretty simple: we get together each week to hang out, build relationships, and find ways to love and serve our local communities as we learn to follow Jesus.",
-                "text2": "What are you doing this Sunday?",
+                "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
+                "text2": "Find local, connect online.",
                 "link1Text": "Show Map",
                 "link1Action": "/find-sunday-morning",
-                "class":"locations",
+                "class": "locations",
                 "showLocationSearch": true
             }
         ]

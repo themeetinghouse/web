@@ -15,6 +15,13 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-images/find-home-church.jpg",
+                "url": "https://www.themeetinghouse.com/find-home-church",
+                "title": "Find a Home Church",
+                "description": "Check out our list of 100+ Home Churches and get plugged in to community."
+            },
+            {
                 "type": "home-church",
                 "header1": "Home Church",
                 "class":"home-church"

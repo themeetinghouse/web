@@ -15,15 +15,22 @@
         },
         "content": [
             {
+                "type": "og-tags",
+                "image": "/static/images/og-images/about-us.jpg",
+                "url": "https://www.themeetinghouse.com/about-us",
+                "title": "About Us",
+                "description": "Get to know us better. We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message."
+            },
+            {
                 "type": "hero",
                 "style": "full",
                 "image1": [
                     {
-                        "src": "/static/images/about-us-1-1.jpg",
+                        "src": "/static/images/about-us-1-1-new.jpg",
                         "alt": "All of The Meeting House staff posing outside of the main office in Oakville."
                     },
                     {
-                        "src": "/static/images/about-us-1-2.jpg",
+                        "src": "/static/images/about-us-1-2-new.jpg",
                         "alt": "All of The Meeting House staff being silly outside of the main office in Oakville."
                     }
 
@@ -68,7 +75,7 @@
                     {
                         "type":"link",
                         "title": "Gospel Cheat Sheet",
-                        "navigateTo": "/static/pdfs/Policies-and-Statements/Gospel Cheat Sheet Nov 2019.pdf",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/Gospel_Cheat_Sheet_Booklet_V2.pdf",
                         "openNewBrowser":true
                     },
                     {
@@ -102,7 +109,7 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Annual Report and AGM Documents",
+                "header1":"Finances",
                 "header2":"",
                 "text1":"",
                 "image1":[{
@@ -111,6 +118,12 @@
                 }],
 
                 "list": [
+                    {
+                        "type":"link",
+                        "title": "Finance Update - July 2020",
+                        "navigateTo": "/static/pdfs/annual-reports/Finance Update - July 2020.pdf",
+                        "openNewBrowser":true
+                    },
                     {
                         "type":"link",
                         "title": "2019 - Annual Report and AGM Document",
@@ -178,6 +191,18 @@
                         "type":"link",
                         "title": "Conflict of Interest Policy",
                         "navigateTo": "/static/pdfs/Policies-and-Statements/Conflict of Interest Policy_2018.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "COVID-19 FAQs",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf",
+                        "openNewBrowser":true
+                    },
+                    {
+                        "type":"link",
+                        "title": "COVID-19 Gatherings",
+                        "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings.pdf",
                         "openNewBrowser":true
                     },
                     {

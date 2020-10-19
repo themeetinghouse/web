@@ -1,8 +1,8 @@
 
 import React from 'react';
 import "./GiveItem.scss"
-import { Button } from 'reactstrap';
 import ReactGA from 'react-ga';
+import { LinkButton, Link } from 'components/Link/Link';
 if (window.location.hostname === "localhost")
   ReactGA.initialize('UA-4554612-19');
 else if (window.location.hostname.includes("beta"))
@@ -30,9 +30,9 @@ export default class ContentItem extends React.Component<Props, State>  {
     if (window.location.hostname === "localhost")
       return "https://localhost:3006"
     else if (window.location.hostname.includes("beta"))
-      return "https://beta.themeetinghouse.com/cache/"+size
+      return "https://beta.themeetinghouse.com/cache/" + size
     else
-      return "https://www.themeetinghouse.com/cache/"+size
+      return "https://www.themeetinghouse.com/cache/" + size
   }
   renderPushPayCustom() {
     return (
@@ -83,19 +83,10 @@ export default class ContentItem extends React.Component<Props, State>  {
       </div>
     )
   }
-  navigateUrl(to: string) {
-    console.log(to)
-    window.location.href = to;
-  }
-  navigateUrlNewWindow(to: string) {
-    window.open(
-      to,
-      '_blank' // <- This is what makes it open in a new window.
-    );
-  }
+
   renderPushPay() {
     return <div>
-      <Button className="GiveButton" onClick={() => { this.navigateUrlNewWindow("https://pushpay.com/g/themeetinghouse?src=hpp") }}>Give by Credit Card</Button>
+      <LinkButton className="inverted" newWindow to="https://pushpay.com/g/themeetinghouse?src=hpp">GIVE NOW</LinkButton>
     </div>
   }
   renderPushPay2() {
@@ -113,7 +104,7 @@ export default class ContentItem extends React.Component<Props, State>  {
       <ul className="GiveItem">
         <li>To set up your giving as a bill payment through online banking:</li>
         <ul className="GiveItemNumber">
-          <li>Locate your Meeting House account number, found on your donations envelope. Don't have an account number? <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "RequestAccountNumber" }) }}>Request one</button>.</li>
+          <li>Locate your Meeting House account number, found on your donations envelope. Don&apos;t have an account number? <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "RequestAccountNumber" }) }}>Request one</button>.</li>
           <li>Login to your online banking, and select the Bill Payment option.</li>
           <li>Set up a new payee as “The Meeting House” (it may display as The Meeting House Church Family).</li>
           <li>Enter your account number, followed by one of the three digit codes below to indicate which fund you would like to donate to. If your account number is less than 5 digits, enter zeros in front of of your number to make it the correct length</li>
@@ -132,7 +123,7 @@ export default class ContentItem extends React.Component<Props, State>  {
         <li>To have your giving deducted directly from your bank account:</li>
         <ul className="GiveItem">
           <li>Complete <button className="GiveItemOtherWayLink" onClick={() => { this.setState({ currentPage: "PreAuthorizedWithdrawl" }) }}>this form</button> online. You will need your branch, transit, and account number.</li>
-         
+
         </ul>
       </ul>
     </div>
@@ -149,8 +140,8 @@ export default class ContentItem extends React.Component<Props, State>  {
   }
   renderFellowshipOne() {
     return <div className="GiveItemGreyBox">
-      You can give with credit or debit card through your  <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin/">Meeting House account</a>.<br />
-      If you don't have a Meeting House account, you can <a target="_blank" rel="noopener noreferrer" href="https://meetinghouse.infellowship.com/UserLogin/New">create one</a>.
+      You can give with credit or debit card through your  <Link newWindow to="https://meetinghouse.infellowship.com/UserLogin/">Meeting House account</Link>.<br />
+      If you don&apos;t have a Meeting House account, you can <Link newWindow to="https://meetinghouse.infellowship.com/UserLogin/New">create one</Link>.
     </div>
   }
   renderPreAuthorizedWithdrawl() {
@@ -183,46 +174,60 @@ export default class ContentItem extends React.Component<Props, State>  {
           <div className="GiveItemText">{this.state.content.text3}</div>
           <div className="GiveItemText">{this.state.content.text4}</div>
           <div className="GiveItemText">{this.state.content.text5}</div>
+          {this.renderPushPay()}
           {
-            this.state.currentPage === "PushPay" ?
-              this.renderPushPay() :
-              this.state.currentPage === "PushPayCustom" ?
-                this.renderPushPayCustom() :
-                this.state.currentPage === "FellowshipOne" ?
-                  this.renderFellowshipOne() :
-                  this.state.currentPage === "OfferingEnvelopes" ?
-                    this.renderOfferingEnvelopes() :
-                    this.state.currentPage === "OnlineBanking" ?
-                      this.renderOnlineBanking() :
-                      this.state.currentPage === "PreAuthorizedWithdrawl" ?
-                        this.renderPreAuthorizedWithdrawl() :
-                        this.state.currentPage === "RequestAccountNumber" ?
-                          this.renderRequestAccountNumber() :
-                          null
+            this.state.currentPage === "PushPayCustom" ?
+              this.renderPushPayCustom() :
+              this.state.currentPage === "FellowshipOne" ?
+                this.renderFellowshipOne() :
+                this.state.currentPage === "OfferingEnvelopes" ?
+                  this.renderOfferingEnvelopes() :
+                  this.state.currentPage === "OnlineBanking" ?
+                    this.renderOnlineBanking() :
+                    this.state.currentPage === "PreAuthorizedWithdrawl" ?
+                      this.renderPreAuthorizedWithdrawl() :
+                      this.state.currentPage === "RequestAccountNumber" ?
+                        this.renderRequestAccountNumber() :
+                        null
           }
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Other Ways to Give</div>
-            {this.state.currentPage === "OnlineBanking" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OnlineBanking');this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
+            {this.state.currentPage === "OnlineBanking" ?
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton2" onClick={() => { ReactGA.modalview('/give/PushPay'); this.setState({ currentPage: "PushPay" }) }}>Online Banking</button></div>
+              : null
             }
-            {this.state.currentPage === "OfferingEnvelopes" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OfferingEnvelopes');this.setState({ currentPage: "OfferingEnvelopes" }) }}>Offering Envelopes</button></div>
+            {this.state.currentPage === "OnlineBanking" ? null :
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/OnlineBanking'); this.setState({ currentPage: "OnlineBanking" }) }}>Online Banking</button></div>
+            }
+
+            {this.state.currentPage === "FellowshipOne" ?
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton2" onClick={() => { ReactGA.modalview('/give/PushPay'); this.setState({ currentPage: "PushPay" }) }}>TMH Account</button></div>
+              : null
             }
             {this.state.currentPage === "FellowshipOne" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne');this.setState({ currentPage: "FellowshipOne" }) }}>Meeting House Account</button></div>
+              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/FellowshipOne'); this.setState({ currentPage: "FellowshipOne" }) }}>TMH Account</button></div>
             }
-            {this.state.currentPage === "PushPay" ? null :
-              <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { ReactGA.modalview('/give/PushPay');this.setState({ currentPage: "PushPay" }) }}>Credit Card</button></div>
-            }  </div>
+          </div>
+          <div className="GiveItemNeedHelpGroup">
+            <div className="GiveItemOtherWays">2019 Tax Receipt</div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://meetinghouse.infellowship.com/UserLogin">Login &amp; Download</Link>
+            </div>
+          </div>
+
+          <div style={{ clear: "both" }}></div>
           <div className="GiveItemNeedHelpGroup">
             <div className="GiveItemNeedHelp">Need help?</div>
-            <div className="GiveItemNeedHelpEmail">Please email Rachel at <a className="GiveItemOtherWayButton" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
+            <div className="GiveItemNeedHelpEmail">Please email Rachel at <a className="inverted" href="mailto:donate@themeetinghouse.com">donate@themeetinghouse.com</a></div>
           </div>
-          <div style={{ clear: "both" }}></div>
           <div className="GiveItemOtherWayGroup">
             <div className="GiveItemOtherWays">Give To Extended Family</div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://tithe.ly/give_new/www/#/tithely/give-one-time/674673") }}>Alliston</button></div>
-            <div className="GiveItemOtherWay"><button className="GiveItemOtherWayButton" onClick={() => { this.navigateUrlNewWindow("https://www.canadahelps.org/en/charities/west-lake-community-church/") }}>Sandbanks</button></div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://tithe.ly/give_new/www/#/tithely/give-one-time/674673">Alliston</Link>
+            </div>
+            <div className="GiveItemOtherWay">
+              <Link className="inverted" newWindow to="https://www.canadahelps.org/en/charities/west-lake-community-church/">Sandbanks</Link>
+            </div>
 
           </div>
           <div className="GiveItemBottom"></div>

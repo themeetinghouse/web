@@ -1,12 +1,40 @@
-@media (min-width: 768px) {
+@import "../../theme";
 
+.HeroItemA2 {
+    font-size: 1.1vw;
+}
+
+.heroBlackBoxA {
+    font-size: 1.2vw;
+}
+
+.heroAContainer {
+    margin-top: 1vw;
+}
+
+@media (min-width: 768px) {
+.covidButton{
+    position:absolute; 
+    z-index:1000;
+    left:20vw;
+    top:20vh;
+    
+}
+.covidButtonDetail{
+    background-color:#FFC60B!important;
+   // width:36vw!important;
+    padding-left:12.5vw!important;
+     border:0!important;
+     padding-right:12.5vw!important;
+     color:$onyxblacktext!important;
+}
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;
         padding: .375rem 1.25rem;
         margin-top:1vw;
         margin-bottom:.5rem;
-       font-family:Graphik Web;
+        font-family:Graphik Web;
         color:#ffffff;
         .SundaMorningIcon {
             position: absolute;
@@ -20,7 +48,7 @@
         }
         .react-add-to-calendar__button {
             font-family: Graphik Web;
-            color: #000000;
+            color: #ffffff;
             border-width: 0px;
             border-radius: 0;
             font-size: 1vw;
@@ -35,7 +63,7 @@
             top: 48px;
             background: white;
 
-            border: 1px solid #000000;
+            border: 1px solid $onyxblacktext;
             padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
@@ -43,7 +71,7 @@
                 font-family: Graphik Web;
                 font-size: 1vw;
                 a {
-                    color: #000000 !important;
+                    color: $onyxblacktext !important;
                     vertical-align: middle;
                 }
                 li {
@@ -80,16 +108,80 @@
             }
         }
     }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
+
+    .partialConnect {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 40vw;
     }
 
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
+    .partialConnectImage {
+        width: 80vw;
+        height: 40vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    .partialConnectBox {
+        position: absolute;
+        background-color: #ffffff;
+        padding: 2vw;
+        right: 22vw;
+        width: 38vw;
+        top: 50%;
+        transform: translateY(-50%);;
+        z-index: 100;
+        
+        .heroH1, .heroH2 {
+            color: #1a1a1a;
+        }
+
+        .heroHr, .heroText1, .heroText2 {
+            color: #54565A
+        }
+    }
+
+    .signupContainer {
+        width: 100%;
+        margin-top: 1.5vw;
+    }
+ 
+    .signupButtons {
+        font-family: Graphik Web !important;
+        display: flex;
+        color: #646469;
+
+        [type="submit"].heroButton {
+            flex: 0 !important;
+            margin: 0 !important;
+            background-color: #1A1A1A !important;
+            border: 0 solid #1A1A1A;
+            color: #ffffff !important;
+            font-size: 1vw !important;
+            padding: 0.75rem 1.25rem;
+        }
+    }
+
+    .emailWrapper {
+        flex: 1;
+        align-items: center;
+        display: flex;
+        overflow: hidden;
+        border: 1.5px solid #C8C8C8;
+        margin-right: 1vw;
+        width:23vw;
+        [type="email"] {
+            border: none;
+            outline: none;
+            margin: 0;
+            font-size: 1vw;
+        }
+    }
+
+    .contactIcon {
+        padding: 0 1vw;
     }
 
     #mergeRow-gdpr {
@@ -98,12 +190,6 @@
 
     #mergeRow-gdpr fieldset label {
         font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
     }
 
     .heroItem {
@@ -218,7 +304,7 @@
         font-family: Graphik Web;
         width: 32vw;
         color: #ffffff;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .heroText2 {
@@ -285,7 +371,7 @@
 
     .heroPartialBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 10vw;
         width: 36vw;
@@ -295,7 +381,7 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 20vw;
         width: 36vw;
@@ -305,10 +391,9 @@
 
     .heroButton {
         margin-top: 1.5vw !important;
-        color: #000000 !important;
+        color: $onyxblacktext !important;
         background-color: #ffffff !important;
         border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
     }
@@ -367,29 +452,26 @@
     .calendarButton {
         font-family: Graphik Web !important;
         font-size: 1vw !important;
-        margin-top: 1vw;
+        padding-top: 1vw;
+        padding-left: 1.5vw;
         color: #ffffff;
-        background-color: #000000 !important;
+        font-weight: normal;
+        background-color: $onyxblacktext !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
     }
     .calendarImage {
-        margin-right: 5px;
+        margin-right: 10px;
         height:25px;
     }
     .heroItemButton {
         margin-top: 1.5vw;
-        color: #000000; background-color: #ffffff;
+        color: $onyxblacktext; 
+        background-color: #ffffff;
         border-radius: 0;
     }
-    .HeroItemButtonA {
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-    .HeroItemA2 {
-        font-family: Graphik Web;
-    }
+
     .divPartial {
         position: relative;
         left: 20vw;
@@ -399,11 +481,25 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .covidButtonDetail{
+        background-color:#FFC60B!important;
+       // width:36vw;
+        padding-left:12.5vw!important;
+         border:0!important;
+         padding-right:12.5vw!important;
+         color:$onyxblacktext!important;
+    }
+    .covidButton{
+        position:absolute; 
+        z-index:1000;
+        left:20vw;
+        top:20vh
+    }
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;
         padding: .75rem 1.25rem;
-       font-family:Graphik Web;
+        font-family:Graphik Web;
         color:#ffffff;
         .SundaMorningIcon {
             position: absolute;
@@ -417,7 +513,7 @@
         }
         .react-add-to-calendar__button {
             font-family: Graphik Web;
-            color: #000000;
+            color: #ffffff;
             border-width: 0px;
             border-radius: 0;
             font-size: 1vw;
@@ -431,7 +527,7 @@
             z-index: 100;
             top: 48px;
             background: white;
-            border: 1px solid #000000;
+            border: 1px solid $onyxblacktext;
             padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
@@ -439,7 +535,7 @@
                 font-family: Graphik Web;
                 font-size: 1vw;
                 a {
-                    color: #000000 !important;
+                    color: $onyxblacktext !important;
                     vertical-align: middle;
                 }
                 li {
@@ -476,16 +572,81 @@
             }
         }
     }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
+
+    .partialConnect {
+        position: relative;
+        left: 20vw;
+        width: 80vw;
+        height: 40vw;
     }
 
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
+    .partialConnectImage {
+        width: 80vw;
+        height: 40vw;
+        z-index: 50;
+        object-fit: cover;
+        position: absolute;
+    }
+
+    .partialConnectBox {
+        position: absolute;
+        background-color: #ffffff;
+        padding: 2vw;
+        right: 22vw;
+        width: 38vw;
+        top: 50%;
+        transform: translateY(-50%);;
+        z-index: 100;
+        
+        .heroH1, .heroH2 {
+            color: #1a1a1a;
+        }
+
+        .heroHr, .heroText1, .heroText2 {
+            color: #54565A
+        }
+    }
+
+    .signupContainer {
+        width: 100%;
+        margin-top: 1.5vw;
+    }
+ 
+    .signupButtons {
+        font-family: Graphik Web !important;
+        display: flex;
+        color: #646469;
+
+        [type="submit"].heroButton {
+            flex: 0 !important;
+            margin: 0 !important;
+            background-color: #1A1A1A !important;
+            border: 0 solid #1A1A1A;
+            color: #ffffff !important;
+            font-size: 1vw !important;
+            padding: 0.75rem 1.25rem;
+        }
+    }
+
+    .emailWrapper {
+        flex: 1;
+        align-items: center;
+        display: flex;
+
+        border: 1.5px solid #C8C8C8;
+        margin-right: 1vw;
+
+        [type="email"] {
+            border: none;
+            outline: none;
+            margin: 0;
+
+            font-size: 1vw;
+        }
+    }
+
+    .contactIcon {
+        padding: 0 1vw;
     }
 
     #mergeRow-gdpr {
@@ -494,12 +655,6 @@
 
     #mergeRow-gdpr fieldset label {
         font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
     }
 
     .heroH2 {
@@ -615,7 +770,7 @@
         font-family: Graphik Web;
         width: 32vw;
         color: #ffffff;
-        font-size: 1.5vw;
+        font-size: 1.25vw;
     }
 
     .heroText2 {
@@ -682,7 +837,7 @@
 
     .heroPartialBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 10vw;
         width: 36vw;
@@ -692,7 +847,7 @@
 
     .heroBlackBox {
         position: absolute;
-        background-color: #000000;
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 20vw;
         width: 36vw;
@@ -702,10 +857,9 @@
 
     .heroButton {
         margin-top: 1.5vw !important;
-        color: #000000 !important;
+        color: $onyxblacktext !important;
         background-color: #ffffff !important;
         border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
     }
@@ -767,7 +921,7 @@
         font-size: 1vw !important;
         margin-top: 1vw;
         color: #ffffff;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
@@ -778,16 +932,11 @@
     }
     .heroItemButton {
         margin-top: 1.5vw;
-        color: #000000; background-color: #ffffff;
+        color: $onyxblacktext; 
+        background-color: #ffffff;
         border-radius: 0;
     }
-    .HeroItemButtonA {
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
-    .HeroItemA2 {
-        font-family: Graphik Web;
-    }
+
     .divPartial {
         position: relative;
         left: 20vw;
@@ -796,12 +945,36 @@
     }
 }
 
+@media (max-width: 357px) {
+    .calendarButton {
+        margin-top: 5vw !important;
+        padding-left: 0;
+    }
+}
+
 @media (max-width: 767px) {
+    .covidButtonDetail{
+        background-color:#FFC60B!important;
+       
+        padding-left:10vw!important;
+         border:0!important;
+         padding-right:10vw!important;
+         width:70vw!important;
+         left:0vw!important;
+         right:10vw!important;
+         color:$onyxblacktext!important;
+    }
+    .covidButton{
+        position:absolute; 
+        z-index:1000;
+        left:15vw;
+        top:40vh
+    }
     .HeroAddToCalendarButtonContainer {
         position: relative;
         display: inline-block;
         padding: .75rem 1.25rem;
-       font-family:Graphik Web;
+        font-family:Graphik Web;
         color:#ffffff;
         .SundaMorningIcon {
             position: absolute;
@@ -815,7 +988,7 @@
         }
         .react-add-to-calendar__button {
             font-family: Graphik Web;
-            color: #000000;
+            color: #ffffff;
             border-width: 0px;
             border-radius: 0;
             font-size: 3.5vw;
@@ -829,7 +1002,7 @@
             z-index: 100;
             top: 48px;
             background: white;
-            border: 1px solid #000000;
+            border: 1px solid $onyxblacktext;
             padding: 10px 20px 0 20px;
             ul {
                 list-style-type: none;
@@ -837,7 +1010,7 @@
                 font-family: Graphik Web;
                 font-size: 1vw;
                 a {
-                    color: #000000 !important;
+                    color: $onyxblacktext !important;
                     vertical-align: middle;
                 }
                 li {
@@ -874,16 +1047,79 @@
             }
         }
     }
-    #mc_embed_signup {
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        width: 100%;
+
+    .partialConnect {
+        position: relative;
+        width: 100vw;
+        margin-top:10vw;
     }
 
-    #mc-embedded-subscribe-form input[type=checkbox] {
-        display: inline;
-        width: auto;
-        margin-right: 10px;
+    .partialConnectImage {
+        width: 100%;
+        object-fit: cover;
+        position: relative
+    }
+
+    .partialConnectBox {
+        background-color: #ffffff;
+        padding: 2vw;
+        left: 0vw;
+        width: 100vw;
+        z-index: 100;
+        padding: 10vw 5vw 10vw 5vw;
+        
+        .heroH1, .heroH2 {
+            color: #1a1a1a;
+        }
+
+        .heroHr, .heroText1, .heroText2 {
+            color: #54565A
+        }
+    }
+
+    .signupContainer {
+        width: 100%;
+        margin-top: 1.5vw;
+    }
+ 
+    .signupButtons {
+        font-family: Graphik Web !important;
+        display: flex;
+        flex-wrap: wrap;
+
+        color: #646469;
+        font-size: 4.3vw;
+        line-height: 6.4vw;
+
+        [type="submit"].heroButton {
+            flex: 0 !important;
+            margin: 0 !important;
+            background-color: #1A1A1A !important;
+            border: 0 solid #1A1A1A;
+            color: #ffffff !important;
+            padding: 0.75rem 1.25rem;
+        }
+    }
+
+    .emailWrapper {
+        flex: 0 1 auto;
+        width: 100%;
+        align-items: center;
+        display: flex;
+
+        border: 1.5px solid #C8C8C8;
+        margin-right: 4.5vw;
+        margin-bottom: 4.5vw;
+
+        [type="email"] {
+            border: none;
+            outline: none;
+            margin: 0;
+        }
+    }
+
+    .contactIcon {
+        padding: 0 4.5vw;
     }
 
     #mergeRow-gdpr {
@@ -892,12 +1128,6 @@
 
     #mergeRow-gdpr fieldset label {
         font-weight: normal;
-    }
-
-    #mc-embedded-subscribe-form .mc_fieldset {
-        border: none;
-        min-height: 0px;
-        padding-bottom: 0px;
     }
 
     .heroH2 {
@@ -1039,7 +1269,7 @@
 
     .heroBlackBox {
         // position: absolute;
-        background-color: rgba(0, 0, 0, 1);
+        background-color: $onyxblacktext;
         padding: 2vw;
         left: 0vw;
         width: 100vw;
@@ -1050,24 +1280,16 @@
     }
 
     .heroPartialBlackBox {
-        position: absolute;
-        z-index: 51;
-       // background-color: rgba(0, 0, 0, 1);
-        padding: 2vw;
-        left: 0vw;
+        background-color: $onyxblacktext;
         width: 100vw;
-        // height: 65vh;
-        top: 0;
         padding: 10vw 6vw 10vw 6vw;
-        //margin-top: 75vw;
     }
 
     .heroButton {
         margin-top: 15vw !important;
-        color: #000000 !important;
+        color: $onyxblacktext !important;
         background-color: #ffffff !important;
         border-radius: 0 !important;
-        padding: 1rem 1.5rem !important;
         font-weight: 800 !important;
         font-family: Graphik Web !important;
     }
@@ -1129,9 +1351,10 @@
     .calendarButton {
         font-family: Graphik Web !important;
         font-size: 3.5vw !important;
-        margin-top: 0vw;
+        font-weight: normal;
+        margin-top: 10vw;
         color: #ffffff;
-        background-color: #000000 !important;
+        background-color: $onyxblacktext !important;
         border-width: 0 !important;
         border-radius: 0;
         text-decoration: underline !important;
@@ -1142,16 +1365,14 @@
     }
     .heroItemButton {
         margin-top: 1.5vw;
-        color: #000000; background-color: #ffffff;
+        color: $onyxblacktext; background-color: #ffffff;
         border-radius: 0;
     }
-    .HeroItemButtonA {
-        font-family: Graphik Web;
-        color: #ffffff;
-    }
+
     .HeroItemA2 {
-        font-family: Graphik Web;
+        font-size: 4vw;
     }
+
     .divPartial {
         position: relative;
         width: 100vw;
@@ -1159,5 +1380,13 @@
         top: 3vw;
         margin-bottom: 55vw;
 
+    }
+
+    .heroBlackBoxA {
+        font-size: 4vw;
+    }
+
+    .heroAContainer {
+        margin-top: 5vw;
     }
 }

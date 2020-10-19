@@ -1,71 +1,62 @@
 [
     {
-        "name":"Spirituality",
-        "location":"/spirituality"
-
+        "name": "Spirituality",
+        "location": "/spirituality"
     },
     {
-        "name":"Community",
-        "location":"/community"
-       
+        "name": "Community",
+        "location": "/community"
     },
     {
-        "name":"Peacemakers",
-        "location":"/peacemakers"
+        "name": "COVID-19",
+        "location": "/covid"
     },
-
     {
-        "name":"Teaching",
-        "location":"/teaching",
-        "children":[
+        "name": "Teaching",
+        "location": "/teaching",
+        "children": [
             {
-                "name":"Curated Playlists",
-                "location":"/teaching-curated"
+                "name": "Notes",
+                "location": "/notes"
             },
             {
-                "name":"Kids & Youth",
-                "location":"/teaching-kids-youth"
+                "name": "Video Playlists",
+                "location": "/teaching-curated"
             },
             {
-                "name":"Podcasts",
-                "location":"/teaching-podcasts"
+                "name": "Kids & Youth Videos",
+                "location": "/teaching-kids-youth"
+            },
+            {
+                "name": "Podcasts",
+                "location": "/teaching-podcasts"
+            },
+            {
+                "name": "Blog",
+                "location": "/blog"
             }
         ]
     },
-
     {
-        "name":"Make a Difference",
-        "location":"/make-a-difference",
-        "children":[
-           
-        
+        "name": "Make a Difference",
+        "location": "/make-a-difference",
+        "children": [
             {
-                "name":"Volunteering",
-                "location":"/volunteering"
+                "name": "Volunteer",
+                "location": "/volunteering"
             },
             {
-                "name":"Compassion",
-                "location":"/compassion"
+                "name": "Compassion",
+                "location": "/compassion"
             },
             {
-                "name":"Giving",
-                "location":"/give"
+                "name": "Give",
+                "location": "/give"
             }
         ]
     },
-
     {
-        "name":"Locations",
-        "location":"/locations",
-        "children":[
-            {
-                "name":"Sunday Morning",
-                "location":"/find-sunday-morning"
-            },
-            {
-                "name":"Home Church",
-                "location":"/find-homechurch"
-            }
-        ]
+        "name": "Locations",
+        "location": "/locations"
     }
 ]

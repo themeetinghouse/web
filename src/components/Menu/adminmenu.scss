@@ -1,21 +1,15 @@
 @media (min-width:768px) {
     .admin.navbar{
-        padding:0px!important;
+        padding:0!important;
     }
     .admin.navbar a {
         padding: 0px;
         color: #ffffff;
-       
-      
-        //line-height: 1.3vw;
-        // font-weight: bold;
         font-size: 1vw;
         padding-left:3px!important;
-        padding-top:0px!important;
-        padding-bottom:0px!important;
-
-        padding-right:3px!important;
-
+        padding-top:0!important;
+        padding-bottom:0!important;
+        padding-right:5px!important;
     }
 
     .admin.navbar.fixed-left {
@@ -29,7 +23,7 @@
     .admin.navbar.fixed-left .navbar-collapse {
         flex-grow: 0;
         flex-direction: column;
-        width: 100%
+        width: 100%;
     }
 
     .admin.navbar.fixed-left .navbar-collapse .navbar-nav {
@@ -38,11 +32,11 @@
     }
 
     .admin.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
-        width: 100%
+        width: 100%;
     }
 
     .admin.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
-        top: 0
+        top: 0;
     }
 }
 

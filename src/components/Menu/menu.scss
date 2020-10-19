@@ -1,3 +1,5 @@
+@import '../../theme';
+
 .navbar-brand,
 .navbar-nav {
     font-family: Graphik Web;
@@ -8,33 +10,89 @@
 .navbar-toggler {
     padding: 1px 1px 1px 1px;
 }
+
+.navbar-nav .nav-link {
+    text-decoration: none;
+}
+
 @media (min-width:768px) {
-    .search{
-        height:4vw;
-        left:95vw;
-        position:absolute;
-        z-index:100;
-        background-color: #ffffff00;
-        cursor:pointer;
-        margin-top:0.5vw;
+    .expanderButton {
+        background-color: #ffffff00 !important;
+        position: relative;
+        margin: 0;
+        margin-left: 8px;
+        margin-top: 2px;
+        padding: 0;
+        border: none !important;
+        width: 20px;
+        height: 20px;
     }
+
+    .vertical-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: $onyxblacktext;
+        width: 2px;
+        height: 12px;
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -6px;
+    }
+
+    .horizontal-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: $onyxblacktext;
+        width: 12px;
+        height: 2px;
+        left: 50%;
+        margin-left: -6px;
+        top: 50%;
+        margin-top: -1px;
+    }
+        
+    .horizontal-line.xstate {
+        transform: rotate(45deg);
+    }
+    
+    .vertical-line.xstate {
+        transform: rotate(-135deg);
+    }
+
+    .search{
+        display:none;
+        height:5vw;
+        width:5vw;
+//        min-height:56px;
+//        min-width:72px;
+        right:0;
+        position:fixed;
+        z-index:101;
+        background-color: #ffffff;
+        cursor:pointer;
+        padding:1.1vw;
+    }
+
     .liveEvent{
-        left:88vw;
+        right:7vw;
         position:absolute;
         z-index:100;
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.8vw;
-        color:#000000;
+        color:$onyxblacktext;
         font-family: Graphik Web;
-        font-weight:400;
+        font-weight:bold;
         font-size:2vw;
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
         animation: glow 1s ease-in-out infinite alternate;
-      
+        text-decoration: none;
+        &:hover {
+            color: initial;
+        }
     }
-   
 @keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
@@ -123,13 +181,13 @@
         margin-top: 0px;
         margin-bottom: 5px;
         padding: 0;
-        color: #000000;
+        color: $onyxblacktext;
         padding-bottom: 0vw;
     }
 
     .bigNav {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
         //line-height: 1.3vw;
         // font-weight: bold;
         font-size: 1.33vw;
@@ -194,31 +252,80 @@
         height: 14vh
       }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .expanderButton {
+        background-color: #ffffff00 !important;
+        position: relative;
+        margin: 0;
+        margin-left: 8px;
+        margin-top: 2px;
+        border: none !important;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .vertical-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: $onyxblacktext;
+        width: 2px;
+        height: 12px;
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -6px;
+    }
+
+    .horizontal-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: $onyxblacktext;
+        width: 12px;
+        height: 2px;
+        left: 50%;
+        margin-left: -6px;
+        top: 50%;
+        margin-top: -1px;
+    }
+        
+    .horizontal-line.xstate {
+        transform: rotate(45deg);
+    }
+    
+    .vertical-line.xstate {
+        transform: rotate(-135deg);
+    }
+
     .search{
-        height:4vw;
-        left:95vw;
-        position:absolute;
-        z-index:100;
-        background-color: #ffffff00;
+        display:none;
+        height:5vw;
+        width:5vw;
+//        padding:1.3vw;
+        position:fixed;
+        z-index:101;
+        background-color:#ffffff;
         cursor:pointer;
-        margin-top:0.5vw;
     }
     .liveEvent{
-        left:88vw;
+        right:7vw;
         position:absolute;
         z-index:100;
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.8vw;
-        color:#000000;
+        color:$onyxblacktext;
         font-family: Graphik Web;
-        font-weight:400;
+        font-weight:bold;
         font-size:2vw;
         -webkit-animation: glow 1s ease-in-out infinite alternate;
         -moz-animation: glow 1s ease-in-out infinite alternate;
         animation: glow 1s ease-in-out infinite alternate;
-     
+        text-decoration: none;
+        &:hover {
+            color: initial;
+        }
     }
 
 @keyframes glow {
@@ -249,7 +356,7 @@
     }
     .navbar a {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
 
 
         //line-height: 1.3vw;
@@ -262,12 +369,12 @@
         margin-top:0px;
         margin-bottom:5px;
         padding:0;
-        color: #000000;
+        color: $onyxblacktext;
         padding-bottom: 0vw;
     }
     .bigNav {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
         //line-height: 1.3vw;
         // font-weight: bold;
         font-size: 1.33vw;
@@ -321,7 +428,52 @@
 }
 
 @media (max-width: 767px) {
+    .expanderButton {
+        background-color: #ffffff00 !important;
+        position: relative;
+        margin: 0;
+        margin-left: 8px;
+        margin-bottom: 8px;
+        border: none !important;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+    }
+
+    .vertical-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: $onyxblacktext;
+        width: 2px;
+        height: 10px;
+        left: 50%;
+        margin-left: -1px;
+        top: 50%;
+        margin-top: -5px;
+    }
+
+    .horizontal-line {
+        transition: 0.5s;
+        position: absolute;
+        background-color: $onyxblacktext;
+        width: 10px;
+        height: 2px;
+        left: 50%;
+        margin-left: -5px;
+        top: 50%;
+        margin-top: -1px;
+    }
+        
+    .horizontal-line.xstate {
+        transform: rotate(45deg);
+    }
+    
+    .vertical-line.xstate {
+        transform: rotate(-135deg);
+    }
+
     .search{
+        display:none;
         height:8vw;
         left:73vw;
         position:absolute;
@@ -333,20 +485,23 @@
     }
     .liveEvent{
         top:4.5vw;
-        left:52vw;
+        right:30vw;
         position:absolute;
         z-index:100;
         background-color: #ffffff00;
         cursor:pointer;
         margin-top:0.0vw;
-        color:#000000;
+        color:$onyxblacktext;
         font-family: Graphik Web;
-        font-weight:400;
+        font-weight:bold;
         font-size:6vw;     
            -webkit-animation: glow 2s ease-in-out infinite alternate;
         -moz-animation: glow 2s ease-in-out infinite alternate;
         animation: glow 2s ease-in-out infinite alternate;
-     
+        text-decoration: none;
+        &:hover {
+            color: initial;
+        }
     }
 
 @keyframes glow {
@@ -390,7 +545,7 @@
         top:5.35vw;
         height:8vw;
         margin:0vw!important;
-        padding:0vw!important;
+        padding:2px 0px 0px 3px !important;
     }
    .navbar-expander{
      height: 8vw;
@@ -399,7 +554,7 @@
    }
     .navbar a {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
 
 
         //line-height: 1.3vw;
@@ -412,13 +567,13 @@
         margin-top:8px;
         margin-bottom:3px;
         padding:0;
-        color: #000000;
+        color: $onyxblacktext;
         padding-bottom: 0vw;
         margin:20px 15px 15px 65px;
     }
     .bigNav {
         padding: 0px;
-        color: #000000;
+        color: $onyxblacktext;
         //line-height: 1.3vw;
         // font-weight: bold;
         font-size: 4.5vw;
@@ -434,7 +589,7 @@
 
     .navbar-custom {
         position: fixed;
-        background-color:#ffffff;
+        background:#ffffff;
         left: 0;
         right: 0;
         width: 100vw;
@@ -445,7 +600,7 @@
     }
     .navbar-custom.white{
         position: fixed;
-        background-color:#000000 !important;
+        background:#000000 !important;
         left: 0;
         right: 0;
         width: 100vw;

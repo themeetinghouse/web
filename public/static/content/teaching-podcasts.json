@@ -3,17 +3,23 @@
         "name": "teaching-podcasts",
         "title": "Podcasts",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/og-images/teaching-podcasts.jpg",
+                "url": "https://www.themeetinghouse.com/teaching-podcasts",
+                "title": "Podcasts",
+                "description": "Podcast time is the best time. Tune in to The Meeting House Sunday morning teaching, catch a discussion from the leadership team, or learn from the experts."
+            },
             {
                 "type": "list",
                 "style": "imageList",
@@ -39,7 +45,7 @@
                         "text": "Join our leaders and staff team as we chat about church life, outreach, and who we are as The Meeting House.",
                         "imageSrc": "/static/photos/podcasts/roundtable.jpg",
                         "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
-                        "url": "http://media.themeetinghouse.com/newroundtable/tmhrt.rss"
+                        "url": "https://podcasts.apple.com/ca/podcast/the-meeting-house-roundtable/id1453716988"
                     },
                     {
                         "title": "The Meeting House Video Podcast",
@@ -51,13 +57,12 @@
                 ]
             },
             {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"after-party",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"The After Party"                
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "after-party",
+                "sortOrder": "DESC",
+                "header1": "The After Party"
             }
         ]
     }
