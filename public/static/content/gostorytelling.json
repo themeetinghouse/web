@@ -44,10 +44,10 @@
                 "type": "blog",
                 "style": "twoImage",
                 "status": "Live",
-                "header1": "Recent Blog Entries",
+                "header1": "Stories",
                 "sortOrder": "DESC",
-                "limit": 2,
-                "button1Action": "/blogs"
+                "limit": 4,
+                "blogSeries": "Stories"
             },
             {
                 "type": "list",
