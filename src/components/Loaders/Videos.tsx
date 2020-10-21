@@ -20,7 +20,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
         Analytics.record({
             name: 'pageVisit',
             attributes: { page: 'video-player' }
-        });
+        }).catch((e) => { console.log(e) });
     }, []);
 
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
                 Analytics.record({
                     name: 'error',
                     attributes: { page: 'video-player' }
-                });
+                }).catch((e) => { console.log(e) });
                 history.replace("/not-found")
             }
         })();

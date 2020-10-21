@@ -35,7 +35,7 @@ export default class Archive extends React.Component<RouteComponentProps<Params>
         Analytics.record({
             name: 'pageVisit',
             attributes: { page: 'archive' }
-        })
+        }).catch((e) => { console.log(e) })
     }
 
     render() {

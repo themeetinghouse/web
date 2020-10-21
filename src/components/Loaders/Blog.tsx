@@ -17,7 +17,7 @@ export default function Blog(): ReactElement | null {
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'blog-post' }
-    });
+    }).catch((e) => { console.log(e) });
 
     (async () => {
       const response = await fetch('/static/content/blog-post.json');
@@ -43,7 +43,7 @@ export default function Blog(): ReactElement | null {
         Analytics.record({
           name: 'error',
           attributes: { page: 'blog-post' }
-        });
+        }).catch((e) => { console.log(e) });
         history.replace("/not-found")
       }
     }

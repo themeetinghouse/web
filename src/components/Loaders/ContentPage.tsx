@@ -19,7 +19,7 @@ export default function ContentPage(): ReactElement | null {
         Analytics.record({
             name: 'pageVisit',
             attributes: { page: jsonFile }
-        });
+        }).catch((e) => { console.log(e) });
     }, [jsonFile]);
 
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function ContentPage(): ReactElement | null {
             Analytics.record({
                 name: 'error',
                 attributes: { page: jsonFile }
-            });
+            }).catch((e) => { console.log(e) });
             setContent(await notFoundPageContent);
         })();
     }, [jsonFile, pages]);

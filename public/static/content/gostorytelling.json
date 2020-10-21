@@ -1,0 +1,64 @@
+{
+    "page": {
+        "name": "go",
+        "title": "Go Campaign",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/Go-1.jpg",
+                "url": "https://www.themeetinghouse.com/go",
+                "title": "Go Campaign",
+                "description": ""
+            },
+            
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/Go-1.jpg",
+                        "alt": "Description"
+                    }
+                ],
+                "header1": "Go Campaign",
+                "header2": "",
+                "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+                "button1Text": "Watch Video",
+                "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
+            },
+            {
+                "type":"goContent"
+            },
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Unlisted",
+                "header1": "Stories",
+                "sortOrder": "DESC",
+                "limit": 2,
+                "blogSeries": "Stories"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "spiritually-curious",
+                "selector": "all",
+                "sortOrder": "DESC",
+                "header1": "Playlist title"
+            }
+            
+        ]
+    }
+}

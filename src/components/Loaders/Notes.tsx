@@ -44,7 +44,7 @@ export default function Notes() {
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'notes' }
-    });
+    }).catch((e) => { console.log(e) });
 
     async function fetchNoteData(date: string | undefined) {
       if (!date) {
@@ -68,7 +68,7 @@ export default function Notes() {
       Analytics.record({
         name: 'error',
         attributes: { page: date }
-      });
+      }).catch((e) => { console.log(e) });
       history.replace('/not-found');
     }
 
