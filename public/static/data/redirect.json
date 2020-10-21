@@ -84,5 +84,6 @@
 {"id":"kidmax-connect","to":"https://meeting.formstack.com/forms/newfamilyconnect"},
 {"id":"leadersday","to":"https://meetinghouse.infellowship.com/Forms/445574"},
 {"id":"mccupdate","to":"https://mcc.zoom.us/meeting/register/tJAucemvpjgtH9fBdmhRa8LwUgXPdBJr1dsu"},
-{"id":"communion","to":"/static/pdfs/kidmax-files/Family-Guide-Communion.pdf"}
+{"id":"communion","to":"/static/pdfs/kidmax-files/Family-Guide-Communion.pdf"},
+{"id":"compassion-connect","to":"https://meeting.formstack.com/forms/compassion_connect"}
 ]
