@@ -521,14 +521,15 @@ export class ContentItem extends React.Component<Props, State> {
             </div>
           </div>
           <div className={"HomeChurchItemDiv3 " + (this.state.mapSelected ? "MapView" : "ListView")}>
+            {!this.state.allLocationsLoaded ? <div className="LoadingContainer"><div className="LoadingTitleContainer" ><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div></div> : null}
             <div className="HomeChurchFormItemContainer" >
               {<Select
                 onChange={(value) => this.handleSiteSelection(value as { label: string; value: string } | null)}
-                placeholder="All sites" className="LocationSelect" styles={this.styleSelect} ref={(ref) => this.selectControlLocation = ref} menuShouldScrollIntoView={true}
+                placeholder="Select Parish" className="LocationSelect" styles={this.styleSelect} ref={(ref) => this.selectControlLocation = ref} menuShouldScrollIntoView={true}
                 options={this.state.locations.map((item) => ({ label: item.name, value: item.id }))}></Select>}
               <Select
                 onChange={(value) => { this.handleDaySelection(value as { label: string; value: string } | null) }}
-                placeholder="Weekdays" className="PostalCodeInput" styles={this.styleSelect} ref={(ref) => this.selectControlDay = ref} menuShouldScrollIntoView={true}
+                placeholder="Select Day" className="PostalCodeInput" styles={this.styleSelect} ref={(ref) => this.selectControlDay = ref} menuShouldScrollIntoView={true}
                 options={this.daysOfWeek.map((item) => { return { label: item.label, value: item.value } })}></Select>
               {/*<Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode}></Input>*/}
               {/* <Button className="ClearAllButton" onClick={this.clearLocationSelection}>Clear All</Button> */}
@@ -556,7 +557,7 @@ export class ContentItem extends React.Component<Props, State> {
                 ) : null}
               </ReactCSSTransitionGroup>
               */}
-              {!this.state.allLocationsLoaded ? <div style={{ position: "absolute", top: "30%", left: "50%", textAlign: "center" }}><Spinner color="dark"></Spinner></div> : null}
+
               {filteredGroups.filter((day) => {
                 if (this.state.selectedDay.value === "all") return true;
                 else {
@@ -566,9 +567,9 @@ export class ContentItem extends React.Component<Props, State> {
                 <div className="HomeChurchItemDiv5" key={item.id ?? undefined} id={"HC-" + item.id} >
                   <h3 className={"HomeChurchH3 " + (this.state.selectedPlace === item ? "selected" : "")} onClick={this.getHomeChurchClickHandler(item)}>{item.name}</h3>
                   <div className="HomeChurchAddress">{item.description}</div>
-                  <div style={{ marginTop: "15px", marginBottom: "15px" }}>
-                    <div className="HomeChurchSiteAffiliation" style={{ marginRight: "4px" }}><Badge>{item.churchCampus?.name}</Badge></div>
-                    <div className="HomeChurchDayOfWeek" style={{ marginRight: "4px" }}><Badge>{this.getDayOfWeek(item.schedule)} {(item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1 ? "(every " + item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency + " weeks)" : null}</Badge></div>
+                  <div style={{ marginTop: "15px", marginBottom: "10px" }}>
+                    <div className="HomeChurchSiteAffiliation"><Badge>{item.churchCampus?.name}</Badge></div>
+                    <div className="HomeChurchDayOfWeek"><Badge>{this.getDayOfWeek(item.schedule)} {(item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1 ? "(every " + item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency + " weeks)" : null}</Badge></div>
                   </div>
                   <div className="HomeChurchButtonContainer">
                     {item.schedule?.recurrences?.recurrence?.recurrenceWeekly

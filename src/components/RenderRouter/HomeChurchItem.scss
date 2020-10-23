@@ -2,25 +2,24 @@
 
 .HomeChurchFormItemContainer {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       padding: 10px;
       .LocationSelect {
-            flex-grow: 3;
-            width: 50%;
+            flex-grow: 1;
             flex-shrink: 0;
       }
       .PostalCodeInput { 
             flex-grow: 1;
-            flex-shrink: 1;
             font-size: 1rem;
             font-weight: 400;
-            width: 35%;
+
             padding-top: 0;
             padding-bottom: 0;
             border-radius: 0;
 
       }
       .ClearAllButton {
+            width:100px;
             white-space: nowrap;
             font-size: 12px;
             line-height: 41px;
@@ -70,6 +69,7 @@
       letter-spacing: -0.3px;
       display:inline;
       color: $onyxblacktext;
+      margin-left:6px;
 }
 .HomeChurchTimeOfDay {
       font-weight: 800;
@@ -187,7 +187,6 @@
   }        
 
   .LoadingContainer {
-        background: $onyxblack-light;
         padding: 20px;
         margin-right: 10px;
 
@@ -277,7 +276,7 @@
       }
       .HomeChurchItemListData {
             overflow-y: auto;
-            height: 80vh;
+            height: 72vh;
             padding: 0 10px 10px;
       }
 
@@ -383,13 +382,13 @@
             .LocationSelect {
                   flex-grow: 2;
             }
-            .PostalCodeInput { 
+            .PostalCodeInput {
                   flex-grow: 1;
             }
         }
         .HomeChurchItemListData {
             overflow-y: auto;
-            height: 80vh;
+            height: 70vh;
         }
 
       .HomeChurchItemMap {
@@ -426,6 +425,7 @@
             font-family: Graphik Web;
         }
       .HomeChurchDayOfWeek {
+            margin-left:6px;
             font-size: 14px;
             color: $onyxblacktext;
       }
@@ -451,7 +451,38 @@
             display:inline;
       }
       .HomeChurchFormItemContainer {
-            padding: 10px 0px;
+            .LocationSelect {
+                  flex-grow: 3;
+                  width: 100%;
+                  flex-shrink: 0;
+            }
+            .PostalCodeInput { 
+                  flex-grow: 1;
+                  flex-shrink: 1;
+                  font-size: 1rem;
+                  font-weight: 400;
+                  width: 100%;
+                  padding-top: 0;
+                  padding-bottom: 0;
+                  border-radius: 0;
+      
+            }
+            .ClearAllButton {
+                  white-space: nowrap;
+                  font-size: 12px;
+                  line-height: 41px;
+                  font-weight: normal;
+                  background: #ffffff;
+                  border: none;
+                  height: 43px;
+                  padding: 0 10px;
+                  cursor: pointer;
+                  color: $onyxblacktext;
+                  &:hover {
+                        text-decoration: underline !important;
+                  }
+            }
+
       }      
       .HomeChurchItem {
             padding-bottom: 5vw;
@@ -489,7 +520,6 @@
 
       .HomeChurchItemMap {
             left: 0vw;
-            width: 40vw;
             height: 88vh;
       }
 
@@ -525,7 +555,7 @@
         }
 
         .HomeChurchSiteAffiliation {
-              display:inline;
+            display:inline;
             font-size: 4.3vw;
             font-weight: 800;
         }
