@@ -3,8 +3,7 @@
         "name": "find-home-church",
         "title": "Find a Home Church",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
@@ -23,9 +22,8 @@
             },
             {
                 "type": "home-church",
-                "header1": "Home Church",
-                "class":"home-church"
-
+                "header1": "Home Church Finder",
+                "class": "home-church"
             }
         ]
     }

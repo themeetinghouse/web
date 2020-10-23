@@ -15,11 +15,10 @@
             font-size: 1rem;
             font-weight: 400;
             width: 35%;
-            height: 43px;
             padding-top: 0;
             padding-bottom: 0;
             border-radius: 0;
-            line-height: 41px;
+
       }
       .ClearAllButton {
             white-space: nowrap;
@@ -37,7 +36,12 @@
             }
       }
   }
-
+.ListButton{
+      width:72px;
+      height:56px;
+      background-color:white;
+      padding:8px;
+}
 .HomeChurchItemMapInfoWindowDiv1 {
       font-weight: bold;
       font-size: 18px;
@@ -64,7 +68,7 @@
 .HomeChurchDayOfWeek {
       font-weight: 800;
       letter-spacing: -0.3px;
-      margin-top: 15px;
+      display:inline;
       color: $onyxblacktext;
 }
 .HomeChurchTimeOfDay {
@@ -234,6 +238,9 @@
 
 
 @media (min-width: 768px) {
+      .ListButton{
+            display:none
+      }
       .HomeChurchItem {
             height: 100vh;
             position: static;
@@ -319,6 +326,7 @@
         }
         .HomeChurchSiteAffiliation {
               margin: 15px 0;
+              display:inline;
         }
 
 }
@@ -439,6 +447,9 @@
 }
 
 @media (max-width: 767px) {
+      .HomeChurchDayOfWeek{
+            display:inline;
+      }
       .HomeChurchFormItemContainer {
             padding: 10px 0px;
       }      
@@ -514,9 +525,8 @@
         }
 
         .HomeChurchSiteAffiliation {
+              display:inline;
             font-size: 4.3vw;
-            line-height: 6.4vw;
-            margin-top: 5vw;
             font-weight: 800;
         }
         .HomeChurchItemDiv5 {
