@@ -76,6 +76,7 @@
     "FirstName": "Amanda",
     "LastName": "Shaw",
     "sites": ["PAR"],
+    "Email": "amanda.shaw@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
@@ -281,6 +282,7 @@
     "FirstName": "Christie-Lynn",
     "LastName": "Constable",
     "sites": ["PAR"],
+    "Email": "parrysound.kidmax@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {

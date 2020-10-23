@@ -29,9 +29,9 @@
     {
         "id": 4,
         "sites": ["brantford"],
-        "name": "Circle Square Ranch Brantford",
-        "description": "Circle Square Ranch is a summer camp committed to seeing young people transformed by the love of God. We offer financial support to those who could not otherwise attend.",
-        "image": "/static/photos/compassion/circle square.jpg",
+        "name": "Brantford Blessing Centre",
+        "description": "The Brantford Blessing Centre provides access to food for marginalized communities. We make and serve meals twice a month and assist with additional projects as they come up.",
+        "image": "/static/images/compassion/none.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
     },
     {
