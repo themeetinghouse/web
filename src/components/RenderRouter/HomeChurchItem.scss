@@ -486,6 +486,16 @@
             }
 
       }      
+      .LoadingContainer{
+            position:absolute;
+            top:-20vw;
+            margin-left:-5vw;
+            .LoadingTitleContainer{
+            }
+            .LoadingTitle{
+                  font-size: 16px !important;
+            }
+      }
       .HomeChurchItem {
             padding-bottom: 5vw;
             padding-top: 5vh;

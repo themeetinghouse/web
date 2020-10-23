@@ -470,7 +470,7 @@ export class ContentItem extends React.Component<Props, State> {
 
     return (
 
-      <div className="HomeChurchItem">
+      <div className="HomeChurchItem" style={!this.state.allLocationsLoaded ? { marginTop: "60px" } : {}}>
         <div className="HomeChurchItemDiv1">
 
           <h1 className="HomeChurchH1">{this.props.content.header1}</h1>
