@@ -476,8 +476,14 @@ export class ContentItem extends React.Component<Props, State> {
           <h1 className="HomeChurchH1">{this.props.content.header1}</h1>
 
           <div>
-            <img onClick={() => { this.setState({ mapSelected: false }) }} style={this.state.mapSelected ? {} : { backgroundColor: "#EFEFF0" }} className="ListButton" alt="List_Button" src={LIST_BUTTON}></img>
-            <img onClick={() => { this.setState({ mapSelected: true }) }} style={this.state.mapSelected ? { backgroundColor: "#EFEFF0" } : {}} className="ListButton" alt="Map_Button" src={MAP_BUTTON}></img>
+            <img onClick={() => {
+              this.setState({ mapSelected: false })
+              this.clearLocationSelection()
+            }} style={this.state.mapSelected ? {} : { backgroundColor: "#EFEFF0" }} className="ListButton" alt="List_Button" src={LIST_BUTTON}></img>
+            <img onClick={() => {
+              this.setState({ mapSelected: true })
+              this.clearLocationSelection()
+            }} style={this.state.mapSelected ? { backgroundColor: "#EFEFF0" } : {}} className="ListButton" alt="Map_Button" src={MAP_BUTTON}></img>
           </div>
           <div className={"HomeChurchItemDiv2 " + (this.state.mapSelected ? "MapView" : "ListView")}  >
             <div className="HomeChurchItemMap">
@@ -520,7 +526,7 @@ export class ContentItem extends React.Component<Props, State> {
               </Map>
             </div>
           </div>
-          <div className={"HomeChurchItemDiv3 " + (this.state.mapSelected ? "MapView" : "ListView")}>
+          <div className={"HomeChurchItemDiv3 " + (this.state.mapSelected ? "MapView" : "ListView")} style={this.state.mapSelected ? {} : { marginBottom: "-52vh" }}>
             {!this.state.allLocationsLoaded ? <div className="LoadingContainer"><div className="LoadingTitleContainer" ><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div></div> : null}
             <div className="HomeChurchFormItemContainer" >
               {<Select

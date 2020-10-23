@@ -451,6 +451,9 @@
             display:inline;
       }
       .HomeChurchFormItemContainer {
+            position:absolute;
+            top:25vw;
+            width:100%;
             .LocationSelect {
                   flex-grow: 3;
                   width: 100%;
@@ -465,7 +468,6 @@
                   padding-top: 0;
                   padding-bottom: 0;
                   border-radius: 0;
-      
             }
             .ClearAllButton {
                   white-space: nowrap;
@@ -496,11 +498,12 @@
       }
 
       .HomeChurchItemDiv2 {
-            position: absolute;
+            position: relative;
             // left: 0vw;
+            top:40vw;
+            margin-bottom:35vw;
             width: 100%;
-            height: 50vh;
-            top: 25vw;
+            height: 56vh;
       }
 
       .HomeChurchItemDiv3 {
@@ -517,7 +520,26 @@
             top: 52vh;
             padding-bottom: 52vh
       }
-
+      .MapView{
+            .HomeChurchItemListData{
+                  display:none;
+            }
+      }
+      .ListView{
+            .HomeChurchItemMap{
+                  display:none;
+            }
+            .HomeChurchItemDiv2{
+                  height:0vh;
+            }
+            .HomeChurchItemListData{
+                  top:-53vh;
+                  padding-bottom:0;
+            }
+            .HomeChurchItemDiv3{
+                  height:0;
+            }
+      }
       .HomeChurchItemMap {
             left: 0vw;
             height: 88vh;
