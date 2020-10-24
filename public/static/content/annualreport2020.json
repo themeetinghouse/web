@@ -45,15 +45,15 @@
                     {
                         "title": "Compassion & Local Agency Support",
                         "text": "Supporting people in our own communities and around the world through local initiatives and our through partnerships with World Vision, Mennonite Central Committee (MCC), and BIC Canada Global. 15% - $1,618,404",
-                        "imageSrc": "/static/images/homepage-4-1-new.jpg",
-                        "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+                        "src": "/static/images/compassion-2-new.jpg",
+                        "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions.",
                         "navigateTo": "/compassion"
                     },
                     {
                         "title": "Kids & Youth",
                         "text": "Discipling our kids and youth through curriculum production, programming, staffing, classroom supplies, and subsidies for our youth retreats. 13% - $1,378,676",
-                        "imageSrc": "/static/images/corona-2.jpg",
-                        "imageAlt": "Screen shot of Bruxy teaching during Sunday morning livestream at The Meeting House.",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
                         "navigateTo": "/kids-and-youth"
                     },
                     {
