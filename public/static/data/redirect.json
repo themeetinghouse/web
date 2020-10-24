@@ -694,5 +694,9 @@
     {
         "id": "compassion-connect",
         "to": "https://meeting.formstack.com/forms/compassion_connect"
+    },
+    {
+        "id": "parishchallenge",
+        "to": "https://meeting.formstack.com/forms/parish_challenge"
     }
 ]
