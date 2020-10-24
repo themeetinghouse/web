@@ -188,6 +188,7 @@
 
   .LoadingContainer {
         padding: 20px;
+        padding-left:0;
         margin-right: 10px;
 
       .LoadingTitleContainer {
@@ -488,8 +489,9 @@
       }      
       .LoadingContainer{
             position:absolute;
-            top:-20vw;
+            top:35vw;
             margin-left:-5vw;
+            padding-left:15px;
             .LoadingTitleContainer{
             }
             .LoadingTitle{

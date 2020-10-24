@@ -15,7 +15,8 @@ import { GoogleApiWrapper, IMarkerProps, InfoWindow, IProvidedProps, Map, Marker
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
-//import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
 import { Spinner } from 'reactstrap';
@@ -470,7 +471,7 @@ export class ContentItem extends React.Component<Props, State> {
 
     return (
 
-      <div className="HomeChurchItem" style={!this.state.allLocationsLoaded ? { marginTop: "60px" } : {}}>
+      <div className="HomeChurchItem">
         <div className="HomeChurchItemDiv1">
 
           <h1 className="HomeChurchH1">{this.props.content.header1}</h1>
@@ -485,7 +486,7 @@ export class ContentItem extends React.Component<Props, State> {
               this.clearLocationSelection()
             }} style={this.state.mapSelected ? { backgroundColor: "#EFEFF0" } : {}} className="ListButton" alt="Map_Button" src={MAP_BUTTON}></img>
           </div>
-          <div className={"HomeChurchItemDiv2 " + (this.state.mapSelected ? "MapView" : "ListView")}  >
+          <div className={"HomeChurchItemDiv2 " + (this.state.mapSelected ? "MapView" : "ListView")} style={isMobile && !this.state.allLocationsLoaded ? { marginTop: "15vw" } : {}}  >
             <div className="HomeChurchItemMap">
               <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} bounds={this.state.mapBounds ?? undefined} mapTypeControl={false} onReady={(_props, map) => (this.map = map)}>
                 <Marker icon={CURRENT_LOCATION_URL} position={{ ...this.state.currentLatLng }} />
@@ -527,7 +528,6 @@ export class ContentItem extends React.Component<Props, State> {
             </div>
           </div>
           <div className={"HomeChurchItemDiv3 " + (this.state.mapSelected ? "MapView" : "ListView")} style={this.state.mapSelected ? {} : { marginBottom: "-52vh" }}>
-            {!this.state.allLocationsLoaded ? <div className="LoadingContainer"><div className="LoadingTitleContainer" ><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div></div> : null}
             <div className="HomeChurchFormItemContainer" >
               {<Select
                 onChange={(value) => this.handleSiteSelection(value as { label: string; value: string } | null)}
@@ -540,6 +540,9 @@ export class ContentItem extends React.Component<Props, State> {
               {/*<Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode}></Input>*/}
               {/* <Button className="ClearAllButton" onClick={this.clearLocationSelection}>Clear All</Button> */}
               <button className="ClearAllButton" onClick={() => this.clearLocationSelection()} tabIndex={0}>Clear All</button>
+              <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
+                {!this.state.allLocationsLoaded ? <div className="LoadingContainer"><div className="LoadingTitleContainer" ><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div></div> : null}
+              </ReactCSSTransitionGroup>
             </div>
 
 
