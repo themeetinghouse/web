@@ -617,6 +617,120 @@
         "description":"The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
         "image": "/static/photos/compassion/The Door.jpg",
         "imagealt": "Placeholder image for Compassion Partner"
+    },
+    {
+        "id": 72,
+        "sites": ["compassionstats"],
+        "name": "$100,000",
+        "description":"has been given to World Vision’s Raw Hope initiatives (including their COVID-19 response efforts), providing basic needs and space for children and families to heal."
+    },
+    {
+        "id": 73,
+        "sites": ["compassionstats"],
+        "name": "$250,000",
+        "description":"of our Local Compassion Fund was distributed to 23 partner organizations across our parishes in December 2019."
+    },
+    {
+        "id": 74,
+        "sites": ["compassionstats"],
+        "name": "$207,633",
+        "description":"raised for the Peacemakers Campaign, in addition to a total of 1,032 Relief Kits on collection day."
+    },
+    {
+        "id": 75,
+        "sites": ["compassionstats"],
+        "name": "$77,962",
+        "description":"raised by 785 unique donations for MCC Fundraising in June (the goal was $24,000)."
+    },
+    {
+        "id": 76,
+        "sites": ["compassionstats"],
+        "name": "$77,962",
+        "description":"raised by 785 unique donations for MCC Fundraising in June (the goal was $24,000)."
+    },
+    {
+        "id": 77,
+        "sites": ["jesuscollectivestats"],
+        "name": "35",
+        "description":"partner applications from churches & leaders across 7 different countries."
+    },
+    {
+        "id": 78,
+        "sites": ["jesuscollectivestats"],
+        "name": "45",
+        "description":"trained pastoral & ministry leaders in the way of Jesus through Online Learning Collectives."
+    },
+    {
+        "id": 79,
+        "sites": ["jesuscollectivestats"],
+        "name": "500",
+        "description":"people from 20 countries attended the live Unite Online conference in May."
+    },
+    {
+        "id": 80,
+        "sites": ["engagementstats"],
+        "name": "1,900",
+        "description":"people on our Home Church roster."
+    },
+    {
+        "id": 81,
+        "sites": ["engagementstats"],
+        "name": "878",
+        "description":"people attending weekly Home Church."
+    },
+    {
+        "id": 82,
+        "sites": ["engagementstats"],
+        "name": "2,079",
+        "description":"After Party viewers."
+    },
+    {
+        "id": 83,
+        "sites": ["engagementstats"],
+        "name": "4,203",
+        "description":"Sunday Livestream viewers."
+    },
+    {
+        "id": 84,
+        "sites": ["engagementstats"],
+        "name": "11,745",
+        "description":"Weekly Teaching Downloads."
+    },
+    {
+        "id": 85,
+        "sites": ["engagementstats"],
+        "name": "6,730",
+        "description":"Easter 2020 Livestream."
+    },
+    {
+        "id": 86,
+        "sites": ["engagementstats"],
+        "name": "6,738",
+        "description":"Christmas Eve 2019 Service."
+    },
+    {
+        "id": 87,
+        "sites": ["kidsandyouthstats"],
+        "name": "3,595",
+        "description":"Kids and Youth Curriculum Subscribers."
+    },
+    {
+        "id": 88,
+        "sites": ["kidsandyouthstats"],
+        "name": "146",
+        "description":"Jr. high students (Grades 6-8) on a Sunday morning."
+    },
+    {
+        "id": 89,
+        "sites": ["kidsandyouthstats"],
+        "name": "151",
+        "description":"students (Grades 6-12) at weekly midweek programs."
+    },
+    {
+        "id": 90,
+        "sites": ["kidsandyouthstats"],
+        "name": "832",
+        "description":"children (birth-Grade 5) on a Sunday morning."
     }
 
 ]
