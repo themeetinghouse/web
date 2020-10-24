@@ -149,7 +149,25 @@
                 "status": "Live",
                 "header1": "Stories",
                 "sortOrder": "DESC",
-                "limit": 4,
+                "limit": 2,
+                "blogSeries": "Annual Report 3"
+            },
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Live",
+                "header1": "Stories",
+                "sortOrder": "DESC",
+                "limit": 2,
+                "blogSeries": "Annual Report 2"
+            },
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Live",
+                "header1": "Stories",
+                "sortOrder": "DESC",
+                "limit": 2,
                 "blogSeries": "Annual Report"
             },
             {
