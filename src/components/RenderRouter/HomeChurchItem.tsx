@@ -520,7 +520,7 @@ export class ContentItem extends React.Component<Props, State> {
                 options={this.state.locations.map((item) => ({ label: item.name, value: item.id }))}></Select>}
               <Select
                 onChange={(value) => { this.handleDaySelection(value as { label: string; value: string } | null) }}
-                placeholder="Select Day" className="PostalCodeInput" styles={this.styleSelect} ref={(ref) => this.selectControlDay = ref} menuShouldScrollIntoView={true}
+                placeholder="Select Day" className="DaySelect" styles={this.styleSelect} ref={(ref) => this.selectControlDay = ref} menuShouldScrollIntoView={true}
                 options={this.daysOfWeek.map((item) => { return { label: item.label, value: item.value } })}></Select>
               <button className="ClearAllButton" onClick={() => this.clearLocationSelection()} tabIndex={0}>Clear All</button>
               <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
