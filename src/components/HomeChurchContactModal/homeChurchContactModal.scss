@@ -38,8 +38,8 @@
       }
       button {
             border-radius: 0;
-            background: $onyxblack !important;
-            color: $white;
+            background: #fff;
+            color: $onyxblacktext;
             border-color: $onyxblack;
             font-family: Graphik Web;
             font-weight: bold;
@@ -48,10 +48,10 @@
             padding: 0.75rem 1.25rem;
             white-space: nowrap;
             &:hover {
-                  background-color: $onyxblacktext;
+                  color: "#fff"
             }
             &:active {
-                  background-color: $onyxblacktext;
+                  background-color: "$onyxblacktext;"
             }
       }
 
