@@ -339,20 +339,6 @@ export class ContentItem extends React.Component<Props, State> {
     this.setState({ filterLocation: location, mapBounds: bounds });
   };
 
-  /*private handlePostalCodeChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    this.setState({ postalCode: value });
-    const regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-    const isValid = regex.test(value);
-    console.log("HomeChurchItem.handlePostalCodeChange(): Postal Code value: %o.  Valid? %b", value, regex.test(value));
-    if (isValid) {
-      await this.setGeoLocation(value);
-    } else if (!value) {
-      await this.setGeoLocation();
-    }
-    this.handleSiteSelection(this.state.filterLocation);
-  }*/
-
   private handleDaySelection = (selectedDay: { label?: string; value: string } | null) => {
     this.setState({ selectedDay: selectedDay ?? { value: "all" } });
   }
@@ -536,8 +522,6 @@ export class ContentItem extends React.Component<Props, State> {
                 onChange={(value) => { this.handleDaySelection(value as { label: string; value: string } | null) }}
                 placeholder="Select Day" className="PostalCodeInput" styles={this.styleSelect} ref={(ref) => this.selectControlDay = ref} menuShouldScrollIntoView={true}
                 options={this.daysOfWeek.map((item) => { return { label: item.label, value: item.value } })}></Select>
-              {/*<Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode}></Input>*/}
-              {/* <Button className="ClearAllButton" onClick={this.clearLocationSelection}>Clear All</Button> */}
               <button className="ClearAllButton" onClick={() => this.clearLocationSelection()} tabIndex={0}>Clear All</button>
               <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
                 {!this.state.allLocationsLoaded ? <div className="LoadingContainer"><div className="LoadingTitleContainer" ><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div></div> : null}
@@ -546,26 +530,6 @@ export class ContentItem extends React.Component<Props, State> {
 
 
             <div className="HomeChurchItemListData" ref={(ref) => this.homeChurchListScrollContainer = ref}>
-              {/*
-              <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
-                {!this.state.allLocationsLoaded ? (
-                  <div className="LoadingContainer">
-                    <div className="LoadingTitleContainer"><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div>
-                    {this.state.locations.map((location) => {
-                      const isLocationLoaded = this.state.locationsLoaded.includes(Location_ID_to_F1_Group_Type_Map[location.id]);
-                      return (
-                        <div className={"LoadingItem " + (isLocationLoaded ? "Loaded" : "")} key={location.id}>
-                          <img alt="Loading Icon" className="LoadingImage" src="/static/svg/Home-Church-Location.svg"></img>
-                          <img alt="Loaded Icon" className="LoadedImage" src="/static/svg/Check-green.svg"></img>
-                          <span className="LoadingLocationLabel">{location.name}</span>
-                        </div>
-                      )
-                    })}
-                  </div>
-                ) : null}
-              </ReactCSSTransitionGroup>
-              */}
-
               {filteredGroups.filter((day) => {
                 if (this.state.selectedDay.value === "all") return true;
                 else {
