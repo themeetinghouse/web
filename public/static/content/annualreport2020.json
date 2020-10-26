@@ -1,0 +1,195 @@
+{
+    "page": {
+        "name": "go",
+        "title": "Annual Report 2020",
+        "keywords": "",
+        "description":"",
+
+        "pageConfig": {
+            "movingMenu": false,
+            "showLogoText": true,
+            "logoColor":"black",
+            "showSearch":true,
+            "showFooter":true,
+            "showMenu":true
+        },
+        "content": [
+            {
+                "type": "og-tags",
+                "image": "/static/images/Go-1.jpg",
+                "url": "https://www.themeetinghouse.com/annualreport2020",
+                "title": "Annual Report",
+                "description": ""
+            },
+            
+            {
+                "type": "hero",
+                "style": "full",
+                "image1": [
+                    {
+                        "src": "/static/images/Go-1.jpg",
+                        "alt": "Description"
+                    }
+                ],
+                "header1": "Annual Report",
+                "header2": "",
+                "text1": "We exist to grow loving communities of Jesus-followers who live and share his irreligious message."
+            },
+            {
+                "type": "list",
+                "style": "imageList",
+                "class": "user-defined",
+                "header1": "Your Generosity Makes Ministry Happen",
+                "text1": "Thank you for being part of the 3,500+ people who gave this past year to support our vision. Together, this looks like:",
+                "list": [
+                    {
+                        "title": "Compassion & Local Agency Support",
+                        "text": "Supporting people in our own communities and around the world through local initiatives and our through partnerships with World Vision, Mennonite Central Committee (MCC), and BIC Canada Global. 15% - $1,618,404",
+                        "src": "/static/images/compassion-2-new.jpg",
+                        "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions.",
+                        "navigateTo": "/compassion"
+                    },
+                    {
+                        "title": "Kids & Youth",
+                        "text": "Discipling our kids and youth through curriculum production, programming, staffing, classroom supplies, and subsidies for our youth retreats. 13% - $1,378,676",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
+                        "navigateTo": "/kids-and-youth"
+                    },
+                    {
+                        "title": "Adult Ministries",
+                        "text": "Funding Home Church, local events, volunteer training and appreciation, plus resourcing and salaries for our parish pastors. 22% - $2,334,841",
+                        "imageSrc": "/static/images/homepage-4-2-new.jpg",
+                        "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast."
+                    },
+                    {
+                        "title": "Shared Ministry Expenses",
+                        "text": "Resourcing and training for our staff team and covering administrative costs and salaries for our senior pastors, IT, accounting, and HR staff. 12% - $1,304,211",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
+                    },
+                    {
+                        "title": "Facilities & Rent",
+                        "text": "Renting spaces for Sunday mornings, meetings, and rehearsals and funding storage facilities, utilities, and maintenance at the Oakville facility. 17% - $1,839,981",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
+                    },
+                    {
+                        "title": "Communications & Weekend Service",
+                        "text": "Producing and distributing Sunday teaching to our parish and online community and funding tech, parish support, and communications staff. 16% - $1,699,785",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
+                        "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
+                    },
+                    {
+                        "title": "Jesus Collective",
+                        "text": "Resourcing and training for our staff team and covering administrative costs and salaries for our senior pastors, IT, accounting, and HR staff. 5% - $542,360",
+                        "imageSrc": "/static/images/homepage-4-4-new.jpg",
+                        "imageAlt": "Planning, promoting, and organizing the framework for Jesus Collective’s pilot phase and inviting other leaders and churches to join.",
+                        "navigateTo": "https://jesuscollective.com"
+                    }
+                ]
+            },
+            {
+                "type": "content",
+                "style": "oneImage",
+                "header1": "Our impact is measured by His hands and feet.",
+                "text1": "We have so much to be thankful for during our last fiscal year. Here are some of the things we’re celebrating:",
+              
+                "image1": [
+                    {
+                        "src": "/static/images/compassion-2-new.jpg",
+                        "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions."
+                    }
+                ]
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "compassion",
+                "header1": "Compassion",
+                "filterField":"sites",                 
+                "filterValue": "compassionstats"
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "compassion",
+                "header1": "Jesus Collective",
+                "filterField":"sites",                 
+                "filterValue": "jesuscollectivestats"
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "compassion",
+                "header1": "Kids and Youth",
+                "filterField":"sites",                 
+                "filterValue": "kidsandyouthstats"
+            },
+            {
+                "type": "list",
+                "style": "vertical",
+                "class": "compassion",
+                "header1": "Engagement",
+                "filterField":"sites",                 
+                "filterValue": "engagementstats"
+            },
+            {
+                "type": "list",
+                "style": "horizontal",
+                "class": "videos",
+                "subclass": "annual-report",
+                "selector": "all",
+                "sortOrder": "DESC",
+                "header1": "Stories"
+            },
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Live",
+                "header1": "Stories",
+                "sortOrder": "DESC",
+                "limit": 2,
+                "blogSeries": "Annual Report 3"
+            },
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Live",
+                "header1": "Stories",
+                "sortOrder": "DESC",
+                "limit": 2,
+                "blogSeries": "Annual Report 2"
+            },
+            {
+                "type": "blog",
+                "style": "twoImage",
+                "status": "Live",
+                "header1": "Stories",
+                "sortOrder": "DESC",
+                "limit": 2,
+                "blogSeries": "Annual Report"
+            },
+            {
+                "type": "content",
+                "style": "oneImageBlackRight",
+                "header1": "Annual Report 2020",
+                "header2": "",
+                "list": [
+                    {
+                        "type": "link",
+                        "title": "Download PDF",
+                        "navigateTo": "/static/pdfs/annual-reports/TMH_2020AnnualReport_v6.pdf"
+                    }
+                ],
+                "image1": [
+                    {
+                        "src": "/static/images/make-a-difference-3.jpg",
+                        "alt": "A woman is using her smartphone."
+                    }
+                ]
+            }
+            
+        ]
+    }
+}
