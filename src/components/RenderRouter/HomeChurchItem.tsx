@@ -471,7 +471,7 @@ export class ContentItem extends React.Component<Props, State> {
               this.clearLocationSelection()
             }} style={this.state.mapSelected ? { backgroundColor: "#EFEFF0" } : {}} className="ListButton" alt="Map_Button" src={MAP_BUTTON}></img>
           </div>
-          <div className={"HomeChurchItemDiv2 " + (this.state.mapSelected ? "MapView" : "ListView") + (!this.state.allLocationsLoaded ? " topMargin" : "")} >
+          <div className={"HomeChurchItemDiv2 " + (this.state.mapSelected ? "MapView" : "ListView") + (!this.state.allLocationsLoaded ? " loadingMargin" : "")} >
             <div className="HomeChurchItemMap">
               <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} bounds={this.state.mapBounds ?? undefined} mapTypeControl={false} onReady={(_props, map) => (this.map = map)}>
                 <Marker icon={CURRENT_LOCATION_URL} position={{ ...this.state.currentLatLng }} />
