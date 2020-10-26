@@ -852,6 +852,12 @@ export const getFbEvents = /* GraphQL */ `
           id
           ticket_uri
         }
+        cover {
+          id
+          offset_x
+          offset_y
+          source
+        }
       }
       paging {
         cursors {
