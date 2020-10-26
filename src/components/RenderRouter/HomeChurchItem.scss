@@ -265,7 +265,7 @@
             position: absolute;
             left: 0vw;
             width: 40vw;
-            height: 100vh;
+            height: 88vh;
       }
 
       .HomeChurchItemDiv5 {
@@ -277,7 +277,7 @@
       }
       .HomeChurchItemListData {
             overflow-y: auto;
-            height: 72vh;
+            height: 70vh;
             padding: 0 10px 10px;
       }
 
@@ -448,6 +448,9 @@
 }
 
 @media (max-width: 767px) {
+      .topMargin{
+            margin-top:15vw;
+      }
       .HomeChurchDayOfWeek{
             display:inline;
       }
