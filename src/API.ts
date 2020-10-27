@@ -26882,6 +26882,13 @@ export type GetFbEventsQuery = {
         id: string | null,
         ticket_uri: string | null,
       } | null > | null,
+      cover:  {
+        __typename: "FBCover",
+        id: string | null,
+        offset_x: number | null,
+        offset_y: number | null,
+        source: string | null,
+      } | null,
     } | null > | null,
     paging:  {
       __typename: "FBPaging",

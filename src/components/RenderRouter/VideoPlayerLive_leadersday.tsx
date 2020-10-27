@@ -45,6 +45,10 @@ export default class VideoPlayer extends React.Component<Props, State> {
     { __typename: "ZoomItem", title: "Toronto Uptown", link: "https://us02web.zoom.us/j/82132846890?pwd=TE01Ym0vWEZBNUE4QVI0dGh2MmZkQT09" },
     { __typename: "ZoomItem", title: "Waterloo", link: "https://tinyurl.com/WATLonline" },
   ];
+  breakouttwo = [
+    { __typename: "ZoomItem", title: "First Name: A - K", link: "https://us02web.zoom.us/j/81730640198" },
+    { __typename: "ZoomItem", title: "First Name: L - Z", link: "https://us02web.zoom.us/j/84178766161" },
+  ]
   liveEvent: LiveData = {
     __typename: "Livestream",
     id: "",
@@ -69,9 +73,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     if (today === this.liveEvent.date) {
       const start = this.state.liveEvent?.videoStartTime
       const end = this.state.liveEvent?.endTime
-      console.log(end)
       const rightNow = moment().tz("America/Toronto").format('HH:mm')
-      console.log(rightNow)
       if (start && end) {
         const showTime = rightNow >= start && rightNow <= end
         if (showTime) {
@@ -97,55 +99,52 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.liveEvent) { // live event is hardcoded, always true
-      return <div className="LiveVideoPlayerDiv" >
-        {this.state.isLive ?
-          <div>
-            <iframe title="Leaders Day Livestream" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-            <div className="LiveVideoPlayerTitle">Leaders Day Livestream</div>
-            <br />
-          </div>
-          : <div>
-            <iframe title="Leaders Day Livestream" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state.liveEvent.prerollYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
-            <div className="LiveVideoPlayerTitle">Leaders Day Livestream Pre-show</div>
-            <br />
-          </div>}
+    return (<div className="LiveVideoPlayerDiv" >
+      <div>
+        <iframe title="Leaders Day Livestream" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/" + this.state?.liveEvent?.liveYoutubeId + "?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+        <div className="LiveVideoPlayerTitle">Leaders Day Livestream</div>
+        <br />
+      </div>
 
-        <div className="LiveVideoPlayerExtra">
-          <div className="LiveVideoPlayerSeriesNotes">
-            <img className="button-icon" src={`/static/svg/User-white.svg`} alt="" />
-            <Link className="LiveMenuLink" newWindow to={"connect"}>Connect</Link>
-          </div>
 
+      <div className="LiveVideoPlayerExtra">
+        <div className="LiveVideoPlayerSeriesNotes">
+          <img className="button-icon" src={`/static/svg/User-white.svg`} alt="" />
+          <Link className="LiveMenuLink" newWindow to={"connect"}>Connect</Link>
         </div>
-        <div></div>
-        <div className="LiveVideoPlayerEpisodeTitle" style={{ marginTop: "2vw" }} >Breakouts 1 and 3</div>
-        <div className="ZoomGrid" style={{ marginTop: "2vw" }}>
-
-          {this.zoomLinks.map((item, index) => {
-            const watchText =
-              item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
-                : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
-                  : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
-                    : 'Watch'
-            return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
-              <div className="ZoomText" >{item?.title}</div>
-              <div className="WatchVideoTag">{watchText}</div>
-            </a>
-          })}
-        </div>
-        <div className="LiveVideoPlayerTitle" style={{ marginTop: "2vw" }}>Breakout 2</div>
 
       </div>
-    } else {
-      return (
-        <div className="LiveVideoPlayerDiv" >
-          <iframe title="Teaching Pre-roll" className="LiveVideoPlayerIframe" allowFullScreen src={"https://www.youtube.com/embed/na1g4ht-yNs?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0"} frameBorder="0" allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe><br />
-          <div className="LiveVideoPlayerTitle">Leaders Day Livestream</div>
-          <div className="LiveVideoPlayerDescription" style={{ margin: 0 }} >We aren&apos;t live right now.</div>
-        </div>
-      )
-    }
+      <div></div>
+      <div className="LiveVideoPlayerEpisodeTitle" style={{ marginTop: "2vw" }} >Breakouts 1 and 3</div>
+      <div className="ZoomGrid" style={{ marginTop: "2vw" }}>
+
+        {this.zoomLinks.map((item, index) => {
+          const watchText =
+            item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
+              : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
+                : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
+                  : 'Watch'
+          return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
+            <div className="ZoomText" >{item?.title}</div>
+            <div className="WatchVideoTag">{watchText}</div>
+          </a>
+        })}
+      </div>
+      <div className="LiveVideoPlayerTitle" style={{ marginTop: "2vw" }}>Breakout 2</div>
+      <div className="ZoomGrid" style={{ marginTop: "2vw" }}>
+        {this.breakouttwo.map((item, index) => {
+          const watchText =
+            item?.link.toLowerCase().includes('zoom') ? 'Watch on Zoom'
+              : item?.link.toLowerCase().includes('youtube') || item?.link.toLowerCase().includes('youtu.be') ? 'Watch on YouTube'
+                : item?.link.toLowerCase().includes('crowdcast') ? 'Watch on Crowdcast'
+                  : 'Watch'
+          return <a className="ZoomItem" key={index} href={item?.link} target="_blank" rel="noopener noreferrer">
+            <div className="ZoomText" >{item?.title}</div>
+            <div className="WatchVideoTag">{watchText}</div>
+          </a>
+        })}
+      </div>
+    </div>)
 
   }
 }

@@ -38,12 +38,9 @@
                 "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
             },
             {
-                "type":"goContent"
-            },
-            {
                 "type": "blog",
                 "style": "twoImage",
-                "status": "Unlisted",
+                "status": "Live",
                 "header1": "Stories",
                 "sortOrder": "DESC",
                 "limit": 2,
@@ -53,10 +50,29 @@
                 "type": "list",
                 "style": "horizontal",
                 "class": "videos",
-                "subclass": "spiritually-curious",
+                "subclass": "go-campaign",
                 "selector": "all",
                 "sortOrder": "DESC",
-                "header1": "Playlist title"
+                "header1": "Stories"
+            },
+            {
+                "type": "content",
+                "style": "goRegionalEventsOneImageBlackRight",
+                "header1":"Give",
+                "header2":"",
+                "text1":"Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible.",
+                "list": [
+                    {
+                        "type":"link",
+                        "title": "Register Here",
+                        "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
+                    }
+                ],
+               
+                "image1":[{
+                    "src":"/static/images/Go-3.jpg",
+                    "alt":"Group of people sitting together for an information night about the Go Capaign."
+                }]
             }
             
         ]
