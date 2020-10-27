@@ -698,7 +698,8 @@
     {
         "id": "vote",
         "to": "http://etc.ch/YntM"
-
+    },
+    {
         "id": "parishchallenge",
         "to": "https://meeting.formstack.com/forms/parish_challenge"
     }
