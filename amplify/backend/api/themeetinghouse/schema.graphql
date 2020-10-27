@@ -118,6 +118,13 @@ type FBEvent{
   start_time: String
   id: String
   event_times:[FBTime]
+  cover:FBCover
+}
+type FBCover{
+  id:String
+  offset_x:Float
+  offset_y:Float
+  source:String
 }
 type fuzzySearchableVideoConnection {
   items: [Video]
