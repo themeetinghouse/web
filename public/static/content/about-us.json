@@ -115,8 +115,8 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "2020 - AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/2020 Supporting Documentation-Merged.pdf",
+                        "title": "2020 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/2020_Annual_Report_combined.pdf",
                         "openNewBrowser": true
                     },
                     {
