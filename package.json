@@ -123,5 +123,9 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "ts-jest": "^26.2.0",
     "tslint": "^6.1.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": true
   }
 }
