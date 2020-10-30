@@ -43,27 +43,27 @@
                 "text1": "Here's what we're learning in preschool this week:",
                 "image1": [
                     {
-                        "src": "/static/images/PS-Big Idea Oct.jpg",
-                        "alt": "This month's big idea: God created a very good world"
+                        "src": "/static/images/PSBigIdeaNov1.jpg",
+                        "alt": "This month's big idea: God wants us to know him"
                     }
                 ],
                 "list": [
                     {
                         "type": "link",
                         "title": "Download Preschool Lesson",
-                        "navigateTo": "/static/pdfs/kidmax-files/PS-Lesson.pdf",
+                        "navigateTo": "/static/pdfs/kidmax-files/Nov 1PreschoolLESSON.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
                         "title": "Download Preschool Activities",
-                        "navigateTo": "/static/pdfs/kidmax-files/PS-Activities.pdf",
+                        "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesNov 1.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
                         "title": "Download Preschool Key Verse Colouring Page",
-                        "navigateTo": "/static/pdfs/kidmax-files/PS-Colouring.pdf",
+                        "navigateTo": "/static/pdfs/kidmax-files/PSKeyVerseColouringPage - November.pdf",
                         "openNewBrowser": true
                     }
                 ]
@@ -85,27 +85,27 @@
                 "text1": "Here's what our Grade 1-5 students are learning this week:",
                 "image1": [
                     {
-                        "src": "/static/images/Kids Big Idea Oct 25.png",
-                        "alt": "This week's big idea: We can trust God to keep his promises."
+                        "src": "/static/images/KidsBigIdeaNov1.jpg",
+                        "alt": "This week's big idea: God helps us see people the way he sees them."
                     }
                 ],
                 "list": [
                     {
                         "type": "link",
                         "title": "Download Kids Lesson",
-                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Lesson.pdf",
+                        "navigateTo": "/static/pdfs/kidmax-files/Nov 1KidsLesson.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
                         "title": "Download Kids Activities",
-                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Activities.pdf",
+                        "navigateTo": "/static/pdfs/kidmax-files/Nov 1KidsLesson.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
                         "title": "Download Kids Key Verse Colouring Page",
-                        "navigateTo": "/static/pdfs/kidmax-files/Kids-Colouring.pdf",
+                        "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseColouringPage - November.pdf",
                         "openNewBrowser": true
                     }
                 ]
