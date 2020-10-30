@@ -10,6 +10,15 @@
     }
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @media (min-width: 768px) {
     .ListItemEventButton {
         background-color: #ffffff00 !important;
@@ -405,63 +414,49 @@
         padding-bottom: 5vw;
     }
 
-    .CuriousBox {
-        transition: 0.5s;
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 24vw;
-        height: 13.5vw;
+    .CuriousPlayOverlay {
+        position: absolute;
         display: flex;
         justify-content: center;
-        align-items: center;
-    }
-
-    .CuriousWrapper {
-        position: relative;
-        width: 24vw;
-        height: 13.5vw;
-        margin-bottom: 1.67vw;
-    }
-    .CuriousText {
-        transition: 0.5s;
-        position: relative;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        flex: 0 0 18vw;
-        text-align: center;
-        color: $onyxblacktext;
-    }
-
-    .WatchVideoTag {
-        transition: 0.5s;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: (9/16)*24vw;
         opacity: 0;
-        position: absolute;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        color: #ffffff;
-        padding-top: 4vw;
-        border-bottom: 1px solid #ffffff;
+        transition: 0.5s ease;
+        img {
+            height: 100%;
+        }
     }
 
-    .CuriousBox:hover {
-        transition: 0.5s;
-        background-color: $onyxblacktext;
-        .CuriousText {
-            color: #ffffff;
-            transition: 0.5s;
-            transform: translateY(-2vw);
-        }
-        .WatchVideoTag {
-            transition: 0.5s;
-            opacity: 1;
+    .CuriousVideoImage {
+        width: 24vw;
+        height: (9/16)*24vw;
+        transition: 0.5s ease;
+        filter: grayscale(0.62);
+    }
+
+    .CuriousVideo {
+        cursor: pointer;
+        width: 24vw;
+        height: (9/16)*24vw;
+        position: relative;
+        &:hover {
+            .CuriousVideoImage {
+                filter: grayscale(0);
+            }
+            .CuriousPlayOverlay {
+                opacity: 0.75;
+            }
         }
     }
+
     .CuriousContainer {
         display: grid;
         grid-template-columns: repeat(3,24vw);
-        grid-template-rows: 15.17vw;
+        grid-template-rows: (9/16)*24vw;
         column-gap: 1.67vw;
+        row-gap: 1.67vw;
     }
 
     .WatchPageContainer {
@@ -555,8 +550,6 @@
 
     .author-only {
         color: #1A1A1A;
-        //border-bottom: solid #1A1A1A 1px;
-        //padding-bottom: 1px;
     }
 
     .BlogItem {
@@ -990,44 +983,8 @@
         width: 100vw;
         padding-bottom: 5vw;
     }
-
-    .CuriousBox {
-        transition: 0.5s;
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 36vw;
-        height: 20.25vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .CuriousWrapper {
-        position: relative;
-        width: 36vw;
-        height: 20.25vw;
-        margin-bottom: 2.5vw;
-    }
-
-    .CuriousText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 1.5vw;
-        flex: 0 0 18vw;
-        text-align: center;
-        color: $onyxblacktext;
-    }
-
     .hide-desktop {
         display: none;
-    }
-
-    .CuriousContainer {
-        display: grid;
-        grid-template-columns: repeat(3,36vw);
-        grid-template-rows: 22.75vw;
-        column-gap: 2.5vw;
     }
 
     .CuriousText1 {
@@ -1045,7 +1002,7 @@
         padding: 0;
     }
 
-    
+
     .WatchPageContainer {
         display: grid;
         grid-template-columns: repeat(4,18.33vw);
@@ -1154,32 +1111,41 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .CuriousBox {
-        transition: 0.5s;
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 36vw;
-        height: 20.25vw;
+    .CuriousPlayOverlay {
+        position: absolute;
         display: flex;
         justify-content: center;
-        align-items: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: (9/16)*36vw;
+        opacity: 0;
+        transition: 0.5s ease;
+        img {
+            height: 100%;
+        }
     }
 
-    .CuriousWrapper {
-        position: relative;
+    .CuriousVideoImage {
         width: 36vw;
-        height: 20.25vw;
-        margin-bottom: 2.5vw;
+        height: (9/16)*36vw;
+        transition: 0.5s ease;
+        filter: grayscale(0.62);
     }
 
-    .CuriousText {
-        transition: 0.5s;
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 2.4vw;
-        flex: 0 0 30vw;
-        text-align: center;
-        color: $onyxblacktext;
+    .CuriousVideo {
+        cursor: pointer;
+        width: 36vw;
+        height: (9/16)*36vw;
+        position: relative;
+        &:hover {
+            .CuriousVideoImage {
+                filter: grayscale(0);
+            }
+            .CuriousPlayOverlay {
+                opacity: 0.75;
+            }
+        }
     }
 
     .hide-desktop {
@@ -1189,7 +1155,8 @@
     .CuriousContainer {
         display: grid;
         grid-template-columns: repeat(2,36vw);
-        grid-template-rows: 22.75vw;
+        grid-template-rows: (9/16)*36vw;
+        row-gap: 2.5vw;
         column-gap: 2.5vw;
     }
 
@@ -1214,21 +1181,6 @@
         border-bottom: 1px solid #ffffff;
     }
 
-    .CuriousBox:hover {
-        transition: 0.5s;
-        background-color: $onyxblacktext;
-        .CuriousText {
-            color: #ffffff;
-            transition: 0.5s;
-            transform: translateY(-3vw);
-        }
-        .WatchVideoTag {
-            transition: 0.5s;
-            opacity: 1;
-        }
-    }
-
-    
     .WatchPageContainer {
         display: grid;
         grid-template-columns: repeat(2,38vw);
@@ -1673,13 +1625,12 @@
     .ListItemEmail,
     .ListItemPhone,
     .ListItemWebsite {
-        //width: 20vw;
         white-space: normal;
         font-family: Graphik Web;
         color: $onyxblacktext;
     }
 
-    .ListItemPosition { 
+    .ListItemPosition {
         color: $coolgray11 !important;
     }
 
@@ -1779,37 +1730,34 @@
         margin-top: 0;
     }
 
-    .CuriousBox {
-        position: relative;
-        border: 4px solid $onyxblacktext;
-        width: 90vw;
-        height: 58.41vw;
-        margin-bottom: 24px;
-        margin-right: 24px;
+    .CuriousPlayOverlay {
+        position: absolute;
         display: flex;
         justify-content: center;
-        align-items: center;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: (9/16)*90vw;
+        display: none;
+        img {
+            height: 100%;
+        }
     }
 
-    .CuriousText {
-        font-family: Graphik Web;
-        font-weight: bold;
-        font-size: 6.4vw;
-        flex: 0 0 80vw;
-        text-align: center;
-        color: $onyxblacktext;
+    .CuriousVideoImage {
+        width: 90vw;
+        height: (9/16)*90vw;
     }
 
-    .WatchVideoTag {
-        opacity: 0;
-        position: absolute;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        color: #ffffff;
-        margin-top: 2vw;
-        border-bottom: 1px solid #ffffff;
+    .CuriousVideo {
+        cursor: pointer;
+        width: 24vw;
+        height: (9/16)*90vw;
+        position: relative;
+        margin-bottom: 24px;
+        animation: fadeIn ease 1s;
     }
-    
+
     .MoreVideos {
         position: relative;
         font-family: Graphik Web;
@@ -1847,7 +1795,7 @@
         width: 32px;
     }
 
-    
+
     .WatchPageContainer {
         display: inline-block;
     }
@@ -1919,8 +1867,6 @@
 
     .author-only {
         color: #1A1A1A;
-        //border-bottom: solid #1A1A1A 1px;
-        //padding-bottom: 1px;
     }
 
     .BlogItem {
@@ -1972,4 +1918,10 @@
         height: 28.8vw;
     }
 
+}
+
+@media (hover: none) {
+    .CuriousVideoImage {
+        filter: grayscale(0);
+    }
 }
