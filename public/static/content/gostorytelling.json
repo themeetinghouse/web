@@ -3,15 +3,14 @@
         "name": "go",
         "title": "Go Campaign",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -21,7 +20,6 @@
                 "title": "Go Campaign",
                 "description": ""
             },
-            
             {
                 "type": "hero",
                 "style": "full",
@@ -58,23 +56,23 @@
             {
                 "type": "content",
                 "style": "goRegionalEventsOneImageBlackRight",
-                "header1":"Give",
-                "header2":"",
-                "text1":"Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible.",
+                "header1": "Give",
+                "header2": "",
+                "text1": "Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Register Here",
                         "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
                     }
                 ],
-               
-                "image1":[{
-                    "src":"/static/images/Go-3.jpg",
-                    "alt":"Group of people sitting together for an information night about the Go Capaign."
-                }]
+                "image1": [
+                    {
+                        "src": "/static/images/Go-3.jpg",
+                        "alt": "Group of people sitting together for an information night about the Go Campaign."
+                    }
+                ]
             }
-            
         ]
     }
 }

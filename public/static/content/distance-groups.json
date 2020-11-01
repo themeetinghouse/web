@@ -3,15 +3,14 @@
         "name": "distance-groups",
         "title": "Distance Groups",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -28,21 +27,23 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"Distance Groups",
-                "header2":"",
-                "text1":"Connect with people in your area on facebook",
+                "header1": "Distance Groups",
+                "header2": "",
+                "text1": "Connect with people in your area on Facebook",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Distance Groups Facebook Page",
                         "navigateTo": "https://www.facebook.com/groups/tmhdistancegroups/",
-                        "openNewBrowser":true
+                        "openNewBrowser": true
                     }
                 ],
-                "image1":[{
-                    "src":"/static/images/DistanceGroup.jpg",
-                    "alt":"People chatting on a patio"
-                }]
+                "image1": [
+                    {
+                        "src": "/static/images/DistanceGroup.jpg",
+                        "alt": "People chatting on a patio"
+                    }
+                ]
             }
         ]
     }

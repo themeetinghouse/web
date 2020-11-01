@@ -11,7 +11,7 @@
             "showSearch": true,
             "showFooter": true,
             "showMenu": true,
-            "showLive":true
+            "showLive": true
         },
         "content": [
             {
@@ -27,7 +27,7 @@
                 "image1": [
                     {
                         "src": "/static/images/easter-1.jpg",
-                        "alt": "Young woman sitting on a park bench outside similing."
+                        "alt": "Young woman sitting on a park bench outside smiling."
                     }
                 ],
                 "header1": "Easter Online",
@@ -40,7 +40,6 @@
                 "header1": "Livestream Services",
                 "header2": "Nice and simple.",
                 "text1": "Let's get together online at 10:00am this Good Friday April 10 and on Easter Sunday April 12. Our livestream services will be 70 minutes long with music, communion, stories, teaching, and reflecting on the meaning of Jesus' death and resurrection.",
-              
                 "image1": [
                     {
                         "src": "/static/images/easter-2.jpg",
