@@ -18,11 +18,15 @@ import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
-import { Input, Spinner } from 'reactstrap';
+import { Spinner } from 'reactstrap';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import DataLoader, { LocationData } from './DataLoader';
 import "./HomeChurchItem.scss";
+
+const MAP_BUTTON = "/static/svg/Map, Generic.svg";
+const LIST_BUTTON = "/static/svg/List, Generic.svg";
+
 
 
 Amplify.configure(awsmobile);
@@ -75,6 +79,12 @@ interface State {
   groups: F1Group[];
   currentLatLng: google.maps.LatLngLiteral;
   showContactModal: boolean;
+  selectedDay: {
+    label?: string;
+    value: string;
+  }
+  activePill: string | undefined;
+  mapSelected: boolean;
   contactHomeChurchId: string | null;
 }
 
@@ -101,7 +111,8 @@ type F1Group = NonNullable<
 };
 
 export class ContentItem extends React.Component<Props, State> {
-  selectControl: Select<{ label: string; value: string }> | null = null;
+  selectControlDay: Select<{ label: string; value: string }> | null = null;
+  selectControlLocation: Select<{ label: string; value: string }> | null = null;
   homeChurchListScrollContainer: HTMLDivElement | null = null;
   map: google.maps.Map | undefined;
 
@@ -119,6 +130,9 @@ export class ContentItem extends React.Component<Props, State> {
       groups: [],
       currentLatLng: DEFAULT_LAT_LNG,
       showContactModal: false,
+      activePill: undefined,
+      mapSelected: true,
+      selectedDay: { value: "all" },
       contactHomeChurchId: null,
     };
 
@@ -213,6 +227,17 @@ export class ContentItem extends React.Component<Props, State> {
         return Promise.resolve(null)
     }
   }
+
+  private daysOfWeek = [
+    { label: "All days", value: "all" },
+    { label: "Sundays", value: "Sundays" },
+    { label: "Mondays", value: "Mondays" },
+    { label: "Tuesdays", value: "Tuesdays" },
+    { label: "Wednesdays", value: "Wednesdays" },
+    { label: "Thursdays", value: "Thursdays" },
+    { label: "Fridays", value: "Fridays" },
+    { label: "Saturdays", value: "Saturdays" },
+  ];
 
   componentDidMount() {
     this.setGeoLocation();
@@ -314,27 +339,21 @@ export class ContentItem extends React.Component<Props, State> {
     this.setState({ filterLocation: location, mapBounds: bounds });
   };
 
-  private handlePostalCodeChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    this.setState({ postalCode: value });
-    const regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-    const isValid = regex.test(value);
-    console.log("HomeChurchItem.handlePostalCodeChange(): Postal Code value: %o.  Valid? %b", value, regex.test(value));
-    if (isValid) {
-      await this.setGeoLocation(value);
-    } else if (!value) {
-      await this.setGeoLocation();
-    }
-    this.handleSiteSelection(this.state.filterLocation);
+  private handleDaySelection = (selectedDay: { label?: string; value: string } | null) => {
+    this.setState({ selectedDay: selectedDay ?? { value: "all" } });
   }
 
   private async clearLocationSelection() {
     this.setState({ postalCode: '' });
-    if (this.selectControl) {
-      this.selectControl.select.clearValue();
+    if (this.selectControlLocation) {
+      this.selectControlLocation.select.clearValue();
+    }
+    if (this.selectControlDay) {
+      this.selectControlDay?.select.clearValue();
     }
     await this.setGeoLocation();
     this.handleSiteSelection(this.state.filterLocation);
+    //this.setState({ selectedDay: { value: 'all' }, filterLocation: { value: 'all' }, selectedPlace: null })
   }
 
   private formatGroupAddress(group: F1Group) {
@@ -441,11 +460,27 @@ export class ContentItem extends React.Component<Props, State> {
         <div className="HomeChurchItemDiv1">
 
           <h1 className="HomeChurchH1">{this.props.content.header1}</h1>
-          <div className="HomeChurchItemDiv2">
+
+          <div>
+            <img onClick={() => {
+              this.setState({ mapSelected: false })
+              this.clearLocationSelection()
+            }} style={this.state.mapSelected ? {} : { backgroundColor: "#EFEFF0" }} className="ListButton" alt="List_Button" src={LIST_BUTTON}></img>
+            <img onClick={() => {
+              this.setState({ mapSelected: true })
+              this.clearLocationSelection()
+            }} style={this.state.mapSelected ? { backgroundColor: "#EFEFF0" } : {}} className="ListButton" alt="Map_Button" src={MAP_BUTTON}></img>
+          </div>
+          <div className={"HomeChurchItemDiv2 " + (this.state.mapSelected ? "MapView" : "ListView") + (!this.state.allLocationsLoaded ? " loadingMargin" : "")} >
             <div className="HomeChurchItemMap">
               <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} bounds={this.state.mapBounds ?? undefined} mapTypeControl={false} onReady={(_props, map) => (this.map = map)}>
                 <Marker icon={CURRENT_LOCATION_URL} position={{ ...this.state.currentLatLng }} />
-                {filteredGroups.map((item) => {
+                {filteredGroups.filter((day) => {
+                  if (this.state.selectedDay.value === "all") return true;
+                  else {
+                    return this.getDayOfWeek(day.schedule) === this.state.selectedDay.value
+                  }
+                }).map((item) => {
                   const { latitude, longitude } = item.location?.address ?? {};
                   if (!latitude || !longitude) {
                     console.error(`missing address coordinates in ${item}`);
@@ -477,45 +512,37 @@ export class ContentItem extends React.Component<Props, State> {
               </Map>
             </div>
           </div>
-          <div className="HomeChurchItemDiv3">
-
+          <div className={"HomeChurchItemDiv3 " + (this.state.mapSelected ? "MapView" : "ListView")} style={this.state.mapSelected ? {} : { marginBottom: "-52vh" }}>
             <div className="HomeChurchFormItemContainer" >
               {<Select
                 onChange={(value) => this.handleSiteSelection(value as { label: string; value: string } | null)}
-                placeholder="All sites" className="LocationSelect" styles={this.styleSelect} ref={(ref) => this.selectControl = ref} menuShouldScrollIntoView={true}
+                placeholder="Select Parish" className="LocationSelect" styles={this.styleSelect} ref={(ref) => this.selectControlLocation = ref} menuShouldScrollIntoView={true}
                 options={this.state.locations.map((item) => ({ label: item.name, value: item.id }))}></Select>}
-              <Input className="PostalCodeInput" placeholder="Add postal code" onChange={this.handlePostalCodeChange} value={this.state.postalCode}></Input>
-              {/* <Button className="ClearAllButton" onClick={this.clearLocationSelection}>Clear All</Button> */}
+              <Select
+                onChange={(value) => { this.handleDaySelection(value as { label: string; value: string } | null) }}
+                placeholder="Select Day" className="DaySelect" styles={this.styleSelect} ref={(ref) => this.selectControlDay = ref} menuShouldScrollIntoView={true}
+                options={this.daysOfWeek.map((item) => { return { label: item.label, value: item.value } })}></Select>
               <button className="ClearAllButton" onClick={() => this.clearLocationSelection()} tabIndex={0}>Clear All</button>
+              <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
+                {!this.state.allLocationsLoaded ? <div className="LoadingContainer"><div className="LoadingTitleContainer" ><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div></div> : null}
+              </ReactCSSTransitionGroup>
             </div>
 
+
             <div className="HomeChurchItemListData" ref={(ref) => this.homeChurchListScrollContainer = ref}>
-
-              <ReactCSSTransitionGroup transitionName="HomeChurchLoading" transitionLeaveTimeout={750} transitionEnterTimeout={300}>
-                {!this.state.allLocationsLoaded ? (
-                  <div className="LoadingContainer">
-                    <div className="LoadingTitleContainer"><Spinner color="dark" /><span className="LoadingTitle">Loading home church listings</span></div>
-                    {this.state.locations.map((location) => {
-                      const isLocationLoaded = this.state.locationsLoaded.includes(Location_ID_to_F1_Group_Type_Map[location.id]);
-                      return (
-                        <div className={"LoadingItem " + (isLocationLoaded ? "Loaded" : "")} key={location.id}>
-                          <img alt="Loading Icon" className="LoadingImage" src="/static/svg/Home-Church-Location.svg"></img>
-                          <img alt="Loaded Icon" className="LoadedImage" src="/static/svg/Check-green.svg"></img>
-                          <span className="LoadingLocationLabel">{location.name}</span>
-                        </div>
-                      )
-                    })}
-                  </div>
-                ) : null}
-              </ReactCSSTransitionGroup>
-
-              {filteredGroups.map((item) => (
+              {filteredGroups.filter((day) => {
+                if (this.state.selectedDay.value === "all") return true;
+                else {
+                  return this.getDayOfWeek(day.schedule) === this.state.selectedDay.value
+                }
+              }).map((item) => (
                 <div className="HomeChurchItemDiv5" key={item.id ?? undefined} id={"HC-" + item.id} >
                   <h3 className={"HomeChurchH3 " + (this.state.selectedPlace === item ? "selected" : "")} onClick={this.getHomeChurchClickHandler(item)}>{item.name}</h3>
                   <div className="HomeChurchAddress">{item.description}</div>
-                  <div className="HomeChurchSiteAffiliation"><Badge>{item.churchCampus?.name}</Badge></div>
-                  <div className="HomeChurchDayOfWeek">{this.getDayOfWeek(item.schedule)} {(item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1 ? "(every " + item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency + " weeks)" : null}</div>
-                  <div className="HomeChurchTimeOfDay">{moment(item.schedule?.startTime).format('h:mm a')}</div>
+                  <div style={{ marginTop: "15px", marginBottom: "10px" }}>
+                    <div className="HomeChurchSiteAffiliation"><Badge>{item.churchCampus?.name}</Badge></div>
+                    <div className="HomeChurchDayOfWeek"><Badge>{this.getDayOfWeek(item.schedule)} {(item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1 ? "(every " + item.schedule?.recurrences?.recurrence?.recurrenceWeekly?.recurrenceFrequency + " weeks)" : null}</Badge></div>
+                  </div>
                   <div className="HomeChurchButtonContainer">
                     {item.schedule?.recurrences?.recurrence?.recurrenceWeekly
                       ?

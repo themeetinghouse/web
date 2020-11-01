@@ -115,14 +115,14 @@
                 "list": [
                     {
                         "type": "link",
-                        "title": "2020 - AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/2020 Supporting Documentation-Merged.pdf",
+                        "title": "2020 - Annual Report and AGM Document",
+                        "navigateTo": "/static/pdfs/annual-reports/2020_Annual_Report_combined.pdf",
                         "openNewBrowser": true
                     },
                     {
                         "type": "link",
                         "title": "Finance Update - October 2020",
-                        "navigateTo": "/static/pdfs/annual-reports/FinanceUpdateOctober2020",
+                        "navigateTo": "/static/pdfs/annual-reports/Finance Update - October 2020_v2.pdf",
                         "openNewBrowser": true
                     },
                     {
@@ -141,30 +141,6 @@
                         "type": "link",
                         "title": "2018 - Annual Report and AGM Document",
                         "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "2017 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/2017_AnnualReport_v4.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "2016 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/AnnualReport_2016_web.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "2015 - Annual Report and AGM Document",
-                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2015_web.pdf",
-                        "openNewBrowser": true
-                    },
-                    {
-                        "type": "link",
-                        "title": "2014 - Annual Report and AGM  Document",
-                        "navigateTo": "/static/pdfs/annual-reports/AGM_Report_2014.pdf",
                         "openNewBrowser": true
                     }
                 ]
