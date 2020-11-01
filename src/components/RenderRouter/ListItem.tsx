@@ -329,15 +329,10 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
-    return (
-      <div className="CuriousWrapper">
-        <div onClick={() => this.handleClick(item)} key={item.id} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-          <div className="CuriousBox">
-            <div className="CuriousText">{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '}{item.episodeTitle}</div>
-            <div className="WatchVideoTag">{this.state.content.hovertag}</div>
-          </div>
-        </div>
-      </div>);
+    return <div onClick={() => this.handleClick(item)} key={item.id} className='CuriousVideo' >
+      <img alt={`Thumbnail for video: ${item.episodeTitle}`} className="CuriousVideoImage" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.maxres?.url ?? ''} />
+      <div className="CuriousPlayOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
+    </div>
   }
 
   getBlogImageURI(title: string | undefined | null, style: 'baby-hero' | 'banner' | 'square'): string {
