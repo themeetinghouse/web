@@ -349,7 +349,7 @@ export class ContentItem extends React.Component<Props, State> {
       this.selectControlLocation.select.clearValue();
     }
     if (this.selectControlDay) {
-      this.selectControlDay?.select.clearValue();
+      //    this.selectControlDay?.select.clearValue();
     }
     await this.setGeoLocation();
     this.handleSiteSelection(this.state.filterLocation);

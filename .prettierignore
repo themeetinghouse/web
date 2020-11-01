@@ -1,0 +1,7 @@
+build
+coverage
+dist
+backup
+amplify
+.github
+.vscode

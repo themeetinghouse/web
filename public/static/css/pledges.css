@@ -1,49 +1,48 @@
-html{
-    background-color:#000000 !important;
+html {
+  background-color: #000000 !important;
 }
 
-div#mainbody{
-    background-color:#000000 !important;
+div#mainbody {
+  background-color: #000000 !important;
 }
-div.mainbody{
-    background-color:#000000 !important;
+div.mainbody {
+  background-color: #000000 !important;
 }
-div.section2{
-   font-weight:bold!important;
+div.section2 {
+  font-weight: bold !important;
 }
-select{
-    font-size:20px !important;
-    font-weight:bold !important;
-    box-sizing:border-box !important;
-    padding-left:20px !important;
-    appearance: none !important;
-    -webkit-appearance: none !important;
+select {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 }
-input[type=date]{
-    font-size:20px !important;
-    font-weight:bold !important;
-    box-sizing:border-box !important;
-    padding-left:20px !important;
-    appearance: none !important;
-     -webkit-appearance:none !important;
-  
+input[type='date'] {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 }
-input[type=text]{
-    font-size:20px !important;
-    font-weight:bold !important;
-    box-sizing:border-box !important;
-    padding-left:20px !important;
-    appearance: none !important;
-     -webkit-appearance:none !important;
+input[type='text'] {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 }
-input[type=email]{
-    font-size:20px !important;
-    font-weight:bold !important;
-    box-sizing:border-box !important;
-    padding-left:20px !important;
-    appearance: none !important;
-     -webkit-appearance:none !important;
+input[type='email'] {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  box-sizing: border-box !important;
+  padding-left: 20px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
 }
-html{
-    background-color:#000000 !important;
+html {
+  background-color: #000000 !important;
 }
