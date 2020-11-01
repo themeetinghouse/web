@@ -43,7 +43,7 @@
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-2.jpg",
-                        "alt": "A women and her baby recieve a peacemakers relief kit from an Aid Worker in Jordan."
+                        "alt": "A women and her baby receive a peacemakers relief kit from an Aid Worker in Jordan."
                     }
                 ]
             },
@@ -56,7 +56,7 @@
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-3.jpg",
-                        "alt": "A teeange boy is volunteering for the peacemakers campaign by placing relief kit items into large bucket for shipping."
+                        "alt": "A teenage boy is volunteering for the peacemakers campaign by placing relief kit items into large bucket for shipping."
                     }
                 ]
             },
@@ -67,7 +67,7 @@
                 "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $225,000 in Peace Cards and 1,000 Relief Kits.",
                 "circleHeader": "$202,190",
                 "circleText": "RAISED TO DATE",
-                "showCircle":true,
+                "showCircle": true,
                 "list": [
                     {
                         "type": "button",
@@ -141,7 +141,6 @@
                         "navigateTo": "/static/pdfs/compassion/Fundraising-Resources.pdf",
                         "openNewBrowser": true
                     },
-                    
                     {
                         "type": "link",
                         "title": "Kids, Youth, and Parents",
@@ -152,11 +151,11 @@
             },
             {
                 "type": "faq",
-                "header1":"FAQ",
+                "header1": "FAQ",
                 "image1": [
                     {
                         "src": "/static/images/peacemakers-9.jpg",
-                        "alt": "Timmins City Counselor presenting on Indigineous bundles."
+                        "alt": "Timmins City Counselor presenting on Indigenous bundles."
                     }
                 ],
                 "list": [
@@ -198,14 +197,13 @@
                         "answer": [
                             "Bath Soap - Soap helps to maintain a basic level of hygiene, but for many people who have been displaced, gaining access to ‘luxuries’ beyond adequate food and shelter is a challenge.",
                             "Fingernail Clipper - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation, and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult and people are often eating with their hands.",
-                            "Laundry Soap - Bars of laundry soap are stronger than powdered laundry soap and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives." ,
+                            "Laundry Soap - Bars of laundry soap are stronger than powdered laundry soap and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives.",
                             "Adult-size toothbrushes - Many families when they are on the move either have no toothbrush depending on the condition in which they fled or may have to share one toothbrush among many family members. Dental care, if offered at all, is too expensive in the many places where there are large populations of refugees. Oral hygiene products are additional expenses that families often must forego in the place of food and shelter.",
                             "Bath towels - Often heavy and bulky items such as towels are left behind in situations where families and individuals must leave most of their belongings behind. As refugees and internally displaced persons rebuild their lives, items such as towels are invaluable. Items like this are expensive to purchase when funds are low, yet are needed on a day-to-day basis.",
                             "Wide-tooth combs - A staple for personal hygiene, combs not only help when bathing is less possible in conditions where water is scarce, but they are also helpful in preserving personal dignity as displaced persons try to rebuild their lives.",
-                             "Plastic bottle shampoo- Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work and living day-to-day in a new place after traumatically leaving their homes behind.",
+                            "Plastic bottle shampoo- Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work and living day-to-day in a new place after traumatically leaving their homes behind.",
                             "Box adhesive bandages - In many places where there are densely populated refugees and internally displaced persons, adequate medical care is scarce. Bandages help keep small wounds clean in places where adequate sanitation is difficult to maintain, thereby assisting in keeping the spread of infection at bay.",
-                            "Package sanitary pads - Feminine hygiene products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy." 
-                        
+                            "Package sanitary pads - Feminine hygiene products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy."
                         ]
                     },
                     {

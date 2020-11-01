@@ -3,15 +3,14 @@
         "name": "go",
         "title": "Go Campaign",
         "keywords": "",
-        "description":"",
-
+        "description": "",
         "pageConfig": {
             "movingMenu": false,
             "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
+            "logoColor": "black",
+            "showSearch": true,
+            "showFooter": true,
+            "showMenu": true
         },
         "content": [
             {
@@ -21,7 +20,6 @@
                 "title": "Go Campaign",
                 "description": ""
             },
-            
             {
                 "type": "hero",
                 "style": "full",
@@ -40,45 +38,46 @@
             {
                 "type": "content",
                 "style": "oneImage",
-                "header1":"It's how we love people.",
-                "header2":"",
-                "text1":"We want to explore new and innovative ways of engaging people in our neighbourhoods and around the world who have never meaningfully encountered the good news of Jesus.",
+                "header1": "It's how we love people.",
+                "header2": "",
+                "text1": "We want to explore new and innovative ways of engaging people in our neighbourhoods and around the world who have never meaningfully encountered the good news of Jesus.",
                 "list": [
                     {
-                        "type":"button",
+                        "type": "button",
                         "title": "Pledge and Give",
                         "navigateTo": "/go-choose"
                     }
                 ],
-               
-                "image1":[{
-                    "src":"/static/images/Go-2.jpg",
-                    "alt":"Man with crossed arms in discussion"
-                }]
+                "image1": [
+                    {
+                        "src": "/static/images/Go-2.jpg",
+                        "alt": "Man with crossed arms in discussion"
+                    }
+                ]
             },
             {
                 "type": "content",
                 "style": "goRegionalEventsOneImageBlackRight",
-                "header1":"Go Regional Events 2020",
-                "header2":"",
-                "text1":"We're coming to six cities across Ontario to hang out with you! If you've got questions or ideas when it comes to our Go campaign, this will be your opportunity to interact with our core community, senior leadership, and lead pastors.",
+                "header1": "Go Regional Events 2020",
+                "header2": "",
+                "text1": "We're coming to six cities across Ontario to hang out with you! If you've got questions or ideas when it comes to our Go campaign, this will be your opportunity to interact with our core community, senior leadership, and lead pastors.",
                 "list": [
                     {
-                        "type":"link",
+                        "type": "link",
                         "title": "Register Here",
                         "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
                     }
                 ],
-               
-                "image1":[{
-                    "src":"/static/images/Go-3.jpg",
-                    "alt":"Group of people sitting together for an information night about the Go Capaign."
-                }]
+                "image1": [
+                    {
+                        "src": "/static/images/Go-3.jpg",
+                        "alt": "Group of people sitting together for an information night about the Go Campaign."
+                    }
+                ]
             },
             {
-                "type":"goContent"
+                "type": "goContent"
             }
-            
         ]
     }
 }
