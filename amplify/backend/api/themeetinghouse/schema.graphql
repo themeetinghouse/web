@@ -105,10 +105,14 @@ type FBData{
   paging: FBPaging
 }
 type FBTime{
+  description:String
   start_time:String
   end_time:String
+  name:String
+  place: FBPlace
   id:String
   ticket_uri:String
+  cover:FBCover
 }
 type FBEvent{
   description:String
@@ -117,8 +121,13 @@ type FBEvent{
   place: FBPlace
   start_time: String
   id: String
+  ticket_uri:String
   event_times:[FBTime]
   cover:FBCover
+  picture:FBPicture
+}
+type FBPicture{
+  url:String
 }
 type FBCover{
   id:String

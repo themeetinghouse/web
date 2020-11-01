@@ -846,17 +846,42 @@ export const getFbEvents = /* GraphQL */ `
         }
         start_time
         id
+        ticket_uri
         event_times {
+          description
           start_time
           end_time
+          name
+          place {
+            name
+            location {
+              city
+              country
+              latitude
+              longitude
+              state
+              street
+              zip
+            }
+            id
+          }
           id
           ticket_uri
+          cover {
+            id
+            offset_x
+            offset_y
+            source
+          }
         }
         cover {
           id
           offset_x
           offset_y
           source
+        }
+        picture {
+          url
         }
       }
       paging {

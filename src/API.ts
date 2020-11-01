@@ -26875,12 +26875,37 @@ export type GetFbEventsQuery = {
       } | null,
       start_time: string | null,
       id: string | null,
+      ticket_uri: string | null,
       event_times:  Array< {
         __typename: "FBTime",
+        description: string | null,
         start_time: string | null,
         end_time: string | null,
+        name: string | null,
+        place:  {
+          __typename: "FBPlace",
+          name: string | null,
+          location:  {
+            __typename: "FBLocation",
+            city: string | null,
+            country: string | null,
+            latitude: number | null,
+            longitude: number | null,
+            state: string | null,
+            street: string | null,
+            zip: string | null,
+          } | null,
+          id: string | null,
+        } | null,
         id: string | null,
         ticket_uri: string | null,
+        cover:  {
+          __typename: "FBCover",
+          id: string | null,
+          offset_x: number | null,
+          offset_y: number | null,
+          source: string | null,
+        } | null,
       } | null > | null,
       cover:  {
         __typename: "FBCover",
@@ -26888,6 +26913,10 @@ export type GetFbEventsQuery = {
         offset_x: number | null,
         offset_y: number | null,
         source: string | null,
+      } | null,
+      picture:  {
+        __typename: "FBPicture",
+        url: string | null,
       } | null,
     } | null > | null,
     paging:  {
