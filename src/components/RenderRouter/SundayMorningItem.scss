@@ -1,717 +1,702 @@
-@import "../../custom.scss";
+@import '../../custom.scss';
 
 .SundayMorningFormItemContainer {
-    display: flex;
-    flex-direction: row;
-    padding: 0px;
-    .PostalCodeInput { 
-          flex-grow: 1;
-          flex-shrink: 1;
-          font-size: 1rem;
-          font-weight: 400;
-          width: 35%;
-          height: 43px;
-          padding-top: 0;
-          padding-bottom: 0;
-          border-radius: 0;
-          line-height: 41px;
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  .PostalCodeInput {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 35%;
+    height: 43px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 0;
+    line-height: 41px;
+  }
+  .ClearAllButton {
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: normal;
+    background: #ffffff;
+    border: none;
+    line-height: 41px;
+    height: 43px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: $onyxblacktext;
+    &:hover {
+      text-decoration: underline !important;
     }
-    .ClearAllButton {
-          white-space: nowrap;
-          font-size: 12px;
-          font-weight: normal;
-          background: #ffffff;
-          border: none;
-          line-height: 41px;
-          height: 43px;
-          padding: 0 10px;
-          cursor: pointer;
-          color: $onyxblacktext;
-          &:hover {
-                text-decoration: underline !important;
-          }
-    }
+  }
 }
 
 .AddToCalendarButtonContainer {
-    position: relative;
-    display: inline-block;
-    padding: 12px 30px 12px 0;
+  position: relative;
+  display: inline-block;
+  padding: 12px 30px 12px 0;
 
-    .AddToCalendarIcon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        padding-right: 0;
-        padding-left: 0;
-        pointer-events: none;
-        top: 50%;
-        font-size: 12px;
-        transform: translateY(-50%);
+  .AddToCalendarIcon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    pointer-events: none;
+    top: 50%;
+    font-size: 12px;
+    transform: translateY(-50%);
+  }
+  .react-add-to-calendar__button {
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 35px;
+    text-decoration: none !important;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline !important;
     }
-    .react-add-to-calendar__button {
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 16px;
-        font-weight:normal;
-        padding-left: 35px;
-        text-decoration: none !important;
-        cursor: pointer;
-        &:hover {
-          text-decoration: underline !important;
-        }
+  }
+  .react-add-to-calendar__dropdown {
+    position: absolute;
+    z-index: 100;
+    top: 48px;
+    background: white;
+    border: 1px solid $onyxblacktext;
+    padding: 10px 20px 0 20px;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      font-family: Graphik Web;
+      font-size: 14px;
+      a {
+        color: $onyxblacktext !important;
+        vertical-align: middle;
+      }
+      li {
+        position: relative;
+        vertical-align: middle;
+      }
+      a::before {
+        width: 15px;
+        height: 15px;
+        vertical-align: middle;
+        background-size: contain;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        display: inline-block;
+        content: '';
+        margin: 5px 5px 8px 0;
+      }
+      a.apple-link::before {
+        background-image: url('/static/svg/Apple.svg');
+      }
+      a.outlook-link::before {
+        background-image: url('/static/svg/Outlook.svg');
+      }
+      a.outlookcom-link::before {
+        background-image: url('/static/svg/Outlook.svg');
+      }
+      a.yahoo-link::before {
+        background-image: url('/static/svg/Yahoo.svg');
+      }
+      a.google-link::before {
+        background-image: url('/static/svg/Google.svg');
+      }
     }
-    .react-add-to-calendar__dropdown {
-        position: absolute;
-        z-index: 100;
-        top: 48px;
-        background: white;
-        border: 1px solid $onyxblacktext;
-        padding: 10px 20px 0 20px;
-        ul {
-            list-style-type: none;
-            padding: 0;
-            font-family: Graphik Web;
-            font-size: 14px;
-            a {
-                color: $onyxblacktext !important;
-                vertical-align: middle;
-            }
-            li {
-                position: relative;
-                vertical-align: middle;
-            }
-            a::before {
-                width: 15px;
-                height: 15px;
-                vertical-align: middle;
-                background-size: contain;
-                background-position-y: center;
-                background-repeat: no-repeat;
-                display: inline-block;
-                content: "";
-                margin: 5px 5px 8px 0;
-
-            }
-            a.apple-link::before {
-                background-image: url("/static/svg/Apple.svg");
-            }
-            a.outlook-link::before {
-                background-image: url("/static/svg/Outlook.svg");
-            }
-            a.outlookcom-link::before {
-                background-image: url("/static/svg/Outlook.svg");
-            }
-            a.yahoo-link::before {
-                background-image: url("/static/svg/Yahoo.svg");
-            }
-            a.google-link::before {
-                background-image: url("/static/svg/Google.svg");
-            }
-        }
-    }
+  }
 }
 
 .ContactPastorIcon {
-    padding-bottom: 2px;
+  padding-bottom: 2px;
 }
 
 @media (min-width: 768px) {
-    .SundayMorningItem {
-        height: 100vh;
-        position: static;
-        padding-bottom: 5vw;
-        padding-top:2vh;
+  .SundayMorningItem {
+    height: 100vh;
+    position: static;
+    padding-bottom: 5vw;
+    padding-top: 2vh;
+  }
+
+  .SundayMorningItemDiv1 {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+  }
+
+  .SundayMorningItemDiv2 {
+    position: absolute;
+    left: 40vw;
+    width: 40vw;
+    height: 98vh;
+    top: -2vh;
+  }
+
+  .SundayMorningItemDiv3 {
+    position: absolute;
+    left: 0vw;
+    width: 40vw;
+    height: 100vh;
+  }
+
+  .SundayMorningItemDiv4 {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .SundayMorningItemDiv5 {
+    width: 40vw;
+    border-bottom-width: 1px;
+    margin-bottom: 5px;
+    border-bottom-color: #c8c8c8;
+    border-bottom-style: solid;
+  }
+
+  .SundayMorningItemDiv6 {
+    margin-left: auto;
+    margin-right: 10px;
+    padding-top: 10px;
+  }
+
+  .SundayMorningItemListData {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80vh;
+  }
+
+  .SundayMorningH1 {
+    font-size: 3vw;
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: $onyxblacktext;
+  }
+
+  .SundayMorningH3 {
+    font-size: 24px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: $onyxblacktext;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.selected {
+      text-decoration: underline;
     }
 
-    .SundayMorningItemDiv1 {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
+    &.christmas {
+      color: #eb4b1f;
     }
+  }
 
-    .SundayMorningItemDiv2 {
-        position: absolute;
-        left: 40vw;
-        width: 40vw;
-        height: 98vh;
-        top:-2vh;
-    }
+  .SundayMorningAddress,
+  .SundayMorningDistances {
+    font-size: 16px;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .SundayMorningItemDiv3 {
-        position: absolute;
-        left: 0vw;
-        width: 40vw;
-        height: 100vh;
-    }
+  .SundayMorningDistances {
+    margin: 10px 0;
+  }
 
-    .SundayMorningItemDiv4 {
-        display: flex;
-        flex-direction: row;
-    }
+  .SundayMorningServiceDay,
+  .SundayMorningServiceTimes {
+    font-family: Graphik Web;
+    font-size: 16px;
+    font-weight: 600;
+    color: $onyxblacktext;
+  }
 
-    .SundayMorningItemDiv5 {
-        width: 40vw;
-        border-bottom-width: 1px;
-        margin-bottom: 5px;
-        border-bottom-color: #C8C8C8;
-        border-bottom-style: solid;
-    }
+  .SundayMorningMap {
+    left: 0vw;
+    width: 40vw;
+    height: 88vh;
+  }
 
-    .SundayMorningItemDiv6 {
-        margin-left: auto;
-        margin-right: 10px;
-        padding-top:10px;
-    }
+  .SundayMorningMapInfoWindowSiteName {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0.5vw;
+  }
+  .SundayMorningMapInfoWindowAddress {
+    font-size: 1.1vw;
+    margin-bottom: 0.35vw;
+  }
+  .SundayMorningMapInfoWindowDay,
+  .SundayMorningMapInfoWindowTimes {
+    font-size: 14px;
+    font-weight: bold;
+  }
 
-    .SundayMorningItemListData {
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: 80vh;
-    }
+  .SundayMorningButton {
+    font-family: Graphik Web;
+    color: #ffffff;
+    background-color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    margin: 0.1vw;
+    font-weight: normal;
+    display: none;
+  }
+  .SundayMorningButton:hover {
+    border-width: 0px;
+    border-radius: 0;
+  }
+  .SundayMorningButton1 {
+    font-family: Graphik Web;
+    color: #ffffff;
+    background-color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    margin: 0.1vw;
+    font-weight: normal;
+  }
+  #customBlackButton {
+    color: #ffffff;
+    background-color: #1a1a1a;
+    font-size: 1vw;
+    margin-top: 0;
+    min-width: 132px;
+    min-height: 40px;
+    line-height: 14px;
+    width: 9.167vw;
+    height: 2.778vw;
+  }
+  .SundayMorningButton1:hover {
+    border-width: 0px;
+    border-radius: 0;
+  }
+  .SundayMorningButton2 {
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+    background-color: #ffffff;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1vw;
+    text-decoration: underline;
+    font-weight: normal;
+  }
+  .SundayMorningButton2:hover {
+    border-width: 0px;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: #0000ff;
+    text-decoration: underline;
+    font-weight: normal;
+  }
+  .SundaMorningIcon {
+    padding-right: 10px;
+    height: 25px;
+  }
 
-    .SundayMorningH1 {
-        font-size: 3vw;
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: $onyxblacktext;
-    }
+  .emailButton {
+    background-color: #ffffff00 !important;
+    border: none !important;
+    color: $onyxblacktext !important;
+    outline: none !important;
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 1vw;
+    padding: 0 10px 0 0;
+  }
 
-    .SundayMorningH3 {
-        font-size: 24px;
-        font-family: Graphik Web;
-        font-weight: bold;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        color: $onyxblacktext;
-        cursor: pointer;
-        &:hover {
-              text-decoration: underline;
-        }
-        &.selected {
-              text-decoration: underline;
-        }
-        
-        &.christmas {
-            color:#eb4b1f
-        }
-        
-    }
-   
-    .SundayMorningAddress,
-    .SundayMorningDistances {
-        font-size: 16px;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
-
-    .SundayMorningDistances {
-        margin: 10px 0;
-    }
-
-    .SundayMorningServiceDay, .SundayMorningServiceTimes  {
-        font-family: Graphik Web;
-        font-size: 16px;
-        font-weight: 600;
-        color: $onyxblacktext;
-    }
-
-    .SundayMorningMap {
-        left: 0vw;
-        width: 40vw;
-        height: 88vh;
-    }
-
-    .SundayMorningMapInfoWindowSiteName {
-        font-weight: bold;
-        font-size: 18px;
-        margin-bottom: 0.5vw;
-    }
-    .SundayMorningMapInfoWindowAddress {
-            font-size: 1.1vw;
-            margin-bottom: 0.35vw;
-    }
-    .SundayMorningMapInfoWindowDay, .SundayMorningMapInfoWindowTimes {
-        font-size: 14px;
-        font-weight: bold;
-    }
-    
-    .SundayMorningButton{
-        font-family: Graphik Web;
-        color: #ffffff;
-        background-color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
-        margin:0.1vw;
-        font-weight:normal;
-        display:none;
-
-    }
-    .SundayMorningButton:hover{
-        border-width: 0px;
-        border-radius: 0;
-
-    }
-    .SundayMorningButton1 {
-        font-family: Graphik Web;
-        color: #ffffff;
-        background-color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-                padding:0.5vw 1vw 0.5vw 1vw;
-        margin:0.1vw;
-        font-weight:normal;
-    }
-    #customBlackButton{
-        color: #ffffff;
-        background-color: #1a1a1a;
-        font-size:1vw;
-        margin-top:0;
-        min-width:132px;
-        min-height:40px;
-        line-height: 14px;
-        width:9.167vw;
-        height:2.778vw;
-
-    }
-    .SundayMorningButton1:hover{
-        border-width: 0px;
-        border-radius: 0;
-    }
-    .SundayMorningButton2 {
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-        background-color: #ffffff;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1vw;
-        text-decoration: underline;
-        font-weight:normal;
-
-    }
-    .SundayMorningButton2:hover{
-        border-width: 0px;
-        border-radius: 0;
-        background-color:#ffffff;
-        color:#0000ff;
-        text-decoration: underline;
-        font-weight:normal;
-
-    }
-    .SundaMorningIcon{
-        padding-right:10px;
-        height:25px;
-    }
-
-    .emailButton {
-        background-color: #ffffff00 !important;
-        border: none !important;
-        color: $onyxblacktext !important;
-        outline: none !important;
-        display: inline-block;
-        font-weight: normal;
-        margin-left: 1vw;
-        padding: 0 10px 0 0;
-    }
-
-    .emailText {
-        color: $onyxblacktext !important;
-        padding: 0 0 0 0;
-    }
+  .emailText {
+    color: $onyxblacktext !important;
+    padding: 0 0 0 0;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1100px) {
-    #customBlackButton{
-        line-height: 2vw;
-    }
+  #customBlackButton {
+    line-height: 2vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .SundayMorningButtonContainer {
-        width: 190px;
-    }
+  .SundayMorningButtonContainer {
+    width: 190px;
+  }
 
-    .emailButton {
-        margin-left: 0 !important;
-    }
-    #customBlackButton{
-        font-size:1.3vw;
-        line-height: 1.6vw;
-    }
+  .emailButton {
+    margin-left: 0 !important;
+  }
+  #customBlackButton {
+    font-size: 1.3vw;
+    line-height: 1.6vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .SundayMorningItem {
-        height: 100vh;
-        position: static;
-        padding-bottom: 5vw;
-        padding-top:2vh;
-    }
+  .SundayMorningItem {
+    height: 100vh;
+    position: static;
+    padding-bottom: 5vw;
+    padding-top: 2vh;
+  }
 
-    .SundayMorningItemDiv1 {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-    }
+  .SundayMorningItemDiv1 {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+  }
 
-    .SundayMorningItemDiv2 {
-        position: absolute;
-        left: 40vw;
-        width: 40vw;
-        height: 100vh;
-    }
+  .SundayMorningItemDiv2 {
+    position: absolute;
+    left: 40vw;
+    width: 40vw;
+    height: 100vh;
+  }
 
-    .SundayMorningItemDiv3 {
-        position: absolute;
-        left: 0vw;
-        width: 40vw;
-        height: 100vh;
-    }
+  .SundayMorningItemDiv3 {
+    position: absolute;
+    left: 0vw;
+    width: 40vw;
+    height: 100vh;
+  }
 
-    .SundayMorningItemDiv4 {
-        display: flex;
-        flex-direction: row;
-    }
+  .SundayMorningItemDiv4 {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .SundayMorningItemDiv5 {
-        width: 40vw;
-        border-bottom-width: 1px;
-        margin-bottom: 5px;
-        border-bottom-color: #C8C8C8;
-        border-bottom-style: solid;
-    }
+  .SundayMorningItemDiv5 {
+    width: 40vw;
+    border-bottom-width: 1px;
+    margin-bottom: 5px;
+    border-bottom-color: #c8c8c8;
+    border-bottom-style: solid;
+  }
 
-    .SundayMorningItemDiv6 {
-        margin-left: auto;
-        margin-right: 10px;
-    }
+  .SundayMorningItemDiv6 {
+    margin-left: auto;
+    margin-right: 10px;
+  }
 
-    .SundayMorningItemListData {
-        overflow-y: auto;
-        height: 80vh;
-    }
+  .SundayMorningItemListData {
+    overflow-y: auto;
+    height: 80vh;
+  }
 
-    .SundayMorningH1 {
-        font-size: 3vw;
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: $onyxblacktext;
-    }
+  .SundayMorningH1 {
+    font-size: 3vw;
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: $onyxblacktext;
+  }
 
-    .SundayMorningH3 {
-        font-size: 2vw;
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-    }
+  .SundayMorningH3 {
+    font-size: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
 
-    .SundayMorningMap {
-        left: 0vw;
-        width: 40vw;
-        height: 88vh;
-    }
+  .SundayMorningMap {
+    left: 0vw;
+    width: 40vw;
+    height: 88vh;
+  }
 
-    .SundayMorningAddress,
-    .SundayMorningDistances {
-        font-size: 14px;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .SundayMorningAddress,
+  .SundayMorningDistances {
+    font-size: 14px;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .SundayMorningButton{
-        font-family: Graphik Web;
-        color: #ffffff;
-        background-color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
-        margin:0.1vw;
-        font-weight:normal;
-        display:none;
+  .SundayMorningButton {
+    font-family: Graphik Web;
+    color: #ffffff;
+    background-color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    margin: 0.1vw;
+    font-weight: normal;
+    display: none;
+  }
+  .SundayMorningButton:hover {
+    border-width: 0px;
+    border-radius: 0;
+  }
+  .SundayMorningButton1 {
+    font-family: Graphik Web;
+    color: #ffffff;
+    background-color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    margin: 0.1vw;
+    font-weight: normal;
+    width: 11vw;
+  }
+  .SundayMorningButton1:hover {
+    border-width: 0px;
+    border-radius: 0;
+  }
+  .SundayMorningButton2 {
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+    background-color: #ffffff;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1vw;
+    text-decoration: underline;
+    font-weight: normal;
+  }
+  .SundayMorningButton2:hover {
+    border-width: 0px;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: #0000ff;
+    text-decoration: underline;
+    font-weight: normal;
+  }
+  .SundaMorningIcon {
+    padding-right: 10px;
+    height: 25px;
+  }
 
+  .AddToCalendarButtonContainer {
+    .react-add-to-calendar__button {
+      font-size: 14px;
     }
-    .SundayMorningButton:hover{
-        border-width: 0px;
-        border-radius: 0;
+  }
 
-    }
-    .SundayMorningButton1 {
-        font-family: Graphik Web;
-        color: #ffffff;
-        background-color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
-        margin:0.1vw;
-        font-weight:normal;
-        width:11vw;
-    }
-    .SundayMorningButton1:hover{
-        border-width: 0px;
-        border-radius: 0;
-    }
-    .SundayMorningButton2 {
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-        background-color: #ffffff;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1vw;
-        text-decoration: underline;
-        font-weight:normal;
+  .emailButton {
+    background-color: #ffffff00 !important;
+    border: none !important;
+    color: $onyxblacktext !important;
+    outline: none !important;
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 1vw;
+    padding: 0 10px 0 0;
+  }
 
-    }
-    .SundayMorningButton2:hover{
-        border-width: 0px;
-        border-radius: 0;
-        background-color:#ffffff;
-        color:#0000ff;
-        text-decoration: underline;
-        font-weight:normal;
-
-    }
-    .SundaMorningIcon{
-        padding-right:10px;
-        height:25px;
-    }
-  
-    .AddToCalendarButtonContainer {
-        .react-add-to-calendar__button {
-            font-size: 14px;
-        }
-    }        
-
-    .emailButton {
-        background-color: #ffffff00 !important;
-        border: none !important;
-        color: $onyxblacktext !important;
-        outline: none !important;
-        display: inline-block;
-        font-weight: normal;
-        margin-left: 1vw;
-        padding: 0 10px 0 0;
-    }
-
-    .emailText {
-        color: $onyxblacktext !important;
-        font-size: 14px;
-        padding: 0 0 0 0;
-    }
-
+  .emailText {
+    color: $onyxblacktext !important;
+    font-size: 14px;
+    padding: 0 0 0 0;
+  }
 }
 
 @media (max-width: 767px) {
-    .SundayMorningItem {
-        padding-bottom: 10vw;
-        padding-top: 5vh;
-    }
+  .SundayMorningItem {
+    padding-bottom: 10vw;
+    padding-top: 5vh;
+  }
 
-    .SundayMorningItemDiv1 {
-        position: relative;
-        left: 5vw;
-        width: 90%;
-    }
+  .SundayMorningItemDiv1 {
+    position: relative;
+    left: 5vw;
+    width: 90%;
+  }
 
-    .SundayMorningItemDiv2 {
-        position: absolute;
-        // left: 0vw;
-        width: 100%;
-        height: 50vh;
-        top: 25vw;
-    }
+  .SundayMorningItemDiv2 {
+    position: absolute;
+    // left: 0vw;
+    width: 100%;
+    height: 50vh;
+    top: 25vw;
+  }
 
-    .SundayMorningItemDiv3 {
-        left: 0vw;
-        width: 90vw;
-    }
+  .SundayMorningItemDiv3 {
+    left: 0vw;
+    width: 90vw;
+  }
 
-    .SundayMorningItemDiv4 {
-        position: relative;
-    }
+  .SundayMorningItemDiv4 {
+    position: relative;
+  }
 
-    .SundayMorningItemDiv5 {
-        margin-bottom: 3vh;
-        padding-bottom: 3vh;
-        border-bottom: 1px solid $coolgray11;
-        &:last-child {
-            border: none;
-        }
+  .SundayMorningItemDiv5 {
+    margin-bottom: 3vh;
+    padding-bottom: 3vh;
+    border-bottom: 1px solid $coolgray11;
+    &:last-child {
+      border: none;
     }
+  }
 
-    .SundayMorningItemDiv6 {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
+  .SundayMorningItemDiv6 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
-    .SundayMorningItemListData {
-        position: relative;
-        top: 54vh;
-        padding-bottom: 52vh;
-    }
+  .SundayMorningItemListData {
+    position: relative;
+    top: 54vh;
+    padding-bottom: 52vh;
+  }
 
-    .SundayMorningH1 {
-        font-size: 24px;
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: $onyxblacktext;
-    }
+  .SundayMorningH1 {
+    font-size: 24px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: $onyxblacktext;
+  }
 
-    .SundayMorningH3 {
-        font-size: 24px;
-        font-family: Graphik Web;
-        font-weight: bold;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        margin-right: 120px;
-        cursor: pointer;
-        color: $onyxblacktext;
-        &:hover {
-              text-decoration: underline;
-        }
-        &.selected {
-              text-decoration: underline;
-        }
-    }    
+  .SundayMorningH3 {
+    font-size: 24px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 120px;
+    cursor: pointer;
+    color: $onyxblacktext;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.selected {
+      text-decoration: underline;
+    }
+  }
 
-    .SundayMorningMap {
-        left: 0vw;
-        width: 40vw;
-        height: 88vh;
-    }
+  .SundayMorningMap {
+    left: 0vw;
+    width: 40vw;
+    height: 88vh;
+  }
 
-    .SundayMorningMapInfoWindowSiteName {
-        font-weight: bold;
-        font-size: 16px;
-        margin-bottom: 5px;
-    }
-    .SundayMorningMapInfoWindowAddress {
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
-    .SundayMorningMapInfoWindowDay, .SundayMorningMapInfoWindowTimes {
-        font-size: 14px;
-        font-weight: bold;
-    }
+  .SundayMorningMapInfoWindowSiteName {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .SundayMorningMapInfoWindowAddress {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .SundayMorningMapInfoWindowDay,
+  .SundayMorningMapInfoWindowTimes {
+    font-size: 14px;
+    font-weight: bold;
+  }
 
-    .SundayMorningAddress,
-    .SundayMorningDistances {
-        font-size: 14px;
-        font-family: Graphik Web;
-        color: $coolgray11;
-    }
+  .SundayMorningAddress,
+  .SundayMorningDistances {
+    font-size: 14px;
+    font-family: Graphik Web;
+    color: $coolgray11;
+  }
 
-    .SundayMorningDistances {
-        margin: 10px 0;
-    }
+  .SundayMorningDistances {
+    margin: 10px 0;
+  }
 
-    .SundayMorningServiceDay, .SundayMorningServiceTimes  {
-        font-family: Graphik Web;
-        font-size: 16px;
-        font-weight: 600;
-        color: $onyxblacktext;
-    }
+  .SundayMorningServiceDay,
+  .SundayMorningServiceTimes {
+    font-family: Graphik Web;
+    font-size: 16px;
+    font-weight: 600;
+    color: $onyxblacktext;
+  }
 
-    .SundayMorningButton {
-        font-family: Graphik Web;
-        color: #ffffff;
-        background-color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1.2vw;
-        padding:0.5vw 1vw 0.5vw 1vw;
-        margin:0.1vw;
-        font-weight:normal;
-        display:none;
+  .SundayMorningButton {
+    font-family: Graphik Web;
+    color: #ffffff;
+    background-color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1.2vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    margin: 0.1vw;
+    font-weight: normal;
+    display: none;
+  }
+  .SundayMorningButton:hover {
+    border-width: 0px;
+    border-radius: 0;
+  }
+  .SundayMorningButton1 {
+    font-family: Graphik Web;
+    color: #ffffff;
+    background-color: $onyxblacktext;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 14px;
+    padding: 5px 10px;
+    font-weight: normal;
+    white-space: nowrap;
+  }
 
-    }
-    .SundayMorningButton:hover{
-        border-width: 0px;
-        border-radius: 0;
+  #customBlackButton {
+    color: #ffffff;
+    background-color: #1a1a1a;
+    min-width: 132px;
+    min-height: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 24px;
+    padding-left: 24px;
+    line-height: 18px;
+    font-size: 12px;
+  }
+  .SundayMorningButton1:hover {
+    border-width: 0px;
+    border-radius: 0;
+  }
+  .SundayMorningButton2 {
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+    background-color: #ffffff;
+    border-width: 0px;
+    border-radius: 0;
+    font-size: 1vw;
+    text-decoration: underline;
+    font-weight: normal;
+  }
+  .SundayMorningButton2:hover {
+    border-width: 0px;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: #0000ff;
+    text-decoration: underline;
+    font-weight: normal;
+  }
+  .SundaMorningIcon {
+    padding-right: 10px;
+    height: 25px;
+  }
 
+  .AddToCalendarButtonContainer {
+    padding-right: 20px !important;
+    .react-add-to-calendar__button {
+      font-size: 14px;
     }
-    .SundayMorningButton1 {
-        font-family: Graphik Web;
-        color: #ffffff;
-        background-color: $onyxblacktext;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 14px;
-        padding:5px 10px;
-        font-weight:normal;
-        white-space: nowrap;
-    }
+  }
 
-    #customBlackButton{
-        color: #ffffff;
-        background-color: #1a1a1a;
-        min-width:132px;
-        min-height:40px;
-        padding-top:12px;
-        padding-bottom:12px;
-        padding-right:24px;
-        padding-left:24px;
-        line-height: 18px;
-        font-size:12px;
-    }
-    .SundayMorningButton1:hover{
-        border-width: 0px;
-        border-radius: 0;
-    }
-    .SundayMorningButton2 {
-        font-family: Graphik Web;
-        color: $onyxblacktext;
-        background-color: #ffffff;
-        border-width: 0px;
-        border-radius: 0;
-        font-size: 1vw;
-        text-decoration: underline;
-        font-weight:normal;
-     
+  .emailButton {
+    background-color: #ffffff00 !important;
+    border: none !important;
+    color: $onyxblacktext !important;
+    outline: none !important;
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 1vw;
+    padding: 0 10px 0 0;
+  }
 
-    }
-    .SundayMorningButton2:hover{
-        border-width: 0px;
-        border-radius: 0;
-        background-color:#ffffff;
-        color:#0000ff;
-        text-decoration: underline;
-        font-weight:normal;
-
-    }
-    .SundaMorningIcon{
-        padding-right:10px;
-        height:25px;
-    }
-  
-    .AddToCalendarButtonContainer {
-
-        padding-right: 20px !important;
-        .react-add-to-calendar__button {
-            font-size: 14px;
-        }
-    }        
-
-    .emailButton {
-        background-color: #ffffff00 !important;
-        border: none !important;
-        color: $onyxblacktext !important;
-        outline: none !important;
-        display: inline-block;
-        font-weight: normal;
-        margin-left: 1vw;
-        padding: 0 10px 0 0;
-    }
-
-    .emailText {
-        color: $onyxblacktext !important;
-        font-size: 14px;
-        padding: 0 0 0 0;
-    }
-
+  .emailText {
+    color: $onyxblacktext !important;
+    font-size: 14px;
+    padding: 0 0 0 0;
+  }
 }

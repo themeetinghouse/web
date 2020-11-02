@@ -1,4 +1,3 @@
-
 export interface SundayMorningItemContent {
   type: 'sunday-morning';
 
@@ -44,11 +43,11 @@ export interface FormItem {
 }
 
 export interface BlogItemContent {
-  type: "blog",
-  style: "twoImage" | "hero",
-  status: "Live",
-  header1?: string,
-  sortOrder?: "DESC" | "ASC",
-  limit?: number,
-  blogSeries?: string
+  type: 'blog';
+  style: 'twoImage' | 'hero';
+  status: 'Live';
+  header1?: string;
+  sortOrder?: 'DESC' | 'ASC';
+  limit?: number;
+  blogSeries?: string;
 }

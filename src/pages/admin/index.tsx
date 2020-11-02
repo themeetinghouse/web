@@ -7,11 +7,10 @@ import { NavLink } from 'components/Link/Link';
 
 Amplify.configure(awsmobile);
 const federated = {
-  facebookAppId: '579712102531269'
+  facebookAppId: '579712102531269',
 };
 
 class Index extends React.Component {
-
   render() {
     return (
       <AmplifyAuthenticator federated={federated}>

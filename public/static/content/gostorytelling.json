@@ -1,78 +1,78 @@
 {
-    "page": {
-        "name": "go",
+  "page": {
+    "name": "go",
+    "title": "Go Campaign",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/Go-1.jpg",
+        "url": "https://www.themeetinghouse.com/go",
         "title": "Go Campaign",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/Go-1.jpg",
-                "url": "https://www.themeetinghouse.com/go",
-                "title": "Go Campaign",
-                "description": ""
-            },
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/Go-1.jpg",
-                        "alt": "Description"
-                    }
-                ],
-                "header1": "Go Campaign",
-                "header2": "",
-                "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
-                "button1Text": "Watch Video",
-                "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
-            },
-            {
-                "type": "blog",
-                "style": "twoImage",
-                "status": "Live",
-                "header1": "Stories",
-                "sortOrder": "DESC",
-                "limit": 2,
-                "blogSeries": "Stories"
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "go-campaign",
-                "selector": "all",
-                "sortOrder": "DESC",
-                "header1": "Stories"
-            },
-            {
-                "type": "content",
-                "style": "goRegionalEventsOneImageBlackRight",
-                "header1": "Give",
-                "header2": "",
-                "text1": "Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible.",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Register Here",
-                        "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/Go-3.jpg",
-                        "alt": "Group of people sitting together for an information night about the Go Campaign."
-                    }
-                ]
-            }
+        "description": ""
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/Go-1.jpg",
+            "alt": "Description"
+          }
+        ],
+        "header1": "Go Campaign",
+        "header2": "",
+        "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+        "button1Text": "Watch Video",
+        "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
+      },
+      {
+        "type": "blog",
+        "style": "twoImage",
+        "status": "Live",
+        "header1": "Stories",
+        "sortOrder": "DESC",
+        "limit": 2,
+        "blogSeries": "Stories"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "go-campaign",
+        "selector": "all",
+        "sortOrder": "DESC",
+        "header1": "Stories"
+      },
+      {
+        "type": "content",
+        "style": "goRegionalEventsOneImageBlackRight",
+        "header1": "Give",
+        "header2": "",
+        "text1": "Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register Here",
+            "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/Go-3.jpg",
+            "alt": "Group of people sitting together for an information night about the Go Campaign."
+          }
         ]
-    }
+      }
+    ]
+  }
 }

@@ -5,3 +5,11 @@ backup
 amplify
 .github
 .vscode
+src/API.ts
+src/aws-exports.js
+src/custom.scss
+src/theme.scss
+src/graphql/schema.json
+src/components/RenderRouter/VideoPlayerLive.tsx
+src/pages/HomePage.tsx
+src/components/Menu/HomeMenu.tsx

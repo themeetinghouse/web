@@ -1,61 +1,62 @@
-@media (min-width:768px) {
-    .admin.navbar{
-        padding:0!important;
-    }
-    .admin.navbar a {
-        padding: 0px;
-        color: #ffffff;
-        font-size: 1vw;
-        padding-left:3px!important;
-        padding-top:0!important;
-        padding-bottom:0!important;
-        padding-right:5px!important;
-    }
+@media (min-width: 768px) {
+  .admin.navbar {
+    padding: 0 !important;
+  }
+  .admin.navbar a {
+    padding: 0px;
+    color: #ffffff;
+    font-size: 1vw;
+    padding-left: 3px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-right: 5px !important;
+  }
 
-    .admin.navbar.fixed-left {
-        bottom: 0;
-        width: 232px;
-        flex-flow: column nowrap;
-        align-items: flex-start
-        
-    }
+  .admin.navbar.fixed-left {
+    bottom: 0;
+    width: 232px;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
 
-    .admin.navbar.fixed-left .navbar-collapse {
-        flex-grow: 0;
-        flex-direction: column;
-        width: 100%;
-    }
+  .admin.navbar.fixed-left .navbar-collapse {
+    flex-grow: 0;
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .admin.navbar.fixed-left .navbar-collapse .navbar-nav {
-        flex-direction: column;
-        width: 100%
-    }
+  .admin.navbar.fixed-left .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .admin.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
-        width: 100%;
-    }
+  .admin.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
+    width: 100%;
+  }
 
-    .admin.navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
-        top: 0;
-    }
+  .admin.navbar.fixed-left
+    .navbar-collapse
+    .navbar-nav
+    .nav-item
+    .dropdown-menu {
+    top: 0;
+  }
 }
 
-@media (min-width:768px) {
-    .admin.navbar.fixed-left {
-        right: auto
-    }
+@media (min-width: 768px) {
+  .admin.navbar.fixed-left {
+    right: auto;
+  }
 
-    .admin.navbar.fixed-left .navbar-nav .nav-item .dropdown-toggle:after {
-        border-top: .3em solid transparent;
-        border-left: .3em solid;
-        border-bottom: .3em solid transparent;
-        border-right: none;
-        vertical-align: baseline
-    }
+  .admin.navbar.fixed-left .navbar-nav .nav-item .dropdown-toggle:after {
+    border-top: 0.3em solid transparent;
+    border-left: 0.3em solid;
+    border-bottom: 0.3em solid transparent;
+    border-right: none;
+    vertical-align: baseline;
+  }
 
-    .admin.navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
-        left: 100%
-    }
+  .admin.navbar.fixed-left .navbar-nav .nav-item .dropdown-menu {
+    left: 100%;
+  }
 }
-
-

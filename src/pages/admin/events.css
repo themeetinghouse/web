@@ -1,97 +1,97 @@
 .locationList {
-    font-size: 10px;
-    float: none;
+  font-size: 10px;
+  float: none;
 }
 
 .locationList .location:nth-child(even) {
-    background: #eeeeee;
+  background: #eeeeee;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .form-control {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .locationList .location:nth-child(even):hover {
-    background: #cccccc;
+  background: #cccccc;
 }
 
 .location:hover {
-    background-color: #cccccc;
-    cursor: pointer;
+  background-color: #cccccc;
+  cursor: pointer;
 }
 
 .staffPanel {
-    float: left;
-    padding: 1px 6px 1px 6px;
+  float: left;
+  padding: 1px 6px 1px 6px;
 }
 
 .locationInfo {
-    float: none;
-    width: 50%;
+  float: none;
+  width: 50%;
 }
 
 .regionList {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .leftPanel {
-    width: 20%;
-    height: 90%;
-    border: 1px #000000 solid;
-    float: left;
+  width: 20%;
+  height: 90%;
+  border: 1px #000000 solid;
+  float: left;
 }
 
 .staffLeftPanel {
-    width: 30%;
-    height: 300px;
-    border: 1px #000000 solid;
-    float: left;
+  width: 30%;
+  height: 300px;
+  border: 1px #000000 solid;
+  float: left;
 }
 
 .mainWindow {
-    height: 100%;
+  height: 100%;
 }
 
 .mainWorkArea {
-    float: left;
-    width: 70%;
-    padding: 1px 6px 1px 6px;
+  float: left;
+  width: 70%;
+  padding: 1px 6px 1px 6px;
 }
 
 .staffWorkArea {
-    float: none;
-    padding: 0px 0px 0px 0px;
-    border: 1px #000000 solid;
-    height: 300px;
+  float: none;
+  padding: 0px 0px 0px 0px;
+  border: 1px #000000 solid;
+  height: 300px;
 }
 
 .header {
-    background: #000000;
-    color: #ffffff;
-    float: left;
-    width: 100%;
+  background: #000000;
+  color: #ffffff;
+  float: left;
+  width: 100%;
 }
 
 .headerText {
-    float: left;
+  float: left;
 }
 
 .add {
-    float: right;
+  float: right;
 }
 
 .add:hover {
-    cursor: pointer;
-    font-weight: bolder;
+  cursor: pointer;
+  font-weight: bolder;
 }
 
 html,
 body,
-body>div:first-child,
+body > div:first-child,
 div#__next {
-    height: 100%;
+  height: 100%;
 }

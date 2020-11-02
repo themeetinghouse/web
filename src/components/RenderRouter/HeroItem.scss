@@ -1,1392 +1,1392 @@
-@import "../../theme";
+@import '../../theme';
 
 .HeroItemA2 {
-    font-size: 1.1vw;
+  font-size: 1.1vw;
 }
 
 .heroBlackBoxA {
-    font-size: 1.2vw;
+  font-size: 1.2vw;
 }
 
 .heroAContainer {
-    margin-top: 1vw;
+  margin-top: 1vw;
 }
 
 @media (min-width: 768px) {
-.covidButton{
-    position:absolute; 
-    z-index:1000;
-    left:20vw;
-    top:20vh;
-    
-}
-.covidButtonDetail{
-    background-color:#FFC60B!important;
-   // width:36vw!important;
-    padding-left:12.5vw!important;
-     border:0!important;
-     padding-right:12.5vw!important;
-     color:$onyxblacktext!important;
-}
-    .HeroAddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .375rem 1.25rem;
-        margin-top:1vw;
-        margin-bottom:.5rem;
-        font-family:Graphik Web;
-        color:#ffffff;
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #ffffff;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 1vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
-        }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-
-            border: 1px solid $onyxblacktext;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: $onyxblacktext !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
-
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
+  .covidButton {
+    position: absolute;
+    z-index: 1000;
+    left: 20vw;
+    top: 20vh;
+  }
+  .covidButtonDetail {
+    background-color: #ffc60b !important;
+    // width:36vw!important;
+    padding-left: 12.5vw !important;
+    border: 0 !important;
+    padding-right: 12.5vw !important;
+    color: $onyxblacktext !important;
+  }
+  .HeroAddToCalendarButtonContainer {
+    position: relative;
+    display: inline-block;
+    padding: 0.375rem 1.25rem;
+    margin-top: 1vw;
+    margin-bottom: 0.5rem;
+    font-family: Graphik Web;
+    color: #ffffff;
+    .SundaMorningIcon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-right: 0;
+      padding-left: 1.25rem;
+      pointer-events: none;
+      top: 50%;
+      transform: translateY(-50%);
     }
-
-    .partialConnect {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 40vw;
+    .react-add-to-calendar__button {
+      font-family: Graphik Web;
+      color: #ffffff;
+      border-width: 0px;
+      border-radius: 0;
+      font-size: 1vw;
+      text-decoration: underline !important;
+      font-weight: normal;
+      padding-left: 35px;
+      cursor: pointer;
     }
+    .react-add-to-calendar__dropdown {
+      position: absolute;
+      z-index: 100;
+      top: 48px;
+      background: white;
 
-    .partialConnectImage {
-        width: 80vw;
-        height: 40vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
-    }
-
-    .partialConnectBox {
-        position: absolute;
-        background-color: #ffffff;
-        padding: 2vw;
-        right: 22vw;
-        width: 38vw;
-        top: 50%;
-        transform: translateY(-50%);;
-        z-index: 100;
-        
-        .heroH1, .heroH2 {
-            color: #1a1a1a;
-        }
-
-        .heroHr, .heroText1, .heroText2 {
-            color: #54565A
-        }
-    }
-
-    .signupContainer {
-        width: 100%;
-        margin-top: 1.5vw;
-    }
- 
-    .signupButtons {
-        font-family: Graphik Web !important;
-        display: flex;
-        color: #646469;
-
-        [type="submit"].heroButton {
-            flex: 0 !important;
-            margin: 0 !important;
-            background-color: #1A1A1A !important;
-            border: 0 solid #1A1A1A;
-            color: #ffffff !important;
-            font-size: 1vw !important;
-            padding: 0.75rem 1.25rem;
-        }
-    }
-
-    .emailWrapper {
-        flex: 1;
-        align-items: center;
-        display: flex;
-        overflow: hidden;
-        border: 1.5px solid #C8C8C8;
-        margin-right: 1vw;
-        width:23vw;
-        [type="email"] {
-            border: none;
-            outline: none;
-            margin: 0;
-            font-size: 1vw;
-        }
-    }
-
-    .contactIcon {
-        padding: 0 1vw;
-    }
-
-    #mergeRow-gdpr {
-        margin-top: 20px;
-    }
-
-    #mergeRow-gdpr fieldset label {
-        font-weight: normal;
-    }
-
-    .heroItem {
-        position: relative;
-        width: 100vw;
-        height: 105vh;
-        padding-bottom: 5vh;
-    }
-
-    .heroH1 {
+      border: 1px solid $onyxblacktext;
+      padding: 10px 20px 0 20px;
+      ul {
+        list-style-type: none;
+        padding: 0;
         font-family: Graphik Web;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 3vw;
-    }
-
-    .heroH2 {
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 1.5vw;
-        margin-top: 0vw !important;
-        margin-bottom: 0vw !important;
-    }
-
-    .downarrow {
-        height: 3vw;
-        left: 2vw;
-        bottom: 4vw;
-        position: absolute;
-        z-index: 100;
-
-    }
-
-    .animated {
-        -webkit-animation-duration: 2.5s;
-        animation-duration: 2.5s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-timing-function: linear;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    }
-
-    @-webkit-keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            -webkit-transform: translateY(0);
-        }
-
-        50% {
-            -webkit-transform: translateY(-10px);
-        }
-    }
-
-    @keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .bounce {
-        -webkit-animation-name: bounce;
-        animation-name: bounce;
-    }
-
-    .partialNoFooterBox {
-        position: absolute;
-        padding: 2vw;
-        left: 5vw;
-        width: 46vw;
-        top: 6vh;
-        z-index: 100;
-    }
-
-    .partialNoFooterBoxHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-        width: 5vw;
-        background-color: #ffffff;
-
-    }
-
-    .heroHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-        width: 3vw;
-        background-color: #ffffff;
-    }
-
-    .heroText1 {
-        font-family: Graphik Web;
-        width: 32vw;
-        color: #ffffff;
-        font-size: 1.25vw;
-    }
-
-    .heroText2 {
-        font-family: Graphik Web;
-        width: 32vw;
-        color: #ffffff;
         font-size: 1vw;
+        a {
+          color: $onyxblacktext !important;
+          vertical-align: middle;
+        }
+        li {
+          position: relative;
+          vertical-align: middle;
+        }
+        a::before {
+          width: 15px;
+          height: 15px;
+          vertical-align: middle;
+          background-size: contain;
+          background-position-y: center;
+          background-repeat: no-repeat;
+          display: inline-block;
+          content: '';
+          margin: 5px 5px 8px 0;
+        }
+        a.apple-link::before {
+          background-image: url('/static/svg/Apple.svg');
+        }
+        a.outlook-link::before {
+          background-image: url('/static/svg/Outlook.svg');
+        }
+        a.outlookcom-link::before {
+          background-image: url('/static/svg/Outlook.svg');
+        }
+        a.yahoo-link::before {
+          background-image: url('/static/svg/Yahoo.svg');
+        }
+        a.google-link::before {
+          background-image: url('/static/svg/Google.svg');
+        }
+      }
+    }
+  }
+
+  .partialConnect {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 40vw;
+  }
+
+  .partialConnectImage {
+    width: 80vw;
+    height: 40vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  .partialConnectBox {
+    position: absolute;
+    background-color: #ffffff;
+    padding: 2vw;
+    right: 22vw;
+    width: 38vw;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+
+    .heroH1,
+    .heroH2 {
+      color: #1a1a1a;
     }
 
-    .partial {
-        width: 80vw;
-        height: 45vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute
+    .heroHr,
+    .heroText1,
+    .heroText2 {
+      color: #54565a;
+    }
+  }
+
+  .signupContainer {
+    width: 100%;
+    margin-top: 1.5vw;
+  }
+
+  .signupButtons {
+    font-family: Graphik Web !important;
+    display: flex;
+    color: #646469;
+
+    [type='submit'].heroButton {
+      flex: 0 !important;
+      margin: 0 !important;
+      background-color: #1a1a1a !important;
+      border: 0 solid #1a1a1a;
+      color: #ffffff !important;
+      font-size: 1vw !important;
+      padding: 0.75rem 1.25rem;
+    }
+  }
+
+  .emailWrapper {
+    flex: 1;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    border: 1.5px solid #c8c8c8;
+    margin-right: 1vw;
+    width: 23vw;
+    [type='email'] {
+      border: none;
+      outline: none;
+      margin: 0;
+      font-size: 1vw;
+    }
+  }
+
+  .contactIcon {
+    padding: 0 1vw;
+  }
+
+  #mergeRow-gdpr {
+    margin-top: 20px;
+  }
+
+  #mergeRow-gdpr fieldset label {
+    font-weight: normal;
+  }
+
+  .heroItem {
+    position: relative;
+    width: 100vw;
+    height: 105vh;
+    padding-bottom: 5vh;
+  }
+
+  .heroH1 {
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 3vw;
+  }
+
+  .heroH2 {
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.5vw;
+    margin-top: 0vw !important;
+    margin-bottom: 0vw !important;
+  }
+
+  .downarrow {
+    height: 3vw;
+    left: 2vw;
+    bottom: 4vw;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .animated {
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+
+  @-webkit-keyframes bounce {
+    0%,
+    20%,
+    30%,
+    70%,
+    80%,
+    100% {
+      -webkit-transform: translateY(0);
     }
 
-    .partialNoFooterImage {
-        width: 80vw;
-        height: 40vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
+    50% {
+      -webkit-transform: translateY(-10px);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    30%,
+    70%,
+    80%,
+    100% {
+      transform: translateY(0);
     }
 
-    .partialNoFooter {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 38vw;
-        padding-bottom: 0vh;
+    50% {
+      transform: translateY(-10px);
     }
+  }
 
-    .heroImage {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        mask-mode: alpha;
-        //  webkit-mask-mode: alpha;
-        mask-repeat: no-repeat;
-        //  webkit-mask-repeat: no-repeat;
-        mask-size: 20vw;
-        z-index: 50;
-        //  webkit-mask-size: 20vw;
-        //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  .bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+  }
 
-    }
+  .partialNoFooterBox {
+    position: absolute;
+    padding: 2vw;
+    left: 5vw;
+    width: 46vw;
+    top: 6vh;
+    z-index: 100;
+  }
 
-    .heroImageGradient {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        mask-mode: alpha;
-        //  webkit-mask-mode: alpha;
-        mask-repeat: no-repeat;
-        //  webkit-mask-repeat: no-repeat;
-        mask-size: 20vw;
-        z-index: 51;
-        background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 66%);
+  .partialNoFooterBoxHr {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    width: 5vw;
+    background-color: #ffffff;
+  }
 
-    }
+  .heroHr {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    width: 3vw;
+    background-color: #ffffff;
+  }
 
-    .heroPartialBlackBox {
-        position: absolute;
-        background-color: $onyxblacktext;
-        padding: 2vw;
-        left: 10vw;
-        width: 36vw;
-        top: 10vh;
-        z-index: 100;
-    }
+  .heroText1 {
+    font-family: Graphik Web;
+    width: 32vw;
+    color: #ffffff;
+    font-size: 1.25vw;
+  }
 
-    .heroBlackBox {
-        position: absolute;
-        background-color: $onyxblacktext;
-        padding: 2vw;
-        left: 20vw;
-        width: 36vw;
-        top: 30vh;
-        z-index: 100;
-    }
+  .heroText2 {
+    font-family: Graphik Web;
+    width: 32vw;
+    color: #ffffff;
+    font-size: 1vw;
+  }
 
-    .heroButton {
-        margin-top: 1.5vw !important;
-        color: $onyxblacktext !important;
-        background-color: #ffffff !important;
-        border-radius: 0 !important;
-        font-weight: 800 !important;
-        font-family: Graphik Web !important;
-    }
+  .partial {
+    width: 80vw;
+    height: 45vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
 
-    .headerItem {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .partialNoFooterImage {
+    width: 80vw;
+    height: 40vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
 
-    .headerItemDiv {
-        position: relative;
-        z-index: 100;
-    }
+  .partialNoFooter {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 38vw;
+    padding-bottom: 0vh;
+  }
 
-    .header1H1 {
-        font-weight: bold;
-        font-size: 3vw;
-    }
+  .heroImage {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    mask-mode: alpha;
+    //  webkit-mask-mode: alpha;
+    mask-repeat: no-repeat;
+    //  webkit-mask-repeat: no-repeat;
+    mask-size: 20vw;
+    z-index: 50;
+    //  webkit-mask-size: 20vw;
+    //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  }
 
-    .headerText1 {
-        width: 50vw;
-        font-size: 1.5vw;
-    }
+  .heroImageGradient {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    mask-mode: alpha;
+    //  webkit-mask-mode: alpha;
+    mask-repeat: no-repeat;
+    //  webkit-mask-repeat: no-repeat;
+    mask-size: 20vw;
+    z-index: 51;
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 5%,
+      rgba(255, 255, 255, 0) 66%
+    );
+  }
 
-    .headerText2 {
-        font-size: 1.5vw;
-    }
+  .heroPartialBlackBox {
+    position: absolute;
+    background-color: $onyxblacktext;
+    padding: 2vw;
+    left: 10vw;
+    width: 36vw;
+    top: 10vh;
+    z-index: 100;
+  }
 
-    .example-mask {
-        position: absolute;
-        top: 0vw;
-        left: 0vw;
-    }
+  .heroBlackBox {
+    position: absolute;
+    background-color: $onyxblacktext;
+    padding: 2vw;
+    left: 20vw;
+    width: 36vw;
+    top: 30vh;
+    z-index: 100;
+  }
 
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 40vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .partialLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 30vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .emailDiv{
-        position: absolute;
-        left: -5000px;
-    }
-    .emailInput{
-        border: 0px;
-    }
-    .calendarButton {
-        font-family: Graphik Web !important;
-        font-size: 1vw !important;
-        padding-top: 1vw;
-        padding-left: 1.5vw;
-        color: #ffffff;
-        font-weight: normal;
-        background-color: $onyxblacktext !important;
-        border-width: 0 !important;
-        border-radius: 0;
-        text-decoration: underline !important;
-    }
-    .calendarImage {
-        margin-right: 10px;
-        height:25px;
-    }
-    .heroItemButton {
-        margin-top: 1.5vw;
-        color: $onyxblacktext; 
-        background-color: #ffffff;
-        border-radius: 0;
-    }
+  .heroButton {
+    margin-top: 1.5vw !important;
+    color: $onyxblacktext !important;
+    background-color: #ffffff !important;
+    border-radius: 0 !important;
+    font-weight: 800 !important;
+    font-family: Graphik Web !important;
+  }
 
-    .divPartial {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 50vw; padding-bottom: 5vh;
-    }
+  .headerItem {
+    position: static;
+    padding-bottom: 5vw;
+  }
+
+  .headerItemDiv {
+    position: relative;
+    z-index: 100;
+  }
+
+  .header1H1 {
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  .headerText1 {
+    width: 50vw;
+    font-size: 1.5vw;
+  }
+
+  .headerText2 {
+    font-size: 1.5vw;
+  }
+
+  .example-mask {
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+  }
+
+  .partialNoFooterLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 40vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+  .partialLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 30vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+  .emailDiv {
+    position: absolute;
+    left: -5000px;
+  }
+  .emailInput {
+    border: 0px;
+  }
+  .calendarButton {
+    font-family: Graphik Web !important;
+    font-size: 1vw !important;
+    padding-top: 1vw;
+    padding-left: 1.5vw;
+    color: #ffffff;
+    font-weight: normal;
+    background-color: $onyxblacktext !important;
+    border-width: 0 !important;
+    border-radius: 0;
+    text-decoration: underline !important;
+  }
+  .calendarImage {
+    margin-right: 10px;
+    height: 25px;
+  }
+  .heroItemButton {
+    margin-top: 1.5vw;
+    color: $onyxblacktext;
+    background-color: #ffffff;
+    border-radius: 0;
+  }
+
+  .divPartial {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 50vw;
+    padding-bottom: 5vh;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .covidButtonDetail{
-        background-color:#FFC60B!important;
-       // width:36vw;
-        padding-left:12.5vw!important;
-         border:0!important;
-         padding-right:12.5vw!important;
-         color:$onyxblacktext!important;
+  .covidButtonDetail {
+    background-color: #ffc60b !important;
+    // width:36vw;
+    padding-left: 12.5vw !important;
+    border: 0 !important;
+    padding-right: 12.5vw !important;
+    color: $onyxblacktext !important;
+  }
+  .covidButton {
+    position: absolute;
+    z-index: 1000;
+    left: 20vw;
+    top: 20vh;
+  }
+  .HeroAddToCalendarButtonContainer {
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-family: Graphik Web;
+    color: #ffffff;
+    .SundaMorningIcon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-right: 0;
+      padding-left: 1.25rem;
+      pointer-events: none;
+      top: 50%;
+      transform: translateY(-50%);
     }
-    .covidButton{
-        position:absolute; 
-        z-index:1000;
-        left:20vw;
-        top:20vh
+    .react-add-to-calendar__button {
+      font-family: Graphik Web;
+      color: #ffffff;
+      border-width: 0px;
+      border-radius: 0;
+      font-size: 1vw;
+      text-decoration: underline !important;
+      font-weight: normal;
+      padding-left: 35px;
+      cursor: pointer;
     }
-    .HeroAddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
-        font-family:Graphik Web;
-        color:#ffffff;
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #ffffff;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 1vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
-        }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid $onyxblacktext;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: $onyxblacktext !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
-
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
-        }
-    }
-
-    .partialConnect {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 40vw;
-    }
-
-    .partialConnectImage {
-        width: 80vw;
-        height: 40vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
-    }
-
-    .partialConnectBox {
-        position: absolute;
-        background-color: #ffffff;
-        padding: 2vw;
-        right: 22vw;
-        width: 38vw;
-        top: 50%;
-        transform: translateY(-50%);;
-        z-index: 100;
-        
-        .heroH1, .heroH2 {
-            color: #1a1a1a;
-        }
-
-        .heroHr, .heroText1, .heroText2 {
-            color: #54565A
-        }
-    }
-
-    .signupContainer {
-        width: 100%;
-        margin-top: 1.5vw;
-    }
- 
-    .signupButtons {
-        font-family: Graphik Web !important;
-        display: flex;
-        color: #646469;
-
-        [type="submit"].heroButton {
-            flex: 0 !important;
-            margin: 0 !important;
-            background-color: #1A1A1A !important;
-            border: 0 solid #1A1A1A;
-            color: #ffffff !important;
-            font-size: 1vw !important;
-            padding: 0.75rem 1.25rem;
-        }
-    }
-
-    .emailWrapper {
-        flex: 1;
-        align-items: center;
-        display: flex;
-
-        border: 1.5px solid #C8C8C8;
-        margin-right: 1vw;
-
-        [type="email"] {
-            border: none;
-            outline: none;
-            margin: 0;
-
-            font-size: 1vw;
-        }
-    }
-
-    .contactIcon {
-        padding: 0 1vw;
-    }
-
-    #mergeRow-gdpr {
-        margin-top: 20px;
-    }
-
-    #mergeRow-gdpr fieldset label {
-        font-weight: normal;
-    }
-
-    .heroH2 {
+    .react-add-to-calendar__dropdown {
+      position: absolute;
+      z-index: 100;
+      top: 48px;
+      background: white;
+      border: 1px solid $onyxblacktext;
+      padding: 10px 20px 0 20px;
+      ul {
+        list-style-type: none;
+        padding: 0;
         font-family: Graphik Web;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 1.5vw;
-        margin-top: 0vw !important;
-        margin-bottom: 0vw !important;
-    }
-
-    .heroItem {
-        position: relative;
-        width: 100vw;
-        height: 105vh;
-        padding-bottom: 5vh;
-    }
-
-    .heroH1 {
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 3vw;
-    }
-
-    .downarrow {
-        height: 4vw;
-        left: 2vw;
-        bottom: 4vw;
-        position: absolute;
-        z-index: 100;
-
-    }
-
-    .animated {
-        -webkit-animation-duration: 2.5s;
-        animation-duration: 2.5s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        -webkit-animation-timing-function: linear;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        -webkit-animation-iteration-count: infinite;
-    }
-
-    @-webkit-keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            -webkit-transform: translateY(0);
-        }
-
-        50% {
-            -webkit-transform: translateY(-10px);
-        }
-    }
-
-    @keyframes bounce {
-
-        0%,
-        20%,
-        30%,
-        70%,
-        80%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .bounce {
-        -webkit-animation-name: bounce;
-        animation-name: bounce;
-    }
-
-    .heroHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-        width: 3vw;
-        background-color: #ffffff;
-    }
-
-    .partialNoFooterBox {
-        position: absolute;
-        padding: 2vw;
-        left: 5vw;
-        width: 46vw;
-        top: 6vh;
-        z-index: 100;
-    }
-
-
-    .partialNoFooterBoxHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-        width: 5vw;
-        background-color: #ffffff;
-
-    }
-
-    .heroText1 {
-        font-family: Graphik Web;
-        width: 32vw;
-        color: #ffffff;
-        font-size: 1.25vw;
-    }
-
-    .heroText2 {
-        font-family: Graphik Web;
-        width: 32vw;
-        color: #ffffff;
         font-size: 1vw;
+        a {
+          color: $onyxblacktext !important;
+          vertical-align: middle;
+        }
+        li {
+          position: relative;
+          vertical-align: middle;
+        }
+        a::before {
+          width: 15px;
+          height: 15px;
+          vertical-align: middle;
+          background-size: contain;
+          background-position-y: center;
+          background-repeat: no-repeat;
+          display: inline-block;
+          content: '';
+          margin: 5px 5px 8px 0;
+        }
+        a.apple-link::before {
+          background-image: url('/static/svg/Apple.svg');
+        }
+        a.outlook-link::before {
+          background-image: url('/static/svg/Outlook.svg');
+        }
+        a.outlookcom-link::before {
+          background-image: url('/static/svg/Outlook.svg');
+        }
+        a.yahoo-link::before {
+          background-image: url('/static/svg/Yahoo.svg');
+        }
+        a.google-link::before {
+          background-image: url('/static/svg/Google.svg');
+        }
+      }
+    }
+  }
+
+  .partialConnect {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 40vw;
+  }
+
+  .partialConnectImage {
+    width: 80vw;
+    height: 40vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  .partialConnectBox {
+    position: absolute;
+    background-color: #ffffff;
+    padding: 2vw;
+    right: 22vw;
+    width: 38vw;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+
+    .heroH1,
+    .heroH2 {
+      color: #1a1a1a;
     }
 
-    .partial {
-        width: 80vw;
-        height: 45vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute
+    .heroHr,
+    .heroText1,
+    .heroText2 {
+      color: #54565a;
+    }
+  }
+
+  .signupContainer {
+    width: 100%;
+    margin-top: 1.5vw;
+  }
+
+  .signupButtons {
+    font-family: Graphik Web !important;
+    display: flex;
+    color: #646469;
+
+    [type='submit'].heroButton {
+      flex: 0 !important;
+      margin: 0 !important;
+      background-color: #1a1a1a !important;
+      border: 0 solid #1a1a1a;
+      color: #ffffff !important;
+      font-size: 1vw !important;
+      padding: 0.75rem 1.25rem;
+    }
+  }
+
+  .emailWrapper {
+    flex: 1;
+    align-items: center;
+    display: flex;
+
+    border: 1.5px solid #c8c8c8;
+    margin-right: 1vw;
+
+    [type='email'] {
+      border: none;
+      outline: none;
+      margin: 0;
+
+      font-size: 1vw;
+    }
+  }
+
+  .contactIcon {
+    padding: 0 1vw;
+  }
+
+  #mergeRow-gdpr {
+    margin-top: 20px;
+  }
+
+  #mergeRow-gdpr fieldset label {
+    font-weight: normal;
+  }
+
+  .heroH2 {
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.5vw;
+    margin-top: 0vw !important;
+    margin-bottom: 0vw !important;
+  }
+
+  .heroItem {
+    position: relative;
+    width: 100vw;
+    height: 105vh;
+    padding-bottom: 5vh;
+  }
+
+  .heroH1 {
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 3vw;
+  }
+
+  .downarrow {
+    height: 4vw;
+    left: 2vw;
+    bottom: 4vw;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .animated {
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+
+  @-webkit-keyframes bounce {
+    0%,
+    20%,
+    30%,
+    70%,
+    80%,
+    100% {
+      -webkit-transform: translateY(0);
     }
 
-    .partialNoFooterImage {
-        width: 80vw;
-        height: 40vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
+    50% {
+      -webkit-transform: translateY(-10px);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    30%,
+    70%,
+    80%,
+    100% {
+      transform: translateY(0);
     }
 
-    .partialNoFooter {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 38vw;
-        padding-bottom: 0vh;
+    50% {
+      transform: translateY(-10px);
     }
+  }
 
-    .heroImage {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        mask-mode: alpha;
-        //  webkit-mask-mode: alpha;
-        mask-repeat: no-repeat;
-        //  webkit-mask-repeat: no-repeat;
-        mask-size: 20vw;
-        z-index: 50;
-        //  webkit-mask-size: 20vw;
-        //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  .bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+  }
 
-    }
+  .heroHr {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    width: 3vw;
+    background-color: #ffffff;
+  }
 
-    .heroImageGradient {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        mask-mode: alpha;
-        //  webkit-mask-mode: alpha;
-        mask-repeat: no-repeat;
-        //  webkit-mask-repeat: no-repeat;
-        mask-size: 20vw;
-        z-index: 51;
-        background-image: linear-gradient(135deg, rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 0) 66%);
+  .partialNoFooterBox {
+    position: absolute;
+    padding: 2vw;
+    left: 5vw;
+    width: 46vw;
+    top: 6vh;
+    z-index: 100;
+  }
 
-    }
+  .partialNoFooterBoxHr {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    width: 5vw;
+    background-color: #ffffff;
+  }
 
-    .heroPartialBlackBox {
-        position: absolute;
-        background-color: $onyxblacktext;
-        padding: 2vw;
-        left: 10vw;
-        width: 36vw;
-        top: 10vh;
-        z-index: 100;
-    }
+  .heroText1 {
+    font-family: Graphik Web;
+    width: 32vw;
+    color: #ffffff;
+    font-size: 1.25vw;
+  }
 
-    .heroBlackBox {
-        position: absolute;
-        background-color: $onyxblacktext;
-        padding: 2vw;
-        left: 20vw;
-        width: 36vw;
-        top: 30vh;
-        z-index: 100;
-    }
+  .heroText2 {
+    font-family: Graphik Web;
+    width: 32vw;
+    color: #ffffff;
+    font-size: 1vw;
+  }
 
-    .heroButton {
-        margin-top: 1.5vw !important;
-        color: $onyxblacktext !important;
-        background-color: #ffffff !important;
-        border-radius: 0 !important;
-        font-weight: 800 !important;
-        font-family: Graphik Web !important;
-    }
+  .partial {
+    width: 80vw;
+    height: 45vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
 
-    .headerItem {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .partialNoFooterImage {
+    width: 80vw;
+    height: 40vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
 
-    .headerItemDiv {
-        position: relative;
-        z-index: 100;
-    }
+  .partialNoFooter {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 38vw;
+    padding-bottom: 0vh;
+  }
 
-    .header1H1 {
-        font-weight: bold;
-        font-size: 3vw;
-    }
+  .heroImage {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    mask-mode: alpha;
+    //  webkit-mask-mode: alpha;
+    mask-repeat: no-repeat;
+    //  webkit-mask-repeat: no-repeat;
+    mask-size: 20vw;
+    z-index: 50;
+    //  webkit-mask-size: 20vw;
+    //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  }
 
-    .headerText1 {
-        width: 50vw;
-        font-size: 1.5vw;
-    }
+  .heroImageGradient {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    mask-mode: alpha;
+    //  webkit-mask-mode: alpha;
+    mask-repeat: no-repeat;
+    //  webkit-mask-repeat: no-repeat;
+    mask-size: 20vw;
+    z-index: 51;
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 5%,
+      rgba(255, 255, 255, 0) 66%
+    );
+  }
 
-    .headerText2 {
-        font-size: 1.5vw;
-    }
+  .heroPartialBlackBox {
+    position: absolute;
+    background-color: $onyxblacktext;
+    padding: 2vw;
+    left: 10vw;
+    width: 36vw;
+    top: 10vh;
+    z-index: 100;
+  }
 
-    .example-mask {
-        position: absolute;
-        top: 0vw;
-        left: 0vw;
-    }
+  .heroBlackBox {
+    position: absolute;
+    background-color: $onyxblacktext;
+    padding: 2vw;
+    left: 20vw;
+    width: 36vw;
+    top: 30vh;
+    z-index: 100;
+  }
 
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 40vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
+  .heroButton {
+    margin-top: 1.5vw !important;
+    color: $onyxblacktext !important;
+    background-color: #ffffff !important;
+    border-radius: 0 !important;
+    font-weight: 800 !important;
+    font-family: Graphik Web !important;
+  }
 
-    .partialLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 30vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .emailDiv{
-        position: absolute;
-        left: -5000px;
-    }
-    .emailInput{
-        border: 0px;
-    }
-    .calendarButton {
-        font-family: Graphik Web !important;
-        font-size: 1vw !important;
-        margin-top: 1vw;
-        color: #ffffff;
-        background-color: $onyxblacktext !important;
-        border-width: 0 !important;
-        border-radius: 0;
-        text-decoration: underline !important;
-    }
+  .headerItem {
+    position: static;
+    padding-bottom: 5vw;
+  }
 
-    .calendarImage {
-        margin-right: 5px;
-    }
-    .heroItemButton {
-        margin-top: 1.5vw;
-        color: $onyxblacktext; 
-        background-color: #ffffff;
-        border-radius: 0;
-    }
+  .headerItemDiv {
+    position: relative;
+    z-index: 100;
+  }
 
-    .divPartial {
-        position: relative;
-        left: 20vw;
-        width: 80vw;
-        height: 50vw; padding-bottom: 5vh;
-    }
+  .header1H1 {
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  .headerText1 {
+    width: 50vw;
+    font-size: 1.5vw;
+  }
+
+  .headerText2 {
+    font-size: 1.5vw;
+  }
+
+  .example-mask {
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+  }
+
+  .partialNoFooterLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 40vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+
+  .partialLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 30vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+  .emailDiv {
+    position: absolute;
+    left: -5000px;
+  }
+  .emailInput {
+    border: 0px;
+  }
+  .calendarButton {
+    font-family: Graphik Web !important;
+    font-size: 1vw !important;
+    margin-top: 1vw;
+    color: #ffffff;
+    background-color: $onyxblacktext !important;
+    border-width: 0 !important;
+    border-radius: 0;
+    text-decoration: underline !important;
+  }
+
+  .calendarImage {
+    margin-right: 5px;
+  }
+  .heroItemButton {
+    margin-top: 1.5vw;
+    color: $onyxblacktext;
+    background-color: #ffffff;
+    border-radius: 0;
+  }
+
+  .divPartial {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 50vw;
+    padding-bottom: 5vh;
+  }
 }
 
 @media (max-width: 357px) {
-    .calendarButton {
-        margin-top: 5vw !important;
-        padding-left: 0;
-    }
+  .calendarButton {
+    margin-top: 5vw !important;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 767px) {
-    .covidButtonDetail{
-        background-color:#FFC60B!important;
-       
-        padding-left:10vw!important;
-         border:0!important;
-         padding-right:10vw!important;
-         width:70vw!important;
-         left:0vw!important;
-         right:10vw!important;
-         color:$onyxblacktext!important;
+  .covidButtonDetail {
+    background-color: #ffc60b !important;
+
+    padding-left: 10vw !important;
+    border: 0 !important;
+    padding-right: 10vw !important;
+    width: 70vw !important;
+    left: 0vw !important;
+    right: 10vw !important;
+    color: $onyxblacktext !important;
+  }
+  .covidButton {
+    position: absolute;
+    z-index: 1000;
+    left: 15vw;
+    top: 40vh;
+  }
+  .HeroAddToCalendarButtonContainer {
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-family: Graphik Web;
+    color: #ffffff;
+    .SundaMorningIcon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-right: 0;
+      padding-left: 1.25rem;
+      pointer-events: none;
+      top: 50%;
+      transform: translateY(-50%);
     }
-    .covidButton{
-        position:absolute; 
-        z-index:1000;
-        left:15vw;
-        top:40vh
+    .react-add-to-calendar__button {
+      font-family: Graphik Web;
+      color: #ffffff;
+      border-width: 0px;
+      border-radius: 0;
+      font-size: 3.5vw;
+      text-decoration: underline !important;
+      font-weight: normal;
+      padding-left: 35px;
+      cursor: pointer;
     }
-    .HeroAddToCalendarButtonContainer {
-        position: relative;
-        display: inline-block;
-        padding: .75rem 1.25rem;
-        font-family:Graphik Web;
-        color:#ffffff;
-        .SundaMorningIcon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            padding-right: 0;
-            padding-left: 1.25rem;
-            pointer-events: none;
-            top: 50%;
-            transform: translateY(-50%);
+    .react-add-to-calendar__dropdown {
+      position: absolute;
+      z-index: 100;
+      top: 48px;
+      background: white;
+      border: 1px solid $onyxblacktext;
+      padding: 10px 20px 0 20px;
+      ul {
+        list-style-type: none;
+        padding: 0;
+        font-family: Graphik Web;
+        font-size: 1vw;
+        a {
+          color: $onyxblacktext !important;
+          vertical-align: middle;
         }
-        .react-add-to-calendar__button {
-            font-family: Graphik Web;
-            color: #ffffff;
-            border-width: 0px;
-            border-radius: 0;
-            font-size: 3.5vw;
-            text-decoration: underline !important;
-            font-weight:normal;
-            padding-left: 35px;
-            cursor: pointer;
+        li {
+          position: relative;
+          vertical-align: middle;
         }
-        .react-add-to-calendar__dropdown {
-            position: absolute;
-            z-index: 100;
-            top: 48px;
-            background: white;
-            border: 1px solid $onyxblacktext;
-            padding: 10px 20px 0 20px;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                font-family: Graphik Web;
-                font-size: 1vw;
-                a {
-                    color: $onyxblacktext !important;
-                    vertical-align: middle;
-                }
-                li {
-                    position: relative;
-                    vertical-align: middle;
-                }
-                a::before {
-                    width: 15px;
-                    height: 15px;
-                    vertical-align: middle;
-                    background-size: contain;
-                    background-position-y: center;
-                    background-repeat: no-repeat;
-                    display: inline-block;
-                    content: "";
-                    margin: 5px 5px 8px 0;
-
-                }
-                a.apple-link::before {
-                    background-image: url("/static/svg/Apple.svg");
-                }
-                a.outlook-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.outlookcom-link::before {
-                    background-image: url("/static/svg/Outlook.svg");
-                }
-                a.yahoo-link::before {
-                    background-image: url("/static/svg/Yahoo.svg");
-                }
-                a.google-link::before {
-                    background-image: url("/static/svg/Google.svg");
-                }
-            }
+        a::before {
+          width: 15px;
+          height: 15px;
+          vertical-align: middle;
+          background-size: contain;
+          background-position-y: center;
+          background-repeat: no-repeat;
+          display: inline-block;
+          content: '';
+          margin: 5px 5px 8px 0;
         }
-    }
-
-    .partialConnect {
-        position: relative;
-        width: 100vw;
-        margin-top:10vw;
-    }
-
-    .partialConnectImage {
-        width: 100%;
-        object-fit: cover;
-        position: relative
-    }
-
-    .partialConnectBox {
-        background-color: #ffffff;
-        padding: 2vw;
-        left: 0vw;
-        width: 100vw;
-        z-index: 100;
-        padding: 10vw 5vw 10vw 5vw;
-        
-        .heroH1, .heroH2 {
-            color: #1a1a1a;
+        a.apple-link::before {
+          background-image: url('/static/svg/Apple.svg');
         }
-
-        .heroHr, .heroText1, .heroText2 {
-            color: #54565A
+        a.outlook-link::before {
+          background-image: url('/static/svg/Outlook.svg');
         }
-    }
-
-    .signupContainer {
-        width: 100%;
-        margin-top: 1.5vw;
-    }
- 
-    .signupButtons {
-        font-family: Graphik Web !important;
-        display: flex;
-        flex-wrap: wrap;
-
-        color: #646469;
-        font-size: 4.3vw;
-        line-height: 6.4vw;
-
-        [type="submit"].heroButton {
-            flex: 0 !important;
-            margin: 0 !important;
-            background-color: #1A1A1A !important;
-            border: 0 solid #1A1A1A;
-            color: #ffffff !important;
-            padding: 0.75rem 1.25rem;
+        a.outlookcom-link::before {
+          background-image: url('/static/svg/Outlook.svg');
         }
-    }
-
-    .emailWrapper {
-        flex: 0 1 auto;
-        width: 100%;
-        align-items: center;
-        display: flex;
-
-        border: 1.5px solid #C8C8C8;
-        margin-right: 4.5vw;
-        margin-bottom: 4.5vw;
-
-        [type="email"] {
-            border: none;
-            outline: none;
-            margin: 0;
+        a.yahoo-link::before {
+          background-image: url('/static/svg/Yahoo.svg');
         }
+        a.google-link::before {
+          background-image: url('/static/svg/Google.svg');
+        }
+      }
     }
+  }
 
-    .contactIcon {
-        padding: 0 4.5vw;
-    }
+  .partialConnect {
+    position: relative;
+    width: 100vw;
+    margin-top: 10vw;
+  }
 
-    #mergeRow-gdpr {
-        margin-top: 20px;
-    }
+  .partialConnectImage {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
 
-    #mergeRow-gdpr fieldset label {
-        font-weight: normal;
-    }
+  .partialConnectBox {
+    background-color: #ffffff;
+    padding: 2vw;
+    left: 0vw;
+    width: 100vw;
+    z-index: 100;
+    padding: 10vw 5vw 10vw 5vw;
 
+    .heroH1,
     .heroH2 {
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 4.3vw;
-        line-height: 6.4vw;
-        margin-top: 0vw !important;
-        margin-bottom: 0vw !important;
+      color: #1a1a1a;
     }
 
-    .heroItem {
-        position: relative;
-        width: 100vw;
-        // height: 120vh;
-        padding-bottom: 5vh;
-        // margin-bottom: 45vw;
-    }
-
-    .heroH1 {
-        font-family: Graphik Web;
-        font-weight: bold;
-        color: #ffffff;
-        font-size: 10vw;
-        line-height: 10.65vw;
-    }
-
-    .downarrow {
-        display: none;
-    }
-
-
-    .heroHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 4.5vw;
-        margin-bottom: 4.5vw;
-        width: 8.55vw;
-        background-color: #ffffff;
-    }
-
-    .heroText1 {
-        font-family: Graphik Web;
-        font-weight: 800;
-        width: 90vw;
-        color: #ffffff;
-        font-size: 4.3vw;
-        line-height: 6.4vw;
-        margin-bottom: 5vw;
-
-    }
-
+    .heroHr,
+    .heroText1,
     .heroText2 {
-        font-family: Graphik Web;
-        width: 90vw;
-        color: #ffffff;
-        font-size: 4.3vw;
-        line-height: 6.4vw;
+      color: #54565a;
     }
+  }
 
-    .partial {
-        width: 100%;
-        height: 95vw;
-        z-index: 50;
-        object-fit: cover;
-        position: relative
-    }
+  .signupContainer {
+    width: 100%;
+    margin-top: 1.5vw;
+  }
 
-    .partialNoFooterImage {
-        width: 100vw;
-        z-index: 50;
-        object-fit: cover;
-        position: absolute;
-        height: 100%
-    }
+  .signupButtons {
+    font-family: Graphik Web !important;
+    display: flex;
+    flex-wrap: wrap;
 
-    .partialNoFooter {
-        position: relative;
-        left: 0vw;
-        width: 100vw;
-        padding-bottom: 0vh;
-        height: 90vh;
-    }
+    color: #646469;
+    font-size: 4.3vw;
+    line-height: 6.4vw;
 
-    .partialNoFooterBox {
-        position: absolute;
-        padding: 30vw 6vw 6vw 6vw;
-        left: 5vw;
-        width: 46vw;
-        top: 18vh;
-        z-index: 100;
+    [type='submit'].heroButton {
+      flex: 0 !important;
+      margin: 0 !important;
+      background-color: #1a1a1a !important;
+      border: 0 solid #1a1a1a;
+      color: #ffffff !important;
+      padding: 0.75rem 1.25rem;
     }
+  }
 
-    .partialNoFooterBoxHr {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 4.5vw;
-        margin-bottom: 4.5vw;
-        width: 8.55vw;
-        background-color: #ffffff;
-    }
+  .emailWrapper {
+    flex: 0 1 auto;
+    width: 100%;
+    align-items: center;
+    display: flex;
 
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 86vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
+    border: 1.5px solid #c8c8c8;
+    margin-right: 4.5vw;
+    margin-bottom: 4.5vw;
 
-    .partialLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 86vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
+    [type='email'] {
+      border: none;
+      outline: none;
+      margin: 0;
     }
-    .heroImage {
-        width: 100vw;
-        height: 35vh;
-        object-fit: cover;
-        // position: absolute;
-        mask-mode: alpha;
-        //  webkit-mask-mode: alpha;
-        mask-repeat: no-repeat;
-        //  webkit-mask-repeat: no-repeat;
-        mask-size: 20vw;
-        z-index: 50;
-        object-position: 85% 50%;
-        //  webkit-mask-size: 20vw;
-        //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
-        margin-top: 8vw;
-    }
+  }
 
-    .heroImageGradient {
-        visibility: hidden;
-    }
+  .contactIcon {
+    padding: 0 4.5vw;
+  }
 
-    .heroBlackBox {
-        // position: absolute;
-        background-color: $onyxblacktext;
-        padding: 2vw;
-        left: 0vw;
-        width: 100vw;
-        // height: 65vh;
-        // top: 46vh;
-        z-index: 100;
-        padding: 10vw 5vw 10vw 5vw;
-    }
+  #mergeRow-gdpr {
+    margin-top: 20px;
+  }
 
-    .heroPartialBlackBox {
-        background-color: $onyxblacktext;
-        width: 100vw;
-        padding: 10vw 6vw 10vw 6vw;
-    }
+  #mergeRow-gdpr fieldset label {
+    font-weight: normal;
+  }
 
-    .heroButton {
-        margin-top: 15vw !important;
-        color: $onyxblacktext !important;
-        background-color: #ffffff !important;
-        border-radius: 0 !important;
-        font-weight: 800 !important;
-        font-family: Graphik Web !important;
-    }
+  .heroH2 {
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 4.3vw;
+    line-height: 6.4vw;
+    margin-top: 0vw !important;
+    margin-bottom: 0vw !important;
+  }
 
-    .headerItem {
-        position: static;
-        padding-bottom: 5vw;
-    }
+  .heroItem {
+    position: relative;
+    width: 100vw;
+    // height: 120vh;
+    padding-bottom: 5vh;
+    // margin-bottom: 45vw;
+  }
 
-    .headerItemDiv {
-        position: relative;
-        z-index: 100;
-    }
+  .heroH1 {
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 10vw;
+    line-height: 10.65vw;
+  }
 
-    .header1H1 {
-        font-weight: bold;
-        font-size: 3vw;
-    }
+  .downarrow {
+    display: none;
+  }
 
-    .headerText1 {
-        width: 50vw;
-        font-size: 1.5vw;
-    }
+  .heroHr {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 4.5vw;
+    margin-bottom: 4.5vw;
+    width: 8.55vw;
+    background-color: #ffffff;
+  }
 
-    .headerText2 {
-        font-size: 1.5vw;
-    }
+  .heroText1 {
+    font-family: Graphik Web;
+    font-weight: 800;
+    width: 90vw;
+    color: #ffffff;
+    font-size: 4.3vw;
+    line-height: 6.4vw;
+    margin-bottom: 5vw;
+  }
 
-    .example-mask {
-        position: absolute;
-        top: 5vw;
-        left: 58vw;
-    }
+  .heroText2 {
+    font-family: Graphik Web;
+    width: 90vw;
+    color: #ffffff;
+    font-size: 4.3vw;
+    line-height: 6.4vw;
+  }
 
-    .partialNoFooterBox {
-        position: relative;
-        padding: 6vw;
-        left: 0vw;
-        width: 88vw;
-        z-index: 100;
-        // top: 20vw;
-    }
+  .partial {
+    width: 100%;
+    height: 95vw;
+    z-index: 50;
+    object-fit: cover;
+    position: relative;
+  }
 
-    .partialNoFooterLocationDropDown {
-        font-family: Graphik Web;
-        padding: 4px;
-        width: 86vw;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
-    .emailDiv{
-        position: absolute;
-        left: -5000px;
-    }
-    .emailInput{
-        border: 0px;
-    }
+  .partialNoFooterImage {
+    width: 100vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+    height: 100%;
+  }
 
-    .calendarButton {
-        font-family: Graphik Web !important;
-        font-size: 3.5vw !important;
-        font-weight: normal;
-        margin-top: 10vw;
-        color: #ffffff;
-        background-color: $onyxblacktext !important;
-        border-width: 0 !important;
-        border-radius: 0;
-        text-decoration: underline !important;
-    }
-    .calendarImage {
-        margin-right: 5px;
-        padding-left: 0.5rem;
-    }
-    .heroItemButton {
-        margin-top: 1.5vw;
-        color: $onyxblacktext; background-color: #ffffff;
-        border-radius: 0;
-    }
+  .partialNoFooter {
+    position: relative;
+    left: 0vw;
+    width: 100vw;
+    padding-bottom: 0vh;
+    height: 90vh;
+  }
 
-    .HeroItemA2 {
-        font-size: 4vw;
-    }
+  .partialNoFooterBox {
+    position: absolute;
+    padding: 30vw 6vw 6vw 6vw;
+    left: 5vw;
+    width: 46vw;
+    top: 18vh;
+    z-index: 100;
+  }
 
-    .divPartial {
-        position: relative;
-        width: 100vw;
-     //   height: 75vw;
-        top: 3vw;
-        margin-bottom: 55vw;
+  .partialNoFooterBoxHr {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 4.5vw;
+    margin-bottom: 4.5vw;
+    width: 8.55vw;
+    background-color: #ffffff;
+  }
 
-    }
+  .partialNoFooterLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 86vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
 
-    .heroBlackBoxA {
-        font-size: 4vw;
-    }
+  .partialLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 86vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+  .heroImage {
+    width: 100vw;
+    height: 35vh;
+    object-fit: cover;
+    // position: absolute;
+    mask-mode: alpha;
+    //  webkit-mask-mode: alpha;
+    mask-repeat: no-repeat;
+    //  webkit-mask-repeat: no-repeat;
+    mask-size: 20vw;
+    z-index: 50;
+    object-position: 85% 50%;
+    //  webkit-mask-size: 20vw;
+    //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+    margin-top: 8vw;
+  }
 
-    .heroAContainer {
-        margin-top: 5vw;
-    }
+  .heroImageGradient {
+    visibility: hidden;
+  }
+
+  .heroBlackBox {
+    // position: absolute;
+    background-color: $onyxblacktext;
+    padding: 2vw;
+    left: 0vw;
+    width: 100vw;
+    // height: 65vh;
+    // top: 46vh;
+    z-index: 100;
+    padding: 10vw 5vw 10vw 5vw;
+  }
+
+  .heroPartialBlackBox {
+    background-color: $onyxblacktext;
+    width: 100vw;
+    padding: 10vw 6vw 10vw 6vw;
+  }
+
+  .heroButton {
+    margin-top: 15vw !important;
+    color: $onyxblacktext !important;
+    background-color: #ffffff !important;
+    border-radius: 0 !important;
+    font-weight: 800 !important;
+    font-family: Graphik Web !important;
+  }
+
+  .headerItem {
+    position: static;
+    padding-bottom: 5vw;
+  }
+
+  .headerItemDiv {
+    position: relative;
+    z-index: 100;
+  }
+
+  .header1H1 {
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  .headerText1 {
+    width: 50vw;
+    font-size: 1.5vw;
+  }
+
+  .headerText2 {
+    font-size: 1.5vw;
+  }
+
+  .example-mask {
+    position: absolute;
+    top: 5vw;
+    left: 58vw;
+  }
+
+  .partialNoFooterBox {
+    position: relative;
+    padding: 6vw;
+    left: 0vw;
+    width: 88vw;
+    z-index: 100;
+    // top: 20vw;
+  }
+
+  .partialNoFooterLocationDropDown {
+    font-family: Graphik Web;
+    padding: 4px;
+    width: 86vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+  .emailDiv {
+    position: absolute;
+    left: -5000px;
+  }
+  .emailInput {
+    border: 0px;
+  }
+
+  .calendarButton {
+    font-family: Graphik Web !important;
+    font-size: 3.5vw !important;
+    font-weight: normal;
+    margin-top: 10vw;
+    color: #ffffff;
+    background-color: $onyxblacktext !important;
+    border-width: 0 !important;
+    border-radius: 0;
+    text-decoration: underline !important;
+  }
+  .calendarImage {
+    margin-right: 5px;
+    padding-left: 0.5rem;
+  }
+  .heroItemButton {
+    margin-top: 1.5vw;
+    color: $onyxblacktext;
+    background-color: #ffffff;
+    border-radius: 0;
+  }
+
+  .HeroItemA2 {
+    font-size: 4vw;
+  }
+
+  .divPartial {
+    position: relative;
+    width: 100vw;
+    //   height: 75vw;
+    top: 3vw;
+    margin-bottom: 55vw;
+  }
+
+  .heroBlackBoxA {
+    font-size: 4vw;
+  }
+
+  .heroAContainer {
+    margin-top: 5vw;
+  }
 }

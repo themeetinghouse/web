@@ -2,29 +2,29 @@ import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { Analytics, API } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import moment from 'moment-timezone';
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { getNotesCustom } from '../../graphql-custom/customQueries';
 
 type GetCustomNotes = {
   getNotes: {
-    __typename: "Notes",
-    id: string,
-    title: string | null,
-    content: string | null,
-    questions: string | null,
-    pdf: string | null,
-  }
+    __typename: 'Notes';
+    id: string;
+    title: string | null;
+    content: string | null;
+    questions: string | null;
+    pdf: string | null;
+  };
 };
 
 type NoteData = GetCustomNotes['getNotes'];
 
 interface Params {
-  date?: string
+  date?: string;
 }
 
 function getLastSunday() {
-  const lastSunday = moment().tz("America/Toronto");
+  const lastSunday = moment().tz('America/Toronto');
   if (lastSunday.isoWeekday() < 7) {
     lastSunday.isoWeekday(0);
   }
@@ -40,11 +40,12 @@ export default function Notes() {
   const lastSunday = getLastSunday();
 
   useEffect(() => {
-
     Analytics.record({
       name: 'pageVisit',
-      attributes: { page: 'notes' }
-    }).catch((e) => { console.log(e) });
+      attributes: { page: 'notes' },
+    }).catch((e) => {
+      console.log(e);
+    });
 
     async function fetchNoteData(date: string | undefined) {
       if (!date) {
@@ -55,7 +56,7 @@ export default function Notes() {
         const json = await (API.graphql({
           query: getNotesCustom,
           variables: { id: date },
-          authMode: GRAPHQL_AUTH_MODE.API_KEY
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
         }) as Promise<GraphQLResult<GetCustomNotes>>);
 
         if (json.data?.getNotes) {
@@ -63,12 +64,14 @@ export default function Notes() {
           return;
         }
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
       Analytics.record({
         name: 'error',
-        attributes: { page: date }
-      }).catch((e) => { console.log(e) });
+        attributes: { page: date },
+      }).catch((e) => {
+        console.log(e);
+      });
       history.replace('/not-found');
     }
 
@@ -85,9 +88,8 @@ export default function Notes() {
     fetchPageData();
   }, []);
 
-
   if (content && noteData) {
-    return <RenderRouter data={noteData} content={content}></RenderRouter>
+    return <RenderRouter data={noteData} content={content}></RenderRouter>;
   }
-  return null
+  return null;
 }

@@ -21,7 +21,7 @@ import {
   GetCustomPlaylistQuery,
   GetCustomPlaylistQueryVariables,
   ListCustomPlaylistsQuery,
-  ListCustomPlaylistsQueryVariables
+  ListCustomPlaylistsQueryVariables,
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -123,7 +123,7 @@ export interface OverseerData {
   sites: string[];
 }
 
-export type PeopleData = StaffData | OverseerData
+export type PeopleData = StaffData | OverseerData;
 
 export interface EventQuery extends DataLoaderQuery {
   class: 'events';
@@ -211,9 +211,13 @@ export type EventData = NonNullable<
   NonNullable<GetFbEventsQuery['getFBEvents']>['data']
 >[0];
 
-export type CustomPlaylistsData = NonNullable<NonNullable<ListCustomPlaylistsQuery['listCustomPlaylists']>['items']>[0];
+export type CustomPlaylistsData = NonNullable<
+  NonNullable<ListCustomPlaylistsQuery['listCustomPlaylists']>['items']
+>[0];
 
-export type RandomCustomPlaylistData = NonNullable<NonNullable<NonNullable<CustomPlaylistsData>['videos']>['items']>[0];
+export type RandomCustomPlaylistData = NonNullable<
+  NonNullable<NonNullable<CustomPlaylistsData>['videos']>['items']
+>[0];
 
 export type CustomPlaylistVideoData = NonNullable<
   NonNullable<
@@ -230,18 +234,21 @@ function parseFBDate(date: string): Date {
 }
 
 export default class DataLoader {
-  static async getVideosCustomPlaylistById(playlist: string): Promise<CustomPlaylistVideoData[]> {
+  static async getVideosCustomPlaylistById(
+    playlist: string
+  ): Promise<CustomPlaylistVideoData[]> {
     try {
       const variables: GetCustomPlaylistQueryVariables = {
-        id: playlist
+        id: playlist,
       };
-      const getCustomPlaylist = await API.graphql({
+      const getCustomPlaylist = (await API.graphql({
         query: customQueries.getCustomPlaylist,
         variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      }) as GraphQLResult<GetCustomPlaylistQuery>;
+      })) as GraphQLResult<GetCustomPlaylistQuery>;
       const loadedVideos: CustomPlaylistVideoData[] = [];
-      for (const item of getCustomPlaylist.data?.getCustomPlaylist?.videos?.items ?? []) {
+      for (const item of getCustomPlaylist.data?.getCustomPlaylist?.videos
+        ?.items ?? []) {
         loadedVideos.push(item?.video ?? null);
       }
       return loadedVideos;
@@ -372,17 +379,19 @@ export default class DataLoader {
 
   static async getPopularVideos(
     query: PopularVideosQuery,
-    dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
+    dataLoaded: OnDataListener<VideoByVideoTypeData[]>
   ): Promise<void> {
     if (query.numberOfDays > 365) {
-      console.error('Warning: numberOfDays cannot be greater than 365')
+      console.error('Warning: numberOfDays cannot be greater than 365');
       return;
     }
     if (query.minViews === undefined) {
-      console.error('Warning: minViews must be declared')
+      console.error('Warning: minViews must be declared');
       return;
     }
-    const startDate = moment().subtract(query.numberOfDays, 'days').format('YYYY-MM-DD');
+    const startDate = moment()
+      .subtract(query.numberOfDays, 'days')
+      .format('YYYY-MM-DD');
     const variables: GetVideoByVideoTypeQueryVariables = {
       videoTypes: query.subclass,
       limit: 50,
@@ -399,26 +408,45 @@ export default class DataLoader {
       console.debug(json);
       const items = json?.data?.getVideoByVideoType?.items ?? [];
       if (query.numberOfVideos) {
-        dataLoaded(items
-          .sort((a, b) => parseInt(a?.viewCount ?? '0', 10) - parseInt(b?.viewCount ?? '0', 10))
-          .slice(0, query.numberOfVideos)
-        )
+        dataLoaded(
+          items
+            .sort(
+              (a, b) =>
+                parseInt(a?.viewCount ?? '0', 10) -
+                parseInt(b?.viewCount ?? '0', 10)
+            )
+            .slice(0, query.numberOfVideos)
+        );
       } else {
-        dataLoaded(items
-          .filter(item => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false)
-        )
+        dataLoaded(
+          items.filter((item) =>
+            item?.viewCount
+              ? parseInt(item?.viewCount, 10) >= query.minViews
+              : false
+          )
+        );
       }
     } catch (e) {
       console.error({ 'Error: ': e });
       if (e.data?.getVideoByVideoType?.items) {
         if (query.numberOfVideos) {
-          dataLoaded(e.data.getVideoByVideoType.items
-            .sort((a: VideoByVideoTypeData, b: VideoByVideoTypeData) => parseInt(a?.viewCount ?? '0', 10) - parseInt(b?.viewCount ?? '0', 10))
-            .slice(0, query.numberOfVideos)
-          )
+          dataLoaded(
+            e.data.getVideoByVideoType.items
+              .sort(
+                (a: VideoByVideoTypeData, b: VideoByVideoTypeData) =>
+                  parseInt(a?.viewCount ?? '0', 10) -
+                  parseInt(b?.viewCount ?? '0', 10)
+              )
+              .slice(0, query.numberOfVideos)
+          );
         } else {
-          dataLoaded(e.data.getVideoByVideoType.items
-            .filter((item: VideoByVideoTypeData) => item?.viewCount ? parseInt(item?.viewCount, 10) >= query.minViews : false)
+          dataLoaded(
+            e.data.getVideoByVideoType.items.filter(
+              (item: VideoByVideoTypeData) =>
+                item?.viewCount
+                  ? parseInt(item?.viewCount, 10) >= query.minViews
+                  : false
+            )
           );
         }
       }
@@ -484,7 +512,7 @@ export default class DataLoader {
 
   static async getSeriesCollection(
     query: SeriesCollectionQuery,
-    dataLoaded: OnDataListener<SeriesCollectionData[]>,
+    dataLoaded: OnDataListener<SeriesCollectionData[]>
   ): Promise<void> {
     let temp: SeriesCollectionData[] = [];
     for (let i = 0; i < query.collection.length; i++) {
@@ -496,8 +524,7 @@ export default class DataLoader {
         }) as Promise<GraphQLResult<GetSeriesQuery>>;
         const json = await getSeries;
         console.debug({ 'Success queries.getSeries': json });
-        if (json?.data?.getSeries)
-          temp.push(json?.data?.getSeries)
+        if (json?.data?.getSeries) temp.push(json?.data?.getSeries);
         if ((i + 1) % 5 === 0 || i === query.collection.length - 1) {
           dataLoaded(temp);
           temp = [];
@@ -566,11 +593,23 @@ export default class DataLoader {
           let loop = true;
           while (loop) {
             const index = Math.floor(Math.random() * Math.floor(max));
-            if (json?.data?.listCustomPlaylists?.items && json?.data?.listCustomPlaylists?.items.length > index && json?.data?.listCustomPlaylists?.items[index]?.videos?.items) {
-              if (json?.data?.listCustomPlaylists?.items[index]?.videos?.items?.length) {
-                dataLoaded(json?.data?.listCustomPlaylists?.items[index]?.videos?.items ?? [])
-                playlistId(json.data.listCustomPlaylists?.items[index]?.id ?? 'error')
-                loop = false
+            if (
+              json?.data?.listCustomPlaylists?.items &&
+              json?.data?.listCustomPlaylists?.items.length > index &&
+              json?.data?.listCustomPlaylists?.items[index]?.videos?.items
+            ) {
+              if (
+                json?.data?.listCustomPlaylists?.items[index]?.videos?.items
+                  ?.length
+              ) {
+                dataLoaded(
+                  json?.data?.listCustomPlaylists?.items[index]?.videos
+                    ?.items ?? []
+                );
+                playlistId(
+                  json.data.listCustomPlaylists?.items[index]?.id ?? 'error'
+                );
+                loop = false;
               }
             }
           }
@@ -611,14 +650,14 @@ export default class DataLoader {
 
   static sortStaff(list: StaffData[]): StaffData[] {
     return list.sort((a, b) => {
-      if (a.Position.includes('Lead Pastor') && b.Position.includes('Lead Pastor'))
+      if (
+        a.Position.includes('Lead Pastor') &&
+        b.Position.includes('Lead Pastor')
+      )
         return a.LastName.localeCompare(b.LastName);
-      else if (a.Position.includes('Lead Pastor'))
-        return -1;
-      else if (b.Position.includes('Lead Pastor'))
-        return 1;
-      else
-        return a.LastName.localeCompare(b.LastName);
+      else if (a.Position.includes('Lead Pastor')) return -1;
+      else if (b.Position.includes('Lead Pastor')) return 1;
+      else return a.LastName.localeCompare(b.LastName);
     });
   }
 
@@ -654,8 +693,7 @@ export default class DataLoader {
   }
 
   static filterEvents(events: EventData[]): EventData[] {
-    if (window.location.hostname === 'localhost')
-      return events;
+    if (window.location.hostname === 'localhost') return events;
     else
       return events.filter((item) => {
         if (!item?.start_time) {

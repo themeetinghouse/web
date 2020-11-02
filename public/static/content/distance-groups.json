@@ -1,50 +1,50 @@
 {
-    "page": {
-        "name": "distance-groups",
+  "page": {
+    "name": "distance-groups",
+    "title": "Distance Groups",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/DistanceGroup.jpg",
+        "url": "https://www.themeetinghouse.com/distance-groups",
         "title": "Distance Groups",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/DistanceGroup.jpg",
-                "url": "https://www.themeetinghouse.com/distance-groups",
-                "title": "Distance Groups",
-                "description": ""
-            },
-            {
-                "type": "distance-groups",
-                "header1": "Distance Groups"
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Distance Groups",
-                "header2": "",
-                "text1": "Connect with people in your area on Facebook",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Distance Groups Facebook Page",
-                        "navigateTo": "https://www.facebook.com/groups/tmhdistancegroups/",
-                        "openNewBrowser": true
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/DistanceGroup.jpg",
-                        "alt": "People chatting on a patio"
-                    }
-                ]
-            }
+        "description": ""
+      },
+      {
+        "type": "distance-groups",
+        "header1": "Distance Groups"
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Distance Groups",
+        "header2": "",
+        "text1": "Connect with people in your area on Facebook",
+        "list": [
+          {
+            "type": "link",
+            "title": "Distance Groups Facebook Page",
+            "navigateTo": "https://www.facebook.com/groups/tmhdistancegroups/",
+            "openNewBrowser": true
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/DistanceGroup.jpg",
+            "alt": "People chatting on a patio"
+          }
         ]
-    }
+      }
+    ]
+  }
 }

@@ -1,24 +1,24 @@
 {
-    "page": {
-        "name": "search",
-        "title": "Search",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "search",
+    "title": "Search",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": false,
-            "logoColor":"black",
-            "showSearch":false,
-            "showFooter":false,
-            "showMenu":false,
-            "isPopup":true,
-            "navigateOnPopupClose":"/"
-        },
-        "content": [
-            {
-                "type": "search"
-            }
-        ]
-    }
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": false,
+      "logoColor": "black",
+      "showSearch": false,
+      "showFooter": false,
+      "showMenu": false,
+      "isPopup": true,
+      "navigateOnPopupClose": "/"
+    },
+    "content": [
+      {
+        "type": "search"
+      }
+    ]
+  }
 }

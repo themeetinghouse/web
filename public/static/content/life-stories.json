@@ -1,28 +1,28 @@
 {
-    "page": {
-        "name": "life-stories",
-        "title": "Life Stories",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "life-stories",
+    "title": "Life Stories",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
-        },
-        "content": [
-            {
-                "type":"list",
-                "style":"horizontal",
-                "class":"videos",
-                "subclass":"life-story",
-                "selector":"all",
-                "sortOrder":"DESC",
-                "header1":"Life Stories"                
-            }
-        ]
-    }
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "life-story",
+        "selector": "all",
+        "sortOrder": "DESC",
+        "header1": "Life Stories"
+      }
+    ]
+  }
 }

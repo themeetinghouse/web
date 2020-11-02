@@ -6,43 +6,16 @@
 }
 
 .HomeFooter a {
-  color: #1A1A1A;
+  color: #1a1a1a;
   &:hover {
     color: #0056b3;
   }
 }
 
 @media (min-width: 768px) {
-    .HomeFooter.footer.font-small {
-      color: #1A1A1A;
-      background-color: #EFEFF0;
-      padding-top: 2vw;
-      margin-top: 2vw;
-    }
-    .HomeFooterP {
-      line-height: 16px;
-      font-size: 12px;
-      font-family: Graphik Web;
-      color: #1A1A1A;
-    }
-    .FooterSocialImg {
-      margin-right: 0.5vw;
-      margin-top: 2.5vw;
-      margin-bottom: 2.5vw;
-    }
-    .HomeFooterCopyright {
-      font-family: Graphik Web;
-      font-size: 12px;
-      margin: 0px;
-      padding: 5px;
-      color: #646469;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .HomeFooter.footer.font-small {
-    color: #1A1A1A;
-    background-color: #EFEFF0;
+    color: #1a1a1a;
+    background-color: #efeff0;
     padding-top: 2vw;
     margin-top: 2vw;
   }
@@ -50,7 +23,34 @@
     line-height: 16px;
     font-size: 12px;
     font-family: Graphik Web;
-    color: #1A1A1A;
+    color: #1a1a1a;
+  }
+  .FooterSocialImg {
+    margin-right: 0.5vw;
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+  }
+  .HomeFooterCopyright {
+    font-family: Graphik Web;
+    font-size: 12px;
+    margin: 0px;
+    padding: 5px;
+    color: #646469;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .HomeFooter.footer.font-small {
+    color: #1a1a1a;
+    background-color: #efeff0;
+    padding-top: 2vw;
+    margin-top: 2vw;
+  }
+  .HomeFooterP {
+    line-height: 16px;
+    font-size: 12px;
+    font-family: Graphik Web;
+    color: #1a1a1a;
   }
   .FooterSocialImg {
     margin-right: 0.5vw;
@@ -68,16 +68,16 @@
 
 @media (max-width: 767px) {
   .HomeFooter.footer.font-small {
-    color: #1A1A1A;
-    background-color: #EFEFF0;
+    color: #1a1a1a;
+    background-color: #efeff0;
     padding-top: 10vw;
-   // margin-top: 97vw;
+    // margin-top: 97vw;
   }
   .HomeFooterP {
     line-height: 16px;
     font-size: 12px;
     font-family: Graphik Web;
-    color: #1A1A1A;
+    color: #1a1a1a;
     text-align: left;
     padding-left: 15px;
   }

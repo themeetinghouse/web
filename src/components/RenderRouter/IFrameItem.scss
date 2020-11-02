@@ -1,5 +1,4 @@
 @media (min-width: 768px) {
-
   .FormItem {
     text-align: center;
   }
@@ -24,7 +23,6 @@
     border: 0px;
     width: 60vw;
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -66,8 +64,8 @@
   .iframeItemIframePopup {
     border: 0px;
     width: 95%;
-    left:2.5%;
-    top:10vw;
-    position:relative;
+    left: 2.5%;
+    top: 10vw;
+    position: relative;
   }
 }
