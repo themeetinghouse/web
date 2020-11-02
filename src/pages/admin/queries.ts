@@ -7,22 +7,22 @@ export const getInstagram = /* GraphQL */ `
 `;
 
 export const listCustomPlaylistsAdmin = /* GraphQL */ `
-query ListCustomPlaylists(
-  $filter: ModelCustomPlaylistFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listCustomPlaylists(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
+  query ListCustomPlaylists(
+    $filter: ModelCustomPlaylistFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCustomPlaylists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+      }
+      nextToken
     }
-    nextToken
   }
-}
 `;
 
 export const getVideoAdmin = /* GraphQL */ `
-query GetVideo($id: ID!) {
+  query GetVideo($id: ID!) {
     getVideo(id: $id) {
       id
       customPlaylistIDs
@@ -31,7 +31,7 @@ query GetVideo($id: ID!) {
 `;
 
 export const getVideoByVideoTypeAdmin = /* GraphQL */ `
-query GetVideoByVideoType(
+  query GetVideoByVideoType(
     $videoTypes: String
     $publishedDate: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
@@ -92,7 +92,7 @@ query GetVideoByVideoType(
       nextToken
     }
   }
-  `;
+`;
 
 export const getSeriesBySeriesTypeAdmin = /* GraphQL */ `
   query GetSeriesBySeriesType(

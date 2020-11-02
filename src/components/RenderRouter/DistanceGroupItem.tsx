@@ -1,9 +1,13 @@
-
 import React from 'react';
-import { GoogleApiWrapper, IProvidedProps, Marker, Map } from 'google-maps-react';
+import {
+  GoogleApiWrapper,
+  IProvidedProps,
+  Marker,
+  Map,
+} from 'google-maps-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import "./DistanceGroupItem.scss"
+import './DistanceGroupItem.scss';
 import { DistanceGroupItemContent } from 'components/types';
 
 interface Props extends RouteComponentProps, IProvidedProps {
@@ -46,10 +50,10 @@ interface DistanceGroup {
   facebookLink: string;
 }
 
-export class DistanceGroupItem extends React.Component<Props, State>  {
+export class DistanceGroupItem extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    console.log(props)
+    console.log(props);
     this.state = {
       listData: [],
     };
@@ -61,64 +65,106 @@ export class DistanceGroupItem extends React.Component<Props, State>  {
       })
       .then((myJson) => {
         this.setState({ listData: myJson });
-      })
+      });
   }
   navigate(to: string) {
-    this.props.history.push(to, "as")
-    const unblock = this.props.history.block('Are you sure you want to leave this page?');
+    this.props.history.push(to, 'as');
+    const unblock = this.props.history.block(
+      'Are you sure you want to leave this page?'
+    );
     unblock();
-
   }
 
   render() {
     const inititalCenter = {
       lat: 0,
-      lng: -0
-    }
-    const initalZoom = 1
+      lng: -0,
+    };
+    const initalZoom = 1;
 
     return (
-
-      <div className="ContentItem oneImage distancegroupitem1" >
-        <div className="distancegroupitemdiv1" >
-          <div  >
-            <h1  >{this.props.content.header1}</h1>
-            <div className="distancegroupitemdiv2" >
+      <div className="ContentItem oneImage distancegroupitem1">
+        <div className="distancegroupitemdiv1">
+          <div>
+            <h1>{this.props.content.header1}</h1>
+            <div className="distancegroupitemdiv2">
               <div className="distancegroupmap">
-                <Map google={this.props.google} zoom={initalZoom} initialCenter={inititalCenter} >
-                  {this.state.listData.map((item, index) =>
-                    <Marker key={index}
+                <Map
+                  google={this.props.google}
+                  zoom={initalZoom}
+                  initialCenter={inititalCenter}
+                >
+                  {this.state.listData.map((item, index) => (
+                    <Marker
+                      key={index}
                       position={{
                         lat: Number(item.location.latitude),
                         lng: Number(item.location.longitude),
-                      }} />
-                  )}
+                      }}
+                    />
+                  ))}
                 </Map>
               </div>
             </div>
-            <div className="distancegroupitemdiv3" >
+            <div className="distancegroupitemdiv3">
               {this.state.listData.map((item, index) => (
-                <div key={index} className="distancegroupitemdiv4" >
+                <div key={index} className="distancegroupitemdiv4">
                   <h3>{item.name}</h3>
-                  <div>{item.dayofweek}/{item.frequency}</div>
-                  <div>Leaders: <a href={"mailto:" + item.l1Email}>{item.l1FirstName} {item.l1LastName} ({item.l1Email})</a></div>
-                  {item.l2Email ? <div><a href={"mailto:" + item.l2Email}>{item.l2FirstName} {item.l2LastName} ({item.l2Email})</a></div> : null}
-                  {item.l3Email ? <div><a href={"mailto:" + item.l3Email}>{item.l3FirstName} {item.l3LastName} ({item.l3Email})</a></div> : null}
-                  {item.l4Email ? <div><a href={"mailto:" + item.l4Email}>{item.l4FirstName} {item.l4LastName} ({item.l4Email})</a></div> : null}
-                  {item.facebook ? <div ><a href={item.facebookLink} className="distancegroupitemA" ><img className="distancegroupitemImage" src="/static/svg/Facebook.svg" alt="Facebook Logo" />{item.facebook}</a> </div> : null}
-
+                  <div>
+                    {item.dayofweek}/{item.frequency}
+                  </div>
+                  <div>
+                    Leaders:{' '}
+                    <a href={'mailto:' + item.l1Email}>
+                      {item.l1FirstName} {item.l1LastName} ({item.l1Email})
+                    </a>
+                  </div>
+                  {item.l2Email ? (
+                    <div>
+                      <a href={'mailto:' + item.l2Email}>
+                        {item.l2FirstName} {item.l2LastName} ({item.l2Email})
+                      </a>
+                    </div>
+                  ) : null}
+                  {item.l3Email ? (
+                    <div>
+                      <a href={'mailto:' + item.l3Email}>
+                        {item.l3FirstName} {item.l3LastName} ({item.l3Email})
+                      </a>
+                    </div>
+                  ) : null}
+                  {item.l4Email ? (
+                    <div>
+                      <a href={'mailto:' + item.l4Email}>
+                        {item.l4FirstName} {item.l4LastName} ({item.l4Email})
+                      </a>
+                    </div>
+                  ) : null}
+                  {item.facebook ? (
+                    <div>
+                      <a
+                        href={item.facebookLink}
+                        className="distancegroupitemA"
+                      >
+                        <img
+                          className="distancegroupitemImage"
+                          src="/static/svg/Facebook.svg"
+                          alt="Facebook Logo"
+                        />
+                        {item.facebook}
+                      </a>{' '}
+                    </div>
+                  ) : null}
                 </div>
               ))}
-
             </div>
           </div>
         </div>
       </div>
-    )
-
+    );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0')
-})(withRouter(DistanceGroupItem))
+  apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
+})(withRouter(DistanceGroupItem));

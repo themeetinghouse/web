@@ -1,6 +1,12 @@
 import React from 'react';
-import { EditorState, ContentState, convertToRaw, RawDraftContentState, convertFromRaw } from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg'
+import {
+  EditorState,
+  ContentState,
+  convertToRaw,
+  RawDraftContentState,
+  convertFromRaw,
+} from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
 import Amplify from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
@@ -16,8 +22,8 @@ import { Modal } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import getDay from 'date-fns/getDay';
@@ -25,7 +31,16 @@ import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
 import Bible from './bible';
-import { CreateNotesMutation, CreateVerseInput, GetBiblePassageQuery, GetNotesQuery, GetSeriesBySeriesTypeQuery, ListNotessQuery, NoteDataType, UpdateNotesMutation } from '../../API';
+import {
+  CreateNotesMutation,
+  CreateVerseInput,
+  GetBiblePassageQuery,
+  GetNotesQuery,
+  GetSeriesBySeriesTypeQuery,
+  ListNotessQuery,
+  NoteDataType,
+  UpdateNotesMutation,
+} from '../../API';
 
 interface BibleVerseJSON {
   key: string;
@@ -38,39 +53,39 @@ interface BibleVerseJSON {
 
 Amplify.configure(awsmobile);
 const federated = {
-  facebookAppId: '579712102531269'
+  facebookAppId: '579712102531269',
 };
 
 interface State {
-  notesEditorState: EditorState
-  questionsEditorState: EditorState
-  showPreview: boolean
-  notesList: any[]
-  selectedTags: (string | null)[]
-  noteObject: any
-  noteEditObject: GetNotesQuery['getNotes']
-  showAlert: string
-  currentTag: string
-  moreOptions: boolean
-  showEditModal: boolean
-  delete: string
-  understand: string
-  noteEdit: any
-  date: any
-  pdf: string
-  dateWarning: string
-  title: string
-  showHelp: boolean
-  statusMessage: string
-  unsaved: boolean
-  description: string
-  episodeNumber: number
-  seriesId: string
-  seriesList: any[]
+  notesEditorState: EditorState;
+  questionsEditorState: EditorState;
+  showPreview: boolean;
+  notesList: any[];
+  selectedTags: (string | null)[];
+  noteObject: any;
+  noteEditObject: GetNotesQuery['getNotes'];
+  showAlert: string;
+  currentTag: string;
+  moreOptions: boolean;
+  showEditModal: boolean;
+  delete: string;
+  understand: string;
+  noteEdit: any;
+  date: any;
+  pdf: string;
+  dateWarning: string;
+  title: string;
+  showHelp: boolean;
+  statusMessage: string;
+  unsaved: boolean;
+  description: string;
+  episodeNumber: number;
+  seriesId: string;
+  seriesList: any[];
 }
 
 class Index extends React.Component<EmptyProps, State> {
-  deleteConfirmation = "Delete forever";
+  deleteConfirmation = 'Delete forever';
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
@@ -110,28 +125,34 @@ class Index extends React.Component<EmptyProps, State> {
       // upload object
       noteObject: {},
 
-      unsaved: true
-    }
+      unsaved: true,
+    };
     this.listNotes();
     this.listSeries();
   }
 
   async listSeries(nextToken?: string) {
     try {
-      const json = await API.graphql({
+      const json = (await API.graphql({
         query: adminQueries.getSeriesBySeriesTypeAdmin,
-        variables: { nextToken: nextToken, limit: 200, seriesType: 'adult-sunday' },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      }) as GraphQLResult<GetSeriesBySeriesTypeQuery>
+        variables: {
+          nextToken: nextToken,
+          limit: 200,
+          seriesType: 'adult-sunday',
+        },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<GetSeriesBySeriesTypeQuery>;
 
       console.debug(json);
       this.setState({
-        seriesList: this.state.seriesList.concat(json.data?.getSeriesBySeriesType?.items).sort((a: any, b: any) => this.sortById(a, b))
-      })
+        seriesList: this.state.seriesList
+          .concat(json.data?.getSeriesBySeriesType?.items)
+          .sort((a: any, b: any) => this.sortById(a, b)),
+      });
       if (json.data?.getSeriesBySeriesType?.nextToken)
-        this.listSeries(json.data.getSeriesBySeriesType.nextToken)
+        this.listSeries(json.data.getSeriesBySeriesType.nextToken);
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   }
   sortById(a: any, b: any) {
@@ -148,29 +169,31 @@ class Index extends React.Component<EmptyProps, State> {
 
   async listNotes(nextToken?: string) {
     try {
-      const listNotess = await API.graphql({
+      const listNotess = (await API.graphql({
         query: queries.listNotess,
-        variables: { nextToken: nextToken, sortDirection: "DESC", limit: 200 },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      }) as GraphQLResult<ListNotessQuery>;
-      console.log({ "Success customQueries.listNotess: ": listNotess });
+        variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<ListNotessQuery>;
+      console.log({ 'Success customQueries.listNotess: ': listNotess });
       this.setState({
-        notesList: this.state.notesList?.concat(listNotess.data?.listNotess?.items).sort(function (a: any, b: any) {
-          const nameA = a.id.toUpperCase();
-          const nameB = b.id.toUpperCase();
-          if (nameA < nameB) {
-            return 1;
-          }
-          if (nameA > nameB) {
-            return -1;
-          }
-          return 0;
-        })
-      })
+        notesList: this.state.notesList
+          ?.concat(listNotess.data?.listNotess?.items)
+          .sort(function (a: any, b: any) {
+            const nameA = a.id.toUpperCase();
+            const nameB = b.id.toUpperCase();
+            if (nameA < nameB) {
+              return 1;
+            }
+            if (nameA > nameB) {
+              return -1;
+            }
+            return 0;
+          }),
+      });
       if (listNotess.data?.listNotess?.nextToken)
-        this.listNotes(listNotess.data.listNotess.nextToken)
+        this.listNotes(listNotess.data.listNotess.nextToken);
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   }
 
@@ -179,20 +202,20 @@ class Index extends React.Component<EmptyProps, State> {
       try {
         const deleteNotes: any = await API.graphql({
           query: mutations.deleteNotes,
-          variables: { input: { 'id': this.state.delete } },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-        })
-        console.log({ "Success mutations.deleteNotes: ": deleteNotes });
+          variables: { input: { id: this.state.delete } },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        });
+        console.log({ 'Success mutations.deleteNotes: ': deleteNotes });
         this.setState({
           delete: '',
           understand: '',
-          showAlert: `⚠️ Deleted: ${deleteNotes.data.deleteNotes.id}`
-        })
+          showAlert: `⚠️ Deleted: ${deleteNotes.data.deleteNotes.id}`,
+        });
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     } else {
-      this.setState({ showAlert: '⚠️ You must type the confirmation message' })
+      this.setState({ showAlert: '⚠️ You must type the confirmation message' });
     }
   }
 
@@ -205,31 +228,34 @@ class Index extends React.Component<EmptyProps, State> {
   convertDraftToRaw(es: EditorState) {
     const temp = es.getCurrentContent();
     const raw = convertToRaw(temp);
-    return JSON.stringify(raw)
+    return JSON.stringify(raw);
   }
 
   async getBiblePassages() {
-
     if (this.state.unsaved) {
-      this.setState({ showAlert: '⚠️ Please save before checking Bible passages.' })
-      return
+      this.setState({
+        showAlert: '⚠️ Please save before checking Bible passages.',
+      });
+      return;
     }
 
-    this.setState({ statusMessage: 'deleting old verses' })
-    let oldVerses: NonNullable<NonNullable<NonNullable<GetNotesQuery['getNotes']>['verses']>['items']> = []
+    this.setState({ statusMessage: 'deleting old verses' });
+    let oldVerses: NonNullable<
+      NonNullable<NonNullable<GetNotesQuery['getNotes']>['verses']>['items']
+    > = [];
 
     try {
-      const getNotes = await API.graphql({
+      const getNotes = (await API.graphql({
         query: queries.getNotes,
-        variables: { id: format(this.state.date, "yyyy-MM-dd") },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      }) as GraphQLResult<GetNotesQuery>;
+        variables: { id: format(this.state.date, 'yyyy-MM-dd') },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<GetNotesQuery>;
       if (getNotes.data?.getNotes?.verses?.items)
-        oldVerses = getNotes.data.getNotes.verses.items
+        oldVerses = getNotes.data.getNotes.verses.items;
     } catch (e) {
       if (e.data?.getNotes?.verses?.items)
         oldVerses = e.data.getNotes.verses.items;
-      console.error(e)
+      console.error(e);
     }
 
     for (const verse of oldVerses) {
@@ -237,11 +263,11 @@ class Index extends React.Component<EmptyProps, State> {
         const deleteVerse = await API.graphql({
           query: mutations.deleteVerse,
           variables: { input: { id: verse?.id } },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
-        console.log(deleteVerse)
+        console.log(deleteVerse);
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     }
 
@@ -254,160 +280,205 @@ class Index extends React.Component<EmptyProps, State> {
     this.saveBiblePassages(rawNotes, 'notes');
     this.saveBiblePassages(rawQuestions, 'questions');
 
-    this.setState({ statusMessage: 'done' })
+    this.setState({ statusMessage: 'done' });
   }
 
-  async saveBiblePassages(raw: RawDraftContentState, type: 'notes' | 'questions'): Promise<void> {
-    this.setState({ statusMessage: `finding verses in ${type}` })
+  async saveBiblePassages(
+    raw: RawDraftContentState,
+    type: 'notes' | 'questions'
+  ): Promise<void> {
+    this.setState({ statusMessage: `finding verses in ${type}` });
     const data = Bible.parseJSON(raw);
     const bibleJSON: BibleVerseJSON[] = [];
     const errors: string[] = [];
 
     data.forEach((item) => {
-      const queryObject = Bible.getQueryString(item.passageRef)
+      const queryObject = Bible.getQueryString(item.passageRef);
       if (queryObject !== 'invalid')
-        bibleJSON.push({ ...queryObject, key: item.key, length: item.length, offset: item.offset, passageRef: item.passageRef })
-      else
-        errors.push(item.passageRef)
-    })
+        bibleJSON.push({
+          ...queryObject,
+          key: item.key,
+          length: item.length,
+          offset: item.offset,
+          passageRef: item.passageRef,
+        });
+      else errors.push(item.passageRef);
+    });
 
     if (errors.length > 0) {
-      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
-      this.setState({ statusMessage: '' })
+      this.setState({
+        showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join(
+          '\n'
+        )}`,
+      });
+      this.setState({ statusMessage: '' });
       return;
     }
 
-    const passages: string[] = []
+    const passages: string[] = [];
 
-    this.setState({ statusMessage: `processing verses in ${type}` })
+    this.setState({ statusMessage: `processing verses in ${type}` });
 
     for (const query of bibleJSON) {
       try {
-        const json = await API.graphql(graphqlOperation(queries.getBiblePassage, { bibleId: '78a9f6124f344018-01', passage: query.queryString })) as GraphQLResult<GetBiblePassageQuery>
+        const json = (await API.graphql(
+          graphqlOperation(queries.getBiblePassage, {
+            bibleId: '78a9f6124f344018-01',
+            passage: query.queryString,
+          })
+        )) as GraphQLResult<GetBiblePassageQuery>;
 
-        console.log(json)
+        console.log(json);
 
         if (json?.data?.getBiblePassage?.data?.content) {
-          passages.push(json?.data?.getBiblePassage?.data?.content)
+          passages.push(json?.data?.getBiblePassage?.data?.content);
         } else {
-          errors.push(query.passageRef)
+          errors.push(query.passageRef);
         }
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     }
 
     if (errors.length > 0) {
-      this.setState({ showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join('\n')}` })
-      this.setState({ statusMessage: '' })
+      this.setState({
+        showAlert: `error processing the following Bible passages in ${type}:\n ${errors.join(
+          '\n'
+        )}`,
+      });
+      this.setState({ statusMessage: '' });
       return;
     }
 
-    this.setState({ statusMessage: `saving verses in ${type}` })
+    this.setState({ statusMessage: `saving verses in ${type}` });
 
     if (passages.length === bibleJSON.length) {
       for (let i = 0; i < bibleJSON.length; i++) {
-
         const currentJSON = bibleJSON[i];
 
         const input: CreateVerseInput = {
-          id: `${type}-${format(this.state.date, "yyyy-MM-dd")}-${currentJSON.key}-${currentJSON.offset}-${currentJSON.length}`,
+          id: `${type}-${format(this.state.date, 'yyyy-MM-dd')}-${
+            currentJSON.key
+          }-${currentJSON.offset}-${currentJSON.length}`,
           key: currentJSON.key,
           offset: currentJSON.offset,
           length: currentJSON.length,
           dataType: NoteDataType[type],
           content: passages[i],
           youVersionUri: currentJSON.youVersionUri,
-          noteId: format(this.state.date, "yyyy-MM-dd")
-        }
+          noteId: format(this.state.date, 'yyyy-MM-dd'),
+        };
 
-        console.log(input)
+        console.log(input);
 
         try {
           const createVerse = await API.graphql({
             query: mutations.createVerse,
             variables: { input },
-            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
           });
-          console.log({ "Success mutations.createVerse: ": createVerse });
+          console.log({ 'Success mutations.createVerse: ': createVerse });
         } catch (e) {
-          console.error(e)
+          console.error(e);
         }
       }
     } else {
-      this.setState({ showAlert: 'something went wrong' })
+      this.setState({ showAlert: 'something went wrong' });
     }
   }
 
   async handleSave() {
-    if (!this.state.notesEditorState.getCurrentContent().hasText() || this.state.date === null) {
-      this.setState({ showAlert: "⚠️ You need a valid content and date to save." })
+    if (
+      !this.state.notesEditorState.getCurrentContent().hasText() ||
+      this.state.date === null
+    ) {
+      this.setState({
+        showAlert: '⚠️ You need a valid content and date to save.',
+      });
       return false;
     }
 
     if (this.state.episodeNumber <= 0) {
-      this.setState({ showAlert: "⚠️ Invalid episode number." })
+      this.setState({ showAlert: '⚠️ Invalid episode number.' });
       return false;
     }
 
     if (!this.state.description) {
-      this.setState({ showAlert: "⚠️ Please add an episode description." })
+      this.setState({ showAlert: '⚠️ Please add an episode description.' });
       return false;
     }
 
-    this.setState({ statusMessage: 'saving...' })
+    this.setState({ statusMessage: 'saving...' });
 
-    this.updateField('content', this.convertDraftToMarkup(this.state.notesEditorState))
-    this.updateField('questions', this.convertDraftToMarkup(this.state.questionsEditorState))
-    this.updateField('jsonContent', this.convertDraftToRaw(this.state.notesEditorState))
-    this.updateField('jsonQuestions', this.convertDraftToRaw(this.state.questionsEditorState))
-    this.updateField('tags', this.state.selectedTags)
-    this.updateField('title', this.state.title)
-    this.updateField('pdf', this.state.pdf)
-    this.updateField('seriesId', this.state.seriesId)
-    this.updateField('episodeDescription', this.state.description)
-    this.updateField('episodeNumber', this.state.episodeNumber)
+    this.updateField(
+      'content',
+      this.convertDraftToMarkup(this.state.notesEditorState)
+    );
+    this.updateField(
+      'questions',
+      this.convertDraftToMarkup(this.state.questionsEditorState)
+    );
+    this.updateField(
+      'jsonContent',
+      this.convertDraftToRaw(this.state.notesEditorState)
+    );
+    this.updateField(
+      'jsonQuestions',
+      this.convertDraftToRaw(this.state.questionsEditorState)
+    );
+    this.updateField('tags', this.state.selectedTags);
+    this.updateField('title', this.state.title);
+    this.updateField('pdf', this.state.pdf);
+    this.updateField('seriesId', this.state.seriesId);
+    this.updateField('episodeDescription', this.state.description);
+    this.updateField('episodeNumber', this.state.episodeNumber);
 
-    this.setState({ unsaved: false })
+    this.setState({ unsaved: false });
     try {
-      const updateNotes = await API.graphql({
+      const updateNotes = (await API.graphql({
         query: mutations.updateNotes,
         variables: { input: this.state.noteObject },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-      }) as GraphQLResult<UpdateNotesMutation>
-      console.log({ "Success mutations.createNotes: ": updateNotes });
-      this.setState({ showAlert: `✅ Saved: ${updateNotes.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.` })
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<UpdateNotesMutation>;
+      console.log({ 'Success mutations.createNotes: ': updateNotes });
+      this.setState({
+        showAlert: `✅ Saved: ${updateNotes.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.`,
+      });
     } catch (e) {
-      console.error(e)
+      console.error(e);
       if (e.data?.updateNotes?.id) {
-        this.setState({ showAlert: `✅ Saved: ${e.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.` })
+        this.setState({
+          showAlert: `✅ Saved: ${e.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.`,
+        });
       }
       try {
-        const createNotes = await API.graphql({
+        const createNotes = (await API.graphql({
           query: mutations.createNotes,
           variables: { input: this.state.noteObject },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
-        }) as GraphQLResult<CreateNotesMutation>
-        console.log({ "Success mutations.createNotes: ": createNotes });
-        this.setState({ showAlert: `✅ Created: ${createNotes.data?.createNotes?.id}. Please don't forget to click the Bible passages button.` })
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<CreateNotesMutation>;
+        console.log({ 'Success mutations.createNotes: ': createNotes });
+        this.setState({
+          showAlert: `✅ Created: ${createNotes.data?.createNotes?.id}. Please don't forget to click the Bible passages button.`,
+        });
       } catch (e) {
-        console.error(e)
+        console.error(e);
         if (e.data?.createNotes?.id) {
-          this.setState({ showAlert: `✅ Saved: ${e.data?.createNotes?.id}. Please don't forget to click the Bible passages button.` })
+          this.setState({
+            showAlert: `✅ Saved: ${e.data?.createNotes?.id}. Please don't forget to click the Bible passages button.`,
+          });
         }
       }
     }
 
-    this.setState({ statusMessage: '' })
-
+    this.setState({ statusMessage: '' });
   }
 
   waitForSelection(conditionFunction: () => boolean) {
-
     const poll = (resolve: any) => {
       if (conditionFunction()) resolve();
       else setTimeout(() => poll(resolve), 250);
-    }
+    };
 
     return new Promise(poll);
   }
@@ -422,17 +493,23 @@ class Index extends React.Component<EmptyProps, State> {
     this.setState({ showEditModal: true });
     await this.waitForSelection(() => Boolean(this.state.noteEditObject));
     if (this.state.noteEditObject && this.state.noteEditObject.jsonContent) {
-      const date = parse(this.state.noteEditObject.id, "yyyy-MM-dd", new Date());
+      const date = parse(
+        this.state.noteEditObject.id,
+        'yyyy-MM-dd',
+        new Date()
+      );
       if (this.state.noteEditObject.jsonQuestions) {
-        const jsonQuestions = JSON.parse(this.state.noteEditObject.jsonQuestions);
+        const jsonQuestions = JSON.parse(
+          this.state.noteEditObject.jsonQuestions
+        );
         const questions = convertFromRaw(jsonQuestions);
         this.setState({
           questionsEditorState: EditorState.createWithContent(questions),
-        })
+        });
       } else {
         this.setState({
           questionsEditorState: EditorState.createEmpty(),
-        })
+        });
       }
 
       const jsonNotes = JSON.parse(this.state.noteEditObject.jsonContent);
@@ -446,67 +523,92 @@ class Index extends React.Component<EmptyProps, State> {
         pdf: this.state.noteEditObject.pdf ?? '',
         episodeNumber: this.state.noteEditObject.episodeNumber ?? 0,
         description: this.state.noteEditObject.episodeDescription ?? '',
-        seriesId: this.state.noteEditObject.seriesId
-      })
-      this.updateField('title', this.state.noteEditObject.title) // call updateField to set id
+        seriesId: this.state.noteEditObject.seriesId,
+      });
+      this.updateField('title', this.state.noteEditObject.title); // call updateField to set id
     }
   }
 
   updateField(field: any, value: any) {
-    const note = this.state.noteObject
-    note[field] = value
+    const note = this.state.noteObject;
+    note[field] = value;
 
     try {
-      note.id = format(this.state.date, "yyyy-MM-dd")
-      this.setState({ noteObject: note, unsaved: true })
+      note.id = format(this.state.date, 'yyyy-MM-dd');
+      this.setState({ noteObject: note, unsaved: true });
     } catch (e) {
-      this.setState({ showAlert: 'If you are reading this, you likely didn\'t select a date. Please select a date :)' })
-      console.error(e)
+      this.setState({
+        showAlert:
+          "If you are reading this, you likely didn't select a date. Please select a date :)",
+      });
+      console.error(e);
     }
   }
 
   handleRemoveTag(item: string): void {
-    this.setState({ selectedTags: this.state.selectedTags.filter(elem => elem !== item) })
-    this.updateField('tags', this.state.selectedTags)
+    this.setState({
+      selectedTags: this.state.selectedTags.filter((elem) => elem !== item),
+    });
+    this.updateField('tags', this.state.selectedTags);
   }
 
-  onNotesChange = (notesEditorState: EditorState) => this.setState({ notesEditorState, unsaved: true });
-  onQuestionsChange = (questionsEditorState: EditorState) => this.setState({ questionsEditorState, unsaved: true });
+  onNotesChange = (notesEditorState: EditorState) =>
+    this.setState({ notesEditorState, unsaved: true });
+  onQuestionsChange = (questionsEditorState: EditorState) =>
+    this.setState({ questionsEditorState, unsaved: true });
 
   handlePublishDate = (date: any) => {
     this.setState({
       date: date,
-      unsaved: true
+      unsaved: true,
     });
 
-    const dayofweek = getDay(date)
+    const dayofweek = getDay(date);
     if (dayofweek !== 0) {
       this.setState({
-        dateWarning: 'Warning: this date is not a Sunday'
-      })
+        dateWarning: 'Warning: this date is not a Sunday',
+      });
     } else {
       this.setState({
-        dateWarning: ''
-      })
+        dateWarning: '',
+      });
     }
-  }
+  };
 
   // RENDER FUNCTIONS
 
   renderEditModal() {
-    return <Modal isOpen={this.state.showEditModal}>
-      <div>Edit existing notes</div>
-      <select onChange={event => this.setState({ noteEdit: event.target.value })}>
-        <option key="null" value="null">None Selected</option>
-        {this.state.notesList.map(item => { return <option key={item?.id} value={item?.id}>{item?.id}</option> })}
-      </select>
-      <button
-        onClick={() => this.setState({
-          showEditModal: false,
-          noteEditObject: this.state.notesList.filter(post => post?.id === this.state.noteEdit)[0]
-        })
-        }>DONE</button>
-    </Modal>
+    return (
+      <Modal isOpen={this.state.showEditModal}>
+        <div>Edit existing notes</div>
+        <select
+          onChange={(event) => this.setState({ noteEdit: event.target.value })}
+        >
+          <option key="null" value="null">
+            None Selected
+          </option>
+          {this.state.notesList.map((item) => {
+            return (
+              <option key={item?.id} value={item?.id}>
+                {item?.id}
+              </option>
+            );
+          })}
+        </select>
+        <button
+          onClick={() =>
+            this.setState({
+              showEditModal: false,
+              noteEditObject: this.state.notesList.filter(
+                (post) => post?.id === this.state.noteEdit
+              )[0],
+            })
+          }
+        >
+          DONE
+        </button>
+      </Modal>
+    );
   }
 
   renderMoreOptions() {
@@ -514,37 +616,100 @@ class Index extends React.Component<EmptyProps, State> {
       <div>
         <label>
           Add tags:
-          <input type="text" value={this.state.currentTag} onChange={event => this.setState({ currentTag: event.target.value })} />
+          <input
+            type="text"
+            value={this.state.currentTag}
+            onChange={(event) =>
+              this.setState({ currentTag: event.target.value })
+            }
+          />
         </label>
-        <button className="tags-button" onClick={() => this.setState({ selectedTags: this.state.selectedTags.concat(this.state.currentTag), currentTag: '' })}>Confirm Tag</button>
-        <button className="tags-button" style={{ background: "red" }} onClick={() => { this.setState({ selectedTags: [] }); this.updateField('tags', this.state.selectedTags) }}>Clear All Tags</button>
+        <button
+          className="tags-button"
+          onClick={() =>
+            this.setState({
+              selectedTags: this.state.selectedTags.concat(
+                this.state.currentTag
+              ),
+              currentTag: '',
+            })
+          }
+        >
+          Confirm Tag
+        </button>
+        <button
+          className="tags-button"
+          style={{ background: 'red' }}
+          onClick={() => {
+            this.setState({ selectedTags: [] });
+            this.updateField('tags', this.state.selectedTags);
+          }}
+        >
+          Clear All Tags
+        </button>
         <div>
           <b>Current tags (click on tag to delete):</b>
           {this.state.selectedTags.map((item, index: number) => {
-            return <div className="tags-item" key={index} onClick={() => this.handleRemoveTag(item ?? '')}>
-              {index === (this.state.selectedTags.length - 1) ? item : item + ", "}
-            </div>
+            return (
+              <div
+                className="tags-item"
+                key={index}
+                onClick={() => this.handleRemoveTag(item ?? '')}
+              >
+                {index === this.state.selectedTags.length - 1
+                  ? item
+                  : item + ', '}
+              </div>
+            );
           })}
         </div>
         <br />
 
         <label>
           Delete existing notes (teaching date):
-          <input style={{ width: 400, height: 20 }} type="text" value={this.state.delete} onChange={event => this.setState({ delete: event.target.value })} />
+          <input
+            style={{ width: 400, height: 20 }}
+            type="text"
+            value={this.state.delete}
+            onChange={(event) => this.setState({ delete: event.target.value })}
+          />
         </label>
         <label>
           Type &quot;{this.deleteConfirmation}&quot;:
-          <input style={{ width: 400, height: 20 }} type="text" value={this.state.understand} onChange={event => this.setState({ understand: event.target.value })} />
+          <input
+            style={{ width: 400, height: 20 }}
+            type="text"
+            value={this.state.understand}
+            onChange={(event) =>
+              this.setState({ understand: event.target.value })
+            }
+          />
         </label>
-        <button className="tags-button" style={{ background: "red" }} onClick={() => this.handleDeleteNote()}>DELETE</button>
-
+        <button
+          className="tags-button"
+          style={{ background: 'red' }}
+          onClick={() => this.handleDeleteNote()}
+        >
+          DELETE
+        </button>
       </div>
-    )
+    );
   }
 
   renderTextInput() {
     const toolBarProps = {
-      options: ['inline', 'blockType', 'fontSize', 'list', 'link', 'textAlign', 'emoji', 'colorPicker', 'image', 'history'],
+      options: [
+        'inline',
+        'blockType',
+        'fontSize',
+        'list',
+        'link',
+        'textAlign',
+        'emoji',
+        'colorPicker',
+        'image',
+        'history',
+      ],
       inline: {
         options: ['bold', 'italic', 'underline', 'strikethrough'],
       },
@@ -554,44 +719,67 @@ class Index extends React.Component<EmptyProps, State> {
       image: {
         uploadEnabled: true,
         uploadCallback: async (file: any) => {
-          const filepath = "notesuploads/" + uuidv1() + file.name;
+          const filepath = 'notesuploads/' + uuidv1() + file.name;
           await Storage.put(filepath, file, {
-            contentType: "image/*",
-            acl: "public-read"
-          })
-          const download = "https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/" + filepath;
-          return { data: { link: download } }
+            contentType: 'image/*',
+            acl: 'public-read',
+          });
+          const download =
+            'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/' +
+            filepath;
+          return { data: { link: download } };
         },
         previewImage: true,
         alt: {
           present: true,
-          mandatory: true
+          mandatory: true,
         },
         defaultSize: {
           height: 'auto',
           width: '100%',
         },
-        alignmentEnabled: false
-      }
-    }
+        alignmentEnabled: false,
+      },
+    };
 
     return (
       <div className="editor-container">
-        <div style={{ display: 'flex', flexDirection: 'row' }} >
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
           <label>
             Title:
-          <input type="text" style={{ width: 400 }} value={this.state.title} onChange={event => this.setState({ title: event.target.value })} />
+            <input
+              type="text"
+              style={{ width: 400 }}
+              value={this.state.title}
+              onChange={(event) => this.setState({ title: event.target.value })}
+            />
           </label>
           <label>
             Episode Number:
-          <input type="number" style={{ width: 150 }} value={this.state.episodeNumber} onChange={event => this.setState({ episodeNumber: parseInt(event.target.value, 10) })} />
+            <input
+              type="number"
+              style={{ width: 150 }}
+              value={this.state.episodeNumber}
+              onChange={(event) =>
+                this.setState({
+                  episodeNumber: parseInt(event.target.value, 10),
+                })
+              }
+            />
           </label>
           <label>
             Series:
-          <select value={this.state.seriesId} onChange={e => this.setState({ seriesId: e.target.value })}>
-              <option value='' >none selected</option>
-              {this.state.seriesList.map(series => {
-                return <option key={series.id} value={series.id}>{series.id}</option>
+            <select
+              value={this.state.seriesId}
+              onChange={(e) => this.setState({ seriesId: e.target.value })}
+            >
+              <option value="">none selected</option>
+              {this.state.seriesList.map((series) => {
+                return (
+                  <option key={series.id} value={series.id}>
+                    {series.id}
+                  </option>
+                );
               })}
             </select>
           </label>
@@ -600,7 +788,13 @@ class Index extends React.Component<EmptyProps, State> {
 
         <label>
           Episode Description:
-          <textarea style={{ width: '80vw' }} value={this.state.description} onChange={event => this.setState({ description: event.target.value })} />
+          <textarea
+            style={{ width: '80vw' }}
+            value={this.state.description}
+            onChange={(event) =>
+              this.setState({ description: event.target.value })
+            }
+          />
         </label>
 
         <h2>Notes</h2>
@@ -625,60 +819,106 @@ class Index extends React.Component<EmptyProps, State> {
             onChange={this.handlePublishDate}
             dateFormat="yyyy-MM-dd"
           />
-          <div style={{ color: "red" }}>{this.state.dateWarning}</div>
+          <div style={{ color: 'red' }}>{this.state.dateWarning}</div>
         </div>
         <div>
           <label>
             PDF Link:
-            <input type="url" style={{ width: 800 }} value={this.state.pdf} onChange={event => this.setState({ pdf: event.target.value })} />
+            <input
+              type="url"
+              style={{ width: 800 }}
+              value={this.state.pdf}
+              onChange={(event) => this.setState({ pdf: event.target.value })}
+            />
           </label>
         </div>
         {this.state.moreOptions ? this.renderMoreOptions() : null}
       </div>
-    )
+    );
   }
 
   renderToolbar() {
     return (
       <div className="toolbar-button-container">
-        <button className="toolbar-button" onClick={() => this.handleSave()}>SAVE</button><br />
-        <button className="toolbar-button" onClick={() => this.handleEdit()}>Edit existing notes</button><br />
-        <button className="toolbar-button" onClick={() => this.setState({ moreOptions: !this.state.moreOptions })}>More options</button><br />
-        <button className="toolbar-button" onClick={() => this.setState({ showPreview: !this.state.showPreview })}>Preview your work</button>{this.state.showPreview ? <div style={{ width: 150 }}>Scroll to bottom of page for preview</div> : null}<br />
-        <button className="toolbar-button" onClick={() => this.getBiblePassages()}>Bible passages</button><br />
-        <button className="toolbar-button" onClick={() => this.setState({ showHelp: true })}>Help</button><br />
+        <button className="toolbar-button" onClick={() => this.handleSave()}>
+          SAVE
+        </button>
+        <br />
+        <button className="toolbar-button" onClick={() => this.handleEdit()}>
+          Edit existing notes
+        </button>
+        <br />
+        <button
+          className="toolbar-button"
+          onClick={() =>
+            this.setState({ moreOptions: !this.state.moreOptions })
+          }
+        >
+          More options
+        </button>
+        <br />
+        <button
+          className="toolbar-button"
+          onClick={() =>
+            this.setState({ showPreview: !this.state.showPreview })
+          }
+        >
+          Preview your work
+        </button>
+        {this.state.showPreview ? (
+          <div style={{ width: 150 }}>Scroll to bottom of page for preview</div>
+        ) : null}
+        <br />
+        <button
+          className="toolbar-button"
+          onClick={() => this.getBiblePassages()}
+        >
+          Bible passages
+        </button>
+        <br />
+        <button
+          className="toolbar-button"
+          onClick={() => this.setState({ showHelp: true })}
+        >
+          Help
+        </button>
+        <br />
         <span>{this.state.statusMessage}</span>
       </div>
-    )
+    );
   }
 
   renderHelp() {
-    return <Modal isOpen={this.state.showHelp}>
-      <div>Solutions to common issues with Bible verses:</div>
-      <ul>
-        <li>Ensure there are no extra spaces</li>
-        <li>Ensure that you are using hyphens (-), not dashes</li>
-        <li>Use the full book name (e.g. 1 Corinthians, not 1 Cor)</li>
-      </ul>
-      <div>Here are the five accepted formats for Bible verses:</div>
-      <ul>
-        <li>Genesis 1 (just chapter)</li>
-        <li>Genesis 2-3 (chapter to chapter)</li>
-        <li>John 3:16 (chapter, verse)</li>
-        <li>John 3:16-17 (verse to verse, one chapter)</li>
-        <li>John 3:1-4:5 (verse to verse, multiple chapters)</li>
-      </ul>
-      <button onClick={() => this.setState({ showHelp: false })}>Close</button>
-    </Modal>
+    return (
+      <Modal isOpen={this.state.showHelp}>
+        <div>Solutions to common issues with Bible verses:</div>
+        <ul>
+          <li>Ensure there are no extra spaces</li>
+          <li>Ensure that you are using hyphens (-), not dashes</li>
+          <li>Use the full book name (e.g. 1 Corinthians, not 1 Cor)</li>
+        </ul>
+        <div>Here are the five accepted formats for Bible verses:</div>
+        <ul>
+          <li>Genesis 1 (just chapter)</li>
+          <li>Genesis 2-3 (chapter to chapter)</li>
+          <li>John 3:16 (chapter, verse)</li>
+          <li>John 3:16-17 (verse to verse, one chapter)</li>
+          <li>John 3:1-4:5 (verse to verse, multiple chapters)</li>
+        </ul>
+        <button onClick={() => this.setState({ showHelp: false })}>
+          Close
+        </button>
+      </Modal>
+    );
   }
 
   renderAlert() {
     return (
       <Modal isOpen={Boolean(this.state.showAlert)}>
-        <div style={{ whiteSpace: 'pre-wrap' }} >{this.state.showAlert}</div>
+        <div style={{ whiteSpace: 'pre-wrap' }}>{this.state.showAlert}</div>
         <button onClick={() => this.setState({ showAlert: '' })}>OK</button>
       </Modal>
-    )
+    );
   }
 
   render() {
@@ -692,13 +932,18 @@ class Index extends React.Component<EmptyProps, State> {
           {this.renderToolbar()}
           {this.renderTextInput()}
           <div className="preview">
-            {this.state.showPreview ? <BlogPreview data={this.state} content={null} type={"notes"}></BlogPreview> : null}
+            {this.state.showPreview ? (
+              <BlogPreview
+                data={this.state}
+                content={null}
+                type={'notes'}
+              ></BlogPreview>
+            ) : null}
           </div>
         </div>
       </AmplifyAuthenticator>
-
     );
   }
 }
 
-export default Index
+export default Index;

@@ -1,14 +1,13 @@
-
 import React from 'react';
-import { buildUrl } from 'react-instafeed'
+import { buildUrl } from 'react-instafeed';
 //import useAbortableFetch from 'use-abortable-fetch'
 //import Image from '@components/Image'
 
 interface Props {
-  content: any
+  content: any;
 }
 interface State {
-  content: any
+  content: any;
 }
 const options = {
   accessToken: 'access...',
@@ -19,29 +18,26 @@ const options = {
   sortBy: 'none', // none, least-commented, least-liked, least-recent, most-commented, most-liked, most-recent, random
   tagName: null,
   userId: 123,
-}
-export default class ContentItem extends React.Component<Props, State>  {
+};
+export default class ContentItem extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      content: props.content
-    }
-
-
+      content: props.content,
+    };
   }
 
   render() {
-    fetch(buildUrl(options)).then((data) => { console.log(data) }
-
-    ).catch((e) => { console.log(e) })
+    fetch(buildUrl(options))
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
     //    console.log(data)
 
-    return (
-      <div className="ContentItem oneImage InstagramItemDiv">
-
-      </div>
-    )
-
+    return <div className="ContentItem oneImage InstagramItemDiv"></div>;
   }
 }

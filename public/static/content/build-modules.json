@@ -1,137 +1,137 @@
 {
-    "page": {
-        "name": "build-modules",
-        "title": "build-modules",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/community-1.jpg",
-                        "alt": "Two people talking at a kitchen counter, drinking tea."
-                    }
-                ],
-                "header1": "Header 1",
-                "header2": "Header 2",
-                "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "button1Text": "Button Text",
-                "button1Action": "/build-modules"
-            },
-            {
-                "type": "content",
-                "style": "greyTwoText",
-                "header1": "Header 1",
-                "header2": "",
-                "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "text2": "",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Link title",
-                        "navigateTo": "/build-module",
-                        "openNewBrowser": true
-                    }
-                ]
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "Header 1",
-                "header2": "Header 2",
-                "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "list": [
-                    {
-                        "type": "link",
-                        "title": "Link Text",
-                        "navigateTo": "/build-modules"
-                    }
-                ],
-                "image1": [
-                    {
-                        "src": "/static/images/community-2.jpg",
-                        "alt": "Woman standing infront of a building on a bright sunny day."
-                    }
-                ]
-            },
-            {
-                "type": "list",
-                "style": "horizontal",
-                "class": "videos",
-                "subclass": "spiritually-curious",
-                "selector": "all",
-                "sortOrder": "DESC",
-                "header1": "Playlist title"
-            },
-            {
-                "type": "list",
-                "style": "imageList",
-                "header1": "Header 1",
-                "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "list": [
-                    {
-                        "title": "Title 1",
-                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                        "imageSrc": "/static/images/community-3-1.jpg",
-                        "imageAlt": "alt text",
-                        "navigateTo": "/build-modules"
-                    },
-                    {
-                        "title": "Title 2",
-                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                        "imageSrc": "/static/images/community-3-2.jpg",
-                        "imageAlt": "alt text",
-                        "navigateTo": "/build-modules"
-                    },
-                    {
-                        "title": "Title 3",
-                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                        "imageSrc": "/static/images/community-3-3.jpg",
-                        "imageAlt": "alt text",
-                        "navigateTo": "/build-module"
-                    }
-                ]
-            },
-            {
-                "type": "hero",
-                "style": "connect",
-                "image1": [
-                    {
-                        "src": "/static/images/email-connect-1.jpg",
-                        "alt": "alt text"
-                    },
-                    {
-                        "src": "/static/images/email-connect-2.jpg",
-                        "alt": "alt text"
-                    }
-                ],
-                "header1": "Header",
-                "header2": "",
-                "text2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            },
-            {
-                "type": "content",
-                "style": "oneImage",
-                "header1": "Header 1",
-                "header2": "",
-                "text1": "",
-                "image1": [
-                    {
-                        "src": "/static/images/about-us-2-3.jpg",
-                        "alt": "alt text"
-                    }
-                ]
-            }
+  "page": {
+    "name": "build-modules",
+    "title": "build-modules",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/community-1.jpg",
+            "alt": "Two people talking at a kitchen counter, drinking tea."
+          }
+        ],
+        "header1": "Header 1",
+        "header2": "Header 2",
+        "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "button1Text": "Button Text",
+        "button1Action": "/build-modules"
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Header 1",
+        "header2": "",
+        "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "text2": "",
+        "list": [
+          {
+            "type": "link",
+            "title": "Link title",
+            "navigateTo": "/build-module",
+            "openNewBrowser": true
+          }
         ]
-    }
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Header 1",
+        "header2": "Header 2",
+        "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Link Text",
+            "navigateTo": "/build-modules"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/community-2.jpg",
+            "alt": "Woman standing infront of a building on a bright sunny day."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "spiritually-curious",
+        "selector": "all",
+        "sortOrder": "DESC",
+        "header1": "Playlist title"
+      },
+      {
+        "type": "list",
+        "style": "imageList",
+        "header1": "Header 1",
+        "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "list": [
+          {
+            "title": "Title 1",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imageSrc": "/static/images/community-3-1.jpg",
+            "imageAlt": "alt text",
+            "navigateTo": "/build-modules"
+          },
+          {
+            "title": "Title 2",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imageSrc": "/static/images/community-3-2.jpg",
+            "imageAlt": "alt text",
+            "navigateTo": "/build-modules"
+          },
+          {
+            "title": "Title 3",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "imageSrc": "/static/images/community-3-3.jpg",
+            "imageAlt": "alt text",
+            "navigateTo": "/build-module"
+          }
+        ]
+      },
+      {
+        "type": "hero",
+        "style": "connect",
+        "image1": [
+          {
+            "src": "/static/images/email-connect-1.jpg",
+            "alt": "alt text"
+          },
+          {
+            "src": "/static/images/email-connect-2.jpg",
+            "alt": "alt text"
+          }
+        ],
+        "header1": "Header",
+        "header2": "",
+        "text2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Header 1",
+        "header2": "",
+        "text1": "",
+        "image1": [
+          {
+            "src": "/static/images/about-us-2-3.jpg",
+            "alt": "alt text"
+          }
+        ]
+      }
+    ]
+  }
 }

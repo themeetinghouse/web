@@ -1,57 +1,57 @@
 {
-    "page": {
-        "name": "christmas",
+  "page": {
+    "name": "christmas",
+    "title": "Christmas",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/christmas-eve-1.jpg",
+        "url": "https://www.themeetinghouse.com/christmas",
         "title": "Christmas",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/christmas-eve-1.jpg",
-                "url": "https://www.themeetinghouse.com/christmas",
-                "title": "Christmas",
-                "description": ""
-            },
-            {
-                "type": "hero",
-                "style": "full",
-                "image1": [
-                    {
-                        "src": "/static/images/christmas-eve-1.jpg",
-                        "alt": "Young woman smiling off camera at the Christmas Market."
-                    }
-                ],
-                "header1": "Christmas",
-                "header2": "",
-                "text1": "Christmas is better together—and we want to spend it with you! Join us as we celebrate the very good news that we see in the story of the birth of Jesus. The news that in Jesus, God came to us—and because of that everything changed."
-            },
-            {
-                "type": "content",
-                "style": "oneImageBlackRight",
-                "header1": "What to expect",
-                "header2": "",
-                "text1": "Our Christmas gatherings will be about one hour in length, as we celebrate by singing carols, sharing stories, and looking into the meaning and story of Christmas we find in the Bible. Everything will be family friendly so be sure to bring the whole gang.",
-              
-                "image1": [
-                    {
-                        "src": "/static/images/christmas-2.jpg",
-                        "alt": "Candlelight Christmas Service"
-                    }
-                ]
-            },
-            {
-                "type": "sunday-morning",
-                "header1": "Christmas Locations",
-                "alternate": "christmas"
-            }
+        "description": ""
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/christmas-eve-1.jpg",
+            "alt": "Young woman smiling off camera at the Christmas Market."
+          }
+        ],
+        "header1": "Christmas",
+        "header2": "",
+        "text1": "Christmas is better together—and we want to spend it with you! Join us as we celebrate the very good news that we see in the story of the birth of Jesus. The news that in Jesus, God came to us—and because of that everything changed."
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "What to expect",
+        "header2": "",
+        "text1": "Our Christmas gatherings will be about one hour in length, as we celebrate by singing carols, sharing stories, and looking into the meaning and story of Christmas we find in the Bible. Everything will be family friendly so be sure to bring the whole gang.",
+
+        "image1": [
+          {
+            "src": "/static/images/christmas-2.jpg",
+            "alt": "Candlelight Christmas Service"
+          }
         ]
-    }
+      },
+      {
+        "type": "sunday-morning",
+        "header1": "Christmas Locations",
+        "alternate": "christmas"
+      }
+    ]
+  }
 }

@@ -1,34 +1,34 @@
 {
-    "page": {
-        "name": "give",
-        "title": "Give",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "give",
+    "title": "Give",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": false,
-            "logoColor":"white",
-            "showSearch":false,
-            "showFooter":false,
-            "showMenu":false,
-            "isPopup":true,
-            "navigateOnPopupClose":"/"
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-images/give.jpg",
-                "url": "https://www.themeetinghouse.com/give",
-                "title": "Give",
-                "description": "We're so grateful for the generosity of our community. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible."
-            },
-            {
-                "type": "give",
-                "header1": "We give because of love.",
-                "text1":"In this time of crisis, when we are unable to meet in person, The Meeting House remains a place where people can find hope, community, encouragement, and peace. God has been at work all along, preparing us to respond with love and practical care for our communities in these extraordinary days.",
-                "text2":"Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible."
-            }
-        ]
-    }
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": false,
+      "logoColor": "white",
+      "showSearch": false,
+      "showFooter": false,
+      "showMenu": false,
+      "isPopup": true,
+      "navigateOnPopupClose": "/"
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/give.jpg",
+        "url": "https://www.themeetinghouse.com/give",
+        "title": "Give",
+        "description": "We're so grateful for the generosity of our community. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible."
+      },
+      {
+        "type": "give",
+        "header1": "We give because of love.",
+        "text1": "In this time of crisis, when we are unable to meet in person, The Meeting House remains a place where people can find hope, community, encouragement, and peace. God has been at work all along, preparing us to respond with love and practical care for our communities in these extraordinary days.",
+        "text2": "Thank you for your generosity. We steward our resources wisely and prayerfully, and continue to reach spiritually curious people to help them meaningfully engage with the message of Jesus. Your donations fuel our ministry and make this possible."
+      }
+    ]
+  }
 }

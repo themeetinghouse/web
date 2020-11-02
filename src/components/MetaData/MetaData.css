@@ -1,297 +1,305 @@
-@media (min-width:576px) {
-    .card-deck {
-        flex-flow: row wrap;
-        margin-right: -0px;
-        margin-left: 0px;
-    }
+@media (min-width: 576px) {
+  .card-deck {
+    flex-flow: row wrap;
+    margin-right: -0px;
+    margin-left: 0px;
+  }
 
-    .card-deck .card {
-        display: flex;
-        flex: 1 0 0%;
-        flex-direction: column;
-        margin-right: 1px;
-        margin-bottom: 0;
-        margin-left: 0px
-    }
+  .card-deck .card {
+    display: flex;
+    flex: 1 0 0%;
+    flex-direction: column;
+    margin-right: 1px;
+    margin-bottom: 0;
+    margin-left: 0px;
+  }
 }
 
 .button {
-    background-color: #ffffff;
-    height: 5px;
+  background-color: #ffffff;
+  height: 5px;
 }
 
 .menu {
-    border: 1px solid black;
-    font-family: Arial;
-    font-size: 10pt;
-    margin: 0;
-    background: #666666;
+  border: 1px solid black;
+  font-family: Arial;
+  font-size: 10pt;
+  margin: 0;
+  background: #666666;
 }
 
 .addVideo {
-
-    color: #ffffff;
-    cursor: pointer;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .addVideo:hover {
-    font-weight: bolder;
-    color: #ffffff;
-    cursor: pointer;
+  font-weight: bolder;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 #searchInput {
-    border-radius: 5px;
-    background-color: #000000;
-    background-position: 2px 4px;
-    /* Position the search icon */
-    background-size: 14px 14px;
-    background-repeat: no-repeat;
-    /* Do not repeat the icon image */
-    width: 30%;
-    /* Full-width */
-    font-size: 9px;
-    /* Increase font-size */
-    color: #dddddd;
-    padding: 4px 4px 4px 20px;
-    /* Add some padding */
-    border: 1px solid #ddd;
-    /* Add a grey border */
-    margin-bottom: 0px;
-    /* Add some space below the input */
+  border-radius: 5px;
+  background-color: #000000;
+  background-position: 2px 4px;
+  /* Position the search icon */
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  /* Do not repeat the icon image */
+  width: 30%;
+  /* Full-width */
+  font-size: 9px;
+  /* Increase font-size */
+  color: #dddddd;
+  padding: 4px 4px 4px 20px;
+  /* Add some padding */
+  border: 1px solid #ddd;
+  /* Add a grey border */
+  margin-bottom: 0px;
+  /* Add some space below the input */
 }
 
 .tableFixHead {
-    overflow-y: auto;
-    height: 200px;
-    width:100%;
+  overflow-y: auto;
+  height: 200px;
+  width: 100%;
 }
 
 th {
-    background: #05151F;
+  background: #05151f;
 }
 
 .configure {
-    float: right;
-    padding: 2px;
+  float: right;
+  padding: 2px;
 }
 
 .configure a {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-
 .middleMenu {
-    background: #4444aa;
-    width: 100%;
-    border-bottom: 2px solid #000000;
+  background: #4444aa;
+  width: 100%;
+  border-bottom: 2px solid #000000;
 }
 
 .middleMenu A {
-    color: #ffffff;
-    width: 100%;
-    margin-right: 10px;
+  color: #ffffff;
+  width: 100%;
+  margin-right: 10px;
 }
 
 .middleMenuLeft {
-    font-size: 11px;
-    background: #4444aa;
-    float: left;
-    width: 50%;
-    border-bottom: 2px solid #000000;
+  font-size: 11px;
+  background: #4444aa;
+  float: left;
+  width: 50%;
+  border-bottom: 2px solid #000000;
 }
 
 .middleMenuRight A {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .middleMenuRight {
-
-    font-size: 11px;
-    background: #4444aa;
-    float: right;
-    width: 50%;
-    border-bottom: 2px solid #000000;
-    text-align: right;
+  font-size: 11px;
+  background: #4444aa;
+  float: right;
+  width: 50%;
+  border-bottom: 2px solid #000000;
+  text-align: right;
 }
 
 .workArea {
-   
-    width: 100%;
-    background: #666666;
+  width: 100%;
+  background: #666666;
   /*  height: *;*/
 }
 
-
 .youtubeTable {
-    width: 100%;
+  width: 100%;
 }
 
 .mediaZone {
-    width: 100%
+  width: 100%;
 }
 
 .metaInput {
-    border-radius: 5px;
-    font-size: 9px;
-    padding: 3px 3px 3px 3px;
-    /* Add some padding */
-    border: 1px solid #ddd;
-    /* Add a grey border */
-    margin-bottom: 0px;
-    /* Add some space below the input */
-    background: #666666;
-    border-color: #333333;
-    color: #bbbbbb;
+  border-radius: 5px;
+  font-size: 9px;
+  padding: 3px 3px 3px 3px;
+  /* Add some padding */
+  border: 1px solid #ddd;
+  /* Add a grey border */
+  margin-bottom: 0px;
+  /* Add some space below the input */
+  background: #666666;
+  border-color: #333333;
+  color: #bbbbbb;
 }
 
 .metaCheck {
-    -webkit-appearance: none;
-    background-color: #666666;
-    border: 1px solid #333333;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-    padding: 5px;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
+  -webkit-appearance: none;
+  background-color: #666666;
+  border: 1px solid #333333;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
 }
 
 .metaCheck:active,
 .regular-checkbox:checked:active {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .metaCheck:checked {
-    background-color: #666666;
-    border: 1px solid #333333;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+  background-color: #666666;
+  border: 1px solid #333333;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05),
+    inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .metaCheck:checked:after {
-    content: '\2714';
-    font-size: 10px;
-    position: absolute;
-    top: 0px;
-    left: 1px;
-    color: #bbbbbb;
+  content: '\2714';
+  font-size: 10px;
+  position: absolute;
+  top: 0px;
+  left: 1px;
+  color: #bbbbbb;
 }
 
 .metaDataColumns {
-    width: 33.33%;
-    float: left;
+  width: 33.33%;
+  float: left;
 }
 
 .youtubeDiv {
-    float: left;
-    background-color: #555555;
+  float: left;
+  background-color: #555555;
 }
 
 .closedCaptions {
-    width: calc(100% - 300px);
-    background-color: #555555;
-    float: left;
-    height: 156px;
+  width: calc(100% - 300px);
+  background-color: #555555;
+  float: left;
+  height: 156px;
 }
 
 .closedCaptionDiv {
-    width: calc(100%-20px);
-    background-color: #aaaaaa;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    /* Add a grey border */
-    padding: 5px;
-    margin: 10px;
-    height: 120px;
-    overflow: scroll;
-    font-size: 10px;
+  width: calc(100%-20px);
+  background-color: #aaaaaa;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  /* Add a grey border */
+  padding: 5px;
+  margin: 10px;
+  height: 120px;
+  overflow: scroll;
+  font-size: 10px;
 }
 
 table.darkTable {
-    border: 1px solid #1C6EA4;
-    background-color: #525252;
-    width: 100%;
-    text-align: left;
-    border-collapse: collapse;
+  border: 1px solid #1c6ea4;
+  background-color: #525252;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
 }
 
 table.darkTable td,
 table.darkTable th {
-    padding: 3px 2px;
+  padding: 3px 2px;
 }
 
 table.darkTable tbody td {
-    font-size: 11px;
-    color: #B3B3B3;
-    border-right: 1px solid #666666;
+  font-size: 11px;
+  color: #b3b3b3;
+  border-right: 1px solid #666666;
 }
 
 table.darkTable .selected:nth-child(even) {
-    background: #777722;
+  background: #777722;
 }
 
 table.darkTable tr:nth-child(even) {
-    background: #3F454A;
+  background: #3f454a;
 }
 
-
 table.darkTable caption {
-    background: #aaaaff;
-    border-left: 1px solid #586B67;
-    border-right: 1px solid #586B67;
+  background: #aaaaff;
+  border-left: 1px solid #586b67;
+  border-right: 1px solid #586b67;
 }
 
 table.darkTable thead {
-    background: #05151F;
-    background: -moz-linear-gradient(top, #434f57 0%, #1e2c35 66%, #05151F 100%);
-    background: -webkit-linear-gradient(top, #434f57 0%, #1e2c35 66%, #05151F 100%);
-    background: linear-gradient(to bottom, #434f57 0%, #1e2c35 66%, #05151F 100%);
-    border-bottom: 1px solid #858585;
+  background: #05151f;
+  background: -moz-linear-gradient(top, #434f57 0%, #1e2c35 66%, #05151f 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #434f57 0%,
+    #1e2c35 66%,
+    #05151f 100%
+  );
+  background: linear-gradient(to bottom, #434f57 0%, #1e2c35 66%, #05151f 100%);
+  border-bottom: 1px solid #858585;
 }
 
 table.darkTable thead th {
-    font-size: 11px;
-    font-weight: bold;
-    color: #eeeeee;
-    border-left: 1px solid #586B67;
+  font-size: 11px;
+  font-weight: bold;
+  color: #eeeeee;
+  border-left: 1px solid #586b67;
 }
 
 table.darkTable thead th:first-child {
-    border-left: none;
+  border-left: none;
 }
 
 table.darkTable tfoot {
-    font-size: 11px;
-    font-weight: normal;
-    color: #787878;
-    background: #383E42;
-    background: -moz-linear-gradient(top, #6a6e71 0%, #4c5155 66%, #383E42 100%);
-    background: -webkit-linear-gradient(top, #6a6e71 0%, #4c5155 66%, #383E42 100%);
-    background: linear-gradient(to bottom, #6a6e71 0%, #4c5155 66%, #383E42 100%);
-    border-top: 2px solid #444444;
+  font-size: 11px;
+  font-weight: normal;
+  color: #787878;
+  background: #383e42;
+  background: -moz-linear-gradient(top, #6a6e71 0%, #4c5155 66%, #383e42 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #6a6e71 0%,
+    #4c5155 66%,
+    #383e42 100%
+  );
+  background: linear-gradient(to bottom, #6a6e71 0%, #4c5155 66%, #383e42 100%);
+  border-top: 2px solid #444444;
 }
 
 table.darkTable tfoot td {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 table.darkTable tfoot .links {
-    text-align: right;
+  text-align: right;
 }
 
 table.darkTable tfoot .links a {
-    display: inline-block;
-    background: #B7BABD;
-    color: #000000;
-    padding: 2px 8px;
-    border-radius: 5px;
+  display: inline-block;
+  background: #b7babd;
+  color: #000000;
+  padding: 2px 8px;
+  border-radius: 5px;
 }
 
 table.darkTable tr:hover {
-    background-color: #333322;
-    cursor: pointer;
+  background-color: #333322;
+  cursor: pointer;
 }
 
 table.darkTable .selected {
-    background: #777722;
+  background: #777722;
 }

@@ -1,14 +1,13 @@
-
 import React from 'react';
 import Lottie from 'react-lottie';
 interface Props {
-  content: any,
+  content: any;
 }
 interface State {
-  content: any,
-  animationData: any,
-  isStopped: boolean,
-  isPaused: boolean
+  content: any;
+  animationData: any;
+  isStopped: boolean;
+  isPaused: boolean;
 }
 export default class ContentItem extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -17,15 +16,15 @@ export default class ContentItem extends React.Component<Props, State> {
       content: props.content,
       animationData: null,
       isStopped: false,
-      isPaused: false
-
-    }
-    fetch('static/svg/test_svg/data.json').then(function (response) {
-      return response.json();
-    })
+      isPaused: false,
+    };
+    fetch('static/svg/test_svg/data.json')
+      .then(function (response) {
+        return response.json();
+      })
       .then((myJson) => {
         this.setState({ animationData: myJson });
-      })
+      });
   }
   renderSVG() {
     const defaultOptions = {
@@ -33,28 +32,25 @@ export default class ContentItem extends React.Component<Props, State> {
       autoplay: true,
       animationData: this.state.animationData,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
+        preserveAspectRatio: 'xMidYMid slice',
+      },
     };
 
     if (this.state.animationData != null)
-      return (<Lottie options={defaultOptions}
-
-        width={"100vw"}
-        isStopped={this.state.isStopped}
-        isPaused={this.state.isPaused} />)
-    else
-      return null
+      return (
+        <Lottie
+          options={defaultOptions}
+          width={'100vw'}
+          isStopped={this.state.isStopped}
+          isPaused={this.state.isPaused}
+        />
+      );
+    else return null;
   }
   render() {
-    if (this.state.content.style === "full") return (
-      <div className="SVGItem full" >
-        {this.renderSVG()}
-      </div>
-    )
+    if (this.state.content.style === 'full')
+      return <div className="SVGItem full">{this.renderSVG()}</div>;
 
-
-
-    return (null)
+    return null;
   }
 }

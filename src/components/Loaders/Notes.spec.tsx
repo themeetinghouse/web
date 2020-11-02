@@ -12,24 +12,27 @@ let renderRouterMock: jest.Mock<JSX.Element, []>;
 
 beforeAll(async () => {
   renderRouterMock = await import('components/RenderRouter/RenderRouter');
-
-})
+});
 
 beforeEach(() => {
-  jest.spyOn(window, 'fetch')
-    .mockResolvedValueOnce(new Response(JSON.stringify({
-      page: {},
-    })));
-})
+  jest.spyOn(window, 'fetch').mockResolvedValueOnce(
+    new Response(
+      JSON.stringify({
+        page: {},
+      })
+    )
+  );
+});
 
-function Wrapper({ children, ...props }: React.PropsWithChildren<MemoryRouterProps>) {
+function Wrapper({
+  children,
+  ...props
+}: React.PropsWithChildren<MemoryRouterProps>) {
   return (
     <MemoryRouter {...props}>
-      <Route path="/notes/:date?">
-        {children}
-      </Route>
+      <Route path="/notes/:date?">{children}</Route>
     </MemoryRouter>
-  )
+  );
 }
 
 /*
@@ -39,7 +42,7 @@ function Wrapper({ children, ...props }: React.PropsWithChildren<MemoryRouterPro
 describe('no date', () => {
   afterEach(() => {
     API.graphql.mockReset();
-  })
+  });
 
   test('return previous Sunday', async () => {
     API.graphql.mockResolvedValue({
@@ -47,21 +50,25 @@ describe('no date', () => {
         getNotes: {},
       },
     });
-    jest.spyOn(Date, 'now').mockReturnValue(new Date('2020-06-25T00:00:00-04:00').valueOf());
+    jest
+      .spyOn(Date, 'now')
+      .mockReturnValue(new Date('2020-06-25T00:00:00-04:00').valueOf());
 
     await act(async () => {
       render(
-        <Wrapper initialEntries={["/notes"]}>
+        <Wrapper initialEntries={['/notes']}>
           <Notes />
         </Wrapper>
       );
     });
 
-    expect(API.graphql).toBeCalledWith(jasmine.objectContaining({
-      variables: {
-        id: '2020-06-21',
-      },
-    }));
+    expect(API.graphql).toBeCalledWith(
+      jasmine.objectContaining({
+        variables: {
+          id: '2020-06-21',
+        },
+      })
+    );
   });
 
   test('return this Sunday', async () => {
@@ -70,21 +77,25 @@ describe('no date', () => {
         getNotes: {},
       },
     });
-    jest.spyOn(Date, 'now').mockReturnValue(new Date('2020-06-28T00:00:00-04:00').valueOf());
+    jest
+      .spyOn(Date, 'now')
+      .mockReturnValue(new Date('2020-06-28T00:00:00-04:00').valueOf());
 
     await act(async () => {
       render(
-        <Wrapper initialEntries={["/notes"]}>
+        <Wrapper initialEntries={['/notes']}>
           <Notes />
         </Wrapper>
       );
     });
 
-    expect(API.graphql).toBeCalledWith(jasmine.objectContaining({
-      variables: {
-        id: '2020-06-28',
-      },
-    }));
+    expect(API.graphql).toBeCalledWith(
+      jasmine.objectContaining({
+        variables: {
+          id: '2020-06-28',
+        },
+      })
+    );
   });
 
   test('explicit date', async () => {
@@ -96,17 +107,19 @@ describe('no date', () => {
 
     await act(async () => {
       render(
-        <Wrapper initialEntries={["/notes/2020-06-25"]}>
+        <Wrapper initialEntries={['/notes/2020-06-25']}>
           <Notes />
         </Wrapper>
       );
     });
 
-    expect(API.graphql).toBeCalledWith(jasmine.objectContaining({
-      variables: {
-        id: '2020-06-25',
-      },
-    }));
+    expect(API.graphql).toBeCalledWith(
+      jasmine.objectContaining({
+        variables: {
+          id: '2020-06-25',
+        },
+      })
+    );
   });
 });
 
@@ -122,7 +135,7 @@ describe('note data', () => {
 
     await act(async () => {
       render(
-        <Wrapper initialEntries={["/notes"]}>
+        <Wrapper initialEntries={['/notes']}>
           <Notes />
         </Wrapper>
       );
@@ -137,7 +150,7 @@ describe('note data', () => {
           page: {},
         },
       },
-      {},
+      {}
     );
   });
 });

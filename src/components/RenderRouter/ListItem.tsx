@@ -21,16 +21,19 @@ import DataLoader, {
   PopularVideosQuery,
   SeriesCollectionData,
   CustomPlaylistsData,
-  CustomPlaylistsQuery, RandomCustomPlaylistData
+  CustomPlaylistsQuery,
+  RandomCustomPlaylistData,
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
 import Konami from 'react-konami-code';
-import ScaledImage, { fallbackToImage } from 'components/ScaledImage/ScaledImage';
+import ScaledImage, {
+  fallbackToImage,
+} from 'components/ScaledImage/ScaledImage';
 import { Link } from 'components/Link/Link';
-import { RouteParams } from '../../pages/HomePage'
+import { RouteParams } from '../../pages/HomePage';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -73,12 +76,9 @@ type ListData =
   | SeriesCollectionData
   | CustomPlaylistsData
   | RandomCustomPlaylistData
-  | NonNullable<RandomCustomPlaylistData>['video']
+  | NonNullable<RandomCustomPlaylistData>['video'];
 
-const hideEpisodeNumbers = [
-  'adult-sunday-shortcut',
-  'kidmax-live'
-]
+const hideEpisodeNumbers = ['adult-sunday-shortcut', 'kidmax-live'];
 
 class ListItem extends React.Component<Props, State> {
   static contextTypes = {
@@ -92,21 +92,29 @@ class ListItem extends React.Component<Props, State> {
     });
   }
   showYears(start: string | null, end: string | null) {
-    const validStart = start && !isNaN(new Date(start).getFullYear())
-    const validEnd = end && !isNaN(new Date(end).getFullYear())
-    const isValid = validStart && validEnd
+    const validStart = start && !isNaN(new Date(start).getFullYear());
+    const validEnd = end && !isNaN(new Date(end).getFullYear());
+    const isValid = validStart && validEnd;
 
     if (validStart && !validEnd)
       return new Date(start as string).getFullYear() + ' • ';
     if (!validStart && validEnd)
       return new Date(end as string).getFullYear() + ' • ';
     if (!isValid) {
-      console.error('startDate and endDate invalid')
+      console.error('startDate and endDate invalid');
       return null;
     }
-    if (new Date(start as string).getFullYear() === new Date(end as string).getFullYear())
+    if (
+      new Date(start as string).getFullYear() ===
+      new Date(end as string).getFullYear()
+    )
       return new Date(start as string).getFullYear() + ' • ';
-    return new Date(start as string).getFullYear() + ' - ' + new Date(end as string).getFullYear() + ' • ';
+    return (
+      new Date(start as string).getFullYear() +
+      ' - ' +
+      new Date(end as string).getFullYear() +
+      ' • '
+    );
   }
   handleClick(data: any) {
     this.setState({
@@ -114,8 +122,7 @@ class ListItem extends React.Component<Props, State> {
     });
     if (data.series == null)
       console.log({ 'You need to create a series for:': data });
-    else
-      this.props.history.push('/videos/' + data.series.id + '/' + data.id);
+    else this.props.history.push('/videos/' + data.series.id + '/' + data.id);
   }
 
   handlePlaylistClick(data: any, clickedOnFullPlaylist?: boolean) {
@@ -125,7 +132,14 @@ class ListItem extends React.Component<Props, State> {
     if (data.series === null && !clickedOnFullPlaylist)
       console.log({ 'You need to create a series for:': data });
     else
-      this.props.history.push('/playlist/' + (clickedOnFullPlaylist ? data.customPlaylistID : this.state.randomPlaylistId) + '/' + (clickedOnFullPlaylist ? data.video.id : data.id));
+      this.props.history.push(
+        '/playlist/' +
+          (clickedOnFullPlaylist
+            ? data.customPlaylistID
+            : this.state.randomPlaylistId) +
+          '/' +
+          (clickedOnFullPlaylist ? data.video.id : data.id)
+      );
   }
 
   constructor(props: Props) {
@@ -138,7 +152,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
       showMoreVideos: false,
       windowWidth: window.innerWidth,
-      randomPlaylistId: this.props?.match?.params?.playlist ?? ""
+      randomPlaylistId: this.props?.match?.params?.playlist ?? '',
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -151,11 +165,13 @@ class ListItem extends React.Component<Props, State> {
   }
 
   async componentDidMount() {
-
-    window.addEventListener('resize', () => { this.setState({ windowWidth: window.innerWidth }) })
+    window.addEventListener('resize', () => {
+      this.setState({ windowWidth: window.innerWidth });
+    });
 
     const dataLoaded = (data: ListData[]) => this.setData(data);
-    const getPlaylistId = (id: string) => this.setState({ randomPlaylistId: id })
+    const getPlaylistId = (id: string) =>
+      this.setState({ randomPlaylistId: id });
     const checkNext = () => null;
     let data: ListData[];
     const query: DataQuery = this.props.content;
@@ -180,13 +196,13 @@ class ListItem extends React.Component<Props, State> {
         return;
       case 'series-collection':
         await DataLoader.getSeriesCollection(query, dataLoaded);
-        return
+        return;
       case 'playlists':
         await DataLoader.listCustomPlaylists(dataLoaded);
-        return
+        return;
       case 'random-suggested-playlist':
         await DataLoader.getRandomPlaylist(dataLoaded, getPlaylistId);
-        return
+        return;
       case 'videos':
       case 'curious':
       case 'watch-page':
@@ -217,10 +233,17 @@ class ListItem extends React.Component<Props, State> {
             );
             break;
           case 'popular':
-            await DataLoader.getPopularVideos(query as PopularVideosQuery, dataLoaded);
+            await DataLoader.getPopularVideos(
+              query as PopularVideosQuery,
+              dataLoaded
+            );
             return;
           default:
-            await DataLoader.getVideos(query as VideoSeriesQuery, dataLoaded, checkNext);
+            await DataLoader.getVideos(
+              query as VideoSeriesQuery,
+              dataLoaded,
+              checkNext
+            );
             return;
         }
         break;
@@ -237,7 +260,9 @@ class ListItem extends React.Component<Props, State> {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', () => { this.setState({ windowWidth: window.innerWidth }) })
+    window.removeEventListener('resize', () => {
+      this.setState({ windowWidth: window.innerWidth });
+    });
   }
 
   setData(data: any) {
@@ -259,70 +284,170 @@ class ListItem extends React.Component<Props, State> {
   }
 
   sortByViews(a: VideoData, b: VideoData) {
-    if (!a?.viewCount || !b?.viewCount)
-      return -1
-    return parseInt(b.viewCount, 10) - parseInt(a.viewCount, 10)
+    if (!a?.viewCount || !b?.viewCount) return -1;
+    return parseInt(b.viewCount, 10) - parseInt(a.viewCount, 10);
   }
 
   sortPlaylistsAlpha(a: CustomPlaylistsData, b: CustomPlaylistsData) {
-    return (a?.title as string).localeCompare(b?.title as string)
+    return (a?.title as string).localeCompare(b?.title as string);
   }
 
   renderMoreVideosCard() {
     return (
-      <Link key='load-more-card' to={`/archive/video/${(this.state.content as VideoSeriesQuery).subclass}`}
-        className={'container ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
+      <Link
+        key="load-more-card"
+        to={`/archive/video/${
+          (this.state.content as VideoSeriesQuery).subclass
+        }`}
+        className={
+          'container ListItemVideo' +
+          (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
+        }
+      >
         <div className="LoadMoreVideosCard">
           <div className="LoadMoreVideosText">Click for more videos</div>
         </div>
-      </Link>);
+      </Link>
+    );
   }
 
   renderMoreSeriesCard() {
-    return <Link key='load-more-card' to={`/archive/series/${(this.state.content as VideoSeriesQuery).subclass}`}
-      className="container ListItemVideo">
-      <div className="LoadMoreSeriesCard">
-        <div className="LoadMoreSeriesText">Click for more series</div>
-      </div>
-    </Link>;
+    return (
+      <Link
+        key="load-more-card"
+        to={`/archive/series/${
+          (this.state.content as VideoSeriesQuery).subclass
+        }`}
+        className="container ListItemVideo"
+      >
+        <div className="LoadMoreSeriesCard">
+          <div className="LoadMoreSeriesText">Click for more series</div>
+        </div>
+      </Link>
+    );
   }
 
   renderVideo(item: VideoData): JSX.Element | null {
     if (!item) {
       return null;
     }
-    return <div onClick={() => { this.handleClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-      <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
-      <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-      <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
-      <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
-      <div className="ListItemPublishedDate">{item.publishedDate}</div>
-    </div>
+    return (
+      <div
+        onClick={() => {
+          this.handleClick(item);
+        }}
+        key={item.id ?? ''}
+        className={
+          'ListItemVideo' +
+          (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
+        }
+      >
+        <img
+          alt="TBD"
+          className="ListItemVideoThumb"
+          src={
+            (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high
+              ?.url ?? ''
+          }
+        />
+        <div className="ListItemPlayImageOverlay">
+          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+        </div>
+        <div className="ListItemEpisodeNum">
+          {this.state.content.showEpisodeNumbers === false
+            ? null
+            : item.episodeNumber + '. '}{' '}
+          {item.episodeTitle}
+        </div>
+        <div className="ListItemSeriesTitle">
+          {item.seriesTitle != null ? item.seriesTitle : null}
+        </div>
+        <div className="ListItemPublishedDate">{item.publishedDate}</div>
+      </div>
+    );
   }
 
-  renderPlaylistVideo(item: NonNullable<RandomCustomPlaylistData>['video']): JSX.Element | null {
+  renderPlaylistVideo(
+    item: NonNullable<RandomCustomPlaylistData>['video']
+  ): JSX.Element | null {
     if (!item) {
       return null;
     }
-    return <div onClick={() => { this.handlePlaylistClick(item); }} key={item.id ?? ''} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-      <img alt="TBD" className="ListItemVideoThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
-      <div className="ListItemPlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-      <div className="ListItemEpisodeNum" >{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '} {item.episodeTitle}</div>
-      <div className="ListItemSeriesTitle">{item.seriesTitle != null ? item.seriesTitle : null}</div>
-      <div className="ListItemPublishedDate">{item.publishedDate}</div>
-    </div>
+    return (
+      <div
+        onClick={() => {
+          this.handlePlaylistClick(item);
+        }}
+        key={item.id ?? ''}
+        className={
+          'ListItemVideo' +
+          (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
+        }
+      >
+        <img
+          alt="TBD"
+          className="ListItemVideoThumb"
+          src={
+            (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high
+              ?.url ?? ''
+          }
+        />
+        <div className="ListItemPlayImageOverlay">
+          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+        </div>
+        <div className="ListItemEpisodeNum">
+          {this.state.content.showEpisodeNumbers === false
+            ? null
+            : item.episodeNumber + '. '}{' '}
+          {item.episodeTitle}
+        </div>
+        <div className="ListItemSeriesTitle">
+          {item.seriesTitle != null ? item.seriesTitle : null}
+        </div>
+        <div className="ListItemPublishedDate">{item.publishedDate}</div>
+      </div>
+    );
   }
 
-  renderWatchPageVideo(item: VideoData, isPlaylist?: boolean): JSX.Element | null {
+  renderWatchPageVideo(
+    item: VideoData,
+    isPlaylist?: boolean
+  ): JSX.Element | null {
     if (!item) {
       return null;
     }
-    return <div onClick={() => { isPlaylist ? this.handlePlaylistClick(item) : this.handleClick(item) }} key={item.id} className={'WatchPageVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-      <img alt="TBD" className="WatchPageThumb" src={(item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high?.url ?? ''} />
-      <div className="WatchPagePlayImageOverlay"><img alt="Play Icon" src="/static/svg/Play.svg"></img></div>
-      <div className="WatchPageEpisodeTitle">{item.episodeNumber && !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : "") ? item.episodeNumber + ". " : null}{item.episodeTitle}</div>
-      <div className="WatchPagePublishedDate">{item.publishedDate}</div>
-    </div>;
+    return (
+      <div
+        onClick={() => {
+          isPlaylist ? this.handlePlaylistClick(item) : this.handleClick(item);
+        }}
+        key={item.id}
+        className={
+          'WatchPageVideo' +
+          (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
+        }
+      >
+        <img
+          alt="TBD"
+          className="WatchPageThumb"
+          src={
+            (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high
+              ?.url ?? ''
+          }
+        />
+        <div className="WatchPagePlayImageOverlay">
+          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+        </div>
+        <div className="WatchPageEpisodeTitle">
+          {item.episodeNumber &&
+          !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : '')
+            ? item.episodeNumber + '. '
+            : null}
+          {item.episodeTitle}
+        </div>
+        <div className="WatchPagePublishedDate">{item.publishedDate}</div>
+      </div>
+    );
   }
 
   renderCurious(item: VideoData): JSX.Element | null {
@@ -330,26 +455,45 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div className="CuriousWrapper">
-        <div onClick={() => this.handleClick(item)} key={item.id} className={'ListItemVideo' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >
-          <div className="CuriousBox">
-            <div className="CuriousText">{this.state.content.showEpisodeNumbers === false ? null : item.episodeNumber + '. '}{item.episodeTitle}</div>
-            <div className="WatchVideoTag">{this.state.content.hovertag}</div>
-          </div>
+      <div
+        onClick={() => this.handleClick(item)}
+        key={item.id}
+        className="CuriousVideo"
+      >
+        <img
+          alt={`Thumbnail for video: ${item.episodeTitle}`}
+          className="CuriousVideoImage"
+          src={
+            (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.maxres
+              ?.url ?? ''
+          }
+        />
+        <div className="CuriousPlayOverlay">
+          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
         </div>
-      </div>);
+      </div>
+    );
   }
 
-  getBlogImageURI(title: string | undefined | null, style: 'baby-hero' | 'banner' | 'square'): string {
-    if (!title)
-      return ''
-    return `/static/photos/blogs/${style}/` + encodeURIComponent(title.replace(/\?|[']/g, "")) + ".jpg"
+  getBlogImageURI(
+    title: string | undefined | null,
+    style: 'baby-hero' | 'banner' | 'square'
+  ): string {
+    if (!title) return '';
+    return (
+      `/static/photos/blogs/${style}/` +
+      encodeURIComponent(title.replace(/\?|[']/g, '')) +
+      '.jpg'
+    );
   }
 
   getPlaylistImageURI(title: string | null): string {
-    if (!title)
-      return ''
-    return `/static/photos/playlists/` + encodeURIComponent(title.replace(/\?|[']/g, "")) + ".png"
+    if (!title) return '';
+    return (
+      `/static/photos/playlists/` +
+      encodeURIComponent(title.replace(/\?|[']/g, '')) +
+      '.png'
+    );
   }
 
   renderBlogs(item: BlogData): JSX.Element | null {
@@ -358,22 +502,37 @@ class ListItem extends React.Component<Props, State> {
     }
     const image = {
       src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image'
-    }
+      alt: item.blogTitle + ' series image',
+    };
     return (
       <Link className="container" to={'/posts/' + item.id} key={item.id}>
         <div className="BlogItem">
-          <ScaledImage image={image} className="BlogSquareImage" fallbackUrl="/static/photos/blogs/square/fallback.jpg" breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }} />
+          <ScaledImage
+            image={image}
+            className="BlogSquareImage"
+            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
           <div className="BlogContentContainer">
-            <div className="BlogTitle">{item.blogTitle}<img className="blogarrow" alt="" src="/static/svg/ArrowRight black.svg" /></div>
-            <div className="BlogDetails">by <span className="author-only">{item.author}</span> on{' '}{item.publishedDate}</div>
+            <div className="BlogTitle">
+              {item.blogTitle}
+              <img
+                className="blogarrow"
+                alt=""
+                src="/static/svg/ArrowRight black.svg"
+              />
+            </div>
+            <div className="BlogDetails">
+              by <span className="author-only">{item.author}</span> on{' '}
+              {item.publishedDate}
+            </div>
             <div className="BlogDesc">{item.description}</div>
           </div>
         </div>
@@ -387,32 +546,52 @@ class ListItem extends React.Component<Props, State> {
     }
     return (
       <div key={item.id} className="ListItemTeachingImageDiv">
-        <img alt="TBD" className="ListItemTeachingImage" src="/static/images/teaching-3.png" onError={fallbackToImage('/static/Individual.png')} />
+        <img
+          alt="TBD"
+          className="ListItemTeachingImage"
+          src="/static/images/teaching-3.png"
+          onError={fallbackToImage('/static/Individual.png')}
+        />
         <div className="ListItemEpisodeLength">{item.name}</div>
-        <div>{item?.videos?.items?.length === 10 ? item.videos.items.length + '+' : item?.videos?.items?.length} Episodes</div>
+        <div>
+          {item?.videos?.items?.length === 10
+            ? item.videos.items.length + '+'
+            : item?.videos?.items?.length}{' '}
+          Episodes
+        </div>
       </div>
     );
   }
 
-  renderOverseer(items: OverseerData | OverseerData[], index: number): JSX.Element {
+  renderOverseer(
+    items: OverseerData | OverseerData[],
+    index: number
+  ): JSX.Element {
     const isMobile = this.state.windowWidth < 768;
     if (isMobile) {
       const item = items as OverseerData;
       const image = {
         src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
         alt: `${item.FirstName} ${item.LastName}`,
-      }
+      };
       return (
         <div key={index} className="ListItemDiv3">
-          <ScaledImage image={image} className="StaffImage" fallbackUrl="/static/Individual.png" breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }} />
-          <div className="ListItemName">{item.FirstName} {item.LastName}</div>
+          <ScaledImage
+            image={image}
+            className="StaffImage"
+            fallbackUrl="/static/Individual.png"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="ListItemName">
+            {item.FirstName} {item.LastName}
+          </div>
           <div className="ListItemPosition">{item.Position}</div>
         </div>
       );
@@ -425,10 +604,13 @@ class ListItem extends React.Component<Props, State> {
             const image = {
               src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
               alt: `${item.FirstName} ${item.LastName}`,
-            }
+            };
             return (
               <div key={index} className="StaffItem">
-                <ScaledImage image={image} className="StaffImage" fallbackUrl="/static/Individual.png"
+                <ScaledImage
+                  image={image}
+                  className="StaffImage"
+                  fallbackUrl="/static/Individual.png"
                   breakpointSizes={{
                     320: 80,
                     480: 120,
@@ -436,13 +618,16 @@ class ListItem extends React.Component<Props, State> {
                     1280: 320,
                     1920: 480,
                     2560: 640,
-                  }} />
+                  }}
+                />
                 <div className="StaffInfo">
-                  <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-                  <div className="ListItemPosition" >{item.Position}</div>
+                  <div className="ListItemName">
+                    {item.FirstName} {item.LastName}
+                  </div>
+                  <div className="ListItemPosition">{item.Position}</div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
@@ -454,49 +639,94 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
 
-    const start_date = new Date(item?.start_time?.substring(0, item.start_time.length - 2) + ':' + item?.start_time?.substring(item.start_time.length - 2));
+    const start_date = new Date(
+      item?.start_time?.substring(0, item.start_time.length - 2) +
+        ':' +
+        item?.start_time?.substring(item.start_time.length - 2)
+    );
     let durationStr = start_date.toLocaleTimeString(navigator.language, {
       hour: '2-digit',
       minute: '2-digit',
     });
     if (item.end_time) {
-      const end_date = new Date(item.end_time.substring(0, item.end_time.length - 2) + ':' + item.end_time.substring(item.end_time.length - 2));
-      durationStr = durationStr + '-' + end_date.toLocaleTimeString(navigator.language, {
-        hour: '2-digit',
-        minute: '2-digit',
-      });
+      const end_date = new Date(
+        item.end_time.substring(0, item.end_time.length - 2) +
+          ':' +
+          item.end_time.substring(item.end_time.length - 2)
+      );
+      durationStr =
+        durationStr +
+        '-' +
+        end_date.toLocaleTimeString(navigator.language, {
+          hour: '2-digit',
+          minute: '2-digit',
+        });
     }
     let description;
     if (item.description && item.description.length > 300) {
       if (item.description.indexOf(' ', 300) === -1)
         description = item.description;
       else
-        description = item.description.substring(0, item.description.indexOf(' ', 300)) + '...';
-    }
-    else
-      description = item.description;
+        description =
+          item.description.substring(0, item.description.indexOf(' ', 300)) +
+          '...';
+    } else description = item.description;
     return (
-      <Link key={item.id ?? ''} className="container" newWindow to={'https://facebook.com/' + item.id}>
+      <Link
+        key={item.id ?? ''}
+        className="container"
+        newWindow
+        to={'https://facebook.com/' + item.id}
+      >
         <div className="ListItemEvents">
-          <div style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}>
-            <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '2vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.toLocaleString('default', { month: 'long' })}</div>
-            <div style={{ fontFamily: 'Graphik Web', lineHeight: '3vw', fontSize: '4vw', fontWeight: 'bold', color: '#1A1A1A' }}>{start_date.getDate()}</div>
+          <div
+            style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}
+          >
+            <div
+              style={{
+                fontFamily: 'Graphik Web',
+                lineHeight: '3vw',
+                fontSize: '2vw',
+                fontWeight: 'bold',
+                color: '#1A1A1A',
+              }}
+            >
+              {start_date.toLocaleString('default', { month: 'long' })}
+            </div>
+            <div
+              style={{
+                fontFamily: 'Graphik Web',
+                lineHeight: '3vw',
+                fontSize: '4vw',
+                fontWeight: 'bold',
+                color: '#1A1A1A',
+              }}
+            >
+              {start_date.getDate()}
+            </div>
           </div>
           <div style={{ margin: '10px' }}>
-            <div className="ListItemEventsDescription" >{item.name}</div>
-            <div className="ListItemEventsDescription2" >{description}</div>
-            {item.place != null ? item.place.name != null ? <div className="ListItemEventsLocation" >{item.place.name}</div> : null : null}
-            {item.event_times && item.event_times[0]?.ticket_uri ? <Link newWindow to={item.event_times[0].ticket_uri}>Register</Link> : null}
-            <div className="ListItemEventsDuration" >{durationStr}</div>
+            <div className="ListItemEventsDescription">{item.name}</div>
+            <div className="ListItemEventsDescription2">{description}</div>
+            {item.place != null ? (
+              item.place.name != null ? (
+                <div className="ListItemEventsLocation">{item.place.name}</div>
+              ) : null
+            ) : null}
+            {item.event_times && item.event_times[0]?.ticket_uri ? (
+              <Link newWindow to={item.event_times[0].ticket_uri}>
+                Register
+              </Link>
+            ) : null}
+            <div className="ListItemEventsDuration">{durationStr}</div>
             {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
         <Button className="ListItemEventButton" onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
-    */}       </div>
+    */}{' '}
+          </div>
           <div style={{ clear: 'left' }}></div>
-
         </div>
-      </Link >
+      </Link>
     );
-
   }
   easterEgg() {
     this.setState({ showChampion: true });
@@ -504,25 +734,83 @@ class ListItem extends React.Component<Props, State> {
   renderStaff(items: StaffData | StaffData[], index: number) {
     const isMobile = this.state.windowWidth < 768;
     if (isMobile) {
-      const data = items as StaffData
-      const imgsrc = '/static/photos/' + (data.Staff == null ? 'coordinators' : 'staff') + '/' + (data.Staff == null ? data.sites[0] + '_' : '') + data.FirstName + '_' + data.LastName + '_app.jpg';
+      const data = items as StaffData;
+      const imgsrc =
+        '/static/photos/' +
+        (data.Staff == null ? 'coordinators' : 'staff') +
+        '/' +
+        (data.Staff == null ? data.sites[0] + '_' : '') +
+        data.FirstName +
+        '_' +
+        data.LastName +
+        '_app.jpg';
       return (
-        <div key={index} className="ListItemDiv3" >
-          {data.FirstName === 'James' ? <div>
-            <Konami action={() => { this.easterEgg() }}></Konami>
-            {this.state.showChampion ?
-              (<div><Fireworks style={{ position: 'fixed', width: '100%', height: '100%', left: 0, top: 0, zIndex: 20005 }} width={500} height={500} />
-                <img alt={data.FirstName + ' ' + data.LastName}
-                  className="ListItemImage2"
-                  style={{ position: 'fixed', left: '30%', width: '30%', top: '10%', zIndex: 200004 }}
-                  onError={fallbackToImage('/static/Individual.png')}
-                  src={'/static/photos/' + (data.Staff == null ? 'coordinators' : 'staff') + '/' + (data.Staff == null ? data.sites[0] + '_' : '') + data.FirstName + '_' + data.LastName + '_app.jpg'} />
-                <h1 style={{ color: '#ffffff', fontSize: 100, position: 'fixed', width: '80%', height: '20%', left: '10%', top: '70%', zIndex: 200006, }}>Young Adults Champion</h1></div>)
-              : null}
-          </div>
-            : null
-          }
-          <ScaledImage image={{ src: imgsrc, alt: data.FirstName + ' ' + data.LastName }} className="StaffImage" fallbackUrl="/static/Individual.png"
+        <div key={index} className="ListItemDiv3">
+          {data.FirstName === 'James' ? (
+            <div>
+              <Konami
+                action={() => {
+                  this.easterEgg();
+                }}
+              ></Konami>
+              {this.state.showChampion ? (
+                <div>
+                  <Fireworks
+                    style={{
+                      position: 'fixed',
+                      width: '100%',
+                      height: '100%',
+                      left: 0,
+                      top: 0,
+                      zIndex: 20005,
+                    }}
+                    width={500}
+                    height={500}
+                  />
+                  <img
+                    alt={data.FirstName + ' ' + data.LastName}
+                    className="ListItemImage2"
+                    style={{
+                      position: 'fixed',
+                      left: '30%',
+                      width: '30%',
+                      top: '10%',
+                      zIndex: 200004,
+                    }}
+                    onError={fallbackToImage('/static/Individual.png')}
+                    src={
+                      '/static/photos/' +
+                      (data.Staff == null ? 'coordinators' : 'staff') +
+                      '/' +
+                      (data.Staff == null ? data.sites[0] + '_' : '') +
+                      data.FirstName +
+                      '_' +
+                      data.LastName +
+                      '_app.jpg'
+                    }
+                  />
+                  <h1
+                    style={{
+                      color: '#ffffff',
+                      fontSize: 100,
+                      position: 'fixed',
+                      width: '80%',
+                      height: '20%',
+                      left: '10%',
+                      top: '70%',
+                      zIndex: 200006,
+                    }}
+                  >
+                    Young Adults Champion
+                  </h1>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+          <ScaledImage
+            image={{ src: imgsrc, alt: data.FirstName + ' ' + data.LastName }}
+            className="StaffImage"
+            fallbackUrl="/static/Individual.png"
             breakpointSizes={{
               320: 80,
               480: 120,
@@ -530,15 +818,56 @@ class ListItem extends React.Component<Props, State> {
               1280: 320,
               1920: 480,
               2560: 640,
-            }} />
-          <div className="ListItemName" >{data.FirstName} {data.LastName}</div>
-          <div className="ListItemPosition" >{data.Position}</div>
-          <div className="StaffContact">
-            {data.Email ? <div className="ListItemEmail"><a className="ListItemEmailText" href={'mailto:' + data.Email}>Email</a></div> : null}
-            {data.Phone ? <div className="ListItemPhone"><a className="ListItemEmailText" href={'tel:' + data.Phone.split(',')[0]}>{data.Phone.split(',')[0]}</a> {data.Phone.split(',')[1]}</div> : null}
+            }}
+          />
+          <div className="ListItemName">
+            {data.FirstName} {data.LastName}
           </div>
-          {data.instagram != null ? <a href={'https://twitter.com/' + data.instagram} className="ListItemSocialLink" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
-          {data.twitter != null ? <a href={'https://www.instagram.com//' + data.twitter} className="ListItemSocialLink" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
+          <div className="ListItemPosition">{data.Position}</div>
+          <div className="StaffContact">
+            {data.Email ? (
+              <div className="ListItemEmail">
+                <a className="ListItemEmailText" href={'mailto:' + data.Email}>
+                  Email
+                </a>
+              </div>
+            ) : null}
+            {data.Phone ? (
+              <div className="ListItemPhone">
+                <a
+                  className="ListItemEmailText"
+                  href={'tel:' + data.Phone.split(',')[0]}
+                >
+                  {data.Phone.split(',')[0]}
+                </a>{' '}
+                {data.Phone.split(',')[1]}
+              </div>
+            ) : null}
+          </div>
+          {data.instagram != null ? (
+            <a
+              href={'https://twitter.com/' + data.instagram}
+              className="ListItemSocialLink"
+            >
+              <img
+                className="ListItemTwitter"
+                src="/static/svg/Twitter.svg"
+                alt="Twitter Logo"
+              />
+            </a>
+          ) : null}
+          {data.twitter != null ? (
+            <a
+              href={'https://www.instagram.com//' + data.twitter}
+              className="ListItemSocialLink"
+            >
+              <img
+                className="ListItemInstagram"
+                src="/static/svg/Instagram.svg"
+                alt="Instagram Logo"
+              />
+            </a>
+          ) : null}
         </div>
       );
     }
@@ -547,10 +876,21 @@ class ListItem extends React.Component<Props, State> {
       <div key={index} className="StaffGridWrapper">
         <div className="StaffGrid">
           {(items as StaffData[]).map((item: any, index: number) => {
-            const imgsrc = '/static/photos/' + (item.Staff == null ? 'coordinators' : 'staff') + '/' + (item.Staff == null ? item.sites[0] + '_' : '') + item.FirstName + '_' + item.LastName + '_app.jpg';
+            const imgsrc =
+              '/static/photos/' +
+              (item.Staff == null ? 'coordinators' : 'staff') +
+              '/' +
+              (item.Staff == null ? item.sites[0] + '_' : '') +
+              item.FirstName +
+              '_' +
+              item.LastName +
+              '_app.jpg';
             return (
               <div key={index} className="StaffItem">
-                <ScaledImage image={{ src: imgsrc, alt: item.photoAlt }} className="StaffImage" fallbackUrl="/static/Individual.png"
+                <ScaledImage
+                  image={{ src: imgsrc, alt: item.photoAlt }}
+                  className="StaffImage"
+                  fallbackUrl="/static/Individual.png"
                   breakpointSizes={{
                     320: 80,
                     480: 120,
@@ -558,19 +898,63 @@ class ListItem extends React.Component<Props, State> {
                     1280: 320,
                     1920: 480,
                     2560: 640,
-                  }} />
+                  }}
+                />
                 <div className="StaffInfo">
-                  <div className="ListItemName" >{item.FirstName} {item.LastName}</div>
-                  <div className="ListItemPosition" >{item.Position}</div>
+                  <div className="ListItemName">
+                    {item.FirstName} {item.LastName}
+                  </div>
+                  <div className="ListItemPosition">{item.Position}</div>
                   <div className="StaffContact">
-                    {item.Email ? <div className="ListItemEmail"><a className="ListItemEmailText" href={'mailto:' + item.Email}>{item.Email.toLowerCase()}</a></div> : null}
-                    {item.Phone ? <div className="ListItemPhone"><a className="ListItemEmailText" href={'tel:' + item.Phone.split(',')[0]}>{item.Phone.split(',')[0]}</a> {item.Phone.split(',')[1]}</div> : null}
+                    {item.Email ? (
+                      <div className="ListItemEmail">
+                        <a
+                          className="ListItemEmailText"
+                          href={'mailto:' + item.Email}
+                        >
+                          {item.Email.toLowerCase()}
+                        </a>
+                      </div>
+                    ) : null}
+                    {item.Phone ? (
+                      <div className="ListItemPhone">
+                        <a
+                          className="ListItemEmailText"
+                          href={'tel:' + item.Phone.split(',')[0]}
+                        >
+                          {item.Phone.split(',')[0]}
+                        </a>{' '}
+                        {item.Phone.split(',')[1]}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
-                {item.instagram ? <a href={'https://twitter.com/' + item.twitter} className="ListItemSocialLink" ><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a> : null}
-                {item.twitter ? <a href={'https://www.instagram.com/' + item.instagram} className="ListItemSocialLink" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a> : null}
+                {item.instagram ? (
+                  <a
+                    href={'https://twitter.com/' + item.twitter}
+                    className="ListItemSocialLink"
+                  >
+                    <img
+                      className="ListItemTwitter"
+                      src="/static/svg/Twitter.svg"
+                      alt="Twitter Logo"
+                    />
+                  </a>
+                ) : null}
+                {item.twitter ? (
+                  <a
+                    href={'https://www.instagram.com/' + item.instagram}
+                    className="ListItemSocialLink"
+                  >
+                    <img
+                      className="ListItemInstagram"
+                      src="/static/svg/Instagram.svg"
+                      alt="Instagram Logo"
+                    />
+                  </a>
+                ) : null}
               </div>
-            )
+            );
           })}
         </div>
       </div>
@@ -579,26 +963,70 @@ class ListItem extends React.Component<Props, State> {
   renderCompassion(item: any) {
     const image = {
       src: item.image,
-      alt: item.imageAlt
-    }
+      alt: item.imageAlt,
+    };
     return (
-      <div key={item.id} className="ListItemCompassion" >
-        <ScaledImage image={image} className="ListItemCompassionLogo" fallbackUrl="/static/NoCompassionLogo.png" breakpointSizes={{
-          320: 80,
-          480: 120,
-          640: 180,
-          1280: 320,
-          1920: 480,
-          2560: 640,
-        }} />
+      <div key={item.id} className="ListItemCompassion">
+        <ScaledImage
+          image={image}
+          className="ListItemCompassionLogo"
+          fallbackUrl="/static/NoCompassionLogo.png"
+          breakpointSizes={{
+            320: 80,
+            480: 120,
+            640: 180,
+            1280: 320,
+            1920: 480,
+            2560: 640,
+          }}
+        />
 
-        <div className="ListItemEventsDescription" >{item.name}</div>
-        <div className="ListItemEventsDescription2" >{item.description}</div>
+        <div className="ListItemEventsDescription">{item.name}</div>
+        <div className="ListItemEventsDescription2">{item.description}</div>
         <div>{item.location}</div>
-        {item.website != null ? (<div className="ListItemWebsiteContainer"><a className="ListItemWebsite" href={item.website}>Website</a></div>) : null}
-        {item.facebook != null ? (<a href={'https://www.facebook.com/' + item.facebook} className="ListItemSocialLink" ><img className="ListItemFB" src="/static/svg/Facebook.svg" alt="Facebook Logo" /></a>) : null}
-        {item.twitter != null ? (<a href={'https://twitter.com/' + item.twitter} className="ListItemSocialLink"><img className="ListItemTwitter" src="/static/svg/Twitter.svg" alt="Twitter Logo" /></a>) : null}
-        {item.instagram != null ? (<a href={'https://www.instagram.com//' + item.instagram} className="ListItemSocialLink" ><img className="ListItemInstagram" src="/static/svg/Instagram.svg" alt="Instagram Logo" /></a>) : null}
+        {item.website != null ? (
+          <div className="ListItemWebsiteContainer">
+            <a className="ListItemWebsite" href={item.website}>
+              Website
+            </a>
+          </div>
+        ) : null}
+        {item.facebook != null ? (
+          <a
+            href={'https://www.facebook.com/' + item.facebook}
+            className="ListItemSocialLink"
+          >
+            <img
+              className="ListItemFB"
+              src="/static/svg/Facebook.svg"
+              alt="Facebook Logo"
+            />
+          </a>
+        ) : null}
+        {item.twitter != null ? (
+          <a
+            href={'https://twitter.com/' + item.twitter}
+            className="ListItemSocialLink"
+          >
+            <img
+              className="ListItemTwitter"
+              src="/static/svg/Twitter.svg"
+              alt="Twitter Logo"
+            />
+          </a>
+        ) : null}
+        {item.instagram != null ? (
+          <a
+            href={'https://www.instagram.com//' + item.instagram}
+            className="ListItemSocialLink"
+          >
+            <img
+              className="ListItemInstagram"
+              src="/static/svg/Instagram.svg"
+              alt="Instagram Logo"
+            />
+          </a>
+        ) : null}
       </div>
     );
   }
@@ -610,21 +1038,30 @@ class ListItem extends React.Component<Props, State> {
     if (videos.length > 0) {
       const image = {
         src: this.getPlaylistImageURI(item?.title),
-        alt: item.title + ' playlist'
-      }
-      return <div
-        onClick={() => this.handlePlaylistClick(videos[0], true)}
-        key={item.id} className="ListItemVideo">
-        <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/photos/series/series-fallback.jpg" breakpointSizes={{
-          320: 80,
-          480: 120,
-          640: 180,
-          1280: 320,
-          1920: 480,
-          2560: 640,
-        }} />
-        <div className="ListItemEpisodeNum" >{item.title}</div>
-      </div>
+        alt: item.title + ' playlist',
+      };
+      return (
+        <div
+          onClick={() => this.handlePlaylistClick(videos[0], true)}
+          key={item.id}
+          className="ListItemVideo"
+        >
+          <ScaledImage
+            image={image}
+            className="ListItemImage2"
+            fallbackUrl="/static/photos/series/series-fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="ListItemEpisodeNum">{item.title}</div>
+        </div>
+      );
     } else {
       console.log({ 'None:': item });
       return null;
@@ -635,24 +1072,38 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
-    const seriesEnded = item.endDate && format(new Date(), 'yyyy-MM-dd') > item.endDate;
+    const seriesEnded =
+      item.endDate && format(new Date(), 'yyyy-MM-dd') > item.endDate;
     const videos = item.videos?.items ?? [];
     if (videos.length > 0) {
       console.log(item.seriesType + '-' + item.title + '.jpg');
       const image = {
-        src: '/static/photos/series/' + item.seriesType + '-' + (item.title ?? '').replace('?', '') + '.jpg',
-        alt: `${item.title} series image`
-      }
+        src:
+          '/static/photos/series/' +
+          item.seriesType +
+          '-' +
+          (item.title ?? '').replace('?', '') +
+          '.jpg',
+        alt: `${item.title} series image`,
+      };
       return (
-        <div onClick={() => this.handleClick(videos.sort((a, b) => {
-          const aNumber = a?.episodeNumber ?? 0;
-          const bNumber = b?.episodeNumber ?? 0;
-          return seriesEnded ? aNumber - bNumber : bNumber - aNumber;
-        })[0])}
-          key={item.id} className="ListItemVideo">
-
-
-          <ScaledImage image={image} className="ListItemImage2" fallbackUrl="/static/photos/series/series-fallback.jpg"
+        <div
+          onClick={() =>
+            this.handleClick(
+              videos.sort((a, b) => {
+                const aNumber = a?.episodeNumber ?? 0;
+                const bNumber = b?.episodeNumber ?? 0;
+                return seriesEnded ? aNumber - bNumber : bNumber - aNumber;
+              })[0]
+            )
+          }
+          key={item.id}
+          className="ListItemVideo"
+        >
+          <ScaledImage
+            image={image}
+            className="ListItemImage2"
+            fallbackUrl="/static/photos/series/series-fallback.jpg"
             breakpointSizes={{
               320: 80,
               480: 120,
@@ -660,14 +1111,17 @@ class ListItem extends React.Component<Props, State> {
               1280: 320,
               1920: 480,
               2560: 640,
-            }} />
+            }}
+          />
 
-          <div className="ListItemEpisodeNum" >{item.title}</div>
-          <div className="ListYearEpisode">{this.showYears(item.startDate, item.endDate)}{videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}</div>
+          <div className="ListItemEpisodeNum">{item.title}</div>
+          <div className="ListYearEpisode">
+            {this.showYears(item.startDate, item.endDate)}
+            {videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}
+          </div>
         </div>
       );
-    }
-    else {
+    } else {
       console.log({ 'None:': item });
       return null;
     }
@@ -700,7 +1154,9 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === 'blogs')
       return this.renderBlogs(item as BlogData);
     else if (this.state.content.class === 'random-suggested-playlist')
-      return this.renderPlaylistVideo(item as NonNullable<RandomCustomPlaylistData>['video']);
+      return this.renderPlaylistVideo(
+        item as NonNullable<RandomCustomPlaylistData>['video']
+      );
     else return null;
   }
 
@@ -709,97 +1165,140 @@ class ListItem extends React.Component<Props, State> {
       this.props.content.filterField == null
         ? this.state.listData
         : this.state.listData.filter((item) => {
-          if (!item) {
-            return false;
-          }
-          return (item[
-            this.props.content.filterField as keyof ListData
-          ] as string).includes(this.props.content.filterValue);
-        });
+            if (!item) {
+              return false;
+            }
+            return (item[
+              this.props.content.filterField as keyof ListData
+            ] as string).includes(this.props.content.filterValue);
+          });
 
-    const dataLength = data.length
+    const dataLength = data.length;
 
     if (this.state.content.style === 'horizontal') {
       const videoData = data as VideoData[];
       const randomPlayList = data as RandomCustomPlaylistData[];
       if (this.state.content.class === 'random-suggested-playlist') {
-        return <div className="ListItem horizontal">
-          <div className="ListItemDiv1" >
-            <h1 className='ListItemH1'>{this.state.content.header1}</h1>
-            <div className="ListItemDiv2" >
-              <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                {randomPlayList
-                  .sort((a, b) => (a?.video?.publishedDate ?? '').localeCompare(b?.video?.publishedDate ?? ''))
-                  .map((item: any, index) => {
-                    return this.renderItemRouter(item.video, index);
-                  })
-                }
-              </HorizontalScrollList>
-              <div className="ListItemDiv5" ></div>
+        return (
+          <div className="ListItem horizontal">
+            <div className="ListItemDiv1">
+              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              <div className="ListItemDiv2">
+                <HorizontalScrollList
+                  darkMode={this.props.pageConfig.logoColor === 'white'}
+                >
+                  {randomPlayList
+                    .sort((a, b) =>
+                      (a?.video?.publishedDate ?? '').localeCompare(
+                        b?.video?.publishedDate ?? ''
+                      )
+                    )
+                    .map((item: any, index) => {
+                      return this.renderItemRouter(item.video, index);
+                    })}
+                </HorizontalScrollList>
+                <div className="ListItemDiv5"></div>
+              </div>
             </div>
+            <VideoOverlay
+              onClose={() => {
+                this.videoOverlayClose();
+              }}
+              data={this.state.overlayData}
+            ></VideoOverlay>
           </div>
-          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-        </div>
+        );
       }
 
       return (
-        <div className="ListItem horizontal" >
-          <div className="ListItemDiv1" >
-            <h1 className={'ListItemH1' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')} >{this.state.content.header1}</h1>
-            {this.state.content.text1 != null ? (<div className="ListItemText1">{this.state.content.text1}</div>) : null}
-            <div className="ListItemDiv2" >
-
-              {this.state.content.class === 'videos' ?
-                this.state.content.selector === 'popular' ?
-                  <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                    {videoData.slice(0, 100).sort((a, b) => this.sortByViews(a, b)).map((item, index) => {
-                      return this.renderItemRouter(item as ListData, index);
-                    }
-                    )}
+        <div className="ListItem horizontal">
+          <div className="ListItemDiv1">
+            <h1
+              className={
+                'ListItemH1' +
+                (this.props.pageConfig.logoColor === 'white'
+                  ? ' whiteText'
+                  : '')
+              }
+            >
+              {this.state.content.header1}
+            </h1>
+            {this.state.content.text1 != null ? (
+              <div className="ListItemText1">{this.state.content.text1}</div>
+            ) : null}
+            <div className="ListItemDiv2">
+              {this.state.content.class === 'videos' ? (
+                this.state.content.selector === 'popular' ? (
+                  <HorizontalScrollList
+                    darkMode={this.props.pageConfig.logoColor === 'white'}
+                  >
+                    {videoData
+                      .slice(0, 100)
+                      .sort((a, b) => this.sortByViews(a, b))
+                      .map((item, index) => {
+                        return this.renderItemRouter(item as ListData, index);
+                      })}
                   </HorizontalScrollList>
-                  : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
-                    {data.concat(this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item, index) => {
-                      if (item === 'card')
-                        return this.renderMoreVideosCard();
+                ) : (
+                  <HorizontalScrollList
+                    darkMode={this.props.pageConfig.logoColor === 'white'}
+                  >
+                    {data
+                      .concat(
+                        this.state.content.limit &&
+                          dataLength >= this.state.content.limit
+                          ? 'card'
+                          : null
+                      )
+                      .map((item, index) => {
+                        if (item === 'card') return this.renderMoreVideosCard();
 
-                      return this.renderItemRouter(item as ListData, index);
-                    }
-                    )}
+                        return this.renderItemRouter(item as ListData, index);
+                      })}
                   </HorizontalScrollList>
-                : <HorizontalScrollList darkMode={this.props.pageConfig.logoColor === 'white'}>
+                )
+              ) : (
+                <HorizontalScrollList
+                  darkMode={this.props.pageConfig.logoColor === 'white'}
+                >
                   {data.map((item: any, index: any) => {
                     return this.renderItemRouter(item, index);
-                  }
-                  )}
-                </HorizontalScrollList>}
-              <div className="ListItemDiv5" ></div>
+                  })}
+                </HorizontalScrollList>
+              )}
+              <div className="ListItemDiv5"></div>
             </div>
           </div>
-          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay
+            onClose={() => {
+              this.videoOverlayClose();
+            }}
+            data={this.state.overlayData}
+          ></VideoOverlay>
         </div>
       );
-    }
-    else if (this.state.content.style === 'blogs') {
+    } else if (this.state.content.style === 'blogs') {
       const startIndex = this.state.content.skipFirstPost ? 1 : 0;
 
       data.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
 
       const today = format(new Date(), 'yyyy-MM-dd');
-      const dateChecked = data.filter((post: any) => post.publishedDate <= today && (post.expirationDate >= today || post.expirationDate));
+      const dateChecked = data.filter(
+        (post: any) =>
+          post.publishedDate <= today &&
+          (post.expirationDate >= today || post.expirationDate)
+      );
 
       return (
-        <div className="ListItemDiv1 BlogItem" >
+        <div className="ListItemDiv1 BlogItem">
           <div className="BlogItemContainer">
             {dateChecked.slice(startIndex).map((item: any, index: any) => {
               return this.renderItemRouter(item, index);
-            }
-            )}
+            })}
           </div>
         </div>
       );
-    }
-
-    else if (this.state.content.style === 'horizontal-video-player') {
+    } else if (this.state.content.style === 'horizontal-video-player') {
       if (!data.length) {
         return null;
       }
@@ -807,13 +1306,55 @@ class ListItem extends React.Component<Props, State> {
       //videos are not stored in order within a series, so we sort here
       if (videoData[0]?.videoTypes === 'questions')
         data.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber);
-      else
-        data.sort((a: any, b: any) => this.sortByDate(a, b, 'oldFirst'));
+      else data.sort((a: any, b: any) => this.sortByDate(a, b, 'oldFirst'));
 
       if (this.state.content.class === 'watch-page-playlist') {
-        return <div className="ListItem horizontal-video-player">
+        return (
+          <div className="ListItem horizontal-video-player">
+            <div className="ListItemDiv1 horizontal-video-player">
+              <h1
+                className={
+                  'ListItemH1 horizontal-video-player' +
+                  (this.props.pageConfig.logoColor === 'white'
+                    ? ' whiteText'
+                    : '')
+                }
+              >
+                {this.props?.match?.params?.playlist}
+              </h1>
+              <div className="WatchPageContainer">
+                {data.map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index);
+                })}
+              </div>
+              <div className="HorizontalLine"></div>
+            </div>
+            <VideoOverlay
+              onClose={() => {
+                this.videoOverlayClose();
+              }}
+              data={this.state.overlayData}
+            ></VideoOverlay>
+          </div>
+        );
+      }
+
+      return (
+        <div className="ListItem horizontal-video-player">
           <div className="ListItemDiv1 horizontal-video-player">
-            <h1 className={'ListItemH1 horizontal-video-player' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.props?.match?.params?.playlist}</h1>
+            <h1
+              className={
+                'ListItemH1 horizontal-video-player' +
+                (this.props.pageConfig.logoColor === 'white'
+                  ? ' whiteText'
+                  : '')
+              }
+            >
+              {this.state.content.header1}
+            </h1>
+            {this.state.content.text1 != null ? (
+              <div className="ListItemText1">{this.state.content.text1}</div>
+            ) : null}
             <div className="WatchPageContainer">
               {data.map((item: any, index: any) => {
                 return this.renderItemRouter(item, index);
@@ -821,63 +1362,78 @@ class ListItem extends React.Component<Props, State> {
             </div>
             <div className="HorizontalLine"></div>
           </div>
-          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay
+            onClose={() => {
+              this.videoOverlayClose();
+            }}
+            data={this.state.overlayData}
+          ></VideoOverlay>
         </div>
-      }
-
-      return <div className="ListItem horizontal-video-player">
-        <div className="ListItemDiv1 horizontal-video-player">
-          <h1 className={'ListItemH1 horizontal-video-player' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.state.content.header1}</h1>
-          {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-          <div className="WatchPageContainer">
-            {data.map((item: any, index: any) => {
-              return this.renderItemRouter(item, index);
-            })}
-          </div>
-          <div className="HorizontalLine"></div>
-        </div>
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-      </div>
-    }
-
-    else if (this.state.content.style === 'curious-ui') {
-      data.sort(function (a: any, b: any) { return a.episodeNumber - b.episodeNumber });
+      );
+    } else if (this.state.content.style === 'curious-ui') {
+      data.sort(function (a: any, b: any) {
+        return a.episodeNumber - b.episodeNumber;
+      });
       return (
-        <div className="ListItem horizontal" >
-          <div className="ListItemDiv1" >
-            <h1 className={'ListItemH1' + (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')}>{this.state.content.header1}</h1>
-            {this.state.content.text1 != null ? (<div className="CuriousText1">{this.state.content.text1}</div>) : null}
+        <div className="ListItem horizontal">
+          <div className="ListItemDiv1">
+            <h1
+              className={
+                'ListItemH1' +
+                (this.props.pageConfig.logoColor === 'white'
+                  ? ' whiteText'
+                  : '')
+              }
+            >
+              {this.state.content.header1}
+            </h1>
+            {this.state.content.text1 != null ? (
+              <div className="CuriousText1">{this.state.content.text1}</div>
+            ) : null}
             <div className="hide-mobile">
               <div className="CuriousContainer">
                 {data.slice(0, 6).map((item: any, index: any) => {
                   return this.renderItemRouter(item, index);
-                }
-                )}
+                })}
               </div>
             </div>
 
             <div className="hide-desktop">
               {data.slice(0, 3).map((item: any, index: any) => {
                 return this.renderItemRouter(item, index);
-              }
-              )}
-              {!this.state.showMoreVideos ? <button className="MoreVideos" onClick={this.videoHandler}>Load 3 More Questions</button> : null}
-              {this.state.showMoreVideos ? <div>{data.slice(3, 6).map((item: any, index: any) => { return this.renderItemRouter(item, index) })}</div> : null}
+              })}
+              {!this.state.showMoreVideos ? (
+                <button className="MoreVideos" onClick={this.videoHandler}>
+                  Load 3 More Questions
+                </button>
+              ) : null}
+              {this.state.showMoreVideos ? (
+                <div>
+                  {data.slice(3, 6).map((item: any, index: any) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </div>
+              ) : null}
             </div>
           </div>
-          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay
+            onClose={() => {
+              this.videoOverlayClose();
+            }}
+            data={this.state.overlayData}
+          ></VideoOverlay>
         </div>
       );
-    }
-
-    else if (this.state.content.style === 'vertical') {
+    } else if (this.state.content.style === 'vertical') {
       if (data.length > 0) {
         return (
-          <div className="ListItem horizontal" >
-            <div className="ListItemDiv1" >
-              <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-              {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-              <div className="ListItemSpeakersDiv" >
+          <div className="ListItem horizontal">
+            <div className="ListItemDiv1">
+              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              {this.state.content.text1 != null ? (
+                <div className="ListItemText1">{this.state.content.text1}</div>
+              ) : null}
+              <div className="ListItemSpeakersDiv">
                 <HorizontalScrollList>
                   {data.map((item: any, index: any) => {
                     return this.renderItemRouter(item, index);
@@ -890,33 +1446,35 @@ class ListItem extends React.Component<Props, State> {
       } else {
         return null;
       }
-    }
-    else if (this.state.content.style === 'staff') {
-      const peopleData = data as PeopleData[]
+    } else if (this.state.content.style === 'staff') {
+      const peopleData = data as PeopleData[];
       const isMobile = this.state.windowWidth < 768;
-      const binnedData: PeopleData[][] = []
+      const binnedData: PeopleData[][] = [];
       if (data.length > 0) {
-        let temp: PeopleData[] = []
+        let temp: PeopleData[] = [];
         peopleData.forEach((item, index) => {
-          temp.push(item)
+          temp.push(item);
           if ((index + 1) % 6 === 0 || index + 1 === data.length) {
-            binnedData.push(temp)
-            temp = []
+            binnedData.push(temp);
+            temp = [];
           }
-        })
+        });
         return (
-          <div className="ListItem horizontal" >
-            <div className="ListItemDiv1" >
-              <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-              {this.state.content.text1 != null ? (<div className="ListItemText1" >{this.state.content.text1}</div>) : null}
-              <div className="ListItemSpeakersDiv" >
+          <div className="ListItem horizontal">
+            <div className="ListItemDiv1">
+              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              {this.state.content.text1 != null ? (
+                <div className="ListItemText1">{this.state.content.text1}</div>
+              ) : null}
+              <div className="ListItemSpeakersDiv">
                 <HorizontalScrollList>
-                  {isMobile ? peopleData.map((item, index) => {
-                    return this.renderItemRouter(item, index);
-                  })
+                  {isMobile
+                    ? peopleData.map((item, index) => {
+                        return this.renderItemRouter(item, index);
+                      })
                     : binnedData.map((item, index) => {
-                      return this.renderItemRouter(item, index);
-                    })}
+                        return this.renderItemRouter(item, index);
+                      })}
                 </HorizontalScrollList>
               </div>
             </div>
@@ -925,77 +1483,128 @@ class ListItem extends React.Component<Props, State> {
       } else {
         return null;
       }
-    }
-    else if (this.state.content.style === 'horizontalBig') {
+    } else if (this.state.content.style === 'horizontalBig') {
       const seriesData = data as SeriesData2[];
       const playlistData = data as CustomPlaylistsData[];
       if (this.state.content.class === 'playlists') {
         const content = this.state.content as CustomPlaylistsQuery;
-        return <div className="ListItem horizontalBig" >
-          <div className="ListItemDiv1 ListItemAllSeries" >
-            <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-            <div className="ListItemDiv6" >
-              <HorizontalScrollList>
-                {playlistData
-                  .sort((a, b) => this.sortPlaylistsAlpha(a, b))
-                  .sort((a, b) => { return content.forceToTop.includes(b?.title as string) ? 1 : content.forceToTop.includes(a?.title as string) ? -1 : 0 })
-                  .map((item, index) => {
+        return (
+          <div className="ListItem horizontalBig">
+            <div className="ListItemDiv1 ListItemAllSeries">
+              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              <div className="ListItemDiv6">
+                <HorizontalScrollList>
+                  {playlistData
+                    .sort((a, b) => this.sortPlaylistsAlpha(a, b))
+                    .sort((a, b) => {
+                      return content.forceToTop.includes(b?.title as string)
+                        ? 1
+                        : content.forceToTop.includes(a?.title as string)
+                        ? -1
+                        : 0;
+                    })
+                    .map((item, index) => {
+                      return this.renderItemRouter(item, index);
+                    })}
+                </HorizontalScrollList>
+                <div className="ListItemDiv5"></div>
+              </div>
+            </div>
+            <VideoOverlay
+              onClose={() => {
+                this.videoOverlayClose();
+              }}
+              data={this.state.overlayData}
+            ></VideoOverlay>
+          </div>
+        );
+      }
+
+      return (
+        <div className="ListItem horizontalBig">
+          <div className="ListItemDiv1 ListItemAllSeries">
+            <h1 className="ListItemH1">{this.state.content.header1}</h1>
+            <div className="ListItemDiv6">
+              {this.state.content.class === 'series' ? (
+                <HorizontalScrollList>
+                  {seriesData
+                    .concat(
+                      this.state.content.limit &&
+                        dataLength >= this.state.content.limit
+                        ? 'card'
+                        : null
+                    )
+                    .map((item: any, index: any) => {
+                      if (item === 'card') return this.renderMoreSeriesCard();
+                      return this.renderItemRouter(item, index);
+                    })}
+                </HorizontalScrollList>
+              ) : (
+                <HorizontalScrollList>
+                  {data.map((item: any, index: any) => {
                     return this.renderItemRouter(item, index);
                   })}
-              </HorizontalScrollList>
+                </HorizontalScrollList>
+              )}
               <div className="ListItemDiv5"></div>
             </div>
           </div>
-          <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
+          <VideoOverlay
+            onClose={() => {
+              this.videoOverlayClose();
+            }}
+            data={this.state.overlayData}
+          ></VideoOverlay>
         </div>
-      }
-
-      return <div className="ListItem horizontalBig" >
-        <div className="ListItemDiv1 ListItemAllSeries" >
-          <h1 className="ListItemH1" >{this.state.content.header1}</h1>
-          <div className="ListItemDiv6" >
-            {this.state.content.class === 'series' ?
-              <HorizontalScrollList>
-                {seriesData.concat(this.state.content.limit && dataLength >= this.state.content.limit ? 'card' : null).map((item: any, index: any) => {
-                  if (item === 'card')
-                    return this.renderMoreSeriesCard();
-                  return this.renderItemRouter(item, index);
-                })}
-              </HorizontalScrollList>
-              : <HorizontalScrollList>
-                {data.map((item: any, index: any) => {
-                  return this.renderItemRouter(item, index);
-                })}
-              </HorizontalScrollList>}
-            <div className="ListItemDiv5" ></div>
-          </div>
-        </div>
-        <VideoOverlay onClose={() => { this.videoOverlayClose() }} data={this.state.overlayData}></VideoOverlay>
-      </div>
-
-    }
-
-    else if (this.state.content.style === 'imageList') return (
-      <div className="ListItem imageList" >
-        <div className="ListItemDiv1" >
-          <h1 className="ListItemH1ImageList" >{this.state.content.header1}</h1>
-          <h2>{this.state.content.header2}</h2>
-          <div className="ListItemDiv7" >{this.state.content.text1}</div>
-          <div className="ListItemDiv8" >
-            <div className="ListItemDiv9" ></div>
-            {
-              data.map((item: any, index: any) => {
+      );
+    } else if (this.state.content.style === 'imageList')
+      return (
+        <div className="ListItem imageList">
+          <div className="ListItemDiv1">
+            <h1 className="ListItemH1ImageList">
+              {this.state.content.header1}
+            </h1>
+            <h2>{this.state.content.header2}</h2>
+            <div className="ListItemDiv7">{this.state.content.text1}</div>
+            <div className="ListItemDiv8">
+              <div className="ListItemDiv9"></div>
+              {data.map((item: any, index: any) => {
                 const href = item.navigateTo || item.url;
-                const body = <div className={'imageList ' + (href ? 'hoverText' : 'noHoverText')}>
-                  <h3 className="ListItemH3" >{href ? <img className="arrow" alt="" src="/static/svg/ArrowRight black.svg" /> : null}{item.title}</h3>
-                  <div className="ListItemDiv11" >{item.text}</div>
-                </div>;
+                const body = (
+                  <div
+                    className={
+                      'imageList ' + (href ? 'hoverText' : 'noHoverText')
+                    }
+                  >
+                    <h3 className="ListItemH3">
+                      {href ? (
+                        <img
+                          className="arrow"
+                          alt=""
+                          src="/static/svg/ArrowRight black.svg"
+                        />
+                      ) : null}
+                      {item.title}
+                    </h3>
+                    <div className="ListItemDiv11">{item.text}</div>
+                  </div>
+                );
                 return (
                   <div className="ListItemDiv10" key={index}>
-                    {href
-                      ? <Link className="container" style={{ display: 'inline-block', padding: 0 }} to={href}>{body}</Link>
-                      : body}
-                    <ScaledImage className="ListItemH1ImageList2" image={{ src: item.imageSrc, alt: item.imageAlt }}
+                    {href ? (
+                      <Link
+                        className="container"
+                        style={{ display: 'inline-block', padding: 0 }}
+                        to={href}
+                      >
+                        {body}
+                      </Link>
+                    ) : (
+                      body
+                    )}
+                    <ScaledImage
+                      className="ListItemH1ImageList2"
+                      image={{ src: item.imageSrc, alt: item.imageAlt }}
                       breakpointSizes={{
                         320: 320,
                         480: 480,
@@ -1003,16 +1612,15 @@ class ListItem extends React.Component<Props, State> {
                         1280: 1280,
                         1920: 1920,
                         2560: 2560,
-                      }} />
+                      }}
+                    />
                   </div>
                 );
-              })
-            }
+              })}
+            </div>
           </div>
         </div>
-
-      </div >
-    );
+      );
     return null;
   }
 }

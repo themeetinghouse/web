@@ -1,25 +1,21 @@
 @import '../../theme';
 
 .tmh-badge {
-    background-color: #EFEFF0;
-    border-radius: 200px;
-    padding: 5px 15px;
-    display: inline-block;
-    font-family: Graphik Web;
-    font-weight: bold;
-    font-size: 12px;
-    color: $onyxblacktext;
+  background-color: #efeff0;
+  border-radius: 200px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-family: Graphik Web;
+  font-weight: bold;
+  font-size: 12px;
+  color: $onyxblacktext;
 }
 
 @media (min-width: 768px) {
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-
 }
 
 @media (max-width: 767px) {
-
 }

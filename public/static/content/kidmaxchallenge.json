@@ -1,74 +1,67 @@
 {
-    "page": {
-        "name": "kidmaxchallenge",
+  "page": {
+    "name": "kidmaxchallenge",
+    "title": "Kidmax Challenge",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": false,
+      "logoColor": "white",
+      "showSearch": false,
+      "showFooter": false,
+      "showMenu": false,
+      "isPopup": true,
+      "navigateOnPopupClose": "/"
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-logo.jpg",
+        "url": "https://www.themeetinghouse.com/kidmaxchallenge",
         "title": "Kidmax Challenge",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": false,
-            "logoColor": "white",
-            "showSearch": false,
-            "showFooter": false,
-            "showMenu": false,
-            "isPopup": true,
-            "navigateOnPopupClose": "/"
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-logo.jpg",
-                "url": "https://www.themeetinghouse.com/kidmaxchallenge",
-                "title": "Kidmax Challenge",
-                "description": ""
-            },
-            {
-                "type": "simple",
-                "header1": "Kidmax Challenge",
-                "header2": "April Challenge: Dance Video",
-                "text": [
-                    {
-                        "class": "SimpleItemText",
-                        "text": "Record and upload a video of your kids dancing to the song 'Jesus is Alive' from The Meeting House Kids album to participate! You can find the song by searching for 'The Meeting House Kids - Jesus is Alive' on Apple Music, Spotify, or iTunes."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "Here are a few ground rules and tips:"
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "-The video cannot be longer than 60 seconds."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "-Include your first name and where you attend, eg. Billie from THe Meeting House High Park."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "-Send your videos to jennifer.mcwilliams@themeetinghouse.com. If the file size is too large for your email try using WeTransfer, Dropbox, or Hightail."
-                    },
-                    {
-                        "class": "SimpleItemTextTab",
-                        "text": "-Deadline is Monday, April 20 at 11:59pm."
-                    },
-                    {
-                        "class": "SimpleItemText",
-                        "text": "By uploading and sharing your video you give The Meeting House permission to edit, upload, and share, the content online and on social media."
-                    },
-                    {
-                        "type":"video",
-                        "class": "SimpleVideoPlayerIframe",
-                        "id": "5zVKPrpHYOI"
-                    }
-                ]
-                
-                
-
-                
-                
-
-
-     }
+        "description": ""
+      },
+      {
+        "type": "simple",
+        "header1": "Kidmax Challenge",
+        "header2": "April Challenge: Dance Video",
+        "text": [
+          {
+            "class": "SimpleItemText",
+            "text": "Record and upload a video of your kids dancing to the song 'Jesus is Alive' from The Meeting House Kids album to participate! You can find the song by searching for 'The Meeting House Kids - Jesus is Alive' on Apple Music, Spotify, or iTunes."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "Here are a few ground rules and tips:"
+          },
+          {
+            "class": "SimpleItemTextTab",
+            "text": "-The video cannot be longer than 60 seconds."
+          },
+          {
+            "class": "SimpleItemTextTab",
+            "text": "-Include your first name and where you attend, eg. Billie from THe Meeting House High Park."
+          },
+          {
+            "class": "SimpleItemTextTab",
+            "text": "-Send your videos to jennifer.mcwilliams@themeetinghouse.com. If the file size is too large for your email try using WeTransfer, Dropbox, or Hightail."
+          },
+          {
+            "class": "SimpleItemTextTab",
+            "text": "-Deadline is Monday, April 20 at 11:59pm."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "By uploading and sharing your video you give The Meeting House permission to edit, upload, and share, the content online and on social media."
+          },
+          {
+            "type": "video",
+            "class": "SimpleVideoPlayerIframe",
+            "id": "5zVKPrpHYOI"
+          }
         ]
-    }
+      }
+    ]
+  }
 }

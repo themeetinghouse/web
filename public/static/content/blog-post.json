@@ -1,23 +1,23 @@
 {
-    "page": {
-        "name": "blog-post",
-        "title": "Blog",
-        "keywords": "",
-        "description":"",
+  "page": {
+    "name": "blog-post",
+    "title": "Blog",
+    "keywords": "",
+    "description": "",
 
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor":"black",
-            "showSearch":true,
-            "showFooter":true,
-            "showMenu":true
-        },
-        "content": [
-            {
-                "type": "post",
-                "style": "blog"
-            }
-        ]
-    }
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "post",
+        "style": "blog"
+      }
+    ]
+  }
 }

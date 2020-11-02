@@ -1,256 +1,256 @@
 @media (min-width: 768px) {
-    .PodcastItem {
-        position: relative;
-        z-index: 99;
-        left: 10vw;
-        font-family: Graphik Web;
-    }
-    
-    .PodcastItemDiv1 {
-        width: 37.5vw;
-        color: #ffffff;
-        margin-right: 3.5vw;
-        float: left;
-    }
+  .PodcastItem {
+    position: relative;
+    z-index: 99;
+    left: 10vw;
+    font-family: Graphik Web;
+  }
 
-    .PodcastHeader {
-        position: relative;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 2vw;
-        margin-bottom: 1vw;
-    }
+  .PodcastItemDiv1 {
+    width: 37.5vw;
+    color: #ffffff;
+    margin-right: 3.5vw;
+    float: left;
+  }
 
-    .PodcastText {
-        color: #C8C8C8;
-        margin-top: 0.5vw;
-    }
+  .PodcastHeader {
+    position: relative;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
 
-    .PodcastTitle {
-        color: #ffffff;
-        font-weight: bold;
-    }
+  .PodcastText {
+    color: #c8c8c8;
+    margin-top: 0.5vw;
+  }
 
-    .PodcastContentContainer {
-        width: 26vw;
-        display: inline-block;
-        margin-left: 2vw;
-    }
+  .PodcastTitle {
+    color: #ffffff;
+    font-weight: bold;
+  }
 
-    .PodcastIcon {
-        float: left;
-    }
+  .PodcastContentContainer {
+    width: 26vw;
+    display: inline-block;
+    margin-left: 2vw;
+  }
 
-    .PodcastLinksContainer {
-        margin-top: 1vw;
-    }
+  .PodcastIcon {
+    float: left;
+  }
 
-    .PodcastLink {
-        font-weight: bold;
-        margin-right: 32px;
-    }
+  .PodcastLinksContainer {
+    margin-top: 1vw;
+  }
 
-    #podcast-toggle {
-        color: #ffffff;
-        background-color: #000000;
-        border-color: rgba(255,255,255,0.5);
-        font-family: Graphik Web;
-        font-weight: bold;
-        height: 40px;
-        border-radius: 6px;
-    }
+  .PodcastLink {
+    font-weight: bold;
+    margin-right: 32px;
+  }
 
-    .PodcastDropdown {
-        float: left;
-    }
+  #podcast-toggle {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: rgba(255, 255, 255, 0.5);
+    font-family: Graphik Web;
+    font-weight: bold;
+    height: 40px;
+    border-radius: 6px;
+  }
 
-    .ApplePodcast {
-        float: left;
-        margin-right: 1vw;
-        margin-bottom: 1vw;
-    }
+  .PodcastDropdown {
+    float: left;
+  }
 
-    .PodcastMenu {
-        text-align: center;
-    }
+  .ApplePodcast {
+    float: left;
+    margin-right: 1vw;
+    margin-bottom: 1vw;
+  }
 
-    .SubIcon {
-        padding-bottom: 4px;
-        padding-right: 10px;
-        width: 26px;
-    }
+  .PodcastMenu {
+    text-align: center;
+  }
+
+  .SubIcon {
+    padding-bottom: 4px;
+    padding-right: 10px;
+    width: 26px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .PodcastHeader {
-        font-size: 3vw;
-    }
+  .PodcastHeader {
+    font-size: 3vw;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .PodcastItem {
-        position: relative;
-        z-index: 99;
-        left: 10vw;
-        font-family: Graphik Web;
-    }
-    
-    .PodcastItemDiv1 {
-        width: 37.5vw;
-        color: #ffffff;
-        margin-right: 3.5vw;
-        float: left;
-    }
+  .PodcastItem {
+    position: relative;
+    z-index: 99;
+    left: 10vw;
+    font-family: Graphik Web;
+  }
 
-    .PodcastHeader {
-        position: relative;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 2vw;
-        margin-bottom: 1vw;
-    }
+  .PodcastItemDiv1 {
+    width: 37.5vw;
+    color: #ffffff;
+    margin-right: 3.5vw;
+    float: left;
+  }
 
-    .PodcastText {
-        color: #C8C8C8;
-        margin-top: 0.5vw;
-    }
+  .PodcastHeader {
+    position: relative;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
 
-    .PodcastTitle {
-        color: #ffffff;
-        font-weight: bold;
-    }
+  .PodcastText {
+    color: #c8c8c8;
+    margin-top: 0.5vw;
+  }
 
-    .PodcastContentContainer {
-        width: 25vw;
-        display: inline-block;
-        margin-left: 2vw;
-    }
+  .PodcastTitle {
+    color: #ffffff;
+    font-weight: bold;
+  }
 
-    .PodcastIcon {
-        float: left;
-    }
+  .PodcastContentContainer {
+    width: 25vw;
+    display: inline-block;
+    margin-left: 2vw;
+  }
 
-    .PodcastLinksContainer {
-        margin-top: 1vw;
-    }
+  .PodcastIcon {
+    float: left;
+  }
 
-    .PodcastLink {
-        font-weight: bold;
-        margin-right: 32px;
-    }
+  .PodcastLinksContainer {
+    margin-top: 1vw;
+  }
 
-    #podcast-toggle {
-        color: #ffffff;
-        background-color: #000000;
-        border-color: rgba(255,255,255,0.5);
-        font-family: Graphik Web;
-        font-weight: bold;
-        height: 36px;
-        border-radius: 6px;
-    }
+  .PodcastLink {
+    font-weight: bold;
+    margin-right: 32px;
+  }
 
-    .PodcastDropdown {
-        float: left;
-    }
+  #podcast-toggle {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: rgba(255, 255, 255, 0.5);
+    font-family: Graphik Web;
+    font-weight: bold;
+    height: 36px;
+    border-radius: 6px;
+  }
 
-    .ApplePodcast {
-        float: left;
-        margin-right: 1vw;
-        margin-bottom: 1vw;
-    }
+  .PodcastDropdown {
+    float: left;
+  }
 
-    .PodcastMenu {
-        text-align: center;
-    }
+  .ApplePodcast {
+    float: left;
+    margin-right: 1vw;
+    margin-bottom: 1vw;
+  }
 
-    .SubIcon {
-        padding-bottom: 4px;
-        padding-right: 10px;
-        width: 26px;
-    }
+  .PodcastMenu {
+    text-align: center;
+  }
+
+  .SubIcon {
+    padding-bottom: 4px;
+    padding-right: 10px;
+    width: 26px;
+  }
 }
 
 @media (max-width: 767px) {
-    .PodcastItem {
-        position: relative;
-        z-index: 99;
-        margin-top: 3vw;
-        padding: 0 5vw 0;
-        font-family: Graphik Web;
-    }
-    
-    .PodcastItemDiv1 {
-        color: #ffffff;
-        margin-right: 3.5vw;
-    }
+  .PodcastItem {
+    position: relative;
+    z-index: 99;
+    margin-top: 3vw;
+    padding: 0 5vw 0;
+    font-family: Graphik Web;
+  }
 
-    .PodcastHeader {
-        position: relative;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 7vw;
-        margin-bottom: 5vw;
-    }
+  .PodcastItemDiv1 {
+    color: #ffffff;
+    margin-right: 3.5vw;
+  }
 
-    .PodcastText {
-        color: #C8C8C8;
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-    }
+  .PodcastHeader {
+    position: relative;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 7vw;
+    margin-bottom: 5vw;
+  }
 
-    .PodcastTitle {
-        color: #ffffff;
-        font-weight: bold;
-    }
+  .PodcastText {
+    color: #c8c8c8;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
 
-    .PodcastContentContainer {
-        display: inline-block;
-        width: 60vw;
-        margin-left: 6vw;
-        margin-bottom: 4vw;
-    }
+  .PodcastTitle {
+    color: #ffffff;
+    font-weight: bold;
+  }
 
-    .PodcastIcon {
-        float: left;
-    }
+  .PodcastContentContainer {
+    display: inline-block;
+    width: 60vw;
+    margin-left: 6vw;
+    margin-bottom: 4vw;
+  }
 
-    .PodcastLinksContainer {
-        margin-top: 1vw;
-        margin-bottom: 5vw;
-    }
+  .PodcastIcon {
+    float: left;
+  }
 
-    .PodcastLink {
-        font-weight: bold;
-        margin-right: 32px;
-    }
+  .PodcastLinksContainer {
+    margin-top: 1vw;
+    margin-bottom: 5vw;
+  }
 
-    #podcast-toggle {
-        color: #ffffff;
-        background-color: #000000;
-        border-color: rgba(255,255,255,0.5);
-        font-family: Graphik Web;
-        font-weight: bold;
-        height: 40px;
-        border-radius: 6px;
-    }
+  .PodcastLink {
+    font-weight: bold;
+    margin-right: 32px;
+  }
 
-    .PodcastDropdown {
-        float: left;
-    }
+  #podcast-toggle {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: rgba(255, 255, 255, 0.5);
+    font-family: Graphik Web;
+    font-weight: bold;
+    height: 40px;
+    border-radius: 6px;
+  }
 
-    .ApplePodcast {
-        float: left;
-        margin-right: 2vw;
-        margin-bottom: 1vw;
-    }
+  .PodcastDropdown {
+    float: left;
+  }
 
-    .PodcastMenu {
-        text-align: center;
-    }
+  .ApplePodcast {
+    float: left;
+    margin-right: 2vw;
+    margin-bottom: 1vw;
+  }
 
-    .SubIcon {
-        padding-bottom: 4px;
-        padding-right: 10px;
-        width: 28px;
-    }
+  .PodcastMenu {
+    text-align: center;
+  }
+
+  .SubIcon {
+    padding-bottom: 4px;
+    padding-right: 10px;
+    width: 28px;
+  }
 }

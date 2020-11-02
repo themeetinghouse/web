@@ -1,40 +1,40 @@
 {
-    "page": {
-        "name": "blog",
-        "title": "Blog",
-        "keywords": "",
-        "description": "",
-        "pageConfig": {
-            "movingMenu": false,
-            "showLogoText": true,
-            "logoColor": "black",
-            "showSearch": true,
-            "showFooter": true,
-            "showMenu": true
-        },
-        "content": [
-            {
-                "type": "og-tags",
-                "image": "/static/images/og-images/blog.jpg",
-                "url": "https://www.themeetinghouse.com/blog",
-                "title": "The Meeting House - Blog",
-                "description": ""
-            },
-            {
-                "type": "blog",
-                "style": "hero",
-                "header1": "Blog",
-                "status": "Live",
-                "sortOrder": "DESC"
-            },
-            {
-                "type": "list",
-                "class": "blogs",
-                "style": "blogs",
-                "status": "Live",
-                "sortOrder": "DESC",
-                "skipFirstPost": true
-            }
-        ]
-    }
+  "page": {
+    "name": "blog",
+    "title": "Blog",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/blog.jpg",
+        "url": "https://www.themeetinghouse.com/blog",
+        "title": "The Meeting House - Blog",
+        "description": ""
+      },
+      {
+        "type": "blog",
+        "style": "hero",
+        "header1": "Blog",
+        "status": "Live",
+        "sortOrder": "DESC"
+      },
+      {
+        "type": "list",
+        "class": "blogs",
+        "style": "blogs",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "skipFirstPost": true
+      }
+    ]
+  }
 }

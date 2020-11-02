@@ -1,15 +1,15 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { History } from "history";
+import { History } from 'history';
 import HomePage from 'pages/HomePage';
 
 interface Props extends RouteComponentProps<any> {
-  match: any
-  history: History<any>
+  match: any;
+  history: History<any>;
 }
 interface State {
-  content: any
+  content: any;
 }
 
 const Admin = lazy(() => import('./pages/admin/index'));
@@ -19,7 +19,7 @@ const CreateNotes = lazy(() => import('./pages/admin/create-notes'));
 const AddLive = lazy(() => import('./pages/admin/livestream'));
 const GetInsta = lazy(() => import('./pages/admin/instagram'));
 
-class App extends React.Component<Props, State>  {
+class App extends React.Component<Props, State> {
   render() {
     return (
       <Suspense fallback={<div></div>}>
@@ -30,10 +30,10 @@ class App extends React.Component<Props, State>  {
           <Route path="/admin/livestream" render={() => <AddLive />} />
           <Route path="/admin/instagram" render={() => <GetInsta />} />
           <Route path="/admin" render={() => <Admin />} />
-          <Route path="*" render={props => <HomePage {...props} />} />
+          <Route path="*" render={(props) => <HomePage {...props} />} />
         </Switch>
       </Suspense>
-    )
+    );
   }
 }
-export default withRouter(App)
+export default withRouter(App);

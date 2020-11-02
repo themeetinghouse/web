@@ -1,4 +1,4 @@
-@import "../../theme";
+@import '../../theme';
 
 @media (min-width: 768px) {
   .faqText {
@@ -6,12 +6,12 @@
     font-family: Graphik Web;
   }
   .FAQFloatLeft {
-    float: "left";
+    float: 'left';
     cursor: pointer;
     color: $onyxblacktext;
   }
   .FAQFloatRight {
-    float: "right";
+    float: 'right';
   }
   .FAQFullWidth {
     width: 90%;
@@ -244,12 +244,12 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .FAQFloatLeft {
-    float: "left";
+    float: 'left';
     cursor: pointer;
     color: $onyxblacktext;
   }
   .FAQFloatRight {
-    float: "right";
+    float: 'right';
   }
   .FAQFullWidth {
     width: 90%;
@@ -496,12 +496,12 @@
 
 @media (max-width: 767px) {
   .FAQFloatLeft {
-    float: "right";
+    float: 'right';
     cursor: pointer;
     color: $onyxblacktext;
   }
   .FAQFloatRight {
-    float: "right";
+    float: 'right';
   }
   .FAQFullWidth {
     width: 90%;
