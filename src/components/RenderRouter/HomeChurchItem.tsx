@@ -670,7 +670,7 @@ export class ContentItem extends React.Component<Props, State> {
               'HomeChurchItemDiv3 ' +
               (this.state.mapSelected ? 'MapView' : 'ListView')
             }
-            style={this.state.mapSelected ? {} : this.state.allLocationsLoaded? { marginBottom: '-52vh' }: {display:"inline-block"}}
+            style={this.state.mapSelected ? {} : { marginBottom: '-52vh' }}
           >
             <div className="HomeChurchFormItemContainer">
               {
