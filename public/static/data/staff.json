@@ -102,9 +102,9 @@
     "Staff": true,
     "FirstName": "Carrissa",
     "LastName": "Reffell",
-    "Phone": "905.287.7000, ext. 7067",
-    "Position": "Events Admin & Associate",
-    "sites": ["Operations"],
+    "Phone": "905.287.7000",
+    "Position": "Communications Administrator and Project Manager",
+    "sites": ["Communications"],
     "Email": "Carrissa.Reffell@themeetinghouse.com"
   },
   {
@@ -544,7 +544,7 @@
     "FirstName": "Natalie",
     "LastName": "Burtch",
     "Phone": "905.287.7000, ext. 835",
-    "Position": "Oakville Tech Coordinator",
+    "Position": "Live Production Manager",
     "sites": ["OAKV"],
     "Email": "Natalie.Burtch@themeetinghouse.com"
   },
