@@ -700,6 +700,10 @@
     "to": "http://etc.ch/YntM"
   },
   {
+    "id": "feedback",
+    "to": "themeetinghouse.typeform.com/to/Iev3N6yL"
+  },
+  {
     "id": "parishchallenge",
     "to": "https://meeting.formstack.com/forms/parish_challenge"
   }
