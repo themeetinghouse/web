@@ -46,11 +46,8 @@
     font-size: 14px;
     padding: 0.75rem 1.25rem;
     white-space: nowrap;
-    &:hover {
-      color: '#fff';
-    }
     &:active {
-      background-color: '$onyxblacktext;';
+      background-color: $onyxblacktext;
     }
   }
 
@@ -82,6 +79,6 @@
 
 @media (max-width: 767px) {
   .modal-footer {
-    height: 11vh;
+    height: 12vh;
   }
 }
