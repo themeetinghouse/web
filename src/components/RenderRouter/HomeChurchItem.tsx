@@ -22,6 +22,7 @@ import moment from 'moment';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
 import { Spinner } from 'reactstrap';
@@ -672,7 +673,7 @@ export class ContentItem extends React.Component<Props, State> {
             }
             style={this.state.mapSelected ? {} : { marginBottom: '-52vh' }}
           >
-            <div className="HomeChurchFormItemContainer">
+            <div className="HomeChurchFormItemContainer" style={!this.state.allLocationsLoaded ? {height:"221px"} : {}}>
               {
                 <Select
                   onChange={(value) =>
@@ -681,7 +682,6 @@ export class ContentItem extends React.Component<Props, State> {
                     )
                   }
                   placeholder="Select Parish"
-                  className="LocationSelect"
                   styles={this.styleSelect}
                   ref={(ref) => (this.selectControlLocation = ref)}
                   menuShouldScrollIntoView={true}
@@ -736,6 +736,7 @@ export class ContentItem extends React.Component<Props, State> {
                 'HomeChurchItemListData ' +
                 (!this.state.allLocationsLoaded ? 'LoadingMargin' : '')
               }
+              style={!this.state.allLocationsLoaded && !isMobile ? {height:"calc(88vh - 221px)"}:{}}
               ref={(ref) => (this.homeChurchListScrollContainer = ref)}
             >
               {filteredGroups
@@ -770,14 +771,7 @@ export class ContentItem extends React.Component<Props, State> {
                       </div>
                       <div className="HomeChurchDayOfWeek">
                         <Badge>
-                          {this.getDayOfWeek(item.schedule)}{' '}
-                          {(item.schedule?.recurrences?.recurrence
-                            ?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1
-                            ? '(every ' +
-                              item.schedule?.recurrences?.recurrence
-                                ?.recurrenceWeekly?.recurrenceFrequency +
-                              ' weeks)'
-                            : null}
+                          {this.getDayOfWeek(item.schedule)}
                         </Badge>
                       </div>
                     </div>
