@@ -228,7 +228,7 @@
 
 @media (min-width: 768px) {
   .LoadingMargin {
-    max-height: 55vh;
+    max-height: calc(88vh - 221px);
   }
   .ListButton {
     display: none;
