@@ -72,7 +72,6 @@
   .LiveVideoPlayerSeriesVideo,
   .LiveVideoPlayerSeriesAudio,
   .LiveVideoPlayerSeriesNotes {
-    float: left;
     margin-right: 2vw;
     color: #ffffff;
     font-family: Graphik Web;
@@ -113,6 +112,10 @@
   }
 
   .LiveVideoPlayerExtra {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     position: relative;
     left: 10vw;
     width: 80vw;
@@ -199,6 +202,17 @@
     width: 200px;
     margin-top: 5px;
     box-shadow: none !important;
+  }
+
+  .FeaturedButton {
+    margin: 0 2vw 0 0 !important;
+    padding: 0.375rem 0.75rem !important;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px !important;
+    font-size: 1rem !important;
   }
 
   .ShareButtonDesktop {
@@ -293,12 +307,10 @@
     font-size: 3vw;
     margin-top: 5vw;
     margin-left: 10vw;
-    // float:left;
   }
   .LiveVideoPlayerSeriesVideo,
   .LiveVideoPlayerSeriesAudio,
   .LiveVideoPlayerSeriesNotes {
-    float: left;
     margin-right: 2vw;
     color: #ffffff;
     font-family: Graphik Web;
@@ -323,6 +335,10 @@
   }
 
   .LiveVideoPlayerExtra {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     position: relative;
     left: 10vw;
     width: 80vw;
@@ -402,6 +418,17 @@
     width: 200px;
     margin-top: 5px;
     box-shadow: none !important;
+  }
+
+  .FeaturedButton {
+    margin: 0 2vw 0 0 !important;
+    padding: 0.375rem 0.75rem !important;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px !important;
+    font-size: 1rem !important;
   }
 
   .ShareButtonDesktop {
@@ -519,7 +546,6 @@
   .LiveVideoPlayerSeriesVideo,
   .LiveVideoPlayerSeriesAudio,
   .LiveVideoPlayerSeriesNotes {
-    float: left;
     margin-right: 2vw;
     color: #ffffff;
     font-family: Graphik Web;
@@ -640,14 +666,26 @@
     font-weight: bold;
     width: 125px;
     box-shadow: none !important;
+    margin-right: 5vw;
   }
 
-  .ShareButtonDesktop {
-    display: none;
+  .ShareButtonDesktop,
+  .hide-mobile {
+    display: none !important;
   }
 
   .ShareButtonMobile {
     margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .FeaturedButton {
+    padding: 0.375rem 0.75rem !important;
+    min-width: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .social-share-icon {
