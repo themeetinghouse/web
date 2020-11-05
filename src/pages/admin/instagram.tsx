@@ -34,6 +34,7 @@ const locations = [
   'newmarket.tmh',
   'tmhoakville',
   'tmhottawa',
+  'tmhparrysound',
   'tmhrichmond',
   'tmhuptowntoronto',
   'tmhwaterloo',
