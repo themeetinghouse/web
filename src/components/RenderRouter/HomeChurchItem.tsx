@@ -732,7 +732,10 @@ export class ContentItem extends React.Component<Props, State> {
             </div>
 
             <div
-              className="HomeChurchItemListData"
+              className={
+                'HomeChurchItemListData ' +
+                (!this.state.allLocationsLoaded ? 'LoadingMargin' : '')
+              }
               ref={(ref) => (this.homeChurchListScrollContainer = ref)}
             >
               {filteredGroups
