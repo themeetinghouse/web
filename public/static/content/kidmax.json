@@ -51,13 +51,13 @@
           {
             "type": "link",
             "title": "Download Preschool Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Nov 1PreschoolLESSON.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PreschoolLessonNov8.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Preschool Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesNov 1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesNov8.pdf",
             "openNewBrowser": true
           },
           {
@@ -85,21 +85,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaNov1.jpg",
-            "alt": "This week's big idea: God helps us see people the way he sees them."
+            "src": "/static/images/KidsBigIdeaNov8.jpg",
+            "alt": "This week's big idea: God helps us be who he created us to be."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Nov 1KidsLesson.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov8.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov 1-1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov8.pdf",
             "openNewBrowser": true
           },
           {
