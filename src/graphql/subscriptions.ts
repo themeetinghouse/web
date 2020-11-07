@@ -1160,6 +1160,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -1535,6 +1536,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -1910,6 +1912,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -2525,6 +2528,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -3280,6 +3284,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -4035,6 +4040,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -4574,6 +4580,7 @@ export const onCreateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -4715,6 +4722,7 @@ export const onCreateSeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -4794,6 +4802,7 @@ export const onCreateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -4881,6 +4890,7 @@ export const onCreateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -4997,6 +5007,7 @@ export const onCreateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -5422,6 +5433,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -5563,6 +5575,7 @@ export const onUpdateSeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -5642,6 +5655,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -5729,6 +5743,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -5845,6 +5860,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6270,6 +6286,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6411,6 +6428,7 @@ export const onDeleteSeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -6490,6 +6508,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6577,6 +6596,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6693,6 +6713,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -7101,6 +7122,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7483,6 +7505,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7865,6 +7888,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -8488,6 +8512,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -9251,6 +9276,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -10014,6 +10040,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -10686,6 +10713,7 @@ export const onCreateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -11006,6 +11034,7 @@ export const onCreateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -11094,6 +11123,7 @@ export const onCreateVideo = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -11151,6 +11181,7 @@ export const onCreateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -11207,6 +11238,7 @@ export const onCreateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -11287,6 +11319,7 @@ export const onCreateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -11642,6 +11675,7 @@ export const onCreateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12174,6 +12208,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12494,6 +12529,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12582,6 +12618,7 @@ export const onUpdateVideo = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -12639,6 +12676,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12695,6 +12733,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12775,6 +12814,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13130,6 +13170,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13662,6 +13703,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13982,6 +14024,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14070,6 +14113,7 @@ export const onDeleteVideo = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -14127,6 +14171,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14183,6 +14228,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14263,6 +14309,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14618,6 +14665,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14756,6 +14804,7 @@ export const onCreateBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14776,6 +14825,7 @@ export const onCreateBlogSeries = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -14833,6 +14883,7 @@ export const onCreateBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14889,6 +14940,7 @@ export const onCreateBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14962,6 +15014,7 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -14982,6 +15035,7 @@ export const onUpdateBlogSeries = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -15039,6 +15093,7 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15095,6 +15150,7 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15168,6 +15224,7 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15188,6 +15245,7 @@ export const onDeleteBlogSeries = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -15245,6 +15303,7 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15301,6 +15360,7 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15373,6 +15433,7 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -15423,6 +15484,7 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -15548,6 +15610,7 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -15679,6 +15742,7 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -15778,6 +15842,7 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -15828,6 +15893,7 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -15953,6 +16019,7 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -16084,6 +16151,7 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -16183,6 +16251,7 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -16233,6 +16302,7 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -16358,6 +16428,7 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -16489,6 +16560,7 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -16544,6 +16616,7 @@ export const onCreateBlog = /* GraphQL */ `
       blogTitle
       topics
       tags
+      hiddenMainIndex
       createdAt
       updatedAt
       series {
@@ -16791,6 +16864,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -16879,6 +16953,7 @@ export const onCreateBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -16936,6 +17011,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -16992,6 +17068,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17072,6 +17149,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17180,6 +17258,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17200,6 +17279,7 @@ export const onCreateBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -17257,6 +17337,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17313,6 +17394,7 @@ export const onCreateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17341,6 +17423,7 @@ export const onUpdateBlog = /* GraphQL */ `
       blogTitle
       topics
       tags
+      hiddenMainIndex
       createdAt
       updatedAt
       series {
@@ -17588,6 +17671,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17676,6 +17760,7 @@ export const onUpdateBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -17733,6 +17818,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17789,6 +17875,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17869,6 +17956,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17977,6 +18065,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -17997,6 +18086,7 @@ export const onUpdateBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -18054,6 +18144,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18110,6 +18201,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18138,6 +18230,7 @@ export const onDeleteBlog = /* GraphQL */ `
       blogTitle
       topics
       tags
+      hiddenMainIndex
       createdAt
       updatedAt
       series {
@@ -18385,6 +18478,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18473,6 +18567,7 @@ export const onDeleteBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -18530,6 +18625,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18586,6 +18682,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18666,6 +18763,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18774,6 +18872,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18794,6 +18893,7 @@ export const onDeleteBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -18851,6 +18951,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -18907,6 +19008,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -19122,6 +19224,7 @@ export const onCreateVerse = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -19433,6 +19536,7 @@ export const onUpdateVerse = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -19744,6 +19848,7 @@ export const onDeleteVerse = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -20166,6 +20271,7 @@ export const onCreateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -20254,6 +20360,7 @@ export const onCreateNotes = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -20311,6 +20418,7 @@ export const onCreateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -20367,6 +20475,7 @@ export const onCreateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -20447,6 +20556,7 @@ export const onCreateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -20589,6 +20699,7 @@ export const onCreateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -20914,6 +21025,7 @@ export const onUpdateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21002,6 +21114,7 @@ export const onUpdateNotes = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -21059,6 +21172,7 @@ export const onUpdateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21115,6 +21229,7 @@ export const onUpdateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21195,6 +21310,7 @@ export const onUpdateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21337,6 +21453,7 @@ export const onUpdateNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21662,6 +21779,7 @@ export const onDeleteNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21750,6 +21868,7 @@ export const onDeleteNotes = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -21807,6 +21926,7 @@ export const onDeleteNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21863,6 +21983,7 @@ export const onDeleteNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -21943,6 +22064,7 @@ export const onDeleteNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -22085,6 +22207,7 @@ export const onDeleteNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }

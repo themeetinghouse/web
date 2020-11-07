@@ -1349,6 +1349,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -1988,6 +1989,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -3153,6 +3155,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3187,6 +3190,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -3266,6 +3270,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3353,6 +3358,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3446,6 +3452,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3480,6 +3487,7 @@ export const blogBridgeByPost = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -3559,6 +3567,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3646,6 +3655,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -4234,6 +4244,7 @@ export const getSpeaker = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -4849,6 +4860,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -5461,6 +5473,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -5843,6 +5856,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -5931,6 +5945,7 @@ export const listSeriess = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -5988,6 +6003,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -6044,6 +6060,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -6124,6 +6141,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -6509,6 +6527,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6650,6 +6669,7 @@ export const getSeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -6729,6 +6749,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6816,6 +6837,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6932,6 +6954,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -7298,6 +7321,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7386,6 +7410,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -7443,6 +7468,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7499,6 +7525,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7579,6 +7606,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -8090,6 +8118,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -8580,6 +8609,7 @@ export const listVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -9253,6 +9283,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9573,6 +9604,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9661,6 +9693,7 @@ export const getVideo = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -9718,6 +9751,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9774,6 +9808,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9854,6 +9889,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -10209,6 +10245,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -10707,6 +10744,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -11348,6 +11386,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -11985,6 +12024,7 @@ export const searchVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12263,6 +12303,7 @@ export const listBlogSeriess = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12364,6 +12405,7 @@ export const getBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12384,6 +12426,7 @@ export const getBlogSeries = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -12441,6 +12484,7 @@ export const getBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12497,6 +12541,7 @@ export const getBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12530,6 +12575,7 @@ export const listBlogs = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -12655,6 +12701,7 @@ export const listBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12786,6 +12833,7 @@ export const listBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12842,6 +12890,7 @@ export const getBlog = /* GraphQL */ `
       blogTitle
       topics
       tags
+      hiddenMainIndex
       createdAt
       updatedAt
       series {
@@ -13089,6 +13138,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13177,6 +13227,7 @@ export const getBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -13234,6 +13285,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13290,6 +13342,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13370,6 +13423,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13478,6 +13532,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13498,6 +13553,7 @@ export const getBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -13555,6 +13611,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13611,6 +13668,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13654,6 +13712,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -13779,6 +13838,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -13910,6 +13970,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -13977,6 +14038,7 @@ export const searchBlogs = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -14102,6 +14164,7 @@ export const searchBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -14233,6 +14296,7 @@ export const searchBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -14501,6 +14565,7 @@ export const getVerse = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -14771,6 +14836,7 @@ export const listVerses = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -15020,6 +15086,7 @@ export const listNotess = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -15443,6 +15510,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15531,6 +15599,7 @@ export const getNotes = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -15588,6 +15657,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15644,6 +15714,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15724,6 +15795,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15866,6 +15938,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
