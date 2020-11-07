@@ -56,9 +56,6 @@ export default class HomeFooter extends React.Component {
               </div>
               <br />
               <br />
-              {/*              <img src="/static/google-play-badge.png" width="135" height="52" alt="Download App on Google Play Store" />
-              <a href="https://apps.apple.com/us/app/meeting-house/id917315049?mt=8"><img src="/static/AppleStore-badge.svg" width="135" height="38" alt="Download App on Apple Store" /></a>
-    */}{' '}
             </MDBCol>
             <MDBCol md="6">
               <p
@@ -73,7 +70,7 @@ export default class HomeFooter extends React.Component {
                 <b>Main Office</b>
                 <br />
                 <a
-                  href="https://www.google.com/maps/place/The+Meeting+House+Oakville/@43.5114145,-79.6860044,18.75z/data=!4m13!1m7!3m6!1s0x882b43061295ed3d:0x6c6d4c16d7ec8f0e!2s2700+Bristol+Cir,+Oakville,+ON+L6H+6E1!3b1!8m2!3d43.5111738!4d-79.685115!3m4!1s0x882b430685cd3af1:0xd4bac54f4e0dde88!8m2!3d43.5112168!4d-79.6853386"
+                  href="https://goo.gl/maps/TqH1eGQ4pDxDZmqr7"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
