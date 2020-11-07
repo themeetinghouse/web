@@ -139,7 +139,7 @@
       },
       {
         "type": "blog",
-        "style": "twoImage",
+        "style": "multiImage",
         "status": "Live",
         "header1": "Recent Blog Entries",
         "sortOrder": "DESC",

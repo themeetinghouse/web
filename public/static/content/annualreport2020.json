@@ -4,7 +4,6 @@
     "title": "Annual Report 2020",
     "keywords": "",
     "description": "",
-
     "pageConfig": {
       "movingMenu": false,
       "showLogoText": true,
@@ -21,7 +20,6 @@
         "title": "Annual Report",
         "description": ""
       },
-
       {
         "type": "hero",
         "style": "full",
@@ -94,7 +92,6 @@
         "style": "oneImage",
         "header1": "Our impact is measured by His hands and feet.",
         "text1": "We have so much to be thankful for during our last fiscal year. Here are some of the things we’re celebrating:",
-
         "image1": [
           {
             "src": "/static/images/compassion-2-new.jpg",
@@ -145,7 +142,7 @@
       },
       {
         "type": "blog",
-        "style": "twoImage",
+        "style": "multiImage",
         "status": "Live",
         "header1": "Stories",
         "sortOrder": "DESC",
@@ -154,7 +151,7 @@
       },
       {
         "type": "blog",
-        "style": "twoImage",
+        "style": "multiImage",
         "status": "Live",
         "header1": "Stories",
         "sortOrder": "DESC",
@@ -163,7 +160,7 @@
       },
       {
         "type": "blog",
-        "style": "twoImage",
+        "style": "multiImage",
         "status": "Live",
         "header1": "Stories",
         "sortOrder": "DESC",
