@@ -6,12 +6,6 @@
   }
 
   @media (min-width: 768px) {
-    .blogdescription {
-      padding-top: 2.2vw !important;
-      width: 31vw;
-      font-size: 1.1vw;
-    }
-
     .blogauthor {
       font-size: 0.83vw;
       width: 30.625vw;
@@ -109,8 +103,8 @@
 
     .BlogMultiImageItem {
       width: 38.33vw;
-      display: inline-block;
-      vertical-align: top;
+      display: inline-flex;
+      flex-direction: column;
       margin-right: 1.67vw;
       margin-bottom: 1.67vw;
     }
@@ -124,12 +118,10 @@
     }
 
     .blogdescription.multiImage {
-      padding-top: 1.67vw;
-      padding-bottom: 2.2vw;
+      margin: 2.2vw 0;
       width: 37.22vw;
       font-size: 1.1vw;
       color: #1a1a1a;
-      margin: 0;
     }
 
     .blogauthor.multiImage {
@@ -151,12 +143,6 @@
   }
 
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .blogdescription {
-      padding-top: 2.2vw !important;
-      width: 31vw;
-      font-size: 1.1vw;
-    }
-
     .blogauthor {
       font-size: 0.83vw;
       width: 30.625vw;
@@ -254,8 +240,8 @@
 
     .BlogMultiImageItem {
       width: 38.33vw;
-      display: inline-block;
-      vertical-align: top;
+      display: inline-flex;
+      flex-direction: column;
       margin-right: 1.67vw;
       margin-bottom: 1.67vw;
     }
@@ -269,12 +255,10 @@
     }
 
     .blogdescription.multiImage {
-      padding-top: 1.67vw;
-      padding-bottom: 2.2vw;
+      margin: 2.2vw 0;
       width: 37.22vw;
       font-size: 1.1vw;
       color: #1a1a1a;
-      margin: 0;
     }
 
     .blogauthor.multiImage {
@@ -368,12 +352,6 @@
       position: relative;
       left: 0vw;
       width: 100vw;
-    }
-
-    .blogdescription {
-      font-size: 4.3vw;
-      line-height: 6.4vw;
-      padding-bottom: 11.2vw;
     }
 
     .blog.multiImage {

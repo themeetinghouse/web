@@ -166,10 +166,7 @@ class BlogItem extends React.Component<Props, State> {
   }
 
   render() {
-    if (
-      this.state.publishedOnly === null ||
-      this.state.publishedOnly.length === 0
-    ) {
+    if (this.state.publishedOnly?.length === 0 || !this.state.publishedOnly) {
       return null;
     }
 
@@ -243,7 +240,7 @@ class BlogItem extends React.Component<Props, State> {
                 {this.props.content.header1}
               </h1>
               {this.state.publishedOnly
-                .slice(0, this.props.content.limit ?? 2)
+                .slice(0, this.props.content.limit)
                 .map((item, index) => {
                   const imageSquare = {
                     src: this.getImageURI(item?.blogTitle, 'square'),
@@ -256,7 +253,7 @@ class BlogItem extends React.Component<Props, State> {
                   return (
                     <div key={index} className="BlogMultiImageItem">
                       <Link to={'/posts/' + item?.id}>
-                        {this.state.screenWidth > 768 ? (
+                        {this.state.screenWidth >= 768 ? (
                           <ScaledImage
                             image={imageBanner}
                             className="BlogBannerImage multiImage"
@@ -307,16 +304,19 @@ class BlogItem extends React.Component<Props, State> {
                     </div>
                   );
                 })}
-              {this.state.publishedOnly.length % 2 !== 0 ? (
+              {this.state.publishedOnly.length % 2 !== 0 &&
+              this.state.screenWidth >= 768 ? (
                 <div className="BlogMultiImageItem"></div>
               ) : null}
-              <LinkButton
-                size="lg"
-                className="inverted multiImageButton"
-                to="/blog"
-              >
-                View All Blogs
-              </LinkButton>
+              {!this.props.content.hideAllBlogsButton ? (
+                <LinkButton
+                  size="lg"
+                  className="inverted multiImageButton"
+                  to="/blog"
+                >
+                  View All Blogs
+                </LinkButton>
+              ) : null}
             </div>
           </div>
         );

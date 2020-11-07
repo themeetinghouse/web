@@ -50,4 +50,5 @@ export interface BlogItemContent {
   sortOrder?: 'DESC' | 'ASC';
   limit?: number;
   blogSeries?: string;
+  hideAllBlogsButton?: boolean;
 }
