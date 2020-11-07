@@ -7,7 +7,7 @@ import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
 import { ListLivestreamsQuery } from '../../API';
-import { Link } from 'components/Link/Link';
+import { Link, LinkButton } from 'components/Link/Link';
 import { isMobile, isMobileOnly } from 'react-device-detect';
 import Fade from 'react-bootstrap/Fade';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -107,20 +107,23 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   async getLive() {
-    const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
+    const today = moment.tz("America/Toronto").format('YYYY-MM-DD');
     try {
       const json = await API.graphql({
         query: queries.listLivestreams,
         variables: { filter: { date: { eq: today } } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       }) as GraphQLResult<ListLivestreamsQuery>;
-      json.data?.listLivestreams?.items?.forEach(item => {
-        const rightNow = moment().tz("America/Toronto").format('HH:mm')
-        const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
-        if (showTime) {
-          this.setState({ liveEvent: item })
-        }
-      })
+
+      if (json.data?.listLivestreams?.items) {
+        for (const item of json.data?.listLivestreams?.items) {
+          const rightNow = moment().tz("America/Toronto").format('HH:mm');
+          const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime;
+          if (showTime) {
+            this.setState({ liveEvent: item })
+          }
+        } 
+      }
     } catch (err) {
       console.error(err)
     }
@@ -205,6 +208,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   render() {
+    const featuredItem = this.state.liveEvent?.menu?.filter(a => a?.linkType.toLowerCase() === 'featured');
+
     if (this.state.liveEvent) {
       return <div className="LiveVideoPlayerDiv" >
         {this.state.isLive ?
@@ -220,25 +225,39 @@ export default class VideoPlayer extends React.Component<Props, State> {
           </div>}
         {this.state.liveEvent.menu && this.state.liveEvent.menu.length > 0 ?
           <div className="LiveVideoPlayerExtra" >
-            {this.state.liveEvent.menu.map((item, index) => {
-              const href = item?.link
-              if (!href)
-                return null
+            {featuredItem && featuredItem?.length > 0 && featuredItem[0] ?
+              <LinkButton className='FeaturedButton hide-mobile' newWindow to={featuredItem[0].link}>
+                <img className='button-icon' src='/static/svg/New Window.svg' alt="" />
+                {featuredItem[0].title}</LinkButton>
+              : null}
+            {this.state.liveEvent.menu
+              .filter(a => a?.linkType.toLowerCase() !== 'featured')
+              .map((item, index) => {
+                const href = item?.link
+                if (!href)
+                  return null
 
-              const svg =
-                item?.title === 'Notes' ? 'Notes-white' :
-                  item?.title === 'Give' ? 'Give-white' :
-                    item?.title === 'Music' ? 'Teaching-white' :
-                      item?.title === 'Kidmax' ? 'Family Friendly-white' :
-                        item?.title === 'Connect' ? 'User-white' : 'New Window-white'
+                const svg =
+                  item?.title === 'Notes' ? 'Notes-white' :
+                    item?.title === 'Give' ? 'Give-white' :
+                      item?.title === 'Music' ? 'Teaching-white' :
+                        item?.title === 'Kidmax' ? 'Family Friendly-white' :
+                          item?.title === 'Connect' ? 'User-white' : 'New Window-white'
 
-              return <div key={index} className="LiveVideoPlayerSeriesNotes">
-                {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
-                <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
-              </div>
-            })}
+                return <div key={index} className="LiveVideoPlayerSeriesNotes">
+                  {svg ? <img className="button-icon" src={`/static/svg/${svg}.svg`} alt="" /> : null}
+                  <Link className="LiveMenuLink" newWindow to={href}>{item?.title}</Link>
+                </div>
+              })}
           </div> : null}
-        <div className="ShareButtonMobile">{this.shareButton()}</div>
+        <div className="ShareButtonMobile">
+          {this.shareButton()}
+          {featuredItem && featuredItem?.length > 0 && featuredItem[0] ?
+            <LinkButton className='FeaturedButton' newWindow to={featuredItem[0].link}>
+              <img className="button-icon" src='/static/svg/New Window.svg' alt="" />
+              {featuredItem[0].title}</LinkButton>
+            : null}
+        </div>
         {this.state.liveEvent.showChat && !isMobile ? <iframe title="Live Teaching Chat" frameBorder="0" className="LiveVideoPlayerIframe" src={"https://www.youtube.com/live_chat?v=" + this.state.liveEvent.liveYoutubeId + "&embed_domain=www.themeetinghouse.com"}></iframe> : <div style={{ height: '10vw' }} />}
         {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ?
           <div className="ZoomGrid">
