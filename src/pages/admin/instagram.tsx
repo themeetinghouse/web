@@ -6,11 +6,7 @@ import * as mutations from '../../graphql/mutations';
 import * as adminQueries from './queries';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
-import {
-  CreateInstagramInput,
-  CreateInstagramMutation,
-  GetInstagramQuery,
-} from 'API';
+import { CreateInstagramInput, GetInstagramQuery } from 'API';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -78,6 +74,7 @@ export default function Index(): JSX.Element {
           });
         }
       });
+      let cnt = 0;
       for (const image of images) {
         try {
           const getInstagram = (await API.graphql({
@@ -87,12 +84,20 @@ export default function Index(): JSX.Element {
           })) as GraphQLResult<GetInstagramQuery>;
 
           if (!getInstagram.data?.getInstagram) {
-            const createInstagram = (await API.graphql({
+            const createInstagram = await API.graphql({
               query: mutations.createInstagram,
               variables: { input: image },
               authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-            })) as GraphQLResult<CreateInstagramMutation>;
+            });
             console.log(createInstagram);
+          } else if (cnt <= 8) {
+            const updateInstagram = await API.graphql({
+              query: mutations.updateInstagram,
+              variables: { input: image },
+              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+            });
+            console.log(updateInstagram);
+            cnt++;
           }
         } catch (e) {
           console.error(e);
