@@ -40,7 +40,7 @@
       },
       {
         "type": "blog",
-        "style": "twoImage",
+        "style": "multiImage",
         "status": "Live",
         "header1": "Recent News and Updates",
         "sortOrder": "DESC",

@@ -44,7 +44,7 @@ export interface FormItem {
 
 export interface BlogItemContent {
   type: 'blog';
-  style: 'twoImage' | 'hero';
+  style: 'multiImage' | 'hero';
   status: 'Live';
   header1?: string;
   sortOrder?: 'DESC' | 'ASC';

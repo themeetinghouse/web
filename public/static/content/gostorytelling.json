@@ -37,7 +37,7 @@
       },
       {
         "type": "blog",
-        "style": "twoImage",
+        "style": "multiImage",
         "status": "Live",
         "header1": "Stories",
         "sortOrder": "DESC",

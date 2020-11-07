@@ -45,8 +45,6 @@
     }
 
     .author-underline {
-      //padding-bottom: 1px;
-      //border-bottom: solid 1px white;
       color: white;
     }
 
@@ -85,38 +83,39 @@
       padding-bottom: 5vh;
     }
 
-    .blog.twoImage {
+    .blog.multiImage {
       height: auto;
       padding-bottom: 5vw;
     }
 
-    .blog-h1.twoImage {
+    .blog-h1.multiImage {
       font-size: 1.6vw;
       top: 0;
       padding-bottom: 2.2vw;
       color: #1a1a1a;
     }
 
-    .BlogSquareImage.twoImage {
+    .BlogSquareImage.multiImage {
       display: none;
       display: hidden;
     }
 
-    .BlogBannerImage.twoImage {
+    .BlogBannerImage.multiImage {
       width: 38.33vw;
       height: 20.83vw;
       cursor: pointer;
       object-fit: cover;
     }
 
-    .BlogTwoImageItem {
+    .BlogMultiImageItem {
       width: 38.33vw;
       display: inline-block;
       vertical-align: top;
       margin-right: 1.67vw;
+      margin-bottom: 1.67vw;
     }
 
-    .blog-post-title.twoImage {
+    .blog-post-title.multiImage {
       padding: 0;
       font-size: 1.1vw;
       font-weight: bold;
@@ -124,7 +123,7 @@
       font-family: Graphik Web;
     }
 
-    .blogdescription.twoImage {
+    .blogdescription.multiImage {
       padding-top: 1.67vw;
       padding-bottom: 2.2vw;
       width: 37.22vw;
@@ -133,18 +132,21 @@
       margin: 0;
     }
 
-    .blogauthor.twoImage {
+    .blogauthor.multiImage {
       font-size: 0.83vw;
       color: #54565a;
     }
 
-    .author-underline.twoImage {
-      //border-bottom: solid 1px #1A1A1A;
+    .author-underline.multiImage {
       color: #1a1a1a;
     }
 
-    .BlogTwoImageTextContainer {
+    .BlogMultiImageTextContainer {
       padding-top: 2.2vw;
+    }
+
+    .multiImageButton {
+      margin-top: 1.67vw;
     }
   }
 
@@ -188,8 +190,6 @@
     }
 
     .author-underline {
-      //padding-bottom: 1px;
-      //border-bottom: solid 1px white;
       color: white;
     }
 
@@ -228,38 +228,39 @@
       padding-bottom: 5vh;
     }
 
-    .blog.twoImage {
+    .blog.multiImage {
       height: auto;
       padding-bottom: 5vw;
     }
 
-    .blog-h1.twoImage {
+    .blog-h1.multiImage {
       font-size: 1.6vw;
       top: 0;
       padding-bottom: 2.2vw;
       color: #1a1a1a;
     }
 
-    .BlogSquareImage.twoImage {
+    .BlogSquareImage.multiImage {
       display: none;
       display: hidden;
     }
 
-    .BlogBannerImage.twoImage {
+    .BlogBannerImage.multiImage {
       width: 38.33vw;
       height: 20.83vw;
       cursor: pointer;
       object-fit: cover;
     }
 
-    .BlogTwoImageItem {
+    .BlogMultiImageItem {
       width: 38.33vw;
       display: inline-block;
       vertical-align: top;
       margin-right: 1.67vw;
+      margin-bottom: 1.67vw;
     }
 
-    .blog-post-title.twoImage {
+    .blog-post-title.multiImage {
       padding: 0;
       font-size: 1.1vw;
       font-weight: bold;
@@ -267,7 +268,7 @@
       font-family: Graphik Web;
     }
 
-    .blogdescription.twoImage {
+    .blogdescription.multiImage {
       padding-top: 1.67vw;
       padding-bottom: 2.2vw;
       width: 37.22vw;
@@ -276,24 +277,24 @@
       margin: 0;
     }
 
-    .blogauthor.twoImage {
+    .blogauthor.multiImage {
       font-size: 0.83vw;
       color: #54565a;
     }
 
-    .author-underline.twoImage {
-      //border-bottom: solid 1px #1A1A1A;
+    .author-underline.multiImage {
       color: #1a1a1a;
     }
 
-    .BlogTwoImageTextContainer {
+    .BlogMultiImageTextContainer {
       padding-top: 2.2vw;
     }
 
-    .twoImageButton {
-      margin-top: 3.3vw;
+    .multiImageButton {
+      margin-top: 1.67vw;
     }
   }
+
   @media (max-width: 767px) {
     .blog-h1 {
       position: relative;
@@ -324,8 +325,6 @@
     }
 
     .author-underline {
-      //padding-bottom: 1px;
-      //border-bottom: solid 1px white;
       color: white;
     }
 
@@ -377,33 +376,33 @@
       padding-bottom: 11.2vw;
     }
 
-    .blog.twoImage {
+    .blog.multiImage {
       height: auto;
       padding: 10vw 5vw 0vw;
     }
 
-    .blog-h1.twoImage {
+    .blog-h1.multiImage {
       font-size: 6.4vw;
       top: 0;
       padding-bottom: 9.6vw;
       color: #1a1a1a;
     }
 
-    .BlogSquareImage.twoImage {
+    .BlogSquareImage.multiImage {
       width: 88.5vw;
       height: 88.5vw;
       object-fit: cover;
     }
 
-    .BlogBannerImage.twoImage {
+    .BlogBannerImage.multiImage {
       display: none;
     }
 
-    .BlogTwoImageItem {
+    .BlogMultiImageItem {
       margin-right: 1.67vw;
     }
 
-    .blog-post-title.twoImage {
+    .blog-post-title.multiImage {
       padding: 8.5vw 0 0;
       font-size: 4.26vw;
       line-height: 4.26vw;
@@ -412,7 +411,7 @@
       font-family: Graphik Web;
     }
 
-    .blogdescription.twoImage {
+    .blogdescription.multiImage {
       padding-top: 6.4vw;
       padding-bottom: 12.8vw;
       font-size: 4.26vw;
@@ -420,18 +419,17 @@
       color: #1a1a1a;
     }
 
-    .blogauthor.twoImage {
+    .blogauthor.multiImage {
       padding-top: 1.2vw;
       font-size: 3.2vw;
       color: #54565a;
     }
 
-    .author-underline.twoImage {
-      //border-bottom: solid 1px #1A1A1A;
+    .author-underline.multiImage {
       color: #1a1a1a;
     }
 
-    .BlogTwoImageTextContainer {
+    .BlogMultiImageTextContainer {
       margin-top: 2.2vw;
       padding-left: 2vw;
       padding-bottom: 12.8vw;

@@ -166,10 +166,10 @@ class BlogItem extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.publishedOnly === null) {
-      return null;
-    }
-    if (this.state.publishedOnly.length === 0) {
+    if (
+      this.state.publishedOnly === null ||
+      this.state.publishedOnly.length === 0
+    ) {
       return null;
     }
 
@@ -235,80 +235,84 @@ class BlogItem extends React.Component<Props, State> {
             </div>
           </div>
         );
-      case 'twoImage':
+      case 'multiImage':
         return (
           <div className="blog-item">
-            <div className="blog twoImage">
-              <h1 className="blog-h1 twoImage">{this.props.content.header1}</h1>
-              {this.state.publishedOnly.slice(0, 2).map((item, index) => {
-                const imageSquare = {
-                  src: this.getImageURI(item?.blogTitle, 'square'),
-                  alt: `blog post:" ${item?.id}`,
-                };
-                const imageBanner = {
-                  src: this.getImageURI(item?.blogTitle, 'banner'),
-                  alt: `blog post:" ${item?.id}`,
-                };
-                return (
-                  <div key={index} className="BlogTwoImageItem">
-                    <Link to={'/posts/' + item?.id}>
-                      {this.state.screenWidth > 768 ? (
-                        <ScaledImage
-                          image={imageBanner}
-                          className="BlogBannerImage twoImage"
-                          fallbackUrl="/static/photos/blogs/banner/fallback.jpg"
-                          breakpointSizes={{
-                            320: 160,
-                            480: 240,
-                            640: 320,
-                            1280: 640,
-                            1920: 960,
-                            2560: 1280,
-                          }}
-                        />
-                      ) : (
-                        <ScaledImage
-                          image={imageSquare}
-                          className="BlogSquareImage twoImage"
-                          fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-                          breakpointSizes={{
-                            320: 320,
-                            480: 480,
-                            640: 640,
-                            1280: 1280,
-                            1920: 1920,
-                            2560: 2560,
-                          }}
-                        />
-                      )}
-                    </Link>
-                    <div className="BlogTwoImageTextContainer">
-                      <div className="blog-post-title twoImage">
-                        {item?.blogTitle}
-                      </div>
-                      <div className="blogauthor twoImage">
-                        by <span className="author-only">{item?.author}</span>{' '}
-                        on {item?.publishedDate}
-                      </div>
-                      <div className="blogdescription twoImage">
-                        {item?.description}
-                      </div>
-                      <Link
-                        className="blog-read-more"
-                        to={'/posts/' + item?.id}
-                      >
-                        Read More
+            <div className="blog multiImage">
+              <h1 className="blog-h1 multiImage">
+                {this.props.content.header1}
+              </h1>
+              {this.state.publishedOnly
+                .slice(0, this.props.content.limit ?? 2)
+                .map((item, index) => {
+                  const imageSquare = {
+                    src: this.getImageURI(item?.blogTitle, 'square'),
+                    alt: `blog post:" ${item?.id}`,
+                  };
+                  const imageBanner = {
+                    src: this.getImageURI(item?.blogTitle, 'banner'),
+                    alt: `blog post:" ${item?.id}`,
+                  };
+                  return (
+                    <div key={index} className="BlogMultiImageItem">
+                      <Link to={'/posts/' + item?.id}>
+                        {this.state.screenWidth > 768 ? (
+                          <ScaledImage
+                            image={imageBanner}
+                            className="BlogBannerImage multiImage"
+                            fallbackUrl="/static/photos/blogs/banner/fallback.jpg"
+                            breakpointSizes={{
+                              320: 160,
+                              480: 240,
+                              640: 320,
+                              1280: 640,
+                              1920: 960,
+                              2560: 1280,
+                            }}
+                          />
+                        ) : (
+                          <ScaledImage
+                            image={imageSquare}
+                            className="BlogSquareImage multiImage"
+                            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+                            breakpointSizes={{
+                              320: 320,
+                              480: 480,
+                              640: 640,
+                              1280: 1280,
+                              1920: 1920,
+                              2560: 2560,
+                            }}
+                          />
+                        )}
                       </Link>
+                      <div className="BlogMultiImageTextContainer">
+                        <div className="blog-post-title multiImage">
+                          {item?.blogTitle}
+                        </div>
+                        <div className="blogauthor multiImage">
+                          by <span className="author-only">{item?.author}</span>{' '}
+                          on {item?.publishedDate}
+                        </div>
+                        <div className="blogdescription multiImage">
+                          {item?.description}
+                        </div>
+                        <Link
+                          className="blog-read-more"
+                          to={'/posts/' + item?.id}
+                        >
+                          Read More
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-              {this.state.publishedOnly.length === 1 ? (
-                <div className="BlogTwoImageItem"></div>
+                  );
+                })}
+              {this.state.publishedOnly.length % 2 !== 0 ? (
+                <div className="BlogMultiImageItem"></div>
               ) : null}
               <LinkButton
                 size="lg"
-                className="inverted twoImageButton"
+                className="inverted multiImageButton"
                 to="/blog"
               >
                 View All Blogs
