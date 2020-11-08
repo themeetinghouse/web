@@ -207,7 +207,14 @@ type F1ListEventScheduleRecurrenceMonthly{
   monthWeekDay:String
 
 }
-type F1ListGroup2{
+type F1ListGroup2 
+ @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+{
   id:String
   name:String
   description:String
@@ -233,6 +240,7 @@ type F1ListGroup2{
   lastUpdatedDate:String
   isLocationPrivate:String
   location:F1ListGroup2Location
+  schedule:F1ListEventSchedule2
 }
 type F1ListGroup2Address{
   address1:String

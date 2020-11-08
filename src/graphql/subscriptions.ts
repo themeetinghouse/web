@@ -779,6 +779,336 @@ export const onDeleteWebPage = /* GraphQL */ `
     }
   }
 `;
+export const onCreateF1ListGroup2 = /* GraphQL */ `
+  subscription OnCreateF1ListGroup2 {
+    onCreateF1ListGroup2 {
+      id
+      name
+      description
+      startDate
+      expirationDate
+      isOpen
+      isPublic
+      hasChildcare
+      isSearchable
+      churchCampus {
+        id
+        name
+      }
+      groupType {
+        id
+        name
+      }
+      groupURL
+      gender {
+        name
+      }
+      maritalStatus {
+        name
+      }
+      startAgeRange
+      endAgeRange
+      dateRangeType {
+        id
+        name
+      }
+      leadersCount
+      membersCount
+      openProspectsCount
+      event {
+        id
+        name
+      }
+      createdDate
+      lastUpdatedDate
+      isLocationPrivate
+      location {
+        id
+        name
+        description
+        isOnline
+        url
+        address {
+          address1
+          address2
+          address3
+          city
+          stProvince
+          postalCode
+          county
+          country
+          carrierRoute
+          deliveryPoint
+          latitude
+          longitude
+          createdDate
+          lastUpdatedDate
+        }
+        createdDate
+        lastUpdatedDate
+      }
+      schedule {
+        id
+        name
+        description
+        startTime
+        endTime
+        numberRecurrences
+        startDate
+        endDate
+        recurrenceType {
+          name
+        }
+        recurrences {
+          recurrence {
+            recurrenceWeekly {
+              recurrenceFrequency
+              occurOnSunday
+              occurOnMonday
+              occurOnTuesday
+              occurOnWednesday
+              occurOnThursday
+              occurOnFriday
+              occurOnSaturday
+            }
+            recurrenceMonthly {
+              recurrenceFrequency
+              recurrenceOffset
+              monthDay
+              monthWeekDay
+            }
+          }
+        }
+        createdDate
+        createByPerson
+        lastUpdatedDate
+        lastUpdatedByPerson
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateF1ListGroup2 = /* GraphQL */ `
+  subscription OnUpdateF1ListGroup2 {
+    onUpdateF1ListGroup2 {
+      id
+      name
+      description
+      startDate
+      expirationDate
+      isOpen
+      isPublic
+      hasChildcare
+      isSearchable
+      churchCampus {
+        id
+        name
+      }
+      groupType {
+        id
+        name
+      }
+      groupURL
+      gender {
+        name
+      }
+      maritalStatus {
+        name
+      }
+      startAgeRange
+      endAgeRange
+      dateRangeType {
+        id
+        name
+      }
+      leadersCount
+      membersCount
+      openProspectsCount
+      event {
+        id
+        name
+      }
+      createdDate
+      lastUpdatedDate
+      isLocationPrivate
+      location {
+        id
+        name
+        description
+        isOnline
+        url
+        address {
+          address1
+          address2
+          address3
+          city
+          stProvince
+          postalCode
+          county
+          country
+          carrierRoute
+          deliveryPoint
+          latitude
+          longitude
+          createdDate
+          lastUpdatedDate
+        }
+        createdDate
+        lastUpdatedDate
+      }
+      schedule {
+        id
+        name
+        description
+        startTime
+        endTime
+        numberRecurrences
+        startDate
+        endDate
+        recurrenceType {
+          name
+        }
+        recurrences {
+          recurrence {
+            recurrenceWeekly {
+              recurrenceFrequency
+              occurOnSunday
+              occurOnMonday
+              occurOnTuesday
+              occurOnWednesday
+              occurOnThursday
+              occurOnFriday
+              occurOnSaturday
+            }
+            recurrenceMonthly {
+              recurrenceFrequency
+              recurrenceOffset
+              monthDay
+              monthWeekDay
+            }
+          }
+        }
+        createdDate
+        createByPerson
+        lastUpdatedDate
+        lastUpdatedByPerson
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteF1ListGroup2 = /* GraphQL */ `
+  subscription OnDeleteF1ListGroup2 {
+    onDeleteF1ListGroup2 {
+      id
+      name
+      description
+      startDate
+      expirationDate
+      isOpen
+      isPublic
+      hasChildcare
+      isSearchable
+      churchCampus {
+        id
+        name
+      }
+      groupType {
+        id
+        name
+      }
+      groupURL
+      gender {
+        name
+      }
+      maritalStatus {
+        name
+      }
+      startAgeRange
+      endAgeRange
+      dateRangeType {
+        id
+        name
+      }
+      leadersCount
+      membersCount
+      openProspectsCount
+      event {
+        id
+        name
+      }
+      createdDate
+      lastUpdatedDate
+      isLocationPrivate
+      location {
+        id
+        name
+        description
+        isOnline
+        url
+        address {
+          address1
+          address2
+          address3
+          city
+          stProvince
+          postalCode
+          county
+          country
+          carrierRoute
+          deliveryPoint
+          latitude
+          longitude
+          createdDate
+          lastUpdatedDate
+        }
+        createdDate
+        lastUpdatedDate
+      }
+      schedule {
+        id
+        name
+        description
+        startTime
+        endTime
+        numberRecurrences
+        startDate
+        endDate
+        recurrenceType {
+          name
+        }
+        recurrences {
+          recurrence {
+            recurrenceWeekly {
+              recurrenceFrequency
+              occurOnSunday
+              occurOnMonday
+              occurOnTuesday
+              occurOnWednesday
+              occurOnThursday
+              occurOnFriday
+              occurOnSaturday
+            }
+            recurrenceMonthly {
+              recurrenceFrequency
+              recurrenceOffset
+              monthDay
+              monthWeekDay
+            }
+          }
+        }
+        createdDate
+        createByPerson
+        lastUpdatedDate
+        lastUpdatedByPerson
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateLivestream = /* GraphQL */ `
   subscription OnCreateLivestream {
     onCreateLivestream {

@@ -112,7 +112,13 @@
         "themeetinghousea5cd4619": {},
         "S3AndCloudFront": {},
         "emailHomeChurch": {},
-        "socialBotHandler": {}
+        "socialBotHandler": {},
+        "tmhF1HomeChurch":{
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7"
+
+        }
       }
     }
   }
