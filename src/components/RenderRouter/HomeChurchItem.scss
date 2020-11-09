@@ -1,18 +1,11 @@
 @import '../../theme';
 
 .HomeChurchFormItemContainer {
-  display: flex;
-  flex-direction: column;
+  height:149px;
   padding: 10px;
-  .LocationSelect {
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
   .DaySelect {
-    flex-grow: 1;
     font-size: 1rem;
     font-weight: 400;
-
     padding-top: 0;
     padding-bottom: 0;
     border-radius: 0;
@@ -234,6 +227,9 @@
 }
 
 @media (min-width: 768px) {
+  .LoadingMargin {
+    max-height: calc(88vh - 221px);
+  }
   .ListButton {
     display: none;
   }
@@ -273,7 +269,7 @@
   }
   .HomeChurchItemListData {
     overflow-y: auto;
-    height: 70vh;
+    height: calc(88vh - 149px);
     padding: 0 10px 10px;
   }
 
@@ -383,7 +379,7 @@
   }
   .HomeChurchItemListData {
     overflow-y: auto;
-    height: 70vh;
+    height: calc(88vh - 149px);
   }
 
   .HomeChurchItemMap {

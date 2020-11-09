@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "function": {
+      "getBiblePassage": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

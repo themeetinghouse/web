@@ -22,6 +22,8 @@ import {
   GetCustomPlaylistQueryVariables,
   ListCustomPlaylistsQuery,
   ListCustomPlaylistsQueryVariables,
+  ListF1ListGroup2sQuery,
+  ListF1ListGroup2sQueryVariables,
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -209,6 +211,10 @@ export type BlogData = NonNullable<
 
 export type EventData = NonNullable<
   NonNullable<GetFbEventsQuery['getFBEvents']>['data']
+>[0];
+
+export type ListF1ListGroup2sData = NonNullable<
+  NonNullable<ListF1ListGroup2sQuery['listF1ListGroup2s']>['items']
 >[0];
 
 export type CustomPlaylistsData = NonNullable<
@@ -614,6 +620,38 @@ export default class DataLoader {
             }
           }
         }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  static async listHomeChurches(
+    dataLoaded: OnDataListener<ListF1ListGroup2sData[]>,
+    dataFinished: OnDataListener<ListF1ListGroup2sQuery[]>,
+    nextToken: string | null = null
+  ): Promise<void> {
+    const variables: ListF1ListGroup2sQueryVariables = {
+      nextToken: nextToken,
+      limit: 20,
+    };
+    const listCustomPlaylists = API.graphql({
+      query: queries.listF1ListGroup2s,
+      variables,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<ListF1ListGroup2sQuery>>;
+    try {
+      const json = await listCustomPlaylists;
+      console.debug({ 'Success queries.listF1ListGroup2s': json });
+      dataLoaded(json?.data?.listF1ListGroup2s?.items ?? []);
+      if (json?.data?.listF1ListGroup2s?.nextToken) {
+        await this.listHomeChurches(
+          dataLoaded,
+          dataFinished,
+          json.data.listF1ListGroup2s.nextToken
+        );
+      } else {
+        dataFinished([]);
       }
     } catch (e) {
       console.error(e);

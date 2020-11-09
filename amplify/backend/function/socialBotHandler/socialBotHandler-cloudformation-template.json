@@ -70,7 +70,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "S3Key": "amplify-builds/socialBotHandler-556b63775a3175316779-build.zip"
+          "S3Key": "amplify-builds/socialBotHandler-6f4c595347514f434148-build.zip"
         }
       }
     },
@@ -232,9 +232,7 @@
                     "",
                     [
                       "arn:aws:s3:::",
-                      {
-                        "Ref": "hostingS3AndCloudFrontHostingBucketName"
-                      },
+                      "heeetingouse-20190312104205-hostingbucket-tmhprod",
                       "/*"
                     ]
                   ]

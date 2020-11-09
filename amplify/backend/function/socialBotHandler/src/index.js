@@ -26,8 +26,8 @@ const getVideo =  /* GraphQL */ `
 `
 
 const getBlog = /* GraphQL */ `
-  query getBlog($id: ID!) {
-    getBlog(id: id$) {
+  query GetBlog($id: ID!) {
+    getBlog(id: $id) {
         id
         blogTitle
         description
@@ -36,8 +36,8 @@ const getBlog = /* GraphQL */ `
 `
 
 const getNotes = /* GraphQL */ `
-  query getNotes($id: ID!) {
-    getNotes(id: id$) {
+  query GetNotes($id: ID!) {
+    getNotes(id: $id) {
         id
         title
     }
@@ -160,7 +160,7 @@ exports.handler = async (event, context, callback) => {
             // handle dynamic pages
             switch (path[1]) {
                 case 'posts':
-                    const id1 = path[2];
+                    const id1 = decodeURI(path[2]);
                     const data1 = (await readData(url, apiKey, getBlog, id1)).getBlog;
 
 
@@ -183,7 +183,7 @@ exports.handler = async (event, context, callback) => {
                     const base64EncodedBody2 = createMarkup(`${tmhUrl}/videos/${seriesTitle2}/${videoId2}`, `https://img.youtube.com/vi/${videoId2}/maxresdefault.jpg`, description2, videoTitle2, 'website');
                     return success(base64EncodedBody2);
                 case 'notes':
-                    const id3 = path[2];
+                    const id3 = decodeURI(path[2]);
                     const data3 = (await readData(url, apiKey, getNotes, id3)).getNotes;
 
                     const noteTitle3 = data3.title;
