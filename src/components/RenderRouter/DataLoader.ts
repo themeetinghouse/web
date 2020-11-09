@@ -83,8 +83,8 @@ export interface SpeakerQuery extends DataLoaderQuery {
 
 export interface BlogQuery extends DataLoaderQuery {
   class: 'blogs';
-
   status: string;
+  sortOrder: ModelSortDirection;
 }
 
 export interface SeriesByTypeQuery extends DataLoaderQuery {
@@ -495,6 +495,7 @@ export default class DataLoader {
     const vars: GetBlogByBlogStatusQueryVariables = {
       nextToken: nextToken,
       blogStatus: query.status,
+      sortDirection: query.sortOrder,
       limit: 200,
     };
     const getBlogByBlogStatus = API.graphql(
