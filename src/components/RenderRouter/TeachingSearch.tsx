@@ -11,6 +11,7 @@ import {
 } from 'API';
 import { GraphQLResult } from '@aws-amplify/api/lib/types';
 import { SearchBarContentProp } from '../types';
+import { Link } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
   content: SearchBarContentProp;
@@ -53,11 +54,7 @@ class TeachingSearch extends React.Component<Props, State> {
 
       if (json?.data?.searchBlogs?.items)
         this.setState({
-          blogs: json.data.searchBlogs.items.sort((a, b) =>
-            (b?.publishedDate as string)?.localeCompare(
-              a?.publishedDate as string
-            )
-          ),
+          blogs: json.data.searchBlogs.items,
         });
     } catch (err) {
       console.error(err);
@@ -83,11 +80,7 @@ class TeachingSearch extends React.Component<Props, State> {
       )) as GraphQLResult<SearchVideosQuery>;
       if (json?.data?.searchVideos?.items)
         this.setState({
-          videos: json.data.searchVideos.items.sort((a, b) =>
-            (b?.publishedDate as string)?.localeCompare(
-              a?.publishedDate as string
-            )
-          ),
+          videos: json.data.searchVideos.items,
         });
     } catch (err) {
       console.error(err);
@@ -126,27 +119,37 @@ class TeachingSearch extends React.Component<Props, State> {
         return (
           <div className="TeachingSearchItem">
             <div className="Header1">{this.props.content.header1}</div>
-            <img
-              src="/static/svg/Search.svg"
-              alt="Search"
-              className="SearchIcon"
-            ></img>
-            <input
-              className="TeachingSearchItemInput"
-              value={this.state.currentInput}
-              onChange={(e) => {
-                this.searchVideos(e);
-              }}
-              placeholder={this.props.content.text1}
-            ></input>
-            {this.state.videos.length && this.state.currentInput ? (
+            <div className="SearchBar">
               <img
-                onClick={() => this.setState({ videos: [], currentInput: '' })}
-                src="/static/svg/Close-Cancel.svg"
+                src="/static/svg/Search.svg"
                 alt=""
-                className="CloseTeachingSearch"
+                className="SearchIcon"
               ></img>
-            ) : null}
+              <input
+                className="TeachingSearchItemInput"
+                value={this.state.currentInput}
+                onChange={(e) => {
+                  this.searchVideos(e);
+                }}
+                placeholder={this.props.content.text1}
+                aria-label="search"
+              ></input>
+              {this.state.videos.length && this.state.currentInput ? (
+                <button
+                  aria-label="Close search bar"
+                  onClick={() =>
+                    this.setState({ videos: [], currentInput: '' })
+                  }
+                  className="CloseTeachingSearchButton"
+                >
+                  <img
+                    src="/static/svg/Close-Cancel.svg"
+                    alt=""
+                    className="CloseTeachingSearch"
+                  ></img>
+                </button>
+              ) : null}
+            </div>
             <div
               className={
                 this.state.videos.length && this.state.currentInput
@@ -164,11 +167,12 @@ class TeachingSearch extends React.Component<Props, State> {
                     if (item?.episodeTitle)
                       return (
                         <div
+                          tabIndex={0}
                           key={item.id}
                           onClick={() => {
                             this.openVideo(item);
                           }}
-                          className="TeachingSearchResultItem"
+                          className="TeachingSearchResultItem FocusableVideo"
                         >
                           <div className="Content">
                             <div className="Details">
@@ -203,27 +207,35 @@ class TeachingSearch extends React.Component<Props, State> {
         return (
           <div className="TeachingSearchItem">
             <div className="Header1">{this.props.content.header1}</div>
-            <img
-              src="/static/svg/Search.svg"
-              alt="Search"
-              className="SearchIcon"
-            ></img>
-            <input
-              className="TeachingSearchItemInput"
-              value={this.state.currentInput}
-              onChange={(e) => {
-                this.searchBlogs(e);
-              }}
-              placeholder={this.props.content.text1}
-            ></input>
-            {this.state.blogs.length && this.state.currentInput ? (
+            <div className="SearchBar">
               <img
-                onClick={() => this.setState({ blogs: [], currentInput: '' })}
-                src="/static/svg/Close-Cancel.svg"
+                src="/static/svg/Search.svg"
                 alt=""
-                className="CloseTeachingSearch"
+                className="SearchIcon"
               ></img>
-            ) : null}
+              <input
+                className="TeachingSearchItemInput"
+                value={this.state.currentInput}
+                onChange={(e) => {
+                  this.searchBlogs(e);
+                }}
+                placeholder={this.props.content.text1}
+                aria-label="search"
+              ></input>
+              {this.state.blogs.length && this.state.currentInput ? (
+                <button
+                  aria-label="Close search bar"
+                  onClick={() => this.setState({ blogs: [], currentInput: '' })}
+                  className="CloseTeachingSearchButton"
+                >
+                  <img
+                    src="/static/svg/Close-Cancel.svg"
+                    alt=""
+                    className="CloseTeachingSearch"
+                  ></img>
+                </button>
+              ) : null}
+            </div>
             <div
               className={
                 this.state.blogs.length && this.state.currentInput
@@ -233,34 +245,39 @@ class TeachingSearch extends React.Component<Props, State> {
             >
               {this.state.blogs.length && this.state.currentInput ? (
                 <div className="TeachingSearchNumberOfVideos">
-                  {this.state.blogs.length} Videos
+                  {this.state.blogs.length} Posts
                 </div>
               ) : null}
               {this.state.blogs.length && this.state.currentInput
                 ? this.state.blogs.map((item) => {
                     if (item?.blogTitle)
                       return (
-                        <div
-                          key={item.id}
-                          onClick={() => null}
-                          className="TeachingSearchResultItem"
+                        <Link
+                          to={`/posts/${item.id}`}
+                          className="BlogLink"
+                          aria-label={item.blogTitle}
                         >
-                          <div className="Content">
-                            <div className="Details">
-                              <div className="Title">{item.blogTitle}</div>
-                              <div className="RightContainer">
-                                {item.publishedDate ? (
-                                  <div className="Date">
-                                    {item.publishedDate}
-                                  </div>
-                                ) : null}
+                          <div
+                            key={item.id}
+                            className="TeachingSearchResultItem"
+                          >
+                            <div className="Content">
+                              <div className="Details">
+                                <div className="Title">{item.blogTitle}</div>
+                                <div className="RightContainer">
+                                  {item.publishedDate ? (
+                                    <div className="Date">
+                                      {item.publishedDate}
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </div>
+                              <div className="Description">
+                                {item.description}
                               </div>
                             </div>
-                            <div className="Description">
-                              {item.description}
-                            </div>
                           </div>
-                        </div>
+                        </Link>
                       );
                     else return null;
                   })
