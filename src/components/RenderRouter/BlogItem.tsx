@@ -207,7 +207,10 @@ class BlogItem extends React.Component<Props, State> {
                   </LinkButton>
                 </div>
                 <div>
-                  <Link to={'/posts/' + this.state.publishedOnly[0]?.id}>
+                  <Link
+                    to={'/posts/' + this.state.publishedOnly[0]?.id}
+                    tabIndex={-1}
+                  >
                     <img
                       alt="TBD"
                       className="blog-image-desktop"
@@ -223,7 +226,10 @@ class BlogItem extends React.Component<Props, State> {
                 </div>
               </div>
               <div className="mobile-image-container">
-                <Link to={'/posts/' + this.state.publishedOnly[0]?.id}>
+                <Link
+                  to={'/posts/' + this.state.publishedOnly[0]?.id}
+                  tabIndex={-1}
+                >
                   <img
                     alt="TBD"
                     className="blog-image-mobile"

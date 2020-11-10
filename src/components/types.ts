@@ -27,7 +27,7 @@ export interface ItemImage {
 
 export interface SearchBarContentProp {
   type: string;
-  style: string;
+  style: 'teaching' | 'blog';
   header1: string;
   subclass: string;
   text1: string;

@@ -506,7 +506,12 @@ class ListItem extends React.Component<Props, State> {
       alt: item.blogTitle + ' series image',
     };
     return (
-      <Link className="container" to={'/posts/' + item.id} key={item.id}>
+      <Link
+        className="BlogLink"
+        to={'/posts/' + item.id}
+        key={item.id}
+        aria-label={item.blogTitle ?? 'read blog post'}
+      >
         <div className="BlogItem">
           <ScaledImage
             image={image}
