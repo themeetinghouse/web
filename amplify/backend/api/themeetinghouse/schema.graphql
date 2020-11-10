@@ -73,7 +73,13 @@ enum fuzzySearchableVideoSortableFields {
   YoutubeIdent
   videoTypes
 }
-
+enum online_event_formatTypes{
+  messenger_room
+  third_party
+  fb_live
+  other
+  none
+}
 input fuzzySearchableVideoSortInput {
   field: fuzzySearchableVideoSortableFields
   direction: fuzzySearchableSortDirection
@@ -116,7 +122,10 @@ type FBTime{
 }
 type FBEvent{
   description:String
-  end_time: String
+  end_time:String
+  is_online:Boolean
+  online_event_format:online_event_formatTypes
+  online_event_third_party_url:String
   name:String
   place: FBPlace
   start_time: String
