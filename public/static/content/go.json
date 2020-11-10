@@ -76,7 +76,96 @@
         ]
       },
       {
-        "type": "goContent"
+        "type": "goContent",
+        "style": "goItem",
+        "header1": "Going beyond ourselves",
+        "header2": "$6 Million",
+        "body": [
+          {
+            "fontWeight": "normal",
+            "text": "This campaign is about being who we have always been and who God calls us to be: a community intentionally focused on others.",
+            "newParagraph": true
+          },
+          {
+            "fontWeight": "normal",
+            "text": "We have a history of radically and purposefully focusing on others so they can experience the Jesus-centred life. As the world changes, we realize that we need to be bold and invest in new and innovative ways of taking our evangelism and discipleship to the next level.",
+            "newParagraph": true
+          },
+          {
+            "fontWeight": "normal",
+            "text": "Over the last two years, we have been listening to God, our community, and our neighbours – those close by and around the world – to understand how we can be even more effective as we introduce people to the Jesus-centred life. The projects, innovation, and technology funded by the Go Campaign will equip us as we evolve into a community that uses new and creative ways of engaging with those who have never meaningfully encountered the good news of Jesus. The campaign focuses on initiatives for people in "
+          },
+          {
+            "fontWeight": "bold",
+            "text": "our church family"
+          },
+          {
+            "fontWeight": "normal",
+            "text": ", such as Home Church revitalization and local site innovation, as well as "
+          },
+          {
+            "fontWeight": "bold",
+            "text": "beyond our borders"
+          },
+          {
+            "fontWeight": "normal",
+            "text": ", with projects like Jesus Collective and our Kids & Youth Curriculum."
+          }
+        ]
+      },
+      {
+        "type": "goContent",
+        "style": "goSubItems",
+        "items": [
+          {
+            "header1": "Our Church Family",
+            "header2": "$3 Million",
+            "body": [
+              {
+                "fontWeight": "normal",
+                "text": "We can't do this alone. We are a movement of Jesus-centred churches, and we want to invest in each of these communities so that we will be equipped to connect with the spiritually curious in our neighbourhoods. This investment includes funding local innovation and creative church expressions, shaping and training the next generation of young leaders, and investing in new technology and communication tools to allow us to share our message in relevant ways."
+              }
+            ]
+          },
+          {
+            "header1": "Beyond our Borders",
+            "header2": "$3 Million",
+            "body": [
+              {
+                "fontWeight": "normal",
+                "text": "As we listened to our community, locally and around the world, we recognized a clear opportunity and calling for The Meeting House to reach far beyond the borders of our current impact. This means embracing our role as a leader in a growing Anabaptist movement by working to unite, equip, and amplify a Jesus-centred movement through Jesus Collective. This also means widening the impact of our Kids & Youth Curriculum by preparing to share it in a sustainable way with churches around the world."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "goLink",
+        "style": "link",
+        "title": "Go Campaign Details",
+        "navigateTo": "/static/pdfs/go/TMH_GO_booklet_v7.pdf",
+        "newWindow": true
+      },
+      {
+        "type": "goLink",
+        "style": "link",
+        "title": "Go Campaign FAQ",
+        "navigateTo": "/static/pdfs/go/Donor-FAQs-for-Go.pdf",
+        "newWindow": true
+      },
+      {
+        "type": "goLink",
+        "style": "link",
+        "title": "Learn more about Jesus Collective",
+        "navigateTo": "https://www.jesuscollective.com",
+        "newWindow": true
+      },
+      {
+        "type": "goLink",
+        "style": "button",
+        "title": "Pledge and Give",
+        "navigateTo": "/go-choose",
+        "newWindow": true
       }
     ]
   }

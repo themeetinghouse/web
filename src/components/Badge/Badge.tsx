@@ -1,11 +1,10 @@
 import React from 'react';
-
 import './badge.scss';
 
-class Badge extends React.Component {
-  render() {
-    return <div className="tmh-badge">{this.props.children}</div>;
-  }
+interface Props {
+  children?: string | null;
 }
 
-export default Badge;
+export default function Badge({ children }: Props) {
+  return <div className="tmh-badge">{children}</div>;
+}
