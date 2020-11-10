@@ -87,18 +87,24 @@ export default class VideoPlayer extends React.Component<Props, State> {
                   : 'modal-body '
               }
             >
-              <img
-                className="VideoOverlayClose"
-                src={
-                  this.state.content.page.pageConfig.logoColor === 'black'
-                    ? '/static/svg/Close-Cancel.svg'
-                    : '/static/svg/Close-Cancel-White.svg'
-                }
-                alt="Close Window Icon"
+              <button
+                className="CloseButton"
                 onClick={() => {
                   this.props.onClose();
                 }}
-              />
+                aria-label="Close modal"
+              >
+                <img
+                  className="VideoOverlayClose"
+                  src={
+                    this.state.content.page.pageConfig.logoColor === 'black'
+                      ? '/static/svg/Close-Cancel.svg'
+                      : '/static/svg/Close-Cancel-White.svg'
+                  }
+                  alt=""
+                />
+              </button>
+
               <RenderRouter
                 data={this.props.data}
                 content={this.state.content}
