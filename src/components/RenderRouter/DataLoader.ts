@@ -497,6 +497,7 @@ export default class DataLoader {
       blogStatus: query.status,
       sortDirection: query.sortOrder,
       limit: 200,
+      filter: { hiddenMainIndex: { ne: true } },
     };
     const getBlogByBlogStatus = API.graphql(
       graphqlOperation(customQueries.getBlogByBlogStatus, vars)

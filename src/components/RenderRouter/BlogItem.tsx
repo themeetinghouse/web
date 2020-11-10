@@ -5,7 +5,12 @@ import { API } from 'aws-amplify';
 import moment from 'moment';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { Link, LinkButton } from 'components/Link/Link';
-import { GetBlogSeriesQuery, GetBlogByBlogStatusQuery } from 'API';
+import {
+  GetBlogSeriesQuery,
+  GetBlogByBlogStatusQuery,
+  GetBlogByBlogStatusQueryVariables,
+  ModelSortDirection,
+} from 'API';
 import { BlogItemContent } from '../types';
 import ScaledImage from '../ScaledImage/ScaledImage';
 
@@ -60,14 +65,17 @@ class BlogItem extends React.Component<Props, State> {
     try {
       const today = moment();
       const todayString = today.format('YYYY-MM-DD');
+      const queryVariables: GetBlogByBlogStatusQueryVariables = {
+        publishedDate: { le: todayString },
+        blogStatus: this.props.content.status,
+        sortDirection:
+          ModelSortDirection[this.props.content.sortOrder ?? 'DESC'],
+        limit: this.props.content.limit,
+        filter: { hiddenMainIndex: { ne: true } },
+      };
       const json = (await API.graphql({
         query: customQueries.getBlogByBlogStatus,
-        variables: {
-          publishedDate: { le: todayString },
-          blogStatus: this.props.content.status,
-          sortDirection: this.props.content.sortOrder,
-          limit: this.props.content.limit,
-        },
+        variables: queryVariables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<GetBlogByBlogStatusQuery>;
 
@@ -128,7 +136,7 @@ class BlogItem extends React.Component<Props, State> {
                 moment(item?.blogPost?.expirationDate, 'YYYY-MM-DD').isAfter(
                   today
                 )) &&
-              item?.blogPost.blogStatus === 'Live'
+              item?.blogPost.blogStatus === this.props.content.status
             ) {
               publishedOnly.push(item?.blogPost);
             }

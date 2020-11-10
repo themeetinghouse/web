@@ -411,7 +411,16 @@ class Index extends React.Component<EmptyProps, State> {
         editorState: EditorState.createWithContent(contentState),
       });
 
-      this.setState({ blogObject: this.state.blogToEditObject });
+      const temp: any = this.state.blogToEditObject;
+      delete temp.__typename;
+      delete temp.blogSeries;
+      delete temp.createdAt;
+      delete temp.createdBy;
+      delete temp.createdBy;
+      delete temp.updatedAt;
+      delete temp.series;
+
+      this.setState({ blogObject: temp });
 
       if (
         this.state.blogToEditObject.expirationDate !== 'none' &&
@@ -466,7 +475,6 @@ class Index extends React.Component<EmptyProps, State> {
   async handleNewBlogSeries() {
     this.setState({ newBlogSeriesModal: false });
     if (this.state.newBlogSeries.title) {
-      this.updateSeriesField('id', this.state.newBlogSeries.title);
       try {
         const saveBlogSeries = (await API.graphql({
           query: mutations.createBlogSeries,
@@ -487,10 +495,10 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-  updateSeriesField(field: keyof CreateBlogSeriesInput, value: string) {
-    this.setState((prevState) => ({
-      newBlogSeries: { ...prevState.newBlogSeries, [field]: value },
-    }));
+  updateBlogSeries(value: string) {
+    this.setState({
+      newBlogSeries: { title: value, id: value },
+    });
   }
 
   updateBlogField(
@@ -629,7 +637,7 @@ class Index extends React.Component<EmptyProps, State> {
           <input
             value={this.state.newBlogSeries.title ?? ''}
             onChange={(item) => {
-              this.updateSeriesField('title', item.target.value);
+              this.updateBlogSeries(item.target.value);
             }}
           />
         </label>
