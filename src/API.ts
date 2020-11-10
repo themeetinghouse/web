@@ -860,6 +860,15 @@ export type DeleteCommentInput = {
   id?: string | null,
 };
 
+export enum online_event_formatTypes {
+  messenger_room = "messenger_room",
+  third_party = "third_party",
+  fb_live = "fb_live",
+  other = "other",
+  none = "none",
+}
+
+
 export type fuzzySearchableVideoSortInput = {
   field?: fuzzySearchableVideoSortableFields | null,
   direction?: fuzzySearchableSortDirection | null,
@@ -27566,6 +27575,9 @@ export type GetFbEventsQuery = {
       __typename: "FBEvent",
       description: string | null,
       end_time: string | null,
+      is_online: boolean | null,
+      online_event_format: online_event_formatTypes | null,
+      online_event_third_party_url: string | null,
       name: string | null,
       place:  {
         __typename: "FBPlace",
