@@ -27,6 +27,19 @@
   flex-direction: row;
 }
 
+.TeachingSearchResultItem {
+  background: white;
+}
+
+.TeachingSearchItemDiv {
+  position: absolute;
+  z-index: 9999;
+}
+
+.FocusableVideo {
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .CloseTeachingSearch {
     height: 30px;
@@ -45,10 +58,9 @@
 
   .TeachingSearchItem {
     position: relative;
-    z-index: 99;
     left: 20vw;
     width: 80vw;
-    margin-bottom: 4vw;
+    margin-bottom: 6vw;
   }
 
   .TeachingSearchItemInput {
@@ -80,10 +92,7 @@
   }
 
   .TeachingSearchResultItem {
-    cursor: pointer;
-    padding-bottom: 15px;
-    padding-top: 20px;
-    padding-right: 20px;
+    padding: 15px 20px;
     border-bottom: 1px solid #efeff0;
     width: 100%;
   }
@@ -163,10 +172,9 @@
 
   .TeachingSearchItem {
     position: relative;
-    z-index: 99;
     left: 20vw;
     width: 80vw;
-    margin-bottom: 4vw;
+    margin-bottom: 6vw;
   }
 
   .TeachingSearchItemInput {
@@ -198,10 +206,7 @@
   }
 
   .TeachingSearchResultItem {
-    cursor: pointer;
-    padding-bottom: 15px;
-    padding-top: 20px;
-    padding-right: 20px;
+    padding: 15px 20px;
     border-bottom: 1px solid #efeff0;
     width: 100%;
   }
@@ -279,10 +284,9 @@
 
   .TeachingSearchItem {
     position: relative;
-    z-index: 99;
     margin-left: 5vw;
     width: 90vw;
-    margin-bottom: 4vw;
+    margin-bottom: 12vw;
   }
 
   .TeachingSearchItemInput {
@@ -310,14 +314,11 @@
 
   .ShowResults {
     overflow-y: scroll;
-    max-height: 300px;
+    max-height: 325px;
   }
 
   .TeachingSearchResultItem {
-    cursor: pointer;
-    padding-bottom: 15px;
-    padding-top: 20px;
-    padding-right: 20px;
+    padding: 15px 15px 15px 10px;
     border-bottom: 1px solid #efeff0;
     width: 100%;
   }
@@ -350,7 +351,7 @@
 
   .TeachingSearchResultItem .Title {
     margin-bottom: 10px;
-    width: 45vw;
+    width: 50vw;
     font-family: Graphik Web;
     font-size: 4vw;
     line-height: 5vw;
