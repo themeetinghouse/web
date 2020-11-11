@@ -1,12 +1,5 @@
-import { GraphQLResult } from '@aws-amplify/api/lib/types';
-import {
-  F1ListEventSchedulesQuery,
-  F1ListEventSchedulesQueryVariables,
-  F1ListGroupsQuery,
-  F1ListGroupsQueryVariables,
-  F1ListGroupTypesQuery,
-} from 'API';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import { F1ListEventSchedulesQuery, F1ListGroupsQuery } from 'API';
+import Amplify from 'aws-amplify';
 import Badge from 'components/Badge/Badge';
 import HomeChurchContactModal from 'components/HomeChurchContactModal/HomeChurchContactModal';
 import { HomeChurchItemContent } from 'components/types';
@@ -22,11 +15,11 @@ import moment from 'moment';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
 import { Spinner } from 'reactstrap';
 import awsmobile from '../../aws-exports';
-import * as queries from '../../graphql/queries';
 import DataLoader, { LocationData } from './DataLoader';
 import './HomeChurchItem.scss';
 
@@ -80,7 +73,7 @@ interface State {
   allLocationsLoaded: boolean;
   mapBounds: google.maps.LatLngBounds | null;
   locations: LocationData[];
-  groups: F1Group[];
+  groups: any[];
   currentLatLng: google.maps.LatLngLiteral;
   showContactModal: boolean;
   selectedDay: {
@@ -147,109 +140,14 @@ export class ContentItem extends React.Component<Props, State> {
     });
 
     if (this.props.content.class === 'home-church') {
-      const loadGroupPromises: Array<Promise<void>> = [];
-      const allGroups: F1Group[] = [];
-      const locationsLoaded: string[] = [];
-
-      this.getRetryableGraphQLOperationPromise<F1ListGroupTypesQuery, {}>(
-        queries.f1ListGroupTypes,
-        {}
-      ).then((listGroupTypesResponse) => {
-        (
-          listGroupTypesResponse?.data?.F1ListGroupTypes?.groupTypes
-            ?.groupType ?? []
-        )
-          .filter((item) => item?.isWebEnabled === 'true')
-          .forEach((groupTypeItem) => {
-            //console.log("HomeChurchItem.constructor(): F1ListGroupTypes response - groupTypeItem = %o", groupTypeItem);
-            // Get the home churches for this location and update the loading progress when done
-            const f1LocationId = groupTypeItem?.id;
-            //              console.log(f1LocationId)
-            const loadGroupPromise = this.getRetryableGraphQLOperationPromise<
-              F1ListGroupsQuery,
-              F1ListGroupsQueryVariables
-            >(queries.f1ListGroups, { itemId: f1LocationId }).then(
-              (listGroupsResponse) => {
-                const openGroupsForLocation: Array<F1Group> = (
-                  listGroupsResponse?.data?.F1ListGroups?.groups?.group ?? []
-                ).filter(
-                  (item: F1Group | null): item is F1Group =>
-                    item?.isOpen === 'true' && item.isSearchable === 'true'
-                );
-                const eventIdsForLocation = openGroupsForLocation.map(
-                  (g) => g.event?.id ?? null
-                );
-                //console.log("HomeChurchItem.constructor(): location: %o, eventIds = %o", groupTypeItem.name, eventIdsForLocation);
-                //        console.log(eventIdsForLocation)
-                if (eventIdsForLocation)
-                  // Get the schedules for the home churches in this location
-                  return this.getRetryableGraphQLOperationPromise<
-                    F1ListEventSchedulesQuery,
-                    F1ListEventSchedulesQueryVariables
-                  >(queries.f1ListEventSchedules, {
-                    itemId: eventIdsForLocation,
-                  }).then((listEventSchedulesResponse) => {
-                    //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
-                    for (const group of openGroupsForLocation) {
-                      const eventSchedule = (
-                        listEventSchedulesResponse?.data
-                          ?.F1ListEventSchedules ?? []
-                      ).find((s) => s?.id === group.event?.id);
-                      const schedules =
-                        eventSchedule?.event?.schedules?.schedule;
-                      if (schedules) {
-                        group.schedule = schedules[0];
-                      }
-                    }
-                    allGroups.push(...openGroupsForLocation);
-                    if (f1LocationId) {
-                      locationsLoaded.push(f1LocationId);
-                    }
-                    this.setState({
-                      groups: Array.from(allGroups),
-                      locationsLoaded: Array.from(locationsLoaded),
-                    });
-                    //console.log("HomeChurchItem.constructor(): All groups (so far): %o", allGroups);
-                  });
-              }
-            );
-            loadGroupPromises.push(loadGroupPromise);
-          });
-        Promise.all(loadGroupPromises).then(() => {
-          // When everything has resolved, we have loaded all locations
-          console.log('ALL LOCATIONS LOADED');
+      DataLoader.listHomeChurches(
+        (items) => {
+          this.setState({ groups: [...this.state.groups, ...items] });
+        },
+        () => {
           this.setState({ allLocationsLoaded: true });
-        });
-      });
-    }
-  }
-
-  // This will create a promise that will retry until successful.  Need to do this because AWS returns random
-  // errors when trying to run this many queries in parallel...
-  private async getRetryableGraphQLOperationPromise<
-    T extends Record<string, unknown>,
-    V extends
-      | F1ListGroupsQueryVariables
-      | F1ListEventSchedulesQueryVariables
-      | {}
-  >(query: string, args: V, retry?: number): Promise<GraphQLResult<T> | null> {
-    if ((args as F1ListEventSchedulesQueryVariables).itemId?.length === 0)
-      return Promise.resolve(null);
-
-    if (!retry) retry = 5;
-
-    const qry = API.graphql(graphqlOperation(query, args)) as Promise<
-      GraphQLResult<T>
-    >;
-
-    try {
-      return await qry;
-    } catch (error) {
-      console.log('Promise failure caught: %o', error);
-      if (retry > 0) {
-        console.log(retry);
-        return this.getRetryableGraphQLOperationPromise(query, args, --retry);
-      } else return Promise.resolve(null);
+        }
+      );
     }
   }
 
@@ -672,7 +570,10 @@ export class ContentItem extends React.Component<Props, State> {
             }
             style={this.state.mapSelected ? {} : { marginBottom: '-52vh' }}
           >
-            <div className="HomeChurchFormItemContainer">
+            <div
+              className="HomeChurchFormItemContainer"
+              style={!this.state.allLocationsLoaded ? { height: '221px' } : {}}
+            >
               {
                 <Select
                   onChange={(value) =>
@@ -681,7 +582,6 @@ export class ContentItem extends React.Component<Props, State> {
                     )
                   }
                   placeholder="Select Parish"
-                  className="LocationSelect"
                   styles={this.styleSelect}
                   ref={(ref) => (this.selectControlLocation = ref)}
                   menuShouldScrollIntoView={true}
@@ -736,6 +636,11 @@ export class ContentItem extends React.Component<Props, State> {
                 'HomeChurchItemListData ' +
                 (!this.state.allLocationsLoaded ? 'LoadingMargin' : '')
               }
+              style={
+                !this.state.allLocationsLoaded && !isMobile
+                  ? { height: 'calc(88vh - 221px)' }
+                  : {}
+              }
               ref={(ref) => (this.homeChurchListScrollContainer = ref)}
             >
               {filteredGroups
@@ -769,16 +674,7 @@ export class ContentItem extends React.Component<Props, State> {
                         <Badge>{item.churchCampus?.name}</Badge>
                       </div>
                       <div className="HomeChurchDayOfWeek">
-                        <Badge>
-                          {this.getDayOfWeek(item.schedule)}{' '}
-                          {(item.schedule?.recurrences?.recurrence
-                            ?.recurrenceWeekly?.recurrenceFrequency ?? 0) > 1
-                            ? '(every ' +
-                              item.schedule?.recurrences?.recurrence
-                                ?.recurrenceWeekly?.recurrenceFrequency +
-                              ' weeks)'
-                            : null}
-                        </Badge>
+                        <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                       </div>
                     </div>
                     <div className="HomeChurchButtonContainer">

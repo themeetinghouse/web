@@ -20,7 +20,7 @@ type Query {
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
-} 
+}
 type BibleResponse {
   data: BibleData
   meta: BibleMetaData
@@ -73,7 +73,13 @@ enum fuzzySearchableVideoSortableFields {
   YoutubeIdent
   videoTypes
 }
-
+enum online_event_formatTypes{
+  messenger_room
+  third_party
+  fb_live
+  other
+  none
+}
 input fuzzySearchableVideoSortInput {
   field: fuzzySearchableVideoSortableFields
   direction: fuzzySearchableSortDirection
@@ -116,7 +122,10 @@ type FBTime{
 }
 type FBEvent{
   description:String
-  end_time: String
+  end_time:String
+  is_online:Boolean
+  online_event_format:online_event_formatTypes
+  online_event_third_party_url:String
   name:String
   place: FBPlace
   start_time: String
@@ -207,7 +216,14 @@ type F1ListEventScheduleRecurrenceMonthly{
   monthWeekDay:String
 
 }
-type F1ListGroup2{
+type F1ListGroup2 
+ @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+{
   id:String
   name:String
   description:String
@@ -233,6 +249,7 @@ type F1ListGroup2{
   lastUpdatedDate:String
   isLocationPrivate:String
   location:F1ListGroup2Location
+  schedule:F1ListEventSchedule2
 }
 type F1ListGroup2Address{
   address1:String
@@ -248,7 +265,7 @@ type F1ListGroup2Address{
   latitude:String
   longitude:String
   createdDate:String
-  lastUpdatedDate:String     
+  lastUpdatedDate:String
 }
 type F1ListGroup2Location{
   id:String
@@ -422,7 +439,7 @@ type YoutubeCaptionDownload{
 }
 type YoutubeCaptionText{
   text:[YoutubeCaptionDetails]
-} 
+}
 type YoutubeCaptionDetails{
   dur:Float
   start:Float
@@ -463,7 +480,7 @@ type YoutubePlaylistItems{
   items: [YoutubePlaylistItemsItem]
 }
 type YoutubePlaylistItemsItem
- { 
+ {
   id: ID
   kind: String
   etag: String
@@ -473,7 +490,7 @@ type YoutubePlaylistItemsItem
   statistics: YoutubeStatistics
 }
 type YoutubePlaylistItemsItem2
- { 
+ {
   id: ID
   kind: String
   etag: String
@@ -618,8 +635,8 @@ type YoutubeSnippet
   channelTitle: String
   localized: YoutubeLocalized
 }
-type YoutubePlayListItem 
-{  
+type YoutubePlayListItem
+{
   kind: String
   etag: String
   id: String
@@ -653,10 +670,10 @@ type Livestream
   id: ID!
   date: String
   startTime: String
-  videoStartTime: String  
+  videoStartTime: String
   endTime:String
   prerollYoutubeId: String
-  liveYoutubeId: String 
+  liveYoutubeId: String
   showChat: Boolean
   showKids: Boolean
   menu: [LiveMenu]
@@ -733,16 +750,16 @@ type CustomPlaylistVideo
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
   @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"])
-  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"]) 
+  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"])
 {
   id: ID!
   videoID: ID!
   customPlaylistID: ID!
   customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
   video: Video @connection(fields: ["videoID"])
-} 
-type Video 
- @model 
+}
+type Video
+ @model
  @searchable
  @auth(rules:[
    {allow:public, operations:[read]},
@@ -810,7 +827,7 @@ type BlogSeriesBridge
    {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
  ])
   @key(name: "byBlogSeries", fields: ["blogSeriesID", "blogPostID"], queryField: "blogBridgeBySeries")
-  @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost") 
+  @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost")
 {
 id: ID!
 blogSeriesID: ID
@@ -819,8 +836,8 @@ blogSeries: BlogSeries @connection(name: "BlogSeriesContains", keyField: "blogSe
 blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
 }
 
-type Blog 
- @model 
+type Blog
+ @model
  @searchable
  @auth(rules:[
    {allow:public, operations:[read]},
@@ -836,32 +853,33 @@ type Blog
   createdDate: String
   publishedDate: String
   expirationDate: String
-  series:Series @connection(name: "BlogInVideoSeries")
-  blogSeries:[BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
-  blogStatus:String
-  description:String
-  content:String
-  blogTitle:String
-  topics:[String]
-  tags:[String]
+  series: Series @connection(name: "BlogInVideoSeries")
+  blogSeries: [BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
+  blogStatus: String
+  description: String
+  content: String
+  blogTitle: String
+  topics: [String]
+  tags: [String]
+  hiddenMainIndex: Boolean
 }
 
 
-type InstagramThumbnail 
+type InstagramThumbnail
 {
   src: String
   config_width: Int
   config_height: Int
 }
 
-type Instagram 
- @model 
+type Instagram
+ @model
  @auth(rules:[
    {allow:public, operations:[read]},
    {allow:private, operations:[read],provider:iam},
    {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
  ])
- @key(name: "instagramByLocation", fields: ["locationId", "timestamp"], queryField: "getInstagramByLocation") 
+ @key(name: "instagramByLocation", fields: ["locationId", "timestamp"], queryField: "getInstagramByLocation")
 {
   id: ID!
   locationId: String
@@ -876,7 +894,7 @@ enum NoteDataType {
 }
 
 type Verse
- @model 
+ @model
  @auth(rules:[
    {allow:public, operations:[read]},
    {allow:private, operations:[read],provider:iam},
@@ -895,8 +913,8 @@ type Verse
   note: Notes @connection(fields: ["noteId"])
  }
 
-type Notes 
- @model 
+type Notes
+ @model
  @auth(rules:[
    {allow:public, operations:[read]},
    {allow:private, operations:[read],provider:iam},
@@ -944,10 +962,10 @@ type Comment @model @searchable
 }
 
 type WebPage
- @model 
+ @model
  @searchable
  @auth(rules:[{allow:public, operations:[read]}])
- 
+
 {
   id:ID
   page:WebPageInfo
@@ -1004,5 +1022,3 @@ type WebPageContent
   list:WebPageList
   showLocationSearch:Boolean
 }
-
-    

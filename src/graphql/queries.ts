@@ -830,6 +830,9 @@ export const getFbEvents = /* GraphQL */ `
       data {
         description
         end_time
+        is_online
+        online_event_format
+        online_event_third_party_url
         name
         place {
           name
@@ -1349,6 +1352,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -1988,6 +1992,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -2292,6 +2297,45 @@ export const f1ListGroups = /* GraphQL */ `
             createdDate
             lastUpdatedDate
           }
+          schedule {
+            id
+            name
+            description
+            startTime
+            endTime
+            numberRecurrences
+            startDate
+            endDate
+            recurrenceType {
+              name
+            }
+            recurrences {
+              recurrence {
+                recurrenceWeekly {
+                  recurrenceFrequency
+                  occurOnSunday
+                  occurOnMonday
+                  occurOnTuesday
+                  occurOnWednesday
+                  occurOnThursday
+                  occurOnFriday
+                  occurOnSaturday
+                }
+                recurrenceMonthly {
+                  recurrenceFrequency
+                  recurrenceOffset
+                  monthDay
+                  monthWeekDay
+                }
+              }
+            }
+            createdDate
+            createByPerson
+            lastUpdatedDate
+            lastUpdatedByPerson
+          }
+          createdAt
+          updatedAt
         }
       }
     }
@@ -3153,6 +3197,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3187,6 +3232,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -3266,6 +3312,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3353,6 +3400,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3446,6 +3494,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3480,6 +3529,7 @@ export const blogBridgeByPost = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -3559,6 +3609,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3646,6 +3697,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -3678,12 +3730,14 @@ export const searchWebPages = /* GraphQL */ `
     $sort: SearchableWebPageSortInput
     $limit: Int
     $nextToken: String
+    $from: Int
   ) {
     searchWebPages(
       filter: $filter
       sort: $sort
       limit: $limit
       nextToken: $nextToken
+      from: $from
     ) {
       items {
         id
@@ -3734,6 +3788,233 @@ export const searchWebPages = /* GraphQL */ `
       }
       nextToken
       total
+    }
+  }
+`;
+export const getF1ListGroup2 = /* GraphQL */ `
+  query GetF1ListGroup2($id: ID!) {
+    getF1ListGroup2(id: $id) {
+      id
+      name
+      description
+      startDate
+      expirationDate
+      isOpen
+      isPublic
+      hasChildcare
+      isSearchable
+      churchCampus {
+        id
+        name
+      }
+      groupType {
+        id
+        name
+      }
+      groupURL
+      gender {
+        name
+      }
+      maritalStatus {
+        name
+      }
+      startAgeRange
+      endAgeRange
+      dateRangeType {
+        id
+        name
+      }
+      leadersCount
+      membersCount
+      openProspectsCount
+      event {
+        id
+        name
+      }
+      createdDate
+      lastUpdatedDate
+      isLocationPrivate
+      location {
+        id
+        name
+        description
+        isOnline
+        url
+        address {
+          address1
+          address2
+          address3
+          city
+          stProvince
+          postalCode
+          county
+          country
+          carrierRoute
+          deliveryPoint
+          latitude
+          longitude
+          createdDate
+          lastUpdatedDate
+        }
+        createdDate
+        lastUpdatedDate
+      }
+      schedule {
+        id
+        name
+        description
+        startTime
+        endTime
+        numberRecurrences
+        startDate
+        endDate
+        recurrenceType {
+          name
+        }
+        recurrences {
+          recurrence {
+            recurrenceWeekly {
+              recurrenceFrequency
+              occurOnSunday
+              occurOnMonday
+              occurOnTuesday
+              occurOnWednesday
+              occurOnThursday
+              occurOnFriday
+              occurOnSaturday
+            }
+            recurrenceMonthly {
+              recurrenceFrequency
+              recurrenceOffset
+              monthDay
+              monthWeekDay
+            }
+          }
+        }
+        createdDate
+        createByPerson
+        lastUpdatedDate
+        lastUpdatedByPerson
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listF1ListGroup2s = /* GraphQL */ `
+  query ListF1ListGroup2s(
+    $filter: ModelF1ListGroup2FilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listF1ListGroup2s(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        startDate
+        expirationDate
+        isOpen
+        isPublic
+        hasChildcare
+        isSearchable
+        churchCampus {
+          id
+          name
+        }
+        groupType {
+          id
+          name
+        }
+        groupURL
+        gender {
+          name
+        }
+        maritalStatus {
+          name
+        }
+        startAgeRange
+        endAgeRange
+        dateRangeType {
+          id
+          name
+        }
+        leadersCount
+        membersCount
+        openProspectsCount
+        event {
+          id
+          name
+        }
+        createdDate
+        lastUpdatedDate
+        isLocationPrivate
+        location {
+          id
+          name
+          description
+          isOnline
+          url
+          address {
+            address1
+            address2
+            address3
+            city
+            stProvince
+            postalCode
+            county
+            country
+            carrierRoute
+            deliveryPoint
+            latitude
+            longitude
+            createdDate
+            lastUpdatedDate
+          }
+          createdDate
+          lastUpdatedDate
+        }
+        schedule {
+          id
+          name
+          description
+          startTime
+          endTime
+          numberRecurrences
+          startDate
+          endDate
+          recurrenceType {
+            name
+          }
+          recurrences {
+            recurrence {
+              recurrenceWeekly {
+                recurrenceFrequency
+                occurOnSunday
+                occurOnMonday
+                occurOnTuesday
+                occurOnWednesday
+                occurOnThursday
+                occurOnFriday
+                occurOnSaturday
+              }
+              recurrenceMonthly {
+                recurrenceFrequency
+                recurrenceOffset
+                monthDay
+                monthWeekDay
+              }
+            }
+          }
+          createdDate
+          createByPerson
+          lastUpdatedDate
+          lastUpdatedByPerson
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
   }
 `;
@@ -4234,6 +4515,7 @@ export const getSpeaker = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -4849,6 +5131,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -5461,6 +5744,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -5843,6 +6127,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -5931,6 +6216,7 @@ export const listSeriess = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -5988,6 +6274,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -6044,6 +6331,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -6124,6 +6412,7 @@ export const listSeriess = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -6509,6 +6798,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6650,6 +6940,7 @@ export const getSeries = /* GraphQL */ `
           blogTitle
           topics
           tags
+          hiddenMainIndex
           createdAt
           updatedAt
           series {
@@ -6729,6 +7020,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6816,6 +7108,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -6932,6 +7225,7 @@ export const getSeries = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -7298,6 +7592,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7386,6 +7681,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -7443,6 +7739,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7499,6 +7796,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -7579,6 +7877,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -8090,6 +8389,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -8580,6 +8880,7 @@ export const listVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -9253,6 +9554,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9573,6 +9875,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9661,6 +9964,7 @@ export const getVideo = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -9718,6 +10022,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9774,6 +10079,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -9854,6 +10160,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -10209,6 +10516,7 @@ export const getVideo = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -10707,6 +11015,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -11348,6 +11657,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -11573,12 +11883,14 @@ export const searchVideos = /* GraphQL */ `
     $sort: SearchableVideoSortInput
     $limit: Int
     $nextToken: String
+    $from: Int
   ) {
     searchVideos(
       filter: $filter
       sort: $sort
       limit: $limit
       nextToken: $nextToken
+      from: $from
     ) {
       items {
         id
@@ -11985,6 +12297,7 @@ export const searchVideos = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12263,6 +12576,7 @@ export const listBlogSeriess = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12364,6 +12678,7 @@ export const getBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12384,6 +12699,7 @@ export const getBlogSeries = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -12441,6 +12757,7 @@ export const getBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12497,6 +12814,7 @@ export const getBlogSeries = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -12530,6 +12848,7 @@ export const listBlogs = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -12655,6 +12974,7 @@ export const listBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12786,6 +13106,7 @@ export const listBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -12842,6 +13163,7 @@ export const getBlog = /* GraphQL */ `
       blogTitle
       topics
       tags
+      hiddenMainIndex
       createdAt
       updatedAt
       series {
@@ -13089,6 +13411,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13177,6 +13500,7 @@ export const getBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -13234,6 +13558,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13290,6 +13615,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13370,6 +13696,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13478,6 +13805,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13498,6 +13826,7 @@ export const getBlog = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -13555,6 +13884,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13611,6 +13941,7 @@ export const getBlog = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -13654,6 +13985,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -13779,6 +14111,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -13910,6 +14243,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -13957,12 +14291,14 @@ export const searchBlogs = /* GraphQL */ `
     $sort: SearchableBlogSortInput
     $limit: Int
     $nextToken: String
+    $from: Int
   ) {
     searchBlogs(
       filter: $filter
       sort: $sort
       limit: $limit
       nextToken: $nextToken
+      from: $from
     ) {
       items {
         id
@@ -13977,6 +14313,7 @@ export const searchBlogs = /* GraphQL */ `
         blogTitle
         topics
         tags
+        hiddenMainIndex
         createdAt
         updatedAt
         series {
@@ -14102,6 +14439,7 @@ export const searchBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -14233,6 +14571,7 @@ export const searchBlogs = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -14501,6 +14840,7 @@ export const getVerse = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -14771,6 +15111,7 @@ export const listVerses = /* GraphQL */ `
                 blogTitle
                 topics
                 tags
+                hiddenMainIndex
                 createdAt
                 updatedAt
                 series {
@@ -15020,6 +15361,7 @@ export const listNotess = /* GraphQL */ `
               blogTitle
               topics
               tags
+              hiddenMainIndex
               createdAt
               updatedAt
               series {
@@ -15443,6 +15785,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15531,6 +15874,7 @@ export const getNotes = /* GraphQL */ `
             blogTitle
             topics
             tags
+            hiddenMainIndex
             createdAt
             updatedAt
             series {
@@ -15588,6 +15932,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15644,6 +15989,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15724,6 +16070,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -15866,6 +16213,7 @@ export const getNotes = /* GraphQL */ `
                   blogTitle
                   topics
                   tags
+                  hiddenMainIndex
                   createdAt
                   updatedAt
                 }
@@ -16019,12 +16367,14 @@ export const searchComments = /* GraphQL */ `
     $sort: SearchableCommentSortInput
     $limit: Int
     $nextToken: String
+    $from: Int
   ) {
     searchComments(
       filter: $filter
       sort: $sort
       limit: $limit
       nextToken: $nextToken
+      from: $from
     ) {
       items {
         id

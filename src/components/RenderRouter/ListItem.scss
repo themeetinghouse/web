@@ -18,6 +18,18 @@
   }
 }
 
+.BlogLink {
+  text-decoration: none;
+  &:hover {
+    text-decoration: inherit;
+  }
+  &:focus {
+    .BlogTitle {
+      text-decoration: underline;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .ListItemEventButton {
     background-color: #ffffff00 !important;

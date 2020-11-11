@@ -37,7 +37,7 @@ const menuInit = [
   {
     title: 'Notes',
     link: '/notes',
-    linkType: 'notes',
+    linkType: 'link',
   },
   {
     title: 'Kidmax',
@@ -432,7 +432,11 @@ class Index extends React.Component<EmptyProps, State> {
     this.sundayCheck(field);
   }
 
-  handleMenuChange(index: number, field: string, data: string): void {
+  handleMenuChange(
+    index: number,
+    field: 'link' | 'title' | 'linkType',
+    data: string
+  ): void {
     const temp = this.state.liveObject;
     temp.menu[index][field] = data;
     this.setState({ liveObject: temp });
@@ -520,14 +524,23 @@ class Index extends React.Component<EmptyProps, State> {
           onChange={(e) =>
             this.handleMenuChange(index, 'title', e.target.value)
           }
-        ></input>
+        />
         <input
           placeholder="url"
           className="menu-input"
           type="text"
           value={menuItem.link}
           onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}
-        ></input>
+        />
+        <input
+          placeholder="type"
+          className="menu-input"
+          type="text"
+          value={menuItem.linkType}
+          onChange={(e) =>
+            this.handleMenuChange(index, 'linkType', e.target.value)
+          }
+        />
       </div>
     );
   }

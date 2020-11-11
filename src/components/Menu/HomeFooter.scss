@@ -12,6 +12,33 @@
   }
 }
 
+.AppBadges {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.app-download-link {
+  display: inline-block;
+}
+
+.app-store-badge {
+  height: 40px;
+  margin-right: 12px;
+}
+
+.play-store-badge {
+  height: 60px;
+}
+
+.FooterSocialA {
+  font-family: Graphik Web;
+  font-weight: bold;
+  margin-right: 48px;
+  font-size: 12px;
+}
+
 @media (min-width: 768px) {
   .HomeFooter.footer.font-small {
     color: #1a1a1a;
@@ -82,15 +109,16 @@
     padding-left: 15px;
   }
   .FooterSocial {
-    text-align: left;
+    display: flex;
+    align-items: flex-start;
   }
   .FooterSocialA {
-    padding-left: 15px;
+    margin: 0;
+    padding: 0 16px;
   }
-  .FooterSocialImg {
-    margin-right: 0.5vw;
-    margin-top: 2.5vw;
-    margin-bottom: 2.5vw;
+  .AppBadges {
+    padding-left: 16px;
+    margin-top: 24px;
   }
   .HomeFooterCopyright {
     font-family: Graphik Web;

@@ -34,6 +34,7 @@ import ScaledImage, {
 } from 'components/ScaledImage/ScaledImage';
 import { Link } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
+import moment from 'moment';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -505,7 +506,12 @@ class ListItem extends React.Component<Props, State> {
       alt: item.blogTitle + ' series image',
     };
     return (
-      <Link className="container" to={'/posts/' + item.id} key={item.id}>
+      <Link
+        className="BlogLink"
+        to={'/posts/' + item.id}
+        key={item.id}
+        aria-label={item.blogTitle ?? 'read blog post'}
+      >
         <div className="BlogItem">
           <ScaledImage
             image={image}
@@ -1282,11 +1288,11 @@ class ListItem extends React.Component<Props, State> {
 
       data.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
 
-      const today = format(new Date(), 'yyyy-MM-dd');
+      const today = moment();
       const dateChecked = data.filter(
         (post: any) =>
-          post.publishedDate <= today &&
-          (post.expirationDate >= today || post.expirationDate)
+          post?.expirationDate === 'none' ||
+          moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
       );
 
       return (
