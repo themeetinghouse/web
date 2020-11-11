@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './TeachingSearch.scss';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as customQueries from '../../graphql-custom/customQueries';
 import {
@@ -13,33 +13,56 @@ import { GraphQLResult } from '@aws-amplify/api/lib/types';
 import { SearchBarContentProp } from '../types';
 import { Link } from 'components/Link/Link';
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: SearchBarContentProp;
 }
 
-interface State {
-  videos: NonNullable<NonNullable<SearchVideosQuery['searchVideos']>['items']>;
-  blogs: NonNullable<NonNullable<SearchBlogsQuery['searchBlogs']>['items']>;
-  currentInput: string;
-}
+type Videos = NonNullable<
+  NonNullable<SearchVideosQuery['searchVideos']>['items']
+>;
+type Blogs = NonNullable<NonNullable<SearchBlogsQuery['searchBlogs']>['items']>;
 
-class TeachingSearch extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      videos: [],
-      blogs: [],
-      currentInput: '',
-    };
-  }
+export default function TeachingSearch(props: Props) {
+  const history = useHistory();
+  const [videos, setVideos] = useState<Videos>([]);
+  const [blogs, setBlogs] = useState<Blogs>([]);
+  const [currentInput, setCurrentInput] = useState('');
 
-  async searchBlogs(e: React.ChangeEvent<HTMLInputElement>) {
+  useEffect(() => {
+    if (videos.length) {
+      const getVideos = document.getElementsByClassName('ListItem');
+      if (getVideos[0]) {
+        getVideos[0].setAttribute('style', 'opacity: 0.5');
+      }
+    } else {
+      const getVideos = document.getElementsByClassName('ListItem');
+      if (getVideos[0]) {
+        getVideos[0].setAttribute('style', 'opacity: 1');
+      }
+    }
+  }, [videos]);
+
+  useEffect(() => {
+    if (blogs.length) {
+      const getBlogs = document.getElementsByClassName('BlogItem');
+      if (getBlogs[0]) {
+        getBlogs[0].setAttribute('style', 'opacity: 0.5');
+      }
+    } else {
+      const getBlogs = document.getElementsByClassName('BlogItem');
+      if (getBlogs[0]) {
+        getBlogs[0].setAttribute('style', 'opacity: 1');
+      }
+    }
+  }, [blogs]);
+
+  async function searchBlogs(e: React.ChangeEvent<HTMLInputElement>) {
     const targetValue = e.target.value;
-    this.setState({ currentInput: targetValue });
+    setCurrentInput(targetValue);
     try {
       const query: SearchBlogsQueryVariables = {
         filter: {
-          blogStatus: { eq: this.props.content.subclass },
+          blogStatus: { eq: props.content.subclass },
           or: [
             { blogTitle: { matchPhrasePrefix: targetValue.toLowerCase() } },
             { tags: { matchPhrasePrefix: targetValue.toLowerCase() } },
@@ -51,23 +74,19 @@ class TeachingSearch extends React.Component<Props, State> {
       const json = (await API.graphql(
         graphqlOperation(customQueries.searchBlogs, query)
       )) as GraphQLResult<SearchBlogsQuery>;
-
-      if (json?.data?.searchBlogs?.items)
-        this.setState({
-          blogs: json.data.searchBlogs.items,
-        });
+      setBlogs(json?.data?.searchBlogs?.items ?? []);
     } catch (err) {
       console.error(err);
     }
   }
 
-  async searchVideos(e: React.ChangeEvent<HTMLInputElement>) {
+  async function searchVideos(e: React.ChangeEvent<HTMLInputElement>) {
     const targetValue = e.target.value;
-    this.setState({ currentInput: targetValue });
+    setCurrentInput(targetValue);
     try {
       const query: SearchVideosQueryVariables = {
         filter: {
-          videoTypes: { eq: this.props.content.subclass },
+          videoTypes: { eq: props.content.subclass },
           or: [
             { seriesTitle: { matchPhrasePrefix: targetValue.toLowerCase() } },
             { episodeTitle: { matchPhrasePrefix: targetValue.toLowerCase() } },
@@ -79,15 +98,13 @@ class TeachingSearch extends React.Component<Props, State> {
         graphqlOperation(customQueries.searchVideos, query)
       )) as GraphQLResult<SearchVideosQuery>;
       if (json?.data?.searchVideos?.items)
-        this.setState({
-          videos: json.data.searchVideos.items,
-        });
+        setVideos(json?.data?.searchVideos?.items ?? []);
     } catch (err) {
       console.error(err);
     }
   }
 
-  formatVideoDuration(length: string): string {
+  function formatVideoDuration(length: string): string {
     let duration = parseInt(length, 10);
     let hours = 0;
     if (duration < 60) {
@@ -100,93 +117,163 @@ class TeachingSearch extends React.Component<Props, State> {
     return `${hours.toString()}h ${duration.toString()}m`;
   }
 
-  openVideo(item: State['videos'][0]) {
+  function openVideo(item: Videos[0]) {
     if (item && item?.series) {
-      this.props.history.push(
-        '/videos/' + item.series.id + '/' + item.id,
-        'as'
-      );
-      const unblock = this.props.history.block(
-        'Are you sure you want to leave this page?'
-      );
-      unblock();
+      history.push('/videos/' + item.series.id + '/' + item.id, 'as');
     }
   }
 
-  render() {
-    switch (this.props.content.style) {
-      case 'teaching':
-        return (
-          <div className="TeachingSearchItem">
-            <div className="Header1">{this.props.content.header1}</div>
-            <div className="SearchBar">
-              <img
-                src="/static/svg/Search.svg"
-                alt=""
-                className="SearchIcon"
-              ></img>
-              <input
-                className="TeachingSearchItemInput"
-                value={this.state.currentInput}
-                onChange={(e) => {
-                  this.searchVideos(e);
+  switch (props.content.style) {
+    case 'teaching':
+      return (
+        <div className="TeachingSearchItem">
+          <div className="Header1">{props.content.header1}</div>
+          <div className="SearchBar">
+            <img
+              src="/static/svg/Search.svg"
+              alt=""
+              className="SearchIcon"
+            ></img>
+            <input
+              className="TeachingSearchItemInput"
+              value={currentInput}
+              onChange={(e) => {
+                searchVideos(e);
+              }}
+              placeholder={props.content.text1}
+              aria-label="search"
+            ></input>
+            {videos.length && currentInput ? (
+              <button
+                aria-label="Close search bar"
+                onClick={() => {
+                  setVideos([]);
+                  setCurrentInput('');
                 }}
-                placeholder={this.props.content.text1}
-                aria-label="search"
-              ></input>
-              {this.state.videos.length && this.state.currentInput ? (
-                <button
-                  aria-label="Close search bar"
-                  onClick={() =>
-                    this.setState({ videos: [], currentInput: '' })
-                  }
-                  className="CloseTeachingSearchButton"
-                >
-                  <img
-                    src="/static/svg/Close-Cancel.svg"
-                    alt=""
-                    className="CloseTeachingSearch"
-                  ></img>
-                </button>
-              ) : null}
-            </div>
-            <div
-              className={
-                this.state.videos.length && this.state.currentInput
-                  ? 'TeachingSearchItemDiv ShowResults'
-                  : 'TeachingSearchItemDiv'
-              }
-            >
-              {this.state.videos.length && this.state.currentInput ? (
-                <div className="TeachingSearchNumberOfVideos">
-                  {this.state.videos.length} Videos
-                </div>
-              ) : null}
-              {this.state.videos.length && this.state.currentInput
-                ? this.state.videos.map((item) => {
-                    if (item?.episodeTitle)
-                      return (
-                        <div
-                          tabIndex={0}
-                          key={item.id}
-                          onClick={() => {
-                            this.openVideo(item);
-                          }}
-                          className="TeachingSearchResultItem FocusableVideo"
-                        >
+                className="CloseTeachingSearchButton"
+              >
+                <img
+                  src="/static/svg/Close-Cancel.svg"
+                  alt=""
+                  className="CloseTeachingSearch"
+                ></img>
+              </button>
+            ) : null}
+          </div>
+          <div
+            className={
+              videos.length && currentInput
+                ? 'TeachingSearchItemDiv ShowResults'
+                : 'TeachingSearchItemDiv'
+            }
+          >
+            {videos.length && currentInput ? (
+              <div className="TeachingSearchNumberOfVideos">
+                {videos.length} Videos
+              </div>
+            ) : null}
+            {videos.length && currentInput
+              ? videos.map((item) => {
+                  if (item?.episodeTitle)
+                    return (
+                      <div
+                        tabIndex={0}
+                        key={item.id}
+                        onClick={() => {
+                          openVideo(item);
+                        }}
+                        className="TeachingSearchResultItem FocusableVideo"
+                      >
+                        <div className="Content">
+                          <div className="Details">
+                            <div className="Title">{item.episodeTitle}</div>
+                            <div className="RightContainer">
+                              {item.publishedDate ? (
+                                <div className="Date">{item.publishedDate}</div>
+                              ) : null}
+                              {item.length ? (
+                                <div className="Length">
+                                  &nbsp;• {formatVideoDuration(item.length)}
+                                </div>
+                              ) : null}
+                            </div>
+                          </div>
+                          <div className="Description">{item.description}</div>
+                        </div>
+                      </div>
+                    );
+                  else return null;
+                })
+              : null}
+          </div>
+        </div>
+      );
+    case 'blog':
+      return (
+        <div className="TeachingSearchItem">
+          <div className="Header1">{props.content.header1}</div>
+          <div className="SearchBar">
+            <img
+              src="/static/svg/Search.svg"
+              alt=""
+              className="SearchIcon"
+            ></img>
+            <input
+              className="TeachingSearchItemInput"
+              value={currentInput}
+              onChange={(e) => {
+                searchBlogs(e);
+              }}
+              placeholder={props.content.text1}
+              aria-label="search"
+            ></input>
+            {blogs.length && currentInput ? (
+              <button
+                aria-label="Close search bar"
+                onClick={() => {
+                  setBlogs([]);
+                  setCurrentInput('');
+                }}
+                className="CloseTeachingSearchButton"
+              >
+                <img
+                  src="/static/svg/Close-Cancel.svg"
+                  alt=""
+                  className="CloseTeachingSearch"
+                ></img>
+              </button>
+            ) : null}
+          </div>
+          <div
+            className={
+              blogs.length && currentInput
+                ? 'TeachingSearchItemDiv ShowResults'
+                : 'TeachingSearchItemDiv'
+            }
+          >
+            {blogs.length && currentInput ? (
+              <div className="TeachingSearchNumberOfVideos">
+                {blogs.length} Posts
+              </div>
+            ) : null}
+            {blogs.length && currentInput
+              ? blogs.map((item) => {
+                  if (item?.blogTitle)
+                    return (
+                      <Link
+                        key={item.id}
+                        to={`/posts/${item.id}`}
+                        className="BlogLink"
+                        aria-label={item.blogTitle}
+                      >
+                        <div className="TeachingSearchResultItem">
                           <div className="Content">
                             <div className="Details">
-                              <div className="Title">{item.episodeTitle}</div>
+                              <div className="Title">{item.blogTitle}</div>
                               <div className="RightContainer">
                                 {item.publishedDate ? (
                                   <div className="Date">
                                     {item.publishedDate}
-                                  </div>
-                                ) : null}
-                                {item.length ? (
-                                  <div className="Length">
-                                    &nbsp;•{' '}
-                                    {this.formatVideoDuration(item.length)}
                                   </div>
                                 ) : null}
                               </div>
@@ -196,96 +283,13 @@ class TeachingSearch extends React.Component<Props, State> {
                             </div>
                           </div>
                         </div>
-                      );
-                    else return null;
-                  })
-                : null}
-            </div>
+                      </Link>
+                    );
+                  else return null;
+                })
+              : null}
           </div>
-        );
-      case 'blog':
-        return (
-          <div className="TeachingSearchItem">
-            <div className="Header1">{this.props.content.header1}</div>
-            <div className="SearchBar">
-              <img
-                src="/static/svg/Search.svg"
-                alt=""
-                className="SearchIcon"
-              ></img>
-              <input
-                className="TeachingSearchItemInput"
-                value={this.state.currentInput}
-                onChange={(e) => {
-                  this.searchBlogs(e);
-                }}
-                placeholder={this.props.content.text1}
-                aria-label="search"
-              ></input>
-              {this.state.blogs.length && this.state.currentInput ? (
-                <button
-                  aria-label="Close search bar"
-                  onClick={() => this.setState({ blogs: [], currentInput: '' })}
-                  className="CloseTeachingSearchButton"
-                >
-                  <img
-                    src="/static/svg/Close-Cancel.svg"
-                    alt=""
-                    className="CloseTeachingSearch"
-                  ></img>
-                </button>
-              ) : null}
-            </div>
-            <div
-              className={
-                this.state.blogs.length && this.state.currentInput
-                  ? 'TeachingSearchItemDiv ShowResults'
-                  : 'TeachingSearchItemDiv'
-              }
-            >
-              {this.state.blogs.length && this.state.currentInput ? (
-                <div className="TeachingSearchNumberOfVideos">
-                  {this.state.blogs.length} Posts
-                </div>
-              ) : null}
-              {this.state.blogs.length && this.state.currentInput
-                ? this.state.blogs.map((item) => {
-                    if (item?.blogTitle)
-                      return (
-                        <Link
-                          to={`/posts/${item.id}`}
-                          className="BlogLink"
-                          aria-label={item.blogTitle}
-                        >
-                          <div
-                            key={item.id}
-                            className="TeachingSearchResultItem"
-                          >
-                            <div className="Content">
-                              <div className="Details">
-                                <div className="Title">{item.blogTitle}</div>
-                                <div className="RightContainer">
-                                  {item.publishedDate ? (
-                                    <div className="Date">
-                                      {item.publishedDate}
-                                    </div>
-                                  ) : null}
-                                </div>
-                              </div>
-                              <div className="Description">
-                                {item.description}
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      );
-                    else return null;
-                  })
-                : null}
-            </div>
-          </div>
-        );
-    }
+        </div>
+      );
   }
 }
-export default withRouter(TeachingSearch);
