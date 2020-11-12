@@ -21,6 +21,7 @@ type Query {
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
 }
+
 type BibleResponse {
   data: BibleData
   meta: BibleMetaData

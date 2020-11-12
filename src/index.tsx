@@ -17,6 +17,11 @@ Sentry.init({
     'https://38e8f0bc706a4d968e1ff3ebf638a090@o390245.ingest.sentry.io/5231570',
   environment: env,
   release: version.git,
+  ignoreErrors: [
+    'TypeError: Failed to fetch',
+    'TypeError: NetworkError when attempting to fetch resource.',
+    'TypeError: Cancelled',
+  ],
 });
 
 const history: History<any> = createBrowserHistory();
