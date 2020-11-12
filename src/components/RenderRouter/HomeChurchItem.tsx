@@ -153,13 +153,13 @@ export class ContentItem extends React.Component<Props, State> {
 
   private daysOfWeek = [
     { label: 'All days', value: 'all' },
-    { label: 'Sundays', value: 'Sundays' },
-    { label: 'Mondays', value: 'Mondays' },
-    { label: 'Tuesdays', value: 'Tuesdays' },
-    { label: 'Wednesdays', value: 'Wednesdays' },
-    { label: 'Thursdays', value: 'Thursdays' },
-    { label: 'Fridays', value: 'Fridays' },
-    { label: 'Saturdays', value: 'Saturdays' },
+    { label: 'Sunday', value: 'Sunday' },
+    { label: 'Monday', value: 'Monday' },
+    { label: 'Tuesday', value: 'Tuesday' },
+    { label: 'Wednesday', value: 'Wednesday' },
+    { label: 'Thursday', value: 'Thursday' },
+    { label: 'Friday', value: 'Friday' },
+    { label: 'Saturday', value: 'Saturday' },
   ];
 
   componentDidMount() {
@@ -316,10 +316,10 @@ export class ContentItem extends React.Component<Props, State> {
   private async clearLocationSelection() {
     this.setState({ postalCode: '' });
     if (this.selectControlLocation) {
-      this.selectControlLocation.select.clearValue();
+      this.selectControlLocation?.select.clearValue();
     }
     if (this.selectControlDay) {
-      //    this.selectControlDay?.select.clearValue();
+      this.selectControlDay?.select.clearValue();
     }
     await this.setGeoLocation();
     this.handleSiteSelection(this.state.filterLocation);
@@ -404,21 +404,21 @@ export class ContentItem extends React.Component<Props, State> {
   private getDayOfWeek(item: F1Group['schedule']) {
     if (item?.recurrences?.recurrence?.recurrenceWeekly)
       if (item.recurrences.recurrence.recurrenceWeekly.occurOnSunday)
-        return 'Sundays';
+        return 'Sunday';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnMonday)
-        return 'Mondays';
+        return 'Monday';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnTuesday)
-        return 'Tuesdays';
+        return 'Tuesday';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnWednesday)
-        return 'Wednesdays';
+        return 'Wednesday';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnThursday)
-        return 'Thursdays';
+        return 'Thursday';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnFriday)
-        return 'Fridays';
+        return 'Friday';
       else if (item.recurrences.recurrence.recurrenceWeekly.occurOnSaturday)
-        return 'Saturdays';
-      else return moment(item.startDate).format('dddd') + 's';
-    else return moment(item?.startDate).format('dddd') + 's';
+        return 'Saturday';
+      else return moment(item.startDate).format('dddd');
+    else return moment(item?.startDate).format('dddd');
   }
   render() {
     const inititalCenter = { lat: 44, lng: -78.0 };
