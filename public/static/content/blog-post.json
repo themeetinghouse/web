@@ -17,6 +17,15 @@
       {
         "type": "post",
         "style": "blog"
+      },
+      {
+        "type": "list",
+        "header1": "Similar Blog Posts",
+        "class": "blogs",
+        "style": "blogs",
+        "selector": "similar",
+        "status": "Live",
+        "sortOrder": "DESC"
       }
     ]
   }

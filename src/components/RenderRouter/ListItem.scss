@@ -120,6 +120,14 @@
     color: $coolgray11;
   }
 
+  .BlogItemH1 {
+    font-weight: bold;
+    font-size: 2vw;
+    margin-bottom: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+  }
+
   .ListItemH1 {
     position: relative;
     left: 0vw;
@@ -737,6 +745,14 @@
     width: 80vw;
     font-weight: bold;
     font-size: 3vw;
+    color: $onyxblacktext;
+  }
+
+  .BlogItemH1 {
+    font-weight: bold;
+    font-size: 2vw;
+    margin-bottom: 2vw;
+    font-family: Graphik Web;
     color: $onyxblacktext;
   }
 
@@ -1438,6 +1454,15 @@
     font-size: 10vw;
     font-weight: 700;
     font-family: Graphik Web;
+  }
+
+  .BlogItemH1 {
+    font-weight: bold;
+    font-size: 8vw;
+    margin-bottom: 8vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+    width: 80vw;
   }
 
   .ListItemH1.whiteText {

@@ -38,6 +38,7 @@
         "type": "list",
         "class": "blogs",
         "style": "blogs",
+        "selector": "all",
         "status": "Live",
         "sortOrder": "DESC",
         "skipFirstPost": true
