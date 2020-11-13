@@ -1,7 +1,7 @@
 @import '../../theme';
 
 .HomeChurchFormItemContainer {
-  height:149px;
+  height: 149px;
   padding: 10px;
   .DaySelect {
     font-size: 1rem;
@@ -158,19 +158,19 @@
         margin: 5px 5px 8px 0;
       }
       a.apple-link::before {
-        background-image: url('/static/svg/Apple.svg');
+        background-image: url('../../svg/Apple.svg');
       }
       a.outlook-link::before {
-        background-image: url('/static/svg/Outlook.svg');
+        background-image: url('../../svg/Outlook.svg');
       }
       a.outlookcom-link::before {
-        background-image: url('/static/svg/Outlook.svg');
+        background-image: url('../../svg/Outlook.svg');
       }
       a.yahoo-link::before {
-        background-image: url('/static/svg/Yahoo.svg');
+        background-image: url('../../svg/Yahoo.svg');
       }
       a.google-link::before {
-        background-image: url('/static/svg/Google.svg');
+        background-image: url('../../svg/Google.svg');
       }
     }
   }
