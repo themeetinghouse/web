@@ -15,7 +15,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Covid_Pivot_Lydia.jpg",
+        "image": "/static/images/Covid_Pic_1.jpg",
         "url": "https://www.themeetinghouse.com/go",
         "title": "GO",
         "description": ""
@@ -25,7 +25,7 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Lydia_Covid_Pic.jpg",
+            "src": "/static/images/Covid_Pic_1.jpg",
             "alt": "Description"
           }
         ],
