@@ -35,6 +35,7 @@ import ScaledImage, {
 import { Link } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
+import { isMobile } from 'react-device-detect';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -178,6 +179,7 @@ class ListItem extends React.Component<Props, State> {
     const query: DataQuery = this.props.content;
     switch (query.class) {
       case 'instagram':
+        console.log("found instagram")
         data = await DataLoader.loadInsta(query);
         console.log(data)
         break;
@@ -1137,14 +1139,9 @@ class ListItem extends React.Component<Props, State> {
     }
   }
 
-  renderInstaTile(item: any): JSX.Element | null {
-    if (!item) {
-      return null;
-    }
-    console.log("Item is not empty!")
-    return(
-      null
-    )
+  renderInstaTile(item: any): JSX.Element | null { // Instagram tile styling
+    if(!item) return null;
+    return <div style={{display:"inline-block", margin:12}}><img width={isMobile ? 132 : 264} height={isMobile ? 132 : 264} src={item.thumbnails[4].src}></img></div>
   }
 
   renderItemRouter(item: ListData, index: number) {
@@ -1581,7 +1578,24 @@ class ListItem extends React.Component<Props, State> {
           ></VideoOverlay>
         </div>
       );
-    } else if (this.state.content.style === 'imageList')
+    }else if(this.state.content.style ==='grid'){ //This renders the instagram div and tiles
+      if(this.state.content.class === 'instagram'){ 
+        console.log("found grid content")
+        const i:any = this.state.listData[0] as any;
+        return(
+          <div className="ListItem horizontal">
+            <div className="ListItemDiv1">
+          {i?.items.map((tile:any, index:number)=>{
+            return this.renderItemRouter(tile, index);
+          })}
+          </div>
+          </div>
+          )
+        }
+      else return null
+    } 
+    
+    else if (this.state.content.style === 'imageList')
       return (
         <div className="ListItem imageList">
           <div className="ListItemDiv1">

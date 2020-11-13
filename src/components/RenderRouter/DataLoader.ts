@@ -848,7 +848,7 @@ static async loadInsta(query:any) : Promise<any>{
 
   try {
     const json = await getInsta;
-    return json;
+    return json?.data?.getInstagramByLocation;
     }
   catch (e) {
     console.error(e);
