@@ -182,41 +182,11 @@
           }
         ]
       },
-<<<<<<< HEAD
-      {
-        "type": "goLink",
-        "style": "link",
-        "title": "Go Campaign Details",
-        "navigateTo": "/static/pdfs/go/TMH_GO_booklet_v7.pdf",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "link",
-        "title": "Go Campaign FAQ",
-        "navigateTo": "/static/pdfs/go/Donor-FAQs-for-Go-Nov.pdf",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "link",
-        "title": "Learn more about Jesus Collective",
-        "navigateTo": "https://www.jesuscollective.com",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "button",
-        "title": "Pledge and Give",
-        "navigateTo": "/go-choose",
-        "newWindow": true
-      }
-=======
           {
             "type": "goLink",
             "style": "link",
             "title": "Go Campaign FAQ",
-            "navigateTo": "/static/pdfs/go/Go-Faq2.pdf",
+            "navigateTo": "/static/pdfs/go/Go - FAQ2.pdf",
             "newWindow": true
           },
           {
@@ -226,7 +196,6 @@
             "navigateTo": "https://www.jesuscollective.com",
             "newWindow": true
           }
->>>>>>> 9b7acfb210101573aaa06a0120e0416c98ac2410
     ]
   }
 }
