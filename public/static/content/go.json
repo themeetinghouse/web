@@ -73,15 +73,36 @@
           },
           {
             "fontWeight": "normal",
-            "text": "If you’re wondering \"But what can I do? How can I make a difference?\", this is our chance to be radically generous, to Go further and create even more Kingdom impact.  The benefit of these initiatives is felt here in our Meeting House church communities, and beyond our own borders across the broader Jesus-centred movement.",
+            "text": "If you’re wondering \"But what can I do? How can I make a difference?\", this is our chance to be radically generous, to Go further, and create even more Kingdom impact.  The benefit of these initiatives is felt here in our Meeting House church communities, and beyond our own borders across the broader Jesus-centred movement.",
             "newParagraph": true
-          },
-          {
-            "fontWeight": "bold",
-            "text": "Check out some of the special projects already underway:"
           }
         ]
       },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Make a Difference",
+          "header2": "",
+          "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
+          "image1": [
+            {
+              "src": "/static/images/Give-1.jpg",
+              "alt": "Two people over a camera talking."
+            }
+          ],
+          "list": [
+            {
+              "type": "button",
+              "title": "Give",
+              "navigateTo": "/give"
+            }
+          ]
+        },
+        {
+          "type": "goContent",
+          "style": "goItem",
+          "header1": "Check out some of the special projects already underway:"
+        },
       {
         "type": "goContent",
         "style": "goSubItems",
@@ -137,7 +158,7 @@
             ]
           },
           {
-            "header1": "Beyond our Borders - $2.25 million",
+            "header1": "Beyond Our Borders - $2.25 million",
             "body": [
               {
                 "fontWeight": "bold",
@@ -165,7 +186,7 @@
             "type": "goLink",
             "style": "link",
             "title": "Go Campaign FAQ",
-            "navigateTo": "/static/pdfs/go/Go-Faq.pdf",
+            "navigateTo": "/static/pdfs/go/Go-Faq2.pdf",
             "newWindow": true
           },
           {
@@ -174,26 +195,6 @@
             "title": "Learn more about Jesus Collective",
             "navigateTo": "https://www.jesuscollective.com",
             "newWindow": true
-          },
-          {
-            "type": "content",
-            "style": "oneImage",
-            "header1": "Make a Difference",
-            "header2": "",
-            "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to the Meeting House Go Fund.",
-            "image1": [
-              {
-                "src": "/static/images/Give-1.jpg",
-                "alt": "Two people over a camera talking."
-              }
-            ],
-            "list": [
-              {
-                "type": "button",
-                "title": "Give",
-                "navigateTo": "/give"
-              }
-            ]
           }
     ]
   }
