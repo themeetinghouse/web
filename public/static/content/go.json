@@ -150,7 +150,7 @@
         "type": "goLink",
         "style": "link",
         "title": "Go Campaign FAQ",
-        "navigateTo": "/static/pdfs/go/Donor-FAQs-for-Go.pdf",
+        "navigateTo": "/static/pdfs/go/Donor-FAQs-for-Go-Nov.pdf",
         "newWindow": true
       },
       {
