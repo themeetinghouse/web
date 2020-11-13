@@ -177,6 +177,10 @@ class ListItem extends React.Component<Props, State> {
     let data: ListData[];
     const query: DataQuery = this.props.content;
     switch (query.class) {
+      case 'instagram':
+        data = await DataLoader.loadInsta(query);
+        console.log(data)
+        break;
       case 'speakers':
         await DataLoader.getSpeakers(query, dataLoaded);
         return;
@@ -1132,7 +1136,19 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
   }
+
+  renderInstaTile(item: any): JSX.Element | null {
+    if (!item) {
+      return null;
+    }
+    console.log("Item is not empty!")
+    return(
+      null
+    )
+  }
+
   renderItemRouter(item: ListData, index: number) {
+    console.log(this.state.content.class)
     if (this.state.content.class === 'speakers')
       return this.renderSpeaker(item as SpeakerData);
     else if (this.state.content.class === 'videos')
@@ -1143,6 +1159,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderOverseer(item as OverseerData | OverseerData[], index);
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
+    else if(this.state.content.class === 'instagram')
+      return this.renderInstaTile(item as any)
     else if (this.state.content.class === 'compassion')
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
@@ -1176,7 +1194,7 @@ class ListItem extends React.Component<Props, State> {
             }
             return (item[
               this.props.content.filterField as keyof ListData
-            ] as string).includes(this.props.content.filterValue);
+            ] as string)?.includes(this.props.content.filterValue);
           });
 
     const dataLength = data.length;
