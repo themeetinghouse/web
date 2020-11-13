@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es2019",
     "module": "esnext",
-    "jsx": "preserve",
+    // "jsx": "preserve",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -20,8 +20,11 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true
   },
+
   "include": ["src"],
   "exclude": [
     "babel.config.js",
