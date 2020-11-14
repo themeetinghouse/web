@@ -249,8 +249,15 @@ class ListItem extends React.Component<Props, State> {
         }
         break;
       case 'blogs':
-        await DataLoader.getBlogs(query, dataLoaded);
-        return;
+        switch (query.selector) {
+          case 'all':
+            await DataLoader.getBlogs(query, dataLoaded);
+            return;
+          case 'similar':
+            const postId = this.props?.match?.params?.blog ?? '';
+            await DataLoader.getSimilarBlogs(query, postId, dataLoaded);
+            return;
+        }
       case 'user-defined':
         return;
       default:
@@ -1295,12 +1302,19 @@ class ListItem extends React.Component<Props, State> {
           moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
       );
 
+      if (dateChecked.length === 0) {
+        return null;
+      }
+
       return (
-        <div className="ListItemDiv1 BlogItem">
-          <div className="BlogItemContainer">
-            {dateChecked.slice(startIndex).map((item: any, index: any) => {
-              return this.renderItemRouter(item, index);
-            })}
+        <div className="ListItemDiv1">
+          <h1 className="BlogItemH1">{this.state.content.header1}</h1>
+          <div className="BlogItem">
+            <div className="BlogItemContainer">
+              {dateChecked.slice(startIndex).map((item: any, index: any) => {
+                return this.renderItemRouter(item, index);
+              })}
+            </div>
           </div>
         </div>
       );
