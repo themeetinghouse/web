@@ -1141,7 +1141,7 @@ class ListItem extends React.Component<Props, State> {
 
   renderInstaTile(item: any): JSX.Element | null { // Instagram tile styling
     if(!item) return null;
-    return <div style={{display:"inline-block", margin:12}}><img width={isMobile ? 132 : 264} height={isMobile ? 132 : 264} src={item.thumbnails[4].src}></img></div>
+    return <div className="ListInstagramTile"><img width={isMobile ? this.state.windowWidth < 375 ? 120 :156 :264} height={isMobile ? this.state.windowWidth < 375 ? 120 :156 :264} src={item.thumbnails[2].src}></img></div>
   }
 
   renderItemRouter(item: ListData, index: number) {
@@ -1578,21 +1578,21 @@ class ListItem extends React.Component<Props, State> {
           ></VideoOverlay>
         </div>
       );
-    }else if(this.state.content.style ==='grid'){ //This renders the instagram div and tiles
-      if(this.state.content.class === 'instagram'){ 
-        console.log("found grid content")
+    }
+    else if(this.state.content.style ==='grid' && this.state.content.class === 'instagram'){ //This renders the instagram div and iterate tiles
         const i:any = this.state.listData[0] as any;
         return(
           <div className="ListItem horizontal">
-            <div className="ListItemDiv1">
-          {i?.items.map((tile:any, index:number)=>{
-            return this.renderItemRouter(tile, index);
-          })}
+            {/*<div style={{position:"absolute",marginTop:"90px",height:"340px", width:"85%", backgroundColor:"#EFEFF0",zIndex:-200}}></div>*/}
+            <div className="ListInstagramContainer">
+                {i?.items.map((tile:any, index:number)=>{
+                  console.log(i)
+                    return this.renderItemRouter(tile, index);
+                })}
+                </div>
+                <a className="ListInstagramButton" target="_blank" rel="noreferrer" href={i?.items[0]?.locationId ? `https://instagram.com/${i.items[0].locationId}` : `https://instagram.com/themeetinghouse/`}><img width={25} height={20} style={{marginRight:"3px"}} src="/static/svg/Instagram.svg"></img> Go to Instagram</a>
           </div>
-          </div>
-          )
-        }
-      else return null
+        )
     } 
     
     else if (this.state.content.style === 'imageList')
