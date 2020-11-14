@@ -25,7 +25,10 @@ import {
   ListF1ListGroup2sQuery,
   ListF1ListGroup2sQueryVariables,
   GetInstagramByLocationQuery,
-  GetInstagramByLocationQueryVariables
+  GetInstagramByLocationQueryVariables,
+  GetBlogQuery,
+  SearchBlogsQuery,
+  SearchBlogsQueryVariables
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -85,7 +88,8 @@ export interface SpeakerQuery extends DataLoaderQuery {
 
 export interface BlogQuery extends DataLoaderQuery {
   class: 'blogs';
-  status: string;
+  status: 'Live' | 'Unlisted';
+  selector: 'all' | 'similar';
   sortOrder: ModelSortDirection;
 }
 
@@ -489,6 +493,58 @@ export default class DataLoader {
       if (nextToken) {
         await this.getSpeakers(query, dataLoaded, nextToken);
       }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  static async getSimilarBlogs(
+    query: BlogQuery,
+    postId: string,
+    dataLoaded: OnDataListener<BlogData[]>
+  ): Promise<void> {
+    const getBlog = (await API.graphql(
+      graphqlOperation(customQueries.getBlogForSearch, { id: postId })
+    )) as GraphQLResult<GetBlogQuery>;
+
+    const blogTags = getBlog.data?.getBlog?.tags?.filter(
+      (tag) => !['The Meeting House', 'church'].includes(tag ?? '')
+    );
+
+    let blogTag1;
+    let blogTag2;
+    let blogTag3;
+    if (blogTags?.length && blogTags.length > 0) {
+      blogTag1 = blogTags[0] ?? '';
+      blogTag2 = blogTags[1] ?? '';
+      blogTag3 = blogTags[2] ?? '';
+    }
+
+    const blogAuthor = getBlog.data?.getBlog?.author;
+
+    const vars: SearchBlogsQueryVariables = {
+      limit: 3,
+      filter: {
+        id: { ne: postId },
+        blogStatus: { eq: query.status },
+        or: [
+          { author: { matchPhrase: blogAuthor } },
+          { tags: { matchPhrase: blogTag1 } },
+          { tags: { matchPhrase: blogTag2 } },
+          { tags: { matchPhrase: blogTag3 } },
+          { description: { matchPhrase: blogTag1 } },
+        ],
+      },
+    };
+    const searchBlogs = API.graphql(
+      graphqlOperation(customQueries.searchBlogs, vars)
+    ) as Promise<GraphQLResult<SearchBlogsQuery>>;
+    try {
+      const json = await searchBlogs;
+      console.debug('Success customQueries.searchBlogs: ' + json);
+      console.debug(json);
+
+      dataLoaded(json?.data?.searchBlogs?.items ?? []);
     } catch (e) {
       console.error(e);
     }
