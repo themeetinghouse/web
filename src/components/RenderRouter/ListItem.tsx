@@ -177,6 +177,9 @@ class ListItem extends React.Component<Props, State> {
     let data: ListData[];
     const query: DataQuery = this.props.content;
     switch (query.class) {
+      case 'instagram':
+        data = await DataLoader.loadInsta(query);
+        break;
       case 'speakers':
         await DataLoader.getSpeakers(query, dataLoaded);
         return;
@@ -1139,6 +1142,12 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
   }
+
+  renderInstaTile(item: any): JSX.Element | null { // Instagram tile styling
+    if(!item) return null;
+    return <div className="ListInstagramTile"><img width={this.state.windowWidth < 375 ? 120 :this.state.windowWidth < 600 ? 156 : 264} height={this.state.windowWidth < 375 ? 120 :this.state.windowWidth < 600 ? 156 : 264} src={item.thumbnails[2].src}></img></div>
+  }
+
   renderItemRouter(item: ListData, index: number) {
     if (this.state.content.class === 'speakers')
       return this.renderSpeaker(item as SpeakerData);
@@ -1150,6 +1159,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderOverseer(item as OverseerData | OverseerData[], index);
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
+    else if(this.state.content.class === 'instagram')
+      return this.renderInstaTile(item as any)
     else if (this.state.content.class === 'compassion')
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
@@ -1183,7 +1194,7 @@ class ListItem extends React.Component<Props, State> {
             }
             return (item[
               this.props.content.filterField as keyof ListData
-            ] as string).includes(this.props.content.filterValue);
+            ] as string)?.includes(this.props.content.filterValue);
           });
 
     const dataLength = data.length;
@@ -1577,7 +1588,22 @@ class ListItem extends React.Component<Props, State> {
           ></VideoOverlay>
         </div>
       );
-    } else if (this.state.content.style === 'imageList')
+    }
+    else if(this.state.content.style ==='grid' && this.state.content.class === 'instagram'){ //This renders the instagram div and iterate tiles
+        const i:any = this.state.listData[0] as any;
+        return(
+          <div className="ListItem horizontal">
+            <div className="ListInstagramContainer">
+                {i?.items.map((tile:any, index:number)=>{
+                    return this.renderItemRouter(tile, index);
+                })}
+                </div>
+                <a className="ListInstagramButton" target="_blank" rel="noreferrer" href={i?.items[0]?.locationId ? `https://instagram.com/${i.items[0].locationId}` : `https://instagram.com/themeetinghouse/`}><img width={25} height={20} style={{marginRight:"3px"}} src="/static/svg/Instagram.svg"></img> Go to Instagram</a>
+          </div>
+        )
+    } 
+    
+    else if (this.state.content.style === 'imageList')
       return (
         <div className="ListItem imageList">
           <div className="ListItemDiv1">

@@ -24,9 +24,11 @@ import {
   ListCustomPlaylistsQueryVariables,
   ListF1ListGroup2sQuery,
   ListF1ListGroup2sQueryVariables,
+  GetInstagramByLocationQuery,
+  GetInstagramByLocationQueryVariables,
   GetBlogQuery,
   SearchBlogsQuery,
-  SearchBlogsQueryVariables,
+  SearchBlogsQueryVariables
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -104,6 +106,10 @@ export interface StaffQuery extends DataLoaderQuery {
   class: 'staff';
 
   filterField: string;
+}
+
+export interface InstaQuery extends DataLoaderQuery{
+  class:'instagram';
 }
 
 export interface StaffData {
@@ -189,6 +195,7 @@ export type DataQuery =
   | CustomPlaylistQuery
   | SeriesCollectionQuery
   | CustomPlaylistsQuery
+  | InstaQuery
   | UserDefinedQuery;
 
 export type SeriesData = NonNullable<
@@ -810,6 +817,99 @@ export default class DataLoader {
       return staff;
     }
   }
+
+static async loadInsta(query:any) : Promise<any>{ 
+  let id="";
+    switch(query.filterValue){
+      case "alliston": 
+        id="themeetinghousealliston";
+        break;
+      case "sandbanks": 
+        id="tmhsandbanks"
+        break;
+      case "ancaster": 
+        id="tmhancaster"
+        break;
+      case "brampton": 
+        id="tmhbrampton"
+        break;
+      case "brantford": 
+        id="tmhbrantford"
+        break;
+      case "burlington": 
+        id="tmhburlington"
+        break;
+      case "hamilton-downtown": 
+        id="tmhdowntownham"
+        break;
+      case "toronto-downtown": 
+        id="tmhdowntowntoronto"
+        break;
+      case "hamilton-mountain": 
+        id="tmhhammountain"
+        break;
+      case "toronto-east": 
+        id="tmheasttoronto"
+        break;
+      case "toronto-high-park": 
+        id="tmhhighpark"
+        break;
+      case "kitchener": 
+        id="tmhkitchener"
+        break;
+      case "london": 
+        id="themeetinghouseldn"
+        break;
+      case "newmarket": 
+        id="newmarket.tmh"
+        break;
+      case "oakville": 
+        id="tmhoakville"
+        break;
+      case "ottawa": 
+        id="tmhottawa"
+        break;
+      case "owen-sound": 
+        id="themeetinghouse"
+        break;
+      case "parry-sound": 
+        id="tmhparrysound"
+        break;
+      case "richmond-hill": 
+        id="tmhrichmond"
+        break;
+      case "toronto-uptown": 
+        id="tmhuptowntoronto"
+        break;
+      case "waterloo": 
+        id="tmhwaterloo"
+        break;
+      case "unknown": 
+        id="themeetinghouse"
+        break;
+      default:
+        id="themeetinghouse"
+    }
+  
+  const variables : GetInstagramByLocationQueryVariables ={
+    locationId:id,
+    limit:8,
+    sortDirection:ModelSortDirection.DESC
+  }
+  const getInsta = API.graphql({
+    query: queries.getInstagramByLocation,
+    variables,
+    authMode: GRAPHQL_AUTH_MODE.API_KEY,
+  }) as Promise<GraphQLResult<GetInstagramByLocationQuery>>;
+
+  try {
+    const json = await getInsta;
+    return json?.data?.getInstagramByLocation;
+    }
+  catch (e) {
+    console.error(e);
+  }
+}
 
   static async loadOverseers(): Promise<OverseerData[]> {
     const response = await fetch('/static/data/overseers.json');

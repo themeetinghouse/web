@@ -30,6 +30,25 @@
   }
 }
 
+.ListInstagramButton{
+  &:hover{
+    text-emphasis: none;
+    color:$onyxblacktext;
+  }
+  display: block;
+  min-width: 200px;
+  width: 8vw;
+  border: solid 3px #1a1a1a;
+  box-sizing: border-box;
+  padding: 16px;
+  text-decoration: none !important;
+  
+  margin-right:3px;
+  font-family: Graphik Web;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left:20vw;
+}
 @media (min-width: 768px) {
   .ListItemEventButton {
     background-color: #ffffff00 !important;
@@ -37,6 +56,17 @@
     border: 0px !important;
   }
 
+  .ListInstagramContainer{
+    left:20vw;
+    width:80vw;
+    position:relative;
+  }
+  .ListInstagramTile{
+    object-fit: scale-down;
+    display:inline-block;
+    margin-right:24px;
+    margin-bottom:24px;
+  }
   .ListItem.horizontal,
   .ListItem.horizontalBig {
     position: static;
@@ -1340,7 +1370,25 @@
   }
 }
 
+
 @media (max-width: 767px) {
+  .ListInstagramButton{
+    margin-left:20px;
+  }
+  .ListInstagramContainer{
+    justify-content: center;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ListInstagramTile{
+    object-fit: scale-down;
+    margin:0;
+    margin-bottom:24px;
+  }
+  .ListInstagramTile:nth-child(even){
+    margin-left: 22px;
+  }
   .ListItemEventButton {
     background-color: #ffffff00 !important;
     color: $onyxblacktext !important;
@@ -1947,7 +1995,6 @@
     height: 28.8vw;
   }
 }
-
 @media (hover: none) {
   .CuriousVideoImage {
     filter: grayscale(0);
