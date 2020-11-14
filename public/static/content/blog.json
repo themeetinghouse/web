@@ -41,7 +41,8 @@
         "selector": "all",
         "status": "Live",
         "sortOrder": "DESC",
-        "skipFirstPost": true
+        "skipFirstPost": true,
+        "loadPer": 10
       }
     ]
   }
