@@ -28,7 +28,7 @@ import {
   GetInstagramByLocationQueryVariables,
   GetBlogQuery,
   SearchBlogsQuery,
-  SearchBlogsQueryVariables
+  SearchBlogsQueryVariables,
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -91,6 +91,7 @@ export interface BlogQuery extends DataLoaderQuery {
   status: 'Live' | 'Unlisted';
   selector: 'all' | 'similar';
   sortOrder: ModelSortDirection;
+  loadPer?: number;
 }
 
 export interface SeriesByTypeQuery extends DataLoaderQuery {
@@ -108,8 +109,8 @@ export interface StaffQuery extends DataLoaderQuery {
   filterField: string;
 }
 
-export interface InstaQuery extends DataLoaderQuery{
-  class:'instagram';
+export interface InstaQuery extends DataLoaderQuery {
+  class: 'instagram';
 }
 
 export interface StaffData {
@@ -553,13 +554,14 @@ export default class DataLoader {
   static async getBlogs(
     query: BlogQuery,
     dataLoaded: OnDataListener<BlogData[]>,
+    storeNextToken: (nextToken: string | null | undefined) => void,
     nextToken: string | null = null
   ): Promise<void> {
     const vars: GetBlogByBlogStatusQueryVariables = {
       nextToken: nextToken,
       blogStatus: query.status,
       sortDirection: query.sortOrder,
-      limit: 200,
+      limit: query.loadPer,
       filter: { hiddenMainIndex: { ne: true } },
     };
     const getBlogByBlogStatus = API.graphql(
@@ -571,11 +573,7 @@ export default class DataLoader {
       console.debug(json);
 
       dataLoaded(json?.data?.getBlogByBlogStatus?.items ?? []);
-
-      const nextToken = json?.data?.getBlogByBlogStatus?.nextToken;
-      if (nextToken) {
-        await this.getBlogs(query, dataLoaded, nextToken);
-      }
+      storeNextToken(json?.data?.getBlogByBlogStatus?.nextToken);
     } catch (e) {
       console.error(e);
     }
@@ -818,98 +816,97 @@ export default class DataLoader {
     }
   }
 
-static async loadInsta(query:any) : Promise<any>{ 
-  let id="";
-    switch(query.filterValue){
-      case "alliston": 
-        id="themeetinghousealliston";
+  static async loadInsta(query: any): Promise<any> {
+    let id = '';
+    switch (query.filterValue) {
+      case 'alliston':
+        id = 'themeetinghousealliston';
         break;
-      case "sandbanks": 
-        id="tmhsandbanks"
+      case 'sandbanks':
+        id = 'tmhsandbanks';
         break;
-      case "ancaster": 
-        id="tmhancaster"
+      case 'ancaster':
+        id = 'tmhancaster';
         break;
-      case "brampton": 
-        id="tmhbrampton"
+      case 'brampton':
+        id = 'tmhbrampton';
         break;
-      case "brantford": 
-        id="tmhbrantford"
+      case 'brantford':
+        id = 'tmhbrantford';
         break;
-      case "burlington": 
-        id="tmhburlington"
+      case 'burlington':
+        id = 'tmhburlington';
         break;
-      case "hamilton-downtown": 
-        id="tmhdowntownham"
+      case 'hamilton-downtown':
+        id = 'tmhdowntownham';
         break;
-      case "toronto-downtown": 
-        id="tmhdowntowntoronto"
+      case 'toronto-downtown':
+        id = 'tmhdowntowntoronto';
         break;
-      case "hamilton-mountain": 
-        id="tmhhammountain"
+      case 'hamilton-mountain':
+        id = 'tmhhammountain';
         break;
-      case "toronto-east": 
-        id="tmheasttoronto"
+      case 'toronto-east':
+        id = 'tmheasttoronto';
         break;
-      case "toronto-high-park": 
-        id="tmhhighpark"
+      case 'toronto-high-park':
+        id = 'tmhhighpark';
         break;
-      case "kitchener": 
-        id="tmhkitchener"
+      case 'kitchener':
+        id = 'tmhkitchener';
         break;
-      case "london": 
-        id="themeetinghouseldn"
+      case 'london':
+        id = 'themeetinghouseldn';
         break;
-      case "newmarket": 
-        id="newmarket.tmh"
+      case 'newmarket':
+        id = 'newmarket.tmh';
         break;
-      case "oakville": 
-        id="tmhoakville"
+      case 'oakville':
+        id = 'tmhoakville';
         break;
-      case "ottawa": 
-        id="tmhottawa"
+      case 'ottawa':
+        id = 'tmhottawa';
         break;
-      case "owen-sound": 
-        id="themeetinghouse"
+      case 'owen-sound':
+        id = 'themeetinghouse';
         break;
-      case "parry-sound": 
-        id="tmhparrysound"
+      case 'parry-sound':
+        id = 'tmhparrysound';
         break;
-      case "richmond-hill": 
-        id="tmhrichmond"
+      case 'richmond-hill':
+        id = 'tmhrichmond';
         break;
-      case "toronto-uptown": 
-        id="tmhuptowntoronto"
+      case 'toronto-uptown':
+        id = 'tmhuptowntoronto';
         break;
-      case "waterloo": 
-        id="tmhwaterloo"
+      case 'waterloo':
+        id = 'tmhwaterloo';
         break;
-      case "unknown": 
-        id="themeetinghouse"
+      case 'unknown':
+        id = 'themeetinghouse';
         break;
       default:
-        id="themeetinghouse"
+        id = 'themeetinghouse';
     }
-  
-  const variables : GetInstagramByLocationQueryVariables ={
-    locationId:id,
-    limit:8,
-    sortDirection:ModelSortDirection.DESC
-  }
-  const getInsta = API.graphql({
-    query: queries.getInstagramByLocation,
-    variables,
-    authMode: GRAPHQL_AUTH_MODE.API_KEY,
-  }) as Promise<GraphQLResult<GetInstagramByLocationQuery>>;
 
-  try {
-    const json = await getInsta;
-    return json?.data?.getInstagramByLocation;
+    const variables: GetInstagramByLocationQueryVariables = {
+      locationId: id,
+      limit: 8,
+      sortDirection: ModelSortDirection.DESC,
+    };
+    const getInsta = API.graphql({
+      query: queries.getInstagramByLocation,
+      variables,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<GetInstagramByLocationQuery>>;
+
+    try {
+      const json = await getInsta;
+      return json?.data?.getInstagramByLocation;
+    } catch (e) {
+      console.error(e);
     }
-  catch (e) {
-    console.error(e);
   }
-}
 
   static async loadOverseers(): Promise<OverseerData[]> {
     const response = await fetch('/static/data/overseers.json');

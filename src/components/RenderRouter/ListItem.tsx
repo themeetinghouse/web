@@ -23,8 +23,10 @@ import DataLoader, {
   CustomPlaylistsData,
   CustomPlaylistsQuery,
   RandomCustomPlaylistData,
+  BlogQuery,
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import './ListItem.scss';
 import format from 'date-fns/format';
 import Fireworks from 'fireworks-react';
@@ -51,6 +53,8 @@ interface State {
     showEpisodeNumbers: boolean;
     hovertag: string;
     skipFirstPost?: boolean;
+
+    selector?: string;
   };
   listData: ListData[];
   overlayData: any;
@@ -58,6 +62,7 @@ interface State {
   showMoreVideos: boolean;
   windowWidth: number;
   randomPlaylistId: string;
+  blogNextToken: string | null | undefined;
 }
 
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
@@ -154,6 +159,7 @@ class ListItem extends React.Component<Props, State> {
       showMoreVideos: false,
       windowWidth: window.innerWidth,
       randomPlaylistId: this.props?.match?.params?.playlist ?? '',
+      blogNextToken: null,
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -254,7 +260,9 @@ class ListItem extends React.Component<Props, State> {
       case 'blogs':
         switch (query.selector) {
           case 'all':
-            await DataLoader.getBlogs(query, dataLoaded);
+            await DataLoader.getBlogs(query, dataLoaded, (blogNextToken) =>
+              this.setState({ blogNextToken })
+            );
             return;
           case 'similar':
             const postId = this.props?.match?.params?.blog ?? '';
@@ -280,6 +288,18 @@ class ListItem extends React.Component<Props, State> {
     this.setState({
       listData: this.state.listData.concat(data),
     });
+  }
+
+  async getMoreBlogs() {
+    const dataLoaded = (data: ListData[]) => this.setData(data);
+    const query: BlogQuery = this.props.content;
+
+    await DataLoader.getBlogs(
+      query,
+      dataLoaded,
+      (blogNextToken) => this.setState({ blogNextToken }),
+      this.state.blogNextToken
+    );
   }
 
   sortByDate(a: BlogData, b: BlogData, dir: 'oldFirst' | 'newFirst') {
@@ -537,8 +557,8 @@ class ListItem extends React.Component<Props, State> {
             }}
           />
           <div className="BlogContentContainer">
-            <div className="BlogTitle">
-              {item.blogTitle}
+            <div className="BlogTitleAndArrow">
+              <div className="BlogTitle">{item.blogTitle}</div>
               <img
                 className="blogarrow"
                 alt=""
@@ -1143,9 +1163,30 @@ class ListItem extends React.Component<Props, State> {
     }
   }
 
-  renderInstaTile(item: any): JSX.Element | null { // Instagram tile styling
-    if(!item) return null;
-    return <div className="ListInstagramTile"><img width={this.state.windowWidth < 375 ? 120 :this.state.windowWidth < 600 ? 156 : 264} height={this.state.windowWidth < 375 ? 120 :this.state.windowWidth < 600 ? 156 : 264} src={item.thumbnails[2].src}></img></div>
+  renderInstaTile(item: any): JSX.Element | null {
+    // Instagram tile styling
+    if (!item) return null;
+    return (
+      <div className="ListInstagramTile">
+        <img
+          width={
+            this.state.windowWidth < 375
+              ? 120
+              : this.state.windowWidth < 600
+              ? 156
+              : 264
+          }
+          height={
+            this.state.windowWidth < 375
+              ? 120
+              : this.state.windowWidth < 600
+              ? 156
+              : 264
+          }
+          src={item.thumbnails[2].src}
+        ></img>
+      </div>
+    );
   }
 
   renderItemRouter(item: ListData, index: number) {
@@ -1159,8 +1200,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderOverseer(item as OverseerData | OverseerData[], index);
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
-    else if(this.state.content.class === 'instagram')
-      return this.renderInstaTile(item as any)
+    else if (this.state.content.class === 'instagram')
+      return this.renderInstaTile(item as any);
     else if (this.state.content.class === 'compassion')
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
@@ -1304,11 +1345,13 @@ class ListItem extends React.Component<Props, State> {
     } else if (this.state.content.style === 'blogs') {
       const startIndex = this.state.content.skipFirstPost ? 1 : 0;
 
-      data.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
+      const blogData = data as BlogData[];
+
+      blogData.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
 
       const today = moment();
-      const dateChecked = data.filter(
-        (post: any) =>
+      const dateChecked: BlogData[] = blogData.filter(
+        (post) =>
           post?.expirationDate === 'none' ||
           moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
       );
@@ -1317,12 +1360,40 @@ class ListItem extends React.Component<Props, State> {
         return null;
       }
 
+      if (this.state.content.selector === 'all') {
+        return (
+          <div className="ListItemDiv1">
+            <h1 className="BlogItemH1">{this.state.content.header1}</h1>
+            <InfiniteScroll
+              dataLength={dateChecked.length}
+              next={() => this.getMoreBlogs()}
+              hasMore={Boolean(this.state.blogNextToken)}
+              loader={
+                <div className="spinner">
+                  <div className="double-bounce1"></div>
+                  <div className="double-bounce2"></div>
+                </div>
+              }
+              className="BlogLoader"
+            >
+              <div className="BlogItem">
+                <div className="BlogItemContainer">
+                  {dateChecked.slice(startIndex).map((item, index: number) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </div>
+              </div>
+            </InfiniteScroll>
+          </div>
+        );
+      }
+
       return (
         <div className="ListItemDiv1">
           <h1 className="BlogItemH1">{this.state.content.header1}</h1>
           <div className="BlogItem">
             <div className="BlogItemContainer">
-              {dateChecked.slice(startIndex).map((item: any, index: any) => {
+              {dateChecked.slice(startIndex).map((item, index: number) => {
                 return this.renderItemRouter(item, index);
               })}
             </div>
@@ -1588,22 +1659,40 @@ class ListItem extends React.Component<Props, State> {
           ></VideoOverlay>
         </div>
       );
-    }
-    else if(this.state.content.style ==='grid' && this.state.content.class === 'instagram'){ //This renders the instagram div and iterate tiles
-        const i:any = this.state.listData[0] as any;
-        return(
-          <div className="ListItem horizontal">
-            <div className="ListInstagramContainer">
-                {i?.items.map((tile:any, index:number)=>{
-                    return this.renderItemRouter(tile, index);
-                })}
-                </div>
-                <a className="ListInstagramButton" target="_blank" rel="noreferrer" href={i?.items[0]?.locationId ? `https://instagram.com/${i.items[0].locationId}` : `https://instagram.com/themeetinghouse/`}><img width={25} height={20} style={{marginRight:"3px"}} src="/static/svg/Instagram.svg"></img> Go to Instagram</a>
+    } else if (
+      this.state.content.style === 'grid' &&
+      this.state.content.class === 'instagram'
+    ) {
+      //This renders the instagram div and iterate tiles
+      const i: any = this.state.listData[0] as any;
+      return (
+        <div className="ListItem horizontal">
+          <div className="ListInstagramContainer">
+            {i?.items.map((tile: any, index: number) => {
+              return this.renderItemRouter(tile, index);
+            })}
           </div>
-        )
-    } 
-    
-    else if (this.state.content.style === 'imageList')
+          <a
+            className="ListInstagramButton"
+            target="_blank"
+            rel="noreferrer"
+            href={
+              i?.items[0]?.locationId
+                ? `https://instagram.com/${i.items[0].locationId}`
+                : `https://instagram.com/themeetinghouse/`
+            }
+          >
+            <img
+              width={25}
+              height={20}
+              style={{ marginRight: '3px' }}
+              src="/static/svg/Instagram.svg"
+            ></img>{' '}
+            Go to Instagram
+          </a>
+        </div>
+      );
+    } else if (this.state.content.style === 'imageList')
       return (
         <div className="ListItem imageList">
           <div className="ListItemDiv1">
