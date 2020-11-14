@@ -31,20 +31,24 @@
 }
 
 .ListInstagramButton{
+  &:hover{
+    text-emphasis: none;
+    color:$onyxblacktext;
+  }
   display: block;
   min-width: 200px;
   width: 8vw;
   border: solid 3px #1a1a1a;
   box-sizing: border-box;
   padding: 16px;
-  text-decoration:none;
+  text-decoration: none !important;
+  
   margin-right:3px;
   font-family: Graphik Web;
   font-weight: bold;
   margin-top: 10px;
   margin-left:20vw;
 }
-
 @media (min-width: 768px) {
   .ListItemEventButton {
     background-color: #ffffff00 !important;
@@ -1353,7 +1357,7 @@
 
 @media (max-width: 767px) {
   .ListInstagramButton{
-    margin-left:22px;
+    margin-left:49px;
   }
   .ListInstagramContainer{
     justify-content: center;

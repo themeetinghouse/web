@@ -35,7 +35,6 @@ import ScaledImage, {
 import { Link } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
-import { isMobile } from 'react-device-detect';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -179,9 +178,7 @@ class ListItem extends React.Component<Props, State> {
     const query: DataQuery = this.props.content;
     switch (query.class) {
       case 'instagram':
-        console.log("found instagram")
         data = await DataLoader.loadInsta(query);
-        console.log(data)
         break;
       case 'speakers':
         await DataLoader.getSpeakers(query, dataLoaded);
@@ -1141,11 +1138,10 @@ class ListItem extends React.Component<Props, State> {
 
   renderInstaTile(item: any): JSX.Element | null { // Instagram tile styling
     if(!item) return null;
-    return <div className="ListInstagramTile"><img width={isMobile ? this.state.windowWidth < 375 ? 120 :156 :264} height={isMobile ? this.state.windowWidth < 375 ? 120 :156 :264} src={item.thumbnails[2].src}></img></div>
+    return <div className="ListInstagramTile"><img width={this.state.windowWidth < 375 ? 120 :this.state.windowWidth < 600 ? 156 : 264} height={this.state.windowWidth < 375 ? 120 :this.state.windowWidth < 600 ? 156 : 264} src={item.thumbnails[2].src}></img></div>
   }
 
   renderItemRouter(item: ListData, index: number) {
-    console.log(this.state.content.class)
     if (this.state.content.class === 'speakers')
       return this.renderSpeaker(item as SpeakerData);
     else if (this.state.content.class === 'videos')
@@ -1583,10 +1579,8 @@ class ListItem extends React.Component<Props, State> {
         const i:any = this.state.listData[0] as any;
         return(
           <div className="ListItem horizontal">
-            {/*<div style={{position:"absolute",marginTop:"90px",height:"340px", width:"85%", backgroundColor:"#EFEFF0",zIndex:-200}}></div>*/}
             <div className="ListInstagramContainer">
                 {i?.items.map((tile:any, index:number)=>{
-                  console.log(i)
                     return this.renderItemRouter(tile, index);
                 })}
                 </div>
