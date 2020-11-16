@@ -31,7 +31,7 @@ interface Props {
 interface State {
   blogs: Blogs;
   blogSeries: BlogSeries;
-  publishedOnly: BlogSeriesPosts | Blogs;
+  publishedOnly: NonNullable<BlogSeriesPosts | Blogs>;
   screenWidth: number;
 }
 
@@ -61,7 +61,7 @@ class BlogItem extends React.Component<Props, State> {
     );
   }
 
-  async getBlogsByStatus(): Promise<void> {
+  async getBlogsByStatus(nextToken?: string): Promise<void> {
     try {
       const today = moment();
       const todayString = today.format('YYYY-MM-DD');
@@ -72,6 +72,7 @@ class BlogItem extends React.Component<Props, State> {
           ModelSortDirection[this.props.content.sortOrder ?? 'DESC'],
         limit: this.props.content.limit,
         filter: { hiddenMainIndex: { ne: true } },
+        nextToken: nextToken,
       };
       const json = (await API.graphql({
         query: customQueries.getBlogByBlogStatus,
@@ -92,7 +93,16 @@ class BlogItem extends React.Component<Props, State> {
               moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
           );
           console.debug(dateChecked);
-          this.setState({ publishedOnly: dateChecked });
+          this.setState({
+            publishedOnly: this.state.publishedOnly.concat(dateChecked),
+          });
+        }
+
+        if (
+          this.state.publishedOnly.length < (this.props.content.limit ?? 2) &&
+          json.data.getBlogByBlogStatus.nextToken
+        ) {
+          this.getBlogsByStatus(json.data.getBlogByBlogStatus.nextToken);
         }
       }
     } catch (e) {
