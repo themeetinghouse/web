@@ -1,193 +1,96 @@
 @import '../../theme';
 
-.GoContentItemA {
+@mixin goHeader($size) {
+  font-family: Graphik Web;
+  font-size: $size;
+  font-weight: bold;
   color: $onyxblacktext;
-  border-bottom: 1px solid $onyxblacktext;
-  padding-bottom: 1px;
+}
 
-  &:hover {
-    color: $onyxblacktext;
-    text-decoration: inherit;
+@mixin contentPosition($mobile: false) {
+  @if $mobile {
+    width: 100%;
+    left: 0;
+  } @else {
+    position: relative;
+    width: 70vw;
+    left: 20vw;
   }
 }
 
 .GoContentText {
   color: $onyxblacktext;
+  font-family: Graphik Web;
+}
+
+.GoButton {
+  color: white;
+  background: $onyxblacktext;
 }
 
 @media (min-width: 768px) {
-  .headerItem.GoContentItem {
-    position: relative;
-    width: 70vw;
-    left: 20vw;
-    padding-bottom: 5vh;
-    font-family: Graphik Web;
+  .GoContentItem {
+    @include contentPosition();
   }
   .GoContentH1 {
-    font-family: Graphik Web;
-    font-size: 2vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+    @include goHeader(2vw);
   }
   .GoContentH2 {
-    font-family: Graphik Web;
-    font-size: 5vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+    @include goHeader(5vw);
   }
   .GoContentSubH1 {
-    font-family: Graphik Web;
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+    @include goHeader(1.5vw);
   }
   .GoContentSubH2 {
-    font-family: Graphik Web;
-    font-size: 4vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+    @include goHeader(4vw);
   }
-  .GoContentButton {
-    font-family: Graphik Web;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: $onyxblacktext;
-    border-color: #ffffff;
-    margin-top: 5vw;
-  }
-  .GoContentSubItems {
-    margin-top: 5vw;
-    padding-right: 5vw;
-    padding-bottom: 5vw;
-    width: 35vw;
-    float: left;
-  }
-  .GoContentClear {
-    clear: left;
-  }
-
-  .GoContentItemAContainer {
-    margin-bottom: 1vw;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .headerItem.GoContentItem {
-    position: relative;
+  .GoSubItems {
+    @include contentPosition();
+    margin: 5vw 0;
     width: 70vw;
-    left: 20vw;
-    padding-bottom: 5vh;
-    font-family: Graphik Web;
+    display: flex;
+    flex-direction: row;
+    .GoSubItem {
+      margin-right: 5vw;
+    }
   }
-  .GoContentH1 {
-    font-family: Graphik Web;
-    font-size: 2vw;
-    font-weight: bold;
-    color: $onyxblacktext;
-  }
-  .GoContentH2 {
-    font-family: Graphik Web;
-    font-size: 5vw;
-    font-weight: bold;
-    color: $onyxblacktext;
-  }
-  .GoContentSubH1 {
-    font-family: Graphik Web;
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: $onyxblacktext;
-  }
-  .GoContentSubH2 {
-    font-family: Graphik Web;
-    font-size: 4vw;
-    font-weight: bold;
-    color: $onyxblacktext;
-  }
-  .GoContentButton {
-    font-family: Graphik Web;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: $onyxblacktext;
-    border-color: #ffffff;
-    margin-top: 5vw;
-  }
-  .GoContentSubItems {
-    margin-top: 5vw;
-    padding-right: 5vw;
-    padding-bottom: 5vw;
-    width: 35vw;
-    float: left;
-  }
-  .GoContentClear {
-    clear: left;
-  }
-
-  .GoContentItemAContainer {
+  .GoLink {
+    @include contentPosition();
     margin-bottom: 1vw;
+  }
+  .GoButton {
+    margin-bottom: 2vw;
   }
 }
 
 @media (max-width: 767px) {
-  .headerItem.GoContentItem {
-    position: relative;
-    width: 70vw;
-    left: 20vw;
-    padding-bottom: 5vh;
-    font-family: Graphik Web;
+  .GoContentItem,
+  .GoSubItem {
+    @include contentPosition($mobile: true);
+    padding: 5vw 6vw;
   }
-  .GoContentH1 {
-    font-family: Graphik Web;
-    font-size: 6.4vw;
-    line-height: 8.55vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+
+  .GoSubItems {
+    display: flex;
+    flex-direction: column;
   }
-  .GoContentH2 {
-    font-family: Graphik Web;
-    font-size: 16vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+
+  .GoLink {
+    @include contentPosition($mobile: true);
+    padding: 3vw 6vw;
   }
+
+  .GoContentH1,
   .GoContentSubH1 {
-    font-family: Graphik Web;
-    font-size: 6.4vw;
+    @include goHeader(6.4vw);
     line-height: 8.55vw;
-    font-weight: bold;
-    color: $onyxblacktext;
   }
+  .GoContentH2,
   .GoContentSubH2 {
-    font-family: Graphik Web;
-    font-size: 16vw;
-    font-weight: bold;
-    color: $onyxblacktext;
+    @include goHeader(16vw);
   }
-  .GoContentButton {
-    font-family: Graphik Web;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: $onyxblacktext;
-    border-color: #ffffff;
-    width: 100%;
-    margin-bottom: 2.5vw;
-    margin-top: 7.5vw;
-  }
-  .GoContentSubItems {
-    width: 100%;
-    float: left;
-    padding-top: 5vw;
-    padding-bottom: 5vw;
-  }
-  .GoContentClear {
-    clear: left;
-  }
-
-  .GoContentItem {
-    width: 100% !important;
-    left: 0 !important;
-    padding: 10vw 6vw 5vw;
-  }
-
-  .GoContentItemAContainer {
-    margin-bottom: 2vw;
+  .GoButton {
+    margin-top: 6vw;
+    margin-bottom: 10vw;
   }
 }

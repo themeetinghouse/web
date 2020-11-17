@@ -98,12 +98,13 @@ class HomeMenu extends React.Component<Props, State>  {
       livestreams?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
         const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
-
         if (showTime && this.state.showLive) {
           console.log("ShowLive")
           this.setState({ liveTitle: item?.homepageLink, showLiveEvent: true })
         }
+        
       })
+     
     } catch (err) {
       console.error(err)
     }

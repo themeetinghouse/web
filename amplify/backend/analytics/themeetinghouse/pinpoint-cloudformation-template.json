@@ -337,6 +337,16 @@
                                 }
                             ]
                         }
+                        ,
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "personalize:PutEvents"
+                            ],
+                            "Resource": [
+                                "*"   
+                            ]
+                        }
                     ]
                 }
             }

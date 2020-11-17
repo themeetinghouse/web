@@ -1,5 +1,55 @@
 @import '../../theme';
 
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+  margin: 0 auto 50px;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: $onyxblacktext;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
 @mixin link-underline {
   text-decoration: none !important;
   border-bottom: 1px solid $onyxblacktext;
@@ -18,13 +68,74 @@
   }
 }
 
+.BlogLink {
+  text-decoration: none;
+  &:hover {
+    text-decoration: inherit;
+  }
+  &:focus {
+    .BlogTitle {
+      text-decoration: underline;
+    }
+  }
+}
+
+.BlogTitleAndArrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.blogarrow {
+  transition: 1s;
+  width: 24px;
+  height: 24px;
+}
+
+.ListInstagramButton {
+  &:hover {
+    text-emphasis: none;
+    color: $onyxblacktext;
+  }
+  display: block;
+  min-width: 200px;
+  width: 8vw;
+  border: solid 3px #1a1a1a;
+  box-sizing: border-box;
+  padding: 16px;
+  text-decoration: none !important;
+
+  margin-right: 3px;
+  font-family: Graphik Web;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 20vw;
+}
+
 @media (min-width: 768px) {
+  .BlogLink:hover {
+    .blogarrow {
+      transform: translateX(20px);
+    }
+  }
+
   .ListItemEventButton {
     background-color: #ffffff00 !important;
     color: $onyxblacktext !important;
     border: 0px !important;
   }
 
+  .ListInstagramContainer {
+    left: 20vw;
+    width: 80vw;
+    position: relative;
+  }
+  .ListInstagramTile {
+    object-fit: scale-down;
+    display: inline-block;
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
   .ListItem.horizontal,
   .ListItem.horizontalBig {
     position: static;
@@ -106,6 +217,14 @@
     font-size: 1.25vw;
     font-family: Graphik Web;
     color: $coolgray11;
+  }
+
+  .BlogItemH1 {
+    font-weight: bold;
+    font-size: 2vw;
+    margin-bottom: 2vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
   }
 
   .ListItemH1 {
@@ -543,10 +662,6 @@
     width: 32px;
   }
 
-  .blogarrow {
-    float: right;
-  }
-
   .author-only {
     color: #1a1a1a;
   }
@@ -725,6 +840,14 @@
     width: 80vw;
     font-weight: bold;
     font-size: 3vw;
+    color: $onyxblacktext;
+  }
+
+  .BlogItemH1 {
+    font-weight: bold;
+    font-size: 2vw;
+    margin-bottom: 2vw;
+    font-family: Graphik Web;
     color: $onyxblacktext;
   }
 
@@ -1313,6 +1436,27 @@
 }
 
 @media (max-width: 767px) {
+  .BlogLoader {
+    width: 88.5vw;
+  }
+
+  .ListInstagramButton {
+    margin-left: 20px;
+  }
+  .ListInstagramContainer {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ListInstagramTile {
+    object-fit: scale-down;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+  .ListInstagramTile:nth-child(even) {
+    margin-left: 22px;
+  }
   .ListItemEventButton {
     background-color: #ffffff00 !important;
     color: $onyxblacktext !important;
@@ -1426,6 +1570,15 @@
     font-size: 10vw;
     font-weight: 700;
     font-family: Graphik Web;
+  }
+
+  .BlogItemH1 {
+    font-weight: bold;
+    font-size: 8vw;
+    margin-bottom: 8vw;
+    font-family: Graphik Web;
+    color: $onyxblacktext;
+    width: 80vw;
   }
 
   .ListItemH1.whiteText {
@@ -1853,10 +2006,6 @@
     opacity: 0.12;
   }
 
-  .blogarrow {
-    float: right;
-  }
-
   .author-only {
     color: #1a1a1a;
   }
@@ -1892,6 +2041,7 @@
     color: #1a1a1a;
     font-weight: bold;
     font-size: 4.26vw;
+    width: 75vw;
   }
 
   .BlogContentContainer {
@@ -1910,7 +2060,6 @@
     height: 28.8vw;
   }
 }
-
 @media (hover: none) {
   .CuriousVideoImage {
     filter: grayscale(0);

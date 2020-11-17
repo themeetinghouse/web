@@ -110,6 +110,7 @@ class RenderRouter extends React.Component<Props, State> {
           ></HeroItem>
         );
       case 'goContent':
+      case 'goLink':
         return <GoContentItem key={index} content={item}></GoContentItem>;
       case 'teaching':
         return <TeachingItem key={index} content={item}></TeachingItem>;

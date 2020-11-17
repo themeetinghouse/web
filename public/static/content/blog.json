@@ -28,12 +28,21 @@
         "sortOrder": "DESC"
       },
       {
+        "type": "teachingsearch",
+        "style": "blog",
+        "header1": "Search the Blog",
+        "subclass": "Live",
+        "text1": "Try \"Faith\""
+      },
+      {
         "type": "list",
         "class": "blogs",
         "style": "blogs",
+        "selector": "all",
         "status": "Live",
         "sortOrder": "DESC",
-        "skipFirstPost": true
+        "skipFirstPost": true,
+        "loadPer": 10
       }
     ]
   }

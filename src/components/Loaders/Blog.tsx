@@ -1,11 +1,18 @@
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { GetBlogQuery } from 'API';
-import { API, Analytics } from 'aws-amplify';
+import { API, Analytics, AmazonPersonalizeProvider, Auth } from 'aws-amplify';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { getBlog } from '../../graphql-custom/customQueries';
 import RenderRouter from '../RenderRouter/RenderRouter';
-
+Analytics.addPluggable(new AmazonPersonalizeProvider());
+Analytics.configure({
+  AmazonPersonalize: {
+    // REQUIRED - The trackingId to track the events
+    trackingId: 'c417af3e-693d-4e7d-a2c2-deb6b3015e08',
+    region: 'us-east-1',
+  },
+});
 export default function Blog(): ReactElement | null {
   const [data, setData] = useState<GetBlogQuery['getBlog'] | null | undefined>(
     null
@@ -14,8 +21,30 @@ export default function Blog(): ReactElement | null {
 
   const match = useRouteMatch<{ blog: string }>();
   const history = useHistory();
+  // Configure the plugin after adding it to the Analytics module
 
   useEffect(() => {
+    Auth.currentCredentials().then((a) => {
+      Analytics.record(
+        {
+          eventType: 'Interactions',
+          userId: a.identityId,
+          properties: {
+            user_id: a.identityId,
+            itemId: match.params.blog,
+            TIMESTAMP: Date.now(),
+          },
+        },
+        'AmazonPersonalize'
+      )
+        .then((e) => {
+          console.log(e);
+        })
+        .catch((e) => {
+          console.log({ PersonalizeError: e });
+        });
+    });
+    console.log('RECORDING PERSONALIZE');
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'blog-post' },

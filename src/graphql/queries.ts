@@ -830,6 +830,9 @@ export const getFbEvents = /* GraphQL */ `
       data {
         description
         end_time
+        is_online
+        online_event_format
+        online_event_third_party_url
         name
         place {
           name

@@ -27,7 +27,7 @@ export interface ItemImage {
 
 export interface SearchBarContentProp {
   type: string;
-  style: string;
+  style: 'teaching' | 'blog';
   header1: string;
   subclass: string;
   text1: string;
@@ -51,4 +51,28 @@ export interface BlogItemContent {
   limit?: number;
   blogSeries?: string;
   hideAllBlogsButton?: boolean;
+}
+
+export interface GoLink {
+  type: 'goLink';
+  style: 'link' | 'button';
+  title: string;
+  newWindow?: boolean;
+  navigateTo: string;
+}
+
+export interface GoText {
+  header1?: string;
+  header2?: string;
+  body?: Array<{
+    fontWeight: 'bold' | 'normal';
+    text: string;
+    newParagraph?: boolean;
+  }>;
+}
+
+export interface GoItem extends GoText {
+  type: 'goContent';
+  style: 'goItem' | 'goSubItems';
+  items?: Array<GoText>;
 }

@@ -24,6 +24,11 @@ import {
   ListCustomPlaylistsQueryVariables,
   ListF1ListGroup2sQuery,
   ListF1ListGroup2sQueryVariables,
+  GetInstagramByLocationQuery,
+  GetInstagramByLocationQueryVariables,
+  GetBlogQuery,
+  SearchBlogsQuery,
+  SearchBlogsQueryVariables,
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -83,8 +88,10 @@ export interface SpeakerQuery extends DataLoaderQuery {
 
 export interface BlogQuery extends DataLoaderQuery {
   class: 'blogs';
-
-  status: string;
+  status: 'Live' | 'Unlisted';
+  selector: 'all' | 'similar';
+  sortOrder: ModelSortDirection;
+  loadPer?: number;
 }
 
 export interface SeriesByTypeQuery extends DataLoaderQuery {
@@ -100,6 +107,10 @@ export interface StaffQuery extends DataLoaderQuery {
   class: 'staff';
 
   filterField: string;
+}
+
+export interface InstaQuery extends DataLoaderQuery {
+  class: 'instagram';
 }
 
 export interface StaffData {
@@ -185,6 +196,7 @@ export type DataQuery =
   | CustomPlaylistQuery
   | SeriesCollectionQuery
   | CustomPlaylistsQuery
+  | InstaQuery
   | UserDefinedQuery;
 
 export type SeriesData = NonNullable<
@@ -487,15 +499,70 @@ export default class DataLoader {
     }
   }
 
+  static async getSimilarBlogs(
+    query: BlogQuery,
+    postId: string,
+    dataLoaded: OnDataListener<BlogData[]>
+  ): Promise<void> {
+    const getBlog = (await API.graphql(
+      graphqlOperation(customQueries.getBlogForSearch, { id: postId })
+    )) as GraphQLResult<GetBlogQuery>;
+
+    const blogTags = getBlog.data?.getBlog?.tags?.filter(
+      (tag) => !['The Meeting House', 'church'].includes(tag ?? '')
+    );
+
+    let blogTag1;
+    let blogTag2;
+    let blogTag3;
+    if (blogTags?.length && blogTags.length > 0) {
+      blogTag1 = blogTags[0] ?? '';
+      blogTag2 = blogTags[1] ?? '';
+      blogTag3 = blogTags[2] ?? '';
+    }
+
+    const blogAuthor = getBlog.data?.getBlog?.author;
+
+    const vars: SearchBlogsQueryVariables = {
+      limit: 3,
+      filter: {
+        id: { ne: postId },
+        blogStatus: { eq: query.status },
+        or: [
+          { author: { matchPhrase: blogAuthor } },
+          { tags: { matchPhrase: blogTag1 } },
+          { tags: { matchPhrase: blogTag2 } },
+          { tags: { matchPhrase: blogTag3 } },
+          { description: { matchPhrase: blogTag1 } },
+        ],
+      },
+    };
+    const searchBlogs = API.graphql(
+      graphqlOperation(customQueries.searchBlogs, vars)
+    ) as Promise<GraphQLResult<SearchBlogsQuery>>;
+    try {
+      const json = await searchBlogs;
+      console.debug('Success customQueries.searchBlogs: ' + json);
+      console.debug(json);
+
+      dataLoaded(json?.data?.searchBlogs?.items ?? []);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
   static async getBlogs(
     query: BlogQuery,
     dataLoaded: OnDataListener<BlogData[]>,
+    storeNextToken: (nextToken: string | null | undefined) => void,
     nextToken: string | null = null
   ): Promise<void> {
     const vars: GetBlogByBlogStatusQueryVariables = {
       nextToken: nextToken,
       blogStatus: query.status,
-      limit: 200,
+      sortDirection: query.sortOrder,
+      limit: query.loadPer,
+      filter: { hiddenMainIndex: { ne: true } },
     };
     const getBlogByBlogStatus = API.graphql(
       graphqlOperation(customQueries.getBlogByBlogStatus, vars)
@@ -506,11 +573,7 @@ export default class DataLoader {
       console.debug(json);
 
       dataLoaded(json?.data?.getBlogByBlogStatus?.items ?? []);
-
-      const nextToken = json?.data?.getBlogByBlogStatus?.nextToken;
-      if (nextToken) {
-        await this.getBlogs(query, dataLoaded, nextToken);
-      }
+      storeNextToken(json?.data?.getBlogByBlogStatus?.nextToken);
     } catch (e) {
       console.error(e);
     }
@@ -750,6 +813,98 @@ export default class DataLoader {
       return this.sortStaff(staff).concat(coordinators);
     } else {
       return staff;
+    }
+  }
+
+  static async loadInsta(query: any): Promise<any> {
+    let id = '';
+    switch (query.filterValue) {
+      case 'alliston':
+        id = 'themeetinghousealliston';
+        break;
+      case 'sandbanks':
+        id = 'tmhsandbanks';
+        break;
+      case 'ancaster':
+        id = 'tmhancaster';
+        break;
+      case 'brampton':
+        id = 'tmhbrampton';
+        break;
+      case 'brantford':
+        id = 'tmhbrantford';
+        break;
+      case 'burlington':
+        id = 'tmhburlington';
+        break;
+      case 'hamilton-downtown':
+        id = 'tmhdowntownham';
+        break;
+      case 'toronto-downtown':
+        id = 'tmhdowntowntoronto';
+        break;
+      case 'hamilton-mountain':
+        id = 'tmhhammountain';
+        break;
+      case 'toronto-east':
+        id = 'tmheasttoronto';
+        break;
+      case 'toronto-high-park':
+        id = 'tmhhighpark';
+        break;
+      case 'kitchener':
+        id = 'tmhkitchener';
+        break;
+      case 'london':
+        id = 'themeetinghouseldn';
+        break;
+      case 'newmarket':
+        id = 'newmarket.tmh';
+        break;
+      case 'oakville':
+        id = 'tmhoakville';
+        break;
+      case 'ottawa':
+        id = 'tmhottawa';
+        break;
+      case 'owen-sound':
+        id = 'themeetinghouse';
+        break;
+      case 'parry-sound':
+        id = 'tmhparrysound';
+        break;
+      case 'richmond-hill':
+        id = 'tmhrichmond';
+        break;
+      case 'toronto-uptown':
+        id = 'tmhuptowntoronto';
+        break;
+      case 'waterloo':
+        id = 'tmhwaterloo';
+        break;
+      case 'unknown':
+        id = 'themeetinghouse';
+        break;
+      default:
+        id = 'themeetinghouse';
+    }
+
+    const variables: GetInstagramByLocationQueryVariables = {
+      locationId: id,
+      limit: 8,
+      sortDirection: ModelSortDirection.DESC,
+    };
+    const getInsta = API.graphql({
+      query: queries.getInstagramByLocation,
+      variables,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<GetInstagramByLocationQuery>>;
+
+    try {
+      const json = await getInsta;
+      return json?.data?.getInstagramByLocation;
+    } catch (e) {
+      console.error(e);
     }
   }
 
