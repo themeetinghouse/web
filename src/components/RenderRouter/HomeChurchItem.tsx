@@ -64,11 +64,7 @@ interface Props extends RouteComponentProps, IProvidedProps {
 interface State {
   selectedPlace: F1Group | null;
   selectedPlaceMarker?: google.maps.Marker;
-  filterLocation: {
-    label?: string;
-    value: string;
-  };
-  postalCode: string;
+  locationFilter: string | null;
   locationsLoaded: string[];
   allLocationsLoaded: boolean;
   mapBounds: google.maps.LatLngBounds | null;
@@ -107,6 +103,13 @@ type F1Group = NonNullable<
   schedule?: F1Schedule;
 };
 
+function latLngOfGroup(g: F1Group): google.maps.LatLngLiteral {
+  return {
+    lat: Number(g?.location?.address?.latitude ?? '0'),
+    lng: Number(g?.location?.address?.longitude ?? '0'),
+  };
+}
+
 export class ContentItem extends React.Component<Props, State> {
   selectControlDay: Select<{ label: string; value: string }> | null = null;
   selectControlLocation: Select<{ label: string; value: string }> | null = null;
@@ -118,8 +121,7 @@ export class ContentItem extends React.Component<Props, State> {
     console.log(props);
     this.state = {
       selectedPlace: null,
-      filterLocation: { value: 'all' },
-      postalCode: '',
+      locationFilter: null,
       locationsLoaded: [],
       allLocationsLoaded: false,
       mapBounds: null,
@@ -144,8 +146,15 @@ export class ContentItem extends React.Component<Props, State> {
         (items) => {
           this.setState({ groups: [...this.state.groups, ...items] });
         },
-        () => {
+        async () => {
           this.setState({ allLocationsLoaded: true });
+          await this.updateGeoLocation(false);
+          this.updateMap(
+            this.state.locationFilter,
+            this.state.currentLatLng,
+            true,
+            this.state.currentLatLng !== DEFAULT_LAT_LNG
+          );
         }
       );
     }
@@ -161,10 +170,6 @@ export class ContentItem extends React.Component<Props, State> {
     { label: 'Fridays', value: 'Fridays' },
     { label: 'Saturdays', value: 'Saturdays' },
   ];
-
-  componentDidMount() {
-    this.setGeoLocation();
-  }
 
   componentDidUpdate() {
     if (this.state.selectedPlace) {
@@ -185,11 +190,11 @@ export class ContentItem extends React.Component<Props, State> {
   }
 
   private calculateDistance(
-    lat1: number,
-    lng1: number,
-    lat2: number,
-    lng2: number
+    loc1: google.maps.LatLngLiteral,
+    loc2: google.maps.LatLngLiteral
   ) {
+    const { lat: lat1, lng: lng1 } = loc1;
+    const { lat: lat2, lng: lng2 } = loc2;
     if (lat1 === lat2 && lng1 === lng2) {
       return 0;
     } else {
@@ -211,54 +216,60 @@ export class ContentItem extends React.Component<Props, State> {
     }
   }
 
-  private async setGeoLocation(postalCode?: string): Promise<void> {
-    let newLatLng = DEFAULT_LAT_LNG;
-    if (postalCode) {
-      new google.maps.Geocoder().geocode(
-        { address: postalCode },
-        (results, status) => {
-          if (status === 'OK') {
-            newLatLng = {
-              lat: results[0].geometry.location.lat(),
-              lng: results[0].geometry.location.lng(),
-            };
-          }
-          this.setState({ currentLatLng: newLatLng });
-        }
-      );
-    } else {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            newLatLng = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            this.setState({ currentLatLng: newLatLng });
-          },
-          () => {
-            this.setState({ currentLatLng: newLatLng });
-          }
-        );
-      } else {
-        console.log('Could not get current location.  Using default');
-        this.setState({ currentLatLng: newLatLng });
+  private getCurrentPosition(
+    isUserAction = false
+  ): Promise<google.maps.LatLngLiteral> {
+    return new Promise((resolve, reject) => {
+      if (!('geolocation' in navigator)) {
+        console.log('Could not get current location. Using default');
+        resolve(DEFAULT_LAT_LNG);
+        return;
       }
-    }
+
+      navigator.permissions
+        .query({ name: 'geolocation' })
+        .then((permissionStatus) => {
+          if (permissionStatus.state === 'denied') {
+            if (isUserAction) {
+              alert(
+                'This function is unavailable until you allow location permissions.'
+              );
+              reject();
+            } else {
+              resolve(DEFAULT_LAT_LNG);
+            }
+            return;
+          }
+
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              resolve({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+              });
+            },
+            (e) => {
+              console.error(`failed to retrieve current position: %o`, e);
+              resolve(DEFAULT_LAT_LNG);
+            }
+          );
+        });
+    });
+  }
+
+  private async updateGeoLocation(isUserAction: boolean): Promise<void> {
+    const newLatLng = await this.getCurrentPosition(isUserAction);
+    this.setState({ currentLatLng: newLatLng });
   }
 
   private distanceSorter = (loc1: F1Group, loc2: F1Group) => {
     const dist1 = this.calculateDistance(
-      this.state.currentLatLng.lat,
-      this.state.currentLatLng.lng,
-      Number(loc1?.location?.address?.latitude ?? '0'),
-      Number(loc1?.location?.address?.longitude ?? '0')
+      this.state.currentLatLng,
+      latLngOfGroup(loc1)
     );
     const dist2 = this.calculateDistance(
-      this.state.currentLatLng.lat,
-      this.state.currentLatLng.lng,
-      Number(loc2?.location?.address?.latitude ?? '0'),
-      Number(loc2?.location?.address?.longitude ?? '0')
+      this.state.currentLatLng,
+      latLngOfGroup(loc2)
     );
     return dist1 < dist2 ? -1 : 1;
   };
@@ -278,33 +289,33 @@ export class ContentItem extends React.Component<Props, State> {
     };
   }
 
-  private handleSiteSelection = (
-    locationItem: { label?: string; value: string } | null
+  private updateMap = (
+    locationFilter: string | null,
+    currentLocation: google.maps.LatLngLiteral,
+    showCurrent: boolean,
+    limitToRadius: boolean
   ) => {
     // Filter the list of Home Churches by the selected site
-    const location = locationItem ?? { value: 'all' };
-    console.log(
-      'HomeChurchItem.handleSiteSelection(): locationItem: %o',
-      locationItem
-    );
     const filteredGroups = this.state.groups.filter(
       (g) =>
-        location.value === 'all' ||
-        g.groupType?.id === Location_ID_to_F1_Group_Type_Map[location.value]
+        locationFilter === null ||
+        g.groupType?.id === Location_ID_to_F1_Group_Type_Map[locationFilter]
     );
     const bounds = new this.props.google.maps.LatLngBounds();
-    bounds.extend(this.state.currentLatLng);
-    for (let i = 0; i < filteredGroups.length; i++) {
-      const p = {
-        lat: Number(filteredGroups[i].location?.address?.latitude),
-        lng: Number(filteredGroups[i].location?.address?.longitude),
-      };
-      //console.log("HomeChurchItem.handleSiteSelection(): map bounds point:%o", p);
-      if (p.lat !== 0 && p.lng !== 0) {
+    if (showCurrent) {
+      bounds.extend(currentLocation);
+    }
+    for (const group of filteredGroups) {
+      const p = latLngOfGroup(group);
+      if (
+        p.lat !== 0 &&
+        p.lng !== 0 &&
+        (!limitToRadius || this.calculateDistance(currentLocation, p) < 20)
+      ) {
         bounds.extend(p);
       }
     }
-    this.setState({ filterLocation: location, mapBounds: bounds });
+    this.setState({ locationFilter, mapBounds: bounds });
   };
 
   private handleDaySelection = (
@@ -314,16 +325,20 @@ export class ContentItem extends React.Component<Props, State> {
   };
 
   private async clearLocationSelection() {
-    this.setState({ postalCode: '' });
     if (this.selectControlLocation) {
       this.selectControlLocation.select.clearValue();
     }
     if (this.selectControlDay) {
       //    this.selectControlDay?.select.clearValue();
     }
-    await this.setGeoLocation();
-    this.handleSiteSelection(this.state.filterLocation);
-    //this.setState({ selectedDay: { value: 'all' }, filterLocation: { value: 'all' }, selectedPlace: null })
+    this.setState({ locationFilter: null });
+    await this.updateGeoLocation(false);
+    this.updateMap(
+      this.state.locationFilter,
+      this.state.currentLatLng,
+      true,
+      this.state.currentLatLng !== DEFAULT_LAT_LNG
+    );
   }
 
   private formatGroupAddress(group: F1Group) {
@@ -420,6 +435,22 @@ export class ContentItem extends React.Component<Props, State> {
       else return moment(item.startDate).format('dddd') + 's';
     else return moment(item?.startDate).format('dddd') + 's';
   }
+
+  private async updateLocation(): Promise<void> {
+    try {
+      await this.updateGeoLocation(true);
+    } catch {
+      // The user has denied us location permissions, just do nothing.
+      return;
+    }
+    this.updateMap(
+      this.state.locationFilter,
+      this.state.currentLatLng,
+      true,
+      this.state.locationFilter === null
+    );
+  }
+
   render() {
     const inititalCenter = { lat: 44, lng: -78.0 };
     const initalZoom = 6;
@@ -427,9 +458,9 @@ export class ContentItem extends React.Component<Props, State> {
     const filteredGroups = (this.state.groups || []).filter(
       (item) =>
         item.isPublic &&
-        (this.state.filterLocation.value === 'all' ||
+        (this.state.locationFilter === null ||
           item.groupType?.id ===
-            Location_ID_to_F1_Group_Type_Map[this.state.filterLocation.value])
+            Location_ID_to_F1_Group_Type_Map[this.state.locationFilter])
     );
 
     filteredGroups.sort(this.distanceSorter);
@@ -577,8 +608,12 @@ export class ContentItem extends React.Component<Props, State> {
               {
                 <Select
                   onChange={(value) =>
-                    this.handleSiteSelection(
-                      value as { label: string; value: string } | null
+                    this.updateMap(
+                      (value as { label: string; value: string } | null)
+                        ?.value ?? 'all',
+                      DEFAULT_LAT_LNG,
+                      false,
+                      false
                     )
                   }
                   placeholder="Select Parish"
@@ -606,6 +641,17 @@ export class ContentItem extends React.Component<Props, State> {
                   return { label: item.label, value: item.value };
                 })}
               ></Select>
+              {navigator.geolocation ? (
+                <button
+                  className="UpdateLocationButton"
+                  onClick={() => this.updateLocation()}
+                >
+                  <img
+                    alt="Use my location"
+                    src="/static/svg/FindMyLocation.svg"
+                  />
+                </button>
+              ) : null}
               <button
                 className="ClearAllButton"
                 onClick={() => this.clearLocationSelection()}
@@ -613,6 +659,7 @@ export class ContentItem extends React.Component<Props, State> {
               >
                 Clear All
               </button>
+
               <ReactCSSTransitionGroup
                 transitionName="HomeChurchLoading"
                 transitionLeaveTimeout={750}
