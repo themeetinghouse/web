@@ -1355,7 +1355,7 @@
     font-family: Graphik Web !important;
     font-size: 3.5vw !important;
     font-weight: normal;
-    margin-top: 10vw;
+    margin-top: 15vw;
     color: #ffffff;
     background-color: $onyxblacktext !important;
     border-width: 0 !important;
@@ -1391,5 +1391,11 @@
 
   .heroAContainer {
     margin-top: 5vw;
+  }
+
+  .contactPastorLink {
+    display: flex;
+    align-items: center;
+    align-content: center;
   }
 }
