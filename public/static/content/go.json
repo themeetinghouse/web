@@ -186,7 +186,7 @@
             "type": "goLink",
             "style": "link",
             "title": "Go Campaign FAQ",
-            "navigateTo": "/static/pdfs/go/Go - FAQ2.pdf",
+            "navigateTo": "/static/pdfs/go/GoChangesFAQNov19",
             "newWindow": true
           },
           {
