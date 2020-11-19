@@ -131,7 +131,7 @@ class HomeChurchContactModal extends React.Component<Props, State> {
             </FormGroup>
           </Form>
         </ModalBody>
-        <ModalFooter>
+        <ModalFooter style={{ justifyContent: 'flex-start', padding: '0.75rem 1.3rem' }}>
           {this.state.sending ? (
             <div className="FooterProgress">
               <Spinner></Spinner> Sending message
@@ -146,17 +146,17 @@ class HomeChurchContactModal extends React.Component<Props, State> {
           <Button
             color="secondary"
             disabled={this.state.sending}
-            onClick={this.handleCancel}
-          >
-            Cancel
-          </Button>{' '}
-          <Button
-            color="secondary"
-            disabled={this.state.sending}
             onClick={this.handleContactSubmit}
           >
             Send Message
           </Button>
+          <Button
+            color="secondary"
+            disabled={this.state.sending}
+            onClick={this.handleCancel}
+          >
+            Cancel
+          </Button>{' '}
         </ModalFooter>
       </Modal>
     );
