@@ -16,6 +16,7 @@ import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import * as queries from '../../graphql/queries';
 import awsmobile from '../../aws-exports';
 import './homeChurchContactModal.scss';
+import { isMobileOnly } from 'react-device-detect';
 
 Amplify.configure(awsmobile);
 
@@ -131,7 +132,7 @@ class HomeChurchContactModal extends React.Component<Props, State> {
             </FormGroup>
           </Form>
         </ModalBody>
-        <ModalFooter style={{ justifyContent: 'flex-start', padding: '0.75rem 1.3rem' }}>
+        <ModalFooter style={!isMobileOnly ? { justifyContent: 'flex-start', padding: '0.75rem 1.3rem' } : { height: '7vh', justifyContent: 'flex-start', padding: '0.5rem 1.3rem' }}>
           {this.state.sending ? (
             <div className="FooterProgress">
               <Spinner></Spinner> Sending message
