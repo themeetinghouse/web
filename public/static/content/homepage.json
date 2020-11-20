@@ -143,7 +143,7 @@
         "status": "Live",
         "header1": "Recent Blog Entries",
         "sortOrder": "DESC",
-        "limit": 2,
+        "limit": 1,
         "button1Action": "/blogs"
       },
       {

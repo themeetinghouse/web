@@ -15,7 +15,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Covid_Pic_1.jpg",
+        "image": "/static/images/go_hero.jpg",
         "url": "https://www.themeetinghouse.com/go",
         "title": "GO",
         "description": ""
@@ -25,13 +25,13 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Covid_Pic_1.jpg",
-            "alt": "Description"
+            "src": "/static/images/go_hero.jpg",
+            "alt": "A Pastor from The Meeting House is speaking to the camera as host during a Sunday morning livestream."
           }
         ],
         "header1": "Go",
         "header2": "",
-        "text1": "God calls us to embody Jesus to the world around us. We have an opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+        "text1": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
         "button1Text": "Watch Video",
         "button1Action": "/videos/go-Go%20Campaign/W0XfcdmgDWk"
       },
@@ -86,7 +86,7 @@
           "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
           "image1": [
             {
-              "src": "/static/images/Give-1.jpg",
+              "src": "/static/images/Covid_Pic_1.jpg",
               "alt": "Two people over a camera talking."
             }
           ],
@@ -101,7 +101,7 @@
         {
           "type": "goContent",
           "style": "goItem",
-          "header1": "Check out some of the special projects already underway:"
+          "header1": "Some of the special projects already underway:"
         },
       {
         "type": "goContent",
@@ -171,7 +171,7 @@
               },
             {
                 "fontWeight": "bold",
-                "text": "One Story Kids and Youth Curriculum: "
+                "text": "One Story Curriculum: "
               },
               {
                 "fontWeight": "normal",
