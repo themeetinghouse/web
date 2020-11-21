@@ -83,20 +83,20 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "COVID-19 Updates",
+        "header1": "Go Campaign",
         "header2": "",
-        "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's changing at The Meeting House as we head into the fall.",
+        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
         "list": [
           {
             "type": "link",
-            "title": "Read Latest Updates",
-            "navigateTo": "/covid"
+            "title": "See Our New Plan",
+            "navigateTo": "/go"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/homepage-covid-1.jpg",
-            "alt": "A woman wearing a mask looking directly at the camera."
+            "src": "/static/images/homepage-7-go.jpg",
+            "alt": "Group of friends sitting outside and having spiritual conversations."
           }
         ]
       },
@@ -179,23 +179,23 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Go Campaign",
+        "header1": "COVID-19 Updates",
         "header2": "",
-        "text1": "We're our best selves when we don't make it all about ourselves. We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the gospel—and we've got a plan. ",
+        "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's changing at The Meeting House as we head into the fall.",
         "list": [
           {
             "type": "link",
-            "title": "Let's Do This",
-            "navigateTo": "/go"
+            "title": "Read Latest Updates",
+            "navigateTo": "/covid"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/homepage-3-new-update.jpg",
-            "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
+            "src": "/static/images/homepage-covid-1.jpg",
+            "alt": "A woman wearing a mask looking directly at the camera."
           }
         ]
-      },
+      },  
       {
         "type": "hero",
         "style": "connect",
