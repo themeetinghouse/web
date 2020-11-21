@@ -22,6 +22,7 @@ const federated = {
 interface State {
   getVideoQueryId: any;
   videoTypes: any;
+  speakers:any;
   selectedVideoType: any;
   selectedVideo: any;
   videoList: any;
@@ -37,11 +38,16 @@ interface State {
   getVideosState: any;
   toDeleteVideo: string;
   showDeleteVideo: boolean;
+  showAddSpeaker: boolean;
+  showDeleteSpeaker: boolean;
   toDeletePlaylist: string;
   showDeletePlaylist: boolean;
   addToPlaylists: any;
   removeFromPlaylists: any;
   selectedPlaylist: any;
+  speakerValues: Array<string>;
+  speakerFieldValue: string;
+
 }
 
 const customPlaylistTypes = ['teaching-recommendations'];
@@ -50,9 +56,14 @@ class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
+      speakerValues:[],
+      speakerFieldValue:"",
       showAddSeries: false,
+      showAddSpeaker:false,
+      showDeleteSpeaker:false,
       showAddCustomPlaylist: false,
       getVideoQueryId: null,
+      speakers:[],
       videoTypes: [],
       selectedVideoType: '',
       selectedVideo: null,
@@ -95,6 +106,7 @@ class Index extends React.Component<EmptyProps, State> {
   }
   componentDidMount() {
     this.getVideos(null);
+    this.getSpeakers();
   }
   importYoutube() {
     const z = new ImportYoutube();
@@ -158,7 +170,19 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return 0;
   }
-
+  async getSpeakers(): Promise<void>{
+    try {
+      const fetchSpeakers: any = await API.graphql({
+        query: adminQueries.listSpeakers,
+        variables: { nextToken: null, limit: 9999 },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      });
+      console.log(fetchSpeakers.data.listSpeakers.items)
+      this.setState({speakers:fetchSpeakers.data.listSpeakers.items})
+    } catch (e) {
+      console.error(e);
+    }
+  }
   getVideos(nextToken: any) {
     if (nextToken == null) {
       const queryId = uuidv4();
@@ -297,6 +321,22 @@ class Index extends React.Component<EmptyProps, State> {
         <button
           className="adminButton"
           onClick={() => {
+            this.setState({ showAddSpeaker: true });
+          }}
+        >
+          Add Speaker
+        </button>
+        <button
+          className="adminButton"
+          onClick={() => {
+            this.setState({ showDeleteSpeaker: true });
+          }}
+        >
+          Delete Speaker
+        </button>
+        <button
+          className="adminButton"
+          onClick={() => {
             this.setState({ showAddSeries: true });
           }}
         >
@@ -375,7 +415,7 @@ class Index extends React.Component<EmptyProps, State> {
                           }
                           return (
                             <td className="divCell" key={item.id}>
-                              {value}
+                              {typeof value === 'object' ? value?.items?.speakers?.speaker?.id : value}
                             </td>
                           );
                         })
@@ -388,8 +428,23 @@ class Index extends React.Component<EmptyProps, State> {
       </table>
     );
   }
-
+  async loadCustom(){
+    try {
+      const fetchSpeakerVideos: any = await API.graphql({
+        query: adminQueries.listSpeakerVideoss,
+        variables: { nextToken: null, limit: 1 },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      });
+      console.log(fetchSpeakerVideos)
+      return true;
+    } catch (e) {
+      console.error(e);
+    }
+  }
   async handleVideoSelection(video: any): Promise<void> {
+    console.log("====================================== Selecting Video ======================================")
+    console.log(video)
+    console.log("======================================                 ======================================")
     this.setState(
       {
         selectedVideo: null,
@@ -414,7 +469,7 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({ addToPlaylists: json.data.getVideo.customPlaylistIDs });
     } catch (e) {
       console.error(e);
-      if (e.data.getVideo.customPlaylistIDs)
+      if (e?.data?.getVideo?.customPlaylistIDs)
         this.setState({ addToPlaylists: e.data.getVideo.customPlaylistIDs });
     }
   }
@@ -447,6 +502,35 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
+
+
+
+
+
+
+
+  async saveSpeakerVideo() {
+    try {
+      const createSpeakerVideo: any = await API.graphql({
+        query: mutations.createSpeakerVideos,
+        variables: { input:{ id:uuidv4(), speakerVideosVideoId:"",speakerVideosSpeakerId:""}},
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      });
+      console.log(createSpeakerVideo)
+      return true;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+
+
+
+
+
+
+
+  
   async handleCustomPlaylists(): Promise<void> {
     const toAdd = this.state.addToPlaylists;
     const toRemove = this.state.removeFromPlaylists;
@@ -669,7 +753,37 @@ class Index extends React.Component<EmptyProps, State> {
                                     );
                                   })}
                                 </select>
-                              ) : item.type === 'Series' ? (
+                              ) : item.type === 'Speaker' ? (
+                                <>
+                                <select
+                                  className="dropdown2"
+                                  style={{width:"70%"}}
+                                  onChange={(e: any) =>{
+                                    this.setState({speakerValues : [...this.state.speakerValues, e.target.value]})
+                                  }
+                                  }
+                                >
+                                  <option key={"nothing"} value={""}>
+                                    {""}
+                                  </option>
+                                  {this.state.speakers.sort((a:any,b:any)=> a.id.localeCompare(b.id)).map((item2: any) => {
+                                    return (
+                                      <option key={item2.id} value={item2.id}>
+                                        {item2.name}
+                                      </option>
+                                    );
+                                  })}
+                                </select>
+                                <button className="adminButton" onClick={() => {
+                                  this.writeField(item.id, 
+                                    this.state.speakerValues.filter((item, index)=> {
+                                      return this.state.speakerValues.indexOf(item) === index
+                                    }))
+                                }}>
+                                Add
+                                </button>
+                                </>
+                              ): item.type === 'Series' ? (
                                 <select
                                   className="dropdown2"
                                   onChange={(e: any) =>
@@ -776,6 +890,11 @@ class Index extends React.Component<EmptyProps, State> {
           </tbody>
         </table>
         <button onClick={() => this.save()}>Save</button>
+        <button onClick={() => {
+          console.log("logging toSaveVideo :) ")
+          console.log(this.state.toSaveVideo)
+        }}>Check state</button>
+          <button onClick={() => { this.loadCustom()}}>Fetch SpeakerVideoss</button>
       </div>
     );
   }
@@ -906,7 +1025,116 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
-
+  async saveSpeaker() {
+    if (this.state.speakerFieldValue !== ''){
+      const exists = this.state.speakers.find((speaker:any)=>{
+        return speaker.id === this.state.speakerFieldValue
+      })
+      if(!exists){
+        try {
+          const createSpeaker: any = await API.graphql({
+            query: mutations.createSpeaker,
+            variables: { 
+              input: {
+                id:this.state.speakerFieldValue.trim(),
+                name:this.state.speakerFieldValue.trim(),
+              }
+            },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          });
+          console.log({
+            'Success mutations.createSpeaker: ': createSpeaker,
+          });
+          this.getSpeakers();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+  }
+  async deleteSpeaker(){ // does deleting a speaker affect any connected tables?
+    try {
+      const removeSpeaker: any = await API.graphql({
+        query: mutations.deleteSpeaker,
+        variables: { 
+          input: {
+            id:this.state.speakerFieldValue.trim(),
+          }
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({
+        'Success mutations.deleteSpeaker: ': removeSpeaker,
+      });
+      this.getSpeakers();
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  renderAddSpeaker(){
+    return (
+      <Modal isOpen={this.state.showAddSpeaker}>
+        <div>
+          <div>
+            id:{' '}
+            <input
+              value={this.state.speakerFieldValue}
+              onChange={(item: any) => {
+                this.setState({speakerFieldValue: item.target.value});
+              }}
+            />
+          </div>
+          <button
+            onClick={() => {
+              if (this.saveSpeaker()) this.setState({ showAddSpeaker: false, speakerFieldValue:"" });
+            }}
+          >
+            Save
+          </button>
+          <button
+            style={{ background: 'red' }}
+            onClick={() => {
+              this.setState({ showAddSpeaker: false, speakerFieldValue:"" });
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </Modal>
+    );
+  }
+  renderDeleteSpeaker(){
+    return (
+      <Modal isOpen={this.state.showDeleteSpeaker}>
+        <div>
+          <div>
+            id:{' '}
+            <input
+              value={this.state.speakerFieldValue}
+              onChange={(item: any) => {
+                this.setState({speakerFieldValue: item.target.value});
+              }}
+            />
+          </div>
+          <button
+            onClick={() => {
+              if (this.deleteSpeaker()) this.setState({ showDeleteSpeaker: false, speakerFieldValue:"" });
+            }}
+          >
+            Save
+          </button>
+          <button
+            style={{ background: 'red' }}
+            onClick={() => {
+              this.setState({ showDeleteSpeaker: false, speakerFieldValue:"" });
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </Modal>
+    );
+  }
   renderAddCustomPlaylist() {
     return (
       <Modal isOpen={this.state.showAddCustomPlaylist}>
@@ -1040,6 +1268,8 @@ class Index extends React.Component<EmptyProps, State> {
             {this.renderYoutube()}
           </div>
           {this.renderVideoEditor()}
+          {this.renderAddSpeaker()}
+          {this.renderDeleteSpeaker()}
           {this.renderAddSeries()}
           {this.renderDeleteVideo()}
           {this.renderDeletePlaylist()}
