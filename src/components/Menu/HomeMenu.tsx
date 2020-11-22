@@ -147,6 +147,7 @@ class HomeMenu extends React.Component<Props, State>  {
   };
 
   componentDidMount() {
+    console.log("Mounted")
     this.getState();
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
@@ -168,7 +169,9 @@ class HomeMenu extends React.Component<Props, State>  {
     // console.log(this.state.position)
     return (
       <div>
-        {this.state.showLiveStreams ? <Dropdown close={() => this.setState({showLiveStreams: false})}></Dropdown> : null}
+        {this.state.showLiveStreams ? <Dropdown close={() => {
+          this.setState({showLiveEvent:false, showLiveStreams:false})
+      }}></Dropdown> : null}
         <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
         <NavbarBrand tag={Link} className="brand" to="/">
           <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
