@@ -463,9 +463,6 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
   async handleVideoSelection(video: any): Promise<void> {
-    console.log("=================")
-    console.log(video)
-    console.log("=================")
     this.setState(
       {
         selectedVideo: null,
