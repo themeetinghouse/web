@@ -449,19 +449,6 @@ class Index extends React.Component<EmptyProps, State> {
       </table>
     );
   }
-  async loadCustom(){
-    try {
-      const fetchSpeakerVideos: any = await API.graphql({
-        query: adminQueries.listSpeakerVideoss,
-        variables: { nextToken: null, limit: 1 },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      });
-      console.log(fetchSpeakerVideos)
-      return true;
-    } catch (e) {
-      console.error(e);
-    }
-  }
   async handleVideoSelection(video: any): Promise<void> {
     this.setState(
       {
@@ -921,11 +908,6 @@ class Index extends React.Component<EmptyProps, State> {
           </tbody>
         </table>
         <button onClick={() => this.save()}>Save</button>
-        <button onClick={() => {
-          console.log("logging toSaveVideo :) ")
-          console.log(this.state.toSaveVideo)
-        }}>Check state</button>
-          <button onClick={() => { this.loadCustom()}}>Fetch SpeakerVideoss</button>
       </div>
     );
   }
