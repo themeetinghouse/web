@@ -330,6 +330,7 @@ class Index extends React.Component<EmptyProps, State> {
         </button>
         <button
           className="adminButton"
+          style={{display:"none"}}
           onClick={() => {
             this.setState({ showDeleteSpeaker: true });
           }}
@@ -781,9 +782,6 @@ class Index extends React.Component<EmptyProps, State> {
                                   })}
                                 </select>
                                 <button className="adminButton" onClick={() => {
-                                  // this add needs to be fixed to show the new added teachers
-                                  // need to also implement the query for adding the new teacher
-                                  
                                   if(this.state.selectedSpeaker !== ""){
                                       const a = this.state.selectedVideo.speakers.items.find((a:any) =>{
                                         return a.speaker.id === this.state.selectedSpeaker
@@ -1066,7 +1064,7 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-  async deleteSpeaker(){ // does deleting a speaker affect any connected tables?
+  async deleteSpeaker(){
     try {
       const removeSpeaker: any = await API.graphql({
         query: mutations.deleteSpeaker,
