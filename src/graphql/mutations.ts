@@ -2321,6 +2321,15 @@ export const deleteSpeaker = /* GraphQL */ `
     }
   }
 `;
+export const createSpeakerVideosCustom = /* GraphQL */ `
+  mutation CreateSpeakerVideos($input: CreateSpeakerVideosInput!) {
+    createSpeakerVideos(input: $input) {
+      id
+      createdAt
+    }
+  }
+`;
+
 export const createSpeakerVideos = /* GraphQL */ `
   mutation CreateSpeakerVideos($input: CreateSpeakerVideosInput!) {
     createSpeakerVideos(input: $input) {

@@ -23,6 +23,7 @@ interface State {
   getVideoQueryId: any;
   videoTypes: any;
   speakers:any;
+  selectedSpeaker:any;
   selectedVideoType: any;
   selectedVideo: any;
   videoList: any;
@@ -45,8 +46,8 @@ interface State {
   addToPlaylists: any;
   removeFromPlaylists: any;
   selectedPlaylist: any;
-  speakerValues: Array<string>;
   speakerFieldValue: string;
+  originalSpeakers:any;
 
 }
 
@@ -56,7 +57,8 @@ class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
-      speakerValues:[],
+      originalSpeakers:{},
+      selectedSpeaker:"",
       speakerFieldValue:"",
       showAddSeries: false,
       showAddSpeaker:false,
@@ -399,8 +401,10 @@ class Index extends React.Component<EmptyProps, State> {
               <tr
                 key={video.id}
                 className="divRow"
+                style={this.state.selectedVideo?.id === video?.id ? {backgroundColor:"#ffff99"} :{}}
                 onClick={() => {
                   this.handleVideoSelection(video);
+                  this.setState({originalSpeakers: video.speakers})
                 }}
               >
                 {z != null
@@ -411,13 +415,30 @@ class Index extends React.Component<EmptyProps, State> {
                           const list: any = item.id.split('.');
                           let value: any = video;
                           for (const listItem of list) {
-                            value = value[listItem];
+                            if(listItem === "speakers"){
+                              value = [...value.speakers.items]
+                            }
+                            else value = value[listItem]
                           }
+                          if(list[0] !== "speakers"){
                           return (
                             <td className="divCell" key={item.id}>
-                              {typeof value === 'object' ? value?.items?.speakers?.speaker?.id : value}
+                              {value}
                             </td>
                           );
+                          }
+                          else{
+                            return (
+                              <td className="divCell" key={item.id}>
+                              {value && value.length >0 ?
+                              value.map((item: any)=>{
+                                if(item.speaker)
+                                  return item?.speaker?.id + ", "
+                              }): null
+                              }
+                            </td>
+                            )
+                          }
                         })
                     : null
                   : null}
@@ -442,9 +463,9 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
   async handleVideoSelection(video: any): Promise<void> {
-    console.log("====================================== Selecting Video ======================================")
+    console.log("=================")
     console.log(video)
-    console.log("======================================                 ======================================")
+    console.log("=================")
     this.setState(
       {
         selectedVideo: null,
@@ -484,11 +505,24 @@ class Index extends React.Component<EmptyProps, State> {
     } else {
       this.setState({ showError: 'Saving' });
       console.log(this.state.toSaveVideo);
-      this.handleCustomPlaylists();
+      //this.handleCustomPlaylists();
+      const toSaveVid :any= this.state.toSaveVideo; 
+      if(this.state.toSaveVideo.speakers){
+        const oldSpeakers: any =[...this.state.originalSpeakers.items];
+        const newSpeakers :any =  [...this.state.toSaveVideo.speakers.items]
+        const filtered = newSpeakers.filter((a:any) =>{
+          return oldSpeakers.indexOf(a) < 0;
+        })
+        for(let x=0; x<filtered.length;x++){
+          if(filtered[x]?.speaker?.id)
+            this.saveSpeakerVideo(filtered[x].speaker.id)
+        }
+        delete toSaveVid.speakers;
+      }
       try {
         const updateVideo: any = await API.graphql({
           query: mutations.updateVideo,
-          variables: { input: this.state.toSaveVideo },
+          variables: { input: toSaveVid},
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         console.log({ 'Success queries.updateVideo: ': updateVideo });
@@ -502,34 +536,22 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-
-
-
-
-
-
-
-  async saveSpeakerVideo() {
+  async saveSpeakerVideo(speaker: string) {
     try {
       const createSpeakerVideo: any = await API.graphql({
-        query: mutations.createSpeakerVideos,
-        variables: { input:{ id:uuidv4(), speakerVideosVideoId:"",speakerVideosSpeakerId:""}},
-        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        query: mutations.createSpeakerVideosCustom,
+        variables: { input:{ id:uuidv4(), speakerVideosVideoId:this.state.toSaveVideo.id,speakerVideosSpeakerId:speaker}},
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
+      this.setState({ showError: 'Saved' });
       console.log(createSpeakerVideo)
-      return true;
     } catch (e) {
+      if (!e.errors[0].message.includes('access'))
+        this.setState({ showError: e.errors[0].message });
+      else if (e.data) this.setState({ showError: 'Saved' });
       console.error(e);
-    }
+    } 
   }
-
-
-
-
-
-
-
-
   
   async handleCustomPlaylists(): Promise<void> {
     const toAdd = this.state.addToPlaylists;
@@ -758,8 +780,8 @@ class Index extends React.Component<EmptyProps, State> {
                                 <select
                                   className="dropdown2"
                                   style={{width:"70%"}}
-                                  onChange={(e: any) =>{
-                                    this.setState({speakerValues : [...this.state.speakerValues, e.target.value]})
+                                  onChange={(e: any) =>{     
+                                    this.setState({selectedSpeaker:e.target.value})
                                   }
                                   }
                                 >
@@ -775,13 +797,25 @@ class Index extends React.Component<EmptyProps, State> {
                                   })}
                                 </select>
                                 <button className="adminButton" onClick={() => {
-                                  this.writeField(item.id, 
-                                    this.state.speakerValues.filter((item, index)=> {
-                                      return this.state.speakerValues.indexOf(item) === index
-                                    }))
+                                  // this add needs to be fixed to show the new added teachers
+                                  // need to also implement the query for adding the new teacher
+                                  
+                                  if(this.state.selectedSpeaker !== ""){
+                                      const a = this.state.selectedVideo.speakers.items.find((a:any) =>{
+                                        return a.speaker.id === this.state.selectedSpeaker
+                                      })
+                                      if(!a){
+                                        const speakers:any = {items:[...this.state.selectedVideo.speakers.items, {speaker:{id:this.state.selectedSpeaker}}]}
+                                        return this.writeField(item.id, speakers)
+                                      }
+                                  }
                                 }}>
                                 Add
                                 </button>
+                                <button className="adminButton" onClick={()=> {
+                                  console.log("this.state.selectedVideo.speakers")
+                                  console.log(this.state.selectedVideo.speakers)
+                                  }}>Log Stuff</button>
                                 </>
                               ): item.type === 'Series' ? (
                                 <select
@@ -1025,6 +1059,7 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
+
   async saveSpeaker() {
     if (this.state.speakerFieldValue !== ''){
       const exists = this.state.speakers.find((speaker:any)=>{
