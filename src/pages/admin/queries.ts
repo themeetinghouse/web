@@ -6,61 +6,6 @@ export const getInstagram = /* GraphQL */ `
   }
 `;
 
-export const listSpeakerVideoss = /* GraphQL */ `
-  query ListSpeakerVideoss(
-    $filter: ModelSpeakerVideosFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listSpeakerVideoss(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        createdAt
-        updatedAt
-        video{
-          id
-        }
-        speaker {
-          id
-          name
-          image
-          createdAt
-          updatedAt
-          videos {
-            items {
-              id
-              createdAt
-              updatedAt
-              speaker {
-                id
-                name
-                image
-                createdAt
-                updatedAt
-                videos {
-                  nextToken
-                }
-              }
-              video {
-                id
-                createdBy
-                createdDate
-                episodeTitle
-                originalEpisodeTitle
-                episodeNumber
-                publishedDate
-
-              }
-            }
-            nextToken
-          }
-        }
-
-      }
-      nextToken
-    }
-  }
-`;
 export const listSpeakers = /* GraphQL */ `
   query ListSpeakers(
     $filter: ModelSpeakerFilterInput
@@ -81,6 +26,7 @@ export const listSpeakers = /* GraphQL */ `
     }
   }
 `;
+
 export const listCustomPlaylistsAdmin = /* GraphQL */ `
   query ListCustomPlaylists(
     $filter: ModelCustomPlaylistFilterInput
