@@ -299,6 +299,16 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
 }
 `;
 
+export const getBlogForSearch = /* GraphQL */ `
+  query GetBlog($id: ID!) {
+    getBlog(id: $id) {
+      id
+      author
+      tags
+    }
+  }
+`;
+
 export const getBlog = /* GraphQL */ `
   query GetBlog($id: ID!) {
     getBlog(id: $id) {
@@ -568,6 +578,7 @@ export const searchBlogs = /* GraphQL */ `
     ) {
       items {
         id
+        author
         publishedDate
         expirationDate
         blogStatus

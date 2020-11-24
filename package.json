@@ -66,6 +66,7 @@
     "react-hamburger-menu": "^1.2.1",
     "react-helmet": "^6.1.0",
     "react-html-parser": "^2.0.2",
+    "react-infinite-scroll-component": "^5.1.0",
     "react-instafeed": "^1.0.0",
     "react-konami-code": "^1.4.3",
     "react-lottie": "^1.2.3",

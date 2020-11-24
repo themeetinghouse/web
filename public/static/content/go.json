@@ -15,157 +15,169 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Go-1.jpg",
+        "image": "/static/images/go_hero.jpg",
         "url": "https://www.themeetinghouse.com/go",
-        "title": "Go Campaign",
-        "description": ""
+        "title": "Go",
+        "description": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches."
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Go-1.jpg",
-            "alt": "Description"
+            "src": "/static/images/go_hero.jpg",
+            "alt": "A Pastor from The Meeting House is speaking to the camera as host during a Sunday morning livestream."
           }
         ],
-        "header1": "Go Campaign",
+        "header1": "Go",
         "header2": "",
-        "text1": "God calls us to embody Jesus to the world around us. The Go Campaign is our opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+        "text1": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
         "button1Text": "Watch Video",
-        "button1Action": "/videos/go-Go%20Campaign/I54UlXiMcn4"
+        "button1Action": "/videos/go-Go%20Campaign/W0XfcdmgDWk"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "go-campaign",
+        "selector": "all",
+        "sortOrder": "DESC",
+        "header1": "Go Videos"
+      },
+      {
+        "type": "blog",
+        "style": "multiImage",
+        "status": "Live",
+        "header1": "Go Stories",
+        "sortOrder": "DESC",
+        "blogSeries": "Stories",
+        "hideAllBlogsButton": "true"
       },
       {
         "type": "content",
-        "style": "oneImage",
-        "header1": "It's how we love people.",
+        "style": "greyTwoText",
+        "header1": "Exciting stuff, eh?",
         "header2": "",
-        "text1": "We want to explore new and innovative ways of engaging people in our neighbourhoods and around the world who have never meaningfully encountered the good news of Jesus.",
-        "list": [
-          {
-            "type": "button",
-            "title": "Pledge and Give",
-            "navigateTo": "/go-choose"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/Go-2.jpg",
-            "alt": "Man with crossed arms in discussion"
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "goRegionalEventsOneImageBlackRight",
-        "header1": "Go Regional Events 2020",
-        "header2": "",
-        "text1": "We're coming to six cities across Ontario to hang out with you! If you've got questions or ideas when it comes to our Go campaign, this will be your opportunity to interact with our core community, senior leadership, and lead pastors.",
+        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact like the ones above. If you’re wondering \"How can I make a difference?\" this is our chance to be radically generous, and create even more Kingdom impact. The benefit of these initiatives is felt in our Meeting House church communities, and beyond our borders across the broader Jesus-centred movement.",
+        "text2": "",
         "list": [
           {
             "type": "link",
-            "title": "Register Here",
-            "navigateTo": "https://themeetinghouse.typeform.com/to/GGo8uC"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/Go-3.jpg",
-            "alt": "Group of people sitting together for an information night about the Go Campaign."
-          }
-        ]
-      },
-      {
-        "type": "goContent",
-        "style": "goItem",
-        "header1": "Going beyond ourselves",
-        "header2": "$6 Million",
-        "body": [
-          {
-            "fontWeight": "normal",
-            "text": "This campaign is about being who we have always been and who God calls us to be: a community intentionally focused on others.",
-            "newParagraph": true
+            "title": "Go Campaign FAQ",
+            "navigateTo": "/static/pdfs/go/GoChangesFAQNov19.pdf",
+            "openNewBrowser": true
           },
           {
-            "fontWeight": "normal",
-            "text": "We have a history of radically and purposefully focusing on others so they can experience the Jesus-centred life. As the world changes, we realize that we need to be bold and invest in new and innovative ways of taking our evangelism and discipleship to the next level.",
-            "newParagraph": true
-          },
-          {
-            "fontWeight": "normal",
-            "text": "Over the last two years, we have been listening to God, our community, and our neighbours – those close by and around the world – to understand how we can be even more effective as we introduce people to the Jesus-centred life. The projects, innovation, and technology funded by the Go Campaign will equip us as we evolve into a community that uses new and creative ways of engaging with those who have never meaningfully encountered the good news of Jesus. The campaign focuses on initiatives for people in "
-          },
-          {
-            "fontWeight": "bold",
-            "text": "our church family"
-          },
-          {
-            "fontWeight": "normal",
-            "text": ", such as Home Church revitalization and local site innovation, as well as "
-          },
-          {
-            "fontWeight": "bold",
-            "text": "beyond our borders"
-          },
-          {
-            "fontWeight": "normal",
-            "text": ", with projects like Jesus Collective and our Kids & Youth Curriculum."
+            "type": "link",
+            "title": "Discover Jesus Collective",
+            "navigateTo": "https://www.jesuscollective.com",
+            "openNewBrowser": true
           }
         ]
       },
+        {
+          "type": "goContent",
+          "style": "goItem",
+          "header1": "Some of the special projects already underway:"
+        },
       {
         "type": "goContent",
         "style": "goSubItems",
         "items": [
           {
             "header1": "Our Church Family",
-            "header2": "$3 Million",
             "body": [
               {
+                "fontWeight": "bold",
+                "text": "Local Parish Innovation: "
+              },
+              {
                 "fontWeight": "normal",
-                "text": "We can't do this alone. We are a movement of Jesus-centred churches, and we want to invest in each of these communities so that we will be equipped to connect with the spiritually curious in our neighbourhoods. This investment includes funding local innovation and creative church expressions, shaping and training the next generation of young leaders, and investing in new technology and communication tools to allow us to share our message in relevant ways."
+                "text": "Fueling creative new expressions of church and neighbourhood outreach to engage more spiritually curious people, and offer steps into Jesus-centred community.",
+                "newParagraph": true
+              },
+              {
+                "fontWeight": "bold",
+                "text": "Home church and TMHU: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Revitalizing our vision for Home church and offering a range of TMHU courses to help people take meaningful steps in their discipleship.",
+                "newParagraph": true
+              },
+              {
+                "fontWeight": "bold",
+                "text": "Youth & Young Adults: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Developing tomorrow's leaders today through intentional mentoring and relational investment in our next generation.",
+                "newParagraph": true
+              },
+              {
+                "fontWeight": "bold",
+                "text": "Technology: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Enabling us to communicate the good news further and more effectively through investments in new equipment, our online presence, and digital ministry tools.",
+                "newParagraph": true
+              },
+              {
+                "fontWeight": "bold",
+                "text": "Extended Family: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Planting and integrating new Meeting House church expressions within and beyond Southern Ontario.",
+                "newParagraph": true
               }
             ]
           },
           {
-            "header1": "Beyond our Borders",
-            "header2": "$3 Million",
+            "header1": "Beyond Our Borders",
             "body": [
               {
+                "fontWeight": "bold",
+                "text": "Jesus Collective: "
+              },
+              {
                 "fontWeight": "normal",
-                "text": "As we listened to our community, locally and around the world, we recognized a clear opportunity and calling for The Meeting House to reach far beyond the borders of our current impact. This means embracing our role as a leader in a growing Anabaptist movement by working to unite, equip, and amplify a Jesus-centred movement through Jesus Collective. This also means widening the impact of our Kids & Youth Curriculum by preparing to share it in a sustainable way with churches around the world."
+                "text": "Embracing our role as leaders in the growing Anabaptist movement by forming a relational network of like-minded churches and ministry leaders to make more disciples around the world.",
+                "newParagraph": true
+              },
+            {
+                "fontWeight": "bold",
+                "text": "One Story Curriculum: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Allowing us to share our awesome Kids and Youth curriculum in a sustainable way with churches who need it most.",
+                "newParagraph": true
               }
             ]
           }
         ]
       },
       {
-        "type": "goLink",
-        "style": "link",
-        "title": "Go Campaign Details",
-        "navigateTo": "/static/pdfs/go/TMH_GO_booklet_v7.pdf",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "link",
-        "title": "Go Campaign FAQ",
-        "navigateTo": "/static/pdfs/go/Donor-FAQs-for-Go.pdf",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "link",
-        "title": "Learn more about Jesus Collective",
-        "navigateTo": "https://www.jesuscollective.com",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "button",
-        "title": "Pledge and Give",
-        "navigateTo": "/go-choose",
-        "newWindow": true
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Give to Go",
+        "header2": "",
+        "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
+        "image1": [
+          {
+            "src": "/static/images/homepage-3-new-update.jpg",
+            "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
+          }
+        ],
+        "list": [
+          {
+            "type": "button",
+            "title": "Give",
+            "navigateTo": "/give"
+          }
+        ]
       }
     ]
   }

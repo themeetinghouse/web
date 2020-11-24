@@ -86,11 +86,15 @@ html{
     left: 22vw;
     top: 0vw;
 }
+
+.arrow {
+    transition: 1s;
+}
+
 .imageList .hoverText:hover{
     background-color: #EFEFF0;
-    cursor:pointer;
+    cursor: pointer;
     .arrow {
-        transition: 1.5s;
         transform: translateX(20px);
     }
 }

@@ -103,6 +103,13 @@
         ]
       },
       {
+        "type": "goLink",
+        "style": "link",
+        "title": "Go Campaign Details",
+        "navigateTo": "/static/pdfs/go/TMH_GO_booklet_v7.pdf",
+        "newWindow": true
+      },
+      {
         "type": "hero",
         "style": "connect",
         "image1": [
