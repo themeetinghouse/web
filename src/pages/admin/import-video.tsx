@@ -794,10 +794,6 @@ class Index extends React.Component<EmptyProps, State> {
                                 }}>
                                 Add
                                 </button>
-                                <button className="adminButton" onClick={()=> {
-                                  console.log("this.state.selectedVideo.speakers")
-                                  console.log(this.state.selectedVideo.speakers)
-                                  }}>Log Stuff</button>
                                 </>
                               ): item.type === 'Series' ? (
                                 <select

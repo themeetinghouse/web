@@ -16,11 +16,6 @@ export const listSpeakers = /* GraphQL */ `
       items {
         id
         name
-        videos {
-          items{
-            id
-          }
-        }
       }
       nextToken
     }
