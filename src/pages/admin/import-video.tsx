@@ -179,7 +179,7 @@ class Index extends React.Component<EmptyProps, State> {
         variables: { nextToken: null, limit: 9999 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       });
-      console.log(fetchSpeakers.data.listSpeakers.items)
+      console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers});
       this.setState({speakers:fetchSpeakers.data.listSpeakers.items})
     } catch (e) {
       console.error(e);
