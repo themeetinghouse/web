@@ -490,12 +490,12 @@ class Index extends React.Component<EmptyProps, State> {
     } else {
       this.setState({ showError: 'Saving' });
       console.log(this.state.toSaveVideo);
-      //this.handleCustomPlaylists();
-      const toSaveVid :any= this.state.toSaveVideo; 
+      this.handleCustomPlaylists();
+      const toSaveVid: any = this.state.toSaveVideo; 
       if(this.state.toSaveVideo.speakers){
-        const oldSpeakers: any =[...this.state.originalSpeakers.items];
-        const newSpeakers :any =  [...this.state.toSaveVideo.speakers.items]
-        const filtered = newSpeakers.filter((a:any) =>{
+        const oldSpeakers: any = [...this.state.originalSpeakers.items];
+        const newSpeakers: any = [...this.state.toSaveVideo.speakers.items]
+        const filtered = newSpeakers.filter((a: any) =>{
           return oldSpeakers.indexOf(a) < 0;
         })
         for(let x=0; x<filtered.length;x++){
@@ -529,7 +529,7 @@ class Index extends React.Component<EmptyProps, State> {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
       });
       this.setState({ showError: 'Saved' });
-      console.log(createSpeakerVideo)
+      console.log({'Success mutations.createSpeakerVideo: ':createSpeakerVideo})
     } catch (e) {
       if (!e.errors[0].message.includes('access'))
         this.setState({ showError: e.errors[0].message });
