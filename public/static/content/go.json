@@ -15,23 +15,23 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Covid_Pic_1.jpg",
+        "image": "/static/images/go_hero.jpg",
         "url": "https://www.themeetinghouse.com/go",
-        "title": "GO",
-        "description": ""
+        "title": "Go",
+        "description": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches."
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Covid_Pic_1.jpg",
-            "alt": "Description"
+            "src": "/static/images/go_hero.jpg",
+            "alt": "A Pastor from The Meeting House is speaking to the camera as host during a Sunday morning livestream."
           }
         ],
         "header1": "Go",
         "header2": "",
-        "text1": "God calls us to embody Jesus to the world around us. We have an opportunity to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+        "text1": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
         "button1Text": "Watch Video",
         "button1Action": "/videos/go-Go%20Campaign/W0XfcdmgDWk"
       },
@@ -42,73 +42,50 @@
         "subclass": "go-campaign",
         "selector": "all",
         "sortOrder": "DESC",
-        "header1": "Videos"
+        "header1": "Go Videos"
       },
       {
         "type": "blog",
         "style": "multiImage",
         "status": "Live",
-        "header1": "Blogs",
+        "header1": "Go Stories",
         "sortOrder": "DESC",
         "blogSeries": "Stories",
         "hideAllBlogsButton": "true"
       },
       {
-        "type": "goContent",
-        "style": "goItem",
-        "header1": "Exciting stuff, huh?!",
-        "body": [
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Exciting stuff, eh?",
+        "header2": "",
+        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact like the ones above. If you’re wondering \"How can I make a difference?\" this is our chance to be radically generous, and create even more Kingdom impact. The benefit of these initiatives is felt in our Meeting House church communities, and beyond our borders across the broader Jesus-centred movement.",
+        "text2": "",
+        "list": [
           {
-            "fontWeight": "normal",
-            "text": "It’s amazing what God is up to. That’s why we're excited to invest in a number of "
+            "type": "link",
+            "title": "Go Campaign FAQ",
+            "navigateTo": "/static/pdfs/go/GoChangesFAQNov19.pdf",
+            "openNewBrowser": true
           },
           {
-            "fontWeight": "bold",
-            "text": "special projects"
-          },
-          {
-            "fontWeight": "normal",
-            "text": " over the next few years that are generating stories of impact like the ones above!",
-            "newParagraph": true
-          },
-          {
-            "fontWeight": "normal",
-            "text": "If you’re wondering \"But what can I do? How can I make a difference?\", this is our chance to be radically generous, to Go further, and create even more Kingdom impact.  The benefit of these initiatives is felt here in our Meeting House church communities, and beyond our own borders across the broader Jesus-centred movement.",
-            "newParagraph": true
+            "type": "link",
+            "title": "Discover Jesus Collective",
+            "navigateTo": "https://www.jesuscollective.com",
+            "openNewBrowser": true
           }
         ]
       },
         {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Make a Difference",
-          "header2": "",
-          "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
-          "image1": [
-            {
-              "src": "/static/images/Give-1.jpg",
-              "alt": "Two people over a camera talking."
-            }
-          ],
-          "list": [
-            {
-              "type": "button",
-              "title": "Give",
-              "navigateTo": "/give"
-            }
-          ]
-        },
-        {
           "type": "goContent",
           "style": "goItem",
-          "header1": "Check out some of the special projects already underway:"
+          "header1": "Some of the special projects already underway:"
         },
       {
         "type": "goContent",
         "style": "goSubItems",
         "items": [
           {
-            "header1": "Our Church Family - $2.25 million",
+            "header1": "Our Church Family",
             "body": [
               {
                 "fontWeight": "bold",
@@ -158,7 +135,7 @@
             ]
           },
           {
-            "header1": "Beyond Our Borders - $2.25 million",
+            "header1": "Beyond Our Borders",
             "body": [
               {
                 "fontWeight": "bold",
@@ -171,7 +148,7 @@
               },
             {
                 "fontWeight": "bold",
-                "text": "One Story Kids and Youth Curriculum: "
+                "text": "One Story Curriculum: "
               },
               {
                 "fontWeight": "normal",
@@ -182,20 +159,26 @@
           }
         ]
       },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Give to Go",
+        "header2": "",
+        "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
+        "image1": [
           {
-            "type": "goLink",
-            "style": "link",
-            "title": "Go Campaign FAQ",
-            "navigateTo": "/static/pdfs/go/Go - FAQ2.pdf",
-            "newWindow": true
-          },
-          {
-            "type": "goLink",
-            "style": "link",
-            "title": "Learn more about Jesus Collective",
-            "navigateTo": "https://www.jesuscollective.com",
-            "newWindow": true
+            "src": "/static/images/homepage-3-new-update.jpg",
+            "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
           }
+        ],
+        "list": [
+          {
+            "type": "button",
+            "title": "Give",
+            "navigateTo": "/give"
+          }
+        ]
+      }
     ]
   }
 }
