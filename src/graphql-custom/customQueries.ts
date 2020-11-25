@@ -367,6 +367,13 @@ export const listVideos = `query ListVideos(
       id
       createdBy
       createdDate
+      speakers {
+        items {
+          speaker{
+            id
+          }
+        }
+      }
       episodeTitle
       originalEpisodeTitle
       episodeNumber

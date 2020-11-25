@@ -1053,7 +1053,7 @@
   .partialConnect {
     position: relative;
     width: 100vw;
-    margin-top: 10vw;
+    margin-top: 30vw;
   }
 
   .partialConnectImage {
@@ -1355,7 +1355,7 @@
     font-family: Graphik Web !important;
     font-size: 3.5vw !important;
     font-weight: normal;
-    margin-top: 10vw;
+    margin-top: 15vw;
     color: #ffffff;
     background-color: $onyxblacktext !important;
     border-width: 0 !important;
@@ -1382,7 +1382,7 @@
     width: 100vw;
     //   height: 75vw;
     top: 3vw;
-    margin-bottom: 55vw;
+    margin-bottom: 0vw;
   }
 
   .heroBlackBoxA {
@@ -1391,5 +1391,11 @@
 
   .heroAContainer {
     margin-top: 5vw;
+  }
+
+  .contactPastorLink {
+    display: flex;
+    align-items: center;
+    align-content: center;
   }
 }

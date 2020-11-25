@@ -11,6 +11,13 @@
         "showInEditor": true
       },
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -138,6 +145,13 @@
     "name": "Sunday Teaching",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -263,6 +277,13 @@
     "id": "adult-sunday-teaser",
     "name": "Sunday Teaching Teaser",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -390,6 +411,13 @@
     "name": "Sunday Teaching Short Cut",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -516,6 +544,13 @@
     "name": "Life Story",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -641,6 +676,13 @@
     "id": "bbq",
     "name": "Bruxy's Bag of Questions",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -769,6 +811,13 @@
     "name": "Kids",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -894,6 +943,13 @@
     "id": "ky-jrhigh",
     "name": "Jr High",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -1021,6 +1077,13 @@
     "name": "Youth",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -1147,6 +1210,13 @@
     "name": "Sr High",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -1272,6 +1342,13 @@
     "id": "questions",
     "name": "Questions",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -1400,6 +1477,13 @@
     "name": "After Party",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -1525,6 +1609,13 @@
     "id": "q-eh",
     "name": "Q & Eh",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -1652,6 +1743,13 @@
     "name": "Compassion",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -1777,6 +1875,13 @@
     "id": "peacemakers",
     "name": "Peacemakers",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -1904,6 +2009,13 @@
     "name": "Spiritually Curious",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -2029,6 +2141,13 @@
     "id": "go-campaign",
     "name": "Go Campaign",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -2156,6 +2275,13 @@
     "name": "Annual Report",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -2281,6 +2407,13 @@
     "id": "music",
     "name": "Music",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -2408,6 +2541,13 @@
     "name": "Preschool",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -2533,6 +2673,13 @@
     "id": "meditation",
     "name": "Guided Prayer Meditation",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",
@@ -2660,6 +2807,13 @@
     "name": "Sunday Livestream",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -2786,6 +2940,13 @@
     "name": "Kidmax Live",
     "columns": [
       {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
         "id": "episodeTitle",
         "name": "Episode Name",
         "type": "String",
@@ -2911,6 +3072,13 @@
     "id": "community",
     "name": "Community",
     "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
       {
         "id": "episodeTitle",
         "name": "Episode Name",

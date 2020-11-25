@@ -39,37 +39,37 @@ class ContentItem extends React.Component<Props, State> {
   renderList(boxColor = 'grey') {
     return this.state.content.list
       ? this.state.content.list.map((item: any, id: any) => {
-          return item.type === 'button' ? (
-            <div key={id}>
-              <LinkButton
-                className="contentButton"
-                to={item.navigateTo}
-                newWindow={item.navigateTo.includes('http')}
-              >
-                {item.title}
-              </LinkButton>
-            </div>
-          ) : item.type === 'link' ? (
-            <div className="oneImageAContainer" key={id}>
-              <Link
-                className={
-                  boxColor === 'black' ? 'oneImageA inverted' : 'oneImageA'
-                }
-                newWindow={item.openNewBrowser}
-                to={item.navigateTo}
-              >
-                {item.title}
-              </Link>
-            </div>
-          ) : item.type === 'text' ? (
-            <div key={id}>{item.title}</div>
-          ) : item.type === 'event' ? (
-            <div className="oneImageEventDetails" key={id}>
-              <div>{item.date}</div>
-              <div>{item.location}</div>
-            </div>
-          ) : null;
-        })
+        return item.type === 'button' ? (
+          <div key={id}>
+            <LinkButton
+              className="contentButton"
+              to={item.navigateTo}
+              newWindow={item.navigateTo.includes('http')}
+            >
+              {item.title}
+            </LinkButton>
+          </div>
+        ) : item.type === 'link' ? (
+          <div className="oneImageAContainer" key={id}>
+            <Link
+              className={
+                boxColor === 'black' ? 'oneImageA inverted' : 'oneImageA'
+              }
+              newWindow={item.openNewBrowser}
+              to={item.navigateTo}
+            >
+              {item.title}
+            </Link>
+          </div>
+        ) : item.type === 'text' ? (
+          <div key={id}>{item.title}</div>
+        ) : item.type === 'event' ? (
+          <div className="oneImageEventDetails" key={id}>
+            <div>{item.date}</div>
+            <div>{item.location}</div>
+          </div>
+        ) : null;
+      })
       : null;
   }
   render() {
@@ -157,7 +157,7 @@ class ContentItem extends React.Component<Props, State> {
             </div>
             <ScaledImage
               image={image1}
-              className="oneImageImage right secondImg"
+              className="oneImageImage right secondImg extramrg"
               breakpointSizes={heroBreakpoints}
             />
           </div>
@@ -269,13 +269,13 @@ class ContentItem extends React.Component<Props, State> {
                 alt={img.alt}
               ></img>
             ) : (
-              <img
-                className="bannerCardImage cannotClick"
-                key={index}
-                src={img.src}
-                alt={img.alt}
-              ></img>
-            );
+                <img
+                  className="bannerCardImage cannotClick"
+                  key={index}
+                  src={img.src}
+                  alt={img.alt}
+                ></img>
+              );
           })}
         </div>
       ) : null;

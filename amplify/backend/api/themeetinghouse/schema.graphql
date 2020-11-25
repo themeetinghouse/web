@@ -689,11 +689,13 @@ type Speaker
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
+ @key(fields:["id"])
+
 {
    id:ID!
    name:String
    image:String
-   videos:[SpeakerVideos] @connection(name: "SpeakerVideos")
+   videos:[SpeakerVideos] @connection(name: "SpeakerVideos",keyField: "speakerVideosSpeakerId", sortField: "videoPublishedDate")
 }
 type SpeakerVideos
   @model
@@ -702,10 +704,15 @@ type SpeakerVideos
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
+@key(fields:["id"])
+
 {
   id:ID!
+  speakerVideosSpeakerId:String
   video:Video @connection(name: "VideosSpeaker")
+  speakerVideosVideoId:String
   speaker:Speaker @connection(name: "SpeakerVideos")
+  videoPublishedDate:String
 }
 type Series
   @model

@@ -140,11 +140,11 @@ class ListItem extends React.Component<Props, State> {
     else
       this.props.history.push(
         '/playlist/' +
-          (clickedOnFullPlaylist
-            ? data.customPlaylistID
-            : this.state.randomPlaylistId) +
-          '/' +
-          (clickedOnFullPlaylist ? data.video.id : data.id)
+        (clickedOnFullPlaylist
+          ? data.customPlaylistID
+          : this.state.randomPlaylistId) +
+        '/' +
+        (clickedOnFullPlaylist ? data.video.id : data.id)
       );
   }
 
@@ -329,7 +329,7 @@ class ListItem extends React.Component<Props, State> {
         key="load-more-card"
         to={`/archive/video/${
           (this.state.content as VideoSeriesQuery).subclass
-        }`}
+          }`}
         className={
           'container ListItemVideo' +
           (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
@@ -348,7 +348,7 @@ class ListItem extends React.Component<Props, State> {
         key="load-more-card"
         to={`/archive/series/${
           (this.state.content as VideoSeriesQuery).subclass
-        }`}
+          }`}
         className="container ListItemVideo"
       >
         <div className="LoadMoreSeriesCard">
@@ -471,7 +471,7 @@ class ListItem extends React.Component<Props, State> {
         </div>
         <div className="WatchPageEpisodeTitle">
           {item.episodeNumber &&
-          !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : '')
+            !hideEpisodeNumbers.includes(item.videoTypes ? item.videoTypes : '')
             ? item.episodeNumber + '. '
             : null}
           {item.episodeTitle}
@@ -677,8 +677,8 @@ class ListItem extends React.Component<Props, State> {
 
     const start_date = new Date(
       item?.start_time?.substring(0, item.start_time.length - 2) +
-        ':' +
-        item?.start_time?.substring(item.start_time.length - 2)
+      ':' +
+      item?.start_time?.substring(item.start_time.length - 2)
     );
     let durationStr = start_date.toLocaleTimeString(navigator.language, {
       hour: '2-digit',
@@ -687,8 +687,8 @@ class ListItem extends React.Component<Props, State> {
     if (item.end_time) {
       const end_date = new Date(
         item.end_time.substring(0, item.end_time.length - 2) +
-          ':' +
-          item.end_time.substring(item.end_time.length - 2)
+        ':' +
+        item.end_time.substring(item.end_time.length - 2)
       );
       durationStr =
         durationStr +
@@ -715,29 +715,11 @@ class ListItem extends React.Component<Props, State> {
         to={'https://facebook.com/' + item.id}
       >
         <div className="ListItemEvents">
-          <div
-            style={{ float: 'left', marginLeft: '10px', marginRight: '40px' }}
-          >
-            <div
-              style={{
-                fontFamily: 'Graphik Web',
-                lineHeight: '3vw',
-                fontSize: '2vw',
-                fontWeight: 'bold',
-                color: '#1A1A1A',
-              }}
-            >
+          <div className="EventDateContainer">
+            <div className="EventDateMonth">
               {start_date.toLocaleString('default', { month: 'long' })}
             </div>
-            <div
-              style={{
-                fontFamily: 'Graphik Web',
-                lineHeight: '3vw',
-                fontSize: '4vw',
-                fontWeight: 'bold',
-                color: '#1A1A1A',
-              }}
-            >
+            <div className="EventDateDay">
               {start_date.getDate()}
             </div>
           </div>
@@ -1173,15 +1155,15 @@ class ListItem extends React.Component<Props, State> {
             this.state.windowWidth < 375
               ? 120
               : this.state.windowWidth < 600
-              ? 156
-              : 264
+                ? 156
+                : 264
           }
           height={
             this.state.windowWidth < 375
               ? 120
               : this.state.windowWidth < 600
-              ? 156
-              : 264
+                ? 156
+                : 264
           }
           src={item.thumbnails[2].src}
         ></img>
@@ -1230,13 +1212,13 @@ class ListItem extends React.Component<Props, State> {
       this.props.content.filterField == null
         ? this.state.listData
         : this.state.listData.filter((item) => {
-            if (!item) {
-              return false;
-            }
-            return (item[
-              this.props.content.filterField as keyof ListData
-            ] as string)?.includes(this.props.content.filterValue);
-          });
+          if (!item) {
+            return false;
+          }
+          return (item[
+            this.props.content.filterField as keyof ListData
+          ] as string)?.includes(this.props.content.filterValue);
+        });
 
     const dataLength = data.length;
 
@@ -1305,32 +1287,32 @@ class ListItem extends React.Component<Props, State> {
                       })}
                   </HorizontalScrollList>
                 ) : (
+                    <HorizontalScrollList
+                      darkMode={this.props.pageConfig.logoColor === 'white'}
+                    >
+                      {data
+                        .concat(
+                          this.state.content.limit &&
+                            dataLength >= this.state.content.limit
+                            ? 'card'
+                            : null
+                        )
+                        .map((item, index) => {
+                          if (item === 'card') return this.renderMoreVideosCard();
+
+                          return this.renderItemRouter(item as ListData, index);
+                        })}
+                    </HorizontalScrollList>
+                  )
+              ) : (
                   <HorizontalScrollList
                     darkMode={this.props.pageConfig.logoColor === 'white'}
                   >
-                    {data
-                      .concat(
-                        this.state.content.limit &&
-                          dataLength >= this.state.content.limit
-                          ? 'card'
-                          : null
-                      )
-                      .map((item, index) => {
-                        if (item === 'card') return this.renderMoreVideosCard();
-
-                        return this.renderItemRouter(item as ListData, index);
-                      })}
+                    {data.map((item: any, index: any) => {
+                      return this.renderItemRouter(item, index);
+                    })}
                   </HorizontalScrollList>
-                )
-              ) : (
-                <HorizontalScrollList
-                  darkMode={this.props.pageConfig.logoColor === 'white'}
-                >
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </HorizontalScrollList>
-              )}
+                )}
               <div className="ListItemDiv5"></div>
             </div>
           </div>
@@ -1572,11 +1554,11 @@ class ListItem extends React.Component<Props, State> {
                 <HorizontalScrollList>
                   {isMobile
                     ? peopleData.map((item, index) => {
-                        return this.renderItemRouter(item, index);
-                      })
+                      return this.renderItemRouter(item, index);
+                    })
                     : binnedData.map((item, index) => {
-                        return this.renderItemRouter(item, index);
-                      })}
+                      return this.renderItemRouter(item, index);
+                    })}
                 </HorizontalScrollList>
               </div>
             </div>
@@ -1602,8 +1584,8 @@ class ListItem extends React.Component<Props, State> {
                       return content.forceToTop.includes(b?.title as string)
                         ? 1
                         : content.forceToTop.includes(a?.title as string)
-                        ? -1
-                        : 0;
+                          ? -1
+                          : 0;
                     })
                     .map((item, index) => {
                       return this.renderItemRouter(item, index);
@@ -1642,12 +1624,12 @@ class ListItem extends React.Component<Props, State> {
                     })}
                 </HorizontalScrollList>
               ) : (
-                <HorizontalScrollList>
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </HorizontalScrollList>
-              )}
+                  <HorizontalScrollList>
+                    {data.map((item: any, index: any) => {
+                      return this.renderItemRouter(item, index);
+                    })}
+                  </HorizontalScrollList>
+                )}
               <div className="ListItemDiv5"></div>
             </div>
           </div>
@@ -1735,8 +1717,8 @@ class ListItem extends React.Component<Props, State> {
                         {body}
                       </Link>
                     ) : (
-                      body
-                    )}
+                        body
+                      )}
                     <ScaledImage
                       className="ListItemH1ImageList2"
                       image={{ src: item.imageSrc, alt: item.imageAlt }}

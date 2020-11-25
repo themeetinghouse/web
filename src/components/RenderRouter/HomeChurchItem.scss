@@ -226,6 +226,12 @@
   }
 }
 
+.UpdateLocationButton {
+  border: 1px solid $coolgray11;
+  background-color: $body-bg;
+  border-radius: 2px;
+}
+
 @media (min-width: 768px) {
   .LoadingMargin {
     max-height: calc(88vh - 221px);

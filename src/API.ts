@@ -373,13 +373,14 @@ export type UpdateSpeakerInput = {
 };
 
 export type DeleteSpeakerInput = {
-  id?: string | null,
+  id: string,
 };
 
 export type CreateSpeakerVideosInput = {
   id?: string | null,
-  speakerVideosVideoId?: string | null,
   speakerVideosSpeakerId?: string | null,
+  speakerVideosVideoId?: string | null,
+  videoPublishedDate?: string | null,
 };
 
 export enum NoteDataType {
@@ -390,12 +391,13 @@ export enum NoteDataType {
 
 export type UpdateSpeakerVideosInput = {
   id: string,
-  speakerVideosVideoId?: string | null,
   speakerVideosSpeakerId?: string | null,
+  speakerVideosVideoId?: string | null,
+  videoPublishedDate?: string | null,
 };
 
 export type DeleteSpeakerVideosInput = {
-  id?: string | null,
+  id: string,
 };
 
 export type CreateSeriesInput = {
@@ -1104,6 +1106,9 @@ export type ModelSpeakerFilterInput = {
 
 export type ModelSpeakerVideosFilterInput = {
   id?: ModelIDFilterInput | null,
+  speakerVideosSpeakerId?: ModelStringFilterInput | null,
+  speakerVideosVideoId?: ModelStringFilterInput | null,
+  videoPublishedDate?: ModelStringFilterInput | null,
   and?: Array< ModelSpeakerVideosFilterInput | null > | null,
   or?: Array< ModelSpeakerVideosFilterInput | null > | null,
   not?: ModelSpeakerVideosFilterInput | null,
@@ -2833,6 +2838,9 @@ export type CreateSpeakerMutation = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -2847,6 +2855,9 @@ export type CreateSpeakerMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -3039,6 +3050,9 @@ export type CreateSpeakerMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -3243,6 +3257,9 @@ export type UpdateSpeakerMutation = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -3257,6 +3274,9 @@ export type UpdateSpeakerMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -3449,6 +3469,9 @@ export type UpdateSpeakerMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -3653,6 +3676,9 @@ export type DeleteSpeakerMutation = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -3667,6 +3693,9 @@ export type DeleteSpeakerMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -3859,6 +3888,9 @@ export type DeleteSpeakerMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -4054,6 +4086,9 @@ export type CreateSpeakerVideosMutation = {
   createSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -4068,6 +4103,9 @@ export type CreateSpeakerVideosMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -4082,6 +4120,9 @@ export type CreateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -4155,6 +4196,9 @@ export type CreateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -4383,6 +4427,9 @@ export type CreateSpeakerVideosMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -4397,6 +4444,9 @@ export type CreateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -4470,6 +4520,9 @@ export type CreateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -4595,6 +4648,9 @@ export type CreateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -4857,6 +4913,9 @@ export type CreateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -4914,6 +4973,9 @@ export type UpdateSpeakerVideosMutation = {
   updateSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -4928,6 +4990,9 @@ export type UpdateSpeakerVideosMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -4942,6 +5007,9 @@ export type UpdateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5015,6 +5083,9 @@ export type UpdateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5243,6 +5314,9 @@ export type UpdateSpeakerVideosMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -5257,6 +5331,9 @@ export type UpdateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5330,6 +5407,9 @@ export type UpdateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5455,6 +5535,9 @@ export type UpdateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5717,6 +5800,9 @@ export type UpdateSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5774,6 +5860,9 @@ export type DeleteSpeakerVideosMutation = {
   deleteSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -5788,6 +5877,9 @@ export type DeleteSpeakerVideosMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -5802,6 +5894,9 @@ export type DeleteSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -5875,6 +5970,9 @@ export type DeleteSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -6103,6 +6201,9 @@ export type DeleteSpeakerVideosMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -6117,6 +6218,9 @@ export type DeleteSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -6190,6 +6294,9 @@ export type DeleteSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -6315,6 +6422,9 @@ export type DeleteSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -6577,6 +6687,9 @@ export type DeleteSpeakerVideosMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -6826,6 +6939,9 @@ export type CreateSeriesMutation = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -7777,6 +7893,9 @@ export type UpdateSeriesMutation = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -8728,6 +8847,9 @@ export type DeleteSeriesMutation = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -9709,6 +9831,9 @@ export type CreateCustomPlaylistMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -10126,6 +10251,9 @@ export type UpdateCustomPlaylistMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -10543,6 +10671,9 @@ export type DeleteCustomPlaylistMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -10847,6 +10978,9 @@ export type CreateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -11075,6 +11209,9 @@ export type CreateCustomPlaylistVideoMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -11089,6 +11226,9 @@ export type CreateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -11162,6 +11302,9 @@ export type CreateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -11287,6 +11430,9 @@ export type CreateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -11549,6 +11695,9 @@ export type CreateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -11715,6 +11864,9 @@ export type UpdateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -11943,6 +12095,9 @@ export type UpdateCustomPlaylistVideoMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -11957,6 +12112,9 @@ export type UpdateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -12030,6 +12188,9 @@ export type UpdateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -12155,6 +12316,9 @@ export type UpdateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -12417,6 +12581,9 @@ export type UpdateCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -12583,6 +12750,9 @@ export type DeleteCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -12811,6 +12981,9 @@ export type DeleteCustomPlaylistVideoMutation = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -12825,6 +12998,9 @@ export type DeleteCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -12898,6 +13074,9 @@ export type DeleteCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -13023,6 +13202,9 @@ export type DeleteCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -13285,6 +13467,9 @@ export type DeleteCustomPlaylistVideoMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -13521,6 +13706,9 @@ export type CreateVideoMutation = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -13535,6 +13723,9 @@ export type CreateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -13727,6 +13918,9 @@ export type CreateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -14073,6 +14267,9 @@ export type CreateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -14769,6 +14966,9 @@ export type CreateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -15143,6 +15343,9 @@ export type UpdateVideoMutation = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -15157,6 +15360,9 @@ export type UpdateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -15349,6 +15555,9 @@ export type UpdateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -15695,6 +15904,9 @@ export type UpdateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -16391,6 +16603,9 @@ export type UpdateVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -16765,6 +16980,9 @@ export type DeleteVideoMutation = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -16779,6 +16997,9 @@ export type DeleteVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -16971,6 +17192,9 @@ export type DeleteVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -17317,6 +17541,9 @@ export type DeleteVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -18013,6 +18240,9 @@ export type DeleteVideoMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -19110,6 +19340,9 @@ export type CreateBlogSeriesBridgeMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -19580,6 +19813,9 @@ export type UpdateBlogSeriesBridgeMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -20050,6 +20286,9 @@ export type DeleteBlogSeriesBridgeMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -20493,6 +20732,9 @@ export type CreateBlogMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -21373,6 +21615,9 @@ export type UpdateBlogMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -22253,6 +22498,9 @@ export type DeleteBlogMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -23128,6 +23376,9 @@ export type CreateVerseMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -23485,6 +23736,9 @@ export type UpdateVerseMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -23842,6 +24096,9 @@ export type DeleteVerseMutation = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -24269,6 +24526,9 @@ export type CreateNotesMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -25090,6 +25350,9 @@ export type UpdateNotesMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -25911,6 +26174,9 @@ export type DeleteNotesMutation = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -27890,6 +28156,9 @@ export type FuzzySearchVideosQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -27904,6 +28173,9 @@ export type FuzzySearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -27977,6 +28249,9 @@ export type FuzzySearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -28102,6 +28377,9 @@ export type FuzzySearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -28364,6 +28642,9 @@ export type FuzzySearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -28607,6 +28888,9 @@ export type FuzzySearchVideosByTypeQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -28621,6 +28905,9 @@ export type FuzzySearchVideosByTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -28694,6 +28981,9 @@ export type FuzzySearchVideosByTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -28819,6 +29109,9 @@ export type FuzzySearchVideosByTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -29081,6 +29374,9 @@ export type FuzzySearchVideosByTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -31194,9 +31490,11 @@ export type ListLivestreamsQuery = {
 };
 
 export type ListSpeakersQueryVariables = {
+  id?: string | null,
   filter?: ModelSpeakerFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListSpeakersQuery = {
@@ -31214,6 +31512,9 @@ export type ListSpeakersQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -31228,6 +31529,9 @@ export type ListSpeakersQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -31301,6 +31605,9 @@ export type ListSpeakersQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -31368,6 +31675,9 @@ export type GetSpeakerQuery = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -31382,6 +31692,9 @@ export type GetSpeakerQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -31574,6 +31887,9 @@ export type GetSpeakerQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -31769,6 +32085,9 @@ export type GetSpeakerVideosQuery = {
   getSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -31783,6 +32102,9 @@ export type GetSpeakerVideosQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -31797,6 +32119,9 @@ export type GetSpeakerVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -31870,6 +32195,9 @@ export type GetSpeakerVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -32098,6 +32426,9 @@ export type GetSpeakerVideosQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -32112,6 +32443,9 @@ export type GetSpeakerVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -32185,6 +32519,9 @@ export type GetSpeakerVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -32310,6 +32647,9 @@ export type GetSpeakerVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -32572,6 +32912,9 @@ export type GetSpeakerVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -32622,9 +32965,11 @@ export type GetSpeakerVideosQuery = {
 };
 
 export type ListSpeakerVideossQueryVariables = {
+  id?: string | null,
   filter?: ModelSpeakerVideosFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
+  sortDirection?: ModelSortDirection | null,
 };
 
 export type ListSpeakerVideossQuery = {
@@ -32633,6 +32978,9 @@ export type ListSpeakerVideossQuery = {
     items:  Array< {
       __typename: "SpeakerVideos",
       id: string,
+      speakerVideosSpeakerId: string | null,
+      speakerVideosVideoId: string | null,
+      videoPublishedDate: string | null,
       createdAt: string,
       updatedAt: string,
       speaker:  {
@@ -32647,6 +32995,9 @@ export type ListSpeakerVideossQuery = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -32902,6 +33253,9 @@ export type ListSpeakerVideossQuery = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -33377,6 +33731,9 @@ export type ListSeriessQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -34060,6 +34417,9 @@ export type GetSeriesQuery = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -34985,6 +35345,9 @@ export type GetSeriesBySeriesTypeQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -35582,6 +35945,9 @@ export type ListCustomPlaylistsQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -35862,6 +36228,9 @@ export type GetCustomPlaylistQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -36240,6 +36609,9 @@ export type ListVideosQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -36254,6 +36626,9 @@ export type ListVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -36327,6 +36702,9 @@ export type ListVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -36452,6 +36830,9 @@ export type ListVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -36714,6 +37095,9 @@ export type ListVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -36951,6 +37335,9 @@ export type GetVideoQuery = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -36965,6 +37352,9 @@ export type GetVideoQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -37157,6 +37547,9 @@ export type GetVideoQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -37503,6 +37896,9 @@ export type GetVideoQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -38199,6 +38595,9 @@ export type GetVideoQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -38579,6 +38978,9 @@ export type GetVideoByYoutubeIdentQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -38593,6 +38995,9 @@ export type GetVideoByYoutubeIdentQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -38666,6 +39071,9 @@ export type GetVideoByYoutubeIdentQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -38791,6 +39199,9 @@ export type GetVideoByYoutubeIdentQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -39053,6 +39464,9 @@ export type GetVideoByYoutubeIdentQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -39297,6 +39711,9 @@ export type GetVideoByVideoTypeQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -39311,6 +39728,9 @@ export type GetVideoByVideoTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -39384,6 +39804,9 @@ export type GetVideoByVideoTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -39509,6 +39932,9 @@ export type GetVideoByVideoTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -39771,6 +40197,9 @@ export type GetVideoByVideoTypeQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -40014,6 +40443,9 @@ export type SearchVideosQuery = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -40028,6 +40460,9 @@ export type SearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -40101,6 +40536,9 @@ export type SearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -40226,6 +40664,9 @@ export type SearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -40488,6 +40929,9 @@ export type SearchVideosQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -40993,6 +41437,9 @@ export type ListBlogsQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -41437,6 +41884,9 @@ export type GetBlogQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -42242,6 +42692,9 @@ export type GetBlogByBlogStatusQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -42610,6 +43063,9 @@ export type SearchBlogsQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -43065,6 +43521,9 @@ export type GetVerseQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -43653,6 +44112,9 @@ export type ListNotessQuery = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -44081,6 +44543,9 @@ export type GetNotesQuery = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -46154,6 +46619,9 @@ export type OnCreateSpeakerSubscription = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -46168,6 +46636,9 @@ export type OnCreateSpeakerSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -46360,6 +46831,9 @@ export type OnCreateSpeakerSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -46560,6 +47034,9 @@ export type OnUpdateSpeakerSubscription = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -46574,6 +47051,9 @@ export type OnUpdateSpeakerSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -46766,6 +47246,9 @@ export type OnUpdateSpeakerSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -46966,6 +47449,9 @@ export type OnDeleteSpeakerSubscription = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -46980,6 +47466,9 @@ export type OnDeleteSpeakerSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -47172,6 +47661,9 @@ export type OnDeleteSpeakerSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -47363,6 +47855,9 @@ export type OnCreateSpeakerVideosSubscription = {
   onCreateSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -47377,6 +47872,9 @@ export type OnCreateSpeakerVideosSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -47391,6 +47889,9 @@ export type OnCreateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -47464,6 +47965,9 @@ export type OnCreateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -47692,6 +48196,9 @@ export type OnCreateSpeakerVideosSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -47706,6 +48213,9 @@ export type OnCreateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -47779,6 +48289,9 @@ export type OnCreateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -47904,6 +48417,9 @@ export type OnCreateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -48166,6 +48682,9 @@ export type OnCreateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -48219,6 +48738,9 @@ export type OnUpdateSpeakerVideosSubscription = {
   onUpdateSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -48233,6 +48755,9 @@ export type OnUpdateSpeakerVideosSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -48247,6 +48772,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -48320,6 +48848,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -48548,6 +49079,9 @@ export type OnUpdateSpeakerVideosSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -48562,6 +49096,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -48635,6 +49172,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -48760,6 +49300,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49022,6 +49565,9 @@ export type OnUpdateSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49075,6 +49621,9 @@ export type OnDeleteSpeakerVideosSubscription = {
   onDeleteSpeakerVideos:  {
     __typename: "SpeakerVideos",
     id: string,
+    speakerVideosSpeakerId: string | null,
+    speakerVideosVideoId: string | null,
+    videoPublishedDate: string | null,
     createdAt: string,
     updatedAt: string,
     speaker:  {
@@ -49089,6 +49638,9 @@ export type OnDeleteSpeakerVideosSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -49103,6 +49655,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49176,6 +49731,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49404,6 +49962,9 @@ export type OnDeleteSpeakerVideosSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -49418,6 +49979,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49491,6 +50055,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49616,6 +50183,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -49878,6 +50448,9 @@ export type OnDeleteSpeakerVideosSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -50123,6 +50696,9 @@ export type OnCreateSeriesSubscription = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -51070,6 +51646,9 @@ export type OnUpdateSeriesSubscription = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -52017,6 +52596,9 @@ export type OnDeleteSeriesSubscription = {
           items:  Array< {
             __typename: "SpeakerVideos",
             id: string,
+            speakerVideosSpeakerId: string | null,
+            speakerVideosVideoId: string | null,
+            videoPublishedDate: string | null,
             createdAt: string,
             updatedAt: string,
             speaker:  {
@@ -52994,6 +53576,9 @@ export type OnCreateCustomPlaylistSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -53407,6 +53992,9 @@ export type OnUpdateCustomPlaylistSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -53820,6 +54408,9 @@ export type OnDeleteCustomPlaylistSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -54120,6 +54711,9 @@ export type OnCreateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -54348,6 +54942,9 @@ export type OnCreateCustomPlaylistVideoSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -54362,6 +54959,9 @@ export type OnCreateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -54435,6 +55035,9 @@ export type OnCreateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -54560,6 +55163,9 @@ export type OnCreateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -54822,6 +55428,9 @@ export type OnCreateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -54984,6 +55593,9 @@ export type OnUpdateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -55212,6 +55824,9 @@ export type OnUpdateCustomPlaylistVideoSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -55226,6 +55841,9 @@ export type OnUpdateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -55299,6 +55917,9 @@ export type OnUpdateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -55424,6 +56045,9 @@ export type OnUpdateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -55686,6 +56310,9 @@ export type OnUpdateCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -55848,6 +56475,9 @@ export type OnDeleteCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -56076,6 +56706,9 @@ export type OnDeleteCustomPlaylistVideoSubscription = {
         items:  Array< {
           __typename: "SpeakerVideos",
           id: string,
+          speakerVideosSpeakerId: string | null,
+          speakerVideosVideoId: string | null,
+          videoPublishedDate: string | null,
           createdAt: string,
           updatedAt: string,
           speaker:  {
@@ -56090,6 +56723,9 @@ export type OnDeleteCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -56163,6 +56799,9 @@ export type OnDeleteCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -56288,6 +56927,9 @@ export type OnDeleteCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -56550,6 +57192,9 @@ export type OnDeleteCustomPlaylistVideoSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -56782,6 +57427,9 @@ export type OnCreateVideoSubscription = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -56796,6 +57444,9 @@ export type OnCreateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -56988,6 +57639,9 @@ export type OnCreateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -57334,6 +57988,9 @@ export type OnCreateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -58030,6 +58687,9 @@ export type OnCreateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -58400,6 +59060,9 @@ export type OnUpdateVideoSubscription = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -58414,6 +59077,9 @@ export type OnUpdateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -58606,6 +59272,9 @@ export type OnUpdateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -58952,6 +59621,9 @@ export type OnUpdateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -59648,6 +60320,9 @@ export type OnUpdateVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -60018,6 +60693,9 @@ export type OnDeleteVideoSubscription = {
       items:  Array< {
         __typename: "SpeakerVideos",
         id: string,
+        speakerVideosSpeakerId: string | null,
+        speakerVideosVideoId: string | null,
+        videoPublishedDate: string | null,
         createdAt: string,
         updatedAt: string,
         speaker:  {
@@ -60032,6 +60710,9 @@ export type OnDeleteVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -60224,6 +60905,9 @@ export type OnDeleteVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -60570,6 +61254,9 @@ export type OnDeleteVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -61266,6 +61953,9 @@ export type OnDeleteVideoSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -62347,6 +63037,9 @@ export type OnCreateBlogSeriesBridgeSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -62813,6 +63506,9 @@ export type OnUpdateBlogSeriesBridgeSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -63279,6 +63975,9 @@ export type OnDeleteBlogSeriesBridgeSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -63718,6 +64417,9 @@ export type OnCreateBlogSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -64594,6 +65296,9 @@ export type OnUpdateBlogSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -65470,6 +66175,9 @@ export type OnDeleteBlogSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -66329,6 +67037,9 @@ export type OnCreateVerseSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -66682,6 +67393,9 @@ export type OnUpdateVerseSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -67035,6 +67749,9 @@ export type OnDeleteVerseSubscription = {
               items:  Array< {
                 __typename: "SpeakerVideos",
                 id: string,
+                speakerVideosSpeakerId: string | null,
+                speakerVideosVideoId: string | null,
+                videoPublishedDate: string | null,
                 createdAt: string,
                 updatedAt: string,
               } | null > | null,
@@ -67458,6 +68175,9 @@ export type OnCreateNotesSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -68275,6 +68995,9 @@ export type OnUpdateNotesSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
@@ -69092,6 +69815,9 @@ export type OnDeleteNotesSubscription = {
             items:  Array< {
               __typename: "SpeakerVideos",
               id: string,
+              speakerVideosSpeakerId: string | null,
+              speakerVideosVideoId: string | null,
+              videoPublishedDate: string | null,
               createdAt: string,
               updatedAt: string,
               speaker:  {
