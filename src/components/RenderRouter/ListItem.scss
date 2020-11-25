@@ -112,6 +112,26 @@
   margin-left: 20vw;
 }
 
+.EventDateContainer {
+  float: left;
+  margin-left: 10px; 
+  margin-right: 40px;
+    .EventDateMonth {
+      font-family: Graphik Web;
+      line-height: 3vw;
+      font-size: 2vw;
+      font-weight: bold;
+      color: #1A1A1A;
+    }
+    .EventDateDay {
+      font-family: Graphik Web;
+      line-height: 3vw;
+      font-size: 4vw;
+      font-weight: bold;
+      color: #1A1A1A;
+    }
+}
+
 @media (min-width: 768px) {
   .BlogLink:hover {
     .blogarrow {
@@ -502,6 +522,8 @@
     white-space: normal;
     font-weight: bold;
     font-size: 2vw;
+    line-height: 2.3vw;
+    margin-top: 12px;
     font-family: Graphik Web;
     color: $onyxblacktext;
   }
@@ -2056,8 +2078,32 @@
   }
 
   .StaffImage {
-    width: 28.8vw;
-    height: 28.8vw;
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .EventDateContainer {
+    float: left;
+    margin-left: 10px; 
+    margin-right: 40px;
+    display: flex;
+    width: 100%;
+    margin-bottom: 5px;
+      .EventDateMonth {
+        font-family: Graphik Web;
+        line-height: 3vw;
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: #1A1A1A;
+        margin-right: 7px;
+      }
+      .EventDateDay {
+        font-family: Graphik Web;
+        line-height: 3vw;
+        font-size: 4.5vw;
+        font-weight: bold;
+        color: #1A1A1A;
+      }
   }
 }
 @media (hover: none) {
