@@ -6,6 +6,22 @@ export const getInstagram = /* GraphQL */ `
   }
 `;
 
+export const listSpeakers = /* GraphQL */ `
+  query ListSpeakers(
+    $filter: ModelSpeakerFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listSpeakers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+`;
+
 export const listCustomPlaylistsAdmin = /* GraphQL */ `
   query ListCustomPlaylists(
     $filter: ModelCustomPlaylistFilterInput
@@ -57,6 +73,13 @@ export const getVideoByVideoTypeAdmin = /* GraphQL */ `
         }
         publishedDate
         description
+        speakers {
+          items {
+            speaker{
+              id
+            }
+          }
+        }
         length
         viewCount
         YoutubeIdent
