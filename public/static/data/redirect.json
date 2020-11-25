@@ -704,6 +704,10 @@
     "to": "https://meeting.formstack.com/forms/sunday_morning_feedback"
   },
   {
+    "id": "prayer",
+    "to": "https://us02web.zoom.us/j/81217204016"
+  },
+  {
     "id": "parishchallenge",
     "to": "https://meeting.formstack.com/forms/parish_challenge"
   }
