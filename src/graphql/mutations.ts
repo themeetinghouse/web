@@ -1204,6 +1204,9 @@ export const createSpeaker = /* GraphQL */ `
       videos {
         items {
           id
+          speakerVideosSpeakerId
+          speakerVideosVideoId
+          videoPublishedDate
           createdAt
           updatedAt
           speaker {
@@ -1215,6 +1218,9 @@ export const createSpeaker = /* GraphQL */ `
             videos {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -1395,6 +1401,9 @@ export const createSpeaker = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -1580,6 +1589,9 @@ export const updateSpeaker = /* GraphQL */ `
       videos {
         items {
           id
+          speakerVideosSpeakerId
+          speakerVideosVideoId
+          videoPublishedDate
           createdAt
           updatedAt
           speaker {
@@ -1591,6 +1603,9 @@ export const updateSpeaker = /* GraphQL */ `
             videos {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -1771,6 +1786,9 @@ export const updateSpeaker = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -1956,6 +1974,9 @@ export const deleteSpeaker = /* GraphQL */ `
       videos {
         items {
           id
+          speakerVideosSpeakerId
+          speakerVideosVideoId
+          videoPublishedDate
           createdAt
           updatedAt
           speaker {
@@ -1967,6 +1988,9 @@ export const deleteSpeaker = /* GraphQL */ `
             videos {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -2147,6 +2171,9 @@ export const deleteSpeaker = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -2321,19 +2348,13 @@ export const deleteSpeaker = /* GraphQL */ `
     }
   }
 `;
-export const createSpeakerVideosCustom = /* GraphQL */ `
-  mutation CreateSpeakerVideos($input: CreateSpeakerVideosInput!) {
-    createSpeakerVideos(input: $input) {
-      id
-      createdAt
-    }
-  }
-`;
-
 export const createSpeakerVideos = /* GraphQL */ `
   mutation CreateSpeakerVideos($input: CreateSpeakerVideosInput!) {
     createSpeakerVideos(input: $input) {
       id
+      speakerVideosSpeakerId
+      speakerVideosVideoId
+      videoPublishedDate
       createdAt
       updatedAt
       speaker {
@@ -2345,6 +2366,9 @@ export const createSpeakerVideos = /* GraphQL */ `
         videos {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -2356,6 +2380,9 @@ export const createSpeakerVideos = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -2422,6 +2449,9 @@ export const createSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -2628,6 +2658,9 @@ export const createSpeakerVideos = /* GraphQL */ `
         speakers {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -2639,6 +2672,9 @@ export const createSpeakerVideos = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -2705,6 +2741,9 @@ export const createSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -2815,6 +2854,9 @@ export const createSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3043,6 +3085,9 @@ export const createSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3090,6 +3135,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
   mutation UpdateSpeakerVideos($input: UpdateSpeakerVideosInput!) {
     updateSpeakerVideos(input: $input) {
       id
+      speakerVideosSpeakerId
+      speakerVideosVideoId
+      videoPublishedDate
       createdAt
       updatedAt
       speaker {
@@ -3101,6 +3149,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
         videos {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -3112,6 +3163,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3178,6 +3232,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3384,6 +3441,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
         speakers {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -3395,6 +3455,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3461,6 +3524,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3571,6 +3637,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3799,6 +3868,9 @@ export const updateSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3846,6 +3918,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
   mutation DeleteSpeakerVideos($input: DeleteSpeakerVideosInput!) {
     deleteSpeakerVideos(input: $input) {
       id
+      speakerVideosSpeakerId
+      speakerVideosVideoId
+      videoPublishedDate
       createdAt
       updatedAt
       speaker {
@@ -3857,6 +3932,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
         videos {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -3868,6 +3946,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -3934,6 +4015,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -4140,6 +4224,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
         speakers {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -4151,6 +4238,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -4217,6 +4307,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -4327,6 +4420,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -4555,6 +4651,9 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -4777,6 +4876,9 @@ export const createSeries = /* GraphQL */ `
           speakers {
             items {
               id
+              speakerVideosSpeakerId
+              speakerVideosVideoId
+              videoPublishedDate
               createdAt
               updatedAt
               speaker {
@@ -5630,6 +5732,9 @@ export const updateSeries = /* GraphQL */ `
           speakers {
             items {
               id
+              speakerVideosSpeakerId
+              speakerVideosVideoId
+              videoPublishedDate
               createdAt
               updatedAt
               speaker {
@@ -6483,6 +6588,9 @@ export const deleteSeries = /* GraphQL */ `
           speakers {
             items {
               id
+              speakerVideosSpeakerId
+              speakerVideosVideoId
+              videoPublishedDate
               createdAt
               updatedAt
               speaker {
@@ -7366,6 +7474,9 @@ export const createCustomPlaylist = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -7749,6 +7860,9 @@ export const updateCustomPlaylist = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -8132,6 +8246,9 @@ export const deleteCustomPlaylist = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -8406,6 +8523,9 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -8612,6 +8732,9 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
         speakers {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -8623,6 +8746,9 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -8689,6 +8815,9 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -8799,6 +8928,9 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9027,6 +9159,9 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9170,6 +9305,9 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9376,6 +9514,9 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
         speakers {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -9387,6 +9528,9 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9453,6 +9597,9 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9563,6 +9710,9 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9791,6 +9941,9 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -9934,6 +10087,9 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -10140,6 +10296,9 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
         speakers {
           items {
             id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            videoPublishedDate
             createdAt
             updatedAt
             speaker {
@@ -10151,6 +10310,9 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               videos {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -10217,6 +10379,9 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -10327,6 +10492,9 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -10555,6 +10723,9 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -10766,6 +10937,9 @@ export const createVideo = /* GraphQL */ `
       speakers {
         items {
           id
+          speakerVideosSpeakerId
+          speakerVideosVideoId
+          videoPublishedDate
           createdAt
           updatedAt
           speaker {
@@ -10777,6 +10951,9 @@ export const createVideo = /* GraphQL */ `
             videos {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -10957,6 +11134,9 @@ export const createVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -11278,6 +11458,9 @@ export const createVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -11919,6 +12102,9 @@ export const createVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -12261,6 +12447,9 @@ export const updateVideo = /* GraphQL */ `
       speakers {
         items {
           id
+          speakerVideosSpeakerId
+          speakerVideosVideoId
+          videoPublishedDate
           createdAt
           updatedAt
           speaker {
@@ -12272,6 +12461,9 @@ export const updateVideo = /* GraphQL */ `
             videos {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -12452,6 +12644,9 @@ export const updateVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -12773,6 +12968,9 @@ export const updateVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -13414,6 +13612,9 @@ export const updateVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -13756,6 +13957,9 @@ export const deleteVideo = /* GraphQL */ `
       speakers {
         items {
           id
+          speakerVideosSpeakerId
+          speakerVideosVideoId
+          videoPublishedDate
           createdAt
           updatedAt
           speaker {
@@ -13767,6 +13971,9 @@ export const deleteVideo = /* GraphQL */ `
             videos {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -13947,6 +14154,9 @@ export const deleteVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -14268,6 +14478,9 @@ export const deleteVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -14909,6 +15122,9 @@ export const deleteVideo = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -15897,6 +16113,9 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -16306,6 +16525,9 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -16715,6 +16937,9 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -17108,6 +17333,9 @@ export const createBlog = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -17915,6 +18143,9 @@ export const updateBlog = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -18722,6 +18953,9 @@ export const deleteBlog = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -19511,6 +19745,9 @@ export const createVerse = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -19823,6 +20060,9 @@ export const updateVerse = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -20135,6 +20375,9 @@ export const deleteVerse = /* GraphQL */ `
               speakers {
                 items {
                   id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
                   createdAt
                   updatedAt
                 }
@@ -20515,6 +20758,9 @@ export const createNotes = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -21269,6 +21515,9 @@ export const updateNotes = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {
@@ -22023,6 +22272,9 @@ export const deleteNotes = /* GraphQL */ `
             speakers {
               items {
                 id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
                 createdAt
                 updatedAt
                 speaker {

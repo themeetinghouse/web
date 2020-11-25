@@ -3,6 +3,7 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import * as adminQueries from './queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
+import * as customMutations from '../../graphql-custom/customMutations';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify';
@@ -22,8 +23,8 @@ const federated = {
 interface State {
   getVideoQueryId: any;
   videoTypes: any;
-  speakers:any;
-  selectedSpeaker:any;
+  speakers: any;
+  selectedSpeaker: any;
   selectedVideoType: any;
   selectedVideo: any;
   videoList: any;
@@ -47,8 +48,7 @@ interface State {
   removeFromPlaylists: any;
   selectedPlaylist: any;
   speakerFieldValue: string;
-  originalSpeakers:any;
-
+  originalSpeakers: any;
 }
 
 const customPlaylistTypes = ['teaching-recommendations'];
@@ -57,15 +57,15 @@ class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
-      originalSpeakers:{},
-      selectedSpeaker:"",
-      speakerFieldValue:"",
+      originalSpeakers: {},
+      selectedSpeaker: '',
+      speakerFieldValue: '',
       showAddSeries: false,
-      showAddSpeaker:false,
-      showDeleteSpeaker:false,
+      showAddSpeaker: false,
+      showDeleteSpeaker: false,
       showAddCustomPlaylist: false,
       getVideoQueryId: null,
-      speakers:[],
+      speakers: [],
       videoTypes: [],
       selectedVideoType: '',
       selectedVideo: null,
@@ -172,15 +172,15 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return 0;
   }
-  async getSpeakers(): Promise<void>{
+  async getSpeakers(): Promise<void> {
     try {
       const fetchSpeakers: any = await API.graphql({
         query: adminQueries.listSpeakers,
         variables: { nextToken: null, limit: 9999 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       });
-      console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers});
-      this.setState({speakers:fetchSpeakers.data.listSpeakers.items})
+      console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers });
+      this.setState({ speakers: fetchSpeakers.data.listSpeakers.items });
     } catch (e) {
       console.error(e);
     }
@@ -330,7 +330,7 @@ class Index extends React.Component<EmptyProps, State> {
         </button>
         <button
           className="adminButton"
-          style={{display:"none"}}
+          style={{ display: 'none' }}
           onClick={() => {
             this.setState({ showDeleteSpeaker: true });
           }}
@@ -402,10 +402,14 @@ class Index extends React.Component<EmptyProps, State> {
               <tr
                 key={video.id}
                 className="divRow"
-                style={this.state.selectedVideo?.id === video?.id ? {backgroundColor:"#ffff99"} :{}}
+                style={
+                  this.state.selectedVideo?.id === video?.id
+                    ? { backgroundColor: '#ffff99' }
+                    : {}
+                }
                 onClick={() => {
                   this.handleVideoSelection(video);
-                  this.setState({originalSpeakers: video.speakers})
+                  this.setState({ originalSpeakers: video.speakers });
                 }}
               >
                 {z != null
@@ -416,29 +420,27 @@ class Index extends React.Component<EmptyProps, State> {
                           const list: any = item.id.split('.');
                           let value: any = video;
                           for (const listItem of list) {
-                            if(listItem === "speakers"){
-                              value = [...value.speakers.items]
-                            }
-                            else value = value[listItem]
+                            if (listItem === 'speakers') {
+                              value = [...value.speakers.items];
+                            } else value = value[listItem];
                           }
-                          if(list[0] !== "speakers"){
-                          return (
-                            <td className="divCell" key={item.id}>
-                              {value}
-                            </td>
-                          );
-                          }
-                          else{
+                          if (list[0] !== 'speakers') {
                             return (
                               <td className="divCell" key={item.id}>
-                              {value && value.length >0 ?
-                              value.map((item: any)=>{
-                                if(item.speaker)
-                                  return item?.speaker?.id + ", "
-                              }): null
-                              }
-                            </td>
-                            )
+                                {value}
+                              </td>
+                            );
+                          } else {
+                            return (
+                              <td className="divCell" key={item.id}>
+                                {value && value.length > 0
+                                  ? value.map((item: any) => {
+                                      if (item.speaker)
+                                        return item?.speaker?.id + ', ';
+                                    })
+                                  : null}
+                              </td>
+                            );
                           }
                         })
                     : null
@@ -491,23 +493,23 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({ showError: 'Saving' });
       console.log(this.state.toSaveVideo);
       this.handleCustomPlaylists();
-      const toSaveVid: any = this.state.toSaveVideo; 
-      if(this.state.toSaveVideo.speakers){
+      const toSaveVid: any = this.state.toSaveVideo;
+      if (this.state.toSaveVideo.speakers) {
         const oldSpeakers: any = [...this.state.originalSpeakers.items];
-        const newSpeakers: any = [...this.state.toSaveVideo.speakers.items]
-        const filtered = newSpeakers.filter((a: any) =>{
+        const newSpeakers: any = [...this.state.toSaveVideo.speakers.items];
+        const filtered = newSpeakers.filter((a: any) => {
           return oldSpeakers.indexOf(a) < 0;
-        })
-        for(let x=0; x<filtered.length;x++){
-          if(filtered[x]?.speaker?.id)
-            this.saveSpeakerVideo(filtered[x].speaker.id)
+        });
+        for (let x = 0; x < filtered.length; x++) {
+          if (filtered[x]?.speaker?.id)
+            this.saveSpeakerVideo(filtered[x].speaker.id);
         }
         delete toSaveVid.speakers;
       }
       try {
         const updateVideo: any = await API.graphql({
           query: mutations.updateVideo,
-          variables: { input: toSaveVid},
+          variables: { input: toSaveVid },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         console.log({ 'Success queries.updateVideo: ': updateVideo });
@@ -524,20 +526,28 @@ class Index extends React.Component<EmptyProps, State> {
   async saveSpeakerVideo(speaker: string) {
     try {
       const createSpeakerVideo: any = await API.graphql({
-        query: mutations.createSpeakerVideosCustom,
-        variables: { input:{ id:uuidv4(), speakerVideosVideoId:this.state.toSaveVideo.id,speakerVideosSpeakerId:speaker}},
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS
+        query: customMutations.createSpeakerVideosCustom,
+        variables: {
+          input: {
+            id: uuidv4(),
+            speakerVideosVideoId: this.state.toSaveVideo.id,
+            speakerVideosSpeakerId: speaker,
+          },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       this.setState({ showError: 'Saved' });
-      console.log({'Success mutations.createSpeakerVideo: ':createSpeakerVideo})
+      console.log({
+        'Success mutations.createSpeakerVideo: ': createSpeakerVideo,
+      });
     } catch (e) {
       if (!e.errors[0].message.includes('access'))
         this.setState({ showError: e.errors[0].message });
       else if (e.data) this.setState({ showError: 'Saved' });
       console.error(e);
-    } 
+    }
   }
-  
+
   async handleCustomPlaylists(): Promise<void> {
     const toAdd = this.state.addToPlaylists;
     const toRemove = this.state.removeFromPlaylists;
@@ -762,40 +772,70 @@ class Index extends React.Component<EmptyProps, State> {
                                 </select>
                               ) : item.type === 'Speaker' ? (
                                 <>
-                                <select
-                                  className="dropdown2"
-                                  style={{width:"70%"}}
-                                  onChange={(e: any) =>{     
-                                    this.setState({selectedSpeaker:e.target.value})
-                                  }
-                                  }
-                                >
-                                  <option key={"nothing"} value={""}>
-                                    {""}
-                                  </option>
-                                  {this.state.speakers.sort((a:any,b:any)=> a.id.localeCompare(b.id)).map((item2: any) => {
-                                    return (
-                                      <option key={item2.id} value={item2.id}>
-                                        {item2.name}
-                                      </option>
-                                    );
-                                  })}
-                                </select>
-                                <button className="adminButton" onClick={() => {
-                                  if(this.state.selectedSpeaker !== ""){
-                                      const a = this.state.selectedVideo.speakers.items.find((a:any) =>{
-                                        return a.speaker.id === this.state.selectedSpeaker
-                                      })
-                                      if(!a){
-                                        const speakers:any = {items:[...this.state.selectedVideo.speakers.items, {speaker:{id:this.state.selectedSpeaker}}]}
-                                        return this.writeField(item.id, speakers)
+                                  <select
+                                    className="dropdown2"
+                                    style={{ width: '70%' }}
+                                    onChange={(e: any) => {
+                                      this.setState({
+                                        selectedSpeaker: e.target.value,
+                                      });
+                                    }}
+                                  >
+                                    <option key={'nothing'} value={''}>
+                                      {''}
+                                    </option>
+                                    {this.state.speakers
+                                      .sort((a: any, b: any) =>
+                                        a.id.localeCompare(b.id)
+                                      )
+                                      .map((item2: any) => {
+                                        return (
+                                          <option
+                                            key={item2.id}
+                                            value={item2.id}
+                                          >
+                                            {item2.name}
+                                          </option>
+                                        );
+                                      })}
+                                  </select>
+                                  <button
+                                    className="adminButton"
+                                    onClick={() => {
+                                      if (this.state.selectedSpeaker !== '') {
+                                        const a = this.state.selectedVideo.speakers.items.find(
+                                          (a: any) => {
+                                            return (
+                                              a.speaker.id ===
+                                              this.state.selectedSpeaker
+                                            );
+                                          }
+                                        );
+                                        if (!a) {
+                                          const speakers: any = {
+                                            items: [
+                                              ...this.state.selectedVideo
+                                                .speakers.items,
+                                              {
+                                                speaker: {
+                                                  id: this.state
+                                                    .selectedSpeaker,
+                                                },
+                                              },
+                                            ],
+                                          };
+                                          return this.writeField(
+                                            item.id,
+                                            speakers
+                                          );
+                                        }
                                       }
-                                  }
-                                }}>
-                                Add
-                                </button>
+                                    }}
+                                  >
+                                    Add
+                                  </button>
                                 </>
-                              ): item.type === 'Series' ? (
+                              ) : item.type === 'Series' ? (
                                 <select
                                   className="dropdown2"
                                   onChange={(e: any) =>
@@ -1034,19 +1074,19 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async saveSpeaker() {
-    if (this.state.speakerFieldValue !== ''){
-      const exists = this.state.speakers.find((speaker:any)=>{
-        return speaker.id === this.state.speakerFieldValue
-      })
-      if(!exists){
+    if (this.state.speakerFieldValue !== '') {
+      const exists = this.state.speakers.find((speaker: any) => {
+        return speaker.id === this.state.speakerFieldValue;
+      });
+      if (!exists) {
         try {
           const createSpeaker: any = await API.graphql({
             query: mutations.createSpeaker,
-            variables: { 
+            variables: {
               input: {
-                id:this.state.speakerFieldValue.trim(),
-                name:this.state.speakerFieldValue.trim(),
-              }
+                id: this.state.speakerFieldValue.trim(),
+                name: this.state.speakerFieldValue.trim(),
+              },
             },
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
           });
@@ -1060,14 +1100,14 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-  async deleteSpeaker(){
+  async deleteSpeaker() {
     try {
       const removeSpeaker: any = await API.graphql({
         query: mutations.deleteSpeaker,
-        variables: { 
+        variables: {
           input: {
-            id:this.state.speakerFieldValue.trim(),
-          }
+            id: this.state.speakerFieldValue.trim(),
+          },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
@@ -1079,7 +1119,7 @@ class Index extends React.Component<EmptyProps, State> {
       console.error(e);
     }
   }
-  renderAddSpeaker(){
+  renderAddSpeaker() {
     return (
       <Modal isOpen={this.state.showAddSpeaker}>
         <div>
@@ -1088,13 +1128,14 @@ class Index extends React.Component<EmptyProps, State> {
             <input
               value={this.state.speakerFieldValue}
               onChange={(item: any) => {
-                this.setState({speakerFieldValue: item.target.value});
+                this.setState({ speakerFieldValue: item.target.value });
               }}
             />
           </div>
           <button
             onClick={() => {
-              if (this.saveSpeaker()) this.setState({ showAddSpeaker: false, speakerFieldValue:"" });
+              if (this.saveSpeaker())
+                this.setState({ showAddSpeaker: false, speakerFieldValue: '' });
             }}
           >
             Save
@@ -1102,7 +1143,7 @@ class Index extends React.Component<EmptyProps, State> {
           <button
             style={{ background: 'red' }}
             onClick={() => {
-              this.setState({ showAddSpeaker: false, speakerFieldValue:"" });
+              this.setState({ showAddSpeaker: false, speakerFieldValue: '' });
             }}
           >
             Cancel
@@ -1111,7 +1152,7 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
-  renderDeleteSpeaker(){
+  renderDeleteSpeaker() {
     return (
       <Modal isOpen={this.state.showDeleteSpeaker}>
         <div>
@@ -1120,13 +1161,17 @@ class Index extends React.Component<EmptyProps, State> {
             <input
               value={this.state.speakerFieldValue}
               onChange={(item: any) => {
-                this.setState({speakerFieldValue: item.target.value});
+                this.setState({ speakerFieldValue: item.target.value });
               }}
             />
           </div>
           <button
             onClick={() => {
-              if (this.deleteSpeaker()) this.setState({ showDeleteSpeaker: false, speakerFieldValue:"" });
+              if (this.deleteSpeaker())
+                this.setState({
+                  showDeleteSpeaker: false,
+                  speakerFieldValue: '',
+                });
             }}
           >
             Save
@@ -1134,7 +1179,10 @@ class Index extends React.Component<EmptyProps, State> {
           <button
             style={{ background: 'red' }}
             onClick={() => {
-              this.setState({ showDeleteSpeaker: false, speakerFieldValue:"" });
+              this.setState({
+                showDeleteSpeaker: false,
+                speakerFieldValue: '',
+              });
             }}
           >
             Cancel
