@@ -183,12 +183,6 @@
     "Position": "Connect Coordinator"
   },
   {
-    "FirstName": "Graham",
-    "LastName": "Elder",
-    "sites": ["BRAM"],
-    "Position": "Connect Coordinator"
-  },
-  {
     "FirstName": "Cathy",
     "LastName": "Ralph",
     "sites": ["BURL"],
@@ -626,12 +620,6 @@
     "LastName": "Johnson",
     "sites": ["ALLI"],
     "Email": "alliston.youth@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Amie",
-    "LastName": "Medeiros",
-    "sites": ["BRAM"],
     "Position": "Youth Coordinator"
   },
   {
