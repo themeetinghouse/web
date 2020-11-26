@@ -55,15 +55,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Arnold",
-    "LastName": "Shim",
-    "Phone": "905.287.7000",
-    "Position": "Custodian (on leave)",
-    "sites": ["Operations"],
-    "Email": "Arnold.Shim@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Brad",
     "LastName": "Eager",
     "Phone": "905.287.7000, ext. 833",
@@ -160,15 +151,6 @@
     "Position": "Hamilton Mountain Lead Pastor",
     "sites": ["HMMT", "Pastoral"],
     "Email": "Dagmar.Morgan@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Daniel",
-    "LastName": "McCubbing",
-    "Phone": "905.287.7000, ext. 843",
-    "Position": "Facility Assistant (on leave)",
-    "sites": ["Operations"],
-    "Email": "Daniel.McCubbing@themeetinghouse.com"
   },
   {
     "Staff": true,
