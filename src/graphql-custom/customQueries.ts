@@ -327,31 +327,6 @@ export const getBlog = /* GraphQL */ `
     }
   }
 `;
-export const listSpeakerVideoss = /* GraphQL */ `
-  query ListSpeakerVideoss(
-    $id: ID
-    $filter: ModelSpeakerVideosFilterInput
-    $limit: Int
-    $nextToken: String
-    $sortDirection: ModelSortDirection
-  ) {
-    listSpeakerVideoss(
-      id: $id
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      sortDirection: $sortDirection
-    ) {
-      items{
-        id
-        speakerVideosSpeakerId
-        speakerVideosVideoId
-        videoPublishedDate
-      }
-      nextToken
-    }
-  }
-`;
 export const getSpeakerVideos = `query GetVideo($id: ID!) {
   getVideo(id: $id) {
     id
