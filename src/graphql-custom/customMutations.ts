@@ -8,3 +8,14 @@ export const createSpeakerVideosCustom = /* GraphQL */ `
     }
   }
 `;
+
+export const updateSpeakerVideos = /* GraphQL */ `
+  mutation UpdateSpeakerVideos($input: UpdateSpeakerVideosInput!) {
+    updateSpeakerVideos(input: $input) {
+      id
+      speakerVideosSpeakerId
+      speakerVideosVideoId
+      videoPublishedDate
+    }
+  }
+  `

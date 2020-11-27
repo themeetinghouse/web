@@ -482,7 +482,7 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
   async save(): Promise<void> {
-  if (
+    if (
       (this.state.toSaveVideo.videoTypes === undefined &&
         this.state.toSaveVideo.publishedDate !== undefined) ||
       (this.state.toSaveVideo.videoTypes !== undefined &&
@@ -493,11 +493,12 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({ showError: 'Saving' });
       this.handleCustomPlaylists();
       const toSaveVid: any = this.state.toSaveVideo;
-       if(toSaveVid.publishedDate && this.state.selectedVideo.speakers?.items?.length > 0){ // if published date has changes and there are speakers, must update speakers
-        for(let i =0; i<this.state.selectedVideo?.speakers?.items.length; i++){
-          console.log(this.state.selectedVideo.speakers.items[i])
-        }
-      }
+       if(toSaveVid.publishedDate && this.state.selectedVideo.speakers?.items?.length > 0){
+          const speakerVideoIDs = await this.getSpeakerVideoIds(toSaveVid.id)
+          for(let i=0; i<speakerVideoIDs.length;i++){
+            this.updateSpeakerVideo(speakerVideoIDs[i].id, toSaveVid.publishedDate)
+          }
+      } 
       if (this.state.toSaveVideo.speakers) {
         const oldSpeakers: any = [...this.state.originalSpeakers.items];
         const newSpeakers: any = [...this.state.toSaveVideo.speakers.items];
@@ -514,7 +515,7 @@ class Index extends React.Component<EmptyProps, State> {
         }
         delete toSaveVid.speakers;
       }
-      try {
+       try {
         const updateVideo: any = await API.graphql({
           query: mutations.updateVideo,
           variables: { input: toSaveVid },
@@ -527,13 +528,37 @@ class Index extends React.Component<EmptyProps, State> {
           this.setState({ showError: e.errors[0].message });
         else if (e.data) this.setState({ showError: 'Saved' });
         console.error(e);
-      } 
+      }
     }
   }
-
+  async updateSpeakerVideo(videoid: string, newDate: string){
+    try {
+      const updateOneSpeakerVideo: any = await API.graphql({
+        query: customMutations.updateSpeakerVideos,
+        variables: { input: {id:videoid, videoPublishedDate:newDate}},
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({
+        'Success customMutations.updateOneSpeakerVideo: ': updateOneSpeakerVideo,
+      });
+    } catch (e) {
+      console.log(e)
+    } 
+  }
+  async getSpeakerVideoIds(id:string){
+     try {
+      const getVideoInfo: any = await API.graphql({
+        query: customQueries.getSpeakerVideos,
+        variables:{id:id},
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      return getVideoInfo.data.getVideo.speakers.items
+    } catch (e) {
+      if (!e.errors[0].message.includes('access'))
+        console.log("error")
+    } 
+  }
   async saveSpeakerVideo(speaker: string, publishedDate: string) {
-    console.log("Logging publishedDate")
-    console.log(publishedDate)
     try {
       const createSpeakerVideo: any = await API.graphql({
         query: customMutations.createSpeakerVideosCustom,
