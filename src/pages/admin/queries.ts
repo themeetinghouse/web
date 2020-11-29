@@ -22,6 +22,35 @@ export const listSpeakers = /* GraphQL */ `
   }
 `;
 
+export const listSpeakerVideos = `
+query ListSpeakerVideoss(
+  $id: ID
+  $filter: ModelSpeakerVideosFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listSpeakerVideoss(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      speakerVideosSpeakerId
+      speakerVideosVideoId
+      videoPublishedDate
+      video{
+        publishedDate
+      }
+    }
+    nextToken
+  }
+}
+`
+
 export const listCustomPlaylistsAdmin = /* GraphQL */ `
   query ListCustomPlaylists(
     $filter: ModelCustomPlaylistFilterInput
