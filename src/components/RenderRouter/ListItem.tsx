@@ -1187,11 +1187,8 @@ class ListItem extends React.Component<Props, State> {
       return this.renderOverseer(item as OverseerData | OverseerData[], index);
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
-    else if (this.state.content.class === 'instagram'){
-      if(index < 8)
+    else if (this.state.content.class === 'instagram')
       return this.renderInstaTile(item as any);
-      else return;
-    }
     else if (this.state.content.class === 'compassion')
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
