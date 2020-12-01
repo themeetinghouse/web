@@ -489,11 +489,16 @@ class Index extends React.Component<EmptyProps, State> {
         this.state.toSaveVideo.publishedDate === undefined)
     ) {
       this.setState({ showError: 'Must set both videoType and publishedDate' });
-    } else {
+    } else { 
       this.setState({ showError: 'Saving' });
-      console.log(this.state.toSaveVideo);
       this.handleCustomPlaylists();
       const toSaveVid: any = this.state.toSaveVideo;
+       if(toSaveVid.publishedDate && this.state.selectedVideo.speakers?.items?.length > 0){
+          const speakerVideoIDs = await this.getSpeakerVideoIds(toSaveVid.id)
+          for(let i=0; i<speakerVideoIDs.length;i++){
+            this.updateSpeakerVideo(speakerVideoIDs[i].id, toSaveVid.publishedDate)
+          }
+      } 
       if (this.state.toSaveVideo.speakers) {
         const oldSpeakers: any = [...this.state.originalSpeakers.items];
         const newSpeakers: any = [...this.state.toSaveVideo.speakers.items];
@@ -501,12 +506,16 @@ class Index extends React.Component<EmptyProps, State> {
           return oldSpeakers.indexOf(a) < 0;
         });
         for (let x = 0; x < filtered.length; x++) {
-          if (filtered[x]?.speaker?.id)
-            this.saveSpeakerVideo(filtered[x].speaker.id);
+          if (filtered[x]?.speaker?.id && (toSaveVid.publishedDate || this.state.selectedVideo.publishedDate)){
+              this.saveSpeakerVideo(filtered[x].speaker.id, toSaveVid?.publishedDate ?? this.state.selectedVideo?.publishedDate);
+          }
+          else{
+            this.setState({showError:'Unable to update speaker. Must have date '})
+          }
         }
         delete toSaveVid.speakers;
       }
-      try {
+       try {
         const updateVideo: any = await API.graphql({
           query: mutations.updateVideo,
           variables: { input: toSaveVid },
@@ -522,8 +531,34 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-
-  async saveSpeakerVideo(speaker: string) {
+  async updateSpeakerVideo(videoid: string, newDate: string){
+    try {
+      const updateOneSpeakerVideo: any = await API.graphql({
+        query: customMutations.updateSpeakerVideos,
+        variables: { input: {id:videoid, videoPublishedDate:newDate}},
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({
+        'Success customMutations.updateOneSpeakerVideo: ': updateOneSpeakerVideo,
+      });
+    } catch (e) {
+      console.log(e)
+    } 
+  }
+  async getSpeakerVideoIds(id:string){
+     try {
+      const getVideoInfo: any = await API.graphql({
+        query: customQueries.getSpeakerVideos,
+        variables:{id:id},
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      return getVideoInfo.data.getVideo.speakers.items
+    } catch (e) {
+      if (!e.errors[0].message.includes('access'))
+        console.log("error")
+    } 
+  }
+  async saveSpeakerVideo(speaker: string, publishedDate: string) {
     try {
       const createSpeakerVideo: any = await API.graphql({
         query: customMutations.createSpeakerVideosCustom,
@@ -532,6 +567,7 @@ class Index extends React.Component<EmptyProps, State> {
             id: uuidv4(),
             speakerVideosVideoId: this.state.toSaveVideo.id,
             speakerVideosSpeakerId: speaker,
+            videoPublishedDate: publishedDate
           },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -545,7 +581,7 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({ showError: e.errors[0].message });
       else if (e.data) this.setState({ showError: 'Saved' });
       console.error(e);
-    }
+    } 
   }
 
   async handleCustomPlaylists(): Promise<void> {

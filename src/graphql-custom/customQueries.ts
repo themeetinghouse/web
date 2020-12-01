@@ -327,7 +327,20 @@ export const getBlog = /* GraphQL */ `
     }
   }
 `;
-
+export const getSpeakerVideos = `query GetVideo($id: ID!) {
+  getVideo(id: $id) {
+    id
+    speakers {
+      items {
+        id
+        video {
+          id
+        }
+      }
+    }
+  }
+}
+`;
 export const getVideo = `query GetVideo($id: ID!) {
   getVideo(id: $id) {
     id
@@ -343,6 +356,14 @@ export const getVideo = `query GetVideo($id: ID!) {
       image
       startDate
       endDate
+    }
+    speakers {
+      items {
+        id
+        video {
+          id
+        }
+      }
     }
     publishedDate
     recordedDate
