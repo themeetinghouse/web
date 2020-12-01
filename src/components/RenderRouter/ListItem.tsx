@@ -1156,16 +1156,21 @@ class ListItem extends React.Component<Props, State> {
               ? 120
               : this.state.windowWidth < 600
                 ? 156
-                : 264
+                : 480
           }
           height={
             this.state.windowWidth < 375
               ? 120
               : this.state.windowWidth < 600
                 ? 156
-                : 264
+                : 480
           }
-          src={item.thumbnails[2].src}
+          src={this.state.windowWidth < 375
+            ? item.thumbnails[2].src
+            : this.state.windowWidth < 600
+              ? item.thumbnails[2].src
+              : item.thumbnails[3].src}
+          alt={item.altText}
         ></img>
       </div>
     );
@@ -1182,8 +1187,11 @@ class ListItem extends React.Component<Props, State> {
       return this.renderOverseer(item as OverseerData | OverseerData[], index);
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
-    else if (this.state.content.class === 'instagram')
+    else if (this.state.content.class === 'instagram'){
+      if(index < 8)
       return this.renderInstaTile(item as any);
+      else return;
+    }
     else if (this.state.content.class === 'compassion')
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')

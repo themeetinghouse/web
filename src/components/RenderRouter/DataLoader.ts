@@ -882,9 +882,6 @@ export default class DataLoader {
       case 'waterloo':
         id = 'tmhwaterloo';
         break;
-      case 'unknown':
-        id = 'themeetinghouse';
-        break;
       default:
         id = 'themeetinghouse';
     }
