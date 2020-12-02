@@ -210,23 +210,47 @@ class HeroItem extends React.Component<Props, State> {
     return image1.src.includes('.svg') ? (
       <img src={image1.src} alt={image1.alt} className={className} />
     ) : (
-        <ScaledImage
-          image={image1}
-          className={className}
-          style={style}
-          onLoad={onLoad}
-          breakpointSizes={{
-            320: 320,
-            480: 480,
-            640: 640,
-            1280: 1280,
-            1920: 1920,
-            2560: 2560,
-          }}
-        />
-      );
+      <ScaledImage
+        image={image1}
+        className={className}
+        style={style}
+        onLoad={onLoad}
+        breakpointSizes={{
+          320: 320,
+          480: 480,
+          640: 640,
+          1280: 1280,
+          1920: 1920,
+          2560: 2560,
+        }}
+      />
+    );
+  }
+  renderLinkButton(buttonInfo: any) {
+    return buttonInfo.text ? (
+      <LinkButton
+        aria-label={buttonInfo.description}
+        className="heroButton"
+        to={buttonInfo.action}
+      >
+        {buttonInfo.text}
+      </LinkButton>
+    ) : null;
   }
 
+  renderButton(buttonInfo: any, className: string): any {
+    return buttonInfo.text ? (
+      <Button
+        aria-label={buttonInfo.description}
+        className={className}
+        onClick={() => {
+          this.navigateTo(buttonInfo.action);
+        }}
+      >
+        {buttonInfo.text}
+      </Button>
+    ) : null;
+  }
   render() {
     window.onscroll = () => {
       this.downArrowScroll();
@@ -249,10 +273,10 @@ class HeroItem extends React.Component<Props, State> {
                 {this.state.locationData[0].location.address}
               </h2>
             ) : (
-                this.state.content.header2 && (
-                  <h2 className="heroH2">{this.state.content.header2}</h2>
-                )
-              )}
+              this.state.content.header2 && (
+                <h2 className="heroH2">{this.state.content.header2}</h2>
+              )
+            )}
             <hr className="heroHr"></hr>
             <div className="heroText1">{this.state.content.text1}</div>
             <div className="heroText2">{this.state.content.text2}</div>
@@ -262,14 +286,8 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
-              {this.state.content.button1Text ? (
-                <LinkButton
-                  className="heroButton"
-                  to={this.state.content.button1Action}
-                >
-                  {this.state.content.button1Text}
-                </LinkButton>
-              ) : null}
+              {this.renderLinkButton(this.state.content.button1)}
+
               {this.state.content.link1Text ? (
                 <div className="heroAContainer">
                   <Link
@@ -380,16 +398,8 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null}
               </div>
             ) : null}
-            {this.state.content.button1Text ? (
-              <Button
-                className="heroItemButton"
-                onClick={() => {
-                  this.navigateTo(this.state.content.button1Action);
-                }}
-              >
-                {this.state.content.button1Text}
-              </Button>
-            ) : null}
+            {this.renderButton(this.state.content.button1, 'heroItemButton')}
+
             <Link className="inverted" to={this.state.content.link1Action}>
               {this.state.content.link1Text}
             </Link>
@@ -453,16 +463,8 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null}
               </div>
             ) : null}
-            {this.state.content.button1Text ? (
-              <Button
-                className="heroButton"
-                onClick={() => {
-                  this.navigateTo(this.state.content.button1Action);
-                }}
-              >
-                {this.state.content.button1Text}
-              </Button>
-            ) : null}
+            {this.renderButton(this.state.content.button1, 'heroButton')}
+
             {this.state.content.link1Text ? (
               <div className="heroAContainer">
                 <Link

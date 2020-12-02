@@ -58,8 +58,11 @@
         ],
         "header1": "Hello Friend",
         "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
-        "button1Text": "Got questions?",
-        "button1Action": "/spirituality"
+        "button1": {
+          "text": "Got questions?",
+          "action": "/spirituality",
+          "description": "Got questions about Spirituality?"
+        }
       },
       {
         "type": "content",
@@ -195,7 +198,7 @@
             "alt": "A woman wearing a mask looking directly at the camera."
           }
         ]
-      },  
+      },
       {
         "type": "hero",
         "style": "connect",
