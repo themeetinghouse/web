@@ -344,6 +344,8 @@ class BlogItem extends React.Component<Props, State> {
             </div>
           </div>
         );
+      default:
+        return null;
     }
   }
 }
