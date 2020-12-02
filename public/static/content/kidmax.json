@@ -32,11 +32,8 @@
         "header1": "Kidmax",
         "header2": "",
         "text1": "All our lessons and downloads in one place! Scroll down to view the activities, lessons, and videos for this week. We upload new content every Friday.",
-        "button1": {
-          "text": "Looking to connect?",
-          "action": "/kidmax-connect",
-          "description": "Connect with Kidmax"
-        }
+        "button1Text": "Looking to connect?",
+        "button1Action": "/kidmax-connect"
       },
       {
         "type": "content",
@@ -46,27 +43,27 @@
         "text1": "Here's what we're learning in preschool this week:",
         "image1": [
           {
-            "src": "/static/images/PSBigIdeaNov1.jpg",
-            "alt": "This month's big idea: God wants us to know him"
+            "src": "/static/images/PS Graphic Dec.jpg",
+            "alt": "This month's big idea: Jesus is God's son."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Preschool Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/PreschoolLessonNov29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PSLessonDec6.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Preschool Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesNov29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesDec6.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Preschool Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/PSKeyVerseColouringPage - November.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PSKeyVerseColouringPageDec.pdf",
             "openNewBrowser": true
           }
         ]
@@ -88,27 +85,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Big Idea_Kids_Nov.29.jpg",
-            "alt": "This week's big idea: God helps us when we are sad."
+            "src": "/static/images/Kids Graphic Dec 6.jpg",
+            "alt": "This week's big idea: When we listen to God, we hear from him."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov.29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec6.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec6.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseColouringPage - November.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseColouringPageDec.pdf",
             "openNewBrowser": true
           }
         ]
