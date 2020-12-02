@@ -368,7 +368,8 @@ export default class DataLoader {
       console.error({ 'Error: ': e });
       if (!query.selector || query.selector === 'all' || query.limit) {
         if (e.data) {
-          dataLoaded(e.data.getVideoByVideoType.items);
+          if (e.data.getVideoByVideoType)
+            dataLoaded(e.data.getVideoByVideoType.items);
         }
       } else {
         if (e.data) {
