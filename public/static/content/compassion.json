@@ -32,8 +32,11 @@
         ],
         "header1": "Compassion",
         "text1": "All people are created in the image of God and have infinite worth. Therefore we love, serve, and partner with vulnerable people as we journey toward relationship, justice, and peace.",
-        "button1Text": "Connect with Us",
-        "button1Action": "/compassion-connect"
+        "button1": {
+          "text": "Connect with Us",
+          "action": "/compassion-connect",
+          "description": "Connect with Compassion"
+        }
       },
       {
         "type": "content",

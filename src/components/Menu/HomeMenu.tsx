@@ -204,7 +204,7 @@ class HomeMenu extends React.Component<Props, State>  {
                           {item.name}
                         </NavLink>
                         {item.children != null ?
-                          <Button className="expanderButton" onClick={() => { this.setState({ expand: this.state.expand === item.location ? null : item.location }) }}>
+                          <Button aria-label="Expand Menu" className="expanderButton" onClick={() => { this.setState({ expand: this.state.expand === item.location ? null : item.location }) }}>
                             <div className={shouldExpand ? "vertical-line xstate" : "vertical-line"}></div>
                             <div className={shouldExpand ? "horizontal-line xstate" : "horizontal-line"}></div>
                           </Button>

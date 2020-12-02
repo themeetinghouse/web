@@ -154,6 +154,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Danielle",
+    "LastName": "Strickland",
+    "Phone": "905.287.7000",
+    "Position": "Teaching Pastor",
+    "sites": ["Pastoral"],
+    "Email": "Danielle.Strickland@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Darrell",
     "LastName": "Winger",
     "Phone": "905.287.7000, ext. 807",

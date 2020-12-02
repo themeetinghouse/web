@@ -32,8 +32,11 @@
         "header1": "Go",
         "header2": "",
         "text1": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
-        "button1Text": "Watch Video",
-        "button1Action": "/videos/go-Go%20Campaign/W0XfcdmgDWk"
+        "button1": {
+          "text": "Watch Video",
+          "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
+          "description": "Watch the Go Video"
+        }
       },
       {
         "type": "list",
@@ -75,11 +78,11 @@
           }
         ]
       },
-        {
-          "type": "goContent",
-          "style": "goItem",
-          "header1": "Some of the special projects already underway:"
-        },
+      {
+        "type": "goContent",
+        "style": "goItem",
+        "header1": "Some of the special projects already underway:"
+      },
       {
         "type": "goContent",
         "style": "goSubItems",
@@ -146,7 +149,7 @@
                 "text": "Embracing our role as leaders in the growing Anabaptist movement by forming a relational network of like-minded churches and ministry leaders to make more disciples around the world.",
                 "newParagraph": true
               },
-            {
+              {
                 "fontWeight": "bold",
                 "text": "One Story Curriculum: "
               },
