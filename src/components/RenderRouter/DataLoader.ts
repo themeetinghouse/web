@@ -373,11 +373,12 @@ export default class DataLoader {
         }
       } else {
         if (e.data) {
-          dataLoaded(
-            e.data.getVideoByVideoType.items.filter(
-              (item: any) => item.seriesTitle === query.selector
-            )
-          );
+          if (e.data.getVideoByVideoType)
+            dataLoaded(
+              e.data.getVideoByVideoType.items.filter(
+                (item: any) => item.seriesTitle === query.selector
+              )
+            );
         }
       }
       if (!e?.data?.getVideoByVideoType?.nextToken) {
