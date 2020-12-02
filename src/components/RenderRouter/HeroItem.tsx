@@ -227,6 +227,7 @@ class HeroItem extends React.Component<Props, State> {
     );
   }
   renderLinkButton(buttonInfo: any) {
+    if (!buttonInfo) return null;
     return buttonInfo.text ? (
       <LinkButton
         aria-label={buttonInfo.description}
@@ -239,6 +240,7 @@ class HeroItem extends React.Component<Props, State> {
   }
 
   renderButton(buttonInfo: any, className: string): any {
+    if (!buttonInfo) return null;
     return buttonInfo.text ? (
       <Button
         aria-label={buttonInfo.description}
