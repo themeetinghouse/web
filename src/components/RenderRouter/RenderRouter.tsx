@@ -9,7 +9,6 @@ import HeroItem from './HeroItem';
 import HomeMenu from 'components/Menu/HomeMenu';
 import HomeFooter from 'components/Menu/HomeFooter';
 
-const HeaderItem = React.lazy(() => import('./HeaderItem'));
 const InstagramItem = React.lazy(() => import('./InstagramItem'));
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -59,8 +58,6 @@ class RenderRouter extends React.Component<Props, State> {
             data={this.props.data}
           ></ArchiveItem>
         );
-      case 'header':
-        return <HeaderItem key={index} content={item}></HeaderItem>;
       case 'content':
         return <ContentItem key={index} content={item}></ContentItem>;
       case 'videoPlayer':

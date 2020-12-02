@@ -95,10 +95,12 @@
 .ListInstagramButton {
   &:hover {
     text-emphasis: none;
-    color: $onyxblacktext;
+    color:  #efeff0;
+    background-color: #54565a;
   }
+  color:black;
   display: block;
-  min-width: 200px;
+  min-width: 214px;
   width: 8vw;
   border: solid 3px #1a1a1a;
   box-sizing: border-box;
@@ -108,8 +110,8 @@
   margin-right: 3px;
   font-family: Graphik Web;
   font-weight: bold;
-  margin-top: 10px;
-  margin-left: 20vw;
+  margin-top: 16px;
+  margin-left: 19vw;
 }
 
 .EventDateContainer {
@@ -146,15 +148,21 @@
   }
 
   .ListInstagramContainer {
-    left: 20vw;
-    width: 80vw;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    left: 18vw;
+    width: 82vw;
     position: relative;
   }
   .ListInstagramTile {
-    object-fit: scale-down;
-    display: inline-block;
-    margin-right: 24px;
     margin-bottom: 24px;
+    max-width: 23.5%;
+    max-height: 23.5%;
+  }
+  .ListInstagramTile img{
+    width: 100%;
+    height: 100%;
   }
   .ListItem.horizontal,
   .ListItem.horizontalBig {
@@ -1466,18 +1474,21 @@
     margin-left: 20px;
   }
   .ListInstagramContainer {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
+    display:flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
   }
   .ListInstagramTile {
-    object-fit: scale-down;
-    margin: 0;
     margin-bottom: 24px;
+    max-width: 43%;
+    max-height: 43%;
+    font-size: 12px;
+    justify-self: center;
   }
-  .ListInstagramTile:nth-child(even) {
-    margin-left: 22px;
+  .ListInstagramTile img{
+    max-width: 100%;
+    text-align: center;
+    max-height: 100%;
   }
   .ListItemEventButton {
     background-color: #ffffff00 !important;

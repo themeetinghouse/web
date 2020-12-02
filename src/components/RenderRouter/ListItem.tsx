@@ -1156,16 +1156,21 @@ class ListItem extends React.Component<Props, State> {
               ? 120
               : this.state.windowWidth < 600
                 ? 156
-                : 264
+                : 480
           }
           height={
             this.state.windowWidth < 375
               ? 120
               : this.state.windowWidth < 600
                 ? 156
-                : 264
+                : 480
           }
-          src={item.thumbnails[2].src}
+          src={this.state.windowWidth < 375
+            ? item.thumbnails[2].src
+            : this.state.windowWidth < 600
+              ? item.thumbnails[2].src
+              : item.thumbnails[3].src}
+          alt={item.altText}
         ></img>
       </div>
     );

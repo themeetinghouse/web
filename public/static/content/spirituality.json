@@ -35,8 +35,11 @@
         ],
         "header1": "Spiritually curious?",
         "text1": "We all have big questions, and exploring big answers can feel overwhelming—or just weird. We've pulled together a few stories to share our experiences with you. Full disclosure: we think the best thing we have to offer is to point you towards Jesus.",
-        "button1Text": "See Nik's Spiritual Journey",
-        "button1Action": "/videos/spiritually-curious-Spiritually%20Curious/nu5s2HXIduo"
+        "button1": {
+          "text": "See Nik's Spiritual Journey",
+          "action": "/videos/spiritually-curious-Spiritually%20Curious/nu5s2HXIduo",
+          "description": "Watch Nik's Spiritual Journey Video"
+        }
       },
       {
         "type": "content",

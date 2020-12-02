@@ -35,8 +35,11 @@
           }
         ],
         "header1": "Alliston",
-        "button1Text": "Livestream",
-        "button1Action": "live",
+        "button1": {
+          "text": "Livestream",
+          "action": "live",
+          "description": "Sunday Morning Livestream"
+        },
         "text1": "Church Online Sundays @10:00am",
         "text1a": "Sunday Service",
         "text2a": "10:30 am-11:30 am – Music and Teaching",

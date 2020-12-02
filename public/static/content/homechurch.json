@@ -32,8 +32,11 @@
         "header1": "Home Church",
         "header2": "",
         "text1": "We believe something really good happens when we intentionally come together to share life, grow deeper spiritual friendships, and create space for real conversations about how we can live the Jesus-centred life.",
-        "button1Text": "Show Me Home Church",
-        "button1Action": "/videos/spiritually-curious-Spiritually%20Curious/SP3pD2plP04"
+        "button1": {
+          "text": "Show Me Home Church",
+          "action": "/videos/spiritually-curious-Spiritually%20Curious/SP3pD2plP04",
+          "description": "Watch the Home Church Video"
+        }
       },
       {
         "type": "content",

@@ -32,8 +32,11 @@
         "header1": "Kidmax",
         "header2": "",
         "text1": "All our lessons and downloads in one place! Scroll down to view the activities, lessons, and videos for this week. We upload new content every Friday.",
-        "button1Text": "Looking to connect?",
-        "button1Action": "/kidmax-connect"
+        "button1": {
+          "text": "Looking to connect?",
+          "action": "/kidmax-connect",
+          "description": "Connect with Kidmax"
+        }
       },
       {
         "type": "content",

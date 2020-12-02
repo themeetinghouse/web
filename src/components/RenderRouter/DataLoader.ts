@@ -368,15 +368,17 @@ export default class DataLoader {
       console.error({ 'Error: ': e });
       if (!query.selector || query.selector === 'all' || query.limit) {
         if (e.data) {
-          dataLoaded(e.data.getVideoByVideoType.items);
+          if (e.data.getVideoByVideoType)
+            dataLoaded(e.data.getVideoByVideoType.items);
         }
       } else {
         if (e.data) {
-          dataLoaded(
-            e.data.getVideoByVideoType.items.filter(
-              (item: any) => item.seriesTitle === query.selector
-            )
-          );
+          if (e.data.getVideoByVideoType)
+            dataLoaded(
+              e.data.getVideoByVideoType.items.filter(
+                (item: any) => item.seriesTitle === query.selector
+              )
+            );
         }
       }
       if (!e?.data?.getVideoByVideoType?.nextToken) {
@@ -881,9 +883,6 @@ export default class DataLoader {
         break;
       case 'waterloo':
         id = 'tmhwaterloo';
-        break;
-      case 'unknown':
-        id = 'themeetinghouse';
         break;
       default:
         id = 'themeetinghouse';
