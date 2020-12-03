@@ -696,6 +696,7 @@ type Speaker
    name:String
    image:String
    videos:[SpeakerVideos] @connection(name: "SpeakerVideos",keyField: "speakerVideosSpeakerId", sortField: "videoPublishedDate")
+   hidden:Boolean
 }
 type SpeakerVideos
   @model
