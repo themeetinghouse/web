@@ -1122,6 +1122,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -1777,6 +1778,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4130,6 +4132,7 @@ export const listSpeakers = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -4144,6 +4147,7 @@ export const listSpeakers = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4271,6 +4275,7 @@ export const getSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -4285,6 +4290,7 @@ export const getSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -4299,6 +4305,7 @@ export const getSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -4482,6 +4489,7 @@ export const getSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -4663,6 +4671,7 @@ export const getSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -4677,6 +4686,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4969,6 +4979,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -5459,6 +5470,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
           id
           name
           image
+          hidden
           createdAt
           updatedAt
           videos {
@@ -5473,6 +5485,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -5708,6 +5721,7 @@ export const listSpeakerVideoss = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -6141,6 +6155,7 @@ export const listSeriess = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -6768,6 +6783,7 @@ export const getSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -7612,6 +7628,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -8415,6 +8432,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -8765,6 +8783,7 @@ export const listVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -9407,6 +9426,7 @@ export const getVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -9421,6 +9441,7 @@ export const getVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -9604,6 +9625,7 @@ export const getVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -9928,6 +9950,7 @@ export const getVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -10572,6 +10595,7 @@ export const getVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -10930,6 +10954,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -11587,6 +11612,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -12242,6 +12268,7 @@ export const searchVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -13518,6 +13545,7 @@ export const getBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -15907,6 +15935,7 @@ export const getNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }

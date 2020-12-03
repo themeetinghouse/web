@@ -1199,6 +1199,7 @@ export const onCreateSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -1213,6 +1214,7 @@ export const onCreateSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -1227,6 +1229,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1410,6 +1413,7 @@ export const onCreateSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1584,6 +1588,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -1598,6 +1603,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -1612,6 +1618,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1795,6 +1802,7 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1969,6 +1977,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -1983,6 +1992,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -1997,6 +2007,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -2180,6 +2191,7 @@ export const onDeleteSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -2361,6 +2373,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -2375,6 +2388,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -2667,6 +2681,7 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -3144,6 +3159,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -3158,6 +3174,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -3450,6 +3467,7 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -3927,6 +3945,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -3941,6 +3960,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4233,6 +4253,7 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4885,6 +4906,7 @@ export const onCreateSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -5741,6 +5763,7 @@ export const onUpdateSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -6597,6 +6620,7 @@ export const onDeleteSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -7483,6 +7507,7 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -7869,6 +7894,7 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -8255,6 +8281,7 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -8741,6 +8768,7 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -9523,6 +9551,7 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -10305,6 +10334,7 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -10946,6 +10976,7 @@ export const onCreateVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -10960,6 +10991,7 @@ export const onCreateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -11143,6 +11175,7 @@ export const onCreateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -11467,6 +11500,7 @@ export const onCreateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12111,6 +12145,7 @@ export const onCreateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12456,6 +12491,7 @@ export const onUpdateVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -12470,6 +12506,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12653,6 +12690,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12977,6 +13015,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -13621,6 +13660,7 @@ export const onUpdateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -13966,6 +14006,7 @@ export const onDeleteVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -13980,6 +14021,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -14163,6 +14205,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -14487,6 +14530,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -15131,6 +15175,7 @@ export const onDeleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -17342,6 +17387,7 @@ export const onCreateBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -18152,6 +18198,7 @@ export const onUpdateBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -18962,6 +19009,7 @@ export const onDeleteBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -20767,6 +20815,7 @@ export const onCreateNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -21524,6 +21573,7 @@ export const onUpdateNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -22281,6 +22331,7 @@ export const onDeleteNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
