@@ -80,8 +80,20 @@ export class SundayMorningItem extends React.Component<Props, State> {
         this.setState({ listData: myJson });
       });
   }
+  tick() {
+      const rightNow = moment().tz('America/Toronto').format('HH:mm:ss');
+      console.log(rightNow)
 
+  }
+  interval: any;
   componentDidMount() {
+    const today = moment.tz('America/Toronto').format('2020-12-24');
+    if(this.props.content.alternate === "christmas"){
+      if(today >= moment.tz('America/Toronto').format('HH:mm:ss')){
+        this.interval = setInterval(() => this.tick(), 1000);
+      }
+    }
+
     this.setGeoLocation();
   }
 
@@ -435,7 +447,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               </div>
                             )}
                           </div>
-                          <div className="SundayMorningItemDiv6">
+                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas" ? {display:'none'} : {}}>
                             <LinkButton
                               id="customBlackButton"
                               className="SundayMorningButton1"
@@ -452,9 +464,8 @@ export class SundayMorningItem extends React.Component<Props, State> {
                             <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}/>
                           </div>
                           <a
-                           style={this.props.content.alternate === "christmas" ? {display:"none"} : {}}
                             className="emailText"
-                            href={'mailto:' + item.pastorEmail}
+                            href={'mailto:' + "hello@themeetinghouse.com"}
                           >
                             <button className="emailButton">
                               <img
@@ -463,7 +474,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                 alt="Contact Icon"
                               />
                             </button>
-                            Contact the Pastor
+                            {this.props.content.alternate === "christmas" ? "Connect" : "Contact the Pastor"}
                           </a>
                         </div>
                       </div>
