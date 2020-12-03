@@ -48,6 +48,16 @@
         ]
       },
       {
+        "type": "blog",
+        "style": "multiImage",
+        "status": "Live",
+        "header1": "COVID-19 Christmas",
+        "sortOrder": "DESC",
+        "limit": 2,
+        "blogSeries": "Christmas",
+        "button1Action": "/blogs"
+      },
+      {
         "type": "list",
         "style": "vertical",
         "class": "events",
