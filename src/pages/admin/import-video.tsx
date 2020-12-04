@@ -49,9 +49,8 @@ interface State {
   selectedPlaylist: any;
   speakerFieldValue: string;
   originalSpeakers: any;
+  customPlaylistTypes: string[];
 }
-
-const customPlaylistTypes = ['teaching-recommendations'];
 
 class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
@@ -91,6 +90,7 @@ class Index extends React.Component<EmptyProps, State> {
       addToPlaylists: [],
       removeFromPlaylists: [],
       selectedPlaylist: '',
+      customPlaylistTypes: [],
     };
     fetch('/static/data/import-video.json')
       .then(function (response) {
@@ -103,6 +103,7 @@ class Index extends React.Component<EmptyProps, State> {
       .catch((e) => {
         console.log({ 'Exception: ': e });
       });
+    this.getPlaylistTypes();
     this.listSeries(null);
     this.listCustomPlaylists(null);
   }
@@ -113,6 +114,16 @@ class Index extends React.Component<EmptyProps, State> {
   importYoutube() {
     const z = new ImportYoutube();
     z.reloadPlaylists();
+  }
+
+  async getPlaylistTypes(): Promise<void> {
+    try {
+      const response = await fetch('/static/data/custom-playlists.json');
+      const json = await response.json();
+      this.setState({ customPlaylistTypes: json.types });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   async listCustomPlaylists(nextToken: any): Promise<void> {
@@ -489,16 +500,22 @@ class Index extends React.Component<EmptyProps, State> {
         this.state.toSaveVideo.publishedDate === undefined)
     ) {
       this.setState({ showError: 'Must set both videoType and publishedDate' });
-    } else { 
+    } else {
       this.setState({ showError: 'Saving' });
       this.handleCustomPlaylists();
       const toSaveVid: any = this.state.toSaveVideo;
-       if(toSaveVid.publishedDate && this.state.selectedVideo.speakers?.items?.length > 0){
-          const speakerVideoIDs = await this.getSpeakerVideoIds(toSaveVid.id)
-          for(let i=0; i<speakerVideoIDs.length;i++){
-            this.updateSpeakerVideo(speakerVideoIDs[i].id, toSaveVid.publishedDate)
-          }
-      } 
+      if (
+        toSaveVid.publishedDate &&
+        this.state.selectedVideo.speakers?.items?.length > 0
+      ) {
+        const speakerVideoIDs = await this.getSpeakerVideoIds(toSaveVid.id);
+        for (let i = 0; i < speakerVideoIDs.length; i++) {
+          this.updateSpeakerVideo(
+            speakerVideoIDs[i].id,
+            toSaveVid.publishedDate
+          );
+        }
+      }
       if (this.state.toSaveVideo.speakers) {
         const oldSpeakers: any = [...this.state.originalSpeakers.items];
         const newSpeakers: any = [...this.state.toSaveVideo.speakers.items];
@@ -506,16 +523,24 @@ class Index extends React.Component<EmptyProps, State> {
           return oldSpeakers.indexOf(a) < 0;
         });
         for (let x = 0; x < filtered.length; x++) {
-          if (filtered[x]?.speaker?.id && (toSaveVid.publishedDate || this.state.selectedVideo.publishedDate)){
-              this.saveSpeakerVideo(filtered[x].speaker.id, toSaveVid?.publishedDate ?? this.state.selectedVideo?.publishedDate);
-          }
-          else{
-            this.setState({showError:'Unable to update speaker. Must have date '})
+          if (
+            filtered[x]?.speaker?.id &&
+            (toSaveVid.publishedDate || this.state.selectedVideo.publishedDate)
+          ) {
+            this.saveSpeakerVideo(
+              filtered[x].speaker.id,
+              toSaveVid?.publishedDate ??
+                this.state.selectedVideo?.publishedDate
+            );
+          } else {
+            this.setState({
+              showError: 'Unable to update speaker. Must have date ',
+            });
           }
         }
         delete toSaveVid.speakers;
       }
-       try {
+      try {
         const updateVideo: any = await API.graphql({
           query: mutations.updateVideo,
           variables: { input: toSaveVid },
@@ -531,32 +556,31 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-  async updateSpeakerVideo(videoid: string, newDate: string){
+  async updateSpeakerVideo(videoid: string, newDate: string) {
     try {
       const updateOneSpeakerVideo: any = await API.graphql({
         query: customMutations.updateSpeakerVideos,
-        variables: { input: {id:videoid, videoPublishedDate:newDate}},
+        variables: { input: { id: videoid, videoPublishedDate: newDate } },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({
         'Success customMutations.updateOneSpeakerVideo: ': updateOneSpeakerVideo,
       });
     } catch (e) {
-      console.log(e)
-    } 
+      console.log(e);
+    }
   }
-  async getSpeakerVideoIds(id:string){
-     try {
+  async getSpeakerVideoIds(id: string) {
+    try {
       const getVideoInfo: any = await API.graphql({
         query: customQueries.getSpeakerVideos,
-        variables:{id:id},
+        variables: { id: id },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
-      return getVideoInfo.data.getVideo.speakers.items
+      return getVideoInfo.data.getVideo.speakers.items;
     } catch (e) {
-      if (!e.errors[0].message.includes('access'))
-        console.log("error")
-    } 
+      if (!e.errors[0].message.includes('access')) console.log('error');
+    }
   }
   async saveSpeakerVideo(speaker: string, publishedDate: string) {
     try {
@@ -567,7 +591,7 @@ class Index extends React.Component<EmptyProps, State> {
             id: uuidv4(),
             speakerVideosVideoId: this.state.toSaveVideo.id,
             speakerVideosSpeakerId: speaker,
-            videoPublishedDate: publishedDate
+            videoPublishedDate: publishedDate,
           },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -581,7 +605,7 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({ showError: e.errors[0].message });
       else if (e.data) this.setState({ showError: 'Saved' });
       console.error(e);
-    } 
+    }
   }
 
   async handleCustomPlaylists(): Promise<void> {
@@ -1253,13 +1277,15 @@ class Index extends React.Component<EmptyProps, State> {
               <option key="null" value="null">
                 None Selected
               </option>
-              {customPlaylistTypes.map((item: string, index: number) => {
-                return (
-                  <option key={index} value={item}>
-                    {item}
-                  </option>
-                );
-              })}
+              {this.state.customPlaylistTypes.map(
+                (item: string, index: number) => {
+                  return (
+                    <option key={index} value={item}>
+                      {item}
+                    </option>
+                  );
+                }
+              )}
             </select>
           </div>
           <button
