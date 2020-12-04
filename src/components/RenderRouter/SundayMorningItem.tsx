@@ -370,7 +370,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                       <div
                         key={item.id}
                         className="SundayMorningItemDiv5"
-                        style={{width:"100%"}}
+                        style={this.props.content.alternate === "christmas" ? {width:"100%"} : {}}
                         id={'SITE-' + item.id}
                       >
                         <div className="SundayMorningItemDiv4">
