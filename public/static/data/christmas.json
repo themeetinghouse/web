@@ -1,247 +1,33 @@
 [
   {
-    "id": "alliston",
-    "name": "Alliston",
-    "pastorEmail": "michael.kotsopoulos@themeetinghouse.com",
+    "id":"1",
+    "name": "Christmas Live Event 1",
     "location": {
       "longitude": -79.870798,
       "latitude": 44.149035,
-      "address": "Gibson Centre, 63 Tupper Street West"
+      "address": "www.themeetinghouse.com/live"
     },
-    "serviceTimes": ["December 24 - 6:30pm"]
+    "serviceTimes": ["December 24 - 1:00pm"]
   },
   {
-    "id": "sandbanks",
-    "name": "Sandbanks",
-    "pastorEmail": "brent.babcock@themeetinghouse.com",
+    "id":"2",
+    "name": "Christmas Live Event 2",
     "location": {
       "longitude": -77.2674762,
       "latitude": 43.9188665,
-      "address": "1901 County Rd 12, Prince Edward County"
+      "address": "www.themeetinghouse.com/live"
     },
-    "serviceTimes": ["December 24 - 4:30pm"]
+    "serviceTimes": ["December 24 - 4:00pm"]
   },
 
   {
-    "id": "ancaster",
-    "name": "Ancaster",
-    "pastorEmail": "Matt.Collins@themeetinghouse.com",
+    "id":"3",
+    "name": "Christmas Live Event 3",
     "location": {
       "longitude": -79.8373778,
       "latitude": 43.2415413,
-      "address": "Living Hope Church, 408 Cumberland Ave."
+      "address": "www.themeetinghouse.com/live"
     },
-    "serviceTimes": ["December 23 - 6:30pm"]
-  },
-  {
-    "id": "brampton",
-    "name": "Brampton",
-    "pastorEmail": "Christine.Gerber@themeetinghouse.com",
-    "location": {
-      "longitude": -79.743644,
-      "latitude": 43.6800167,
-      "address": "St. Bartholomew's United Church, 22 Abbey Road"
-    },
-    "serviceTimes": ["December 24 - 5pm"]
-  },
-
-  {
-    "id": "brantford",
-    "name": "Brantford",
-    "pastorEmail": "Natalie.Frisk@themeetinghouse.com",
-    "location": {
-      "longitude": -80.2830587,
-      "latitude": 43.1335484,
-      "address": "The Rope Factory, 111 Sherwood Drive"
-    },
-    "serviceTimes": ["December 24 - 6:30pm"]
-  },
-
-  {
-    "id": "burlington",
-    "name": "Burlington",
-    "pastorEmail": "John.Latta@themeetinghouse.com",
-    "location": {
-      "longitude": -79.8027897,
-      "latitude": 43.3209053,
-      "address": "Art Gallery of Burlington, 1333 Lakeshore Rd"
-    },
-    "serviceTimes": ["December 22 - 6pm"]
-  },
-
-  {
-    "id": "hamilton-downtown",
-    "name": "Hamilton - Downtown",
-    "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
-    "location": {
-      "longitude": -79.8373778,
-      "latitude": 43.2415413,
-      "address": "Living Hope Church, 408 Cumberland Ave."
-    },
-    "serviceTimes": ["December 23 - 6:30pm"]
-  },
-
-  {
-    "id": "toronto-downtown",
-    "name": "Toronto - Downtown",
-    "pastorEmail": "Anita.Giardina@themeetinghouse.com",
-    "location": {
-      "longitude": -79.3931961,
-      "latitude": 43.6515369,
-      "address": "St. George on the Grange, 30 Stephanie Street"
-    },
-    "serviceTimes": ["December 24 - 7pm"]
-  },
-
-  {
-    "id": "hamilton-mountain",
-    "name": "Hamilton Mountain",
-    "pastorEmail": "Dagmar.Morgan-Sinclair@themeetinghouse.com",
-    "location": {
-      "longitude": -79.8373778,
-      "latitude": 43.2415413,
-      "address": "Living Hope Church, 408 Cumberland Ave."
-    },
-    "serviceTimes": ["December 23 - 6:30pm"]
-  },
-
-  {
-    "id": "toronto-east",
-    "name": "Toronto - East",
-    "pastorEmail": "Robin.Ellingwood@themeetinghouse.com",
-    "location": {
-      "longitude": -79.3476801,
-      "latitude": 43.6786455,
-      "address": "The Forth, 629 Danforth Avenue"
-    },
-    "serviceTimes": ["December 24 - 4pm"]
-  },
-
-  {
-    "id": "toronto-high-park",
-    "name": "Toronto - High Park",
-    "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
-    "location": {
-      "longitude": -79.4865068,
-      "latitude": 43.6478911,
-      "address": "Bloor West Village Baptist Church, 293 South Kingsway"
-    },
-    "serviceTimes": ["December 24 - 4pm"]
-  },
-
-  {
-    "id": "kitchener",
-    "name": "Kitchener",
-    "pastorEmail": "Mark.Wall@themeetinghouse.com",
-    "location": {
-      "longitude": -80.4895967,
-      "latitude": 43.4487225,
-      "address": "Crowne Plaza Kitchener-Waterloo, 105 King St. E"
-    },
-    "serviceTimes": ["December 24 - 5pm"]
-  },
-
-  {
-    "id": "london",
-    "name": "London",
-    "pastorEmail": "Phil.Prendergast@themeetinghouse.com",
-    "location": {
-      "longitude": -81.2457253,
-      "latitude": 42.9794381,
-      "address": "Goodwill Industries, 255 Horton St E"
-    },
-    "serviceTimes": ["December 24 - 5pm"]
-  },
-
-  {
-    "id": "newmarket",
-    "name": "Newmarket",
-    "pastorEmail": "Simon.Downey@themeetinghouse.com",
-    "location": {
-      "longitude": -79.555998,
-      "latitude": 43.79428,
-      "address": "SilverCity Newmarket, 18195 Yonge Street"
-    },
-    "serviceTimes": ["December 24 - 6:30pm"]
-  },
-  {
-    "id": "oakville",
-    "name": "Oakville",
-    "pastorEmail": "Karmyn.Bokma@themeetinghouse.com",
-    "location": {
-      "longitude": -79.685926,
-      "latitude": 43.511459,
-      "address": "2700 Bristol Circle"
-    },
-    "serviceTimes": ["December 24 - 2pm, 4pm, 6pm"]
-  },
-  {
-    "id": "ottawa",
-    "name": "Ottawa",
-    "pastorEmail": "Eric.Versluis@themeetinghouse.com",
-    "location": {
-      "longitude": -75.6796822,
-      "latitude": 45.4272915,
-      "address": "Allsaints Event Space, 330 Laurier Avenue East"
-    },
-    "serviceTimes": ["December 24 - 3:30pm"]
-  },
-
-  {
-    "id": "owen-sound",
-    "name": "Owen Sound",
-    "pastorEmail": "",
-    "location": {
-      "longitude": -80.933555,
-      "latitude": 44.573804,
-      "address": "St. Mary's High School, 555 15th Street East"
-    },
-    "serviceTimes": ["December 22 - 10:30am"]
-  },
-  {
-    "id": "parry-sound",
-    "name": "Parry Sound",
-    "pastorEmail": "Heidi.Konig@themeetinghouse.com",
-    "location": {
-      "longitude": -80.036396,
-      "latitude": 45.35407,
-      "address": "The Sound Hub, 86 Gibson St."
-    },
-    "serviceTimes": ["December 22 - 6pm"]
-  },
-  {
-    "id": "richmond-hill",
-    "name": "Richmond Hill",
-    "pastorEmail": "Melissa.Ytsma@themeetinghouse.com",
-    "location": {
-      "longitude": -79.4460142,
-      "latitude": 43.9036562,
-      "address": "L'Arche Daybreak, 11339 Yonge St"
-    },
-    "serviceTimes": [
-      "December 22 - 7pm (doors open at 6:00pm for Christmas goodies)"
-    ]
-  },
-  {
-    "id": "toronto-uptown",
-    "name": "Toronto - Uptown",
-    "pastorEmail": "Jared.Erhardt@themeetinghouse.com",
-    "location": {
-      "longitude": -79.3900235,
-      "latitude": 43.7029035,
-      "address": "The Regent Theatre, 551 Mt. Pleasant Rd."
-    },
-    "serviceTimes": ["December 23 - 6:30pm"]
-  },
-  {
-    "id": "waterloo",
-    "name": "Waterloo",
-    "pastorEmail": "Jordan.Duerrstein@themeetinghouse.com",
-    "location": {
-      "longitude": -80.4895967,
-      "latitude": 43.4487225,
-      "address": "Crowne Plaze Kitchener-Waterloo, 105 King St. E"
-    },
-    "serviceTimes": ["December 24 - 5pm"]
+    "serviceTimes": ["December 24 - 8:00pm"]
   }
 ]
