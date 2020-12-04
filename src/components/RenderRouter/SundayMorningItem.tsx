@@ -452,7 +452,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                           </div>
                           <a
                             className="emailText"
-                            href={'mailto:' + "hello@themeetinghouse.com"}
+                            href={this.props.content.alternate === "christmas" ? 'mailto:' + "hello@themeetinghouse.com" : 'mailto:' + item.pastorEmail}
                           >
                             <button className="emailButton">
                               <img
