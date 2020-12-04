@@ -351,7 +351,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
               <div
                 className="SundayMorningItemListData"
-                style={this.props.content.alternate === "christmas" ? {paddingBottom:0, top:0, height:"auto"} : {}}
+                style={this.props.content.alternate === "christmas" ? {paddingBottom:0, top:0, height:"auto", overflow:"unset"} : {}}
                 ref={(ref) => (this.siteListScrollContainer = ref)}
               >
                 {this.state.listData
@@ -376,7 +376,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                         <div className="SundayMorningItemDiv4">
                           <div>
                             {this.props.content.alternate === "christmas" ? 
-                            <h3 className={'SundayMorningH3'}>
+                            <h3 className={'SundayMorningH3'} style={{textDecoration:"none", cursor:"unset"}}>
                             {item.name}
                             </h3>
                             : 
