@@ -1034,6 +1034,20 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return false;
   }
+  /* async updateSpeakers(speaker:string):Promise<void>{
+    const speakerName :string= speaker.trim().replaceAll(" ","_")
+    try {
+      const updateSpeaker: any = await API.graphql({
+        query: customMutations.updateSpeaker,
+        variables: { input : {id:speaker, image:`https://themeetinghouse.com/cache/320/static/photos/teachers/${speakerName}_app.jpg`, hidden:false}},
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({ 'Success customMutations.updateSpeaker: ': updateSpeaker });
+      this.getSpeakers()
+    } catch (e) {
+      console.error(e);
+    } 
+  } */
   async savePlaylist(): Promise<void> {
     if (this.state.toSavePlaylist.title) {
       try {
@@ -1130,6 +1144,7 @@ class Index extends React.Component<EmptyProps, State> {
         return speaker.id === this.state.speakerFieldValue;
       });
       if (!exists) {
+        const speakerName :string= this.state.speakerFieldValue.trim().replaceAll(" ","_")
         try {
           const createSpeaker: any = await API.graphql({
             query: mutations.createSpeaker,
@@ -1137,7 +1152,8 @@ class Index extends React.Component<EmptyProps, State> {
               input: {
                 id: this.state.speakerFieldValue.trim(),
                 name: this.state.speakerFieldValue.trim(),
-                hidden:this.state.hiddenSpeaker
+                hidden:this.state.hiddenSpeaker,
+                image:`https://themeetinghouse.com/cache/320/static/photos/teachers/${speakerName}_app.jpg`
               },
             },
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -1158,7 +1174,7 @@ class Index extends React.Component<EmptyProps, State> {
         query: mutations.deleteSpeaker,
         variables: {
           input: {
-            id: this.state.selectedSpeaker,
+            id: "Test Speaker",
           },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -1217,7 +1233,7 @@ class Index extends React.Component<EmptyProps, State> {
             style={{display:"inline"}}
               onChange={(e: any) => {
                 this.setState({
-                  selectedSpeaker: e.target.value.speakerone,
+                  selectedSpeaker: e.target.value,
                 });
               }}>
               <option key={'nothing'} value={''}>
@@ -1228,7 +1244,7 @@ class Index extends React.Component<EmptyProps, State> {
                    return (
                       <option
                         key={item2.id}
-                        value={item2.id}>
+                        value={item2.name}>
                             {item2.name}
                       </option>
                     )})}
