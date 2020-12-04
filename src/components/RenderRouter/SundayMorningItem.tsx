@@ -44,7 +44,6 @@ interface State {
     lng: number;
   };
   postalCode: string;
-  time:string;
 }
 
 const SITE_PIN_URL = '/static/svg/SiteLocationPin.svg';
@@ -66,7 +65,6 @@ export class SundayMorningItem extends React.Component<Props, State> {
       travelMode: google.maps.TravelMode.DRIVING,
       currentLatLng: DEFAULT_LAT_LNG,
       postalCode: '',
-      time:""
     };
     let jsonFile;
     if (this.props.content.alternate === 'christmas')
@@ -82,21 +80,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
         this.setState({ listData: myJson });
       });
   }
-  tick() {
-      const rightNow = moment().tz('America/Toronto').format('HH:mm');
-      console.log(rightNow)
-      this.setState({time:rightNow})
-
-  }
-  interval: any;
   componentDidMount() {
-    const today = moment.tz('America/Toronto').format('2020-12-24');
-    if(this.props.content.alternate === "christmas"){
-      if(today >= moment.tz('America/Toronto').format('HH:mm')){
-        this.interval = setInterval(() => this.tick(), 1000);
-      }
-    }
-
     this.setGeoLocation();
   }
 
@@ -382,10 +366,6 @@ export class SundayMorningItem extends React.Component<Props, State> {
                     }
                   })
                   .map((item) => {
-                    console.log("============================")
-                    console.log(item.serviceTimes[0].split('-')[1].trim())
-                    console.log(this.state.time)
-                    console.log("============================")
                     return (
                       <div
                         key={item.id}

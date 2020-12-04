@@ -1,5 +1,6 @@
 [
   {
+    "id":"1",
     "name": "Christmas Live Event 1",
     "location": {
       "longitude": -79.870798,
@@ -9,6 +10,7 @@
     "serviceTimes": ["December 24 - 1:00pm"]
   },
   {
+    "id":"2",
     "name": "Christmas Live Event 2",
     "location": {
       "longitude": -77.2674762,
@@ -19,6 +21,7 @@
   },
 
   {
+    "id":"3",
     "name": "Christmas Live Event 3",
     "location": {
       "longitude": -79.8373778,
