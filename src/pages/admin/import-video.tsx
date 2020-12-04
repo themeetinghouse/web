@@ -1034,20 +1034,6 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return false;
   }
-  /* async updateSpeakers(speaker:string):Promise<void>{
-    const speakerName :string= speaker.trim().replaceAll(" ","_")
-    try {
-      const updateSpeaker: any = await API.graphql({
-        query: customMutations.updateSpeaker,
-        variables: { input : {id:speaker, image:`https://themeetinghouse.com/cache/320/static/photos/teachers/${speakerName}_app.jpg`, hidden:false}},
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
-      console.log({ 'Success customMutations.updateSpeaker: ': updateSpeaker });
-      this.getSpeakers()
-    } catch (e) {
-      console.error(e);
-    } 
-  } */
   async savePlaylist(): Promise<void> {
     if (this.state.toSavePlaylist.title) {
       try {
@@ -1168,13 +1154,13 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-  async deleteSpeaker() {
+  /* async deleteSpeaker() {
     try {
       const removeSpeaker: any = await API.graphql({
         query: mutations.deleteSpeaker,
         variables: {
           input: {
-            id: "Test Speaker",
+            id: this.state.selectedSpeaker,
           },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -1186,7 +1172,7 @@ class Index extends React.Component<EmptyProps, State> {
     } catch (e) {
       console.error(e);
     }
-  }
+  } */
   renderAddSpeaker() {
     return (
       <Modal isOpen={this.state.showAddSpeaker}>
