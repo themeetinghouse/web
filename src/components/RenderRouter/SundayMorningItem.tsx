@@ -376,7 +376,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                         <div className="SundayMorningItemDiv4">
                           <div>
                             {this.props.content.alternate === "christmas" ? 
-                            <h3 className={'SundayMorningH3'} style={{textDecoration:"none", cursor:"unset"}}>
+                            <h3 className={'SundayMorningH3'} style={this.props.content.alternate === "christmas" ? {textDecoration:"none", cursor:"unset"} : {}}>
                             {item.name}
                             </h3>
                             : 
