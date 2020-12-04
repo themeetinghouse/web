@@ -16,6 +16,8 @@ export const listSpeakers = /* GraphQL */ `
       items {
         id
         name
+        image
+        hidden
       }
       nextToken
     }
