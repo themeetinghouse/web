@@ -438,7 +438,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                             <LinkButton
                               id="customBlackButton"
                               className="SundayMorningButton1"
-                              to={'live'}
+                              to={this.props.content.alternate === "christmas" ? "live" : item.id}
                             >
                               Visit Page
                             </LinkButton>
