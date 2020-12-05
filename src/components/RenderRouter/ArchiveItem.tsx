@@ -209,7 +209,10 @@ class ArchiveItem extends React.Component<Props, State> {
       >
         <div>
           <img
-            alt="TBD"
+            alt={
+              (item as VideoByVideoTypeData)?.thumbnailDescription ||
+              'Video Thumbnail'
+            }
             className="ArchiveItemVideoThumb"
             src={
               (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high
