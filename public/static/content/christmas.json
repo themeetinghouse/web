@@ -59,6 +59,30 @@
       },
       {
         "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-eves",
+        "sortOrder": "DESC",
+        "header1": "Eves of Christmas Past"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-shorts",
+        "sortOrder": "DESC",
+        "header1": "Christmas Shorts"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-funny",
+        "sortOrder": "DESC",
+        "header1": "Throwback: Funny Christmas Videos"
+      },
+      {
+        "type": "list",
         "style": "vertical",
         "class": "events",
         "header1": "Upcoming Events",
