@@ -18,6 +18,7 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, NavLink } from 'components/Link/Link';
+import { Dropdown } from "../../components/LiveEvents/Dropdown";
 
 interface SubMenuItem {
   name: string;
@@ -51,6 +52,7 @@ interface State {
   liveTitle?: string | null,
   expand: any
   showNotes: boolean
+  showLiveStreams: boolean
 }
 
 class HomeMenu extends React.Component<Props, State>  {
@@ -79,6 +81,7 @@ class HomeMenu extends React.Component<Props, State>  {
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
       showLiveEvent: false,
+      showLiveStreams:false,
       expand: null,
       showNotes: moment.tz('America/Toronto').isoWeekday() === 7 || (moment.tz('America/Toronto').isoWeekday() === 1 && moment.tz('America/Toronto').hour() <= 12)
     };
@@ -143,7 +146,6 @@ class HomeMenu extends React.Component<Props, State>  {
     )
   };
 
-
   componentDidMount() {
     this.getState();
     window.addEventListener('scroll', this.handleScroll);
@@ -171,7 +173,8 @@ class HomeMenu extends React.Component<Props, State>  {
           <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className="logoText" />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ? <Link className="liveEvent" to="/live">{this.state.liveTitle}</Link> : null}
+        <div className="liveEvent" onClick={() => this.setState({showLiveStreams:!this.state.showLiveStreams})}><p>Live</p></div>
+        {this.state.showLiveStreams ? <div><Dropdown close={() => this.setState({showLiveStreams:false})}></Dropdown></div> : null}
         {this.state.showSearch
           ? <div>
             <img src="/static/svg/Search.svg" className="search" alt="Search" onClick={() => this.setState({ overlayType: 'search' })} />
