@@ -114,7 +114,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
         variables: { filter: { date: { eq: today } } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       }) as GraphQLResult<ListLivestreamsQuery>;
-
       if (json.data?.listLivestreams?.items) {
         for (const item of json.data?.listLivestreams?.items) {
           const rightNow = moment().tz("America/Toronto").format('HH:mm');
