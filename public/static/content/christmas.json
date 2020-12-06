@@ -38,7 +38,7 @@
         "style": "oneImageBlackRight",
         "header1": "What To Expect",
         "header2": "",
-        "text1": "We want to rally together by gathering virtually to share the hope we see in the story of the birth of Jesus. Through carols, art, and stories, we want to explore how this radical idea of God coming to us as a helpless baby changed everything, and how it continues to bring light, hope, and peace when this season of like feels dark.",
+        "text1": "We want to rally together by gathering virtually to share the hope we see in the story of the birth of Jesus. Through carols, art, and stories, we want to explore how this radical idea of God coming to us as a helpless baby changed everything, and how it continues to bring light, hope, and peace when this season of life feels dark.",
 
         "image1": [
           {
@@ -46,6 +46,11 @@
             "alt": "Artwork of a hand holding a flame, inside the flame is an illustration of a baby."
           }
         ]
+      },
+      {
+        "type": "sunday-morning",
+        "header1": "Livestream Experiences",
+        "alternate": "christmas"
       },
       {
         "type": "blog",
@@ -71,7 +76,7 @@
         "class": "videos",
         "subclass": "Christmas-shorts",
         "sortOrder": "DESC",
-        "header1": "Christmas Shorts"
+        "header1": "Christmas Short Videos"
       },
       {
         "type": "list",
@@ -79,7 +84,7 @@
         "class": "videos",
         "subclass": "Christmas-funny",
         "sortOrder": "DESC",
-        "header1": "Throwback: Funny Christmas Videos"
+        "header1": "Funny Christmas Videos"
       },
       {
         "type": "list",
@@ -88,11 +93,6 @@
         "header1": "Upcoming Events",
         "header2": "",
         "facebookEvents": ["155800937784104"]
-      },
-      {
-        "type": "sunday-morning",
-        "header1": "Livestream Experiences",
-        "alternate": "christmas"
       }
     ]
   }
