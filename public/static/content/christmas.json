@@ -17,8 +17,8 @@
         "type": "og-tags",
         "image": "/static/images/christmas-eve-1.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
-        "title": "Christmas",
-        "description": ""
+        "title": "Christmas Eve at Home",
+        "description": "A Livestream Experience | Dec. 24 1:00pm 4:00pm 8:00pm"
       },
       {
         "type": "hero",
@@ -29,21 +29,21 @@
             "alt": "Young woman smiling off camera at the Christmas Market."
           }
         ],
-        "header1": "Christmas",
-        "header2": "",
-        "text1": "Christmas is better together—and we want to spend it with you! Join us as we celebrate the very good news that we see in the story of the birth of Jesus. The news that in Jesus, God came to us—and because of that everything changed."
+        "header1": "Christmas Eve",
+        "header2": "A Livestream Experience",
+        "text1": "How do we celebrate after such a difficult year? How do we find joy and peace during a time filled with sorrow and anxiety? Where do we look to for hope when spirits are low?"
       },
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "What to expect",
+        "header1": "What To Expect",
         "header2": "",
-        "text1": "Our Christmas gatherings will be about one hour in length, as we celebrate by singing carols, sharing stories, and looking into the meaning and story of Christmas we find in the Bible. Everything will be family friendly so be sure to bring the whole gang.",
+        "text1": "We want to rally together by gathering virtually to share the hope we see in the story of the birth of Jesus. Through carols, art, and stories, we want to explore how this radical idea of God coming to us as a helpless baby changed everything, and how it continues to bring light, hope, and peace when this season of like feels dark.",
 
         "image1": [
           {
-            "src": "/static/images/christmas-2.jpg",
-            "alt": "Candlelight Christmas Service"
+            "src": "/static/images/christmas-3.png",
+            "alt": "Artwork of a hand holding a flame, inside the flame is an illustration of a baby."
           }
         ]
       },
@@ -91,7 +91,7 @@
       },
       {
         "type": "sunday-morning",
-        "header1": "Christmas Livestreams",
+        "header1": "Livestream Experiences",
         "alternate": "christmas"
       }
     ]
