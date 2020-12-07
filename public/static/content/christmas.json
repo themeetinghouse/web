@@ -88,6 +88,20 @@
       },
       {
         "type": "list",
+        "style": "horizontalBig",
+        "class": "series-collection",
+        "collection": [
+          "Did it Really Happen?",
+          "Regifting",
+          "Christmas Together",
+          "Incarnation: The Gospel in a Manger",
+          "The Stations of the Crib",
+          "An Awe-Filled Christmas - Wonder, Worship and Waking Up"
+        ],
+        "header1": "Christmas Series Archive"
+      },
+      {
+        "type": "list",
         "style": "vertical",
         "class": "events",
         "header1": "Upcoming Events",
