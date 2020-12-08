@@ -59,7 +59,7 @@
         "header1": "Hello Friend",
         "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
         "button1": {
-          "text": "Got questions?",
+          "text": "Why Jesus?",
           "action": "/spirituality",
           "description": "Got questions about Spirituality?"
         }
@@ -68,7 +68,7 @@
         "type": "content",
         "style": "oneImage",
         "header1": "We're On Your Team",
-        "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods?",
+        "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods be friends on purpose?",
         "list": [
           {
             "type": "link",
@@ -88,11 +88,11 @@
         "style": "oneImageBlackRight",
         "header1": "Christmas Eve",
         "header2": "",
-        "text1": "Good news of great joy—sounds like something we could all use as we navigate what it means to celebrate Christmas in amidst a global pandemic. Let's get together this Christmas Eve (in a virtual, at-home sort of way).",
+        "text1": "Good news of great joy—sounds like something we could all use as we navigate what it means to celebrate Christmas amidst a global pandemic. Let's get together this Christmas Eve (in a virtual, at-home sort of way).",
         "list": [
           {
             "type": "link",
-            "title": "Find Out How You Can Join Us",
+            "title": "Try Something New This Christmas",
             "navigateTo": "/christmas"
           }
         ],

@@ -99,6 +99,23 @@
         "subclass": "Christmas-shorts",
         "sortOrder": "DESC",
         "header1": "Christmas Short Videos"
+      },
+      {
+        "type": "hero",
+        "style": "connect",
+        "image1": [
+          {
+            "src": "/static/images/email-connect-1.jpg",
+            "alt": "Two women drinking coffee."
+          },
+          {
+            "src": "/static/images/email-connect-2.jpg",
+            "alt": "A young woman is talking to her friends in the church lobby."
+          }
+        ],
+        "header1": "Don't Miss Out",
+        "header2": "Let's connect, even if it's just via email.",
+        "text2": "Sing up today and we'll send you a reminder just before Christmas Eve! Bonus—we'll also share 3 of our favourite things with you!"
       }
     ]
   }
