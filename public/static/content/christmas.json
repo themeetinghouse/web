@@ -42,8 +42,8 @@
 
         "image1": [
           {
-            "src": "/static/images/christmas-3.png",
-            "alt": "Artwork of a hand holding a flame, inside the flame is an illustration of a baby."
+            "src": "/static/images/christmas-4.jpg",
+            "alt": "A vocalist performing a song on stage in front of a camera operator."
           }
         ]
       },
@@ -72,22 +72,6 @@
       },
       {
         "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-shorts",
-        "sortOrder": "DESC",
-        "header1": "Christmas Short Videos"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-funny",
-        "sortOrder": "DESC",
-        "header1": "Funny Christmas Videos"
-      },
-      {
-        "type": "list",
         "style": "horizontalBig",
         "class": "series-collection",
         "collection": [
@@ -99,6 +83,22 @@
           "An Awe-Filled Christmas - Wonder, Worship and Waking Up"
         ],
         "header1": "Christmas Series Archive"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-funny",
+        "sortOrder": "DESC",
+        "header1": "Funny Christmas Videos"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-shorts",
+        "sortOrder": "DESC",
+        "header1": "Christmas Short Videos"
       }
     ]
   }
