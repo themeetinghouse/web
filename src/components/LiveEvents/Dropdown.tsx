@@ -76,11 +76,11 @@ export const Dropdown = ({close} : Props) =>{
       >
         <div className="MainContainer">
             <img onClick={close} className="close" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
-            <p className="DayHeading">{"Today's Livestreams"}</p>
+            <p className="Heading">{"Today's Livestreams"}</p>
             {events ? events.map((event: any, ind:any) =>{
                 return (
                     <div style={ind === events.length-1 ? {marginBottom:"16px"} : {}} className="EventItem" key={ind}>
-                        <p className="EventTime">{event.eventTime} EST </p>
+                        <p className="EventTime">{event.eventTime}<small>am EST</small> </p>
                         <p className="EventTitle">{event.eventName}</p>
                         <button className="EventButton">Join</button>
                     </div>

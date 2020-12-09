@@ -170,9 +170,7 @@ class HomeMenu extends React.Component<Props, State>  {
     return (
       <div>
         {this.state.showLiveStreams ? <Dropdown close={() => this.setState({showLiveStreams:false})}></Dropdown> : null}
-
-      <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
-            
+        <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
         <NavbarBrand tag={Link} className="brand" to="/">
           <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
           {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className="logoText" />) : null}

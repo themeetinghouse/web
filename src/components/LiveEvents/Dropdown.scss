@@ -24,7 +24,7 @@
     opacity:1;
     transition: opacity 200ms ease-out;
 }
-.DayHeading{
+.Heading{
     padding-left:8px;
     padding-right:8px;
     text-align: center;
@@ -80,7 +80,7 @@
         position:absolute;
         z-index: 3000;
     }
-    .DayHeading{
+    .Heading{
         text-align:left;
         margin-left:16px;
         font-size: 6vw;

@@ -97,6 +97,7 @@ interface State {
   alert: string;
   livestreamList: LiveObject[];
   liveObject: LiveObject;
+  customEvent:boolean;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -109,6 +110,7 @@ class Index extends React.Component<EmptyProps, State> {
       alert: '',
       livestreamList: [],
       liveObject: liveInit,
+      customEvent:false
     };
     this.listLivestreams();
   }
@@ -234,6 +236,12 @@ class Index extends React.Component<EmptyProps, State> {
             <td className="divCell" key={'showKids'}>
               showKids
             </td>
+            <td className="divCell" key={'eventExternalUrl'}>
+              eventExternalUrl
+            </td>
+            <td className="divCell" key={'eventTitle'}>
+              title  
+            </td>
           </tr>
         </thead>
         <tbody>
@@ -273,6 +281,12 @@ class Index extends React.Component<EmptyProps, State> {
                 </td>
                 <td className="divCell" key={'showKids'}>
                   {livestream.showKids.toString()}
+                </td>
+                <td className="divCell" key={'eventExternalUrl'}>
+              
+                </td>
+                <td className="divCell" key={'eventTitle'}>
+              
                 </td>
               </tr>
             );
