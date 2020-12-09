@@ -677,6 +677,8 @@ type Livestream
   liveYoutubeId: String
   showChat: Boolean
   showKids: Boolean
+  eventTitle: String
+  externalEventUrl: String
   menu: [LiveMenu]
   zoom: [ZoomItem]
   titles: [String]

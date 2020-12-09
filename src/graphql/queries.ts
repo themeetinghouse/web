@@ -4114,6 +4114,8 @@ export const getLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
@@ -4147,6 +4149,8 @@ export const listLivestreams = /* GraphQL */ `
         liveYoutubeId
         showChat
         showKids
+        eventTitle
+        externalEventUrl
         menu {
           title
           link

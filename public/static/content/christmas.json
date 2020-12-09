@@ -42,8 +42,8 @@
 
         "image1": [
           {
-            "src": "/static/images/christmas-3.png",
-            "alt": "Artwork of a hand holding a flame, inside the flame is an illustration of a baby."
+            "src": "/static/images/christmas-4.jpg",
+            "alt": "A vocalist performing a song on stage in front of a camera operator."
           }
         ]
       },
@@ -72,11 +72,17 @@
       },
       {
         "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-shorts",
-        "sortOrder": "DESC",
-        "header1": "Christmas Short Videos"
+        "style": "horizontalBig",
+        "class": "series-collection",
+        "collection": [
+          "Did it Really Happen?",
+          "Regifting",
+          "Christmas Together",
+          "Incarnation: The Gospel in a Manger",
+          "The Stations of the Crib",
+          "An Awe-Filled Christmas - Wonder, Worship and Waking Up"
+        ],
+        "header1": "Christmas Series Archive"
       },
       {
         "type": "list",
@@ -88,11 +94,28 @@
       },
       {
         "type": "list",
-        "style": "vertical",
-        "class": "events",
-        "header1": "Upcoming Events",
-        "header2": "",
-        "facebookEvents": ["155800937784104"]
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-shorts",
+        "sortOrder": "DESC",
+        "header1": "Christmas Short Videos"
+      },
+      {
+        "type": "hero",
+        "style": "connect",
+        "image1": [
+          {
+            "src": "/static/images/email-connect-1.jpg",
+            "alt": "Two women drinking coffee."
+          },
+          {
+            "src": "/static/images/email-connect-2.jpg",
+            "alt": "A young woman is talking to her friends in the church lobby."
+          }
+        ],
+        "header1": "Don't Miss Out",
+        "header2": "Let's connect, even if it's just via email.",
+        "text2": "Sing up today and we'll send you a reminder just before Christmas Eve! Bonus—we'll also share 3 of our favourite things with you!"
       }
     ]
   }

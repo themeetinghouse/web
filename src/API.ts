@@ -323,6 +323,8 @@ export type CreateLivestreamInput = {
   liveYoutubeId?: string | null,
   showChat?: boolean | null,
   showKids?: boolean | null,
+  eventTitle?: string | null,
+  externalEventUrl?: string | null,
   menu?: Array< LiveMenuInput | null > | null,
   zoom?: Array< ZoomItemInput | null > | null,
   titles?: Array< string | null > | null,
@@ -350,6 +352,8 @@ export type UpdateLivestreamInput = {
   liveYoutubeId?: string | null,
   showChat?: boolean | null,
   showKids?: boolean | null,
+  eventTitle?: string | null,
+  externalEventUrl?: string | null,
   menu?: Array< LiveMenuInput | null > | null,
   zoom?: Array< ZoomItemInput | null > | null,
   titles?: Array< string | null > | null,
@@ -1095,6 +1099,8 @@ export type ModelLivestreamFilterInput = {
   liveYoutubeId?: ModelStringFilterInput | null,
   showChat?: ModelBooleanFilterInput | null,
   showKids?: ModelBooleanFilterInput | null,
+  eventTitle?: ModelStringFilterInput | null,
+  externalEventUrl?: ModelStringFilterInput | null,
   titles?: ModelStringFilterInput | null,
   homepageLink?: ModelStringFilterInput | null,
   and?: Array< ModelLivestreamFilterInput | null > | null,
@@ -2757,6 +2763,8 @@ export type CreateLivestreamMutation = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
@@ -2791,6 +2799,8 @@ export type UpdateLivestreamMutation = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
@@ -2825,6 +2835,8 @@ export type DeleteLivestreamMutation = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
@@ -32137,6 +32149,8 @@ export type GetLivestreamQuery = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
@@ -32175,6 +32189,8 @@ export type ListLivestreamsQuery = {
       liveYoutubeId: string | null,
       showChat: boolean | null,
       showKids: boolean | null,
+      eventTitle: string | null,
+      externalEventUrl: string | null,
       menu:  Array< {
         __typename: "LiveMenu",
         title: string,
@@ -47574,6 +47590,8 @@ export type OnCreateLivestreamSubscription = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
@@ -47604,6 +47622,8 @@ export type OnUpdateLivestreamSubscription = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
@@ -47634,6 +47654,8 @@ export type OnDeleteLivestreamSubscription = {
     liveYoutubeId: string | null,
     showChat: boolean | null,
     showKids: boolean | null,
+    eventTitle: string | null,
+    externalEventUrl: string | null,
     menu:  Array< {
       __typename: "LiveMenu",
       title: string,
