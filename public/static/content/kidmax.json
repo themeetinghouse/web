@@ -51,13 +51,13 @@
           {
             "type": "link",
             "title": "Download Preschool Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/PSLessonDec6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Preschool - Lesson - Dec13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Preschool Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesDec6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PS- Activities - Dec 13.pdf",
             "openNewBrowser": true
           },
           {
@@ -85,21 +85,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Kids Graphic Dec 6.jpg",
-            "alt": "This week's big idea: When we listen to God, we hear from him."
+            "src": "/static/images/Kids Big Idea Dec. 13.jpg",
+            "alt": "This week's big idea: When we listen to God, we learn our purpose."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Kids Lesson Dec 13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Kids Activities Dec 13.pdf",
             "openNewBrowser": true
           },
           {
