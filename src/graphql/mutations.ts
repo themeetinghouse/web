@@ -1121,6 +1121,8 @@ export const createLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
@@ -1149,6 +1151,8 @@ export const updateLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
@@ -1177,6 +1181,8 @@ export const deleteLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
