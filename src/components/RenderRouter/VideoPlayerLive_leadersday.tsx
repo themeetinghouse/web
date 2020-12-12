@@ -153,6 +153,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
     showKids: false,
     menu: null,
     zoom: null,
+    eventTitle: null,
+    externalEventUrl: null,
     titles: [],
     homepageLink: '',
     createdAt: '',
