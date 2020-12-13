@@ -203,7 +203,7 @@ class Index extends React.Component<EmptyProps, State> {
   handleSelection(id: string) {
     const temp = this.state.livestreamList.filter((item) => item.id === id)[0];
     console.log(temp)
-    if(temp.externalEventUrl !== null && temp.eventTitle !== null && temp.externalEventUrl !== "" && temp.eventTitle !== "")
+    if(temp.externalEventUrl !== null && temp.externalEventUrl !== "")
       this.setState({customEvent: true})
     else{
       this.setState({customEvent:false})
@@ -401,7 +401,7 @@ class Index extends React.Component<EmptyProps, State> {
   async save(): Promise<void> {
     if (this.state.editMode) {
       try {
-        const temp = this.state.liveObject;
+        const temp = {...this.state.liveObject}
         if(this.state.customEvent){
           delete temp['showChat']
           delete temp['showKids']
@@ -421,12 +421,14 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           alert: 'updated: ' + response.data.updateLivestream.id,
         });
-        this.setState({liveObject:liveInit})
+        this.setState({liveObject:liveInit, editMode:false})
+        this.setState({customEvent:false})
+
       } catch (e) {
         console.error(e);
       } 
     } else {
-      const temp = this.state.liveObject;
+      const temp = {...this.state.liveObject}
       if(this.state.customEvent){
         delete temp['showChat']
         delete temp['showKids']
@@ -446,7 +448,9 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           alert: 'created: ' + response.data.createLivestream.id,
         });
-        this.setState({liveObject:liveInit})
+        this.setState({liveObject:liveInit, editMode:false})
+        this.setState({customEvent:false})
+
       } catch (e) {
         console.error(e);
       } 
@@ -553,6 +557,7 @@ class Index extends React.Component<EmptyProps, State> {
           alert: 'deleted: ' + response.data.deleteLivestream.id,
           toDelete: '',
         });
+        this.setState({liveObject:liveInit, customEvent:false})
       } catch (e) {
         console.error(e);
       }
@@ -647,7 +652,7 @@ class Index extends React.Component<EmptyProps, State> {
       <>
       <button 
         style={{marginTop:"16px", marginBottom:"16px"}} onClick={()=> {
-        this.setState({liveObject:liveInit, editMode:false})
+          this.setState({liveObject:liveInit})
          this.setState({customEvent: !this.state.customEvent, alert:'', notSundayWarning:''})
         }}>{!this.state.customEvent ? "Add Custom Event" : "Add Live Event"}</button>
         {this.state.customEvent ? 
@@ -876,7 +881,7 @@ class Index extends React.Component<EmptyProps, State> {
               <input
                 className="livestream-input"
                 type="text"
-                value={this.state.liveObject.prerollYoutubeId as string}
+                value={this.state.liveObject.prerollYoutubeId ?? ""}
                 onChange={(e) =>
                   this.handleChange('prerollYoutubeId', e.target.value)
                 }
@@ -889,7 +894,7 @@ class Index extends React.Component<EmptyProps, State> {
                 className="livestream-input"
                 type="text"
                 required
-                value={this.state.liveObject.liveYoutubeId}
+                value={this.state.liveObject.liveYoutubeId ?? ""}
                 onChange={(e) =>
                   this.handleChange('liveYoutubeId', e.target.value)
                 }
@@ -921,7 +926,7 @@ class Index extends React.Component<EmptyProps, State> {
               className="livestream-input"
               type="text"
               required
-              value={this.state.liveObject.eventTitle}
+              value={this.state.liveObject.eventTitle ?? ""}
               onChange={(e) =>
                 this.handleChange('eventTitle', e.target.value)
               }
@@ -930,7 +935,7 @@ class Index extends React.Component<EmptyProps, State> {
             <br />
             <input
               type="checkbox"
-              checked={this.state.liveObject.showChat}
+              checked={this.state.liveObject.showChat ?? false}
               onChange={() =>
                 this.handleChange('showChat', !this.state.liveObject.showChat)
               }
@@ -938,7 +943,7 @@ class Index extends React.Component<EmptyProps, State> {
             <label> show Chat</label>
             <input
               type="checkbox"
-              checked={this.state.liveObject.showKids}
+              checked={this.state.liveObject.showKids ?? false}
               onChange={() =>
                 this.handleChange('showKids', !this.state.liveObject.showKids)
               }
@@ -1064,6 +1069,7 @@ class Index extends React.Component<EmptyProps, State> {
                 {this.renderLivestreams()}
                 {this.renderDelete()}
               </div>
+              <button onClick={() => console.log(this.state.liveObject)}>Check object state</button>
               {this.renderEditor()}
               {this.renderAlert()}
             </div>
