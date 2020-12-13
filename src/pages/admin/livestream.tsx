@@ -913,6 +913,21 @@ class Index extends React.Component<EmptyProps, State> {
               ></input>
             </label>
             <br />
+            <label style={{width:"230px"}}>
+              eventTitle{' '}
+              <br />
+              <input
+              maxLength={100}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject.eventTitle}
+              onChange={(e) =>
+                this.handleChange('eventTitle', e.target.value)
+              }
+              ></input>
+          </label>
+            <br />
             <input
               type="checkbox"
               checked={this.state.liveObject.showChat}

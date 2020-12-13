@@ -64,7 +64,7 @@ export const Dropdown = ({close} : Props) =>{
             {events ? events.map((event: any, ind:any) =>{
                 return (
                     <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className="EventItem" key={ind}>
-                        <p className="EventTime">{event?.eventTime}<small>am EST</small> </p>
+                        <p className="EventTime">{moment(event?.eventTime, 'HH:mm').format('hh:mm')}<small>{moment(event?.eventTime, 'HH:mm').format('a')} EST</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         <Link
                           className="EventButton"
