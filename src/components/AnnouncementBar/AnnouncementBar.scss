@@ -1,0 +1,37 @@
+@import '../../theme';
+
+.AnnouncementBarContainer {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    width:100vw;
+    top:0;
+    position:relative;
+    height:56px;
+    background-color: $goldensun;
+    z-index: 300;
+    margin:auto;
+    cursor: pointer;
+}
+.bannerMessage{
+    text-align: center;
+    margin-top:auto;
+    margin-bottom:auto;
+    font-family: Graphik Web;
+    font-weight: 700;
+    color:black;
+    font-size: 1.3em;
+}
+
+
+@media (max-width: 768px) {
+    .AnnouncementBarContainer {
+        top:19.2vw;
+        height:56px;
+        position:absolute;
+    }
+    .bannerMessage{
+        font-size: 0.8em;
+    }
+}
+  

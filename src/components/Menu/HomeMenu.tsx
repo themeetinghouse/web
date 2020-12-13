@@ -19,6 +19,7 @@ import { API } from 'aws-amplify';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, NavLink } from 'components/Link/Link';
 import { Dropdown } from "../../components/LiveEvents/Dropdown";
+import { AnnouncementBar} from "../../components/AnnouncementBar/AnnouncementBar";
 
 interface SubMenuItem {
   name: string;
@@ -103,7 +104,7 @@ class HomeMenu extends React.Component<Props, State>  {
         const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow < item.endTime
         if (showTime && this.state.showLive) {
           console.log("ShowLive")
-          this.setState({ liveTitle: item?.homepageLink, showLiveEvent: true })
+          this.setState({ liveTitle: item?.homepageLink , showLiveEvent: true })
         }
         
       })
@@ -169,17 +170,21 @@ class HomeMenu extends React.Component<Props, State>  {
     // console.log(this.state.position)
     return (
       <div>
-        {this.state.showLiveStreams ? <Dropdown close={() => {
-          this.setState({showLiveEvent:false, showLiveStreams:false})
+         {this.state.showLiveEvent  ?
+         <div onClick={() => this.setState({showLiveStreams:!this.state.showLiveStreams})}><AnnouncementBar bannerMessage={this.state.liveTitle?? "Live"}></AnnouncementBar></div>
+        : null}
+      <div>
+       
+        {this.state.showLiveStreams ? <Dropdown 
+            close={() => this.setState({showLiveStreams:false})}
+            end={() => {this.setState({showLiveEvent:false, showLiveStreams:false})
       }}></Dropdown> : null}
         <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
         <NavbarBrand tag={Link} className="brand" to="/">
-          <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
-          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className="logoText" />) : null}
+          <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className={!this.state.showLiveEvent ? "logoHouse " : "logoHouse logoOffset"} />
+          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className={!this.state.showLiveEvent ? "logoText " : "logoText logoOffset"} />) : null}
         </NavbarBrand>
-        {this.state.showLiveEvent ?
-          <div className="liveEvent" onClick={() => this.setState({showLiveStreams:!this.state.showLiveStreams})}><p>Live</p></div>
-        : null}
+
 
         {this.state.showSearch
           ? <div>
@@ -237,6 +242,7 @@ class HomeMenu extends React.Component<Props, State>  {
           </Collapse>
         </Navbar> : null}
         </div>
+      </div>
       </div>
     );
   }

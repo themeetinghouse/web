@@ -9,9 +9,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link} from 'components/Link/Link';
 
 type Props ={
+    end: () => void;
     close: () => void;
 }
-export const Dropdown = ({close} : Props) =>{
+export const Dropdown = ({end, close} : Props) =>{
     const [events, setEvents] :any = useState([]);
     const loadLiveStreams = async()  =>{
     const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
@@ -65,8 +66,8 @@ export const Dropdown = ({close} : Props) =>{
           }
         }
         if(rightNow >= events[events.length-1].eventEndTime){
-          clearInterval();
-          close()
+          clearInterval(interval);
+          end()
         }
       })
       }, 1000);
@@ -84,13 +85,13 @@ export const Dropdown = ({close} : Props) =>{
         transitionLeaveTimeout={1000}
         transitionAppear={true}
       >
-        <div className="MainContainer">
+        <div className="DropdownMainContainer">
             <img onClick={close} className="close" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
             <p className="Heading">{"Today's Livestreams"}</p>
             {events ? events.map((event: any, ind:any) =>{
                 return (
                     <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className="EventItem" key={ind}>
-                        <p className="eventStartTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('hh:mm')}<small>{moment(event?.eventStartTime, 'HH:mm').format('a')} EST</small> </p>
+                        <p className="EventTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('hh:mm')}<small>{moment(event?.eventStartTime, 'HH:mm').format('a')} EST</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         {event.eventLink === "/live" ?
                             <Link
