@@ -66,13 +66,21 @@ export const Dropdown = ({close} : Props) =>{
                     <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className="EventItem" key={ind}>
                         <p className="EventTime">{moment(event?.eventTime, 'HH:mm').format('hh:mm')}<small>{moment(event?.eventTime, 'HH:mm').format('a')} EST</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
-                        <Link
-                          className="EventButton"
-                          style={event?.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}}
-                          to={event?.eventLink}
+                        {event.eventLink === "/live" ?
+                            <Link
+                              className="EventButton"
+                              style={event?.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}}
+                              to={"/live"}                          
+                            >
+                            Join
+                            </Link> : 
+                        <a className="EventButton" 
+                        style={event?.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}} 
+                        href={!event.eventLink.includes("https://") ? `https://${event.eventLink}` : event.eventLink}
                         >
-                        Join
-                        </Link>
+                          Join
+                        </a>
+                        }
                     </div>
                 )
             }): null}

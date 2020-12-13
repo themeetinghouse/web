@@ -92,7 +92,7 @@ interface LiveObject {
   homepageLink: string;
   zoom?: ZoomItem[];
   eventTitle: string;
-  externalEventUrl: string;
+  externalEventUrl: string | undefined;
 }
 
 interface State {
@@ -410,6 +410,9 @@ class Index extends React.Component<EmptyProps, State> {
           delete temp['prerollYoutubeId']
           delete temp['menu']
         }
+        else{
+          delete temp['externalEventUrl']
+        }
         delete temp['createdAt'];
         delete temp['updatedAt'];
         console.log(temp)
@@ -437,6 +440,9 @@ class Index extends React.Component<EmptyProps, State> {
         delete temp['prerollYoutubeId']
         delete temp['menu']
         temp.id = `CustomEvent-${uuidv4()}`;
+      }
+      else{
+        delete temp['externalEventUrl'];
       }
       console.log(temp)
       try {
@@ -652,7 +658,7 @@ class Index extends React.Component<EmptyProps, State> {
       <>
       <button 
         style={{marginTop:"16px", marginBottom:"16px"}} onClick={()=> {
-          this.setState({liveObject:liveInit})
+        this.setState({liveObject:liveInit})
          this.setState({customEvent: !this.state.customEvent, alert:'', notSundayWarning:''})
         }}>{!this.state.customEvent ? "Add Custom Event" : "Add Live Event"}</button>
         {this.state.customEvent ? 
@@ -1069,7 +1075,14 @@ class Index extends React.Component<EmptyProps, State> {
                 {this.renderLivestreams()}
                 {this.renderDelete()}
               </div>
-              <button onClick={() => console.log(this.state.liveObject)}>Check object state</button>
+              <button onClick={() => {
+                console.log("Live Object =============")
+                console.log(this.state.liveObject) 
+                console.log("===================")
+                console.log("this.state.customEvent =============")
+                console.log(this.state.customEvent) 
+                console.log("===================")
+              }}>Check states</button>
               {this.renderEditor()}
               {this.renderAlert()}
             </div>
