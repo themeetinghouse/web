@@ -1,10 +1,11 @@
 @import '../../theme';
 .DropdownMainContainer {
+    top:60px;
     padding-top:4px;
     background-color: transparent;
     color:white;
     width:28vw;
-    min-width:420px;
+    min-width:calc(220px + 1vw);
     position:absolute;
     right:2vw;
     z-index: 3000;
@@ -16,7 +17,7 @@
 .DropdownFill{
     overflow:auto;
     margin-top:30px;
-    min-height:11vh;
+    min-height:14vh;
     background-color:#1a1a1a;
     max-height:50vh;
 }
@@ -106,18 +107,23 @@
 .closeButton{
     display:none;
 }
+.offsetThat{
+    margin-top:32px;
+}
 
 @media (max-width: 768px) {
     .DropdownMainContainer {
         position:fixed;
-        top:0;
+        top:-35px;
         left:0;
         min-width:100%;
         z-index: 3000;
+        min-height:100%;
     }
     .DropdownFill{
         position:fixed;
         min-width:100%;
+        min-height:calc(100% + 35px);
     }
     .triangle{
         display:none;
@@ -137,7 +143,6 @@
         flex:1;
     }
     .EventTime{
-        width:33%;
         padding-right:16px;
         margin:auto;
         font-size:4vw;
@@ -159,13 +164,18 @@
         font-family: Graphik Web;
     }
     .closeButton{
+        left:calc(50% - 16px);
+        position:relative;
         margin-top:24px;
         display:unset;
         z-index: 200;
     }
     .EventFooter{
+        position:absolute;
+        bottom:0;
+        width:100%;
+        text-align: center;
         background-color:#1a1a1a;
-        top:300px;
     }
 }
   

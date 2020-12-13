@@ -8,6 +8,7 @@ import { ListLivestreamsQuery } from '../../API';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link} from 'components/Link/Link';
 import customUseOnClickOutside from "../Menu/customUseOnClickOutside";
+import { Spinner } from 'reactstrap';
 
 type Props ={
     end: () => void;
@@ -16,6 +17,7 @@ type Props ={
 export const Dropdown = ({end, close} : Props) =>{
     const ref = useRef(null)
     const [events, setEvents] :any = useState([]);
+    const [isLoading, setisLoading] = useState(true);
     const loadLiveStreams = async()  =>{
     const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
     try {
@@ -41,7 +43,9 @@ export const Dropdown = ({end, close} : Props) =>{
         console.log(a.eventStartTime)
         return a;
       }).sort((a:any,b:any) => a.eventStartTime.localeCompare(b.eventStartTime)))
+      setisLoading(false)
     } catch (err) {
+      setisLoading(false)
       console.error(err)
     }
   }
@@ -92,12 +96,10 @@ export const Dropdown = ({end, close} : Props) =>{
           <div className="triangle"></div>
           <div className="DropdownFill">
           <img onClick={close} className="closeButton" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
-
-
-            {events ? events.map((event: any, ind:any) =>{
+            {!isLoading ? events.map((event: any, ind:any) =>{
                 return (
                     <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className={ind === 0 ? "EventItem offsetThat" : "EventItem"} key={ind}>
-                        <p className="EventTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('h:mm')}<small style={{fontWeight:700}}>{moment(event?.eventStartTime, 'HH:mm').format('a')}</small> </p>
+                        <p className="EventTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('h:mm')}<small style={{fontWeight:700}}>{moment(event?.eventStartTime, 'HH:mm').format('A')}</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         {event.eventLink === "/live" ?
                             <Link
@@ -116,13 +118,13 @@ export const Dropdown = ({end, close} : Props) =>{
                         }
                     </div>
                 )
-            }): null}
-                        <p className="EventFooter">All times displayed in EST
-
-</p>
+            }): 
+              <div style={{ marginTop:"5vh",display:"flex", zIndex:100}}>
+                <Spinner style={{ margin:"auto", width:'3rem', height:'3rem'}} color="light"/>
+              </div>
+              }
             </div>
-
-
+            <p className="EventFooter">All times displayed in EST</p>
         </div>
         </ReactCSSTransitionGroup>
     )
