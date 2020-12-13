@@ -563,7 +563,7 @@ class Index extends React.Component<EmptyProps, State> {
           alert: 'deleted: ' + response.data.deleteLivestream.id,
           toDelete: '',
         });
-        this.setState({liveObject:liveInit, customEvent:false})
+        this.setState({liveObject:liveInit, customEvent:false, editMode:false})
       } catch (e) {
         console.error(e);
       }
@@ -1081,6 +1081,9 @@ class Index extends React.Component<EmptyProps, State> {
                 console.log("===================")
                 console.log("this.state.customEvent =============")
                 console.log(this.state.customEvent) 
+                console.log("===================")
+                console.log("this.state.editMode =============")
+                console.log(this.state.editMode) 
                 console.log("===================")
               }}>Check states</button>
               {this.renderEditor()}
