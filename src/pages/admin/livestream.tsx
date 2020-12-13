@@ -479,8 +479,9 @@ class Index extends React.Component<EmptyProps, State> {
     temp[field] = data;
     this.setState({ liveObject: temp });
     if(!this.state.customEvent){
+      const firstString = this.state.liveObject.homepageLink.toLowerCase().includes("after party") ? "After Party" : "Live"
     temp['id'] =
-      this.state.liveObject.homepageLink +
+       firstString +
       '-' +
       this.state.liveObject.date +
       '-' +
@@ -744,13 +745,13 @@ class Index extends React.Component<EmptyProps, State> {
           </div>
           <div style={{width:"230px"}}>
           <label>
-              homepageLink{' '}
+              bannerMessage{' '}
               <span style={{ fontSize: 10 }}>
-              ({this.state.liveObject.homepageLink.length}/12 characters)
+              ({this.state.liveObject.homepageLink.length}/60 characters)
               </span>
               <br />
               <input
-              maxLength={12}
+              maxLength={60}
               className="livestream-input"
               type="text"
               required
@@ -907,13 +908,13 @@ class Index extends React.Component<EmptyProps, State> {
               ></input>
             </label>
             <label>
-              homepageLink{' '}
+              bannerMessage{' '}
               <span style={{ fontSize: 10 }}>
-                ({this.state.liveObject.homepageLink.length}/12 characters)
+                ({this.state.liveObject.homepageLink.length}/60 characters)
               </span>
               <br />
               <input
-                maxLength={12}
+                maxLength={60}
                 className="livestream-input"
                 type="text"
                 required
