@@ -91,12 +91,12 @@ export const Dropdown = ({end, close} : Props) =>{
         <div ref={ref} className="DropdownMainContainer">
           <div className="triangle"></div>
           <div className="DropdownFill">
+          <img onClick={close} className="closeButton" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
 
 
-            <img onClick={close} className="close" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
             {events ? events.map((event: any, ind:any) =>{
                 return (
-                    <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className="EventItem" key={ind}>
+                    <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className={ind === 0 ? "EventItem offsetThat" : "EventItem"} key={ind}>
                         <p className="EventTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('h:mm')}<small style={{fontWeight:700}}>{moment(event?.eventStartTime, 'HH:mm').format('a')}</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         {event.eventLink === "/live" ?
@@ -117,8 +117,12 @@ export const Dropdown = ({end, close} : Props) =>{
                     </div>
                 )
             }): null}
+                        <p className="EventFooter">All times displayed in EST
+
+</p>
             </div>
-            <p className="EventFooter">All times displayed in EST</p>
+
+
         </div>
         </ReactCSSTransitionGroup>
     )

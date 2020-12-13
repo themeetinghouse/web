@@ -103,23 +103,21 @@
     text-decoration: none;
     color:black;
 }
-.close{
+.closeButton{
     display:none;
 }
 
 @media (max-width: 768px) {
     .DropdownMainContainer {
-        top:-35px;
+        position:fixed;
+        top:0;
         left:0;
-        min-width: 100vw;
-        position:absolute;
+        min-width:100%;
         z-index: 3000;
     }
     .DropdownFill{
-        top:0;
-        overflow:auto;
-        min-height:100vh;
-        background-color:#1a1a1a;
+        position:fixed;
+        min-width:100%;
     }
     .triangle{
         display:none;
@@ -129,6 +127,7 @@
         margin-left:16px;
         font-size: 6vw;
     }
+
     .EventTitle{
         padding-right:8px;
         margin:auto;
@@ -145,6 +144,9 @@
         color:#ffffff;
         display:inline;
     }
+    .offsetThat{
+        margin-top:24px;
+    }
     .EventButton{
         padding-right:5.5vw;
         padding-left:5.5vw;
@@ -156,11 +158,14 @@
         text-decoration: none;
         font-family: Graphik Web;
     }
-    .close{
+    .closeButton{
+        margin-top:24px;
         display:unset;
-        position:relative;
-        right:24px;
-        top:24px;
+        z-index: 200;
+    }
+    .EventFooter{
+        background-color:#1a1a1a;
+        top:300px;
     }
 }
   
