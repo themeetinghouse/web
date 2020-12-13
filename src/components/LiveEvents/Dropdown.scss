@@ -1,21 +1,24 @@
 @import '../../theme';
-
 .DropdownMainContainer {
-    padding-top:32px;
-    background-color: #1A1A1A;
-    overflow:auto;
+    padding-top:4px;
+    background-color: transparent;
     color:white;
     width:28vw;
     min-width:420px;
     position:absolute;
     right:2vw;
-    top:7vw;
     z-index: 3000;
     display:flex;
     flex-direction: column;
-    min-height:82vh;
-    max-height:82vh;
-    padding-bottom:32px;
+    max-height:50vh;
+    padding-bottom:4px;
+}
+.DropdownFill{
+    overflow:auto;
+    margin-top:30px;
+    min-height:11vh;
+    background-color:#1a1a1a;
+    max-height:50vh;
 }
 .Dropdown-appear{
     opacity:0;
@@ -45,7 +48,8 @@
     flex-direction: column;
     padding-right:8px;
     margin:auto;
-    font-size:0.9vw;
+    font-size: calc(0.2vw + 13px);
+    font-weight:500;
     width:24%;
     color:#ffffff;
     display:inline;
@@ -54,11 +58,21 @@
     flex-direction: column;
     margin:auto;
     padding-left:12px;
-    font-size: 1.3vw;
+    font-size: calc(0.4vw + 14px);
     padding-right:16px;
     color:#ffffff;
     display:inline;
     flex:1;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    position:absolute;
+    right: calc(50% - 35px);
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 35px solid #1a1a1a;
 }
 .EventButton{
     flex-direction: column;
@@ -75,7 +89,16 @@
     justify-content: "center";
     align-items:"center";
 }
-
+.EventFooter{
+    padding-top:8px;
+    padding-bottom:16px;
+    background-color:#1a1a1a;
+    font-size: calc(8px + 0.3vw);
+    font-weight:600;
+    position:relative;
+    text-align: center;
+    bottom:0;
+}
 .EventButton:hover{
     text-decoration: none;
     color:black;
@@ -86,20 +109,25 @@
 
 @media (max-width: 768px) {
     .DropdownMainContainer {
-        top:0;
+        top:-35px;
         left:0;
         min-width: 100vw;
-        min-height:100vh;
         position:absolute;
         z-index: 3000;
+    }
+    .DropdownFill{
+        top:0;
+        overflow:auto;
+        min-height:100vh;
+        background-color:#1a1a1a;
+    }
+    .triangle{
+        display:none;
     }
     .Heading{
         text-align:left;
         margin-left:16px;
         font-size: 6vw;
-    }
-    .EventItem{
-        display:flex;
     }
     .EventTitle{
         padding-right:8px;
@@ -130,7 +158,7 @@
     }
     .close{
         display:unset;
-        position:absolute;
+        position:relative;
         right:24px;
         top:24px;
     }
