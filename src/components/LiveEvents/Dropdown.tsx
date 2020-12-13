@@ -9,11 +9,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link} from 'components/Link/Link';
 
 type Props ={
-    close:any;
+    close: () => void;
 }
 export const Dropdown = ({close} : Props) =>{
     const [events, setEvents] :any = useState([]);
-
     const loadLiveStreams = async()  =>{
     const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
     try {
@@ -29,27 +28,54 @@ export const Dropdown = ({close} : Props) =>{
         const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
         const event : any = {
             eventName:item?.eventTitle ? item.eventTitle : item?.homepageLink,  
-            eventTime:item?.videoStartTime ?? item?.startTime,
+            eventStartTime:item?.videoStartTime ?? item?.startTime,
+            eventEndTime:item?.endTime,
             eventLink:item?.liveYoutubeId ? "/live" : item?.externalEventUrl 
         }
         tempEvents.push({...event, live:showTime})
       })
       setEvents(tempEvents.map((a:any) => {
-        console.log(a.eventTime)
+        console.log(a.eventStartTime)
         return a;
-      }).sort((a:any,b:any) => a.eventTime.localeCompare(b.eventTime)))
+      }).sort((a:any,b:any) => a.eventStartTime.localeCompare(b.eventStartTime)))
     } catch (err) {
       console.error(err)
     }
   }
-      
     useEffect(()=>{
         loadLiveStreams()
-        console.log("a")
     },[])
     useEffect(()=>{
-      setInterval
-    },[])
+      if(events?.length> 0){
+      const interval = setInterval(() => {
+      console.log("Ticking")
+      const rightNow = moment().tz("America/Toronto").format('HH:mm')
+      const temp = [...events];
+      events.map((event:any, index:number)=>{
+        console.log("looping events")
+        if(rightNow >=event.eventStartTime && rightNow <event.eventEndTime){
+          if(!temp[index].live)
+            temp[index].live = true;
+            setEvents(temp)
+        }
+        else{
+          if(temp[index].live){
+            temp[index].live=false;
+            setEvents(temp)
+          }
+        }
+        if(rightNow >= events[events.length-1].eventEndTime){
+          clearInterval();
+          close()
+        }
+      })
+      }, 1000);
+      
+      return () => clearInterval(interval);
+    }
+    
+    },[events])
+
     return (
         <ReactCSSTransitionGroup
         transitionName="Dropdown"
@@ -64,7 +90,7 @@ export const Dropdown = ({close} : Props) =>{
             {events ? events.map((event: any, ind:any) =>{
                 return (
                     <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className="EventItem" key={ind}>
-                        <p className="EventTime">{moment(event?.eventTime, 'HH:mm').format('hh:mm')}<small>{moment(event?.eventTime, 'HH:mm').format('a')} EST</small> </p>
+                        <p className="eventStartTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('hh:mm')}<small>{moment(event?.eventStartTime, 'HH:mm').format('a')} EST</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         {event.eventLink === "/live" ?
                             <Link
@@ -75,7 +101,7 @@ export const Dropdown = ({close} : Props) =>{
                             Join
                             </Link> : 
                         <a className="EventButton" 
-                        style={event?.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}} 
+                        style={event.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}} 
                         href={!event.eventLink.includes("https://") ? `https://${event.eventLink}` : event.eventLink}
                         >
                           Join

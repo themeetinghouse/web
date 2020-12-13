@@ -100,7 +100,7 @@ class HomeMenu extends React.Component<Props, State>  {
       const livestreams: ListLivestreamsQuery = json.data
       livestreams?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
-        const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
+        const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow < item.endTime
         if (showTime && this.state.showLive) {
           console.log("ShowLive")
           this.setState({ liveTitle: item?.homepageLink, showLiveEvent: true })
@@ -164,12 +164,11 @@ class HomeMenu extends React.Component<Props, State>  {
       .then(data => console.log(data))
       .catch(err => console.log(err));
   }
-
   render() {
     // console.log(this.state.position)
     return (
       <div>
-        {this.state.showLiveStreams ? <Dropdown close={() => this.setState({showLiveStreams:false})}></Dropdown> : null}
+        {this.state.showLiveStreams ? <Dropdown close={() => this.setState({showLiveStreams: false})}></Dropdown> : null}
         <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
         <NavbarBrand tag={Link} className="brand" to="/">
           <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className="logoHouse" />
