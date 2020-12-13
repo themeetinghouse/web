@@ -29,7 +29,7 @@ export const Dropdown = ({close} : Props) =>{
         const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
         const event : any = {
             eventName:item?.eventTitle ? item.eventTitle : item?.homepageLink,  
-            eventTime:item?.videoStartTime ?? "",
+            eventTime:item?.videoStartTime ?? item?.startTime,
             eventLink:item?.liveYoutubeId ? "/live" : item?.externalEventUrl 
         }
         tempEvents.push({...event, live:showTime})
@@ -68,11 +68,10 @@ export const Dropdown = ({close} : Props) =>{
                         <p className="EventTitle">{event?.eventName}</p>
                         <Link
                           className="EventButton"
-                          aria-disabled={true}
-                          style={event?.live ? {} : {color:"lightgrey", pointerEvents:"none"}}
+                          style={event?.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}}
                           to={event?.eventLink}
                         >
-                          {"Join"}
+                        Join
                         </Link>
                     </div>
                 )

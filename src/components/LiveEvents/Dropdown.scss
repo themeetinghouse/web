@@ -64,10 +64,10 @@
     background-color: #ffffff;
     font-weight: 800;
     text-decoration: none;
-    font-family: Graphik Web;
-    &.a{
-        margin:auto;
-    }
+    margin:auto;
+    display: "grid";
+    justify-content: "center";
+    align-items:"center";
 }
 
 .EventButton:hover{
