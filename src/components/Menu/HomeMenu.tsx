@@ -148,7 +148,6 @@ class HomeMenu extends React.Component<Props, State>  {
   };
 
   componentDidMount() {
-    console.log("Mounted")
     this.getState();
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
@@ -161,6 +160,9 @@ class HomeMenu extends React.Component<Props, State>  {
       isOpen: !this.state.isOpen
     });
   }
+  handleToggleDropdown = () =>{
+      this.setState({showLiveStreams:!this.state.showLiveStreams})
+  }
   signOut = () => {
     Auth.signOut()
       .then(data => console.log(data))
@@ -171,7 +173,7 @@ class HomeMenu extends React.Component<Props, State>  {
     return (
       <div>
          {this.state.showLiveEvent  ?
-         <div onClick={() => this.setState({showLiveStreams:!this.state.showLiveStreams})}><AnnouncementBar bannerMessage={this.state.liveTitle?? "Live"}></AnnouncementBar></div>
+         <div className="ignore-onClickOutside" onClick={this.handleToggleDropdown}><AnnouncementBar bannerMessage={this.state.liveTitle?? "Live"}></AnnouncementBar></div>
         : null}
       <div>
        

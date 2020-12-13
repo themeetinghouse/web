@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import './Dropdown.scss';
 import moment from "moment-timezone";
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
@@ -7,12 +7,14 @@ import * as queries from '../../graphql/queries';
 import { ListLivestreamsQuery } from '../../API'; 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link} from 'components/Link/Link';
+import customUseOnClickOutside from "../Menu/customUseOnClickOutside";
 
 type Props ={
     end: () => void;
     close: () => void;
 }
 export const Dropdown = ({end, close} : Props) =>{
+    const ref = useRef(null)
     const [events, setEvents] :any = useState([]);
     const loadLiveStreams = async()  =>{
     const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
@@ -43,6 +45,7 @@ export const Dropdown = ({end, close} : Props) =>{
       console.error(err)
     }
   }
+    customUseOnClickOutside(ref,close)
     useEffect(()=>{
         loadLiveStreams()
     },[])
@@ -85,7 +88,7 @@ export const Dropdown = ({end, close} : Props) =>{
         transitionLeaveTimeout={1000}
         transitionAppear={true}
       >
-        <div className="DropdownMainContainer">
+        <div ref={ref} className="DropdownMainContainer">
             <img onClick={close} className="close" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
             <p className="Heading">{"Today's Livestreams"}</p>
             {events ? events.map((event: any, ind:any) =>{
