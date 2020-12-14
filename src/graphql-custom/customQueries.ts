@@ -47,6 +47,7 @@ export const listCustomPlaylists = /* GraphQL */ `
               episodeNumber
               seriesTitle
               publishedDate
+              thumbnailDescription
               length
               Youtube {
                 snippet {
@@ -148,6 +149,7 @@ export const getSeries = `query GetSeries($id: ID!) {
               publishedDate
               recordedDate
               description
+              thumbnailDescription
               referencedMedia
               campaigns
               bibleVerses
@@ -278,6 +280,7 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
           }
           publishedDate
           description
+          thumbnailDescription
           length
           YoutubeIdent
           videoTypes
@@ -368,6 +371,7 @@ export const getVideo = `query GetVideo($id: ID!) {
     publishedDate
     recordedDate
     description
+    thumbnailDescription
     length
     YoutubeIdent
     videoTypes
@@ -411,6 +415,7 @@ export const listVideos = `query ListVideos(
       publishedDate
       recordedDate
       description
+      thumbnailDescription
       referencedMedia
       campaigns
       bibleVerses
@@ -507,6 +512,7 @@ export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
       createdDate
       episodeTitle
       originalEpisodeTitle
+      thumbnailDescription
       episodeNumber
       seriesTitle
       videoTypes
@@ -556,6 +562,7 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       }
       publishedDate
       description
+      thumbnailDescription
       length
       viewCount
       YoutubeIdent
@@ -641,6 +648,7 @@ export const searchVideos = `query SearchVideos(
       }
       publishedDate
       description
+      thumbnailDescription
       length
       videoTypes
     }
@@ -677,6 +685,7 @@ export const getCustomPlaylist = `
             publishedDate
             recordedDate
             description
+            thumbnailDescription
             closedCaptioning
             referencedMedia
             campaigns
@@ -772,6 +781,7 @@ export const getCustomPlaylist = `
                   publishedDate
                   recordedDate
                   description
+                  thumbnailDescription
                   closedCaptioning
                   referencedMedia
                   campaigns

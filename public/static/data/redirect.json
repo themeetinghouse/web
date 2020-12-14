@@ -710,5 +710,13 @@
   {
     "id": "parishchallenge",
     "to": "https://meeting.formstack.com/forms/parish_challenge"
+  },
+  {
+    "id": "colouringpage",
+    "to": "/static/pdfs/teaching/Advent_Colouring_Page.pdf"
+  },
+  {
+    "id": "accessibility",
+    "to": "https://meeting.formstack.com/forms/accessibility_at_the_meeting_house"
   }
 ]

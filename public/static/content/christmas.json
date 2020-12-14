@@ -17,8 +17,8 @@
         "type": "og-tags",
         "image": "/static/images/christmas-eve-1.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
-        "title": "Christmas",
-        "description": ""
+        "title": "Christmas Eve at Home",
+        "description": "A Livestream Experience | Dec. 24 1:00pm 4:00pm 8:00pm"
       },
       {
         "type": "hero",
@@ -29,36 +29,109 @@
             "alt": "Young woman smiling off camera at the Christmas Market."
           }
         ],
-        "header1": "Christmas",
-        "header2": "",
-        "text1": "Christmas is better together—and we want to spend it with you! Join us as we celebrate the very good news that we see in the story of the birth of Jesus. The news that in Jesus, God came to us—and because of that everything changed."
+        "header1": "Christmas Eve",
+        "header2": "A Livestream Experience",
+        "text1": "How do we celebrate after such a difficult year? How do we find joy and peace during a time filled with sorrow and anxiety? Where do we look to for hope when spirits are low?"
       },
       {
         "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "What to expect",
+        "style": "oneImage",
+        "header1": "What To Expect",
         "header2": "",
-        "text1": "Our Christmas gatherings will be about one hour in length, as we celebrate by singing carols, sharing stories, and looking into the meaning and story of Christmas we find in the Bible. Everything will be family friendly so be sure to bring the whole gang.",
+        "text1": "We want to rally together by gathering virtually to share the hope we see in the story of the birth of Jesus. Through carols, art, and stories, we want to explore how this radical idea of God coming to us as a helpless baby changed everything, and how it continues to bring light, hope, and peace when this season of life feels dark.",
 
         "image1": [
           {
-            "src": "/static/images/christmas-2.jpg",
-            "alt": "Candlelight Christmas Service"
+            "src": "/static/images/christmas-4.jpg",
+            "alt": "A vocalist performing a song on stage in front of a camera operator."
           }
         ]
       },
       {
-        "type": "list",
-        "style": "vertical",
-        "class": "events",
-        "header1": "Upcoming Events",
-        "header2": "",
-        "facebookEvents": ["155800937784104"]
+        "type": "sunday-morning",
+        "header1": "Livestream Experiences",
+        "alternate": "christmas"
       },
       {
-        "type": "sunday-morning",
-        "header1": "Christmas Locations",
-        "alternate": "christmas"
+        "type": "content",
+        "style": "banner-cards",
+        "images": [
+          {
+            "src": "/static/photos/banners/promo_christmas3acts.png",
+            "alt": "Graphic for our Christmas in 3 Acts teaching series.",
+            "linkto": "/videos/Christmas%20in%203%20Acts/4lw1mTMCE7Y"
+          },
+          {
+            "src": "/static/photos/banners/promo_preschoolhome.jpg",
+            "alt": "Graphic for our Christmas Preschool video curriculum, featuring a host who is smiling and sitting beside a Christmas tree.",
+            "linkto": "/videos/preschool-Preschool/Rp4cL3MkwZ4"
+          }
+        ]
+      },
+      {
+        "type": "blog",
+        "style": "multiImage",
+        "status": "Live",
+        "header1": "COVID-19 Christmas",
+        "sortOrder": "DESC",
+        "limit": 2,
+        "blogSeries": "Christmas",
+        "button1Action": "/blogs"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-eves",
+        "sortOrder": "DESC",
+        "header1": "Eves of Christmas Past"
+      },
+      {
+        "type": "list",
+        "style": "horizontalBig",
+        "class": "series-collection",
+        "collection": [
+          "Did it Really Happen?",
+          "Regifting",
+          "Christmas Together",
+          "Incarnation: The Gospel in a Manger",
+          "The Stations of the Crib",
+          "An Awe-Filled Christmas - Wonder, Worship and Waking Up"
+        ],
+        "header1": "Christmas Series Archive"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-funny",
+        "sortOrder": "DESC",
+        "header1": "Funny Christmas Videos"
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "Christmas-shorts",
+        "sortOrder": "DESC",
+        "header1": "Christmas Short Videos"
+      },
+      {
+        "type": "hero",
+        "style": "connect",
+        "image1": [
+          {
+            "src": "/static/images/email-connect-1.jpg",
+            "alt": "Two women drinking coffee."
+          },
+          {
+            "src": "/static/images/email-connect-2.jpg",
+            "alt": "A young woman is talking to her friends in the church lobby."
+          }
+        ],
+        "header1": "Don't Miss Out",
+        "header2": "Let's connect, even if it's just via email.",
+        "text2": "Sing up today and we'll send you a reminder just before Christmas Eve! Bonus—we'll also share 3 of our favourite things with you!"
       }
     ]
   }

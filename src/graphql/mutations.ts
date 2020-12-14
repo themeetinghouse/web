@@ -1121,6 +1121,8 @@ export const createLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
@@ -1149,6 +1151,8 @@ export const updateLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
@@ -1177,6 +1181,8 @@ export const deleteLivestream = /* GraphQL */ `
       liveYoutubeId
       showChat
       showKids
+      eventTitle
+      externalEventUrl
       menu {
         title
         link
@@ -1199,6 +1205,7 @@ export const createSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -1213,6 +1220,7 @@ export const createSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -1227,6 +1235,7 @@ export const createSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1255,6 +1264,7 @@ export const createSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1396,6 +1406,7 @@ export const createSpeaker = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -1410,6 +1421,7 @@ export const createSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1438,6 +1450,7 @@ export const createSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1449,6 +1462,7 @@ export const createSpeaker = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -1480,6 +1494,7 @@ export const createSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1495,6 +1510,7 @@ export const createSpeaker = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -1537,6 +1553,7 @@ export const createSpeaker = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1565,6 +1582,7 @@ export const createSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1584,6 +1602,7 @@ export const updateSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -1598,6 +1617,7 @@ export const updateSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -1612,6 +1632,7 @@ export const updateSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1640,6 +1661,7 @@ export const updateSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1781,6 +1803,7 @@ export const updateSpeaker = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -1795,6 +1818,7 @@ export const updateSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -1823,6 +1847,7 @@ export const updateSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1834,6 +1859,7 @@ export const updateSpeaker = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -1865,6 +1891,7 @@ export const updateSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1880,6 +1907,7 @@ export const updateSpeaker = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -1922,6 +1950,7 @@ export const updateSpeaker = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1950,6 +1979,7 @@ export const updateSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -1969,6 +1999,7 @@ export const deleteSpeaker = /* GraphQL */ `
       id
       name
       image
+      hidden
       createdAt
       updatedAt
       videos {
@@ -1983,6 +2014,7 @@ export const deleteSpeaker = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -1997,6 +2029,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -2025,6 +2058,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -2166,6 +2200,7 @@ export const deleteSpeaker = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -2180,6 +2215,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -2208,6 +2244,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -2219,6 +2256,7 @@ export const deleteSpeaker = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -2250,6 +2288,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -2265,6 +2304,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -2307,6 +2347,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -2335,6 +2376,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -2361,6 +2403,7 @@ export const createSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -2375,6 +2418,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -2444,6 +2488,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -2462,6 +2507,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -2653,6 +2699,7 @@ export const createSpeakerVideos = /* GraphQL */ `
         notesURL
         videoURL
         audioURL
+        thumbnailDescription
         createdAt
         updatedAt
         speakers {
@@ -2667,6 +2714,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -2736,6 +2784,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -2754,6 +2803,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -2788,6 +2838,7 @@ export const createSpeakerVideos = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -2849,6 +2900,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -2867,6 +2919,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -2905,6 +2958,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -2917,6 +2971,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -2966,6 +3021,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3012,6 +3068,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -3080,6 +3137,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -3098,6 +3156,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3144,6 +3203,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -3158,6 +3218,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -3227,6 +3288,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -3245,6 +3307,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3436,6 +3499,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
         notesURL
         videoURL
         audioURL
+        thumbnailDescription
         createdAt
         updatedAt
         speakers {
@@ -3450,6 +3514,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -3519,6 +3584,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -3537,6 +3603,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3571,6 +3638,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -3632,6 +3700,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -3650,6 +3719,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3688,6 +3758,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -3700,6 +3771,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3749,6 +3821,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3795,6 +3868,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -3863,6 +3937,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -3881,6 +3956,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -3927,6 +4003,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
         id
         name
         image
+        hidden
         createdAt
         updatedAt
         videos {
@@ -3941,6 +4018,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4010,6 +4088,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -4028,6 +4107,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -4219,6 +4299,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
         notesURL
         videoURL
         audioURL
+        thumbnailDescription
         createdAt
         updatedAt
         speakers {
@@ -4233,6 +4314,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -4302,6 +4384,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -4320,6 +4403,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -4354,6 +4438,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -4415,6 +4500,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -4433,6 +4519,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -4471,6 +4558,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -4483,6 +4571,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -4532,6 +4621,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -4578,6 +4668,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -4646,6 +4737,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -4664,6 +4756,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -4704,6 +4797,7 @@ export const createSeries = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       image
       startDate
       endDate
@@ -4871,6 +4965,7 @@ export const createSeries = /* GraphQL */ `
           notesURL
           videoURL
           audioURL
+          thumbnailDescription
           createdAt
           updatedAt
           speakers {
@@ -4885,6 +4980,7 @@ export const createSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -4921,6 +5017,7 @@ export const createSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -4931,6 +5028,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -4949,6 +5047,7 @@ export const createSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -4985,6 +5084,7 @@ export const createSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -4995,6 +5095,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5017,6 +5118,7 @@ export const createSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -5029,6 +5131,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5062,6 +5165,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5087,6 +5191,7 @@ export const createSeries = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 createdAt
                 updatedAt
                 videos {
@@ -5123,6 +5228,7 @@ export const createSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -5133,6 +5239,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5159,6 +5266,7 @@ export const createSeries = /* GraphQL */ `
           expirationDate
           blogStatus
           description
+          thumbnailDescription
           content
           blogTitle
           topics
@@ -5171,6 +5279,7 @@ export const createSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -5207,6 +5316,7 @@ export const createSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -5217,6 +5327,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5239,6 +5350,7 @@ export const createSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -5251,6 +5363,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5284,6 +5397,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5309,6 +5423,7 @@ export const createSeries = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -5327,6 +5442,7 @@ export const createSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -5339,6 +5455,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5376,6 +5493,7 @@ export const createSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -5412,6 +5530,7 @@ export const createSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -5422,6 +5541,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5444,6 +5564,7 @@ export const createSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -5456,6 +5577,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5489,6 +5611,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5534,6 +5657,7 @@ export const createSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5560,6 +5684,7 @@ export const updateSeries = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       image
       startDate
       endDate
@@ -5727,6 +5852,7 @@ export const updateSeries = /* GraphQL */ `
           notesURL
           videoURL
           audioURL
+          thumbnailDescription
           createdAt
           updatedAt
           speakers {
@@ -5741,6 +5867,7 @@ export const updateSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -5777,6 +5904,7 @@ export const updateSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -5787,6 +5915,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5805,6 +5934,7 @@ export const updateSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -5841,6 +5971,7 @@ export const updateSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -5851,6 +5982,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5873,6 +6005,7 @@ export const updateSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -5885,6 +6018,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5918,6 +6052,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -5943,6 +6078,7 @@ export const updateSeries = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 createdAt
                 updatedAt
                 videos {
@@ -5979,6 +6115,7 @@ export const updateSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -5989,6 +6126,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6015,6 +6153,7 @@ export const updateSeries = /* GraphQL */ `
           expirationDate
           blogStatus
           description
+          thumbnailDescription
           content
           blogTitle
           topics
@@ -6027,6 +6166,7 @@ export const updateSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -6063,6 +6203,7 @@ export const updateSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -6073,6 +6214,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6095,6 +6237,7 @@ export const updateSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -6107,6 +6250,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6140,6 +6284,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6165,6 +6310,7 @@ export const updateSeries = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -6183,6 +6329,7 @@ export const updateSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -6195,6 +6342,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6232,6 +6380,7 @@ export const updateSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -6268,6 +6417,7 @@ export const updateSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -6278,6 +6428,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6300,6 +6451,7 @@ export const updateSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -6312,6 +6464,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6345,6 +6498,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6390,6 +6544,7 @@ export const updateSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6416,6 +6571,7 @@ export const deleteSeries = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       image
       startDate
       endDate
@@ -6583,6 +6739,7 @@ export const deleteSeries = /* GraphQL */ `
           notesURL
           videoURL
           audioURL
+          thumbnailDescription
           createdAt
           updatedAt
           speakers {
@@ -6597,6 +6754,7 @@ export const deleteSeries = /* GraphQL */ `
                 id
                 name
                 image
+                hidden
                 createdAt
                 updatedAt
                 videos {
@@ -6633,6 +6791,7 @@ export const deleteSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -6643,6 +6802,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6661,6 +6821,7 @@ export const deleteSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -6697,6 +6858,7 @@ export const deleteSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -6707,6 +6869,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6729,6 +6892,7 @@ export const deleteSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -6741,6 +6905,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6774,6 +6939,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6799,6 +6965,7 @@ export const deleteSeries = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 createdAt
                 updatedAt
                 videos {
@@ -6835,6 +7002,7 @@ export const deleteSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -6845,6 +7013,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6871,6 +7040,7 @@ export const deleteSeries = /* GraphQL */ `
           expirationDate
           blogStatus
           description
+          thumbnailDescription
           content
           blogTitle
           topics
@@ -6883,6 +7053,7 @@ export const deleteSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -6919,6 +7090,7 @@ export const deleteSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -6929,6 +7101,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6951,6 +7124,7 @@ export const deleteSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -6963,6 +7137,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -6996,6 +7171,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -7021,6 +7197,7 @@ export const deleteSeries = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -7039,6 +7216,7 @@ export const deleteSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -7051,6 +7229,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -7088,6 +7267,7 @@ export const deleteSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -7124,6 +7304,7 @@ export const deleteSeries = /* GraphQL */ `
                 notesURL
                 videoURL
                 audioURL
+                thumbnailDescription
                 createdAt
                 updatedAt
                 speakers {
@@ -7134,6 +7315,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -7156,6 +7338,7 @@ export const deleteSeries = /* GraphQL */ `
                 expirationDate
                 blogStatus
                 description
+                thumbnailDescription
                 content
                 blogTitle
                 topics
@@ -7168,6 +7351,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -7201,6 +7385,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -7246,6 +7431,7 @@ export const deleteSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -7272,6 +7458,7 @@ export const createCustomPlaylist = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       createdAt
       updatedAt
       videos {
@@ -7286,6 +7473,7 @@ export const createCustomPlaylist = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             createdAt
             updatedAt
             videos {
@@ -7300,6 +7488,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7328,6 +7517,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7469,6 +7659,7 @@ export const createCustomPlaylist = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -7483,6 +7674,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -7511,6 +7703,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7522,6 +7715,7 @@ export const createCustomPlaylist = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -7553,6 +7747,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7568,6 +7763,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -7610,6 +7806,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7638,6 +7835,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7658,6 +7856,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       createdAt
       updatedAt
       videos {
@@ -7672,6 +7871,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             createdAt
             updatedAt
             videos {
@@ -7686,6 +7886,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7714,6 +7915,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7855,6 +8057,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -7869,6 +8072,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -7897,6 +8101,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7908,6 +8113,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -7939,6 +8145,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -7954,6 +8161,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -7996,6 +8204,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8024,6 +8233,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8044,6 +8254,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       createdAt
       updatedAt
       videos {
@@ -8058,6 +8269,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             createdAt
             updatedAt
             videos {
@@ -8072,6 +8284,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8100,6 +8313,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8241,6 +8455,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -8255,6 +8470,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -8283,6 +8499,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8294,6 +8511,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -8325,6 +8543,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8340,6 +8559,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -8382,6 +8602,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8410,6 +8631,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -8436,6 +8658,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         createdAt
         updatedAt
         videos {
@@ -8450,6 +8673,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -8518,6 +8742,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -8536,6 +8761,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -8727,6 +8953,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
         notesURL
         videoURL
         audioURL
+        thumbnailDescription
         createdAt
         updatedAt
         speakers {
@@ -8741,6 +8968,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -8810,6 +9038,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -8828,6 +9057,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -8862,6 +9092,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -8923,6 +9154,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -8941,6 +9173,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -8979,6 +9212,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -8991,6 +9225,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9040,6 +9275,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9086,6 +9322,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -9154,6 +9391,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -9172,6 +9410,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9218,6 +9457,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         createdAt
         updatedAt
         videos {
@@ -9232,6 +9472,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -9300,6 +9541,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -9318,6 +9560,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9509,6 +9752,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
         notesURL
         videoURL
         audioURL
+        thumbnailDescription
         createdAt
         updatedAt
         speakers {
@@ -9523,6 +9767,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -9592,6 +9837,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -9610,6 +9856,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9644,6 +9891,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -9705,6 +9953,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -9723,6 +9972,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9761,6 +10011,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -9773,6 +10024,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9822,6 +10074,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -9868,6 +10121,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -9936,6 +10190,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -9954,6 +10209,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10000,6 +10256,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         createdAt
         updatedAt
         videos {
@@ -10014,6 +10271,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -10082,6 +10340,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -10100,6 +10359,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10291,6 +10551,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
         notesURL
         videoURL
         audioURL
+        thumbnailDescription
         createdAt
         updatedAt
         speakers {
@@ -10305,6 +10566,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               id
               name
               image
+              hidden
               createdAt
               updatedAt
               videos {
@@ -10374,6 +10636,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -10392,6 +10655,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10426,6 +10690,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -10487,6 +10752,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -10505,6 +10771,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10543,6 +10810,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -10555,6 +10823,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10604,6 +10873,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10650,6 +10920,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               createdAt
               updatedAt
               videos {
@@ -10718,6 +10989,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -10736,6 +11008,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -10932,6 +11205,7 @@ export const createVideo = /* GraphQL */ `
       notesURL
       videoURL
       audioURL
+      thumbnailDescription
       createdAt
       updatedAt
       speakers {
@@ -10946,6 +11220,7 @@ export const createVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -10960,6 +11235,7 @@ export const createVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -10988,6 +11264,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11129,6 +11406,7 @@ export const createVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -11143,6 +11421,7 @@ export const createVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -11171,6 +11450,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11182,6 +11462,7 @@ export const createVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -11213,6 +11494,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11228,6 +11510,7 @@ export const createVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -11270,6 +11553,7 @@ export const createVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11298,6 +11582,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11313,6 +11598,7 @@ export const createVideo = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -11453,6 +11739,7 @@ export const createVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -11467,6 +11754,7 @@ export const createVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -11495,6 +11783,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11506,6 +11795,7 @@ export const createVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -11537,6 +11827,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11552,6 +11843,7 @@ export const createVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -11594,6 +11886,7 @@ export const createVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11622,6 +11915,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11641,6 +11935,7 @@ export const createVideo = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -11653,6 +11948,7 @@ export const createVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -11684,6 +11980,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11699,6 +11996,7 @@ export const createVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -11741,6 +12039,7 @@ export const createVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -11756,6 +12055,7 @@ export const createVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -11791,6 +12091,7 @@ export const createVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -11822,6 +12123,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11837,6 +12139,7 @@ export const createVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -11914,6 +12217,7 @@ export const createVideo = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             createdAt
             updatedAt
             videos {
@@ -11928,6 +12232,7 @@ export const createVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -11956,6 +12261,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12097,6 +12403,7 @@ export const createVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -12111,6 +12418,7 @@ export const createVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12139,6 +12447,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12150,6 +12459,7 @@ export const createVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -12181,6 +12491,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12196,6 +12507,7 @@ export const createVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -12238,6 +12550,7 @@ export const createVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12266,6 +12579,7 @@ export const createVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12442,6 +12756,7 @@ export const updateVideo = /* GraphQL */ `
       notesURL
       videoURL
       audioURL
+      thumbnailDescription
       createdAt
       updatedAt
       speakers {
@@ -12456,6 +12771,7 @@ export const updateVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -12470,6 +12786,7 @@ export const updateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12498,6 +12815,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12639,6 +12957,7 @@ export const updateVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -12653,6 +12972,7 @@ export const updateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -12681,6 +13001,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12692,6 +13013,7 @@ export const updateVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -12723,6 +13045,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12738,6 +13061,7 @@ export const updateVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -12780,6 +13104,7 @@ export const updateVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12808,6 +13133,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -12823,6 +13149,7 @@ export const updateVideo = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -12963,6 +13290,7 @@ export const updateVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -12977,6 +13305,7 @@ export const updateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -13005,6 +13334,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13016,6 +13346,7 @@ export const updateVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -13047,6 +13378,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13062,6 +13394,7 @@ export const updateVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -13104,6 +13437,7 @@ export const updateVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13132,6 +13466,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13151,6 +13486,7 @@ export const updateVideo = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -13163,6 +13499,7 @@ export const updateVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -13194,6 +13531,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13209,6 +13547,7 @@ export const updateVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -13251,6 +13590,7 @@ export const updateVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -13266,6 +13606,7 @@ export const updateVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -13301,6 +13642,7 @@ export const updateVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -13332,6 +13674,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13347,6 +13690,7 @@ export const updateVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -13424,6 +13768,7 @@ export const updateVideo = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             createdAt
             updatedAt
             videos {
@@ -13438,6 +13783,7 @@ export const updateVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13466,6 +13812,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13607,6 +13954,7 @@ export const updateVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -13621,6 +13969,7 @@ export const updateVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -13649,6 +13998,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13660,6 +14010,7 @@ export const updateVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -13691,6 +14042,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13706,6 +14058,7 @@ export const updateVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -13748,6 +14101,7 @@ export const updateVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13776,6 +14130,7 @@ export const updateVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -13952,6 +14307,7 @@ export const deleteVideo = /* GraphQL */ `
       notesURL
       videoURL
       audioURL
+      thumbnailDescription
       createdAt
       updatedAt
       speakers {
@@ -13966,6 +14322,7 @@ export const deleteVideo = /* GraphQL */ `
             id
             name
             image
+            hidden
             createdAt
             updatedAt
             videos {
@@ -13980,6 +14337,7 @@ export const deleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -14008,6 +14366,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14149,6 +14508,7 @@ export const deleteVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -14163,6 +14523,7 @@ export const deleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -14191,6 +14552,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14202,6 +14564,7 @@ export const deleteVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -14233,6 +14596,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14248,6 +14612,7 @@ export const deleteVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -14290,6 +14655,7 @@ export const deleteVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14318,6 +14684,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14333,6 +14700,7 @@ export const deleteVideo = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -14473,6 +14841,7 @@ export const deleteVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -14487,6 +14856,7 @@ export const deleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -14515,6 +14885,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14526,6 +14897,7 @@ export const deleteVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -14557,6 +14929,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14572,6 +14945,7 @@ export const deleteVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -14614,6 +14988,7 @@ export const deleteVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14642,6 +15017,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14661,6 +15037,7 @@ export const deleteVideo = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -14673,6 +15050,7 @@ export const deleteVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -14704,6 +15082,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14719,6 +15098,7 @@ export const deleteVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -14761,6 +15141,7 @@ export const deleteVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -14776,6 +15157,7 @@ export const deleteVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -14811,6 +15193,7 @@ export const deleteVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -14842,6 +15225,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14857,6 +15241,7 @@ export const deleteVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -14934,6 +15319,7 @@ export const deleteVideo = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             createdAt
             updatedAt
             videos {
@@ -14948,6 +15334,7 @@ export const deleteVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -14976,6 +15363,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15117,6 +15505,7 @@ export const deleteVideo = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -15131,6 +15520,7 @@ export const deleteVideo = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -15159,6 +15549,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15170,6 +15561,7 @@ export const deleteVideo = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -15201,6 +15593,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15216,6 +15609,7 @@ export const deleteVideo = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15258,6 +15652,7 @@ export const deleteVideo = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15286,6 +15681,7 @@ export const deleteVideo = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15306,6 +15702,7 @@ export const createBlogSeries = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       image
       startDate
       endDate
@@ -15323,6 +15720,7 @@ export const createBlogSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -15340,6 +15738,7 @@ export const createBlogSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -15355,6 +15754,7 @@ export const createBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15376,6 +15776,7 @@ export const createBlogSeries = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -15388,6 +15789,7 @@ export const createBlogSeries = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -15419,6 +15821,7 @@ export const createBlogSeries = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15434,6 +15837,7 @@ export const createBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15476,6 +15880,7 @@ export const createBlogSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -15491,6 +15896,7 @@ export const createBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15516,6 +15922,7 @@ export const updateBlogSeries = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       image
       startDate
       endDate
@@ -15533,6 +15940,7 @@ export const updateBlogSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -15550,6 +15958,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -15565,6 +15974,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15586,6 +15996,7 @@ export const updateBlogSeries = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -15598,6 +16009,7 @@ export const updateBlogSeries = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -15629,6 +16041,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15644,6 +16057,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15686,6 +16100,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -15701,6 +16116,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15726,6 +16142,7 @@ export const deleteBlogSeries = /* GraphQL */ `
       seriesType
       title
       description
+      thumbnailDescription
       image
       startDate
       endDate
@@ -15743,6 +16160,7 @@ export const deleteBlogSeries = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -15760,6 +16178,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -15775,6 +16194,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15796,6 +16216,7 @@ export const deleteBlogSeries = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -15808,6 +16229,7 @@ export const deleteBlogSeries = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -15839,6 +16261,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -15854,6 +16277,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15896,6 +16320,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -15911,6 +16336,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -15942,6 +16368,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -15959,6 +16386,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -15984,6 +16412,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -15996,6 +16425,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16035,6 +16465,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
         expirationDate
         blogStatus
         description
+        thumbnailDescription
         content
         blogTitle
         topics
@@ -16047,6 +16478,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -16108,6 +16540,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -16126,6 +16559,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16164,6 +16598,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -16176,6 +16611,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16225,6 +16661,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16271,6 +16708,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -16296,6 +16734,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -16308,6 +16747,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16354,6 +16794,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -16371,6 +16812,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -16396,6 +16838,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -16408,6 +16851,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16447,6 +16891,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
         expirationDate
         blogStatus
         description
+        thumbnailDescription
         content
         blogTitle
         topics
@@ -16459,6 +16904,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -16520,6 +16966,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -16538,6 +16985,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16576,6 +17024,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -16588,6 +17037,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16637,6 +17087,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16683,6 +17134,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -16708,6 +17160,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -16720,6 +17173,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16766,6 +17220,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -16783,6 +17238,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -16808,6 +17264,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -16820,6 +17277,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16859,6 +17317,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
         expirationDate
         blogStatus
         description
+        thumbnailDescription
         content
         blogTitle
         topics
@@ -16871,6 +17330,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -16932,6 +17392,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -16950,6 +17411,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -16988,6 +17450,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -17000,6 +17463,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -17049,6 +17513,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -17095,6 +17560,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -17120,6 +17586,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -17132,6 +17599,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -17176,6 +17644,7 @@ export const createBlog = /* GraphQL */ `
       expirationDate
       blogStatus
       description
+      thumbnailDescription
       content
       blogTitle
       topics
@@ -17188,6 +17657,7 @@ export const createBlog = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -17328,6 +17798,7 @@ export const createBlog = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -17342,6 +17813,7 @@ export const createBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -17370,6 +17842,7 @@ export const createBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17381,6 +17854,7 @@ export const createBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -17412,6 +17886,7 @@ export const createBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17427,6 +17902,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17469,6 +17945,7 @@ export const createBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17497,6 +17974,7 @@ export const createBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17516,6 +17994,7 @@ export const createBlog = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -17528,6 +18007,7 @@ export const createBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -17559,6 +18039,7 @@ export const createBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17574,6 +18055,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17616,6 +18098,7 @@ export const createBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -17631,6 +18114,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17666,6 +18150,7 @@ export const createBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -17697,6 +18182,7 @@ export const createBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17712,6 +18198,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17789,6 +18276,7 @@ export const createBlog = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -17806,6 +18294,7 @@ export const createBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -17821,6 +18310,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17842,6 +18332,7 @@ export const createBlog = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -17854,6 +18345,7 @@ export const createBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -17885,6 +18377,7 @@ export const createBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -17900,6 +18393,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17942,6 +18436,7 @@ export const createBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -17957,6 +18452,7 @@ export const createBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -17986,6 +18482,7 @@ export const updateBlog = /* GraphQL */ `
       expirationDate
       blogStatus
       description
+      thumbnailDescription
       content
       blogTitle
       topics
@@ -17998,6 +18495,7 @@ export const updateBlog = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -18138,6 +18636,7 @@ export const updateBlog = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -18152,6 +18651,7 @@ export const updateBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -18180,6 +18680,7 @@ export const updateBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18191,6 +18692,7 @@ export const updateBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -18222,6 +18724,7 @@ export const updateBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18237,6 +18740,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18279,6 +18783,7 @@ export const updateBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18307,6 +18812,7 @@ export const updateBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18326,6 +18832,7 @@ export const updateBlog = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -18338,6 +18845,7 @@ export const updateBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -18369,6 +18877,7 @@ export const updateBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18384,6 +18893,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18426,6 +18936,7 @@ export const updateBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -18441,6 +18952,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18476,6 +18988,7 @@ export const updateBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -18507,6 +19020,7 @@ export const updateBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18522,6 +19036,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18599,6 +19114,7 @@ export const updateBlog = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -18616,6 +19132,7 @@ export const updateBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -18631,6 +19148,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18652,6 +19170,7 @@ export const updateBlog = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -18664,6 +19183,7 @@ export const updateBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -18695,6 +19215,7 @@ export const updateBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -18710,6 +19231,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18752,6 +19274,7 @@ export const updateBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -18767,6 +19290,7 @@ export const updateBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -18796,6 +19320,7 @@ export const deleteBlog = /* GraphQL */ `
       expirationDate
       blogStatus
       description
+      thumbnailDescription
       content
       blogTitle
       topics
@@ -18808,6 +19333,7 @@ export const deleteBlog = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -18948,6 +19474,7 @@ export const deleteBlog = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -18962,6 +19489,7 @@ export const deleteBlog = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -18990,6 +19518,7 @@ export const deleteBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19001,6 +19530,7 @@ export const deleteBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -19032,6 +19562,7 @@ export const deleteBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19047,6 +19578,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19089,6 +19621,7 @@ export const deleteBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19117,6 +19650,7 @@ export const deleteBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19136,6 +19670,7 @@ export const deleteBlog = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -19148,6 +19683,7 @@ export const deleteBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -19179,6 +19715,7 @@ export const deleteBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19194,6 +19731,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19236,6 +19774,7 @@ export const deleteBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -19251,6 +19790,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19286,6 +19826,7 @@ export const deleteBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -19317,6 +19858,7 @@ export const deleteBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19332,6 +19874,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19409,6 +19952,7 @@ export const deleteBlog = /* GraphQL */ `
             seriesType
             title
             description
+            thumbnailDescription
             image
             startDate
             endDate
@@ -19426,6 +19970,7 @@ export const deleteBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -19441,6 +19986,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19462,6 +20008,7 @@ export const deleteBlog = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -19474,6 +20021,7 @@ export const deleteBlog = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -19505,6 +20053,7 @@ export const deleteBlog = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -19520,6 +20069,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19562,6 +20112,7 @@ export const deleteBlog = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -19577,6 +20128,7 @@ export const deleteBlog = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -19679,6 +20231,7 @@ export const createVerse = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -19740,6 +20293,7 @@ export const createVerse = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -19758,6 +20312,7 @@ export const createVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -19796,6 +20351,7 @@ export const createVerse = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -19808,6 +20364,7 @@ export const createVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -19857,6 +20414,7 @@ export const createVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -19923,6 +20481,7 @@ export const createVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -19994,6 +20553,7 @@ export const updateVerse = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -20055,6 +20615,7 @@ export const updateVerse = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -20073,6 +20634,7 @@ export const updateVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20111,6 +20673,7 @@ export const updateVerse = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -20123,6 +20686,7 @@ export const updateVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20172,6 +20736,7 @@ export const updateVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20238,6 +20803,7 @@ export const updateVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20309,6 +20875,7 @@ export const deleteVerse = /* GraphQL */ `
           seriesType
           title
           description
+          thumbnailDescription
           image
           startDate
           endDate
@@ -20370,6 +20937,7 @@ export const deleteVerse = /* GraphQL */ `
               notesURL
               videoURL
               audioURL
+              thumbnailDescription
               createdAt
               updatedAt
               speakers {
@@ -20388,6 +20956,7 @@ export const deleteVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20426,6 +20995,7 @@ export const deleteVerse = /* GraphQL */ `
               expirationDate
               blogStatus
               description
+              thumbnailDescription
               content
               blogTitle
               topics
@@ -20438,6 +21008,7 @@ export const deleteVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20487,6 +21058,7 @@ export const deleteVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20553,6 +21125,7 @@ export const deleteVerse = /* GraphQL */ `
                 seriesType
                 title
                 description
+                thumbnailDescription
                 image
                 startDate
                 endDate
@@ -20613,6 +21186,7 @@ export const createNotes = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -20753,6 +21327,7 @@ export const createNotes = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -20767,6 +21342,7 @@ export const createNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -20795,6 +21371,7 @@ export const createNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -20806,6 +21383,7 @@ export const createNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -20837,6 +21415,7 @@ export const createNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -20852,6 +21431,7 @@ export const createNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -20894,6 +21474,7 @@ export const createNotes = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -20922,6 +21503,7 @@ export const createNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -20941,6 +21523,7 @@ export const createNotes = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -20953,6 +21536,7 @@ export const createNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -20984,6 +21568,7 @@ export const createNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -20999,6 +21584,7 @@ export const createNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21041,6 +21627,7 @@ export const createNotes = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -21056,6 +21643,7 @@ export const createNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21091,6 +21679,7 @@ export const createNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -21122,6 +21711,7 @@ export const createNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21137,6 +21727,7 @@ export const createNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21234,6 +21825,7 @@ export const createNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -21265,6 +21857,7 @@ export const createNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21280,6 +21873,7 @@ export const createNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21370,6 +21964,7 @@ export const updateNotes = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -21510,6 +22105,7 @@ export const updateNotes = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -21524,6 +22120,7 @@ export const updateNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -21552,6 +22149,7 @@ export const updateNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21563,6 +22161,7 @@ export const updateNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -21594,6 +22193,7 @@ export const updateNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21609,6 +22209,7 @@ export const updateNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21651,6 +22252,7 @@ export const updateNotes = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21679,6 +22281,7 @@ export const updateNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21698,6 +22301,7 @@ export const updateNotes = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -21710,6 +22314,7 @@ export const updateNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -21741,6 +22346,7 @@ export const updateNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21756,6 +22362,7 @@ export const updateNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21798,6 +22405,7 @@ export const updateNotes = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -21813,6 +22421,7 @@ export const updateNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21848,6 +22457,7 @@ export const updateNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -21879,6 +22489,7 @@ export const updateNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -21894,6 +22505,7 @@ export const updateNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -21991,6 +22603,7 @@ export const updateNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -22022,6 +22635,7 @@ export const updateNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22037,6 +22651,7 @@ export const updateNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -22127,6 +22742,7 @@ export const deleteNotes = /* GraphQL */ `
         seriesType
         title
         description
+        thumbnailDescription
         image
         startDate
         endDate
@@ -22267,6 +22883,7 @@ export const deleteNotes = /* GraphQL */ `
             notesURL
             videoURL
             audioURL
+            thumbnailDescription
             createdAt
             updatedAt
             speakers {
@@ -22281,6 +22898,7 @@ export const deleteNotes = /* GraphQL */ `
                   id
                   name
                   image
+                  hidden
                   createdAt
                   updatedAt
                 }
@@ -22309,6 +22927,7 @@ export const deleteNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22320,6 +22939,7 @@ export const deleteNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -22351,6 +22971,7 @@ export const deleteNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22366,6 +22987,7 @@ export const deleteNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -22408,6 +23030,7 @@ export const deleteNotes = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22436,6 +23059,7 @@ export const deleteNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22455,6 +23079,7 @@ export const deleteNotes = /* GraphQL */ `
             expirationDate
             blogStatus
             description
+            thumbnailDescription
             content
             blogTitle
             topics
@@ -22467,6 +23092,7 @@ export const deleteNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -22498,6 +23124,7 @@ export const deleteNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22513,6 +23140,7 @@ export const deleteNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -22555,6 +23183,7 @@ export const deleteNotes = /* GraphQL */ `
                   seriesType
                   title
                   description
+                  thumbnailDescription
                   image
                   startDate
                   endDate
@@ -22570,6 +23199,7 @@ export const deleteNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -22605,6 +23235,7 @@ export const deleteNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -22636,6 +23267,7 @@ export const deleteNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22651,6 +23283,7 @@ export const deleteNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics
@@ -22748,6 +23381,7 @@ export const deleteNotes = /* GraphQL */ `
               seriesType
               title
               description
+              thumbnailDescription
               image
               startDate
               endDate
@@ -22779,6 +23413,7 @@ export const deleteNotes = /* GraphQL */ `
                   notesURL
                   videoURL
                   audioURL
+                  thumbnailDescription
                   createdAt
                   updatedAt
                 }
@@ -22794,6 +23429,7 @@ export const deleteNotes = /* GraphQL */ `
                   expirationDate
                   blogStatus
                   description
+                  thumbnailDescription
                   content
                   blogTitle
                   topics

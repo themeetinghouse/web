@@ -677,6 +677,8 @@ type Livestream
   liveYoutubeId: String
   showChat: Boolean
   showKids: Boolean
+  eventTitle: String
+  externalEventUrl: String
   menu: [LiveMenu]
   zoom: [ZoomItem]
   titles: [String]
@@ -696,6 +698,7 @@ type Speaker
    name:String
    image:String
    videos:[SpeakerVideos] @connection(name: "SpeakerVideos",keyField: "speakerVideosSpeakerId", sortField: "videoPublishedDate")
+   hidden:Boolean
 }
 type SpeakerVideos
   @model
@@ -730,6 +733,7 @@ type Series
   seriesType: String
   title: String
   description: String
+  thumbnailDescription:String
   image: String
   startDate: String
   endDate: String
@@ -748,6 +752,7 @@ type CustomPlaylist
   seriesType: String
   title: String
   description: String
+  thumbnailDescription:String
 }
 
 type CustomPlaylistVideo
@@ -806,6 +811,7 @@ type Video
   notesURL:String
   videoURL:String
   audioURL:String
+  thumbnailDescription:String
 }
 
 type BlogSeries
@@ -822,6 +828,7 @@ type BlogSeries
   seriesType: String
   title: String
   description: String
+  thumbnailDescription:String
   image: String
   startDate: String
   endDate: String
@@ -865,6 +872,7 @@ type Blog
   blogSeries: [BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
   blogStatus: String
   description: String
+  thumbnailDescription:String
   content: String
   blogTitle: String
   topics: [String]

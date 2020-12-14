@@ -80,7 +80,6 @@ export class SundayMorningItem extends React.Component<Props, State> {
         this.setState({ listData: myJson });
       });
   }
-
   componentDidMount() {
     this.setGeoLocation();
   }
@@ -253,12 +252,12 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="SundayMorningItem">
+      <div className="SundayMorningItem" style={this.props.content.alternate ==="christmas" ? {position:"relative", height:"auto"} : {}}>
         <div className="SundayMorningItemDiv1">
           <div>
             <h1 className="SundayMorningH1">{this.props.content.header1}</h1>
 
-            <div className="SundayMorningItemDiv2">
+            <div className="SundayMorningItemDiv2" style={this.props.content.alternate === "christmas" ?{display:"none"} : {}}>
               <div className="SundayMorningMap">
                 <Map
                   google={this.props.google}
@@ -333,8 +332,8 @@ export class SundayMorningItem extends React.Component<Props, State> {
                 </Map>
               </div>
             </div>
-            <div className="SundayMorningItemDiv3">
-              <div className="SundayMorningFormItemContainer">
+            <div className="SundayMorningItemDiv3"  style={this.props.content.alternate === "christmas"? {width:"100%", position:"relative", height:"auto"}: {}}>
+              <div className="SundayMorningFormItemContainer"  style={this.props.content.alternate === "christmas" ? {display:"none"} : {}}>
                 <Input
                   className="PostalCodeInput"
                   placeholder="Add postal code"
@@ -352,6 +351,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
               <div
                 className="SundayMorningItemListData"
+                style={this.props.content.alternate === "christmas" ? {paddingBottom:0, top:0, height:"auto", overflow:"unset"} : {}}
                 ref={(ref) => (this.siteListScrollContainer = ref)}
               >
                 {this.state.listData
@@ -370,10 +370,17 @@ export class SundayMorningItem extends React.Component<Props, State> {
                       <div
                         key={item.id}
                         className="SundayMorningItemDiv5"
+                        style={this.props.content.alternate === "christmas" ? {width:"100%"} : {}}
                         id={'SITE-' + item.id}
                       >
                         <div className="SundayMorningItemDiv4">
                           <div>
+                            {this.props.content.alternate === "christmas" ? 
+                            <h3 className={'SundayMorningH3'} style={this.props.content.alternate === "christmas" ? {textDecoration:"none", cursor:"unset"} : {}}>
+                            {item.name}
+                            </h3>
+                            : 
+                            <>
                             <h3
                               className={
                                 'SundayMorningH3 ' +
@@ -396,6 +403,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                   .join('<br/>'),
                               }}
                             ></div>
+                            </>}
                             {/* <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " away (" + this.state.distances.rows[0].elements[index].duration.text + ")": null}</div> */}
                             <div className="SundayMorningDistances">
                               {item.distance != null
@@ -426,31 +434,25 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               </div>
                             )}
                           </div>
-                          <div className="SundayMorningItemDiv6">
+                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas" ? {display:"none"} : {}}>
                             <LinkButton
                               id="customBlackButton"
                               className="SundayMorningButton1"
-                              to={item.id}
+                              to={this.props.content.alternate === "christmas" ? "live" : item.id}
                             >
                               Visit Page
                             </LinkButton>
                           </div>
                         </div>
+                        
                         <div className="SundayMorningButtonContainer">
                           <div className="AddToCalendarButtonContainer">
-                            <img
-                              className="AddToCalendarIcon"
-                              src="/static/svg/Calendar, Add To.svg"
-                              alt="Calendar Icon"
-                            />
-                            <AddToCalendar
-                              buttonLabel="Add to Calendar"
-                              event={this.getCalendarEventForLocation(item)}
-                            ></AddToCalendar>
+                            <img className="AddToCalendarIcon" src="/static/svg/Calendar, Add To.svg" alt="Calendar Icon"/>                              
+                            <AddToCalendar buttonLabel="Add to Calendar" event={this.getCalendarEventForLocation(item)}/>
                           </div>
                           <a
                             className="emailText"
-                            href={'mailto:' + item.pastorEmail}
+                            href={this.props.content.alternate === "christmas" ? 'mailto:' + "hello@themeetinghouse.com" : 'mailto:' + item.pastorEmail}
                           >
                             <button className="emailButton">
                               <img
@@ -459,7 +461,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                 alt="Contact Icon"
                               />
                             </button>
-                            Contact the Pastor
+                            {this.props.content.alternate === "christmas" ? "Connect" : "Contact the Pastor"}
                           </a>
                         </div>
                       </div>

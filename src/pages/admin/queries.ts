@@ -16,6 +16,8 @@ export const listSpeakers = /* GraphQL */ `
       items {
         id
         name
+        image
+        hidden
       }
       nextToken
     }
@@ -49,7 +51,7 @@ query ListSpeakerVideoss(
     nextToken
   }
 }
-`
+`;
 
 export const listCustomPlaylistsAdmin = /* GraphQL */ `
   query ListCustomPlaylists(
@@ -102,9 +104,10 @@ export const getVideoByVideoTypeAdmin = /* GraphQL */ `
         }
         publishedDate
         description
+        thumbnailDescription
         speakers {
           items {
-            speaker{
+            speaker {
               id
             }
           }

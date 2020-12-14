@@ -315,7 +315,10 @@ class TeachingItem extends React.Component<Props, State> {
                       this.state.listData[this.state.teachingId]
                     );
                   }}
-                  alt="TBD"
+                  alt={
+                    this.state.listData[this.state.teachingId]
+                      .thumbnailDescription || 'Series Thumbnail'
+                  }
                   className="teaching-image-desktop"
                   src={
                     (this.state.content.class === 'teaching-sunday' ||
@@ -352,7 +355,10 @@ class TeachingItem extends React.Component<Props, State> {
                 onClick={() => {
                   this.handleClick(this.state.listData[this.state.teachingId]);
                 }}
-                alt="TBD"
+                alt={
+                  this.state.listData[this.state.teachingId]
+                    .thumbnailDescription || 'Series Thumbnail'
+                }
                 className="teaching-image-mobile"
                 src={
                   (this.state.content.class === 'teaching-sunday' ||

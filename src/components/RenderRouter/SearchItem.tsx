@@ -145,7 +145,7 @@ class ContentItem extends React.Component<Props, State> {
                       className="SearchResultItem"
                     >
                       <img
-                        alt="TBD"
+                        alt={item.thumbnailDescription || 'Video Thumbnail'}
                         className="Thumb"
                         src={item.Youtube.snippet.thumbnails.high.url}
                       />
