@@ -28,10 +28,12 @@
 @media (max-width: 768px) {
     .AnnouncementBarContainer {
         top:19.2vw;
-        height:56px;
+        height:calc(56px + 1vh);
         position:absolute;
     }
     .bannerMessage{
+        padding-right:4px;
+        padding-left:4px;
         font-size: 0.8em;
     }
 }
