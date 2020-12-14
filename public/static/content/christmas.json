@@ -53,6 +53,22 @@
         "alternate": "christmas"
       },
       {
+        "type": "content",
+        "style": "banner-cards",
+        "images": [
+          {
+            "src": "/static/photos/banners/promo_christmas3acts.png",
+            "alt": "Graphic for our Christmas in 3 Acts teaching series.",
+            "linkto": "/videos/Christmas%20in%203%20Acts/4lw1mTMCE7Y"
+          },
+          {
+            "src": "/static/photos/banners/promo_preschoolhome.jpg",
+            "alt": "Graphic for our Christmas Preschool video curriculum, featuring a host who is smiling and sitting beside a Christmas tree.",
+            "linkto": "/videos/preschool-Preschool/Rp4cL3MkwZ4"
+          }
+        ]
+      },
+      {
         "type": "blog",
         "style": "multiImage",
         "status": "Live",
