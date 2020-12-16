@@ -12,6 +12,7 @@ import './livestream.scss';
 import awsmobile from '../../aws-exports';
 import isSafari from 'react-device-detect';
 import moment from 'moment';
+import { v4 as uuidv4 } from 'uuid';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -59,6 +60,8 @@ const liveInit = {
   menu: menuInit,
   homepageLink: 'Live',
   zoom: [],
+  eventTitle:"",
+  externalEventUrl:""
 };
 
 interface LiveMenu {
@@ -81,13 +84,15 @@ interface LiveObject {
   startTime: string;
   videoStartTime: string;
   endTime: string;
-  prerollYoutubeId: string;
-  liveYoutubeId: string;
-  showChat: boolean;
-  showKids: boolean;
-  menu: LiveMenu[];
+  prerollYoutubeId?: string;
+  liveYoutubeId?: string;
+  showChat?: boolean;
+  showKids?: boolean;
+  menu?: LiveMenu[];
   homepageLink: string;
-  zoom: ZoomItem[];
+  zoom?: ZoomItem[];
+  eventTitle: string;
+  externalEventUrl: string | undefined;
 }
 
 interface State {
@@ -97,6 +102,7 @@ interface State {
   alert: string;
   livestreamList: LiveObject[];
   liveObject: LiveObject;
+  customEvent:boolean;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -109,6 +115,7 @@ class Index extends React.Component<EmptyProps, State> {
       alert: '',
       livestreamList: [],
       liveObject: liveInit,
+      customEvent:false
     };
     this.listLivestreams();
   }
@@ -195,6 +202,12 @@ class Index extends React.Component<EmptyProps, State> {
 
   handleSelection(id: string) {
     const temp = this.state.livestreamList.filter((item) => item.id === id)[0];
+    console.log(temp)
+    if(temp.externalEventUrl !== null && temp.externalEventUrl !== "")
+      this.setState({customEvent: true})
+    else{
+      this.setState({customEvent:false})
+    }
     this.setState({ liveObject: temp });
     this.setState({ editMode: true });
   }
@@ -226,13 +239,19 @@ class Index extends React.Component<EmptyProps, State> {
               Live Youtube Id
             </td>
             <td className="divCell" key={'homepageLink'}>
-              Homepage Link
+              Banner Message
             </td>
             <td className="divCell" key={'showChat'}>
               showChat
             </td>
             <td className="divCell" key={'showKids'}>
               showKids
+            </td>
+            <td className="divCell" key={'externalEventUrl'}>
+              externalEventUrl
+            </td>
+            <td className="divCell" key={'eventTitle'}>
+              title  
             </td>
           </tr>
         </thead>
@@ -269,10 +288,16 @@ class Index extends React.Component<EmptyProps, State> {
                   {livestream.homepageLink}
                 </td>
                 <td className="divCell" key={'showChat'}>
-                  {livestream.showChat.toString()}
+                  {livestream.showChat?.toString()}
                 </td>
                 <td className="divCell" key={'showKids'}>
-                  {livestream.showKids.toString()}
+                  {livestream.showKids?.toString()}
+                </td>
+                <td className="divCell" key={'externalEventUrl'}>
+                {livestream.externalEventUrl}
+                </td>
+                <td className="divCell" key={'eventTitle'}>
+                {livestream.eventTitle}
                 </td>
               </tr>
             );
@@ -284,7 +309,7 @@ class Index extends React.Component<EmptyProps, State> {
 
   validate(): boolean {
     let test = true;
-
+    if(this.state.liveObject.zoom)
     this.state.liveObject.zoom.forEach((zoomItem) => {
       if (zoomItem.title === '') {
         this.setState({ alert: 'error: zoom item titles cannot be empty' });
@@ -296,7 +321,7 @@ class Index extends React.Component<EmptyProps, State> {
         test = false;
       }
     });
-
+    if(this.state.liveObject.menu)
     this.state.liveObject.menu.forEach((menuItem) => {
       if (menuItem.link === '') {
         this.setState({ alert: 'error: need a valid link' });
@@ -376,10 +401,21 @@ class Index extends React.Component<EmptyProps, State> {
   async save(): Promise<void> {
     if (this.state.editMode) {
       try {
-        const temp = this.state.liveObject;
+        const temp = {...this.state.liveObject}
+        if(this.state.customEvent){
+          delete temp['showChat']
+          delete temp['showKids']
+          delete temp['zoom'];
+          delete temp['liveYoutubeId']
+          delete temp['prerollYoutubeId']
+          delete temp['menu']
+        }
+        else{
+          delete temp['externalEventUrl']
+        }
         delete temp['createdAt'];
         delete temp['updatedAt'];
-
+        console.log(temp)
         const response: any = await API.graphql({
           query: mutations.updateLivestream,
           variables: { input: temp },
@@ -388,22 +424,42 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           alert: 'updated: ' + response.data.updateLivestream.id,
         });
+        this.setState({liveObject:liveInit, editMode:false})
+        this.setState({customEvent:false})
+
       } catch (e) {
         console.error(e);
-      }
+      } 
     } else {
+      const temp = {...this.state.liveObject}
+      if(this.state.customEvent){
+        delete temp['showChat']
+        delete temp['showKids']
+        delete temp['zoom'];
+        delete temp['liveYoutubeId']
+        delete temp['prerollYoutubeId']
+        delete temp['menu']
+        temp.id = `CustomEvent-${uuidv4()}`;
+      }
+      else{
+        delete temp['externalEventUrl'];
+      }
+      console.log(temp)
       try {
         const response: any = await API.graphql({
           query: mutations.createLivestream,
-          variables: { input: this.state.liveObject },
+          variables: { input: temp },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         this.setState({
           alert: 'created: ' + response.data.createLivestream.id,
         });
+        this.setState({liveObject:liveInit, editMode:false})
+        this.setState({customEvent:false})
+
       } catch (e) {
         console.error(e);
-      }
+      } 
     }
   }
 
@@ -422,14 +478,17 @@ class Index extends React.Component<EmptyProps, State> {
     const temp = this.state.liveObject;
     temp[field] = data;
     this.setState({ liveObject: temp });
+    if(!this.state.customEvent){
+      const firstString = this.state.liveObject.homepageLink.toLowerCase().includes("after party") ? "After Party" : "Live"
     temp['id'] =
-      this.state.liveObject.homepageLink +
+       firstString +
       '-' +
       this.state.liveObject.date +
       '-' +
       this.state.liveObject.liveYoutubeId;
+    }
     this.setState({ liveObject: temp });
-    this.sundayCheck(field);
+    this.setState({notSundayWarning:''})
   }
 
   handleMenuChange(
@@ -438,38 +497,55 @@ class Index extends React.Component<EmptyProps, State> {
     data: string
   ): void {
     const temp = this.state.liveObject;
-    temp.menu[index][field] = data;
-    this.setState({ liveObject: temp });
+    if(temp.menu){
+      temp.menu[index][field] = data;
+      this.setState({ liveObject: temp });
+    }
   }
 
   handleZoomChange(index: number, field: string, data: string): void {
     const temp = this.state.liveObject;
-    temp.zoom[index][field] = data;
-    this.setState({ liveObject: temp });
+    if(temp.zoom){
+      temp.zoom[index][field] = data;
+      this.setState({ liveObject: temp });
+    }
+
   }
 
   deleteZoomItem(): void {
     const temp = this.state.liveObject.zoom;
-    temp.pop();
-    this.handleChange('zoom', temp);
+    if(temp) {
+      temp.pop();
+      this.handleChange('zoom', temp);
+    }
+
   }
 
   addZoomItem(): void {
     const temp = this.state.liveObject.zoom;
-    temp.push({ title: '', link: '' });
-    this.handleChange('zoom', temp);
+    if(temp){
+      temp.push({ title: '', link: '' });
+      this.handleChange('zoom', temp);
+    }
+
   }
 
   deleteMenuItem(): void {
     const temp = this.state.liveObject.menu;
-    temp.pop();
-    this.handleChange('menu', temp);
+    if(temp){
+      temp.pop();
+      this.handleChange('menu', temp);
+    }
+
   }
 
   addMenuItem(): void {
     const temp = this.state.liveObject.menu;
-    temp.push({ title: '', link: '', linkType: 'link' });
-    this.handleChange('menu', temp);
+    if(temp){
+      temp.push({ title: '', link: '', linkType: 'link' });
+      this.handleChange('menu', temp);
+    }
+
   }
 
   async delete() {
@@ -484,6 +560,7 @@ class Index extends React.Component<EmptyProps, State> {
           alert: 'deleted: ' + response.data.deleteLivestream.id,
           toDelete: '',
         });
+        this.setState({liveObject:liveInit, customEvent:false, editMode:false})
       } catch (e) {
         console.error(e);
       }
@@ -575,12 +652,150 @@ class Index extends React.Component<EmptyProps, State> {
 
   renderEditor() {
     return (
+      <>
+      <button 
+        style={{marginTop:"16px", marginBottom:"16px"}} onClick={()=> {
+        this.setState({liveObject:liveInit})
+         this.setState({customEvent: !this.state.customEvent, alert:'', notSundayWarning:''})
+        }}>{!this.state.customEvent ? "Add Custom Event" : "Add Live Event"}</button>
+        {this.state.customEvent ? 
+          <form
+          style={{ display: 'flex', flexDirection: 'row', width: '100vw' }}
+            onSubmit={(e) => this.submit(e)}
+          >
+            <div style={{width:"220px"}}>
+            <label>
+              Date{' '}
+              <span style={{ color: 'red' }}>
+                {this.state.notSundayWarning}
+              </span>
+              <input
+                className="livestream-input"
+                type="date"
+                required
+                value={this.state.liveObject.date}
+                onChange={(e) => this.handleChange('date', e.target.value)}
+              ></input>
+            </label>
+            <label>
+              startTime{' '}
+              <span
+                style={{ cursor: 'pointer' }}
+                onClick={() =>
+                  this.setState({
+                  alert: 'When the link appears on the homepage',
+                })}>
+                ⓘ
+              </span>
+              <input
+                className="livestream-input"
+                type="time"
+                required
+                value={this.state.liveObject.startTime}
+                onChange={(e) => this.handleChange('startTime', e.target.value)}
+              ></input>
+            </label>
+            <label>
+              videoStartTime{' '}
+              <span
+                style={{ cursor: 'pointer' }}
+                onClick={() =>
+                  this.setState({
+                    alert: 'When the video is scheduled to start',
+                  })
+                }
+              >
+                ⓘ
+              </span>
+              <input
+                className="livestream-input"
+                type="time"
+                required
+                value={this.state.liveObject.videoStartTime}
+                onChange={(e) =>
+                  this.handleChange('videoStartTime', e.target.value)
+                }
+              ></input>
+          </label>
+          <label>
+            endTime{' '}
+            <span
+              style={{ cursor: 'pointer' }}
+              onClick={() =>
+                this.setState({
+                  alert: 'When the link disappears from the homepage',
+                })
+              }
+            >
+              ⓘ
+            </span>
+            <input
+              className="livestream-input"
+              type="time"
+              required
+              value={this.state.liveObject.endTime}
+              onChange={(e) => this.handleChange('endTime', e.target.value)}
+            ></input>
+          </label>
+          <button type="submit">Save Livestream</button>
+          </div>
+          <div style={{width:"230px"}}>
+          <label>
+              bannerMessage{' '}
+              <span style={{ fontSize: 10 }}>
+              ({this.state.liveObject.homepageLink.length}/45 characters)
+              </span>
+              <br />
+              <input
+              maxLength={45}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject.homepageLink}
+              onChange={(e) =>
+                this.handleChange('homepageLink', e.target.value)
+              }
+              ></input>
+          </label>
+          <label>
+              externalEventUrl{' '}
+              <br />
+              <input
+              maxLength={300}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject.externalEventUrl}
+              onChange={(e) =>
+                this.handleChange('externalEventUrl', e.target.value)
+              }
+              ></input>
+          </label>
+          <label style={{width:"230px"}}>
+              eventTitle{' '}
+              <br />
+              <input
+              maxLength={100}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject.eventTitle}
+              onChange={(e) =>
+                this.handleChange('eventTitle', e.target.value)
+              }
+              ></input>
+          </label>
+          </div>
+        </form>
+      :
       <div style={{ display: 'flex', flexDirection: 'row' }}>
+
         <form
           style={{ display: 'flex', flexDirection: 'row', width: '100vw' }}
           onSubmit={(e) => this.submit(e)}
         >
           <div style={{ flex: 1 }}>
+
             <label>
               Date{' '}
               <span style={{ color: 'red' }}>
@@ -669,7 +884,7 @@ class Index extends React.Component<EmptyProps, State> {
               <input
                 className="livestream-input"
                 type="text"
-                value={this.state.liveObject.prerollYoutubeId}
+                value={this.state.liveObject.prerollYoutubeId ?? ""}
                 onChange={(e) =>
                   this.handleChange('prerollYoutubeId', e.target.value)
                 }
@@ -682,20 +897,20 @@ class Index extends React.Component<EmptyProps, State> {
                 className="livestream-input"
                 type="text"
                 required
-                value={this.state.liveObject.liveYoutubeId}
+                value={this.state.liveObject.liveYoutubeId ?? ""}
                 onChange={(e) =>
                   this.handleChange('liveYoutubeId', e.target.value)
                 }
               ></input>
             </label>
             <label>
-              homepageLink{' '}
+              bannerMessage{' '}
               <span style={{ fontSize: 10 }}>
-                ({this.state.liveObject.homepageLink.length}/12 characters)
+                ({this.state.liveObject.homepageLink.length}/45 characters)
               </span>
               <br />
               <input
-                maxLength={12}
+                maxLength={45}
                 className="livestream-input"
                 type="text"
                 required
@@ -706,9 +921,24 @@ class Index extends React.Component<EmptyProps, State> {
               ></input>
             </label>
             <br />
+            <label style={{width:"230px"}}>
+              eventTitle{' '}
+              <br />
+              <input
+              maxLength={100}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject.eventTitle ?? ""}
+              onChange={(e) =>
+                this.handleChange('eventTitle', e.target.value)
+              }
+              ></input>
+          </label>
+            <br />
             <input
               type="checkbox"
-              checked={this.state.liveObject.showChat}
+              checked={this.state.liveObject.showChat ?? false}
               onChange={() =>
                 this.handleChange('showChat', !this.state.liveObject.showChat)
               }
@@ -716,7 +946,7 @@ class Index extends React.Component<EmptyProps, State> {
             <label> show Chat</label>
             <input
               type="checkbox"
-              checked={this.state.liveObject.showKids}
+              checked={this.state.liveObject.showKids ?? false}
               onChange={() =>
                 this.handleChange('showKids', !this.state.liveObject.showKids)
               }
@@ -724,7 +954,7 @@ class Index extends React.Component<EmptyProps, State> {
             <label> show Kids</label>
           </div>
           <div style={{ flex: 2 }}>
-            {this.state.liveObject.menu.map((item, index) =>
+            {this.state.liveObject.menu?.map((item, index) =>
               this.renderMenuEditor(item, index)
             )}
           </div>
@@ -811,6 +1041,8 @@ class Index extends React.Component<EmptyProps, State> {
           ) : null}
         </div>
       </div>
+}
+      </>
     );
   }
   renderAlert() {
