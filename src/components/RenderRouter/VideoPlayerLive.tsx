@@ -114,14 +114,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
         variables: { filter: { date: { eq: today } } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       }) as GraphQLResult<ListLivestreamsQuery>;
-
       if (json.data?.listLivestreams?.items) {
         for (const item of json.data?.listLivestreams?.items) {
+          if(item?.liveYoutubeId && !item?.id.includes('CustomEvent')){
           const rightNow = moment().tz("America/Toronto").format('HH:mm');
           const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime;
           if (showTime) {
             this.setState({ liveEvent: item })
           }
+        }
         } 
       }
     } catch (err) {
