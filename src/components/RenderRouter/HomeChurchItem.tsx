@@ -717,9 +717,11 @@ export class ContentItem extends React.Component<Props, State> {
                     </h3>
                     <div className="HomeChurchAddress">{item.description}</div>
                     <div style={{ marginTop: '15px', marginBottom: '10px' }}>
+                      {item?.churchCampus?.name ?
                       <div className="HomeChurchSiteAffiliation">
                         <Badge>{item.churchCampus?.name}</Badge>
-                      </div>
+                      </div>:
+                      null}
                       <div className="HomeChurchDayOfWeek">
                         <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                       </div>
