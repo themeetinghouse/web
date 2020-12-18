@@ -716,6 +716,7 @@ export class ContentItem extends React.Component<Props, State> {
                       {item.name}
                     </h3>
                     <div className="HomeChurchAddress">{item.description}</div>
+
                     <div style={{ marginTop: '15px', marginBottom: '10px' }}>
                       {item?.churchCampus?.name ?
                       <div className="HomeChurchSiteAffiliation">
@@ -726,6 +727,7 @@ export class ContentItem extends React.Component<Props, State> {
                         <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                       </div>
                     </div>
+                    <div className="HomeChurchTimeOfDay">{moment(item.schedule?.startTime).format('h:mm a')}</div>
                     <div className="HomeChurchButtonContainer">
                       {item.schedule?.recurrences?.recurrence
                         ?.recurrenceWeekly ? (
