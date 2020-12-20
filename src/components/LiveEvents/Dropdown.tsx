@@ -87,9 +87,9 @@ export const Dropdown = ({end, close} : Props) =>{
     return (
         <ReactCSSTransitionGroup
         transitionName="Dropdown"
-        transitionAppearTimeout={1000}
-        transitionEnterTimeout={1000}
-        transitionLeaveTimeout={1000}
+        transitionAppearTimeout={400}
+        transitionEnterTimeout={400}
+        transitionLeaveTimeout={400}
         transitionAppear={true}
       >
         <div ref={ref} className="DropdownMainContainer">
@@ -98,7 +98,7 @@ export const Dropdown = ({end, close} : Props) =>{
           <img onClick={close} className="closeButton" style={{}}alt="Close Icon" src="/static/svg/Close-Cancel-White.svg"></img>
             {!isLoading ? events.map((event: any, ind:any) =>{
                 return (
-                    <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className={ind === 0 ? "EventItem offsetThat" : "EventItem"} key={ind}>
+                    <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className={ind === 0 ? "EventItem FirstItemOffset" : "EventItem"} key={ind}>
                         <p className="EventTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('h:mm')}<small style={{fontWeight:700}}>{moment(event?.eventStartTime, 'HH:mm').format('A')}</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         {event.eventLink === "/live" ?
@@ -120,11 +120,11 @@ export const Dropdown = ({end, close} : Props) =>{
                 )
             }): 
               <div style={{ marginTop:"5vh",display:"flex", zIndex:100}}>
-                <Spinner style={{ margin:"auto", width:'3rem', height:'3rem'}} color="light"/>
+                <Spinner style={{ margin:"auto", width:'3rem', height:'3rem', }} color="light"/>
               </div>
               }
             </div>
-            <p className="EventFooter">All times displayed in EST</p>
+            {!isLoading ? <p className="EventFooter">All times displayed in {false ? moment.tz(moment.tz.guess()).zoneAbbr() : "EST"}</p> : null}
         </div>
         </ReactCSSTransitionGroup>
     )

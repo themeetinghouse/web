@@ -1076,17 +1076,6 @@ class Index extends React.Component<EmptyProps, State> {
                 {this.renderLivestreams()}
                 {this.renderDelete()}
               </div>
-              <button onClick={() => {
-                console.log("Live Object =============")
-                console.log(this.state.liveObject) 
-                console.log("===================")
-                console.log("this.state.customEvent =============")
-                console.log(this.state.customEvent) 
-                console.log("===================")
-                console.log("this.state.editMode =============")
-                console.log(this.state.editMode) 
-                console.log("===================")
-              }}>Check states</button>
               {this.renderEditor()}
               {this.renderAlert()}
             </div>

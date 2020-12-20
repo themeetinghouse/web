@@ -49,11 +49,12 @@ interface State {
   showMenu: boolean,
   movingMenu: boolean,
   showLive: boolean,
-  showLiveEvent: boolean,
+  showLiveBanner: boolean,
   liveTitle?: string | null,
   expand: any
   showNotes: boolean
-  showLiveStreams: boolean
+  showEventsDropdown: boolean
+  liveEvents: Array<any>
 }
 
 class HomeMenu extends React.Component<Props, State>  {
@@ -81,12 +82,14 @@ class HomeMenu extends React.Component<Props, State>  {
       showSearch: this.props.pageConfig.showSearch,
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
-      showLiveEvent: false,
-      showLiveStreams:false,
+      showLiveBanner: false,
+      showEventsDropdown:false,
+      liveEvents:[],
       expand: null,
       showNotes: moment.tz('America/Toronto').isoWeekday() === 7 || (moment.tz('America/Toronto').isoWeekday() === 1 && moment.tz('America/Toronto').hour() <= 12)
     };
-    this.getLive()
+    if(this.props.location.pathname === "/")
+      this.getLive()
     this.handleScroll = this.handleScroll.bind(this)
   }
 
@@ -99,14 +102,17 @@ class HomeMenu extends React.Component<Props, State>  {
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       });
       const livestreams: ListLivestreamsQuery = json.data
+      this.setState({liveEvents:livestreams?.listLivestreams?.items ?? []})
+      if(livestreams?.listLivestreams?.items?.length !== undefined && livestreams?.listLivestreams?.items?.length > 0){
+        this.interval = setInterval(() => this.tick(), 3000);
+      }
       livestreams?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
         const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow < item.endTime
         if (showTime && this.state.showLive) {
           console.log("ShowLive")
-          this.setState({ liveTitle: item?.homepageLink , showLiveEvent: true })
+          this.setState({ liveTitle: item?.homepageLink , showLiveBanner: true })
         }
-        
       })
      
     } catch (err) {
@@ -146,14 +152,32 @@ class HomeMenu extends React.Component<Props, State>  {
     }
     )
   };
+  tick() {
+    const rightNow = moment().tz("America/Toronto").format('HH:mm')
+    console.log("Ticking Home menu")
+    let currentEvent;
+    for(let i =0; i<this.state.liveEvents.length; i++){
+      if(this.state.liveEvents[i].startTime && this.state.liveEvents[i].endTime && rightNow >= this.state.liveEvents[i].startTime && rightNow <= this.state.liveEvents[i].endTime){
+        currentEvent = this.state.liveEvents[i]
+      }
+    }
+    if(currentEvent){
+      this.setState({liveTitle : currentEvent.homepageLink})
+      if(!this.state.showLiveBanner) this.setState({showLiveBanner : true})
+    }
 
+    
+  }
+  interval: any
   componentDidMount() {
     this.getState();
+    console.log(this.props.location.pathname)
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    clearInterval(this.interval);
   }
   toggle() {
     this.setState({
@@ -161,7 +185,7 @@ class HomeMenu extends React.Component<Props, State>  {
     });
   }
   handleToggleDropdown = () =>{
-      this.setState({showLiveStreams:!this.state.showLiveStreams})
+      this.setState({showEventsDropdown:!this.state.showEventsDropdown})
   }
   signOut = () => {
     Auth.signOut()
@@ -172,19 +196,22 @@ class HomeMenu extends React.Component<Props, State>  {
     // console.log(this.state.position)
     return (
       <div>
-         {this.state.showLiveEvent  ?
+         {this.state.showLiveBanner  ?
          <div className="ignore-onClickOutside" onClick={this.handleToggleDropdown}><AnnouncementBar bannerMessage={this.state.liveTitle?? "Live"}></AnnouncementBar></div>
         : null}
       <div>
        
-        {this.state.showLiveStreams ? <Dropdown 
-            close={() => this.setState({showLiveStreams:false})}
-            end={() => {this.setState({showLiveEvent:false, showLiveStreams:false})
+        {this.state.showEventsDropdown ? <Dropdown 
+            close={() => this.setState({showEventsDropdown:false})}
+            end={() => {
+              clearInterval(this.interval)
+              this.setState({showLiveBanner:false, showEventsDropdown:false}
+                )
       }}></Dropdown> : null}
         <div className={this.state.logoColor === "white" ? "navbar-custom white" : "navbar-custom"} id="navbar">
         <NavbarBrand tag={Link} className="brand" to="/">
-          <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className={!this.state.showLiveEvent ? "logoHouse " : "logoHouse logoOffset"} />
-          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className={!this.state.showLiveEvent ? "logoText " : "logoText logoOffset"} />) : null}
+          <img src={"/static/logos/house-" + this.state.logoColor + "-sm.png"} alt="Logo: Stylized House" className={!this.state.showLiveBanner ? "logoHouse " : "logoHouse logoOffset"} />
+          {this.state.showLogoText ? (<img src={"/static/logos/tmh-text-" + this.state.logoColor + "-sm.png"} alt="Logo: The Meeting House" className={!this.state.showLiveBanner ? "logoText " : "logoText logoOffset"} />) : null}
         </NavbarBrand>
 
 

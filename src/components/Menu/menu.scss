@@ -436,37 +436,6 @@
     background-color: #ffffff00;
     cursor: pointer;
   }
-  .liveEvent {
-    top: 4.5vw;
-    right: 30vw;
-    position: absolute;
-    z-index: 100;
-    background-color: #ffffff00;
-    cursor: pointer;
-    margin-top: 0vw;
-    color: $onyxblacktext;
-    font-family: Graphik Web;
-    font-weight: bold;
-    font-size: 6vw;
-    -webkit-animation: glow 2s ease-in-out infinite alternate;
-    -moz-animation: glow 2s ease-in-out infinite alternate;
-    animation: glow 2s ease-in-out infinite alternate;
-    text-decoration: none;
-    &:hover {
-      color: initial;
-    }
-  }
-
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff,
-        0 0 25px #fff, 0 0 30px #fff;
-    }
-    to {
-      text-shadow: 0 0 10px #fff, 0 0 15px #ffaaaa, 0 0 20px #ffaaaa,
-        0 0 25px #ffaaaa, 0 0 30px #ffaaaa;
-    }
-  }
   .navbar-brand {
     padding-top: 0 !important;
     padding-bottom: 0 !important;

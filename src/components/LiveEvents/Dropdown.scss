@@ -17,7 +17,7 @@
 .DropdownFill{
     overflow:auto;
     margin-top:30px;
-    min-height:14vh;
+    min-height:16vh;
     background-color:#1a1a1a;
     max-height:50vh;
 }
@@ -26,7 +26,7 @@
 }
 .Dropdown-appear-active{
     opacity:1;
-    transition: opacity 200ms ease-out;
+    transition: opacity 500ms ease-out;
 }
 .Heading{
     padding-left:8px;
@@ -70,9 +70,9 @@
     width: 0;
     height: 0;
     position:absolute;
-    right: calc(50% - 35px);
-    border-left: 35px solid transparent;
-    border-right: 35px solid transparent;
+    right: calc(50% - 20px);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
     border-bottom: 35px solid #1a1a1a;
 }
 .EventButton{
@@ -91,10 +91,10 @@
     align-items:"center";
 }
 .EventFooter{
-    padding-top:8px;
+    padding-top:16px;
     padding-bottom:16px;
     background-color:#1a1a1a;
-    font-size: calc(8px + 0.3vw);
+    font-size: calc(10px + 0.1vw);
     font-weight:600;
     position:relative;
     text-align: center;
@@ -107,8 +107,8 @@
 .closeButton{
     display:none;
 }
-.offsetThat{
-    margin-top:32px;
+.FirstItemOffset{
+    margin-top:24px;
 }
 
 @media (max-width: 768px) {
@@ -149,7 +149,7 @@
         color:#ffffff;
         display:inline;
     }
-    .offsetThat{
+    .FirstItemOffset{
         margin-top:24px;
     }
     .EventButton{
@@ -171,6 +171,7 @@
         z-index: 200;
     }
     .EventFooter{
+        font-size:calc(12px + 0.3vw);
         position:absolute;
         bottom:0;
         width:100%;

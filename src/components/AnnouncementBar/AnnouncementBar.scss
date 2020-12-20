@@ -6,7 +6,7 @@
     align-content: center;
     width:100vw;
     top:0vh;
-    position:fixed;
+
     height:56px;
     background-color: $goldensun;
     z-index: 300;
@@ -24,11 +24,11 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .AnnouncementBarContainer {
-        top:19.2vw;
-        height:calc(56px + 1vh);
-        position:absolute;
+        margin-top:9.1vw;
+        height:calc(52px + 1vh);
+        position: relative;
     }
     .bannerMessage{
         padding-right:4px;
