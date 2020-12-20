@@ -5,6 +5,7 @@
     "keywords": "kidmax, kids ministry, childrens ministry",
     "description": "Kidmax is our kid's ministry at The Meeting House.",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",

@@ -5,6 +5,7 @@
     "keywords": "first nations pandemic response",
     "description": "The page for The Meeting House First Nations Pandemic Response in partnership with MCC Canada.",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",

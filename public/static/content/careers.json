@@ -5,6 +5,7 @@
     "keywords": "",
     "description": "",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",
@@ -78,8 +79,7 @@
         "style": "oneImageBlackRight",
         "header1": "Part-time Careers",
         "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-        "list": [
-        ],
+        "list": [],
         "image1": [
           {
             "src": "/static/images/careers-3.jpg",

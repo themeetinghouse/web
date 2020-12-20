@@ -88,7 +88,7 @@ class HomeMenu extends React.Component<Props, State>  {
       expand: null,
       showNotes: moment.tz('America/Toronto').isoWeekday() === 7 || (moment.tz('America/Toronto').isoWeekday() === 1 && moment.tz('America/Toronto').hour() <= 12)
     };
-    if(this.props.location.pathname === "/")
+    //if(this.props.location.pathname === "/")
       this.getLive()
     this.handleScroll = this.handleScroll.bind(this)
   }
@@ -168,7 +168,7 @@ class HomeMenu extends React.Component<Props, State>  {
     }
     if(currentEvent){
       this.setState({liveTitle : currentEvent.homepageLink})
-      if(!this.state.showLiveBanner) this.setState({showLiveBanner : true})
+      if(!this.state.showLiveBanner&& this.state.showLive) this.setState({showLiveBanner : true})
     }
 
     
