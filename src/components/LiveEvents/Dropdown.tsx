@@ -25,7 +25,7 @@ export const Dropdown = ({close} : Props) =>{
       const tempEvents:any =[];
       livestreams?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
-        const showTime = item?.startTime && item?.endTime && rightNow >= item.startTime && rightNow <= item.endTime
+        const showTime = item?.videoStartTime && item?.endTime && rightNow >= item.videoStartTime && rightNow <= item.endTime
         const event : any = {
             eventName:item?.eventTitle ? item.eventTitle : item?.homepageLink,  
             eventStartTime:item?.videoStartTime ?? item?.startTime,
@@ -52,8 +52,10 @@ export const Dropdown = ({close} : Props) =>{
       const rightNow = moment().tz("America/Toronto").format('HH:mm')
       const temp = [...events];
       events.map((event:any, index:number)=>{
-        console.log("looping events")
-        if(rightNow >=event.eventStartTime && rightNow <event.eventEndTime){
+        const startTime = moment(event.eventStartTime, "HH:mm").subtract('10', 'minutes').format("HH:mm")
+        console.log("start time"+startTime)
+        if(rightNow >= startTime && rightNow <event.eventEndTime){
+          console.log()
           if(!temp[index].live)
             temp[index].live = true;
             setEvents(temp)
