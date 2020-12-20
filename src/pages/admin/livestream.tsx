@@ -239,7 +239,7 @@ class Index extends React.Component<EmptyProps, State> {
               Live Youtube Id
             </td>
             <td className="divCell" key={'homepageLink'}>
-              Homepage Link
+              Banner Message
             </td>
             <td className="divCell" key={'showChat'}>
               showChat
