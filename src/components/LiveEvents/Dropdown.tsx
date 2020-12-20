@@ -39,10 +39,7 @@ export const Dropdown = ({end, close} : Props) =>{
         }
         tempEvents.push({...event, live:showTime})
       })
-      setEvents(tempEvents.map((a:any) => {
-        console.log(a.eventStartTime)
-        return a;
-      }).sort((a:any,b:any) => a.eventStartTime.localeCompare(b.eventStartTime)))
+      setEvents(tempEvents.sort((a:any,b:any) => a.eventStartTime.localeCompare(b.eventStartTime)))
       setisLoading(false)
     } catch (err) {
       setisLoading(false)
@@ -56,12 +53,11 @@ export const Dropdown = ({end, close} : Props) =>{
     useEffect(()=>{
       if(events?.length> 0){
       const interval = setInterval(() => {
-      const rightNow = moment().tz("America/Toronto").format('HH:mm')
+      const rightNow = moment.tz("America/Toronto").format('HH:mm')
       const temp = [...events];
       events.map((event:any, index:number)=>{
-        const startTime = moment(event.eventStartTime, "HH:mm").subtract('10', 'minutes').format("HH:mm")
+        const startTime = moment(event.eventStartTime, "HH:mm").format("HH:mm")
         if(rightNow >= startTime && rightNow <event.eventEndTime){
-          console.log()
           if(!temp[index].live)
             temp[index].live = true;
             setEvents(temp)
@@ -99,7 +95,7 @@ export const Dropdown = ({end, close} : Props) =>{
             {!isLoading ? events.map((event: any, ind:any) =>{
                 return (
                     <div style={ind === events?.length-1 ? {marginBottom:"16px"} : {}} className={ind === 0 ? "EventItem FirstItemOffset" : "EventItem"} key={ind}>
-                        <p className="EventTime" style={{margin:"auto"}}>{moment(event?.eventStartTime, 'HH:mm').format('h:mm')}<small style={{fontWeight:700}}>{moment(event?.eventStartTime, 'HH:mm').format('A')}</small> </p>
+                        <p className="EventTime" style={{margin:"auto"}}>{moment.tz(event?.eventStartTime, "HH:mm","America/Toronto").utc().local().format("h:mm")}<small style={{fontWeight:700}}>{moment.tz(event?.eventStartTime, "HH:mm","America/Toronto").utc().local().format('A')}</small> </p>
                         <p className="EventTitle">{event?.eventName}</p>
                         {event.eventLink === "/live" ?
                             <Link
@@ -124,7 +120,7 @@ export const Dropdown = ({end, close} : Props) =>{
               </div>
               }
             </div>
-            {!isLoading ? <p className="EventFooter">All times displayed in {false ? moment.tz(moment.tz.guess()).zoneAbbr() : "EST"}</p> : null}
+            {!isLoading ? <p className="EventFooter">All times displayed in {moment.tz(moment.tz.guess()).zoneAbbr()}</p> : null}
         </div>
         </ReactCSSTransitionGroup>
     )

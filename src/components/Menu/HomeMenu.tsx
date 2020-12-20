@@ -104,7 +104,7 @@ class HomeMenu extends React.Component<Props, State>  {
       const livestreams: ListLivestreamsQuery = json.data
       this.setState({liveEvents:livestreams?.listLivestreams?.items ?? []})
       if(livestreams?.listLivestreams?.items?.length !== undefined && livestreams?.listLivestreams?.items?.length > 0){
-        this.interval = setInterval(() => this.tick(), 3000);
+        this.interval = setInterval(() => this.tick(), 1000);
       }
       livestreams?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
@@ -171,7 +171,6 @@ class HomeMenu extends React.Component<Props, State>  {
   interval: any
   componentDidMount() {
     this.getState();
-    console.log(this.props.location.pathname)
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
   }

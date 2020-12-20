@@ -488,11 +488,7 @@ class Index extends React.Component<EmptyProps, State> {
       this.state.liveObject.liveYoutubeId;
     }
     this.setState({ liveObject: temp });
-    if(!this.state.customEvent)
-      this.sundayCheck(field);
-    else{
-      this.setState({notSundayWarning:''})
-    }
+    this.setState({notSundayWarning:''})
   }
 
   handleMenuChange(

@@ -1,11 +1,10 @@
 @import '../../theme';
 .DropdownMainContainer {
-    top:60px;
-    padding-top:4px;
+    top:56px;
     background-color: transparent;
     color:white;
-    width:28vw;
-    min-width:calc(220px + 1vw);
+    width:30vw;
+    min-width:calc(25vw + 100px);
     position:absolute;
     right:2vw;
     z-index: 3000;
@@ -47,11 +46,10 @@
 }
 .EventTime{
     flex-direction: column;
-    padding-right:8px;
     margin:auto;
     font-size: calc(0.2vw + 13px);
     font-weight:500;
-    width:24%;
+    width:23%;
     color:#ffffff;
     display:inline;
 }
@@ -59,7 +57,7 @@
     flex-direction: column;
     margin:auto;
     padding-left:12px;
-    font-size: calc(0.4vw + 14px);
+    font-size: calc(0.4vw + 12px);
     padding-right:16px;
     color:#ffffff;
     display:inline;
