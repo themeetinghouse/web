@@ -747,11 +747,11 @@ class Index extends React.Component<EmptyProps, State> {
           <label>
               bannerMessage{' '}
               <span style={{ fontSize: 10 }}>
-              ({this.state.liveObject.homepageLink.length}/60 characters)
+              ({this.state.liveObject.homepageLink.length}/50 characters)
               </span>
               <br />
               <input
-              maxLength={60}
+              maxLength={50}
               className="livestream-input"
               type="text"
               required
@@ -910,11 +910,11 @@ class Index extends React.Component<EmptyProps, State> {
             <label>
               bannerMessage{' '}
               <span style={{ fontSize: 10 }}>
-                ({this.state.liveObject.homepageLink.length}/60 characters)
+                ({this.state.liveObject.homepageLink.length}/50 characters)
               </span>
               <br />
               <input
-                maxLength={60}
+                maxLength={50}
                 className="livestream-input"
                 type="text"
                 required
