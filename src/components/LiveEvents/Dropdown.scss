@@ -26,7 +26,7 @@
 }
 .Dropdown-appear-active{
     opacity:1;
-    transition: opacity 500ms ease-out;
+    transition: opacity 300ms ease-out;
 }
 .Heading{
     padding-left:8px;
@@ -137,7 +137,7 @@
     .EventTitle{
         padding-right:8px;
         margin:auto;
-        font-size: 4.5vw;
+        font-size: 3.8vw;
         color:#ffffff;
         display:inline;
         flex:1;
@@ -153,8 +153,8 @@
         margin-top:24px;
     }
     .EventButton{
-        padding-right:5.5vw;
-        padding-left:5.5vw;
+        padding-right:4.5vw;
+        padding-left:4.5vw;
         min-height:46px;
         height:2.5vw;
         color:#1a1a1a;
@@ -162,9 +162,10 @@
         font-weight: 800;
         text-decoration: none;
         font-family: Graphik Web;
+        font-size:0.8rem;
     }
     .closeButton{
-        left:calc(50% - 16px);
+        left:calc(85% - 16px);
         position:relative;
         margin-top:24px;
         display:unset;
