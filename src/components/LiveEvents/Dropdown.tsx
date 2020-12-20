@@ -48,12 +48,10 @@ export const Dropdown = ({close} : Props) =>{
     useEffect(()=>{
       if(events?.length> 0){
       const interval = setInterval(() => {
-      console.log("Ticking")
       const rightNow = moment().tz("America/Toronto").format('HH:mm')
       const temp = [...events];
       events.map((event:any, index:number)=>{
         const startTime = moment(event.eventStartTime, "HH:mm").subtract('10', 'minutes').format("HH:mm")
-        console.log("start time"+startTime)
         if(rightNow >= startTime && rightNow <event.eventEndTime){
           console.log()
           if(!temp[index].live)
