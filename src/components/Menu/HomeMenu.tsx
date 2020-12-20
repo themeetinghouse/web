@@ -104,7 +104,7 @@ class HomeMenu extends React.Component<Props, State>  {
       const livestreams: ListLivestreamsQuery = json.data
       this.setState({liveEvents:livestreams?.listLivestreams?.items ?? []})
       if(livestreams?.listLivestreams?.items?.length !== undefined && livestreams?.listLivestreams?.items?.length > 0){
-        this.interval = setInterval(() => this.tick(), 1000);
+        this.interval = setInterval(() => this.tick(), 2000);
       }
       livestreams?.listLivestreams?.items?.forEach(item => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
