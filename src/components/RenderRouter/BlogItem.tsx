@@ -328,18 +328,17 @@ class BlogItem extends React.Component<Props, State> {
                     </div>
                   );
                 })}
-              {this.state.publishedOnly.length % 2 !== 0 &&
-              this.state.screenWidth >= 768 ? (
-                <div className="BlogMultiImageItem"></div>
-              ) : null}
               {!this.props.content.hideAllBlogsButton ? (
-                <LinkButton
-                  size="lg"
-                  className="inverted multiImageButton"
-                  to="/blog"
-                >
-                  View All Blogs
-                </LinkButton>
+                <>
+                  <br />
+                  <LinkButton
+                    size="lg"
+                    className="inverted multiImageButton"
+                    to="/blog"
+                  >
+                    View All Blogs
+                  </LinkButton>
+                </>
               ) : null}
             </div>
           </div>
