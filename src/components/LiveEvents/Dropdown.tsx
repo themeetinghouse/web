@@ -81,12 +81,12 @@ export const Dropdown = ({end, close} : Props) =>{
         }
         else{
         if(rightNow >= startTime && rightNow <endTime){
-          if(!temp[index]?.live)
+          if(temp[index]?.live === false)
             temp[index].live = true;
             setEvents(temp)
         }
         else{
-          if(temp[index]?.live){
+          if(temp[index]?.live === true){
             temp[index].live=false;
             setEvents(temp)
           }
@@ -122,7 +122,7 @@ export const Dropdown = ({end, close} : Props) =>{
                             Join
                             </Link> : 
                         <a className="EventButton" 
-                        style={event.live ? {display: "grid"} : {display: "grid", color:"lightgrey", pointerEvents:"none"}} 
+                        style={event.live ? {display: "grid", justifyContent: "center", alignItems:"center"} : {display: "grid", justifyContent: "center", alignItems:"center", color:"lightgrey", pointerEvents:"none"}} 
                         href={!event.eventLink.includes("https://") ? `https://${event.eventLink}` : event.eventLink}
                         >
                           Join

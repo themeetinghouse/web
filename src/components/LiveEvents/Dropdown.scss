@@ -63,21 +63,21 @@
 }
 .EventTime{
     flex-direction: column;
-    margin:auto;
     font-size: calc(0.2vw + 13px);
     font-weight:500;
     width:23%;
     color:#ffffff;
+    line-height:2vw;
     display:inline;
 }
 .EventTitle{
     flex-direction: column;
-    margin:auto;
     padding-left:12px;
     font-size: calc(0.4vw + 12px);
     padding-right:16px;
     color:#ffffff;
     display:inline;
+    line-height:2vw;
     flex:1;
 }
 
@@ -91,6 +91,7 @@
     border-bottom: 35px solid #1a1a1a;
 }
 .EventButton{
+    margin-top:0.3vw;
     flex-direction: column;
     padding-right:1.5vw;
     padding-left:1.5vw;
@@ -100,14 +101,11 @@
     background-color: #ffffff;
     font-weight: 800;
     text-decoration: none;
-    margin:auto;
     display: "grid";
-    justify-content: "center";
-    align-items:"center";
 }
 .EventFooter{
-    padding-top:16px;
-    padding-bottom:16px;
+    padding-top:4px;
+    padding-bottom:4px;
     background-color:#1a1a1a;
     font-size: calc(10px + 0.1vw);
     font-weight:600;
@@ -155,9 +153,11 @@
         font-size: 3.8vw;
         color:#ffffff;
         display:inline;
+        line-height: unset;
         flex:1;
     }
     .EventTime{
+        line-height: unset;
         padding-right:16px;
         margin:auto;
         font-size:4vw;
