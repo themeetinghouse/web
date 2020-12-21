@@ -19,9 +19,6 @@ const GiveItem = React.lazy(() => import('./GiveItem'));
 const Give2Item = React.lazy(() => import('./Give2Item'));
 const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
 const VideoPlayerLive = React.lazy(() => import('./VideoPlayerLive'));
-const VideoPlayerLiveLeadersDay = React.lazy(
-  () => import('./VideoPlayerLive_leadersday')
-);
 const SVGItem = React.lazy(() => import('./SVGItem'));
 const TeachingItem = React.lazy(() => import('./TeachingItem'));
 const DistanceGroupItem = React.lazy(() => import('./DistanceGroupItem'));
@@ -34,20 +31,19 @@ const BlogReader = React.lazy(() => import('./BlogReader'));
 const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
 const PaymentItem = React.lazy(() => import('./PaymentItem'));
 const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
+const PodcastPlayer = React.lazy(() => import('./PodcastPlayer'));
+const VideoPlayerLiveLeadersDay = React.lazy(
+  () => import('./VideoPlayerLive_leadersday')
+);
 
 interface Props extends RouteComponentProps {
   content: any;
   data: any;
 }
-interface State {
-  data: any;
-}
 
-class RenderRouter extends React.Component<Props, State> {
+class RenderRouter extends React.Component<Props> {
   renderItemNow(item: any, index: any) {
     switch (item.type) {
-      case 'og-tags':
-        return null;
       case 'video-archive':
       case 'series-archive':
         return (
@@ -56,37 +52,22 @@ class RenderRouter extends React.Component<Props, State> {
             key={index}
             content={item}
             data={this.props.data}
-          ></ArchiveItem>
+          />
         );
       case 'content':
-        return <ContentItem key={index} content={item}></ContentItem>;
+        return <ContentItem key={index} content={item} />;
       case 'videoPlayer':
         return (
-          <VideoPlayer
-            data={this.props.data}
-            key={index}
-            content={item}
-          ></VideoPlayer>
+          <VideoPlayer data={this.props.data} key={index} content={item} />
         );
       case 'blog':
-        return <BlogItem key={index} content={item}></BlogItem>;
+        return <BlogItem key={index} content={item} />;
       case 'post':
-        return (
-          <BlogReader
-            data={this.props.data}
-            key={index}
-            content={item}
-          ></BlogReader>
-        );
+        return <BlogReader data={this.props.data} key={index} content={item} />;
       case 'liveVideoPlayer':
-        return <VideoPlayerLive key={index} content={item}></VideoPlayerLive>;
+        return <VideoPlayerLive key={index} content={item} />;
       case 'liveVideoPlayer2':
-        return (
-          <VideoPlayerLiveLeadersDay
-            key={index}
-            content={item}
-          ></VideoPlayerLiveLeadersDay>
-        );
+        return <VideoPlayerLiveLeadersDay key={index} content={item} />;
       case 'list':
         return (
           <ListItem
@@ -94,69 +75,51 @@ class RenderRouter extends React.Component<Props, State> {
             data={this.props.data}
             key={index}
             content={item}
-          ></ListItem>
+          />
         );
       case 'svg':
-        return <SVGItem key={index} content={item}></SVGItem>;
+        return <SVGItem key={index} content={item} />;
       case 'hero':
-        return (
-          <HeroItem
-            data={this.props.data}
-            key={index}
-            content={item}
-          ></HeroItem>
-        );
+        return <HeroItem data={this.props.data} key={index} content={item} />;
       case 'goContent':
       case 'goLink':
-        return <GoContentItem key={index} content={item}></GoContentItem>;
+        return <GoContentItem key={index} content={item} />;
       case 'teaching':
-        return <TeachingItem key={index} content={item}></TeachingItem>;
+        return <TeachingItem key={index} content={item} />;
       case 'sunday-morning':
-        return (
-          <SundayMorningItem key={index} content={item}></SundayMorningItem>
-        );
+        return <SundayMorningItem key={index} content={item} />;
       case 'distance-groups':
-        return (
-          <DistanceGroupItem key={index} content={item}></DistanceGroupItem>
-        );
+        return <DistanceGroupItem key={index} content={item} />;
       case 'home-church':
-        return <HomeChurchItem key={index} content={item}></HomeChurchItem>;
+        return <HomeChurchItem key={index} content={item} />;
       case 'form':
-        return <FormItem key={index} content={item}></FormItem>;
+        return <FormItem key={index} content={item} />;
       case 'instagram':
-        return <InstagramItem key={index} content={item}></InstagramItem>;
+        return <InstagramItem key={index} content={item} />;
       case 'iframe':
-        return <IFrameItem key={index} content={item}></IFrameItem>;
+        return <IFrameItem key={index} content={item} />;
       case 'search':
-        return <SearchItem key={index} content={item}></SearchItem>;
+        return <SearchItem key={index} content={item} />;
       case 'payment':
-        return <PaymentItem key={index} content={item}></PaymentItem>;
+        return <PaymentItem key={index} content={item} />;
       case 'give':
-        return <GiveItem key={index} content={item}></GiveItem>;
+        return <GiveItem key={index} content={item} />;
       case 'give2':
-        return <Give2Item key={index} content={item}></Give2Item>;
+        return <Give2Item key={index} content={item} />;
       case 'faq':
-        return <FAQItem key={index} content={item}></FAQItem>;
+        return <FAQItem key={index} content={item} />;
       case 'simple':
-        return <SimpleItem key={index} content={item}></SimpleItem>;
+        return <SimpleItem key={index} content={item} />;
       case 'podcasts':
-        return (
-          <PodcastItem
-            data={this.props.data}
-            key={index}
-            content={item}
-          ></PodcastItem>
-        );
+        return <PodcastItem key={index} content={item} />;
       case 'weather':
         return (
-          <WeatherItem
-            data={this.props.data}
-            key={index}
-            content={item}
-          ></WeatherItem>
+          <WeatherItem data={this.props.data} key={index} content={item} />
         );
       case 'teachingsearch':
-        return <TeachingSearch key={index} content={item}></TeachingSearch>;
+        return <TeachingSearch key={index} content={item} />;
+      case 'podcast-player':
+        return <PodcastPlayer key={index} data={this.props.data} />;
       default:
         return null;
     }
@@ -174,26 +137,23 @@ class RenderRouter extends React.Component<Props, State> {
     else return null;
   }
   render() {
-    return this.props.content != null ? (
-      <div>
+    if (!this.props.content) return null;
+
+    return (
+      <>
         <Helmet>
           <title>{this.props.content.page.title}</title>
-          <meta
-            name="keywords"
-            content={this.props.content.page.keywords}
-          ></meta>
+          <meta name="keywords" content={this.props.content.page.keywords} />
           <meta
             name="description"
             content={this.props.content.page.description}
-          ></meta>
+          />
         </Helmet>
-        <HomeMenu pageConfig={this.props.content.page.pageConfig}></HomeMenu>
+        <HomeMenu pageConfig={this.props.content.page.pageConfig} />
         {this.renderItem()}
-        {this.props.content.page.pageConfig.showFooter ? (
-          <HomeFooter></HomeFooter>
-        ) : null}
-      </div>
-    ) : null;
+        {this.props.content.page.pageConfig.showFooter ? <HomeFooter /> : null}
+      </>
+    );
   }
 }
 export default withRouter(RenderRouter);

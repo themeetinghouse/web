@@ -16,6 +16,7 @@ const Videos = React.lazy(() => import('../components/Loaders/Videos'));
 const Blog = React.lazy(() => import('../components/Loaders/Blog'));
 const Notes = React.lazy(() => import('../components/Loaders/Notes'));
 const Archive = React.lazy(() => import('../components/Loaders/Archive'));
+const Podcast = React.lazy(() => import('../components/Loaders/Podcast'));
 
 if (window.location.hostname === 'localhost')
   ReactGA.initialize('UA-4554612-19');
@@ -39,6 +40,7 @@ export interface RouteParams {
   series?: string;
   note?: string;
   playlist?: string;
+  pod?: string;
 }
 
 interface State {
@@ -110,6 +112,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
           path="/archive/:archiveType(series|video)/:subclass"
           component={Archive}
         />
+        <Route path="/podcast/:pod" component={Podcast} />
         <Route component={ContentPage} />
       </Switch>
     );
