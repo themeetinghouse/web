@@ -137,7 +137,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     if (start && end) {
       const showTime = rightNow >= start && rightNow <= end
       if (showTime) {
-        console.log("ShowLive")
+        console.log("ShowLive2")
         this.setState({ isLive: true })
       }
     }

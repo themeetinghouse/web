@@ -5,6 +5,7 @@
     "keywords": "care ministry, prayer, healing",
     "description": "",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",

@@ -5,6 +5,7 @@
     "keywords": "peacemakers",
     "description": "The page for The Meeting House 2020 Peacemakers campaign in partnership with MCC Canada.",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",

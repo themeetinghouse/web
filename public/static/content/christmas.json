@@ -5,6 +5,7 @@
     "keywords": "",
     "description": "",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",
@@ -72,7 +73,7 @@
         "type": "blog",
         "style": "multiImage",
         "status": "Live",
-        "header1": "COVID-19 Christmas",
+        "header1": "Blogs for a Pandemic Christmas",
         "sortOrder": "DESC",
         "limit": 2,
         "blogSeries": "Christmas",
