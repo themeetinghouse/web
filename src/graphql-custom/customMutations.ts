@@ -9,7 +9,6 @@ export const createSpeakerVideosCustom = /* GraphQL */ `
   }
 `;
 
-
 export const updateSpeaker = /* GraphQL */ `
   mutation UpdateSpeaker($input: UpdateSpeakerInput!) {
     updateSpeaker(input: $input) {
@@ -30,4 +29,4 @@ export const updateSpeakerVideos = /* GraphQL */ `
       videoPublishedDate
     }
   }
-  `
+`;
