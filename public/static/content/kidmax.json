@@ -66,6 +66,12 @@
             "title": "Download Preschool Key Verse Colouring Page",
             "navigateTo": "/static/pdfs/kidmax-files/PSKeyVerseColouringPageDec.pdf",
             "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Christmas Eve Colouring Page",
+            "navigateTo": "/static/pdfs/kidmax-files/ChristmasColouring.pdf",
+            "openNewBrowser": true
           }
         ]
       },
@@ -107,6 +113,12 @@
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
             "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseColouringPageDec.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Christmas Eve Colouring Page",
+            "navigateTo": "/static/pdfs/kidmax-files/ChristmasColouring.pdf",
             "openNewBrowser": true
           }
         ]
