@@ -1,10 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react'
 import './Dropdown.scss';
 import moment from "moment-timezone";
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify';
-import * as queries from '../../graphql/queries';
-import { ListLivestreamsQuery } from '../../API'; 
 import { Link} from 'components/Link/Link';
 import customUseOnClickOutside from "../Menu/customUseOnClickOutside";
 import { Spinner } from 'reactstrap';
@@ -12,54 +8,36 @@ import { Spinner } from 'reactstrap';
 type Props ={
     end: () => void;
     close: () => void;
+    liveevents: any;
 }
-export const Dropdown = ({end, close} : Props) =>{
+export const Dropdown = ({end, close, liveevents} : Props) =>{
     const ref = useRef(null)
-    const [events, setEvents] :any = useState([]);
+    const [events, setEvents] :any = useState(liveevents);
     const [isLoading, setisLoading] = useState(true);
     const loadLiveStreams = async()  => {
-      const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
-      try {
-      const json: any = await API.graphql({
-        query: queries.listLivestreams,
-        variables: {filter: { date: { eq: today } } },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY
-      });
-      const livestreams: ListLivestreamsQuery = json.data
       const tempEvents:any =[];
-      livestreams?.listLivestreams?.items?.forEach(item => {
+      liveevents.forEach((item:any) => {
         const rightNow = moment().tz("America/Toronto").format('HH:mm')
-
         const showTime = item?.videoStartTime && item?.endTime && rightNow >= item.videoStartTime && rightNow <= item.endTime
-
         const event : any = {
             eventName:item?.eventTitle ? item.eventTitle : item?.homepageLink,  
             eventStartTime:item?.videoStartTime ?? item?.startTime,
             eventEndTime:item?.endTime,
             eventLink:item?.liveYoutubeId ? "/live" : item?.externalEventUrl 
         }
-        if(item?.endTime && rightNow > item.endTime){
-          console.log("Event time has passed.")
+        if(item?.endTime && rightNow >= item.endTime){
         }
         else{
           tempEvents.push({...event, live:showTime})
         }
-
       })
-      setEvents(tempEvents.sort((a:any,b:any) => a.eventStartTime.localeCompare(b.eventStartTime)))
+      setEvents(tempEvents)
       setisLoading(false)
-      } catch (err) {
-        setisLoading(false)
-        console.error(err)
-      }
     }
 
     customUseOnClickOutside(ref,close)
     useEffect(()=>{
-        setTimeout(()=>{
-          loadLiveStreams()
-        },500)
-
+        loadLiveStreams()
     },[])
     useEffect(()=>{
       if(events?.length> 0){
@@ -69,7 +47,7 @@ export const Dropdown = ({end, close} : Props) =>{
       events.map((event:any, index:number)=>{
         const startTime = moment(event.eventStartTime, "HH:mm").format("HH:mm")
         const endTime = moment(event.eventEndTime, "HH:mm").format("HH:mm")
-        if(rightNow > endTime) {
+        if(rightNow >= endTime) {
           if(rightNow >= events[events?.length-1]?.eventEndTime){
             clearInterval(interval);
             end()

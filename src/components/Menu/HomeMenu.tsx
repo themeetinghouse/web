@@ -102,7 +102,7 @@ class HomeMenu extends React.Component<Props, State>  {
         authMode: GRAPHQL_AUTH_MODE.API_KEY
       });
       const livestreams: ListLivestreamsQuery = json.data
-      this.setState({liveEvents:livestreams?.listLivestreams?.items ?? []})
+      this.setState({liveEvents:livestreams?.listLivestreams?.items?.sort((a:any,b:any) => a.startTime.localeCompare(b.startTime)) ?? []})
       if(livestreams?.listLivestreams?.items?.length !== undefined && livestreams?.listLivestreams?.items?.length > 0){
         this.interval = setInterval(() => this.tick(), 2000);
       }
@@ -154,7 +154,12 @@ class HomeMenu extends React.Component<Props, State>  {
   };
   tick() {
     const rightNow = moment().tz("America/Toronto").format('HH:mm')
-    console.log("Ticking Home menu")
+    const temp = [...this.state.liveEvents];
+    if(rightNow >= temp[temp?.length-1]?.endTime){
+      clearInterval(this.interval)
+      this.setState({showLiveBanner:false})
+      return;
+    }
     let currentEvent;
     for(let i =0; i<this.state.liveEvents.length; i++){
       if(this.state.liveEvents[i].startTime && this.state.liveEvents[i].endTime && rightNow >= this.state.liveEvents[i].startTime && rightNow <= this.state.liveEvents[i].endTime){
@@ -201,6 +206,7 @@ class HomeMenu extends React.Component<Props, State>  {
       <div>
        
         {this.state.showEventsDropdown ? <Dropdown 
+            liveevents={this.state.liveEvents}
             close={() => this.setState({showEventsDropdown:false})}
             end={() => {
               clearInterval(this.interval)
