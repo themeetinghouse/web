@@ -66,6 +66,7 @@
       "compassion"
     ],
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",

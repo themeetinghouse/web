@@ -5,6 +5,7 @@
     "keywords": "",
     "description": "",
     "pageConfig": {
+      "showLive": false,
       "movingMenu": false,
       "showLogoText": false,
       "logoColor": "white",

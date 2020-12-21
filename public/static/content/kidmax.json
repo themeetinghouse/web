@@ -5,6 +5,7 @@
     "keywords": "kidmax, kids ministry, childrens ministry",
     "description": "Kidmax is our kid's ministry at The Meeting House.",
     "pageConfig": {
+      "showLive": true,
       "movingMenu": false,
       "showLogoText": true,
       "logoColor": "black",
@@ -51,19 +52,25 @@
           {
             "type": "link",
             "title": "Download Preschool Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/LESSONPreschoolDec20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PSLessonDec27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Preschool Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesDec20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesDec27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Preschool Key Verse Colouring Page",
             "navigateTo": "/static/pdfs/kidmax-files/PSKeyVerseColouringPageDec.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Christmas Eve Colouring Page",
+            "navigateTo": "/static/pdfs/kidmax-files/ChristmasColouring.pdf",
             "openNewBrowser": true
           }
         ]
@@ -85,27 +92,33 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaDec20.jpg",
-            "alt": "This week's big idea: When we listen to God, we discover his love for us."
+            "src": "/static/images/KidBigIdeaDec27.jpg",
+            "alt": "This week's big idea: When we listen to God, we have a message to share."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
             "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseColouringPageDec.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Christmas Eve Colouring Page",
+            "navigateTo": "/static/pdfs/kidmax-files/ChristmasColouring.pdf",
             "openNewBrowser": true
           }
         ]
