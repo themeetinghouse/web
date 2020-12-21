@@ -12,21 +12,38 @@
     flex-direction: column;
     max-height:50vh;
     padding-bottom:4px;
+
+}
+@keyframes slideIn {
+    from{
+        height:0px;
+        min-height:0;
+        overflow:hidden;
+    }
+    to{
+        overflow:hidden;
+        min-height:18vh;
+    }
+}
+@keyframes slideInMobile {
+    from{
+        height:0px;
+        min-height:0;
+    }
+    to{
+        min-height:100vh;
+    }
 }
 .DropdownFill{
     overflow:auto;
     margin-top:30px;
-    min-height:16vh;
+    min-height:18vh;
     background-color:#1a1a1a;
     max-height:50vh;
+    animation: slideIn;
+    animation-duration: 0.2s;
 }
-.Dropdown-appear{
-    opacity:0;
-}
-.Dropdown-appear-active{
-    opacity:1;
-    transition: opacity 300ms ease-out;
-}
+
 .Heading{
     padding-left:8px;
     padding-right:8px;
@@ -94,9 +111,7 @@
     background-color:#1a1a1a;
     font-size: calc(10px + 0.1vw);
     font-weight:600;
-    position:relative;
     text-align: center;
-    bottom:0;
 }
 .EventButton:hover{
     text-decoration: none;
@@ -122,6 +137,8 @@
         position:fixed;
         min-width:100%;
         min-height:calc(100% + 35px);
+        animation: slideInMobile;
+        animation-duration: 0.2s;
     }
     .triangle{
         display:none;
@@ -170,12 +187,10 @@
         z-index: 200;
     }
     .EventFooter{
+        margin-top:24px;
         font-size:calc(12px + 0.3vw);
-        position:absolute;
-        bottom:0;
-        width:100%;
-        text-align: center;
         background-color:#1a1a1a;
+        position:relative;
     }
 }
   
