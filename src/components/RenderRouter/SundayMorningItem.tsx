@@ -25,6 +25,7 @@ interface ListData {
     address: string;
   };
   serviceTimes: string[];
+  live?:boolean;
 }
 
 interface Props extends RouteComponentProps, IProvidedProps {
@@ -57,7 +58,6 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    console.log(props);
     this.state = {
       selectedPlace: null,
       listData: [],
@@ -67,8 +67,10 @@ export class SundayMorningItem extends React.Component<Props, State> {
       postalCode: '',
     };
     let jsonFile;
-    if (this.props.content.alternate === 'christmas')
+    if (this.props.content.alternate === 'christmas'){
       jsonFile = '/static/data/christmas.json';
+      this.interval = setInterval(() => this.tick(), 2000);
+    }
     else if (this.props.content.alternate === 'easter')
       jsonFile = '/static/data/easter.json';
     else jsonFile = '/static/data/locations.json';
@@ -77,13 +79,51 @@ export class SundayMorningItem extends React.Component<Props, State> {
         return response.json();
       })
       .then((myJson) => {
-        this.setState({ listData: myJson });
-      });
+        if(this.props.content.alternate === "christmas"){
+          const rightNow = moment().tz("America/Toronto").format('HH:mm')
+          const filteredEvents = myJson.filter((livestream:any) =>{
+            const endTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').add(3, 'h').format("HH:mm")
+            if(rightNow >= endTime){
+              return false
+            }
+            else return true;
+          })
+          this.setState({ listData: filteredEvents.map((item:any) => {return {...item, live:false}})});
+        }
+        else this.setState({listData:myJson})
+    })
+    
   }
+  /* Used for the christmas page */
+  tick() {
+    console.log("tick")
+    const rightNow = moment().tz("America/Toronto").format('HH:mm')
+    if(this.state.listData.length === 0) {
+      clearInterval(this.interval)
+    }
+    const temp = [...this.state.listData];
+    temp.forEach((livestream, currentIndex) =>{
+      const startTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').format("HH:mm")
+      const endTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').add(3, 'h').format("HH:mm")
+      if(startTime && endTime && rightNow >= startTime && rightNow <= endTime){
+        if(!temp[currentIndex].live){
+          temp[currentIndex].live = true;
+          this.setState({listData:temp})
+        }
+      }
+      if(rightNow >= endTime) {
+        this.setState({listData: temp.filter((event, index) => {return index !==currentIndex})})
+      }
+    })
+  }
+  interval: any
+
   componentDidMount() {
     this.setGeoLocation();
   }
-
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
   componentDidUpdate() {
     if (this.state.selectedPlace) {
       const siteListingDOM = document.getElementById(
@@ -251,6 +291,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
   }
 
   render() {
+    if(this.state.listData && this.state.listData.length > 0 || this.props.content.alternate !== "christmas")
     return (
       <div className="SundayMorningItem" style={this.props.content.alternate ==="christmas" ? {position:"relative", height:"auto"} : {}}>
         <div className="SundayMorningItemDiv1">
@@ -434,13 +475,14 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               </div>
                             )}
                           </div>
-                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas" ? {display:"none"} : {}}>
+                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas" && item.live === false ? {display:"none"} : {}}>
                             <LinkButton
                               id="customBlackButton"
                               className="SundayMorningButton1"
                               to={this.props.content.alternate === "christmas" ? "live" : item.id}
+                              
                             >
-                              Visit Page
+                              {this.props.content.alternate === "christmas" ? "Watch" : "Visit Page"}
                             </LinkButton>
                           </div>
                         </div>
@@ -473,6 +515,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
         </div>
       </div>
     );
+    else return null
   }
 }
 
