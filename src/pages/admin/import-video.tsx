@@ -60,7 +60,7 @@ class Index extends React.Component<EmptyProps, State> {
       originalSpeakers: {},
       selectedSpeaker: '',
       speakerFieldValue: '',
-      hiddenSpeaker:false,
+      hiddenSpeaker: false,
       showAddSeries: false,
       showAddSpeaker: false,
       showManageSpeaker: false,
@@ -199,15 +199,20 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-  async updateSpeaker():Promise<void>{
+  async updateSpeaker(): Promise<void> {
     try {
       const updateSpeaker: any = await API.graphql({
         query: customMutations.updateSpeaker,
-        variables: { input : {id:this.state.selectedSpeaker, hidden: this.state.hiddenSpeaker}},
+        variables: {
+          input: {
+            id: this.state.selectedSpeaker,
+            hidden: this.state.hiddenSpeaker,
+          },
+        },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({ 'Success customMutations.updateSpeaker: ': updateSpeaker });
-      this.getSpeakers()
+      this.getSpeakers();
     } catch (e) {
       console.error(e);
     }
@@ -1154,7 +1159,9 @@ class Index extends React.Component<EmptyProps, State> {
         return speaker.id === this.state.speakerFieldValue;
       });
       if (!exists) {
-        const speakerName :string= this.state.speakerFieldValue.trim().replaceAll(" ","_")
+        const speakerName: string = this.state.speakerFieldValue
+          .trim()
+          .replaceAll(' ', '_');
         try {
           const createSpeaker: any = await API.graphql({
             query: mutations.createSpeaker,
@@ -1162,8 +1169,8 @@ class Index extends React.Component<EmptyProps, State> {
               input: {
                 id: this.state.speakerFieldValue.trim(),
                 name: this.state.speakerFieldValue.trim(),
-                hidden:this.state.hiddenSpeaker,
-                image:`https://themeetinghouse.com/cache/320/static/photos/teachers/${speakerName}_app.jpg`
+                hidden: this.state.hiddenSpeaker,
+                image: `https://themeetinghouse.com/cache/320/static/photos/teachers/${speakerName}_app.jpg`,
               },
             },
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -1209,23 +1216,40 @@ class Index extends React.Component<EmptyProps, State> {
                 this.setState({ speakerFieldValue: item.target.value });
               }}
             />
-              <input style={{display:"inline-block", marginRight:"4px"}} type="checkbox" onChange={() => this.setState({hiddenSpeaker: !this.state.hiddenSpeaker})} checked={this.state.hiddenSpeaker}></input>
-              Hide Speaker
+            <input
+              style={{ display: 'inline-block', marginRight: '4px' }}
+              type="checkbox"
+              onChange={() =>
+                this.setState({ hiddenSpeaker: !this.state.hiddenSpeaker })
+              }
+              checked={this.state.hiddenSpeaker}
+            ></input>
+            Hide Speaker
           </div>
           <button
             onClick={() => {
               if (this.saveSpeaker())
-                this.setState({ showAddSpeaker: false, speakerFieldValue: '', hiddenSpeaker:false });
+                this.setState({
+                  showAddSpeaker: false,
+                  speakerFieldValue: '',
+                  hiddenSpeaker: false,
+                });
             }}
           >
             Save
           </button>
 
-            <button onClick={()=> console.log(this.state.hiddenSpeaker)}>Check State</button>
+          <button onClick={() => console.log(this.state.hiddenSpeaker)}>
+            Check State
+          </button>
           <button
             style={{ background: 'red' }}
             onClick={() => {
-              this.setState({ showAddSpeaker: false, speakerFieldValue: '', hiddenSpeaker:false });
+              this.setState({
+                showAddSpeaker: false,
+                speakerFieldValue: '',
+                hiddenSpeaker: false,
+              });
             }}
           >
             Cancel
@@ -1238,36 +1262,48 @@ class Index extends React.Component<EmptyProps, State> {
     return (
       <Modal isOpen={this.state.showManageSpeaker}>
         <div>
-          <div style={{margin:"16px"}}>
+          <div style={{ margin: '16px' }}>
             <select
-            style={{display:"inline"}}
+              style={{ display: 'inline' }}
               onChange={(e: any) => {
                 this.setState({
                   selectedSpeaker: e.target.value,
                 });
-              }}>
+              }}
+            >
               <option key={'nothing'} value={''}>
                 {''}
               </option>
-              {this.state.speakers.sort((a: any, b: any) =>
-                a.id.localeCompare(b.id)).map((item2: any) => {
-                   return (
-                      <option
-                        key={item2.id}
-                        value={item2.name}>
-                            {item2.name}
-                      </option>
-                    )})}
+              {this.state.speakers
+                .sort((a: any, b: any) => a.id.localeCompare(b.id))
+                .map((item2: any) => {
+                  return (
+                    <option key={item2.id} value={item2.name}>
+                      {item2.name}
+                    </option>
+                  );
+                })}
             </select>
-            <input style={{display:"inline-block", marginRight:"8px", marginLeft:"8px"}} type="checkbox" onChange={() => this.setState({hiddenSpeaker: !this.state.hiddenSpeaker})} checked={this.state.hiddenSpeaker}></input>
-              Hide Speaker
+            <input
+              style={{
+                display: 'inline-block',
+                marginRight: '8px',
+                marginLeft: '8px',
+              }}
+              type="checkbox"
+              onChange={() =>
+                this.setState({ hiddenSpeaker: !this.state.hiddenSpeaker })
+              }
+              checked={this.state.hiddenSpeaker}
+            ></input>
+            Hide Speaker
           </div>
           <button
             onClick={() => {
               if (this.updateSpeaker())
                 this.setState({
                   showManageSpeaker: false,
-                  hiddenSpeaker:false,
+                  hiddenSpeaker: false,
                   speakerFieldValue: '',
                 });
             }}
@@ -1279,7 +1315,7 @@ class Index extends React.Component<EmptyProps, State> {
             onClick={() => {
               this.setState({
                 showManageSpeaker: false,
-                hiddenSpeaker:false,
+                hiddenSpeaker: false,
                 speakerFieldValue: '',
               });
             }}

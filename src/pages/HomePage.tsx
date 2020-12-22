@@ -1,7 +1,13 @@
 import Amplify from 'aws-amplify';
 import React, { ReactNode } from 'react';
 import ReactGA from 'react-ga';
-import { Route, Switch, withRouter, Redirect, RouteComponentProps } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  withRouter,
+  Redirect,
+  RouteComponentProps,
+} from 'react-router-dom';
 import awsconfig from '../../src/aws-exports';
 import '../custom.scss';
 import ContentPage from 'components/Loaders/ContentPage';
@@ -11,19 +17,20 @@ const Blog = React.lazy(() => import('../components/Loaders/Blog'));
 const Notes = React.lazy(() => import('../components/Loaders/Notes'));
 const Archive = React.lazy(() => import('../components/Loaders/Archive'));
 
-if (window.location.hostname === "localhost")
+if (window.location.hostname === 'localhost')
   ReactGA.initialize('UA-4554612-19');
-else if (window.location.hostname.includes("beta"))
+else if (window.location.hostname.includes('beta'))
   ReactGA.initialize('UA-4554612-19');
-else
-  ReactGA.initialize('UA-4554612-3');
+else ReactGA.initialize('UA-4554612-3');
 
 Amplify.configure(awsconfig);
 
-const redirectData = fetch('/static/data/redirect.json').then<Array<{
-  id: string;
-  to: string;
-}>>((response) => response.json());
+const redirectData = fetch('/static/data/redirect.json').then<
+  Array<{
+    id: string;
+    to: string;
+  }>
+>((response) => response.json());
 
 export interface RouteParams {
   id?: string;
@@ -51,7 +58,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
       this.setState({ redirects });
     });
 
-    this.unregisterGAListener = this.props.history.listen(location => {
+    this.unregisterGAListener = this.props.history.listen((location) => {
       ReactGA.pageview(location.pathname + location.search);
     });
   }
@@ -62,28 +69,47 @@ class HomePage extends React.Component<RouteComponentProps, State> {
 
   render() {
     const { redirects } = this.state;
-    const regex = new RegExp(/https?:|\.pdf/)
+    const regex = new RegExp(/https?:|\.pdf/);
     if (!redirects) {
       return null;
     }
 
     return (
       <Switch location={this.props.location}>
-        {
-          redirects.map(redirect => {
-            return regex.test(redirect.to)
-              ? <Route key={redirect.id} exact from={'/' + redirect.id} render={(): ReactNode | undefined => {
+        {redirects.map((redirect) => {
+          return regex.test(redirect.to) ? (
+            <Route
+              key={redirect.id}
+              exact
+              from={'/' + redirect.id}
+              render={(): ReactNode | undefined => {
                 window.location.href = redirect.to;
                 return undefined;
-              }} />
-              : <Redirect key={redirect.id} exact from={'/' + redirect.id} to={redirect.to} />;
-          })
-        }
-        <Route path={["/videos/:series/:episode", "/videos/:series"]} component={Videos} />
-        <Route path="/playlist/:playlist/:episode" component={() => <Videos isPlaylist />} />
+              }}
+            />
+          ) : (
+            <Redirect
+              key={redirect.id}
+              exact
+              from={'/' + redirect.id}
+              to={redirect.to}
+            />
+          );
+        })}
+        <Route
+          path={['/videos/:series/:episode', '/videos/:series']}
+          component={Videos}
+        />
+        <Route
+          path="/playlist/:playlist/:episode"
+          component={() => <Videos isPlaylist />}
+        />
         <Route path="/posts/:blog" component={Blog} />
         <Route path="/notes/:date?" component={Notes} />
-        <Route path="/archive/:archiveType(series|video)/:subclass" component={Archive} />
+        <Route
+          path="/archive/:archiveType(series|video)/:subclass"
+          component={Archive}
+        />
         <Route component={ContentPage} />
       </Switch>
     );

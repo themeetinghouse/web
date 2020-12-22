@@ -132,6 +132,11 @@
     "prettier": "^2.1.2",
     "ts-jest": "^26.4.4"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
     "*.{js,jsx,ts,tsx,html,css,scss,md}": "prettier --write"
