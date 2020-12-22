@@ -35,6 +35,7 @@ export default class Bible {
       ecclesiastes: 'ECC',
       solomon: 'SNG',
       song: 'SNG',
+      songs: 'SNG',
       isaiah: 'ISA',
       jeremiah: 'JER',
       lamentations: 'LAM',
@@ -81,16 +82,20 @@ export default class Bible {
       revelation: 'REV',
     };
 
-    console.debug(biblePassage);
-
-    const ref = biblePassage.trim().toLowerCase();
-    ref.replace('song of solomon', 'song');
+    let ref = biblePassage.trim().toLowerCase();
+    ref = ref.replace('song of solomon', 'song');
+    ref = ref.replace('song of songs', 'song');
     const colons = (ref.match(/:/g) || []).length;
     const hyphens = (ref.match(/-/g) || []).length;
     const spaces = (ref.match(/\s/g) || []).length;
 
+    const regex = RegExp(/[^\w :-]|_/g);
+
+    if (regex.test(ref)) {
+      return 'invalid';
+    }
+
     if (spaces !== 1 && spaces !== 2) {
-      console.error('invalid format');
       return 'invalid';
     }
 
@@ -105,7 +110,6 @@ export default class Bible {
       const code = bookCodes[temp[0]];
 
       if (!code) {
-        console.error('invalid format');
         return 'invalid';
       }
 
@@ -120,7 +124,6 @@ export default class Bible {
       const code = bookCodes[temp[0]];
 
       if (!code) {
-        console.error('invalid format');
         return 'invalid';
       }
 
@@ -134,7 +137,6 @@ export default class Bible {
       const code = bookCodes[temp[0]];
 
       if (!code) {
-        console.error('invalid format');
         return 'invalid';
       }
 
@@ -154,7 +156,6 @@ export default class Bible {
       const code = bookCodes[temp[0]];
 
       if (!code) {
-        console.error('invalid format');
         return 'invalid';
       }
 
@@ -177,7 +178,6 @@ export default class Bible {
       const code = bookCodes[temp[0]];
 
       if (!code) {
-        console.error('invalid format');
         return 'invalid';
       }
 
@@ -186,7 +186,6 @@ export default class Bible {
         queryString: `${code}.${verseChap1[0]}.${verseChap1[1]}-${code}.${verseChap2[0]}.${verseChap2[1]}`,
       };
     } else {
-      console.error('invalid format');
       return 'invalid';
     }
   }

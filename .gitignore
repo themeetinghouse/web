@@ -104,3 +104,4 @@ amplify/mock-data
 src/version.js
 
 .eslintcache
+debug.log
