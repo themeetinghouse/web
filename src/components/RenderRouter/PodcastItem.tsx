@@ -5,116 +5,101 @@ import Fade from 'react-bootstrap/Fade';
 
 interface Props {
   content: any;
-  data: any;
-}
-interface State {
-  data: any;
-  content: any;
 }
 
-export default class PodcastItem extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      content: props.content,
-      data: props.data,
-    };
-  }
-
-  render() {
-    return (
-      <div className="PodcastItem">
-        <div className="PodcastHeader">Suggested Podcasts</div>
-        {this.state.content.podcastlist.map((item: any, index: number) => {
-          return (
-            <div className="PodcastItemDiv1" key={index}>
-              <img
-                className="PodcastIcon"
-                src={item.icon.src}
-                alt={item.icon.alt}
-                style={{ width: 64, height: 64 }}
-              ></img>
-              <div className="PodcastContentContainer">
-                <div className="PodcastTitle">{item.title}</div>
-                <div className="PodcastText">{item.description}</div>
-                <div className="PodcastLinksContainer">
-                  {item.apple ? (
-                    <a
-                      className="ApplePodcast"
-                      href={item.apple}
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      <img
-                        className="AppleBadge"
-                        src="/static/US_UK_Apple_Podcasts_Listen_Badge_RGB.svg"
-                        alt="Apple Podcasts"
-                        style={{ height: 40 }}
-                      ></img>
-                    </a>
-                  ) : null}
-                  <Dropdown className="PodcastDropdown">
-                    <Dropdown.Toggle id="podcast-toggle">
-                      <img
-                        className="SubIcon"
-                        src="/static/svg/Subscribe-white.svg"
-                        alt=""
-                      />
-                      Listen
-                    </Dropdown.Toggle>
-                    <Fade timeout={1000}>
-                      <Dropdown.Menu className="PodcastMenu">
-                        {item.spotify ? (
-                          <a
-                            href={item.spotify}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            <img
-                              className="OtherBadge"
-                              src="/static/spotify-podcast-badge-wht-grn-165x40.svg"
-                              alt="Spotify"
-                              style={{ height: 40, marginBottom: 10 }}
-                            ></img>
-                          </a>
-                        ) : null}
-                        {item.google ? (
-                          <a
-                            href={item.google}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            <img
-                              className="OtherBadge"
-                              src="/static/EN_Google_Podcasts_Badge.svg"
-                              alt="Google Podcasts"
-                              style={{ height: 40, marginBottom: 10 }}
-                            ></img>
-                          </a>
-                        ) : null}
-                        {item.podbean ? (
-                          <a
-                            href={item.podbean}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            <img
-                              className="OtherBadge"
-                              src="//d8g345wuhgd7e.cloudfront.net/site/images/badges/w600.png"
-                              alt="Podbean"
-                              style={{ height: 36 }}
-                            ></img>
-                          </a>
-                        ) : null}
-                      </Dropdown.Menu>
-                    </Fade>
-                  </Dropdown>
-                </div>
+export default function PodcastItem({ content }: Props) {
+  return (
+    <div className="PodcastItem">
+      <div className="PodcastHeader">Suggested Podcasts</div>
+      {content.podcastlist.map((item: any, index: number) => {
+        return (
+          <div className="PodcastItemDiv1" key={index}>
+            <img
+              className="PodcastIcon"
+              src={item.icon.src}
+              alt={item.icon.alt}
+              style={{ width: 64, height: 64 }}
+            ></img>
+            <div className="PodcastContentContainer">
+              <div className="PodcastTitle">{item.title}</div>
+              <div className="PodcastText">{item.description}</div>
+              <div className="PodcastLinksContainer">
+                {item.apple ? (
+                  <a
+                    className="ApplePodcast"
+                    href={item.apple}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <img
+                      className="AppleBadge"
+                      src="/static/US_UK_Apple_Podcasts_Listen_Badge_RGB.svg"
+                      alt="Apple Podcasts"
+                      style={{ height: 40 }}
+                    ></img>
+                  </a>
+                ) : null}
+                <Dropdown className="PodcastDropdown">
+                  <Dropdown.Toggle id="podcast-toggle">
+                    <img
+                      className="SubIcon"
+                      src="/static/svg/Subscribe-white.svg"
+                      alt=""
+                    />
+                    Listen
+                  </Dropdown.Toggle>
+                  <Fade timeout={1000}>
+                    <Dropdown.Menu className="PodcastMenu">
+                      {item.spotify ? (
+                        <a
+                          href={item.spotify}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <img
+                            className="OtherBadge"
+                            src="/static/spotify-podcast-badge-wht-grn-165x40.svg"
+                            alt="Spotify"
+                            style={{ height: 40, marginBottom: 10 }}
+                          ></img>
+                        </a>
+                      ) : null}
+                      {item.google ? (
+                        <a
+                          href={item.google}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <img
+                            className="OtherBadge"
+                            src="/static/EN_Google_Podcasts_Badge.svg"
+                            alt="Google Podcasts"
+                            style={{ height: 40, marginBottom: 10 }}
+                          ></img>
+                        </a>
+                      ) : null}
+                      {item.podbean ? (
+                        <a
+                          href={item.podbean}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <img
+                            className="OtherBadge"
+                            src="//d8g345wuhgd7e.cloudfront.net/site/images/badges/w600.png"
+                            alt="Podbean"
+                            style={{ height: 36 }}
+                          ></img>
+                        </a>
+                      ) : null}
+                    </Dropdown.Menu>
+                  </Fade>
+                </Dropdown>
               </div>
             </div>
-          );
-        })}
-      </div>
-    );
-  }
+          </div>
+        );
+      })}
+    </div>
+  );
 }

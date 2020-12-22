@@ -2,20 +2,13 @@
 
 .blog-reader {
   .download-custom {
-    border-radius: 0;
-    color: #ffffff;
-    background-color: #1a1a1a;
-    border-color: #1a1a1a;
-    font-family: Graphik Web;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 134px;
     height: 56px;
-    margin-top: 5px;
-    box-shadow: none !important;
-    &:hover {
-      background-color: #1a1a1a;
-      border-color: #1a1a1a;
-    }
+    margin: 0;
+    font-size: 16px;
   }
   .blog-body *,
   .notes-body *,

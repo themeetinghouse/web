@@ -3,7 +3,7 @@ import './BlogReader.scss';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Fade from 'react-bootstrap/Fade';
 import ReactHtmlParser from 'react-html-parser';
-import { Button } from 'reactstrap';
+import { LinkButton } from '../../components/Link/Link';
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -11,30 +11,11 @@ import {
 } from 'react-share';
 import { FacebookIcon, EmailIcon, TwitterIcon } from 'react-share';
 import { Link } from 'react-router-dom';
+import { GetBlogQuery, GetNotesQuery } from 'API';
 
-interface Props {
-  content: any;
-  data: any;
-}
-interface State {
-  data: any;
-  content: any;
-}
-export default class VideoPlayer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      content: props.content,
-      data: props.data,
-    };
-  }
-
-  navigateNewUrl(to: string) {
-    window.open(to, '_blank', 'noopener noreferrer');
-  }
-
-  shareButton() {
-    return (
+function ShareButton({ className }: { className: string }) {
+  return (
+    <div className={className}>
       <Dropdown>
         <Dropdown.Toggle id="share-custom">
           <img
@@ -81,101 +62,87 @@ export default class VideoPlayer extends React.Component<Props, State> {
           </Dropdown.Menu>
         </Fade>
       </Dropdown>
-    );
-  }
+    </div>
+  );
+}
 
-  downloadButton(pdfLink: string) {
-    return (
-      <Button
-        className="download-custom"
-        onClick={() => this.navigateNewUrl(pdfLink)}
-      >
+interface DownloadButtonProps {
+  pdf: string | null;
+  className: string;
+}
+
+function DownloadButton({ pdf, className }: DownloadButtonProps) {
+  if (!pdf) return null;
+
+  return (
+    <div className={className}>
+      <LinkButton size="lg" className="download-custom inverted" to={pdf}>
         <img
           className="button-icon"
           src="/static/svg/Download-White.svg"
           alt=""
         />
         PDF
-      </Button>
+      </LinkButton>
+    </div>
+  );
+}
+
+interface Props {
+  data: GetBlogQuery['getBlog'] | GetNotesQuery['getNotes'];
+}
+
+export default function BlogReader({ data }: Props) {
+  if (data && 'blogTitle' in data) {
+    return (
+      <div className="blog-reader">
+        <Link className="link-to-main-blog-page" to="/blog">
+          Blog
+          <img
+            className="dropdown-caret"
+            src="/static/svg/Dropdown Caret.svg"
+            alt=""
+          ></img>
+        </Link>
+        <div className="blog-content">
+          <h1 className="blog-h1">{data.blogTitle}</h1>
+          <div className="blog-details">
+            by <span className="blog-author">{data.author}</span> on{' '}
+            {data.publishedDate}
+          </div>
+          <ShareButton className="ShareButtonDesktop" />
+          <div className="blog-body">{ReactHtmlParser(data.content ?? '')}</div>
+          <ShareButton className="ShareButtonMobile" />
+        </div>
+      </div>
     );
-  }
-
-  render() {
-    if (this.state.data !== null) {
-      switch (this.state.content.style) {
-        case 'blog':
-          return (
-            <div className="blog-reader">
-              <Link className="link-to-main-blog-page" to="/blog">
-                Blog
-                <img
-                  className="dropdown-caret"
-                  src="/static/svg/Dropdown Caret.svg"
-                  alt=""
-                ></img>
-              </Link>
-              <div className="blog-content">
-                <h1 className="blog-h1">{this.state.data.blogTitle}</h1>
-                <div className="blog-details">
-                  by{' '}
-                  <span className="blog-author">{this.state.data.author}</span>{' '}
-                  on {this.state.data.publishedDate}
-                </div>
-                <div className="ShareButtonDesktop">{this.shareButton()}</div>
-                <div className="blog-body">
-                  {ReactHtmlParser(this.state.data.content)}
-                </div>
-                <div className="ShareButtonMobile">{this.shareButton()}</div>
+  } else if (data && 'questions' in data) {
+    return (
+      <div className="blog-reader">
+        {data.title === 'Unlisted' ? (
+          <div className="blog-content">
+            <h1 className="blog-h1">Notes will be available soon</h1>
+            <div className="blog-details">Please check back later</div>
+          </div>
+        ) : (
+          <div className="blog-content">
+            <h1 className="blog-h1">{data.title}</h1>
+            <DownloadButton className="ShareButtonDesktop" pdf={data.pdf} />
+            <div className={data.questions ? 'notes-body' : 'blog-body'}>
+              {ReactHtmlParser(data.content ?? '')}
+            </div>
+            {data.questions ? <div className="notes-line" /> : null}
+            {data.questions ? (
+              <div className="questions-body">
+                {ReactHtmlParser(data.questions)}
               </div>
-            </div>
-          );
-
-        case 'notes':
-          return (
-            <div className="blog-reader">
-              {this.state.data.title === 'Unlisted' ? (
-                <div className="blog-content">
-                  <h1 className="blog-h1">Notes will be available soon</h1>
-                  <div className="blog-details">Please check back later</div>
-                </div>
-              ) : (
-                <div className="blog-content">
-                  <h1 className="blog-h1">{this.state.data.title}</h1>
-                  {this.state.data.pdf ? (
-                    <div className="ShareButtonDesktop">
-                      {this.downloadButton(this.state.data.pdf)}
-                    </div>
-                  ) : null}
-                  <div
-                    className={
-                      this.state.data.questions ? 'notes-body' : 'blog-body'
-                    }
-                  >
-                    {ReactHtmlParser(this.state.data.content)}
-                  </div>
-                  {this.state.data.questions ? (
-                    <div className="notes-line" />
-                  ) : null}
-                  {this.state.data.questions ? (
-                    <div className="questions-body">
-                      {ReactHtmlParser(this.state.data.questions)}
-                    </div>
-                  ) : null}
-                  {this.state.data.pdf ? (
-                    <div className="ShareButtonMobile">
-                      {this.downloadButton(this.state.data.pdf)}
-                    </div>
-                  ) : null}
-                </div>
-              )}
-            </div>
-          );
-
-        default:
-          return null;
-      }
-    } else {
-      return null;
-    }
+            ) : null}
+            <DownloadButton className="ShareButtonMobile" pdf={data.pdf} />
+          </div>
+        )}
+      </div>
+    );
+  } else {
+    return null;
   }
 }
