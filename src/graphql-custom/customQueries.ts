@@ -25,6 +25,33 @@ export const getBlogSeries = /* GraphQL */ `
     }
   }
 `;
+export const listSpeakerVideoos = `
+query ListSpeakerVideoss(
+  $id: ID
+  $filter: ModelSpeakerVideosFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listSpeakerVideoss(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      speakerVideosSpeakerId
+      speakerVideosVideoId
+      videoPublishedDate
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+`;
 
 export const listCustomPlaylists = /* GraphQL */ `
   query ListCustomPlaylists(
