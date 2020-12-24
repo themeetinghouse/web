@@ -1185,7 +1185,7 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-  /* async deleteSpeaker() {
+  async deleteSpeaker() {
     try {
       const removeSpeaker: any = await API.graphql({
         query: mutations.deleteSpeaker,
@@ -1203,7 +1203,7 @@ class Index extends React.Component<EmptyProps, State> {
     } catch (e) {
       console.error(e);
     }
-  } */
+  }
   renderAddSpeaker() {
     return (
       <Modal isOpen={this.state.showAddSpeaker}>
@@ -1310,8 +1310,8 @@ class Index extends React.Component<EmptyProps, State> {
           >
             Save
           </button>
+
           <button
-            style={{ background: 'red' }}
             onClick={() => {
               this.setState({
                 showManageSpeaker: false,
@@ -1321,6 +1321,19 @@ class Index extends React.Component<EmptyProps, State> {
             }}
           >
             Cancel
+          </button>
+          <button
+            style={{ background: 'red' }}
+            onClick={() => {
+              if (this.deleteSpeaker())
+                this.setState({
+                  showManageSpeaker: false,
+                  hiddenSpeaker: false,
+                  speakerFieldValue: '',
+                });
+            }}
+          >
+            Delete
           </button>
         </div>
       </Modal>
