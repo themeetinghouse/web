@@ -185,7 +185,59 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return 0;
   }
+  /* Use this to find duplicate entries with speaker id(name)
+  async findDuplicates (userid:string) : Promise<void>{
+    try {
+      const fetchSpeakers: any = await API.graphql({
+        query: adminQueries.listSpeakers,
+        variables: { nextToken: null, limit: 9999 },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      });
+      console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers });
+      const vids = fetchSpeakers.data.listSpeakers.items.filter(
+        (a: any) => a.id === userid
+      )[0].videos.items;
+      console.log(
+        '========================================================================================================================='
+      );
+      const duplicates: any = [];
+      let currentVal;
+      for (let i = 0; i < vids.length; i++) {
+        currentVal = vids[i].speakerVideosVideoId;
+        for (let x = 0; x < vids.length; x++) {
+          if (currentVal === vids[x].speakerVideosVideoId && x !== i)
+            duplicates.push({
+              videoId: currentVal,
+              id: vids[x].id,
+              title: vids[x].video.episodeTitle,
+              date: vids[x].video.publishedDate,
+            });
+        }
+      }
+      console.log(duplicates);
+      console.log(
+        '========================================================================================================================='
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  async deleteDuplicates(values : Array<string>){
+    try {
+      for(let i=0; i<values.length; i++){
+          const deleteSpeakerVideo: any = await API.graphql({
+            query: customMutations.deleteSpeakerVideos,
+            variables: { input: { id: values[i] } },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          });
+          console.log(deleteSpeakerVideo);
+      }
 
+      this.setState({ showError: 'Saved' });
+    } catch (e) {
+      if (!e.errors[0].message.includes('access')) console.log('error');
+    }
+  } */
   async getSpeakers(): Promise<void> {
     try {
       const fetchSpeakers: any = await API.graphql({
@@ -194,30 +246,6 @@ class Index extends React.Component<EmptyProps, State> {
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       });
       console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers });
-      const bruxyvids = fetchSpeakers.data.listSpeakers.items.filter(
-        (a: any) => a.id === 'Bruxy Cavey'
-      )[0].videos.items;
-      console.log(
-        '========================================================================================================================='
-      );
-      const duplicates: any = [];
-      let currentVal;
-      for (let i = 0; i < bruxyvids.length; i++) {
-        currentVal = bruxyvids[i].speakerVideosVideoId;
-        for (let x = 0; x < bruxyvids.length; x++) {
-          if (currentVal === bruxyvids[x].speakerVideosVideoId && x !== i)
-            duplicates.push({
-              videoId: currentVal,
-              id: bruxyvids[x].id,
-              title: bruxyvids[x].video.episodeTitle,
-              date: bruxyvids[x].video.publishedDate,
-            });
-        }
-      }
-      console.log(duplicates);
-      console.log(
-        '========================================================================================================================='
-      );
       this.setState({ speakers: fetchSpeakers.data.listSpeakers.items });
     } catch (e) {
       console.error(e);
@@ -556,7 +584,7 @@ class Index extends React.Component<EmptyProps, State> {
       ) {
         const speakerVideoIDs = await this.getSpeakerVideoIds(toSaveVid.id);
         for (let i = 0; i < speakerVideoIDs.length; i++) {
-          this.saveSpeakerVideo(
+          this.updateSpeakerVideo(
             speakerVideoIDs[i].id,
             toSaveVid.publishedDate ?? this.state.selectedVideo.publishedDate
           );
@@ -605,6 +633,30 @@ class Index extends React.Component<EmptyProps, State> {
         console.error(e);
       }
     }
+    this.setState({
+      selectedSpeaker: '',
+      selectedVideo: null,
+      toSaveVideo: null,
+      addToPlaylists: [],
+      removeFromPlaylists: [],
+      selectedPlaylist: '',
+    });
+  }
+  async getSpeakerVideosNew(): Promise<void> {
+    const json: any = await API.graphql({
+      query: adminQueries.listSpeakerVideos,
+      variables: { limit: 800 },
+      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+    });
+    console.log(json);
+  }
+  async getVidIds() {
+    try {
+      const ids = await this.getSpeakerVideoIds('80LEFVw4k7o');
+      console.log(ids);
+    } catch (error) {
+      console.log(error);
+    }
   }
   async deleteSpeakerVideo() {
     const videoToDelete: any = this.state.speakers
@@ -612,7 +664,7 @@ class Index extends React.Component<EmptyProps, State> {
       ?.videos?.items.filter(
         (b: any) => b?.speakerVideosVideoId === this.state.selectedVideo?.id
       )?.[0];
-    if (videoToDelete && videoToDelete?.id)
+    if (videoToDelete && videoToDelete?.id) {
       try {
         const deleteSpeakerVideo: any = await API.graphql({
           query: customMutations.deleteSpeakerVideos,
@@ -620,10 +672,18 @@ class Index extends React.Component<EmptyProps, State> {
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         console.log(deleteSpeakerVideo);
-        this.setState({ showError: 'Saved' });
+        this.setState({ showError: 'Deleted Speaker from Video' });
       } catch (e) {
         if (!e.errors[0].message.includes('access')) console.log('error');
       }
+      this.setState({
+        selectedVideo: null,
+        toSaveVideo: null,
+        addToPlaylists: [],
+        removeFromPlaylists: [],
+        selectedPlaylist: '',
+      });
+    }
   }
   async getSpeakerVideoIds(id: string) {
     try {
@@ -635,6 +695,21 @@ class Index extends React.Component<EmptyProps, State> {
       return getVideoInfo.data.getVideo.speakers.items;
     } catch (e) {
       if (!e.errors[0].message.includes('access')) console.log('error');
+    }
+  }
+
+  async updateSpeakerVideo(videoid: string, newDate: string) {
+    try {
+      const updateOneSpeakerVideo: any = await API.graphql({
+        query: customMutations.updateSpeakerVideos,
+        variables: { input: { id: videoid, videoPublishedDate: newDate } },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({
+        'Success customMutations.updateOneSpeakerVideo: ': updateOneSpeakerVideo,
+      });
+    } catch (e) {
+      console.log(e);
     }
   }
   async saveSpeakerVideo(speaker: string, publishedDate: string) {
@@ -951,10 +1026,33 @@ class Index extends React.Component<EmptyProps, State> {
                                   </button>
                                   <button
                                     onClick={() => {
-                                      this.deleteSpeakerVideo();
+                                      if (this.state.selectedSpeaker) {
+                                        const speakerInSpeakers = this.state.originalSpeakers.items.find(
+                                          (a: any) => {
+                                            return (
+                                              a?.speaker?.id ===
+                                              this.state.selectedSpeaker
+                                            );
+                                          }
+                                        );
+                                        if (speakerInSpeakers) {
+                                          console.log(
+                                            this.state.selectedVideo.speakers
+                                              .items
+                                          );
+                                          this.deleteSpeakerVideo();
+                                        }
+                                      }
                                     }}
                                   >
                                     Delete
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      this.getVidIds();
+                                    }}
+                                  >
+                                    Get Vid Ids
                                   </button>
                                 </>
                               ) : item.type === 'Series' ? (
