@@ -92,6 +92,9 @@ export const Dropdown = ({ end, close, liveevents }: Props) => {
         {!isLoading ? (
           <>
             {events.map((event: any, ind: any) => {
+              const offsetStartTime = moment(event?.eventStartTime, 'HH:mm')
+                .add(15, 'minutes')
+                .format('HH:mm');
               return (
                 <div
                   style={
@@ -104,13 +107,13 @@ export const Dropdown = ({ end, close, liveevents }: Props) => {
                 >
                   <p className="EventTime">
                     {moment
-                      .tz(event?.eventStartTime, 'HH:mm', 'America/Toronto')
+                      .tz(offsetStartTime, 'HH:mm', 'America/Toronto')
                       .utc()
                       .local()
                       .format('h:mm')}
                     <small style={{ fontWeight: 700 }}>
                       {moment
-                        .tz(event?.eventStartTime, 'HH:mm', 'America/Toronto')
+                        .tz(offsetStartTime, 'HH:mm', 'America/Toronto')
                         .utc()
                         .local()
                         .format('A')}
