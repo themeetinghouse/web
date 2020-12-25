@@ -67,9 +67,11 @@ export class SundayMorningItem extends React.Component<Props, State> {
       postalCode: '',
     };
     let jsonFile;
+    const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
     if (this.props.content.alternate === 'christmas'){
       jsonFile = '/static/data/christmas.json';
-      this.interval = setInterval(() => this.tick(), 2000);
+      if(today === "2020-12-24")
+        this.interval = setInterval(() => this.tick(), 1500);
     }
     else if (this.props.content.alternate === 'easter')
       jsonFile = '/static/data/easter.json';
@@ -79,7 +81,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
         return response.json();
       })
       .then((myJson) => {
-        if(this.props.content.alternate === "christmas"){
+        if(this.props.content.alternate === "christmas" && today ==="2020-12-24"){
           const rightNow = moment().tz("America/Toronto").format('HH:mm')
           const filteredEvents = myJson.filter((livestream:any) =>{
             const endTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').add(3, 'h').format("HH:mm")
@@ -475,7 +477,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               </div>
                             )}
                           </div>
-                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas" && item.live === false ? {display:"none"} : {}}>
+                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas"? item.live ? {}:{display:"none"}: {}}>
                             <LinkButton
                               id="customBlackButton"
                               className="SundayMorningButton1"
