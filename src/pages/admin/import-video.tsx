@@ -185,6 +185,7 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return 0;
   }
+
   async getSpeakers(): Promise<void> {
     try {
       const fetchSpeakers: any = await API.graphql({
@@ -193,6 +194,30 @@ class Index extends React.Component<EmptyProps, State> {
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       });
       console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers });
+      const bruxyvids = fetchSpeakers.data.listSpeakers.items.filter(
+        (a: any) => a.id === 'Bruxy Cavey'
+      )[0].videos.items;
+      console.log(
+        '========================================================================================================================='
+      );
+      const duplicates: any = [];
+      let currentVal;
+      for (let i = 0; i < bruxyvids.length; i++) {
+        currentVal = bruxyvids[i].speakerVideosVideoId;
+        for (let x = 0; x < bruxyvids.length; x++) {
+          if (currentVal === bruxyvids[x].speakerVideosVideoId && x !== i)
+            duplicates.push({
+              videoId: currentVal,
+              id: bruxyvids[x].id,
+              title: bruxyvids[x].video.episodeTitle,
+              date: bruxyvids[x].video.publishedDate,
+            });
+        }
+      }
+      console.log(duplicates);
+      console.log(
+        '========================================================================================================================='
+      );
       this.setState({ speakers: fetchSpeakers.data.listSpeakers.items });
     } catch (e) {
       console.error(e);
@@ -484,6 +509,7 @@ class Index extends React.Component<EmptyProps, State> {
     );
   }
   async handleVideoSelection(video: any): Promise<void> {
+    console.log(video);
     this.setState(
       {
         selectedVideo: null,
@@ -525,19 +551,23 @@ class Index extends React.Component<EmptyProps, State> {
       this.handleCustomPlaylists();
       const toSaveVid: any = this.state.toSaveVideo;
       if (
-        toSaveVid.publishedDate &&
+        (toSaveVid.publishedDate || this.state.selectedVideo.publishedDate) &&
         this.state.selectedVideo.speakers?.items?.length > 0
       ) {
         const speakerVideoIDs = await this.getSpeakerVideoIds(toSaveVid.id);
         for (let i = 0; i < speakerVideoIDs.length; i++) {
-          this.updateSpeakerVideo(
+          this.saveSpeakerVideo(
             speakerVideoIDs[i].id,
-            toSaveVid.publishedDate
+            toSaveVid.publishedDate ?? this.state.selectedVideo.publishedDate
           );
         }
       }
       if (this.state.toSaveVideo.speakers) {
-        const oldSpeakers: any = [...this.state.originalSpeakers.items];
+        const oldSpeakers: any = [
+          ...this.state.originalSpeakers.items.filter(
+            (a: any) => a.speaker !== null
+          ),
+        ];
         const newSpeakers: any = [...this.state.toSaveVideo.speakers.items];
         const filtered = newSpeakers.filter((a: any) => {
           return oldSpeakers.indexOf(a) < 0;
@@ -562,7 +592,7 @@ class Index extends React.Component<EmptyProps, State> {
       }
       try {
         const updateVideo: any = await API.graphql({
-          query: mutations.updateVideo,
+          query: customMutations.updateVideo,
           variables: { input: toSaveVid },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
@@ -576,19 +606,24 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
-  async updateSpeakerVideo(videoid: string, newDate: string) {
-    try {
-      const updateOneSpeakerVideo: any = await API.graphql({
-        query: customMutations.updateSpeakerVideos,
-        variables: { input: { id: videoid, videoPublishedDate: newDate } },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
-      console.log({
-        'Success customMutations.updateOneSpeakerVideo: ': updateOneSpeakerVideo,
-      });
-    } catch (e) {
-      console.log(e);
-    }
+  async deleteSpeakerVideo() {
+    const videoToDelete: any = this.state.speakers
+      .filter((a: any) => a.id === this.state.selectedSpeaker)?.[0]
+      ?.videos?.items.filter(
+        (b: any) => b?.speakerVideosVideoId === this.state.selectedVideo?.id
+      )?.[0];
+    if (videoToDelete && videoToDelete?.id)
+      try {
+        const deleteSpeakerVideo: any = await API.graphql({
+          query: customMutations.deleteSpeakerVideos,
+          variables: { input: { id: videoToDelete.id } },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        });
+        console.log(deleteSpeakerVideo);
+        this.setState({ showError: 'Saved' });
+      } catch (e) {
+        if (!e.errors[0].message.includes('access')) console.log('error');
+      }
   }
   async getSpeakerVideoIds(id: string) {
     try {
@@ -886,7 +921,7 @@ class Index extends React.Component<EmptyProps, State> {
                                         const a = this.state.selectedVideo.speakers.items.find(
                                           (a: any) => {
                                             return (
-                                              a.speaker.id ===
+                                              a?.speaker?.id ===
                                               this.state.selectedSpeaker
                                             );
                                           }
@@ -913,6 +948,13 @@ class Index extends React.Component<EmptyProps, State> {
                                     }}
                                   >
                                     Add
+                                  </button>
+                                  <button
+                                    onClick={() => {
+                                      this.deleteSpeakerVideo();
+                                    }}
+                                  >
+                                    Delete
                                   </button>
                                 </>
                               ) : item.type === 'Series' ? (
@@ -990,6 +1032,7 @@ class Index extends React.Component<EmptyProps, State> {
                                   >
                                     Add
                                   </button>
+
                                   <div>
                                     Selected:{' '}
                                     {this.state.addToPlaylists.map(
