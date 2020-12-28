@@ -4169,6 +4169,81 @@ export const listLivestreams = /* GraphQL */ `
     }
   }
 `;
+export const getAnnouncement = /* GraphQL */ `
+  query GetAnnouncement($id: ID!) {
+    getAnnouncement(id: $id) {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAnnouncements = /* GraphQL */ `
+  query ListAnnouncements(
+    $filter: ModelAnnouncementFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAnnouncements(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        publishedDate
+        expirationDate
+        image
+        parish
+        crossRegional
+        title
+        description
+        callToAction
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const listAnnouncementsByParishByDate = /* GraphQL */ `
+  query ListAnnouncementsByParishByDate(
+    $crossRegional: String
+    $parishExpirationDatePublishedDate: ModelAnnouncementByParishByDateCompositeKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelAnnouncementFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAnnouncementsByParishByDate(
+      crossRegional: $crossRegional
+      parishExpirationDatePublishedDate: $parishExpirationDatePublishedDate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        publishedDate
+        expirationDate
+        image
+        parish
+        crossRegional
+        title
+        description
+        callToAction
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listSpeakers = /* GraphQL */ `
   query ListSpeakers(
     $id: ID

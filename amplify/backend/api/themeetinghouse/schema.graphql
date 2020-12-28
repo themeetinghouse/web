@@ -684,6 +684,31 @@ type Livestream
   titles: [String]
   homepageLink: String
 }
+
+type Announcement
+ @model
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+  @key(
+    name: "byParishByDate", 
+    fields: ["crossRegional", "parish", "expirationDate", "publishedDate"],
+    queryField: "listAnnouncementsByParishByDate"
+  )
+{
+  id: ID!
+  publishedDate: String!
+  expirationDate: String!
+  image: String
+  parish: String
+  crossRegional: String
+  title: String!
+  description: String!
+  callToAction: String
+}
+
 type Speaker
  @model
  @auth(rules:[
