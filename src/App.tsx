@@ -18,6 +18,7 @@ const CreateBlog = lazy(() => import('./pages/admin/create-blog'));
 const CreateNotes = lazy(() => import('./pages/admin/create-notes'));
 const AddLive = lazy(() => import('./pages/admin/livestream'));
 const GetInsta = lazy(() => import('./pages/admin/instagram'));
+const Announcements = lazy(() => import('./pages/admin/Announcements'));
 
 class App extends React.Component<Props, State> {
   render() {
@@ -29,6 +30,7 @@ class App extends React.Component<Props, State> {
           <Route path="/admin/create-notes" render={() => <CreateNotes />} />
           <Route path="/admin/livestream" render={() => <AddLive />} />
           <Route path="/admin/instagram" render={() => <GetInsta />} />
+          <Route path="/admin/announcements" render={() => <Announcements />} />
           <Route path="/admin" render={() => <Admin />} />
           <Route path="*" render={(props) => <HomePage {...props} />} />
         </Switch>

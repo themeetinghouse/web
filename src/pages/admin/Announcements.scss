@@ -1,0 +1,37 @@
+.announcementBox {
+  overflow: hidden;
+  margin: 16px;
+  border-radius: 16px;
+  border: solid 1px black;
+  flex: 1;
+  width: 50%;
+}
+.announcementBox:hover {
+  background-color: lightgrey;
+}
+.announcementContainer {
+  display: flex;
+  flex-direction: column;
+}
+.announcementHeader {
+  margin: 16px;
+  flex: 1;
+  flex-direction: row;
+}
+.announcementHeaderText {
+  display: inline;
+  font-size: 26px;
+  font-weight: 700;
+}
+.regionalFilter {
+  margin-left: 16px;
+  display: inline;
+}
+.announcementBoxFooter {
+  padding-left: -32px;
+  border: 1px solid black;
+  height: 32px;
+  position: sticky;
+  background-color: white;
+  bottom: 0;
+}
