@@ -1,10 +1,30 @@
+@keyframes slideIn {
+  from {
+    height: 200px;
+    min-height: 200px;
+    overflow: hidden;
+  }
+  to {
+    overflow: hidden;
+    min-height: 360px;
+  }
+}
+
 .announcementBox {
   overflow: hidden;
   margin: 16px;
-  border-radius: 16px;
+  border-radius: 4px;
   border: solid 1px black;
   flex: 1;
   width: 50%;
+  height: 400px;
+  -webkit-box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
+  box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
+}
+
+.announcementBox[data-custom='open'] {
+  animation: slideIn 0.5s 1;
 }
 .announcementBox:hover {
   background-color: lightgrey;
@@ -12,6 +32,7 @@
 .announcementContainer {
   display: flex;
   flex-direction: column;
+  height: 360px;
 }
 .announcementHeader {
   margin: 16px;
@@ -28,10 +49,20 @@
   display: inline;
 }
 .announcementBoxFooter {
-  padding-left: -32px;
-  border: 1px solid black;
-  height: 32px;
+  border-top: 1px solid black;
+  height: 36px;
   position: sticky;
   background-color: white;
   bottom: 0;
+}
+.announcementBoxBodyText {
+  font-size: 14px;
+}
+.announcementBoxFooter:hover {
+  background-color: lightgrey;
+}
+
+.addAnnouncementButton:hover {
+  background-color: lightgrey;
+  border-radius: 32px;
 }
