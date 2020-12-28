@@ -222,6 +222,7 @@ class Index extends React.Component<EmptyProps, State> {
       console.error(e);
     }
   }
+  // Takes an array of speakerVideo ids and deletes them
   async deleteDuplicates(values : Array<string>){
     try {
       for(let i=0; i<values.length; i++){
@@ -650,14 +651,6 @@ class Index extends React.Component<EmptyProps, State> {
     });
     console.log(json);
   }
-  async getVidIds() {
-    try {
-      const ids = await this.getSpeakerVideoIds('80LEFVw4k7o');
-      console.log(ids);
-    } catch (error) {
-      console.log(error);
-    }
-  }
   async deleteSpeakerVideo() {
     const videoToDelete: any = this.state.speakers
       .filter((a: any) => a.id === this.state.selectedSpeaker)?.[0]
@@ -1036,23 +1029,29 @@ class Index extends React.Component<EmptyProps, State> {
                                           }
                                         );
                                         if (speakerInSpeakers) {
-                                          console.log(
-                                            this.state.selectedVideo.speakers
-                                              .items
-                                          );
+                                          const speakers: any = {
+                                            items: [
+                                              ...this.state.selectedVideo.speakers.items.filter(
+                                                (a: any) =>
+                                                  a?.speaker?.id !==
+                                                  this.state.selectedSpeaker
+                                              ),
+                                            ],
+                                          };
+                                          this.writeField(item.id, speakers);
+                                          const removeSpeakers = {
+                                            ...this.state.toSaveVideo,
+                                          };
+                                          delete removeSpeakers.speakers;
+                                          this.setState({
+                                            toSaveVideo: removeSpeakers,
+                                          });
                                           this.deleteSpeakerVideo();
                                         }
                                       }
                                     }}
                                   >
                                     Delete
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      this.getVidIds();
-                                    }}
-                                  >
-                                    Get Vid Ids
                                   </button>
                                 </>
                               ) : item.type === 'Series' ? (
