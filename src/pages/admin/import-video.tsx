@@ -538,7 +538,6 @@ class Index extends React.Component<EmptyProps, State> {
     );
   }
   async handleVideoSelection(video: any): Promise<void> {
-    console.log(video);
     this.setState(
       {
         selectedVideo: null,
@@ -643,14 +642,7 @@ class Index extends React.Component<EmptyProps, State> {
       selectedPlaylist: '',
     });
   }
-  async getSpeakerVideosNew(): Promise<void> {
-    const json: any = await API.graphql({
-      query: adminQueries.listSpeakerVideos,
-      variables: { limit: 800 },
-      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-    });
-    console.log(json);
-  }
+
   async deleteSpeakerVideo() {
     const videoToDelete: any = this.state.speakers
       .filter((a: any) => a.id === this.state.selectedSpeaker)?.[0]
