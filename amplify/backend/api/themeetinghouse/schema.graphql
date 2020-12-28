@@ -698,13 +698,13 @@ type Announcement
   )
 {
   id: ID!
-  publishedDate!: String
-  expirationDate!: String
+  publishedDate: String!
+  expirationDate: String!
   image: String
   parish: String
   crossRegional: String
-  title!: String
-  description!: String
+  title: String!
+  description: String!
   callToAction: String
 }
 
