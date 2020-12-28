@@ -695,7 +695,7 @@ type Announcement
   @key(
     name: "byParishByDate", 
     fields: ["crossRegional", "parish", "expirationDate", "publishedDate"],
-    queryField: "listByParishByDates"
+    queryField: "listAnnouncementsByParishByDate"
   )
 {
   id: ID!
