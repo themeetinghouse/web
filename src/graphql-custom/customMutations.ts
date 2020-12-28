@@ -19,6 +19,21 @@ export const updateSpeaker = /* GraphQL */ `
     }
   }
 `;
+export const DeleteSpeaker = /*GraphQL */ ` 
+mutation DeleteSpeaker($input: DeleteSpeakerInput!) {
+  deleteSpeaker(input: $input) {
+    updatedAt
+  }
+}
+`;
+
+export const deleteSpeakerVideos = /* GraphQL */ `
+  mutation DeleteSpeakerVideos($input: DeleteSpeakerVideosInput!) {
+    deleteSpeakerVideos(input: $input) {
+      updatedAt
+    }
+  }
+`;
 
 export const updateSpeakerVideos = /* GraphQL */ `
   mutation UpdateSpeakerVideos($input: UpdateSpeakerVideosInput!) {
@@ -27,6 +42,13 @@ export const updateSpeakerVideos = /* GraphQL */ `
       speakerVideosSpeakerId
       speakerVideosVideoId
       videoPublishedDate
+    }
+  }
+`;
+export const updateVideo = /* GraphQL */ `
+  mutation UpdateVideo($input: UpdateVideoInput!) {
+    updateVideo(input: $input) {
+      id
     }
   }
 `;
