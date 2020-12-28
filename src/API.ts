@@ -364,6 +364,34 @@ export type DeleteLivestreamInput = {
   id?: string | null,
 };
 
+export type CreateAnnouncementInput = {
+  id?: string | null,
+  publishedDate: string,
+  expirationDate: string,
+  image?: string | null,
+  parish?: string | null,
+  crossRegional?: string | null,
+  title: string,
+  description: string,
+  callToAction?: string | null,
+};
+
+export type UpdateAnnouncementInput = {
+  id: string,
+  publishedDate?: string | null,
+  expirationDate?: string | null,
+  image?: string | null,
+  parish?: string | null,
+  crossRegional?: string | null,
+  title?: string | null,
+  description?: string | null,
+  callToAction?: string | null,
+};
+
+export type DeleteAnnouncementInput = {
+  id?: string | null,
+};
+
 export type CreateSpeakerInput = {
   id?: string | null,
   name?: string | null,
@@ -1111,6 +1139,37 @@ export type ModelLivestreamFilterInput = {
 export type ModelBooleanFilterInput = {
   ne?: boolean | null,
   eq?: boolean | null,
+};
+
+export type ModelAnnouncementFilterInput = {
+  id?: ModelIDFilterInput | null,
+  publishedDate?: ModelStringFilterInput | null,
+  expirationDate?: ModelStringFilterInput | null,
+  image?: ModelStringFilterInput | null,
+  parish?: ModelStringFilterInput | null,
+  crossRegional?: ModelStringFilterInput | null,
+  title?: ModelStringFilterInput | null,
+  description?: ModelStringFilterInput | null,
+  callToAction?: ModelStringFilterInput | null,
+  and?: Array< ModelAnnouncementFilterInput | null > | null,
+  or?: Array< ModelAnnouncementFilterInput | null > | null,
+  not?: ModelAnnouncementFilterInput | null,
+};
+
+export type ModelAnnouncementByParishByDateCompositeKeyConditionInput = {
+  eq?: ModelAnnouncementByParishByDateCompositeKeyInput | null,
+  le?: ModelAnnouncementByParishByDateCompositeKeyInput | null,
+  lt?: ModelAnnouncementByParishByDateCompositeKeyInput | null,
+  ge?: ModelAnnouncementByParishByDateCompositeKeyInput | null,
+  gt?: ModelAnnouncementByParishByDateCompositeKeyInput | null,
+  between?: Array< ModelAnnouncementByParishByDateCompositeKeyInput | null > | null,
+  beginsWith?: ModelAnnouncementByParishByDateCompositeKeyInput | null,
+};
+
+export type ModelAnnouncementByParishByDateCompositeKeyInput = {
+  parish?: string | null,
+  expirationDate?: string | null,
+  publishedDate?: string | null,
 };
 
 export type ModelSpeakerFilterInput = {
@@ -2850,6 +2909,69 @@ export type DeleteLivestreamMutation = {
     } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateAnnouncementMutationVariables = {
+  input: CreateAnnouncementInput,
+};
+
+export type CreateAnnouncementMutation = {
+  createAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateAnnouncementMutationVariables = {
+  input: UpdateAnnouncementInput,
+};
+
+export type UpdateAnnouncementMutation = {
+  updateAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteAnnouncementMutationVariables = {
+  input: DeleteAnnouncementInput,
+};
+
+export type DeleteAnnouncementMutation = {
+  deleteAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -32211,6 +32333,84 @@ export type ListLivestreamsQuery = {
   } | null,
 };
 
+export type GetAnnouncementQueryVariables = {
+  id: string,
+};
+
+export type GetAnnouncementQuery = {
+  getAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListAnnouncementsQueryVariables = {
+  filter?: ModelAnnouncementFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListAnnouncementsQuery = {
+  listAnnouncements:  {
+    __typename: "ModelAnnouncementConnection",
+    items:  Array< {
+      __typename: "Announcement",
+      id: string,
+      publishedDate: string,
+      expirationDate: string,
+      image: string | null,
+      parish: string | null,
+      crossRegional: string | null,
+      title: string,
+      description: string,
+      callToAction: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type ListAnnouncementsByParishByDateQueryVariables = {
+  crossRegional?: string | null,
+  parishExpirationDatePublishedDate?: ModelAnnouncementByParishByDateCompositeKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelAnnouncementFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListAnnouncementsByParishByDateQuery = {
+  listAnnouncementsByParishByDate:  {
+    __typename: "ModelAnnouncementConnection",
+    items:  Array< {
+      __typename: "Announcement",
+      id: string,
+      publishedDate: string,
+      expirationDate: string,
+      image: string | null,
+      parish: string | null,
+      crossRegional: string | null,
+      title: string,
+      description: string,
+      callToAction: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
 export type ListSpeakersQueryVariables = {
   id?: string | null,
   filter?: ModelSpeakerFilterInput | null,
@@ -47669,6 +47869,57 @@ export type OnDeleteLivestreamSubscription = {
     } | null > | null,
     titles: Array< string | null > | null,
     homepageLink: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateAnnouncementSubscription = {
+  onCreateAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateAnnouncementSubscription = {
+  onUpdateAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteAnnouncementSubscription = {
+  onDeleteAnnouncement:  {
+    __typename: "Announcement",
+    id: string,
+    publishedDate: string,
+    expirationDate: string,
+    image: string | null,
+    parish: string | null,
+    crossRegional: string | null,
+    title: string,
+    description: string,
+    callToAction: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,

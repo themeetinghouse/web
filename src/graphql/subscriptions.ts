@@ -1199,6 +1199,57 @@ export const onDeleteLivestream = /* GraphQL */ `
     }
   }
 `;
+export const onCreateAnnouncement = /* GraphQL */ `
+  subscription OnCreateAnnouncement {
+    onCreateAnnouncement {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateAnnouncement = /* GraphQL */ `
+  subscription OnUpdateAnnouncement {
+    onUpdateAnnouncement {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteAnnouncement = /* GraphQL */ `
+  subscription OnDeleteAnnouncement {
+    onDeleteAnnouncement {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateSpeaker = /* GraphQL */ `
   subscription OnCreateSpeaker {
     onCreateSpeaker {

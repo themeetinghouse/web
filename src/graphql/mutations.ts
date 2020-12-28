@@ -1199,6 +1199,57 @@ export const deleteLivestream = /* GraphQL */ `
     }
   }
 `;
+export const createAnnouncement = /* GraphQL */ `
+  mutation CreateAnnouncement($input: CreateAnnouncementInput!) {
+    createAnnouncement(input: $input) {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAnnouncement = /* GraphQL */ `
+  mutation UpdateAnnouncement($input: UpdateAnnouncementInput!) {
+    updateAnnouncement(input: $input) {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAnnouncement = /* GraphQL */ `
+  mutation DeleteAnnouncement($input: DeleteAnnouncementInput!) {
+    deleteAnnouncement(input: $input) {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createSpeaker = /* GraphQL */ `
   mutation CreateSpeaker($input: CreateSpeakerInput!) {
     createSpeaker(input: $input) {
