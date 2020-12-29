@@ -40,6 +40,10 @@ jobs:
       run: npm ci
     - name: Test
       run: npm test
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Archive code coverage results
       uses: actions/upload-artifact@v1
       with:
