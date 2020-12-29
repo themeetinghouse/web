@@ -73,6 +73,7 @@ export default function Announcements(): JSX.Element {
   const [openCreateModal, setOpenCreateModal] = useState(false);
   const [locationFilter, setlocationFilter] = useState('Cross-Regional');
 
+  /* ============================= Query and Mutation Functions ======================================*/
   const createAnnouncement = async (
     announcement: AnnouncementData
   ): Promise<void> => {
@@ -95,6 +96,29 @@ export default function Announcements(): JSX.Element {
         'Success mutations.createAnnouncement: ': addAnnouncement,
       });
       setOpenCreateModal(false);
+      // must trigger a fetch to refresh the list
+    } catch (e) {
+      if (!e.errors[0].message.includes('access'))
+        console.log(e.errors[0].message);
+      else if (e.data) console.error(e);
+    }
+  };
+  const deleteAnnouncement = async (
+    announcement: AnnouncementData
+  ): Promise<void> => {
+    try {
+      const removeAnnouncement: any = await API.graphql({
+        query: mutations.deleteAnnouncement,
+        variables: {
+          input: { id: announcement.id },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({
+        'Success mutations.removeAnnouncement: ': removeAnnouncement,
+      });
+      alert('Removed successfully');
+      //trigger a fetch to refresh the list
     } catch (e) {
       if (!e.errors[0].message.includes('access'))
         console.log(e.errors[0].message);
@@ -117,6 +141,9 @@ export default function Announcements(): JSX.Element {
       else if (e.data) console.error(e);
     }
   };
+
+  /* ==================================================================================*/
+
   const [announcements, setAnnouncements] = useState<Array<AnnouncementData>>(
     []
   );
@@ -157,7 +184,7 @@ export default function Announcements(): JSX.Element {
             className="addAnnouncementButton"
             onClick={(e) => {
               e.stopPropagation();
-              setOpenCreateModal(!openCreateModal);
+              deleteAnnouncement(announcement);
             }}
             width={50}
             height={50}
