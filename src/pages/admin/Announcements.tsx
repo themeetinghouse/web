@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import './Announcements.scss';
@@ -42,34 +42,28 @@ const announcementInit = {
   crossRegional: 'true',
   callToAction: '',
   parish: 'Cross-Regional',
-  image: '',
+  image: 'false',
 };
 
 export default function Announcements(): JSX.Element {
-  const locations = [
-    { label: 'Cross-Regional', value: 'Cross-Regional' },
-    { label: 'Alliston', value: 'Alliston' },
-    { label: 'Ancaster', value: 'Ancaster' },
-    { label: 'Brampton', value: 'Brampton' },
-    { label: 'Brantford', value: 'Brantford' },
-    { label: 'Burlington', value: 'Burlington' },
-    { label: 'Hamilton - Downtown', value: 'Hamilton - Downtown' },
-    { label: 'Hamilton - Mountain', value: 'Hamilton - Mountain' },
-    { label: 'Kitchener', value: 'Kitchener' },
-    { label: 'London', value: 'London' },
-    { label: 'Newmarket', value: 'Newmarket' },
-    { label: 'Oakville', value: 'Oakville' },
-    { label: 'Ottawa', value: 'Ottawa' },
-    { label: 'Owen Sound', value: 'Owen Sound' },
-    { label: 'Parry Sound', value: 'Parry Sound' },
-    { label: 'Richmond Hill', value: 'Richmond Hill' },
-    { label: 'Sandbanks', value: 'Sandbanks' },
-    { label: 'Toronto - Downtown', value: 'Toronto - Downtown' },
-    { label: 'Toronto - East', value: 'Toronto - East' },
-    { label: 'Toronto - High Park', value: 'Toronto - High Park' },
-    { label: 'Toronto - Uptown', value: 'Toronto - Uptown' },
-    { label: 'Waterloo', value: 'Waterloo' },
-  ];
+  const [locations, setLocations] = useState<any>([]);
+  const fetchLocations = async (): Promise<void> => {
+    const response = await fetch('/static/data/locations.json');
+    const data = await response.json();
+    if (data) {
+      const locationArr = [
+        { label: 'Cross-Regional', value: 'Cross-Regional' },
+      ];
+      const transformedLocations = [
+        ...locationArr,
+        ...data.map((a: any) => {
+          return { label: a.name, value: a.name };
+        }),
+      ];
+      setLocations(transformedLocations);
+    }
+  };
+
   const [openCreateModal, setOpenCreateModal] = useState(false);
   const [locationFilter, setlocationFilter] = useState('Cross-Regional');
 
@@ -79,6 +73,13 @@ export default function Announcements(): JSX.Element {
   ): Promise<void> => {
     const toSaveAnnouncement: AnnouncementData = { ...announcement };
     const keys: Array<string> = Object.keys(announcement);
+    if (toSaveAnnouncement.image === 'true') {
+      toSaveAnnouncement.image = `https://themeetinghouse.com/cached/640/static/photos/announcements/${
+        toSaveAnnouncement.publishedDate
+      }_${toSaveAnnouncement.title.replaceAll(' ', '_')}.jpg}`;
+    } else {
+      delete toSaveAnnouncement.image;
+    }
     keys.forEach((key) => {
       if (toSaveAnnouncement[key as AnnouncementDataKey] === '') {
         delete toSaveAnnouncement[key as AnnouncementDataKey];
@@ -191,12 +192,14 @@ export default function Announcements(): JSX.Element {
             alt="DeleteAnnouncementIcon"
             src="/static/svg/Minus_Icon.svg"
           ></img>
-          <h6>Published Date:{announcement.publishedDate}</h6>
-          <h6>Expiration Date:{announcement.expirationDate}</h6>
-          <h6>Parish:{announcement.parish}</h6>
-          <h6>CrossRegional:{announcement.crossRegional}</h6>
-          <h6>image:{announcement.image}</h6>
-          <h6>id:{announcement.id}</h6>
+          <div>
+            Published Date:{announcement.publishedDate}
+            Expiration Date:{announcement.expirationDate}
+            Parish:{announcement.parish}
+            CrossRegional:{announcement.crossRegional}
+            image:{announcement.image}
+            id:{announcement.id}
+          </div>
           <h5>{announcement.title}</h5>
           <p className="announcementBoxBodyText">
             {expand
@@ -243,7 +246,6 @@ export default function Announcements(): JSX.Element {
           })}
         {announcements ? (
           announcements.filter((a: AnnouncementData) => {
-            console.log(a);
             if (a.parish === locationFilter) {
               return true;
             } else return false;
@@ -335,25 +337,27 @@ export default function Announcements(): JSX.Element {
                   })
                 }
               >
-                {locations.map((location, index: number) => {
-                  return (
-                    <option key={index} value={location.value}>
-                      {location.label}
-                    </option>
-                  );
-                })}
+                {locations && locations.length > 0
+                  ? locations.map((location: any, index: number) => {
+                      return (
+                        <option key={index} value={location.value}>
+                          {location.label}
+                        </option>
+                      );
+                    })
+                  : null}
               </select>
             </label>
             <label style={{ display: 'block' }}>
               Image:
               <input
                 name="image"
-                type="text"
-                value={announcement.image}
+                type="checkbox"
+                checked={announcement.image === 'true' ? true : false}
                 onChange={(e) =>
                   setAnnouncement({
                     ...announcement,
-                    [e.target.name]: e.target.value,
+                    [e.target.name]: e.target.checked.toString(),
                   })
                 }
               />
@@ -372,6 +376,9 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
+            <button onClick={() => console.log(announcement)}>
+              Check State
+            </button>
             <button
               onClick={() => createAnnouncement(announcement)}
               type="submit"
@@ -386,7 +393,9 @@ export default function Announcements(): JSX.Element {
       </div>
     );
   };
-
+  useEffect(() => {
+    fetchLocations();
+  }, []);
   return (
     <AmplifyAuthenticator federated={federated}>
       <AdminMenu></AdminMenu>
@@ -402,13 +411,15 @@ export default function Announcements(): JSX.Element {
               name="locationFilter"
               onChange={(e) => setlocationFilter(e.target.value)}
             >
-              {locations.map((location, index: number) => {
-                return (
-                  <option key={index} value={location.value}>
-                    {location.label}
-                  </option>
-                );
-              })}
+              {locations && locations.length > 0
+                ? locations.map((location: any, index: number) => {
+                    return (
+                      <option key={index} value={location.value}>
+                        {location.label}
+                      </option>
+                    );
+                  })
+                : null}
             </select>
           </label>
           <button onClick={() => fetchAnnouncements()}>
