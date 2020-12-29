@@ -1,0 +1,33 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="602" height="602" id="canvas_background" fill="none"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_1" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <rect fill="none" stroke-width="55.5" fill-opacity="null" x="60" y="60" width="480" height="480" id="svg_47" stroke="#ff7b00" rx="44"/>
+  <line fill="none" stroke-width="20.5" fill-opacity="null" x1="374.67958" y1="123.3572" x2="490.72127" y2="239.39889" id="svg_48" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke-width="20.5" fill-opacity="null" x1="272.11538" y1="23.99813" x2="612.71816" y2="364.60091" id="svg_49" stroke-linejoin="null" stroke-linecap="null"/>
+  <line fill="none" stroke="null" stroke-width="20.5" stroke-opacity="null" x1="342.62827" y1="138.74183" x2="487.13384" y2="283.24741" id="svg_51" stroke-linejoin="null" stroke-linecap="null"/>
+  <rect fill="none" stroke-width="55.5" x="138.46137" y="465.39763" width="323.07725" height="4.48718" id="svg_55" rx="14" stroke="#ff7b00"/>
+  <g id="svg_58">
+   <g id="svg_46">
+    <line fill="none" stroke="#ff7b00" stroke-width="30" stroke-opacity="null" fill-opacity="null" x1="164.14167" y1="344.46938" x2="149.93402" y2="416.05409" id="svg_39" stroke-linejoin="null" stroke-linecap="null" transform="rotate(1 157.03784179687392,380.26171874999886) "/>
+    <g id="svg_45">
+     <g id="svg_34">
+      <line fill="none" stroke="#ff7b00" stroke-width="30" stroke-opacity="null" fill-opacity="null" x1="390.30462" y1="121.48561" x2="161.65263" y2="350.13761" id="svg_30" stroke-linejoin="null" stroke-linecap="null"/>
+      <line fill="none" stroke="#ff7b00" stroke-width="30" stroke-opacity="null" fill-opacity="null" x1="444.18278" y1="175.61167" x2="215.53079" y2="404.26366" id="svg_31" stroke-linejoin="null" stroke-linecap="null"/>
+      <line fill="none" stroke="#ff7b00" stroke-width="30" stroke-opacity="null" fill-opacity="null" x1="381.07243" y1="128.32834" x2="444.08219" y2="191.3381" id="svg_33" stroke-linejoin="null" stroke-linecap="null"/>
+     </g>
+     <line fill="none" stroke="#ff7b00" stroke-width="30" stroke-opacity="null" fill-opacity="null" x1="192.43615" y1="373.54554" x2="178.2285" y2="445.13025" id="svg_42" stroke-linejoin="null" stroke-linecap="null" transform="rotate(-114 185.33233642578122,409.337890625) "/>
+     <line fill="none" stroke="#ff7b00" stroke-width="30" stroke-opacity="null" fill-opacity="null" x1="152.83595" y1="413.883" x2="145.44459" y2="421.27436" id="svg_43" stroke-linejoin="null" stroke-linecap="null" transform="rotate(1.378800392150879 149.14027404785506,417.5786743164065) "/>
+    </g>
+   </g>
+   <rect fill="none" stroke-width="30" stroke-opacity="null" fill-opacity="null" x="268.30932" y="92.03282" width="82.69239" height="327.39504" id="svg_56" rx="5" transform="rotate(45 309.655517578125,255.73034667968753) " stroke="#ff7b00"/>
+  </g>
+ </g>
+</svg>

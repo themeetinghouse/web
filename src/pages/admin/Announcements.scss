@@ -10,6 +10,37 @@
   }
 }
 
+.announcementContainer {
+  display: flex;
+  flex-direction: column;
+  height: 360px;
+}
+
+/* Announcement Page Header */
+
+.announcementHeader {
+  margin: 16px;
+  flex-direction: row;
+}
+.addAnnouncementButton {
+  color: red;
+}
+.addAnnouncementButton:hover {
+  background-color: #efefef;
+}
+
+.announcementHeaderText {
+  display: inline;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.regionalFilter {
+  margin-left: 16px;
+  display: inline;
+}
+
+/* Announcement Item */
 .announcementBox {
   overflow: hidden;
   margin: 16px;
@@ -29,25 +60,14 @@
 .announcementBox:hover {
   background-color: lightgrey;
 }
-.announcementContainer {
-  display: flex;
-  flex-direction: column;
-  height: 360px;
-}
-.announcementHeader {
-  margin: 16px;
-  flex: 1;
-  flex-direction: row;
-}
-.announcementHeaderText {
-  display: inline;
-  font-size: 26px;
+
+.announcementButton {
+  background-color: lightgrey;
+  border-radius: 8px;
+  color: black;
   font-weight: 700;
 }
-.regionalFilter {
-  margin-left: 16px;
-  display: inline;
-}
+
 .announcementBoxFooter {
   border-top: 1px solid black;
   height: 36px;
@@ -62,7 +82,14 @@
   background-color: lightgrey;
 }
 
-.addAnnouncementButton:hover {
-  background-color: lightgrey;
-  border-radius: 32px;
+/* Add Announcement Modal */
+.addAnnouncementModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.addAnnouncementModalContainer {
+  display: flex;
+  flex-direction: column;
 }
