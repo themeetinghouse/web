@@ -8,6 +8,7 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
 import * as queries from '../../graphql/queries';
+import { Modal } from 'reactstrap';
 /*
 import * as customQueries from '../../graphql-custom/customQueries';
  import * as customMutations from '../../graphql-custom/customMutations' */ import * as mutations from '../../graphql/mutations';
@@ -46,6 +47,7 @@ const announcementInit = {
 };
 
 export default function Announcements(): JSX.Element {
+  const [count, setCount] = useState(1);
   const [locations, setLocations] = useState<any>([]);
   const fetchLocations = async (): Promise<void> => {
     const response = await fetch('/static/data/locations.json');
@@ -65,6 +67,7 @@ export default function Announcements(): JSX.Element {
   };
 
   const [openCreateModal, setOpenCreateModal] = useState(false);
+
   const [locationFilter, setlocationFilter] = useState('Cross-Regional');
 
   /* ============================= Query and Mutation Functions ======================================*/
@@ -96,6 +99,7 @@ export default function Announcements(): JSX.Element {
       console.log({
         'Success mutations.createAnnouncement: ': addAnnouncement,
       });
+      fetchAnnouncements();
       setOpenCreateModal(false);
       // must trigger a fetch to refresh the list
     } catch (e) {
@@ -120,6 +124,7 @@ export default function Announcements(): JSX.Element {
       });
       alert('Removed successfully');
       //trigger a fetch to refresh the list
+      fetchAnnouncements();
     } catch (e) {
       if (!e.errors[0].message.includes('access'))
         console.log(e.errors[0].message);
@@ -148,13 +153,6 @@ export default function Announcements(): JSX.Element {
   const [announcements, setAnnouncements] = useState<Array<AnnouncementData>>(
     []
   );
-  const ellipsisHelper = (description: string): string => {
-    if (description.length > 200) {
-      description = description.slice(0, 230) + '\n.\n.\n';
-      return description;
-    } else return description;
-  };
-
   const RenderAnnouncementItem = ({
     announcement,
   }: AnnouncementProps): JSX.Element => {
@@ -162,22 +160,24 @@ export default function Announcements(): JSX.Element {
 
     return (
       <div
-        onClick={() => {
-          if (announcement.description.length > 200) setExpand(!expand);
-        }}
+        onClick={() => setExpand(!expand)}
         className="announcementBox"
-        style={expand ? { maxHeight: '360px' } : { maxHeight: '200px' }}
+        style={
+          expand
+            ? { maxHeight: '360px' }
+            : { maxHeight: '200px', overflow: 'hidden' }
+        }
         data-custom={expand ? 'open' : 'close'}
       >
-        <div style={{ padding: '32px' }}>
+        <h5>{announcement.title}</h5>
+        <div className="announcementIcons">
           <img
             className="addAnnouncementButton"
             onClick={(e) => {
               e.stopPropagation();
-              setOpenCreateModal(!openCreateModal);
             }}
-            width={50}
-            height={50}
+            width={33}
+            height={33}
             alt="EditAnnouncementIcon"
             src="/static/svg/Edit_Icon.svg"
           ></img>
@@ -185,39 +185,43 @@ export default function Announcements(): JSX.Element {
             className="addAnnouncementButton"
             onClick={(e) => {
               e.stopPropagation();
-              deleteAnnouncement(announcement);
+              if (
+                confirm('Are you sure you want to delete this announcement?')
+              ) {
+                deleteAnnouncement(announcement);
+              } else {
+              }
             }}
-            width={50}
-            height={50}
+            width={33}
+            height={33}
             alt="DeleteAnnouncementIcon"
             src="/static/svg/Minus_Icon.svg"
           ></img>
-          <div>
-            Published Date:{announcement.publishedDate}
-            Expiration Date:{announcement.expirationDate}
-            Parish:{announcement.parish}
-            CrossRegional:{announcement.crossRegional}
-            image:{announcement.image}
-            id:{announcement.id}
+        </div>
+        <div>
+          <div className="announcementSummary">
+            <p>
+              <b>Published Date:</b>
+              {announcement.publishedDate}
+              <br></br>
+              <b>Expiration Date:</b>
+              {announcement.expirationDate}
+              <br></br>
+              <b>Parish:</b>
+              {announcement.parish}
+            </p>
           </div>
-          <h5>{announcement.title}</h5>
-          <p className="announcementBoxBodyText">
-            {expand
-              ? announcement.description
-              : ellipsisHelper(announcement.description)}
-          </p>
+
+          {expand ? (
+            <p className="announcementBoxBodyText">
+              {announcement.description}
+            </p>
+          ) : null}
         </div>
 
-        <div
-          style={
-            expand || announcement.description.length < 200
-              ? { display: 'none' }
-              : {}
-          }
-          className="announcementBoxFooter"
-        >
+        <div style={expand ? { display: 'none' } : {}}>
           <img
-            style={{ position: 'absolute', right: '50%', marginTop: 4 }}
+            style={{ marginTop: 4 }}
             width={16}
             height={24}
             alt="DownArrow"
@@ -229,20 +233,22 @@ export default function Announcements(): JSX.Element {
   };
   const RenderAnnouncementList = (): JSX.Element => {
     return (
-      <div>
+      <>
         {announcements
           .filter((a: AnnouncementData) => {
             if (a.parish === locationFilter) {
               return true;
             } else return false;
           })
-          .map((announcement: AnnouncementData) => {
-            return (
-              <RenderAnnouncementItem
-                key={announcement.id}
-                announcement={announcement}
-              ></RenderAnnouncementItem>
-            );
+          .map((announcement: AnnouncementData, index: number) => {
+            if (index < count)
+              return (
+                <RenderAnnouncementItem
+                  key={announcement.id}
+                  announcement={announcement}
+                ></RenderAnnouncementItem>
+              );
+            else return null;
           })}
         {announcements ? (
           announcements.filter((a: AnnouncementData) => {
@@ -253,21 +259,151 @@ export default function Announcements(): JSX.Element {
             <h2>No Announcements found</h2>
           ) : null
         ) : null}
-      </div>
+        <button onClick={() => setCount(count + 1)}>Load More</button>
+      </>
     );
   };
+  /* const EditAnnouncementModal = (announc: AnnouncementData) : JSX.Element =>{
+    const [announcement, setAnnouncement] = useState<AnnouncementData>(
+      announc
+    );
+    return(
+        <Modal isOpen={openEditModal}>
+          <div>
+            <div>
+            <label>
+                Title:
+                <input
+                  name="title"
+                  type="text"
+                  value={announcement.title}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+              </label>
+              <label style={{ display: 'block' }}>
+                Description:
+                <textarea
+                  name="description"
+                  maxLength={1000}
+                  value={announcement.description}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+              </label>
+              <label style={{ display: 'block' }}>
+                Date:
+                <input
+                  name="publishedDate"
+                  type="text"
+                  value={announcement.publishedDate}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+              </label>
+              <label style={{ display: 'block' }}>
+                Expiry Date:
+                <input
+                  name="expirationDate"
+                  type="text"
+                  value={announcement.expirationDate}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+              </label>
+              <label style={{ display: 'block' }}>
+                Parish:
+                <select
+                  name="parish"
+                  value={announcement.parish}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.value,
+                      crossRegional:
+                        e.target.value === 'Cross-Regional' ? 'true' : 'false',
+                    })
+                  }
+                >
+                  {locations && locations.length > 0
+                    ? locations.map((location: any, index: number) => {
+                        return (
+                          <option key={index} value={location.value}>
+                            {location.label}
+                          </option>
+                        );
+                      })
+                    : null}
+                </select>
+              </label>
+              <label style={{ display: 'block' }}>
+                Image:
+                <input
+                  name="image"
+                  type="checkbox"
+                  checked={announcement.image === 'true' ? true : false}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.checked.toString(),
+                    })
+                  }
+                />
+              </label>
+              <label style={{ display: 'block' }}>
+                Call to Action:
+                <input
+                  name="callToAction"
+                  type="text"
+                  value={announcement.callToAction}
+                  onChange={(e) =>
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.value,
+                    })
+                  }
+                />
+              </label>
+              <button
+                onClick={() => createAnnouncement(announcement)}
+                type="submit"
+              >
+                Submit
+              </button>
+              <button  style={{ background: 'red' }} onClick={() => setOpenCreateModal(false)} type="reset">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </Modal>
+    )
+  } */
   const CreateAnnouncementModal = (): JSX.Element => {
     const [announcement, setAnnouncement] = useState<AnnouncementData>(
       announcementInit
     );
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-    };
+    const [errorTxt, setErrorTxt] = useState<string>('');
     return (
-      <div className="addAnnouncementModal">
-        <div className="addAnnouncementModalContainer">
-          <form onSubmit={(e: React.FormEvent) => handleSubmit(e)}>
-            <label style={{ display: 'block' }}>
+      <Modal isOpen={openCreateModal}>
+        <div>
+          <div>
+            <label>
               Title:
               <input
                 name="title"
@@ -376,25 +512,47 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
-            <button onClick={() => console.log(announcement)}>
-              Check State
-            </button>
+            <p style={{ color: 'red', whiteSpace: 'pre' }}>{errorTxt}</p>
             <button
-              onClick={() => createAnnouncement(announcement)}
+              onClick={() => {
+                let errorMessage = '';
+                if (announcement.title === '') {
+                  errorMessage += `Title must not be empty.\n `;
+                }
+                if (announcement.description === '') {
+                  errorMessage += 'Description must not be empty.\n';
+                }
+                if (announcement.publishedDate === '') {
+                  errorMessage += 'Date must not be empty.\n';
+                }
+                if (announcement.expirationDate === '') {
+                  errorMessage += 'Expiry date must not be empty.\n';
+                }
+                if (errorMessage === '') createAnnouncement(announcement);
+                else {
+                  setErrorTxt(errorMessage);
+                }
+              }}
               type="submit"
             >
+              {' '}
               Submit
             </button>
-            <button onClick={() => setOpenCreateModal(false)} type="reset">
+            <button
+              style={{ background: 'red' }}
+              onClick={() => setOpenCreateModal(false)}
+              type="reset"
+            >
               Cancel
             </button>
-          </form>
+          </div>
         </div>
-      </div>
+      </Modal>
     );
   };
   useEffect(() => {
     fetchLocations();
+    fetchAnnouncements();
   }, []);
   return (
     <AmplifyAuthenticator federated={federated}>
@@ -422,15 +580,18 @@ export default function Announcements(): JSX.Element {
                 : null}
             </select>
           </label>
-          <button onClick={() => fetchAnnouncements()}>
+          <button
+            style={{ display: 'none' }}
+            onClick={() => fetchAnnouncements()}
+          >
             Fetch Announcements
           </button>
           <img
             className="addAnnouncementButton"
             onClick={() => setOpenCreateModal(!openCreateModal)}
-            style={{ position: 'absolute', right: '50%' }}
-            width={50}
-            height={50}
+            style={{ marginLeft: 16 }}
+            width={33}
+            height={33}
             alt="AddAnnouncementIcon"
             src="/static/svg/Plus_Icon.svg"
           ></img>
