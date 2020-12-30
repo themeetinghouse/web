@@ -447,8 +447,7 @@ type YoutubeCaptionDetails{
   content:String
 }
 type YoutubeCaptionList{
-
-   kind: String
+  kind: String
   etag: String
   items: [YoutubeCaptionItem]
 }
@@ -702,7 +701,7 @@ type Announcement
   publishedDate: String!
   expirationDate: String!
   image: String
-  parish: String
+  parish: [String]
   crossRegional: String
   title: String!
   description: String!
