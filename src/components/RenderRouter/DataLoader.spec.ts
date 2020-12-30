@@ -81,7 +81,10 @@ describe('videos', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([
@@ -101,7 +104,10 @@ describe('videos', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([
@@ -137,7 +143,10 @@ describe('videos', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([
@@ -167,7 +176,10 @@ describe('videos', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([
@@ -266,7 +278,10 @@ describe('blogs', () => {
 
         status: 'published',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([{ id: 'blog1' }]);
@@ -297,7 +312,10 @@ describe('blogs', () => {
 
         status: 'published',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([{ id: 'blog1' }]);
@@ -321,7 +339,10 @@ describe('blogs', () => {
 
         status: 'published',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).not.toHaveBeenCalled();
@@ -346,7 +367,10 @@ describe('series by type', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([{ id: 'series1' }]);
@@ -378,7 +402,10 @@ describe('series by type', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).toHaveBeenCalledWith([{ id: 'series1' }]);
@@ -403,7 +430,10 @@ describe('series by type', () => {
         sortOrder: ModelSortDirection.ASC,
         subclass: 'Youtube',
       },
-      callback
+      callback,
+      () => {
+        false;
+      }
     );
 
     expect(callback).not.toHaveBeenCalled();

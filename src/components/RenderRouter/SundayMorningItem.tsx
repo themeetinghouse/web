@@ -25,7 +25,7 @@ interface ListData {
     address: string;
   };
   serviceTimes: string[];
-  live?:boolean;
+  live?: boolean;
 }
 
 interface Props extends RouteComponentProps, IProvidedProps {
@@ -67,13 +67,12 @@ export class SundayMorningItem extends React.Component<Props, State> {
       postalCode: '',
     };
     let jsonFile;
-    const today = moment.tz("America/Toronto").format('YYYY-MM-DD')
-    if (this.props.content.alternate === 'christmas'){
+    const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
+    if (this.props.content.alternate === 'christmas') {
       jsonFile = '/static/data/christmas.json';
-      if(today === "2020-12-24")
+      if (today === '2020-12-24')
         this.interval = setInterval(() => this.tick(), 1500);
-    }
-    else if (this.props.content.alternate === 'easter')
+    } else if (this.props.content.alternate === 'easter')
       jsonFile = '/static/data/easter.json';
     else jsonFile = '/static/data/locations.json';
     fetch(jsonFile)
@@ -81,50 +80,78 @@ export class SundayMorningItem extends React.Component<Props, State> {
         return response.json();
       })
       .then((myJson) => {
-        if(this.props.content.alternate === "christmas" && today ==="2020-12-24"){
-          const rightNow = moment().tz("America/Toronto").format('HH:mm')
-          const filteredEvents = myJson.filter((livestream:any) =>{
-            const endTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').add(3, 'h').format("HH:mm")
-            if(rightNow >= endTime){
-              return false
-            }
-            else return true;
-          })
-          this.setState({ listData: filteredEvents.map((item:any) => {return {...item, live:false}})});
-        }
-        else this.setState({listData:myJson})
-    })
-    
+        if (
+          this.props.content.alternate === 'christmas' &&
+          today === '2020-12-24'
+        ) {
+          const rightNow = moment().tz('America/Toronto').format('HH:mm');
+          const filteredEvents = myJson.filter((livestream: any) => {
+            const endTime = moment(
+              livestream?.serviceTimes?.[0].split('-')[1],
+              'HH:mm a'
+            )
+              .add(3, 'h')
+              .format('HH:mm');
+            if (rightNow >= endTime) {
+              return false;
+            } else return true;
+          });
+          this.setState({
+            listData: filteredEvents.map((item: any) => {
+              return { ...item, live: false };
+            }),
+          });
+        } else this.setState({ listData: myJson });
+      });
   }
   /* Used for the christmas page */
   tick() {
-    console.log("tick")
-    const rightNow = moment().tz("America/Toronto").format('HH:mm')
-    if(this.state.listData.length === 0) {
-      clearInterval(this.interval)
+    console.log('tick');
+    const rightNow = moment().tz('America/Toronto').format('HH:mm');
+    if (this.state.listData.length === 0) {
+      clearInterval(this.interval);
     }
     const temp = [...this.state.listData];
-    temp.forEach((livestream, currentIndex) =>{
-      const startTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').format("HH:mm")
-      const endTime = moment(livestream?.serviceTimes?.[0].split('-')[1], 'HH:mm a').add(3, 'h').format("HH:mm")
-      if(startTime && endTime && rightNow >= startTime && rightNow <= endTime){
-        if(!temp[currentIndex].live){
+    temp.forEach((livestream, currentIndex) => {
+      const startTime = moment(
+        livestream?.serviceTimes?.[0].split('-')[1],
+        'HH:mm a'
+      )
+        .subtract(15, 'minutes')
+        .format('HH:mm');
+      const endTime = moment(
+        livestream?.serviceTimes?.[0].split('-')[1],
+        'HH:mm a'
+      )
+        .add(2.75, 'h')
+        .format('HH:mm');
+      if (
+        startTime &&
+        endTime &&
+        rightNow >= startTime &&
+        rightNow <= endTime
+      ) {
+        if (!temp[currentIndex].live) {
           temp[currentIndex].live = true;
-          this.setState({listData:temp})
+          this.setState({ listData: temp });
         }
       }
-      if(rightNow >= endTime) {
-        this.setState({listData: temp.filter((event, index) => {return index !==currentIndex})})
+      if (rightNow >= endTime) {
+        this.setState({
+          listData: temp.filter((event, index) => {
+            return index !== currentIndex;
+          }),
+        });
       }
-    })
+    });
   }
-  interval: any
+  interval: any;
 
   componentDidMount() {
     this.setGeoLocation();
   }
-  componentWillUnmount(){
-    clearInterval(this.interval)
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
   componentDidUpdate() {
     if (this.state.selectedPlace) {
@@ -293,299 +320,317 @@ export class SundayMorningItem extends React.Component<Props, State> {
   }
 
   render() {
-    if(this.state.listData && this.state.listData.length > 0 || this.props.content.alternate !== "christmas")
-    return (
-      <div
-        className="SundayMorningItem"
-        style={
-          this.props.content.alternate === 'christmas'
-            ? { position: 'relative', height: 'auto' }
-            : {}
-        }
-      >
-        <div className="SundayMorningItemDiv1">
-          <div>
-            <h1 className="SundayMorningH1">{this.props.content.header1}</h1>
+    if (
+      (this.state.listData && this.state.listData.length > 0) ||
+      this.props.content.alternate !== 'christmas'
+    )
+      return (
+        <div
+          className="SundayMorningItem"
+          style={
+            this.props.content.alternate === 'christmas'
+              ? { position: 'relative', height: 'auto' }
+              : {}
+          }
+        >
+          <div className="SundayMorningItemDiv1">
+            <div>
+              <h1 className="SundayMorningH1">{this.props.content.header1}</h1>
 
-            <div
-              className="SundayMorningItemDiv2"
-              style={
-                this.props.content.alternate === 'christmas'
-                  ? { display: 'none' }
-                  : {}
-              }
-            >
-              <div className="SundayMorningMap">
-                <Map
-                  google={this.props.google}
-                  zoom={6}
-                  initialCenter={{ lat: 44, lng: -78.0 }}
-                  mapTypeControl={false}
-                  fullscreenControl={false}
-                  onReady={(_props, map) => {
-                    this.map = map;
-                  }}
-                >
-                  <Marker
-                    icon={CURRENT_LOCATION_URL}
-                    position={{ ...this.state.currentLatLng }}
-                  />
-                  {this.state.listData.map((item, index) => {
-                    return (
-                      <Marker
-                        key={index}
-                        onClick={this.getMarkerClickHandler(item)}
-                        icon={
-                          this.state.selectedPlace === item
-                            ? SITE_PIN_SELECTED_URL
-                            : SITE_PIN_URL
-                        }
-                        position={{
-                          lat: item.location.latitude,
-                          lng: item.location.longitude,
-                        }}
-                      />
-                    );
-                  })}
-
-                  <InfoWindow
-                    google={this.props.google}
-                    // These types are wrong, they should be optional. So just cast to fix the issues.
-                    map={this.map as google.maps.Map}
-                    marker={
-                      this.state.selectedPlaceMarker as google.maps.Marker
-                    }
-                    visible={true}
-                  >
-                    {this.state.selectedPlace ? (
-                      <div>
-                        <div className="SundayMorningMapInfoWindowSiteName">
-                          {this.state.selectedPlace.name}
-                        </div>
-                        <div className="SundayMorningMapInfoWindowAddress">
-                          {this.state.selectedPlace.location.address}
-                        </div>
-                        {this.props.content.alternate === 'christmas' ? null : (
-                          <div className="SundayMorningMapInfoWindowDay">
-                            Sundays
-                          </div>
-                        )}
-                        {this.props.content.alternate === 'christmas' ? (
-                          <div className="SundayMorningServiceTimes">
-                            {this.state.selectedPlace.serviceTimes}
-                          </div>
-                        ) : (
-                          <div className="SundayMorningMapInfoWindowTimes">
-                            {this.state.selectedPlace.serviceTimes
-                              .map((t) => t + ' am')
-                              .join(', ')}
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
-                  </InfoWindow>
-                </Map>
-              </div>
-            </div>
-            <div
-              className="SundayMorningItemDiv3"
-              style={
-                this.props.content.alternate === 'christmas'
-                  ? { width: '100%', position: 'relative', height: 'auto' }
-                  : {}
-              }
-            >
               <div
-                className="SundayMorningFormItemContainer"
+                className="SundayMorningItemDiv2"
                 style={
                   this.props.content.alternate === 'christmas'
                     ? { display: 'none' }
                     : {}
                 }
               >
-                <Input
-                  className="PostalCodeInput"
-                  placeholder="Add postal code"
-                  onChange={this.handlePostalCodeChange}
-                  value={this.state.postalCode}
-                ></Input>
-                <button
-                  className="ClearAllButton"
-                  onClick={this.clearLocationSelection}
-                  tabIndex={0}
-                >
-                  Use current location
-                </button>
-              </div>
+                <div className="SundayMorningMap">
+                  <Map
+                    google={this.props.google}
+                    zoom={6}
+                    initialCenter={{ lat: 44, lng: -78.0 }}
+                    mapTypeControl={false}
+                    fullscreenControl={false}
+                    onReady={(_props, map) => {
+                      this.map = map;
+                    }}
+                  >
+                    <Marker
+                      icon={CURRENT_LOCATION_URL}
+                      position={{ ...this.state.currentLatLng }}
+                    />
+                    {this.state.listData.map((item, index) => {
+                      return (
+                        <Marker
+                          key={index}
+                          onClick={this.getMarkerClickHandler(item)}
+                          icon={
+                            this.state.selectedPlace === item
+                              ? SITE_PIN_SELECTED_URL
+                              : SITE_PIN_URL
+                          }
+                          position={{
+                            lat: item.location.latitude,
+                            lng: item.location.longitude,
+                          }}
+                        />
+                      );
+                    })}
 
+                    <InfoWindow
+                      google={this.props.google}
+                      // These types are wrong, they should be optional. So just cast to fix the issues.
+                      map={this.map as google.maps.Map}
+                      marker={
+                        this.state.selectedPlaceMarker as google.maps.Marker
+                      }
+                      visible={true}
+                    >
+                      {this.state.selectedPlace ? (
+                        <div>
+                          <div className="SundayMorningMapInfoWindowSiteName">
+                            {this.state.selectedPlace.name}
+                          </div>
+                          <div className="SundayMorningMapInfoWindowAddress">
+                            {this.state.selectedPlace.location.address}
+                          </div>
+                          {this.props.content.alternate ===
+                          'christmas' ? null : (
+                            <div className="SundayMorningMapInfoWindowDay">
+                              Sundays
+                            </div>
+                          )}
+                          {this.props.content.alternate === 'christmas' ? (
+                            <div className="SundayMorningServiceTimes">
+                              {this.state.selectedPlace.serviceTimes}
+                            </div>
+                          ) : (
+                            <div className="SundayMorningMapInfoWindowTimes">
+                              {this.state.selectedPlace.serviceTimes
+                                .map((t) => t + ' am')
+                                .join(', ')}
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <div></div>
+                      )}
+                    </InfoWindow>
+                  </Map>
+                </div>
+              </div>
               <div
-                className="SundayMorningItemListData"
+                className="SundayMorningItemDiv3"
                 style={
                   this.props.content.alternate === 'christmas'
-                    ? {
-                        paddingBottom: 0,
-                        top: 0,
-                        height: 'auto',
-                        overflow: 'unset',
-                      }
+                    ? { width: '100%', position: 'relative', height: 'auto' }
                     : {}
                 }
-                ref={(ref) => (this.siteListScrollContainer = ref)}
               >
-                {this.state.listData
-                  .sort((a, b) => {
-                    if (a.distance && b.distance) {
-                      return a.distance.duration.value <
-                        b.distance.duration.value
-                        ? -1
-                        : 1;
-                    } else {
-                      return a.name.localeCompare(b.name);
-                    }
-                  })
-                  .map((item) => {
-                    return (
-                      <div
-                        key={item.id}
-                        className="SundayMorningItemDiv5"
-                        style={
-                          this.props.content.alternate === 'christmas'
-                            ? { width: '100%' }
-                            : {}
+                <div
+                  className="SundayMorningFormItemContainer"
+                  style={
+                    this.props.content.alternate === 'christmas'
+                      ? { display: 'none' }
+                      : {}
+                  }
+                >
+                  <Input
+                    className="PostalCodeInput"
+                    placeholder="Add postal code"
+                    onChange={this.handlePostalCodeChange}
+                    value={this.state.postalCode}
+                  ></Input>
+                  <button
+                    className="ClearAllButton"
+                    onClick={this.clearLocationSelection}
+                    tabIndex={0}
+                  >
+                    Use current location
+                  </button>
+                </div>
+
+                <div
+                  className="SundayMorningItemListData"
+                  style={
+                    this.props.content.alternate === 'christmas'
+                      ? {
+                          paddingBottom: 0,
+                          top: 0,
+                          height: 'auto',
+                          overflow: 'unset',
                         }
-                        id={'SITE-' + item.id}
-                      >
-                        <div className="SundayMorningItemDiv4">
-                          <div>
-                            {this.props.content.alternate === 'christmas' ? (
-                              <h3
-                                className={'SundayMorningH3'}
-                                style={
-                                  this.props.content.alternate === 'christmas'
-                                    ? {
-                                        textDecoration: 'none',
-                                        cursor: 'unset',
-                                      }
-                                    : {}
-                                }
-                              >
-                                {item.name}
-                              </h3>
-                            ) : (
-                              <>
+                      : {}
+                  }
+                  ref={(ref) => (this.siteListScrollContainer = ref)}
+                >
+                  {this.state.listData
+                    .sort((a, b) => {
+                      if (a.distance && b.distance) {
+                        return a.distance.duration.value <
+                          b.distance.duration.value
+                          ? -1
+                          : 1;
+                      } else {
+                        return a.name.localeCompare(b.name);
+                      }
+                    })
+                    .map((item) => {
+                      return (
+                        <div
+                          key={item.id}
+                          className="SundayMorningItemDiv5"
+                          style={
+                            this.props.content.alternate === 'christmas'
+                              ? { width: '100%' }
+                              : {}
+                          }
+                          id={'SITE-' + item.id}
+                        >
+                          <div className="SundayMorningItemDiv4">
+                            <div>
+                              {this.props.content.alternate === 'christmas' ? (
                                 <h3
-                                  className={
-                                    'SundayMorningH3 ' +
-                                    (this.state.selectedPlace === item
-                                      ? 'selected '
-                                      : ' ') +
-                                    (this.props.content.alternate ===
-                                    'christmas'
-                                      ? 'christmas '
-                                      : ' ')
+                                  className={'SundayMorningH3'}
+                                  style={
+                                    this.props.content.alternate === 'christmas'
+                                      ? {
+                                          textDecoration: 'none',
+                                          cursor: 'unset',
+                                        }
+                                      : {}
                                   }
-                                  onClick={this.getSiteClickHandler(item)}
                                 >
                                   {item.name}
                                 </h3>
-                                <div
-                                  className="SundayMorningAddress"
-                                  dangerouslySetInnerHTML={{
-                                    __html: item.location.address
-                                      .split(',')
-                                      .join('<br/>'),
-                                  }}
-                                ></div>
-                              </>
-                            )}
-                            {/* <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " away (" + this.state.distances.rows[0].elements[index].duration.text + ")": null}</div> */}
-                            <div className="SundayMorningDistances">
-                              {item.distance != null
-                                ? item.distance.distance.text +
-                                  ' away (' +
-                                  item.distance.duration.text +
-                                  ')'
-                                : null}
+                              ) : (
+                                <>
+                                  <h3
+                                    className={
+                                      'SundayMorningH3 ' +
+                                      (this.state.selectedPlace === item
+                                        ? 'selected '
+                                        : ' ') +
+                                      (this.props.content.alternate ===
+                                      'christmas'
+                                        ? 'christmas '
+                                        : ' ')
+                                    }
+                                    onClick={this.getSiteClickHandler(item)}
+                                  >
+                                    {item.name}
+                                  </h3>
+                                  <div
+                                    className="SundayMorningAddress"
+                                    dangerouslySetInnerHTML={{
+                                      __html: item.location.address
+                                        .split(',')
+                                        .join('<br/>'),
+                                    }}
+                                  ></div>
+                                </>
+                              )}
+                              {/* <div className="SundayMorningDistances" >{this.state.distances != null ? this.state.distances.rows[0].elements[index].distance.text + " away (" + this.state.distances.rows[0].elements[index].duration.text + ")": null}</div> */}
+                              <div className="SundayMorningDistances">
+                                {item.distance != null
+                                  ? item.distance.distance.text +
+                                    ' away (' +
+                                    item.distance.duration.text +
+                                    ')'
+                                  : null}
+                              </div>
+                              {this.props.content.alternate === 'christmas' ||
+                              this.props.content.alternate ===
+                                'easter' ? null : (
+                                <div className="SundayMorningServiceDay">
+                                  Sundays
+                                </div>
+                              )}
+                              {this.props.content.alternate === 'christmas' ||
+                              this.props.content.alternate === 'easter' ? (
+                                <div className="SundayMorningServiceTimes">
+                                  {item.serviceTimes.map((val, index) => (
+                                    <div key={index}>{val}</div>
+                                  ))}
+                                </div>
+                              ) : (
+                                <div className="SundayMorningServiceTimes">
+                                  {item.serviceTimes
+                                    .map((t) => t + ' am')
+                                    .join(', ')}
+                                </div>
+                              )}
                             </div>
-                            {this.props.content.alternate === 'christmas' ||
-                            this.props.content.alternate === 'easter' ? null : (
-                              <div className="SundayMorningServiceDay">
-                                Sundays
-                              </div>
-                            )}
-                            {this.props.content.alternate === 'christmas' ||
-                            this.props.content.alternate === 'easter' ? (
-                              <div className="SundayMorningServiceTimes">
-                                {item.serviceTimes.map((val, index) => (
-                                  <div key={index}>{val}</div>
-                                ))}
-                              </div>
-                            ) : (
-                              <div className="SundayMorningServiceTimes">
-                                {item.serviceTimes
-                                  .map((t) => t + ' am')
-                                  .join(', ')}
-                              </div>
-                            )}
-                          </div>
 
-                          <div className="SundayMorningItemDiv6" style={this.props.content.alternate === "christmas"? item.live ? {}:{display:"none"}: {}}>
-                            <LinkButton
-                              id="customBlackButton"
-                              className="SundayMorningButton1"
-                              to={this.props.content.alternate === "christmas" ? "live" : item.id}
-                              
-
+                            <div
+                              className="SundayMorningItemDiv6"
+                              style={
+                                this.props.content.alternate === 'christmas'
+                                  ? item.live
+                                    ? {}
+                                    : { display: 'none' }
+                                  : {}
+                              }
                             >
-                              {this.props.content.alternate === "christmas" ? "Watch" : "Visit Page"}
-                            </LinkButton>
+                              <LinkButton
+                                id="customBlackButton"
+                                className="SundayMorningButton1"
+                                to={
+                                  this.props.content.alternate === 'christmas'
+                                    ? 'live'
+                                    : item.id
+                                }
+                              >
+                                {this.props.content.alternate === 'christmas'
+                                  ? 'Watch'
+                                  : 'Visit Page'}
+                              </LinkButton>
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="SundayMorningButtonContainer">
-                          <div className="AddToCalendarButtonContainer">
-                            <img
-                              className="AddToCalendarIcon"
-                              src="/static/svg/Calendar, Add To.svg"
-                              alt="Calendar Icon"
-                            />
-                            <AddToCalendar
-                              buttonLabel="Add to Calendar"
-                              event={this.getCalendarEventForLocation(item)}
-                            />
-                          </div>
-                          <a
-                            className="emailText"
-                            href={
-                              this.props.content.alternate === 'christmas'
-                                ? 'mailto:' + 'hello@themeetinghouse.com'
-                                : 'mailto:' + item.pastorEmail
-                            }
-                          >
-                            <button className="emailButton">
+                          <div className="SundayMorningButtonContainer">
+                            <div className="AddToCalendarButtonContainer">
                               <img
-                                className="ContactPastorIcon"
-                                src="/static/svg/Contact.svg"
-                                alt="Contact Icon"
+                                className="AddToCalendarIcon"
+                                src="/static/svg/Calendar, Add To.svg"
+                                alt="Calendar Icon"
                               />
-                            </button>
-                            {this.props.content.alternate === 'christmas'
-                              ? 'Connect'
-                              : 'Contact the Pastor'}
-                          </a>
+                              <AddToCalendar
+                                buttonLabel="Add to Calendar"
+                                event={this.getCalendarEventForLocation(item)}
+                              />
+                            </div>
+                            <a
+                              className="emailText"
+                              href={
+                                this.props.content.alternate === 'christmas'
+                                  ? 'mailto:' + 'hello@themeetinghouse.com'
+                                  : 'mailto:' + item.pastorEmail
+                              }
+                            >
+                              <button className="emailButton">
+                                <img
+                                  className="ContactPastorIcon"
+                                  src="/static/svg/Contact.svg"
+                                  alt="Contact Icon"
+                                />
+                              </button>
+                              {this.props.content.alternate === 'christmas'
+                                ? 'Connect'
+                                : 'Contact the Pastor'}
+                            </a>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-    else return null
+      );
+    else return null;
   }
 }
 

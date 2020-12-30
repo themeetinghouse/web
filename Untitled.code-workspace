@@ -9,6 +9,32 @@
       "**/node_modules": false
     },
     "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "cSpell.words": [
+      "FJUWPGBGGI",
+      "datepicker",
+      "draftjs",
+      "dryrun",
+      "dynamodump",
+      "googlemaps",
+      "heeetingouse",
+      "hostingbucket",
+      "instafeed",
+      "jsonlint",
+      "konami",
+      "mdbreact",
+      "onclickoutside",
+      "tmhprod",
+      "youtube"
+    ],
+    "cSpell.ignorePaths": [
+      "**/package-lock.json",
+      "**/node_modules/**",
+      "**/vscode-extension/**",
+      "**/.git/objects/**",
+      ".vscode",
+      ".vscode-insiders",
+      ".code-workspace"
+    ]
   }
 }

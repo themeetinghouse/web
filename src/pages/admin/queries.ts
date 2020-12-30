@@ -18,6 +18,17 @@ export const listSpeakers = /* GraphQL */ `
         name
         image
         hidden
+        videos(limit: 1000) {
+          items {
+            id
+            speakerVideosSpeakerId
+            speakerVideosVideoId
+            video {
+              episodeTitle
+              publishedDate
+            }
+          }
+        }
       }
       nextToken
     }
