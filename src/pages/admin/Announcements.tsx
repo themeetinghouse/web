@@ -435,7 +435,7 @@ export default function Announcements(): JSX.Element {
               Date:
               <input
                 name="publishedDate"
-                type="text"
+                type="date"
                 value={announcement.publishedDate}
                 onChange={(e) =>
                   setAnnouncement({
@@ -449,7 +449,7 @@ export default function Announcements(): JSX.Element {
               Expiry Date:
               <input
                 name="expirationDate"
-                type="text"
+                type="date"
                 value={announcement.expirationDate}
                 onChange={(e) =>
                   setAnnouncement({

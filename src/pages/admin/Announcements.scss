@@ -15,13 +15,17 @@
   width: 100%;
   margin: auto;
   position: relative;
-  min-height: 90vh;
+  max-height: 50vh;
+  overflow: auto;
 }
 
 /* Announcement Page Header */
 
 .announcementHeader {
-  margin: 16px;
+  margin-top: 0;
+  position: fixed;
+  background-color: white;
+  width: 100%;
   flex-direction: row;
 }
 .addAnnouncementButton {
