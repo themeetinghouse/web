@@ -39,38 +39,32 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Preschool",
+        "header1": "Early Years",
         "header2": "Ages 0-5",
-        "text1": "Here's what we're learning in preschool this week:",
+        "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/PS Graphic Dec.jpg",
-            "alt": "This month's big idea: Jesus is God's son."
+            "src": "/static/images/EYBigIdeaJan.jpeg",
+            "alt": "This month's big idea: Jesus grew up with family and friends."
           }
         ],
         "list": [
           {
             "type": "link",
-            "title": "Download Preschool Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/PSLessonDec27.pdf",
+            "title": "Download Early Years Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/LessonEYJan3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Preschool Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/PSActivitiesDec27.pdf",
+            "title": "Download Early Years Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Preschool Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/PSKeyVerseColouringPageDec.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Christmas Eve Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/ChristmasColouring.pdf",
+            "title": "Download Early Years Key Verse Colouring Page",
+            "navigateTo": "/static/pdfs/kidmax-files/EYJanColouring.pdf",
             "openNewBrowser": true
           }
         ]
@@ -82,7 +76,7 @@
         "subclass": "preschool",
         "limit": 25,
         "sortOrder": "DESC",
-        "header1": "Preschool Videos"
+        "header1": "Early Years Videos"
       },
       {
         "type": "content",
@@ -93,32 +87,26 @@
         "image1": [
           {
             "src": "/static/images/KidBigIdeaDec27.jpg",
-            "alt": "This week's big idea: When we listen to God, we have a message to share."
+            "alt": "This week's big idea: Jesus is God's greatest promise."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec27.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/LessonKidsJan3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec27.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJan3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseColouringPageDec.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Christmas Eve Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/ChristmasColouring.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsJanColouringPage.pdf",
             "openNewBrowser": true
           }
         ]
