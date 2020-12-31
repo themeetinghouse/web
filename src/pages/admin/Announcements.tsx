@@ -323,7 +323,8 @@ export default function Announcements(): JSX.Element {
               Date:{' '}
               {announcement.publishedDate === '' ? (
                 <b style={{ color: 'red' }}>*</b>
-              ) : null}
+              ) : null}{' '}
+              <small>Announcement will show after this date</small>
               <input
                 className="genericTextField"
                 name="publishedDate"
@@ -338,7 +339,7 @@ export default function Announcements(): JSX.Element {
               />
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
-              Expiry Date:{' '}
+              Expiration Date:{' '}
               {announcement.expirationDate === '' ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}
@@ -413,23 +414,33 @@ export default function Announcements(): JSX.Element {
                 name="image"
                 type="checkbox"
                 checked={announcement.image === 'true' ? true : false}
-                onChange={(e) =>
-                  setAnnouncement({
-                    ...announcement,
-                    [e.target.name]: e.target.checked.toString(),
-                  })
-                }
+                onChange={(e) => {
+                  if (
+                    announcement.title !== '' &&
+                    announcement.publishedDate !== ''
+                  ) {
+                    setErrorTxt('');
+                    setAnnouncement({
+                      ...announcement,
+                      [e.target.name]: e.target.checked.toString(),
+                    });
+                  } else {
+                    setErrorTxt('Title and date must be set');
+                  }
+                }}
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
-                {announcement.image === 'true' && announcement.title !== ''
-                  ? `PATH : /static/photos/announcements/${
+                {announcement.image === 'true' &&
+                announcement.title !== '' &&
+                announcement.publishedDate !== ''
+                  ? `Path: /static/photos/announcements/${
                       announcement.publishedDate
                     }_${announcement.title.replaceAll(' ', '_')}.jpg`
                   : null}
               </p>
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
-              Call to Action:
+              Button URL <small>Call to action URL</small>
               <input
                 className="genericTextField"
                 name="callToAction"
