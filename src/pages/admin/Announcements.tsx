@@ -8,6 +8,7 @@ import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
 import * as queries from '../../graphql/queries';
+import moment from 'moment';
 import { Modal } from 'reactstrap';
 /*
 import * as customQueries from '../../graphql-custom/customQueries';
@@ -47,8 +48,9 @@ const announcementInit = {
 };
 
 export default function Announcements(): JSX.Element {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(10);
   const [locations, setLocations] = useState<any>([]);
+
   const fetchLocations = async (): Promise<void> => {
     const response = await fetch('/static/data/locations.json');
     const data = await response.json();
@@ -67,12 +69,12 @@ export default function Announcements(): JSX.Element {
   };
 
   const [openCreateModal, setOpenCreateModal] = useState(false);
-
   const [locationFilter, setlocationFilter] = useState('Cross-Regional');
 
   /* ============================= Query and Mutation Functions ======================================*/
   const createAnnouncement = async (
-    announcement: AnnouncementData
+    announcement: AnnouncementData,
+    parishes: Array<string>
   ): Promise<void> => {
     const toSaveAnnouncement: AnnouncementData = { ...announcement };
     const keys: Array<string> = Object.keys(announcement);
@@ -88,24 +90,27 @@ export default function Announcements(): JSX.Element {
         delete toSaveAnnouncement[key as AnnouncementDataKey];
       }
     });
-    try {
-      const addAnnouncement: any = await API.graphql({
-        query: mutations.createAnnouncement,
-        variables: {
-          input: { ...toSaveAnnouncement, id: uuidv4() },
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
-      console.log({
-        'Success mutations.createAnnouncement: ': addAnnouncement,
-      });
-      fetchAnnouncements();
-      setOpenCreateModal(false);
-      // must trigger a fetch to refresh the list
-    } catch (e) {
-      if (!e.errors[0].message.includes('access'))
-        console.log(e.errors[0].message);
-      else if (e.data) console.error(e);
+    for (let i = 0; i < parishes.length; i++) {
+      toSaveAnnouncement.parish = parishes[i];
+      try {
+        const addAnnouncement: any = await API.graphql({
+          query: mutations.createAnnouncement,
+          variables: {
+            input: { ...toSaveAnnouncement, id: uuidv4() },
+          },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        });
+        console.log({
+          'Success mutations.createAnnouncement: ': addAnnouncement,
+        });
+        fetchAnnouncements();
+        setOpenCreateModal(false);
+        // must trigger a fetch to refresh the list
+      } catch (e) {
+        if (!e.errors[0].message.includes('access'))
+          console.log(e.errors[0].message);
+        else if (e.data) console.error(e);
+      }
     }
   };
   const deleteAnnouncement = async (
@@ -132,9 +137,13 @@ export default function Announcements(): JSX.Element {
     }
   };
   const fetchAnnouncements = async (): Promise<void> => {
+    const today = moment()
+      .utcOffset(moment().isDST() ? '-0400' : '-0500')
+      .format('YYYY-MM-DD');
     try {
       const getAnnouncements: any = await API.graphql({
         query: queries.listAnnouncements,
+        variables: { filter: { expirationDate: { gt: today } } },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({
@@ -201,7 +210,7 @@ export default function Announcements(): JSX.Element {
         <div>
           <div className="announcementSummary">
             <p>
-              <b>Published Date:</b>
+              <b>Announcement Date:</b>
               {announcement.publishedDate}
               <br></br>
               <b>Expiration Date:</b>
@@ -259,153 +268,27 @@ export default function Announcements(): JSX.Element {
             <h2>No Announcements found</h2>
           ) : null
         ) : null}
-        <button onClick={() => setCount(count + 1)}>Load More</button>
+        <button onClick={() => setCount(count + 5)}>Load More</button>
       </>
     );
   };
-  /* const EditAnnouncementModal = (announc: AnnouncementData) : JSX.Element =>{
-    const [announcement, setAnnouncement] = useState<AnnouncementData>(
-      announc
-    );
-    return(
-        <Modal isOpen={openEditModal}>
-          <div>
-            <div>
-            <label>
-                Title:
-                <input
-                  name="title"
-                  type="text"
-                  value={announcement.title}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <label style={{ display: 'block' }}>
-                Description:
-                <textarea
-                  name="description"
-                  maxLength={1000}
-                  value={announcement.description}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <label style={{ display: 'block' }}>
-                Date:
-                <input
-                  name="publishedDate"
-                  type="text"
-                  value={announcement.publishedDate}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <label style={{ display: 'block' }}>
-                Expiry Date:
-                <input
-                  name="expirationDate"
-                  type="text"
-                  value={announcement.expirationDate}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <label style={{ display: 'block' }}>
-                Parish:
-                <select
-                  name="parish"
-                  value={announcement.parish}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.value,
-                      crossRegional:
-                        e.target.value === 'Cross-Regional' ? 'true' : 'false',
-                    })
-                  }
-                >
-                  {locations && locations.length > 0
-                    ? locations.map((location: any, index: number) => {
-                        return (
-                          <option key={index} value={location.value}>
-                            {location.label}
-                          </option>
-                        );
-                      })
-                    : null}
-                </select>
-              </label>
-              <label style={{ display: 'block' }}>
-                Image:
-                <input
-                  name="image"
-                  type="checkbox"
-                  checked={announcement.image === 'true' ? true : false}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.checked.toString(),
-                    })
-                  }
-                />
-              </label>
-              <label style={{ display: 'block' }}>
-                Call to Action:
-                <input
-                  name="callToAction"
-                  type="text"
-                  value={announcement.callToAction}
-                  onChange={(e) =>
-                    setAnnouncement({
-                      ...announcement,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-              </label>
-              <button
-                onClick={() => createAnnouncement(announcement)}
-                type="submit"
-              >
-                Submit
-              </button>
-              <button  style={{ background: 'red' }} onClick={() => setOpenCreateModal(false)} type="reset">
-                Cancel
-              </button>
-            </div>
-          </div>
-        </Modal>
-    )
-  } */
   const CreateAnnouncementModal = (): JSX.Element => {
     const [announcement, setAnnouncement] = useState<AnnouncementData>(
       announcementInit
     );
+    const [parishes, setParishes] = useState<Array<string>>(['Cross-Regional']);
     const [errorTxt, setErrorTxt] = useState<string>('');
     return (
-      <Modal isOpen={openCreateModal}>
-        <div>
+      <Modal size="lg" isOpen={openCreateModal}>
+        <div className="announcementModal">
           <div>
-            <label>
-              Title:
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Title:{' '}
+              {announcement.title === '' ? (
+                <b style={{ color: 'red' }}>*</b>
+              ) : null}
               <input
+                className="genericTextField"
                 name="title"
                 type="text"
                 value={announcement.title}
@@ -417,11 +300,16 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
-            <label style={{ display: 'block' }}>
-              Description:
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Description:{' '}
+              {announcement.description === '' ? (
+                <b style={{ color: 'red' }}>*</b>
+              ) : null}
               <textarea
+                className="genericTextArea"
                 name="description"
                 maxLength={1000}
+                rows={5}
                 value={announcement.description}
                 onChange={(e) =>
                   setAnnouncement({
@@ -431,9 +319,13 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
-            <label style={{ display: 'block' }}>
-              Date:
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Date:{' '}
+              {announcement.publishedDate === '' ? (
+                <b style={{ color: 'red' }}>*</b>
+              ) : null}
               <input
+                className="genericTextField"
                 name="publishedDate"
                 type="date"
                 value={announcement.publishedDate}
@@ -445,10 +337,14 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
-            <label style={{ display: 'block' }}>
-              Expiry Date:
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Expiry Date:{' '}
+              {announcement.expirationDate === '' ? (
+                <b style={{ color: 'red' }}>*</b>
+              ) : null}
               <input
                 name="expirationDate"
+                className="genericTextField"
                 type="date"
                 value={announcement.expirationDate}
                 onChange={(e) =>
@@ -459,32 +355,59 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
-            <label style={{ display: 'block' }}>
-              Parish:
-              <select
-                name="parish"
-                value={announcement.parish}
-                onChange={(e) =>
-                  setAnnouncement({
-                    ...announcement,
-                    [e.target.name]: e.target.value,
-                    crossRegional:
-                      e.target.value === 'Cross-Regional' ? 'true' : 'false',
-                  })
-                }
-              >
-                {locations && locations.length > 0
-                  ? locations.map((location: any, index: number) => {
-                      return (
-                        <option key={index} value={location.value}>
-                          {location.label}
-                        </option>
-                      );
-                    })
-                  : null}
-              </select>
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Parishes:<br></br>
             </label>
-            <label style={{ display: 'block' }}>
+            {locations && locations.length > 0
+              ? locations.map((location: any, index: number) => {
+                  return (
+                    <div
+                      key={index}
+                      style={{ minWidth: '30%', display: 'inline-block' }}
+                    >
+                      <input
+                        style={{ transform: 'scale(1.5)' }}
+                        name={`${location.label}`}
+                        type="checkbox"
+                        checked={
+                          parishes.find((a: string) => a === location.label) ===
+                          location.label
+                        }
+                        onChange={(e) => {
+                          if (e.target.name === 'Cross-Regional')
+                            setParishes(['Cross-Regional']);
+                          else {
+                            const tempArr = [...parishes].filter(
+                              (a: string) => a !== 'Cross-Regional'
+                            );
+                            const index = tempArr.findIndex((el) => {
+                              return el === location.label;
+                            });
+                            if (index === -1) {
+                              tempArr.push(location.label);
+                            } else {
+                              tempArr.splice(index, 1);
+                              if (tempArr.length === 0)
+                                tempArr.push('Cross-Regional');
+                            }
+                            setParishes(tempArr);
+                          }
+                        }}
+                      />{' '}
+                      <label
+                        style={{
+                          flex: 1,
+                          marginLeft: '8px',
+                          lineHeight: '16px',
+                        }}
+                      >
+                        {location.label}
+                      </label>
+                    </div>
+                  );
+                })
+              : null}
+            <label style={{ display: 'block', fontWeight: 700 }}>
               Image:
               <input
                 name="image"
@@ -497,10 +420,18 @@ export default function Announcements(): JSX.Element {
                   })
                 }
               />
+              <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
+                {announcement.image === 'true' && announcement.title !== ''
+                  ? `PATH : /static/photos/announcements/${
+                      announcement.publishedDate
+                    }_${announcement.title.replaceAll(' ', '_')}.jpg`
+                  : null}
+              </p>
             </label>
-            <label style={{ display: 'block' }}>
+            <label style={{ display: 'block', fontWeight: 700 }}>
               Call to Action:
               <input
+                className="genericTextField"
                 name="callToAction"
                 type="text"
                 value={announcement.callToAction}
@@ -517,18 +448,19 @@ export default function Announcements(): JSX.Element {
               onClick={() => {
                 let errorMessage = '';
                 if (announcement.title === '') {
-                  errorMessage += `Title must not be empty.\n `;
+                  errorMessage += `Title must be set.\n`;
                 }
                 if (announcement.description === '') {
-                  errorMessage += 'Description must not be empty.\n';
+                  errorMessage += 'Description must be set.\n';
                 }
                 if (announcement.publishedDate === '') {
-                  errorMessage += 'Date must not be empty.\n';
+                  errorMessage += 'Date must be set.\n';
                 }
                 if (announcement.expirationDate === '') {
-                  errorMessage += 'Expiry date must not be empty.\n';
+                  errorMessage += 'Expiry date must be set.\n';
                 }
-                if (errorMessage === '') createAnnouncement(announcement);
+                if (errorMessage === '')
+                  createAnnouncement(announcement, parishes);
                 else {
                   setErrorTxt(errorMessage);
                 }
@@ -536,7 +468,7 @@ export default function Announcements(): JSX.Element {
               type="submit"
             >
               {' '}
-              Submit
+              Save
             </button>
             <button
               style={{ background: 'red' }}
@@ -552,51 +484,50 @@ export default function Announcements(): JSX.Element {
   };
   useEffect(() => {
     fetchLocations();
-    fetchAnnouncements();
+    //fetchAnnouncements();
   }, []);
   return (
     <AmplifyAuthenticator federated={federated}>
       <AdminMenu></AdminMenu>
-      <div className="announcementContainer">
-        <div className="announcementHeader">
-          <p className="announcementHeaderText">Announcements</p>
+      <div className="announcementHeader">
+        <p className="announcementHeaderText">Announcements</p>
 
-          <label style={{ marginLeft: 60 }}>
-            Filter By Parish
-            <select
-              className="regionalFilter"
-              value={locationFilter}
-              name="locationFilter"
-              onChange={(e) => setlocationFilter(e.target.value)}
-            >
-              {locations && locations.length > 0
-                ? locations.map((location: any, index: number) => {
-                    return (
-                      <option key={index} value={location.value}>
-                        {location.label}
-                      </option>
-                    );
-                  })
-                : null}
-            </select>
-          </label>
-          <button
-            style={{ display: 'none' }}
-            onClick={() => fetchAnnouncements()}
+        <label style={{ marginLeft: 60 }}>
+          Filter By Parish
+          <select
+            className="regionalFilter"
+            value={locationFilter}
+            name="locationFilter"
+            onChange={(e) => setlocationFilter(e.target.value)}
           >
-            Fetch Announcements
-          </button>
-          <img
-            className="addAnnouncementButton"
-            onClick={() => setOpenCreateModal(!openCreateModal)}
-            style={{ marginLeft: 16 }}
-            width={33}
-            height={33}
-            alt="AddAnnouncementIcon"
-            src="/static/svg/Plus_Icon.svg"
-          ></img>
-        </div>
-
+            {locations && locations.length > 0
+              ? locations.map((location: any, index: number) => {
+                  return (
+                    <option key={index} value={location.value}>
+                      {location.label}
+                    </option>
+                  );
+                })
+              : null}
+          </select>
+        </label>
+        <button
+          style={{ display: 'none' }}
+          onClick={() => fetchAnnouncements()}
+        >
+          Fetch Announcements
+        </button>
+        <img
+          className="addAnnouncementButton"
+          onClick={() => setOpenCreateModal(!openCreateModal)}
+          style={{ marginLeft: 16 }}
+          width={33}
+          height={33}
+          alt="AddAnnouncementIcon"
+          src="/static/svg/Plus_Icon.svg"
+        ></img>
+      </div>
+      <div className="announcementContainer">
         <RenderAnnouncementList></RenderAnnouncementList>
         {openCreateModal ? (
           <CreateAnnouncementModal></CreateAnnouncementModal>
