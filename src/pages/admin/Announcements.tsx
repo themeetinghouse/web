@@ -7,13 +7,12 @@ import awsmobile from '../../aws-exports';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
-import * as queries from '../../graphql/queries';
 import moment from 'moment';
 import { Modal } from 'reactstrap';
-/*
+
 import * as customQueries from '../../graphql-custom/customQueries';
-import * as customMutations from '../../graphql-custom/customMutations' 
-*/
+import * as customMutations from '../../graphql-custom/customMutations';
+
 import * as mutations from '../../graphql/mutations';
 
 Amplify.configure(awsmobile);
@@ -114,7 +113,6 @@ export default function Announcements(): JSX.Element {
         });
         fetchAnnouncements();
         setOpenCreateModal(false);
-        // must trigger a fetch to refresh the list
       } catch (e) {
         if (!e.errors[0].message.includes('access'))
           console.log(e.errors[0].message);
@@ -122,7 +120,7 @@ export default function Announcements(): JSX.Element {
       }
     }
   };
-  const updateAnnouncement = async (
+  const editAnnouncement = async (
     announcement: AnnouncementData
   ): Promise<void> => {
     const toSaveAnnouncement: AnnouncementData = { ...announcement };
@@ -140,19 +138,18 @@ export default function Announcements(): JSX.Element {
       }
     });
     try {
-      const addAnnouncement: any = await API.graphql({
-        query: mutations.createAnnouncement,
+      const updateAnnouncement: any = await API.graphql({
+        query: customMutations.updateAnnouncement,
         variables: {
-          input: { ...toSaveAnnouncement, id: uuidv4() },
+          input: { ...toSaveAnnouncement },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({
-        'Success mutations.createAnnouncement: ': addAnnouncement,
+        'Success mutations.updateAnnouncement: ': updateAnnouncement,
       });
       fetchAnnouncements();
-      setOpenCreateModal(false);
-      // must trigger a fetch to refresh the list
+      setOpenEditModal(false);
     } catch (e) {
       if (!e.errors[0].message.includes('access'))
         console.log(e.errors[0].message);
@@ -174,7 +171,6 @@ export default function Announcements(): JSX.Element {
         'Success mutations.removeAnnouncement: ': removeAnnouncement,
       });
       alert('Removed successfully');
-      //trigger a fetch to refresh the list
       fetchAnnouncements();
     } catch (e) {
       if (!e.errors[0].message.includes('access'))
@@ -188,7 +184,7 @@ export default function Announcements(): JSX.Element {
       .format('YYYY-MM-DD');
     try {
       const getAnnouncements: any = await API.graphql({
-        query: queries.listAnnouncements,
+        query: customQueries.listAnnouncements,
         variables: { filter: { expirationDate: { gt: today } } },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
@@ -329,9 +325,6 @@ export default function Announcements(): JSX.Element {
     const [announcement, setAnnouncement] = useState<AnnouncementData>(
       currentAnnouncement ?? announcementInit
     );
-    const [parishes, setParishes] = useState<Array<string>>([
-      announcement?.parish ?? 'Cross-Regional',
-    ]);
     const [errorTxt, setErrorTxt] = useState<string>('');
     return (
       <Modal size="lg" isOpen={openEditModal}>
@@ -412,63 +405,16 @@ export default function Announcements(): JSX.Element {
               />
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
-              Parishes:<br></br>
-            </label>
-            {locations && locations.length > 0
-              ? locations.map((location: any, index: number) => {
-                  return (
-                    <div
-                      key={index}
-                      style={{ minWidth: '30%', display: 'inline-block' }}
-                    >
-                      <input
-                        style={{ transform: 'scale(1.5)' }}
-                        name={`${location.label}`}
-                        type="checkbox"
-                        checked={
-                          parishes.find((a: string) => a === location.label) ===
-                          location.label
-                        }
-                        onChange={(e) => {
-                          if (e.target.name === 'Cross-Regional')
-                            setParishes(['Cross-Regional']);
-                          else {
-                            const tempArr = [...parishes].filter(
-                              (a: string) => a !== 'Cross-Regional'
-                            );
-                            const index = tempArr.findIndex((el) => {
-                              return el === location.label;
-                            });
-                            if (index === -1) {
-                              tempArr.push(location.label);
-                            } else {
-                              tempArr.splice(index, 1);
-                              if (tempArr.length === 0)
-                                tempArr.push('Cross-Regional');
-                            }
-                            setParishes(tempArr);
-                          }
-                        }}
-                      />{' '}
-                      <label
-                        style={{
-                          flex: 1,
-                          marginLeft: '8px',
-                          lineHeight: '16px',
-                        }}
-                      >
-                        {location.label}
-                      </label>
-                    </div>
-                  );
-                })
-              : null}
-            <label style={{ display: 'block', fontWeight: 700 }}>
               Image:
               <input
                 name="image"
                 type="checkbox"
-                checked={announcement.image === 'true' ? true : false}
+                checked={
+                  announcement.image === 'true' ||
+                  (announcement.image && announcement.image !== 'false')
+                    ? true
+                    : false
+                }
                 onChange={(e) => {
                   if (
                     announcement.title !== '' &&
@@ -485,9 +431,11 @@ export default function Announcements(): JSX.Element {
                 }}
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
-                {announcement.image === 'true' &&
-                announcement.title !== '' &&
-                announcement.publishedDate !== ''
+                {announcement.image === 'true' ||
+                (announcement.image &&
+                  announcement.image !== 'false' &&
+                  announcement.title !== '' &&
+                  announcement.publishedDate !== '')
                   ? `Path: /static/photos/announcements/${
                       announcement.publishedDate
                     }_${announcement.title.replaceAll(' ', '_')}.jpg`
@@ -500,7 +448,7 @@ export default function Announcements(): JSX.Element {
                 className="genericTextField"
                 name="callToAction"
                 type="text"
-                value={announcement.callToAction}
+                value={announcement.callToAction ?? ''}
                 onChange={(e) =>
                   setAnnouncement({
                     ...announcement,
@@ -526,8 +474,7 @@ export default function Announcements(): JSX.Element {
                   errorMessage += 'Expiry date must be set.\n';
                 }
                 if (errorMessage === '') {
-                  updateAnnouncement(announcement);
-                  createAnnouncement(announcement, parishes);
+                  editAnnouncement(announcement);
                 } else {
                   setErrorTxt(errorMessage);
                 }
