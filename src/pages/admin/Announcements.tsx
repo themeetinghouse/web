@@ -113,27 +113,32 @@ export default function Announcements(): JSX.Element {
           delete toSaveAnnouncement[key as AnnouncementDataKey];
       }
     });
-    for (let i = 0; i < parishes.length; i++) {
-      toSaveAnnouncement.parish = parishes[i];
-      try {
-        const addAnnouncement: any = await API.graphql({
-          query: mutations.createAnnouncement,
-          variables: {
-            input: { ...toSaveAnnouncement, id: uuidv4() },
-          },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        });
-        console.log({
-          'Success mutations.createAnnouncement: ': addAnnouncement,
-        });
-      } catch (e) {
-        console.log(e);
-      }
+    for (const a of parishes) {
+      toSaveAnnouncement.parish = a;
+      await createQuery(toSaveAnnouncement);
     }
     fetchAnnouncements();
     setOpenCreateModal(false);
   };
 
+  const createQuery = async (announcement: AnnouncementData) => {
+    try {
+      const addAnnouncement: any = await API.graphql({
+        query: mutations.createAnnouncement,
+        variables: {
+          input: { ...announcement, id: uuidv4() },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({
+        'Success mutations.createAnnouncement: ': addAnnouncement,
+      });
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  };
   const updateQuery = async (announcement: AnnouncementData) => {
     try {
       const updateAnnouncement: any = await API.graphql({
@@ -163,6 +168,15 @@ export default function Announcements(): JSX.Element {
         a.title === ogAnnouncement.title &&
         a.publishedDate === ogAnnouncement.publishedDate
     );
+
+    for (const item of announcementListToUpdate) {
+      await updateQuery({
+        ...announcement,
+        id: item.id,
+        parish: item.parish,
+        image: announcement.image,
+      });
+    }
     const addArray: Array<string> = [];
     const deleteArray: Array<string> = [];
     for (let i = 0; i < parishes.length; i++) {
@@ -179,30 +193,25 @@ export default function Announcements(): JSX.Element {
         deleteArray.push(originalParishes[i]);
       }
     }
-    if (deleteArray?.length > 0)
-      deleteArray.forEach((item) => {
+    // need to await these before fetching
+    if (deleteArray?.length > 0) {
+      for (const item of deleteArray) {
         const i = announcementListToUpdate.find(
           (a: AnnouncementData) => a.parish === item
         );
         if (i) {
-          if (item !== 'Cross-Regional') deleteQuery(i);
+          await deleteQuery(i);
         }
-      });
-    console.log('Adding these');
-    if (addArray?.length > 0)
-      addArray.forEach((item) => {
+      }
+    }
+
+    if (addArray?.length > 0) {
+      for (const item of addArray) {
         if (item === 'Cross-Regional')
           announcement = { ...announcement, crossRegional: 'true' };
-        console.log([item]);
-        createAnnouncement({ ...announcement }, [item]);
-      });
-    for (const item of announcementListToUpdate) {
-      await updateQuery({
-        ...announcement,
-        id: item.id,
-        parish: item.parish,
-        image: announcement.image,
-      });
+        announcement = { ...announcement, parish: item };
+        await createQuery(announcement);
+      }
     }
     fetchAnnouncements();
     setOpenEditModal(false);
@@ -311,7 +320,9 @@ export default function Announcements(): JSX.Element {
             onClick={(e) => {
               e.stopPropagation();
               if (
-                confirm('Are you sure you want to delete this announcement?')
+                confirm(
+                  'Are you sure you want to delete all instances of this announcement?'
+                )
               ) {
                 deleteAnnouncement(announcement);
               } else {
@@ -801,7 +812,11 @@ export default function Announcements(): JSX.Element {
               <input
                 name="image"
                 type="checkbox"
-                checked={announcement.image === 'true' ? true : false}
+                checked={
+                  announcement.image !== '' && announcement.image !== 'false'
+                    ? true
+                    : false
+                }
                 onChange={(e) => {
                   if (
                     announcement.title !== '' &&
@@ -810,7 +825,10 @@ export default function Announcements(): JSX.Element {
                     setErrorTxt('');
                     setAnnouncement({
                       ...announcement,
-                      [e.target.name]: e.target.checked.toString(),
+                      [e.target.name]: imageHelper(
+                        announcement,
+                        e.target.checked.toString()
+                      ),
                     });
                   } else {
                     setErrorTxt('Title and date must be set');
@@ -818,12 +836,11 @@ export default function Announcements(): JSX.Element {
                 }}
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
-                {announcement.image === 'true' &&
+                {announcement.image !== '' &&
+                announcement.image !== 'false' &&
                 announcement.title !== '' &&
                 announcement.publishedDate !== ''
-                  ? `Path: /static/photos/announcements/${
-                      announcement.publishedDate
-                    }_${announcement.title.replaceAll(' ', '_')}.jpg`
+                  ? announcement.image
                   : null}
               </p>
             </label>
