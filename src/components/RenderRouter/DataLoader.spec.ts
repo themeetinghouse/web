@@ -275,8 +275,9 @@ describe('blogs', () => {
     await DataLoader.getBlogs(
       {
         class: 'blogs',
-
-        status: 'published',
+        status: 'Live',
+        selector: 'all',
+        sortOrder: ModelSortDirection['DESC'],
       },
       callback,
       () => {
@@ -309,8 +310,9 @@ describe('blogs', () => {
     await DataLoader.getBlogs(
       {
         class: 'blogs',
-
-        status: 'published',
+        status: 'Live',
+        selector: 'all',
+        sortOrder: ModelSortDirection['DESC'],
       },
       callback,
       () => {
@@ -319,6 +321,20 @@ describe('blogs', () => {
     );
 
     expect(callback).toHaveBeenCalledWith([{ id: 'blog1' }]);
+
+    await DataLoader.getBlogs(
+      {
+        class: 'blogs',
+        status: 'Live',
+        selector: 'all',
+        sortOrder: ModelSortDirection['DESC'],
+      },
+      callback,
+      () => {
+        false;
+      }
+    );
+
     expect(callback).toHaveBeenCalledWith([{ id: 'blog2' }]);
   });
 
@@ -336,8 +352,9 @@ describe('blogs', () => {
     await DataLoader.getBlogs(
       {
         class: 'blogs',
-
-        status: 'published',
+        status: 'Live',
+        selector: 'all',
+        sortOrder: ModelSortDirection['DESC'],
       },
       callback,
       () => {
@@ -552,7 +569,7 @@ describe('events', () => {
   });
 
   afterAll(() => {
-    window.location = originalLocation;
+    Object.defineProperty(window, 'location', { value: originalLocation });
   });
 
   test('return future events', async () => {
@@ -663,17 +680,27 @@ describe('compassion', () => {
 });
 
 describe('locations', () => {
+  const mockLocations = [{ id: 'oakville' }, { id: 'waterloo' }];
+
   beforeEach(() => {
     jest
       .spyOn(global, 'fetch')
-      .mockResolvedValue(
-        new Response(JSON.stringify([{ id: 'oakville' }, { id: 'waterloo' }]))
-      );
+      .mockResolvedValue(new Response(JSON.stringify(mockLocations)));
   });
 
-  test('return no location data without filter', async () => {
+  test('return all locations without filter', async () => {
     const data = await DataLoader.getLocations({
       class: 'locations',
+    });
+
+    expect(data).toEqual(mockLocations);
+  });
+
+  test('return empty array with non-existent location', async () => {
+    const data = await DataLoader.getLocations({
+      class: 'locations',
+      filterField: 'id',
+      filterValue: 'not-a-real-locations',
     });
 
     expect(data).toEqual([]);
