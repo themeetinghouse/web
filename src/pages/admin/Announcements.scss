@@ -1,8 +1,10 @@
 .announcementContainer {
   min-height: 500px;
+  max-height: 85vh;
   width: 100%;
   margin-top: 80px;
   position: relative;
+  overflow: auto;
 }
 
 /* Announcement Page Header */

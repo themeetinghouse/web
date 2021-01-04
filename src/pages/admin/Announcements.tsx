@@ -373,7 +373,15 @@ export default function Announcements(): JSX.Element {
         {announcementsLength &&
         announcementsLength > 0 &&
         announcementsLength > count ? (
-          <button onClick={() => setCount(count + 5)}>Load More</button>
+          <div
+            style={{
+              textAlign: 'center',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            <button onClick={() => setCount(count + 1)}>Load More</button>
+          </div>
         ) : null}
       </>
     );
@@ -579,7 +587,9 @@ export default function Announcements(): JSX.Element {
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
                 {announcement.image !== 'true' && announcement.image !== 'false'
-                  ? announcement.image
+                  ? `static/photos/announcements/${
+                      announcement.publishedDate
+                    }_${announcement.title.replaceAll(' ', '_')}.jpg`
                   : null}
               </p>
             </label>
