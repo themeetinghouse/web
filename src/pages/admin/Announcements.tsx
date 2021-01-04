@@ -154,13 +154,48 @@ export default function Announcements(): JSX.Element {
 
   const editAnnouncement = async (
     announcement: AnnouncementData,
-    ogAnnouncement: AnnouncementData
+    ogAnnouncement: AnnouncementData,
+    parishes: Array<string>,
+    originalParishes: Array<string>
   ): Promise<void> => {
     const announcementListToUpdate = announcements.filter(
       (a: AnnouncementData) =>
         a.title === ogAnnouncement.title &&
         a.publishedDate === ogAnnouncement.publishedDate
     );
+    const addArray: Array<string> = [];
+    const deleteArray: Array<string> = [];
+    for (let i = 0; i < parishes.length; i++) {
+      if (
+        originalParishes.find((a: string) => a === parishes[i]) === undefined
+      ) {
+        addArray.push(parishes[i]);
+      }
+    }
+    for (let i = 0; i < originalParishes.length; i++) {
+      if (
+        parishes.find((a: string) => a === originalParishes[i]) === undefined
+      ) {
+        deleteArray.push(originalParishes[i]);
+      }
+    }
+    if (deleteArray?.length > 0)
+      deleteArray.forEach((item) => {
+        const i = announcementListToUpdate.find(
+          (a: AnnouncementData) => a.parish === item
+        );
+        if (i) {
+          if (item !== 'Cross-Regional') deleteQuery(i);
+        }
+      });
+    console.log('Adding these');
+    if (addArray?.length > 0)
+      addArray.forEach((item) => {
+        if (item === 'Cross-Regional')
+          announcement = { ...announcement, crossRegional: 'true' };
+        console.log([item]);
+        createAnnouncement({ ...announcement }, [item]);
+      });
     for (const item of announcementListToUpdate) {
       await updateQuery({
         ...announcement,
@@ -323,12 +358,13 @@ export default function Announcements(): JSX.Element {
   };
   /* ============================= List of announcements ============================= */
   const RenderAnnouncementList = (): JSX.Element => {
-    const noAnnouncements: boolean =
-      announcements?.filter((a: AnnouncementData) => {
+    const announcementsLength: number = announcements?.filter(
+      (a: AnnouncementData) => {
         if (a.parish === locationFilter) {
           return true;
         } else return false;
-      }).length === 0;
+      }
+    )?.length;
     return (
       <>
         {announcements
@@ -347,8 +383,12 @@ export default function Announcements(): JSX.Element {
               );
             else return null;
           })}
-        {noAnnouncements ? <h2>No Announcements found</h2> : null}
-        {!noAnnouncements && announcements?.length > count ? (
+        {announcementsLength && announcementsLength === 0 ? (
+          <h2>No Announcements found</h2>
+        ) : null}
+        {announcementsLength &&
+        announcementsLength > 0 &&
+        announcementsLength > count ? (
           <button onClick={() => setCount(count + 5)}>Load More</button>
         ) : null}
       </>
@@ -372,6 +412,20 @@ export default function Announcements(): JSX.Element {
     );
     const [ogAnnouncement] = useState(announcement);
     const [errorTxt, setErrorTxt] = useState<string>('');
+    const getParishes = () => {
+      const tempArr: Array<string> = [];
+      const ayy = announcements.filter(
+        (a: AnnouncementData) =>
+          a.title === ogAnnouncement.title &&
+          a.publishedDate === ogAnnouncement.publishedDate
+      );
+      for (let i = 0; i < ayy.length; i++) {
+        tempArr.push(ayy[i].parish ?? 'Cross-Regional');
+      }
+      return tempArr;
+    };
+    const [originalParishes] = useState<Array<string>>(getParishes());
+    const [parishes, setParishes] = useState<Array<string>>(originalParishes);
 
     return (
       <Modal size="lg" isOpen={openEditModal}>
@@ -452,6 +506,61 @@ export default function Announcements(): JSX.Element {
               />
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
+              Parishes:<br></br>
+            </label>
+            {locations && locations.length > 0
+              ? locations.map((location: any, index: number) => {
+                  return (
+                    <div
+                      key={index}
+                      style={{ minWidth: '30%', display: 'inline-block' }}
+                    >
+                      <input
+                        style={{ transform: 'scale(1.5)' }}
+                        name={`${location.label}`}
+                        type="checkbox"
+                        checked={
+                          parishes.find((a: string) => a === location.label) ===
+                          location.label
+                        }
+                        onChange={(e) => {
+                          if (e.target.name === 'Cross-Regional') {
+                            setParishes(['Cross-Regional']);
+                            announcement.crossRegional = 'true';
+                          } else {
+                            announcement.crossRegional = 'false';
+                            const tempArr = [...parishes].filter(
+                              (a: string) => a !== 'Cross-Regional'
+                            );
+                            const index = tempArr.findIndex((el) => {
+                              return el === location.label;
+                            });
+                            if (index === -1) {
+                              tempArr.push(location.label);
+                            } else {
+                              tempArr.splice(index, 1);
+                              if (tempArr.length === 0)
+                                tempArr.push('Cross-Regional');
+                              announcement.crossRegional = 'true';
+                            }
+                            setParishes(tempArr);
+                          }
+                        }}
+                      />{' '}
+                      <label
+                        style={{
+                          flex: 1,
+                          marginLeft: '8px',
+                          lineHeight: '16px',
+                        }}
+                      >
+                        {location.label}
+                      </label>
+                    </div>
+                  );
+                })
+              : null}
+            <label style={{ display: 'block', fontWeight: 700 }}>
               Image:
               <input
                 name="image"
@@ -518,7 +627,12 @@ export default function Announcements(): JSX.Element {
                   errorMessage += 'Expiry date must be set.\n';
                 }
                 if (errorMessage === '') {
-                  editAnnouncement(announcement, ogAnnouncement);
+                  editAnnouncement(
+                    announcement,
+                    ogAnnouncement,
+                    parishes,
+                    originalParishes
+                  );
                 } else {
                   setErrorTxt(errorMessage);
                 }
@@ -787,7 +901,10 @@ export default function Announcements(): JSX.Element {
             className="regionalFilter"
             value={locationFilter}
             name="locationFilter"
-            onChange={(e) => setlocationFilter(e.target.value)}
+            onChange={(e) => {
+              setCount(5);
+              setlocationFilter(e.target.value);
+            }}
           >
             {locations && locations.length > 0
               ? locations.map((location: any, index: number) => {
@@ -818,7 +935,6 @@ export default function Announcements(): JSX.Element {
           alt="AddAnnouncementIcon"
           src="/static/svg/Plus_Icon.svg"
         ></img>
-        <button onClick={() => fetchAnnouncements()}>fetch</button>
       </div>
       <div className="announcementContainer">
         <RenderAnnouncementList></RenderAnnouncementList>
