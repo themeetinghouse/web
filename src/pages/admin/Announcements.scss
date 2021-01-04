@@ -1,18 +1,7 @@
-@keyframes slideIn {
-  from {
-    height: 160px;
-    min-height: 160px;
-  }
-  to {
-    min-height: 250px;
-  }
-}
-
 .announcementContainer {
-  border: 1px solid black;
   min-height: 500px;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 80px;
   position: relative;
 }
 
@@ -21,18 +10,18 @@
 .announcementHeader {
   margin-top: 0;
   margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
   top: 24px;
-  position: absolute;
-  z-index: 100;
   background-color: white;
-  width: 100%;
-  flex-direction: row;
+  width: 100vw;
 }
 .addAnnouncementButton {
   color: red;
 }
 .addAnnouncementButton:hover {
-  background-color: #efefef;
+  background-color: burlywood;
+  border-radius: 30px;
 }
 
 .announcementHeaderText {
@@ -49,16 +38,18 @@
 
 /* Announcement Item */
 .announcementBox {
-  padding: 16px;
+  padding: 8px;
   position: relative;
-  display: block;
-  overflow-y: auto;
+
+  overflow-y: hidden;
   text-align: center;
-  width: 30vw;
-  margin: 16px;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  margin-top: 16px;
+  margin-bottom: 16px;
   border-radius: 4px;
   border: solid 1px black;
-  height: 250px;
+  height: 150px;
   -webkit-box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
   -moz-box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
   box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
@@ -67,10 +58,7 @@
   font-size: 12px;
 }
 .announcementIcons {
-  margin: 16px 16px 4px 16px;
-}
-.announcementBox[data-custom='open'] {
-  animation: slideIn 0.5s 1;
+  margin: 4px;
 }
 .announcementBox:hover {
   background-color: lightgrey;

@@ -49,8 +49,13 @@ type LocationFromJSON = {
   };
 };
 const announcementInit = {
-  publishedDate: '',
-  expirationDate: '',
+  publishedDate: moment()
+    .utcOffset(moment().isDST() ? '-0400' : '-0500')
+    .format('YYYY-MM-DD'),
+  expirationDate: moment()
+    .utcOffset(moment().isDST() ? '-0400' : '-0500')
+    .add('day', 7)
+    .format('YYYY-MM-DD'),
   title: '',
   description: '',
   crossRegional: 'true',
@@ -288,33 +293,17 @@ export default function Announcements(): JSX.Element {
   const RenderAnnouncementItem = ({
     announcement,
   }: AnnouncementProps): JSX.Element => {
-    const [expand, setExpand] = useState(false);
-
     return (
       <div
-        onClick={() => setExpand(!expand)}
         className="announcementBox"
-        style={
-          expand
-            ? { maxHeight: '360px' }
-            : { maxHeight: '200px', overflow: 'hidden' }
-        }
-        data-custom={expand ? 'open' : 'close'}
+        onClick={(e) => {
+          e.stopPropagation();
+          setCurrentAnnouncement(announcement);
+          setOpenEditModal(true);
+        }}
       >
         <h5>{announcement.title}</h5>
         <div className="announcementIcons">
-          <img
-            className="addAnnouncementButton"
-            onClick={(e) => {
-              e.stopPropagation();
-              setCurrentAnnouncement(announcement);
-              setOpenEditModal(true);
-            }}
-            width={33}
-            height={33}
-            alt="EditAnnouncementIcon"
-            src="/static/svg/Edit_Icon.svg"
-          ></img>
           <img
             className="addAnnouncementButton"
             onClick={(e) => {
@@ -347,22 +336,6 @@ export default function Announcements(): JSX.Element {
               {announcement.parish}
             </p>
           </div>
-
-          {expand ? (
-            <p className="announcementBoxBodyText">
-              {announcement.description}
-            </p>
-          ) : null}
-        </div>
-
-        <div style={expand ? { display: 'none' } : {}}>
-          <img
-            style={{ marginTop: 4 }}
-            width={16}
-            height={24}
-            alt="DownArrow"
-            src="/static/svg/DownArrow.svg"
-          ></img>
         </div>
       </div>
     );
@@ -448,6 +421,7 @@ export default function Announcements(): JSX.Element {
                 <b style={{ color: 'red' }}>*</b>
               ) : null}
               <input
+                required
                 className="genericTextField"
                 name="title"
                 type="text"
@@ -468,6 +442,7 @@ export default function Announcements(): JSX.Element {
               <textarea
                 className="genericTextArea"
                 name="description"
+                required
                 maxLength={1000}
                 rows={5}
                 value={announcement.description}
@@ -489,6 +464,7 @@ export default function Announcements(): JSX.Element {
                 className="genericTextField"
                 name="publishedDate"
                 type="date"
+                required
                 value={announcement.publishedDate}
                 onChange={(e) =>
                   setAnnouncement({
@@ -505,6 +481,7 @@ export default function Announcements(): JSX.Element {
               ) : null}
               <input
                 name="expirationDate"
+                required
                 className="genericTextField"
                 type="date"
                 value={announcement.expirationDate}
@@ -934,15 +911,7 @@ export default function Announcements(): JSX.Element {
               : null}
           </select>
         </label>
-        <label>Show Expired Announcements</label>
-        <input
-          style={{ marginLeft: '8px', transform: 'scale(1.5)' }}
-          type="checkbox"
-          checked={showExpired}
-          onChange={() => {
-            setShowExpired(!showExpired);
-          }}
-        ></input>
+
         <img
           className="addAnnouncementButton"
           onClick={() => setOpenCreateModal(!openCreateModal)}
@@ -952,6 +921,20 @@ export default function Announcements(): JSX.Element {
           alt="AddAnnouncementIcon"
           src="/static/svg/Plus_Icon.svg"
         ></img>
+
+        <input
+          style={{
+            marginLeft: '16px',
+            marginRight: '8px',
+            transform: 'scale(1.5)',
+          }}
+          type="checkbox"
+          checked={showExpired}
+          onChange={() => {
+            setShowExpired(!showExpired);
+          }}
+        ></input>
+        <label>Show Expired Announcements</label>
       </div>
       <div className="announcementContainer">
         <RenderAnnouncementList></RenderAnnouncementList>
