@@ -9,7 +9,7 @@ import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 import { Modal } from 'reactstrap';
-
+//import * as Sentry from '@sentry/browser';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as customMutations from '../../graphql-custom/customMutations';
 
@@ -37,6 +37,17 @@ type AnnouncementData = {
 interface AnnouncementProps {
   announcement: AnnouncementData;
 }
+type LocationFromJSON = {
+  id: string;
+  name: string;
+  pastorEmail: string;
+  servicesTimes: Array<string>;
+  location: {
+    longitude: number;
+    latitude: number;
+    address: string;
+  };
+};
 const announcementInit = {
   publishedDate: '',
   expirationDate: '',
@@ -59,44 +70,47 @@ export default function Announcements(): JSX.Element {
   const [currentAnnouncement, setCurrentAnnouncement] = useState<
     AnnouncementData
   >();
+  const [openCreateModal, setOpenCreateModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [locationFilter, setlocationFilter] = useState('Cross-Regional');
+  const [announcements, setAnnouncements] = useState<Array<AnnouncementData>>(
+    []
+  );
+
+  /* ========================== Populates Location Filter Dropdown ========================= */
   const fetchLocations = async (): Promise<void> => {
     const response = await fetch('/static/data/locations.json');
-    const data = await response.json();
+    const data: Array<LocationFromJSON> = await response.json();
     if (data) {
       const locationArr = [
         { label: 'Cross-Regional', value: 'Cross-Regional' },
       ];
       const transformedLocations = [
         ...locationArr,
-        ...data.map((a: any) => {
+        ...data.map((a: LocationFromJSON) => {
           return { label: a.name, value: a.name };
         }),
       ];
       setLocations(transformedLocations);
     }
   };
+  /* ======================================================================================== */
 
-  const [openCreateModal, setOpenCreateModal] = useState(false);
-  const [openEditModal, setOpenEditModal] = useState(false);
-  const [locationFilter, setlocationFilter] = useState('Cross-Regional');
-
-  /* ============================= Query and Mutation Functions ======================================*/
+  /* ============================= Query and Mutation Functions ============================= */
   const createAnnouncement = async (
     announcement: AnnouncementData,
     parishes: Array<string>
   ): Promise<void> => {
     const toSaveAnnouncement: AnnouncementData = { ...announcement };
     const keys: Array<string> = Object.keys(announcement);
-    if (toSaveAnnouncement.image === 'true') {
-      toSaveAnnouncement.image = `https://themeetinghouse.com/cached/640/static/photos/announcements/${
-        toSaveAnnouncement.publishedDate
-      }_${toSaveAnnouncement.title.replaceAll(' ', '_')}.jpg}`;
-    } else {
-      delete toSaveAnnouncement.image;
-    }
     keys.forEach((key) => {
-      if (toSaveAnnouncement[key as AnnouncementDataKey] === '') {
-        delete toSaveAnnouncement[key as AnnouncementDataKey];
+      // Removes any empty fields from object
+      if (
+        toSaveAnnouncement[key as AnnouncementDataKey] === '' ||
+        toSaveAnnouncement[key as AnnouncementDataKey] === 'false'
+      ) {
+        if (key !== 'crossRegional' && key !== 'callToAction')
+          delete toSaveAnnouncement[key as AnnouncementDataKey];
       }
     });
     for (let i = 0; i < parishes.length; i++) {
@@ -112,60 +126,54 @@ export default function Announcements(): JSX.Element {
         console.log({
           'Success mutations.createAnnouncement: ': addAnnouncement,
         });
-        fetchAnnouncements();
-        setOpenCreateModal(false);
       } catch (e) {
-        if (!e.errors[0].message.includes('access'))
-          console.log(e.errors[0].message);
-        else if (e.data) console.error(e);
+        console.log(e);
       }
     }
+    fetchAnnouncements();
+    setOpenCreateModal(false);
   };
-  const editAnnouncement = async (
-    announcement: AnnouncementData
-  ): Promise<void> => {
-    const toSaveAnnouncement: AnnouncementData = { ...announcement };
-    const keys: Array<string> = Object.keys(announcement);
-    if (toSaveAnnouncement.image === 'true') {
-      toSaveAnnouncement.image = `https://themeetinghouse.com/cached/640/static/photos/announcements/${
-        toSaveAnnouncement.publishedDate
-      }_${toSaveAnnouncement.title.replaceAll(' ', '_')}.jpg}`;
-    } else {
-      if (toSaveAnnouncement.image === 'false') {
-      } else {
-        delete toSaveAnnouncement.image;
-      }
-    }
-    keys.forEach((key) => {
-      if (toSaveAnnouncement[key as AnnouncementDataKey] === '') {
-        if (toSaveAnnouncement.image === 'false') {
-          toSaveAnnouncement.image = '';
-        }
-        delete toSaveAnnouncement[key as AnnouncementDataKey];
-      }
-    });
+
+  const updateQuery = async (announcement: AnnouncementData) => {
     try {
       const updateAnnouncement: any = await API.graphql({
         query: customMutations.updateAnnouncement,
         variables: {
-          input: { ...toSaveAnnouncement },
+          input: { ...announcement },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({
         'Success mutations.updateAnnouncement: ': updateAnnouncement,
       });
-      fetchAnnouncements();
-      setOpenEditModal(false);
     } catch (e) {
-      if (!e.errors[0].message.includes('access'))
-        console.log(e.errors[0].message);
-      else if (e.data) console.error(e);
+      console.log(e);
+      //Sentry.captureException(e);
     }
   };
-  const deleteAnnouncement = async (
-    announcement: AnnouncementData
+
+  const editAnnouncement = async (
+    announcement: AnnouncementData,
+    ogAnnouncement: AnnouncementData
   ): Promise<void> => {
+    const announcementListToUpdate = announcements.filter(
+      (a: AnnouncementData) =>
+        a.title === ogAnnouncement.title &&
+        a.publishedDate === ogAnnouncement.publishedDate
+    );
+    for (const item of announcementListToUpdate) {
+      await updateQuery({
+        ...announcement,
+        id: item.id,
+        parish: item.parish,
+        image: announcement.image,
+      });
+    }
+    fetchAnnouncements();
+    setOpenEditModal(false);
+  };
+
+  const deleteQuery = async (announcement: AnnouncementData) => {
     try {
       const removeAnnouncement: any = await API.graphql({
         query: mutations.deleteAnnouncement,
@@ -177,13 +185,29 @@ export default function Announcements(): JSX.Element {
       console.log({
         'Success mutations.removeAnnouncement: ': removeAnnouncement,
       });
-      alert('Removed successfully');
-      fetchAnnouncements();
+      return true;
     } catch (e) {
-      if (!e.errors[0].message.includes('access'))
-        console.log(e.errors[0].message);
-      else if (e.data) console.error(e);
+      console.log(e);
+      return false;
     }
+  };
+  const deleteAnnouncement = async (
+    announcement: AnnouncementData
+  ): Promise<void> => {
+    const announcementListToDelete = announcements.filter(
+      (a: AnnouncementData) =>
+        a.title === announcement.title &&
+        a.publishedDate === announcement.publishedDate
+    );
+    for (const [index, item] of announcementListToDelete.entries()) {
+      if (await deleteQuery(item)) {
+        if (index === announcementListToDelete.length - 1)
+          alert('Removed Successfully.');
+      } else {
+        alert('An Error Occurred');
+      }
+    }
+    fetchAnnouncements();
   };
   const fetchAnnouncements = async (): Promise<void> => {
     const today = moment()
@@ -210,17 +234,13 @@ export default function Announcements(): JSX.Element {
         )
       );
     } catch (e) {
-      if (!e.errors[0].message.includes('access'))
-        console.log(e.errors[0].message);
-      else if (e.data) console.error(e);
+      console.log(e);
     }
   };
 
-  /* ==================================================================================*/
+  /* ==================================================================================== */
 
-  const [announcements, setAnnouncements] = useState<Array<AnnouncementData>>(
-    []
-  );
+  /* ============================= Single Announcement Item ============================= */
   const RenderAnnouncementItem = ({
     announcement,
   }: AnnouncementProps): JSX.Element => {
@@ -301,6 +321,7 @@ export default function Announcements(): JSX.Element {
       </div>
     );
   };
+  /* ============================= List of announcements ============================= */
   const RenderAnnouncementList = (): JSX.Element => {
     const noAnnouncements: boolean =
       announcements?.filter((a: AnnouncementData) => {
@@ -333,11 +354,25 @@ export default function Announcements(): JSX.Element {
       </>
     );
   };
+
+  const imageHelper = (announcement: AnnouncementData, conditional: string) => {
+    switch (conditional) {
+      case 'true':
+        return `https://themeetinghouse.com/cached/640/static/photos/announcements/${
+          announcement.publishedDate
+        }_${announcement.title.replaceAll(' ', '_')}.jpg`;
+      default:
+        return '';
+    }
+  };
+  /* ============================= Modals ============================= */
   const EditAnnouncementModal = (): JSX.Element => {
     const [announcement, setAnnouncement] = useState<AnnouncementData>(
       currentAnnouncement ?? announcementInit
     );
+    const [ogAnnouncement] = useState(announcement);
     const [errorTxt, setErrorTxt] = useState<string>('');
+
     return (
       <Modal size="lg" isOpen={openEditModal}>
         <div className="announcementModal">
@@ -435,7 +470,10 @@ export default function Announcements(): JSX.Element {
                     setErrorTxt('');
                     setAnnouncement({
                       ...announcement,
-                      [e.target.name]: e.target.checked.toString(),
+                      [e.target.name]: imageHelper(
+                        announcement,
+                        e.target.checked.toString()
+                      ),
                     });
                   } else {
                     setErrorTxt('Title and date must be set');
@@ -443,14 +481,8 @@ export default function Announcements(): JSX.Element {
                 }}
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
-                {announcement.image === 'true' ||
-                (announcement.image &&
-                  announcement.image !== 'false' &&
-                  announcement.title !== '' &&
-                  announcement.publishedDate !== '')
-                  ? `Path: /static/photos/announcements/${
-                      announcement.publishedDate
-                    }_${announcement.title.replaceAll(' ', '_')}.jpg`
+                {announcement.image !== 'true' && announcement.image !== 'false'
+                  ? announcement.image
                   : null}
               </p>
             </label>
@@ -486,7 +518,7 @@ export default function Announcements(): JSX.Element {
                   errorMessage += 'Expiry date must be set.\n';
                 }
                 if (errorMessage === '') {
-                  editAnnouncement(announcement);
+                  editAnnouncement(announcement, ogAnnouncement);
                 } else {
                   setErrorTxt(errorMessage);
                 }
@@ -614,9 +646,11 @@ export default function Announcements(): JSX.Element {
                           location.label
                         }
                         onChange={(e) => {
-                          if (e.target.name === 'Cross-Regional')
+                          if (e.target.name === 'Cross-Regional') {
                             setParishes(['Cross-Regional']);
-                          else {
+                            announcement.crossRegional = 'true';
+                          } else {
+                            announcement.crossRegional = 'false';
                             const tempArr = [...parishes].filter(
                               (a: string) => a !== 'Cross-Regional'
                             );
@@ -629,6 +663,7 @@ export default function Announcements(): JSX.Element {
                               tempArr.splice(index, 1);
                               if (tempArr.length === 0)
                                 tempArr.push('Cross-Regional');
+                              announcement.crossRegional = 'true';
                             }
                             setParishes(tempArr);
                           }
@@ -732,6 +767,8 @@ export default function Announcements(): JSX.Element {
       </Modal>
     );
   };
+  /* ========================================================== */
+
   useEffect(() => {
     fetchLocations();
   }, []);
@@ -781,6 +818,7 @@ export default function Announcements(): JSX.Element {
           alt="AddAnnouncementIcon"
           src="/static/svg/Plus_Icon.svg"
         ></img>
+        <button onClick={() => fetchAnnouncements()}>fetch</button>
       </div>
       <div className="announcementContainer">
         <RenderAnnouncementList></RenderAnnouncementList>
