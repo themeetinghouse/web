@@ -54,6 +54,7 @@ type Location = {
 
 export default function Announcements(): JSX.Element {
   const [count, setCount] = useState(5);
+  const [showExpired, setShowExpired] = useState(false);
   const [locations, setLocations] = useState<Array<Location>>([]);
   const [currentAnnouncement, setCurrentAnnouncement] = useState<
     AnnouncementData
@@ -130,10 +131,16 @@ export default function Announcements(): JSX.Element {
         toSaveAnnouncement.publishedDate
       }_${toSaveAnnouncement.title.replaceAll(' ', '_')}.jpg}`;
     } else {
-      delete toSaveAnnouncement.image;
+      if (toSaveAnnouncement.image === 'false') {
+      } else {
+        delete toSaveAnnouncement.image;
+      }
     }
     keys.forEach((key) => {
       if (toSaveAnnouncement[key as AnnouncementDataKey] === '') {
+        if (toSaveAnnouncement.image === 'false') {
+          toSaveAnnouncement.image = '';
+        }
         delete toSaveAnnouncement[key as AnnouncementDataKey];
       }
     });
@@ -182,10 +189,15 @@ export default function Announcements(): JSX.Element {
     const today = moment()
       .utcOffset(moment().isDST() ? '-0400' : '-0500')
       .format('YYYY-MM-DD');
+    let variables = {};
+    if (showExpired) {
+    } else {
+      variables = { filter: { expirationDate: { gt: today } } };
+    }
     try {
       const getAnnouncements: any = await API.graphql({
         query: customQueries.listAnnouncements,
-        variables: { filter: { expirationDate: { gt: today } } },
+        variables: variables,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({
@@ -722,8 +734,10 @@ export default function Announcements(): JSX.Element {
   };
   useEffect(() => {
     fetchLocations();
-    fetchAnnouncements();
   }, []);
+  useEffect(() => {
+    fetchAnnouncements();
+  }, [showExpired]);
   return (
     <AmplifyAuthenticator federated={federated}>
       <AdminMenu></AdminMenu>
@@ -749,6 +763,15 @@ export default function Announcements(): JSX.Element {
               : null}
           </select>
         </label>
+        <label>Show Expired Announcements</label>
+        <input
+          style={{ marginLeft: '8px', transform: 'scale(1.5)' }}
+          type="checkbox"
+          checked={showExpired}
+          onChange={() => {
+            setShowExpired(!showExpired);
+          }}
+        ></input>
         <img
           className="addAnnouncementButton"
           onClick={() => setOpenCreateModal(!openCreateModal)}
