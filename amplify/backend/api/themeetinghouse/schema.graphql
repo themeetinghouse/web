@@ -201,7 +201,7 @@ type F1ListEventScheduleRecurrence{
   recurrenceMonthly:F1ListEventScheduleRecurrenceMonthly
 }
 type F1ListEventScheduleRecurrenceWeekly{
-  recurrenceFrequency:Int
+  recurrenceFrequency:String
   occurOnSunday:Boolean
   occurOnMonday:Boolean
   occurOnTuesday:Boolean
@@ -211,8 +211,8 @@ type F1ListEventScheduleRecurrenceWeekly{
   occurOnSaturday:Boolean
 }
 type F1ListEventScheduleRecurrenceMonthly{
-  recurrenceFrequency:Int
-  recurrenceOffset:Int
+  recurrenceFrequency:String
+  recurrenceOffset:String
   monthDay:String
   monthWeekDay:String
 

@@ -263,7 +263,7 @@ export type F1ListEventScheduleRecurrenceInput = {
 };
 
 export type F1ListEventScheduleRecurrenceWeeklyInput = {
-  recurrenceFrequency?: number | null,
+  recurrenceFrequency?: string | null,
   occurOnSunday?: boolean | null,
   occurOnMonday?: boolean | null,
   occurOnTuesday?: boolean | null,
@@ -274,8 +274,8 @@ export type F1ListEventScheduleRecurrenceWeeklyInput = {
 };
 
 export type F1ListEventScheduleRecurrenceMonthlyInput = {
-  recurrenceFrequency?: number | null,
-  recurrenceOffset?: number | null,
+  recurrenceFrequency?: string | null,
+  recurrenceOffset?: string | null,
   monthDay?: string | null,
   monthWeekDay?: string | null,
 };
@@ -2522,7 +2522,7 @@ export type CreateF1ListGroup2Mutation = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -2533,8 +2533,8 @@ export type CreateF1ListGroup2Mutation = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
@@ -2650,7 +2650,7 @@ export type UpdateF1ListGroup2Mutation = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -2661,8 +2661,8 @@ export type UpdateF1ListGroup2Mutation = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
@@ -2778,7 +2778,7 @@ export type DeleteF1ListGroup2Mutation = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -2789,8 +2789,8 @@ export type DeleteF1ListGroup2Mutation = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
@@ -30360,7 +30360,7 @@ export type F1ListGroupsQuery = {
               __typename: "F1ListEventScheduleRecurrence",
               recurrenceWeekly:  {
                 __typename: "F1ListEventScheduleRecurrenceWeekly",
-                recurrenceFrequency: number | null,
+                recurrenceFrequency: string | null,
                 occurOnSunday: boolean | null,
                 occurOnMonday: boolean | null,
                 occurOnTuesday: boolean | null,
@@ -30371,8 +30371,8 @@ export type F1ListGroupsQuery = {
               } | null,
               recurrenceMonthly:  {
                 __typename: "F1ListEventScheduleRecurrenceMonthly",
-                recurrenceFrequency: number | null,
-                recurrenceOffset: number | null,
+                recurrenceFrequency: string | null,
+                recurrenceOffset: string | null,
                 monthDay: string | null,
                 monthWeekDay: string | null,
               } | null,
@@ -30422,7 +30422,7 @@ export type F1ListEventSchedulesQuery = {
               __typename: "F1ListEventScheduleRecurrence",
               recurrenceWeekly:  {
                 __typename: "F1ListEventScheduleRecurrenceWeekly",
-                recurrenceFrequency: number | null,
+                recurrenceFrequency: string | null,
                 occurOnSunday: boolean | null,
                 occurOnMonday: boolean | null,
                 occurOnTuesday: boolean | null,
@@ -30433,8 +30433,8 @@ export type F1ListEventSchedulesQuery = {
               } | null,
               recurrenceMonthly:  {
                 __typename: "F1ListEventScheduleRecurrenceMonthly",
-                recurrenceFrequency: number | null,
-                recurrenceOffset: number | null,
+                recurrenceFrequency: string | null,
+                recurrenceOffset: string | null,
                 monthDay: string | null,
                 monthWeekDay: string | null,
               } | null,
@@ -32093,7 +32093,7 @@ export type GetF1ListGroup2Query = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -32104,8 +32104,8 @@ export type GetF1ListGroup2Query = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
@@ -32225,7 +32225,7 @@ export type ListF1ListGroup2sQuery = {
             __typename: "F1ListEventScheduleRecurrence",
             recurrenceWeekly:  {
               __typename: "F1ListEventScheduleRecurrenceWeekly",
-              recurrenceFrequency: number | null,
+              recurrenceFrequency: string | null,
               occurOnSunday: boolean | null,
               occurOnMonday: boolean | null,
               occurOnTuesday: boolean | null,
@@ -32236,8 +32236,8 @@ export type ListF1ListGroup2sQuery = {
             } | null,
             recurrenceMonthly:  {
               __typename: "F1ListEventScheduleRecurrenceMonthly",
-              recurrenceFrequency: number | null,
-              recurrenceOffset: number | null,
+              recurrenceFrequency: string | null,
+              recurrenceOffset: string | null,
               monthDay: string | null,
               monthWeekDay: string | null,
             } | null,
@@ -47502,7 +47502,7 @@ export type OnCreateF1ListGroup2Subscription = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -47513,8 +47513,8 @@ export type OnCreateF1ListGroup2Subscription = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
@@ -47626,7 +47626,7 @@ export type OnUpdateF1ListGroup2Subscription = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -47637,8 +47637,8 @@ export type OnUpdateF1ListGroup2Subscription = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
@@ -47750,7 +47750,7 @@ export type OnDeleteF1ListGroup2Subscription = {
           __typename: "F1ListEventScheduleRecurrence",
           recurrenceWeekly:  {
             __typename: "F1ListEventScheduleRecurrenceWeekly",
-            recurrenceFrequency: number | null,
+            recurrenceFrequency: string | null,
             occurOnSunday: boolean | null,
             occurOnMonday: boolean | null,
             occurOnTuesday: boolean | null,
@@ -47761,8 +47761,8 @@ export type OnDeleteF1ListGroup2Subscription = {
           } | null,
           recurrenceMonthly:  {
             __typename: "F1ListEventScheduleRecurrenceMonthly",
-            recurrenceFrequency: number | null,
-            recurrenceOffset: number | null,
+            recurrenceFrequency: string | null,
+            recurrenceOffset: string | null,
             monthDay: string | null,
             monthWeekDay: string | null,
           } | null,
