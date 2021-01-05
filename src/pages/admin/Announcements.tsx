@@ -4,16 +4,21 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import './Announcements.scss';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 import { Modal } from 'reactstrap';
-//import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/browser';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as customMutations from '../../graphql-custom/customMutations';
 
 import * as mutations from '../../graphql/mutations';
+import {
+  CreateAnnouncementMutation,
+  DeleteAnnouncementMutation,
+  UpdateAnnouncementMutation,
+} from 'API';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -128,37 +133,36 @@ export default function Announcements(): JSX.Element {
 
   const createQuery = async (announcement: AnnouncementData) => {
     try {
-      const addAnnouncement: any = await API.graphql({
+      const addAnnouncement = (await API.graphql({
         query: mutations.createAnnouncement,
         variables: {
           input: { ...announcement, id: uuidv4() },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
+      })) as Promise<GraphQLResult<CreateAnnouncementMutation>>;
       console.log({
         'Success mutations.createAnnouncement: ': addAnnouncement,
       });
       return true;
     } catch (e) {
-      console.log(e);
+      Sentry.captureException(e);
       return false;
     }
   };
   const updateQuery = async (announcement: AnnouncementData) => {
     try {
-      const updateAnnouncement: any = await API.graphql({
+      const updateAnnouncement = (await API.graphql({
         query: customMutations.updateAnnouncement,
         variables: {
           input: { ...announcement },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
+      })) as Promise<GraphQLResult<UpdateAnnouncementMutation>>;
       console.log({
         'Success mutations.updateAnnouncement: ': updateAnnouncement,
       });
     } catch (e) {
-      console.log(e);
-      //Sentry.captureException(e);
+      Sentry.captureException(e);
     }
   };
 
@@ -224,19 +228,19 @@ export default function Announcements(): JSX.Element {
 
   const deleteQuery = async (announcement: AnnouncementData) => {
     try {
-      const removeAnnouncement: any = await API.graphql({
+      const removeAnnouncement = (await API.graphql({
         query: mutations.deleteAnnouncement,
         variables: {
           input: { id: announcement.id },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
+      })) as Promise<GraphQLResult<DeleteAnnouncementMutation>>;
       console.log({
         'Success mutations.removeAnnouncement: ': removeAnnouncement,
       });
       return true;
     } catch (e) {
-      console.log(e);
+      Sentry.captureException(e);
       return false;
     }
   };
@@ -268,11 +272,11 @@ export default function Announcements(): JSX.Element {
       variables = { filter: { expirationDate: { gt: today } } };
     }
     try {
-      const getAnnouncements: any = await API.graphql({
+      const getAnnouncements = (await API.graphql({
         query: customQueries.listAnnouncements,
         variables: variables,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
+      })) as any;
       console.log({
         'Success queries.listAnnouncements: ': getAnnouncements,
       });
@@ -283,7 +287,7 @@ export default function Announcements(): JSX.Element {
         )
       );
     } catch (e) {
-      console.log(e);
+      Sentry.captureException(e);
     }
   };
 
@@ -503,7 +507,7 @@ export default function Announcements(): JSX.Element {
               Parishes:<br></br>
             </label>
             {locations && locations.length > 0
-              ? locations.map((location: any, index: number) => {
+              ? locations.map((location: Location, index: number) => {
                   return (
                     <div
                       key={index}
@@ -741,7 +745,7 @@ export default function Announcements(): JSX.Element {
               Parishes:<br></br>
             </label>
             {locations && locations.length > 0
-              ? locations.map((location: any, index: number) => {
+              ? locations.map((location: Location, index: number) => {
                   return (
                     <div
                       key={index}
@@ -909,7 +913,7 @@ export default function Announcements(): JSX.Element {
             }}
           >
             {locations && locations.length > 0
-              ? locations.map((location: any, index: number) => {
+              ? locations.map((location: Location, index: number) => {
                   return (
                     <option key={index} value={location.value}>
                       {location.label}
