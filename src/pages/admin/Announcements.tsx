@@ -367,9 +367,7 @@ export default function Announcements(): JSX.Element {
               );
             else return null;
           })}
-        {announcementsLength && announcementsLength === 0 ? (
-          <h2>No Announcements found</h2>
-        ) : null}
+        {announcementsLength === 0 ? <h2>No Announcements found</h2> : null}
         {announcementsLength &&
         announcementsLength > 0 &&
         announcementsLength > count ? (
@@ -380,7 +378,7 @@ export default function Announcements(): JSX.Element {
               marginRight: 'auto',
             }}
           >
-            <button onClick={() => setCount(count + 1)}>Load More</button>
+            <button onClick={() => setCount(count + 5)}>Load More</button>
           </div>
         ) : null}
       </>
