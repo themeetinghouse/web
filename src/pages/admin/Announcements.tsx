@@ -370,13 +370,13 @@ export default function Announcements(): JSX.Element {
     const [errorTxt, setErrorTxt] = useState('');
     const getParishes = () => {
       const tempArr: Array<string> = [];
-      const ayy = announcements.filter(
+      const b = announcements.filter(
         (a) =>
           a.title === ogAnnouncement.title &&
           a.publishedDate === ogAnnouncement.publishedDate
       );
-      for (let i = 0; i < ayy.length; i++) {
-        tempArr.push(ayy[i].parish ?? 'Cross-Regional');
+      for (let i = 0; i < b.length; i++) {
+        tempArr.push(b[i].parish ?? 'Cross-Regional');
       }
       return tempArr;
     };
