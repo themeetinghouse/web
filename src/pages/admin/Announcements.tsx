@@ -7,6 +7,7 @@ import awsmobile from '../../aws-exports';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
+import { CreateAnnouncementMutationVariables } from 'API';
 import moment from 'moment';
 import { Modal } from 'reactstrap';
 import * as Sentry from '@sentry/browser';
@@ -24,24 +25,12 @@ Amplify.configure(awsmobile);
 const federated = {
   facebookAppId: '579712102531269',
 };
-
-type AnnouncementDataKey = keyof AnnouncementData;
-
-type AnnouncementData = {
-  id?: string;
-  title: string;
-  description: string;
-  publishedDate: string;
-  expirationDate: string;
-  image?: string;
-  parish?: string;
-  crossRegional?: string;
-  callToAction?: string;
-};
+type AnnouncementData = CreateAnnouncementMutationVariables['input'];
 
 interface AnnouncementProps {
   announcement: AnnouncementData;
 }
+
 type LocationFromJSON = {
   id: string;
   name: string;
@@ -53,6 +42,7 @@ type LocationFromJSON = {
     address: string;
   };
 };
+
 const announcementInit = {
   publishedDate: moment()
     .utcOffset(moment().isDST() ? '-0400' : '-0500')
@@ -63,10 +53,9 @@ const announcementInit = {
     .format('YYYY-MM-DD'),
   title: '',
   description: '',
-  crossRegional: 'true',
   callToAction: '',
   parish: 'Cross-Regional',
-  image: 'false',
+  image: '',
 };
 type Location = {
   label: string;
@@ -97,8 +86,8 @@ export default function Announcements(): JSX.Element {
       ];
       const transformedLocations = [
         ...locationArr,
-        ...data.map((a: LocationFromJSON) => {
-          return { label: a.name, value: a.name };
+        ...data.map((location) => {
+          return { label: location.name, value: location.name };
         }),
       ];
       setLocations(transformedLocations);
@@ -111,18 +100,7 @@ export default function Announcements(): JSX.Element {
     announcement: AnnouncementData,
     parishes: Array<string>
   ): Promise<void> => {
-    const toSaveAnnouncement: AnnouncementData = { ...announcement };
-    const keys: Array<string> = Object.keys(announcement);
-    keys.forEach((key) => {
-      // Removes any empty fields from object
-      if (
-        toSaveAnnouncement[key as AnnouncementDataKey] === '' ||
-        toSaveAnnouncement[key as AnnouncementDataKey] === 'false'
-      ) {
-        if (key !== 'crossRegional' && key !== 'callToAction')
-          delete toSaveAnnouncement[key as AnnouncementDataKey];
-      }
-    });
+    const toSaveAnnouncement = { ...announcement };
     for (const a of parishes) {
       toSaveAnnouncement.parish = a;
       await createQuery(toSaveAnnouncement);
@@ -143,10 +121,8 @@ export default function Announcements(): JSX.Element {
       console.log({
         'Success mutations.createAnnouncement: ': addAnnouncement,
       });
-      return true;
     } catch (e) {
       Sentry.captureException(e);
-      return false;
     }
   };
   const updateQuery = async (announcement: AnnouncementData) => {
@@ -173,7 +149,7 @@ export default function Announcements(): JSX.Element {
     originalParishes: Array<string>
   ): Promise<void> => {
     const announcementListToUpdate = announcements.filter(
-      (a: AnnouncementData) =>
+      (a) =>
         a.title === ogAnnouncement.title &&
         a.publishedDate === ogAnnouncement.publishedDate
     );
@@ -189,25 +165,19 @@ export default function Announcements(): JSX.Element {
     const addArray: Array<string> = [];
     const deleteArray: Array<string> = [];
     for (let i = 0; i < parishes.length; i++) {
-      if (
-        originalParishes.find((a: string) => a === parishes[i]) === undefined
-      ) {
+      if (!originalParishes.find((a) => a === parishes[i])) {
         addArray.push(parishes[i]);
       }
     }
     for (let i = 0; i < originalParishes.length; i++) {
-      if (
-        parishes.find((a: string) => a === originalParishes[i]) === undefined
-      ) {
+      if (!parishes.find((a) => a === originalParishes[i])) {
         deleteArray.push(originalParishes[i]);
       }
     }
     // need to await these before fetching
     if (deleteArray?.length > 0) {
       for (const item of deleteArray) {
-        const i = announcementListToUpdate.find(
-          (a: AnnouncementData) => a.parish === item
-        );
+        const i = announcementListToUpdate.find((a) => a.parish === item);
         if (i) {
           await deleteQuery(i);
         }
@@ -301,6 +271,7 @@ export default function Announcements(): JSX.Element {
       <div
         className="announcementBox"
         onClick={(e) => {
+          console.log(announcement);
           e.stopPropagation();
           setCurrentAnnouncement(announcement);
           setOpenEditModal(true);
@@ -318,7 +289,6 @@ export default function Announcements(): JSX.Element {
                 )
               ) {
                 deleteAnnouncement(announcement);
-              } else {
               }
             }}
             width={33}
@@ -346,22 +316,14 @@ export default function Announcements(): JSX.Element {
   };
   /* ============================= List of announcements ============================= */
   const RenderAnnouncementList = (): JSX.Element => {
-    const announcementsLength: number = announcements?.filter(
-      (a: AnnouncementData) => {
-        if (a.parish === locationFilter) {
-          return true;
-        } else return false;
-      }
+    const announcementsLength = announcements?.filter(
+      (a) => a.parish === locationFilter
     )?.length;
     return (
       <>
         {announcements
-          .filter((a: AnnouncementData) => {
-            if (a.parish === locationFilter) {
-              return true;
-            } else return false;
-          })
-          .map((announcement: AnnouncementData, index: number) => {
+          .filter((a) => a.parish === locationFilter)
+          .map((announcement, index) => {
             if (index < count)
               return (
                 <RenderAnnouncementItem
@@ -369,12 +331,10 @@ export default function Announcements(): JSX.Element {
                   announcement={announcement}
                 ></RenderAnnouncementItem>
               );
-            else return null;
+            return null;
           })}
         {announcementsLength === 0 ? <h2>No Announcements found</h2> : null}
-        {announcementsLength &&
-        announcementsLength > 0 &&
-        announcementsLength > count ? (
+        {announcementsLength > count ? (
           <div
             style={{
               textAlign: 'center',
@@ -389,9 +349,12 @@ export default function Announcements(): JSX.Element {
     );
   };
 
-  const imageHelper = (announcement: AnnouncementData, conditional: string) => {
+  const imageHelper = (
+    announcement: AnnouncementData,
+    conditional: boolean
+  ) => {
     switch (conditional) {
-      case 'true':
+      case true:
         return `https://themeetinghouse.com/cached/640/static/photos/announcements/${
           announcement.publishedDate
         }_${announcement.title.replaceAll(' ', '_')}.jpg`;
@@ -405,11 +368,11 @@ export default function Announcements(): JSX.Element {
       currentAnnouncement ?? announcementInit
     );
     const [ogAnnouncement] = useState(announcement);
-    const [errorTxt, setErrorTxt] = useState<string>('');
+    const [errorTxt, setErrorTxt] = useState('');
     const getParishes = () => {
       const tempArr: Array<string> = [];
       const ayy = announcements.filter(
-        (a: AnnouncementData) =>
+        (a) =>
           a.title === ogAnnouncement.title &&
           a.publishedDate === ogAnnouncement.publishedDate
       );
@@ -418,8 +381,8 @@ export default function Announcements(): JSX.Element {
       }
       return tempArr;
     };
-    const [originalParishes] = useState<Array<string>>(getParishes());
-    const [parishes, setParishes] = useState<Array<string>>(originalParishes);
+    const originalParishes = getParishes();
+    const [parishes, setParishes] = useState(originalParishes);
 
     return (
       <Modal size="lg" isOpen={openEditModal}>
@@ -427,9 +390,7 @@ export default function Announcements(): JSX.Element {
           <div>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Title:{' '}
-              {announcement.title === '' ? (
-                <b style={{ color: 'red' }}>*</b>
-              ) : null}
+              {!announcement.title ? <b style={{ color: 'red' }}>*</b> : null}
               <input
                 required
                 className="genericTextField"
@@ -446,7 +407,7 @@ export default function Announcements(): JSX.Element {
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Description:{' '}
-              {announcement.description === '' ? (
+              {!announcement.description ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}
               <textarea
@@ -466,7 +427,7 @@ export default function Announcements(): JSX.Element {
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Date:{' '}
-              {announcement.publishedDate === '' ? (
+              {!announcement.publishedDate ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}{' '}
               <small>Announcement will show after this date</small>
@@ -486,7 +447,7 @@ export default function Announcements(): JSX.Element {
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Expiration Date:{' '}
-              {announcement.expirationDate === '' ? (
+              {!announcement.expirationDate ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}
               <input
@@ -506,8 +467,8 @@ export default function Announcements(): JSX.Element {
             <label style={{ display: 'block', fontWeight: 700 }}>
               Parishes:<br></br>
             </label>
-            {locations && locations.length > 0
-              ? locations.map((location: Location, index: number) => {
+            {locations.length > 0
+              ? locations.map((location, index) => {
                   return (
                     <div
                       key={index}
@@ -563,12 +524,7 @@ export default function Announcements(): JSX.Element {
               <input
                 name="image"
                 type="checkbox"
-                checked={
-                  announcement.image === 'true' ||
-                  (announcement.image && announcement.image !== 'false')
-                    ? true
-                    : false
-                }
+                checked={announcement.image !== ''}
                 onChange={(e) => {
                   if (
                     announcement.title !== '' &&
@@ -579,7 +535,7 @@ export default function Announcements(): JSX.Element {
                       ...announcement,
                       [e.target.name]: imageHelper(
                         announcement,
-                        e.target.checked.toString()
+                        e.target.checked
                       ),
                     });
                   } else {
@@ -588,7 +544,7 @@ export default function Announcements(): JSX.Element {
                 }}
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
-                {announcement.image !== 'true' && announcement.image !== 'false'
+                {announcement.image
                   ? `static/photos/announcements/${
                       announcement.publishedDate
                     }_${announcement.title.replaceAll(' ', '_')}.jpg`
@@ -614,19 +570,19 @@ export default function Announcements(): JSX.Element {
             <button
               onClick={() => {
                 let errorMessage = '';
-                if (announcement.title === '') {
+                if (!announcement.title) {
                   errorMessage += `Title must be set.\n`;
                 }
-                if (announcement.description === '') {
+                if (!announcement.description) {
                   errorMessage += 'Description must be set.\n';
                 }
-                if (announcement.publishedDate === '') {
+                if (!announcement.publishedDate) {
                   errorMessage += 'Date must be set.\n';
                 }
-                if (announcement.expirationDate === '') {
+                if (!announcement.expirationDate) {
                   errorMessage += 'Expiry date must be set.\n';
                 }
-                if (errorMessage === '') {
+                if (!errorMessage) {
                   editAnnouncement(
                     announcement,
                     ogAnnouncement,
@@ -669,9 +625,7 @@ export default function Announcements(): JSX.Element {
           <div>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Title:{' '}
-              {announcement.title === '' ? (
-                <b style={{ color: 'red' }}>*</b>
-              ) : null}
+              {!announcement.title ? <b style={{ color: 'red' }}>*</b> : null}
               <input
                 className="genericTextField"
                 name="title"
@@ -687,7 +641,7 @@ export default function Announcements(): JSX.Element {
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Description:{' '}
-              {announcement.description === '' ? (
+              {!announcement.description ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}
               <textarea
@@ -706,7 +660,7 @@ export default function Announcements(): JSX.Element {
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Date:{' '}
-              {announcement.publishedDate === '' ? (
+              {!announcement.publishedDate ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}{' '}
               <small>Announcement will show after this date</small>
@@ -725,7 +679,7 @@ export default function Announcements(): JSX.Element {
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Expiration Date:{' '}
-              {announcement.expirationDate === '' ? (
+              {!announcement.expirationDate ? (
                 <b style={{ color: 'red' }}>*</b>
               ) : null}
               <input
@@ -801,11 +755,7 @@ export default function Announcements(): JSX.Element {
               <input
                 name="image"
                 type="checkbox"
-                checked={
-                  announcement.image !== '' && announcement.image !== 'false'
-                    ? true
-                    : false
-                }
+                checked={announcement.image !== ''}
                 onChange={(e) => {
                   if (
                     announcement.title !== '' &&
@@ -816,7 +766,7 @@ export default function Announcements(): JSX.Element {
                       ...announcement,
                       [e.target.name]: imageHelper(
                         announcement,
-                        e.target.checked.toString()
+                        e.target.checked
                       ),
                     });
                   } else {
@@ -825,10 +775,9 @@ export default function Announcements(): JSX.Element {
                 }}
               />
               <p style={{ marginLeft: 24, fontSize: 12, display: 'inline' }}>
-                {announcement.image !== '' &&
-                announcement.image !== 'false' &&
-                announcement.title !== '' &&
-                announcement.publishedDate !== ''
+                {announcement.image &&
+                announcement.title &&
+                announcement.publishedDate
                   ? announcement.image
                   : null}
               </p>
@@ -839,7 +788,7 @@ export default function Announcements(): JSX.Element {
                 className="genericTextField"
                 name="callToAction"
                 type="text"
-                value={announcement.callToAction}
+                value={announcement.callToAction ?? ''}
                 onChange={(e) =>
                   setAnnouncement({
                     ...announcement,
@@ -852,20 +801,19 @@ export default function Announcements(): JSX.Element {
             <button
               onClick={() => {
                 let errorMessage = '';
-                if (announcement.title === '') {
+                if (!announcement.title) {
                   errorMessage += `Title must be set.\n`;
                 }
-                if (announcement.description === '') {
+                if (!announcement.description) {
                   errorMessage += 'Description must be set.\n';
                 }
-                if (announcement.publishedDate === '') {
+                if (!announcement.publishedDate) {
                   errorMessage += 'Date must be set.\n';
                 }
-                if (announcement.expirationDate === '') {
+                if (!announcement.expirationDate) {
                   errorMessage += 'Expiry date must be set.\n';
                 }
-                if (errorMessage === '')
-                  createAnnouncement(announcement, parishes);
+                if (!errorMessage) createAnnouncement(announcement, parishes);
                 else {
                   setErrorTxt(errorMessage);
                 }
