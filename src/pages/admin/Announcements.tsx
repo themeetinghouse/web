@@ -271,7 +271,6 @@ export default function Announcements(): JSX.Element {
       <div
         className="announcementBox"
         onClick={(e) => {
-          console.log(announcement);
           e.stopPropagation();
           setCurrentAnnouncement(announcement);
           setOpenEditModal(true);
