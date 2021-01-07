@@ -68,7 +68,7 @@
         "type": "content",
         "style": "oneImage",
         "header1": "We're On Your Team",
-        "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to care for their neighbourhoods be friends on purpose?",
+        "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to do this together?",
         "list": [
           {
             "type": "link",
@@ -86,20 +86,20 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Christmas Eve",
+        "header1": "Go Campaign",
         "header2": "",
-        "text1": "Good news of great joy—sounds like something we could all use as we navigate what it means to celebrate Christmas amidst a global pandemic. Let's get together this Christmas Eve (in a virtual, at-home sort of way).",
+        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
         "list": [
           {
             "type": "link",
-            "title": "Try Something New This Christmas",
-            "navigateTo": "/christmas"
+            "title": "See Our New Plan",
+            "navigateTo": "/go"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/homepage-christmas-eve.jpg",
-            "alt": "Young woman smiles off camera at the Christmas market."
+            "src": "/static/images/homepage-7-go.jpg",
+            "alt": "Group of friends sitting outside and having spiritual conversations."
           }
         ]
       },
@@ -182,26 +182,6 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Go Campaign",
-        "header2": "",
-        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
-        "list": [
-          {
-            "type": "link",
-            "title": "See Our New Plan",
-            "navigateTo": "/go"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/homepage-7-go.jpg",
-            "alt": "Group of friends sitting outside and having spiritual conversations."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
         "header1": "COVID-19 Updates",
         "header2": "",
         "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's changing at The Meeting House as we head into the fall.",

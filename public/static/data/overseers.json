@@ -46,5 +46,23 @@
     "LastName": "Stephen",
     "Position": "Nominating",
     "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Sandy",
+    "LastName": "MacLean",
+    "Position": "Overseer",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Jennifer",
+    "LastName": "Hryniw",
+    "Position": "Overseer",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Nathan",
+    "LastName": "Scott",
+    "Position": "Overseer",
+    "sites": ["overseer"]
   }
 ]
