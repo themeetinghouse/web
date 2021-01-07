@@ -1,24 +1,37 @@
 import React from 'react';
 import Notes from './Notes';
-import { API } from '__mocks__/aws-amplify';
+import { API, Analytics } from '__mocks__/aws-amplify';
 import { Route } from 'react-router-dom';
 import { MemoryRouter, MemoryRouterProps } from 'react-router';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-jest.mock('components/RenderRouter/RenderRouter', () => jest.fn(() => <div />));
+interface Props {
+  content: any;
+  data: any;
+}
 
-let renderRouterMock: jest.Mock<JSX.Element, []>;
+const MockRouter = ({ content, data }: Props) => {
+  return (
+    <>
+      <div data-testid="router-content">{content.page.content[0].bar}</div>
+      <div data-testid="router-data">{data.id}</div>
+    </>
+  );
+};
 
-beforeAll(async () => {
-  renderRouterMock = await import('components/RenderRouter/RenderRouter');
-});
+// eslint-disable-next-line react/display-name
+jest.mock('../RenderRouter/RenderRouter', () => (props: any) => (
+  <MockRouter {...props} />
+));
 
 beforeEach(() => {
+  Analytics.record.mockResolvedValue({});
+
   jest.spyOn(window, 'fetch').mockResolvedValueOnce(
     new Response(
       JSON.stringify({
-        page: {},
+        page: { content: [{ bar: 'foo' }] },
       })
     )
   );
@@ -63,7 +76,7 @@ describe('no date', () => {
     });
 
     expect(API.graphql).toBeCalledWith(
-      jasmine.objectContaining({
+      expect.objectContaining({
         variables: {
           id: '2020-06-21',
         },
@@ -90,7 +103,7 @@ describe('no date', () => {
     });
 
     expect(API.graphql).toBeCalledWith(
-      jasmine.objectContaining({
+      expect.objectContaining({
         variables: {
           id: '2020-06-28',
         },
@@ -114,7 +127,7 @@ describe('no date', () => {
     });
 
     expect(API.graphql).toBeCalledWith(
-      jasmine.objectContaining({
+      expect.objectContaining({
         variables: {
           id: '2020-06-25',
         },
@@ -141,16 +154,7 @@ describe('note data', () => {
       );
     });
 
-    expect(renderRouterMock).toHaveBeenCalledWith(
-      {
-        data: {
-          id: 'note1',
-        },
-        content: {
-          page: {},
-        },
-      },
-      {}
-    );
+    expect(screen.getByTestId('router-data').textContent).toBe('note1');
+    expect(screen.getByTestId('router-content').textContent).toBe('foo');
   });
 });
