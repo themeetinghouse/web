@@ -643,7 +643,7 @@ class ListItem extends React.Component<Props, State> {
     }
 
     return (
-      <div className="StaffFlexArea">
+      <div className="StaffFlexArea" key={index}>
         {(items as OverseerData[]).map((item, index: number) => {
           const image = {
             src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
@@ -896,7 +896,7 @@ class ListItem extends React.Component<Props, State> {
     }
 
     return (
-      <div className="StaffFlexArea">
+      <div className="StaffFlexArea" key={index}>
         {(items as StaffData[]).map((item: any, index: number) => {
           const imgsrc =
             '/static/photos/' +
