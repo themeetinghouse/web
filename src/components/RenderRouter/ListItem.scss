@@ -738,17 +738,12 @@
 
   $staffwidth: 38vw;
 
-  .StaffGridWrapper {
+  .StaffFlexArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: $staffwidth * 2;
     margin-right: 3vw;
-  }
-
-  .StaffGrid {
-    display: grid;
-    row-gap: 3vw;
-    grid-template-columns: repeat(2, $staffwidth);
-    grid-template-rows: repeat(3, 7.5vw);
-    margin-bottom: 4vw;
   }
 
   .StaffImage {
@@ -764,6 +759,8 @@
   .StaffItem {
     display: flex;
     flex-direction: row;
+    width: $staffwidth;
+    margin-bottom: 3vw;
   }
 }
 
@@ -1402,17 +1399,11 @@
 
   $staffwidth: 36vw;
 
-  .StaffGridWrapper {
+  .StaffFlexArea {
     width: $staffwidth * 2;
     margin-right: 6.5vw;
-  }
-
-  .StaffGrid {
-    display: grid;
-    row-gap: 3vw;
-    grid-template-columns: repeat(2, $staffwidth);
-    grid-template-rows: repeat(3, auto);
-    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .StaffImage {
@@ -1422,6 +1413,8 @@
 
   .StaffItem {
     display: block;
+    width: $staffwidth;
+    margin-bottom: 3vw;
   }
 
   .ListItemName {
