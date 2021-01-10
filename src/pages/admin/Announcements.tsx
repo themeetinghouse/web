@@ -7,7 +7,10 @@ import awsmobile from '../../aws-exports';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
-import { CreateAnnouncementMutationVariables } from 'API';
+import {
+  CreateAnnouncementMutationVariables,
+  ListAnnouncementsQuery,
+} from 'API';
 import moment from 'moment';
 import { Modal } from 'reactstrap';
 import * as Sentry from '@sentry/browser';
@@ -26,6 +29,12 @@ const federated = {
   facebookAppId: '579712102531269',
 };
 type AnnouncementData = CreateAnnouncementMutationVariables['input'];
+
+type NonNullAnnouncements = NonNullable<
+  NonNullable<
+    NonNullable<ListAnnouncementsQuery['listAnnouncements']>['items']
+  >[0]
+>[];
 
 interface AnnouncementProps {
   announcement: AnnouncementData;
@@ -246,14 +255,15 @@ export default function Announcements(): JSX.Element {
         query: customQueries.listAnnouncements,
         variables: variables,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as any;
+      })) as GraphQLResult<ListAnnouncementsQuery>;
       console.log({
         'Success queries.listAnnouncements: ': getAnnouncements,
       });
+
       setAnnouncements(
-        getAnnouncements?.data?.listAnnouncements?.items.sort(
-          (a: AnnouncementData, b: AnnouncementData) =>
-            a.publishedDate.localeCompare(b.publishedDate)
+        (getAnnouncements.data?.listAnnouncements
+          ?.items as NonNullAnnouncements).sort((a, b) =>
+          a.publishedDate.localeCompare(b.publishedDate)
         )
       );
     } catch (e) {
