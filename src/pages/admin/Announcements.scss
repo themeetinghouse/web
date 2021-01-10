@@ -1,0 +1,88 @@
+.announcementContainer {
+  min-height: 500px;
+  max-height: 85vh;
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+  overflow: auto;
+}
+
+/* Announcement Page Header */
+
+.announcementHeader {
+  margin: 0 auto 16px;
+  width: 100vw;
+}
+.addAnnouncementButton {
+  color: red;
+}
+.addAnnouncementButton:hover {
+  background-color: burlywood;
+  border-radius: 30px;
+}
+
+.announcementHeaderText {
+  margin-left: 24px;
+  display: inline;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.regionalFilter {
+  margin-left: 16px;
+  display: inline;
+}
+
+/* Announcement Item */
+.announcementBox {
+  padding: 8px;
+  position: relative;
+
+  overflow-y: hidden;
+  text-align: center;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: solid 1px black;
+  height: 150px;
+  -webkit-box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
+  box-shadow: 6px 6px 11px -8px rgba(0, 0, 0, 1);
+}
+.announcementBoxBodyText {
+  font-size: 12px;
+}
+.announcementIcons {
+  margin: 4px;
+}
+.announcementBox:hover {
+  background-color: lightgrey;
+}
+
+.announcementSummary {
+  font-size: 12px;
+}
+
+/* Add Announcement Modal */
+.announcementModal {
+  width: 80%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.addAnnouncementModalContainer {
+  display: flex;
+  flex-direction: column;
+}
+.genericTextField {
+  width: 100%;
+}
+.genericTextArea {
+  width: 100%;
+  color: black;
+  padding: 16px;
+  line-height: 20px;
+}

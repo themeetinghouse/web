@@ -117,6 +117,9 @@ export default class Menu extends React.Component<EmptyProps, State> {
                 <NavLink to="/admin/import-video">Import Video</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink to="/admin/announcements">Announcements</NavLink>
+              </NavItem>
+              <NavItem>
                 <RSNavLink href="https://github.com/themeetinghouse">
                   GitHub
                 </RSNavLink>
