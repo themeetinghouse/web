@@ -394,10 +394,10 @@ export class SundayMorningItem extends React.Component<Props, State> {
                           .longitude as number,
                       }}
                       visible={
-                        this.state.selectedPlace ||
-                        this.state.selectedPlaceMarker
-                          ? true
-                          : false
+                        !!(
+                          this.state.selectedPlace ||
+                          this.state.selectedPlaceMarker
+                        )
                       }
                     >
                       {this.state.selectedPlace ? (

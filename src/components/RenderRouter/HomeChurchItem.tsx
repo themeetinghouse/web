@@ -571,9 +571,9 @@ export class ContentItem extends React.Component<Props, State> {
                     ) as number,
                   }}
                   visible={
-                    this.state.selectedPlace || this.state.selectedPlaceMarker
-                      ? true
-                      : false
+                    !!(
+                      this.state.selectedPlace || this.state.selectedPlaceMarker
+                    )
                   }
                 >
                   {this.state.selectedPlace ? (
