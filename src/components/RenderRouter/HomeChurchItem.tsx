@@ -726,25 +726,38 @@ export class ContentItem extends React.Component<Props, State> {
                           marginTop: '15px',
                           marginBottom: '15px',
                           display: 'flex',
+                          flexWrap: 'wrap',
                         }}
                       >
                         {item?.churchCampus?.name ? (
-                          <div className="HomeChurchSiteAffiliation">
+                          <div
+                            className="HomeChurchSiteAffiliation"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          >
                             <Badge>{item.churchCampus?.name}</Badge>
                           </div>
                         ) : null}
-                        <div className="HomeChurchDayOfWeek">
+                        <div
+                          className="HomeChurchDayOfWeek"
+                          style={{ marginLeft: 4, marginRight: 4 }}
+                        >
                           <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                         </div>
-                        {item.name.includes('Young Adult') ? (
-                          <div className="HomeChurchDayOfWeek">
+                        {item.name.includes('Young Adults') ? (
+                          <div
+                            className="HomeChurchDayOfWeek"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          >
                             <Badge style={{ backgroundColor: '#A0E2BA' }}>
                               Young Adult
                             </Badge>
                           </div>
                         ) : null}
                         {item.name.includes('Family Friendly') ? (
-                          <div className="HomeChurchDayOfWeek">
+                          <div
+                            className="HomeChurchDayOfWeek"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          >
                             <Badge style={{ backgroundColor: '#A0E2BA' }}>
                               Family Friendly
                             </Badge>
