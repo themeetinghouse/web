@@ -21,8 +21,6 @@ export default function Badge({ children, style }: Props) {
             src="/static/svg/Family Friendly.svg"
             alt="Family Icon"
           />
-        ) : children?.includes('Young Adult') ? (
-          ''
         ) : null}
         {children}
       </div>
