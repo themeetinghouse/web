@@ -700,66 +700,91 @@ export class ContentItem extends React.Component<Props, State> {
                     );
                   }
                 })
-                .map((item) => (
-                  <div
-                    className="HomeChurchItemDiv5"
-                    key={item.id ?? undefined}
-                    id={'HC-' + item.id}
-                  >
-                    <h3
-                      className={
-                        'HomeChurchH3 ' +
-                        (this.state.selectedPlace === item ? 'selected' : '')
-                      }
-                      onClick={this.getHomeChurchClickHandler(item)}
+                .map((item) => {
+                  console.log(item.name);
+                  return (
+                    <div
+                      className="HomeChurchItemDiv5"
+                      key={item.id ?? undefined}
+                      id={'HC-' + item.id}
                     >
-                      {item.name}
-                    </h3>
-                    <div className="HomeChurchAddress">{item.description}</div>
+                      <h3
+                        className={
+                          'HomeChurchH3 ' +
+                          (this.state.selectedPlace === item ? 'selected' : '')
+                        }
+                        onClick={this.getHomeChurchClickHandler(item)}
+                      >
+                        {item.name}
+                      </h3>
+                      <div className="HomeChurchAddress">
+                        {item.description}
+                      </div>
 
-                    <div style={{ marginTop: '15px', marginBottom: '10px' }}>
-                      {item?.churchCampus?.name ? (
-                        <div className="HomeChurchSiteAffiliation">
-                          <Badge>{item.churchCampus?.name}</Badge>
+                      <div
+                        style={{
+                          marginTop: '15px',
+                          marginBottom: '15px',
+                          display: 'flex',
+                        }}
+                      >
+                        {item?.churchCampus?.name ? (
+                          <div className="HomeChurchSiteAffiliation">
+                            <Badge>{item.churchCampus?.name}</Badge>
+                          </div>
+                        ) : null}
+                        <div className="HomeChurchDayOfWeek">
+                          <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                         </div>
-                      ) : null}
-                      <div className="HomeChurchDayOfWeek">
-                        <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
+                        {item.name.includes('Young Adult') ? (
+                          <div className="HomeChurchDayOfWeek">
+                            <Badge style={{ backgroundColor: '#A0E2BA' }}>
+                              Young Adult
+                            </Badge>
+                          </div>
+                        ) : null}
+                        {item.name.includes('Family Friendly') ? (
+                          <div className="HomeChurchDayOfWeek">
+                            <Badge style={{ backgroundColor: '#A0E2BA' }}>
+                              Family Friendly
+                            </Badge>
+                          </div>
+                        ) : null}
+                      </div>
+                      <div className="HomeChurchTimeOfDay">
+                        {moment(item.schedule?.startTime).format('h:mm a')}
+                      </div>
+                      <div className="HomeChurchButtonContainer">
+                        {item.schedule?.recurrences?.recurrence
+                          ?.recurrenceWeekly ? (
+                          <div className="AddToCalendarButtonContainer">
+                            <img
+                              className="AddToCalendarIcon"
+                              src="/static/svg/Calendar, Add To.svg"
+                              alt="Calendar Icon"
+                            />
+                            <AddToCalendar
+                              buttonLabel="Add to Calendar"
+                              event={this.getCalendarEventForLocation(item)}
+                            ></AddToCalendar>
+                          </div>
+                        ) : null}
+                        <button
+                          className="ContactLeadersButton"
+                          onClick={this.getContactLeadersHandler(item)}
+                          tabIndex={0}
+                        >
+                          <img
+                            className="ContactLeadersIcon"
+                            src="/static/svg/Contact.svg"
+                            alt="Contact Icon"
+                          />
+                          Contact Leaders
+                        </button>
                       </div>
                     </div>
-                    <div className="HomeChurchTimeOfDay">
-                      {moment(item.schedule?.startTime).format('h:mm a')}
-                    </div>
-                    <div className="HomeChurchButtonContainer">
-                      {item.schedule?.recurrences?.recurrence
-                        ?.recurrenceWeekly ? (
-                        <div className="AddToCalendarButtonContainer">
-                          <img
-                            className="AddToCalendarIcon"
-                            src="/static/svg/Calendar, Add To.svg"
-                            alt="Calendar Icon"
-                          />
-                          <AddToCalendar
-                            buttonLabel="Add to Calendar"
-                            event={this.getCalendarEventForLocation(item)}
-                          ></AddToCalendar>
-                        </div>
-                      ) : null}
-                      <button
-                        className="ContactLeadersButton"
-                        onClick={this.getContactLeadersHandler(item)}
-                        tabIndex={0}
-                      >
-                        <img
-                          className="ContactLeadersIcon"
-                          src="/static/svg/Contact.svg"
-                          alt="Contact Icon"
-                        />
-                        Contact Leaders
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
             </div>
           </div>
         </div>
