@@ -723,6 +723,7 @@ export class ContentItem extends React.Component<Props, State> {
 
                       <div
                         style={{
+                          marginLeft: '-4px',
                           marginTop: '15px',
                           marginBottom: '15px',
                           display: 'flex',
