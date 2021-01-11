@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <style type="text/css">
+      * {
+        font-family: Arial !important;
+      }
+      .notes-body {
+        page-break-after: always;
+      }
+      .questions-body *,
+      .notes-body * {
+        color: black !important;
+        max-width: 768px;
+      }
+      img {
+        max-width: 768px;
+      }
+      h1 *,
+      h2 *,
+      h3 * {
+        font-size: 26px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notes-body">{{notes}}</div>
+    <div style="font-size: 20px; font-weight: bold; margin-top: 12px">
+      HOME CHURCH QUESTIONS
+    </div>
+    <div style="border-bottom: 4px black solid"></div>
+    <div class="questions-body">{{questions}}</div>
+  </body>
+</html>

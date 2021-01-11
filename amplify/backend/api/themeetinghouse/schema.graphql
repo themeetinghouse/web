@@ -20,6 +20,11 @@ type Query {
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
+  generatePdf(notes:String,questions:String,week:String,title:String,userId:String):pdfRes @function(name:"tmhnotespdf-${env}")
+}
+
+type pdfRes {
+  objectKey: String
 }
 
 type BibleResponse {
