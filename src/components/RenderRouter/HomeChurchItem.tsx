@@ -565,11 +565,13 @@ export class ContentItem extends React.Component<Props, State> {
                       <div className="HomeChurchItemMapInfoWindowDiv3">
                         {this.state.selectedPlace.location?.address?.address1}
                       </div>
-                      <div className="HomeChurchItemMapInfoWindowDiv2">
-                        <Badge>
-                          {this.state.selectedPlace.churchCampus?.name}
-                        </Badge>
-                      </div>
+                      {this.state.selectedPlace.churchCampus?.name ? (
+                        <div className="HomeChurchItemMapInfoWindowDiv2">
+                          <Badge>
+                            {this.state.selectedPlace.churchCampus?.name}
+                          </Badge>
+                        </div>
+                      ) : null}
                       <div className="HomeChurchItemMapInfoWindowDayOfWeek">
                         {this.getDayOfWeek(this.state.selectedPlace.schedule)}{' '}
                         {(this.state.selectedPlace.schedule?.recurrences

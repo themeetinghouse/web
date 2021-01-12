@@ -1,5 +1,14 @@
 @import '../../custom.scss';
-
+.gm-style .gm-style-iw {
+  background-color: black;
+  color: white;
+  border-radius: 0;
+  padding: unset;
+}
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  padding: 16px;
+}
 .SundayMorningFormItemContainer {
   display: flex;
   flex-direction: row;
@@ -225,18 +234,22 @@
   }
 
   .SundayMorningMapInfoWindowSiteName {
+    font-family: Graphik Web;
     font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 0.5vw;
+    font-size: 16px;
+    line-height: 24px;
   }
   .SundayMorningMapInfoWindowAddress {
-    font-size: 1.1vw;
-    margin-bottom: 0.35vw;
+    font-family: Graphik Web;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 16px;
   }
   .SundayMorningMapInfoWindowDay,
   .SundayMorningMapInfoWindowTimes {
-    font-size: 14px;
-    font-weight: bold;
+    font-family: Graphik Web;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .SundayMorningButton {
