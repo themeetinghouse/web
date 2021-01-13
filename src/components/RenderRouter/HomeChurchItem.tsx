@@ -331,7 +331,11 @@ export class ContentItem extends React.Component<Props, State> {
     if (this.selectControlDay) {
       this.selectControlDay?.select.clearValue();
     }
-    this.setState({ locationFilter: null });
+    this.setState({
+      locationFilter: null,
+      selectedPlace: null,
+      selectedPlaceMarker: undefined,
+    });
     await this.updateGeoLocation(false);
     this.updateMap(
       this.state.locationFilter,
