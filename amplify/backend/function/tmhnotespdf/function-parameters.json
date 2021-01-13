@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "auth": {
+      "cognitodevtmh": [
+        "read"
+      ]
+    },
+    "storage": {
+      "tmhusercontent": [
+        "create"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
