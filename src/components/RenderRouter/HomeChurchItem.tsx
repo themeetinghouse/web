@@ -537,6 +537,7 @@ export class ContentItem extends React.Component<Props, State> {
                       <Marker
                         key={item.id ?? ''}
                         onClick={this.getMarkerClickHandler(item)}
+                        anchorPoint={new google.maps.Point(0, 0)}
                         icon={
                           this.state.selectedPlace === item
                             ? HOME_CHURCH_PIN_SELECTED_URL
@@ -550,11 +551,26 @@ export class ContentItem extends React.Component<Props, State> {
                     );
                   })}
                 <InfoWindow
+                  pixelOffset={new google.maps.Size(0, -32)}
                   google={this.props.google}
                   // These types are wrong, they should be optional. So just cast to fix the issues.
                   map={this.map as google.maps.Map}
                   marker={this.state.selectedPlaceMarker as google.maps.Marker}
-                  visible={true}
+                  position={{
+                    lat: parseFloat(
+                      this.state.selectedPlace?.location?.address
+                        ?.latitude as string
+                    ) as number,
+                    lng: parseFloat(
+                      this.state.selectedPlace?.location?.address
+                        ?.longitude as string
+                    ) as number,
+                  }}
+                  visible={
+                    this.state.selectedPlace || this.state.selectedPlaceMarker
+                      ? true
+                      : false
+                  }
                 >
                   {this.state.selectedPlace ? (
                     <div>
