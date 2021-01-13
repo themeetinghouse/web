@@ -2471,6 +2471,25 @@ export const askQuestion = /* GraphQL */ `
     }
   }
 `;
+export const generatePdf = /* GraphQL */ `
+  query GeneratePdf(
+    $notes: String
+    $questions: String
+    $week: String
+    $title: String
+    $userId: String
+  ) {
+    generatePdf(
+      notes: $notes
+      questions: $questions
+      week: $week
+      title: $title
+      userId: $userId
+    ) {
+      objectKey
+    }
+  }
+`;
 export const getTnSeries = /* GraphQL */ `
   query GetTnSeries($id: ID!) {
     getTNSeries(id: $id) {

@@ -30484,6 +30484,21 @@ export type AskQuestionQuery = {
   } | null,
 };
 
+export type GeneratePdfQueryVariables = {
+  notes?: string | null,
+  questions?: string | null,
+  week?: string | null,
+  title?: string | null,
+  userId?: string | null,
+};
+
+export type GeneratePdfQuery = {
+  generatePdf:  {
+    __typename: "pdfRes",
+    objectKey: string | null,
+  } | null,
+};
+
 export type GetTnSeriesQueryVariables = {
   id: string,
 };
