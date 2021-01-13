@@ -4181,6 +4181,7 @@ export const getAnnouncement = /* GraphQL */ `
       title
       description
       callToAction
+      callToActionTitle
       createdAt
       updatedAt
     }
@@ -4203,6 +4204,7 @@ export const listAnnouncements = /* GraphQL */ `
         title
         description
         callToAction
+        callToActionTitle
         createdAt
         updatedAt
       }
@@ -4237,6 +4239,7 @@ export const listAnnouncementsByParishByDate = /* GraphQL */ `
         title
         description
         callToAction
+        callToActionTitle
         createdAt
         updatedAt
       }

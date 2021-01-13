@@ -1211,6 +1211,7 @@ export const onCreateAnnouncement = /* GraphQL */ `
       title
       description
       callToAction
+      callToActionTitle
       createdAt
       updatedAt
     }
@@ -1228,6 +1229,7 @@ export const onUpdateAnnouncement = /* GraphQL */ `
       title
       description
       callToAction
+      callToActionTitle
       createdAt
       updatedAt
     }
@@ -1245,6 +1247,7 @@ export const onDeleteAnnouncement = /* GraphQL */ `
       title
       description
       callToAction
+      callToActionTitle
       createdAt
       updatedAt
     }
