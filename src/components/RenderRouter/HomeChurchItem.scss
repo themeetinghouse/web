@@ -30,6 +30,7 @@
 .gm-style .gm-style-iw {
   background-color: #1a1a1a;
   color: white;
+
   border-radius: 0;
 }
 .gm-style .gm-style-iw-d {
@@ -459,6 +460,14 @@
 }
 
 @media (max-width: 767px) {
+  .gm-style .gm-style-iw {
+    max-height: 600px !important;
+    max-width: 300px !important;
+  }
+  .gm-style .gm-style-iw-d {
+    max-height: 600px !important;
+    max-width: 280px !important;
+  }
   .loadingMargin {
     margin-top: 15vw;
   }
