@@ -331,7 +331,11 @@ export class ContentItem extends React.Component<Props, State> {
     if (this.selectControlDay) {
       this.selectControlDay?.select.clearValue();
     }
-    this.setState({ locationFilter: null });
+    this.setState({
+      locationFilter: null,
+      selectedPlace: null,
+      selectedPlaceMarker: undefined,
+    });
     await this.updateGeoLocation(false);
     this.updateMap(
       this.state.locationFilter,
@@ -537,6 +541,7 @@ export class ContentItem extends React.Component<Props, State> {
                       <Marker
                         key={item.id ?? ''}
                         onClick={this.getMarkerClickHandler(item)}
+                        anchorPoint={new google.maps.Point(0, 0)}
                         icon={
                           this.state.selectedPlace === item
                             ? HOME_CHURCH_PIN_SELECTED_URL
@@ -550,22 +555,39 @@ export class ContentItem extends React.Component<Props, State> {
                     );
                   })}
                 <InfoWindow
+                  pixelOffset={new google.maps.Size(0, -32)}
                   google={this.props.google}
                   // These types are wrong, they should be optional. So just cast to fix the issues.
                   map={this.map as google.maps.Map}
                   marker={this.state.selectedPlaceMarker as google.maps.Marker}
-                  visible={true}
+                  position={{
+                    lat: parseFloat(
+                      this.state.selectedPlace?.location?.address
+                        ?.latitude as string
+                    ) as number,
+                    lng: parseFloat(
+                      this.state.selectedPlace?.location?.address
+                        ?.longitude as string
+                    ) as number,
+                  }}
+                  visible={
+                    !!(
+                      this.state.selectedPlace || this.state.selectedPlaceMarker
+                    )
+                  }
                 >
                   {this.state.selectedPlace ? (
                     <div>
                       <div className="HomeChurchItemMapInfoWindowDiv1">
                         {this.state.selectedPlace.name}
                       </div>
-                      <div className="HomeChurchItemMapInfoWindowDiv2">
-                        <Badge>
-                          {this.state.selectedPlace.churchCampus?.name}
-                        </Badge>
-                      </div>
+                      {this.state.selectedPlace.churchCampus?.name ? (
+                        <div className="HomeChurchItemMapInfoWindowDiv2">
+                          <Badge>
+                            {this.state.selectedPlace.churchCampus?.name}
+                          </Badge>
+                        </div>
+                      ) : null}
                       <div className="HomeChurchItemMapInfoWindowDiv3">
                         {this.state.selectedPlace.description}
                       </div>
