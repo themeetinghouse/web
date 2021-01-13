@@ -577,10 +577,6 @@ export class ContentItem extends React.Component<Props, State> {
                       <div className="HomeChurchItemMapInfoWindowDiv1">
                         {this.state.selectedPlace.name}
                       </div>
-
-                      <div className="HomeChurchItemMapInfoWindowDiv3">
-                        {this.state.selectedPlace.location?.address?.address1}
-                      </div>
                       {this.state.selectedPlace.churchCampus?.name ? (
                         <div className="HomeChurchItemMapInfoWindowDiv2">
                           <Badge>
@@ -588,6 +584,9 @@ export class ContentItem extends React.Component<Props, State> {
                           </Badge>
                         </div>
                       ) : null}
+                      <div className="HomeChurchItemMapInfoWindowDiv3">
+                        {this.state.selectedPlace.description}
+                      </div>
                       <div className="HomeChurchItemMapInfoWindowDayOfWeek">
                         {this.getDayOfWeek(this.state.selectedPlace.schedule)}{' '}
                         {(this.state.selectedPlace.schedule?.recurrences
