@@ -707,6 +707,7 @@ type Announcement
   title: String!
   description: String!
   callToAction: String
+  callToActionTitle: String
 }
 
 type Speaker
