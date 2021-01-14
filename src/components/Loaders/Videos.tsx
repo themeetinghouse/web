@@ -1,7 +1,7 @@
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { GetVideoQuery } from 'API';
 import { API, Analytics } from 'aws-amplify';
-import React, { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import * as customQueries from '../../graphql-custom/customQueries';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';

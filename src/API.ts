@@ -374,6 +374,7 @@ export type CreateAnnouncementInput = {
   title: string,
   description: string,
   callToAction?: string | null,
+  callToActionTitle?: string | null,
 };
 
 export type UpdateAnnouncementInput = {
@@ -386,6 +387,7 @@ export type UpdateAnnouncementInput = {
   title?: string | null,
   description?: string | null,
   callToAction?: string | null,
+  callToActionTitle?: string | null,
 };
 
 export type DeleteAnnouncementInput = {
@@ -1151,6 +1153,7 @@ export type ModelAnnouncementFilterInput = {
   title?: ModelStringFilterInput | null,
   description?: ModelStringFilterInput | null,
   callToAction?: ModelStringFilterInput | null,
+  callToActionTitle?: ModelStringFilterInput | null,
   and?: Array< ModelAnnouncementFilterInput | null > | null,
   or?: Array< ModelAnnouncementFilterInput | null > | null,
   not?: ModelAnnouncementFilterInput | null,
@@ -2930,6 +2933,7 @@ export type CreateAnnouncementMutation = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -2951,6 +2955,7 @@ export type UpdateAnnouncementMutation = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -2972,6 +2977,7 @@ export type DeleteAnnouncementMutation = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -30478,6 +30484,21 @@ export type AskQuestionQuery = {
   } | null,
 };
 
+export type GeneratePdfQueryVariables = {
+  notes?: string | null,
+  questions?: string | null,
+  week?: string | null,
+  title?: string | null,
+  userId?: string | null,
+};
+
+export type GeneratePdfQuery = {
+  generatePdf:  {
+    __typename: "pdfRes",
+    objectKey: string | null,
+  } | null,
+};
+
 export type GetTnSeriesQueryVariables = {
   id: string,
 };
@@ -32349,6 +32370,7 @@ export type GetAnnouncementQuery = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -32374,6 +32396,7 @@ export type ListAnnouncementsQuery = {
       title: string,
       description: string,
       callToAction: string | null,
+      callToActionTitle: string | null,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -32404,6 +32427,7 @@ export type ListAnnouncementsByParishByDateQuery = {
       title: string,
       description: string,
       callToAction: string | null,
+      callToActionTitle: string | null,
       createdAt: string,
       updatedAt: string,
     } | null > | null,
@@ -47886,6 +47910,7 @@ export type OnCreateAnnouncementSubscription = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -47903,6 +47928,7 @@ export type OnUpdateAnnouncementSubscription = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -47920,6 +47946,7 @@ export type OnDeleteAnnouncementSubscription = {
     title: string,
     description: string,
     callToAction: string | null,
+    callToActionTitle: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,

@@ -13,7 +13,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
-import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
+import AddToCalendar from '@esetnik/react-add-to-calendar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -225,35 +225,35 @@ export class ContentItem extends React.Component<Props, State> {
         resolve(DEFAULT_LAT_LNG);
         return;
       }
-
-      navigator.permissions
-        .query({ name: 'geolocation' })
-        .then((permissionStatus) => {
-          if (permissionStatus.state === 'denied') {
-            if (isUserAction) {
-              alert(
-                'This function is unavailable until you allow location permissions.'
-              );
-              reject();
-            } else {
-              resolve(DEFAULT_LAT_LNG);
+      if (navigator.permissions)
+        navigator.permissions
+          .query({ name: 'geolocation' })
+          .then((permissionStatus) => {
+            if (permissionStatus.state === 'denied') {
+              if (isUserAction) {
+                alert(
+                  'This function is unavailable until you allow location permissions.'
+                );
+                reject();
+              } else {
+                resolve(DEFAULT_LAT_LNG);
+              }
+              return;
             }
-            return;
-          }
 
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              resolve({
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-              });
-            },
-            (e) => {
-              console.error(`failed to retrieve current position: %o`, e);
-              resolve(DEFAULT_LAT_LNG);
-            }
-          );
-        });
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                resolve({
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                });
+              },
+              (e) => {
+                console.error(`failed to retrieve current position: %o`, e);
+                resolve(DEFAULT_LAT_LNG);
+              }
+            );
+          });
     });
   }
 
@@ -331,7 +331,11 @@ export class ContentItem extends React.Component<Props, State> {
     if (this.selectControlDay) {
       this.selectControlDay?.select.clearValue();
     }
-    this.setState({ locationFilter: null });
+    this.setState({
+      locationFilter: null,
+      selectedPlace: null,
+      selectedPlaceMarker: undefined,
+    });
     await this.updateGeoLocation(false);
     this.updateMap(
       this.state.locationFilter,
@@ -357,7 +361,7 @@ export class ContentItem extends React.Component<Props, State> {
     return address;
   }
 
-  private getCalendarEventForLocation(group: F1Group): AddToCalendarEvent {
+  private getCalendarEventForLocation(group: F1Group): any {
     let nextMeeting = moment();
     //console.log('HomeChurchItem.getCalendarEventForLocation(): group = %o', group);
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
@@ -397,7 +401,9 @@ export class ContentItem extends React.Component<Props, State> {
     this.setState({ showContactModal: !this.state.showContactModal });
   }
 
-  private styleSelect: Partial<Styles> = {
+  private styleSelect: Partial<
+    Styles<{ label: string; value: string }, boolean>
+  > = {
     container: (provided: CSSProperties) => ({
       ...provided,
       height: '43px',
@@ -537,6 +543,7 @@ export class ContentItem extends React.Component<Props, State> {
                       <Marker
                         key={item.id ?? ''}
                         onClick={this.getMarkerClickHandler(item)}
+                        anchorPoint={new google.maps.Point(0, 0)}
                         icon={
                           this.state.selectedPlace === item
                             ? HOME_CHURCH_PIN_SELECTED_URL
@@ -550,22 +557,39 @@ export class ContentItem extends React.Component<Props, State> {
                     );
                   })}
                 <InfoWindow
+                  pixelOffset={new google.maps.Size(0, -32)}
                   google={this.props.google}
                   // These types are wrong, they should be optional. So just cast to fix the issues.
                   map={this.map as google.maps.Map}
                   marker={this.state.selectedPlaceMarker as google.maps.Marker}
-                  visible={true}
+                  position={{
+                    lat: parseFloat(
+                      this.state.selectedPlace?.location?.address
+                        ?.latitude as string
+                    ) as number,
+                    lng: parseFloat(
+                      this.state.selectedPlace?.location?.address
+                        ?.longitude as string
+                    ) as number,
+                  }}
+                  visible={
+                    !!(
+                      this.state.selectedPlace || this.state.selectedPlaceMarker
+                    )
+                  }
                 >
                   {this.state.selectedPlace ? (
                     <div>
                       <div className="HomeChurchItemMapInfoWindowDiv1">
                         {this.state.selectedPlace.name}
                       </div>
-                      <div className="HomeChurchItemMapInfoWindowDiv2">
-                        <Badge>
-                          {this.state.selectedPlace.churchCampus?.name}
-                        </Badge>
-                      </div>
+                      {this.state.selectedPlace.churchCampus?.name ? (
+                        <div className="HomeChurchItemMapInfoWindowDiv2">
+                          <Badge>
+                            {this.state.selectedPlace.churchCampus?.name}
+                          </Badge>
+                        </div>
+                      ) : null}
                       <div className="HomeChurchItemMapInfoWindowDiv3">
                         {this.state.selectedPlace.description}
                       </div>
@@ -618,7 +642,7 @@ export class ContentItem extends React.Component<Props, State> {
                   }
                   placeholder="Select Parish"
                   styles={this.styleSelect}
-                  ref={(ref) => (this.selectControlLocation = ref)}
+                  ref={(ref) => this.selectControlLocation == ref}
                   menuShouldScrollIntoView={true}
                   options={this.state.locations.map((item) => ({
                     label: item.name,
@@ -635,7 +659,7 @@ export class ContentItem extends React.Component<Props, State> {
                 placeholder="Select Day"
                 className="DaySelect"
                 styles={this.styleSelect}
-                ref={(ref) => (this.selectControlDay = ref)}
+                ref={(ref) => this.selectControlDay == ref}
                 menuShouldScrollIntoView={true}
                 options={this.daysOfWeek.map((item) => {
                   return { label: item.label, value: item.value };
@@ -700,66 +724,105 @@ export class ContentItem extends React.Component<Props, State> {
                     );
                   }
                 })
-                .map((item) => (
-                  <div
-                    className="HomeChurchItemDiv5"
-                    key={item.id ?? undefined}
-                    id={'HC-' + item.id}
-                  >
-                    <h3
-                      className={
-                        'HomeChurchH3 ' +
-                        (this.state.selectedPlace === item ? 'selected' : '')
-                      }
-                      onClick={this.getHomeChurchClickHandler(item)}
+                .map((item) => {
+                  console.log(item.name);
+                  return (
+                    <div
+                      className="HomeChurchItemDiv5"
+                      key={item.id ?? undefined}
+                      id={'HC-' + item.id}
                     >
-                      {item.name}
-                    </h3>
-                    <div className="HomeChurchAddress">{item.description}</div>
+                      <h3
+                        className={
+                          'HomeChurchH3 ' +
+                          (this.state.selectedPlace === item ? 'selected' : '')
+                        }
+                        onClick={this.getHomeChurchClickHandler(item)}
+                      >
+                        {item.name}
+                      </h3>
+                      <div className="HomeChurchAddress">
+                        {item.description}
+                      </div>
 
-                    <div style={{ marginTop: '15px', marginBottom: '10px' }}>
-                      {item?.churchCampus?.name ? (
-                        <div className="HomeChurchSiteAffiliation">
-                          <Badge>{item.churchCampus?.name}</Badge>
+                      <div
+                        style={{
+                          marginLeft: '-4px',
+                          marginTop: '15px',
+                          marginBottom: '15px',
+                          display: 'flex',
+                          flexWrap: 'wrap',
+                        }}
+                      >
+                        {item?.churchCampus?.name ? (
+                          <div
+                            className="HomeChurchSiteAffiliation"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          >
+                            <Badge>{item.churchCampus?.name}</Badge>
+                          </div>
+                        ) : null}
+                        <div
+                          className="HomeChurchDayOfWeek"
+                          style={{ marginLeft: 4, marginRight: 4 }}
+                        >
+                          <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                         </div>
-                      ) : null}
-                      <div className="HomeChurchDayOfWeek">
-                        <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
+                        {item.name.includes('Young Adults') ? (
+                          <div
+                            className="HomeChurchDayOfWeek"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          >
+                            <Badge style={{ backgroundColor: '#A0E2BA' }}>
+                              Young Adult
+                            </Badge>
+                          </div>
+                        ) : null}
+                        {item.name.includes('Family Friendly') ? (
+                          <div
+                            className="HomeChurchDayOfWeek"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          >
+                            <Badge style={{ backgroundColor: '#A0E2BA' }}>
+                              Family Friendly
+                            </Badge>
+                          </div>
+                        ) : null}
+                      </div>
+                      <div className="HomeChurchTimeOfDay">
+                        {moment(item.schedule?.startTime).format('h:mm a')}
+                      </div>
+                      <div className="HomeChurchButtonContainer">
+                        {item.schedule?.recurrences?.recurrence
+                          ?.recurrenceWeekly ? (
+                          <div className="AddToCalendarButtonContainer">
+                            <img
+                              className="AddToCalendarIcon"
+                              src="/static/svg/Calendar, Add To.svg"
+                              alt="Calendar Icon"
+                            />
+                            <AddToCalendar
+                              buttonLabel="Add to Calendar"
+                              event={this.getCalendarEventForLocation(item)}
+                            ></AddToCalendar>
+                          </div>
+                        ) : null}
+                        <button
+                          className="ContactLeadersButton"
+                          onClick={this.getContactLeadersHandler(item)}
+                          tabIndex={0}
+                        >
+                          <img
+                            className="ContactLeadersIcon"
+                            src="/static/svg/Contact.svg"
+                            alt="Contact Icon"
+                          />
+                          Contact Leaders
+                        </button>
                       </div>
                     </div>
-                    <div className="HomeChurchTimeOfDay">
-                      {moment(item.schedule?.startTime).format('h:mm a')}
-                    </div>
-                    <div className="HomeChurchButtonContainer">
-                      {item.schedule?.recurrences?.recurrence
-                        ?.recurrenceWeekly ? (
-                        <div className="AddToCalendarButtonContainer">
-                          <img
-                            className="AddToCalendarIcon"
-                            src="/static/svg/Calendar, Add To.svg"
-                            alt="Calendar Icon"
-                          />
-                          <AddToCalendar
-                            buttonLabel="Add to Calendar"
-                            event={this.getCalendarEventForLocation(item)}
-                          ></AddToCalendar>
-                        </div>
-                      ) : null}
-                      <button
-                        className="ContactLeadersButton"
-                        onClick={this.getContactLeadersHandler(item)}
-                        tabIndex={0}
-                      >
-                        <img
-                          className="ContactLeadersIcon"
-                          src="/static/svg/Contact.svg"
-                          alt="Contact Icon"
-                        />
-                        Contact Leaders
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
             </div>
           </div>
         </div>

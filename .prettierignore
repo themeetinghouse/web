@@ -2,7 +2,9 @@ build
 coverage
 dist
 backup
-amplify
+amplify/**/*.yml
+amplify/**/*.json
+*.graphql
 .github
 .vscode
 src/API.ts

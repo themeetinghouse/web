@@ -9,7 +9,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { ChangeEvent } from 'react';
-import AddToCalendar from 'react-add-to-calendar';
+import AddToCalendar from '@esetnik/react-add-to-calendar';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
@@ -364,6 +364,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                       return (
                         <Marker
                           key={index}
+                          anchorPoint={new google.maps.Point(0, 0)}
                           onClick={this.getMarkerClickHandler(item)}
                           icon={
                             this.state.selectedPlace === item
@@ -379,13 +380,25 @@ export class SundayMorningItem extends React.Component<Props, State> {
                     })}
 
                     <InfoWindow
+                      pixelOffset={new google.maps.Size(0, -32)}
                       google={this.props.google}
                       // These types are wrong, they should be optional. So just cast to fix the issues.
                       map={this.map as google.maps.Map}
                       marker={
                         this.state.selectedPlaceMarker as google.maps.Marker
                       }
-                      visible={true}
+                      position={{
+                        lat: this.state.selectedPlace?.location
+                          .latitude as number,
+                        lng: this.state.selectedPlace?.location
+                          .longitude as number,
+                      }}
+                      visible={
+                        !!(
+                          this.state.selectedPlace ||
+                          this.state.selectedPlaceMarker
+                        )
+                      }
                     >
                       {this.state.selectedPlace ? (
                         <div>

@@ -228,14 +228,22 @@ class HomeMenu extends React.Component<Props, State> {
     return (
       <div>
         {this.state.showLiveBanner ? (
-          <div
+          <button
+            aria-label="Events List"
+            style={{
+              padding: 0,
+              margin: 0,
+              border: 'none',
+              outline: 'none !important',
+              outlineOffset: 'none !important',
+            }}
             className="ignore-onClickOutside"
             onClick={this.handleToggleDropdown}
           >
             <AnnouncementBar
               bannerMessage={this.state.liveTitle ?? 'Live'}
             ></AnnouncementBar>
-          </div>
+          </button>
         ) : null}
         <div>
           {this.state.showEventsDropdown ? (

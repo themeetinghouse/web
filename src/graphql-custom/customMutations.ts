@@ -19,6 +19,23 @@ export const updateSpeaker = /* GraphQL */ `
     }
   }
 `;
+
+export const updateAnnouncement = /* GraphQL */ `
+  mutation UpdateAnnouncement($input: UpdateAnnouncementInput!) {
+    updateAnnouncement(input: $input) {
+      id
+      publishedDate
+      expirationDate
+      image
+      parish
+      crossRegional
+      title
+      description
+      callToAction
+    }
+  }
+`;
+
 export const DeleteSpeaker = /*GraphQL */ ` 
 mutation DeleteSpeaker($input: DeleteSpeakerInput!) {
   deleteSpeaker(input: $input) {

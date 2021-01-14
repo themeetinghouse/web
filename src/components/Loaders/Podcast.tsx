@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import VideoOverlay from '../../components/VideoOverlay/VideoOverlay';
 export default function Podcast() {

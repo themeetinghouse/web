@@ -1,4 +1,3 @@
-import React from 'react';
 import './PodcastPlayer.scss';
 
 interface Props {

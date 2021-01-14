@@ -643,38 +643,36 @@ class ListItem extends React.Component<Props, State> {
     }
 
     return (
-      <div key={index} className="StaffGridWrapper">
-        <div className="StaffGrid">
-          {(items as OverseerData[]).map((item, index: number) => {
-            const image = {
-              src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
-              alt: `${item.FirstName} ${item.LastName}`,
-            };
-            return (
-              <div key={index} className="StaffItem">
-                <ScaledImage
-                  image={image}
-                  className="StaffImage"
-                  fallbackUrl="/static/Individual.png"
-                  breakpointSizes={{
-                    320: 80,
-                    480: 120,
-                    640: 180,
-                    1280: 320,
-                    1920: 480,
-                    2560: 640,
-                  }}
-                />
-                <div className="StaffInfo">
-                  <div className="ListItemName">
-                    {item.FirstName} {item.LastName}
-                  </div>
-                  <div className="ListItemPosition">{item.Position}</div>
+      <div className="StaffFlexArea" key={index}>
+        {(items as OverseerData[]).map((item, index: number) => {
+          const image = {
+            src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
+            alt: `${item.FirstName} ${item.LastName}`,
+          };
+          return (
+            <div key={index} className="StaffItem">
+              <ScaledImage
+                image={image}
+                className="StaffImage"
+                fallbackUrl="/static/Individual.png"
+                breakpointSizes={{
+                  320: 80,
+                  480: 120,
+                  640: 180,
+                  1280: 320,
+                  1920: 480,
+                  2560: 640,
+                }}
+              />
+              <div className="StaffInfo">
+                <div className="ListItemName">
+                  {item.FirstName} {item.LastName}
                 </div>
+                <div className="ListItemPosition">{item.Position}</div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -898,90 +896,88 @@ class ListItem extends React.Component<Props, State> {
     }
 
     return (
-      <div key={index} className="StaffGridWrapper">
-        <div className="StaffGrid">
-          {(items as StaffData[]).map((item: any, index: number) => {
-            const imgsrc =
-              '/static/photos/' +
-              (item.Staff == null ? 'coordinators' : 'staff') +
-              '/' +
-              (item.Staff == null ? item.sites[0] + '_' : '') +
-              item.FirstName +
-              '_' +
-              item.LastName +
-              '_app.jpg';
-            return (
-              <div key={index} className="StaffItem">
-                <ScaledImage
-                  image={{ src: imgsrc, alt: item.photoAlt }}
-                  className="StaffImage"
-                  fallbackUrl="/static/Individual.png"
-                  breakpointSizes={{
-                    320: 80,
-                    480: 120,
-                    640: 180,
-                    1280: 320,
-                    1920: 480,
-                    2560: 640,
-                  }}
-                />
-                <div className="StaffInfo">
-                  <div className="ListItemName">
-                    {item.FirstName} {item.LastName}
-                  </div>
-                  <div className="ListItemPosition">{item.Position}</div>
-                  <div className="StaffContact">
-                    {item.Email ? (
-                      <div className="ListItemEmail">
-                        <a
-                          className="ListItemEmailText"
-                          href={'mailto:' + item.Email}
-                        >
-                          {item.Email.toLowerCase()}
-                        </a>
-                      </div>
-                    ) : null}
-                    {item.Phone ? (
-                      <div className="ListItemPhone">
-                        <a
-                          className="ListItemEmailText"
-                          href={'tel:' + item.Phone.split(',')[0]}
-                        >
-                          {item.Phone.split(',')[0]}
-                        </a>{' '}
-                        {item.Phone.split(',')[1]}
-                      </div>
-                    ) : null}
-                  </div>
+      <div className="StaffFlexArea" key={index}>
+        {(items as StaffData[]).map((item: any, index: number) => {
+          const imgsrc =
+            '/static/photos/' +
+            (item.Staff == null ? 'coordinators' : 'staff') +
+            '/' +
+            (item.Staff == null ? item.sites[0] + '_' : '') +
+            item.FirstName +
+            '_' +
+            item.LastName +
+            '_app.jpg';
+          return (
+            <div key={index} className="StaffItem">
+              <ScaledImage
+                image={{ src: imgsrc, alt: item.photoAlt }}
+                className="StaffImage"
+                fallbackUrl="/static/Individual.png"
+                breakpointSizes={{
+                  320: 80,
+                  480: 120,
+                  640: 180,
+                  1280: 320,
+                  1920: 480,
+                  2560: 640,
+                }}
+              />
+              <div className="StaffInfo">
+                <div className="ListItemName">
+                  {item.FirstName} {item.LastName}
                 </div>
-                {item.instagram ? (
-                  <a
-                    href={'https://twitter.com/' + item.twitter}
-                    className="ListItemSocialLink"
-                  >
-                    <img
-                      className="ListItemTwitter"
-                      src="/static/svg/Twitter.svg"
-                      alt="Twitter Logo"
-                    />
-                  </a>
-                ) : null}
-                {item.twitter ? (
-                  <a
-                    href={'https://www.instagram.com/' + item.instagram}
-                    className="ListItemSocialLink"
-                  >
-                    <img
-                      className="ListItemInstagram"
-                      src="/static/svg/Instagram.svg"
-                      alt="Instagram Logo"
-                    />
-                  </a>
-                ) : null}
+                <div className="ListItemPosition">{item.Position}</div>
+                <div className="StaffContact">
+                  {item.Email ? (
+                    <div className="ListItemEmail">
+                      <a
+                        className="ListItemEmailText"
+                        href={'mailto:' + item.Email}
+                      >
+                        {item.Email.toLowerCase()}
+                      </a>
+                    </div>
+                  ) : null}
+                  {item.Phone ? (
+                    <div className="ListItemPhone">
+                      <a
+                        className="ListItemEmailText"
+                        href={'tel:' + item.Phone.split(',')[0]}
+                      >
+                        {item.Phone.split(',')[0]}
+                      </a>{' '}
+                      {item.Phone.split(',')[1]}
+                    </div>
+                  ) : null}
+                </div>
               </div>
-            );
-          })}
-        </div>
+              {item.instagram ? (
+                <a
+                  href={'https://twitter.com/' + item.twitter}
+                  className="ListItemSocialLink"
+                >
+                  <img
+                    className="ListItemTwitter"
+                    src="/static/svg/Twitter.svg"
+                    alt="Twitter Logo"
+                  />
+                </a>
+              ) : null}
+              {item.twitter ? (
+                <a
+                  href={'https://www.instagram.com/' + item.instagram}
+                  className="ListItemSocialLink"
+                >
+                  <img
+                    className="ListItemInstagram"
+                    src="/static/svg/Instagram.svg"
+                    alt="Instagram Logo"
+                  />
+                </a>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     );
   }

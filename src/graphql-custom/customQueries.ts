@@ -25,6 +25,30 @@ export const getBlogSeries = /* GraphQL */ `
     }
   }
 `;
+
+export const listAnnouncements = /* GraphQL */ `
+  query ListAnnouncements(
+    $filter: ModelAnnouncementFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAnnouncements(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        publishedDate
+        expirationDate
+        image
+        parish
+        crossRegional
+        title
+        description
+        callToAction
+      }
+      nextToken
+    }
+  }
+`;
+
 export const listSpeakerVideoos = `
 query ListSpeakerVideoss(
   $id: ID

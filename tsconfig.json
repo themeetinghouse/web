@@ -1,9 +1,7 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "target": "es2019",
     "module": "esnext",
-    // "jsx": "preserve",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -14,18 +12,22 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "baseUrl": "src",
-    "lib": ["dom", "es2016"],
+    "lib": [
+      "dom",
+      "es2016"
+    ],
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "noEmit": true,
     "isolatedModules": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true
   },
-
-  "include": ["src"],
+  "include": [
+    "src"
+  ],
   "exclude": [
     "babel.config.js",
     "web-build",

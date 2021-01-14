@@ -4,6 +4,10 @@ const Amplify = {
   configure: jest.fn(),
 };
 
+export const Analytics = {
+  record: jest.fn(),
+};
+
 export const API = {
   graphql: jest
     .fn()
