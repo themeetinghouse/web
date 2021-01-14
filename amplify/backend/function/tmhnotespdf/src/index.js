@@ -23,7 +23,7 @@ exports.handler = async (event) => {
   try {
     const groups = await cognito
       .adminListGroupsForUser({
-        UserPoolId: process.env.COGNITO_USER_POOL_ID,
+        UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
         Username: event.arguments.userId,
       })
       .promise();
