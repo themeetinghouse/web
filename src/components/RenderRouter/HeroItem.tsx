@@ -1,7 +1,7 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import AddToCalendar from 'react-add-to-calendar';
+import AddToCalendar from '@esetnik/react-add-to-calendar';
 import PropTypes from 'prop-types';
 import './HeroItem.scss';
 import Select from 'react-select';

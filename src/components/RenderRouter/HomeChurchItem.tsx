@@ -13,7 +13,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
-import AddToCalendar, { AddToCalendarEvent } from 'react-add-to-calendar';
+import AddToCalendar from '@esetnik/react-add-to-calendar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
@@ -361,7 +361,7 @@ export class ContentItem extends React.Component<Props, State> {
     return address;
   }
 
-  private getCalendarEventForLocation(group: F1Group): AddToCalendarEvent {
+  private getCalendarEventForLocation(group: F1Group): any {
     let nextMeeting = moment();
     //console.log('HomeChurchItem.getCalendarEventForLocation(): group = %o', group);
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {

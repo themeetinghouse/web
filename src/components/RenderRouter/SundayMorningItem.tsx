@@ -9,7 +9,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { ChangeEvent } from 'react';
-import AddToCalendar from 'react-add-to-calendar';
+import AddToCalendar from '@esetnik/react-add-to-calendar';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
