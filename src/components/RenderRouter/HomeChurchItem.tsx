@@ -225,35 +225,35 @@ export class ContentItem extends React.Component<Props, State> {
         resolve(DEFAULT_LAT_LNG);
         return;
       }
-
-      navigator.permissions
-        .query({ name: 'geolocation' })
-        .then((permissionStatus) => {
-          if (permissionStatus.state === 'denied') {
-            if (isUserAction) {
-              alert(
-                'This function is unavailable until you allow location permissions.'
-              );
-              reject();
-            } else {
-              resolve(DEFAULT_LAT_LNG);
+      if (navigator.permissions)
+        navigator.permissions
+          .query({ name: 'geolocation' })
+          .then((permissionStatus) => {
+            if (permissionStatus.state === 'denied') {
+              if (isUserAction) {
+                alert(
+                  'This function is unavailable until you allow location permissions.'
+                );
+                reject();
+              } else {
+                resolve(DEFAULT_LAT_LNG);
+              }
+              return;
             }
-            return;
-          }
 
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              resolve({
-                lat: position.coords.latitude,
-                lng: position.coords.longitude,
-              });
-            },
-            (e) => {
-              console.error(`failed to retrieve current position: %o`, e);
-              resolve(DEFAULT_LAT_LNG);
-            }
-          );
-        });
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                resolve({
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                });
+              },
+              (e) => {
+                console.error(`failed to retrieve current position: %o`, e);
+                resolve(DEFAULT_LAT_LNG);
+              }
+            );
+          });
     });
   }
 
@@ -401,7 +401,9 @@ export class ContentItem extends React.Component<Props, State> {
     this.setState({ showContactModal: !this.state.showContactModal });
   }
 
-  private styleSelect: Partial<Styles> = {
+  private styleSelect: Partial<
+    Styles<{ label: string; value: string }, boolean>
+  > = {
     container: (provided: CSSProperties) => ({
       ...provided,
       height: '43px',
@@ -640,7 +642,7 @@ export class ContentItem extends React.Component<Props, State> {
                   }
                   placeholder="Select Parish"
                   styles={this.styleSelect}
-                  ref={(ref) => (this.selectControlLocation = ref)}
+                  ref={(ref) => this.selectControlLocation == ref}
                   menuShouldScrollIntoView={true}
                   options={this.state.locations.map((item) => ({
                     label: item.name,
@@ -657,7 +659,7 @@ export class ContentItem extends React.Component<Props, State> {
                 placeholder="Select Day"
                 className="DaySelect"
                 styles={this.styleSelect}
-                ref={(ref) => (this.selectControlDay = ref)}
+                ref={(ref) => this.selectControlDay == ref}
                 menuShouldScrollIntoView={true}
                 options={this.daysOfWeek.map((item) => {
                   return { label: item.label, value: item.value };

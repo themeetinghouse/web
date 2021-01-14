@@ -1,7 +1,7 @@
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { GetBlogQuery } from 'API';
 import { API, Analytics, AmazonPersonalizeProvider, Auth } from 'aws-amplify';
-import React, { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { getBlog } from '../../graphql-custom/customQueries';
 import RenderRouter from '../RenderRouter/RenderRouter';

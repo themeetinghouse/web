@@ -1,4 +1,3 @@
-import React from 'react';
 import './FormItem.scss';
 import { FormItem } from '../types';
 import { isSafari, isChrome } from 'react-device-detect';

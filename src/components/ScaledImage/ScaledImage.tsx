@@ -1,4 +1,4 @@
-import React, {
+import {
   SyntheticEvent,
   EventHandler,
   ReactElement,
