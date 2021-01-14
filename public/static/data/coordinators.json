@@ -264,7 +264,7 @@
     "LastName": "Constable",
     "sites": ["PAR"],
     "Email": "parrysound.kidmax@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
+    "Position": "Kidmax Coach"
   },
   {
     "FirstName": "Rachelle",
@@ -460,6 +460,13 @@
     "Position": "Parish Administrator"
   },
   {
+    "FirstName": "Savanna",
+    "LastName": "Edwards",
+    "sites": ["WATL"],
+    "Email": "savanna.edwards@themeetinghouse.com",
+    "Position": "Parish Communications"
+  },
+  {
     "FirstName": "Jamie",
     "LastName": "Teeple",
     "sites": ["BURL"],
@@ -570,12 +577,6 @@
     "FirstName": "Debbie",
     "LastName": "Tindale",
     "sites": ["NMKT"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Bill",
-    "LastName": "Konoval",
-    "sites": ["PAR"],
     "Position": "Welcome Coordinator"
   },
   {
