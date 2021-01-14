@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan10.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan17.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan10.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan17.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJan10.jpg",
-            "alt": "This week's big idea: Jesus lived a human life."
+            "src": "/static/images/KidsBigIdeaJan17.jpg",
+            "alt": "This week's big idea: Jesus is God's kid."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan10.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan17.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJan10.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJan17.pdf",
             "openNewBrowser": true
           },
           {
