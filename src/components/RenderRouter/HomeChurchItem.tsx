@@ -768,7 +768,7 @@ export class ContentItem extends React.Component<Props, State> {
                         >
                           <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                         </div>
-                        {item.name.includes('Young Adults') ? (
+                        {item.name.includes('Young Adult') ? (
                           <div
                             className="HomeChurchDayOfWeek"
                             style={{ marginLeft: 4, marginRight: 4 }}
