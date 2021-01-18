@@ -32,6 +32,7 @@ export const updateAnnouncement = /* GraphQL */ `
       title
       description
       callToAction
+      callToActionTitle
     }
   }
 `;
