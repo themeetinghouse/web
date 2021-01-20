@@ -63,6 +63,7 @@ const announcementInit = {
   title: '',
   description: '',
   callToAction: '',
+  callToActionTitle: '',
   parish: 'Cross-Regional',
   image: '',
 };
@@ -75,9 +76,10 @@ export default function Announcements(): JSX.Element {
   const [count, setCount] = useState(5);
   const [showExpired, setShowExpired] = useState(false);
   const [locations, setLocations] = useState<Array<Location>>([]);
-  const [currentAnnouncement, setCurrentAnnouncement] = useState<
-    AnnouncementData
-  >();
+  const [
+    currentAnnouncement,
+    setCurrentAnnouncement,
+  ] = useState<AnnouncementData>();
   const [openCreateModal, setOpenCreateModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [locationFilter, setlocationFilter] = useState('Cross-Regional');
@@ -575,6 +577,21 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Button Label <small>Call to action button label</small>
+              <input
+                className="genericTextField"
+                name="callToActionTitle"
+                type="text"
+                value={announcement.callToActionTitle ?? ''}
+                onChange={(e) =>
+                  setAnnouncement({
+                    ...announcement,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
+            </label>
             <p style={{ color: 'red', whiteSpace: 'pre' }}>{errorTxt}</p>
             <button
               onClick={() => {
@@ -798,6 +815,21 @@ export default function Announcements(): JSX.Element {
                 name="callToAction"
                 type="text"
                 value={announcement.callToAction ?? ''}
+                onChange={(e) =>
+                  setAnnouncement({
+                    ...announcement,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
+            </label>
+            <label style={{ display: 'block', fontWeight: 700 }}>
+              Button Label <small>Call to action button label</small>
+              <input
+                className="genericTextField"
+                name="callToActionTitle"
+                type="text"
+                value={announcement.callToActionTitle ?? ''}
                 onChange={(e) =>
                   setAnnouncement({
                     ...announcement,

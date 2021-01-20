@@ -43,6 +43,7 @@ export const listAnnouncements = /* GraphQL */ `
         title
         description
         callToAction
+        callToActionTitle
       }
       nextToken
     }
