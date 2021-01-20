@@ -83,7 +83,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "S3Key": "amplify-builds/tmhnotespdf-2f5743547a7178313678-build.zip"
+          "S3Key": "amplify-builds/tmhnotespdf-374f2b76326a2b743031-build.zip"
         }
       }
     },
