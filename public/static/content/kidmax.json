@@ -58,7 +58,7 @@
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan17.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan24.pdf",
             "openNewBrowser": true
           },
           {
@@ -100,7 +100,7 @@
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityJan17.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJan24.pdf",
             "openNewBrowser": true
           },
           {
