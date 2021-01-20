@@ -52,7 +52,7 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan17.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan24.pdf",
             "openNewBrowser": true
           },
           {
@@ -94,7 +94,7 @@
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan17.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan24.pdf",
             "openNewBrowser": true
           },
           {
