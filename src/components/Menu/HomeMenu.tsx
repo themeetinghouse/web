@@ -338,7 +338,7 @@ class HomeMenu extends React.Component<Props, State> {
                               (a) => a.location === this.props.location.pathname
                             );
                           return (
-                            <div key={item.location} className="linkContainer">
+                            <li key={item.location} className="linkContainer">
                               <NavLink
                                 className="bigNav"
                                 activeStyle={{ fontWeight: 'bold' }}
@@ -395,7 +395,7 @@ class HomeMenu extends React.Component<Props, State> {
                                       </NavLink>
                                     ))
                                 : null}
-                            </div>
+                            </li>
                           );
                         })
                       : null}
