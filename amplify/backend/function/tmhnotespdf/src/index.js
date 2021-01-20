@@ -30,7 +30,7 @@ exports.handler = async (event) => {
 
     let inNotesGroups = false;
 
-    groups.forEach((group) => {
+    groups.Groups.forEach((group) => {
       if (group.GroupName === 'Notes') {
         inNotesGroups = true;
       }
