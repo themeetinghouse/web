@@ -7,7 +7,7 @@ import {
   convertFromRaw,
 } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
@@ -34,6 +34,8 @@ import Bible from './bible';
 import {
   CreateNotesMutation,
   CreateVerseInput,
+  GeneratePdfQuery,
+  GeneratePdfQueryVariables,
   GetBiblePassageQuery,
   GetNotesQuery,
   GetSeriesBySeriesTypeQuery,
@@ -82,6 +84,7 @@ interface State {
   episodeNumber: number;
   seriesId: string;
   seriesList: any[];
+  pdfLink: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -126,6 +129,7 @@ class Index extends React.Component<EmptyProps, State> {
       noteObject: {},
 
       unsaved: true,
+      pdfLink: '',
     };
     this.listNotes();
     this.listSeries();
@@ -575,7 +579,85 @@ class Index extends React.Component<EmptyProps, State> {
     }
   };
 
+  async makePdf(): Promise<void> {
+    const {
+      title,
+      episodeNumber,
+      notesEditorState,
+      questionsEditorState,
+    } = this.state;
+
+    if (
+      questionsEditorState.getCurrentContent().hasText() &&
+      notesEditorState.getCurrentContent().hasText() &&
+      episodeNumber &&
+      title
+    ) {
+      this.setState({ statusMessage: 'making pdf...' });
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        const input: GeneratePdfQueryVariables = {
+          userId: user.username,
+          questions: this.convertDraftToMarkup(questionsEditorState),
+          notes: this.convertDraftToMarkup(notesEditorState),
+          week: episodeNumber.toString(),
+          title,
+        };
+
+        const json = (await API.graphql(
+          graphqlOperation(queries.generatePdf, input)
+        )) as GraphQLResult<GeneratePdfQuery>;
+
+        if (json.data?.generatePdf?.objectKey) {
+          this.setState({
+            pdfLink:
+              'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/' +
+              json.data.generatePdf.objectKey,
+          });
+        }
+      } catch (e) {
+        this.setState({
+          showAlert: `error generating PDF 😢`,
+        });
+      } finally {
+        this.setState({ statusMessage: '' });
+      }
+    } else {
+      this.setState({
+        showAlert: `missing required fields: notes, questions, episode number, title`,
+      });
+    }
+  }
+
   // RENDER FUNCTIONS
+
+  renderPdfModal() {
+    const { pdfLink } = this.state;
+
+    return (
+      <Modal isOpen={Boolean(pdfLink)}>
+        <div style={{ padding: 10, textAlign: 'center' }}>
+          <a href={pdfLink} rel="noopener noreferrer" target="_blank">
+            Download PDF
+          </a>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+          <button
+            style={{ flexGrow: 1 }}
+            onClick={() => this.setState({ pdf: pdfLink, pdfLink: '' })}
+          >
+            Use this PDF
+          </button>
+          <button
+            style={{ background: 'red', flexGrow: 1 }}
+            onClick={() => this.setState({ pdfLink: '' })}
+          >
+            Cancel
+          </button>
+        </div>
+      </Modal>
+    );
+  }
 
   renderEditModal() {
     return (
@@ -883,6 +965,10 @@ class Index extends React.Component<EmptyProps, State> {
           Help
         </button>
         <br />
+        <button className="toolbar-button" onClick={() => this.makePdf()}>
+          Make PDF
+        </button>
+        <br />
         <span>{this.state.statusMessage}</span>
       </div>
     );
@@ -928,6 +1014,7 @@ class Index extends React.Component<EmptyProps, State> {
           <AdminMenu></AdminMenu>
           {this.renderHelp()}
           {this.renderAlert()}
+          {this.renderPdfModal()}
           {this.renderEditModal()}
           {this.renderToolbar()}
           {this.renderTextInput()}
