@@ -30,7 +30,7 @@ exports.handler = async (event) => {
 
     let inNotesGroups = false;
 
-    groups.forEach((group) => {
+    groups.Groups.forEach((group) => {
       if (group.GroupName === 'Notes') {
         inNotesGroups = true;
       }
@@ -104,7 +104,7 @@ exports.handler = async (event) => {
         ContentType: 'application/pdf',
       };
 
-      await s3.putObjectAcl(params).promise();
+      await s3.putObject(params).promise();
 
       await browser.close();
 
