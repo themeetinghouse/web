@@ -104,7 +104,7 @@ exports.handler = async (event) => {
         ContentType: 'application/pdf',
       };
 
-      await s3.putObjectAcl(params).promise();
+      await s3.putObject(params).promise();
 
       await browser.close();
 
