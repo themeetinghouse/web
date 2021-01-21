@@ -65,6 +65,7 @@
         "header1": "Find Your Community",
         "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
         "link1Text": "Show Map",
+        "link1AriaLabel" : "View a map of all church locations",
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true

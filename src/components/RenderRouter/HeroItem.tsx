@@ -408,10 +408,19 @@ class HeroItem extends React.Component<Props, State> {
               </div>
             ) : null}
             {this.renderButton(this.state.content.button1, 'heroItemButton')}
-
-            <Link className="inverted" to={this.state.content.link1Action}>
-              {this.state.content.link1Text}
-            </Link>
+            {this.state.content.link1AriaLabel ? (
+              <Link
+                aria-label={this.state.content.link1AriaLabel}
+                className="inverted"
+                to={this.state.content.link1Action}
+              >
+                {this.state.content.link1Text}
+              </Link>
+            ) : (
+              <Link className="inverted" to={this.state.content.link1Action}>
+                {this.state.content.link1Text}
+              </Link>
+            )}
             {this.state.content.addToCalendar ? (
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img
@@ -480,12 +489,22 @@ class HeroItem extends React.Component<Props, State> {
 
             {this.state.content.link1Text ? (
               <div className="heroAContainer">
-                <Link
-                  className="HeroItemA2 inverted"
-                  to={this.state.content.link1Action}
-                >
-                  {this.state.content.link1Text}
-                </Link>
+                {this.state.content.link1AriaLabel ? (
+                  <Link
+                    className="HeroItemA2 inverted"
+                    aria-label={this.state.content.link1AriaLabel}
+                    to={this.state.content.link1Action}
+                  >
+                    {this.state.content.link1Text}
+                  </Link>
+                ) : (
+                  <Link
+                    className="HeroItemA2 inverted"
+                    to={this.state.content.link1Action}
+                  >
+                    {this.state.content.link1Text}
+                  </Link>
+                )}
               </div>
             ) : null}
             {this.state.content.addToCalendar ? (
