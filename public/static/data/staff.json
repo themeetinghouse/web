@@ -545,7 +545,7 @@
     "LastName": "Frisk",
     "Phone": "905.287.7000, ext. 826",
     "Position": "Curriculum Pastor & Brantford Lead Pastor",
-    "sites": ["Communications", "Pastoral", "Children", "BRFD"],
+    "sites": ["BRFD", "Communications", "Pastoral", "Children"],
     "Email": "Natalie.Frisk@themeetinghouse.com"
   },
   {
@@ -581,7 +581,7 @@
     "LastName": "Prendergast",
     "Phone": "905.287.7000, ext. 849",
     "Position": "London Lead Pastor",
-    "sites": ["Pastoral", "LOND"],
+    "sites": ["LOND", "Pastoral"],
     "Email": "Phil.Prendergast@themeetinghouse.com"
   },
   {
