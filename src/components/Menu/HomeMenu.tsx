@@ -7,6 +7,7 @@ import {
   NavbarBrand,
   Nav,
   Button,
+  NavItem,
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
@@ -338,7 +339,7 @@ class HomeMenu extends React.Component<Props, State> {
                               (a) => a.location === this.props.location.pathname
                             );
                           return (
-                            <li key={item.location} className="linkContainer">
+                            <NavItem key={item.location}>
                               <NavLink
                                 className="bigNav"
                                 activeStyle={{ fontWeight: 'bold' }}
@@ -395,7 +396,7 @@ class HomeMenu extends React.Component<Props, State> {
                                       </NavLink>
                                     ))
                                 : null}
-                            </li>
+                            </NavItem>
                           );
                         })
                       : null}
