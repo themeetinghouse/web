@@ -489,22 +489,13 @@ class HeroItem extends React.Component<Props, State> {
 
             {this.state.content.link1Text ? (
               <div className="heroAContainer">
-                {this.state.content.link1AriaLabel ? (
-                  <Link
-                    className="HeroItemA2 inverted"
-                    aria-label={this.state.content.link1AriaLabel}
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                ) : (
-                  <Link
-                    className="HeroItemA2 inverted"
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                )}
+                <Link
+                  className="HeroItemA2 inverted"
+                  aria-label={this.state.content.link1AriaLabel}
+                  to={this.state.content.link1Action}
+                >
+                  {this.state.content.link1Text}
+                </Link>
               </div>
             ) : null}
             {this.state.content.addToCalendar ? (
