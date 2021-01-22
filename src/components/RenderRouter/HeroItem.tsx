@@ -408,19 +408,13 @@ class HeroItem extends React.Component<Props, State> {
               </div>
             ) : null}
             {this.renderButton(this.state.content.button1, 'heroItemButton')}
-            {this.state.content.link1AriaLabel ? (
-              <Link
-                aria-label={this.state.content.link1AriaLabel}
-                className="inverted"
-                to={this.state.content.link1Action}
-              >
-                {this.state.content.link1Text}
-              </Link>
-            ) : (
-              <Link className="inverted" to={this.state.content.link1Action}>
-                {this.state.content.link1Text}
-              </Link>
-            )}
+            <Link
+              aria-label={this.state.content.link1AriaLabel}
+              className="inverted"
+              to={this.state.content.link1Action}
+            >
+              {this.state.content.link1Text}
+            </Link>
             {this.state.content.addToCalendar ? (
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img
