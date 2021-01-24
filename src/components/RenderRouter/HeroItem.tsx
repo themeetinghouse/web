@@ -160,8 +160,9 @@ class HeroItem extends React.Component<Props, State> {
             className="validate"
             target="_blank"
           >
-            <div className="emailDiv" aria-hidden="true">
+            <div className="emailDiv">
               <input
+                aria-hidden="true"
                 className="emailInput"
                 type="text"
                 name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826"
@@ -176,6 +177,7 @@ class HeroItem extends React.Component<Props, State> {
                   src="/static/svg/Contact.svg"
                 ></img>
                 <input
+                  aria-label="Email Address"
                   type="email"
                   name="EMAIL"
                   className="email"
@@ -184,6 +186,7 @@ class HeroItem extends React.Component<Props, State> {
                 />
               </div>
               <input
+                aria-label="Subscribe"
                 type="submit"
                 value="Sign Me Up"
                 name="subscribe"
@@ -385,8 +388,12 @@ class HeroItem extends React.Component<Props, State> {
                       this.locationChange(item);
                     }}
                     styles={{
+                      placeholder: (styles) => {
+                        return { ...styles, color: '#484848' };
+                      },
                       menuPortal: (styles) => ({ ...styles, zIndex: 999 }), //  >= dialog's z-index
                     }}
+                    aria-label="Church Search By City"
                     placeholder="Search for a church by city"
                     className="partialNoFooterLocationDropDown"
                     options={this.state.locationData
@@ -401,8 +408,11 @@ class HeroItem extends React.Component<Props, State> {
               </div>
             ) : null}
             {this.renderButton(this.state.content.button1, 'heroItemButton')}
-
-            <Link className="inverted" to={this.state.content.link1Action}>
+            <Link
+              aria-label={this.state.content.link1AriaLabel}
+              className="inverted"
+              to={this.state.content.link1Action}
+            >
               {this.state.content.link1Text}
             </Link>
             {this.state.content.addToCalendar ? (
@@ -447,11 +457,15 @@ class HeroItem extends React.Component<Props, State> {
                     menuPortalTarget={document.querySelector('body')}
                     X
                     styles={{
+                      placeholder: (styles) => {
+                        return { ...styles, color: '#484848' };
+                      },
                       menuPortal: (styles) => ({ ...styles, zIndex: 999 }), //  >= dialog's z-index
                     }}
                     onChange={(item) => {
                       this.locationChange(item);
                     }}
+                    aria-label="Church Search By City"
                     placeholder="Search for a church by city"
                     className="partialLocationDropDown"
                     options={this.state.locationData
@@ -471,6 +485,7 @@ class HeroItem extends React.Component<Props, State> {
               <div className="heroAContainer">
                 <Link
                   className="HeroItemA2 inverted"
+                  aria-label={this.state.content.link1AriaLabel}
                   to={this.state.content.link1Action}
                 >
                   {this.state.content.link1Text}
