@@ -276,7 +276,7 @@ class BlogItem extends React.Component<Props, State> {
                   };
                   return (
                     <div key={index} className="BlogMultiImageItem">
-                      <Link to={'/posts/' + item?.id}>
+                      <Link className="BlogLink" to={'/posts/' + item?.id}>
                         {this.state.screenWidth >= 768 ? (
                           <ScaledImage
                             image={imageBanner}
@@ -306,25 +306,20 @@ class BlogItem extends React.Component<Props, State> {
                             }}
                           />
                         )}
+                        <div className="BlogMultiImageTextContainer">
+                          <div className="BlogTitle multiImage">
+                            {item?.blogTitle}
+                          </div>
+                          <div className="blogauthor multiImage">
+                            by{' '}
+                            <span className="author-only">{item?.author}</span>{' '}
+                            on {item?.publishedDate}
+                          </div>
+                          <div className="blogdescription multiImage">
+                            {item?.description}
+                          </div>
+                        </div>
                       </Link>
-                      <div className="BlogMultiImageTextContainer">
-                        <div className="blog-post-title multiImage">
-                          {item?.blogTitle}
-                        </div>
-                        <div className="blogauthor multiImage">
-                          by <span className="author-only">{item?.author}</span>{' '}
-                          on {item?.publishedDate}
-                        </div>
-                        <div className="blogdescription multiImage">
-                          {item?.description}
-                        </div>
-                        <Link
-                          className="blog-read-more"
-                          to={'/posts/' + item?.id}
-                        >
-                          Read More
-                        </Link>
-                      </div>
                     </div>
                   );
                 })}

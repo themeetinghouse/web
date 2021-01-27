@@ -420,12 +420,14 @@ export default function Announcements(): JSX.Element {
               Description:{' '}
               {!announcement.description ? (
                 <b style={{ color: 'red' }}>*</b>
-              ) : null}
+              ) : (
+                <small>{announcement.description.length}/300 characters</small>
+              )}
               <textarea
                 className="genericTextArea"
                 name="description"
                 required
-                maxLength={1000}
+                maxLength={300}
                 rows={5}
                 value={announcement.description}
                 onChange={(e) =>
@@ -669,11 +671,13 @@ export default function Announcements(): JSX.Element {
               Description:{' '}
               {!announcement.description ? (
                 <b style={{ color: 'red' }}>*</b>
-              ) : null}
+              ) : (
+                <small>{announcement.description.length}/300 characters</small>
+              )}
               <textarea
                 className="genericTextArea"
                 name="description"
-                maxLength={1000}
+                maxLength={300}
                 rows={5}
                 value={announcement.description}
                 onChange={(e) =>

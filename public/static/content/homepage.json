@@ -230,6 +230,7 @@
         "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
         "text2": "Find local, connect online.",
         "link1Text": "Show Map",
+        "link1AriaLabel" : "View a map of all church locations",
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true
