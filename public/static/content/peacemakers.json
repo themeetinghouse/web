@@ -135,8 +135,14 @@
           },
           {
             "type": "link",
+            "title": "Indigenous Reconciliation",
+            "navigateTo": "/static/pdfs/compassion/Indigenous Reconciliation Resource.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "Kids, Youth, and Parents",
-            "navigateTo": "/static/pdfs/compassion/Kids-Youth-Parents.pdf",
+            "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
             "openNewBrowser": true
           }
         ]
@@ -162,13 +168,6 @@
               "answer": [
                 "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatness need we are not collecting Relief Kits."
               ]
-          },
-          {
-            "type": "question",
-            "question": "What items are in the Relief Kits?",
-            "answer": [
-              "A list of items in the Relief Kits can be found in the resource section of this page. Please only include new items and limit your generosity to the items on the list."
-            ]
           },
           {
             "type": "question",
