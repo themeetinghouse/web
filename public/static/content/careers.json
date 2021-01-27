@@ -79,7 +79,13 @@
         "style": "oneImageBlackRight",
         "header1": "Part-time Careers",
         "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-        "list": [],
+        "list": [          
+          {
+          "type": "link",
+          "title": "Kitchner Kidmax Coordinator",
+          "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT - Adapted for COVID.pdf"
+        }
+      ],
         "image1": [
           {
             "src": "/static/images/careers-3.jpg",
