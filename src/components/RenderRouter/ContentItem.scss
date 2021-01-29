@@ -616,8 +616,6 @@ transform:rotate(attr(data-value,deg,0);
     font-size: 1.2vw;
     font-family: Graphik Web;
     color: $onyxblacktext;
-    border-bottom: 1px solid $onyxblacktext;
-    padding-bottom: 1px;
 
     &:hover {
       color: inherit;
@@ -861,8 +859,6 @@ transform:rotate(attr(data-value,deg,0);
     line-height: 5.5vw;
     margin-top: 8vw;
     display: inline-block;
-    color: $onyxblacktext;
-    border-bottom: 1px solid $onyxblacktext;
     &:hover {
       color: inherit;
       text-decoration: inherit;
