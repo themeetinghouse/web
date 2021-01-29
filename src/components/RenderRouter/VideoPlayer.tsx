@@ -1,8 +1,13 @@
 import React from 'react';
 import './VideoPlayer.scss';
-import Dropdown from 'react-bootstrap/Dropdown';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Fade,
+} from 'reactstrap';
 import YouTube from 'react-youtube';
-import Fade from 'react-bootstrap/Fade';
 import { isMobileOnly } from 'react-device-detect';
 import {
   FacebookShareButton,
@@ -27,6 +32,7 @@ interface State {
   content: any;
   videoPlayer: any;
   watchPageVideoElements: HTMLCollection;
+  shareOpen: boolean;
 }
 
 export default class VideoPlayer extends React.Component<Props, State> {
@@ -39,6 +45,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       watchPageVideoElements: document.getElementsByClassName(
         'WatchPageVideo whiteText'
       ),
+      shareOpen: false,
     };
   }
 
@@ -81,13 +88,16 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
   shareButton() {
     return (
-      <Dropdown drop={'down'}>
-        <Dropdown.Toggle id="share-custom">
+      <Dropdown
+        isOpen={this.state.shareOpen}
+        toggle={() => this.setState({ shareOpen: !this.state.shareOpen })}
+      >
+        <DropdownToggle id="share-custom">
           <img className="button-icon" src="/static/svg/Share.svg" alt="" />
           Share
-        </Dropdown.Toggle>
+        </DropdownToggle>
         <Fade timeout={1000}>
-          <Dropdown.Menu className="ShareMenu">
+          <DropdownMenu className="ShareMenu">
             <FacebookShareButton
               className="ShareOption"
               // if the data is null (unlikely), window.location.href will work for ~98% of situations. the rest of the time the user is sent to https://www.themeetinghouse.com/teaching
@@ -106,12 +116,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
                   : 'Check out this video from The Meeting House'
               }
             >
-              <Dropdown.Item className="dropitem">
+              <DropdownItem className="dropitem">
                 <FacebookIcon className="social-share-icon" size={32} round />
                 Facebook
-              </Dropdown.Item>
+              </DropdownItem>
             </FacebookShareButton>
-
             <TwitterShareButton
               className="ShareOption"
               url={
@@ -131,12 +140,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
               via={'TheMeetingHouse'}
               related={['TheMeetingHouse']}
             >
-              <Dropdown.Item className="dropitem">
+              <DropdownItem className="dropitem">
                 <TwitterIcon className="social-share-icon" size={32} round />
                 Twitter
-              </Dropdown.Item>
+              </DropdownItem>
             </TwitterShareButton>
-
             <EmailShareButton
               className="ShareOption"
               url={
@@ -156,12 +164,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
               }
               body={'I wanted to share this video with you:'}
             >
-              <Dropdown.Item className="dropitem">
+              <DropdownItem className="dropitem">
                 <EmailIcon className="social-share-icon" size={32} round />
                 Email
-              </Dropdown.Item>
+              </DropdownItem>
             </EmailShareButton>
-
             {isMobileOnly ? (
               <div>
                 <WhatsappShareButton
@@ -180,14 +187,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
                       : 'Check out this video from The Meeting House'
                   }
                 >
-                  <Dropdown.Item className="dropitem">
+                  <DropdownItem className="dropitem">
                     <WhatsappIcon
                       className="social-share-icon"
                       size={32}
                       round
                     />
                     WhatsApp
-                  </Dropdown.Item>
+                  </DropdownItem>
                 </WhatsappShareButton>
 
                 <TelegramShareButton
@@ -206,18 +213,18 @@ export default class VideoPlayer extends React.Component<Props, State> {
                       : 'Check out this video from The Meeting House'
                   }
                 >
-                  <Dropdown.Item className="dropitem">
+                  <DropdownItem className="dropitem">
                     <TelegramIcon
                       className="social-share-icon"
                       size={32}
                       round
                     />
                     Telegram
-                  </Dropdown.Item>
+                  </DropdownItem>
                 </TelegramShareButton>
               </div>
             ) : null}
-          </Dropdown.Menu>
+          </DropdownMenu>
         </Fade>
       </Dropdown>
     );
