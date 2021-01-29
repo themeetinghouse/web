@@ -9,7 +9,6 @@ import HeroItem from './HeroItem';
 import HomeMenu from 'components/Menu/HomeMenu';
 import HomeFooter from 'components/Menu/HomeFooter';
 
-const InstagramItem = React.lazy(() => import('./InstagramItem'));
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
@@ -19,7 +18,6 @@ const GiveItem = React.lazy(() => import('./GiveItem'));
 const Give2Item = React.lazy(() => import('./Give2Item'));
 const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
 const VideoPlayerLive = React.lazy(() => import('./VideoPlayerLive'));
-const SVGItem = React.lazy(() => import('./SVGItem'));
 const TeachingItem = React.lazy(() => import('./TeachingItem'));
 const DistanceGroupItem = React.lazy(() => import('./DistanceGroupItem'));
 const SundayMorningItem = React.lazy(() => import('./SundayMorningItem'));
@@ -77,8 +75,6 @@ class RenderRouter extends React.Component<Props> {
             content={item}
           />
         );
-      case 'svg':
-        return <SVGItem key={index} content={item} />;
       case 'hero':
         return <HeroItem data={this.props.data} key={index} content={item} />;
       case 'goContent':
@@ -94,8 +90,6 @@ class RenderRouter extends React.Component<Props> {
         return <HomeChurchItem key={index} content={item} />;
       case 'form':
         return <FormItem key={index} content={item} />;
-      case 'instagram':
-        return <InstagramItem key={index} content={item} />;
       case 'iframe':
         return <IFrameItem key={index} content={item} />;
       case 'search':

@@ -2,7 +2,6 @@ import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import AddToCalendar from '@esetnik/react-add-to-calendar';
-import PropTypes from 'prop-types';
 import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
@@ -20,13 +19,8 @@ interface State {
   arrowOpacity: any;
 }
 class HeroItem extends React.Component<Props, State> {
-  static contextTypes = {
-    router: PropTypes.object,
-    history: PropTypes.object,
-  };
-
-  constructor(props: Props, context: any) {
-    super(props, context);
+  constructor(props: Props) {
+    super(props);
     this.state = {
       content: props.content,
       locationData: [],
@@ -72,20 +66,12 @@ class HeroItem extends React.Component<Props, State> {
   }
   navigate() {
     this.props.history.push('spirituality', 'as');
-    const unblock = this.props.history.block(
-      'Are you sure you want to leave this page?'
-    );
-    unblock();
   }
   navigateTo(location: string) {
     if (location.includes('.')) {
       window.location.href = location;
     } else {
       this.props.history.push(location, 'as');
-      const unblock = this.props.history.block(
-        'Are you sure you want to leave this page?'
-      );
-      unblock();
     }
   }
   smoothScrollTo(endX: any, endY: any, duration: any) {
@@ -397,10 +383,10 @@ class HeroItem extends React.Component<Props, State> {
                     placeholder="Search for a church by city"
                     className="partialNoFooterLocationDropDown"
                     options={this.state.locationData
-                      .map((item: any) => {
+                      .map((item) => {
                         return { label: item.name, value: item.id };
                       })
-                      .sort((a: any, b: any) => {
+                      .sort((a, b) => {
                         return a.label.localeCompare(b.label);
                       })}
                   ></Select>
@@ -469,10 +455,10 @@ class HeroItem extends React.Component<Props, State> {
                     placeholder="Search for a church by city"
                     className="partialLocationDropDown"
                     options={this.state.locationData
-                      .map((item: any) => {
+                      .map((item) => {
                         return { label: item.name, value: item.id };
                       })
-                      .sort((a: any, b: any) => {
+                      .sort((a, b) => {
                         return a.label.localeCompare(b.label);
                       })}
                   ></Select>

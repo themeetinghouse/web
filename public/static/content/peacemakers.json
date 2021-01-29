@@ -54,9 +54,9 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Relief Kit Collection Day is March 8",
+        "header1": "Collection Begins on February 7",
         "header2": "",
-        "text1": "Each year we collect Peace Cards and Relief Kits as part of this campaign. This year our goal is to collect $225,000 in Peace Cards and 1,000 Relief Kits.",
+        "text1": "Each year we collect Peace Cards and Relief Kits as part of this campaign. This year our goal is to raise $200,000 towards peacebuilding efforts.",
         "image1": [
           {
             "src": "/static/images/peacemakers-3.jpg",
@@ -68,7 +68,7 @@
         "type": "content",
         "style": "greyTwoText",
         "header1": "",
-        "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $225,000 in Peace Cards and 1,000 Relief Kits.",
+        "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $200,000 in funds.",
         "circleHeader": "$202,190",
         "circleText": "RAISED TO DATE",
         "showCircle": true,
@@ -123,18 +123,6 @@
         "list": [
           {
             "type": "link",
-            "title": "Relief Kit Checklist",
-            "navigateTo": "/static/pdfs/compassion/2020-Checklist-Cards.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Register to pack Relief Kits",
-            "navigateTo": "https://meeting.formstack.com/forms/peacemakerspack",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
             "title": "MCC Project Reports",
             "navigateTo": "/static/pdfs/compassion/MCC-Project-Reports.pdf",
             "openNewBrowser": true
@@ -147,8 +135,14 @@
           },
           {
             "type": "link",
+            "title": "Indigenous Reconciliation",
+            "navigateTo": "/static/pdfs/compassion/Indigenous Reconciliation Resource.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "Kids, Youth, and Parents",
-            "navigateTo": "/static/pdfs/compassion/Kids-Youth-Parents.pdf",
+            "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
             "openNewBrowser": true
           }
         ]
@@ -165,50 +159,15 @@
         "list": [
           {
             "type": "question",
-            "question": "What are Peace Cards and Relief Kits?",
+            "question": "Why focus on Peace?",
             "answer": [
-              "Peace Cards are $100 donations that will be going to MCC’s peacebuilding work in Sub-Saharan Africa and here in Ontario. Relief Kits are a collection of specific in-kind donations that MCC uses to respond to humanitarian relief situations around the world."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Why does MCC send material resources?",
-            "answer": [
-              "MCC places a priority on purchasing materials in-country or in the region if surpluses of appropriate commodities are available at prices comparable to world prices plus shipping expenses. Nearly all MCC responses will contain both locally purchased materials and resources sent from Canada, the United States, and Europe. Material resources will be shipped from Canada and the United States where MCC works in the following situations:",
-              "-Available materials in MCC material resource centres are culturally appropriate",
-              "-Quality and quantity of materials given do not significantly disrupt the local market",
-              "-Local partners requested materials and are part of the planning for distribution and use",
-              "-Assistance is granted for a specific purpose and for a defined period of time"
-            ]
-          },
-          {
-            "type": "question",
-            "question": "What are the Peace Card funds used for?",
-            "answer": [
-              "The funds raised through Peace Cards are how we financially support the peacebuilding work MCC is doing in Sub-Saharan Africa and locally in Ontario. Our support will be going to MCC's work in Burkina Faso, Burundi, Chad, DRC, Ethiopia, Kenya, Mozambique, Nigeria, South Sudan, South Africa, Uganda, Zambia, Zimbabwe, and here in Canada. View the MCC project reports under the resources section of this page to learn about the type of work we support."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "What items are in the Relief Kits?",
-            "answer": [
-              "A list of items in the Relief Kits can be found in the resource section of this page. Please only include new items and limit your generosity to the items on the list."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Why are these specific items needed?",
-            "answer": [
-              "Bath Soap - Soap helps to maintain a basic level of hygiene, but for many people who have been displaced, gaining access to ‘luxuries’ beyond adequate food and shelter is a challenge.",
-              "Fingernail Clipper - Small but mighty, nail clippers are one of the most valuable items in a Relief Kit. This item keeps fingernails short and less likely to hold dirt and bacteria. In over-crowded places where refugees are living, there is often inadequate water, sanitation, and medical facilities. Nail clippers keep the spread of disease at bay in places where adequate sanitation is difficult and people are often eating with their hands.",
-              "Laundry Soap - Bars of laundry soap are stronger than powdered laundry soap and can last longer. In places where there are no machines for washing and limited water supply, bars of laundry soap are a valuable item for families who have fled hardship and are trying to rebuild their lives.",
-              "Adult-size toothbrushes - Many families when they are on the move either have no toothbrush depending on the condition in which they fled or may have to share one toothbrush among many family members. Dental care, if offered at all, is too expensive in the many places where there are large populations of refugees. Oral hygiene products are additional expenses that families often must forego in the place of food and shelter.",
-              "Bath towels - Often heavy and bulky items such as towels are left behind in situations where families and individuals must leave most of their belongings behind. As refugees and internally displaced persons rebuild their lives, items such as towels are invaluable. Items like this are expensive to purchase when funds are low, yet are needed on a day-to-day basis.",
-              "Wide-tooth combs - A staple for personal hygiene, combs not only help when bathing is less possible in conditions where water is scarce, but they are also helpful in preserving personal dignity as displaced persons try to rebuild their lives.",
-              "Plastic bottle shampoo- Shampoo is a heavy and rare commodity that is often too expensive for families who have to choose between personal hygiene and food and heat for survival. Providing a family with this offers a seemingly small yet highly valued item for those looking for work and living day-to-day in a new place after traumatically leaving their homes behind.",
-              "Box adhesive bandages - In many places where there are densely populated refugees and internally displaced persons, adequate medical care is scarce. Bandages help keep small wounds clean in places where adequate sanitation is difficult to maintain, thereby assisting in keeping the spread of infection at bay.",
-              "Package sanitary pads - Feminine hygiene products are massively important for women living in inadequate conditions. These products are often not prioritized over the need for food and other basic living expenses, yet have huge implications for women. For girls fortunate enough to go to school, they can miss up to a week of school each month if they do not have adequate sanitation products. For hygienic and health reasons, women need adequate products to stay healthy."
-            ]
+              "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth, and it challenges us to think as global citizens."
+            ],
+              "type": "question",
+              "question": "Are we collecting Relief Kits this year?",
+              "answer": [
+                "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatness need we are not collecting Relief Kits."
+              ]
           },
           {
             "type": "question",
@@ -227,45 +186,9 @@
           },
           {
             "type": "question",
-            "question": "When do I bring my Relief Kits and Peace Cards for the collection?",
+            "question": "How can I give to Peacemakers this year?",
             "answer": [
-              "This year you are encouraged to give Peace Cards throughout the campaign! Track our progress for hitting our goal on our website or attend your site on a Sunday morning throughout the campaign.",
-              "Relief Kits collection day is March 8th, 2020. You can bring your kits to your site before the service begins. Please DO NOT pack any cheques or envelops into your Relief Kits."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Who will receive the Relief Kits and how are recipients selected?",
-            "answer": [
-              "Each year MCC will determine where the Relief Kits will be going based on where the greatest need is for humanitarian relief. This year the Relief Kits will be distributed in Jordan to Syrian refugees and others affected by the crisis in Syria."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Why don’t we get all the items via corporate donations and/or bulk purchasing?",
-            "answer": [
-              "Obtaining items via donations or bulk purchasing would be more efficient but definitely less relational. The Relief Kits create a space for The Meeting House as a community to remember our sisters, brothers, and siblings around the world and to respond in a tangible manner. It’s an opportunity for individuals, Home Churches, and families to rally together and achieve a common goal."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Is sending Relief Kits to areas affected by conflict an appropriate response that aligns with proper development practices?",
-            "answer": [
-              "Relief Kits are important because they provide items that meet the basic needs for individuals and families affected by international conflict and disaster. MCC prioritizes purchasing items locally when possible; however, in severe conflict and disaster situations, the local economy has collapsed and the ability to purchase these items locally in bulk is difficult or impossible. Without Relief Kits, these essential supplies that meet people's basic needs wouldn’t be available. When people's basic needs are met, it reduces tension within conflict situations, so Relief Kits not only support relief work but also support longer term development, peacebuilding, and reconciliation efforts."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Why does it say 'one donor per envelope' on the Peace Cards?",
-            "answer": [
-              "Peace Cards are $100 each and our goal is to raise $225,000 across all of our sites. We are asking that people who give money towards Peace Cards use the special envelopes that are available at the Info Tables. We only want one donor per envelope because it’s much easier for our financial team to account and give tax receipts. We are, however, giving tax receipts for amounts of $20 or greater. That means that if you have four people wanting to put $25 each towards a $100 Peace Card, they should use four separate envelopes. If they put all their money in one envelope, then only one donor (whose info is on the outside of the envelope) will receive a tax receipt."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Can I give to peacemakers online or by text?",
-            "answer": [
-              "Yes!  There are four ways you can give without writing a cheque or giving cash.",
+              "Yes!  There are four ways you can give without writing a cheque or giving cash. This year we are not accepting cash or cheque donations this year as a means to limit the spread of COVID-19.",
               "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
               "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
               "InFellowship: You can donate online through your The Meeting House InFellowship account.",

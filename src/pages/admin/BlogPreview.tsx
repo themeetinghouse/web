@@ -1,6 +1,6 @@
 import React from 'react';
 import './BlogPreview.scss';
-import Dropdown from 'react-bootstrap/Dropdown';
+import { Dropdown, DropdownToggle } from 'reactstrap';
 import ReactHtmlParser from 'react-html-parser';
 import { convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
@@ -47,15 +47,15 @@ export default class VideoPlayer extends React.Component<Props, State> {
 
   shareButton() {
     return (
-      <Dropdown>
-        <Dropdown.Toggle id="share-custom">
+      <Dropdown toggle={() => null}>
+        <DropdownToggle id="share-custom">
           <img
             className="button-icon"
             src="/static/svg/Share-white.svg"
             alt=""
           />
           Share
-        </Dropdown.Toggle>
+        </DropdownToggle>
       </Dropdown>
     );
   }

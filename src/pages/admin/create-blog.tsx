@@ -80,6 +80,8 @@ interface State {
   understand: string;
   deleteBlogSeries: string;
   understandBlogSeries: string;
+
+  customId: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -133,6 +135,8 @@ class Index extends React.Component<EmptyProps, State> {
       understand: '',
       deleteBlogSeries: '',
       understandBlogSeries: '',
+
+      customId: '',
     };
 
     this.listSeries();
@@ -312,6 +316,12 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
+  validCustomId(customId: string) {
+    if (!customId) return true;
+    const lowercaseAndHyphens = new RegExp(/^[a-z\-]+$/);
+    return lowercaseAndHyphens.test(customId);
+  }
+
   async handleSave() {
     if (
       !this.state.blogObject.blogTitle ||
@@ -333,7 +343,18 @@ class Index extends React.Component<EmptyProps, State> {
     const raw = convertToRaw(contentState);
     const html = draftToHtml(raw);
     this.updateBlogField('content', html);
-    this.updateBlogField('id', this.state.blogObject.blogTitle);
+
+    if (!this.validCustomId(this.state.customId)) {
+      this.setState({
+        showAlert: '⚠️ Invalid custom id: lowercase letters and hyphens only!',
+      });
+      return false;
+    }
+
+    this.updateBlogField(
+      'id',
+      this.state.customId || this.state.blogObject.blogTitle
+    );
 
     if (
       !this.state.editMode &&
@@ -442,6 +463,13 @@ class Index extends React.Component<EmptyProps, State> {
         new Date()
       );
       this.setState({ publishDate: pub });
+    }
+
+    if (
+      this.state.blogToEditObject?.id &&
+      this.validCustomId(this.state.blogToEditObject.id)
+    ) {
+      this.setState({ customId: this.state.blogToEditObject.id });
     }
 
     const blogBridgeByPost = API.graphql({
@@ -824,7 +852,7 @@ class Index extends React.Component<EmptyProps, State> {
         <br />
 
         <label>
-          Delete a blog (enter title):
+          Delete a blog (enter id):
           <input
             style={{ width: 400, height: 20 }}
             type="text"
@@ -853,7 +881,7 @@ class Index extends React.Component<EmptyProps, State> {
         <br />
 
         <label>
-          Delete a blog series (enter title):
+          Delete a blog series (enter id):
           <input
             style={{ width: 400, height: 20 }}
             type="text"
@@ -903,7 +931,6 @@ class Index extends React.Component<EmptyProps, State> {
             }}
           />
         </label>
-
         <label>
           Author:
           <input
@@ -917,7 +944,7 @@ class Index extends React.Component<EmptyProps, State> {
         </label>
         <div style={{ color: 'red', padding: 0, fontSize: 'small' }}>
           {this.state.editMode
-            ? 'Warning: Changing your title will create a new post. Please be careful to avoid publishing duplicates.'
+            ? 'Warning: Changing your title OR custom ID will create a new post. Please be careful to avoid publishing duplicates.'
             : null}
         </div>
 
@@ -940,6 +967,26 @@ class Index extends React.Component<EmptyProps, State> {
             }}
           />
         </label>
+
+        <label>
+          Custom ID:
+          <input
+            className="small-input"
+            type="text"
+            value={this.state.customId}
+            onChange={(event) => {
+              this.setState({
+                customId: event.target.value,
+                selectedBlogSeries: [],
+                editMode: false,
+              });
+            }}
+          />
+        </label>
+        <small style={{ marginLeft: 12 }}>
+          Lowercase letters and hyphens only (e.g. this-is-a-blog)
+        </small>
+        <br />
 
         <label>
           Hide from main index

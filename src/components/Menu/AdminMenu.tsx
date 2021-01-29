@@ -16,8 +16,6 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import { EmptyProps } from '../../utils';
-
-import '../../bootstrap-override.css';
 import './adminmenu.scss';
 
 interface State {
@@ -68,42 +66,6 @@ export default class Menu extends React.Component<EmptyProps, State> {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              {/*              <NavItem>
-                <NavLink href="/admin/videos">Videos</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/news">News</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/blog">Blogs</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/events">Events</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/locations">Locations</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/prayer">Prayer</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/homechurch">Home Church</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/giving">Giving</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/compassion">Compassion</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/legal">Legal</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/imports">Imports</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/admin/import-kids">Import Kids</NavLink>
-</NavItem>*/}
               <NavItem>
                 <NavLink to="/admin/livestream">Livestream</NavLink>
               </NavItem>
@@ -135,23 +97,6 @@ export default class Menu extends React.Component<EmptyProps, State> {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              {/*<UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>*/}
             </Nav>
           </Collapse>
         </Navbar>

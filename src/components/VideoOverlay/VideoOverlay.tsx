@@ -1,6 +1,6 @@
 import React from 'react';
 import RenderRouter from '../RenderRouter/RenderRouter';
-import { Modal } from 'react-bootstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import './VideoOverlay.scss';
 
 const searchPageContent = fetch('/static/content/search.json').then(function (
@@ -28,14 +28,12 @@ interface Props {
   isPlaylist?: boolean;
 }
 interface State {
-  data: any;
   content: any;
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      data: props.data,
       content: this.props.content,
     };
   }
@@ -60,44 +58,37 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   render() {
+    const { content } = this.state;
+    const { data, onClose } = this.props;
+    const logoIsBlack = content?.page?.pageConfig?.logoColor === 'black';
     return (
       <div>
-        {this.state.content != null ? (
+        {content ? (
           <Modal
-            dialogClassName={
-              this.state.content.page.pageConfig.logoColor === 'black'
-                ? 'modal-video white'
-                : 'modal-video '
+            className={logoIsBlack ? 'modal-video white' : 'modal-video'}
+            isOpen={!!data}
+            modalClassName={
+              (content.page.content as any[]).find(
+                (item) => item.type === 'form'
+              )
+                ? 'no-scroll'
+                : ''
             }
-            show={this.props.data !== null}
-            onHide={() => null}
-            style={{
-              overflowY:
-                this.state.content.page.content.filter(
-                  (item: any) => item.type === 'form'
-                ).length > 0
-                  ? 'hidden'
-                  : 'scroll',
-            }}
           >
-            <Modal.Body
-              className={
-                this.state.content.page.pageConfig.logoColor === 'black'
-                  ? 'modal-body white'
-                  : 'modal-body '
-              }
+            <ModalBody
+              className={logoIsBlack ? 'modal-body white' : 'modal-body'}
             >
               <button
                 className="CloseButton"
                 onClick={() => {
-                  this.props.onClose();
+                  onClose();
                 }}
                 aria-label="Close modal"
               >
                 <img
                   className="VideoOverlayClose"
                   src={
-                    this.state.content.page.pageConfig.logoColor === 'black'
+                    logoIsBlack
                       ? '/static/svg/Close-Cancel.svg'
                       : '/static/svg/Close-Cancel-White.svg'
                   }
@@ -105,17 +96,10 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 />
               </button>
 
-              <RenderRouter
-                data={this.props.data}
-                content={this.state.content}
-              ></RenderRouter>
-            </Modal.Body>
-            <Modal.Footer
-              className={
-                this.state.content.page.pageConfig.logoColor === 'black'
-                  ? 'modal-footer white'
-                  : 'modal-footer'
-              }
+              <RenderRouter data={data} content={content}></RenderRouter>
+            </ModalBody>
+            <ModalFooter
+              className={logoIsBlack ? 'modal-footer white' : 'modal-footer'}
             />
           </Modal>
         ) : null}

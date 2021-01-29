@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './WeatherItem.scss';
 import moment from 'moment';
 
@@ -21,23 +20,9 @@ interface Props extends RouteComponentProps {
   content: Content;
   data: any;
 }
-interface State {
-  content: Content;
-  arrowOpacity: any;
-}
-class HeroItem extends React.Component<Props, State> {
-  static contextTypes = {
-    router: PropTypes.object,
-    history: PropTypes.object,
-  };
-
-  constructor(props: Props, context: any) {
-    super(props, context);
-    this.state = {
-      content: props.content,
-      arrowOpacity: 1,
-    };
-    this.navigate = this.navigate.bind(this);
+class HeroItem extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
   }
 
   getCalendarEventForLocation(locationItem: any) {
@@ -62,19 +47,8 @@ class HeroItem extends React.Component<Props, State> {
   locationChange(item: any) {
     this.navigateTo(item.value);
   }
-  navigate() {
-    this.props.history.push('spirituality', 'as');
-    const unblock = this.props.history.block(
-      'Are you sure you want to leave this page?'
-    );
-    unblock();
-  }
   navigateTo(location: any) {
     this.props.history.push(location, 'as');
-    const unblock = this.props.history.block(
-      'Are you sure you want to leave this page?'
-    );
-    unblock();
   }
   smoothScrollTo(endX: any, endY: any, duration: any) {
     const startX = window.scrollX || window.pageXOffset,
@@ -127,18 +101,18 @@ class HeroItem extends React.Component<Props, State> {
     else return 'https://www.themeetinghouse.com/cache/' + size;
   }
   render() {
-    if (this.state.content.style === 'yellow') {
+    const { content } = this.props;
+
+    if (content.style === 'yellow') {
       return (
         <div className="weather weatherPartial">
-          <h1 className="weatherH1">{this.state.content.header1}</h1>
-          {this.state.content.header2 && (
-            <h2 className="weatherH2">{this.state.content.header2}</h2>
-          )}
+          <h1 className="weatherH1">{content.header1}</h1>
+          {content.header2 && <h2 className="weatherH2">{content.header2}</h2>}
           <hr className="weatheroHr"></hr>
-          <div className="weatherText1">{this.state.content.text1}</div>
+          <div className="weatherText1">{content.text1}</div>
           <div className="weatherText1">
             <b>Closed Locations</b>
-            {this.state.content.list.map((item: any, index: any) => {
+            {content.list.map((item: any, index: any) => {
               return <div key={index}>{item.title}</div>;
             })}
           </div>
