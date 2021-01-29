@@ -12,10 +12,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "baseUrl": "src",
-    "lib": [
-      "dom",
-      "es2016"
-    ],
+    "lib": ["dom", "esnext"],
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -25,9 +22,7 @@
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "exclude": [
     "babel.config.js",
     "web-build",

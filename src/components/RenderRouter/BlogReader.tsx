@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState, HTMLAttributes } from 'react';
 import './BlogReader.scss';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Fade from 'react-bootstrap/Fade';
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Fade,
+} from 'reactstrap';
 import ReactHtmlParser from 'react-html-parser';
 import { LinkButton } from '../../components/Link/Link';
 import {
@@ -11,30 +16,32 @@ import {
 } from 'react-share';
 import { FacebookIcon, EmailIcon, TwitterIcon } from 'react-share';
 import { Link } from 'react-router-dom';
-import { GetBlogQuery, GetNotesQuery } from 'API';
+import { GetBlogQuery, GetNotesQuery } from '../../API';
 
-function ShareButton({ className }: { className: string }) {
+function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className={className}>
-      <Dropdown>
-        <Dropdown.Toggle id="share-custom">
+      <Dropdown isOpen={open} toggle={() => setOpen((prev) => !prev)}>
+        <DropdownToggle id="share-custom">
           <img
             className="button-icon"
             src="/static/svg/Share-white.svg"
             alt=""
           />
           Share
-        </Dropdown.Toggle>
+        </DropdownToggle>
         <Fade timeout={1000}>
-          <Dropdown.Menu className="ShareMenu">
+          <DropdownMenu className="ShareMenu">
             <FacebookShareButton
               className="ShareOption"
               url={window.location.href}
             >
-              <Dropdown.Item as="button" className="dropitem">
+              <DropdownItem as="button" className="dropitem">
                 <FacebookIcon className="social-share-icon" size={32} round />
                 Facebook
-              </Dropdown.Item>
+              </DropdownItem>
             </FacebookShareButton>
 
             <TwitterShareButton
@@ -43,10 +50,10 @@ function ShareButton({ className }: { className: string }) {
               via={'TheMeetingHouse'}
               related={['TheMeetingHouse']}
             >
-              <Dropdown.Item as="button" className="dropitem">
+              <DropdownItem as="button" className="dropitem">
                 <TwitterIcon className="social-share-icon" size={32} round />
                 Twitter
-              </Dropdown.Item>
+              </DropdownItem>
             </TwitterShareButton>
 
             <EmailShareButton
@@ -54,12 +61,12 @@ function ShareButton({ className }: { className: string }) {
               url={window.location.href}
               body={'I wanted to share this blog post with you:'}
             >
-              <Dropdown.Item as="button" className="dropitem">
+              <DropdownItem as="button" className="dropitem">
                 <EmailIcon className="social-share-icon" size={32} round />
                 Email
-              </Dropdown.Item>
+              </DropdownItem>
             </EmailShareButton>
-          </Dropdown.Menu>
+          </DropdownMenu>
         </Fade>
       </Dropdown>
     </div>
