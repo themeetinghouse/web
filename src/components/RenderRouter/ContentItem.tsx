@@ -217,7 +217,7 @@ class ContentItem extends React.Component<Props, State> {
                   data-start="30"
                   data-value="30"
                 ></div>
-                <div className="pie" data-start="60" data-value="40"></div>
+                <div className="pie" data-start="0" data-value="30"></div>
                 <div
                   className="pie big"
                   data-start="100"
