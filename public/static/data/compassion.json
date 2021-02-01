@@ -630,41 +630,23 @@
   {
     "id": 72,
     "sites": ["peacemakers"],
-<<<<<<< HEAD
     "name": "Indigenous & Settler Reconciliation:",
     "description": "The church has been a primary source of harm against Indigenous peoples across Turtle Island. Through MCC we support Indigenous led and directed initiatives in the areas of clean water, food security, artisanship, & settler education in Ontario.",
     "image": "/static/photos/compassion/reconciliation.jpg",
-=======
-    "name": "The Door Youth Centre",
-    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
-    "image": "/static/photos/compassion/peacebuilding.jpg",
->>>>>>> d19d38a3cefa7f22617a1c7034c9ce8647bef60c
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
     "id": 73,
     "sites": ["peacemakers"],
-<<<<<<< HEAD
     "name": "Restorative Justice",
     "description": "We partner with efforts that intentionally come alongside criminal offenders, victims, and communities, focusing on rehabilitation and reconciliation rather than punishment.    .",
     "image": "/static/photos/compassion/The Door.jpg",
-=======
-    "name": "The Door Youth Centre",
-    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
-    "image": "/static/photos/compassion/peacebuilding.jpg",
->>>>>>> d19d38a3cefa7f22617a1c7034c9ce8647bef60c
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
+  }, 
   {
     "id": 74,
     "sites": ["peacemakers"],
-<<<<<<< HEAD
     "name": "Peacebuilding in Sub-Saharan Africa",
     "description": "We invest in the development of peacebuilding skills and training for individuals and communities so they can navigate conflicts nonviolently.",
-=======
-    "name": "The Door Youth Centre",
-    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
->>>>>>> d19d38a3cefa7f22617a1c7034c9ce8647bef60c
     "image": "/static/photos/compassion/peacebuilding.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   }
