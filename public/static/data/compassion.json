@@ -626,5 +626,29 @@
     "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
     "image": "/static/photos/compassion/The Door.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 72,
+    "sites": ["peacemakers"],
+    "name": "The Door Youth Centre",
+    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
+    "image": "/static/photos/compassion/The Door.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 73,
+    "sites": ["peacemakers"],
+    "name": "The Door Youth Centre",
+    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
+    "image": "/static/photos/compassion/The Door.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 74,
+    "sites": ["peacemakers"],
+    "name": "The Door Youth Centre",
+    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
+    "image": "/static/photos/compassion/The Door.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
   }
 ]

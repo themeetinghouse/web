@@ -81,6 +81,15 @@
         ]
       },
       {
+        "type": "list",
+        "style": "vertical",
+        "class": "compassion",
+        "header1": "Our Focus",
+        "text1": "In collaboration with our partners, we've developed four focus areas to streamline our efforts for greatest impact",
+        "filterField": "sites",
+        "filterValue": "peacemakers"
+      },
+      {
         "type": "content",
         "style": "oneImage",
         "header1": "Why Peace?",
@@ -162,7 +171,9 @@
             "question": "Why focus on Peace?",
             "answer": [
               "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth, and it challenges us to think as global citizens."
-            ],
+            ]
+          },
+          {  
               "type": "question",
               "question": "Are we collecting Relief Kits this year?",
               "answer": [
