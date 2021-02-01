@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 @media (min-width: 768px) {
   .HorizontalScrollListContainer {
@@ -49,10 +49,9 @@
       .ScrollLine {
         .line {
           height: 3px;
-          //min-width: 2vw;
           max-width: 8vw;
           border-radius: 2px;
-          background-color: $onyxblacktext;
+          background-color: theme.$onyxblacktext;
           margin: 0 0.5vw;
         }
         max-width: 8vw;
@@ -70,7 +69,7 @@
       }
 
       .ScrollButton {
-        background: $onyxblacktext;
+        background: theme.$onyxblacktext;
         height: 4vw;
         width: 5vw;
         margin: 0.5vw;

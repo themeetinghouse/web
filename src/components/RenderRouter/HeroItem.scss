@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 .HeroItemA2 {
   font-size: 1.1vw;
@@ -21,11 +21,10 @@
   }
   .covidButtonDetail {
     background-color: #ffc60b !important;
-    // width:36vw!important;
     padding-left: 12.5vw !important;
     border: 0 !important;
     padding-right: 12.5vw !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
   }
   .HeroAddToCalendarButtonContainer {
     position: relative;
@@ -62,7 +61,7 @@
       top: 48px;
       background: white;
 
-      border: 1px solid $onyxblacktext;
+      border: 1px solid theme.$onyxblacktext;
       padding: 10px 20px 0 20px;
       ul {
         list-style-type: none;
@@ -70,7 +69,7 @@
         font-family: Graphik Web;
         font-size: 1vw;
         a {
-          color: $onyxblacktext !important;
+          color: theme.$onyxblacktext !important;
           vertical-align: middle;
         }
         li {
@@ -342,13 +341,9 @@
     object-fit: cover;
     position: absolute;
     mask-mode: alpha;
-    //  webkit-mask-mode: alpha;
     mask-repeat: no-repeat;
-    //  webkit-mask-repeat: no-repeat;
     mask-size: 20vw;
     z-index: 50;
-    //  webkit-mask-size: 20vw;
-    //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
   }
 
   .heroImageGradient {
@@ -357,9 +352,7 @@
     object-fit: cover;
     position: absolute;
     mask-mode: alpha;
-    //  webkit-mask-mode: alpha;
     mask-repeat: no-repeat;
-    //  webkit-mask-repeat: no-repeat;
     mask-size: 20vw;
     z-index: 51;
     background-image: linear-gradient(
@@ -371,7 +364,7 @@
 
   .heroPartialBlackBox {
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     padding: 2vw;
     left: 10vw;
     width: 36vw;
@@ -381,7 +374,7 @@
 
   .heroBlackBox {
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     padding: 2vw;
     left: 20vw;
     width: 36vw;
@@ -391,7 +384,7 @@
 
   .heroButton {
     margin-top: 1.5vw !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     background-color: #ffffff !important;
     border-radius: 0 !important;
     font-weight: 800 !important;
@@ -456,7 +449,7 @@
     padding-left: 1.5vw;
     color: #ffffff;
     font-weight: normal;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     border-width: 0 !important;
     border-radius: 0;
     text-decoration: underline !important;
@@ -467,7 +460,7 @@
   }
   .heroItemButton {
     margin-top: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #ffffff;
     border-radius: 0;
   }
@@ -484,11 +477,10 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .covidButtonDetail {
     background-color: #ffc60b !important;
-    // width:36vw;
     padding-left: 12.5vw !important;
     border: 0 !important;
     padding-right: 12.5vw !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
   }
   .covidButton {
     position: absolute;
@@ -528,7 +520,7 @@
       z-index: 100;
       top: 48px;
       background: white;
-      border: 1px solid $onyxblacktext;
+      border: 1px solid theme.$onyxblacktext;
       padding: 10px 20px 0 20px;
       ul {
         list-style-type: none;
@@ -536,7 +528,7 @@
         font-family: Graphik Web;
         font-size: 1vw;
         a {
-          color: $onyxblacktext !important;
+          color: theme.$onyxblacktext !important;
           vertical-align: middle;
         }
         li {
@@ -809,13 +801,9 @@
     object-fit: cover;
     position: absolute;
     mask-mode: alpha;
-    //  webkit-mask-mode: alpha;
     mask-repeat: no-repeat;
-    //  webkit-mask-repeat: no-repeat;
     mask-size: 20vw;
     z-index: 50;
-    //  webkit-mask-size: 20vw;
-    //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
   }
 
   .heroImageGradient {
@@ -824,9 +812,7 @@
     object-fit: cover;
     position: absolute;
     mask-mode: alpha;
-    //  webkit-mask-mode: alpha;
     mask-repeat: no-repeat;
-    //  webkit-mask-repeat: no-repeat;
     mask-size: 20vw;
     z-index: 51;
     background-image: linear-gradient(
@@ -838,7 +824,7 @@
 
   .heroPartialBlackBox {
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     padding: 2vw;
     left: 10vw;
     width: 36vw;
@@ -848,7 +834,7 @@
 
   .heroBlackBox {
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     padding: 2vw;
     left: 20vw;
     width: 36vw;
@@ -858,7 +844,7 @@
 
   .heroButton {
     margin-top: 1.5vw !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     background-color: #ffffff !important;
     border-radius: 0 !important;
     font-weight: 800 !important;
@@ -922,7 +908,7 @@
     font-size: 1vw !important;
     margin-top: 1vw;
     color: #ffffff;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     border-width: 0 !important;
     border-radius: 0;
     text-decoration: underline !important;
@@ -933,7 +919,7 @@
   }
   .heroItemButton {
     margin-top: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #ffffff;
     border-radius: 0;
   }
@@ -964,7 +950,7 @@
     width: 70vw !important;
     left: 0vw !important;
     right: 10vw !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
   }
   .covidButton {
     position: absolute;
@@ -1004,7 +990,7 @@
       z-index: 100;
       top: 48px;
       background: white;
-      border: 1px solid $onyxblacktext;
+      border: 1px solid theme.$onyxblacktext;
       padding: 10px 20px 0 20px;
       ul {
         list-style-type: none;
@@ -1012,7 +998,7 @@
         font-family: Graphik Web;
         font-size: 1vw;
         a {
-          color: $onyxblacktext !important;
+          color: theme.$onyxblacktext !important;
           vertical-align: middle;
         }
         li {
@@ -1148,9 +1134,7 @@
   .heroItem {
     position: relative;
     width: 100vw;
-    // height: 120vh;
     padding-bottom: 5vh;
-    // margin-bottom: 45vw;
   }
 
   .heroH1 {
@@ -1253,16 +1237,11 @@
     width: 100vw;
     height: 35vh;
     object-fit: cover;
-    // position: absolute;
     mask-mode: alpha;
-    //  webkit-mask-mode: alpha;
     mask-repeat: no-repeat;
-    //  webkit-mask-repeat: no-repeat;
     mask-size: 20vw;
     z-index: 50;
     object-position: 85% 50%;
-    //  webkit-mask-size: 20vw;
-    //background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
   }
 
   .heroImageGradient {
@@ -1270,26 +1249,23 @@
   }
 
   .heroBlackBox {
-    // position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     padding: 2vw;
     left: 0vw;
     width: 100vw;
-    // height: 65vh;
-    // top: 46vh;
     z-index: 100;
     padding: 10vw 5vw 10vw 5vw;
   }
 
   .heroPartialBlackBox {
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 100vw;
     padding: 10vw 6vw 10vw 6vw;
   }
 
   .heroButton {
     margin-top: 15vw !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     background-color: #ffffff !important;
     border-radius: 0 !important;
     font-weight: 800 !important;
@@ -1332,7 +1308,6 @@
     left: 0vw;
     width: 88vw;
     z-index: 100;
-    // top: 20vw;
   }
 
   .partialNoFooterLocationDropDown {
@@ -1356,7 +1331,7 @@
     font-weight: normal;
     margin-top: 15vw;
     color: #ffffff;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     border-width: 0 !important;
     border-radius: 0;
     text-decoration: underline !important;
@@ -1367,7 +1342,7 @@
   }
   .heroItemButton {
     margin-top: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #ffffff;
     border-radius: 0;
   }
@@ -1379,7 +1354,6 @@
   .divPartial {
     position: relative;
     width: 100vw;
-    //   height: 75vw;
     top: 3vw;
     margin-bottom: 0vw;
   }

@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 .AnnouncementBarContainer {
   display: flex;
@@ -8,7 +8,7 @@
   top: 0vh;
 
   height: 56px;
-  background-color: $goldensun;
+  background-color: theme.$goldensun;
   z-index: 300;
   margin: auto;
   cursor: pointer;

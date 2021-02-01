@@ -1,8 +1,8 @@
-@import '../../theme';
-@import '../Link/Link';
+@use '../../theme';
+@use '../Link/Link' as link;
 
 .teachingButton {
-  @include hollow-btn;
+  @include link.hollow-btn;
 
   margin: 0;
   margin-right: 2vw;
@@ -57,7 +57,7 @@ a.teachingButton {
     font-size: 3vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .teaching-blackbox {
@@ -68,7 +68,7 @@ a.teachingButton {
     width: 50vw;
     top: 10vw;
     height: 42vw;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     color: #ffffff;
   }
 
@@ -120,9 +120,9 @@ a.teachingButton {
   .TeachingSelected {
     font-family: Graphik Web;
     font-weight: bold;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     font-size: 1vw;
-    border-bottom: $onyxblacktext solid;
+    border-bottom: theme.$onyxblacktext solid;
     padding-bottom: 1px;
   }
 
@@ -173,7 +173,7 @@ a.teachingButton {
     font-size: 3vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .teaching-blackbox {
@@ -184,7 +184,7 @@ a.teachingButton {
     width: 50vw;
     top: 10vw;
     height: 42vw;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     color: #ffffff;
   }
 
@@ -236,9 +236,9 @@ a.teachingButton {
   .TeachingSelected {
     font-family: Graphik Web;
     font-weight: bold;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     font-size: 1vw;
-    border-bottom: $onyxblacktext solid;
+    border-bottom: theme.$onyxblacktext solid;
     padding-bottom: 1px;
     cursor: pointer;
   }
@@ -280,7 +280,7 @@ a.teachingButton {
     font-size: 3vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .titleOnly {
@@ -295,7 +295,7 @@ a.teachingButton {
     left: 0vw;
     width: 100vw;
     top: 16vw;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     color: #ffffff;
     padding-bottom: 30vw;
   }
@@ -353,8 +353,8 @@ a.teachingButton {
     cursor: pointer;
     font-family: Graphik Web;
     font-weight: bold;
-    color: $onyxblacktext;
-    border-bottom: $onyxblacktext solid;
+    color: theme.$onyxblacktext;
+    border-bottom: theme.$onyxblacktext solid;
     padding-bottom: 1px;
   }
 

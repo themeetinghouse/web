@@ -1,4 +1,4 @@
-@import '../../theme.scss';
+@use '../../theme';
 
 .blog-item {
   .blog-read-more {
@@ -17,7 +17,7 @@
       font-size: 3vw;
       font-weight: bold;
       font-family: Graphik Web;
-      color: $onyxblacktext;
+      color: theme.$onyxblacktext;
     }
 
     .blog-blackbox {
@@ -28,7 +28,7 @@
       width: 50vw;
       top: 10vw;
       height: 42vw;
-      background-color: $onyxblacktext;
+      background-color: theme.$onyxblacktext;
       color: #ffffff;
     }
 
@@ -154,7 +154,7 @@
       font-size: 3vw;
       font-weight: bold;
       font-family: Graphik Web;
-      color: $onyxblacktext;
+      color: theme.$onyxblacktext;
     }
 
     .blog-blackbox {
@@ -165,7 +165,7 @@
       width: 50vw;
       top: 10vw;
       height: 42vw;
-      background-color: $onyxblacktext;
+      background-color: theme.$onyxblacktext;
       color: #ffffff;
     }
 
@@ -286,7 +286,7 @@
       font-size: 3vw;
       font-weight: bold;
       font-family: Graphik Web;
-      color: $onyxblacktext;
+      color: theme.$onyxblacktext;
     }
 
     .blog-blackbox {
@@ -296,7 +296,7 @@
       left: 0vw;
       width: 100vw;
       top: 16vw;
-      background-color: $onyxblacktext;
+      background-color: theme.$onyxblacktext;
       color: #ffffff;
       padding-bottom: 30vw;
     }

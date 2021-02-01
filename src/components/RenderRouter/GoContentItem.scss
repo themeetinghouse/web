@@ -1,10 +1,10 @@
-@import '../../theme';
+@use '../../theme';
 
 @mixin goHeader($size) {
   font-family: Graphik Web;
   font-size: $size;
   font-weight: bold;
-  color: $onyxblacktext;
+  color: theme.$onyxblacktext;
 }
 
 @mixin contentPosition($mobile: false) {
@@ -19,13 +19,13 @@
 }
 
 .GoContentText {
-  color: $onyxblacktext;
+  color: theme.$onyxblacktext;
   font-family: Graphik Web;
 }
 
 .GoButton {
   color: white;
-  background: $onyxblacktext;
+  background: theme.$onyxblacktext;
 }
 
 @media (min-width: 768px) {
