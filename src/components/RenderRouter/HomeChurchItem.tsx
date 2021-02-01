@@ -14,7 +14,6 @@ import {
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
 import AddToCalendar from '@esetnik/react-add-to-calendar';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
@@ -684,22 +683,16 @@ export class ContentItem extends React.Component<Props, State> {
                 Clear All
               </button>
 
-              <ReactCSSTransitionGroup
-                transitionName="HomeChurchLoading"
-                transitionLeaveTimeout={750}
-                transitionEnterTimeout={300}
-              >
-                {!this.state.allLocationsLoaded ? (
-                  <div className="LoadingContainer">
-                    <div className="LoadingTitleContainer">
-                      <Spinner color="dark" />
-                      <span className="LoadingTitle">
-                        Loading home church listings
-                      </span>
-                    </div>
+              {!this.state.allLocationsLoaded ? (
+                <div className="LoadingContainer">
+                  <div className="LoadingTitleContainer">
+                    <Spinner color="dark" />
+                    <span className="LoadingTitle">
+                      Loading home church listings
+                    </span>
                   </div>
-                ) : null}
-              </ReactCSSTransitionGroup>
+                </div>
+              ) : null}
             </div>
 
             <div

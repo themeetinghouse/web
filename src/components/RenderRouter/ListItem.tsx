@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
@@ -29,8 +28,6 @@ import HorizontalScrollList from './HorizontalScrollList';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './ListItem.scss';
 import format from 'date-fns/format';
-import Fireworks from 'fireworks-react';
-import Konami from 'react-konami-code';
 import ScaledImage, {
   fallbackToImage,
 } from 'components/ScaledImage/ScaledImage';
@@ -58,7 +55,6 @@ interface State {
   };
   listData: ListData[];
   overlayData: any;
-  showChampion: any;
   showMoreVideos: boolean;
   windowWidth: number;
   randomPlaylistId: string;
@@ -87,11 +83,6 @@ type ListData =
 const hideEpisodeNumbers = ['adult-sunday-shortcut', 'kidmax-live'];
 
 class ListItem extends React.Component<Props, State> {
-  static contextTypes = {
-    router: PropTypes.object,
-    history: PropTypes.object,
-  };
-
   videoOverlayClose() {
     this.setState({
       overlayData: null,
@@ -152,7 +143,6 @@ class ListItem extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      showChampion: false,
       content: props.content,
       listData: props.content.list ?? [],
       overlayData: null,
@@ -742,17 +732,11 @@ class ListItem extends React.Component<Props, State> {
               </Link>
             ) : null}
             <div className="ListItemEventsDuration">{durationStr}</div>
-            {/*        <Button className="ListItemEventButton" onClick={() => this.navigate("calendar")}><img src="/static/Calendar.png" alt="Calendar Icon" />Add To Calendar</Button>
-        <Button className="ListItemEventButton" onClick={() => this.navigate("share")}><img src="/static/Share.png" alt="Share Icon" />Share</Button>
-    */}{' '}
           </div>
           <div style={{ clear: 'left' }}></div>
         </div>
       </Link>
     );
-  }
-  easterEgg() {
-    this.setState({ showChampion: true });
   }
   renderStaff(items: StaffData | StaffData[], index: number) {
     const isMobile = this.state.windowWidth < 768;
@@ -769,67 +753,6 @@ class ListItem extends React.Component<Props, State> {
         '_app.jpg';
       return (
         <div key={index} className="ListItemDiv3">
-          {data.FirstName === 'James' ? (
-            <div>
-              <Konami
-                action={() => {
-                  this.easterEgg();
-                }}
-              ></Konami>
-              {this.state.showChampion ? (
-                <div>
-                  <Fireworks
-                    style={{
-                      position: 'fixed',
-                      width: '100%',
-                      height: '100%',
-                      left: 0,
-                      top: 0,
-                      zIndex: 20005,
-                    }}
-                    width={500}
-                    height={500}
-                  />
-                  <img
-                    alt={data.FirstName + ' ' + data.LastName}
-                    className="ListItemImage2"
-                    style={{
-                      position: 'fixed',
-                      left: '30%',
-                      width: '30%',
-                      top: '10%',
-                      zIndex: 200004,
-                    }}
-                    onError={fallbackToImage('/static/Individual.png')}
-                    src={
-                      '/static/photos/' +
-                      (data.Staff == null ? 'coordinators' : 'staff') +
-                      '/' +
-                      (data.Staff == null ? data.sites[0] + '_' : '') +
-                      data.FirstName +
-                      '_' +
-                      data.LastName +
-                      '_app.jpg'
-                    }
-                  />
-                  <h1
-                    style={{
-                      color: '#ffffff',
-                      fontSize: 100,
-                      position: 'fixed',
-                      width: '80%',
-                      height: '20%',
-                      left: '10%',
-                      top: '70%',
-                      zIndex: 200006,
-                    }}
-                  >
-                    Young Adults Champion
-                  </h1>
-                </div>
-              ) : null}
-            </div>
-          ) : null}
           <ScaledImage
             image={{ src: imgsrc, alt: data.FirstName + ' ' + data.LastName }}
             className="StaffImage"

@@ -8,8 +8,13 @@ import moment from 'moment-timezone';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, LinkButton } from 'components/Link/Link';
 import { isMobile, isMobileOnly } from 'react-device-detect';
-import Fade from 'react-bootstrap/Fade';
-import Dropdown from 'react-bootstrap/Dropdown';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Fade,
+} from 'reactstrap';
 import {
   FacebookShareButton,
   EmailShareButton,
@@ -36,6 +41,7 @@ interface State {
   kidData: any;
   isLive: boolean;
   liveEvent: LiveData | null;
+  shareOpen: boolean;
 }
 export default class VideoPlayer extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -46,6 +52,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
       content: props.content,
       isLive: false,
       liveEvent: null,
+      shareOpen: false,
     };
     this.getLive();
     const getVideoByVideoType: any = API.graphql({
@@ -215,23 +222,27 @@ export default class VideoPlayer extends React.Component<Props, State> {
   }
 
   shareButton() {
+    const { shareOpen } = this.state;
     return (
-      <Dropdown drop={'down'}>
-        <Dropdown.Toggle id="share-custom">
+      <Dropdown
+        isOpen={shareOpen}
+        toggle={() => this.setState({ shareOpen: !this.state.shareOpen })}
+      >
+        <DropdownToggle id="share-custom">
           <img className="button-icon" src="/static/svg/Share.svg" alt="" />
           Share
-        </Dropdown.Toggle>
+        </DropdownToggle>
         <Fade timeout={1000}>
-          <Dropdown.Menu className="ShareMenu">
+          <DropdownMenu className="ShareMenu">
             <FacebookShareButton
               className="ShareOption"
               url="https://www.themeetinghouse.com/live"
               quote="The Meeting House Livestream"
             >
-              <Dropdown.Item className="dropitem">
+              <DropdownItem className="dropitem">
                 <FacebookIcon className="social-share-icon" size={32} round />
                 Facebook
-              </Dropdown.Item>
+              </DropdownItem>
             </FacebookShareButton>
 
             <TwitterShareButton
@@ -241,10 +252,10 @@ export default class VideoPlayer extends React.Component<Props, State> {
               via="TheMeetingHouse"
               related={['TheMeetingHouse']}
             >
-              <Dropdown.Item className="dropitem">
+              <DropdownItem className="dropitem">
                 <TwitterIcon className="social-share-icon" size={32} round />
                 Twitter
-              </Dropdown.Item>
+              </DropdownItem>
             </TwitterShareButton>
 
             <EmailShareButton
@@ -252,10 +263,10 @@ export default class VideoPlayer extends React.Component<Props, State> {
               url="https://www.themeetinghouse.com/live"
               subject="The Meeting House Livestream"
             >
-              <Dropdown.Item className="dropitem">
+              <DropdownItem className="dropitem">
                 <EmailIcon className="social-share-icon" size={32} round />
                 Email
-              </Dropdown.Item>
+              </DropdownItem>
             </EmailShareButton>
 
             {isMobileOnly ? (
@@ -265,14 +276,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
                   url="https://www.themeetinghouse.com/live"
                   title="The Meeting House Livestream"
                 >
-                  <Dropdown.Item className="dropitem">
+                  <DropdownItem className="dropitem">
                     <WhatsappIcon
                       className="social-share-icon"
                       size={32}
                       round
                     />
                     WhatsApp
-                  </Dropdown.Item>
+                  </DropdownItem>
                 </WhatsappShareButton>
 
                 <TelegramShareButton
@@ -280,18 +291,18 @@ export default class VideoPlayer extends React.Component<Props, State> {
                   url="https://www.themeetinghouse.com/live"
                   title="The Meeting House Livestream"
                 >
-                  <Dropdown.Item className="dropitem">
+                  <DropdownItem className="dropitem">
                     <TelegramIcon
                       className="social-share-icon"
                       size={32}
                       round
                     />
                     Telegram
-                  </Dropdown.Item>
+                  </DropdownItem>
                 </TelegramShareButton>
               </Fragment>
             ) : null}
-          </Dropdown.Menu>
+          </DropdownMenu>
         </Fade>
       </Dropdown>
     );
