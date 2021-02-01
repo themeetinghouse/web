@@ -631,8 +631,8 @@
     "id": 72,
     "sites": ["peacemakers"],
     "name": "Indigenous & Settler Reconciliation:",
-    "description": "Indigenous & settler reconciliation: The church has been a primary source of harm against Indigenous peoples across Turtle Island. Through MCC we support Indigenous led and directed initiatives in the areas of clean water, food security, artisanship, & settler education in Ontario.",
-    "image": "/static/photos/compassion/The Door.jpg",
+    "description": "The church has been a primary source of harm against Indigenous peoples across Turtle Island. Through MCC we support Indigenous led and directed initiatives in the areas of clean water, food security, artisanship, & settler education in Ontario.",
+    "image": "/static/photos/compassion/reconciliation.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -648,7 +648,7 @@
     "sites": ["peacemakers"],
     "name": "Peacebuilding in Sub-Saharan Africa",
     "description": "We invest in the development of peacebuilding skills and training for individuals and communities so they can navigate conflicts nonviolently.",
-    "image": "/static/photos/compassion/The Door.jpg",
+    "image": "/static/photos/compassion/peacebuilding.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   }
 ]
