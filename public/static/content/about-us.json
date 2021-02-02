@@ -117,7 +117,11 @@
           {
             "type": "link",
             "title": "Finance Update - January 2021",
+<<<<<<< HEAD
             "navigateTo": "/static/pdfs/annual-reports/Finance Update Jan 2021.pdf",
+=======
+            "navigateTo": "/static/pdfs/annual-reports/TMH_Finance_Update_Jan_2021.pdf",
+>>>>>>> 65ebe22ae87893c06dbd4dfd8c74f4ce9c295f1d
             "openNewBrowser": true
           },
           {
