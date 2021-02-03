@@ -99,7 +99,17 @@
         "sortOrder": "DESC",
         "header1": "Peacemakers",
         "showEpisodeNumbers": false
-      },
+      }
+        }, 
+        {
+          "type": "blog",
+          "style": "multiImage",
+          "status": "Live",
+          "header1": "Peacemaker Blogs",
+          "sortOrder": "DESC",
+          "blogSeries": "Peacemakers",
+          "hideAllBlogsButton": "true"
+        },
       {
         "type": "content",
         "style": "oneImage",
