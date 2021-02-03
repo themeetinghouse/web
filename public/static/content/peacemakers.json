@@ -82,7 +82,6 @@
         "class": "videos",
         "subclass": "compassion",
         "sortOrder": "DESC",
-<<<<<<< HEAD
         "header1": "Peacemakers",
         "showEpisodeNumbers": false
       },
@@ -96,19 +95,6 @@
           "blogSeries": "Peacemakers",
           "hideAllBlogsButton": "true"
         },
-=======
-        "header1": "Videos"
-      },
-      {
-        "type": "blog",
-        "style": "multiImage",
-        "status": "Live",
-        "header1": "Peacemaker Blogs",
-        "sortOrder": "DESC",
-        "blogSeries": "Peacemakers",
-        "hideAllBlogsButton": "true"
-      },
->>>>>>> 44c9befbe17ace0c79e4ee7f2dd7e8ad4c635aec
       {
         "type": "content",
         "style": "oneImage",
@@ -124,14 +110,14 @@
         "list": [
           {
             "type": "link",
-            "title": "MCC Project Reports",
-            "navigateTo": "/static/pdfs/compassion/MCC-Project-Reports.pdf",
+            "title": "Learn About Some Projects We've Supported & MCC Project Reports",
+            "navigateTo": "/static/pdfs/compassion/MCC Reports on Areas of Focus.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Start a Fundraiser",
-            "navigateTo": "/static/pdfs/compassion/Fundraising-Resources.pdf",
+            "title": "Organizing A Virtual Fundraiser",
+            "navigateTo": "/static/pdfs/compassion/Organizing A Virtual Fundraiser for Peacemakers.pdf",
             "openNewBrowser": true
           },
           {
@@ -142,7 +128,7 @@
           },
           {
             "type": "link",
-            "title": "Kids, Youth, and Parents",
+            "title": "NextGen Peacemakers",
             "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
             "openNewBrowser": true
           }
