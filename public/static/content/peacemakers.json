@@ -63,10 +63,9 @@
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. When positive peace is developed, divided communities are able to heal and begin envisioning a new healthy and united future. As the church, we journey with people who have been marginalized through violence by working to meet their tangible needs. We partner with Mennonite Central Committee in three areas",
         "filterField": "sites",
         "filterValue": "peacemakers"
-      }
-    ]
-  },  
- "type": "content",
+      },    
+      {
+        "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Becoming a Peacemaker Training Event",
         "header2": "",
@@ -75,13 +74,15 @@
           "text": "Register Here",
           "action": "https://www.crowdcast.io/e/peacemakers",
           "description": "Being a Peacemaker Event"
-        },
+      }
+    },
+      {
         "type": "list",
         "style": "horizontal",
         "class": "videos",
         "subclass": "compassion",
-        "selector": "Peacemakers",
         "sortOrder": "DESC",
+<<<<<<< HEAD
         "header1": "Peacemakers",
         "showEpisodeNumbers": false
       },
@@ -95,6 +96,19 @@
           "blogSeries": "Peacemakers",
           "hideAllBlogsButton": "true"
         },
+=======
+        "header1": "Videos"
+      },
+      {
+        "type": "blog",
+        "style": "multiImage",
+        "status": "Live",
+        "header1": "Peacemaker Blogs",
+        "sortOrder": "DESC",
+        "blogSeries": "Peacemakers",
+        "hideAllBlogsButton": "true"
+      },
+>>>>>>> 44c9befbe17ace0c79e4ee7f2dd7e8ad4c635aec
       {
         "type": "content",
         "style": "oneImage",
