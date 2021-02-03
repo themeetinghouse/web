@@ -51,7 +51,7 @@
           {
             "type": "button",
             "title": "Give to Peacemakers",
-            "navigateTo": "/peacemakers-give"
+            "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
           }
         ]
       },
