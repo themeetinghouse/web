@@ -89,7 +89,7 @@
         "type": "list",
         "style": "horizontal",
         "class": "videos",
-        "subclass": "peacemakers",
+        "subclass": "compassion",
         "sortOrder": "DESC",
         "header1": "Videos"
       },
