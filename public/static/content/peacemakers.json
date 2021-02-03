@@ -63,9 +63,10 @@
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. When positive peace is developed, divided communities are able to heal and begin envisioning a new healthy and united future. As the church, we journey with people who have been marginalized through violence by working to meet their tangible needs. We partner with Mennonite Central Committee in three areas",
         "filterField": "sites",
         "filterValue": "peacemakers"
-      },
-      {
-        "type": "content",
+      }
+    ]
+  },  
+  "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Becoming a Peacemaker Training Event",
         "header2": "",
@@ -74,23 +75,9 @@
           "text": "Register Here",
           "action": "https://www.crowdcast.io/e/peacemakers",
           "description": "Bring a Peacemaker Event"
-        },
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "",
-        "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $200,000 in funds.",
-        "circleHeader": "$0",
-        "circleText": "RAISED TO DATE",
-        "showCircle": true,
-        "list": [
-          {
-            "type": "button",
-            "title": "Give to Peacemakers",
-            "navigateTo": "/peacemakers-give"
-          }
-        ]
-      },
-      { 
+        }
+    },
+    {
         "type": "list",
         "style": "horizontal",
         "class": "videos",
