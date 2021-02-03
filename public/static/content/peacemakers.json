@@ -43,7 +43,7 @@
         "type": "content",
         "style": "greyTwoText",
         "header1": "",
-        "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $200,000 in funds.",
+        "text1": "By participating in this campaign, we choose to give generously to efforts in our world that seek to bring healing, reconciliation, and justice to God’s creation. Our goal this year is to collect $200,000 in funds by February 28.",
         "circleHeader": "$0",
         "circleText": "RAISED TO DATE",
         "showCircle": true,
@@ -103,8 +103,10 @@
           "sortOrder": "DESC",
           "blogSeries": "Peacemakers",
           "hideAllBlogsButton": "true"
-        },
-      {
+        }
+      ]
+    },
+    {
         "type": "content",
         "style": "oneImage",
         "header1": "Resources",
@@ -164,33 +166,27 @@
               "type": "question",
               "question": "Are we collecting Relief Kits this year?",
               "answer": [
-                "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatness need we are not collecting Relief Kits."
+                "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatest needs we are not collecting Relief Kits."
               ]
           },
           {
             "type": "question",
             "question": "How are Kidmax and Youth engaging with Peacemakers?",
             "answer": [
-              "Kidmax - This year the kids are collecting the four large bars of bath soap (in wrapper) that are needed for each Relief Kit. Talk to your Kidmax Coordinator if you have further questions.",
-              "Youth - This year the youth will be collecting full Relief Kits within their mid-week small groups. Junior highs that only attend Sunday mornings will be collecting four bars of bath soap (in wrapper) with Kidmax. Talk to your Youth Coordinator if you have further questions."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Which organization do I write on the cheque?",
-            "answer": [
-              "Make all cheques out to The Meeting House and not MCC Ontario. Processing all the cheques is a lot of work, so please make sure you use the Peace Card envelope available at your site.  Please only include one donor per Peace Card envelope. Don’t forget to include all the requested contact information for tax receipting purposes. Tax receipts are given for amounts of $20 or greater."
+              "Kidmax and Youth are participating with adults to help us reach our $200,000 goal. For creative ways to engage children and youth refer to the resource here."
+              
             ]
           },
           {
             "type": "question",
             "question": "How can I give to Peacemakers this year?",
             "answer": [
-              "Yes!  There are four ways you can give without writing a cheque or giving cash. This year we are not accepting cash or cheque donations this year as a means to limit the spread of COVID-19.",
+              "There are four ways you can give without writing a cheque or giving cash. This year we are not accepting cash or cheque donations this year as a means to limit the spread of COVID-19.",
               "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
               "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
               "InFellowship: You can donate online through your The Meeting House InFellowship account.",
-              "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu."
+              "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu.", 
+              "If you are unable to give through these platforms please contact Rachel Meredith at rachel.meredith@themeetinghouse.com or call her 905.287.7000 ext. 7026"
             ]
           },
           {
