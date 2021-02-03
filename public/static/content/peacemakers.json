@@ -60,22 +60,31 @@
         "style": "vertical",
         "class": "compassion",
         "header1": "About",
-        "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. When positive peace is developed, divided communities are able to heal and begin envisioning a new healthy and united future. As the church, we journey with people who have been marginalized through violence by working to meet their tangible needs. We partner with Mennonite Central Committee in three areas",
+        "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. When positive peace is developed, divided communities are able to heal and begin envisioning a new healthy and united future. As the church, we journey with people who have been marginalized through violence by working to meet their tangible needs. We partner with Mennonite Central Committee in three areas:",
         "filterField": "sites",
         "filterValue": "peacemakers"
-      },    
+      },
       {
         "type": "content",
-        "style": "oneImageBlackRight",
+        "style": "oneImage",
         "header1": "Becoming a Peacemaker Training Event",
         "header2": "",
-        "text1": "Join us on Saturday February 20 to learn how to be a peacemaker with Issa Ebombolo, Gopar Tapkida and Rod Friesen. Register here:",
-        "button1": {
-          "text": "Register Here",
-          "action": "https://www.crowdcast.io/e/peacemakers",
-          "description": "Being a Peacemaker Event"
-      }
-    },
+        "text1": "Join us on Saturday February 20 to learn how to be a peacemaker with Issa Ebombolo, Gopar Tapkida and Rod Friesen.",
+        "image1": [
+          {
+            "src": "/static/images/spirituality-3.jpg",
+            "alt": "Two people sitting and talking during Home Church"
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Register Here",
+            "navigateTo": "https://www.crowdcast.io/e/peacemakers",
+            "description": "Being a Peacemaker Event"
+          }
+        ]
+      },
       {
         "type": "list",
         "style": "horizontal",
