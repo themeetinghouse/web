@@ -74,7 +74,7 @@
           "text": "Register Here",
           "action": "https://www.crowdcast.io/e/peacemakers",
           "description": "Bring a Peacemaker Event"
-      {
+        },
         "type": "content",
         "style": "greyTwoText",
         "header1": "",
@@ -99,8 +99,7 @@
         "sortOrder": "DESC",
         "header1": "Peacemakers",
         "showEpisodeNumbers": false
-      }
-        }, 
+      }, 
         {
           "type": "blog",
           "style": "multiImage",
