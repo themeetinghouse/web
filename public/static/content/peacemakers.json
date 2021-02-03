@@ -67,16 +67,13 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Collection Begins on February 7",
+        "header1": "Becoming a Peacemaker Training Event",
         "header2": "",
-        "text1": "Each year we collect Peace Cards and Relief Kits as part of this campaign. This year our goal is to raise $200,000 towards peacebuilding efforts.",
-        "image1": [
-          {
-            "src": "/static/images/peacemakers-3.jpg",
-            "alt": "A teenage boy is volunteering for the peacemakers campaign by placing relief kit items into large bucket for shipping."
-          }
-        ]
-      },
+        "text1": "Join us on Saturday February 20 to learn how to be a peacemaker with Issa Ebombolo, Gopar Tapkida and Rod Friesen. Register here:",
+        "button1": {
+          "text": "Register Here",
+          "action": "https://www.crowdcast.io/e/peacemakers",
+          "description": "Bring a Peacemaker Event"
       {
         "type": "content",
         "style": "greyTwoText",
@@ -93,7 +90,7 @@
           }
         ]
       },
-      {
+      { 
         "type": "list",
         "style": "horizontal",
         "class": "videos",
