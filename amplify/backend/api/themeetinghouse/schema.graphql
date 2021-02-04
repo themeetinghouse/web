@@ -12,6 +12,7 @@ type Query {
   getTakenoteSermonVerses(sermondId:String):TakeNoteSermonVerses
   getTakenoteLocations:[TakeNoteLocations]
   getFBEvents(pageId:String):FBData
+  getInstaPhotos(pageId:String):InstaData
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   fuzzySearchVideosByType(videoType: String, filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
@@ -111,6 +112,23 @@ type FBPaging{
 type FBCursors{
   before:String
   after:String
+}
+type InstaData{
+  data: [InstaPhoto]
+  paging: FBPaging
+}
+type InstaPhoto{
+  id:String
+  media_url:String
+  caption:String
+  comments_count:String
+  like_count:String
+  media_type:String
+  thumbnail_url:String
+  timestamp:String
+  permalink:String
+  shortcode:String
+  
 }
 type FBData{
   data: [FBEvent]

@@ -28709,6 +28709,37 @@ export type GetFbEventsQuery = {
   } | null,
 };
 
+export type GetInstaPhotosQueryVariables = {
+  pageId?: string | null,
+};
+
+export type GetInstaPhotosQuery = {
+  getInstaPhotos:  {
+    __typename: "InstaData",
+    data:  Array< {
+      __typename: "InstaPhoto",
+      id: string | null,
+      media_url: string | null,
+      caption: string | null,
+      comments_count: string | null,
+      like_count: string | null,
+      media_type: string | null,
+      thumbnail_url: string | null,
+      timestamp: string | null,
+      permalink: string | null,
+      shortcode: string | null,
+    } | null > | null,
+    paging:  {
+      __typename: "FBPaging",
+      cursors:  {
+        __typename: "FBCursors",
+        before: string | null,
+        after: string | null,
+      } | null,
+    } | null,
+  } | null,
+};
+
 export type GetTakenoteNotesQueryVariables = {
   sermonId?: string | null,
   noteType?: string | null,

@@ -24,11 +24,11 @@ import {
   ListCustomPlaylistsQueryVariables,
   ListF1ListGroup2sQuery,
   ListF1ListGroup2sQueryVariables,
-  GetInstagramByLocationQuery,
-  GetInstagramByLocationQueryVariables,
   GetBlogQuery,
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
+  GetInstaPhotosQueryVariables,
+  GetInstaPhotosQuery,
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -822,86 +822,84 @@ export default class DataLoader {
     let id = '';
     switch (query.filterValue) {
       case 'alliston':
-        id = 'themeetinghousealliston';
+        id = '17841400321603203';
         break;
       case 'sandbanks':
-        id = 'tmhsandbanks';
+        id = '17841400321603203';
         break;
       case 'ancaster':
-        id = 'tmhancaster';
+        id = '17841408879897536';
         break;
       case 'brampton':
-        id = 'tmhbrampton';
+        id = '17841411750520408';
         break;
       case 'brantford':
-        id = 'tmhbrantford';
+        id = '17841400321603203';
         break;
       case 'burlington':
-        id = 'tmhburlington';
+        id = '17841408871557337';
         break;
       case 'hamilton-downtown':
-        id = 'tmhdowntownham';
+        id = '17841400321603203';
         break;
       case 'toronto-downtown':
-        id = 'tmhdowntowntoronto';
+        id = '17841408838131893';
         break;
       case 'hamilton-mountain':
-        id = 'tmhhammountain';
+        id = '17841411488786563';
         break;
       case 'toronto-east':
-        id = 'tmheasttoronto';
+        id = '17841409652026703';
         break;
       case 'toronto-high-park':
-        id = 'tmhhighpark';
+        id = '17841432164905254';
         break;
       case 'kitchener':
-        id = 'tmhkitchener';
+        id = '17841425888842969';
         break;
       case 'london':
-        id = 'themeetinghouseldn';
+        id = '17841408115069699';
         break;
       case 'newmarket':
-        id = 'newmarket.tmh';
+        id = '17841421476822902';
         break;
       case 'oakville':
-        id = 'tmhoakville';
+        id = '17841400321603203';
         break;
       case 'ottawa':
-        id = 'tmhottawa';
+        id = '17841408719847486';
         break;
       case 'owen-sound':
-        id = 'themeetinghouse';
+        id = '17841400321603203';
         break;
       case 'parry-sound':
-        id = 'tmhparrysound';
+        id = '17841443108276837';
         break;
       case 'richmond-hill':
-        id = 'tmhrichmond';
+        id = '17841413912356153';
         break;
       case 'toronto-uptown':
-        id = 'tmhuptowntoronto';
+        id = '17841409652056784';
         break;
       case 'waterloo':
-        id = 'tmhwaterloo';
+        id = '17841417962985605';
         break;
       default:
-        id = 'themeetinghouse';
+        id = '17841400321603203';
     }
 
-    const variables: GetInstagramByLocationQueryVariables = {
-      locationId: id,
-      limit: 8,
-      sortDirection: ModelSortDirection.DESC,
+    const variables: GetInstaPhotosQueryVariables = {
+      pageId: id,
     };
     const getInsta = API.graphql({
-      query: queries.getInstagramByLocation,
+      query: queries.getInstaPhotos,
       variables,
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<GetInstagramByLocationQuery>>;
+    }) as Promise<GraphQLResult<GetInstaPhotosQuery>>;
 
     try {
       const json = await getInsta;
-      return json?.data?.getInstagramByLocation;
+      return json?.data?.getInstaPhotos;
     } catch (e) {
       console.error(e);
     }
