@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 @media (min-width: 768px) {
   .GiveFormId {
@@ -67,7 +67,7 @@
 
   .GiveItemOtherWayButton {
     font-family: Graphik Web;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     color: #ffffff;
     border: none;
     margin: 0px;
@@ -85,7 +85,7 @@
 
   .GiveItemOtherWayButton2 {
     font-family: Graphik Web;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     color: #ffffff;
     border-width: 0px;
     margin: 0px;
@@ -105,8 +105,8 @@
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: $onyxblacktext;
-    color: $onyxblacktext;
+    border-color: theme.$onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -237,8 +237,8 @@
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: $onyxblacktext;
-    color: $onyxblacktext;
+    border-color: theme.$onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -367,8 +367,8 @@
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: $onyxblacktext;
-    color: $onyxblacktext;
+    border-color: theme.$onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -433,7 +433,7 @@
   .GiveItemOtherWayButton {
     float: left;
     width: 50%;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #ffffff;
     width: 45%;
     margin-right: 2vw;
@@ -445,7 +445,7 @@
   .GiveItemOtherWayButton2 {
     float: left;
     width: 50%;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #ffffff;
     text-decoration: underline;
     width: 45%;
@@ -458,6 +458,6 @@
   a.GiveItemOtherWayButton {
     width: 100%;
     color: #ffffff;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
   }
 }

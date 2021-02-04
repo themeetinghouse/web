@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 @media (min-width: 768px) {
   .FormContainer {
@@ -19,7 +19,7 @@
   }
 
   .FormItemH1.black {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .FormItemText1 {
@@ -54,7 +54,7 @@
   }
 
   .FormItemH1.black {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .FormItemText1 {
@@ -85,7 +85,7 @@
   }
 
   .FormItemH1.black {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     padding-top: 25vw;
     padding-left: 5vw;
     padding-right: 5vw;

@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 .spinner {
   width: 40px;
@@ -13,7 +13,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: $onyxblacktext;
+  background-color: theme.$onyxblacktext;
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -52,7 +52,7 @@
 
 @mixin link-underline {
   text-decoration: none !important;
-  border-bottom: 1px solid $onyxblacktext;
+  border-bottom: 1px solid theme.$onyxblacktext;
 
   &:hover {
     color: inherit;
@@ -143,7 +143,7 @@
 
   .ListItemEventButton {
     background-color: #ffffff00 !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     border: 0px !important;
   }
 
@@ -219,7 +219,7 @@
     font-size: 1.5vw;
     font-family: Graphik Web;
     padding-bottom: 1vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemDiv8 {
@@ -232,7 +232,7 @@
     width: 5vw;
     bottom: 0vw;
     top: 0vw;
-    border: solid 10px $onyxblacktext;
+    border: solid 10px theme.$onyxblacktext;
   }
 
   .ListItemDiv10 {
@@ -244,7 +244,7 @@
     width: 31vw;
     font-size: 1.25vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .BlogItemH1 {
@@ -252,7 +252,7 @@
     font-size: 2vw;
     margin-bottom: 2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemH1 {
@@ -262,7 +262,7 @@
     font-weight: bold;
     font-size: 3vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemH1.whiteText {
@@ -277,7 +277,7 @@
     font-size: 3vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemH1ImageList2 {
@@ -293,7 +293,7 @@
     width: 40vw;
     font-size: 2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemImage {
@@ -334,7 +334,7 @@
     width: 75vw;
     font-size: 1.25vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemVideo {
@@ -365,7 +365,7 @@
     width: 20vw;
     margin-right: 1vw;
     height: 11.25vw;
-    border: 4px solid $onyxblacktext;
+    border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -373,7 +373,7 @@
 
   .LoadMoreVideosCard:hover {
     transition: 0.5s;
-    background: $onyxblacktext;
+    background: theme.$onyxblacktext;
     .LoadMoreVideosText {
       transition: 0.5s;
       color: white;
@@ -385,7 +385,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .LoadMoreSeriesCard {
@@ -394,7 +394,7 @@
     width: 20vw;
     height: 20vw * (1248/1056);
     margin-right: 1vw;
-    border: 4px solid $onyxblacktext;
+    border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -402,7 +402,7 @@
 
   .LoadMoreSeriesCard:hover {
     transition: 0.5s;
-    background: $onyxblacktext;
+    background: theme.$onyxblacktext;
     .LoadMoreSeriesText {
       transition: 0.5s;
       color: white;
@@ -414,7 +414,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemPlayImageOverlay {
@@ -437,7 +437,7 @@
     font-weight: bold;
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEpisodeLength {
@@ -452,7 +452,7 @@
     width: 20vw;
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemName {
@@ -461,7 +461,7 @@
     font-size: 1.1vw;
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEmail,
@@ -470,7 +470,7 @@
     white-space: normal;
     font-size: 1.1vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemPosition {
@@ -478,11 +478,11 @@
     white-space: normal;
     font-size: 1.1vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemWebsite {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     text-decoration: underline;
   }
 
@@ -491,7 +491,7 @@
   }
 
   .ListItemEmailText {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     @include link-underline();
   }
 
@@ -533,13 +533,13 @@
     line-height: 2.3vw;
     margin-top: 12px;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDescription2 {
     white-space: normal;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
     word-wrap: break-word;
   }
 
@@ -547,13 +547,13 @@
     font-family: Graphik Web;
     font-weight: bold;
     margin-top: 10px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDuration {
     font-family: Graphik Web;
     margin-top: 10px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItem.imageList {
@@ -683,7 +683,7 @@
     font-size: 1.25vw;
     font-family: Graphik Web;
     margin-bottom: 4vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .arrow {
@@ -777,7 +777,7 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .ListItemEventButton {
     background-color: #ffffff00 !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     border: 0px !important;
   }
 
@@ -833,7 +833,7 @@
     font-size: 1.5vw;
     font-family: Graphik Web;
     padding-bottom: 1vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemDiv8 {
@@ -846,7 +846,7 @@
     width: 5vw;
     bottom: 0vw;
     top: 0vw;
-    border: solid 10px $onyxblacktext;
+    border: solid 10px theme.$onyxblacktext;
   }
 
   .ListItemDiv10 {
@@ -858,7 +858,7 @@
     width: 31vw;
     font-size: 1.25vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemH1 {
@@ -867,7 +867,7 @@
     width: 80vw;
     font-weight: bold;
     font-size: 3vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .BlogItemH1 {
@@ -875,7 +875,7 @@
     font-size: 2vw;
     margin-bottom: 2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemH1.whiteText {
@@ -890,7 +890,7 @@
     font-size: 3vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemH1ImageList2 {
@@ -906,7 +906,7 @@
     width: 40vw;
     font-size: 2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemImage {
@@ -947,7 +947,7 @@
     width: 75vw;
     font-size: 1.25vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
   .ListItemVideo {
     cursor: pointer;
@@ -977,7 +977,7 @@
     width: 20vw;
     margin-right: 1vw;
     height: 11.25vw;
-    border: 4px solid $onyxblacktext;
+    border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -985,7 +985,7 @@
 
   .LoadMoreVideosCard:hover {
     transition: 0.5s;
-    background: $onyxblacktext;
+    background: theme.$onyxblacktext;
     .LoadMoreVideosText {
       transition: 0.5s;
       color: white;
@@ -997,7 +997,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .LoadMoreSeriesCard {
@@ -1006,7 +1006,7 @@
     width: 20vw;
     height: 20vw * (1248/1056);
     margin-right: 1vw;
-    border: 4px solid $onyxblacktext;
+    border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1014,7 +1014,7 @@
 
   .LoadMoreSeriesCard:hover {
     transition: 0.5s;
-    background: $onyxblacktext;
+    background: theme.$onyxblacktext;
     .LoadMoreSeriesText {
       transition: 0.5s;
       color: white;
@@ -1026,7 +1026,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 1.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemPlayImageOverlay {
@@ -1049,7 +1049,7 @@
     font-weight: bold;
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEpisodeLength {
@@ -1067,11 +1067,11 @@
     width: 20vw;
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemWebsite {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     text-decoration: underline;
   }
 
@@ -1080,7 +1080,7 @@
   }
 
   .ListItemEmailText {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemSocialLink {
@@ -1116,13 +1116,13 @@
     font-weight: bold;
     font-size: 2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDescription2 {
     white-space: normal;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
     word-wrap: break-word;
   }
 
@@ -1141,7 +1141,7 @@
     font-size: 1.25vw;
     font-family: Graphik Web;
     margin-bottom: 4vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .arrow {
@@ -1313,7 +1313,7 @@
     font-size: 2vw;
     font-family: Graphik Web;
     margin-bottom: 4vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .WatchVideoTag {
@@ -1423,7 +1423,7 @@
     font-size: 1.5vw;
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .StaffContact {
@@ -1437,7 +1437,7 @@
     white-space: normal;
     font-size: 1.5vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemPosition {
@@ -1445,7 +1445,7 @@
     white-space: normal;
     font-size: 1.5vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemSocialLink {
@@ -1485,7 +1485,7 @@
   }
   .ListItemEventButton {
     background-color: #ffffff00 !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     border: 0px !important;
   }
 
@@ -1545,7 +1545,7 @@
     font-family: Graphik Web;
     // padding-bottom: 1vw;
     margin-bottom: 30vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemDiv8 {
@@ -1560,7 +1560,7 @@
     height: 15vh;
     bottom: 0vw;
     top: -15vw;
-    border: solid 10px $onyxblacktext;
+    border: solid 10px theme.$onyxblacktext;
     z-index: -50;
   }
 
@@ -1584,14 +1584,14 @@
     width: 88.5vw;
     font-size: 4.27vw;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemH1 {
     position: relative;
     left: 0vw;
     width: 80vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     margin-bottom: 8.55vw;
     font-size: 10vw;
     font-weight: 700;
@@ -1603,7 +1603,7 @@
     font-size: 8vw;
     margin-bottom: 8vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     width: 80vw;
   }
 
@@ -1619,7 +1619,7 @@
     font-size: 10vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemH1ImageList2 {
@@ -1636,7 +1636,7 @@
     font-size: 6.4vw;
     font-weight: bold;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemImage {
@@ -1681,7 +1681,7 @@
     line-height: 7.5vw;
     font-family: Graphik Web;
     margin-bottom: 10vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .ListItemVideo {
@@ -1713,7 +1713,7 @@
     width: 65vw;
     margin-right: 1vw;
     height: 42.1875vw;
-    border: 4px solid $onyxblacktext;
+    border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1721,7 +1721,7 @@
 
   .LoadMoreVideosCard:hover {
     transition: 0.5s;
-    background: $onyxblacktext;
+    background: theme.$onyxblacktext;
     .LoadMoreVideosText {
       transition: 0.5s;
       color: white;
@@ -1733,7 +1733,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .LoadMoreSeriesCard {
@@ -1742,7 +1742,7 @@
     width: 70vw;
     margin-right: 1vw;
     height: 70vw * (1248/1056);
-    border: 4px solid $onyxblacktext;
+    border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1750,7 +1750,7 @@
 
   .LoadMoreSeriesCard:hover {
     transition: 0.5s;
-    background: $onyxblacktext;
+    background: theme.$onyxblacktext;
     .LoadMoreSeriesText {
       transition: 0.5s;
       color: white;
@@ -1762,7 +1762,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .ListItemPlayImageOverlay {
     position: absolute;
@@ -1785,7 +1785,7 @@
     white-space: normal;
     font-family: Graphik Web;
     padding-top: 2vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEpisodeLength {
@@ -1799,19 +1799,19 @@
   .ListItemWebsite {
     white-space: normal;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemPosition {
-    color: $coolgray11 !important;
+    color: theme.$coolgray11 !important;
   }
 
   .ListItemWebsite {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     text-decoration: underline;
   }
   .ListItemEmailText {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     @include link-underline();
   }
 
@@ -1823,7 +1823,7 @@
     font-family: Graphik Web;
     font-size: 3.2vw;
     line-height: 4.8vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemSeriesTitle {
@@ -1867,14 +1867,14 @@
     font-weight: 700;
     margin-bottom: 0.5rem;
     width: 73vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDescription2 {
     white-space: normal;
     font-family: Graphik Web;
     margin-bottom: 20vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
     word-wrap: break-word;
   }
 
@@ -1883,13 +1883,13 @@
     font-family: Graphik Web;
     font-weight: bold;
     margin-top: 10px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDuration {
     font-family: Graphik Web;
     margin-top: 10px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .ListItem.imageList {
@@ -1935,13 +1935,13 @@
     font-family: Graphik Web;
     font-size: 4.2vw;
     font-weight: normal;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
     background: #ffffff00 !important;
     border-top: #ffffff00 !important;
     border-left: #ffffff00 !important;
     border-right: #ffffff00 !important;
     outline: #ffffff00 !important;
-    border-bottom: 1px solid $onyxblacktext !important;
+    border-bottom: 1px solid theme.$onyxblacktext !important;
     padding: 0px 0px 0px 0px;
     margin-left: 2px;
   }
@@ -1957,7 +1957,7 @@
     font-size: 5.33vw;
     font-family: Graphik Web;
     margin-bottom: 12.8vw;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
 
   .arrow {

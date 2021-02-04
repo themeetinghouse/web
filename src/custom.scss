@@ -1,40 +1,5 @@
-$body-bg: #ffffff;
-$body-color: #000000;
-
-$onyxblack: #000000;
-$onyxblacktext: #1a1a1a;
-$coolgray11: #54565a;
-$coolgray10: #646469;
-$coolgray3: #c8c8c8;
-
-$coral: #ff595a;
-$galileesea: #1a428a;
-$goldensun: #ffc60b;
-$tangerine: #ff8300;
-$crimson: #d7282f;
-
-$greenleaf: #00ae42;
-$bluesky: #5eb3e4;
-$jade: #1a5632;
-$jacinth: #8e5928;
-$royalpurple: #21145f;
-$amethyst: #9594d2;
-$chrysoprase: #a0e2ba;
-$coolgray7: #969696;
-
-$goldensun-light: #fff7d9;
-$tangerine-light: #ffecd9;
-$coral-light: #ffeeee;
-$jacinth-light: #f6f2ee;
-$bluesky-light: #e7f2fc;
-$greenleaf-light: #ebf9f0;
-$amethyst-light: #f0f0f9;
-$onyxblack-light: #efeff0;
-
-$white: #ffffff;
-
-@import '~bootstrap/scss/bootstrap.scss';
-@import 'fonts/commercial-type-1906-WOIKTV-web/fonts.css';
+@use '~bootstrap/scss/bootstrap';
+@use 'fonts/commercial-type-1906-WOIKTV-web/fonts';
 
 html {
   scroll-behavior: smooth;
@@ -49,11 +14,8 @@ html {
 
 .example-mask {
   mask-mode: alpha;
-  //  webkit-mask-mode: alpha;
   mask-repeat: no-repeat;
-  //  webkit-mask-repeat: no-repeat;
   mask-size: 20vw;
-  //  webkit-mask-size: 20vw;
 }
 
 /*
@@ -99,7 +61,6 @@ html {
     padding-top: 90px;
     font-family: Graphik Web;
     font-size: 16px;
-    // line-height: 24px;
   }
 
   body {
@@ -137,7 +98,6 @@ html {
     padding-top: 90px;
     font-family: Graphik Web;
     font-size: 16px;
-    //   line-height: 24px;
   }
 
   body {
@@ -175,7 +135,6 @@ html {
     padding-top: 12vw;
     font-family: Graphik Web;
     font-size: 16px;
-    //  line-height: 24px;
   }
   .footer {
     margin-left: 0vw;
@@ -183,24 +142,20 @@ html {
   .imageList .hoverText {
     position: relative;
     padding-right: 0vw;
-    // padding-top:30vw;
     padding-bottom: 5vw;
     padding-left: 0vw;
     width: 100% !important;
     height: 100% !important;
     left: 0vw;
-    // top: 32vw;
   }
   .imageList .noHoverText {
     position: relative;
     padding-right: 0vw;
-    // padding-top:30vw;
     padding-bottom: 5vw;
     padding-left: 0vw;
     width: 100% !important;
     height: 100% !important;
     left: 0vw;
-    // top: 32vw;
   }
 
   .imageList .hoverText:hover {

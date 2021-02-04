@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 .HomeChurchFormItemContainer {
   height: 149px;
@@ -21,7 +21,7 @@
     height: 43px;
     padding: 0 10px;
     cursor: pointer;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     &:hover {
       text-decoration: underline !important;
     }
@@ -76,19 +76,19 @@
   font-weight: 800;
   letter-spacing: -0.3px;
   display: inline;
-  color: $onyxblacktext;
+  color: theme.$onyxblacktext;
 }
 .HomeChurchTimeOfDay {
   margin-top: 4px;
   font-weight: 800;
   letter-spacing: -0.3px;
   margin-bottom: 16px;
-  color: $onyxblacktext;
+  color: theme.$onyxblacktext;
 }
 
 .ContactLeadersButton {
   font-family: Graphik Web;
-  color: $onyxblacktext !important;
+  color: theme.$onyxblacktext !important;
   background: #ffffff !important;
   border-width: 0px;
   border-radius: 0;
@@ -102,7 +102,7 @@
     border-width: 0px;
     border-radius: 0;
     background-color: #ffffff;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     text-decoration: underline !important;
     font-weight: normal;
   }
@@ -130,7 +130,7 @@
   }
   .react-add-to-calendar__button {
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     border-width: 0px;
     border-radius: 0;
     font-size: 16px;
@@ -147,7 +147,7 @@
     z-index: 100;
     top: 48px;
     background: white;
-    border: 1px solid $onyxblacktext;
+    border: 1px solid theme.$onyxblacktext;
     padding: 10px 20px 0 20px;
     ul {
       list-style-type: none;
@@ -155,7 +155,7 @@
       font-family: Graphik Web;
       font-size: 14px;
       a {
-        color: $onyxblacktext !important;
+        color: theme.$onyxblacktext !important;
         vertical-align: middle;
       }
       li {
@@ -206,7 +206,7 @@
       vertical-align: middle;
       padding-left: 10px;
       font-weight: 700;
-      color: $onyxblacktext;
+      color: theme.$onyxblacktext;
     }
   }
   .LoadingItem {
@@ -223,7 +223,7 @@
     }
     .LoadingLocationLabel {
       vertical-align: middle;
-      color: $onyxblacktext;
+      color: theme.$onyxblacktext;
     }
     .LoadingImage {
       display: inline-block;
@@ -243,8 +243,8 @@
 }
 
 .UpdateLocationButton {
-  border: 1px solid $coolgray11;
-  background-color: $body-bg;
+  border: 1px solid theme.$coolgray11;
+  background-color: theme.$body-bg;
   border-radius: 2px;
 }
 
@@ -315,7 +315,7 @@
     font-size: 48px;
     font-family: Graphik Web;
     font-weight: bold;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .HomeChurchH3 {
@@ -323,7 +323,7 @@
     font-family: Graphik Web;
     font-weight: bold;
     margin-top: 15px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     cursor: pointer;
     &:hover {
       text-decoration: underline;
@@ -336,7 +336,7 @@
   .HomeChurchDistances {
     font-size: 16px;
     font-family: Graphik Web;
-    color: $coolgray11;
+    color: theme.$coolgray11;
   }
   .HomeChurchSiteAffiliation {
     display: inline;
@@ -423,13 +423,13 @@
     font-size: 24px;
     font-family: Graphik Web;
     font-weight: bold;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .HomeChurchH3 {
     font-size: 20px;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .HomeChurchAddress,
   .HomeChurchDistances {
@@ -438,12 +438,12 @@
   }
   .HomeChurchDayOfWeek {
     font-size: 14px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .HomeChurchTimeOfDay {
     font-size: 14px;
     margin-bottom: 10px;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .ContactLeadersButton {
     font-size: 14px;
@@ -500,7 +500,7 @@
       height: 43px;
       padding: 0 10px;
       cursor: pointer;
-      color: $onyxblacktext;
+      color: theme.$onyxblacktext;
       &:hover {
         text-decoration: underline !important;
       }
@@ -588,7 +588,7 @@
     font-size: 24px;
     font-family: Graphik Web;
     font-weight: bold;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .HomeChurchH3 {
@@ -596,7 +596,7 @@
     font-family: Graphik Web;
     line-height: 8.55vw;
     font-weight: 800;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .HomeChurchAddress,
   .HomeChurchDistances {
@@ -613,7 +613,7 @@
   .HomeChurchItemDiv5 {
     margin-bottom: 3vh;
     padding-bottom: 3vh;
-    border-bottom: 1px solid $coolgray11;
+    border-bottom: 1px solid theme.$coolgray11;
   }
 
   .ContactLeadersButton {

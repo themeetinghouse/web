@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 @media (min-width: 768px) {
   .faqText {
@@ -8,14 +8,14 @@
   .FAQFloatLeft {
     float: 'left';
     cursor: pointer;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .FAQFloatRight {
     float: 'right';
   }
   .FAQFullWidth {
     width: 90%;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     float: left;
   }
   .FAQPartialWidth {
@@ -32,7 +32,7 @@
   .FAQAnswer {
     font-size: 1.2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .faqText.white {
@@ -132,7 +132,7 @@
     font-weight: bold;
     font-size: 3vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .whiteText {
     color: #ffffff !important;
@@ -246,14 +246,14 @@
   .FAQFloatLeft {
     float: 'left';
     cursor: pointer;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .FAQFloatRight {
     float: 'right';
   }
   .FAQFullWidth {
     width: 90%;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     float: left;
   }
   .FAQPartialWidth {
@@ -273,7 +273,7 @@
   .FAQAnswer {
     font-size: 1.2vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .faqText {
     font-size: 1.5vw;
@@ -385,7 +385,7 @@
     font-weight: bold;
     font-size: 3vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .faqH1.white {
@@ -498,14 +498,14 @@
   .FAQFloatLeft {
     float: 'right';
     cursor: pointer;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .FAQFloatRight {
     float: 'right';
   }
   .FAQFullWidth {
     width: 90%;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     float: left;
   }
   .FAQPartialWidth {
@@ -524,7 +524,7 @@
   .FAQAnswer {
     font-size: 5vw;
     font-family: Graphik Web;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
   .faqText {
     font-size: 5vw;
@@ -605,7 +605,7 @@
     font-size: 10vw;
     font-family: Graphik Web;
     line-height: 12.5vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
   }
 
   .faqEventDetails {
