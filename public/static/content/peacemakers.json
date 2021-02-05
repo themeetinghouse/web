@@ -71,12 +71,13 @@
       },
       {
         "type": "content",
-        "style": "greyTwoText",
-        "header1": "",
+        "style": "pieChart",
         "text1": "Your generosity funds work that seeks to bring healing, reconciliation, and justice to God’s creation. Our goal is to raise $200,000 by February 28.",
-        "circleHeader": "$0",
-        "circleText": "RAISED TO DATE",
-        "showCircle": true,
+        "pieChart": {
+          "raised": 0,
+          "goal": 200000,
+          "text": "RAISED TO DATE"
+        },
         "list": [
           {
             "type": "button",
@@ -115,7 +116,7 @@
         "blogSeries": "Peacemakers",
         "hideAllBlogsButton": "true"
       },
-    {
+      {
         "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Resources",
@@ -180,19 +181,18 @@
               "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth, and it challenges us to think as global citizens."
             ]
           },
-          {  
-              "type": "question",
-              "question": "Are we collecting Relief Kits this year?",
-              "answer": [
-                "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatest needs we are not collecting Relief Kits."
-              ]
+          {
+            "type": "question",
+            "question": "Are we collecting Relief Kits this year?",
+            "answer": [
+              "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatest needs we are not collecting Relief Kits."
+            ]
           },
           {
             "type": "question",
             "question": "How are Kidmax and Youth participating?",
             "answer": [
               "Kidmax and Youth are participating with adults to help us reach our $200,000 goal. For creative ways to engage children and youth refer to the resource here."
-              
             ]
           },
           {
@@ -203,7 +203,7 @@
               "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
               "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
               "InFellowship: You can donate online through your The Meeting House InFellowship account.",
-              "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu.", 
+              "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu.",
               "If you are unable to give through these platforms please contact Rachel Meredith at rachel.meredith@themeetinghouse.com or call her 905.287.7000 ext. 7026"
             ]
           },
