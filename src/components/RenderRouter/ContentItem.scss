@@ -1139,7 +1139,7 @@ transform:rotate(attr(data-value,deg,0);
   */
   .pie.big {
     width: 20vw;
-    height: 20vw;
+    height: 20.05vw;
     left: 5vw;
     -moz-transform-origin: center center;
     -ms-transform-origin: center center;
@@ -1178,7 +1178,7 @@ transform:rotate(attr(data-value,deg,0);
   .pie.big:after {
     content: '';
     position: absolute;
-    width: 10vw;
+    // width: 10vw;
     height: 20vw;
     left: 10vw;
     border-radius: 0 10vw 10vw 0;
@@ -1234,11 +1234,11 @@ transform:rotate(attr(data-value,deg,0);
   to fill in unsightly gaps.
   */
   .pie[data-value='30']:before {
-    -moz-transform: rotate(90deg); /* Firefox */
-    -ms-transform: rotate(90deg); /* IE */
-    -webkit-transform: rotate(90deg); /* Safari and Chrome */
-    -o-transform: rotate(90deg); /* Opera */
-    transform: rotate(90deg);
+    -moz-transform: rotate(145deg); /* Firefox */
+    -ms-transform: rotate(145deg); /* IE */
+    -webkit-transform: rotate(145deg); /* Safari and Chrome */
+    -o-transform: rotate(145deg); /* Opera */
+    transform: rotate(145deg);
   }
   .pie[data-value='40']:before {
     -moz-transform: rotate(91deg); /* Firefox */
@@ -1258,7 +1258,7 @@ transform:rotate(attr(data-value,deg,0);
     position: absolute;
     width: 7vw;
     height: 14vw;
-    overflow: hidden;
+    // overflow: hidden;
     left: 10.45vw;
     -moz-transform-origin: left center;
     -ms-transform-origin: left center;
