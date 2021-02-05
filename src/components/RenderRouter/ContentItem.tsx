@@ -260,7 +260,7 @@ function ContentItem({ content }: Props) {
                   color: '#ffc60b',
                 },
                 {
-                  value: goal - raised,
+                  value: Math.max(goal - raised, 0),
                   color: '#646469',
                 },
               ]}
