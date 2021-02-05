@@ -65,7 +65,7 @@
         "style": "vertical",
         "class": "compassion",
         "header1": "Why Peacemakers?",
-        "text1": "As followers of Jesus, we want to work towards peace and justice in some of the most vulnerable communities around the world. We journey with people marginalized through violence by working to meet their tangible needs. In partnership with Mennonite Central Committee, we focus on three areas:",
+        "text1": "As followers of Jesus, we want to work towards peace and justice in some of the most vulnerable communities around the world. We journey with people marginalized through violence by working to meet their tangible needs. Partnering with Mennonite Central Committee, we focus on three areas:",
         "filterField": "sites",
         "filterValue": "peacemakers"
       },
@@ -189,7 +189,7 @@
           },
           {
             "type": "question",
-            "question": "How are Kidmax and Youth engaging with Peacemakers?",
+            "question": "How are Kidmax and Youth participating?",
             "answer": [
               "Kidmax and Youth are participating with adults to help us reach our $200,000 goal. For creative ways to engage children and youth refer to the resource here."
               

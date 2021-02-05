@@ -631,7 +631,7 @@
     "id": 72,
     "sites": ["peacemakers"],
     "name": "Indigenous & Settler Reconciliation:",
-    "description": "The church has been a primary source of harm against Indigenous peoples across Turtle Island. Through MCC we support Indigenous led and directed initiatives in the areas of clean water, food security, artisanship, & settler education.",
+    "description": "We support Indigenous led and directed initiatives in the areas of clean water, food security, artisanship, and settler education.",
     "image": "/static/photos/compassion/reconciliation.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -639,14 +639,14 @@
     "id": 73,
     "sites": ["peacemakers"],
     "name": "Restorative Justice",
-    "description": "We partner with efforts that intentionally come alongside criminal offenders, victims, and communities, focusing on rehabilitation and reconciliation rather than punishment.",
+    "description": "An approach that comes alongside criminal offenders, victims, and communities, focusing on rehabilitation and reconciliation.",
     "image": "/static/photos/compassion/restorativejustice.jpg"
   }, 
   {
     "id": 74,
     "sites": ["peacemakers"],
     "name": "Peacebuilding in Sub-Saharan Africa",
-    "description": "We invest in the development of peacebuilding skills and training for individuals and communities so they can navigate conflicts nonviolently.",
+    "description": "Developing peacebuilding skills and training for individuals and communities so they can navigate conflicts nonviolently.",
     "image": "/static/photos/compassion/peacebuilding.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   }
