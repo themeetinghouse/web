@@ -48,14 +48,14 @@
         "image1": [
           {
             "src": "/static/images/peacemakers-6.jpg",
-            "alt": "Two people sitting and talking during Home Church"
+            "alt": "A woman with hands over her mouth making a loud announcement."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Watch Video To See Our Plan",
-            "navigateTo": "https://www.crowdcast.io/e/peacemakers",
+            "navigateTo": "/videos/compassion/iPmw29QsbTk",
             "description": "Link to the video for our 2021 Peacemakers campaign that explains our goal and our plan."
           }
         ]

@@ -86,20 +86,20 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Go Campaign",
+        "header1": "Peacemakers",
         "header2": "",
-        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
+        "text1": "We want to raise $200k to make NOTHING happen. Are you in?",
         "list": [
           {
             "type": "link",
-            "title": "See Our New Plan",
-            "navigateTo": "/go"
+            "title": "See the details",
+            "navigateTo": "/peacemakers"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/homepage-7-go.jpg",
-            "alt": "Group of friends sitting outside and having spiritual conversations."
+            "src": "/static/images/peacemakers-6.jpg",
+            "alt": "A woman with hands over her mouth making a loud announcement."
           }
         ]
       },
@@ -196,6 +196,25 @@
           {
             "src": "/static/images/homepage-covid-1.jpg",
             "alt": "A woman wearing a mask looking directly at the camera."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Go Campaign",
+        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
+        "list": [
+          {
+            "type": "link",
+            "title": "See Our New Plan",
+            "navigateTo": "/go"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/homepage-7-go.jpg",
+            "alt": "Group of friends sitting outside and having spiritual conversations."
           }
         ]
       },
