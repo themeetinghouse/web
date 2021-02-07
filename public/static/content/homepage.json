@@ -88,18 +88,18 @@
         "style": "oneImageBlackRight",
         "header1": "Peacemakers",
         "header2": "",
-        "text1": "We want to raise $200k to make NOTHING happen. Are you in?",
+        "text1": "Turns out Jesus was pretty big on peace. So we figured that as his followers, we should also make peace a priority. That's why this February, we want to raise $200K to support peacebuilding in our world. You in?",
         "list": [
           {
             "type": "link",
-            "title": "See the details",
+            "title": "See Our Plan & Participate",
             "navigateTo": "/peacemakers"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/peacemakers-6.jpg",
-            "alt": "A woman with hands over her mouth making a loud announcement."
+            "src": "/static/images/peacemakers-5.jpg",
+            "alt": "A young girl from Jordan holds a drawing depicting her experiences living in violence under constant threat of war and death."
           }
         ]
       },

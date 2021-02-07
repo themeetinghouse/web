@@ -41,10 +41,42 @@
       },
       {
         "type": "content",
-        "style": "greyTwoText",
-        "header1": "Why Compassion",
+        "style": "oneImage",
+        "header1": "Why Compassion?",
+        "text1": "Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love.",
+        "list": [
+          {
+            "type": "",
+            "title": "",
+            "navigateTo": ""
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/peacemakers-2.jpg",
+            "alt": "An MCC volunteer is distributing to relief kits to refugee families in Jordan."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Peacemakers",
         "header2": "",
-        "text1": "Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love."
+        "text1": "Turns out Jesus was pretty big on peace. So we figured that as his followers, we should also make peace a priority. That's why this February, we want to raise $200K to support peacebuilding in our world. You in?",
+        "list": [
+          {
+            "type": "link",
+            "title": "See Our Plan & Participate",
+            "navigateTo": "/peacemakers"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/peacemakers-5.jpg",
+            "alt": "A young girl from Jordan holds a drawing depicting her experiences living in violence under constant threat of war and death."
+          }
+        ]
       },
       {
         "type": "list",
