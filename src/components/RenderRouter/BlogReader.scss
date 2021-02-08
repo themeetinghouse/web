@@ -1,4 +1,4 @@
-@import '../../theme.scss';
+@use '../../theme';
 
 .blog-reader {
   .download-custom {
@@ -14,7 +14,7 @@
   .notes-body *,
   .questions-body * {
     font-family: Graphik Web !important;
-    color: $onyxblacktext !important;
+    color: theme.$onyxblacktext !important;
   }
 
   @media (min-width: 768px) {

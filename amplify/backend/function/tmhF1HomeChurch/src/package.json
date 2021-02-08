@@ -5,9 +5,10 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "aws-amplify": "^3.3.7",
-    "node-fetch": "^2.6.1",
     "amazon-cognito-identity-js": "^4.4.0",
-    "crypto-js": "^3.2.1"
+    "aws-amplify": "^3.3.7",
+    "aws-sdk": "^2.839.0",
+    "crypto-js": "^3.2.1",
+    "node-fetch": "^2.6.1"
   }
 }

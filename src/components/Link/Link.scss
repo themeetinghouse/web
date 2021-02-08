@@ -1,27 +1,27 @@
-@import '../../theme';
+@use '../../theme';
 
 @mixin hollow-btn {
   position: relative;
   border-radius: 0;
   background-color: #fff;
-  color: $onyxblacktext;
+  color: theme.$onyxblacktext;
   font-weight: bold;
   text-decoration: none;
 
   margin-right: 2vw;
 
   &.inverted {
-    background-color: $onyxblack;
+    background-color: theme.$onyxblack;
     color: #fff;
 
     &:hover {
-      background-color: $onyxblack;
+      background-color: theme.$onyxblack;
       color: #fff;
     }
   }
 
   &:hover {
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #fff;
   }
 
@@ -45,7 +45,7 @@ a.button-link {
 }
 
 a {
-  color: $onyxblacktext;
+  color: theme.$onyxblacktext;
   text-decoration: underline;
   text-underline-offset: 0.25em;
 

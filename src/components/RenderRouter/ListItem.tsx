@@ -1070,36 +1070,106 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
   }
+  getInstaUrl(query: any): string {
+    let id = '';
+    switch (query.filterValue) {
+      case 'alliston':
+        id = 'themeetinghousealliston';
+        break;
+      case 'sandbanks':
+        id = 'tmhsandbanks';
+        break;
+      case 'ancaster':
+        id = 'tmhancaster';
+        break;
+      case 'brampton':
+        id = 'tmhbrampton';
+        break;
+      case 'brantford':
+        id = 'tmhbrantford';
+        break;
+      case 'burlington':
+        id = 'tmhburlington';
+        break;
+      case 'hamilton-downtown':
+        id = 'tmhdowntownham';
+        break;
+      case 'toronto-downtown':
+        id = 'tmhdowntowntoronto';
+        break;
+      case 'hamilton-mountain':
+        id = 'tmhhammountain';
+        break;
+      case 'toronto-east':
+        id = 'tmheasttoronto';
+        break;
+      case 'toronto-high-park':
+        id = 'tmhhighpark';
+        break;
+      case 'kitchener':
+        id = 'tmhkitchener';
+        break;
+      case 'london':
+        id = 'themeetinghouseldn';
+        break;
+      case 'newmarket':
+        id = 'newmarket.tmh';
+        break;
+      case 'oakville':
+        id = 'tmhoakville';
+        break;
+      case 'ottawa':
+        id = 'tmhottawa';
+        break;
+      case 'owen-sound':
+        id = 'themeetinghouse';
+        break;
+      case 'parry-sound':
+        id = 'tmhparrysound';
+        break;
+      case 'richmond-hill':
+        id = 'tmhrichmond';
+        break;
+      case 'toronto-uptown':
+        id = 'tmhuptowntoronto';
+        break;
+      case 'waterloo':
+        id = 'tmhwaterloo';
+        break;
+      default:
+        id = 'themeetinghouse';
+    }
+
+    return id;
+  }
 
   renderInstaTile(item: any): JSX.Element | null {
     // Instagram tile styling
+
     if (!item) return null;
     return (
       <div className="ListInstagramTile">
-        <img
-          width={
-            this.state.windowWidth < 375
-              ? 120
-              : this.state.windowWidth < 600
-              ? 156
-              : 480
-          }
-          height={
-            this.state.windowWidth < 375
-              ? 120
-              : this.state.windowWidth < 600
-              ? 156
-              : 480
-          }
-          src={
-            this.state.windowWidth < 375
-              ? item.thumbnails[2].src
-              : this.state.windowWidth < 600
-              ? item.thumbnails[2].src
-              : item.thumbnails[3].src
-          }
-          alt={item.altText}
-        ></img>
+        <a href={item.permalink}>
+          <img
+            width={
+              this.state.windowWidth < 375
+                ? 120
+                : this.state.windowWidth < 600
+                ? 156
+                : 480
+            }
+            height={
+              this.state.windowWidth < 375
+                ? 120
+                : this.state.windowWidth < 600
+                ? 156
+                : 480
+            }
+            src={item.media_url}
+            alt={item.caption}
+            title={item.caption}
+          ></img>
+        </a>
       </div>
     );
   }
@@ -1580,10 +1650,11 @@ class ListItem extends React.Component<Props, State> {
     ) {
       //This renders the instagram div and iterate tiles
       const i: any = this.state.listData[0] as any;
+
       return (
         <div className="ListItem horizontal">
           <div className="ListInstagramContainer">
-            {i?.items.map((tile: any, index: number) => {
+            {i?.data?.slice(0, 8).map((tile: any, index: number) => {
               return this.renderItemRouter(tile, index);
             })}
           </div>
@@ -1592,9 +1663,10 @@ class ListItem extends React.Component<Props, State> {
             target="_blank"
             rel="noreferrer"
             href={
-              i?.items[0]?.locationId
-                ? `https://instagram.com/${i.items[0].locationId}`
-                : `https://instagram.com/themeetinghouse/`
+              this.props.content.filterValue
+                ? `https://instagram.com/` +
+                  this.getInstaUrl(this.props.content)
+                : `https://instagram.com/themeetinghouse`
             }
           >
             <img

@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 .navbar-brand,
 .navbar-nav {
@@ -30,7 +30,7 @@
   .vertical-line {
     transition: 0.5s;
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 2px;
     height: 12px;
     left: 50%;
@@ -42,7 +42,7 @@
   .horizontal-line {
     transition: 0.5s;
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 12px;
     height: 2px;
     left: 50%;
@@ -63,8 +63,6 @@
     display: none;
     height: 5vw;
     width: 5vw;
-    //        min-height:56px;
-    //        min-width:72px;
     right: 0;
     position: fixed;
     z-index: 101;
@@ -85,7 +83,6 @@
     height: 4vw;
   }
   .logoText {
-    // margin: 1vw;
     height: 4vw;
   }
   .logoOffset {
@@ -118,11 +115,9 @@
     flex-direction: column;
     width: 18vw !important;
     margin-left: 0px !important;
-    // width: 100%
   }
 
   .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
-    //  width: 100%
     width: 20vw !important;
   }
 
@@ -156,15 +151,13 @@
     margin-top: 0px;
     margin-bottom: 5px;
     padding: 0;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     padding-bottom: 0vw;
   }
 
   .bigNav {
     padding: 0px;
-    color: $onyxblacktext;
-    //line-height: 1.3vw;
-    // font-weight: bold;
+    color: theme.$onyxblacktext;
     font-size: 1.33vw !important;
     padding-bottom: 0.5vw;
     padding-top: 0.5vw;
@@ -202,7 +195,6 @@
     top: 30vh;
     left: 2vw !important;
     width: 20vw;
-    // margin:2vw;
   }
   .ml-auto.fixed.navbar-nav {
     position: fixed;
@@ -210,7 +202,6 @@
     left: 2vw !important;
     width: 20vw;
     left: 2vw !important;
-    // margin:2vw;
   }
   .navbar-expander {
     height: 14vh;
@@ -233,7 +224,7 @@
   .vertical-line {
     transition: 0.5s;
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 2px;
     height: 12px;
     left: 50%;
@@ -245,7 +236,7 @@
   .horizontal-line {
     transition: 0.5s;
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 12px;
     height: 2px;
     left: 50%;
@@ -266,7 +257,6 @@
     display: none;
     height: 5vw;
     width: 5vw;
-    //        padding:1.3vw;
     position: fixed;
     z-index: 101;
     background-color: #ffffff;
@@ -279,7 +269,7 @@
     background-color: #ffffff00;
     cursor: pointer;
     margin-top: 0.8vw;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: bold;
     font-size: 2vw;
@@ -306,7 +296,6 @@
     height: 4vw;
   }
   .logoText {
-    //   margin: 1vw;
     height: 4vw;
   }
   a.smallNav.nav-link {
@@ -321,10 +310,7 @@
   }
   .navbar a {
     padding: 0px;
-    color: $onyxblacktext;
-
-    //line-height: 1.3vw;
-    // font-weight: bold;
+    color: theme.$onyxblacktext;
     font-size: 1.33vw;
   }
   .smallNav {
@@ -333,14 +319,12 @@
     margin-top: 0px;
     margin-bottom: 5px;
     padding: 0;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     padding-bottom: 0vw;
   }
   .bigNav {
     padding: 0px;
-    color: $onyxblacktext;
-    //line-height: 1.3vw;
-    // font-weight: bold;
+    color: theme.$onyxblacktext;
     font-size: 1.33vw !important;
     padding-bottom: 0.5vw;
     padding-top: 0.5vw;
@@ -374,7 +358,6 @@
     position: fixed;
     top: 30vh;
     left: 2vw;
-    // margin:2vw;
   }
   .navbar-expander {
     height: 14vh;
@@ -397,7 +380,7 @@
   .vertical-line {
     transition: 0.5s;
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 2px;
     height: 10px;
     left: 50%;
@@ -409,7 +392,7 @@
   .horizontal-line {
     transition: 0.5s;
     position: absolute;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     width: 10px;
     height: 2px;
     left: 50%;
@@ -475,11 +458,7 @@
   }
   .navbar a {
     padding: 0px;
-    color: $onyxblacktext;
-
-    //line-height: 1.3vw;
-    // font-weight: bold;
-    //  font-size: 4vw;
+    color: theme.$onyxblacktext;
   }
   .smallNav {
     font-size: 3.5vw !important;
@@ -487,15 +466,13 @@
     margin-top: 8px;
     margin-bottom: 3px;
     padding: 0;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     padding-bottom: 0vw;
     margin: 20px 15px 15px 65px;
   }
   .bigNav {
     padding: 0px;
-    color: $onyxblacktext;
-    //line-height: 1.3vw;
-    // font-weight: bold;
+    color: theme.$onyxblacktext;
     font-size: 4.5vw !important;
     padding-bottom: 0.5vw;
     padding-top: 0.5vw;
@@ -535,13 +512,6 @@
     z-index: 0;
     padding: 0vw;
     height: 0vw;
-    //height:5vw;
-    /*
-        right: 4vw;
-        width: 4vw;
-        z-index: 1030;
-        margin: 2vw;
-        */
   }
 
   .navbar-collapse {

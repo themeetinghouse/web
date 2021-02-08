@@ -1,4 +1,4 @@
-@import '../../theme';
+@use '../../theme';
 
 @media (min-width: 768px) {
   .SimpleFormId {
@@ -46,7 +46,7 @@
     font-family: Graphik Web !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
   }
@@ -100,7 +100,7 @@
   }
   .SimpleItemOtherWayButton {
     font-family: Graphik Web;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     color: #ffffff;
     border-width: 0px;
     margin: 0px;
@@ -111,7 +111,7 @@
 
   .SimpleItemOtherWayButton:hover {
     font-family: Graphik Web;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
     color: #0000ff;
     border-width: 0px;
     margin: 0px;
@@ -130,8 +130,8 @@
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: $onyxblacktext;
-    color: $onyxblacktext;
+    border-color: theme.$onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -228,7 +228,7 @@
     font-family: Graphik Web !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
   }
@@ -283,8 +283,8 @@
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: $onyxblacktext;
-    color: $onyxblacktext;
+    border-color: theme.$onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -383,7 +383,7 @@
     font-family: Graphik Web !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background-color: $onyxblacktext !important;
+    background-color: theme.$onyxblacktext !important;
     border-color: #ffffff !important;
     border-radius: 0px !important;
   }
@@ -442,8 +442,8 @@
     background-color: #ffffff;
     border-radius: 0px;
     border-width: 1px;
-    border-color: $onyxblacktext;
-    color: $onyxblacktext;
+    border-color: theme.$onyxblacktext;
+    color: theme.$onyxblacktext;
     font-family: Graphik Web;
     font-weight: normal;
     margin: 0.5vw;
@@ -500,13 +500,13 @@
 
   .SimpleItemOtherWayButton {
     width: 100%;
-    color: $onyxblacktext;
+    color: theme.$onyxblacktext;
     background-color: #ffffff;
   }
   a.SimpleItemOtherWayButton {
     width: 100%;
     color: #ffffff;
-    background-color: $onyxblacktext;
+    background-color: theme.$onyxblacktext;
   }
   .SimpleItemBottom {
     height: 10vw;

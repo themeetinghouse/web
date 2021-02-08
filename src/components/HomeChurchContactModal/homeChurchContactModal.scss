@@ -1,4 +1,4 @@
-@import '../../custom.scss';
+@use '../../theme';
 
 .ContactLeadersModal {
   .modal-footer {
@@ -17,7 +17,7 @@
     }
   }
   .modal-body {
-    background-color: $white !important;
+    background-color: theme.$white !important;
     padding: 10px 25px 20px !important;
   }
 
@@ -41,8 +41,8 @@
   button {
     border-radius: 0;
     background: #fff;
-    color: $onyxblacktext;
-    border-color: $onyxblack;
+    color: theme.$onyxblacktext;
+    border-color: theme.$onyxblack;
     font-family: Graphik Web;
     font-weight: bold;
     font-weight: 600;
@@ -50,7 +50,7 @@
     padding: 0.75rem 1.25rem;
     white-space: nowrap;
     &:active {
-      background-color: $onyxblacktext;
+      background-color: theme.$onyxblacktext;
     }
   }
 
@@ -65,7 +65,7 @@
   }
 
   .FooterError {
-    color: $crimson;
+    color: theme.$crimson;
     flex-grow: 1;
     font-family: Graphik Web;
     vertical-align: middle;
