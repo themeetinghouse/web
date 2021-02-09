@@ -14,7 +14,7 @@ interface Props {
 interface State {
   content: any;
   currentPage: any;
-  taxYear: string;
+  taxYear: number;
 }
 
 export default class ContentItem extends React.Component<Props, State> {
@@ -23,14 +23,15 @@ export default class ContentItem extends React.Component<Props, State> {
     this.state = {
       content: props.content,
       currentPage: 'PushPay',
-      taxYear: '',
+      taxYear: 0,
     };
   }
 
   async fetchTaxYear() {
     try {
       const taxYearJson = await fetch('/static/data/tax-year.json');
-      const taxYear = await taxYearJson.text();
+      const taxYearData: { taxYear: number } = await taxYearJson.json();
+      const { taxYear } = taxYearData;
       this.setState({ taxYear });
     } catch (e) {
       console.debug(e);
