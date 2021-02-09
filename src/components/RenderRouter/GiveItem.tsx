@@ -14,6 +14,7 @@ interface Props {
 interface State {
   content: any;
   currentPage: any;
+  taxYear: string;
 }
 
 export default class ContentItem extends React.Component<Props, State> {
@@ -22,8 +23,24 @@ export default class ContentItem extends React.Component<Props, State> {
     this.state = {
       content: props.content,
       currentPage: 'PushPay',
+      taxYear: '',
     };
   }
+
+  async fetchTaxYear() {
+    try {
+      const taxYearJson = await fetch('/static/data/tax-year.json');
+      const taxYear = await taxYearJson.text();
+      this.setState({ taxYear });
+    } catch (e) {
+      console.debug(e);
+    }
+  }
+
+  componentDidMount() {
+    this.fetchTaxYear();
+  }
+
   imgUrl(size: any) {
     if (window.location.hostname === 'localhost')
       return 'https://localhost:3006';
@@ -342,18 +359,22 @@ export default class ContentItem extends React.Component<Props, State> {
               </div>
             )}
           </div>
-          <div className="GiveItemNeedHelpGroup">
-            <div className="GiveItemOtherWays">2019 Tax Receipt</div>
-            <div className="GiveItemOtherWay">
-              <Link
-                className="inverted"
-                newWindow
-                to="https://meetinghouse.infellowship.com/UserLogin"
-              >
-                Login &amp; Download
-              </Link>
+          {this.state.taxYear && (
+            <div className="GiveItemNeedHelpGroup">
+              <div className="GiveItemOtherWays">
+                {this.state.taxYear} Tax Receipt
+              </div>
+              <div className="GiveItemOtherWay">
+                <Link
+                  className="inverted"
+                  newWindow
+                  to="https://meetinghouse.infellowship.com/UserLogin"
+                >
+                  Login &amp; Download
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
 
           <div style={{ clear: 'both' }}></div>
           <div className="GiveItemNeedHelpGroup">
