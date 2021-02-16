@@ -712,10 +712,6 @@
     "to": "https://meeting.formstack.com/forms/parish_challenge"
   },
   {
-    "id": "colouringpage",
-    "to": "/static/pdfs/teaching/Advent_Colouring_Page.pdf"
-  },
-  {
     "id": "accessibility",
     "to": "https://meeting.formstack.com/forms/accessibility_at_the_meeting_house"
   },
@@ -724,7 +720,7 @@
     "to": "https://meeting.formstack.com/forms/grant_application_2020_2021"
   },
   {
-    "id": "earstohear",
-    "to": "https://us02web.zoom.us/j/83317019449"
+    "id": "homechurchstructure",
+    "to": "/static/pdfs/Policies-and-Statements/Huddles-HC-Hub-Parish Descriptions.pdf"
   }
 ]

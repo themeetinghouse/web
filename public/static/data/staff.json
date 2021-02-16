@@ -37,15 +37,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Anita",
-    "LastName": "Giardina",
-    "Phone": "905.287.7000, ext. 853",
-    "Position": "Downtown Toronto Lead Pastor",
-    "sites": ["TODT", "Pastoral"],
-    "Email": "Anita.Giardina@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Anna",
     "LastName": "Lakatos",
     "Phone": "905.287.7000, ext. 842",
@@ -96,7 +87,7 @@
     "Phone": "905.287.7000",
     "Position": "Communications Administrator and Project Manager",
     "sites": ["Communications"],
-    "Email": "Carrissa.Reffell@themeetinghouse.com"
+    "Email": "Carrissa@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -139,9 +130,18 @@
     "FirstName": "Christine",
     "LastName": "Gratton",
     "Phone": "905.287.7000, ext. 806",
-    "Position": "Communications Manager (maternity leave)",
+    "Position": "Communications Manager (Maternity Leave)",
     "sites": ["Communications"],
     "Email": "Christine.Gratton@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Christian",
+    "LastName": "Nikodemus",
+    "Phone": "905.287.7000",
+    "Position": "Sound Recordist",
+    "sites": ["Communications"],
+    "Email": "Christian.nikodemus@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -160,6 +160,15 @@
     "Position": "Teaching Pastor",
     "sites": ["Pastoral"],
     "Email": "Danielle.Strickland@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Dan",
+    "LastName": "Fenty",
+    "Phone": "905.287.7000",
+    "Position": "Motion Graphics Animator",
+    "sites": ["Communications"],
+    "Email": "Dan.fenty@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -346,7 +355,7 @@
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
-    "Position": "Compassion Manager",
+    "Position": "Compassion Manager (On Leave)",
     "sites": ["Site Leadership"],
     "Email": "Laura.Hanna@themeetinghouse.com"
   },
@@ -355,7 +364,7 @@
     "FirstName": "Laura",
     "LastName": "Jory",
     "Phone": "905.287.7000, ext. 829",
-    "Position": "Oakville Kidmax Coordinator, Grade 1-5",
+    "Position": "Oakville Kidmax Coordinator, Grade 1-5 (On Leave)",
     "sites": ["OAKV", "Children"],
     "Email": "Laura.Jory@themeetinghouse.com"
   },
@@ -547,15 +556,6 @@
     "Position": "Curriculum Pastor & Brantford Lead Pastor",
     "sites": ["BRFD", "Communications", "Pastoral", "Children"],
     "Email": "Natalie.Frisk@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Nicole",
-    "LastName": "Dorsman",
-    "Phone": "905.287.7000",
-    "Position": "Operations Associate & Purchaser (on leave)",
-    "sites": ["Operations"],
-    "Email": "Nicole.Dorsman@themeetinghouse.com"
   },
   {
     "Staff": true,
