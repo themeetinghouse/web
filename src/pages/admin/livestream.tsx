@@ -108,6 +108,7 @@ interface State {
   livestreamList: Livestreams;
   liveObject: NewLivestream;
   customEvent: boolean;
+  lastZoomData: ZoomItem[] | null;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -121,8 +122,28 @@ class Index extends React.Component<EmptyProps, State> {
       livestreamList: [],
       liveObject: { ...liveInit },
       customEvent: false,
+      lastZoomData: null,
     };
-    this.listLivestreams();
+  }
+
+  async componentDidMount() {
+    await this.listLivestreams();
+
+    const lastLocalTeaching = this.state.livestreamList?.find(
+      (livestream) =>
+        // has zoom links
+        livestream?.zoom?.length &&
+        // has several zoom links
+        livestream?.zoom?.length > 12 &&
+        // is a sunday
+        moment(livestream?.date).isoWeekday() === 7 &&
+        // must include oakville
+        livestream.zoom.some(
+          (zoomItem) => zoomItem?.title.toLowerCase() === 'oakville'
+        )
+    );
+
+    this.setState({ lastZoomData: lastLocalTeaching?.zoom ?? null });
   }
 
   async listLivestreams(): Promise<void> {
@@ -996,7 +1017,25 @@ class Index extends React.Component<EmptyProps, State> {
               >
                 After Party Menu
               </button>
-
+              {this.state.lastZoomData ? (
+                <button
+                  style={{
+                    background: 'black',
+                    color: 'white',
+                    border: 0,
+                    height: 50,
+                    fontSize: 12,
+                    padding: 5,
+                  }}
+                  onClick={() =>
+                    this.handleChange('zoom', [
+                      ...(this.state.lastZoomData as ZoomItem[]),
+                    ])
+                  }
+                >
+                  Local Teaching
+                </button>
+              ) : null}
               {this.state.liveObject.zoom ? (
                 <button
                   style={{
