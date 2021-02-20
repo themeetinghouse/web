@@ -16,6 +16,7 @@ import {
   CreateLivestreamMutationVariables,
   DeleteLivestreamMutation,
   ListLivestreamsQuery,
+  ListLivestreamsQueryVariables,
   UpdateLivestreamMutation,
 } from 'API';
 import './livestream.scss';
@@ -147,13 +148,19 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async listLivestreams(): Promise<void> {
+    const variables: ListLivestreamsQueryVariables = {
+      filter: {
+        date: { gt: moment().subtract(1, 'years').format('YYYY-MM-DD') },
+      },
+    };
+
     try {
       const listLivestreams = (await API.graphql({
         query: queries.listLivestreams,
-        variables: { limit: 52 },
+        variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListLivestreamsQuery>;
-      console.log({ 'Success queries.listCustomPlaylist': listLivestreams });
+      console.log({ 'Success queries.listLivestreams': listLivestreams });
       this.setState({
         livestreamList: (
           listLivestreams.data?.listLivestreams?.items ?? []
