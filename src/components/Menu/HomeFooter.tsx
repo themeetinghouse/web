@@ -26,6 +26,11 @@ const socialLinks = [
     link: 'https://www.instagram.com/themeetinghouse',
     svg: '/static/svg/Instagram.svg',
   },
+  {
+    platform: 'TikTok',
+    link: 'https://www.tiktok.com/@themeetinghouse?lang=en',
+    svg: '/static/svg/tiktok.svg',
+  },
 ];
 
 export default class HomeFooter extends React.Component {
