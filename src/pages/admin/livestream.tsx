@@ -2,17 +2,24 @@ import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import { EmptyProps } from '../../utils';
-import Amplify from 'aws-amplify';
-import { API } from 'aws-amplify';
+import Amplify, { API } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
-import './livestream.scss';
 import awsmobile from '../../aws-exports';
 import isSafari from 'react-device-detect';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
+import {
+  CreateLivestreamMutation,
+  CreateLivestreamMutationVariables,
+  DeleteLivestreamMutation,
+  ListLivestreamsQuery,
+  ListLivestreamsQueryVariables,
+  UpdateLivestreamMutation,
+} from 'API';
+import './livestream.scss';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -47,6 +54,24 @@ const menuInit = [
   },
 ];
 
+const afterPartyMenu = [
+  {
+    title: 'Give',
+    link: '/give',
+    linkType: 'link',
+  },
+  {
+    title: 'Connect',
+    link: '/connect',
+    linkType: 'link',
+  },
+  {
+    title: 'Notes',
+    link: '/notes',
+    linkType: 'link',
+  },
+];
+
 const liveInit = {
   id: '',
   date: '',
@@ -57,52 +82,34 @@ const liveInit = {
   liveYoutubeId: '',
   showChat: true,
   showKids: true,
-  menu: menuInit,
+  menu: [...menuInit],
   homepageLink: 'Live',
   zoom: [],
   eventTitle: '',
   externalEventUrl: '',
 };
 
-interface LiveMenu {
-  [key: string]: any;
-  title: string;
-  link: string;
-  linkType: string;
-}
+type Livestreams = NonNullable<
+  ListLivestreamsQuery['listLivestreams']
+>['items'];
 
-interface ZoomItem {
-  [key: string]: any;
-  title: string;
-  link: string;
-}
+type Livestream = NonNullable<Livestreams>[0];
 
-interface LiveObject {
-  [key: string]: any;
-  id: string;
-  date: string;
-  startTime: string;
-  videoStartTime: string;
-  endTime: string;
-  prerollYoutubeId?: string;
-  liveYoutubeId?: string;
-  showChat?: boolean;
-  showKids?: boolean;
-  menu?: LiveMenu[];
-  homepageLink: string;
-  zoom?: ZoomItem[];
-  eventTitle: string;
-  externalEventUrl: string | undefined;
-}
+type MenuItem = NonNullable<NonNullable<Livestream>['menu']>[0];
+
+type ZoomItem = NonNullable<NonNullable<Livestream>['zoom']>[0];
+
+type NewLivestream = CreateLivestreamMutationVariables['input'];
 
 interface State {
   toDelete: string;
   editMode: boolean;
   notSundayWarning: string;
   alert: string;
-  livestreamList: LiveObject[];
-  liveObject: LiveObject;
+  livestreamList: Livestreams;
+  liveObject: NewLivestream;
   customEvent: boolean;
+  lastZoomData: ZoomItem[] | null;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -114,102 +121,68 @@ class Index extends React.Component<EmptyProps, State> {
       notSundayWarning: '',
       alert: '',
       livestreamList: [],
-      liveObject: liveInit,
+      liveObject: { ...liveInit },
       customEvent: false,
+      lastZoomData: null,
     };
-    this.listLivestreams();
   }
 
-  defaultAfterPartyMenu() {
-    return [
-      {
-        title: 'Give',
-        link: '/give',
-        linkType: 'link',
-      },
-      {
-        title: 'Connect',
-        link: '/connect',
-        linkType: 'link',
-      },
-      {
-        title: 'Notes',
-        link: '/notes',
-        linkType: 'link',
-      },
-    ];
-  }
+  async componentDidMount() {
+    await this.listLivestreams();
 
-  defaultMenu() {
-    return [
-      {
-        title: 'Give',
-        link: '/give',
-        linkType: 'link',
-      },
-      {
-        title: 'Music',
-        link: 'https://media.themeetinghouse.com/podcast/handouts/Music.pdf',
-        linkType: 'link',
-      },
-      {
-        title: 'Connect',
-        link: '/connect',
-        linkType: 'link',
-      },
-      {
-        title: 'Notes',
-        link: '/notes',
-        linkType: 'link',
-      },
-      {
-        title: 'Kidmax',
-        link: '/kidmax',
-        linkType: 'link',
-      },
-    ];
+    const lastLocalTeaching = this.state.livestreamList?.find(
+      (livestream) =>
+        // has zoom links
+        livestream?.zoom?.length &&
+        // has several zoom links
+        livestream?.zoom?.length > 12 &&
+        // is a sunday
+        moment(livestream?.date).isoWeekday() === 7 &&
+        // must include oakville
+        livestream.zoom.some(
+          (zoomItem) => zoomItem?.title.toLowerCase() === 'oakville'
+        )
+    );
+
+    this.setState({ lastZoomData: lastLocalTeaching?.zoom ?? null });
   }
 
   async listLivestreams(): Promise<void> {
+    const variables: ListLivestreamsQueryVariables = {
+      filter: {
+        date: { gt: moment().subtract(1, 'years').format('YYYY-MM-DD') },
+      },
+    };
+
     try {
-      const listLivestreams: any = await API.graphql({
+      const listLivestreams = (await API.graphql({
         query: queries.listLivestreams,
-        variables: { limit: 52 },
+        variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      });
-      console.log({ 'Success queries.listCustomPlaylist': listLivestreams });
+      })) as GraphQLResult<ListLivestreamsQuery>;
+      console.log({ 'Success queries.listLivestreams': listLivestreams });
       this.setState({
-        livestreamList: this.state.livestreamList
-          .concat(listLivestreams.data.listLivestreams.items)
-          .sort((a: any, b: any) => this.sortByDate(a, b)),
+        livestreamList: (
+          listLivestreams.data?.listLivestreams?.items ?? []
+        ).sort((a, b) => (b?.date as string)?.localeCompare(a?.date as string)),
       });
     } catch (e) {
       console.error(e);
     }
   }
 
-  sortByDate(a: any, b: any): number {
-    const nameA = a.date;
-    const nameB = b.date;
-    if (nameA > nameB) {
-      return -1;
+  handleSelection(id?: string) {
+    const liveObject = this.state.livestreamList?.filter(
+      (item) => item?.id === id
+    )[0];
+    console.debug(liveObject);
+    if (liveObject) {
+      this.setState({
+        customEvent: !!liveObject.externalEventUrl,
+        liveObject,
+        editMode: true,
+      });
     }
-    if (nameA < nameB) {
-      return 1;
-    }
-    return 0;
-  }
-
-  handleSelection(id: string) {
-    const temp = this.state.livestreamList.filter((item) => item.id === id)[0];
-    console.log(temp);
-    if (temp.externalEventUrl !== null && temp.externalEventUrl !== '')
-      this.setState({ customEvent: true });
-    else {
-      this.setState({ customEvent: false });
-    }
-    this.setState({ liveObject: temp });
-    this.setState({ editMode: true });
   }
 
   renderLivestreams() {
@@ -256,48 +229,48 @@ class Index extends React.Component<EmptyProps, State> {
           </tr>
         </thead>
         <tbody>
-          {this.state.livestreamList.map((livestream: LiveObject) => {
+          {this.state.livestreamList?.map((livestream) => {
             return (
               <tr
-                key={livestream.id}
+                key={livestream?.id}
                 className="divRow"
-                onClick={() => this.handleSelection(livestream.id)}
+                onClick={() => this.handleSelection(livestream?.id)}
               >
                 <td className="divCell" key={'id'}>
-                  {livestream.id}
+                  {livestream?.id}
                 </td>
                 <td className="divCell" key={'date'}>
-                  {livestream.date}
+                  {livestream?.date}
                 </td>
                 <td className="divCell" key={'startTime'}>
-                  {livestream.startTime}
+                  {livestream?.startTime}
                 </td>
                 <td className="divCell" key={'videoStartTime'}>
-                  {livestream.videoStartTime}
+                  {livestream?.videoStartTime}
                 </td>
                 <td className="divCell" key={'endTime'}>
-                  {livestream.endTime}
+                  {livestream?.endTime}
                 </td>
                 <td className="divCell" key={'prerollYoutubeId'}>
-                  {livestream.prerollYoutubeId}
+                  {livestream?.prerollYoutubeId}
                 </td>
                 <td className="divCell" key={'liveYoutubeId'}>
-                  {livestream.liveYoutubeId}
+                  {livestream?.liveYoutubeId}
                 </td>
                 <td className="divCell" key={'homepageLink'}>
-                  {livestream.homepageLink}
+                  {livestream?.homepageLink}
                 </td>
                 <td className="divCell" key={'showChat'}>
-                  {livestream.showChat?.toString()}
+                  {livestream?.showChat?.toString()}
                 </td>
                 <td className="divCell" key={'showKids'}>
-                  {livestream.showKids?.toString()}
+                  {livestream?.showKids?.toString()}
                 </td>
                 <td className="divCell" key={'externalEventUrl'}>
-                  {livestream.externalEventUrl}
+                  {livestream?.externalEventUrl}
                 </td>
                 <td className="divCell" key={'eventTitle'}>
-                  {livestream.eventTitle}
+                  {livestream?.eventTitle}
                 </td>
               </tr>
             );
@@ -309,85 +282,94 @@ class Index extends React.Component<EmptyProps, State> {
 
   validate(): boolean {
     let test = true;
-    if (this.state.liveObject.zoom)
-      this.state.liveObject.zoom.forEach((zoomItem) => {
-        if (zoomItem.title === '') {
-          this.setState({ alert: 'error: zoom item titles cannot be empty' });
-          test = false;
-        }
 
-        if (zoomItem.link === '') {
-          this.setState({ alert: `error: zoom item link cannot be empty` });
-          test = false;
-        }
-      });
-    if (this.state.liveObject.menu)
-      this.state.liveObject.menu.forEach((menuItem) => {
-        if (menuItem.link === '') {
-          this.setState({ alert: 'error: need a valid link' });
-          test = false;
-        }
+    if (this.state.liveObject) {
+      const { livestreamList } = this.state;
 
-        if (menuItem.title === '') {
-          this.setState({ alert: 'error: menu titles cannot be empty' });
-          test = false;
-        }
-      });
+      const {
+        zoom,
+        menu,
+        endTime,
+        videoStartTime,
+        startTime,
+        date,
+        id,
+        prerollYoutubeId,
+      } = this.state.liveObject;
 
-    if (this.state.liveObject.endTime < this.state.liveObject.videoStartTime) {
-      this.setState({ alert: 'error: endTime is before videoStartTime' });
-      test = false;
-    }
+      if (zoom) {
+        zoom.forEach((zoomItem) => {
+          if (zoomItem?.title === '') {
+            this.setState({ alert: 'error: zoom item titles cannot be empty' });
+            test = false;
+          }
 
-    if (this.state.liveObject.endTime < this.state.liveObject.startTime) {
-      this.setState({ alert: 'error: endTime is before startTime' });
-      test = false;
-    }
-
-    if (
-      this.state.liveObject.videoStartTime < this.state.liveObject.startTime
-    ) {
-      this.setState({ alert: 'error: videoStartTime is before startTime' });
-      test = false;
-    }
-
-    this.state.livestreamList.forEach((item) => {
-      if (
-        item.date === this.state.liveObject.date &&
-        item.id !== this.state.liveObject.id
-      ) {
-        if (
-          item.startTime <= this.state.liveObject.startTime &&
-          item.endTime >= this.state.liveObject.startTime
-        ) {
-          this.setState({
-            alert: `error: live event overlaps with ${item.id}`,
-          });
-          test = false;
-        }
-        if (
-          item.startTime <= this.state.liveObject.endTime &&
-          item.endTime >= this.state.liveObject.endTime
-        ) {
-          this.setState({
-            alert: `error: live event overlaps with ${item.id}`,
-          });
-          test = false;
-        }
+          if (zoomItem?.link === '') {
+            this.setState({ alert: `error: zoom item link cannot be empty` });
+            test = false;
+          }
+        });
       }
-    });
+      if (menu)
+        menu.forEach((menuItem) => {
+          if (menuItem?.link === '') {
+            this.setState({ alert: 'error: need a valid link' });
+            test = false;
+          }
 
-    if (
-      this.state.liveObject.prerollYoutubeId === '' &&
-      this.state.liveObject.startTime !== this.state.liveObject.videoStartTime
-    ) {
-      this.setState({
-        alert:
-          'error: startTime must equal videoStartTime if there is no preroll video',
+          if (menuItem?.title === '') {
+            this.setState({ alert: 'error: menu titles cannot be empty' });
+            test = false;
+          }
+        });
+
+      if (endTime && videoStartTime && endTime < videoStartTime) {
+        this.setState({ alert: 'error: endTime is before videoStartTime' });
+        test = false;
+      }
+
+      if (endTime && startTime && endTime < startTime) {
+        this.setState({ alert: 'error: endTime is before startTime' });
+        test = false;
+      }
+
+      if (videoStartTime && startTime && videoStartTime < startTime) {
+        this.setState({ alert: 'error: videoStartTime is before startTime' });
+        test = false;
+      }
+
+      livestreamList?.forEach((item) => {
+        if (
+          item?.date === date &&
+          item?.id !== id &&
+          startTime &&
+          endTime &&
+          item?.startTime &&
+          item?.endTime
+        ) {
+          if (item.startTime <= startTime && item.endTime >= startTime) {
+            this.setState({
+              alert: `error: live event overlaps with ${item?.id}`,
+            });
+            test = false;
+          }
+          if (item.startTime <= endTime && item.endTime >= endTime) {
+            this.setState({
+              alert: `error: live event overlaps with ${item?.id}`,
+            });
+            test = false;
+          }
+        }
       });
-      test = false;
-    }
 
+      if (prerollYoutubeId === '' && startTime !== videoStartTime) {
+        this.setState({
+          alert:
+            'error: startTime must equal videoStartTime if there is no preroll video',
+        });
+        test = false;
+      }
+    }
     return test;
   }
 
@@ -401,58 +383,64 @@ class Index extends React.Component<EmptyProps, State> {
   async save(): Promise<void> {
     if (this.state.editMode) {
       try {
-        const temp = { ...this.state.liveObject };
+        const input = { ...this.state.liveObject };
         if (this.state.customEvent) {
-          delete temp['showChat'];
-          delete temp['showKids'];
-          delete temp['zoom'];
-          delete temp['liveYoutubeId'];
-          delete temp['prerollYoutubeId'];
-          delete temp['menu'];
+          delete input['showChat'];
+          delete input['showKids'];
+          delete input['zoom'];
+          delete input['liveYoutubeId'];
+          delete input['prerollYoutubeId'];
+          delete input['menu'];
         } else {
-          delete temp['externalEventUrl'];
+          delete input['externalEventUrl'];
         }
-        delete temp['createdAt'];
-        delete temp['updatedAt'];
-        console.log(temp);
-        const response: any = await API.graphql({
+        delete (input as any)['createdAt'];
+        delete (input as any)['updatedAt'];
+        console.log(input);
+        const json = (await API.graphql({
           query: mutations.updateLivestream,
-          variables: { input: temp },
+          variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<UpdateLivestreamMutation>;
+        this.setState({
+          alert: 'updated: ' + json.data?.updateLivestream?.id,
         });
         this.setState({
-          alert: 'updated: ' + response.data.updateLivestream.id,
+          liveObject: { ...liveInit },
+          editMode: false,
+          customEvent: false,
         });
-        this.setState({ liveObject: liveInit, editMode: false });
-        this.setState({ customEvent: false });
       } catch (e) {
         console.error(e);
       }
     } else {
-      const temp = { ...this.state.liveObject };
+      const input = { ...this.state.liveObject };
       if (this.state.customEvent) {
-        delete temp['showChat'];
-        delete temp['showKids'];
-        delete temp['zoom'];
-        delete temp['liveYoutubeId'];
-        delete temp['prerollYoutubeId'];
-        delete temp['menu'];
-        temp.id = `CustomEvent-${uuidv4()}`;
+        delete input['showChat'];
+        delete input['showKids'];
+        delete input['zoom'];
+        delete input['liveYoutubeId'];
+        delete input['prerollYoutubeId'];
+        delete input['menu'];
+        input.id = `CustomEvent-${uuidv4()}`;
       } else {
-        delete temp['externalEventUrl'];
+        delete input['externalEventUrl'];
       }
-      console.log(temp);
+      console.log(input);
       try {
-        const response: any = await API.graphql({
+        const json = (await API.graphql({
           query: mutations.createLivestream,
-          variables: { input: temp },
+          variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<CreateLivestreamMutation>;
+        this.setState({
+          alert: 'created: ' + json.data?.createLivestream?.id,
         });
         this.setState({
-          alert: 'created: ' + response.data.createLivestream.id,
+          liveObject: { ...liveInit },
+          editMode: false,
+          customEvent: false,
         });
-        this.setState({ liveObject: liveInit, editMode: false });
-        this.setState({ customEvent: false });
       } catch (e) {
         console.error(e);
       }
@@ -469,25 +457,27 @@ class Index extends React.Component<EmptyProps, State> {
 
   handleChange(
     field: string,
-    data: string | boolean | LiveMenu[] | ZoomItem[]
+    data: string | boolean | MenuItem[] | ZoomItem[]
   ): void {
-    const temp = this.state.liveObject;
-    temp[field] = data;
-    this.setState({ liveObject: temp });
+    this.setState((prevState) => {
+      return { liveObject: { ...prevState.liveObject, [field]: data } };
+    });
     if (!this.state.customEvent) {
-      const firstString = this.state.liveObject.homepageLink
-        .toLowerCase()
+      const firstString = this.state.liveObject?.homepageLink
+        ?.toLowerCase()
         .includes('after party')
         ? 'After Party'
         : 'Live';
-      temp['id'] =
+      const id =
         firstString +
         '-' +
         this.state.liveObject.date +
         '-' +
         this.state.liveObject.liveYoutubeId;
+      this.setState((prevState) => {
+        return { liveObject: { ...prevState.liveObject, id } };
+      });
     }
-    this.setState({ liveObject: temp });
     this.setState({ notSundayWarning: '' });
   }
 
@@ -496,18 +486,23 @@ class Index extends React.Component<EmptyProps, State> {
     field: 'link' | 'title' | 'linkType',
     data: string
   ): void {
-    const temp = this.state.liveObject;
-    if (temp.menu) {
-      temp.menu[index][field] = data;
-      this.setState({ liveObject: temp });
+    const { menu } = this.state.liveObject;
+
+    if (menu?.[index]) {
+      menu[index] = { ...menu[index], [field]: data } as MenuItem;
+      this.setState((prevState) => {
+        return { liveObject: { ...prevState.liveObject, menu } };
+      });
     }
   }
 
   handleZoomChange(index: number, field: string, data: string): void {
-    const temp = this.state.liveObject;
-    if (temp.zoom) {
-      temp.zoom[index][field] = data;
-      this.setState({ liveObject: temp });
+    const { zoom } = this.state.liveObject;
+    if (zoom?.[index]) {
+      zoom[index] = { ...zoom[index], [field]: data } as ZoomItem;
+      this.setState((prevState) => {
+        return { liveObject: { ...prevState.liveObject, zoom } };
+      });
     }
   }
 
@@ -515,7 +510,7 @@ class Index extends React.Component<EmptyProps, State> {
     const temp = this.state.liveObject.zoom;
     if (temp) {
       temp.pop();
-      this.handleChange('zoom', temp);
+      this.handleChange('zoom', temp as ZoomItem[]);
     }
   }
 
@@ -523,7 +518,7 @@ class Index extends React.Component<EmptyProps, State> {
     const temp = this.state.liveObject.zoom;
     if (temp) {
       temp.push({ title: '', link: '' });
-      this.handleChange('zoom', temp);
+      this.handleChange('zoom', temp as ZoomItem[]);
     }
   }
 
@@ -531,7 +526,7 @@ class Index extends React.Component<EmptyProps, State> {
     const temp = this.state.liveObject.menu;
     if (temp) {
       temp.pop();
-      this.handleChange('menu', temp);
+      this.handleChange('menu', temp as MenuItem[]);
     }
   }
 
@@ -539,24 +534,24 @@ class Index extends React.Component<EmptyProps, State> {
     const temp = this.state.liveObject.menu;
     if (temp) {
       temp.push({ title: '', link: '', linkType: 'link' });
-      this.handleChange('menu', temp);
+      this.handleChange('menu', temp as MenuItem[]);
     }
   }
 
   async delete() {
     if (this.state.toDelete !== '') {
       try {
-        const response: any = await API.graphql({
+        const json = (await API.graphql({
           query: mutations.deleteLivestream,
           variables: { input: { id: this.state.toDelete } },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        });
+        })) as GraphQLResult<DeleteLivestreamMutation>;
         this.setState({
-          alert: 'deleted: ' + response.data.deleteLivestream.id,
+          alert: 'deleted: ' + json.data?.deleteLivestream?.id,
           toDelete: '',
         });
         this.setState({
-          liveObject: liveInit,
+          liveObject: { ...liveInit },
           customEvent: false,
           editMode: false,
         });
@@ -588,7 +583,7 @@ class Index extends React.Component<EmptyProps, State> {
     );
   }
 
-  renderMenuEditor(menuItem: LiveMenu, index: number) {
+  renderMenuEditor(menuItem: MenuItem, index: number) {
     return (
       <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
         <label>Menu item {index + 1}</label>
@@ -596,7 +591,7 @@ class Index extends React.Component<EmptyProps, State> {
           placeholder="title"
           className="menu-input"
           type="text"
-          value={menuItem.title}
+          value={menuItem?.title ?? ''}
           onChange={(e) =>
             this.handleMenuChange(index, 'title', e.target.value)
           }
@@ -605,14 +600,14 @@ class Index extends React.Component<EmptyProps, State> {
           placeholder="url"
           className="menu-input"
           type="text"
-          value={menuItem.link}
+          value={menuItem?.link ?? ''}
           onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}
         />
         <input
           placeholder="type"
           className="menu-input"
           type="text"
-          value={menuItem.linkType}
+          value={menuItem?.linkType ?? ''}
           onChange={(e) =>
             this.handleMenuChange(index, 'linkType', e.target.value)
           }
@@ -626,14 +621,14 @@ class Index extends React.Component<EmptyProps, State> {
       <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
         <label>
           Zoom item {index + 1} [
-          <span style={{ color: 'red' }}>{zoomItem.title.length}/30</span>]
+          <span style={{ color: 'red' }}>{zoomItem?.title.length}/30</span>]
         </label>
         <input
           placeholder="title"
           maxLength={30}
           className="menu-input"
           type="text"
-          value={zoomItem.title}
+          value={zoomItem?.title ?? ''}
           onChange={(e) =>
             this.handleZoomChange(index, 'title', e.target.value)
           }
@@ -642,7 +637,7 @@ class Index extends React.Component<EmptyProps, State> {
           placeholder="url"
           className="menu-input"
           type="text"
-          value={zoomItem.link}
+          value={zoomItem?.link ?? ''}
           onChange={(e) => this.handleZoomChange(index, 'link', e.target.value)}
         ></input>
       </div>
@@ -655,7 +650,7 @@ class Index extends React.Component<EmptyProps, State> {
         <button
           style={{ marginTop: '16px', marginBottom: '16px' }}
           onClick={() => {
-            this.setState({ liveObject: liveInit });
+            this.setState({ liveObject: { ...liveInit } });
             this.setState({
               customEvent: !this.state.customEvent,
               alert: '',
@@ -680,7 +675,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="date"
                   required
-                  value={this.state.liveObject.date}
+                  value={this.state.liveObject.date ?? ''}
                   onChange={(e) => this.handleChange('date', e.target.value)}
                 ></input>
               </label>
@@ -700,7 +695,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="time"
                   required
-                  value={this.state.liveObject.startTime}
+                  value={this.state.liveObject.startTime ?? ''}
                   onChange={(e) =>
                     this.handleChange('startTime', e.target.value)
                   }
@@ -722,7 +717,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="time"
                   required
-                  value={this.state.liveObject.videoStartTime}
+                  value={this.state.liveObject.videoStartTime ?? ''}
                   onChange={(e) =>
                     this.handleChange('videoStartTime', e.target.value)
                   }
@@ -744,7 +739,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="time"
                   required
-                  value={this.state.liveObject.endTime}
+                  value={this.state.liveObject.endTime ?? ''}
                   onChange={(e) => this.handleChange('endTime', e.target.value)}
                 ></input>
               </label>
@@ -754,7 +749,7 @@ class Index extends React.Component<EmptyProps, State> {
               <label>
                 bannerMessage{' '}
                 <span style={{ fontSize: 10 }}>
-                  ({this.state.liveObject.homepageLink.length}/45 characters)
+                  ({this.state.liveObject?.homepageLink?.length}/45 characters)
                 </span>
                 <br />
                 <input
@@ -762,7 +757,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="text"
                   required
-                  value={this.state.liveObject.homepageLink}
+                  value={this.state.liveObject.homepageLink ?? ''}
                   onChange={(e) =>
                     this.handleChange('homepageLink', e.target.value)
                   }
@@ -775,7 +770,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="text"
                   required
-                  value={this.state.liveObject.externalEventUrl}
+                  value={this.state.liveObject.externalEventUrl ?? ''}
                   onChange={(e) =>
                     this.handleChange('externalEventUrl', e.target.value)
                   }
@@ -788,7 +783,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="text"
                   required
-                  value={this.state.liveObject.eventTitle}
+                  value={this.state.liveObject.eventTitle ?? ''}
                   onChange={(e) =>
                     this.handleChange('eventTitle', e.target.value)
                   }
@@ -813,7 +808,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="date"
                     required
-                    value={this.state.liveObject.date}
+                    value={this.state.liveObject.date ?? ''}
                     onChange={(e) => this.handleChange('date', e.target.value)}
                   ></input>
                 </label>
@@ -834,7 +829,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="time"
                     required
-                    value={this.state.liveObject.startTime}
+                    value={this.state.liveObject.startTime ?? ''}
                     onChange={(e) =>
                       this.handleChange('startTime', e.target.value)
                     }
@@ -857,7 +852,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="time"
                     required
-                    value={this.state.liveObject.videoStartTime}
+                    value={this.state.liveObject.videoStartTime ?? ''}
                     onChange={(e) =>
                       this.handleChange('videoStartTime', e.target.value)
                     }
@@ -880,7 +875,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="time"
                     required
-                    value={this.state.liveObject.endTime}
+                    value={this.state.liveObject.endTime ?? ''}
                     onChange={(e) =>
                       this.handleChange('endTime', e.target.value)
                     }
@@ -917,7 +912,7 @@ class Index extends React.Component<EmptyProps, State> {
                 <label>
                   bannerMessage{' '}
                   <span style={{ fontSize: 10 }}>
-                    ({this.state.liveObject.homepageLink.length}/45 characters)
+                    ({this.state.liveObject.homepageLink?.length}/45 characters)
                   </span>
                   <br />
                   <input
@@ -925,7 +920,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="text"
                     required
-                    value={this.state.liveObject.homepageLink}
+                    value={this.state.liveObject.homepageLink ?? ''}
                     onChange={(e) =>
                       this.handleChange('homepageLink', e.target.value)
                     }
@@ -971,13 +966,13 @@ class Index extends React.Component<EmptyProps, State> {
               </div>
               <div style={{ flex: 2 }}>
                 {this.state.liveObject.menu?.map((item, index) =>
-                  this.renderMenuEditor(item, index)
+                  this.renderMenuEditor(item as MenuItem, index)
                 )}
               </div>
               <div style={{ flex: 2 }}>
                 {this.state.liveObject.zoom
                   ? this.state.liveObject.zoom.map((item, index) =>
-                      this.renderZoomEditor(item, index)
+                      this.renderZoomEditor(item as ZoomItem, index)
                     )
                   : null}
               </div>
@@ -1009,7 +1004,9 @@ class Index extends React.Component<EmptyProps, State> {
               </button>
               <button
                 style={{ border: 0, height: 50, fontSize: 12, padding: 5 }}
-                onClick={() => this.handleChange('menu', this.defaultMenu())}
+                onClick={() =>
+                  this.handleChange('menu', [...menuInit] as MenuItem[])
+                }
               >
                 Default Menu
               </button>
@@ -1022,11 +1019,30 @@ class Index extends React.Component<EmptyProps, State> {
                   padding: 5,
                 }}
                 onClick={() =>
-                  this.handleChange('menu', this.defaultAfterPartyMenu())
+                  this.handleChange('menu', [...afterPartyMenu] as MenuItem[])
                 }
               >
                 After Party Menu
               </button>
+              {this.state.lastZoomData ? (
+                <button
+                  style={{
+                    background: 'black',
+                    color: 'white',
+                    border: 0,
+                    height: 50,
+                    fontSize: 12,
+                    padding: 5,
+                  }}
+                  onClick={() =>
+                    this.handleChange('zoom', [
+                      ...(this.state.lastZoomData as ZoomItem[]),
+                    ])
+                  }
+                >
+                  Local Teaching
+                </button>
+              ) : null}
               {this.state.liveObject.zoom ? (
                 <button
                   style={{
