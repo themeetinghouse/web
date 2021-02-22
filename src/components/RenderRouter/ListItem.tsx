@@ -522,7 +522,7 @@ class ListItem extends React.Component<Props, State> {
     return (
       `/static/photos/playlists/` +
       encodeURIComponent(title.replace(/\?|[']/g, '')) +
-      '.png'
+      '.jpg'
     );
   }
 
