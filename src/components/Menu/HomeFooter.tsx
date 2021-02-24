@@ -31,6 +31,11 @@ const socialLinks = [
     link: 'https://www.tiktok.com/@themeetinghouse?lang=en',
     svg: '/static/svg/tiktok.svg',
   },
+  {
+    platform: 'Discord',
+    link: 'https://www.tinyurl.com/TMH-discord',
+    svg: '/static/svg/Discord.svg',
+  },
 ];
 
 export default class HomeFooter extends React.Component {
