@@ -69,7 +69,7 @@
     "Phone": "905.287.7000, ext. 840",
     "Position": "Teaching Pastor",
     "sites": ["Senior Staff", "Pastoral"],
-    "Email": "Bruxy.Cavey@themeetinghouse.com"
+    "Email": "Bruxy.admin@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -136,6 +136,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Christian",
+    "LastName": "Nikodemus",
+    "Phone": "905.287.7000",
+    "Position": "Sound Recordist",
+    "sites": ["Communications"],
+    "Email": "Christian.nikodemus@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Dagmar",
     "LastName": "Morgan-Sinclair",
     "Phone": "905.287.7000, ext. 848",
@@ -151,6 +160,15 @@
     "Position": "Teaching Pastor",
     "sites": ["Pastoral"],
     "Email": "Danielle.Strickland@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Dan",
+    "LastName": "Fenty",
+    "Phone": "905.287.7000",
+    "Position": "Motion Graphics Animator",
+    "sites": ["Communications"],
+    "Email": "Dan.fenty@themeetinghouse.com"
   },
   {
     "Staff": true,

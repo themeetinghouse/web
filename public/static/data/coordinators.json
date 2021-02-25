@@ -157,12 +157,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Dan",
-    "LastName": "Klass",
-    "sites": ["WAT"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Denis",
     "LastName": "Audette",
     "sites": ["OWSN"],
@@ -299,6 +293,13 @@
     "sites": ["WATL"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Jeremiah",
+    "LastName": "McLeary",
+    "sites": ["WATL"],
+    "Email": "Mcclearj@uoguelph.ca",
+    "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Max",
