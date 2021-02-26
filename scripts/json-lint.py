@@ -40,6 +40,17 @@ def assert_go_text(body):
         assert(isinstance(i['text'], str))
         assert('newParagraph' not in i or isinstance(i['newParagraph'], bool))
 
+def assert_menu_item(item):
+    assert(isinstance(item, dict))
+    assert(isinstance(item['name'], str))
+    assert(isinstance(item['location'], str) and '/' in item['location'])
+
+def assert_location(location):
+    assert(isinstance(location, dict))
+    assert(isinstance(location['longitude'], float))
+    assert(isinstance(location['latitude'], float))
+    assert(isinstance(location['address'], str))
+
 for json_file in glob.glob(cwd + path):
     with open(json_file) as f:
         try:
@@ -306,6 +317,112 @@ for json_file in glob.glob(cwd + path):
                     
                     else:
                         raise Exception(f'unknown content type: {item_type}')
+
+            else:
+                split_filepath = f.name.split('data/')
+                filename = split_filepath[1] if len(split_filepath) == 2 else ""
+                
+                if filename == "staff.json":
+                    assert(isinstance(current_json, list))
+                    for staff in current_json:
+                        staff_keys = sorted(list(staff.keys()))
+                        assert(staff_keys == ['Email', 'FirstName', 'LastName', 'Phone', 'Position', 'Staff', 'sites'])
+                       
+                        assert(isinstance(staff['Staff'], bool))
+
+                        for i in ['FirstName', 'LastName', 'Email', 'Phone', 'Position']:
+                            assert(isinstance(staff[i], str))
+
+                        assert(isinstance(staff['sites'], list))
+                        for i in staff['sites']:
+                            assert(isinstance(i, str))
+                
+                elif filename == 'coordinators.json':
+                    assert(isinstance(current_json, list))
+                    for coordinator in current_json:
+                        coordinator_keys = list(coordinator.keys())
+                        assert(len(coordinator_keys) == 4 or len(coordinator_keys) == 5)
+                        if 'Email' in coordinator_keys:
+                            for i in ['FirstName', 'LastName', 'Email', 'Position']:
+                                assert(isinstance(coordinator[i], str))
+                        else:
+                            for i in ['FirstName', 'LastName', 'Position']:
+                                assert(isinstance(coordinator[i], str))
+
+                        assert(isinstance(coordinator['sites'], list))
+                        for i in coordinator['sites']:
+                            assert(isinstance(i, str))
+
+                elif filename == 'compassion.json':
+                    assert(isinstance(current_json, list))
+                    for partner in current_json:
+                        assert(isinstance(partner['id'], int))
+
+                        for i in ['name', 'description', 'image', 'imagealt']:
+                            assert(isinstance(partner[i], str))
+
+                        assert('website' not in partner or isinstance(partner['website'], str))
+
+                        assert(isinstance(partner['sites'], list))
+                        for i in partner['sites']:
+                            assert(isinstance(i, str))
+
+                elif filename == 'redirect.json':
+                    assert(isinstance(current_json, list))
+                    for i in current_json:
+                        assert(isinstance(i['id'], str))
+                        assert(isinstance(i['to'], str))
+
+                elif filename == "overseers.json":
+                    assert(isinstance(current_json, list))
+                    for overseer in current_json:
+                        overseer_keys = sorted(list(overseer.keys()))
+                        assert(overseer_keys == ['FirstName', 'LastName', 'Position', 'sites'])
+
+                        for i in ['FirstName', 'LastName', 'Position']:
+                            assert(isinstance(overseer[i], str))
+
+                        assert(isinstance(overseer['sites'], list))
+                        for i in overseer['sites']:
+                            assert(isinstance(i, str))
+
+                elif filename == "locations.json" or filename == 'easter.json':
+                    assert(isinstance(current_json, list))
+                    for location in current_json:
+                        location_keys = sorted(list(location.keys()))
+                        assert(location_keys == ['id', 'location', 'name', 'pastorEmail', 'serviceTimes'])
+
+                        for i in ['id', 'name', 'pastorEmail']:
+                            assert(isinstance(location[i], str))
+
+                        assert_location(location['location'])
+
+                        assert(isinstance(location['serviceTimes'], list))
+                        for i in location['serviceTimes']:
+                            assert(isinstance(i, str))
+
+                elif filename == 'christmas.json':
+                    assert(isinstance(current_json, list))
+                    for service in current_json:
+                        service_keys = sorted(list(service.keys()))
+                        assert(service_keys == ['id', 'location', 'name', 'serviceTimes'])
+
+                        for i in ['id', 'name']:
+                            assert(isinstance(service[i], str))
+
+                        assert_location(location['location'])
+
+                        assert(isinstance(service['serviceTimes'], list))
+                        for i in service['serviceTimes']:
+                            assert(isinstance(i, str))
+
+                elif filename == 'MainMenu.json':
+                    assert(isinstance(current_json, list))
+                    for item in current_json:
+                        assert_menu_item(item)
+                        if 'children' in item:
+                            for child in item['children']:
+                                assert_menu_item(child)
 
         except Exception:
             print(f'ERR: \033[91m{f.name}\n\033[0m')
