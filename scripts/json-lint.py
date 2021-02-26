@@ -7,13 +7,14 @@ import traceback
 cwd = os.getcwd()
 path = "/public/static/**/*.json"
 
-def assert_standard_text(item):
-    assert('style' in item and isinstance(item['style'], str))
+def assert_standard_text(item, no_style = False):
+    if not no_style:
+        assert('style' in item and isinstance(item['style'], str))
     for i in item:
         if 'header' in i or 'text' in i:
             assert(isinstance(item[i], str))
 
-def assert_image(images, check_link_to = False):
+def assert_image(images: list, check_link_to = False):
     assert(isinstance(images, list))
     for image in images:
         assert(isinstance(image['src'], str))
@@ -21,11 +22,23 @@ def assert_image(images, check_link_to = False):
         if (check_link_to):
             assert('linkto' not in image or isinstance(image['linkto'], str))
 
+def assert_list_image(img: dict):
+    assert(isinstance(img['title'], str))
+    assert(isinstance(img['imageSrc'], str))
+    assert(isinstance(img['imageAlt'], str))
+    assert(img['imageAlt'])
+
 def assert_content_link_or_button(link_or_button, check_new_tab = False):
     assert(isinstance(link_or_button['navigateTo'], str))
     assert(isinstance(link_or_button['title'], str))
     if (check_new_tab):
         assert('openNewBrowser' not in link_or_button or isinstance(link_or_button['openNewBrowser'], bool))
+
+def assert_go_text(body):
+    for i in body:
+        assert(i['fontWeight'] == 'normal' or i['fontWeight'] == 'bold')
+        assert(isinstance(i['text'], str))
+        assert('newParagraph' not in i or isinstance(i['newParagraph'], bool))
 
 for json_file in glob.glob(cwd + path):
     with open(json_file) as f:
@@ -102,6 +115,197 @@ for json_file in glob.glob(cwd + path):
                                 assert(isinstance(item[i]['text'], str))
                             elif i == 'images':
                                 assert_image(item[i], check_link_to=True)
+
+                    elif item_type == 'list':
+                        assert(isinstance(item, dict))
+                        assert_standard_text(item)
+                        for i in item:
+                            if i == 'image1':
+                                assert_image(item[i])
+                            elif i == 'subclass' or i == 'status':
+                                assert(isinstance(item[i], str))
+                            elif i == 'collection' or i == 'forceToTop':
+                                assert(isinstance(item[i], list))
+                                for series in item[i]:
+                                    assert(isinstance(series, str))
+                            elif i == 'list':
+                                assert(isinstance(item[i], list))
+                                for list_item in item[i]:
+                                    assert(isinstance(list_item, dict))
+                                    if ('navigateTo' in list_item):
+                                        assert(isinstance(list_item['navigateTo'], str))
+                                        assert(isinstance(list_item['text'], str))
+                                        if ('imageSrc' in list_item):
+                                            assert_list_image(list_item)
+                                    elif ('url' in list_item):
+                                        assert(isinstance(list_item['url'], str))
+                                        assert_list_image(list_item)
+                                    else:
+                                        assert_list_image(list_item)
+                            elif i == 'sortOrder':
+                                assert(item[i] == 'DESC' or item[i] == 'ASC')
+                            elif i in ['limit', 'numberOfDays', 'minViews', 'loadPer', 'numberOfVideos']:                                assert(isinstance(item[i], int))
+                            elif i == 'class':
+                                assert(item[i] in ['playlists', 'series-collection', 'series', 'random-suggested-playlist',
+                                    'instagram', 'speakers', 'staff', 'overseers', 'events', 'compassion', 'videos', 'curious', 
+                                    'watch-page', 'watch-page-playlist', 'blogs', 'user-defined'])
+                            elif i == 'filterField':
+                                assert('filterValue' in item)
+                                assert(isinstance(item['filterField'], str))
+                                assert(isinstance(item['filterValue'], str))
+                            elif i == 'showEpisodeNumbers' or i == 'skipFirstPost':
+                                assert(isinstance(item[i], bool))
+                            elif i == 'hovertag':
+                                assert(isinstance(item[i], str))
+                            elif i == 'selector':
+                                assert(item[i] in ['all', 'popular', 'similar', 'sameSeries', 'highlights', 'same-playlist'])
+                            elif i == 'facebookEvents':
+                                assert(isinstance(item[i], list))
+                                for fb_id in item[i]:
+                                    assert(isinstance(fb_id, str))
+
+                    elif item_type == 'faq':
+                        assert_standard_text(item, no_style=True)
+                        for i in item:
+                            if i == 'list':
+                                assert(isinstance(item[i], list))
+                                for list_item in item[i]:
+                                    if list_item['type'] == 'question':
+                                        assert(isinstance(list_item['question'], str))
+                                        assert(isinstance(list_item['answer'], list))
+                                        for answer in list_item['answer']:
+                                            assert(isinstance(answer, str))
+                                    elif list_item['type'] == 'text':
+                                        assert(isinstance(list_item['class'], str))
+                                        assert(isinstance(list_item['title'], str))
+                                    elif list_item['type'] == 'button':
+                                        assert(isinstance(list_item['title'], str))
+                                        assert(isinstance(list_item['navigateTo'], str))
+                                    else:
+                                        unknown = list_item['type']
+                                        raise Exception(f'unknown FAQ list type: {unknown}')                     
+
+                    elif item_type == 'blog':
+                        assert(item['style'] == 'hero' or item['style'] == 'multiImage')
+                        assert(isinstance(item['status'], str))
+                        assert(isinstance(item['header1'], str))
+                        assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                        assert('limit' not in item or isinstance(item['limit'], int))
+                        assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
+                        assert('button1Action' not in item or isinstance(item['button1Action'], str))
+                        assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
+                    
+                    elif item_type == 'podcasts':
+                        assert(isinstance(item, dict))
+                        podcasts = item['podcastlist']
+                        assert(isinstance(podcasts, list))
+                        for i in podcasts:
+                            assert(isinstance(i['title'], str))
+                            assert(isinstance(i['description'], str))
+                            assert(isinstance(i['icon'], dict))
+                            assert(isinstance(i['icon']['src'], str))
+                            assert(isinstance(i['icon']['alt'], str))
+                            assert('apple' in i['apple'])
+                            assert('spotify' in i['spotify'])
+                            assert('google' in i['google'])
+                            assert('podbean' in i['podbean'])
+                    
+                    elif item_type == 'teaching':
+                        for i in ['style', 'class', 'header1', 'group']:
+                            assert(isinstance(item[i], str))
+                        assert(isinstance(item['options'], list))
+                        for option in item['options']:
+                            assert(isinstance(option, str))
+                        assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                        assert('subclass' not in item or isinstance(item['subclass'], str))
+                    
+                    elif item_type == 'teachingsearch':
+                        assert(item['style'] == 'teaching' or item['style'] == 'blog')
+                        for i in ['header1', 'subclass', 'text1']:
+                            assert(isinstance(i, str))
+                    
+                    elif item_type == 'goContent':
+                        assert_standard_text(item)
+                        if 'body' in item:
+                            assert(isinstance(item['body'], list))
+                            assert_go_text(item['body'])
+                        if 'items' in item:
+                            assert(isinstance(item['items'], list))
+                            for i in item['items']:
+                                assert(isinstance(i['header1'], str))
+                                assert_go_text(i['body'])
+                    
+                    elif item_type == 'goLink':
+                        assert(isinstance(item['style'], str))
+                        assert(isinstance(item['title'], str))
+                        assert(isinstance(item['navigateTo'], str))
+                        assert('newWindow' not in item or isinstance(item['newWindow'], bool))
+                    
+                    elif item_type == 'home-church':
+                        assert(isinstance(item['class'], str))
+                        assert(isinstance(item['header1'], str))
+                    
+                    elif item_type == 'post':
+                        assert(item['style'] == 'blog' or item['style'] == 'notes')
+                    
+                    elif item_type == 'give':
+                        assert_standard_text(item, no_style=True)
+                    
+                    elif item_type == 'video-archive':
+                        assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                    
+                    elif item_type == 'series-archive':
+                        assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                    
+                    elif item_type == 'give2':
+                        assert_standard_text(item, no_style=True)
+                    
+                    elif item_type == 'simple':
+                        assert(isinstance(item['header1'], str))
+                        assert(isinstance(item['header2'], str))
+                        assert('hasBigBottom' not in item or isinstance(item['hasBigBottom'], bool))
+                        assert(isinstance(item['text'], list))
+                        for text_item in item['text']:
+                            assert(isinstance(text_item, dict))
+                            for i in text_item:
+                                assert(i in ['text', 'class', 'id', 'type'])
+                                assert(isinstance(text_item[i], str))
+                    
+                    elif item_type == 'form':
+                        assert(isinstance(item['header1'], str))
+                        assert(isinstance(item['class'], str))
+                        assert(isinstance(item['style'], str))
+                        assert(isinstance(item['formId'], str))
+                    
+                    elif item_type == 'distance-groups':
+                        assert(isinstance(item['header1'], str))
+                    
+                    elif item_type == 'sunday-morning':
+                        assert(isinstance(item['header1'], str))
+                        assert('alternate' not in item or isinstance(item['alternate'], str))
+                    
+                    elif item_type == 'iframe':
+                        assert(isinstance(item['src'], str))
+                        assert(isinstance(item['height'], str))
+                        assert(isinstance(item['isInPopup'], bool))
+                    
+                    elif item_type == 'payment':
+                        pass
+                    elif item_type == 'podcast-player':
+                        pass
+                    elif item_type == 'liveVideoPlayer2':
+                        pass
+                    elif item_type == 'liveVideoPlayer':
+                        pass
+                    elif item_type == 'search':
+                        pass
+                    elif item_type == 'videoPlayer':
+                        pass
+                    elif item_type == 'weather':
+                        pass
+                    
+                    else:
+                        raise Exception(f'unknown content type: {item_type}')
 
         except Exception:
             print(f'ERR: \033[91m{f.name}\n\033[0m')
