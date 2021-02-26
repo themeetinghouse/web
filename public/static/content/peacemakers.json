@@ -114,7 +114,7 @@
         "header1": "Peacemaker Blogs",
         "sortOrder": "DESC",
         "blogSeries": "Peacemakers",
-        "hideAllBlogsButton": "true"
+        "hideAllBlogsButton": true
       },
       {
         "type": "content",

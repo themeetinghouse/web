@@ -55,7 +55,7 @@
         "header1": "Stories of Impact",
         "sortOrder": "DESC",
         "blogSeries": "Stories",
-        "hideAllBlogsButton": "true"
+        "hideAllBlogsButton": true
       },
       {
         "type": "goContent",
