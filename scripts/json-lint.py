@@ -143,7 +143,8 @@ for json_file in glob.glob(cwd + path):
                                             assert(isinstance(list_item['url'], str))
                             elif i == 'sortOrder':
                                 assert(item[i] == 'DESC' or item[i] == 'ASC')
-                            elif i in ['limit', 'numberOfDays', 'minViews', 'loadPer', 'numberOfVideos']:                                assert(isinstance(item[i], int))
+                            elif i in ['limit', 'numberOfDays', 'minViews', 'loadPer', 'numberOfVideos']:                              
+                                assert(isinstance(item[i], int))
                             elif i == 'class':
                                 assert(item[i] in ['playlists', 'series-collection', 'series', 'random-suggested-playlist',
                                     'instagram', 'speakers', 'staff', 'overseers', 'events', 'compassion', 'videos', 'curious', 
