@@ -118,7 +118,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "python3 ./scripts/json-lint.py && lint-staged",
       "commit-msg": "bash ./scripts/commit-msg.sh"
     }
   },
