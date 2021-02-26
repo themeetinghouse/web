@@ -5,7 +5,7 @@ import sys
 import traceback
 
 cwd = os.getcwd()
-path = "/public/static/**/*.json"
+path = '/public/static/**/*.json'
 
 def assert_standard_text(item, no_style = False):
     if not no_style:
@@ -320,9 +320,9 @@ for json_file in glob.glob(cwd + path):
 
             else:
                 split_filepath = f.name.split('data/')
-                filename = split_filepath[1] if len(split_filepath) == 2 else ""
+                filename = split_filepath[1] if len(split_filepath) == 2 else ''
                 
-                if filename == "staff.json":
+                if filename == 'staff.json':
                     assert(isinstance(current_json, list))
                     for staff in current_json:
                         staff_keys = sorted(list(staff.keys()))
@@ -373,7 +373,7 @@ for json_file in glob.glob(cwd + path):
                         assert(isinstance(i['id'], str))
                         assert(isinstance(i['to'], str))
 
-                elif filename == "overseers.json":
+                elif filename == 'overseers.json':
                     assert(isinstance(current_json, list))
                     for overseer in current_json:
                         overseer_keys = sorted(list(overseer.keys()))
@@ -386,7 +386,7 @@ for json_file in glob.glob(cwd + path):
                         for i in overseer['sites']:
                             assert(isinstance(i, str))
 
-                elif filename == "locations.json" or filename == 'easter.json':
+                elif filename == 'locations.json' or filename == 'easter.json':
                     assert(isinstance(current_json, list))
                     for location in current_json:
                         location_keys = sorted(list(location.keys()))
