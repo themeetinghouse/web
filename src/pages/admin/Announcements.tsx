@@ -584,6 +584,7 @@ export default function Announcements(): JSX.Element {
               <input
                 className="genericTextField"
                 name="callToActionTitle"
+                maxLength={12}
                 type="text"
                 value={announcement.callToActionTitle ?? ''}
                 onChange={(e) =>
@@ -832,6 +833,7 @@ export default function Announcements(): JSX.Element {
               <input
                 className="genericTextField"
                 name="callToActionTitle"
+                maxLength={12}
                 type="text"
                 value={announcement.callToActionTitle ?? ''}
                 onChange={(e) =>
