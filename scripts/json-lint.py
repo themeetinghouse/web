@@ -137,11 +137,10 @@ for json_file in glob.glob(cwd + path):
                                         assert(isinstance(list_item['text'], str))
                                         if ('imageSrc' in list_item):
                                             assert_list_image(list_item)
-                                    elif ('url' in list_item):
-                                        assert(isinstance(list_item['url'], str))
-                                        assert_list_image(list_item)
                                     else:
                                         assert_list_image(list_item)
+                                        if ('url' in list_item):
+                                            assert(isinstance(list_item['url'], str))
                             elif i == 'sortOrder':
                                 assert(item[i] == 'DESC' or item[i] == 'ASC')
                             elif i in ['limit', 'numberOfDays', 'minViews', 'loadPer', 'numberOfVideos']:                                assert(isinstance(item[i], int))
