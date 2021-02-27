@@ -410,7 +410,7 @@ for json_file in glob.glob(cwd + path):
                         for i in ['id', 'name']:
                             assert(isinstance(service[i], str))
 
-                        assert_location(location['location'])
+                        assert_location(service['location'])
 
                         assert(isinstance(service['serviceTimes'], list))
                         for i in service['serviceTimes']:
