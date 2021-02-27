@@ -74,7 +74,7 @@
         "style": "pieChart",
         "text1": "Your generosity funds work that seeks to bring healing, reconciliation, and justice to God’s creation. Our goal is to raise $200,000 by February 28.",
         "pieChart": {
-          "raised": 112937,
+          "raised": 152512,
           "goal": 200000,
           "text": "RAISED TO DATE"
         },
@@ -114,7 +114,7 @@
         "header1": "Peacemaker Blogs",
         "sortOrder": "DESC",
         "blogSeries": "Peacemakers",
-        "hideAllBlogsButton": "true"
+        "hideAllBlogsButton": true
       },
       {
         "type": "content",
