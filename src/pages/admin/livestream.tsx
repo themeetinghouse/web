@@ -110,6 +110,7 @@ interface State {
   liveObject: NewLivestream;
   customEvent: boolean;
   lastZoomData: ZoomItem[] | null;
+  disableAsyncButtons: boolean;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -124,6 +125,7 @@ class Index extends React.Component<EmptyProps, State> {
       liveObject: { ...liveInit },
       customEvent: false,
       lastZoomData: null,
+      disableAsyncButtons: false,
     };
   }
 
@@ -381,6 +383,7 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async save(): Promise<void> {
+    this.setState({ disableAsyncButtons: true });
     if (this.state.editMode) {
       try {
         const input = { ...this.state.liveObject };
@@ -402,14 +405,18 @@ class Index extends React.Component<EmptyProps, State> {
           variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<UpdateLivestreamMutation>;
-        this.setState({
-          alert: 'updated: ' + json.data?.updateLivestream?.id,
-        });
-        this.setState({
-          liveObject: { ...liveInit },
-          editMode: false,
-          customEvent: false,
-        });
+        if (json.data?.updateLivestream) {
+          this.setState({
+            alert: 'updated: ' + json.data.updateLivestream.id,
+            liveObject: { ...liveInit },
+            editMode: false,
+            customEvent: false,
+            livestreamList: [
+              json.data?.updateLivestream,
+              ...(this.state.livestreamList ?? []),
+            ],
+          });
+        }
       } catch (e) {
         console.error(e);
       }
@@ -433,18 +440,23 @@ class Index extends React.Component<EmptyProps, State> {
           variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<CreateLivestreamMutation>;
-        this.setState({
-          alert: 'created: ' + json.data?.createLivestream?.id,
-        });
-        this.setState({
-          liveObject: { ...liveInit },
-          editMode: false,
-          customEvent: false,
-        });
+        if (json.data?.createLivestream) {
+          this.setState({
+            alert: 'created: ' + json.data?.createLivestream?.id,
+            liveObject: { ...liveInit },
+            editMode: false,
+            customEvent: false,
+            livestreamList: [
+              json.data?.createLivestream,
+              ...(this.state.livestreamList ?? []),
+            ],
+          });
+        }
       } catch (e) {
         console.error(e);
       }
     }
+    this.setState({ disableAsyncButtons: false });
   }
 
   sundayCheck(field: string) {
@@ -540,23 +552,30 @@ class Index extends React.Component<EmptyProps, State> {
 
   async delete() {
     if (this.state.toDelete !== '') {
+      this.setState({ disableAsyncButtons: true });
       try {
         const json = (await API.graphql({
           query: mutations.deleteLivestream,
           variables: { input: { id: this.state.toDelete } },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<DeleteLivestreamMutation>;
-        this.setState({
-          alert: 'deleted: ' + json.data?.deleteLivestream?.id,
-          toDelete: '',
-        });
-        this.setState({
-          liveObject: { ...liveInit },
-          customEvent: false,
-          editMode: false,
-        });
+        if (json.data?.deleteLivestream) {
+          this.setState({
+            livestreamList:
+              this.state.livestreamList?.filter(
+                (item) => item?.id != json.data?.deleteLivestream?.id
+              ) ?? [],
+            alert: 'deleted: ' + json.data.deleteLivestream.id,
+            toDelete: '',
+            liveObject: { ...liveInit },
+            customEvent: false,
+            editMode: false,
+          });
+        }
       } catch (e) {
         console.error(e);
+      } finally {
+        this.setState({ disableAsyncButtons: false });
       }
     } else {
       this.setState({ alert: 'error: id required to delete' });
@@ -574,6 +593,7 @@ class Index extends React.Component<EmptyProps, State> {
           onChange={(e) => this.setState({ toDelete: e.target.value })}
         ></input>
         <button
+          disabled={this.state.disableAsyncButtons}
           style={{ border: 0, background: 'orange' }}
           onClick={() => this.delete()}
         >
@@ -743,7 +763,9 @@ class Index extends React.Component<EmptyProps, State> {
                   onChange={(e) => this.handleChange('endTime', e.target.value)}
                 ></input>
               </label>
-              <button type="submit">Save Livestream</button>
+              <button type="submit" disabled={this.state.disableAsyncButtons}>
+                Save Livestream
+              </button>
             </div>
             <div style={{ width: '230px' }}>
               <label>
@@ -881,7 +903,9 @@ class Index extends React.Component<EmptyProps, State> {
                     }
                   ></input>
                 </label>
-                <button type="submit">Save Livestream</button>
+                <button disabled={this.state.disableAsyncButtons} type="submit">
+                  Save Livestream
+                </button>
               </div>
               <div style={{ flex: 1 }}>
                 <label>
