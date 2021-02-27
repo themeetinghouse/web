@@ -563,7 +563,7 @@ class Index extends React.Component<EmptyProps, State> {
           this.setState({
             livestreamList:
               this.state.livestreamList?.filter(
-                (item) => item?.id != json.data?.deleteLivestream?.id
+                (item) => item?.id !== json.data?.deleteLivestream?.id
               ) ?? [],
             alert: 'deleted: ' + json.data.deleteLivestream.id,
             toDelete: '',
