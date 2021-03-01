@@ -22,7 +22,12 @@
 .app-download-link {
   display: inline-block;
 }
-
+.FooterSocial {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 .app-store-badge {
   height: 40px;
   margin-right: 12px;
@@ -45,6 +50,12 @@
     background-color: #efeff0;
     padding-top: 2vw;
     margin-top: 2vw;
+  }
+  .FooterSocial {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
   .HomeFooterP {
     line-height: 16px;
@@ -72,6 +83,12 @@
     background-color: #efeff0;
     padding-top: 2vw;
     margin-top: 2vw;
+  }
+  .FooterSocial {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
   .HomeFooterP {
     line-height: 16px;
@@ -110,7 +127,9 @@
   }
   .FooterSocial {
     display: flex;
+    width: 100%;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
   .FooterSocialA {
     margin: 0;
