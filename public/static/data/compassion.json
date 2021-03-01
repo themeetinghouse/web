@@ -640,7 +640,8 @@
     "sites": ["peacemakers"],
     "name": "Restorative Justice",
     "description": "An approach that comes alongside criminal offenders, victims, and communities, focusing on rehabilitation and reconciliation.",
-    "image": "/static/photos/compassion/restorative_justice.jpg"
+    "image": "/static/photos/compassion/restorative_justice.jpg",
+    "imagealt": "A person closing a coffee cup in a cafe window"
   }, 
   {
     "id": 74,

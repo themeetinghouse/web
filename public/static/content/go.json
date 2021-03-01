@@ -55,7 +55,7 @@
         "header1": "Go Stories",
         "sortOrder": "DESC",
         "blogSeries": "Stories",
-        "hideAllBlogsButton": "true"
+        "hideAllBlogsButton": true
       },
       {
         "type": "content",
