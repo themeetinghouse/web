@@ -84,6 +84,21 @@
           "type": "link",
           "title": "Kitchner Kidmax Coordinator",
           "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT - Adapted for COVID.pdf"
+        },
+        {
+          "type": "link",
+          "title": "Video Editor Intern",
+          "navigateTo": "/static/pdfs/careers/Video Editor Intern 2021.pdf"
+        },
+        {
+          "type": "link",
+          "title": "Graphic Design Intern",
+          "navigateTo": "/static/pdfs/careers/Graphic Design Intern 2021.pdf"
+        },
+        {
+          "type": "link",
+          "title": "Web Developer Intern",
+          "navigateTo": "/static/pdfs/careers/Web Developer Intern 2021.pdf"
         }
       ],
         "image1": [
