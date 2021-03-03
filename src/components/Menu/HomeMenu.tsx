@@ -1,5 +1,4 @@
-﻿import Auth from '@aws-amplify/auth';
-import React from 'react';
+﻿import React from 'react';
 import {
   Collapse,
   Navbar,
@@ -44,7 +43,6 @@ interface State {
   MainMenuItems: any;
   overlayType: string | null;
   isOpen: boolean;
-  userName: string;
   windowHeight: number;
   position: string;
   logoColor: string;
@@ -77,7 +75,6 @@ class HomeMenu extends React.Component<Props, State> {
       MainMenuItems: null,
       overlayType: null,
       isOpen: false,
-      userName: '',
       liveTitle: '',
       windowHeight: 0,
       position: 'unfix',
@@ -169,17 +166,7 @@ class HomeMenu extends React.Component<Props, State> {
       //      console.log("fix");
     }
   }
-  getState = async () => {
-    Auth.currentAuthenticatedUser()
-      .then((user) => {
-        console.log(user.username);
-        this.setState({ userName: user.username });
-      })
-      .catch((err) => {
-        console.log('no user' + err);
-        this.setState({ userName: 'No User' });
-      });
-  };
+
   tick() {
     const rightNow = moment().tz('America/Toronto').format('HH:mm');
     const temp = [...this.state.liveEvents];
@@ -207,7 +194,6 @@ class HomeMenu extends React.Component<Props, State> {
   }
   interval: any;
   componentDidMount() {
-    this.getState();
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
   }
@@ -223,11 +209,7 @@ class HomeMenu extends React.Component<Props, State> {
   handleToggleDropdown = () => {
     this.setState({ showEventsDropdown: !this.state.showEventsDropdown });
   };
-  signOut = () => {
-    Auth.signOut()
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
-  };
+
   render() {
     // console.log(this.state.position)
     return (
