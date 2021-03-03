@@ -1,4 +1,4 @@
-import Amplify from 'aws-amplify';
+import Amplify from '@aws-amplify/core';
 import React, { ReactNode } from 'react';
 import ReactGA from 'react-ga';
 import {
@@ -10,8 +10,7 @@ import {
 } from 'react-router-dom';
 import awsconfig from '../../src/aws-exports';
 import '../custom.scss';
-import ContentPage from 'components/Loaders/ContentPage';
-
+const ContentPage = React.lazy(() => import('components/Loaders/ContentPage'));
 const Videos = React.lazy(() => import('../components/Loaders/Videos'));
 const Blog = React.lazy(() => import('../components/Loaders/Blog'));
 const Notes = React.lazy(() => import('../components/Loaders/Notes'));

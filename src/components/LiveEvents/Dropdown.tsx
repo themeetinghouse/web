@@ -10,7 +10,7 @@ type Props = {
   close: () => void;
   liveevents: any;
 };
-export const Dropdown = ({ end, close, liveevents }: Props) => {
+const Dropdown = ({ end, close, liveevents }: Props) => {
   const ref = useRef(null);
   const [events, setEvents]: any = useState(liveevents);
   const [isLoading, setisLoading] = useState(true);
@@ -188,3 +188,4 @@ export const Dropdown = ({ end, close, liveevents }: Props) => {
     </div>
   );
 };
+export default Dropdown;

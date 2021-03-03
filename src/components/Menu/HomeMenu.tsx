@@ -1,4 +1,4 @@
-﻿import { Auth } from 'aws-amplify';
+﻿import Auth from '@aws-amplify/auth';
 import React from 'react';
 import {
   Collapse,
@@ -10,17 +10,21 @@ import {
   NavItem,
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import HamburgerMenu from 'react-hamburger-menu';
 import './menu.scss';
 import moment from 'moment-timezone';
 import * as queries from '../../graphql/queries';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
-import { API } from 'aws-amplify';
+import API from '@aws-amplify/api';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, NavLink } from 'components/Link/Link';
-import { Dropdown } from '../../components/LiveEvents/Dropdown';
-import { AnnouncementBar } from '../../components/AnnouncementBar/AnnouncementBar';
+const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
+const Dropdown = React.lazy(
+  () => import('../../components/LiveEvents/Dropdown')
+);
+const AnnouncementBar = React.lazy(
+  () => import('../../components/AnnouncementBar/AnnouncementBar')
+);
 
 interface SubMenuItem {
   name: string;

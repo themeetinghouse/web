@@ -1,8 +1,9 @@
-import { Analytics } from 'aws-amplify';
+import Analytics from '@aws-amplify/analytics';
+import React from 'react';
 import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import RenderRouter from '../RenderRouter/RenderRouter';
-import VideoOverlay from '../VideoOverlay/VideoOverlay';
+const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
+const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 
 const notFoundPageContent = fetch('/static/content/404.json').then((response) =>
   response.json()
