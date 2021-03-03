@@ -1,15 +1,35 @@
+.HomeFooter.footer {
+  color: #1a1a1a;
+  background: #efeff0;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  margin-top: 2vw;
+  font-family: Graphik Web;
+}
+
+.HomeFooter a {
+  &:hover {
+    color: #0056b3;
+  }
+}
+
+.HomeFooterCopyright {
+  font-size: 12px;
+  margin: 0px;
+  padding: 5px;
+  color: #646469;
+}
+
+.HomeFooterP {
+  line-height: 18px;
+  font-size: 12px;
+}
+
 .FooterNavLink {
   line-height: 32px;
   font-weight: bold;
   font-size: 22px;
   text-decoration: none;
-}
-
-.HomeFooter a {
-  color: #1a1a1a;
-  &:hover {
-    color: #0056b3;
-  }
 }
 
 .AppBadges {
@@ -22,12 +42,7 @@
 .app-download-link {
   display: inline-block;
 }
-.FooterSocial {
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
+
 .app-store-badge {
   height: 40px;
   margin-right: 12px;
@@ -37,98 +52,62 @@
   height: 60px;
 }
 
+.FooterSocial {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.FooterSocialImg {
+  margin-right: 8px;
+}
+
 .FooterSocialA {
-  font-family: Graphik Web;
   font-weight: bold;
+  margin-top: 2.5vw;
+  margin-bottom: 2.5vw;
   margin-right: 48px;
   font-size: 12px;
-}
-
-@media (min-width: 768px) {
-  .HomeFooter.footer.font-small {
-    color: #1a1a1a;
-    background-color: #efeff0;
-    padding-top: 2vw;
-    margin-top: 2vw;
-  }
-
-  .HomeFooterP {
-    line-height: 16px;
-    font-size: 12px;
-    font-family: Graphik Web;
-    color: #1a1a1a;
-  }
-  .FooterSocialImg {
-    margin-right: 0.5vw;
-    margin-top: 2.5vw;
-    margin-bottom: 2.5vw;
-  }
-  .HomeFooterCopyright {
-    font-family: Graphik Web;
-    font-size: 12px;
-    margin: 0px;
-    padding: 5px;
-    color: #646469;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .HomeFooter.footer.font-small {
-    color: #1a1a1a;
-    background-color: #efeff0;
-    padding-top: 2vw;
-    margin-top: 2vw;
-  }
-
-  .HomeFooterP {
-    line-height: 16px;
-    font-size: 12px;
-    font-family: Graphik Web;
-    color: #1a1a1a;
-  }
-  .FooterSocialImg {
-    margin-right: 0.5vw;
-    margin-top: 2.5vw;
-    margin-bottom: 2.5vw;
-  }
-  .HomeFooterCopyright {
-    font-family: Graphik Web;
-    font-size: 12px;
-    margin: 0px;
-    padding: 5px;
-    color: #646469;
+  &:hover {
+    color: #1a1a1a !important;
   }
 }
 
 @media (max-width: 767px) {
-  .HomeFooter.footer.font-small {
-    color: #1a1a1a;
-    background-color: #efeff0;
+  .HomeFooter.footer {
     padding-top: 10vw;
-    // margin-top: 97vw;
+    padding-bottom: 5vw;
+    margin-top: 0;
   }
+
   .HomeFooterP {
-    line-height: 16px;
-    font-size: 12px;
-    font-family: Graphik Web;
-    color: #1a1a1a;
     text-align: left;
     padding-left: 15px;
   }
 
-  .FooterSocialA {
-    margin: 0;
-    padding: 0 16px;
-  }
-  .AppBadges {
-    padding-left: 16px;
-    margin-top: 24px;
-  }
   .HomeFooterCopyright {
-    font-family: Graphik Web;
-    font-size: 12px;
-    margin: 0px;
-    padding: 5px;
-    color: #646469;
+    text-align: center;
+  }
+
+  .AppBadges {
+    margin-top: 24px;
+    padding-left: 6px;
+  }
+
+  .app-store-badge {
+    padding-left: 10px;
+  }
+
+  .social-platform-name {
+    display: none;
+  }
+
+  .FooterSocial {
+    padding: 0 15px;
+  }
+
+  .FooterSocialA {
+    margin-right: 16px;
   }
 }

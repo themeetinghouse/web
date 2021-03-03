@@ -47,7 +47,6 @@
     "history": "^4.10.1",
     "html-to-draftjs": "^1.5.0",
     "jquery": "^3.5.1",
-    "mdbreact": "^5.0.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
     "react": "^17.0.1",
