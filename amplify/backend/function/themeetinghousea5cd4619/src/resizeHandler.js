@@ -10,28 +10,37 @@ class ResizerHandler {
     const proxy3 = proxy1.slice(proxy1.indexOf('/') + 1);
     const size = proxy3.slice(0, proxy3.indexOf('/'));
     const image = proxy3.slice(proxy3.indexOf('/') + 1);
-    return await this.resize(size, image);
+    return await this.resize(size, image, size.includes('webp'));
   }
-  async resize(size, path) {
+  async resize(size, path, isWebP) {
     //        console.log("Size:" + size)
     //        console.log("Path:" + path)
     try {
       //            const sizeArray = .split('/')
+      if (isWebP) {
+        console.log({ path: path });
+        console.log({ size: size });
+        console.log({ isWebP: isWebP });
+      }
       const begin = 'cached';
-      const width = parseInt(size);
+      const width = parseInt(size.replace('webp', ''));
       const Key = path;
       const format = Key.split('.')[1];
-      const formatLong = format == 'png' ? 'png' : 'jpeg';
+      var formatLong = format == 'png' ? 'png' : 'jpeg';
+      if (isWebP) formatLong = 'webp';
       const newKey = '' + begin + '/' + width + '/' + path;
       const Bucket = process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME;
-      //            console.log("Bucket:" + Bucket)
-      //            console.log("Key: " + Key)
-      //            console.log("NewKey:" + newKey)
+      const originalKey = Key.replace('.webp', '.jpg');
+      if (isWebP) {
+        console.log(
+          'originalKey (encoded): ' + decodeURIComponent(originalKey)
+        );
+        console.log('NewKey:' + newKey);
+      }
       const streamResize = sharp()
         .resize(width)
-        .toFormat(formatLong, { options: { progressive: true } });
-
-      const readStream = s3Handler.readStream({ Bucket, Key });
+        .toFormat(formatLong, { options: { quality: 80 } });
+      const readStream = s3Handler.readStream(Bucket, originalKey);
       const { writeStream, uploaded } = s3Handler.writeStream({
         Bucket,
         Key: newKey,
