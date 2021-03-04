@@ -65,6 +65,11 @@
             "type": "link",
             "title": "Parry Sound Lead Pastor",
             "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Finance Director",
+            "navigateTo": "/static/pdfs/careers/Finance Director.pdf"
           }
         ],
         "image1": [
@@ -88,7 +93,7 @@
         {
           "type": "link",
           "title": "Video Editor Intern",
-          "navigateTo": "/static/pdfs/careers/Video Editor Intern 2021.pdf"
+          "navigateTo": "/static/pdfs/careers/Video Editor Intern 2021-2.pdf"
         },
         {
           "type": "link",
