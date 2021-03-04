@@ -6,11 +6,15 @@ const S3 = new AWS.S3();
 class S3Handler {
   constructor() {}
 
-  readStream({ Bucket, Key }) {
+  readStream(Bucket, Key) {
     return S3.getObject({ Bucket: Bucket, Key: decodeURIComponent(Key) })
       .createReadStream()
       .on('error', (error) => {
-        console.log(error);
+        console.log({
+          ReadError: error,
+          Bucket: Bucket,
+          Key: decodeURIComponent(Key),
+        });
       });
   }
   exists(Bucket, Key) {
