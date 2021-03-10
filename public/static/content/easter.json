@@ -11,8 +11,7 @@
       "logoColor": "black",
       "showSearch": true,
       "showFooter": true,
-      "showMenu": true,
-      "showLive": true
+      "showMenu": true
     },
     "content": [
       {
@@ -20,27 +19,40 @@
         "image": "/static/images/easter-1.jpg",
         "url": "https://www.themeetinghouse.com/easter",
         "title": "Easter",
-        "description": "Join us online for Easter!"
+        "description": "April 2 & 4, 2021"
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/easter-1.jpg",
-            "alt": "Young woman sitting on a park bench outside smiling."
+            "src": "/static/images/easter-hero-2021.jpg",
+            "alt": "Young woman standing in front of a wall of greenery, wearing a face mask, looking off to the side and smiling."
           }
         ],
-        "header1": "Easter Online",
+        "header1": "Easter",
         "header2": "",
-        "text1": "Being together looks a little different these days, but we still value coming together online to celebrate. Join us online as we explore the loneliness Jesus experienced in his death and how his life brings us all together. "
+        "text1": "Remember how last year the idea of an Easter livestream seemed fun and exciting? Oh how things have changed. Still—we're refusing to give into the cynicism and we hope you'll join us because this really is better together."
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Good Friday",
+        "header2": "Keeping it Local",
+        "text1": "Lorem ipsum.",
+        "image1": [
+          {
+            "src": "/static/images/easter-2.jpg",
+            "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+          }
+        ]
       },
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Livestream Services",
-        "header2": "Nice and simple.",
-        "text1": "Let's get together online at 10:00am this Good Friday April 10 and on Easter Sunday April 12. Our livestream services will be 70 minutes long with music, communion, stories, teaching, and reflecting on the meaning of Jesus' death and resurrection.",
+        "header1": "Easter Sunday",
+        "header2": "It's a Party",
+        "text1": "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
         "image1": [
           {
             "src": "/static/images/easter-2.jpg",
