@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Christmas Live Event 1",
+    "name": "Alliston Good Friday",
     "location": {
       "longitude": -79.870798,
       "latitude": 44.149035,
@@ -23,6 +23,16 @@
   {
     "id": "3",
     "name": "Christmas Live Event 3",
+    "location": {
+      "longitude": -79.8373778,
+      "latitude": 43.2415413,
+      "address": "www.themeetinghouse.com/live"
+    },
+    "serviceTimes": ["December 24 - 8:00pm"]
+  },
+  {
+    "id": "4",
+    "name": "Christmas Live Event 4",
     "location": {
       "longitude": -79.8373778,
       "latitude": 43.2415413,
