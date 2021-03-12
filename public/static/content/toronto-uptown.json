@@ -69,6 +69,27 @@
         "filterValue": "TOUP"
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Good Friday",
+        "header2": "April 2 - 7pm",
+        "text1": "On April 2 the link below will take you to the live event, but in the meantime, if you have questions, click the link to connect with a pastor.",
+        "image1": [
+          {
+            "src": "/static/images/local-easter-v2.jpg",
+            "alt": "A woman smiling."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Connect",
+            "navigateTo": "",
+            "description": "A link to open a service client and send an email to the pastor."
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "vertical",
         "class": "events",
