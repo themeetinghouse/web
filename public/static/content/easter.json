@@ -16,9 +16,9 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/easter-1.jpg",
+        "image": "/static/images/easter-hero-2021.jpg",
         "url": "https://www.themeetinghouse.com/easter",
-        "title": "Easter",
+        "title": "Easter with The Meeting House",
         "description": "April 2 & 4, 2021"
       },
       {
@@ -37,28 +37,46 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "Keeping it Local",
-        "text1": "Lorem ipsum.",
+        "header1": "Easter Sunday",
+        "header2": "April 4, 10:00am EDT",
+        "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
         "image1": [
           {
-            "src": "/static/images/easter-2.jpg",
+            "src": "/static/images/easter-6.jpg",
             "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
           }
         ]
       },
       {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Easter Sunday",
-        "header2": "It's a Party",
-        "text1": "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+        "type": "hero",
+        "style": "partialNoFooter",
         "image1": [
           {
-            "src": "/static/images/easter-2.jpg",
-            "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+            "src": "/static/svg/Map.svg",
+            "alt": "A map representing locations of The Meeting House churches."
           }
-        ]
+        ],
+        "header1": "Good Friday",
+        "text1": "Local virtual experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
+        "text2": "Choose a location from the menu below for more details.",
+        "link1Text": "",
+        "link1AriaLabel" : "",
+        "link1Action": "/find-sunday-morning",
+        "class": "locations",
+        "showLocationSearch": true
+      },
+      {
+        "type": "hero",
+        "style": "connect",
+        "image1": [
+          {
+            "src": "/static/images/email-connect-5.jpg",
+            "alt": "Friends hanging out together and playing music at a campfire."
+          }
+        ],
+        "header1": "Your best next step.",
+        "header2": "Subscribe and save the date.",
+        "text2": "We'll email you a few days before Easter with a reminder and helpful links. Until then, we'll send you some of our favourite and most popular content."
       }
     ]
   }
