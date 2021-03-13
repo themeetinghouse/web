@@ -86,20 +86,20 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Peacemakers",
+        "header1": "Easter",
         "header2": "",
-        "text1": "Turns out Jesus was pretty big on peace. So we figured that as his followers, we should also make peace a priority. That's why this February, we want to raise $200K to support peacebuilding in our world. You in?",
+        "text1": "This story is more beautiful than you ever expected. Between Good Friday and Easter Sunday, we're creating our most unique and engaging virtual experience to date. Ready to do this together?",
         "list": [
           {
             "type": "link",
-            "title": "See Our Plan & Participate",
-            "navigateTo": "/peacemakers"
+            "title": "What to expect this Easter",
+            "navigateTo": "/easter"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/peacemakers-5.jpg",
-            "alt": "A young girl from Jordan holds a drawing depicting her experiences living in violence under constant threat of war and death."
+            "src": "/static/images/home-easter-2021.jpg",
+            "alt": "A man with a hat in front of a wall of greenery is smiling off camera."
           }
         ]
       },
