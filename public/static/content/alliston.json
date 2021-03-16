@@ -41,9 +41,9 @@
           "action": "live",
           "description": "Sunday Morning Livestream"
         },
-        "text1": "Church Online Sundays @10:00am",
-        "text1a": "Sunday Service",
-        "text2a": "10:30 am-11:30 am – Music and Teaching",
+        "text1": "Livestream Sundays @ 10:00am",
+        "text2": "Good Friday Virtual Gathering",
+        "text3": "April 2 @ 7:00pm",
         "text3a": "Includes full program for Infants to Grade 8",
         "addToCalendar": false,
         "contactPastor": true,
@@ -56,7 +56,7 @@
         "style": "greyTwoText",
         "header1": "Extended Family Church",
         "header2": "",
-        "text1": "In partnership with Be In Christ Church of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our existing parishes. Extended Family churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House."
+        "text1": "In partnership with Be In Christ Church of Canada, we're excited to pilot the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our existing parishes. Extended Family churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House."
       },
       {
         "type": "list",
