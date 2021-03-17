@@ -52,13 +52,7 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMarch14.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMarch14.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMarch21.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +80,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMarch14.jpg",
-            "alt": "This week's big idea: Love God. Love Others."
+            "src": "/static/images/KidsBigIdeaMarch21.jpg",
+            "alt": "This week's big idea: We don't need to worry. God's got it."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMarch14.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMarch21.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMarch14.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMarch21.pdf",
             "openNewBrowser": true
           },
           {
