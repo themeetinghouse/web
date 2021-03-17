@@ -177,9 +177,7 @@ class BlogItem extends React.Component<Props, State> {
   ): string {
     if (!title) return '';
     return (
-      `/static/photos/blogs/${style}/` +
-      encodeURIComponent(title.replace(/\?|[']/g, '')) +
-      '.jpg'
+      `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
     );
   }
 
@@ -221,16 +219,21 @@ class BlogItem extends React.Component<Props, State> {
                     to={'/posts/' + this.state.publishedOnly[0]?.id}
                     tabIndex={-1}
                   >
-                    <img
-                      alt="TBD"
+                    <ScaledImage
                       className="blog-image-desktop"
-                      src={this.getImageURI(
-                        this.state.publishedOnly[0]?.blogTitle,
-                        'baby-hero'
-                      )}
-                      onError={this.fallbackToImage(
-                        '/static/photos/blogs/baby-hero/fallback.jpg'
-                      )}
+                      breakpointSizes={{
+                        640: 640,
+                        1920: 960,
+                        2560: 1280,
+                      }}
+                      image={{
+                        src: this.getImageURI(
+                          this.state.publishedOnly[0]?.blogTitle,
+                          'baby-hero'
+                        ),
+                        alt:
+                          'blog post:' + this.state.publishedOnly[0]?.blogTitle,
+                      }}
                     />
                   </Link>
                 </div>
@@ -240,16 +243,21 @@ class BlogItem extends React.Component<Props, State> {
                   to={'/posts/' + this.state.publishedOnly[0]?.id}
                   tabIndex={-1}
                 >
-                  <img
-                    alt="TBD"
+                  <ScaledImage
                     className="blog-image-mobile"
-                    src={this.getImageURI(
-                      this.state.publishedOnly[0]?.blogTitle,
-                      'baby-hero'
-                    )}
-                    onError={this.fallbackToImage(
-                      '/static/photos/blogs/baby-hero/fallback.jpg'
-                    )}
+                    breakpointSizes={{
+                      320: 320,
+                      480: 480,
+                      640: 640,
+                    }}
+                    image={{
+                      src: this.getImageURI(
+                        this.state.publishedOnly[0]?.blogTitle,
+                        'baby-hero'
+                      ),
+                      alt:
+                        'blog post:' + this.state.publishedOnly[0]?.blogTitle,
+                    }}
                   />
                 </Link>
               </div>

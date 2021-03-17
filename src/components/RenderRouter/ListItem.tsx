@@ -511,19 +511,13 @@ class ListItem extends React.Component<Props, State> {
   ): string {
     if (!title) return '';
     return (
-      `/static/photos/blogs/${style}/` +
-      encodeURIComponent(title.replace(/\?|[']/g, '')) +
-      '.jpg'
+      `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
     );
   }
 
   getPlaylistImageURI(title: string | null): string {
     if (!title) return '';
-    return (
-      `/static/photos/playlists/` +
-      encodeURIComponent(title.replace(/\?|[']/g, '')) +
-      '.jpg'
-    );
+    return `/static/photos/playlists/` + title.replace(/\?|[']/g, '') + '.jpg';
   }
 
   renderBlogs(item: BlogData): JSX.Element | null {

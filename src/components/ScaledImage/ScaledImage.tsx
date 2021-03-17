@@ -13,6 +13,10 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
   breakpointSizes: { [maxWidth: string]: number };
 }
 
+function encodeImageURI(s: string) {
+  return encodeURIComponent(s).replace(/%2F/g, '/');
+}
+
 export function tmhImageUrl(size: number, imageSrc: string) {
   let baseUrl: string;
   if (window.location.hostname === 'localhost') {
@@ -22,13 +26,13 @@ export function tmhImageUrl(size: number, imageSrc: string) {
   } else {
     baseUrl = 'https://www.themeetinghouse.com/cache/' + size;
   }
-  return `${baseUrl}${encodeURI(imageSrc)} ${size}w`;
+  return `${baseUrl}${encodeImageURI(imageSrc)} ${size}w`;
 }
 
 function tmhWebpUrl(size: number, imageSrc: string) {
   const fileExt = imageSrc.substring(imageSrc.lastIndexOf('.'));
 
-  return `https://www.themeetinghouse.com/cache/${size}webp${encodeURI(
+  return `https://www.themeetinghouse.com/cache/${size}webp${encodeImageURI(
     imageSrc.replace(fileExt, '.webp')
   )} ${size}w`;
 }
