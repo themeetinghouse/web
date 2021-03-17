@@ -206,6 +206,10 @@ class ListItem extends React.Component<Props, State> {
       case 'random-suggested-playlist':
         await DataLoader.getRandomPlaylist(dataLoaded, getPlaylistId);
         return;
+      case 'custom-playlist':
+        const customPlaylist = (query as CustomPlaylistQuery).playlist ?? '';
+        data = await DataLoader.getVideosCustomPlaylistById(customPlaylist);
+        break;
       case 'videos':
       case 'curious':
       case 'watch-page':
@@ -229,11 +233,6 @@ class ListItem extends React.Component<Props, State> {
           case 'same-playlist':
             const playlist = this.props?.match?.params?.playlist ?? '';
             data = await DataLoader.getVideosCustomPlaylistById(playlist);
-            break;
-          case 'custom-playlist':
-            data = await DataLoader.getVideosCustomPlaylist(
-              query as CustomPlaylistQuery
-            );
             break;
           case 'popular':
             await DataLoader.getPopularVideos(
@@ -1158,39 +1157,46 @@ class ListItem extends React.Component<Props, State> {
   }
 
   renderItemRouter(item: ListData, index: number) {
-    if (this.state.content.class === 'speakers')
-      return this.renderSpeaker(item as SpeakerData);
-    else if (this.state.content.class === 'videos')
-      return this.renderVideo(item as VideoData);
-    else if (this.state.content.class === 'staff')
-      return this.renderStaff(item as StaffData | StaffData[], index);
-    else if (this.state.content.class === 'overseers')
-      return this.renderOverseer(item as OverseerData | OverseerData[], index);
-    else if (this.state.content.class === 'events')
-      return this.renderEvent(item as EventData);
-    else if (this.state.content.class === 'instagram')
-      return this.renderInstaTile(item as InstagramData);
-    else if (this.state.content.class === 'compassion')
-      return this.renderCompassion(item as CompassionData);
-    else if (this.state.content.class === 'series')
-      return this.renderSeries(item as SeriesByTypeData);
-    else if (this.state.content.class === 'playlists')
-      return this.renderPlaylist(item as CustomPlaylistsData);
-    else if (this.state.content.class === 'series-collection')
-      return this.renderSeries(item as SeriesCollectionData);
-    else if (this.state.content.class === 'curious')
-      return this.renderCurious(item as VideoData);
-    else if (this.state.content.class === 'watch-page')
-      return this.renderWatchPageVideo(item as VideoData);
-    else if (this.state.content.class === 'watch-page-playlist')
-      return this.renderWatchPageVideo(item as VideoData, true);
-    else if (this.state.content.class === 'blogs')
-      return this.renderBlogs(item as BlogData);
-    else if (this.state.content.class === 'random-suggested-playlist')
-      return this.renderPlaylistVideo(
-        item as NonNullable<RandomCustomPlaylistData>['video']
-      );
-    else return null;
+    switch (this.state.content.class) {
+      case 'speakers':
+        return this.renderSpeaker(item as SpeakerData);
+      case 'videos':
+      case 'custom-playlist':
+        return this.renderVideo(item as VideoData);
+      case 'staff':
+        return this.renderStaff(item as StaffData | StaffData[], index);
+      case 'overseers':
+        return this.renderOverseer(
+          item as OverseerData | OverseerData[],
+          index
+        );
+      case 'events':
+        return this.renderEvent(item as EventData);
+      case 'instagram':
+        return this.renderInstaTile(item as any);
+      case 'compassion':
+        return this.renderCompassion(item as CompassionData);
+      case 'series':
+        return this.renderSeries(item as SeriesByTypeData);
+      case 'playlists':
+        return this.renderPlaylist(item as CustomPlaylistsData);
+      case 'series-collection':
+        return this.renderSeries(item as SeriesCollectionData);
+      case 'curious':
+        return this.renderCurious(item as VideoData);
+      case 'watch-page':
+        return this.renderWatchPageVideo(item as VideoData);
+      case 'watch-page-playlist':
+        return this.renderWatchPageVideo(item as VideoData, true);
+      case 'blogs':
+        return this.renderBlogs(item as BlogData);
+      case 'random-suggested-playlist':
+        return this.renderPlaylistVideo(
+          item as NonNullable<RandomCustomPlaylistData>['video']
+        );
+      default:
+        return null;
+    }
   }
 
   render() {
@@ -1209,107 +1215,131 @@ class ListItem extends React.Component<Props, State> {
     const dataLength = data.length;
 
     if (this.state.content.style === 'horizontal') {
-      const videoData = data as VideoData[];
-      const randomPlayList = data as RandomCustomPlaylistData[];
-      if (this.state.content.class === 'random-suggested-playlist') {
-        return (
-          <div className="ListItem horizontal">
-            <div className="ListItemDiv1">
-              <h1 className="ListItemH1">{this.state.content.header1}</h1>
-              <div className="ListItemDiv2">
-                <HorizontalScrollList
-                  darkMode={this.props.pageConfig.logoColor === 'white'}
-                >
-                  {randomPlayList
-                    .sort((a, b) =>
-                      (a?.video?.publishedDate ?? '').localeCompare(
-                        b?.video?.publishedDate ?? ''
-                      )
-                    )
-                    .map((item: any, index) => {
-                      return this.renderItemRouter(item.video, index);
-                    })}
-                </HorizontalScrollList>
-                <div className="ListItemDiv5"></div>
+      if (this.state.content.class === 'custom-playlist') console.log(data);
+
+      switch (this.state.content.class) {
+        case 'random-suggested-playlist':
+        case 'custom-playlist':
+          return (
+            <div className="ListItem horizontal">
+              <div className="ListItemDiv1">
+                <h1 className="ListItemH1">
+                  {this.state.content.header1 ?? this.state.content.playlist}
+                </h1>
+                <div className="ListItemDiv2">
+                  <HorizontalScrollList
+                    darkMode={this.props.pageConfig.logoColor === 'white'}
+                  >
+                    {this.state.content.class === 'custom-playlist'
+                      ? (data as CustomPlaylistVideoData[])
+                          .sort((a, b) =>
+                            (a?.publishedDate ?? '').localeCompare(
+                              b?.publishedDate ?? ''
+                            )
+                          )
+                          .map((item, index) => {
+                            return this.renderItemRouter(item, index);
+                          })
+                      : (data as RandomCustomPlaylistData[])
+                          .sort((a, b) =>
+                            (a?.video?.publishedDate ?? '').localeCompare(
+                              b?.video?.publishedDate ?? ''
+                            )
+                          )
+                          .map((item: any, index) => {
+                            return this.renderItemRouter(item.video, index);
+                          })}
+                  </HorizontalScrollList>
+                  <div className="ListItemDiv5"></div>
+                </div>
               </div>
+              <VideoOverlay
+                onClose={() => {
+                  this.videoOverlayClose();
+                }}
+                data={this.state.overlayData}
+              ></VideoOverlay>
             </div>
-            <VideoOverlay
-              onClose={() => {
-                this.videoOverlayClose();
-              }}
-              data={this.state.overlayData}
-            ></VideoOverlay>
-          </div>
-        );
-      }
+          );
 
-      return (
-        <div className="ListItem horizontal">
-          <div className="ListItemDiv1">
-            <h1
-              className={
-                'ListItemH1' +
-                (this.props.pageConfig.logoColor === 'white'
-                  ? ' whiteText'
-                  : '')
-              }
-            >
-              {this.state.content.header1}
-            </h1>
-            {this.state.content.text1 != null ? (
-              <div className="ListItemText1">{this.state.content.text1}</div>
-            ) : null}
-            <div className="ListItemDiv2">
-              {this.state.content.class === 'videos' ? (
-                this.state.content.selector === 'popular' ? (
-                  <HorizontalScrollList
-                    darkMode={this.props.pageConfig.logoColor === 'white'}
-                  >
-                    {videoData
-                      .slice(0, 100)
-                      .sort((a, b) => this.sortByViews(a, b))
-                      .map((item, index) => {
-                        return this.renderItemRouter(item as ListData, index);
-                      })}
-                  </HorizontalScrollList>
-                ) : (
-                  <HorizontalScrollList
-                    darkMode={this.props.pageConfig.logoColor === 'white'}
-                  >
-                    {data
-                      .concat(
-                        this.state.content.limit &&
-                          dataLength >= this.state.content.limit
-                          ? 'card'
-                          : null
-                      )
-                      .map((item, index) => {
-                        if (item === 'card') return this.renderMoreVideosCard();
-
-                        return this.renderItemRouter(item as ListData, index);
-                      })}
-                  </HorizontalScrollList>
-                )
-              ) : (
-                <HorizontalScrollList
-                  darkMode={this.props.pageConfig.logoColor === 'white'}
+        default:
+          return (
+            <div className="ListItem horizontal">
+              <div className="ListItemDiv1">
+                <h1
+                  className={
+                    'ListItemH1' +
+                    (this.props.pageConfig.logoColor === 'white'
+                      ? ' whiteText'
+                      : '')
+                  }
                 >
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </HorizontalScrollList>
-              )}
-              <div className="ListItemDiv5"></div>
+                  {this.state.content.header1}
+                </h1>
+                {this.state.content.text1 != null ? (
+                  <div className="ListItemText1">
+                    {this.state.content.text1}
+                  </div>
+                ) : null}
+                <div className="ListItemDiv2">
+                  {this.state.content.class === 'videos' ? (
+                    this.state.content.selector === 'popular' ? (
+                      <HorizontalScrollList
+                        darkMode={this.props.pageConfig.logoColor === 'white'}
+                      >
+                        {(data as VideoData[])
+                          .slice(0, 100)
+                          .sort((a, b) => this.sortByViews(a, b))
+                          .map((item, index) => {
+                            return this.renderItemRouter(
+                              item as ListData,
+                              index
+                            );
+                          })}
+                      </HorizontalScrollList>
+                    ) : (
+                      <HorizontalScrollList
+                        darkMode={this.props.pageConfig.logoColor === 'white'}
+                      >
+                        {data
+                          .concat(
+                            this.state.content.limit &&
+                              dataLength >= this.state.content.limit
+                              ? 'card'
+                              : null
+                          )
+                          .map((item, index) => {
+                            if (item === 'card')
+                              return this.renderMoreVideosCard();
+
+                            return this.renderItemRouter(
+                              item as ListData,
+                              index
+                            );
+                          })}
+                      </HorizontalScrollList>
+                    )
+                  ) : (
+                    <HorizontalScrollList
+                      darkMode={this.props.pageConfig.logoColor === 'white'}
+                    >
+                      {data.map((item: any, index: any) => {
+                        return this.renderItemRouter(item, index);
+                      })}
+                    </HorizontalScrollList>
+                  )}
+                  <div className="ListItemDiv5"></div>
+                </div>
+              </div>
+              <VideoOverlay
+                onClose={() => {
+                  this.videoOverlayClose();
+                }}
+                data={this.state.overlayData}
+              ></VideoOverlay>
             </div>
-          </div>
-          <VideoOverlay
-            onClose={() => {
-              this.videoOverlayClose();
-            }}
-            data={this.state.overlayData}
-          ></VideoOverlay>
-        </div>
-      );
+          );
+      }
     } else if (this.state.content.style === 'blogs') {
       const startIndex = this.state.content.skipFirstPost ? 1 : 0;
 
