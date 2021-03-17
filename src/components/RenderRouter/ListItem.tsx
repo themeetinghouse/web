@@ -1215,8 +1215,6 @@ class ListItem extends React.Component<Props, State> {
     const dataLength = data.length;
 
     if (this.state.content.style === 'horizontal') {
-      if (this.state.content.class === 'custom-playlist') console.log(data);
-
       switch (this.state.content.class) {
         case 'random-suggested-playlist':
         case 'custom-playlist':
