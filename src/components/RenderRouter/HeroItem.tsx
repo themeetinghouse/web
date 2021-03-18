@@ -315,7 +315,7 @@ class HeroItem extends React.Component<Props, State> {
                         src="/static/svg/Contact-white.svg"
                         alt="Contact Icon"
                       />
-                      Contact the Pastor
+                      Contact Pastor
                     </button>
                   </a>
                 ) : null
@@ -413,7 +413,7 @@ class HeroItem extends React.Component<Props, State> {
             {this.state.content.contactPastor ? (
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img src="/static/svg/Contact.svg" alt="Contact Icon" />
-                Contact the Pastor
+                Contact Pastor
               </Button>
             ) : null}
           </div>
@@ -487,7 +487,7 @@ class HeroItem extends React.Component<Props, State> {
             {this.state.content.contactPastor ? (
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img src="/static/Contact.png" alt="Contact Icon" />
-                Contact the Pastor
+                Contact Pastor
               </Button>
             ) : null}
           </div>
