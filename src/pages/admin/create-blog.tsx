@@ -904,6 +904,7 @@ class Index extends React.Component<EmptyProps, State> {
                     disableCalendar: true,
                     publishDate: new Date(),
                     expireDate: new Date(),
+                    editMode: false,
                   });
                 } else {
                   this.setState(
