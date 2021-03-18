@@ -67,7 +67,6 @@ interface State {
 
   currentTag: string;
   currentBlogSeries: string;
-  blogToEditId: string;
   showAlert: string;
 
   showPreview: boolean;
@@ -82,6 +81,10 @@ interface State {
   understandBlogSeries: string;
 
   customId: string;
+
+  blogSeriesFilterList: string[] | null;
+  searchQuery: string;
+  selectedBlog: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -122,7 +125,6 @@ class Index extends React.Component<EmptyProps, State> {
 
       currentTag: '',
       currentBlogSeries: '',
-      blogToEditId: '',
       showAlert: '',
 
       showPreview: false,
@@ -137,6 +139,10 @@ class Index extends React.Component<EmptyProps, State> {
       understandBlogSeries: '',
 
       customId: '',
+
+      blogSeriesFilterList: null,
+      searchQuery: '',
+      selectedBlog: 'none',
     };
 
     this.listSeries();
@@ -418,9 +424,6 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async handleEdit() {
-    this.setState({ showEditModal: true });
-    await this.waitForSelection(() => Boolean(this.state.blogToEditObject));
-
     if (this.state.blogToEditObject?.content) {
       const blocksfromHtml = htmlToDraft(this.state.blogToEditObject?.content);
       const { contentBlocks, entityMap } = blocksfromHtml;
@@ -432,7 +435,7 @@ class Index extends React.Component<EmptyProps, State> {
         editorState: EditorState.createWithContent(contentState),
       });
 
-      const temp: any = this.state.blogToEditObject;
+      const temp: any = { ...this.state.blogToEditObject };
       delete temp.__typename;
       delete temp.blogSeries;
       delete temp.createdAt;
@@ -472,30 +475,28 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({ customId: this.state.blogToEditObject.id });
     }
 
-    const blogBridgeByPost = API.graphql({
-      query: queries.blogBridgeByPost,
-      variables: { blogPostID: this.state.blogToEditObject?.id ?? '' },
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<BlogBridgeByPostQuery>>;
-    blogBridgeByPost
-      .then((json) => {
-        console.log({ 'Success queries.blogBridgeByPost: ': json });
-        this.setState({
-          blogBridgeList: json?.data?.blogBridgeByPost?.items ?? [],
-        });
-        if (this.state.blogBridgeList)
-          this.state.blogBridgeList.forEach((bridge) => {
-            if (bridge?.blogSeriesID)
-              this.setState({
-                selectedBlogSeries: this.state.selectedBlogSeries.concat(
-                  bridge.blogSeriesID
-                ),
-              });
-          });
-      })
-      .catch((e) => {
-        console.error(e);
+    try {
+      const json = (await API.graphql({
+        query: queries.blogBridgeByPost,
+        variables: { blogPostID: this.state.blogToEditObject?.id ?? '' },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<BlogBridgeByPostQuery>;
+      console.log({ 'Success queries.blogBridgeByPost: ': json });
+      this.setState({
+        blogBridgeList: json?.data?.blogBridgeByPost?.items ?? [],
       });
+      if (this.state.blogBridgeList)
+        this.state.blogBridgeList.forEach((bridge) => {
+          if (bridge?.blogSeriesID)
+            this.setState({
+              selectedBlogSeries: this.state.selectedBlogSeries.concat(
+                bridge.blogSeriesID
+              ),
+            });
+        });
+    } catch (e) {
+      console.error(e);
+    }
 
     this.setState({ editMode: true });
   }
@@ -617,44 +618,6 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   onChange = (editorState: EditorState) => this.setState({ editorState });
-
-  // RENDER FUNCTIONS
-
-  renderEditBlogModal() {
-    return (
-      <Modal isOpen={this.state.showEditModal}>
-        <div>Edit a blog post</div>
-        <select
-          onChange={(event) =>
-            this.setState({ blogToEditId: event.target.value })
-          }
-        >
-          <option key="null" value="null">
-            None Selected
-          </option>
-          {this.state.blogPostsList.map((item) => {
-            return (
-              <option key={item?.id} value={item?.id}>
-                {item?.id}
-              </option>
-            );
-          })}
-        </select>
-        <button
-          onClick={() =>
-            this.setState({
-              showEditModal: false,
-              blogToEditObject: this.state.blogPostsList.filter(
-                (post) => post?.id === this.state.blogToEditId
-              )[0],
-            })
-          }
-        >
-          DONE
-        </button>
-      </Modal>
-    );
-  }
 
   renderNewBlogSeriesModal() {
     return (
@@ -916,6 +879,134 @@ class Index extends React.Component<EmptyProps, State> {
   renderTextInput() {
     return (
       <div className="editor-container">
+        <div>
+          <label>
+            Select blog:
+            <select
+              onChange={(event) => {
+                this.setState({ selectedBlog: event.target.value });
+                if (event.target.value === 'none') {
+                  this.setState({
+                    blogObject: {
+                      id: '',
+                      author: '',
+                      blogTitle: '',
+                      expirationDate: 'none',
+                      publishedDate: format(new Date(), 'yyyy-MM-dd'),
+                      description: '',
+                      blogStatus: 'Unlisted',
+                      content: '',
+                      hiddenMainIndex: false,
+                      tags: [],
+                      blogSeriesId: this.nullString,
+                    },
+                    editorState: EditorState.createEmpty(),
+                    disableCalendar: true,
+                    publishDate: new Date(),
+                    expireDate: new Date(),
+                  });
+                } else {
+                  this.setState(
+                    {
+                      blogToEditObject:
+                        this.state.blogPostsList.find(
+                          (post) => post?.id === event.target.value
+                        ) ?? null,
+                    },
+                    () => this.handleEdit()
+                  );
+                }
+              }}
+              value={this.state.selectedBlog}
+            >
+              <option key="none" value="none">
+                None
+              </option>
+              {this.state.blogPostsList
+                .filter(
+                  (item) =>
+                    !this.state.blogSeriesFilterList ||
+                    this.state.blogSeriesFilterList?.includes(item?.id ?? '')
+                )
+                .map((item) => {
+                  return (
+                    <option key={item?.id} value={item?.id}>
+                      {item?.blogTitle}
+                    </option>
+                  );
+                })}
+            </select>
+          </label>
+          <label>
+            Filter by blog series:
+            <select
+              onChange={(event) => {
+                this.setState({
+                  blogSeriesFilterList:
+                    event.target.value === ''
+                      ? null
+                      : this.state.blogSeriesList[
+                          parseInt(event.target.value, 10)
+                        ]?.blogs?.items?.flatMap((blog) =>
+                          blog?.blogPostID ? blog.blogPostID : []
+                        ) ?? [],
+                });
+              }}
+            >
+              <option key="" value="">
+                None
+              </option>
+              {this.state.blogSeriesList.map((item, index) => {
+                return (
+                  <option key={index} value={index}>
+                    {item?.title}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+          <label style={{ marginLeft: 20 }}>
+            Search all blogs:
+            <input
+              value={this.state.searchQuery}
+              onChange={(e) => this.setState({ searchQuery: e.target.value })}
+            />
+            <div style={{ position: 'absolute' }}>
+              {this.state.searchQuery &&
+                this.state.blogPostsList
+                  .filter((item) =>
+                    item?.blogTitle
+                      ?.toLowerCase()
+                      .includes(this.state.searchQuery.toLowerCase())
+                  )
+                  .map((blog) => {
+                    return (
+                      <div key={blog?.id}>
+                        <button
+                          onClick={() => {
+                            this.setState(
+                              {
+                                selectedBlog: blog?.id ?? 'none',
+                                blogToEditObject:
+                                  this.state.blogPostsList.find(
+                                    (post) => post?.id === blog?.id
+                                  ) ?? null,
+                              },
+                              () => this.handleEdit()
+                            );
+                            this.setState({ searchQuery: '' });
+                          }}
+                          style={{ width: 400 }}
+                        >
+                          {blog?.blogTitle}
+                        </button>
+                      </div>
+                    );
+                  })}
+            </div>
+          </label>
+        </div>
+        <hr />
         <label>
           Title:
           <input
@@ -1057,10 +1148,6 @@ class Index extends React.Component<EmptyProps, State> {
           SAVE
         </button>
         <br />
-        <button className="toolbar-button" onClick={() => this.handleEdit()}>
-          Edit an existing post
-        </button>
-        <br />
         <button
           className="toolbar-button"
           onClick={() =>
@@ -1101,7 +1188,6 @@ class Index extends React.Component<EmptyProps, State> {
         <div className="blog-container">
           <AdminMenu></AdminMenu>
           {this.renderAlert()}
-          {this.renderEditBlogModal()}
           {this.renderNewBlogSeriesModal()}
           {this.renderToolbar()}
           {this.renderTextInput()}
