@@ -8,6 +8,7 @@ import ListItem from './ListItem';
 import HeroItem from './HeroItem';
 import HomeMenu from 'components/Menu/HomeMenu';
 import HomeFooter from 'components/Menu/HomeFooter';
+import AppPromo from '../AppPromo/AppPromo';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -146,6 +147,7 @@ class RenderRouter extends React.Component<Props> {
         <HomeMenu pageConfig={this.props.content.page.pageConfig} />
         {this.renderItem()}
         {this.props.content.page.pageConfig.showFooter ? <HomeFooter /> : null}
+        {this.props.content.page.name === 'notes' ? <AppPromo /> : null}
       </>
     );
   }

@@ -1,0 +1,50 @@
+@use '../../theme.scss';
+
+.app-promo {
+  @media (max-width: 360px) {
+    font-size: 12px;
+  }
+  @media (min-width: 768px) {
+    font-size: 20px;
+    height: 80px;
+    .vl {
+      height: 70px;
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 999;
+
+  padding: 10px 12px;
+  background-color: theme.$onyxblacktext;
+  font-family: Graphik Web;
+  font-size: 16px;
+
+  height: 75px;
+  .vl {
+    background: white;
+    width: 2px;
+    height: 65px;
+    margin: 0 12px;
+  }
+
+  .promo-text {
+    color: white;
+    font-weight: 600;
+    padding: 0 12px;
+    margin-right: auto;
+  }
+
+  .download-btn {
+    background: white;
+    text-decoration: none;
+    vertical-align: middle;
+    color: theme.$onyxblacktext;
+    font-weight: 800;
+    padding: 0.4em 0.8em;
+  }
+}
