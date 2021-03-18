@@ -68,7 +68,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -76,7 +75,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -84,7 +82,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -209,7 +206,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -217,7 +213,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -225,7 +220,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -349,7 +343,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -357,7 +350,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -365,7 +357,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -489,7 +480,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -497,7 +487,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -505,7 +494,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -629,7 +617,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -637,7 +624,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -645,7 +631,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -769,7 +754,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -777,7 +761,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -785,7 +768,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -847,7 +829,6 @@
       }
     ]
   },
-
   {
     "id": "ky-kids",
     "name": "Kids",
@@ -910,7 +891,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -918,7 +898,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -926,7 +905,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1050,7 +1028,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1058,7 +1035,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1066,7 +1042,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1190,7 +1165,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1198,7 +1172,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1206,7 +1179,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1330,7 +1302,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1338,7 +1309,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1346,7 +1316,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1470,7 +1439,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1478,7 +1446,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1486,7 +1453,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1610,7 +1576,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1618,7 +1583,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1626,7 +1590,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1750,7 +1713,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1758,7 +1720,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1766,7 +1727,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -1890,7 +1850,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -1898,7 +1857,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -1906,7 +1864,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2030,7 +1987,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2038,7 +1994,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2046,7 +2001,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2170,7 +2124,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2178,7 +2131,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2186,7 +2138,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2310,7 +2261,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2318,7 +2268,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2326,7 +2275,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2450,7 +2398,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2458,7 +2405,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2466,7 +2412,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2590,7 +2535,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2598,7 +2542,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2606,7 +2549,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2730,7 +2672,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2738,7 +2679,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2746,7 +2686,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -2870,7 +2809,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -2878,7 +2816,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -2886,7 +2823,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -3010,7 +2946,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -3018,7 +2953,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -3026,7 +2960,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -3150,7 +3083,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -3158,7 +3090,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -3166,7 +3097,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -3290,7 +3220,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -3298,7 +3227,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -3306,7 +3234,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -3430,7 +3357,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -3438,7 +3364,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -3446,7 +3371,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -3570,7 +3494,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -3578,7 +3501,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -3586,7 +3508,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",
@@ -3710,7 +3631,6 @@
         "showInEditor": true,
         "readOnly": true
       },
-
       {
         "id": "videoSeriesId",
         "name": "Series ID",
@@ -3718,7 +3638,6 @@
         "showInTable": false,
         "showInEditor": true
       },
-
       {
         "id": "customPlaylistId",
         "name": "Custom Playlist ID",
@@ -3726,7 +3645,143 @@
         "showInTable": false,
         "showInEditor": true
       },
-
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden",
+    "name": "Hidden",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
       {
         "id": "Youtube.snippet.title",
         "name": "Youtube Title",

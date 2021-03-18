@@ -631,7 +631,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                               </button>
                               {this.props.content.alternate === 'christmas'
                                 ? 'Connect'
-                                : 'Contact the Pastor'}
+                                : 'Contact Pastor'}
                             </a>
                           </div>
                         </div>
