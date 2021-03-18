@@ -17,17 +17,18 @@
   align-items: center;
   position: sticky;
   bottom: 0;
+  z-index: 999;
 
   padding: 10px 12px;
   background-color: theme.$onyxblacktext;
   font-family: Graphik Web;
   font-size: 16px;
 
-  height: 70px;
+  height: 75px;
   .vl {
     background: white;
     width: 2px;
-    height: 60px;
+    height: 65px;
     margin: 0 12px;
   }
 
