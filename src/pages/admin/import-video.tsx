@@ -1154,6 +1154,22 @@ class Index extends React.Component<EmptyProps, State> {
           </tbody>
         </table>
         <button onClick={() => this.save()}>Save</button>
+        {this.state.selectedVideo && (
+          <button
+            style={{ marginLeft: 20 }}
+            onClick={() => {
+              this.writeSeriesField('videoSeriesId', 'hidden-void-series');
+              this.writeField('videoTypes', 'hidden');
+              this.writeField(
+                'publishedDate',
+                this.state.selectedVideo.publishedDate
+              );
+              this.save();
+            }}
+          >
+            Move to Hidden
+          </button>
+        )}
       </div>
     );
   }
