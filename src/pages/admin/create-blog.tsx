@@ -997,7 +997,7 @@ class Index extends React.Component<EmptyProps, State> {
                             );
                             this.setState({ searchQuery: '' });
                           }}
-                          style={{ width: 400 }}
+                          style={{ width: 400, background: 'white' }}
                         >
                           {blog?.blogTitle}
                         </button>
