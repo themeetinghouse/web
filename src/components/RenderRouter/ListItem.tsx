@@ -23,6 +23,8 @@ import DataLoader, {
   CustomPlaylistsQuery,
   RandomCustomPlaylistData,
   BlogQuery,
+  InstagramData,
+  InstaQuery,
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -78,7 +80,8 @@ type ListData =
   | SeriesCollectionData
   | CustomPlaylistsData
   | RandomCustomPlaylistData
-  | NonNullable<RandomCustomPlaylistData>['video'];
+  | NonNullable<RandomCustomPlaylistData>['video']
+  | InstagramData;
 
 const hideEpisodeNumbers = ['adult-sunday-shortcut', 'kidmax-live'];
 
@@ -1064,7 +1067,7 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
   }
-  getInstaUrl(query: any): string {
+  getInstaUrl(query: InstaQuery): string {
     let id = '';
     switch (query.filterValue) {
       case 'alliston':
@@ -1137,32 +1140,18 @@ class ListItem extends React.Component<Props, State> {
     return id;
   }
 
-  renderInstaTile(item: any): JSX.Element | null {
+  renderInstaTile(item: InstagramData): JSX.Element | null {
     // Instagram tile styling
 
     if (!item) return null;
     return (
       <div className="ListInstagramTile">
-        <a href={item.permalink}>
+        <a href={item.permalink ?? ''}>
           <img
-            width={
-              this.state.windowWidth < 375
-                ? 120
-                : this.state.windowWidth < 600
-                ? 156
-                : 480
-            }
-            height={
-              this.state.windowWidth < 375
-                ? 120
-                : this.state.windowWidth < 600
-                ? 156
-                : 480
-            }
-            src={item.media_url}
-            alt={item.caption}
-            title={item.caption}
-          ></img>
+            src={item.media_url ?? ''}
+            alt={item.caption ?? ''}
+            title={item.caption ?? ''}
+          />
         </a>
       </div>
     );
@@ -1180,7 +1169,7 @@ class ListItem extends React.Component<Props, State> {
     else if (this.state.content.class === 'events')
       return this.renderEvent(item as EventData);
     else if (this.state.content.class === 'instagram')
-      return this.renderInstaTile(item as any);
+      return this.renderInstaTile(item as InstagramData);
     else if (this.state.content.class === 'compassion')
       return this.renderCompassion(item as CompassionData);
     else if (this.state.content.class === 'series')
@@ -1643,12 +1632,11 @@ class ListItem extends React.Component<Props, State> {
       this.state.content.class === 'instagram'
     ) {
       //This renders the instagram div and iterate tiles
-      const i: any = this.state.listData[0] as any;
 
       return (
         <div className="ListItem horizontal">
           <div className="ListInstagramContainer">
-            {i?.data?.slice(0, 8).map((tile: any, index: number) => {
+            {this.state.listData?.map((tile, index: number) => {
               return this.renderItemRouter(tile, index);
             })}
           </div>

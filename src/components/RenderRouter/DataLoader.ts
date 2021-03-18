@@ -111,6 +111,8 @@ export interface StaffQuery extends DataLoaderQuery {
 
 export interface InstaQuery extends DataLoaderQuery {
   class: 'instagram';
+  filterValue: string;
+  limit?: number;
 }
 
 export interface StaffData {
@@ -244,6 +246,10 @@ export type CustomPlaylistVideoData = NonNullable<
     >['items']
   >[0]
 >['video'];
+
+export type InstagramData = NonNullable<
+  NonNullable<GetInstaPhotosQuery['getInstaPhotos']>['data']
+>[0];
 
 function parseFBDate(date: string): Date {
   return new Date(
@@ -818,7 +824,7 @@ export default class DataLoader {
     }
   }
 
-  static async loadInsta(query: any): Promise<any> {
+  static async loadInsta(query: InstaQuery): Promise<InstagramData[]> {
     let id = '';
     switch (query.filterValue) {
       case 'alliston':
@@ -899,10 +905,27 @@ export default class DataLoader {
 
     try {
       const json = await getInsta;
-      return json?.data?.getInstaPhotos;
+
+      if (!json?.data?.getInstaPhotos?.data) {
+        return [];
+      }
+
+      const { data } = json.data.getInstaPhotos;
+      const { length } = data;
+      const photos = [];
+      let i = 0;
+
+      while (i < length && photos.length < (query.limit ?? 8)) {
+        if (data[i]?.media_type !== 'VIDEO') photos.push(data[i]);
+        i++;
+      }
+
+      return photos;
     } catch (e) {
       console.error(e);
     }
+
+    return [];
   }
 
   static async loadOverseers(): Promise<OverseerData[]> {
