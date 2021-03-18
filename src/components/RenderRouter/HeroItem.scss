@@ -12,6 +12,14 @@
   margin-top: 1vw;
 }
 
+.react-select-custom {
+  &__menu-list {
+    @media (min-width: 768px) and (max-width: 1500px) {
+      max-height: 200px !important;
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .covidButton {
     position: absolute;
@@ -130,7 +138,7 @@
     width: 38vw;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
+    z-index: 99;
 
     .heroH1,
     .heroH2 {
@@ -589,7 +597,7 @@
     width: 38vw;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
+    z-index: 99;
 
     .heroH1,
     .heroH2 {
@@ -1053,7 +1061,7 @@
     padding: 2vw;
     left: 0vw;
     width: 100vw;
-    z-index: 100;
+    z-index: 99;
     padding: 10vw 5vw 10vw 5vw;
 
     .heroH1,
