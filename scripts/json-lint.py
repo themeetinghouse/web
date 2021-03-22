@@ -173,6 +173,11 @@ for json_file in glob.glob(cwd + path):
                                 assert(isinstance(item[i], list))
                                 for fb_id in item[i]:
                                     assert(isinstance(fb_id, str))
+                            elif i == 'margin':
+                                assert(isinstance(item[i], dict))
+                                for m in ['marginTop', 'marginBottom', 'marginLeft', 'marginRight']:
+                                    assert(m not in item[i] or (isinstance(item[i][m], int) or isinstance(item[i][m], str)))
+
 
                     elif item_type == 'faq':
                         assert_standard_text(item, no_style=True)
