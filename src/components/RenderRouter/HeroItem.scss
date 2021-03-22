@@ -20,6 +20,23 @@
   }
 }
 
+$no-footer-height: 38vw;
+.partialNoFooterImage {
+  width: 80vw;
+  height: $no-footer-height;
+  z-index: 50;
+  object-fit: cover;
+  position: absolute;
+}
+
+.partialNoFooter {
+  position: relative;
+  left: 20vw;
+  width: 80vw;
+  height: $no-footer-height;
+  padding-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .covidButton {
     position: absolute;
@@ -325,22 +342,6 @@
     z-index: 50;
     object-fit: cover;
     position: absolute;
-  }
-
-  .partialNoFooterImage {
-    width: 80vw;
-    height: 40vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .partialNoFooter {
-    position: relative;
-    left: 20vw;
-    width: 80vw;
-    height: 38vw;
-    padding-bottom: 0vh;
   }
 
   .heroImage {
@@ -787,22 +788,6 @@
     position: absolute;
   }
 
-  .partialNoFooterImage {
-    width: 80vw;
-    height: 40vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .partialNoFooter {
-    position: relative;
-    left: 20vw;
-    width: 80vw;
-    height: 38vw;
-    padding-bottom: 0vh;
-  }
-
   .heroImage {
     width: 100vw;
     height: 100vh;
@@ -1192,20 +1177,16 @@
     position: relative;
   }
 
+  $mobile-no-footer-height: 90vh;
   .partialNoFooterImage {
     width: 100vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
+    height: $mobile-no-footer-height;
   }
 
   .partialNoFooter {
-    position: relative;
-    left: 0vw;
+    left: 0;
     width: 100vw;
-    padding-bottom: 0vh;
-    height: 90vh;
+    height: $mobile-no-footer-height;
   }
 
   .partialNoFooterBox {
