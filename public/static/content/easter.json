@@ -48,6 +48,14 @@
         ]
       },
       {
+
+        "type": "list",
+        "style": "horizontal",
+        "class": "custom-playlist",
+        "playlist": "Easter",
+        "header1": "Easters 2008-2020"
+      },
+      {
         "type": "hero",
         "style": "partialNoFooter",
         "image1": [
@@ -64,15 +72,6 @@
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true
-      },
-      {
-
-        "type": "list",
-        "style": "horizontal",
-        "class": "custom-playlist",
-        "playlist": "Easter",
-        "header1": "Easters 2008-2020"
-      
       },
       {
         "type": "hero",
