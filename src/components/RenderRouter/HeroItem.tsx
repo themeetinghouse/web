@@ -380,7 +380,7 @@ class HeroItem extends React.Component<Props, State> {
                       menuPortal: (styles) => ({ ...styles, zIndex: 999 }), //  >= dialog's z-index
                     }}
                     aria-label="Church Search By City"
-                    placeholder="Search for a church by city"
+                    placeholder="Select city"
                     className="partialNoFooterLocationDropDown"
                     classNamePrefix="react-select-custom"
                     options={this.state.locationData
@@ -453,7 +453,7 @@ class HeroItem extends React.Component<Props, State> {
                       this.locationChange(item);
                     }}
                     aria-label="Church Search By City"
-                    placeholder="Search for a church by city"
+                    placeholder="Select city"
                     className="partialLocationDropDown"
                     classNamePrefix="react-select-custom"
                     options={this.state.locationData
