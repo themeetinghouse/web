@@ -48,14 +48,6 @@
         ]
       },
       {
-
-        "type": "list",
-        "style": "horizontal",
-        "class": "custom-playlist",
-        "playlist": "Easter",
-        "header1": "Easters 2008-2020"
-      },
-      {
         "type": "hero",
         "style": "partialNoFooter",
         "image1": [
@@ -68,10 +60,21 @@
         "text1": "Local virtual experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
         "text2": "Choose a location from the menu below for more details.",
         "link1Text": "",
-        "link1AriaLabel" : "",
+        "link1AriaLabel": "",
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "custom-playlist",
+        "playlist": "Easter",
+        "header1": "Past Easter Services",
+        "sortOrder": "DESC",
+        "margin": {
+          "marginTop": 24
+        }
       },
       {
         "type": "hero",
