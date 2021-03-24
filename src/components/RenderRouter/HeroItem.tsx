@@ -322,6 +322,12 @@ class HeroItem extends React.Component<Props, State> {
                         this.state.locationData[0]
                       )}
                     ></AddToCalendar>
+                    <AddToCalendar
+                      buttonLabel="Add to Calendar"
+                      event={this.getCalendarEventForLocation(
+                        this.state.locationData[0]
+                      )}
+                    ></AddToCalendar>
                   </div>
                 ) : null
               ) : null}
