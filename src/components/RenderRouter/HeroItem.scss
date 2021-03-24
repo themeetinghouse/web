@@ -12,6 +12,31 @@
   margin-top: 1vw;
 }
 
+.react-select-custom {
+  &__menu-list {
+    @media (min-width: 768px) and (max-width: 1500px) {
+      max-height: 200px !important;
+    }
+  }
+}
+
+$no-footer-height: 38vw;
+.partialNoFooterImage {
+  width: 80vw;
+  height: $no-footer-height;
+  z-index: 50;
+  object-fit: cover;
+  position: absolute;
+}
+
+.partialNoFooter {
+  position: relative;
+  left: 20vw;
+  width: 80vw;
+  height: $no-footer-height;
+  padding-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .covidButton {
     position: absolute;
@@ -130,7 +155,7 @@
     width: 38vw;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
+    z-index: 99;
 
     .heroH1,
     .heroH2 {
@@ -317,22 +342,6 @@
     z-index: 50;
     object-fit: cover;
     position: absolute;
-  }
-
-  .partialNoFooterImage {
-    width: 80vw;
-    height: 40vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .partialNoFooter {
-    position: relative;
-    left: 20vw;
-    width: 80vw;
-    height: 38vw;
-    padding-bottom: 0vh;
   }
 
   .heroImage {
@@ -589,7 +598,7 @@
     width: 38vw;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
+    z-index: 99;
 
     .heroH1,
     .heroH2 {
@@ -777,22 +786,6 @@
     z-index: 50;
     object-fit: cover;
     position: absolute;
-  }
-
-  .partialNoFooterImage {
-    width: 80vw;
-    height: 40vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .partialNoFooter {
-    position: relative;
-    left: 20vw;
-    width: 80vw;
-    height: 38vw;
-    padding-bottom: 0vh;
   }
 
   .heroImage {
@@ -1053,7 +1046,7 @@
     padding: 2vw;
     left: 0vw;
     width: 100vw;
-    z-index: 100;
+    z-index: 99;
     padding: 10vw 5vw 10vw 5vw;
 
     .heroH1,
@@ -1184,20 +1177,16 @@
     position: relative;
   }
 
+  $mobile-no-footer-height: 90vh;
   .partialNoFooterImage {
     width: 100vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
+    height: $mobile-no-footer-height;
   }
 
   .partialNoFooter {
-    position: relative;
-    left: 0vw;
+    left: 0;
     width: 100vw;
-    padding-bottom: 0vh;
-    height: 90vh;
+    height: $mobile-no-footer-height;
   }
 
   .partialNoFooterBox {

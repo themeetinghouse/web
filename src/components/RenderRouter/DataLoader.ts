@@ -38,7 +38,7 @@ export interface DataLoaderQuery {
 }
 
 export interface CustomPlaylistsQuery extends DataLoaderQuery {
-  class: 'playlists' | 'random-suggested-playlist';
+  class: 'playlists';
   forceToTop: string[];
 }
 
@@ -48,12 +48,16 @@ export interface SeriesCollectionQuery extends DataLoaderQuery {
 }
 
 export interface CustomPlaylistQuery extends DataLoaderQuery {
-  class: 'videos' | 'curious' | 'watch-page' | 'watch-page-playlist';
+  class:
+    | 'videos'
+    | 'curious'
+    | 'watch-page'
+    | 'watch-page-playlist'
+    | 'random-suggested-playlist'
+    | 'custom-playlist';
 
   selector: 'custom-playlist';
-
-  playlist: string;
-
+  playlist?: string;
   limit?: number;
 }
 
@@ -270,44 +274,17 @@ export default class DataLoader {
         variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<GetCustomPlaylistQuery>;
-      const loadedVideos: CustomPlaylistVideoData[] = [];
-      for (const item of getCustomPlaylist.data?.getCustomPlaylist?.videos
-        ?.items ?? []) {
-        loadedVideos.push(item?.video ?? null);
-      }
-      return loadedVideos;
-    } catch (e) {
-      console.error(e);
-    }
-    return [];
-  }
-  static async getVideosCustomPlaylist(
-    query: CustomPlaylistQuery
-  ): Promise<CustomPlaylistVideoData[]> {
-    try {
-      const variables: GetCustomPlaylistQueryVariables = {
-        id: query.playlist,
-      };
-      const getCustomPlaylist = (await API.graphql({
-        query: customQueries.getCustomPlaylist,
-        variables,
-        authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<GetCustomPlaylistQuery>;
-      console.log('Success queries.getCustomPlaylist: ' + getCustomPlaylist);
-      console.log(getCustomPlaylist);
-      const loadedVideos: CustomPlaylistVideoData[] = [];
-      for (const item of getCustomPlaylist.data?.getCustomPlaylist?.videos
-        ?.items ?? []) {
-        loadedVideos.push(item?.video ?? null);
-      }
-      console.log(loadedVideos);
-      return loadedVideos;
-    } catch (e) {
-      console.error(e);
-    }
-    return [];
-  }
 
+      return (
+        getCustomPlaylist.data?.getCustomPlaylist?.videos?.items?.flatMap(
+          (item) => (item?.video ? item?.video : [])
+        ) ?? []
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    return [];
+  }
   static async getSeriesVideos(query: SeriesQuery): Promise<SeriesData[]> {
     const variables: GetSeriesQueryVariables = {
       id: query.id,

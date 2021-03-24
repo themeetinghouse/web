@@ -1,7 +1,6 @@
 import glob
 import json
 import os
-import sys
 import traceback
 
 cwd = os.getcwd()
@@ -133,7 +132,7 @@ for json_file in glob.glob(cwd + path):
                         for i in item:
                             if i == 'image1':
                                 assert_image(item[i])
-                            elif i == 'subclass' or i == 'status':
+                            elif i == 'subclass' or i == 'status' or i == 'playlist':
                                 assert(isinstance(item[i], str))
                             elif i == 'collection' or i == 'forceToTop':
                                 assert(isinstance(item[i], list))
@@ -159,7 +158,7 @@ for json_file in glob.glob(cwd + path):
                             elif i == 'class':
                                 assert(item[i] in ['playlists', 'series-collection', 'series', 'random-suggested-playlist',
                                     'instagram', 'speakers', 'staff', 'overseers', 'events', 'compassion', 'videos', 'curious', 
-                                    'watch-page', 'watch-page-playlist', 'blogs', 'user-defined'])
+                                    'watch-page', 'watch-page-playlist', 'blogs', 'user-defined', 'custom-playlist'])
                             elif i == 'filterField':
                                 assert('filterValue' in item)
                                 assert(isinstance(item['filterField'], str))
@@ -174,6 +173,11 @@ for json_file in glob.glob(cwd + path):
                                 assert(isinstance(item[i], list))
                                 for fb_id in item[i]:
                                     assert(isinstance(fb_id, str))
+                            elif i == 'margin':
+                                assert(isinstance(item[i], dict))
+                                for m in ['marginTop', 'marginBottom', 'marginLeft', 'marginRight']:
+                                    assert(m not in item[i] or (isinstance(item[i][m], int) or isinstance(item[i][m], str)))
+
 
                     elif item_type == 'faq':
                         assert_standard_text(item, no_style=True)

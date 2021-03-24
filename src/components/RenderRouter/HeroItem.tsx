@@ -368,7 +368,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text7}</div>
             {this.state.content.showLocationSearch ? (
               <div>
-                {this.state.locationData != null ? (
+                {this.state.locationData && (
                   <Select
                     onChange={(item) => {
                       this.locationChange(item);
@@ -380,8 +380,9 @@ class HeroItem extends React.Component<Props, State> {
                       menuPortal: (styles) => ({ ...styles, zIndex: 999 }), //  >= dialog's z-index
                     }}
                     aria-label="Church Search By City"
-                    placeholder="Search for a church by city"
+                    placeholder="Select city"
                     className="partialNoFooterLocationDropDown"
+                    classNamePrefix="react-select-custom"
                     options={this.state.locationData
                       .map((item) => {
                         return { label: item.name, value: item.id };
@@ -389,8 +390,8 @@ class HeroItem extends React.Component<Props, State> {
                       .sort((a, b) => {
                         return a.label.localeCompare(b.label);
                       })}
-                  ></Select>
-                ) : null}
+                  />
+                )}
               </div>
             ) : null}
             {this.renderButton(this.state.content.button1, 'heroItemButton')}
@@ -438,7 +439,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text7}</div>
             {this.state.content.showLocationSearch ? (
               <div>
-                {this.state.locationData != null ? (
+                {this.state.locationData && (
                   <Select
                     menuPortalTarget={document.querySelector('body')}
                     X
@@ -452,8 +453,9 @@ class HeroItem extends React.Component<Props, State> {
                       this.locationChange(item);
                     }}
                     aria-label="Church Search By City"
-                    placeholder="Search for a church by city"
+                    placeholder="Select city"
                     className="partialLocationDropDown"
+                    classNamePrefix="react-select-custom"
                     options={this.state.locationData
                       .map((item) => {
                         return { label: item.name, value: item.id };
@@ -461,8 +463,8 @@ class HeroItem extends React.Component<Props, State> {
                       .sort((a, b) => {
                         return a.label.localeCompare(b.label);
                       })}
-                  ></Select>
-                ) : null}
+                  />
+                )}
               </div>
             ) : null}
             {this.renderButton(this.state.content.button1, 'heroButton')}
