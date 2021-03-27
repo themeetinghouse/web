@@ -269,6 +269,9 @@ function ContentItem({ content }: Props) {
               <a href={data[0].youth.location.googleMapLink}>
                 {data[0].youth.location.name}
               </a>
+              <div style={{ color: 'red' }}>
+                Currently online due to Covid - email for details
+              </div>
             </div>
             <div className="greyTwoTextJustText">
               <a href={'mailto:' + data[0].youth.mainContact.email}>
