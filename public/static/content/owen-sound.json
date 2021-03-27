@@ -53,7 +53,7 @@
         "text2": "Good Friday Virtual Gathering",
         "text2a": "10:30 am-11:30 am – Music and Teaching",
         "text3a": "Includes full program for Infants to Grade 4",
-        "addToCalendar": false,
+        "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",

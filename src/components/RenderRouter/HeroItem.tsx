@@ -277,19 +277,38 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
-              {this.renderLinkButton(this.state.content.button1)}
-
-              {this.state.content.link1Text ? (
-                <div className="heroAContainer">
-                  <Link
-                    className="heroBlackBoxA inverted"
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                </div>
-              ) : null}
-              {this.state.content.addToCalendar ? (
+              {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
+                <Link
+                  to={'/live'}
+                  className="calendarButton"
+                  style={{ color: 'white', paddingLeft: 0, paddingRight: 32 }}
+                  aria-label="Watch Livestream"
+                >
+                  <img
+                    height={25}
+                    className="calendarImage"
+                    src="/static/svg/Play.svg"
+                    alt="Contact Icon"
+                  />
+                  Watch Live
+                </Link>
+              ) : moment().format('YYYY-MM-DD') === '2021-04-02' &&
+                this.state.locationData.length ? ( // Is good friday
+                <Link
+                  to={this.state.content.customLiveLink ?? '/live'}
+                  className="calendarButton"
+                  style={{ color: 'white', paddingLeft: 0, paddingRight: 32 }}
+                  aria-label="Watch Livestream"
+                >
+                  <img
+                    height={25}
+                    className="calendarImage"
+                    src="/static/svg/Play.svg"
+                    alt="Contact Icon"
+                  />
+                  Watch Live
+                </Link>
+              ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
                   <div className="HeroAddToCalendarButtonContainer">
                     <img
@@ -305,6 +324,16 @@ class HeroItem extends React.Component<Props, State> {
                     ></AddToCalendar>
                   </div>
                 ) : null
+              ) : null}
+              {this.state.content.link1Text ? (
+                <div className="heroAContainer">
+                  <Link
+                    className="heroBlackBoxA inverted"
+                    to={this.state.content.link1Action}
+                  >
+                    {this.state.content.link1Text}
+                  </Link>
+                </div>
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
