@@ -1,0 +1,16 @@
+@use '../../theme.scss';
+
+.add-to-calendar {
+  font-family: Graphik Web;
+  font-size: 1vw;
+  background: transparent;
+  border: none;
+  &.white {
+    color: #ffffff;
+  }
+  &.black {
+    color: theme.$onyxblacktext;
+  }
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}

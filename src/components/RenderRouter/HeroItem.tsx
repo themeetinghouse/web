@@ -1,7 +1,7 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import AddToCalendar from '@esetnik/react-add-to-calendar';
+import AddToCalendar from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
@@ -52,11 +52,14 @@ class HeroItem extends React.Component<Props, State> {
     serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
     nextSunday = nextSunday.hour(+serviceHour);
     const event = {
-      title: 'Church at The Meeting House',
+      summary: 'Church at The Meeting House',
       description: 'Join us at The Meeting House on Sunday!',
       location: locationItem.location.address,
-      startTime: nextSunday.format(),
-      endTime: moment(nextSunday).add(90, 'minutes').format(),
+      geo: `${locationItem.location.latitude};${locationItem.location.longitude}`,
+      rRule: 'WEEKLY',
+      start: nextSunday.format(),
+      end: moment(nextSunday).add(90, 'minutes').format(),
+      url: 'https://themeetinghouse.com/live',
     };
     return event;
   }
@@ -310,19 +313,12 @@ class HeroItem extends React.Component<Props, State> {
                 </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  <div className="HeroAddToCalendarButtonContainer">
-                    <img
-                      className="SundaMorningIcon"
-                      src="/static/svg/Calendar-white.svg"
-                      alt="Calendar Icon"
-                    />
-                    <AddToCalendar
-                      buttonLabel="Add to Calendar"
-                      event={this.getCalendarEventForLocation(
-                        this.state.locationData[0]
-                      )}
-                    ></AddToCalendar>
-                  </div>
+                  <AddToCalendar
+                    color="white"
+                    event={this.getCalendarEventForLocation(
+                      this.state.locationData[0]
+                    )}
+                  />
                 ) : null
               ) : null}
               {this.state.content.link1Text ? (
