@@ -12,6 +12,7 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "cSpell.words": [
       "FJUWPGBGGI",
+      "LIBVIPS",
       "datepicker",
       "draftjs",
       "dryrun",
@@ -24,6 +25,7 @@
       "konami",
       "mdbreact",
       "onclickoutside",
+      "themeetinghousea",
       "tmhprod",
       "youtube"
     ],
