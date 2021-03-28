@@ -314,27 +314,22 @@ class HeroItem extends React.Component<Props, State> {
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
                   <AddToCalendar
+                    style={{ marginRight: 25 }}
+                    textDecoration="always"
                     color="white"
-                    event={this.getCalendarEventForLocation(
-                      this.state.locationData[0]
-                    )}
+                    event={{
+                      ...this.getCalendarEventForLocation(
+                        this.state.locationData[0]
+                      ),
+                      url: 'https://themeetinghouse.com/live',
+                    }}
                   />
                 ) : null
-              ) : null}
-              {this.state.content.link1Text ? (
-                <div className="heroAContainer">
-                  <Link
-                    className="heroBlackBoxA inverted"
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                </div>
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
                   <a href={'mailto:' + this.state.locationData[0].pastorEmail}>
-                    <button className="calendarButton">
+                    <button className="calendarButton contactPastor">
                       <img
                         className="calendarImage"
                         src="/static/svg/Contact-white.svg"
@@ -346,6 +341,16 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null
               ) : null}
             </div>
+            {this.state.content.link1Text ? (
+              <div className="heroAContainer">
+                <Link
+                  className="heroBlackBoxA inverted"
+                  to={this.state.content.link1Action}
+                >
+                  {this.state.content.link1Text}
+                </Link>
+              </div>
+            ) : null}
             <br />
           </div>
           {this.state.content.showCovid ? (
