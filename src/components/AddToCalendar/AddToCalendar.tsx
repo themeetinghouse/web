@@ -9,12 +9,12 @@ import {
 } from 'reactstrap';
 import { useState } from 'react';
 
-type Event = {
+export type Event = {
   start: string;
   end: string;
   summary: string;
   description: string;
-  location: string;
+  location?: string;
   url?: string;
 };
 
@@ -23,6 +23,7 @@ interface Props {
   color: 'white' | 'black';
   textDecoration?: 'always' | 'hover';
   style?: React.CSSProperties;
+  className?: string;
 }
 
 function formatDateTime(date: string) {
@@ -40,6 +41,8 @@ function formatDateTime(date: string) {
  * @return Formatted calendar URL or iCal file.
  */
 function calendarUrl(event: Event, provider?: string) {
+  const body = (event.url ? event.url + '\n\n' : '') + event.description;
+
   switch (provider) {
     case 'Google':
       return (
@@ -49,12 +52,13 @@ function calendarUrl(event: Event, provider?: string) {
         formatDateTime(event.start) +
         '/' +
         formatDateTime(event.end) +
-        '&location=' +
-        encodeURIComponent(event.location) +
+        (event.location
+          ? '&location=' + encodeURIComponent(event.location)
+          : '') +
         '&text=' +
         encodeURIComponent(event.summary) +
         '&details=' +
-        encodeURIComponent(event.description + '\n\n' + event.url)
+        encodeURIComponent(body)
       );
 
     case 'Outlook.com':
@@ -66,10 +70,11 @@ function calendarUrl(event: Event, provider?: string) {
         formatDateTime(event.end) +
         '&subject=' +
         encodeURIComponent(event.summary) +
-        '&location=' +
-        encodeURIComponent(event.location) +
+        (event.location
+          ? '&location=' + encodeURIComponent(event.location)
+          : '') +
         '&body=' +
-        encodeURIComponent(event.description + '\n\n' + event.url) +
+        encodeURIComponent(body) +
         '&allday=false' +
         '&uid=' +
         uuidv4() +
@@ -88,7 +93,7 @@ function calendarUrl(event: Event, provider?: string) {
         `UID:${uuidv4()}\n` +
         `DTSTART:${formatDateTime(event.start)}\n` +
         `DTEND:${formatDateTime(event.start)}\n` +
-        `LOCATION:${event.location}\n` +
+        (event.location ? 'LOCATION:' + event.location + '\n' : '') +
         (event.url ? 'URL:' + event.url + '\n' : '') +
         'END:VEVENT\n' +
         'END:VCALENDAR'
@@ -106,12 +111,14 @@ function calendarUrl(event: Event, provider?: string) {
  * Text decoration appears on hover when `"hover"`.
  * Text decoration is never visible when `undefined`.
  * @param style Optional inline styles for wrapping div.
+ * @param className Optional className for wrapping div.
  */
 export default function AddToCalendar({
   event,
   color,
   textDecoration,
   style,
+  className,
 }: Props) {
   const strokeColor = color === 'white' ? '#FFFFFF' : '#1A1A1A';
   const [open, setOpen] = useState(false);
@@ -120,7 +127,7 @@ export default function AddToCalendar({
   const platforms = ['Apple', 'Google', 'Outlook', 'Outlook.com'];
 
   return (
-    <div className="add-to-calendar-wrapper" style={style}>
+    <div className={'add-to-calendar-wrapper ' + className} style={style}>
       <svg
         style={{ marginRight: 10 }}
         width={25}

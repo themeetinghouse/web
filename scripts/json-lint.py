@@ -125,6 +125,13 @@ for json_file in glob.glob(cwd + path):
                                 assert(isinstance(item[i]['text'], str))
                             elif i == 'images':
                                 assert_image(item[i], check_link_to=True)
+                            elif i == 'calendar':
+                                assert(item['style'] in ['oneImage', 'oneImageBlack', 'oneImageBlackRight'])
+                                assert(isinstance(item[i], dict))
+                                for j in ['start', 'end', 'summary', 'description']:
+                                    assert(isinstance(item[i][j], str))
+                                for j in ['url', 'location']:
+                                    assert(j not in item[i] or isinstance(item[i][j], str))
 
                     elif item_type == 'list':
                         assert(isinstance(item, dict))

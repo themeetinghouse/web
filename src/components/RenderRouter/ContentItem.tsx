@@ -6,6 +6,7 @@ import { Link, LinkButton } from 'components/Link/Link';
 import { ItemImage } from '../types';
 import './ContentItem.scss';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 
 type ContentList = Array<
   | {
@@ -49,6 +50,7 @@ interface ContentType {
   class?: string;
   filterField?: string;
   filterValue?: string;
+  calendar?: Event;
 }
 
 interface Props extends RouteComponentProps {
@@ -143,6 +145,14 @@ function ContentItem({ content }: Props) {
               <h2 className="oneImageH2">{content.header2}</h2>
               <div className="oneImageText">{content.text1}</div>
               <div className="oneImageList">{renderList()}</div>
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="black"
+                  textDecoration="always"
+                />
+              )}
             </div>
             <ScaledImage
               image={image1}
@@ -181,6 +191,14 @@ function ContentItem({ content }: Props) {
               <h2 className="oneImageH2 white">{content.header2}</h2>
               <div className="oneImageText white">{content.text1}</div>
               {renderList('black')}
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="white"
+                  textDecoration="always"
+                />
+              )}
             </div>
             <ScaledImage
               image={image1}
@@ -200,6 +218,14 @@ function ContentItem({ content }: Props) {
               <h2 className="oneImageH2 white">{content.header2}</h2>
               <div className="oneImageText white">{content.text1}</div>
               {renderList('black')}
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="white"
+                  textDecoration="always"
+                />
+              )}
             </div>
             <ScaledImage
               image={image1}
