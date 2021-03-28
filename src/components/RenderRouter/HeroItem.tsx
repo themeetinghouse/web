@@ -1,7 +1,7 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import AddToCalendar from '../AddToCalendar/AddToCalendar';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
@@ -42,7 +42,7 @@ class HeroItem extends React.Component<Props, State> {
       locationData: this.state.locationData.concat(data),
     });
   }
-  getCalendarEventForLocation(locationItem: LocationData) {
+  getCalendarEventForLocation(locationItem: LocationData): Event {
     let nextSunday = (moment().day() === 0
       ? moment().add(1, 'week')
       : moment().day(0)
@@ -55,8 +55,6 @@ class HeroItem extends React.Component<Props, State> {
       summary: 'Church at The Meeting House',
       description: 'Join us at The Meeting House on Sunday!',
       location: locationItem.location.address,
-      geo: `${locationItem.location.latitude};${locationItem.location.longitude}`,
-      rRule: 'WEEKLY',
       start: nextSunday.format(),
       end: moment(nextSunday).add(90, 'minutes').format(),
       url: 'https://themeetinghouse.com/live',
@@ -317,12 +315,9 @@ class HeroItem extends React.Component<Props, State> {
                     style={{ marginRight: 25 }}
                     textDecoration="always"
                     color="white"
-                    event={{
-                      ...this.getCalendarEventForLocation(
-                        this.state.locationData[0]
-                      ),
-                      url: 'https://themeetinghouse.com/live',
-                    }}
+                    event={this.getCalendarEventForLocation(
+                      this.state.locationData[0]
+                    )}
                   />
                 ) : null
               ) : null}

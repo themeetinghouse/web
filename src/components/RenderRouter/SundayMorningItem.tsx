@@ -9,7 +9,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { ChangeEvent } from 'react';
-import AddToCalendar from '../AddToCalendar/AddToCalendar';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
@@ -287,7 +287,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
     this.setState({ selectedPlaceMarker: undefined, selectedPlace: item });
   };
 
-  getCalendarEventForLocation(locationItem: ListData) {
+  getCalendarEventForLocation(locationItem: ListData): Event {
     if (this.props.content.alternate === 'christmas') {
       const nextSunday = moment(locationItem.serviceTimes, 'MMMM D, h:mma');
       console.log(nextSunday);

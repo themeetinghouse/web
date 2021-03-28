@@ -13,7 +13,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
-import AddToCalendar from '../AddToCalendar/AddToCalendar';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
@@ -360,7 +360,7 @@ export class ContentItem extends React.Component<Props, State> {
     return address;
   }
 
-  private getCalendarEventForLocation(group: F1Group): any {
+  private getCalendarEventForLocation(group: F1Group): Event {
     let nextMeeting = moment();
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
       const recurrenceWeekly = group.schedule?.recurrences?.recurrence
@@ -378,7 +378,7 @@ export class ContentItem extends React.Component<Props, State> {
       }
     }
     const event = {
-      summary: group.name ?? undefined,
+      summary: group.name ?? 'Home Church',
       description: 'Join us at home church!',
       location: this.formatGroupAddress(group).join(', '),
       start: nextMeeting.format(),
