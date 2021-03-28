@@ -37,7 +37,7 @@ function formatDateTime(date: string) {
  * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
  *
  * @param event Object containing event data.
- * @param  provider Calendar provider.
+ * @param provider Calendar provider.
  * @return Formatted calendar URL or iCal file.
  */
 function calendarUrl(event: Event, provider?: string) {
