@@ -1,104 +1,204 @@
 import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment';
 import './AddToCalendar.scss';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from 'reactstrap';
+import { useState } from 'react';
+
+type Event = {
+  start: string;
+  end: string;
+  summary: string;
+  description: string;
+  location: string;
+  url?: string;
+};
 
 interface Props {
-  event: {
-    start: string;
-    end: string;
-    summary: string;
-    description: string;
-    rRule?: string;
-    geo: string;
-    location: string;
-    url?: string;
-  };
+  event: Event;
   color: 'white' | 'black';
+  textDecoration?: 'always' | 'hover';
+  style?: React.CSSProperties;
 }
 
-export default function AddToCalendar({ event, color }: Props) {
-  const strokeColor = color === 'white' ? '#FFFFFF' : '#1A1A1A';
-  const ics =
-    'BEGIN:VCALENDAR\n' +
-    'VERSION:2.0\n' +
-    'PRODID:-//The Meeting House Church Family//TMH Cal 1.0//EN\n' +
-    'CALSCALE:GREGORIAN\n' +
-    'BEGIN:VEVENT\n' +
-    `SUMMARY:${event.summary}\n` +
-    `DESCRIPTION:${event.description}\n` +
-    `UID:${uuidv4()}\n` +
-    (event.rRule ? 'RRULE:' + event.rRule + '\n' : '') +
-    `DTSTART:${event.start}\n` +
-    `DTEND:${event.end}\n` +
-    `LOCATION:${event.location}\n` +
-    `GEO:${event.geo}\n` +
-    (event.url ? 'URL:' + event.url + '\n' : '') +
-    'END:VEVENT' +
-    'END:VCALENDAR';
+function formatDateTime(date: string) {
+  return moment.utc(date).format('YYYYMMDDTHHmmssZ').replace('+00:00', 'Z');
+}
 
-  if (ics) {
-    return (
-      <>
-        <svg
-          style={{ marginRight: 10 }}
-          width={25}
-          height={25}
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 17V23"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            strokeMiterlimit="10"
-            strokeLinecap="square"
-          />
-          <path
-            d="M17 20H23"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            strokeMiterlimit="10"
-            strokeLinecap="square"
-          />
-          <path
-            d="M12 22H1V4H23V12"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            strokeMiterlimit="10"
-            strokeLinecap="square"
-          />
-          <path
-            d="M7 1V4"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            strokeMiterlimit="10"
-            strokeLinecap="square"
-          />
-          <path
-            d="M17 1V4"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            strokeMiterlimit="10"
-            strokeLinecap="square"
-          />
-          <path
-            d="M1 8H23"
-            stroke={strokeColor}
-            strokeWidth="1.5"
-            strokeMiterlimit="10"
-          />
-        </svg>
-        <button
-          onClick={() =>
-            window.open('data:text/calendar;charset=utf8,' + escape(ics))
-          }
-          className={'add-to-calendar ' + color}
+/**
+ * Generates a calendar URL/iCal file for Google, Apple, Outlook and Outlook.com.
+ *
+ * This function can be attributed to Jason Salzman.
+ * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
+ *
+ * @param event Object containing event data.
+ * @param  provider Calendar provider.
+ * @return Formatted calendar URL or iCal file.
+ */
+function calendarUrl(event: Event, provider?: string) {
+  switch (provider) {
+    case 'Google':
+      return (
+        'https://calendar.google.com/calendar/render' +
+        '?action=TEMPLATE' +
+        '&dates=' +
+        formatDateTime(event.start) +
+        '/' +
+        formatDateTime(event.end) +
+        '&location=' +
+        encodeURIComponent(event.location) +
+        '&text=' +
+        encodeURIComponent(event.summary) +
+        '&details=' +
+        encodeURIComponent(event.description + '\n\n' + event.url)
+      );
+
+    case 'Outlook.com':
+      return (
+        'https://outlook.live.com/owa/?rru=addevent' +
+        '&startdt=' +
+        formatDateTime(event.start) +
+        '&enddt=' +
+        formatDateTime(event.end) +
+        '&subject=' +
+        encodeURIComponent(event.summary) +
+        '&location=' +
+        encodeURIComponent(event.location) +
+        '&body=' +
+        encodeURIComponent(event.description + '\n\n' + event.url) +
+        '&allday=false' +
+        '&uid=' +
+        uuidv4() +
+        '&path=/calendar/view/Month'
+      );
+
+    default:
+      return (
+        'BEGIN:VCALENDAR\n' +
+        'VERSION:2.0\n' +
+        'PRODID:-//The Meeting House Church Family//TMH Cal 1.0//EN\n' +
+        'CALSCALE:GREGORIAN\n' +
+        'BEGIN:VEVENT\n' +
+        `SUMMARY:${event.summary}\n` +
+        `DESCRIPTION:${event.description}\n` +
+        `UID:${uuidv4()}\n` +
+        `DTSTART:${formatDateTime(event.start)}\n` +
+        `DTEND:${formatDateTime(event.start)}\n` +
+        `LOCATION:${event.location}\n` +
+        (event.url ? 'URL:' + event.url + '\n' : '') +
+        'END:VEVENT\n' +
+        'END:VCALENDAR'
+      );
+  }
+}
+
+/**
+ * Add to calendar JSX component.
+ *
+ * @param event Object containing event data.
+ * @param color Color of text and SVG icon.
+ * @param textDecoration
+ * Text decoration is always visible when `"always"`.
+ * Text decoration appears on hover when `"hover"`.
+ * Text decoration is never visible when `undefined`.
+ * @param style Optional inline styles for wrapping div.
+ */
+export default function AddToCalendar({
+  event,
+  color,
+  textDecoration,
+  style,
+}: Props) {
+  const strokeColor = color === 'white' ? '#FFFFFF' : '#1A1A1A';
+  const [open, setOpen] = useState(false);
+  const toggle = () => setOpen((prevState) => !prevState);
+
+  const platforms = ['Apple', 'Google', 'Outlook', 'Outlook.com'];
+
+  return (
+    <div className="add-to-calendar-wrapper" style={style}>
+      <svg
+        style={{ marginRight: 10 }}
+        width={25}
+        height={25}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 17V23"
+          stroke={strokeColor}
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="square"
+        />
+        <path
+          d="M17 20H23"
+          stroke={strokeColor}
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="square"
+        />
+        <path
+          d="M12 22H1V4H23V12"
+          stroke={strokeColor}
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="square"
+        />
+        <path
+          d="M7 1V4"
+          stroke={strokeColor}
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="square"
+        />
+        <path
+          d="M17 1V4"
+          stroke={strokeColor}
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="square"
+        />
+        <path
+          d="M1 8H23"
+          stroke={strokeColor}
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+        />
+      </svg>
+      <Dropdown isOpen={open} toggle={toggle}>
+        <DropdownToggle
+          className={`add-to-calendar ${color} ${
+            textDecoration === 'always'
+              ? 'decoration'
+              : textDecoration === 'hover'
+              ? 'hover-decoration'
+              : ''
+          }`}
         >
           Add to Calendar
-        </button>
-      </>
-    );
-  }
-
-  return null;
+        </DropdownToggle>
+        <DropdownMenu>
+          {platforms.map((platform) => {
+            return (
+              <DropdownItem
+                key={platform}
+                href={calendarUrl(event, platform)}
+                className={platform.replace('.', '')}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {platform}
+              </DropdownItem>
+            );
+          })}
+        </DropdownMenu>
+      </Dropdown>
+    </div>
+  );
 }
