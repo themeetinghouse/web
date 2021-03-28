@@ -36,7 +36,6 @@
   "dependencies": {
     "@aws-amplify/api": "^3.2.20",
     "@aws-amplify/ui-react": "^1.0.1",
-    "@esetnik/react-add-to-calendar": "^0.1.8",
     "@sentry/browser": "^6.1.0",
     "aws-amplify": "^3.3.19",
     "bootstrap": "^4.5.3",
