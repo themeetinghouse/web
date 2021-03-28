@@ -13,7 +13,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { CSSProperties } from 'react';
-import AddToCalendar from '@esetnik/react-add-to-calendar';
+import AddToCalendar from '../AddToCalendar/AddToCalendar';
 import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
@@ -362,7 +362,6 @@ export class ContentItem extends React.Component<Props, State> {
 
   private getCalendarEventForLocation(group: F1Group): any {
     let nextMeeting = moment();
-    //console.log('HomeChurchItem.getCalendarEventForLocation(): group = %o', group);
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
       const recurrenceWeekly = group.schedule?.recurrences?.recurrence
         ?.recurrenceWeekly as Record<string, string> | undefined | null;
@@ -379,11 +378,11 @@ export class ContentItem extends React.Component<Props, State> {
       }
     }
     const event = {
-      title: group.name ?? undefined,
+      summary: group.name ?? undefined,
       description: 'Join us at home church!',
       location: this.formatGroupAddress(group).join(', '),
-      startTime: nextMeeting.format(),
-      endTime: moment(nextMeeting).add(2, 'hours').format(),
+      start: nextMeeting.format(),
+      end: moment(nextMeeting).add(2, 'hours').format(),
     };
     return event;
   }
@@ -788,17 +787,12 @@ export class ContentItem extends React.Component<Props, State> {
                       <div className="HomeChurchButtonContainer">
                         {item.schedule?.recurrences?.recurrence
                           ?.recurrenceWeekly ? (
-                          <div className="AddToCalendarButtonContainer">
-                            <img
-                              className="AddToCalendarIcon"
-                              src="/static/svg/Calendar, Add To.svg"
-                              alt="Calendar Icon"
-                            />
-                            <AddToCalendar
-                              buttonLabel="Add to Calendar"
-                              event={this.getCalendarEventForLocation(item)}
-                            ></AddToCalendar>
-                          </div>
+                          <AddToCalendar
+                            style={{ marginRight: 25 }}
+                            textDecoration="hover"
+                            color="black"
+                            event={this.getCalendarEventForLocation(item)}
+                          />
                         ) : null}
                         <button
                           className="ContactLeadersButton"

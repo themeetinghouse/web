@@ -1,5 +1,18 @@
 @use '../../theme';
 
+.HomeChurchButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 950px) {
+  .HomeChurchButtonContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .HomeChurchFormItemContainer {
   height: 149px;
   padding: 10px;
@@ -87,6 +100,9 @@
 }
 
 .ContactLeadersButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-family: Graphik Web;
   color: theme.$onyxblacktext !important;
   background: #ffffff !important;
@@ -94,6 +110,7 @@
   border-radius: 0;
   font-size: 16px;
   text-decoration: none;
+  text-underline-offset: 0.25em;
   font-weight: normal;
   cursor: pointer;
   padding: 12px 0px;
@@ -109,86 +126,6 @@
   .ContactLeadersIcon {
     padding-right: 10px;
     height: 25px;
-  }
-}
-
-.AddToCalendarButtonContainer {
-  position: relative;
-  display: inline-block;
-  padding: 12px 30px 12px 0;
-
-  .AddToCalendarIcon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding-right: 0;
-    padding-left: 0;
-    pointer-events: none;
-    top: 50%;
-    font-size: 12px;
-    transform: translateY(-50%);
-  }
-  .react-add-to-calendar__button {
-    font-family: Graphik Web;
-    color: theme.$onyxblacktext;
-    border-width: 0px;
-    border-radius: 0;
-    font-size: 16px;
-    font-weight: normal;
-    padding-left: 35px;
-    text-decoration: none !important;
-    cursor: pointer;
-    &:hover {
-      text-decoration: underline !important;
-    }
-  }
-  .react-add-to-calendar__dropdown {
-    position: absolute;
-    z-index: 100;
-    top: 48px;
-    background: white;
-    border: 1px solid theme.$onyxblacktext;
-    padding: 10px 20px 0 20px;
-    ul {
-      list-style-type: none;
-      padding: 0;
-      font-family: Graphik Web;
-      font-size: 14px;
-      a {
-        color: theme.$onyxblacktext !important;
-        vertical-align: middle;
-      }
-      li {
-        position: relative;
-        vertical-align: middle;
-      }
-      a::before {
-        width: 15px;
-        height: 15px;
-        vertical-align: middle;
-        background-size: contain;
-        background-position-y: center;
-        background-repeat: no-repeat;
-        display: inline-block;
-        content: '';
-        margin: 5px 5px 8px 0;
-      }
-      a.apple-link::before {
-        background-image: url('../../svg/Apple.svg');
-      }
-      a.outlook-link::before {
-        background-image: url('../../svg/Outlook.svg');
-      }
-      a.outlookcom-link::before {
-        background-image: url('../../svg/Outlook.svg');
-      }
-      a.yahoo-link::before {
-        background-image: url('../../svg/Yahoo.svg');
-      }
-      a.google-link::before {
-        background-image: url('../../svg/Google.svg');
-      }
-    }
   }
 }
 
@@ -445,15 +382,6 @@
     margin-bottom: 10px;
     color: theme.$onyxblacktext;
   }
-  .ContactLeadersButton {
-    font-size: 14px;
-  }
-
-  .AddToCalendarButtonContainer {
-    .react-add-to-calendar__button {
-      font-size: 14px;
-    }
-  }
 }
 
 @media (max-width: 767px) {
@@ -614,16 +542,6 @@
     margin-bottom: 3vh;
     padding-bottom: 3vh;
     border-bottom: 1px solid theme.$coolgray11;
-  }
-
-  .ContactLeadersButton {
-    font-size: 14px;
-  }
-
-  .AddToCalendarButtonContainer {
-    .react-add-to-calendar__button {
-      font-size: 14px;
-    }
   }
 
   .HomeChurchItemMapInfoWindowDiv1 {
