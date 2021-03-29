@@ -91,6 +91,25 @@
         ]
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Easter Colouring Page",
+        "image1": [
+          {
+            "src": "/static/EasterColouringPage.jpg",
+            "alt": "Easter Colouring Page"
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Easter Colouring Page",
+            "navigateTo": "/static/pdfs/teaching/EasterColouringPage.pdf",
+            "openNewBrowser": true
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "horizontal",
         "class": "custom-playlist",
