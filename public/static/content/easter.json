@@ -68,11 +68,10 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Looking for some Easter Activities for Kids?",
-        "text1": "Kids Easter Activities",
+        "header1": "Kids Easter Activities",
         "image1": [
           {
-            "src": "/static/images/EYBigIdeaMarch.jpg",
+            "src": "/static/images/Jesusisalive.jpg",
             "alt": "Kids Easter Experience"
           }
         ],
