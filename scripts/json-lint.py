@@ -394,7 +394,8 @@ for json_file in glob.glob(cwd + path):
                     assert(isinstance(current_json, list))
                     for location in current_json:
                         location_keys = sorted(list(location.keys()))
-                        assert(location_keys == ['id', 'location', 'name', 'pastorEmail', 'serviceTimes'])
+                        for i in ['id', 'location', 'name', 'pastorEmail', 'serviceTimes']:
+                            assert(i in location_keys )
 
                         for i in ['id', 'name', 'pastorEmail']:
                             assert(isinstance(location[i], str))

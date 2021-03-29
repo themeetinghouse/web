@@ -184,6 +184,21 @@ export interface LocationData {
     address: string;
   };
   serviceTimes: string[];
+  youth: {
+    age: string;
+    location: {
+      name: string;
+      googleMapLink: string;
+    };
+    time: string;
+    facebook: string;
+    instagram: string;
+    mainContact: {
+      name: string;
+      email: string;
+      phone: string;
+    };
+  };
 }
 
 type OnDataListener<T> = (data: T) => void;

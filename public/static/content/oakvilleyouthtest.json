@@ -1,7 +1,7 @@
 {
   "page": {
-    "name": "hamilton-mountain",
-    "title": "The Meeting House - Hamilton Mountain",
+    "name": "oakville",
+    "title": "The Meeting House - Oakville",
     "keywords": "",
     "description": "",
     "pageConfig": {
@@ -16,10 +16,10 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/local-site-1-3.jpg",
-        "url": "https://www.themeetinghouse.com/hamilton-mountain",
-        "title": "The Meeting House - Downtown Mountain",
-        "description": ""
+        "image": "/static/images/og-images/oakville.jpg",
+        "url": "https://www.themeetinghouse.com/oakville",
+        "title": "The Meeting House - Oakville",
+        "description": "Our Oakville site is pretty great. Learn more about our location, people, Home Churches, events, and more."
       },
       {
         "type": "hero",
@@ -43,7 +43,7 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Hamilton Mountain",
+        "header1": "Oakville",
         "button1": {
           "text": "Livestream",
           "action": "live",
@@ -51,14 +51,16 @@
         },
         "text1": "Livestream Sundays @ 10:00am",
         "text2": "Good Friday Virtual Gathering",
-        "text3": "April 2 @ 10:00am",
-        "text3a": "Includes full program for Infants to Grade 8",
-        "customLiveLink": "https://us02web.zoom.us/j/3421611228",
+        "text2a": "8:00 am-9:00 am",
+        "text3a": "9:30 am-10:30 am",
+        "text4a": "11:15 am-12:15 pm",
+        "text5a": "Includes full program for Infants to Grade 8",
+        "text6a": "7:00pm | Wednesdays | Youth Midweek for Grades 6 to 12",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
-        "filterValue": "hamilton-mountain"
+        "filterValue": "oakville"
       },
       {
         "type": "list",
@@ -67,13 +69,13 @@
         "header1": "Our Team",
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
-        "filterValue": "HMMT"
+        "filterValue": "OAKV"
       },
       {
         "type": "content",
         "style": "oneImage",
         "header1": "Good Friday",
-        "header2": "April 2",
+        "header2": "April 2 - 10:00am",
         "text1": "We want to lean into community and create a more local virtual experience that feels like family. On April 2, click the link below to participate. In the meantime, use the link if you have any questions for our lead pastor.",
         "image1": [
           {
@@ -85,7 +87,7 @@
           {
             "type": "link",
             "title": "Connect",
-            "navigateTo": "mailto:dagmar.morgan-sinclair@themeetinghouse.com",
+            "navigateTo": "mailto:carolynn.bucek@themeetinghouse.com",
             "description": "A link to open a service client and send an email to the pastor."
           }
         ]
@@ -96,14 +98,14 @@
         "class": "events",
         "header1": "Upcoming Events",
         "header2": "",
-        "facebookEvents": ["195306577177988", "126960067401497"]
+        "facebookEvents": ["192337637474940", "204669579590265"]
       },
       {
         "type": "list",
         "style": "grid",
         "class": "instagram",
         "filterField": "sites",
-        "filterValue": "hamilton-mountain"
+        "filterValue": "oakville"
       },
       {
         "type": "content",
@@ -126,6 +128,33 @@
           {
             "src": "/static/images/KY2.jpg",
             "alt": "Two boys laughing."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "youth",
+        "class": "locations",
+        "filterField": "id",
+        "filterValue": "oakville"
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Care Ministries",
+        "header2": "",
+        "text1": "Our care ministries provide safe environments where people can receive the spiritual care they need in safe and intentional community, with trained and caring facilitators.",
+        "list": [
+          {
+            "type": "link",
+            "title": "View All Care Ministries",
+            "navigateTo": "/care-ministries"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/care-ministries-1.jpg",
+            "alt": "Two women sitting down together and talking as friends."
           }
         ]
       },
@@ -153,7 +182,7 @@
         "header1": "Home Church",
         "header2": "",
         "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
-        "link1Text": "Browse Home Churches in Hamilton Mountain",
+        "link1Text": "Browse Home Churches in Oakville",
         "link1Action": "/find-homechurch"
       },
       {
@@ -163,7 +192,7 @@
         "header1": "Make a Difference",
         "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
         "filterField": "sites",
-        "filterValue": "hamilton-mountain"
+        "filterValue": "oakville"
       },
       {
         "type": "hero",
