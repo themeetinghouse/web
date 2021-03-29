@@ -728,6 +728,14 @@
     "to": "https://meetinghouse.infellowship.com/Forms/455268"
   },
   {
+    "id": "eastercolour",
+    "to": "/static/pdfs/teaching/EasterColouringPage.pdf"
+  },
+  {
+    "id": "eastercolor",
+    "to": "/static/pdfs/teaching/EasterColouringPage.pdf"
+  },
+  {
     "id": "appannouncement",
     "to": "https://meeting.formstack.com/forms/announcements_on_the_app"
   }
