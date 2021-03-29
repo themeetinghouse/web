@@ -66,6 +66,32 @@
         "showLocationSearch": true
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Looking for some Easter Activities for Kids?",
+        "text1": "Kids Easter Activities",
+        "image1": [
+          {
+            "src": "/static/images/EYBigIdeaMarch.jpg",
+            "alt": "Kids Easter Experience"
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Easter Journey of Hope",
+            "navigateTo": "https://drive.google.com/drive/folders/1g0y8X5AGiS99s8CLmMMoULcpJs0vyZSr",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "The Mystery of Easter",
+            "navigateTo": "/static/pdfs/kidmax-files/TheMysteryofEaster.pdf",
+            "openNewBrowser": true
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "horizontal",
         "class": "custom-playlist",
