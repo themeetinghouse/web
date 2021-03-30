@@ -6,6 +6,10 @@ import traceback
 cwd = os.getcwd()
 path = '/public/static/**/*.json'
 
+def image_exists(image: str):
+    if not os.path.exists('public' + image):
+        raise Exception('image not found: ' + image)
+
 def assert_standard_text(item, no_style = False):
     if not no_style:
         assert('style' in item and isinstance(item['style'], str))
@@ -17,6 +21,7 @@ def assert_image(images: list, check_link_to = False):
     assert(isinstance(images, list))
     for image in images:
         assert(isinstance(image['src'], str))
+        image_exists(image['src'])
         assert(isinstance(image['alt'], str))
         if (check_link_to):
             assert('linkto' not in image or isinstance(image['linkto'], str))
@@ -24,6 +29,7 @@ def assert_image(images: list, check_link_to = False):
 def assert_list_image(img: dict):
     assert(isinstance(img['title'], str))
     assert(isinstance(img['imageSrc'], str))
+    image_exists(img['imageSrc'])
     assert(isinstance(img['imageAlt'], str))
     assert(img['imageAlt'])
 
@@ -86,6 +92,7 @@ for json_file in glob.glob(cwd + path):
                         for i in og_keys:
                             assert(i in item)
                             assert(isinstance(item[i], str))
+                        image_exists(item['image'])
                         
                     elif item_type == 'hero':
                         assert(isinstance(item, dict))
