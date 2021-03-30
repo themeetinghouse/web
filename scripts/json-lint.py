@@ -6,6 +6,10 @@ import traceback
 cwd = os.getcwd()
 path = '/public/static/**/*.json'
 
+def file_exists(file: str):
+    if ('/static' in file) and (not os.path.exists('public' + file)):
+        raise Exception('file not found: ' + file)
+
 def image_exists(image: str):
     if not os.path.exists('public' + image):
         raise Exception('image not found: ' + image)
@@ -35,6 +39,7 @@ def assert_list_image(img: dict):
 
 def assert_content_link_or_button(link_or_button, check_new_tab = False):
     assert(isinstance(link_or_button['navigateTo'], str))
+    file_exists(link_or_button['navigateTo'])
     assert(isinstance(link_or_button['title'], str))
     if (check_new_tab):
         assert('openNewBrowser' not in link_or_button or isinstance(link_or_button['openNewBrowser'], bool))
@@ -105,8 +110,11 @@ for json_file in glob.glob(cwd + path):
                                 assert(isinstance(item[i]['text'], str))
                                 assert(isinstance(item[i]['action'], str))
                                 assert(isinstance(item[i]['description'], str))
-                            if 'link1' in i:
+                            if i == 'link1Text':
                                 assert(isinstance(item[i], str))
+                            if i == 'link1Action':
+                                assert(isinstance(item[i], str))
+                                file_exists(item[i])
                             if i in ['addToCalendar', 'showCovid', 'contactPastor', 'showLocationSearch', 'hasFooter']:
                                 assert(isinstance(item[i], bool))
 
@@ -158,6 +166,7 @@ for json_file in glob.glob(cwd + path):
                                     assert(isinstance(list_item, dict))
                                     if ('navigateTo' in list_item):
                                         assert(isinstance(list_item['navigateTo'], str))
+                                        file_exists(list_item['navigateTo'])
                                         assert(isinstance(list_item['text'], str))
                                         if ('imageSrc' in list_item):
                                             assert_list_image(list_item)
@@ -165,6 +174,7 @@ for json_file in glob.glob(cwd + path):
                                         assert_list_image(list_item)
                                         if ('url' in list_item):
                                             assert(isinstance(list_item['url'], str))
+                                            file_exists(list_item['url'])
                             elif i == 'sortOrder':
                                 assert(item[i] == 'DESC' or item[i] == 'ASC')
                             elif i in ['limit', 'numberOfDays', 'minViews', 'loadPer', 'numberOfVideos']:                              
@@ -210,6 +220,7 @@ for json_file in glob.glob(cwd + path):
                                     elif list_item['type'] == 'button':
                                         assert(isinstance(list_item['title'], str))
                                         assert(isinstance(list_item['navigateTo'], str))
+                                        file_exists(list_item['navigateTo'])
                                     else:
                                         unknown = list_item['type']
                                         raise Exception(f'unknown FAQ list type: {unknown}')                     
@@ -268,6 +279,7 @@ for json_file in glob.glob(cwd + path):
                         assert(isinstance(item['style'], str))
                         assert(isinstance(item['title'], str))
                         assert(isinstance(item['navigateTo'], str))
+                        file_exists(item['navigateTo'])
                         assert('newWindow' not in item or isinstance(item['newWindow'], bool))
                     
                     elif item_type == 'home-church':
@@ -390,6 +402,7 @@ for json_file in glob.glob(cwd + path):
                     for i in current_json:
                         assert(isinstance(i['id'], str))
                         assert(isinstance(i['to'], str))
+                        file_exists(i['to'])
 
                 elif filename == 'overseers.json':
                     assert(isinstance(current_json, list))
