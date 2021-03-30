@@ -340,29 +340,34 @@ class Index extends React.Component<EmptyProps, State> {
         test = false;
       }
 
-      livestreamList?.forEach((item) => {
-        if (
-          item?.date === date &&
-          item?.id !== id &&
-          startTime &&
-          endTime &&
-          item?.startTime &&
-          item?.endTime
-        ) {
-          if (item.startTime <= startTime && item.endTime >= startTime) {
-            this.setState({
-              alert: `error: live event overlaps with ${item?.id}`,
-            });
-            test = false;
+      if (!this.state.customEvent) {
+        // custom live events may overlap
+
+        livestreamList?.forEach((item) => {
+          if (
+            !item?.externalEventUrl && // skip custom live events
+            item?.date === date &&
+            item?.id !== id &&
+            startTime &&
+            endTime &&
+            item?.startTime &&
+            item?.endTime
+          ) {
+            if (item.startTime <= startTime && item.endTime >= startTime) {
+              this.setState({
+                alert: `error: live event overlaps with ${item?.id}`,
+              });
+              test = false;
+            }
+            if (item.startTime <= endTime && item.endTime >= endTime) {
+              this.setState({
+                alert: `error: live event overlaps with ${item?.id}`,
+              });
+              test = false;
+            }
           }
-          if (item.startTime <= endTime && item.endTime >= endTime) {
-            this.setState({
-              alert: `error: live event overlaps with ${item?.id}`,
-            });
-            test = false;
-          }
-        }
-      });
+        });
+      }
 
       if (prerollYoutubeId === '' && startTime !== videoStartTime) {
         this.setState({
