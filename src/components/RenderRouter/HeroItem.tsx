@@ -1,7 +1,7 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import AddToCalendar from '@esetnik/react-add-to-calendar';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
@@ -42,7 +42,7 @@ class HeroItem extends React.Component<Props, State> {
       locationData: this.state.locationData.concat(data),
     });
   }
-  getCalendarEventForLocation(locationItem: LocationData) {
+  getCalendarEventForLocation(locationItem: LocationData): Event {
     let nextSunday = (moment().day() === 0
       ? moment().add(1, 'week')
       : moment().day(0)
@@ -52,11 +52,12 @@ class HeroItem extends React.Component<Props, State> {
     serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
     nextSunday = nextSunday.hour(+serviceHour);
     const event = {
-      title: 'Church at The Meeting House',
+      summary: 'Church at The Meeting House',
       description: 'Join us at The Meeting House on Sunday!',
       location: locationItem.location.address,
-      startTime: nextSunday.format(),
-      endTime: moment(nextSunday).add(90, 'minutes').format(),
+      start: nextSunday.format(),
+      end: moment(nextSunday).add(90, 'minutes').format(),
+      url: 'https://themeetinghouse.com/live',
     };
     return event;
   }
@@ -310,35 +311,20 @@ class HeroItem extends React.Component<Props, State> {
                 </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  <div className="HeroAddToCalendarButtonContainer">
-                    <img
-                      className="SundaMorningIcon"
-                      src="/static/svg/Calendar-white.svg"
-                      alt="Calendar Icon"
-                    />
-                    <AddToCalendar
-                      buttonLabel="Add to Calendar"
-                      event={this.getCalendarEventForLocation(
-                        this.state.locationData[0]
-                      )}
-                    ></AddToCalendar>
-                  </div>
+                  <AddToCalendar
+                    style={{ marginRight: 25 }}
+                    textDecoration="always"
+                    color="white"
+                    event={this.getCalendarEventForLocation(
+                      this.state.locationData[0]
+                    )}
+                  />
                 ) : null
-              ) : null}
-              {this.state.content.link1Text ? (
-                <div className="heroAContainer">
-                  <Link
-                    className="heroBlackBoxA inverted"
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                </div>
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
                   <a href={'mailto:' + this.state.locationData[0].pastorEmail}>
-                    <button className="calendarButton">
+                    <button className="calendarButton contactPastor">
                       <img
                         className="calendarImage"
                         src="/static/svg/Contact-white.svg"
@@ -350,6 +336,16 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null
               ) : null}
             </div>
+            {this.state.content.link1Text ? (
+              <div className="heroAContainer">
+                <Link
+                  className="heroBlackBoxA inverted"
+                  to={this.state.content.link1Action}
+                >
+                  {this.state.content.link1Text}
+                </Link>
+              </div>
+            ) : null}
             <br />
           </div>
           {this.state.content.showCovid ? (
