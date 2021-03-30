@@ -84,9 +84,9 @@
         "list": [
           {
             "type": "link",
-            "title": "Connect",
-            "navigateTo": "mailto:john.latta@themeetinghouse.com",
-            "description": "A link to open a service client and send an email to the pastor."
+            "title": "Register",
+            "navigateTo": "https://www.crowdcast.io/e/goodfriday_burlington",
+            "description": "A link to open crowdcast for the Good Friday service."
           }
         ]
       },

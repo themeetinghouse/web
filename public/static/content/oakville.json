@@ -86,9 +86,9 @@
         "list": [
           {
             "type": "link",
-            "title": "Connect",
-            "navigateTo": "mailto:carolynn.bucek@themeetinghouse.com",
-            "description": "A link to open a service client and send an email to the pastor."
+            "title": "Watch Live",
+            "navigateTo": "themeetinghouse.com/live",
+            "description": "A link to open that connects user to the Good Friday Service."
           }
         ]
       },
