@@ -53,7 +53,7 @@
         "text2": "Good Friday Virtual Gathering",
         "text3": "April 2 @ 10:00am",
         "text3a": "Includes full program for Infants to Grade 8",
-        "customLiveLink": "https://www.crowdcast.io/e/goodfriday_brantford",
+        "customLiveLink": "https://us02web.zoom.us/j/83172338613",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
@@ -84,9 +84,9 @@
         "list": [
           {
             "type": "link",
-            "title": "Register",
-            "navigateTo": "https://www.crowdcast.io/e/goodfriday_brantford",
-            "description": "A link to open crowdcast for Good Friday service."
+            "title": "Watch Here",
+            "navigateTo": "https://us02web.zoom.us/j/83172338613",
+            "description": "A link to open zoom for Good Friday service."
           }
         ]
       },
