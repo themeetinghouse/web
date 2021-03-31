@@ -113,7 +113,8 @@
   text-decoration: none;
   color: black;
 }
-.closeButton {
+.closeButton,
+.closeButtonContainer {
   display: none;
 }
 .FirstItemOffset {
@@ -123,7 +124,7 @@
 @media (max-width: 768px) {
   .DropdownMainContainer {
     position: fixed;
-    top: -35px;
+    top: 0;
     left: 0;
     min-width: 100%;
     z-index: 3000;
@@ -131,10 +132,12 @@
   }
   .DropdownFill {
     position: fixed;
+    margin-top: 0;
     min-width: 100%;
-    min-height: calc(100% + 35px);
+    min-height: 100%;
     animation: slideInMobile;
     animation-duration: 0.2s;
+    overscroll-behavior: contain;
   }
   .triangle {
     display: none;
@@ -177,13 +180,19 @@
     font-family: Graphik Web;
     font-size: 0.8rem;
   }
-  .closeButton {
-    left: calc(85% - 16px);
-    position: relative;
-    margin-top: 24px;
-    display: unset;
-    z-index: 200;
+
+  .closeButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .closeButton {
+      margin-top: 24px;
+      margin-right: 24px;
+      display: unset;
+      z-index: 200;
+    }
   }
+
   .EventFooter {
     margin-top: 24px;
     font-size: calc(12px + 0.3vw);
