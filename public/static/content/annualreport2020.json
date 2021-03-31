@@ -51,7 +51,7 @@
           {
             "title": "Kids & Youth",
             "text": "Discipling our kids and youth through curriculum production, programming, staffing, classroom supplies, and subsidies for our youth retreats. 13% - $1,378,676",
-            "imageSrc": "/static/images/corana-5.jpg",
+            "imageSrc": "/static/images/corona-5.jpg",
             "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
             "navigateTo": "/kids-and-youth"
           },
@@ -177,7 +177,7 @@
           {
             "type": "link",
             "title": "Download PDF",
-            "navigateTo": "/static/pdfs/annual-reports/TMH_2020AnnualReport_v6.pdf"
+            "navigateTo": "/static/pdfs/annual-reports/2020_Annual_Report_combined.pdf"
           }
         ],
         "image1": [

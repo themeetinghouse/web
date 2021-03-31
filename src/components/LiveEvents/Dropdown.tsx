@@ -82,13 +82,15 @@ const Dropdown = ({ end, close, liveevents }: Props) => {
     <div ref={ref} className="DropdownMainContainer">
       <div className="triangle"></div>
       <div className="DropdownFill">
-        <img
-          onClick={close}
-          className="closeButton"
-          style={{}}
-          alt="Close Icon"
-          src="/static/svg/Close-Cancel-White.svg"
-        ></img>
+        <div className="closeButtonContainer">
+          <img
+            onClick={close}
+            className="closeButton"
+            style={{}}
+            alt="Close Icon"
+            src="/static/svg/Close-Cancel-White.svg"
+          />
+        </div>
         {!isLoading ? (
           <>
             {events.map((event: any, ind: any) => {

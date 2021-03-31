@@ -376,7 +376,10 @@ class HeroItem extends React.Component<Props, State> {
       );
     } else if (this.state.content.style === 'partialNoFooter') {
       return (
-        <div className="partialNoFooter">
+        <div
+          className="partialNoFooter"
+          style={{ zIndex: this.state.content.zIndex ?? 1 }}
+        >
           {this.renderHeroImage('partialNoFooterImage')}
           <div className="partialNoFooterBox">
             <h1 className="heroH1">{this.state.content.header1}</h1>

@@ -167,13 +167,6 @@
       {
         "type": "goLink",
         "style": "link",
-        "title": "Go Campaign FAQ",
-        "navigateTo": "/static/pdfs/go/Donor-FAQs-for-Go.pdf",
-        "newWindow": true
-      },
-      {
-        "type": "goLink",
-        "style": "link",
         "title": "Learn more about Jesus Collective",
         "navigateTo": "https://www.jesuscollective.com",
         "newWindow": true
