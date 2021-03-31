@@ -1,3 +1,5 @@
+import { ListLivestreamsQuery } from 'API';
+
 export interface SundayMorningItemContent {
   type: 'sunday-morning';
 
@@ -83,3 +85,7 @@ export type Margin = {
   marginLeft?: string | number;
   marginRight?: string | number;
 };
+
+export type LiveEvents = NonNullable<
+  NonNullable<ListLivestreamsQuery['listLivestreams']>['items']
+>;

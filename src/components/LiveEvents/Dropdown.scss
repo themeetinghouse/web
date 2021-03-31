@@ -1,3 +1,8 @@
+@use '../../theme';
+
+$desktop-height: 18vh;
+$mobile-height: 100vh;
+
 .DropdownMainContainer {
   top: 56px;
   background-color: transparent;
@@ -11,56 +16,76 @@
   flex-direction: column;
   max-height: 50vh;
   padding-bottom: 4px;
+
+  & h1 {
+    font-weight: bold;
+    margin-left: 24px;
+    margin-top: 24px;
+    @media (max-width: 550px), (min-width: 769px) and (max-width: 1500px) {
+      font-size: 2em;
+    }
+  }
 }
+
 @keyframes slideIn {
   from {
     height: 0px;
     min-height: 0;
-    overflow: hidden;
   }
   to {
-    overflow: hidden;
-    min-height: 18vh;
+    min-height: $desktop-height;
   }
 }
+
 @keyframes slideInMobile {
   from {
     height: 0px;
     min-height: 0;
   }
   to {
-    min-height: 100vh;
+    min-height: $mobile-height;
   }
 }
+
+.LiveEventList {
+  a {
+    text-decoration: none;
+    &:focus {
+      .EventItem {
+        background: theme.$coolgray11;
+      }
+    }
+  }
+  margin-right: 20px;
+  margin-left: 20px;
+  border-bottom: #ffffff 1px solid;
+}
+
 .DropdownFill {
   overflow: auto;
   margin-top: 30px;
-  min-height: 18vh;
-  background-color: #1a1a1a;
+  min-height: $desktop-height;
+  background-color: theme.$onyxblacktext;
   max-height: 50vh;
   animation: slideIn;
   animation-duration: 0.2s;
 }
 
-.Heading {
-  padding-left: 8px;
-  padding-right: 8px;
-  text-align: center;
-  padding-bottom: 0;
-  font-family: Graphik Web;
-  font-weight: bold;
-  color: #ffffff;
-  font-size: 2.5vw;
-}
 .EventItem {
   display: flex;
   flex-direction: row;
-  margin-right: 24px;
-  margin-left: 24px;
-  margin-top: 16px;
+  align-items: center;
+  padding: 12px;
+  border-top: #ffffff 1px solid;
+  transition: ease 0.5s;
+  &.LiveEventItem:hover {
+    background: theme.$coolgray11;
+  }
+  p {
+    margin-bottom: 0;
+  }
 }
 .EventTime {
-  flex-direction: column;
   font-size: calc(0.2vw + 13px);
   font-weight: 500;
   width: 23%;
@@ -69,7 +94,6 @@
   display: inline;
 }
 .EventTitle {
-  flex-direction: column;
   padding-left: 12px;
   font-size: calc(0.4vw + 12px);
   padding-right: 16px;
@@ -78,7 +102,6 @@
   line-height: 2vw;
   flex: 1;
 }
-
 .triangle {
   width: 0;
   height: 0;
@@ -86,39 +109,19 @@
   right: calc(50% - 20px);
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 35px solid #1a1a1a;
-}
-.EventButton {
-  margin-top: 0.3vw;
-  flex-direction: column;
-  padding-right: 1.5vw;
-  padding-left: 1.5vw;
-  min-height: 46px;
-  height: 2.5vw;
-  color: #1a1a1a;
-  background-color: #ffffff;
-  font-weight: 800;
-  text-decoration: none;
-  display: 'grid';
+  border-bottom: 35px solid theme.$onyxblacktext;
 }
 .EventFooter {
-  padding-top: 4px;
+  padding-top: 12px;
   padding-bottom: 4px;
-  background-color: #1a1a1a;
+  background-color: theme.$onyxblacktext;
   font-size: calc(10px + 0.1vw);
   font-weight: 600;
   text-align: center;
 }
-.EventButton:hover {
-  text-decoration: none;
-  color: black;
-}
 .closeButton,
 .closeButtonContainer {
   display: none;
-}
-.FirstItemOffset {
-  margin-top: 24px;
 }
 
 @media (max-width: 768px) {
@@ -128,13 +131,13 @@
     left: 0;
     min-width: 100%;
     z-index: 3000;
-    min-height: 100%;
+    min-height: $mobile-height;
   }
   .DropdownFill {
     position: fixed;
     margin-top: 0;
     min-width: 100%;
-    min-height: 100%;
+    min-height: $mobile-height;
     animation: slideInMobile;
     animation-duration: 0.2s;
     overscroll-behavior: contain;
@@ -142,15 +145,8 @@
   .triangle {
     display: none;
   }
-  .Heading {
-    text-align: left;
-    margin-left: 16px;
-    font-size: 6vw;
-  }
-
   .EventTitle {
     padding-right: 8px;
-    margin: auto;
     font-size: 3.8vw;
     color: #ffffff;
     display: inline;
@@ -160,27 +156,10 @@
   .EventTime {
     line-height: unset;
     padding-right: 16px;
-    margin: auto;
     font-size: 4vw;
     color: #ffffff;
     display: inline;
   }
-  .FirstItemOffset {
-    margin-top: 24px;
-  }
-  .EventButton {
-    padding-right: 4.5vw;
-    padding-left: 4.5vw;
-    min-height: 46px;
-    height: 2.5vw;
-    color: #1a1a1a;
-    background-color: #ffffff;
-    font-weight: 800;
-    text-decoration: none;
-    font-family: Graphik Web;
-    font-size: 0.8rem;
-  }
-
   .closeButtonContainer {
     display: flex;
     flex-direction: row;
@@ -192,11 +171,9 @@
       z-index: 200;
     }
   }
-
   .EventFooter {
     margin-top: 24px;
     font-size: calc(12px + 0.3vw);
-    background-color: #1a1a1a;
-    position: relative;
+    background-color: theme.$onyxblacktext;
   }
 }
