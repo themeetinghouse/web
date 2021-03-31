@@ -97,11 +97,6 @@
         },
         {
           "type": "link",
-          "title": "Graphic Design Intern",
-          "navigateTo": "/static/pdfs/careers/Graphic Design Intern 2021.pdf"
-        },
-        {
-          "type": "link",
           "title": "Web Developer Intern",
           "navigateTo": "/static/pdfs/careers/Web Developer Intern 2021.pdf"
         }
