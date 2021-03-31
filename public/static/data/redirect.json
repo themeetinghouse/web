@@ -129,7 +129,7 @@
   },
   {
     "id": "dataprivacy",
-    "to": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019"
+    "to": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019.pdf"
   },
   {
     "id": "kids",
@@ -344,10 +344,6 @@
     "to": "https://mcc.zoom.us/meeting/register/tJAucemvpjgtH9fBdmhRa8LwUgXPdBJr1dsu"
   },
   {
-    "id": "communion",
-    "to": "/static/pdfs/kidmax-files/Family-Guide-Communion.pdf"
-  },
-  {
     "id": "growthgauges",
     "to": "https://themeetinghouse.typeform.com/to/aAoWDD"
   },
@@ -474,10 +470,6 @@
   {
     "id": "oakvillechristmasvolunteers",
     "to": "https://meeting.formstack.com/forms/2019_oakville_christmas_volunteers"
-  },
-  {
-    "id": "dataprivacy",
-    "to": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019"
   },
   {
     "id": "kids",
@@ -686,10 +678,6 @@
   {
     "id": "mccupdate",
     "to": "https://mcc.zoom.us/meeting/register/tJAucemvpjgtH9fBdmhRa8LwUgXPdBJr1dsu"
-  },
-  {
-    "id": "communion",
-    "to": "/static/pdfs/kidmax-files/Family-Guide-Communion.pdf"
   },
   {
     "id": "compassion-connect",
