@@ -70,8 +70,7 @@
         "link1AriaLabel": "",
         "link1Action": "/find-sunday-morning",
         "class": "locations",
-        "showLocationSearch": true,
-        "zIndex": 1000
+        "showLocationSearch": true
       },
       {
         "type": "content",
