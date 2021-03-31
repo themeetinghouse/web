@@ -300,10 +300,10 @@ export class SundayMorningItem extends React.Component<Props, State> {
       };
       return event;
     } else {
-      let nextSunday = (moment().day() === 0
-        ? moment().add(1, 'week')
-        : moment().day(0)
-      ).startOf('day');
+      let nextSunday;
+      if (moment().day() === 0 && moment().isBefore(moment('10:00', 'hh:mm')))
+        nextSunday = moment().startOf('day');
+      else nextSunday = moment().add(1, 'week').day(0).startOf('day');
       let serviceHour =
         locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
       serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
