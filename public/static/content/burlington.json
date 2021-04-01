@@ -48,7 +48,7 @@
         "text2": "Good Friday Virtual Gathering",
         "text3": "April 2 @ 10:00am",
         "text3a": "Includes full program for Infants to Grade 8",
-        "customLiveLink": "https://www.crowdcast.io/e/goodfriday_burlington",
+        "customLiveLink": "https://youtu.be/gnyNEA2iLdY",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
@@ -79,8 +79,8 @@
         "list": [
           {
             "type": "link",
-            "title": "Register",
-            "navigateTo": "https://www.crowdcast.io/e/goodfriday_burlington",
+            "title": "Watch Here",
+            "navigateTo": "https://youtu.be/gnyNEA2iLdY",
             "description": "A link to open crowdcast for the Good Friday service."
           }
         ]
