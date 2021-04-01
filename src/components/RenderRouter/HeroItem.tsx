@@ -275,6 +275,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
+              {this.renderLinkButton(this.state.content.button1)}
               {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
                 <Link
                   to={'/live'}

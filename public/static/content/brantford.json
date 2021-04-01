@@ -44,11 +44,6 @@
           }
         ],
         "header1": "Brantford",
-        "button1": {
-          "text": "Livestream",
-          "action": "live",
-          "description": "Sunday Morning Livestream"
-        },
         "text1": "Livestream Sundays @ 10:00am",
         "text2": "Good Friday Virtual Gathering",
         "text3": "April 2 @ 10:00am",
@@ -96,10 +91,7 @@
         "class": "events",
         "header1": "Upcoming Events",
         "header2": "",
-        "facebookEvents": [
-          "530089253701789",
-          "761107650648504"
-        ]
+        "facebookEvents": ["530089253701789", "761107650648504"]
       },
       {
         "type": "list",
