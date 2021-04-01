@@ -58,7 +58,23 @@ class HeroItem extends React.Component<Props, State> {
     };
     return event;
   }
-
+  getCalendarItemGoodFriday(
+    locationItem: LocationData,
+    url: string,
+    time: string
+  ) {
+    const transformedDate = moment(`2021-04-02 ${time}`, 'YYYY-MM-DD HH:mm a');
+    const eventStartTime = moment(transformedDate);
+    const event = {
+      summary: 'Good Friday Virtual Gathering',
+      description: "Join The Meeting House's livestream on Good Friday.",
+      location: locationItem.location.address,
+      start: eventStartTime.format(),
+      end: moment(eventStartTime).add(90, 'minutes').format(),
+      url: url ?? 'https://themeetinghouse.com/live',
+    };
+    return event;
+  }
   locationChange(item: any) {
     this.props.history.push('/' + item.value);
   }
@@ -309,10 +325,10 @@ class HeroItem extends React.Component<Props, State> {
                 </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  this.state.content.header1 === 'Ancaster' ||
-                  this.state.content.header1 === 'Burlington' ||
-                  this.state.content.header1 === 'Toronto East' ? (
-                    moment().isBefore(moment('2021-04-02', 'YYYY-MM-DD')) ? (
+                  moment().isBefore(moment('2021-04-02', 'YYYY-MM-DD')) ? (
+                    this.state.content.header1 === 'Ancaster' ||
+                    this.state.content.header1 === 'Burlington' ||
+                    this.state.content.header1 === 'Toronto East' ? (
                       <Link
                         to={this.state.content.customLiveLink ?? '/live'}
                         className="calendarButton"
@@ -336,9 +352,18 @@ class HeroItem extends React.Component<Props, State> {
                         style={{ marginRight: 25 }}
                         textDecoration="always"
                         color="white"
-                        event={this.getCalendarEventForLocation(
-                          this.state.locationData[0]
-                        )}
+                        event={
+                          this.state.content?.customLiveLink ||
+                          this.state.content?.goodFridayServiceTime
+                            ? this.getCalendarItemGoodFriday(
+                                this.state.locationData[0],
+                                this.state.content?.customLiveLink,
+                                this.state.content?.goodFridayServiceTime
+                              )
+                            : this.getCalendarEventForLocation(
+                                this.state.locationData[0]
+                              )
+                        }
                       />
                     )
                   ) : (
