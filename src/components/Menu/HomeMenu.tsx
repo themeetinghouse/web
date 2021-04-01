@@ -13,10 +13,11 @@ import HamburgerMenu from 'react-hamburger-menu';
 import './menu.scss';
 import moment from 'moment-timezone';
 import * as queries from '../../graphql/queries';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import API from '@aws-amplify/api';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, NavLink } from 'components/Link/Link';
+import { LiveEvents } from '../types';
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const Dropdown = React.lazy(
   () => import('../../components/LiveEvents/Dropdown')
@@ -56,7 +57,7 @@ interface State {
   expand: any;
   showNotes: boolean;
   showEventsDropdown: boolean;
-  liveEvents: Array<any>;
+  liveEvents: LiveEvents;
 }
 
 class HomeMenu extends React.Component<Props, State> {
@@ -93,33 +94,35 @@ class HomeMenu extends React.Component<Props, State> {
         (moment.tz('America/Toronto').isoWeekday() === 1 &&
           moment.tz('America/Toronto').hour() <= 12),
     };
-    //if(this.props.location.pathname === "/")
-    this.getLive();
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   async getLive() {
     const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
     try {
-      const json: any = await API.graphql({
+      const json = (await API.graphql({
         query: queries.listLivestreams,
         variables: { filter: { date: { eq: today } } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      });
-      const livestreams: ListLivestreamsQuery = json.data;
+      })) as GraphQLResult<ListLivestreamsQuery>;
+      const { data } = json;
       this.setState({
         liveEvents:
-          livestreams?.listLivestreams?.items?.sort((a: any, b: any) =>
-            a.startTime.localeCompare(b.startTime)
-          ) ?? [],
+          data?.listLivestreams?.items
+            ?.sort((a, b) =>
+              (a?.startTime ?? '').localeCompare(b?.startTime ?? '')
+            )
+            .sort((a, b) =>
+              (a?.eventTitle ?? '').localeCompare(b?.eventTitle ?? '')
+            )
+            .sort((a, b) =>
+              (a?.videoStartTime ?? '').localeCompare(b?.videoStartTime ?? '')
+            ) ?? [],
       });
-      if (
-        livestreams?.listLivestreams?.items?.length !== undefined &&
-        livestreams?.listLivestreams?.items?.length > 0
-      ) {
+      if (data?.listLivestreams?.items?.length) {
         this.interval = setInterval(() => this.tick(), 2000);
       }
-      livestreams?.listLivestreams?.items?.forEach((item) => {
+      data?.listLivestreams?.items?.forEach((item) => {
         const rightNow = moment().tz('America/Toronto').format('HH:mm');
         const showTime =
           item?.startTime &&
@@ -170,22 +173,23 @@ class HomeMenu extends React.Component<Props, State> {
   tick() {
     const rightNow = moment().tz('America/Toronto').format('HH:mm');
     const temp = [...this.state.liveEvents];
-    if (rightNow >= temp[temp?.length - 1]?.endTime) {
-      clearInterval(this.interval);
-      this.setState({ showLiveBanner: false });
-      return;
-    }
-    let currentEvent;
-    for (let i = 0; i < this.state.liveEvents.length; i++) {
-      if (
-        this.state.liveEvents[i].startTime &&
-        this.state.liveEvents[i].endTime &&
-        rightNow >= this.state.liveEvents[i].startTime &&
-        rightNow <= this.state.liveEvents[i].endTime
-      ) {
-        currentEvent = this.state.liveEvents[i];
+    const lastEvent = temp[temp?.length - 1];
+    if (lastEvent) {
+      const { endTime } = lastEvent;
+      if (endTime && rightNow >= endTime) {
+        clearInterval(this.interval);
+        this.setState({ showLiveBanner: false });
+        return;
       }
     }
+    const currentEvent = this.state.liveEvents.find((event) => {
+      return (
+        event?.startTime &&
+        event?.endTime &&
+        rightNow >= event.startTime &&
+        rightNow <= event.endTime
+      );
+    });
     if (currentEvent) {
       this.setState({ liveTitle: currentEvent.homepageLink });
       if (!this.state.showLiveBanner && this.state.showLive)
@@ -193,9 +197,10 @@ class HomeMenu extends React.Component<Props, State> {
     }
   }
   interval: any;
-  componentDidMount() {
+  async componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
     this.getWindowHeight();
+    await this.getLive();
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -211,7 +216,6 @@ class HomeMenu extends React.Component<Props, State> {
   };
 
   render() {
-    // console.log(this.state.position)
     return (
       <div>
         {this.state.showLiveBanner ? (
@@ -227,15 +231,13 @@ class HomeMenu extends React.Component<Props, State> {
             className="ignore-onClickOutside"
             onClick={this.handleToggleDropdown}
           >
-            <AnnouncementBar
-              bannerMessage={this.state.liveTitle ?? 'Live'}
-            ></AnnouncementBar>
+            <AnnouncementBar bannerMessage={this.state.liveTitle ?? 'Live'} />
           </button>
         ) : null}
         <div>
           {this.state.showEventsDropdown ? (
             <Dropdown
-              liveevents={this.state.liveEvents}
+              liveEvents={this.state.liveEvents}
               close={() => this.setState({ showEventsDropdown: false })}
               end={() => {
                 clearInterval(this.interval);
@@ -244,7 +246,7 @@ class HomeMenu extends React.Component<Props, State> {
                   showEventsDropdown: false,
                 });
               }}
-            ></Dropdown>
+            />
           ) : null}
           <div
             className={

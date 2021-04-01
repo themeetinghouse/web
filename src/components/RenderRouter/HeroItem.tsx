@@ -43,10 +43,7 @@ class HeroItem extends React.Component<Props, State> {
     });
   }
   getCalendarEventForLocation(locationItem: LocationData): Event {
-    let nextSunday = (moment().day() === 0
-      ? moment().add(1, 'week')
-      : moment().day(0)
-    ).startOf('day');
+    let nextSunday = moment().add(1, 'week').day(0).startOf('day');
     let serviceHour =
       locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
     serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
@@ -278,6 +275,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
+              {this.renderLinkButton(this.state.content.button1)}
               {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
                 <Link
                   to={'/live'}
@@ -311,14 +309,48 @@ class HeroItem extends React.Component<Props, State> {
                 </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  <AddToCalendar
-                    style={{ marginRight: 25 }}
-                    textDecoration="always"
-                    color="white"
-                    event={this.getCalendarEventForLocation(
-                      this.state.locationData[0]
-                    )}
-                  />
+                  this.state.content.header1 === 'Ancaster' ||
+                  this.state.content.header1 === 'Burlington' ||
+                  this.state.content.header1 === 'Toronto East' ? (
+                    moment().isBefore(moment('2021-04-02', 'YYYY-MM-DD')) ? (
+                      <Link
+                        to={this.state.content.customLiveLink ?? '/live'}
+                        className="calendarButton"
+                        style={{
+                          color: 'white',
+                          paddingLeft: 0,
+                          paddingRight: 32,
+                        }}
+                        aria-label="Save my spot"
+                      >
+                        <img
+                          height={25}
+                          className="calendarImage"
+                          src="/static/svg/Play.svg"
+                          alt="Contact Icon"
+                        />
+                        Save My Spot
+                      </Link>
+                    ) : (
+                      <AddToCalendar
+                        style={{ marginRight: 25 }}
+                        textDecoration="always"
+                        color="white"
+                        event={this.getCalendarEventForLocation(
+                          this.state.locationData[0]
+                        )}
+                      />
+                    )
+                  ) : (
+                    <AddToCalendar
+                      style={{ marginRight: 25 }}
+                      textDecoration="always"
+                      color="white"
+                      event={this.getCalendarEventForLocation(
+                        this.state.locationData[0]
+                      )}
+                    />
+                  )
                 ) : null
               ) : null}
               {this.state.content.contactPastor ? (
