@@ -311,14 +311,48 @@ class HeroItem extends React.Component<Props, State> {
                 </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  <AddToCalendar
-                    style={{ marginRight: 25 }}
-                    textDecoration="always"
-                    color="white"
-                    event={this.getCalendarEventForLocation(
-                      this.state.locationData[0]
-                    )}
-                  />
+                  this.state.content.header1 === 'Ancaster' ||
+                  this.state.content.header1 === 'Burlington' ||
+                  this.state.content.header1 === 'Toronto East' ? (
+                    moment().isBefore(moment('2021-04-02', 'YYYY-MM-DD')) ? (
+                      <Link
+                        to={this.state.content.customLiveLink ?? '/live'}
+                        className="calendarButton"
+                        style={{
+                          color: 'white',
+                          paddingLeft: 0,
+                          paddingRight: 32,
+                        }}
+                        aria-label="Save my spot"
+                      >
+                        <img
+                          height={25}
+                          className="calendarImage"
+                          src="/static/svg/Play.svg"
+                          alt="Contact Icon"
+                        />
+                        Save My Spot
+                      </Link>
+                    ) : (
+                      <AddToCalendar
+                        style={{ marginRight: 25 }}
+                        textDecoration="always"
+                        color="white"
+                        event={this.getCalendarEventForLocation(
+                          this.state.locationData[0]
+                        )}
+                      />
+                    )
+                  ) : (
+                    <AddToCalendar
+                      style={{ marginRight: 25 }}
+                      textDecoration="always"
+                      color="white"
+                      event={this.getCalendarEventForLocation(
+                        this.state.locationData[0]
+                      )}
+                    />
+                  )
                 ) : null
               ) : null}
               {this.state.content.contactPastor ? (
