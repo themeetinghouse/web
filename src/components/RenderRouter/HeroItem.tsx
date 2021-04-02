@@ -278,7 +278,7 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
-              {moment().weekday() === 0 ? ( // Is Sunday
+              {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
                 <button
                   onClick={() => this.navigateTo('/live')}
                   className="calendarButton"
@@ -291,7 +291,8 @@ class HeroItem extends React.Component<Props, State> {
                   />
                   Watch Live
                 </button>
-              ) : moment().format('YYYY-MM-DD') === '2021-04-02' ? ( // Is good friday
+              ) : moment().format('YYYY-MM-DD') === '2021-04-02' &&
+                this.state.locationData.length ? ( // Is good friday
                 <button
                   onClick={() =>
                     this.navigateTo(
