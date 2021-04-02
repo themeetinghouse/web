@@ -104,7 +104,6 @@ type NewLivestream = CreateLivestreamMutationVariables['input'];
 interface State {
   toDelete: string;
   editMode: boolean;
-  notSundayWarning: string;
   alert: string;
   livestreamList: Livestreams;
   liveObject: NewLivestream;
@@ -119,7 +118,6 @@ class Index extends React.Component<EmptyProps, State> {
     this.state = {
       toDelete: '',
       editMode: false,
-      notSundayWarning: '',
       alert: '',
       livestreamList: [],
       liveObject: { ...liveInit },
@@ -661,7 +659,6 @@ class Index extends React.Component<EmptyProps, State> {
             this.setState({
               customEvent: !this.state.customEvent,
               alert: '',
-              notSundayWarning: '',
             });
           }}
         >
@@ -674,10 +671,7 @@ class Index extends React.Component<EmptyProps, State> {
           >
             <div style={{ width: '220px' }}>
               <label>
-                Date{' '}
-                <span style={{ color: 'red' }}>
-                  {this.state.notSundayWarning}
-                </span>
+                Date
                 <input
                   className="livestream-input"
                   type="date"
@@ -808,10 +802,7 @@ class Index extends React.Component<EmptyProps, State> {
             >
               <div style={{ flex: 1 }}>
                 <label>
-                  Date{' '}
-                  <span style={{ color: 'red' }}>
-                    {this.state.notSundayWarning}
-                  </span>
+                  Date
                   <br />
                   <input
                     className="livestream-input"
