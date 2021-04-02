@@ -247,7 +247,6 @@ class HeroItem extends React.Component<Props, State> {
       this.downArrowScroll();
     };
     if (this.state.content.style === 'full') {
-      console.log(moment().weekday());
       return (
         <div className="headerItem heroItem">
           <div
@@ -279,36 +278,36 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
               {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
-                <button
-                  onClick={() => this.navigateTo('/live')}
+                <Link
+                  to={'/live'}
                   className="calendarButton"
-                  style={{ paddingLeft: 0 }}
+                  style={{ color: 'white', paddingLeft: 0, paddingRight: 32 }}
+                  aria-label="Watch Livestream"
                 >
                   <img
+                    height={25}
                     className="calendarImage"
                     src="/static/svg/Play.svg"
                     alt="Contact Icon"
                   />
                   Watch Live
-                </button>
+                </Link>
               ) : moment().format('YYYY-MM-DD') === '2021-04-02' &&
                 this.state.locationData.length ? ( // Is good friday
-                <button
-                  onClick={() =>
-                    this.navigateTo(
-                      this.state.content.customLiveLink ?? '/live' // if there is a customLiveLink, otherwise send to /live
-                    )
-                  }
+                <Link
+                  to={this.state.content.customLiveLink ?? '/live'}
                   className="calendarButton"
-                  style={{ paddingLeft: 0 }}
+                  style={{ color: 'white', paddingLeft: 0, paddingRight: 32 }}
+                  aria-label="Watch Livestream"
                 >
                   <img
+                    height={25}
                     className="calendarImage"
                     src="/static/svg/Play.svg"
                     alt="Contact Icon"
                   />
                   Watch Live
-                </button>
+                </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
                   <div className="HeroAddToCalendarButtonContainer">
