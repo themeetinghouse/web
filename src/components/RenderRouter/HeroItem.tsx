@@ -247,6 +247,7 @@ class HeroItem extends React.Component<Props, State> {
       this.downArrowScroll();
     };
     if (this.state.content.style === 'full') {
+      console.log(moment().weekday());
       return (
         <div className="headerItem heroItem">
           <div
@@ -277,19 +278,37 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
-              {this.renderLinkButton(this.state.content.button1)}
-
-              {this.state.content.link1Text ? (
-                <div className="heroAContainer">
-                  <Link
-                    className="heroBlackBoxA inverted"
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                </div>
-              ) : null}
-              {this.state.content.addToCalendar ? (
+              {moment().weekday() === 0 ? ( // Is Sunday
+                <button
+                  onClick={() => this.navigateTo('/live')}
+                  className="calendarButton"
+                  style={{ paddingLeft: 0 }}
+                >
+                  <img
+                    className="calendarImage"
+                    src="/static/svg/Play.svg"
+                    alt="Contact Icon"
+                  />
+                  Watch Live
+                </button>
+              ) : moment().format('YYYY-MM-DD') === '2021-04-02' ? ( // Is good friday
+                <button
+                  onClick={() =>
+                    this.navigateTo(
+                      this.state.content.customLiveLink ?? '/live' // if there is a customLiveLink, otherwise send to /live
+                    )
+                  }
+                  className="calendarButton"
+                  style={{ paddingLeft: 0 }}
+                >
+                  <img
+                    className="calendarImage"
+                    src="/static/svg/Play.svg"
+                    alt="Contact Icon"
+                  />
+                  Watch Live
+                </button>
+              ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
                   <div className="HeroAddToCalendarButtonContainer">
                     <img
@@ -305,6 +324,16 @@ class HeroItem extends React.Component<Props, State> {
                     ></AddToCalendar>
                   </div>
                 ) : null
+              ) : null}
+              {this.state.content.link1Text ? (
+                <div className="heroAContainer">
+                  <Link
+                    className="heroBlackBoxA inverted"
+                    to={this.state.content.link1Action}
+                  >
+                    {this.state.content.link1Text}
+                  </Link>
+                </div>
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
