@@ -56,7 +56,6 @@ class HeroItem extends React.Component<Props, State> {
       end: moment(nextSunday).add(90, 'minutes').format(),
       url: 'https://themeetinghouse.com/live',
     };
-    console.log(event);
     return event;
   }
 
