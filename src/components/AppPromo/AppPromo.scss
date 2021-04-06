@@ -2,19 +2,14 @@
 
 .app-promo {
   @media (max-width: 360px) {
-    font-size: 12px;
-    .close-btn-custom {
-      span {
-        font-size: 18px !important;
-      }
+    .close-btn-custom > span {
+      font-size: 16px !important;
     }
   }
   @media (min-width: 768px) {
     font-size: 20px;
-    .close-btn-custom {
-      span {
-        font-size: 24px !important;
-      }
+    .close-btn-custom > span {
+      font-size: 24px !important;
     }
     padding: 10px 16px;
     height: 75px;
@@ -42,7 +37,7 @@
   padding: 10px 12px;
   background-color: theme.$onyxblacktext;
   font-family: Graphik Web;
-  font-size: min(1em, 4vw);
+  font-size: min(1em, 4.2vw);
 
   height: 65px;
   .vl {
@@ -65,5 +60,6 @@
     color: theme.$onyxblacktext;
     font-weight: 800;
     padding: 0.4em 0.9em;
+    letter-spacing: 0.05em;
   }
 }
