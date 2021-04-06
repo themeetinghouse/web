@@ -28,7 +28,7 @@ export default function AppPromo() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Download
+        Open
       </a>
     </Fade>
   ) : null;
