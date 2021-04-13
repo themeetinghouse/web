@@ -12,11 +12,11 @@ export default function AppPromo() {
         close
         style={{ opacity: 1, color: 'white' }}
         onClick={() => setIsOpen(false)}
+        className="close-btn-custom"
       >
         <span>&#x2715;</span>
       </Button>
       <div className="vl" />
-      <img src="/static/logos/house.svg" width={32} height={32} />
       <div className="promo-text">Notes are better in the app</div>
       <a
         className="download-btn"
@@ -28,7 +28,7 @@ export default function AppPromo() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Download
+        Open
       </a>
     </Fade>
   ) : null;
