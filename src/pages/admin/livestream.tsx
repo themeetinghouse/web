@@ -104,7 +104,6 @@ type NewLivestream = CreateLivestreamMutationVariables['input'];
 interface State {
   toDelete: string;
   editMode: boolean;
-  notSundayWarning: string;
   alert: string;
   livestreamList: Livestreams;
   liveObject: NewLivestream;
@@ -119,7 +118,6 @@ class Index extends React.Component<EmptyProps, State> {
     this.state = {
       toDelete: '',
       editMode: false,
-      notSundayWarning: '',
       alert: '',
       livestreamList: [],
       liveObject: { ...liveInit },
@@ -418,7 +416,9 @@ class Index extends React.Component<EmptyProps, State> {
             customEvent: false,
             livestreamList: [
               json.data?.updateLivestream,
-              ...(this.state.livestreamList ?? []),
+              ...(this.state.livestreamList?.filter(
+                (item) => item?.id !== json.data?.updateLivestream?.id
+              ) ?? []),
             ],
           });
         }
@@ -427,6 +427,7 @@ class Index extends React.Component<EmptyProps, State> {
       }
     } else {
       const input = { ...this.state.liveObject };
+      input.id = `Live-${uuidv4()}`;
       if (this.state.customEvent) {
         delete input['showChat'];
         delete input['showKids'];
@@ -464,14 +465,6 @@ class Index extends React.Component<EmptyProps, State> {
     this.setState({ disableAsyncButtons: false });
   }
 
-  sundayCheck(field: string) {
-    if (field === 'date' && moment(this.state.liveObject.date).day() !== 0) {
-      this.setState({ notSundayWarning: 'not a Sunday' });
-    } else if (field === 'date') {
-      this.setState({ notSundayWarning: '' });
-    }
-  }
-
   handleChange(
     field: string,
     data: string | boolean | MenuItem[] | ZoomItem[]
@@ -479,23 +472,6 @@ class Index extends React.Component<EmptyProps, State> {
     this.setState((prevState) => {
       return { liveObject: { ...prevState.liveObject, [field]: data } };
     });
-    if (!this.state.customEvent) {
-      const firstString = this.state.liveObject?.homepageLink
-        ?.toLowerCase()
-        .includes('after party')
-        ? 'After Party'
-        : 'Live';
-      const id =
-        firstString +
-        '-' +
-        this.state.liveObject.date +
-        '-' +
-        this.state.liveObject.liveYoutubeId;
-      this.setState((prevState) => {
-        return { liveObject: { ...prevState.liveObject, id } };
-      });
-    }
-    this.setState({ notSundayWarning: '' });
   }
 
   handleMenuChange(
@@ -596,7 +572,7 @@ class Index extends React.Component<EmptyProps, State> {
           style={{ width: 300 }}
           value={this.state.toDelete}
           onChange={(e) => this.setState({ toDelete: e.target.value })}
-        ></input>
+        />
         <button
           disabled={this.state.disableAsyncButtons}
           style={{ border: 0, background: 'orange' }}
@@ -626,7 +602,9 @@ class Index extends React.Component<EmptyProps, State> {
           className="menu-input"
           type="text"
           value={menuItem?.link ?? ''}
-          onChange={(e) => this.handleMenuChange(index, 'link', e.target.value)}
+          onChange={(e) =>
+            this.handleMenuChange(index, 'link', e.target.value.trim())
+          }
         />
         <input
           placeholder="type"
@@ -657,14 +635,16 @@ class Index extends React.Component<EmptyProps, State> {
           onChange={(e) =>
             this.handleZoomChange(index, 'title', e.target.value)
           }
-        ></input>
+        />
         <input
           placeholder="url"
           className="menu-input"
           type="text"
           value={zoomItem?.link ?? ''}
-          onChange={(e) => this.handleZoomChange(index, 'link', e.target.value)}
-        ></input>
+          onChange={(e) =>
+            this.handleZoomChange(index, 'link', e.target.value.trim())
+          }
+        />
       </div>
     );
   }
@@ -679,7 +659,6 @@ class Index extends React.Component<EmptyProps, State> {
             this.setState({
               customEvent: !this.state.customEvent,
               alert: '',
-              notSundayWarning: '',
             });
           }}
         >
@@ -692,17 +671,14 @@ class Index extends React.Component<EmptyProps, State> {
           >
             <div style={{ width: '220px' }}>
               <label>
-                Date{' '}
-                <span style={{ color: 'red' }}>
-                  {this.state.notSundayWarning}
-                </span>
+                Date
                 <input
                   className="livestream-input"
                   type="date"
                   required
                   value={this.state.liveObject.date ?? ''}
                   onChange={(e) => this.handleChange('date', e.target.value)}
-                ></input>
+                />
               </label>
               <label>
                 startTime{' '}
@@ -724,7 +700,7 @@ class Index extends React.Component<EmptyProps, State> {
                   onChange={(e) =>
                     this.handleChange('startTime', e.target.value)
                   }
-                ></input>
+                />
               </label>
               <label>
                 videoStartTime{' '}
@@ -746,7 +722,7 @@ class Index extends React.Component<EmptyProps, State> {
                   onChange={(e) =>
                     this.handleChange('videoStartTime', e.target.value)
                   }
-                ></input>
+                />
               </label>
               <label>
                 endTime{' '}
@@ -766,7 +742,7 @@ class Index extends React.Component<EmptyProps, State> {
                   required
                   value={this.state.liveObject.endTime ?? ''}
                   onChange={(e) => this.handleChange('endTime', e.target.value)}
-                ></input>
+                />
               </label>
               <button type="submit" disabled={this.state.disableAsyncButtons}>
                 Save Livestream
@@ -788,7 +764,7 @@ class Index extends React.Component<EmptyProps, State> {
                   onChange={(e) =>
                     this.handleChange('homepageLink', e.target.value)
                   }
-                ></input>
+                />
               </label>
               <label>
                 externalEventUrl <br />
@@ -799,9 +775,9 @@ class Index extends React.Component<EmptyProps, State> {
                   required
                   value={this.state.liveObject.externalEventUrl ?? ''}
                   onChange={(e) =>
-                    this.handleChange('externalEventUrl', e.target.value)
+                    this.handleChange('externalEventUrl', e.target.value.trim())
                   }
-                ></input>
+                />
               </label>
               <label style={{ width: '230px' }}>
                 eventTitle <br />
@@ -814,7 +790,7 @@ class Index extends React.Component<EmptyProps, State> {
                   onChange={(e) =>
                     this.handleChange('eventTitle', e.target.value)
                   }
-                ></input>
+                />
               </label>
             </div>
           </form>
@@ -826,10 +802,7 @@ class Index extends React.Component<EmptyProps, State> {
             >
               <div style={{ flex: 1 }}>
                 <label>
-                  Date{' '}
-                  <span style={{ color: 'red' }}>
-                    {this.state.notSundayWarning}
-                  </span>
+                  Date
                   <br />
                   <input
                     className="livestream-input"
@@ -837,7 +810,7 @@ class Index extends React.Component<EmptyProps, State> {
                     required
                     value={this.state.liveObject.date ?? ''}
                     onChange={(e) => this.handleChange('date', e.target.value)}
-                  ></input>
+                  />
                 </label>
                 <label>
                   startTime{' '}
@@ -860,7 +833,7 @@ class Index extends React.Component<EmptyProps, State> {
                     onChange={(e) =>
                       this.handleChange('startTime', e.target.value)
                     }
-                  ></input>
+                  />
                 </label>
                 <label>
                   videoStartTime{' '}
@@ -883,7 +856,7 @@ class Index extends React.Component<EmptyProps, State> {
                     onChange={(e) =>
                       this.handleChange('videoStartTime', e.target.value)
                     }
-                  ></input>
+                  />
                 </label>
                 <label>
                   endTime{' '}
@@ -906,7 +879,7 @@ class Index extends React.Component<EmptyProps, State> {
                     onChange={(e) =>
                       this.handleChange('endTime', e.target.value)
                     }
-                  ></input>
+                  />
                 </label>
                 <button disabled={this.state.disableAsyncButtons} type="submit">
                   Save Livestream
@@ -921,9 +894,12 @@ class Index extends React.Component<EmptyProps, State> {
                     type="text"
                     value={this.state.liveObject.prerollYoutubeId ?? ''}
                     onChange={(e) =>
-                      this.handleChange('prerollYoutubeId', e.target.value)
+                      this.handleChange(
+                        'prerollYoutubeId',
+                        e.target.value.trim()
+                      )
                     }
-                  ></input>
+                  />
                 </label>
                 <label>
                   liveYoutubeId
@@ -934,9 +910,9 @@ class Index extends React.Component<EmptyProps, State> {
                     required
                     value={this.state.liveObject.liveYoutubeId ?? ''}
                     onChange={(e) =>
-                      this.handleChange('liveYoutubeId', e.target.value)
+                      this.handleChange('liveYoutubeId', e.target.value.trim())
                     }
-                  ></input>
+                  />
                 </label>
                 <label>
                   bannerMessage{' '}
@@ -953,7 +929,7 @@ class Index extends React.Component<EmptyProps, State> {
                     onChange={(e) =>
                       this.handleChange('homepageLink', e.target.value)
                     }
-                  ></input>
+                  />
                 </label>
                 <br />
                 <label style={{ width: '230px' }}>
@@ -967,7 +943,7 @@ class Index extends React.Component<EmptyProps, State> {
                     onChange={(e) =>
                       this.handleChange('eventTitle', e.target.value)
                     }
-                  ></input>
+                  />
                 </label>
                 <br />
                 <input
@@ -979,7 +955,7 @@ class Index extends React.Component<EmptyProps, State> {
                       !this.state.liveObject.showChat
                     )
                   }
-                ></input>
+                />
                 <label> show Chat</label>
                 <input
                   type="checkbox"
@@ -990,7 +966,7 @@ class Index extends React.Component<EmptyProps, State> {
                       !this.state.liveObject.showKids
                     )
                   }
-                ></input>
+                />
                 <label> show Kids</label>
               </div>
               <div style={{ flex: 2 }}>
@@ -1124,7 +1100,7 @@ class Index extends React.Component<EmptyProps, State> {
     return (
       <AmplifyAuthenticator federated={federated}>
         <div>
-          <AdminMenu></AdminMenu>
+          <AdminMenu />
           {isSafari ? (
             <div>This page does not support Safari :(</div>
           ) : (
