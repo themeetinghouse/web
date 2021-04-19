@@ -131,25 +131,31 @@
           "list": [
             {
               "type": "link",
-              "title": "Peace Projects We Support & MCC Project Reports",
-              "navigateTo": "/static/pdfs/compassion/MCC Reports on Areas of Focus.pdf",
+              "title": "Community Updates for Mposa",
+              "navigateTo": "https://www.worldvision.ca/our-work/malawi/190419",
               "openNewBrowser": true
             },
             {
               "type": "link",
-              "title": "Organizing A Virtual Fundraiser",
-              "navigateTo": "/static/pdfs/compassion/Organizing A Virtual Fundraiser for Peacemakers.pdf",
+              "title": "Community Updates for Chamba",
+              "navigateTo": "https://www.worldvision.ca/our-work/malawi/194144",
               "openNewBrowser": true
             },
             {
               "type": "link",
-              "title": "Indigenous Reconciliation",
-              "navigateTo": "/static/pdfs/compassion/Indigenous Reconciliation Resource.pdf",
+              "title": "Learn about World Vision’s COVID-19 Response",
+              "navigateTo": "/static/pdfs/compassion/COVID-19WV.pdf",
               "openNewBrowser": true
             },
             {
               "type": "link",
-              "title": "NextGen Peacemakers",
+              "title": "Sustainable Development Goals",
+              "navigateTo": "https://sdgs.un.org/goals",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "NextGen World Vision",
               "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
               "openNewBrowser": true
             }
