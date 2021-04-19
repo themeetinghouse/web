@@ -1,0 +1,221 @@
+{
+    "page": {
+      "name": "world vision sunday",
+      "title": "World Vision Sunday",
+      "keywords": "world vision sunday",
+      "description": "The page for The Meeting House 2021 World Vision Sunday in partnership with World Vision Canada.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/peacemakers-1.jpg",
+          "url": "https://www.themeetinghouse.com/worldvision",
+          "title": "World Vision Partnership",
+          "description": ""
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/peacemakers-1.jpg",
+              "alt": "Man sharing First Nations peace practices and rituals with a group."
+            }
+          ],
+          "header1": "Mposa and Chamba",
+          "header2": "",
+          "text1": "Invest in sustainable development in Mposa & Chamba and play your part in contributing to a poverty free world.",
+          "button1": {
+            "text": "Donate",
+            "action": "https://pushpay.com/g/themeetinghouse",
+            "description": "Our community partnerships and sponsorship link."
+          }
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Sponsor",
+          "header2": "We are looking to have 200 new sponsors",
+          "text1": "Poverty alleviation is a long term commitment that requires dedicated grassroots leaders, transforming injustice systems, and continued partnerships. Our partnership with Mposa & Chamba is 10 years in the making - catch up on the journey.",
+          "image1": [
+            {
+              "src": "/static/images/peacemakers-6.jpg",
+              "alt": "A woman with hands over her mouth making a loud announcement."
+            }
+          ],
+          "list": [
+            {
+              "type": "link",
+              "title": "Watch Video To See How",
+              "navigateTo": "/videos/compassion/iPmw29QsbTk",
+              "description": "Link to the video for our 2021 world vision sunday that explains our goal and our plan."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "vertical",
+          "class": "compassion",
+          "header1": "Why Peacemakers?",
+          "text1": "As followers of Jesus, we want to work towards peace and justice in some of the most vulnerable communities around the world. We journey with people marginalized through violence by working to meet their tangible needs. Partnering with Mennonite Central Committee, we focus on three areas:",
+          "filterField": "sites",
+          "filterValue": "peacemakers"
+        },
+        {
+          "type": "content",
+          "style": "pieChart",
+          "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
+          "pieChart": {
+            "raised": 271844,
+            "goal": 200000,
+            "text": "WE DID IT!"
+          },
+          "list": [
+            {
+              "type": "button",
+              "title": "Donate Today",
+              "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Becoming a Peacemaker Workshop",
+          "header2": "Saturday Feb. 20",
+          "text1": "Learn practical methods of peacebuilding and conflict resolution from the founder of Peace Clubs, Issa Ebombolo, as well as his expert guests Gopar Tapkida and Rod Friesen.",
+          "image1": [
+            {
+              "src": "/static/images/spirituality-3.jpg",
+              "alt": "Two people sitting and talking during Home Church"
+            }
+          ],
+          "list": [
+            {
+              "type": "link",
+              "title": "Register Here",
+              "navigateTo": "https://www.crowdcast.io/e/peacemakers",
+              "description": "Registration link for the Being a Peacemaker virtual Event."
+            }
+          ]
+        },
+        {
+          "type": "blog",
+          "style": "multiImage",
+          "status": "Live",
+          "header1": "Peacemaker Blogs",
+          "sortOrder": "DESC",
+          "blogSeries": "Peacemakers",
+          "hideAllBlogsButton": true
+        },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Resources",
+          "header2": "",
+          "text1": "",
+          "image1": [
+            {
+              "src": "/static/images/peacemakers-4.jpg",
+              "alt": "Volunteers working together to pack Peacemakers relief kits."
+            }
+          ],
+          "list": [
+            {
+              "type": "link",
+              "title": "Peace Projects We Support & MCC Project Reports",
+              "navigateTo": "/static/pdfs/compassion/MCC Reports on Areas of Focus.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Organizing A Virtual Fundraiser",
+              "navigateTo": "/static/pdfs/compassion/Organizing A Virtual Fundraiser for Peacemakers.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Indigenous Reconciliation",
+              "navigateTo": "/static/pdfs/compassion/Indigenous Reconciliation Resource.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "NextGen Peacemakers",
+              "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
+              "openNewBrowser": true
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "compassion",
+          "sortOrder": "DESC",
+          "header1": "Peacemakers Project Videos",
+          "showEpisodeNumbers": false
+        },
+        {
+          "type": "faq",
+          "header1": "FAQ",
+          "image1": [
+            {
+              "src": "/static/images/peacemakers-9.jpg",
+              "alt": "Timmins City Counselor presenting on Indigenous bundles."
+            }
+          ],
+          "list": [
+            {
+              "type": "question",
+              "question": "Why focus on Peace?",
+              "answer": [
+                "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth, and it challenges us to think as global citizens."
+              ]
+            },
+            {
+              "type": "question",
+              "question": "Are we collecting Relief Kits this year?",
+              "answer": [
+                "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatest needs we are not collecting Relief Kits."
+              ]
+            },
+            {
+              "type": "question",
+              "question": "How are Kidmax and Youth participating?",
+              "answer": [
+                "Kidmax and Youth are participating with adults to help us reach our $200,000 goal. For creative ways to engage children and youth refer to the resource here."
+              ]
+            },
+            {
+              "type": "question",
+              "question": "How can I give to Peacemakers this year?",
+              "answer": [
+                "There are four ways you can give without writing a cheque or giving cash. This year we are not accepting cash or cheque donations this year as a means to limit the spread of COVID-19.",
+                "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
+                "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
+                "InFellowship: You can donate online through your The Meeting House InFellowship account.",
+                "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu.",
+                "If you are unable to give through these platforms please contact Rachel Meredith at rachel.meredith@themeetinghouse.com or call her 905.287.7000 ext. 7026"
+              ]
+            },
+            {
+              "type": "question",
+              "question": "Why partner with MCC?",
+              "answer": [
+                "We are proud to be partnering with Mennonite Central Committee Canada as they come alongside locally directed projects around the globe and here in Canada. MCC Canada has demonstrated commitment to a high level of transparency, accountability, and integrity. They are a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau, which have standards for fundraising as well as managing and reporting finances. In 2019, MCC was listed on Charity Intelligence Canada’s Top 10 International Impact Charities."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
