@@ -16,7 +16,7 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/peacemakers-1.jpg",
+          "image": "/static/images/childrenchamba.jpg",
           "url": "https://www.themeetinghouse.com/worldvision",
           "title": "World Vision Partnership",
           "description": ""
@@ -26,8 +26,8 @@
           "style": "full",
           "image1": [
             {
-              "src": "/static/images/peacemakers-1.jpg",
-              "alt": "Man sharing First Nations peace practices and rituals with a group."
+              "src": "/static/images/childrenchamba.jpg",
+              "alt": "Children in the villages of Mposa and Chamba."
             }
           ],
           "header1": "Mposa and Chamba",
