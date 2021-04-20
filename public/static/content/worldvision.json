@@ -47,8 +47,8 @@
           "text1": "Poverty alleviation is a long term commitment that requires dedicated grassroots leaders, transforming injustice systems, and continued partnerships. Our partnership with Mposa & Chamba is 10 years in the making - catch up on the journey.",
           "image1": [
             {
-              "src": "/static/images/peacemakers-6.jpg",
-              "alt": "A woman with hands over her mouth making a loud announcement."
+              "src": "/static/images/WV-2.jpg",
+              "alt": "A woman sitting with a child and her mother who is being sponsored."
             }
           ],
           "list": [
@@ -88,44 +88,14 @@
         },
         {
           "type": "content",
-          "style": "oneImage",
-          "header1": "Becoming a Peacemaker Workshop",
-          "header2": "Saturday Feb. 20",
-          "text1": "Learn practical methods of peacebuilding and conflict resolution from the founder of Peace Clubs, Issa Ebombolo, as well as his expert guests Gopar Tapkida and Rod Friesen.",
-          "image1": [
-            {
-              "src": "/static/images/spirituality-3.jpg",
-              "alt": "Two people sitting and talking during Home Church"
-            }
-          ],
-          "list": [
-            {
-              "type": "link",
-              "title": "Register Here",
-              "navigateTo": "https://www.crowdcast.io/e/peacemakers",
-              "description": "Registration link for the Being a Peacemaker virtual Event."
-            }
-          ]
-        },
-        {
-          "type": "blog",
-          "style": "multiImage",
-          "status": "Live",
-          "header1": "Peacemaker Blogs",
-          "sortOrder": "DESC",
-          "blogSeries": "Peacemakers",
-          "hideAllBlogsButton": true
-        },
-        {
-          "type": "content",
           "style": "oneImageBlackRight",
           "header1": "Resources",
           "header2": "",
           "text1": "",
           "image1": [
             {
-              "src": "/static/images/peacemakers-4.jpg",
-              "alt": "Volunteers working together to pack Peacemakers relief kits."
+              "src": "/static/images/WV-4.jpg",
+              "alt": "Man dancing with children."
             }
           ],
           "list": [
@@ -166,8 +136,8 @@
           "header1": "FAQ",
           "image1": [
             {
-              "src": "/static/images/peacemakers-9.jpg",
-              "alt": "Timmins City Counselor presenting on Indigenous bundles."
+              "src": "/static/images/WV-3.jpg",
+              "alt": "Two young girls pumping water from a well."
             }
           ],
           "list": [
