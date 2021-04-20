@@ -820,7 +820,7 @@ export default class DataLoader {
     let id = '';
     switch (query.filterValue) {
       case 'alliston':
-        id = '17841400321603203';
+        id = '17841433891090773';
         break;
       case 'sandbanks':
         id = '17841400321603203';
@@ -832,13 +832,13 @@ export default class DataLoader {
         id = '17841411750520408';
         break;
       case 'brantford':
-        id = '17841400321603203';
+        id = '17841428047284261';
         break;
       case 'burlington':
         id = '17841408871557337';
         break;
       case 'hamilton-downtown':
-        id = '17841400321603203';
+        id = '17841417565818186';
         break;
       case 'toronto-downtown':
         id = '17841408838131893';
@@ -862,7 +862,7 @@ export default class DataLoader {
         id = '17841421476822902';
         break;
       case 'oakville':
-        id = '17841400321603203';
+        id = '17841408641187599';
         break;
       case 'ottawa':
         id = '17841408719847486';

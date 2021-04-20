@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import './GoContentItem.scss';
 import { GoItem, GoLink, GoText } from '../types';
 import { Link, LinkButton } from '../Link/Link';

@@ -1,5 +1,4 @@
-﻿import React from 'react';
-import { NavLink as RSNavLink, Container, Row, Col } from 'reactstrap';
+﻿import { NavLink as RSNavLink, Container, Row, Col } from 'reactstrap';
 import { NavLink } from 'components/Link/Link';
 import './HomeFooter.scss';
 
