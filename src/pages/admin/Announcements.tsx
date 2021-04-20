@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import AdminMenu from '../../components/Menu/AdminMenu';
 import './Announcements.scss';

@@ -1,4 +1,4 @@
-import React, { useState, HTMLAttributes } from 'react';
+import { useState, HTMLAttributes } from 'react';
 import './BlogReader.scss';
 import {
   Dropdown,
