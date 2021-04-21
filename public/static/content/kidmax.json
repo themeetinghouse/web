@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonApril18.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonApril25.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesApril18.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesApril25.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaApril18.jpg",
-            "alt": "This week's big idea is: When Jesus returned to heaven, the story didn't end."
+            "src": "/static/images/KidsBigIdeaApril25.jpg",
+            "alt": "This week's big idea is: Jesus invites us into the story."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonApril18.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonApril25.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesApril18.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesApril25.pdf",
             "openNewBrowser": true
           },
           {
