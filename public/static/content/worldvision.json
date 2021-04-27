@@ -47,7 +47,7 @@
           "text1": "Poverty alleviation is a long term commitment that requires dedicated grassroots leaders, transforming injustice systems, and continued partnerships. Our partnership with Mposa & Chamba is 10 years in the making - catch up on the journey.",
           "image1": [
             {
-              "src": "/static/images/WV-2.JPG",
+              "src": "/static/images/worldvision5.JPG",
               "alt": "A woman sitting with a child and her mother who is being sponsored."
             }
           ],
@@ -68,23 +68,6 @@
           "text1": "As followers of Jesus, we want to work towards peace and justice in some of the most vulnerable communities around the world. We journey with people marginalized through violence by working to meet their tangible needs. Partnering with Mennonite Central Committee, we focus on three areas:",
           "filterField": "sites",
           "filterValue": "peacemakers"
-        },
-        {
-          "type": "content",
-          "style": "pieChart",
-          "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
-          "pieChart": {
-            "raised": 271844,
-            "goal": 200000,
-            "text": "WE DID IT!"
-          },
-          "list": [
-            {
-              "type": "button",
-              "title": "Donate Today",
-              "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
-            }
-          ]
         },
         {
           "type": "content",
