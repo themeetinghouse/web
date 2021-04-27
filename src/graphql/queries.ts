@@ -2414,8 +2414,6 @@ export const f1ListGroups = /* GraphQL */ `
             lastUpdatedDate
             lastUpdatedByPerson
           }
-          createdAt
-          updatedAt
         }
       }
     }
@@ -2463,6 +2461,21 @@ export const f1ListEventSchedules = /* GraphQL */ `
             createByPerson
             lastUpdatedDate
             lastUpdatedByPerson
+          }
+        }
+      }
+    }
+  }
+`;
+export const f1ListTimezones = /* GraphQL */ `
+  query F1ListTimezones($itemId: [String]) {
+    F1ListTimezones(itemId: $itemId) {
+      id
+      info {
+        group {
+          timeZone {
+            id
+            name
           }
         }
       }
@@ -3961,6 +3974,10 @@ export const getF1ListGroup2 = /* GraphQL */ `
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name
@@ -4076,6 +4093,10 @@ export const listF1ListGroup2s = /* GraphQL */ `
         createdDate
         lastUpdatedDate
         isLocationPrivate
+        timeZone {
+          id
+          name
+        }
         location {
           id
           name

@@ -822,6 +822,10 @@ export const createF1ListGroup2 = /* GraphQL */ `
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name
@@ -932,6 +936,10 @@ export const updateF1ListGroup2 = /* GraphQL */ `
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name
@@ -1042,6 +1050,10 @@ export const deleteF1ListGroup2 = /* GraphQL */ `
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name

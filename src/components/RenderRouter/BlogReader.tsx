@@ -74,7 +74,7 @@ function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
 }
 
 interface DownloadButtonProps {
-  pdf: string | null;
+  pdf: string | null | undefined;
   className: string;
 }
 

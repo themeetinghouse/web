@@ -111,10 +111,12 @@ export default function Announcements(): JSX.Element {
     announcement: AnnouncementData,
     parishes: Array<string>
   ): Promise<void> => {
-    const toSaveAnnouncement = { ...announcement };
+    const toSaveAnnouncement = { ...announcement } as AnnouncementData;
     for (const a of parishes) {
-      toSaveAnnouncement.parish = a;
-      await createQuery(toSaveAnnouncement);
+      if (toSaveAnnouncement) {
+        toSaveAnnouncement.parish = a;
+        await createQuery(toSaveAnnouncement);
+      }
     }
     fetchAnnouncements();
     setOpenCreateModal(false);
@@ -161,6 +163,8 @@ export default function Announcements(): JSX.Element {
   ): Promise<void> => {
     const announcementListToUpdate = announcements.filter(
       (a) =>
+        a &&
+        ogAnnouncement &&
         a.title === ogAnnouncement.title &&
         a.publishedDate === ogAnnouncement.publishedDate
     );
@@ -168,10 +172,10 @@ export default function Announcements(): JSX.Element {
     for (const item of announcementListToUpdate) {
       await updateQuery({
         ...announcement,
-        id: item.id,
-        parish: item.parish,
-        image: announcement.image,
-      });
+        id: item?.id ?? '',
+        parish: item?.parish,
+        image: announcement?.image,
+      } as AnnouncementData);
     }
     const addArray: Array<string> = [];
     const deleteArray: Array<string> = [];
@@ -188,7 +192,7 @@ export default function Announcements(): JSX.Element {
     // need to await these before fetching
     if (deleteArray?.length > 0) {
       for (const item of deleteArray) {
-        const i = announcementListToUpdate.find((a) => a.parish === item);
+        const i = announcementListToUpdate.find((a) => a && a.parish === item);
         if (i) {
           await deleteQuery(i);
         }
@@ -198,8 +202,11 @@ export default function Announcements(): JSX.Element {
     if (addArray?.length > 0) {
       for (const item of addArray) {
         if (item === 'Cross-Regional')
-          announcement = { ...announcement, crossRegional: 'true' };
-        announcement = { ...announcement, parish: item };
+          announcement = {
+            ...announcement,
+            crossRegional: 'true',
+          } as AnnouncementData;
+        announcement = { ...announcement, parish: item } as AnnouncementData;
         await createQuery(announcement);
       }
     }
@@ -212,7 +219,7 @@ export default function Announcements(): JSX.Element {
       const removeAnnouncement = (await API.graphql({
         query: mutations.deleteAnnouncement,
         variables: {
-          input: { id: announcement.id },
+          input: { id: announcement?.id },
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as Promise<GraphQLResult<DeleteAnnouncementMutation>>;
@@ -230,6 +237,8 @@ export default function Announcements(): JSX.Element {
   ): Promise<void> => {
     const announcementListToDelete = announcements.filter(
       (a: AnnouncementData) =>
+        a &&
+        announcement &&
         a.title === announcement.title &&
         a.publishedDate === announcement.publishedDate
     );
@@ -288,7 +297,7 @@ export default function Announcements(): JSX.Element {
           setOpenEditModal(true);
         }}
       >
-        <h5>{announcement.title}</h5>
+        <h5>{announcement?.title}</h5>
         <div className="announcementIcons">
           <img
             className="addAnnouncementButton"
@@ -312,13 +321,13 @@ export default function Announcements(): JSX.Element {
           <div className="announcementSummary">
             <p>
               <b>Announcement Date:</b>
-              {announcement.publishedDate}
+              {announcement?.publishedDate}
               <br></br>
               <b>Expiration Date:</b>
-              {announcement.expirationDate}
+              {announcement?.expirationDate}
               <br></br>
               <b>Parish:</b>
-              {announcement.parish}
+              {announcement?.parish}
             </p>
           </div>
         </div>
@@ -328,17 +337,17 @@ export default function Announcements(): JSX.Element {
   /* ============================= List of announcements ============================= */
   const RenderAnnouncementList = (): JSX.Element => {
     const announcementsLength = announcements?.filter(
-      (a) => a.parish === locationFilter
+      (a) => a && a.parish === locationFilter
     )?.length;
     return (
       <>
         {announcements
-          .filter((a) => a.parish === locationFilter)
+          .filter((a) => a && a.parish === locationFilter)
           .map((announcement, index) => {
             if (index < count)
               return (
                 <RenderAnnouncementItem
-                  key={announcement.id}
+                  key={announcement?.id}
                   announcement={announcement}
                 ></RenderAnnouncementItem>
               );
@@ -367,8 +376,8 @@ export default function Announcements(): JSX.Element {
     switch (conditional) {
       case true:
         return `https://themeetinghouse.com/cached/640/static/photos/announcements/${
-          announcement.publishedDate
-        }_${announcement.title.replaceAll(' ', '_')}.jpg`;
+          announcement?.publishedDate
+        }_${announcement?.title.replaceAll(' ', '_')}.jpg`;
       default:
         return '';
     }
@@ -384,24 +393,26 @@ export default function Announcements(): JSX.Element {
       const tempArr: Array<string> = [];
       const b = announcements.filter(
         (a) =>
+          a &&
+          ogAnnouncement &&
           a.title === ogAnnouncement.title &&
           a.publishedDate === ogAnnouncement.publishedDate
       );
       for (let i = 0; i < b.length; i++) {
-        tempArr.push(b[i].parish ?? 'Cross-Regional');
+        if (b && b[i]) tempArr.push(b![i]?.parish ?? 'Cross-Regional');
       }
       return tempArr;
     };
     const originalParishes = getParishes();
     const [parishes, setParishes] = useState(originalParishes);
-
+    if (!announcement) return <></>;
     return (
       <Modal size="lg" isOpen={openEditModal}>
         <div className="announcementModal">
           <div>
             <label style={{ display: 'block', fontWeight: 700 }}>
               Title:{' '}
-              {!announcement.title ? <b style={{ color: 'red' }}>*</b> : null}
+              {!announcement?.title ? <b style={{ color: 'red' }}>*</b> : null}
               <input
                 required
                 className="genericTextField"
@@ -412,7 +423,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -434,7 +445,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -454,7 +465,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -473,7 +484,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -550,7 +561,7 @@ export default function Announcements(): JSX.Element {
                         announcement,
                         e.target.checked
                       ),
-                    });
+                    } as AnnouncementData);
                   } else {
                     setErrorTxt('Title and date must be set');
                   }
@@ -575,7 +586,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -591,7 +602,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -648,6 +659,7 @@ export default function Announcements(): JSX.Element {
     );
     const [parishes, setParishes] = useState<Array<string>>(['Cross-Regional']);
     const [errorTxt, setErrorTxt] = useState<string>('');
+    if (!announcement) return <></>;
     return (
       <Modal size="lg" isOpen={openCreateModal}>
         <div className="announcementModal">
@@ -664,7 +676,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -685,7 +697,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -704,7 +716,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -722,7 +734,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -799,7 +811,7 @@ export default function Announcements(): JSX.Element {
                         announcement,
                         e.target.checked
                       ),
-                    });
+                    } as AnnouncementData);
                   } else {
                     setErrorTxt('Title and date must be set');
                   }
@@ -824,7 +836,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>
@@ -840,7 +852,7 @@ export default function Announcements(): JSX.Element {
                   setAnnouncement({
                     ...announcement,
                     [e.target.name]: e.target.value,
-                  })
+                  } as AnnouncementData)
                 }
               />
             </label>

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
- 
+
 const f1ListGroupTypes = /* GraphQL */ `
   query F1ListGroupTypes {
     F1ListGroupTypes {
@@ -140,6 +140,21 @@ const f1ListEventSchedules = /* GraphQL */ `
     }
   }
 `;
+const f1ListTimezones = /* GraphQL */ `
+  query F1ListTimezones($itemId: [String]) {
+    F1ListTimezones(itemId: $itemId) {
+      id
+      info {
+        group {
+          timeZone {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+`;
 const listF1ListGroup2s = /* GraphQL */ `
   query ListF1ListGroup2s(
     $filter: ModelF1ListGroup2FilterInput
@@ -155,8 +170,9 @@ const listF1ListGroup2s = /* GraphQL */ `
   }
 `;
 module.exports = {
+  f1ListTimezones,
   f1ListGroupTypes,
   f1ListGroups,
   f1ListEventSchedules,
-  listF1ListGroup2s
-}
+  listF1ListGroup2s,
+};

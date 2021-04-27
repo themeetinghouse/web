@@ -99,7 +99,7 @@ type MenuItem = NonNullable<NonNullable<Livestream>['menu']>[0];
 
 type ZoomItem = NonNullable<NonNullable<Livestream>['zoom']>[0];
 
-type NewLivestream = CreateLivestreamMutationVariables['input'];
+type NewLivestream = NonNullable<CreateLivestreamMutationVariables['input']>;
 
 interface State {
   toDelete: string;
@@ -500,7 +500,7 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   deleteZoomItem(): void {
-    const temp = this.state.liveObject.zoom;
+    const temp = this.state.liveObject?.zoom;
     if (temp) {
       temp.pop();
       this.handleChange('zoom', temp as ZoomItem[]);
@@ -508,7 +508,7 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   addZoomItem(): void {
-    const temp = this.state.liveObject.zoom;
+    const temp = this.state.liveObject?.zoom;
     if (temp) {
       temp.push({ title: '', link: '' });
       this.handleChange('zoom', temp as ZoomItem[]);
@@ -516,7 +516,7 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   deleteMenuItem(): void {
-    const temp = this.state.liveObject.menu;
+    const temp = this.state.liveObject?.menu;
     if (temp) {
       temp.pop();
       this.handleChange('menu', temp as MenuItem[]);
@@ -524,7 +524,7 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   addMenuItem(): void {
-    const temp = this.state.liveObject.menu;
+    const temp = this.state.liveObject?.menu;
     if (temp) {
       temp.push({ title: '', link: '', linkType: 'link' });
       this.handleChange('menu', temp as MenuItem[]);
@@ -676,7 +676,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="date"
                   required
-                  value={this.state.liveObject.date ?? ''}
+                  value={this.state.liveObject?.date ?? ''}
                   onChange={(e) => this.handleChange('date', e.target.value)}
                 />
               </label>
@@ -696,7 +696,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="time"
                   required
-                  value={this.state.liveObject.startTime ?? ''}
+                  value={this.state.liveObject?.startTime ?? ''}
                   onChange={(e) =>
                     this.handleChange('startTime', e.target.value)
                   }
@@ -718,7 +718,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="time"
                   required
-                  value={this.state.liveObject.videoStartTime ?? ''}
+                  value={this.state.liveObject?.videoStartTime ?? ''}
                   onChange={(e) =>
                     this.handleChange('videoStartTime', e.target.value)
                   }
@@ -740,7 +740,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="time"
                   required
-                  value={this.state.liveObject.endTime ?? ''}
+                  value={this.state.liveObject?.endTime ?? ''}
                   onChange={(e) => this.handleChange('endTime', e.target.value)}
                 />
               </label>
@@ -760,7 +760,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="text"
                   required
-                  value={this.state.liveObject.homepageLink ?? ''}
+                  value={this.state.liveObject?.homepageLink ?? ''}
                   onChange={(e) =>
                     this.handleChange('homepageLink', e.target.value)
                   }
@@ -773,7 +773,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="text"
                   required
-                  value={this.state.liveObject.externalEventUrl ?? ''}
+                  value={this.state.liveObject?.externalEventUrl ?? ''}
                   onChange={(e) =>
                     this.handleChange('externalEventUrl', e.target.value.trim())
                   }
@@ -786,7 +786,7 @@ class Index extends React.Component<EmptyProps, State> {
                   className="livestream-input"
                   type="text"
                   required
-                  value={this.state.liveObject.eventTitle ?? ''}
+                  value={this.state.liveObject?.eventTitle ?? ''}
                   onChange={(e) =>
                     this.handleChange('eventTitle', e.target.value)
                   }
@@ -808,7 +808,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="date"
                     required
-                    value={this.state.liveObject.date ?? ''}
+                    value={this.state.liveObject?.date ?? ''}
                     onChange={(e) => this.handleChange('date', e.target.value)}
                   />
                 </label>
@@ -829,7 +829,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="time"
                     required
-                    value={this.state.liveObject.startTime ?? ''}
+                    value={this.state.liveObject?.startTime ?? ''}
                     onChange={(e) =>
                       this.handleChange('startTime', e.target.value)
                     }
@@ -852,7 +852,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="time"
                     required
-                    value={this.state.liveObject.videoStartTime ?? ''}
+                    value={this.state.liveObject?.videoStartTime ?? ''}
                     onChange={(e) =>
                       this.handleChange('videoStartTime', e.target.value)
                     }
@@ -875,7 +875,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="time"
                     required
-                    value={this.state.liveObject.endTime ?? ''}
+                    value={this.state.liveObject?.endTime ?? ''}
                     onChange={(e) =>
                       this.handleChange('endTime', e.target.value)
                     }
@@ -892,7 +892,7 @@ class Index extends React.Component<EmptyProps, State> {
                   <input
                     className="livestream-input"
                     type="text"
-                    value={this.state.liveObject.prerollYoutubeId ?? ''}
+                    value={this.state.liveObject?.prerollYoutubeId ?? ''}
                     onChange={(e) =>
                       this.handleChange(
                         'prerollYoutubeId',
@@ -908,7 +908,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="text"
                     required
-                    value={this.state.liveObject.liveYoutubeId ?? ''}
+                    value={this.state.liveObject?.liveYoutubeId ?? ''}
                     onChange={(e) =>
                       this.handleChange('liveYoutubeId', e.target.value.trim())
                     }
@@ -917,7 +917,8 @@ class Index extends React.Component<EmptyProps, State> {
                 <label>
                   bannerMessage{' '}
                   <span style={{ fontSize: 10 }}>
-                    ({this.state.liveObject.homepageLink?.length}/45 characters)
+                    ({this.state.liveObject?.homepageLink?.length}/45
+                    characters)
                   </span>
                   <br />
                   <input
@@ -925,7 +926,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="text"
                     required
-                    value={this.state.liveObject.homepageLink ?? ''}
+                    value={this.state.liveObject?.homepageLink ?? ''}
                     onChange={(e) =>
                       this.handleChange('homepageLink', e.target.value)
                     }
@@ -939,7 +940,7 @@ class Index extends React.Component<EmptyProps, State> {
                     className="livestream-input"
                     type="text"
                     required
-                    value={this.state.liveObject.eventTitle ?? ''}
+                    value={this.state.liveObject?.eventTitle ?? ''}
                     onChange={(e) =>
                       this.handleChange('eventTitle', e.target.value)
                     }
@@ -948,34 +949,34 @@ class Index extends React.Component<EmptyProps, State> {
                 <br />
                 <input
                   type="checkbox"
-                  checked={this.state.liveObject.showChat ?? false}
+                  checked={this.state.liveObject?.showChat ?? false}
                   onChange={() =>
                     this.handleChange(
                       'showChat',
-                      !this.state.liveObject.showChat
+                      !this.state.liveObject?.showChat
                     )
                   }
                 />
                 <label> show Chat</label>
                 <input
                   type="checkbox"
-                  checked={this.state.liveObject.showKids ?? false}
+                  checked={this.state.liveObject?.showKids ?? false}
                   onChange={() =>
                     this.handleChange(
                       'showKids',
-                      !this.state.liveObject.showKids
+                      !this.state.liveObject?.showKids
                     )
                   }
                 />
                 <label> show Kids</label>
               </div>
               <div style={{ flex: 2 }}>
-                {this.state.liveObject.menu?.map((item, index) =>
+                {this.state.liveObject?.menu?.map((item, index) =>
                   this.renderMenuEditor(item as MenuItem, index)
                 )}
               </div>
               <div style={{ flex: 2 }}>
-                {this.state.liveObject.zoom
+                {this.state.liveObject?.zoom
                   ? this.state.liveObject.zoom.map((item, index) =>
                       this.renderZoomEditor(item as ZoomItem, index)
                     )
@@ -1048,7 +1049,7 @@ class Index extends React.Component<EmptyProps, State> {
                   Local Teaching
                 </button>
               ) : null}
-              {this.state.liveObject.zoom ? (
+              {this.state.liveObject?.zoom ? (
                 <button
                   style={{
                     background: 'lightgreen',
@@ -1062,7 +1063,7 @@ class Index extends React.Component<EmptyProps, State> {
                   + zoom item
                 </button>
               ) : null}
-              {this.state.liveObject.zoom ? (
+              {this.state.liveObject?.zoom ? (
                 <button
                   style={{
                     background: 'mediumvioletred',

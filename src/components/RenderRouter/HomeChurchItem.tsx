@@ -78,7 +78,7 @@ interface State {
   };
   activePill: string | undefined;
   mapSelected: boolean;
-  contactHomeChurchId: string | null;
+  contactHomeChurchId: string | null | undefined;
 }
 
 type F1Schedule = NonNullable<
