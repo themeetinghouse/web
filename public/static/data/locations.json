@@ -259,5 +259,16 @@
       "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
     },
     "serviceTimes": ["10:00"]
+  },
+  {
+    "id": "global",
+    "name": "Global",
+    "pastorEmail": "Mike.Slack@themeetinghouse.com",
+    "location": {
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address": " "
+    },
+    "serviceTimes": ["10:00"]
   }
 ]
