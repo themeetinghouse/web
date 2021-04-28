@@ -117,14 +117,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "python3 ./scripts/json-lint.py && lint-staged",
       "commit-msg": "bash ./scripts/commit-msg.sh"
     }
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,jsx,ts,tsx,html,css,scss,md}": "prettier --write",
-    "./public/static/**/*.json": "python3 ./scripts/json-lint.py"
+    "*.{js,jsx,ts,tsx,html,css,scss,md}": "prettier --write"
   },
   "prettier": {
     "singleQuote": true,
