@@ -88,12 +88,6 @@
             "title": "Easter Journey of Hope",
             "navigateTo": "https://drive.google.com/drive/folders/1g0y8X5AGiS99s8CLmMMoULcpJs0vyZSr",
             "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "The Mystery of Easter",
-            "navigateTo": "/static/pdfs/kidmax-files/TheMysteryofEaster.pdf",
-            "openNewBrowser": true
           }
         ]
       },
