@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 import './AddToCalendar.scss';
@@ -7,7 +8,7 @@ import {
   DropdownMenu,
   DropdownToggle,
 } from 'reactstrap';
-import { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 
 export type Event = {
   start: string;
@@ -26,6 +27,10 @@ interface Props {
   className?: string;
 }
 
+/**
+ * This function can be attributed to Jason Salzman.
+ * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
+ */
 function formatDateTime(date: string) {
   return moment.utc(date).format('YYYYMMDDTHHmmssZ').replace('+00:00', 'Z');
 }
@@ -43,9 +48,11 @@ function formatDateTime(date: string) {
 function calendarUrl(event: Event, provider?: string) {
   const body = (event.url ? event.url + '\n\n' : '') + event.description;
 
+  let url = '';
+
   switch (provider) {
     case 'Google':
-      return (
+      url =
         'https://calendar.google.com/calendar/render' +
         '?action=TEMPLATE' +
         '&dates=' +
@@ -58,11 +65,11 @@ function calendarUrl(event: Event, provider?: string) {
         '&text=' +
         encodeURIComponent(event.summary) +
         '&details=' +
-        encodeURIComponent(body)
-      );
+        encodeURIComponent(body);
+      break;
 
     case 'Outlook.com':
-      return (
+      url =
         'https://outlook.live.com/owa/?rru=addevent' +
         '&startdt=' +
         formatDateTime(event.start) +
@@ -78,26 +85,54 @@ function calendarUrl(event: Event, provider?: string) {
         '&allday=false' +
         '&uid=' +
         uuidv4() +
-        '&path=/calendar/view/Month'
-      );
+        '&path=/calendar/view/Month';
+      break;
 
     default:
-      return (
+      url =
         'BEGIN:VCALENDAR\n' +
         'VERSION:2.0\n' +
         'PRODID:-//The Meeting House Church Family//TMH Cal 1.0//EN\n' +
         'CALSCALE:GREGORIAN\n' +
         'BEGIN:VEVENT\n' +
+        `UID:${uuidv4()}\n` +
         `SUMMARY:${event.summary}\n` +
         `DESCRIPTION:${event.description}\n` +
-        `UID:${uuidv4()}\n` +
         `DTSTART:${formatDateTime(event.start)}\n` +
         `DTEND:${formatDateTime(event.start)}\n` +
         (event.location ? 'LOCATION:' + event.location + '\n' : '') +
         (event.url ? 'URL:' + event.url + '\n' : '') +
         'END:VEVENT\n' +
-        'END:VCALENDAR'
-      );
+        'END:VCALENDAR';
+
+      if (isMobile) {
+        url = encodeURI('data:text/calendar;charset=utf8,' + url);
+      }
+  }
+
+  return url;
+}
+
+/**
+ * This function can be attributed to Jason Salzman.
+ * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
+ */
+function handleDropdownLinkClick(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+  e.preventDefault();
+  const url = e.currentTarget.getAttribute('href');
+
+  if (!isMobile && (url?.startsWith('data') || url?.startsWith('BEGIN'))) {
+    const filename = 'download.ics';
+    const blob = new Blob([url], { type: 'text/calendar;charset=utf-8' });
+
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else if (url) {
+    window.open(url, '_blank');
   }
 }
 
@@ -196,9 +231,9 @@ export default function AddToCalendar({
               <DropdownItem
                 key={platform}
                 href={calendarUrl(event, platform)}
+                onClick={(e) => handleDropdownLinkClick(e)}
                 className={platform.replace('.', '')}
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 {platform}
               </DropdownItem>

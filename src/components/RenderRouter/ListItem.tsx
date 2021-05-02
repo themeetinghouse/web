@@ -95,7 +95,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
     });
   }
-  showYears(start: string | null, end: string | null) {
+  showYears(start: string | null | undefined, end: string | null | undefined) {
     const validStart = start && !isNaN(new Date(start).getFullYear());
     const validEnd = end && !isNaN(new Date(end).getFullYear());
     const isValid = validStart && validEnd;
@@ -519,7 +519,7 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  getPlaylistImageURI(title: string | null): string {
+  getPlaylistImageURI(title: string | null | undefined): string {
     if (!title) return '';
     return `/static/photos/playlists/` + title.replace(/\?|[']/g, '') + '.jpg';
   }
@@ -1010,7 +1010,7 @@ class ListItem extends React.Component<Props, State> {
     }
   }
 
-  renderSeries(item: SeriesByTypeData) {
+  renderSeries(item: SeriesCollectionData) {
     if (!item) {
       return null;
     }

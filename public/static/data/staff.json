@@ -256,7 +256,7 @@
     "FirstName": "Jennifer",
     "LastName": "McWilliams",
     "Phone": "905.287.7000, ext. 838",
-    "Position": "Parry Sound Lead Pastor",
+    "Position": "Interim Parry Sound Lead Pastor",
     "sites": ["PAR", "Pastoral"],
     "Email": "Jennifer.McWilliams@themeetinghouse.com"
   },
@@ -473,7 +473,7 @@
     "LastName": "Wall",
     "Phone": "905.287.7000, ext. 850",
     "Position": "Leadership Pastor",
-    "sites": ["Site Leadership", "KIT", "Pastoral"],
+    "sites": ["Site Leadership", "Pastoral"],
     "Email": "Mark.Wall@themeetinghouse.com"
   },
   {
@@ -527,7 +527,7 @@
     "LastName": "Slack",
     "Phone": "905.287.7000, ext. 831",
     "Position": "Oakville Pastor & Online Pastor",
-    "sites": ["OAKV", "Pastoral"],
+    "sites": ["OAKV", "Pastoral", "GLOBAL"],
     "Email": "Mike.Slack@themeetinghouse.com"
   },
   {

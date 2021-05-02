@@ -54,6 +54,7 @@ const Location_ID_to_F1_Group_Type_Map: Record<string, string> = {
   'toronto-high-park': '58257',
   'toronto-uptown': '58259',
   waterloo: '57909',
+  global: '65432',
 };
 
 interface Props extends RouteComponentProps, IProvidedProps {
@@ -77,7 +78,7 @@ interface State {
   };
   activePill: string | undefined;
   mapSelected: boolean;
-  contactHomeChurchId: string | null;
+  contactHomeChurchId: string | null | undefined;
 }
 
 type F1Schedule = NonNullable<

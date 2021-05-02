@@ -203,11 +203,31 @@ async function Execute(event) {
             (item) => item.isOpen == 'true' && item.isSearchable == 'true'
           );
         else openGroupsForLocation = [];
+
+        const groupIdsForLocation = openGroupsForLocation.map((g) => g.id);
+        const listTimezonesResponse = await getRetryableGraphQLOperationPromise(
+          queries.f1ListTimezones,
+          { itemId: groupIdsForLocation }
+        );
+        for (const group of openGroupsForLocation) {
+          var timeZones;
+          if (listTimezonesResponse.data.F1ListTimezones)
+            timeZones = listTimezonesResponse.data.F1ListTimezones.find(
+              (s) => s.id == group.id
+            );
+          else timeZones = [];
+          const timeZone = timeZones.info.group.timeZone;
+          if (timeZone) {
+            group.timeZone = timeZone;
+          }
+        }
+
         const eventIdsForLocation = openGroupsForLocation.map(
           (g) => g.event.id
         );
         if (eventIdsForLocation) {
           // Get the schedules for the home churches in this location
+
           const listEventSchedulesResponse = await getRetryableGraphQLOperationPromise(
             queries.f1ListEventSchedules,
             { itemId: eventIdsForLocation }

@@ -2,7 +2,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
- const createF1ListGroup2 = /* GraphQL */ `
+const createF1ListGroup2 = /* GraphQL */ `
   mutation CreateF1ListGroup2($input: CreateF1ListGroup2Input!) {
     createF1ListGroup2(input: $input) {
       id
@@ -45,6 +45,10 @@
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name
@@ -75,7 +79,7 @@
     }
   }
 `;
- const updateF1ListGroup2 = /* GraphQL */ `
+const updateF1ListGroup2 = /* GraphQL */ `
   mutation UpdateF1ListGroup2($input: UpdateF1ListGroup2Input!) {
     updateF1ListGroup2(input: $input) {
       id
@@ -118,6 +122,10 @@
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name
@@ -148,7 +156,7 @@
     }
   }
 `;
- const deleteF1ListGroup2 = /* GraphQL */ `
+const deleteF1ListGroup2 = /* GraphQL */ `
   mutation DeleteF1ListGroup2($input: DeleteF1ListGroup2Input!) {
     deleteF1ListGroup2(input: $input) {
       id
@@ -191,6 +199,10 @@
       createdDate
       lastUpdatedDate
       isLocationPrivate
+      timeZone {
+        id
+        name
+      }
       location {
         id
         name
@@ -224,5 +236,5 @@
 module.exports = {
   deleteF1ListGroup2,
   updateF1ListGroup2,
-  createF1ListGroup2
-}
+  createF1ListGroup2,
+};

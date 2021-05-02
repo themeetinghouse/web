@@ -8,8 +8,8 @@
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "VERSION=`sentry-cli releases propose-version`;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;HTTPS=true PORT=3006 react-scripts start",
-    "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;react-scripts build;sentry-cli releases finalize $VERSION;sentry-cli releases deploys $VERSION new -e prod;",
+    "start": "VERSION=`sentry-cli releases propose-version`;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;npx prettier -w src/version.js;HTTPS=true PORT=3006 react-scripts start",
+    "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;npx prettier -w src/version.js;react-scripts build;sentry-cli releases finalize $VERSION;sentry-cli releases deploys $VERSION new -e prod;",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "publish": "COMMIT=`git rev-parse --short HEAD`;amplify publish -c;curl --header 'Content-Type: application/json' --request POST --data '{\"content\":\"Published a new version from commit: '$COMMIT'\"}' $DISCORD_WEBHOOK_WEB",
     "eject": "react-scripts eject",
@@ -42,6 +42,7 @@
     "date-fns": "^2.16.1",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "google-maps-react": "^2.0.6",
     "history": "^4.10.1",
     "html-to-draftjs": "^1.5.0",
@@ -103,7 +104,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.20.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-react": "^7.22.0",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
@@ -116,13 +117,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "python3 ./scripts/json-lint.py && lint-staged",
+      "pre-commit": "lint-staged",
       "commit-msg": "bash ./scripts/commit-msg.sh"
     }
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,jsx,ts,tsx,html,css,scss,md}": "prettier --write"
+    "*.{js,jsx,ts,tsx,html,css,scss,md}": "prettier --write",
+    "./public/static/**/*.json": "python3 ./scripts/json-lint.py"
   },
   "prettier": {
     "singleQuote": true,

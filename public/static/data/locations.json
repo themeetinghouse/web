@@ -137,7 +137,7 @@
   {
     "id": "kitchener",
     "name": "Kitchener",
-    "pastorEmail": "Mark.Wall@themeetinghouse.com",
+    "pastorEmail": "patti.larsen@themeetinghouse.com ",
     "location": {
       "longitude": -80.387502,
       "latitude": 43.4054,
@@ -257,6 +257,17 @@
       "longitude": -80.527216,
       "latitude": 43.498807,
       "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
+    },
+    "serviceTimes": ["10:00"]
+  },
+  {
+    "id": "global",
+    "name": "Global",
+    "pastorEmail": "Mike.Slack@themeetinghouse.com",
+    "location": {
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address": " "
     },
     "serviceTimes": ["10:00"]
   }

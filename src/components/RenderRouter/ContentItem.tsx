@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import ScaledImage from 'components/ScaledImage/ScaledImage';

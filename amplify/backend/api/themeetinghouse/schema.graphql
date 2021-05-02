@@ -19,10 +19,12 @@ type Query {
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
+  F1ListTimezones(itemId:[String]):[F1ListTimezones] @function(name:"F1ListTimezones")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
   generatePdf(notes:String,questions:String,week:String,title:String,userId:String):pdfRes @function(name:"tmhnotespdf-${env}")
 }
+
 
 type pdfRes {
   objectKey: String
@@ -54,6 +56,16 @@ type emailResponse {
 type F1ListEvent {
   id:String
   event:F1ListEventSchedules
+}
+type F1ListTimezones {
+  id:String
+  info:F1ListTimezoneInfo
+}
+type F1ListTimezoneInfo{
+  group:F1ListTimezoneGroup
+}
+type F1ListTimezoneGroup{
+  timeZone:F1ListGroup2Timezone
 }
 enum fuzzySearchableSortDirection {
   asc
@@ -180,7 +192,7 @@ type F1ListGroups{
   groups:F1ListGroup
 }
 type F1ListGroup{
-  group:[F1ListGroup2]
+  group:[F1ListGroup2A]
 }
 type F1ListEventSchedule{
   schedule:[F1ListEventSchedule2]
@@ -233,12 +245,45 @@ type F1ListEventScheduleRecurrenceWeekly{
   occurOnFriday:Boolean
   occurOnSaturday:Boolean
 }
+type F1ListGroup2Timezone{
+  id:String
+  name:String
+}
 type F1ListEventScheduleRecurrenceMonthly{
   recurrenceFrequency:String
   recurrenceOffset:String
   monthDay:String
   monthWeekDay:String
 
+}
+type F1ListGroup2A 
+{
+  id:String
+  name:String
+  description:String
+  startDate:String
+  expirationDate:String
+  isOpen:String
+  isPublic:String
+  hasChildcare:String
+  isSearchable:String
+  churchCampus:F1ListGroup2Campus
+  groupType:F1ListGroup2GroupType
+  groupURL:String
+  gender:F1ListGroup2Gender
+  maritalStatus:F1ListGroup2MaritalStatus
+  startAgeRange:String
+  endAgeRange:String
+  dateRangeType:F1ListGroup2DateRangeType
+  leadersCount:String
+  membersCount:String
+  openProspectsCount:String
+  event:F1ListGroup2Event
+  createdDate:String
+  lastUpdatedDate:String
+  isLocationPrivate:String
+  location:F1ListGroup2Location
+  schedule:F1ListEventSchedule2
 }
 type F1ListGroup2 
  @model
@@ -272,6 +317,7 @@ type F1ListGroup2
   createdDate:String
   lastUpdatedDate:String
   isLocationPrivate:String
+  timeZone:F1ListGroup2Timezone
   location:F1ListGroup2Location
   schedule:F1ListEventSchedule2
 }

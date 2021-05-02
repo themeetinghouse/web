@@ -434,12 +434,6 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Emily",
-    "LastName": "Piche",
-    "sites": ["WAT"],
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Scott",
     "LastName": "McConnell",
     "sites": ["BRAM"],
@@ -458,7 +452,7 @@
     "LastName": "Edwards",
     "sites": ["WATL"],
     "Email": "savanna.edwards@themeetinghouse.com",
-    "Position": "Parish Communications"
+    "Position": "Parish Communications and Media Coordinator"
   },
   {
     "FirstName": "Jamie",
@@ -628,7 +622,7 @@
     "LastName": "Neufeld",
     "sites": ["KIT", "WAT"],
     "Email": "mmkneufeld@gmail.com",
-    "Position": "Youth Coordinator"
+    "Position": "Youth Coordinator and Kidmax Cordinator "
   },
   {
     "FirstName": "T.J.",
@@ -642,6 +636,13 @@
     "LastName": "Rose",
     "sites": ["NMKT"],
     "Email": "angela.rose@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Kylah",
+    "LastName": "Adams",
+    "sites": ["NMKT"],
+    "Email": "kylah.adams@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {
