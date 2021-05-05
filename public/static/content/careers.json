@@ -68,6 +68,16 @@
           },
           {
             "type": "link",
+            "title": "East Toronto Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/ETleadpastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Downtown Toronto Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/DTleadpastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Finance Director",
             "navigateTo": "/static/pdfs/careers/Finance Director 2.pdf"
           }
