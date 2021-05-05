@@ -78,6 +78,16 @@
           },
           {
             "type": "link",
+            "title": "Live Production and Technical Producer",
+            "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Jesus Collective Partnership Pastor",
+            "navigateTo": "/static/pdfs/careers/JCPartnershipPastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Finance Director",
             "navigateTo": "/static/pdfs/careers/Finance Director 2.pdf"
           }
