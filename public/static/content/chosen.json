@@ -34,8 +34,8 @@
           "header2": "",
           "text1": "Invest in sustainable development efforts in Mposa & Chamba and play your part in ending global poverty.",
           "button1": {
-            "text": "Donate",
-            "action": "https://pushpay.com/g/themeetinghouse",
+            "text": "Sponsor a Child",
+            "action": "chosen.azurewebsites.net/#/?mc=4539946",
             "description": "Our community partnerships and sponsorship link."
           }
         },
