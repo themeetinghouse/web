@@ -85,21 +85,20 @@
       },
       {
         "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Easter",
-        "header2": "",
-        "text1": "This story is more beautiful than you ever expected. Between Good Friday and Easter Sunday, we're creating our most unique and engaging virtual experience to date. Ready to do this together?",
+        "style": "oneImage",
+        "header1": "Go Campaign",
+        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
         "list": [
           {
             "type": "link",
-            "title": "What to expect this Easter",
-            "navigateTo": "/easter"
+            "title": "See Our New Plan",
+            "navigateTo": "/go"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/home-easter-2021.jpg",
-            "alt": "A man with a hat in front of a wall of greenery is smiling off camera."
+            "src": "/static/images/homepage-7-go.jpg",
+            "alt": "Group of friends sitting outside and having spiritual conversations."
           }
         ]
       },
@@ -196,25 +195,6 @@
           {
             "src": "/static/images/homepage-covid-1.jpg",
             "alt": "A woman wearing a mask looking directly at the camera."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Go Campaign",
-        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
-        "list": [
-          {
-            "type": "link",
-            "title": "See Our New Plan",
-            "navigateTo": "/go"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/homepage-7-go.jpg",
-            "alt": "Group of friends sitting outside and having spiritual conversations."
           }
         ]
       },

@@ -44,11 +44,9 @@
           }
         ],
         "header1": "Downtown Toronto",
-        "text1": "Church Online Sundays @ 10:00am",
-        "text2": "Good Friday Virtual Gathering",
-        "text3": "April 2 @ 10:00am",
-        "text3a": "Includes full program for Infants to Grade 8",
-        "text4a": "Free underground parking available at the theatre. Pick up a parking voucher at the Info Table.",
+        "text1": "Livestream Sundays @ 10:00am",
+        "text4a": "Includes full program for Infants to Grade 8.",
+        "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
@@ -63,29 +61,6 @@
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
         "filterValue": "TODT"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "April 2 - 10:00am",
-        "text1": "We want to lean into community and create a more local virtual experience that feels like family. On April 2, click the link below to participate. In the meantime, use the link if you have any questions for our lead pastor.",
-        "customLiveLink": "https://youtu.be/zHsT4fvxfnM",
-        "addToCalendar": true,
-        "image1": [
-          {
-            "src": "/static/images/local-easter.jpg",
-            "alt": "A woman smiling."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Connect",
-            "navigateTo": "mailto:rob.schellenberg@themeetinghouse.com",
-            "description": "A link to open a service client and send an email to the pastor."
-          }
-        ]
       },
       {
         "type": "list",

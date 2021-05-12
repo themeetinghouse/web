@@ -58,13 +58,28 @@
         "list": [
           {
             "type": "link",
-            "title": "Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/2020 Lead Pastor.pdf"
+            "title": "Parry Sound Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
           },
           {
             "type": "link",
-            "title": "Parry Sound Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
+            "title": "East Toronto Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/ETleadpastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Downtown Toronto Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/DTleadpastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Live Production and Technical Producer",
+            "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Jesus Collective Partnership Pastor",
+            "navigateTo": "/static/pdfs/careers/JCPartnershipPastor.pdf"
           },
           {
             "type": "link",
@@ -89,16 +104,6 @@
           "type": "link",
           "title": "Kitchener Kidmax Coordinator",
           "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
-        },
-        {
-          "type": "link",
-          "title": "Video Editor Intern",
-          "navigateTo": "/static/pdfs/careers/Video Editor Intern 2021-2.pdf"
-        },
-        {
-          "type": "link",
-          "title": "Web Developer Intern",
-          "navigateTo": "/static/pdfs/careers/Web Developer Intern 2021.pdf"
         }
       ],
         "image1": [

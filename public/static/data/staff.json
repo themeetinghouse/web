@@ -622,12 +622,12 @@
   },
   {
     "Staff": true,
-    "FirstName": "Robin",
-    "LastName": "Ellingwood",
-    "Phone": "905.287.7000, ext. 858",
-    "Position": "East Toronto Lead Pastor",
+    "FirstName": "Houston",
+    "LastName": "Cheng",
+    "Phone": "905.287.7000",
+    "Position": "Interim East Toronto Lead Pastor",
     "sites": ["TOBC", "Pastoral"],
-    "Email": "Robin.Ellingwood@themeetinghouse.com"
+    "Email": "houston.cheng@themeetinghouse.com"
   },
   {
     "Staff": true,
