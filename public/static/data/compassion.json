@@ -664,7 +664,7 @@
     "sites": ["chosen"],
     "name": "Nutrition & Health",
     "description": "We invest in healthcare workers and institutions to improve the health of the communities and promote their well-being.",
-    "image": "/static/photos/compassion/worldvision6.jpg",
+    "image": "/static/photos/compassion/worldvision6.jpeg",
     "imagealt": "A person closing a coffee cup in a cafe window"
   }, 
   {
@@ -688,7 +688,7 @@
     "sites": ["chosen"],
     "name": "Child Protection & Preventing early child marriage",
     "description": "We invest in gender equality and the empowerment of women and girls.",
-    "image": "/static/photos/compassion/worldvision7.jpg",
+    "image": "/static/photos/compassion/worldvision7.JPG",
     "imagealt": "Placeholder image for Compassion Partner"
   }
 ]
