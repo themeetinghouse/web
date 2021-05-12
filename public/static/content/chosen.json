@@ -31,7 +31,6 @@
             }
           ],
           "header1": "Chosen",
-          "style": "oneImageBlackRight",
           "text1": "Invest in sustainable development efforts in Mposa & Chamba and play your part in ending global poverty.",
           "button1": {
             "text": "Sponsor a Child",
@@ -65,7 +64,7 @@
           "style": "vertical",
           "class": "compassion",
           "header1": "Why Poverty Alleviation?",
-          "text1": "In alignment with the United Nations’ Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the course of our partnership we have developed relationships with community leaders and invested in the systems and infrastructure that has developed community resilience and long term sustainable development. We have invested in the following areas:",
+          "text1": " In alignment with the UN's Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the last 10 years, we've built relationships and invested in long term community development in the following areas:",
           "filterField": "sites",
           "filterValue": "chosen"
         },
@@ -126,16 +125,16 @@
           "list": [
             {
               "type": "question",
-              "question": "Is Chosen different than Child Sponsorship",
+              "question": "Is Chosen different than Child Sponsorship?",
               "answer": [
-                "No, they are both monthly donations to either Mposa or Chamba. The only difference is that instead of the sponsor choosing the sponsor child the sponsor child chooses their sponsor. The goal of this is to continue to make steps to equalize power with our partner communities."
+                "No, they are both monthly donations to either Mposa or Chamba. The only difference is that instead of the sponsor choosing the sponsor child, the sponsor child chooses their sponsor. The goal of this is to continue making steps to equalize power with our partner communities."
               ]
             },
             {
               "type": "question",
-              "question": "I signed up for Chosen, when will I see who chose me?",
+              "question": "I signed up for Chosen. When will I see who chose me?",
               "answer": [
-                "You will receive an information on June 6 with the information of the child who chose you."
+                "You will receive an email on June 6 with the information of the child who chose you."
               ]
             },
             {
@@ -156,7 +155,7 @@
               "type": "question",
               "question": "How are Kidmax and Youth participating?",
               "answer": [
-                "Kidmax and Youth are participating with adults by learning about the importance of investing into poverty alleviation globally and through participation in Chosen. For creative ways to engage children and youth refer to the resource section."
+                "Kidmax and Youth are participating with adults by learning about the importance of investing into poverty alleviation globally and through participation in Chosen. For creative ways to engage children and youth, refer to the resource section."
                 
               ]
             },
@@ -164,7 +163,7 @@
               "type": "question",
               "question": "Why partner with World Vision?",
               "answer": [
-                "We have a longstanding partnership with World Vision that dates back to the start of our relationship with Mposa and Chamba. We have been strong partners ever since because of our shared values of Jesus-centredness as well as their strong reputation in the field of international development. World Vision plays an international leadership role improving outcomes in the areas of education, health, and economic growth with a specific focus among vulnerable children. They are also a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau were ranked as one of the top 100 charities in Canada in 2020 by Charity Intelligence Canada."
+                "We have a longstanding partnership with World Vision that dates back to the start of our relationship with Mposa and Chamba. We have been strong partners ever since because of our shared values of Jesus-centredness as well as their strong reputation in the field of international development. World Vision plays an international leadership role improving outcomes in the areas of education, health, and economic growth with a specific focus among vulnerable children. They are also a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau and were ranked as one of the top 100 charities in Canada in 2020 by Charity Intelligence Canada."
               ]
             }
           ]
