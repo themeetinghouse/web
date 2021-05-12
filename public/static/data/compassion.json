@@ -680,7 +680,7 @@
     "sites": ["chosen"],
     "name": "Livelihood: SDG 1",
     "description": "We invest in economic development and opportunities for communities to flourish.",
-    "image": "/static/photos/compassion/health.jpg",
+    "image": "/static/photos/compassion/child.jpg",
     "imagealt": "A person closing a coffee cup in a cafe window"
   }, 
   {
@@ -688,7 +688,7 @@
     "sites": ["chosen"],
     "name": "Child Protection & Preventing early child marriage",
     "description": "We invest in gender equality and the empowerment of women and girls.",
-    "image": "/static/photos/compassion/worldvision7.jpg",
+    "image": "/static/photos/compassion/land.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   }
 ]
