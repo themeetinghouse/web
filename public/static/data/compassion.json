@@ -198,7 +198,7 @@
     "id": 22,
     "sites": ["london"],
     "name": "Youth For Christ",
-    "description": "Folloing Jesus' mission, YFC engages with youth in London by building relationships, developing potential and exploring faith - in partnership with the community and local churches.",
+    "description": "Following Jesus' mission, YFC engages with youth in London by building relationships, developing potential and exploring faith - in partnership with the community and local churches.",
     "website": "https://yfclondon.com",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
@@ -642,7 +642,7 @@
     "description": "An approach that comes alongside criminal offenders, victims, and communities, focusing on rehabilitation and reconciliation.",
     "image": "/static/photos/compassion/restorative_justice.jpg",
     "imagealt": "A person closing a coffee cup in a cafe window"
-  }, 
+  },
   {
     "id": 74,
     "sites": ["peacemakers"],
@@ -666,7 +666,7 @@
     "description": "We invest in healthcare workers and institutions to improve the health of the communities and promote their well-being.",
     "image": "/static/photos/compassion/Sponsoredchild.jpg",
     "imagealt": "A person closing a coffee cup in a cafe window"
-  }, 
+  },
   {
     "id": 77,
     "sites": ["worldvision"],
@@ -682,7 +682,7 @@
     "description": "We invest in economic development and opportunities for communities to flourish.",
     "image": "/static/photos/compassion/health.jpg",
     "imagealt": "A person closing a coffee cup in a cafe window"
-  }, 
+  },
   {
     "id": 79,
     "sites": ["worldvision"],
