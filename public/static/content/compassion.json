@@ -129,22 +129,27 @@
         "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Local Compassion Fund Application",
-        "text1": "The application window for 2020 is now closed.",
+        "text1": "The applications for the Spring 2021 application window are due by June 4, 2021.",
         "list": [
           {
             "type": "link",
             "title": "Grant Application Guidelines",
-            "navigateTo": "https://drive.google.com/file/d/1UoliNnSU6OqjFKbwpcdWRg5Jkw5ZKSGE/view?usp=sharing"
+            "navigateTo": "https://drive.google.com/file/d/1XboiREfidgTnOshJ6An6DfNwfCQSfvev/view"
           },
           {
             "type": "link",
             "title": "Assessment Criteria",
-            "navigateTo": "https://drive.google.com/file/d/1QBgcORF5SkJ4Dn_5vR0Ub4O_wELo67Bc/view?usp=sharing"
+            "navigateTo": "https://drive.google.com/file/d/1ixMjhR49-ENUICZdpzpYJpc1K6fxLkEf/view"
           },
           {
             "type": "link",
             "title": "Application Process Tutorial Video",
-            "navigateTo": "https://youtu.be/VpqnMVWoxJI"
+            "navigateTo": "https://www.youtube.com/watch?v=EMzAgs7eHV4"
+          },
+          {
+            "type": "link",
+            "title": "Grant Application",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_application_2021_22_proposed"
           }
         ],
 

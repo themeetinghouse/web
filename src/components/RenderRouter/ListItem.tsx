@@ -36,6 +36,8 @@ import ScaledImage, {
 import { Link } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
+import { ModelSortDirection } from 'API';
+import { Margin } from '../types';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -54,6 +56,8 @@ interface State {
     skipFirstPost?: boolean;
 
     selector?: string;
+    sortOrder?: ModelSortDirection;
+    margin?: Margin;
   };
   listData: ListData[];
   overlayData: any;
@@ -91,7 +95,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
     });
   }
-  showYears(start: string | null, end: string | null) {
+  showYears(start: string | null | undefined, end: string | null | undefined) {
     const validStart = start && !isNaN(new Date(start).getFullYear());
     const validEnd = end && !isNaN(new Date(end).getFullYear());
     const isValid = validStart && validEnd;
@@ -294,16 +298,14 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  sortByDate(a: BlogData, b: BlogData, dir: 'oldFirst' | 'newFirst') {
-    const nameA = (a?.publishedDate ?? '').toUpperCase();
-    const nameB = (b?.publishedDate ?? '').toUpperCase();
-    if (nameA > nameB) {
-      return dir === 'newFirst' ? -1 : 1;
-    }
-    if (nameA < nameB) {
-      return dir === 'newFirst' ? 1 : -1;
-    }
-    return 0;
+  /**
+   * Helper used within Array.prototype.sort() to sort content (videos, blogs) by date.
+   * @param a - date of list item (example: a.publishedDate)
+   * @param b - date of list item
+   * @param sortOrder - DESC: newest first, ASC: oldest first
+   */
+  sortByDate(a: string, b: string, sortOrder?: ModelSortDirection) {
+    return sortOrder === 'DESC' ? b.localeCompare(a) : a.localeCompare(b);
   }
 
   sortByViews(a: VideoData, b: VideoData) {
@@ -517,7 +519,7 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  getPlaylistImageURI(title: string | null): string {
+  getPlaylistImageURI(title: string | null | undefined): string {
     if (!title) return '';
     return `/static/photos/playlists/` + title.replace(/\?|[']/g, '') + '.jpg';
   }
@@ -1008,7 +1010,7 @@ class ListItem extends React.Component<Props, State> {
     }
   }
 
-  renderSeries(item: SeriesByTypeData) {
+  renderSeries(item: SeriesCollectionData) {
     if (!item) {
       return null;
     }
@@ -1214,120 +1216,236 @@ class ListItem extends React.Component<Props, State> {
 
     const dataLength = data.length;
 
-    if (this.state.content.style === 'horizontal') {
-      switch (this.state.content.class) {
-        case 'random-suggested-playlist':
-        case 'custom-playlist':
-          return (
-            <div className="ListItem horizontal">
-              <div className="ListItemDiv1">
-                <h1 className="ListItemH1">
-                  {this.state.content.header1 ?? this.state.content.playlist}
-                </h1>
-                <div className="ListItemDiv2">
-                  <HorizontalScrollList
-                    darkMode={this.props.pageConfig.logoColor === 'white'}
-                  >
-                    {this.state.content.class === 'custom-playlist'
-                      ? (data as CustomPlaylistVideoData[])
-                          .sort((a, b) =>
-                            (a?.publishedDate ?? '').localeCompare(
-                              b?.publishedDate ?? ''
+    const renderByStyle = () => {
+      if (this.state.content.style === 'horizontal') {
+        switch (this.state.content.class) {
+          case 'random-suggested-playlist':
+          case 'custom-playlist':
+            return (
+              <div className="ListItem horizontal">
+                <div className="ListItemDiv1">
+                  <h1 className="ListItemH1">
+                    {this.state.content.header1 ?? this.state.content.playlist}
+                  </h1>
+                  <div className="ListItemDiv2">
+                    <HorizontalScrollList
+                      darkMode={this.props.pageConfig.logoColor === 'white'}
+                    >
+                      {this.state.content.class === 'custom-playlist'
+                        ? (data as CustomPlaylistVideoData[])
+                            .sort((a, b) =>
+                              this.sortByDate(
+                                a?.publishedDate ?? '',
+                                b?.publishedDate ?? '',
+                                this.state.content?.sortOrder
+                              )
                             )
-                          )
-                          .map((item, index) => {
-                            return this.renderItemRouter(item, index);
-                          })
-                      : (data as RandomCustomPlaylistData[])
-                          .sort((a, b) =>
-                            (a?.video?.publishedDate ?? '').localeCompare(
-                              b?.video?.publishedDate ?? ''
+                            .map((item, index) => {
+                              return this.renderItemRouter(item, index);
+                            })
+                        : (data as RandomCustomPlaylistData[])
+                            .sort((a, b) =>
+                              (a?.video?.publishedDate ?? '').localeCompare(
+                                b?.video?.publishedDate ?? ''
+                              )
                             )
-                          )
-                          .map((item: any, index) => {
-                            return this.renderItemRouter(item.video, index);
-                          })}
-                  </HorizontalScrollList>
-                  <div className="ListItemDiv5"></div>
+                            .map((item: any, index) => {
+                              return this.renderItemRouter(item.video, index);
+                            })}
+                    </HorizontalScrollList>
+                    <div className="ListItemDiv5"></div>
+                  </div>
                 </div>
+                <VideoOverlay
+                  onClose={() => {
+                    this.videoOverlayClose();
+                  }}
+                  data={this.state.overlayData}
+                ></VideoOverlay>
               </div>
-              <VideoOverlay
-                onClose={() => {
-                  this.videoOverlayClose();
-                }}
-                data={this.state.overlayData}
-              ></VideoOverlay>
+            );
+
+          default:
+            return (
+              <div className="ListItem horizontal">
+                <div className="ListItemDiv1">
+                  <h1
+                    className={
+                      'ListItemH1' +
+                      (this.props.pageConfig.logoColor === 'white'
+                        ? ' whiteText'
+                        : '')
+                    }
+                  >
+                    {this.state.content.header1}
+                  </h1>
+                  {this.state.content.text1 != null ? (
+                    <div className="ListItemText1">
+                      {this.state.content.text1}
+                    </div>
+                  ) : null}
+                  <div className="ListItemDiv2">
+                    {this.state.content.class === 'videos' ? (
+                      this.state.content.selector === 'popular' ? (
+                        <HorizontalScrollList
+                          darkMode={this.props.pageConfig.logoColor === 'white'}
+                        >
+                          {(data as VideoData[])
+                            .slice(0, 100)
+                            .sort((a, b) => this.sortByViews(a, b))
+                            .map((item, index) => {
+                              return this.renderItemRouter(
+                                item as ListData,
+                                index
+                              );
+                            })}
+                        </HorizontalScrollList>
+                      ) : (
+                        <HorizontalScrollList
+                          darkMode={this.props.pageConfig.logoColor === 'white'}
+                        >
+                          {data
+                            .concat(
+                              this.state.content.limit &&
+                                dataLength >= this.state.content.limit
+                                ? 'card'
+                                : null
+                            )
+                            .map((item, index) => {
+                              if (item === 'card')
+                                return this.renderMoreVideosCard();
+
+                              return this.renderItemRouter(
+                                item as ListData,
+                                index
+                              );
+                            })}
+                        </HorizontalScrollList>
+                      )
+                    ) : (
+                      <HorizontalScrollList
+                        darkMode={this.props.pageConfig.logoColor === 'white'}
+                      >
+                        {data.map((item: any, index: any) => {
+                          return this.renderItemRouter(item, index);
+                        })}
+                      </HorizontalScrollList>
+                    )}
+                    <div className="ListItemDiv5"></div>
+                  </div>
+                </div>
+                <VideoOverlay
+                  onClose={() => {
+                    this.videoOverlayClose();
+                  }}
+                  data={this.state.overlayData}
+                ></VideoOverlay>
+              </div>
+            );
+        }
+      } else if (this.state.content.style === 'blogs') {
+        const startIndex = this.state.content.skipFirstPost ? 1 : 0;
+
+        const blogData = data as BlogData[];
+
+        blogData.sort((a, b) =>
+          this.sortByDate(
+            a?.publishedDate ?? '',
+            b?.publishedDate ?? '',
+            ModelSortDirection['DESC']
+          )
+        );
+
+        const today = moment();
+        const dateChecked: BlogData[] = blogData.filter(
+          (post) =>
+            post?.expirationDate === 'none' ||
+            moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
+        );
+
+        if (dateChecked.length === 0) {
+          return null;
+        }
+
+        if (this.state.content.selector === 'all') {
+          return (
+            <div className="ListItemDiv1">
+              <h1 className="BlogItemH1">{this.state.content.header1}</h1>
+              <InfiniteScroll
+                dataLength={dateChecked.length}
+                next={() => this.getMoreBlogs()}
+                hasMore={Boolean(this.state.blogNextToken)}
+                loader={
+                  <div className="spinner">
+                    <div className="double-bounce1"></div>
+                    <div className="double-bounce2"></div>
+                  </div>
+                }
+                className="BlogLoader"
+              >
+                <div className="BlogItem">
+                  <div className="BlogItemContainer">
+                    {dateChecked
+                      .slice(startIndex)
+                      .map((item, index: number) => {
+                        return this.renderItemRouter(item, index);
+                      })}
+                  </div>
+                </div>
+              </InfiniteScroll>
             </div>
           );
+        }
 
-        default:
+        return (
+          <div className="ListItemDiv1">
+            <h1 className="BlogItemH1">{this.state.content.header1}</h1>
+            <div className="BlogItem">
+              <div className="BlogItemContainer">
+                {dateChecked.slice(startIndex).map((item, index: number) => {
+                  return this.renderItemRouter(item, index);
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      } else if (this.state.content.style === 'horizontal-video-player') {
+        if (!data.length) {
+          return null;
+        }
+        const videoData = data as VideoData[];
+        // videos are not stored in order within a series, so we sort here
+        if (videoData[0]?.videoTypes === 'questions')
+          videoData.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber);
+        else
+          videoData.sort((a, b) =>
+            this.sortByDate(
+              a?.publishedDate ?? '',
+              b?.publishedDate ?? '',
+              ModelSortDirection['ASC']
+            )
+          );
+
+        if (this.state.content.class === 'watch-page-playlist') {
           return (
-            <div className="ListItem horizontal">
-              <div className="ListItemDiv1">
+            <div className="ListItem horizontal-video-player">
+              <div className="ListItemDiv1 horizontal-video-player">
                 <h1
                   className={
-                    'ListItemH1' +
+                    'ListItemH1 horizontal-video-player' +
                     (this.props.pageConfig.logoColor === 'white'
                       ? ' whiteText'
                       : '')
                   }
                 >
-                  {this.state.content.header1}
+                  {this.props?.match?.params?.playlist}
                 </h1>
-                {this.state.content.text1 != null ? (
-                  <div className="ListItemText1">
-                    {this.state.content.text1}
-                  </div>
-                ) : null}
-                <div className="ListItemDiv2">
-                  {this.state.content.class === 'videos' ? (
-                    this.state.content.selector === 'popular' ? (
-                      <HorizontalScrollList
-                        darkMode={this.props.pageConfig.logoColor === 'white'}
-                      >
-                        {(data as VideoData[])
-                          .slice(0, 100)
-                          .sort((a, b) => this.sortByViews(a, b))
-                          .map((item, index) => {
-                            return this.renderItemRouter(
-                              item as ListData,
-                              index
-                            );
-                          })}
-                      </HorizontalScrollList>
-                    ) : (
-                      <HorizontalScrollList
-                        darkMode={this.props.pageConfig.logoColor === 'white'}
-                      >
-                        {data
-                          .concat(
-                            this.state.content.limit &&
-                              dataLength >= this.state.content.limit
-                              ? 'card'
-                              : null
-                          )
-                          .map((item, index) => {
-                            if (item === 'card')
-                              return this.renderMoreVideosCard();
-
-                            return this.renderItemRouter(
-                              item as ListData,
-                              index
-                            );
-                          })}
-                      </HorizontalScrollList>
-                    )
-                  ) : (
-                    <HorizontalScrollList
-                      darkMode={this.props.pageConfig.logoColor === 'white'}
-                    >
-                      {data.map((item: any, index: any) => {
-                        return this.renderItemRouter(item, index);
-                      })}
-                    </HorizontalScrollList>
-                  )}
-                  <div className="ListItemDiv5"></div>
+                <div className="WatchPageContainer">
+                  {videoData.map((item: any, index: any) => {
+                    return this.renderItemRouter(item, index);
+                  })}
                 </div>
+                <div className="HorizontalLine"></div>
               </div>
               <VideoOverlay
                 onClose={() => {
@@ -1337,76 +1455,8 @@ class ListItem extends React.Component<Props, State> {
               ></VideoOverlay>
             </div>
           );
-      }
-    } else if (this.state.content.style === 'blogs') {
-      const startIndex = this.state.content.skipFirstPost ? 1 : 0;
+        }
 
-      const blogData = data as BlogData[];
-
-      blogData.sort((a: any, b: any) => this.sortByDate(a, b, 'newFirst'));
-
-      const today = moment();
-      const dateChecked: BlogData[] = blogData.filter(
-        (post) =>
-          post?.expirationDate === 'none' ||
-          moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
-      );
-
-      if (dateChecked.length === 0) {
-        return null;
-      }
-
-      if (this.state.content.selector === 'all') {
-        return (
-          <div className="ListItemDiv1">
-            <h1 className="BlogItemH1">{this.state.content.header1}</h1>
-            <InfiniteScroll
-              dataLength={dateChecked.length}
-              next={() => this.getMoreBlogs()}
-              hasMore={Boolean(this.state.blogNextToken)}
-              loader={
-                <div className="spinner">
-                  <div className="double-bounce1"></div>
-                  <div className="double-bounce2"></div>
-                </div>
-              }
-              className="BlogLoader"
-            >
-              <div className="BlogItem">
-                <div className="BlogItemContainer">
-                  {dateChecked.slice(startIndex).map((item, index: number) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </div>
-              </div>
-            </InfiniteScroll>
-          </div>
-        );
-      }
-
-      return (
-        <div className="ListItemDiv1">
-          <h1 className="BlogItemH1">{this.state.content.header1}</h1>
-          <div className="BlogItem">
-            <div className="BlogItemContainer">
-              {dateChecked.slice(startIndex).map((item, index: number) => {
-                return this.renderItemRouter(item, index);
-              })}
-            </div>
-          </div>
-        </div>
-      );
-    } else if (this.state.content.style === 'horizontal-video-player') {
-      if (!data.length) {
-        return null;
-      }
-      const videoData = data as VideoData[];
-      //videos are not stored in order within a series, so we sort here
-      if (videoData[0]?.videoTypes === 'questions')
-        data.sort((a: any, b: any) => a.episodeNumber - b.episodeNumber);
-      else data.sort((a: any, b: any) => this.sortByDate(a, b, 'oldFirst'));
-
-      if (this.state.content.class === 'watch-page-playlist') {
         return (
           <div className="ListItem horizontal-video-player">
             <div className="ListItemDiv1 horizontal-video-player">
@@ -1418,10 +1468,13 @@ class ListItem extends React.Component<Props, State> {
                     : '')
                 }
               >
-                {this.props?.match?.params?.playlist}
+                {this.state.content.header1}
               </h1>
+              {this.state.content.text1 != null ? (
+                <div className="ListItemText1">{this.state.content.text1}</div>
+              ) : null}
               <div className="WatchPageContainer">
-                {data.map((item: any, index: any) => {
+                {videoData.map((item: any, index: any) => {
                   return this.renderItemRouter(item, index);
                 })}
               </div>
@@ -1435,176 +1488,186 @@ class ListItem extends React.Component<Props, State> {
             ></VideoOverlay>
           </div>
         );
-      }
-
-      return (
-        <div className="ListItem horizontal-video-player">
-          <div className="ListItemDiv1 horizontal-video-player">
-            <h1
-              className={
-                'ListItemH1 horizontal-video-player' +
-                (this.props.pageConfig.logoColor === 'white'
-                  ? ' whiteText'
-                  : '')
-              }
-            >
-              {this.state.content.header1}
-            </h1>
-            {this.state.content.text1 != null ? (
-              <div className="ListItemText1">{this.state.content.text1}</div>
-            ) : null}
-            <div className="WatchPageContainer">
-              {data.map((item: any, index: any) => {
-                return this.renderItemRouter(item, index);
-              })}
-            </div>
-            <div className="HorizontalLine"></div>
-          </div>
-          <VideoOverlay
-            onClose={() => {
-              this.videoOverlayClose();
-            }}
-            data={this.state.overlayData}
-          ></VideoOverlay>
-        </div>
-      );
-    } else if (this.state.content.style === 'curious-ui') {
-      data.sort(function (a: any, b: any) {
-        return a.episodeNumber - b.episodeNumber;
-      });
-      return (
-        <div className="ListItem horizontal">
-          <div className="ListItemDiv1">
-            <h1
-              className={
-                'ListItemH1' +
-                (this.props.pageConfig.logoColor === 'white'
-                  ? ' whiteText'
-                  : '')
-              }
-            >
-              {this.state.content.header1}
-            </h1>
-            {this.state.content.text1 != null ? (
-              <div className="CuriousText1">{this.state.content.text1}</div>
-            ) : null}
-            <div className="hide-mobile">
-              <div className="CuriousContainer">
-                {data.slice(0, 6).map((item: any, index: any) => {
-                  return this.renderItemRouter(item, index);
-                })}
-              </div>
-            </div>
-
-            <div className="hide-desktop">
-              {data.slice(0, 3).map((item: any, index: any) => {
-                return this.renderItemRouter(item, index);
-              })}
-              {!this.state.showMoreVideos ? (
-                <button className="MoreVideos" onClick={this.videoHandler}>
-                  Load 3 More Questions
-                </button>
-              ) : null}
-              {this.state.showMoreVideos ? (
-                <div>
-                  {data.slice(3, 6).map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </div>
-              ) : null}
-            </div>
-          </div>
-          <VideoOverlay
-            onClose={() => {
-              this.videoOverlayClose();
-            }}
-            data={this.state.overlayData}
-          ></VideoOverlay>
-        </div>
-      );
-    } else if (this.state.content.style === 'vertical') {
-      if (data.length > 0) {
-        return (
-          <div className="ListItem horizontal">
-            <div className="ListItemDiv1">
-              <h1 className="ListItemH1">{this.state.content.header1}</h1>
-              {this.state.content.text1 != null ? (
-                <div className="ListItemText1">{this.state.content.text1}</div>
-              ) : null}
-              <div className="ListItemSpeakersDiv">
-                <HorizontalScrollList>
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </HorizontalScrollList>
-              </div>
-            </div>
-          </div>
-        );
-      } else {
-        return null;
-      }
-    } else if (this.state.content.style === 'staff') {
-      const peopleData = data as PeopleData[];
-      const isMobile = this.state.windowWidth < 768;
-      const binnedData: PeopleData[][] = [];
-      if (data.length > 0) {
-        let temp: PeopleData[] = [];
-        peopleData.forEach((item, index) => {
-          temp.push(item);
-          if ((index + 1) % 6 === 0 || index + 1 === data.length) {
-            binnedData.push(temp);
-            temp = [];
-          }
+      } else if (this.state.content.style === 'curious-ui') {
+        data.sort(function (a: any, b: any) {
+          return a.episodeNumber - b.episodeNumber;
         });
         return (
           <div className="ListItem horizontal">
             <div className="ListItemDiv1">
-              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              <h1
+                className={
+                  'ListItemH1' +
+                  (this.props.pageConfig.logoColor === 'white'
+                    ? ' whiteText'
+                    : '')
+                }
+              >
+                {this.state.content.header1}
+              </h1>
               {this.state.content.text1 != null ? (
-                <div className="ListItemText1">{this.state.content.text1}</div>
+                <div className="CuriousText1">{this.state.content.text1}</div>
               ) : null}
-              <div className="ListItemSpeakersDiv">
-                <HorizontalScrollList>
-                  {isMobile
-                    ? peopleData.map((item, index) => {
-                        return this.renderItemRouter(item, index);
-                      })
-                    : binnedData.map((item, index) => {
-                        return this.renderItemRouter(item, index);
-                      })}
-                </HorizontalScrollList>
+              <div className="hide-mobile">
+                <div className="CuriousContainer">
+                  {data.slice(0, 6).map((item: any, index: any) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </div>
+              </div>
+
+              <div className="hide-desktop">
+                {data.slice(0, 3).map((item: any, index: any) => {
+                  return this.renderItemRouter(item, index);
+                })}
+                {!this.state.showMoreVideos ? (
+                  <button className="MoreVideos" onClick={this.videoHandler}>
+                    Load 3 More Questions
+                  </button>
+                ) : null}
+                {this.state.showMoreVideos ? (
+                  <div>
+                    {data.slice(3, 6).map((item: any, index: any) => {
+                      return this.renderItemRouter(item, index);
+                    })}
+                  </div>
+                ) : null}
               </div>
             </div>
+            <VideoOverlay
+              onClose={() => {
+                this.videoOverlayClose();
+              }}
+              data={this.state.overlayData}
+            ></VideoOverlay>
           </div>
         );
-      } else {
-        return null;
-      }
-    } else if (this.state.content.style === 'horizontalBig') {
-      const seriesData = data as SeriesData2[];
-      const playlistData = data as CustomPlaylistsData[];
-      if (this.state.content.class === 'playlists') {
-        const content = this.state.content as CustomPlaylistsQuery;
+      } else if (this.state.content.style === 'vertical') {
+        if (data.length > 0) {
+          return (
+            <div className="ListItem horizontal">
+              <div className="ListItemDiv1">
+                <h1 className="ListItemH1">{this.state.content.header1}</h1>
+                {this.state.content.text1 != null ? (
+                  <div className="ListItemText1">
+                    {this.state.content.text1}
+                  </div>
+                ) : null}
+                <div className="ListItemSpeakersDiv">
+                  <HorizontalScrollList>
+                    {data.map((item: any, index: any) => {
+                      return this.renderItemRouter(item, index);
+                    })}
+                  </HorizontalScrollList>
+                </div>
+              </div>
+            </div>
+          );
+        } else {
+          return null;
+        }
+      } else if (this.state.content.style === 'staff') {
+        const peopleData = data as PeopleData[];
+        const isMobile = this.state.windowWidth < 768;
+        const binnedData: PeopleData[][] = [];
+        if (data.length > 0) {
+          let temp: PeopleData[] = [];
+          peopleData.forEach((item, index) => {
+            temp.push(item);
+            if ((index + 1) % 6 === 0 || index + 1 === data.length) {
+              binnedData.push(temp);
+              temp = [];
+            }
+          });
+          return (
+            <div className="ListItem horizontal">
+              <div className="ListItemDiv1">
+                <h1 className="ListItemH1">{this.state.content.header1}</h1>
+                {this.state.content.text1 != null ? (
+                  <div className="ListItemText1">
+                    {this.state.content.text1}
+                  </div>
+                ) : null}
+                <div className="ListItemSpeakersDiv">
+                  <HorizontalScrollList>
+                    {isMobile
+                      ? peopleData.map((item, index) => {
+                          return this.renderItemRouter(item, index);
+                        })
+                      : binnedData.map((item, index) => {
+                          return this.renderItemRouter(item, index);
+                        })}
+                  </HorizontalScrollList>
+                </div>
+              </div>
+            </div>
+          );
+        } else {
+          return null;
+        }
+      } else if (this.state.content.style === 'horizontalBig') {
+        const seriesData = data as SeriesData2[];
+        const playlistData = data as CustomPlaylistsData[];
+        if (this.state.content.class === 'playlists') {
+          const content = this.state.content as CustomPlaylistsQuery;
+          return (
+            <div className="ListItem horizontalBig">
+              <div className="ListItemDiv1 ListItemAllSeries">
+                <h1 className="ListItemH1">{this.state.content.header1}</h1>
+                <div className="ListItemDiv6">
+                  <HorizontalScrollList>
+                    {playlistData
+                      .sort((a, b) => this.sortPlaylistsAlpha(a, b))
+                      .sort((a, b) => {
+                        return content.forceToTop.includes(b?.title as string)
+                          ? 1
+                          : content.forceToTop.includes(a?.title as string)
+                          ? -1
+                          : 0;
+                      })
+                      .map((item, index) => {
+                        return this.renderItemRouter(item, index);
+                      })}
+                  </HorizontalScrollList>
+                  <div className="ListItemDiv5"></div>
+                </div>
+              </div>
+              <VideoOverlay
+                onClose={() => {
+                  this.videoOverlayClose();
+                }}
+                data={this.state.overlayData}
+              ></VideoOverlay>
+            </div>
+          );
+        }
+
         return (
           <div className="ListItem horizontalBig">
             <div className="ListItemDiv1 ListItemAllSeries">
               <h1 className="ListItemH1">{this.state.content.header1}</h1>
               <div className="ListItemDiv6">
-                <HorizontalScrollList>
-                  {playlistData
-                    .sort((a, b) => this.sortPlaylistsAlpha(a, b))
-                    .sort((a, b) => {
-                      return content.forceToTop.includes(b?.title as string)
-                        ? 1
-                        : content.forceToTop.includes(a?.title as string)
-                        ? -1
-                        : 0;
-                    })
-                    .map((item, index) => {
+                {this.state.content.class === 'series' ? (
+                  <HorizontalScrollList>
+                    {seriesData
+                      .concat(
+                        this.state.content.limit &&
+                          dataLength >= this.state.content.limit
+                          ? 'card'
+                          : null
+                      )
+                      .map((item: any, index: any) => {
+                        if (item === 'card') return this.renderMoreSeriesCard();
+                        return this.renderItemRouter(item, index);
+                      })}
+                  </HorizontalScrollList>
+                ) : (
+                  <HorizontalScrollList>
+                    {data.map((item: any, index: any) => {
                       return this.renderItemRouter(item, index);
                     })}
-                </HorizontalScrollList>
+                  </HorizontalScrollList>
+                )}
                 <div className="ListItemDiv5"></div>
               </div>
             </div>
@@ -1616,144 +1679,109 @@ class ListItem extends React.Component<Props, State> {
             ></VideoOverlay>
           </div>
         );
-      }
+      } else if (
+        this.state.content.style === 'grid' &&
+        this.state.content.class === 'instagram'
+      ) {
+        //This renders the instagram div and iterate tiles
 
-      return (
-        <div className="ListItem horizontalBig">
-          <div className="ListItemDiv1 ListItemAllSeries">
-            <h1 className="ListItemH1">{this.state.content.header1}</h1>
-            <div className="ListItemDiv6">
-              {this.state.content.class === 'series' ? (
-                <HorizontalScrollList>
-                  {seriesData
-                    .concat(
-                      this.state.content.limit &&
-                        dataLength >= this.state.content.limit
-                        ? 'card'
-                        : null
-                    )
-                    .map((item: any, index: any) => {
-                      if (item === 'card') return this.renderMoreSeriesCard();
-                      return this.renderItemRouter(item, index);
-                    })}
-                </HorizontalScrollList>
-              ) : (
-                <HorizontalScrollList>
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </HorizontalScrollList>
-              )}
-              <div className="ListItemDiv5"></div>
-            </div>
-          </div>
-          <VideoOverlay
-            onClose={() => {
-              this.videoOverlayClose();
-            }}
-            data={this.state.overlayData}
-          ></VideoOverlay>
-        </div>
-      );
-    } else if (
-      this.state.content.style === 'grid' &&
-      this.state.content.class === 'instagram'
-    ) {
-      //This renders the instagram div and iterate tiles
-
-      return (
-        <div className="ListItem horizontal">
-          <div className="ListInstagramContainer">
-            {this.state.listData?.map((tile, index: number) => {
-              return this.renderItemRouter(tile, index);
-            })}
-          </div>
-          <a
-            className="ListInstagramButton"
-            target="_blank"
-            rel="noreferrer"
-            href={
-              this.props.content.filterValue
-                ? `https://instagram.com/` +
-                  this.getInstaUrl(this.props.content)
-                : `https://instagram.com/themeetinghouse`
-            }
-          >
-            <img
-              width={25}
-              height={20}
-              style={{ marginRight: '3px' }}
-              src="/static/svg/Instagram.svg"
-            ></img>{' '}
-            Go to Instagram
-          </a>
-        </div>
-      );
-    } else if (this.state.content.style === 'imageList')
-      return (
-        <div className="ListItem imageList">
-          <div className="ListItemDiv1">
-            <h1 className="ListItemH1ImageList">
-              {this.state.content.header1}
-            </h1>
-            <h2>{this.state.content.header2}</h2>
-            <div className="ListItemDiv7">{this.state.content.text1}</div>
-            <div className="ListItemDiv8">
-              <div className="ListItemDiv9"></div>
-              {data.map((item: any, index: any) => {
-                const href = item.navigateTo || item.url;
-                const body = (
-                  <div
-                    className={
-                      'imageList ' + (href ? 'hoverText' : 'noHoverText')
-                    }
-                  >
-                    <h3 className="ListItemH3">
-                      {href ? (
-                        <img
-                          className="arrow"
-                          alt=""
-                          src="/static/svg/ArrowRight black.svg"
-                        />
-                      ) : null}
-                      {item.title}
-                    </h3>
-                    <div className="ListItemDiv11">{item.text}</div>
-                  </div>
-                );
-                return (
-                  <div className="ListItemDiv10" key={index}>
-                    {href ? (
-                      <Link
-                        className="container"
-                        style={{ display: 'inline-block', padding: 0 }}
-                        to={href}
-                      >
-                        {body}
-                      </Link>
-                    ) : (
-                      body
-                    )}
-                    <ScaledImage
-                      className="ListItemH1ImageList2"
-                      image={{ src: item.imageSrc, alt: item.imageAlt }}
-                      breakpointSizes={{
-                        320: 320,
-                        480: 480,
-                        640: 640,
-                        1280: 1280,
-                        1920: 1920,
-                        2560: 2560,
-                      }}
-                    />
-                  </div>
-                );
+        return (
+          <div className="ListItem horizontal">
+            <div className="ListInstagramContainer">
+              {this.state.listData?.map((tile, index: number) => {
+                return this.renderItemRouter(tile, index);
               })}
             </div>
+            <a
+              className="ListInstagramButton"
+              target="_blank"
+              rel="noreferrer"
+              href={
+                this.props.content.filterValue
+                  ? `https://instagram.com/` +
+                    this.getInstaUrl(this.props.content)
+                  : `https://instagram.com/themeetinghouse`
+              }
+            >
+              <img
+                width={25}
+                height={20}
+                style={{ marginRight: '3px' }}
+                src="/static/svg/Instagram.svg"
+              ></img>{' '}
+              Go to Instagram
+            </a>
           </div>
-        </div>
-      );
-    return null;
+        );
+      } else if (this.state.content.style === 'imageList')
+        return (
+          <div className="ListItem imageList">
+            <div className="ListItemDiv1">
+              <h1 className="ListItemH1ImageList">
+                {this.state.content.header1}
+              </h1>
+              <h2>{this.state.content.header2}</h2>
+              <div className="ListItemDiv7">{this.state.content.text1}</div>
+              <div className="ListItemDiv8">
+                <div className="ListItemDiv9"></div>
+                {data.map((item: any, index: any) => {
+                  const href = item.navigateTo || item.url;
+                  const body = (
+                    <div
+                      className={
+                        'imageList ' + (href ? 'hoverText' : 'noHoverText')
+                      }
+                    >
+                      <h3 className="ListItemH3">
+                        {href ? (
+                          <img
+                            className="arrow"
+                            alt=""
+                            src="/static/svg/ArrowRight black.svg"
+                          />
+                        ) : null}
+                        {item.title}
+                      </h3>
+                      <div className="ListItemDiv11">{item.text}</div>
+                    </div>
+                  );
+                  return (
+                    <div className="ListItemDiv10" key={index}>
+                      {href ? (
+                        <Link
+                          className="container"
+                          style={{ display: 'inline-block', padding: 0 }}
+                          to={href}
+                        >
+                          {body}
+                        </Link>
+                      ) : (
+                        body
+                      )}
+                      <ScaledImage
+                        className="ListItemH1ImageList2"
+                        image={{ src: item.imageSrc, alt: item.imageAlt }}
+                        breakpointSizes={{
+                          320: 320,
+                          480: 480,
+                          640: 640,
+                          1280: 1280,
+                          1920: 1920,
+                          2560: 2560,
+                        }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      return null;
+    };
+
+    const { margin } = this.state.content;
+    return <div style={{ ...margin }}>{renderByStyle()}</div>;
   }
 }
 

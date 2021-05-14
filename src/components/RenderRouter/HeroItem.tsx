@@ -1,7 +1,7 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import AddToCalendar from '@esetnik/react-add-to-calendar';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
@@ -42,21 +42,19 @@ class HeroItem extends React.Component<Props, State> {
       locationData: this.state.locationData.concat(data),
     });
   }
-  getCalendarEventForLocation(locationItem: LocationData) {
-    let nextSunday = (moment().day() === 0
-      ? moment().add(1, 'week')
-      : moment().day(0)
-    ).startOf('day');
+  getCalendarEventForLocation(locationItem: LocationData): Event {
+    let nextSunday = moment().add(1, 'week').day(0).startOf('day');
     let serviceHour =
       locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
     serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
     nextSunday = nextSunday.hour(+serviceHour);
     const event = {
-      title: 'Church at The Meeting House',
+      summary: 'Church at The Meeting House',
       description: 'Join us at The Meeting House on Sunday!',
       location: locationItem.location.address,
-      startTime: nextSunday.format(),
-      endTime: moment(nextSunday).add(90, 'minutes').format(),
+      start: nextSunday.format(),
+      end: moment(nextSunday).add(90, 'minutes').format(),
+      url: 'https://themeetinghouse.com/live',
     };
     return event;
   }
@@ -278,38 +276,87 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
               {this.renderLinkButton(this.state.content.button1)}
-
-              {this.state.content.link1Text ? (
-                <div className="heroAContainer">
-                  <Link
-                    className="heroBlackBoxA inverted"
-                    to={this.state.content.link1Action}
-                  >
-                    {this.state.content.link1Text}
-                  </Link>
-                </div>
-              ) : null}
-              {this.state.content.addToCalendar ? (
+              {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
+                <Link
+                  to={'/live'}
+                  className="calendarButton"
+                  style={{ color: 'white', paddingLeft: 0, paddingRight: 32 }}
+                  aria-label="Watch Livestream"
+                >
+                  <img
+                    height={25}
+                    className="calendarImage"
+                    src="/static/svg/Play.svg"
+                    alt="Contact Icon"
+                  />
+                  Watch Live
+                </Link>
+              ) : moment().format('YYYY-MM-DD') === '2021-04-02' &&
+                this.state.locationData.length ? ( // Is good friday
+                <Link
+                  to={this.state.content.customLiveLink ?? '/live'}
+                  className="calendarButton"
+                  style={{ color: 'white', paddingLeft: 0, paddingRight: 32 }}
+                  aria-label="Watch Livestream"
+                >
+                  <img
+                    height={25}
+                    className="calendarImage"
+                    src="/static/svg/Play.svg"
+                    alt="Contact Icon"
+                  />
+                  Watch Live
+                </Link>
+              ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  <div className="HeroAddToCalendarButtonContainer">
-                    <img
-                      className="SundaMorningIcon"
-                      src="/static/svg/Calendar-white.svg"
-                      alt="Calendar Icon"
-                    />
+                  this.state.content.header1 === 'Ancaster' ||
+                  this.state.content.header1 === 'Burlington' ||
+                  this.state.content.header1 === 'Toronto East' ? (
+                    moment().isBefore(moment('2021-04-02', 'YYYY-MM-DD')) ? (
+                      <Link
+                        to={this.state.content.customLiveLink ?? '/live'}
+                        className="calendarButton"
+                        style={{
+                          color: 'white',
+                          paddingLeft: 0,
+                          paddingRight: 32,
+                        }}
+                        aria-label="Save my spot"
+                      >
+                        <img
+                          height={25}
+                          className="calendarImage"
+                          src="/static/svg/Play.svg"
+                          alt="Contact Icon"
+                        />
+                        Save My Spot
+                      </Link>
+                    ) : (
+                      <AddToCalendar
+                        style={{ marginRight: 25 }}
+                        textDecoration="always"
+                        color="white"
+                        event={this.getCalendarEventForLocation(
+                          this.state.locationData[0]
+                        )}
+                      />
+                    )
+                  ) : (
                     <AddToCalendar
-                      buttonLabel="Add to Calendar"
+                      style={{ marginRight: 25 }}
+                      textDecoration="always"
+                      color="white"
                       event={this.getCalendarEventForLocation(
                         this.state.locationData[0]
                       )}
-                    ></AddToCalendar>
-                  </div>
+                    />
+                  )
                 ) : null
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
                   <a href={'mailto:' + this.state.locationData[0].pastorEmail}>
-                    <button className="calendarButton">
+                    <button className="calendarButton contactPastor">
                       <img
                         className="calendarImage"
                         src="/static/svg/Contact-white.svg"
@@ -321,6 +368,16 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null
               ) : null}
             </div>
+            {this.state.content.link1Text ? (
+              <div className="heroAContainer">
+                <Link
+                  className="heroBlackBoxA inverted"
+                  to={this.state.content.link1Action}
+                >
+                  {this.state.content.link1Text}
+                </Link>
+              </div>
+            ) : null}
             <br />
           </div>
           {this.state.content.showCovid ? (

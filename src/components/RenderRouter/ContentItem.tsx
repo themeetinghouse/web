@@ -1,10 +1,12 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import ScaledImage from 'components/ScaledImage/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { ItemImage } from '../types';
 import './ContentItem.scss';
+import DataLoader, { LocationData, LocationQuery } from './DataLoader';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 
 type ContentList = Array<
   | {
@@ -45,6 +47,10 @@ interface ContentType {
     text: string;
   };
   images?: BannerImage[];
+  class?: string;
+  filterField?: string;
+  filterValue?: string;
+  calendar?: Event;
 }
 
 interface Props extends RouteComponentProps {
@@ -52,6 +58,18 @@ interface Props extends RouteComponentProps {
 }
 
 function ContentItem({ content }: Props) {
+  const [data, setData] = useState<LocationData[]>();
+  useEffect(() => {
+    const loadLocations = async () => {
+      if (content.style === 'youth') {
+        const query = content as LocationQuery;
+        const data = await DataLoader.getLocations(query);
+        setData(data);
+      }
+    };
+    loadLocations();
+  });
+
   const renderList = (boxColor = 'grey') => {
     if (!content.list) {
       return null;
@@ -127,6 +145,14 @@ function ContentItem({ content }: Props) {
               <h2 className="oneImageH2">{content.header2}</h2>
               <div className="oneImageText">{content.text1}</div>
               <div className="oneImageList">{renderList()}</div>
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="black"
+                  textDecoration="always"
+                />
+              )}
             </div>
             <ScaledImage
               image={image1}
@@ -165,6 +191,14 @@ function ContentItem({ content }: Props) {
               <h2 className="oneImageH2 white">{content.header2}</h2>
               <div className="oneImageText white">{content.text1}</div>
               {renderList('black')}
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="white"
+                  textDecoration="always"
+                />
+              )}
             </div>
             <ScaledImage
               image={image1}
@@ -184,6 +218,14 @@ function ContentItem({ content }: Props) {
               <h2 className="oneImageH2 white">{content.header2}</h2>
               <div className="oneImageText white">{content.text1}</div>
               {renderList('black')}
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="white"
+                  textDecoration="always"
+                />
+              )}
             </div>
             <ScaledImage
               image={image1}
@@ -242,6 +284,56 @@ function ContentItem({ content }: Props) {
           </div>
           <div className="greyTwoClear" />
         </div>
+      );
+    case 'youth':
+      return data ? (
+        <div className="ContentItem greyTwoText">
+          <div className="greyTwoTextH1">{data[0].youth.age}</div>
+          <div className="greyTwoTextText">
+            <div className="greyTwoTextJustText">{data[0].youth.time}</div>
+            <div className="greyTwoTextJustText">
+              <a href={data[0].youth.location.googleMapLink}>
+                {data[0].youth.location.name}
+              </a>
+              <div style={{ color: 'red' }}>
+                Currently online due to Covid - email for details
+              </div>
+            </div>
+            <div className="greyTwoTextJustText">
+              <a href={'mailto:' + data[0].youth.mainContact.email}>
+                {data[0].youth.mainContact.name}
+              </a>{' '}
+              | {data[0].youth.mainContact.phone}
+            </div>
+
+            <div className="greyTwoTextJustText">
+              <div style={{ flexDirection: 'row' }}>
+                <a href={data[0].youth.facebook}>
+                  <img
+                    className="FooterSocialImg"
+                    src="/static/svg/Facebook.svg"
+                    alt={'Facebook Logo'}
+                    width={24}
+                    height={24}
+                  />
+                </a>
+
+                <a href={data[0].youth.instagram}>
+                  <img
+                    className="FooterSocialImg"
+                    src="/static/svg/Instagram.svg"
+                    alt={'Instagram Logo'}
+                    width={24}
+                    height={24}
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="greyTwoClear" />
+        </div>
+      ) : (
+        <div></div>
       );
 
     case 'pieChart':

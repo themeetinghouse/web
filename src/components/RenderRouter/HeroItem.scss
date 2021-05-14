@@ -12,12 +12,46 @@
   margin-top: 1vw;
 }
 
+.contactPastorLink {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .react-select-custom {
   &__menu-list {
     @media (min-width: 768px) and (max-width: 1500px) {
       max-height: 200px !important;
     }
   }
+}
+
+$no-footer-height: 38vw;
+.partialNoFooterImage {
+  width: 80vw;
+  height: $no-footer-height;
+  z-index: 50;
+  object-fit: cover;
+  position: absolute;
+}
+
+.partialNoFooter {
+  position: relative;
+  left: 20vw;
+  width: 80vw;
+  height: $no-footer-height;
+  padding-bottom: 0;
+}
+
+.calendarButton {
+  font-size: 16px;
+  padding: 0;
+}
+
+.calendarImage {
+  margin-right: 10px;
+  height: 25px;
 }
 
 @media (min-width: 768px) {
@@ -33,86 +67,6 @@
     border: 0 !important;
     padding-right: 12.5vw !important;
     color: theme.$onyxblacktext !important;
-  }
-  .HeroAddToCalendarButtonContainer {
-    position: relative;
-    display: inline-block;
-    padding: 0.375rem 1.25rem;
-    margin-top: 1vw;
-    margin-bottom: 0.5rem;
-    font-family: Graphik Web;
-    color: #ffffff;
-    .SundaMorningIcon {
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding-right: 0;
-      padding-left: 1.25rem;
-      pointer-events: none;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .react-add-to-calendar__button {
-      font-family: Graphik Web;
-      color: #ffffff;
-      border-width: 0px;
-      border-radius: 0;
-      font-size: 1vw;
-      text-decoration: underline !important;
-      font-weight: normal;
-      padding-left: 35px;
-      cursor: pointer;
-    }
-    .react-add-to-calendar__dropdown {
-      position: absolute;
-      z-index: 100;
-      top: 48px;
-      background: white;
-
-      border: 1px solid theme.$onyxblacktext;
-      padding: 10px 20px 0 20px;
-      ul {
-        list-style-type: none;
-        padding: 0;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        a {
-          color: theme.$onyxblacktext !important;
-          vertical-align: middle;
-        }
-        li {
-          position: relative;
-          vertical-align: middle;
-        }
-        a::before {
-          width: 15px;
-          height: 15px;
-          vertical-align: middle;
-          background-size: contain;
-          background-position-y: center;
-          background-repeat: no-repeat;
-          display: inline-block;
-          content: '';
-          margin: 5px 5px 8px 0;
-        }
-
-        a.apple-link::before {
-          background-image: url('../../svg/Apple.svg');
-        }
-        a.outlook-link::before {
-          background-image: url('../../svg/Outlook.svg');
-        }
-        a.outlookcom-link::before {
-          background-image: url('../../svg/Outlook.svg');
-        }
-        a.yahoo-link::before {
-          background-image: url('../../svg/Yahoo.svg');
-        }
-        a.google-link::before {
-          background-image: url('../../svg/Google.svg');
-        }
-      }
-    }
   }
 
   .partialConnect {
@@ -284,7 +238,7 @@
     left: 5vw;
     width: 46vw;
     top: 6vh;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .partialNoFooterBoxHr {
@@ -325,22 +279,6 @@
     z-index: 50;
     object-fit: cover;
     position: absolute;
-  }
-
-  .partialNoFooterImage {
-    width: 80vw;
-    height: 40vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .partialNoFooter {
-    position: relative;
-    left: 20vw;
-    width: 80vw;
-    height: 38vw;
-    padding-bottom: 0vh;
   }
 
   .heroImage {
@@ -452,19 +390,12 @@
   }
   .calendarButton {
     font-family: Graphik Web !important;
-    font-size: 1vw !important;
-    padding-top: 1vw;
-    padding-left: 1.5vw;
     color: #ffffff;
     font-weight: normal;
     background-color: theme.$onyxblacktext !important;
     border-width: 0 !important;
     border-radius: 0;
     text-decoration: underline !important;
-  }
-  .calendarImage {
-    margin-right: 10px;
-    height: 25px;
   }
   .heroItemButton {
     margin-top: 1.5vw;
@@ -495,83 +426,6 @@
     z-index: 1000;
     left: 20vw;
     top: 20vh;
-  }
-  .HeroAddToCalendarButtonContainer {
-    position: relative;
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    font-family: Graphik Web;
-    color: #ffffff;
-    .SundaMorningIcon {
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding-right: 0;
-      padding-left: 1.25rem;
-      pointer-events: none;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .react-add-to-calendar__button {
-      font-family: Graphik Web;
-      color: #ffffff;
-      border-width: 0px;
-      border-radius: 0;
-      font-size: 1vw;
-      text-decoration: underline !important;
-      font-weight: normal;
-      padding-left: 35px;
-      cursor: pointer;
-    }
-    .react-add-to-calendar__dropdown {
-      position: absolute;
-      z-index: 100;
-      top: 48px;
-      background: white;
-      border: 1px solid theme.$onyxblacktext;
-      padding: 10px 20px 0 20px;
-      ul {
-        list-style-type: none;
-        padding: 0;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        a {
-          color: theme.$onyxblacktext !important;
-          vertical-align: middle;
-        }
-        li {
-          position: relative;
-          vertical-align: middle;
-        }
-        a::before {
-          width: 15px;
-          height: 15px;
-          vertical-align: middle;
-          background-size: contain;
-          background-position-y: center;
-          background-repeat: no-repeat;
-          display: inline-block;
-          content: '';
-          margin: 5px 5px 8px 0;
-        }
-
-        a.apple-link::before {
-          background-image: url('../../svg/Apple.svg');
-        }
-        a.outlook-link::before {
-          background-image: url('../../svg/Outlook.svg');
-        }
-        a.outlookcom-link::before {
-          background-image: url('../../svg/Outlook.svg');
-        }
-        a.yahoo-link::before {
-          background-image: url('../../svg/Yahoo.svg');
-        }
-        a.google-link::before {
-          background-image: url('../../svg/Google.svg');
-        }
-      }
-    }
   }
 
   .partialConnect {
@@ -753,7 +607,7 @@
     left: 5vw;
     width: 46vw;
     top: 6vh;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .partialNoFooterBoxHr {
@@ -785,22 +639,6 @@
     z-index: 50;
     object-fit: cover;
     position: absolute;
-  }
-
-  .partialNoFooterImage {
-    width: 80vw;
-    height: 40vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-  }
-
-  .partialNoFooter {
-    position: relative;
-    left: 20vw;
-    width: 80vw;
-    height: 38vw;
-    padding-bottom: 0vh;
   }
 
   .heroImage {
@@ -913,17 +751,12 @@
   }
   .calendarButton {
     font-family: Graphik Web !important;
-    font-size: 1vw !important;
     margin-top: 1vw;
     color: #ffffff;
     background-color: theme.$onyxblacktext !important;
     border-width: 0 !important;
     border-radius: 0;
     text-decoration: underline !important;
-  }
-
-  .calendarImage {
-    margin-right: 5px;
   }
   .heroItemButton {
     margin-top: 1.5vw;
@@ -941,10 +774,16 @@
   }
 }
 
-@media (max-width: 357px) {
-  .calendarButton {
-    margin-top: 5vw !important;
-    padding-left: 0;
+@media (max-width: 1050px) {
+  .contactPastorLink {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contactPastor {
+    margin-top: 8px;
   }
 }
 
@@ -966,84 +805,6 @@
     left: 15vw;
     top: 40vh;
   }
-  .HeroAddToCalendarButtonContainer {
-    position: relative;
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    font-family: Graphik Web;
-    color: #ffffff;
-    .SundaMorningIcon {
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding-right: 0;
-      padding-left: 1.25rem;
-      pointer-events: none;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .react-add-to-calendar__button {
-      font-family: Graphik Web;
-      color: #ffffff;
-      border-width: 0px;
-      border-radius: 0;
-      font-size: 3.5vw;
-      text-decoration: underline !important;
-      font-weight: normal;
-      padding-left: 35px;
-      cursor: pointer;
-    }
-    .react-add-to-calendar__dropdown {
-      position: absolute;
-      z-index: 100;
-      top: 48px;
-      background: white;
-      border: 1px solid theme.$onyxblacktext;
-      padding: 10px 20px 0 20px;
-      ul {
-        list-style-type: none;
-        padding: 0;
-        font-family: Graphik Web;
-        font-size: 1vw;
-        a {
-          color: theme.$onyxblacktext !important;
-          vertical-align: middle;
-        }
-        li {
-          position: relative;
-          vertical-align: middle;
-        }
-        a::before {
-          width: 15px;
-          height: 15px;
-          vertical-align: middle;
-          background-size: contain;
-          background-position-y: center;
-          background-repeat: no-repeat;
-          display: inline-block;
-          content: '';
-          margin: 5px 5px 8px 0;
-        }
-
-        a.apple-link::before {
-          background-image: url('../../svg/Apple.svg');
-        }
-        a.outlook-link::before {
-          background-image: url('../../svg/Outlook.svg');
-        }
-        a.outlookcom-link::before {
-          background-image: url('../../svg/Outlook.svg');
-        }
-        a.yahoo-link::before {
-          background-image: url('../../svg/Yahoo.svg');
-        }
-        a.google-link::before {
-          background-image: url('../../svg/Google.svg');
-        }
-      }
-    }
-  }
-
   .partialConnect {
     position: relative;
     width: 100vw;
@@ -1192,20 +953,16 @@
     position: relative;
   }
 
+  $mobile-no-footer-height: 90vh;
   .partialNoFooterImage {
     width: 100vw;
-    z-index: 50;
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
+    height: $mobile-no-footer-height;
   }
 
   .partialNoFooter {
-    position: relative;
-    left: 0vw;
+    left: 0;
     width: 100vw;
-    padding-bottom: 0vh;
-    height: 90vh;
+    height: $mobile-no-footer-height;
   }
 
   .partialNoFooterBox {
@@ -1214,7 +971,7 @@
     left: 5vw;
     width: 46vw;
     top: 18vh;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .partialNoFooterBoxHr {
@@ -1315,7 +1072,7 @@
     padding: 6vw;
     left: 0vw;
     width: 88vw;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .partialNoFooterLocationDropDown {
@@ -1335,18 +1092,12 @@
 
   .calendarButton {
     font-family: Graphik Web !important;
-    font-size: 3.5vw !important;
     font-weight: normal;
-    margin-top: 15vw;
     color: #ffffff;
     background-color: theme.$onyxblacktext !important;
     border-width: 0 !important;
     border-radius: 0;
     text-decoration: underline !important;
-  }
-  .calendarImage {
-    margin-right: 5px;
-    padding-left: 0.5rem;
   }
   .heroItemButton {
     margin-top: 1.5vw;
@@ -1372,11 +1123,5 @@
 
   .heroAContainer {
     margin-top: 5vw;
-  }
-
-  .contactPastorLink {
-    display: flex;
-    align-items: center;
-    align-content: center;
   }
 }

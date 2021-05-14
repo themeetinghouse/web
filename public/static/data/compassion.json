@@ -650,5 +650,45 @@
     "description": "Developing peacebuilding skills and training for individuals and communities so they can navigate conflicts nonviolently.",
     "image": "/static/photos/compassion/peacebuilding.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 75,
+    "sites": ["chosen"],
+    "name": "Literacy & Education",
+    "description": "We invest in inclusive and equitable quality education to ensure children have access to lifelong opportunities to impact their future.",
+    "image": "/static/photos/compassion/literacy.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 76,
+    "sites": ["chosen"],
+    "name": "Nutrition & Health",
+    "description": "We invest in healthcare workers and institutions to improve the health of the communities and promote their well-being.",
+    "image": "/static/photos/compassion/worldvision6.jpg",
+    "imagealt": "A person closing a coffee cup in a cafe window"
+  }, 
+  {
+    "id": 77,
+    "sites": ["chosen"],
+    "name": "Water & Sanitation",
+    "description": "We invest in the availability and sustainable management of water and property sanitation.",
+    "image": "/static/photos/compassion/water.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 78,
+    "sites": ["chosen"],
+    "name": "Livelihood: SDG 1",
+    "description": "We invest in economic development and opportunities for communities to flourish.",
+    "image": "/static/photos/compassion/well.jpg",
+    "imagealt": "A person closing a coffee cup in a cafe window"
+  }, 
+  {
+    "id": 79,
+    "sites": ["chosen"],
+    "name": "Child Protection & Preventing early child marriage",
+    "description": "We invest in gender equality and the empowerment of women and girls.",
+    "image": "/static/photos/compassion/land.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
   }
 ]

@@ -37,6 +37,12 @@
     "functiongetBiblePassageName": {
       "Type": "String",
       "Default": "functiongetBiblePassageName"
+    },
+    "deploymentBucketName": {
+      "Type": "String"
+    },
+    "s3Key": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -115,10 +121,14 @@
         },
         "Runtime": "nodejs12.x",
         "Layers": [],
-        "Timeout": "225",
+        "Timeout": "425",
         "Code": {
-          "S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "S3Key": "amplify-builds/tmhF1HomeChurch-72316f584b387037497a-build.zip"
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
         }
       }
     },

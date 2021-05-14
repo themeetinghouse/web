@@ -1,4 +1,4 @@
-import React, { useState, HTMLAttributes } from 'react';
+import { useState, HTMLAttributes } from 'react';
 import './BlogReader.scss';
 import {
   Dropdown,
@@ -74,7 +74,7 @@ function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
 }
 
 interface DownloadButtonProps {
-  pdf: string | null;
+  pdf: string | null | undefined;
   className: string;
 }
 

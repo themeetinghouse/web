@@ -2,13 +2,28 @@
 
 .app-promo {
   @media (max-width: 360px) {
-    font-size: 12px;
+    .close-btn-custom > span {
+      font-size: 16px !important;
+    }
   }
   @media (min-width: 768px) {
     font-size: 20px;
-    height: 80px;
+    .close-btn-custom > span {
+      font-size: 24px !important;
+    }
+    padding: 10px 16px;
+    height: 75px;
     .vl {
-      height: 70px;
+      margin: 0 16px !important;
+    }
+  }
+
+  .close-btn-custom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    span {
+      font-size: 22px;
     }
   }
 
@@ -22,20 +37,19 @@
   padding: 10px 12px;
   background-color: theme.$onyxblacktext;
   font-family: Graphik Web;
-  font-size: 16px;
+  font-size: min(1em, 4.2vw);
 
-  height: 75px;
+  height: 65px;
   .vl {
     background: white;
     width: 2px;
-    height: 65px;
+    height: 55px;
     margin: 0 12px;
   }
 
   .promo-text {
     color: white;
     font-weight: 600;
-    padding: 0 12px;
     margin-right: auto;
   }
 
@@ -45,6 +59,7 @@
     vertical-align: middle;
     color: theme.$onyxblacktext;
     font-weight: 800;
-    padding: 0.4em 0.8em;
+    padding: 0.4em 0.9em;
+    letter-spacing: 0.05em;
   }
 }

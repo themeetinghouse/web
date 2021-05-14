@@ -8,7 +8,21 @@
       "latitude": 44.149035,
       "address": "Gibson Centre, 63 Tupper Street West"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00"],
+    "youth": {
+      "age": "Youth | Grades 6 – 12",
+      "location": {
+        "name": "Immanuel CRC Church",
+        "address": "2626 Mayfield Road, Caledon"
+      },
+      "time": "Wednesdays | 7:00 – 9:00 pm",
+      "facebook": "https://www.facebook.com/bramptonyouth.tmh/",
+      "instagram": "https://www.instagram.com/bramptonyouth.tmh/",
+      "mainContact": {
+        "name": "Amie Medeiros – Youth Coordinator",
+        "email": "amie.medeiros@themeetinghouse.com"
+      }
+    }
   },
   {
     "id": "sandbanks",
@@ -123,7 +137,7 @@
   {
     "id": "kitchener",
     "name": "Kitchener",
-    "pastorEmail": "Mark.Wall@themeetinghouse.com",
+    "pastorEmail": "patti.larsen@themeetinghouse.com ",
     "location": {
       "longitude": -80.387502,
       "latitude": 43.4054,
@@ -162,7 +176,22 @@
       "latitude": 43.511459,
       "address": "2700 Bristol Circle"
     },
-    "serviceTimes": ["8:00", "9:30", "11:15"]
+    "serviceTimes": ["8:00", "9:30", "11:15"],
+    "youth": {
+      "age": "Youth | Grades 6 – 12",
+      "location": {
+        "name": "The Meeting House Production Site",
+        "googleMapLink": "https://www.google.com/maps/place/2700+Bristol+Cir,+Oakville,+ON+L6H+6E1/@43.5111777,-79.687309,17z/data=!3m1!4b1!4m5!3m4!1s0x882b43061295ed3d:0x6c6d4c16d7ec8f0e!8m2!3d43.5111738!4d-79.685115"
+      },
+      "time": "Wednesdays | 7:00 – 9:00 pm",
+      "facebook": "https://www.facebook.com/oakvilleyouth.tmh/",
+      "instagram": "https://www.instagram.com/oakvilleyouth.tmh/",
+      "mainContact": {
+        "name": "Brad Eager – Youth Pastor",
+        "email": "brad.eager@themeetinghouse.com",
+        "phone": "905.464.0307"
+      }
+    }
   },
   {
     "id": "ottawa",
@@ -228,6 +257,17 @@
       "longitude": -80.527216,
       "latitude": 43.498807,
       "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
+    },
+    "serviceTimes": ["10:00"]
+  },
+  {
+    "id": "global",
+    "name": "Global",
+    "pastorEmail": "Mike.Slack@themeetinghouse.com",
+    "location": {
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address": " "
     },
     "serviceTimes": ["10:00"]
   }

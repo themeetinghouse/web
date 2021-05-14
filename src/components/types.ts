@@ -1,3 +1,5 @@
+import { ListLivestreamsQuery } from 'API';
+
 export interface SundayMorningItemContent {
   type: 'sunday-morning';
 
@@ -76,3 +78,14 @@ export interface GoItem extends GoText {
   style: 'goItem' | 'goSubItems';
   items?: Array<GoText>;
 }
+
+export type Margin = {
+  marginTop?: string | number;
+  marginBottom?: string | number;
+  marginLeft?: string | number;
+  marginRight?: string | number;
+};
+
+export type LiveEvents = NonNullable<
+  NonNullable<ListLivestreamsQuery['listLivestreams']>['items']
+>;

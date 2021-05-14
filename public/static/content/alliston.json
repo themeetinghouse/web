@@ -36,16 +36,10 @@
           }
         ],
         "header1": "Alliston",
-        "button1": {
-          "text": "Livestream",
-          "action": "live",
-          "description": "Sunday Morning Livestream"
-        },
         "text1": "Livestream Sundays @ 10:00am",
-        "text2": "Good Friday Virtual Gathering",
-        "text3": "April 2 @ 7:00pm",
-        "text3a": "Includes full program for Infants to Grade 8",
-        "addToCalendar": false,
+        "text2": "Sunday Virtual Gathering",
+        "text2a": "10:30 am-11:30 am – Music and Teaching",
+        "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
@@ -66,27 +60,6 @@
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
         "filterValue": "ALLI"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "April 2 - 7:00pm",
-        "text1": "We want to lean into community and create a more local virtual experience that feels like family. On April 2, click the link below to participate. In the meantime, use the link if you have any questions for our lead pastor.",
-        "image1": [
-          {
-            "src": "/static/images/local-easter.jpg",
-            "alt": "A woman smiling in front of greenery and plants."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Connect",
-            "navigateTo": "mailto:michael.kotsopoulos@themeetinghouse.com",
-            "description": "A link to open a service client and send an email to the pastor."
-          }
-        ]
       },
       {
         "type": "list",

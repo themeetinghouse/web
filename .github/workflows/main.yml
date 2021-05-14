@@ -7,8 +7,16 @@ name: CI
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'src/**'
+      - 'amplify/**'
+      - 'package*.json'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'src/**'
+      - 'amplify/**'
+      - 'package*.json'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

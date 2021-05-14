@@ -116,6 +116,12 @@
         "list": [
           {
             "type": "link",
+            "title": "Finance Update - April 2021",
+            "navigateTo": "/static/pdfs/annual-reports/Finance Update April 2021.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "Finance Update - January 2021",
             "navigateTo": "/static/pdfs/annual-reports/Jan Finance Update 2021.pdf",
             "openNewBrowser": true
@@ -129,7 +135,7 @@
           {
             "type": "link",
             "title": "Finance Update - October 2020",
-            "navigateTo": "/static/pdfs/annual-reports/Finance Update - October 2020_v2.pdf",
+            "navigateTo": "/static/pdfs/annual-reports/Finance Update - October 2020.pdf",
             "openNewBrowser": true
           },
           {

@@ -135,7 +135,7 @@ class ArchiveItem extends React.Component<Props, State> {
     else this.props.history.push('/videos/' + data.series.id + '/' + data.id);
   }
 
-  showYears(start: string | null, end: string | null) {
+  showYears(start: string | null | undefined, end: string | null | undefined) {
     const validStart = start && !isNaN(new Date(start).getFullYear());
     const validEnd = end && !isNaN(new Date(end).getFullYear());
     const isValid = validStart && validEnd;

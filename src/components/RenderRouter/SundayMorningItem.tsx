@@ -9,7 +9,7 @@ import {
 } from 'google-maps-react';
 import moment from 'moment';
 import React, { ChangeEvent } from 'react';
-import AddToCalendar from '@esetnik/react-add-to-calendar';
+import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
@@ -287,33 +287,33 @@ export class SundayMorningItem extends React.Component<Props, State> {
     this.setState({ selectedPlaceMarker: undefined, selectedPlace: item });
   };
 
-  getCalendarEventForLocation(locationItem: ListData) {
+  getCalendarEventForLocation(locationItem: ListData): Event {
     if (this.props.content.alternate === 'christmas') {
       const nextSunday = moment(locationItem.serviceTimes, 'MMMM D, h:mma');
       console.log(nextSunday);
       const event = {
-        title: 'Christmas at The Meeting House',
+        summary: 'Christmas at The Meeting House',
         description: 'Join us at The Meeting House for Christmas!',
         location: locationItem.location.address,
-        startTime: nextSunday.format(),
-        endTime: moment(nextSunday).add(90, 'minutes').format(),
+        start: nextSunday.format(),
+        end: moment(nextSunday).add(90, 'minutes').format(),
       };
       return event;
     } else {
-      let nextSunday = (moment().day() === 0
-        ? moment().add(1, 'week')
-        : moment().day(0)
-      ).startOf('day');
+      let nextSunday;
+      if (moment().day() === 0 && moment().isBefore(moment('10:00', 'hh:mm')))
+        nextSunday = moment().startOf('day');
+      else nextSunday = moment().add(1, 'week').day(0).startOf('day');
       let serviceHour =
         locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
       serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
       nextSunday = nextSunday.hour(+serviceHour);
       const event = {
-        title: 'Church at The Meeting House',
+        summary: 'Church at The Meeting House',
         description: 'Join us at The Meeting House on Sunday!',
         location: locationItem.location.address,
-        startTime: nextSunday.format(),
-        endTime: moment(nextSunday).add(90, 'minutes').format(),
+        start: nextSunday.format(),
+        end: moment(nextSunday).add(90, 'minutes').format(),
       };
       return event;
     }
@@ -603,17 +603,12 @@ export class SundayMorningItem extends React.Component<Props, State> {
                           </div>
 
                           <div className="SundayMorningButtonContainer">
-                            <div className="AddToCalendarButtonContainer">
-                              <img
-                                className="AddToCalendarIcon"
-                                src="/static/svg/Calendar, Add To.svg"
-                                alt="Calendar Icon"
-                              />
-                              <AddToCalendar
-                                buttonLabel="Add to Calendar"
-                                event={this.getCalendarEventForLocation(item)}
-                              />
-                            </div>
+                            <AddToCalendar
+                              style={{ marginRight: 25 }}
+                              textDecoration="hover"
+                              color="black"
+                              event={this.getCalendarEventForLocation(item)}
+                            />
                             <a
                               className="emailText"
                               href={
@@ -622,13 +617,12 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                   : 'mailto:' + item.pastorEmail
                               }
                             >
-                              <button className="emailButton">
-                                <img
-                                  className="ContactPastorIcon"
-                                  src="/static/svg/Contact.svg"
-                                  alt="Contact Icon"
-                                />
-                              </button>
+                              <img
+                                style={{ marginRight: 10 }}
+                                className="ContactPastorIcon"
+                                src="/static/svg/Contact.svg"
+                                alt="Contact Icon"
+                              />
                               {this.props.content.alternate === 'christmas'
                                 ? 'Connect'
                                 : 'Contact Pastor'}
