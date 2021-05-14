@@ -902,10 +902,10 @@ class ListItem extends React.Component<Props, State> {
       </div>
     );
   }
-  renderCompassion(item: any) {
+  renderCompassion(item: CompassionData) {
     const image = {
       src: item.image,
-      alt: item.imageAlt,
+      alt: item.imagealt,
     };
     return (
       <div key={item.id} className="ListItemCompassion">
@@ -925,49 +925,13 @@ class ListItem extends React.Component<Props, State> {
 
         <div className="ListItemEventsDescription">{item.name}</div>
         <div className="ListItemEventsDescription2">{item.description}</div>
-        <div>{item.location}</div>
+
         {item.website != null ? (
           <div className="ListItemWebsiteContainer">
             <a className="ListItemWebsite" href={item.website}>
               Website
             </a>
           </div>
-        ) : null}
-        {item.facebook != null ? (
-          <a
-            href={'https://www.facebook.com/' + item.facebook}
-            className="ListItemSocialLink"
-          >
-            <img
-              className="ListItemFB"
-              src="/static/svg/Facebook.svg"
-              alt="Facebook Logo"
-            />
-          </a>
-        ) : null}
-        {item.twitter != null ? (
-          <a
-            href={'https://twitter.com/' + item.twitter}
-            className="ListItemSocialLink"
-          >
-            <img
-              className="ListItemTwitter"
-              src="/static/svg/Twitter.svg"
-              alt="Twitter Logo"
-            />
-          </a>
-        ) : null}
-        {item.instagram != null ? (
-          <a
-            href={'https://www.instagram.com//' + item.instagram}
-            className="ListItemSocialLink"
-          >
-            <img
-              className="ListItemInstagram"
-              src="/static/svg/Instagram.svg"
-              alt="Instagram Logo"
-            />
-          </a>
         ) : null}
       </div>
     );
