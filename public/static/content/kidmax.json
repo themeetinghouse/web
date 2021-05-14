@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMay9.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMay16.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMay9.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMay16.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMay9.jpg",
-            "alt": "This week's big idea is: Jesus makes a radical change in our lives."
+            "src": "/static/images/KidsBigIdeaMay16.jpg",
+            "alt": "This week's big idea is: Prayer and fasting make a radical difference."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMay9.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMay16.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMay9.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMay16.pdf",
             "openNewBrowser": true
           },
           {
