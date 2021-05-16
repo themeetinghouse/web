@@ -33,7 +33,7 @@
           "header1": "Chosen",
           "text1": "Invest in sustainable development efforts in Mposa & Chamba and play your part in ending global poverty.",
           "button1": {
-            "text": "Sponsor a Child",
+            "text": "Be Chosen",
             "action": "https://chosen.azurewebsites.net/#/?mc=4539946",
             "description": "Our community partnerships and sponsorship link."
           }
@@ -64,7 +64,7 @@
           "style": "vertical",
           "class": "compassion",
           "header1": "Why Poverty Alleviation?",
-          "text1": " In alignment with the UN's Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the last 10 years, we've built relationships and invested in long term community development in the following areas:",
+          "text1": " In alignment with the United Nations' Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the last 10 years, we've built relationships and invested in long term community development in the following areas:",
           "filterField": "sites",
           "filterValue": "chosen"
         },
