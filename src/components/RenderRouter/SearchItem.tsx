@@ -14,19 +14,11 @@ Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
   content: any;
-} /*
-const SearchType = {
-  All: 'All',
-  Blogs: 'Blogs',
-  Videos: 'Videos',
-  Staff: 'Staff',
-  Compassion: 'Compassion',
-};
-type SearchType = typeof SearchType[keyof typeof SearchType];*/
+}
 enum SearchType {
   All = 'All' as any,
-  Blogs = 'Blogs' as any,
   Videos = 'Videos' as any,
+  Blogs = 'Blogs' as any,
   Staff = 'Staff' as any,
   Compassion = 'Compassion' as any,
 }
