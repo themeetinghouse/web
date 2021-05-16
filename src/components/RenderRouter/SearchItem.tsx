@@ -10,6 +10,7 @@ import DataLoader, { CompassionData, StaffData } from './DataLoader';
 import ScaledImage from 'components/ScaledImage/ScaledImage';
 import { SearchBlogsQuery } from 'API';
 import { GraphQLResult } from '@aws-amplify/api';
+import RenderRouter from './RenderRouter';
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
@@ -32,6 +33,8 @@ interface State {
   dataOverseers: any;
   dataCompassion: CompassionData[];
   currentSearchType: SearchType;
+  customData: any;
+  customBegin: any;
 }
 const videoTypeParser: { [name: string]: string } = {
   'adult-sunday': 'Sunday Teaching',
@@ -43,6 +46,8 @@ class ContentItem extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      customData: null,
+      customBegin: null,
       content: props.content,
       searchResults: null,
       searchBlogResults: null,
@@ -65,6 +70,21 @@ class ContentItem extends React.Component<Props, State> {
       //dataE = await DataLoader.loadEvents(query);
       dataCompassion: await DataLoader.loadCompassion(),
     });
+    fetch('/static/content/search/beginSearch.json')
+      .then(async (e: Response) => {
+        try {
+          console.log(e);
+          console.log(e.body);
+          this.setState({ customBegin: await e.json() });
+        } catch (e: any) {
+          console.log(e);
+          this.setState({ customBegin: null });
+        }
+      })
+      .catch((e: Error) => {
+        this.setState({ customBegin: null });
+        console.log(e);
+      });
     //dataSpeakers: await DataLoader.getSpeakers(query, dataLoaded);
   }
   imgUrl(size: any) {
@@ -87,8 +107,23 @@ class ContentItem extends React.Component<Props, State> {
       `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
     );
   }
-  search(e: any, nextId: any) {
+  async search(e: any, nextId: any) {
     console.log(e);
+    fetch('/static/content/search/' + e + '.json')
+      .then(async (e: Response) => {
+        try {
+          console.log(e);
+          console.log(e.body);
+          this.setState({ customData: await e.json() });
+        } catch (e: any) {
+          console.log(e);
+          this.setState({ customData: null });
+        }
+      })
+      .catch((e: Error) => {
+        this.setState({ customData: null });
+        console.log(e);
+      });
     const searchBlogs: any = API.graphql(
       graphqlOperation(queries.searchBlogs, {
         filter: {
@@ -366,6 +401,8 @@ class ContentItem extends React.Component<Props, State> {
   }
   renderSearchTypes(): React.ReactNode {
     return (
+      this.state.customData?.page?.pageConfig?.searchResult?.hideShowMenu !==
+        true &&
       this.state.searchString != '' && (
         <div className="TrendingSearches">
           Show:
@@ -430,6 +467,12 @@ class ContentItem extends React.Component<Props, State> {
       )
     );
   }
+  renderCustom(): React.ReactNode {
+    return <RenderRouter data={null} content={this.state.customData} />;
+  }
+  renderBegin(): React.ReactNode {
+    return <RenderRouter data={null} content={this.state.customBegin} />;
+  }
   render(): React.ReactNode {
     const focusInputField = (input: any) => {
       if (input) {
@@ -439,51 +482,64 @@ class ContentItem extends React.Component<Props, State> {
       }
     };
     return (
-      <div className="SearchItem">
-        <input
-          value={this.state.searchString}
-          className="SearchItemInput"
-          autoFocus={true}
-          ref={focusInputField}
-          onChange={(e: any) => {
-            this.setState({ searchString: e.target.value });
-            this.doSearch(e.target.value);
-          }}
-          placeholder="Search..."
-        ></input>
+      <>
+        <div className="SearchItem">
+          <input
+            value={this.state.searchString}
+            className="SearchItemInput"
+            autoFocus={true}
+            ref={focusInputField}
+            onChange={(e: any) => {
+              this.setState({ searchString: e.target.value });
+              this.doSearch(e.target.value);
+            }}
+            placeholder="Search..."
+          ></input>
 
-        <div className="SearchItemDiv">
-          {this.renderTrending()}
-          {this.renderSearchTypes()}
-
+          <div className="SearchItemDiv">
+            {this.renderTrending()}
+            {this.renderSearchTypes()}
+          </div>
+        </div>
+        {this.state.customBegin != null &&
+          this.state.searchString == '' &&
+          this.renderBegin()}
+        {this.state.customData != null &&
+          this.state.searchString != '' &&
+          this.renderCustom()}
+        <div className="SearchItem">
           {(this.state.currentSearchType == SearchType.All ||
             this.state.currentSearchType == SearchType.Staff) &&
             this.state.searchString != '' &&
+            this.state.customData?.page?.pageConfig?.searchResult?.hideStaff !==
+              true &&
             this.staffItems().map((staff: StaffData) =>
               this.renderStaff(staff)
             )}
           {(this.state.currentSearchType == SearchType.All ||
             this.state.currentSearchType == SearchType.Compassion) &&
             this.state.searchString != '' &&
+            this.state.customData?.page?.pageConfig?.searchResult
+              ?.hideCompassion !== true &&
             this.compassionItems().map((compassion: CompassionData) =>
               this.renderCompassion(compassion)
             )}
           {(this.state.currentSearchType == SearchType.All ||
             this.state.currentSearchType == SearchType.Blogs) &&
-          this.state.searchBlogResults !== null
-            ? this.state.searchBlogResults.map((item: any) =>
-                this.renderBlog(item)
-              )
-            : null}
+            this.state.searchBlogResults !== null &&
+            this.state.customData?.page?.pageConfig?.searchResult?.hideBlogs !==
+              true &&
+            this.state.searchBlogResults.map((item: any) =>
+              this.renderBlog(item)
+            )}
           {(this.state.currentSearchType == SearchType.All ||
             this.state.currentSearchType == SearchType.Videos) &&
-          this.state.searchResults !== null
-            ? this.state.searchResults.map((item: any) =>
-                this.renderVideo(item)
-              )
-            : null}
+            this.state.searchResults !== null &&
+            this.state.customData?.page?.pageConfig?.searchResult
+              ?.hideVideos !== true &&
+            this.state.searchResults.map((item: any) => this.renderVideo(item))}
         </div>
-      </div>
+      </>
     );
   }
 }
