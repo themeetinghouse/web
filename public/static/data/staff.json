@@ -343,15 +343,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Keturah",
-    "LastName": "Duncan",
-    "Phone": "905.287.7000, ext. 861",
-    "Position": "Executive Assistant",
-    "sites": ["Operations"],
-    "Email": "Keturah.Duncan@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
