@@ -18,7 +18,8 @@
     },
     "content": [
       {
-        "type": "search"
+        "type": "search",
+        "trending": ["Jesus", "Home Church", "Jesus 101"]
       }
     ]
   }

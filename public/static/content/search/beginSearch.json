@@ -1,0 +1,47 @@
+{
+  "page": {
+    "name": "toronto-downtown",
+    "title": "The Meeting House - Downtown Toronto",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "showLive": false,
+      "movingMenu": false,
+      "showLogoText": false,
+      "logoColor": "black",
+      "showSearch": false,
+      "showFooter": false,
+      "showMenu": false,
+      "searchResult": {
+        "hideVideos": true,
+        "hideBlogs": true,
+        "hideStaff": true,
+        "hideCompassion": true,
+        "hideShowMenu": true
+      }
+    },
+    "content": [
+      {
+        "type": "searchResult",
+        "style": "link",
+        "header1": "Teaching",
+        "text1": "All of our videos in one place.",
+        "navigateTo": "https://themeetinghouse.com/teaching"
+      },
+      {
+        "type": "searchResult",
+        "style": "link",
+        "header1": "Home Church Finder",
+        "text1": "Need to find a home church quick?",
+        "navigateTo": "https://themeetinghouse.com/find-homechurch"
+      },
+      {
+        "type": "searchResult",
+        "style": "link",
+        "header1": "Giving",
+        "text1": "Want to make a donation?",
+        "navigateTo": "https://themeetinghouse.com/give"
+      }
+    ]
+  }
+}

@@ -85,7 +85,7 @@
       },
       {
         "type": "content",
-        "style": "oneImage",
+        "style": "oneImageBlackRight",
         "header1": "Go Campaign",
         "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
         "list": [
@@ -229,7 +229,7 @@
         "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
         "text2": "Find local, connect online.",
         "link1Text": "Show Map",
-        "link1AriaLabel" : "View a map of all church locations",
+        "link1AriaLabel": "View a map of all church locations",
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true
