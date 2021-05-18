@@ -348,7 +348,8 @@ if __name__ == '__main__':
                             pass
                         elif item_type == 'weather':
                             pass
-                        
+                        elif item_type == 'searchResult':
+                            pass
                         else:
                             raise Exception(f'unknown content type: {item_type}')
 
