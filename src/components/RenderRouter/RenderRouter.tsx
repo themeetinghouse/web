@@ -34,7 +34,7 @@ const PodcastPlayer = React.lazy(() => import('./PodcastPlayer'));
 const VideoPlayerLiveLeadersDay = React.lazy(
   () => import('./VideoPlayerLive_leadersday')
 );
-
+const SearchResult = React.lazy(() => import('./SearchResult'));
 interface Props extends RouteComponentProps {
   content: any;
   data: any;
@@ -107,6 +107,8 @@ class RenderRouter extends React.Component<Props> {
         return <SimpleItem key={index} content={item} />;
       case 'podcasts':
         return <PodcastItem key={index} content={item} />;
+      case 'searchResult':
+        return <SearchResult key={index} content={item} />;
       case 'weather':
         return (
           <WeatherItem data={this.props.data} key={index} content={item} />

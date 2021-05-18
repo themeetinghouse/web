@@ -1,0 +1,31 @@
+@use '../../theme';
+
+@media (min-width: 768px) {
+  .searchResultDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 2vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .searchResultDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 2vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .searchResultDiv1 {
+    position: relative;
+    top: 20vw;
+    left: 0vw;
+    margin-bottom: 2vw;
+    width: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
