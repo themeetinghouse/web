@@ -33,7 +33,7 @@
           "header1": "Chosen",
           "text1": "Invest in sustainable development efforts in Mposa & Chamba and play your part in ending global poverty.",
           "button1": {
-            "text": "Sponsor a Child",
+            "text": "Be Chosen",
             "action": "https://chosen.azurewebsites.net/#/?mc=4539946",
             "description": "Our community partnerships and sponsorship link."
           }
@@ -139,16 +139,16 @@
             },
             {
               "type": "question",
-              "question": "Why participate in sponsorship?",
+              "question": "Why should I be Chosen?",
               "answer": [
                 "The Chosen initiative and child sponsorship are fundraising initiatives that help build connections between donors and our partner communities. Funds donated are invested into the entire community and not specifically the child that is sponsored. This ensures that the entire community is moving out of poverty rather than just selected individuals and families. This leads to a more resilient and flourishing community."
               ]
             },
             {
               "type": "question",
-              "question": "When will we financially transition from supporting Mposa and Chamba?",
+              "question": "When will the communities of Mpsoa and Chamba reach their sustainable development goals?",
               "answer": [
-                "The dates are not certain, but we are planning to transition within the next five years. This is the last opportunity for our church to participate in sponsorship with Mposa and Chamba."
+                "Due to setbacks from the COVID-19 pandemic, the exact dates are not certain but through The Meeting House’s ongoing partnership the communities remain on track to achieve their sustainable development goals within the next five years. With Chosen, we want every child who is still waiting for a sponsor to have the opportunity to choose one."
               ]
             },
             {
