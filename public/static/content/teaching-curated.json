@@ -25,27 +25,11 @@
         "type": "teaching",
         "style": "hero",
         "class": "bbq",
-        "subclass": "questions",
+        "subclass": "bbq",
         "header1": "Bruxy's Bag of Questions",
         "options": [],
         "group": "bbq",
         "sortOrder": "DESC"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "questions",
-        "limit": 25,
-        "sortOrder": "DESC",
-        "header1": "Starting Questions"
-      },
-      {
-        "type": "list",
-        "style": "horizontalBig",
-        "class": "playlists",
-        "header1": "Teaching by Topic",
-        "forceToTop": ["The Bible"]
       },
       {
         "type": "list",
@@ -58,6 +42,13 @@
       },
       {
         "type": "list",
+        "style": "horizontalBig",
+        "class": "playlists",
+        "header1": "Teaching by Topic",
+        "forceToTop": ["The Bible"]
+      },
+      {
+        "type": "list",
         "style": "horizontal",
         "class": "random-suggested-playlist",
         "header1": "Suggested Videos"
@@ -67,14 +58,13 @@
         "style": "horizontalBig",
         "class": "series-collection",
         "collection": [
-          "Jesus 101",
+          "The Jesus and the Scandals",
           "Big Buts of the Bible",
-          "The Look of Love",
           "Inglorious Pastors",
-          "Jesus and the Scandal of Scripture",
           "Blind Religion",
           "reVOLUtion",
-          "Grace Anatomy"
+          "Grace Anatomy",
+          "The Look of Love"
         ],
         "header1": "The Jesus-Centred Life"
       },
@@ -93,15 +83,6 @@
         "subclass": "after-party",
         "sortOrder": "DESC",
         "header1": "The After Party"
-      },
-      {
-        "type": "list",
-        "style": "horizontalBig",
-        "class": "series",
-        "subclass": "adult-sunday",
-        "limit": 20,
-        "sortOrder": "DESC",
-        "header1": "All Teaching Series"
       }
     ]
   }

@@ -26,11 +26,7 @@
   color: #c8c8c8;
   opacity: 1;
 }
-.TrendingItem {
-  text-decoration: underline;
-  display: inline;
-  cursor: pointer;
-}
+
 .SearchItemDiv {
   width: 70vw;
   margin: 18px 0px 30px 0px;
@@ -138,22 +134,9 @@
   line-height: 18px;
   color: #ffffff;
 }
-.Highlight {
-  background-color: yellow;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-.SearchResultItem .VideoType {
-  margin-bottom: 10px;
-  font-family: Graphik Web;
-  font-size: 12px;
-  line-height: 16px;
-  color: #1a1a1a;
-}
+
 .SearchResultItem .Title {
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 
   font-family: Graphik Web;
   font-size: 16px;

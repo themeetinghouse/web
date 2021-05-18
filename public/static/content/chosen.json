@@ -33,7 +33,7 @@
           "header1": "Chosen",
           "text1": "Invest in sustainable development efforts in Mposa & Chamba and play your part in ending global poverty.",
           "button1": {
-            "text": "Sign up to be chosen",
+            "text": "Be Chosen",
             "action": "https://chosen.azurewebsites.net/#/?mc=4539946",
             "description": "Our community partnerships and sponsorship link."
           }
@@ -54,7 +54,7 @@
             {
               "type": "link",
               "title": "Watch Video To See How",
-              "navigateTo": "/videos/compassion-Poverty%20Alleviation/P2LQkvYZMKY",
+              "navigateTo": "/videos/compassion/iPmw29QsbTk",
               "description": "Link to the video for our 2021 world vision sunday that explains our goal and our plan."
             }
           ]
@@ -64,13 +64,13 @@
           "style": "vertical",
           "class": "compassion",
           "header1": "Why Poverty Alleviation?",
-          "text1": "In alignment with the UN's Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the last 10 years, we've built relationships and invested in long term community development in the following areas:",
+          "text1": " In alignment with the UN's Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the last 10 years, we've built relationships and invested in long term community development in the following areas:",
           "filterField": "sites",
           "filterValue": "chosen"
         },
         {
           "type": "content",
-          "style": "oneImageBlackRight",
+          "style": "oneImageBlackLeft",
           "header1": "Resources",
           "header2": "",
           "text1": "",
@@ -139,16 +139,16 @@
             },
             {
               "type": "question",
-              "question": "Why participate in sponsorship?",
+              "question": "Why should I be Chosen?",
               "answer": [
                 "The Chosen initiative and child sponsorship are fundraising initiatives that help build connections between donors and our partner communities. Funds donated are invested into the entire community and not specifically the child that is sponsored. This ensures that the entire community is moving out of poverty rather than just selected individuals and families. This leads to a more resilient and flourishing community."
               ]
             },
             {
               "type": "question",
-              "question": "When will we financially transition from supporting Mposa and Chamba?",
+              "question": "When will the communities of Mpsoa and Chamba reach their sustainable development goals?",
               "answer": [
-                "The dates are not certain, but we are planning to transition within the next five years. This is the last opportunity for our church to participate in sponsorship with Mposa and Chamba."
+                "Due to setbacks from the COVID-19 pandemic, the exact dates are not certain but through The Meeting House’s ongoing partnership the communities remain on track to achieve their sustainable development goals within the next five years. With Chosen, we want every child who is still waiting for a sponsor to have the opportunity to choose one."
               ]
             },
             {
@@ -164,14 +164,6 @@
               "question": "Why partner with World Vision?",
               "answer": [
                 "We have a longstanding partnership with World Vision that dates back to the start of our relationship with Mposa and Chamba. We have been strong partners ever since because of our shared values of Jesus-centredness as well as their strong reputation in the field of international development. World Vision plays an international leadership role improving outcomes in the areas of education, health, and economic growth with a specific focus among vulnerable children. They are also a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau and were ranked as one of the top 100 charities in Canada in 2020 by Charity Intelligence Canada."
-              ]
-            },
-            {
-              "type": "question",
-              "question": "Do you live outside of Canada?",
-              "answer": [
-                "If you live outside of Canada, but want would like to participate in the campaign and be chosen, you can email Matt at matt.thompson@themeetinghouse.com to sign up."
-                
               ]
             }
           ]

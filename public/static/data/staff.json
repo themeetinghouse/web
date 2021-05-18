@@ -343,15 +343,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Keturah",
-    "LastName": "Duncan",
-    "Phone": "905.287.7000, ext. 861",
-    "Position": "Executive Assistant",
-    "sites": ["Operations"],
-    "Email": "Keturah.Duncan@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
@@ -388,19 +379,10 @@
   },
   {
     "Staff": true,
-    "FirstName": "Liam",
-    "LastName": "Dahl",
-    "Phone": "905.287.7000, ext. 7066",
-    "Position": "Events & Rentals Manager",
-    "sites": ["Operations"],
-    "Email": "Liam.dahl@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Lindsay",
     "LastName": "Hart",
     "Phone": "905.287.7000, ext. 817",
-    "Position": "Oakville Youth Pastor (on mat leave)",
+    "Position": "Oakville Youth Pastor (on Mat Leave)",
     "sites": ["OAKV", "Pastoral", "Youth"],
     "Email": "Lindsay.Hart@themeetinghouse.com"
   },
@@ -454,7 +436,7 @@
     "FirstName": "Lynda",
     "LastName": "Thoms",
     "Phone": "905.287.7000, ext. 7067",
-    "Position": "Events and Rentals Manager (on mat leave)",
+    "Position": "Events and Rentals Manager",
     "sites": ["Operations"],
     "Email": "lynda@themeetinghouse.com"
   },
