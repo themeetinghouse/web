@@ -1677,11 +1677,20 @@ class ListItem extends React.Component<Props, State> {
             </a>
           </div>
         );
-      } else if (this.state.content.style === 'imageList')
+      } else if (
+        this.state.content.style === 'imageList' ||
+        this.state.content.style === 'imageListHeader'
+      )
         return (
           <div className="ListItem imageList">
             <div className="ListItemDiv1">
-              <h1 className="ListItemH1ImageList">
+              <h1
+                className={
+                  this.state.content.style == 'imageList'
+                    ? 'ListItemH1ImageList'
+                    : 'ListItemH1ImageListHeader'
+                }
+              >
                 {this.state.content.header1}
               </h1>
               <h2>{this.state.content.header2}</h2>
