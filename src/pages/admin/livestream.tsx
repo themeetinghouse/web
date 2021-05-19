@@ -80,6 +80,7 @@ const liveInit = {
   endTime: '13:00',
   prerollYoutubeId: 'na1g4ht-yNs',
   liveYoutubeId: '',
+  liveVimeoId: '',
   showChat: true,
   showKids: true,
   menu: [...menuInit],
@@ -211,6 +212,9 @@ class Index extends React.Component<EmptyProps, State> {
             <td className="divCell" key={'liveYoutubeId'}>
               Live Youtube Id
             </td>
+            <td className="divCell" key={'liveVimeoId'}>
+              Live Vimeo Id
+            </td>
             <td className="divCell" key={'homepageLink'}>
               Banner Message
             </td>
@@ -256,6 +260,9 @@ class Index extends React.Component<EmptyProps, State> {
                 </td>
                 <td className="divCell" key={'liveYoutubeId'}>
                   {livestream?.liveYoutubeId}
+                </td>
+                <td className="divCell" key={'liveVimeoId'}>
+                  {livestream?.liveVimeoId}
                 </td>
                 <td className="divCell" key={'homepageLink'}>
                   {livestream?.homepageLink}
@@ -395,6 +402,7 @@ class Index extends React.Component<EmptyProps, State> {
           delete input['showKids'];
           delete input['zoom'];
           delete input['liveYoutubeId'];
+          delete input['liveVimeoId'];
           delete input['prerollYoutubeId'];
           delete input['menu'];
         } else {
@@ -433,6 +441,7 @@ class Index extends React.Component<EmptyProps, State> {
         delete input['showKids'];
         delete input['zoom'];
         delete input['liveYoutubeId'];
+        delete input['liveVimeoId'];
         delete input['prerollYoutubeId'];
         delete input['menu'];
         input.id = `CustomEvent-${uuidv4()}`;
@@ -911,6 +920,19 @@ class Index extends React.Component<EmptyProps, State> {
                     value={this.state.liveObject?.liveYoutubeId ?? ''}
                     onChange={(e) =>
                       this.handleChange('liveYoutubeId', e.target.value.trim())
+                    }
+                  />
+                </label>
+                <label>
+                  liveVimeoId
+                  <br />
+                  <input
+                    className="livestream-input"
+                    type="text"
+                    required
+                    value={this.state.liveObject?.liveVimeoId ?? ''}
+                    onChange={(e) =>
+                      this.handleChange('liveVimeoId', e.target.value.trim())
                     }
                   />
                 </label>

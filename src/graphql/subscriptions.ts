@@ -1131,6 +1131,7 @@ export const onCreateLivestream = /* GraphQL */ `
       endTime
       prerollYoutubeId
       liveYoutubeId
+      liveVimeoId
       showChat
       showKids
       eventTitle
@@ -1161,6 +1162,7 @@ export const onUpdateLivestream = /* GraphQL */ `
       endTime
       prerollYoutubeId
       liveYoutubeId
+      liveVimeoId
       showChat
       showKids
       eventTitle
@@ -1191,6 +1193,7 @@ export const onDeleteLivestream = /* GraphQL */ `
       endTime
       prerollYoutubeId
       liveYoutubeId
+      liveVimeoId
       showChat
       showKids
       eventTitle

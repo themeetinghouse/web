@@ -4306,6 +4306,7 @@ export const getLivestream = /* GraphQL */ `
       endTime
       prerollYoutubeId
       liveYoutubeId
+      liveVimeoId
       showChat
       showKids
       eventTitle
@@ -4341,6 +4342,7 @@ export const listLivestreams = /* GraphQL */ `
         endTime
         prerollYoutubeId
         liveYoutubeId
+        liveVimeoId
         showChat
         showKids
         eventTitle

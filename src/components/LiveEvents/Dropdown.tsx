@@ -161,7 +161,10 @@ export default function Dropdown({ end, close, liveEvents }: DropdownProps) {
         eventName: item?.eventTitle ? item.eventTitle : item?.homepageLink,
         eventStartTime: item?.videoStartTime ?? item?.startTime,
         eventEndTime: item?.endTime,
-        eventLink: item?.liveYoutubeId ? '/live' : item?.externalEventUrl,
+        eventLink:
+          item?.liveYoutubeId || item?.liveVimeoId
+            ? '/live'
+            : item?.externalEventUrl,
       };
       if (!(item?.endTime && rightNow >= item.endTime)) {
         tempEvents.push({ ...event, live });
