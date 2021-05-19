@@ -318,18 +318,32 @@ export default class VideoPlayer extends React.Component<Props, State> {
         <div className="LiveVideoPlayerDiv">
           {this.state.isLive ? (
             <div>
-              <iframe
-                title="Live Teaching"
-                className="LiveVideoPlayerIframe"
-                allowFullScreen
-                src={
-                  'https://www.youtube.com/embed/' +
-                  this.state.liveEvent.liveYoutubeId +
-                  '?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0'
-                }
-                frameBorder="0"
-                allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              ></iframe>
+              {this.state.liveEvent.liveVimeoId ? (
+                <iframe
+                  src={
+                    'https://player.vimeo.com/video/' +
+                    this.state.liveEvent.liveVimeoId +
+                    '?title=0'
+                  }
+                  className="LiveVideoPlayerIframe"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <iframe
+                  title="Live Teaching"
+                  className="LiveVideoPlayerIframe"
+                  allowFullScreen
+                  src={
+                    'https://www.youtube.com/embed/' +
+                    this.state.liveEvent.liveYoutubeId +
+                    '?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0'
+                  }
+                  frameBorder="0"
+                  allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                ></iframe>
+              )}
               <div className="LiveVideoPlayerTitle">
                 Church Livestream
                 <div className="ShareButtonDesktop">{this.shareButton()}</div>

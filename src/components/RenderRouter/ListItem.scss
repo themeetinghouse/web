@@ -286,7 +286,14 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
+  .ListItemH1ImageListHeader {
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+  }
   .ListItemH1ImageList2 {
     position: absolute;
     height: 20vw;
@@ -899,7 +906,12 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
+  .ListItemH1ImageListHeader {
+    font-size: 3vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+  }
   .ListItemH1ImageList2 {
     position: absolute;
     height: 20vw;
@@ -1615,7 +1627,12 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
+  .ListItemH1ImageListHeader {
+    font-size: 10vw;
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+  }
   .ListItemH1ImageList2 {
     // position: absolute;
     height: 100%;

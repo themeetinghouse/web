@@ -34,6 +34,7 @@ const PodcastPlayer = React.lazy(() => import('./PodcastPlayer'));
 const VideoPlayerLiveLeadersDay = React.lazy(
   () => import('./VideoPlayerLive_leadersday')
 );
+const SearchResult = React.lazy(() => import('./SearchResult'));
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -99,6 +100,8 @@ class RenderRouter extends React.Component<Props> {
         return <PaymentItem key={index} content={item} />;
       case 'give':
         return <GiveItem key={index} content={item} />;
+      case 'searchResult':
+        return <SearchResult key={index} content={item} />;
       case 'give2':
         return <Give2Item key={index} content={item} />;
       case 'faq':

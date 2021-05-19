@@ -292,6 +292,7 @@ type F1ListGroup2
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
+ @searchable
 {
   id:String
   name:String
@@ -744,6 +745,7 @@ type Livestream
   endTime:String
   prerollYoutubeId: String
   liveYoutubeId: String
+  liveVimeoId: String
   showChat: Boolean
   showKids: Boolean
   eventTitle: String
@@ -820,7 +822,7 @@ type Series
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
  @key(name: "BySeriesTypes",fields: ["seriesType","startDate"], queryField:"getSeriesBySeriesType")
-
+@searchable
 {
   id: ID!
   videos: [Video] @connection(name: "VideosSeries",limit: 50)
@@ -841,6 +843,7 @@ type CustomPlaylist
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
  ])
+ @searchable
 {
   id: ID!
   videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"])
@@ -916,7 +919,7 @@ type BlogSeries
    {allow:private, operations:[read],provider:iam},
    {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
  ])
-
+@searchable
 {
   id: ID!
   blogs: [BlogSeriesBridge] @connection(name: "BlogSeriesContains", keyField: "blogSeriesID")
@@ -1032,6 +1035,7 @@ type Notes
    {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
  ])
  @key(name: "notesBySeriesId", fields: ["seriesId"])
+ @searchable
 {
   id: ID!
   title:String

@@ -23,7 +23,7 @@
       },
       {
         "type": "list",
-        "style": "imageList",
+        "style": "imageListHeader",
         "header1": "Podcasts",
         "text1": "Podcast time is the best time. Tune in to our Sunday morning teaching, catch a discussion from our leadership team, or learn from the experts - we've got you covered.",
         "list": [
