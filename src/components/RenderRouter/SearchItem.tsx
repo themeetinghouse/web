@@ -29,10 +29,10 @@ enum SearchType {
   Blogs = 'Blogs' as any,
   Staff = 'Staff' as any,
   Compassion = 'Compassion' as any,
-  Homechurch = 'Homechurch' as any,
+  'Home Church' = 'Home Church' as any,
   Series = 'Series' as any,
-  CustomPlaylist = 'CustomPlaylist' as any,
-  BlogSeries = 'BlogSeries' as any,
+  'Custom Playlist' = 'Custom Playlist' as any,
+  'Blog Series' = 'Blog Series' as any,
   Notes = 'Notes' as any,
 }
 interface State {
@@ -52,12 +52,8 @@ interface State {
   searchCustomPlaylist: any;
   searchBlogSeries: any;
   searchNotes: any;
+  videoTypeParser: { [name: string]: string } | null;
 }
-const videoTypeParser: { [name: string]: string } = {
-  'adult-sunday': 'Sunday Teaching',
-  'ky-youth': 'Youth',
-  'ky-kids': 'Kids',
-};
 
 class ContentItem extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -79,7 +75,17 @@ class ContentItem extends React.Component<Props, State> {
       dataOverseers: [],
       dataCompassion: [],
       currentSearchType: SearchType.All,
+      videoTypeParser: null,
     };
+  }
+  convertMapToObject(
+    metricArguments: { name: string; value: string }[]
+  ): Record<string, string> {
+    const newObject: Record<string, string> = {};
+    for (const { name, value } of metricArguments) {
+      newObject[name] = value;
+    }
+    return newObject;
   }
   async componentDidMount(): Promise<void> {
     this.setState({
@@ -92,6 +98,26 @@ class ContentItem extends React.Component<Props, State> {
       //dataE = await DataLoader.loadEvents(query);
       dataCompassion: await DataLoader.loadCompassion(),
     });
+
+    fetch('/static/data/import-video.json')
+      .then(async (e: Response) => {
+        try {
+          const json = await e.json();
+          const videoTypeParser = json.map((item: any) => {
+            console.log(item.id);
+            console.log(item.name);
+
+            return { name: item.id, value: item.name };
+          });
+
+          this.setState({
+            videoTypeParser: this.convertMapToObject(videoTypeParser),
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      })
+      .catch((e) => console.log(e));
     fetch('/static/content/search/beginSearch.json')
       .then(async (e: Response) => {
         try {
@@ -150,11 +176,11 @@ class ContentItem extends React.Component<Props, State> {
     const searchBlogs: any = API.graphql(
       graphqlOperation(queries.searchBlogs, {
         filter: {
-          blogTitle: { matchPhrase: e },
           or: [
-            { author: { matchPhrase: e } },
-            { tags: { matchPhrase: e } },
-            { description: { matchPhrase: e } },
+            { blogTitle: { match: e } },
+            { author: { match: e } },
+            { tags: { match: e } },
+            { description: { match: e } },
           ],
         },
         limit: 10,
@@ -209,8 +235,7 @@ class ContentItem extends React.Component<Props, State> {
     const searchHomechurch: any = API.graphql(
       graphqlOperation(queries.searchF1ListGroup2s, {
         filter: {
-          name: { matchPhrase: e },
-          or: [{ description: { matchPhrase: e } }],
+          or: [{ name: { match: e } }, { description: { match: e } }],
         },
         limit: 10,
         nextToken: nextId,
@@ -240,8 +265,7 @@ class ContentItem extends React.Component<Props, State> {
     const searchSeries: any = API.graphql(
       graphqlOperation(queries.searchSeriess, {
         filter: {
-          title: { matchPhrase: e },
-          or: [{ description: { matchPhrase: e } }],
+          or: [{ title: { match: e } }, { description: { match: e } }],
         },
         limit: 10,
         nextToken: nextId,
@@ -271,8 +295,7 @@ class ContentItem extends React.Component<Props, State> {
     const searchCustomPlaylist: any = API.graphql(
       graphqlOperation(queries.searchCustomPlaylists, {
         filter: {
-          title: { matchPhrase: e },
-          or: [{ description: { matchPhrase: e } }],
+          or: [{ title: { match: e } }, { description: { match: e } }],
         },
         limit: 10,
         nextToken: nextId,
@@ -302,8 +325,7 @@ class ContentItem extends React.Component<Props, State> {
     const searchBlogSeries: any = API.graphql(
       graphqlOperation(queries.searchBlogSeriess, {
         filter: {
-          title: { matchPhrase: e },
-          or: [{ description: { matchPhrase: e } }],
+          or: [{ title: { match: e } }, { description: { match: e } }],
         },
         limit: 10,
         nextToken: nextId,
@@ -334,11 +356,11 @@ class ContentItem extends React.Component<Props, State> {
     const searchNotes: any = API.graphql(
       graphqlOperation(queries.searchNotess, {
         filter: {
-          title: { matchPhrase: e },
           or: [
-            { content: { matchPhrase: e } },
-            { tags: { matchPhrase: e } },
-            { questions: { matchPhrase: e } },
+            { title: { match: e } },
+            { content: { match: e } },
+            { tags: { match: e } },
+            { questions: { match: e } },
           ],
         },
         limit: 10,
@@ -797,7 +819,7 @@ class ContentItem extends React.Component<Props, State> {
                 highlightClassName="Highlight"
                 searchWords={this.state.searchString.split(' ')}
                 autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
+                textToHighlight={item.name ?? ''}
               />
             </div>
 
@@ -842,7 +864,11 @@ class ContentItem extends React.Component<Props, State> {
                 textToHighlight={item.episodeTitle + ' - ' + item.seriesTitle}
               />
             </div>
-            <div className="VideoType">{videoTypeParser[item.videoTypes]}</div>
+            <div className="VideoType">
+              {console.log(this.state.videoTypeParser)}
+              {this.state.videoTypeParser &&
+                this.state.videoTypeParser[item.videoTypes]}
+            </div>
             <div className="Description">
               <Highlighter
                 highlightClassName="Highlight"
@@ -977,7 +1003,7 @@ class ContentItem extends React.Component<Props, State> {
               this.renderStaff(staff)
             )}
           {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Homechurch) &&
+            this.state.currentSearchType == SearchType['Home Church']) &&
             this.state.searchString != '' &&
             this.state.customData?.page?.pageConfig?.searchResult
               ?.hideHomechurch !== true &&
@@ -993,7 +1019,7 @@ class ContentItem extends React.Component<Props, State> {
               this.renderSeries(series)
             )}
           {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.CustomPlaylist) &&
+            this.state.currentSearchType == SearchType['Custom Playlist']) &&
             this.state.searchString != '' &&
             this.state.customData?.page?.pageConfig?.searchResult
               ?.hideCustomPlaylist !== true &&
@@ -1002,7 +1028,7 @@ class ContentItem extends React.Component<Props, State> {
             )}
 
           {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.BlogSeries) &&
+            this.state.currentSearchType == SearchType['Blog Series']) &&
             this.state.searchString != '' &&
             this.state.customData?.page?.pageConfig?.searchResult
               ?.hideBlogSeries !== true &&
