@@ -320,11 +320,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             <div>
               {this.state.liveEvent.liveVimeoId ? (
                 <iframe
-                  src={
-                    'https://player.vimeo.com/video/' +
-                    this.state.liveEvent.liveVimeoId +
-                    '?title=0'
-                  }
+                  src={this.state.liveEvent.liveVimeoId}
                   className="LiveVideoPlayerIframe"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"

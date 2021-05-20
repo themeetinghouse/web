@@ -929,7 +929,6 @@ class Index extends React.Component<EmptyProps, State> {
                   <input
                     className="livestream-input"
                     type="text"
-                    required
                     value={this.state.liveObject?.liveVimeoId ?? ''}
                     onChange={(e) =>
                       this.handleChange('liveVimeoId', e.target.value.trim())
