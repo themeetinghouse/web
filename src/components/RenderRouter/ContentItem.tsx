@@ -34,7 +34,7 @@ interface BannerImage {
   linkto?: string;
 }
 
-interface ContentType {
+interface ContentType extends LocationQuery {
   style: string;
   image1?: ItemImage[];
   header1?: string;
@@ -47,7 +47,6 @@ interface ContentType {
     text: string;
   };
   images?: BannerImage[];
-  class?: string;
   filterField?: string;
   filterValue?: string;
   calendar?: Event;

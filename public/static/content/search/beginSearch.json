@@ -26,21 +26,33 @@
         "style": "link",
         "header1": "Teaching",
         "text1": "All of our videos in one place.",
-        "navigateTo": "https://themeetinghouse.com/teaching"
+        "navigateTo": "https://themeetinghouse.com/teaching",
+        "image1": {
+          "src": "/static/images/search-teaching.jpg",
+          "alt": "Bruxy sitting by a video camera"
+        }
       },
       {
         "type": "searchResult",
         "style": "link",
         "header1": "Home Church Finder",
         "text1": "Need to find a home church quick?",
-        "navigateTo": "https://themeetinghouse.com/find-homechurch"
+        "navigateTo": "https://themeetinghouse.com/find-homechurch",
+        "image1": {
+          "src": "/static/images/search-homechurch.jpg",
+          "alt": "Three people talking, sitting on logs outside"
+        }
       },
       {
         "type": "searchResult",
         "style": "link",
         "header1": "Giving",
         "text1": "Want to make a donation?",
-        "navigateTo": "https://themeetinghouse.com/give"
+        "navigateTo": "https://themeetinghouse.com/give",
+        "image1": {
+          "src": "/static/images/search-giving.jpg",
+          "alt": "A person watching sunday teaching on a laptop"
+        }
       }
     ]
   }
