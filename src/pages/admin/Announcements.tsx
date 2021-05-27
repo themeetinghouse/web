@@ -23,6 +23,7 @@ import {
   DeleteAnnouncementMutation,
   UpdateAnnouncementMutation,
 } from 'API';
+import DataLoader, { LocationData } from 'components/RenderRouter/DataLoader';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -39,18 +40,6 @@ type NonNullAnnouncements = NonNullable<
 interface AnnouncementProps {
   announcement: AnnouncementData;
 }
-
-type LocationFromJSON = {
-  id: string;
-  name: string;
-  pastorEmail: string;
-  servicesTimes: Array<string>;
-  location: {
-    longitude: number;
-    latitude: number;
-    address: string;
-  };
-};
 
 const announcementInit = {
   publishedDate: moment()
@@ -89,8 +78,9 @@ export default function Announcements(): JSX.Element {
 
   /* ========================== Populates Location Filter Dropdown ========================= */
   const fetchLocations = async (): Promise<void> => {
-    const response = await fetch('/static/data/locations.json');
-    const data: Array<LocationFromJSON> = await response.json();
+    const data: LocationData[] = await DataLoader.getLocations({
+      class: 'locations',
+    });
     if (data) {
       const locationArr = [
         { label: 'Cross-Regional', value: 'Cross-Regional' },

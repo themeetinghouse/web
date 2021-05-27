@@ -1,11 +1,12 @@
 import { ListLivestreamsQuery } from 'API';
+import { LocationQuery } from './RenderRouter/DataLoader';
 
-export interface SundayMorningItemContent {
+export interface SundayMorningItemContent extends LocationQuery {
   type: 'sunday-morning';
-
   alternate: string;
-
   header1: string;
+  filterField?: 'id';
+  filterValue?: string;
 }
 
 export interface DistanceGroupItemContent {

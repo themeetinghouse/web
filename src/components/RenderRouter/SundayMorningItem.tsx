@@ -14,6 +14,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
 import { LinkButton } from 'components/Link/Link';
+import DataLoader, { LocationQuery } from './DataLoader';
 
 interface ListData {
   id: string;
@@ -66,20 +67,14 @@ export class SundayMorningItem extends React.Component<Props, State> {
       currentLatLng: DEFAULT_LAT_LNG,
       postalCode: '',
     };
-    let jsonFile;
+
     const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
     if (this.props.content.alternate === 'christmas') {
-      jsonFile = '/static/data/christmas.json';
       if (today === '2020-12-24')
         this.interval = setInterval(() => this.tick(), 1500);
-    } else if (this.props.content.alternate === 'easter')
-      jsonFile = '/static/data/easter.json';
-    else jsonFile = '/static/data/locations.json';
-    fetch(jsonFile)
-      .then(function (response) {
-        return response.json();
-      })
-      .then((myJson) => {
+    }
+    DataLoader.getLocations(this.props.content as LocationQuery).then(
+      (myJson) => {
         if (
           this.props.content.alternate === 'christmas' &&
           today === '2020-12-24'
@@ -102,7 +97,8 @@ export class SundayMorningItem extends React.Component<Props, State> {
             }),
           });
         } else this.setState({ listData: myJson });
-      });
+      }
+    );
   }
   /* Used for the christmas page */
   tick() {

@@ -440,13 +440,9 @@ class HeroItem extends React.Component<Props, State> {
                     placeholder="Select city"
                     className="partialNoFooterLocationDropDown"
                     classNamePrefix="react-select-custom"
-                    options={this.state.locationData
-                      .map((item) => {
-                        return { label: item.name, value: item.id };
-                      })
-                      .sort((a, b) => {
-                        return a.label.localeCompare(b.label);
-                      })}
+                    options={this.state.locationData.map((item) => {
+                      return { label: item.name, value: item.id };
+                    })}
                   />
                 )}
               </div>
