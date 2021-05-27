@@ -106,10 +106,13 @@
   padding-bottom: 15px;
   padding-top: 20px;
   border-bottom: 1px solid #efeff0;
-  width: 100%;
+  width: 70%;
 }
 
-.SearchResultItem .Thumb {
+.SearchResultItem .SearchThumb {
+  width: 160px !important;
+  height: 90px !important;
+  object-fit: cover !important;
   display: inline-block;
   object-fit: contain;
   margin-right: 30px;
@@ -171,7 +174,7 @@
 }
 
 .SearchResultItem .Link {
-  margin-top: 50px;
+  margin-top: 20px;
   height: 30px;
   width: 25px;
   float: right;
@@ -189,21 +192,28 @@
   }
 
   .SearchItem {
-    top: 9vw;
-    left: 0px;
-    margin: 0px 15px 0px 15px;
+    position: relative;
+    top: 1.5vw;
+    left: 15vw;
   }
 
   .SearchItemInput {
-    width: 100%;
+    width: 70vw;
+    height: 56px;
 
-    font-size: 32px;
-    line-height: 40px;
+    font-family: Graphik Web;
+    font-size: 48px;
+    font-weight: bolder;
+    line-height: 56px;
+    letter-spacing: -0.5px;
+
+    border: none;
   }
 
   .SearchItemDiv {
-    width: 100%;
-    margin-top: 13px;
+    width: 70vw;
+    margin: 18px 0px 30px 0px;
+    border-top: solid 2px #1a1a1a;
   }
 
   .SearchLink {
@@ -229,6 +239,13 @@
 
 // Mobile
 @media (max-width: 767px) {
+  .SearchResultItem {
+    cursor: pointer;
+    padding-bottom: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid #efeff0;
+    width: 100%;
+  }
   .VideoOverlayClose {
     $size: 15px;
 
@@ -283,10 +300,16 @@
   }
 
   .SearchResultItem .Content {
-    width: 90%;
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
   }
 
   .SearchResultItem .Thumb {
+    display: none;
+  }
+  .SearchResultItem .Link {
     display: none;
   }
 }

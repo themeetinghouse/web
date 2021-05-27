@@ -21,8 +21,8 @@ export default class ContentItem extends React.Component<Props> {
 
   render() {
     const image = {
-      src: `${this.props.content.image}`,
-      alt: `${this.props.content.imageAlt}`,
+      src: `${this.props.content.image1.src}`,
+      alt: `${this.props.content.image1.alt}`,
     };
     return (
       <div className="searchResultDiv1">
@@ -30,7 +30,7 @@ export default class ContentItem extends React.Component<Props> {
           <div key={this.props.content.header} className="SearchResultItem">
             <ScaledImage
               image={image}
-              className="StaffImage"
+              className="SearchThumb"
               fallbackUrl="/static/NoCompassionLogo.png"
               breakpointSizes={{
                 320: 80,
@@ -44,6 +44,9 @@ export default class ContentItem extends React.Component<Props> {
             <div className="Content">
               <div className="Title">{this.props.content.header1}</div>
               <div className="Description">{this.props.content.text1}</div>
+            </div>
+            <div className="Link">
+              <img alt="GO" src="\static\svg\ArrowRight black.svg" />
             </div>
           </div>
         </Link>

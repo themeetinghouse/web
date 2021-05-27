@@ -169,8 +169,8 @@ export interface CompassionData {
 
 export interface LocationQuery extends DataLoaderQuery {
   class: 'locations';
-
-  filterField?: 'id';
+  alternate?: string;
+  filterField?: string;
   filterValue?: string;
 }
 
@@ -944,13 +944,22 @@ export default class DataLoader {
   }
 
   static async getLocations(query: LocationQuery): Promise<LocationData[]> {
-    const response = await fetch('/static/data/locations.json');
+    let response;
+    if (query.alternate === 'christmas')
+      response = await fetch('/static/data/christmas.json');
+    else if (query.alternate === 'easter')
+      response = await fetch('/static/data/easter.json');
+    else response = await fetch('/static/data/locations.json');
     const data: LocationData[] = await response.json();
-    return data.filter((location) => {
-      if (!query.filterField) {
-        return true;
-      }
-      return location[query.filterField as 'id'] === query.filterValue;
-    });
+    return data
+      .filter((location) => {
+        if (!query.filterField) {
+          return true;
+        }
+        return location[query.filterField as 'id'] === query.filterValue;
+      })
+      .sort((a, b) => {
+        return a.name == 'Global' ? -1 : a.name?.localeCompare(b.name);
+      });
   }
 }

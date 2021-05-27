@@ -398,6 +398,14 @@ class ContentItem extends React.Component<Props, State> {
     this.searchBlogSeries(e, null);
     this.searchNotes(e, null);
   }
+  openBlog(item: any) {
+    console.log(item);
+    this.props.history.push('/posts/' + item.id);
+  }
+  openSeries(item: any) {
+    console.log(item);
+    this.props.history.push('/videos/' + item.id);
+  }
   openVideo(item: any) {
     console.log(item);
     console.log('/videos/' + item.series.id + '/' + item.id);
@@ -448,7 +456,7 @@ class ContentItem extends React.Component<Props, State> {
       <div key={compassion.id} className="SearchResultItem">
         <ScaledImage
           image={image}
-          className="StaffImage"
+          className="SearchThumb"
           fallbackUrl="/static/NoCompassionLogo.png"
           breakpointSizes={{
             320: 80,
@@ -486,39 +494,44 @@ class ContentItem extends React.Component<Props, State> {
       alt: `${staff.FirstName} ${staff.LastName}`,
     };
     return (
-      <div key={staff.Email} className="SearchResultItem">
-        <ScaledImage
-          image={image}
-          className="StaffImage"
-          fallbackUrl="/static/Individual.png"
-          breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }}
-        />
-        <div className="Content">
-          <div className="Title">
-            <Highlighter
-              highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
-              autoEscape={true}
-              textToHighlight={staff.FirstName + ' ' + staff.LastName}
-            />
+      <a href={'mailto:' + staff.Email}>
+        <div key={staff.Email} className="SearchResultItem">
+          <ScaledImage
+            image={image}
+            className="SearchThumb"
+            fallbackUrl="/static/Individual.png"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={this.state.searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={staff.FirstName + ' ' + staff.LastName}
+              />
+            </div>
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={this.state.searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={staff.Position ?? ''}
+              />
+            </div>
           </div>
-          <div className="Description">
-            <Highlighter
-              highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
-              autoEscape={true}
-              textToHighlight={staff.Position ?? ''}
-            />
+          <div className="Link">
+            <img alt="Send email icon" src="/static/svg/Contact.svg" />
           </div>
         </div>
-      </div>
+      </a>
     );
   }
   renderBlog(item: any): React.ReactNode {
@@ -531,13 +544,13 @@ class ContentItem extends React.Component<Props, State> {
         <div
           key={item.id}
           onClick={() => {
-            this.openVideo(item);
+            this.openBlog(item);
           }}
           className="SearchResultItem"
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -590,7 +603,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -643,7 +656,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -696,7 +709,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -735,21 +748,27 @@ class ContentItem extends React.Component<Props, State> {
   }
   renderSeries(item: any): React.ReactNode {
     const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
+      src:
+        '/static/photos/series/' +
+        item.seriesType +
+        '-' +
+        (item.title ?? '').replace('?', '') +
+        '.jpg',
+      alt: `${item.title} series image`,
     };
+
     if (item.episodeTitle !== null)
       return (
         <div
           key={item.id}
           onClick={() => {
-            this.openVideo(item);
+            this.openSeries(item);
           }}
           className="SearchResultItem"
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -766,10 +785,13 @@ class ContentItem extends React.Component<Props, State> {
                 highlightClassName="Highlight"
                 searchWords={this.state.searchString.split(' ')}
                 autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
+                textToHighlight={item.title ?? ''}
               />
             </div>
-
+            <div className="VideoType">
+              {this.state.videoTypeParser &&
+                this.state.videoTypeParser[item.seriesType]}
+            </div>
             <div className="Description">
               <Highlighter
                 highlightClassName="Highlight"
@@ -802,7 +824,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -851,9 +873,8 @@ class ContentItem extends React.Component<Props, State> {
         >
           <img
             alt={item.thumbnailDescription || 'Video Thumbnail'}
-            className="Thumb"
+            className="SearchThumb"
             src={item.Youtube.snippet.thumbnails.high.url}
-            style={{ width: 160, height: 90, objectFit: 'cover' }}
           />
           <div className="Content">
             <div className="Title">

@@ -136,7 +136,6 @@ export class ContentItem extends React.Component<Props, State> {
     };
 
     DataLoader.getLocations({ class: 'locations' }).then((locations) => {
-      locations.sort((l1, l2) => l1.name.localeCompare(l2.name));
       console.log('HomeChurchItem.constructor(): Got locations: %o', locations);
       this.setState({ locations });
     });
