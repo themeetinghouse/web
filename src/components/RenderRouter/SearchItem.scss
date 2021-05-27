@@ -109,7 +109,10 @@
   width: 100%;
 }
 
-.SearchResultItem .Thumb {
+.SearchResultItem .SearchThumb {
+  width: 160px !important;
+  height: 90px !important;
+  object-fit: cover !important;
   display: inline-block;
   object-fit: contain;
   margin-right: 30px;

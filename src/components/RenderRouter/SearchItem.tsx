@@ -448,7 +448,7 @@ class ContentItem extends React.Component<Props, State> {
       <div key={compassion.id} className="SearchResultItem">
         <ScaledImage
           image={image}
-          className="StaffImage"
+          className="SearchThumb"
           fallbackUrl="/static/NoCompassionLogo.png"
           breakpointSizes={{
             320: 80,
@@ -489,7 +489,7 @@ class ContentItem extends React.Component<Props, State> {
       <div key={staff.Email} className="SearchResultItem">
         <ScaledImage
           image={image}
-          className="StaffImage"
+          className="SearchThumb"
           fallbackUrl="/static/Individual.png"
           breakpointSizes={{
             320: 80,
@@ -537,7 +537,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -590,7 +590,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -643,7 +643,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -696,7 +696,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -749,7 +749,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -802,7 +802,7 @@ class ContentItem extends React.Component<Props, State> {
         >
           <ScaledImage
             image={image}
-            className="BlogSquareImage"
+            className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,
@@ -851,9 +851,8 @@ class ContentItem extends React.Component<Props, State> {
         >
           <img
             alt={item.thumbnailDescription || 'Video Thumbnail'}
-            className="Thumb"
+            className="SearchThumb"
             src={item.Youtube.snippet.thumbnails.high.url}
-            style={{ width: 160, height: 90, objectFit: 'cover' }}
           />
           <div className="Content">
             <div className="Title">

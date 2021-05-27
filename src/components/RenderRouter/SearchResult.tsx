@@ -30,7 +30,7 @@ export default class ContentItem extends React.Component<Props> {
           <div key={this.props.content.header} className="SearchResultItem">
             <ScaledImage
               image={image}
-              className="StaffImage"
+              className="SearchThumb"
               fallbackUrl="/static/NoCompassionLogo.png"
               breakpointSizes={{
                 320: 80,
