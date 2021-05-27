@@ -21,8 +21,8 @@ export default class ContentItem extends React.Component<Props> {
 
   render() {
     const image = {
-      src: `${this.props.content.image}`,
-      alt: `${this.props.content.imageAlt}`,
+      src: `${this.props.content.image1.src}`,
+      alt: `${this.props.content.image1.alt}`,
     };
     return (
       <div className="searchResultDiv1">
