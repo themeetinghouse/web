@@ -398,6 +398,10 @@ class ContentItem extends React.Component<Props, State> {
     this.searchBlogSeries(e, null);
     this.searchNotes(e, null);
   }
+  openBlog(item: any) {
+    console.log(item);
+    this.props.history.push('/posts/' + item.id);
+  }
   openSeries(item: any) {
     console.log(item);
     this.props.history.push('/videos/' + item.id);
@@ -540,7 +544,7 @@ class ContentItem extends React.Component<Props, State> {
         <div
           key={item.id}
           onClick={() => {
-            this.openVideo(item);
+            this.openBlog(item);
           }}
           className="SearchResultItem"
         >
