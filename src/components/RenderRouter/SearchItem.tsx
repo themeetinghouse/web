@@ -486,39 +486,44 @@ class ContentItem extends React.Component<Props, State> {
       alt: `${staff.FirstName} ${staff.LastName}`,
     };
     return (
-      <div key={staff.Email} className="SearchResultItem">
-        <ScaledImage
-          image={image}
-          className="SearchThumb"
-          fallbackUrl="/static/Individual.png"
-          breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }}
-        />
-        <div className="Content">
-          <div className="Title">
-            <Highlighter
-              highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
-              autoEscape={true}
-              textToHighlight={staff.FirstName + ' ' + staff.LastName}
-            />
+      <a href={'mailto:' + staff.Email}>
+        <div key={staff.Email} className="SearchResultItem">
+          <ScaledImage
+            image={image}
+            className="SearchThumb"
+            fallbackUrl="/static/Individual.png"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={this.state.searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={staff.FirstName + ' ' + staff.LastName}
+              />
+            </div>
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={this.state.searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={staff.Position ?? ''}
+              />
+            </div>
           </div>
-          <div className="Description">
-            <Highlighter
-              highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
-              autoEscape={true}
-              textToHighlight={staff.Position ?? ''}
-            />
+          <div className="Link">
+            <img alt="Send email icon" src="/static/svg/Contact.svg" />
           </div>
         </div>
-      </div>
+      </a>
     );
   }
   renderBlog(item: any): React.ReactNode {

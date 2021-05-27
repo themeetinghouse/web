@@ -106,7 +106,7 @@
   padding-bottom: 15px;
   padding-top: 20px;
   border-bottom: 1px solid #efeff0;
-  width: 100%;
+  width: 70%;
 }
 
 .SearchResultItem .SearchThumb {
@@ -174,7 +174,7 @@
 }
 
 .SearchResultItem .Link {
-  margin-top: 50px;
+  margin-top: 20px;
   height: 30px;
   width: 25px;
   float: right;
@@ -232,6 +232,13 @@
 
 // Mobile
 @media (max-width: 767px) {
+  .SearchResultItem {
+    cursor: pointer;
+    padding-bottom: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid #efeff0;
+    width: 100%;
+  }
   .VideoOverlayClose {
     $size: 15px;
 
@@ -286,10 +293,16 @@
   }
 
   .SearchResultItem .Content {
-    width: 90%;
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
   }
 
   .SearchResultItem .Thumb {
+    display: none;
+  }
+  .SearchResultItem .Link {
     display: none;
   }
 }
