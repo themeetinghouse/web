@@ -398,6 +398,10 @@ class ContentItem extends React.Component<Props, State> {
     this.searchBlogSeries(e, null);
     this.searchNotes(e, null);
   }
+  openSeries(item: any) {
+    console.log(item);
+    this.props.history.push('/videos/' + item.id);
+  }
   openVideo(item: any) {
     console.log(item);
     console.log('/videos/' + item.series.id + '/' + item.id);
@@ -740,15 +744,21 @@ class ContentItem extends React.Component<Props, State> {
   }
   renderSeries(item: any): React.ReactNode {
     const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
+      src:
+        '/static/photos/series/' +
+        item.seriesType +
+        '-' +
+        (item.title ?? '').replace('?', '') +
+        '.jpg',
+      alt: `${item.title} series image`,
     };
+
     if (item.episodeTitle !== null)
       return (
         <div
           key={item.id}
           onClick={() => {
-            this.openVideo(item);
+            this.openSeries(item);
           }}
           className="SearchResultItem"
         >
@@ -771,10 +781,13 @@ class ContentItem extends React.Component<Props, State> {
                 highlightClassName="Highlight"
                 searchWords={this.state.searchString.split(' ')}
                 autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
+                textToHighlight={item.title ?? ''}
               />
             </div>
-
+            <div className="VideoType">
+              {this.state.videoTypeParser &&
+                this.state.videoTypeParser[item.seriesType]}
+            </div>
             <div className="Description">
               <Highlighter
                 highlightClassName="Highlight"

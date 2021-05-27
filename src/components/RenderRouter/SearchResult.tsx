@@ -45,6 +45,9 @@ export default class ContentItem extends React.Component<Props> {
               <div className="Title">{this.props.content.header1}</div>
               <div className="Description">{this.props.content.text1}</div>
             </div>
+            <div className="Link">
+              <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+            </div>
           </div>
         </Link>
       </div>
