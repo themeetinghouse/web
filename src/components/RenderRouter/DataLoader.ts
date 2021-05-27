@@ -959,7 +959,7 @@ export default class DataLoader {
         return location[query.filterField as 'id'] === query.filterValue;
       })
       .sort((a, b) => {
-        return a.name == 'Global' ? -1 : a.name.localeCompare(b.name);
+        return a.name == 'Global' ? -1 : a.name?.localeCompare(b.name);
       });
   }
 }
