@@ -63,6 +63,12 @@
           },
           {
             "type": "link",
+            "title": "Download Early Years Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMay30.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
             "navigateTo": "/static/pdfs/kidmax-files/EYColouringPageMay.pdf",
             "openNewBrowser": true
@@ -86,7 +92,7 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMay16.jpg",
+            "src": "/static/images/KidsBigIdeaMay30.jpg",
             "alt": "This week's big idea is: Prayer and fasting make a radical difference."
           }
         ],
