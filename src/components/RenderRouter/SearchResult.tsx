@@ -25,32 +25,30 @@ export default class ContentItem extends React.Component<Props> {
       alt: `${this.props.content.image1.alt}`,
     };
     return (
-      <div className="searchResultDiv1">
-        <Link to={this.props.content.navigateTo}>
-          <div key={this.props.content.header} className="SearchResultItem">
-            <ScaledImage
-              image={image}
-              className="SearchThumb"
-              fallbackUrl="/static/NoCompassionLogo.png"
-              breakpointSizes={{
-                320: 80,
-                480: 120,
-                640: 180,
-                1280: 320,
-                1920: 480,
-                2560: 640,
-              }}
-            />
-            <div className="Content">
-              <div className="Title">{this.props.content.header1}</div>
-              <div className="Description">{this.props.content.text1}</div>
-            </div>
-            <div className="Link">
-              <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-            </div>
+      <Link key={this.props.content.header} to={this.props.content.navigateTo}>
+        <div className="searchResultDiv1Item">
+          <ScaledImage
+            image={image}
+            className="SearchThumb"
+            fallbackUrl="/static/NoCompassionLogo.png"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div className="Title">{this.props.content.header1}</div>
+            <div className="Description">{this.props.content.text1}</div>
           </div>
-        </Link>
-      </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </div>
+      </Link>
     );
   }
 }

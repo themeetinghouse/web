@@ -18,6 +18,7 @@ import {
 } from 'API';
 import { GraphQLResult } from '@aws-amplify/api';
 import RenderRouter from './RenderRouter';
+import { Button } from 'reactstrap';
 Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
@@ -453,7 +454,7 @@ class ContentItem extends React.Component<Props, State> {
       alt: compassion.imagealt,
     };
     return (
-      <div key={compassion.id} className="SearchResultItem">
+      <Button key={compassion.id} className="SearchResultItem">
         <ScaledImage
           image={image}
           className="SearchThumb"
@@ -485,7 +486,7 @@ class ContentItem extends React.Component<Props, State> {
             />
           </div>
         </div>
-      </div>
+      </Button>
     );
   }
   renderStaff(staff: StaffData): React.ReactNode {
@@ -494,42 +495,44 @@ class ContentItem extends React.Component<Props, State> {
       alt: `${staff.FirstName} ${staff.LastName}`,
     };
     return (
-      <a href={'mailto:' + staff.Email}>
-        <div key={staff.Email} className="SearchResultItem">
-          <ScaledImage
-            image={image}
-            className="SearchThumb"
-            fallbackUrl="/static/Individual.png"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={staff.FirstName + ' ' + staff.LastName}
-              />
-            </div>
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={staff.Position ?? ''}
-              />
-            </div>
+      <a
+        href={'mailto:' + staff.Email}
+        key={staff.Email}
+        className="SearchResultItem"
+      >
+        <ScaledImage
+          image={image}
+          className="SearchThumb"
+          fallbackUrl="/static/Individual.png"
+          breakpointSizes={{
+            320: 80,
+            480: 120,
+            640: 180,
+            1280: 320,
+            1920: 480,
+            2560: 640,
+          }}
+        />
+        <div className="Content">
+          <div className="Title">
+            <Highlighter
+              highlightClassName="Highlight"
+              searchWords={this.state.searchString.split(' ')}
+              autoEscape={true}
+              textToHighlight={staff.FirstName + ' ' + staff.LastName}
+            />
           </div>
-          <div className="Link">
-            <img alt="Send email icon" src="/static/svg/Contact.svg" />
+          <div className="Description">
+            <Highlighter
+              highlightClassName="Highlight"
+              searchWords={this.state.searchString.split(' ')}
+              autoEscape={true}
+              textToHighlight={staff.Position ?? ''}
+            />
           </div>
+        </div>
+        <div className="Link">
+          <img alt="Send email icon" src="/static/svg/Contact.svg" />
         </div>
       </a>
     );
@@ -541,7 +544,7 @@ class ContentItem extends React.Component<Props, State> {
     };
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openBlog(item);
@@ -583,7 +586,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
@@ -594,7 +597,7 @@ class ContentItem extends React.Component<Props, State> {
     };
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openVideo(item);
@@ -636,7 +639,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
@@ -647,7 +650,7 @@ class ContentItem extends React.Component<Props, State> {
     };
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openVideo(item);
@@ -689,7 +692,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
@@ -700,7 +703,7 @@ class ContentItem extends React.Component<Props, State> {
     };
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openVideo(item);
@@ -742,7 +745,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
@@ -759,7 +762,7 @@ class ContentItem extends React.Component<Props, State> {
 
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openSeries(item);
@@ -804,7 +807,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
@@ -815,7 +818,7 @@ class ContentItem extends React.Component<Props, State> {
     };
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openVideo(item);
@@ -857,14 +860,14 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
   renderVideo(item: any): React.ReactNode {
     if (item.episodeTitle !== null)
       return (
-        <div
+        <Button
           key={item.id}
           onClick={() => {
             this.openVideo(item);
@@ -902,7 +905,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Link">
             <img alt="GO" src="\static\svg\ArrowRight black.svg" />
           </div>
-        </div>
+        </Button>
       );
     else return null;
   }
@@ -917,7 +920,7 @@ class ContentItem extends React.Component<Props, State> {
             return (
               <>
                 &nbsp;&nbsp;
-                <div
+                <Button
                   style={{
                     fontWeight:
                       this.state.currentSearchType ==
@@ -937,7 +940,7 @@ class ContentItem extends React.Component<Props, State> {
                   key={item}
                 >
                   {item}
-                </div>
+                </Button>
               </>
             );
           })}
@@ -954,7 +957,7 @@ class ContentItem extends React.Component<Props, State> {
             return (
               <>
                 &nbsp;&nbsp;
-                <div
+                <Button
                   onClick={() => {
                     this.setState({
                       searchResults: null,
@@ -966,7 +969,7 @@ class ContentItem extends React.Component<Props, State> {
                   key={item}
                 >
                   {item}
-                </div>
+                </Button>
               </>
             );
           })}
@@ -990,7 +993,7 @@ class ContentItem extends React.Component<Props, State> {
     };
     return (
       <>
-        <div className="SearchItem">
+        <form id="search" role="search" className="SearchItem">
           <input
             value={this.state.searchString}
             className="SearchItemInput"
@@ -1007,7 +1010,7 @@ class ContentItem extends React.Component<Props, State> {
             {this.renderTrending()}
             {this.renderSearchTypes()}
           </div>
-        </div>
+        </form>
         {this.state.customBegin != null &&
           this.state.searchString == '' &&
           this.renderBegin()}
