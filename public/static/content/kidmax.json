@@ -52,13 +52,19 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMay23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMay30.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse",
             "navigateTo": "/static/pdfs/kidmax-files/EYKeyVerseMay23.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Early Years Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMay30.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,7 +92,7 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMay16.jpg",
+            "src": "/static/images/KidsBigIdeaMay30.jpg",
             "alt": "This week's big idea is: Prayer and fasting make a radical difference."
           }
         ],
@@ -94,7 +100,7 @@
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMay23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMay30.pdf",
             "openNewBrowser": true
           },
           {

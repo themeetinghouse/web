@@ -369,20 +369,6 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Paula",
-    "LastName": "McLeod-Smith",
-    "sites": ["KIT"],
-    "Email": "kitchener.music@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Birgit",
-    "LastName": "Moscinski",
-    "sites": ["KIT"],
-    "Email": "kitchener.music@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Stephanie",
     "LastName": "Prendergast",
     "sites": ["LOND"],
@@ -486,13 +472,6 @@
     "LastName": "Bartholomew",
     "sites": ["HMMT"],
     "Email": "carolina.bartholomew@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Steve",
-    "LastName": "Jarnick",
-    "sites": ["KIT"],
-    "Email": "steve.jarnick@themeetinghouse.com",
     "Position": "Weekend Service Producer"
   },
   {
