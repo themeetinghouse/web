@@ -9,7 +9,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "VERSION=`sentry-cli releases propose-version`;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;npx prettier -w src/version.js;HTTPS=true PORT=3006 react-scripts start",
-    "start2": "react-scripts start",
+    "start3": "react-scripts start",
     "build": "export SENTRY_ORG=the-meeting-house;VERSION=`sentry-cli releases propose-version`;sentry-cli releases new -p the-meeting-house $VERSION;sentry-cli releases set-commits --auto $VERSION;echo export const version ={git:\\\"$VERSION\\\"}>src/version.js;npx prettier -w src/version.js;react-scripts build;sentry-cli releases finalize $VERSION;sentry-cli releases deploys $VERSION new -e prod;",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "publish": "COMMIT=`git rev-parse --short HEAD`;amplify publish -c;curl --header 'Content-Type: application/json' --request POST --data '{\"content\":\"Published a new version from commit: '$COMMIT'\"}' $DISCORD_WEBHOOK_WEB",
