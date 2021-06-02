@@ -831,7 +831,10 @@ class ListItem extends React.Component<Props, State> {
           return (
             <div key={index} className="StaffItem">
               <ScaledImage
-                image={{ src: imgsrc, alt: item.photoAlt }}
+                image={{
+                  src: imgsrc,
+                  alt: `${item.FirstName} ${item.LastName}`,
+                }}
                 className="StaffImage"
                 fallbackUrl="/static/Individual.png"
                 breakpointSizes={{
