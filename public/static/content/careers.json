@@ -80,6 +80,11 @@
             "type": "link",
             "title": "Finance Director",
             "navigateTo": "/static/pdfs/careers/Finance Director 2.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Kitchener Waterloo Pastor",
+            "navigateTo": "/static/pdfs/careers/Kitchener Waterloo Pastor.pdf"
           }
         ],
         "image1": [
