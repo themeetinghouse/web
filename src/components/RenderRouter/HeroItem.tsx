@@ -144,15 +144,6 @@ class HeroItem extends React.Component<Props, State> {
             className="validate"
             target="_blank"
           >
-            {/* <div className="emailDiv">
-              <input
-                aria-hidden="true"
-                className="emailInput"
-                type="text"
-                name="b_3c4d56c1d635f336d8656e9dd_3cb55a9826"
-                defaultValue=""
-              />
-            </div> */}
             <div id="mc_embed_signup_scroll" className="signupButtons">
               <div className="emailWrapper">
                 <img
