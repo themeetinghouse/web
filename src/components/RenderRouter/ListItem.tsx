@@ -605,7 +605,7 @@ class ListItem extends React.Component<Props, State> {
       const item = items as OverseerData;
       const image = {
         src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
-        alt: `Official photo of ${item.FirstName} ${item.LastName}`,
+        alt: `Head shot of ${item.FirstName} ${item.LastName}`,
       };
       return (
         <div key={index} className="ListItemDiv3">
@@ -635,7 +635,7 @@ class ListItem extends React.Component<Props, State> {
         {(items as OverseerData[]).map((item, index: number) => {
           const image = {
             src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
-            alt: `Official photo of ${item.FirstName} ${item.LastName}`,
+            alt: `Head shot of ${item.FirstName} ${item.LastName}`,
           };
           return (
             <div key={index} className="StaffItem">
@@ -754,7 +754,7 @@ class ListItem extends React.Component<Props, State> {
           <ScaledImage
             image={{
               src: imgsrc,
-              alt: 'Official photo of ' + data.FirstName + ' ' + data.LastName,
+              alt: `Head shot of ${data.FirstName} ${data.LastName}`,
             }}
             className="StaffImage"
             fallbackUrl="/static/Individual.png"
@@ -836,7 +836,7 @@ class ListItem extends React.Component<Props, State> {
               <ScaledImage
                 image={{
                   src: imgsrc,
-                  alt: `Official photo of ${item.FirstName} ${item.LastName}`,
+                  alt: `Head shot of ${item.FirstName} ${item.LastName}`,
                 }}
                 className="StaffImage"
                 fallbackUrl="/static/Individual.png"
