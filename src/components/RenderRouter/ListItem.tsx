@@ -530,7 +530,9 @@ class ListItem extends React.Component<Props, State> {
     }
     const image = {
       src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
+      alt: `Graphic for the ${item.blogTitle
+        ?.slice(0, 4)
+        .replace('The ', '')}${item.blogTitle?.slice(4)} blog.`,
     };
     return (
       <Link
@@ -990,7 +992,9 @@ class ListItem extends React.Component<Props, State> {
           '-' +
           (item.title ?? '').replace('?', '') +
           '.jpg',
-        alt: `${item.title} series image`,
+        alt: `Graphic for the ${item.title
+          ?.slice(0, 4)
+          .replace('The ', '')}${item.title?.slice(4)} series.`,
       };
       return (
         <div
