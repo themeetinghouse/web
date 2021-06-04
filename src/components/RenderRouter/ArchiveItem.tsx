@@ -260,7 +260,12 @@ class ArchiveItem extends React.Component<Props, State> {
           className="ArchiveItemVideo"
         >
           <img
-            alt={item.title + ' series image'}
+            alt={
+              'Graphic for the ' +
+              item.title?.slice(0, 4).replace('The ', '') +
+              item.title?.slice(4) +
+              ' series.'
+            }
             className="ArchiveItemImage2"
             src={
               '/static/photos/series/' +
