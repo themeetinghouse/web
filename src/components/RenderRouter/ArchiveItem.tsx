@@ -262,8 +262,7 @@ class ArchiveItem extends React.Component<Props, State> {
           <img
             alt={
               'Graphic for the ' +
-              item.title?.slice(0, 4).replace('The ', '') +
-              item.title?.slice(4) +
+              item.title?.replace(/^The /, '') +
               ' series.'
             }
             className="ArchiveItemImage2"
