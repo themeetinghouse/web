@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import './AddToCalendar.scss';
 import {
   Dropdown,
@@ -26,7 +26,6 @@ interface Props {
   style?: React.CSSProperties;
   className?: string;
 }
-
 /**
  * This function can be attributed to Jason Salzman.
  * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
