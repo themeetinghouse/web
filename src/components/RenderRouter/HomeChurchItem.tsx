@@ -370,8 +370,8 @@ export class ContentItem extends React.Component<Props, State> {
         recurrenceWeekly['occurOn' + moment().day(dayNum).format('dddd')]
       ) {
         dayOfWeek = dayNum;
+        break;
       }
-      break;
     }
     const eventStartTime = moment
       .tz('America/Toronto')
