@@ -11,7 +11,7 @@ import {
   Map,
   Marker,
 } from 'google-maps-react';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { isMobile } from 'react-device-detect';
@@ -360,8 +360,8 @@ export class ContentItem extends React.Component<Props, State> {
     return address;
   }
 
-  private getCalendarEventForLocation(group: F1Group): Event {
-    let nextMeeting = moment();
+  getAdjustedTime(group: F1Group) {
+    let dayOfWeek = 0;
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
       const recurrenceWeekly = group.schedule?.recurrences?.recurrence
         ?.recurrenceWeekly as Record<string, string> | undefined | null;
@@ -369,20 +369,31 @@ export class ContentItem extends React.Component<Props, State> {
         recurrenceWeekly &&
         recurrenceWeekly['occurOn' + moment().day(dayNum).format('dddd')]
       ) {
-        const nextMeetingTime = moment(group.schedule?.startTime);
-        nextMeeting = moment()
-          .day(dayNum)
-          .hours(nextMeetingTime.get('hours'))
-          .minutes(nextMeetingTime.get('minutes'));
-        break;
+        dayOfWeek = dayNum;
       }
+      break;
     }
+    const eventStartTime = moment
+      .tz('America/Toronto')
+      .isoWeekday(dayOfWeek)
+      .set({
+        hour: moment(group.schedule?.startTime).get('hour'),
+        minute: moment(group.schedule?.startTime).get('minute'),
+        second: moment(group.schedule?.startTime).get('second'),
+      });
+    const hasDatePassed = moment() > eventStartTime;
+    if (hasDatePassed) return eventStartTime.add(7, 'days');
+    return eventStartTime;
+  }
+
+  private getCalendarEventForLocation(group: F1Group): Event {
+    const nextMeeting = this.getAdjustedTime(group);
     const event = {
       summary: group.name ?? 'Home Church',
       description: 'Join us at home church!',
       location: this.formatGroupAddress(group).join(', '),
       start: nextMeeting.format(),
-      end: moment(nextMeeting).add(2, 'hours').format(),
+      end: nextMeeting.add(2, 'hours').format(),
     };
     return event;
   }
@@ -604,9 +615,12 @@ export class ContentItem extends React.Component<Props, State> {
                           : null}
                       </div>
                       <div className="HomeChurchItemMapInfoWindowTimeOfDay">
-                        {moment(
-                          this.state.selectedPlace.schedule?.startTime
-                        ).format('h:mm a')}
+                        {moment
+                          .tz(
+                            this.getAdjustedTime(this.state.selectedPlace),
+                            moment.tz.guess()
+                          )
+                          .format('h:mm a z')}
                       </div>
                     </div>
                   ) : (
@@ -717,7 +731,6 @@ export class ContentItem extends React.Component<Props, State> {
                   }
                 })
                 .map((item) => {
-                  console.log(item.name);
                   return (
                     <div
                       className="HomeChurchItemDiv5"
@@ -782,7 +795,9 @@ export class ContentItem extends React.Component<Props, State> {
                         ) : null}
                       </div>
                       <div className="HomeChurchTimeOfDay">
-                        {moment(item.schedule?.startTime).format('h:mm a')}
+                        {moment
+                          .tz(this.getAdjustedTime(item), moment.tz.guess())
+                          .format('h:mm a z')}
                       </div>
                       <div className="HomeChurchButtonContainer">
                         {item.schedule?.recurrences?.recurrence

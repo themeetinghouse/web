@@ -32,7 +32,10 @@ interface Props {
  * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
  */
 function formatDateTime(date: string) {
-  return moment.utc(date).format('YYYYMMDDTHHmmssZ').replace('+00:00', 'Z');
+  return moment
+    .tz(moment.utc(date), moment.tz.guess())
+    .format('YYYYMMDDTHHmmssZ')
+    .replace('+00:00', 'Z');
 }
 
 /**
