@@ -360,7 +360,7 @@ export class ContentItem extends React.Component<Props, State> {
     return address;
   }
 
-  getAdjustedTime(group: F1Group) {
+  private getAdjustedTime(group: F1Group) {
     let dayOfWeek = 0;
     for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
       const recurrenceWeekly = group.schedule?.recurrences?.recurrence
