@@ -85,6 +85,11 @@
             "type": "link",
             "title": "Kitchener Waterloo Pastor",
             "navigateTo": "/static/pdfs/careers/Kitchener Waterloo Pastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Discipleship Pastor",
+            "navigateTo": "/static/pdfs/careers/Discipleship Pastor.pdf"
           }
         ],
         "image1": [
