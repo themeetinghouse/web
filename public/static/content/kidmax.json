@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJune6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJune13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJune6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJune13.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,15 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJune6.jpg",
-            "alt": "This week's big idea is: Living for Jesus means living in a different way."
+            "src": "/static/images/KidsBigIdeaJune13.jpg",
+            "alt": "This week's big idea is: When we live for Jesus, what we say matters."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJune6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJune13.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Kids Key Verse",
+            "navigateTo": "/static/pdfs/kidmax-files/KeyVerseJune.pdf",
             "openNewBrowser": true
           },
           {
