@@ -8,6 +8,7 @@
       "showLive": false,
       "movingMenu": false,
       "showLogoText": false,
+      "isSearch": true,
       "logoColor": "black",
       "showSearch": false,
       "showFooter": false,

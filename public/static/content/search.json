@@ -9,6 +9,7 @@
       "showLive": true,
       "movingMenu": false,
       "showLogoText": false,
+      "isModal": true,
       "logoColor": "black",
       "showSearch": false,
       "showFooter": false,

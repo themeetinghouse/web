@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import './AddToCalendar.scss';
 import {
   Dropdown,
@@ -26,13 +26,15 @@ interface Props {
   style?: React.CSSProperties;
   className?: string;
 }
-
 /**
  * This function can be attributed to Jason Salzman.
  * Used under the MIT license: https://github.com/jasonsalzman/react-add-to-calendar/blob/master/LICENSE
  */
 function formatDateTime(date: string) {
-  return moment.utc(date).format('YYYYMMDDTHHmmssZ').replace('+00:00', 'Z');
+  return moment
+    .tz(moment.utc(date), moment.tz.guess())
+    .format('YYYYMMDDTHHmmssZ')
+    .replace('+00:00', 'Z');
 }
 
 /**

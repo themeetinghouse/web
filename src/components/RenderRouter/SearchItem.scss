@@ -30,6 +30,18 @@
   text-decoration: underline;
   display: inline;
   cursor: pointer;
+  background-color: #ffffff;
+  border: 0;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+  &:hover {
+    background-color: #ffffff;
+    border: 0;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
 }
 .SearchItemDiv {
   width: 70vw;
@@ -102,11 +114,25 @@
 }
 
 .SearchResultItem {
+  display: inline-block;
+  text-align: left;
   cursor: pointer;
   padding-bottom: 15px;
   padding-top: 20px;
   border-bottom: 1px solid #efeff0;
   width: 70%;
+  background-color: #ffffff;
+  border: 0;
+  color: #1a1a1a;
+  &:active {
+    background-color: #efeff0;
+    border: 0;
+  }
+  &:hover {
+    background-color: #efeff0;
+    border: 0;
+    color: #1a1a1a;
+  }
 }
 
 .SearchResultItem .SearchThumb {
@@ -240,11 +266,25 @@
 // Mobile
 @media (max-width: 767px) {
   .SearchResultItem {
+    display: inline-block;
+    text-align: left;
     cursor: pointer;
     padding-bottom: 15px;
     padding-top: 20px;
     border-bottom: 1px solid #efeff0;
     width: 100%;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 0;
+    &:active {
+      background-color: #efeff0;
+      border: 0;
+    }
+    &:hover {
+      background-color: #efeff0;
+      border: 0;
+      color: #1a1a1a;
+    }
   }
   .VideoOverlayClose {
     $size: 15px;
@@ -270,6 +310,7 @@
   }
 
   .SearchItemDiv {
+    position: relative;
     width: 100%;
     margin-top: 13px;
   }

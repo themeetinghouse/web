@@ -48,10 +48,12 @@ interface State {
   position: string;
   logoColor: string;
   showLogoText: boolean;
+  isSearch: boolean;
   showSearch: boolean;
   showMenu: boolean;
   movingMenu: boolean;
   showLive: boolean;
+  isModal: boolean;
   showLiveBanner: boolean;
   liveTitle?: string | null;
   expand: any;
@@ -82,6 +84,8 @@ class HomeMenu extends React.Component<Props, State> {
       movingMenu: this.props.pageConfig.movingMenu,
       logoColor: this.props.pageConfig.logoColor,
       showLogoText: this.props.pageConfig.showLogoText,
+      isSearch: this.props.pageConfig.isSearch ?? false,
+      isModal: this.props.pageConfig.isModal ?? false,
       showSearch: this.props.pageConfig.showSearch,
       showMenu: this.props.pageConfig.showMenu,
       showLive: this.props.pageConfig.showLive,
@@ -216,7 +220,7 @@ class HomeMenu extends React.Component<Props, State> {
   };
 
   render() {
-    return (
+    return !this.state.isSearch ? (
       <div>
         {this.state.showLiveBanner ? (
           <button
@@ -248,12 +252,14 @@ class HomeMenu extends React.Component<Props, State> {
               }}
             />
           ) : null}
+
           <div
             className={
               this.state.logoColor === 'white'
                 ? 'navbar-custom white'
                 : 'navbar-custom'
             }
+            style={{ zIndex: this.state.isModal ? 'unset' : 1000 }}
             id="navbar"
           >
             <NavbarBrand tag={Link} className="brand" to="/">
@@ -283,12 +289,12 @@ class HomeMenu extends React.Component<Props, State> {
 
             {this.state.showSearch ? (
               <div>
-                <img
-                  src="/static/svg/Search.svg"
+                <Button
                   className="search"
-                  alt="Search"
                   onClick={() => this.setState({ overlayType: 'search' })}
-                />
+                >
+                  <img src="/static/svg/Search.svg" alt="Search" />
+                </Button>
                 <VideoOverlay
                   onClose={() => this.setState({ overlayType: null })}
                   data={this.state.overlayType}
@@ -395,7 +401,7 @@ class HomeMenu extends React.Component<Props, State> {
           </div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
 export default withRouter(HomeMenu);

@@ -69,6 +69,17 @@
     background-color: #ffffff;
     cursor: pointer;
     padding: 1.1vw;
+    border: 0;
+    border-radius: 0;
+    &:hover {
+      background-color: #efeff0 !important;
+    }
+    &:active {
+      background-color: #efeff0 !important;
+    }
+    &:focus {
+      background-color: #efeff0;
+    }
   }
 
   .navbar-toggler {
@@ -261,6 +272,17 @@
     z-index: 101;
     background-color: #ffffff;
     cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    &:hover {
+      background-color: #efeff0 !important;
+    }
+    &:active {
+      background-color: #efeff0 !important;
+    }
+    &:focus {
+      background-color: #efeff0;
+    }
   }
   .liveEvent {
     right: 7vw;
@@ -418,6 +440,17 @@
     top: 5.6vw;
     background-color: #ffffff00;
     cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    &:hover {
+      background-color: #efeff0 !important;
+    }
+    &:active {
+      background-color: #efeff0 !important;
+    }
+    &:focus {
+      background-color: #efeff0;
+    }
   }
   .navbar-brand {
     padding-top: 0 !important;

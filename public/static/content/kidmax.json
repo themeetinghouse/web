@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EYBigIdeaMay.jpg",
-            "alt": "This month's big idea: We are the church together."
+            "src": "/static/images/EYBigIdeaJune.jpg",
+            "alt": "This month's big idea: Jesus gives us a job to do."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMay23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJune13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Early Years Key Verse",
-            "navigateTo": "/static/pdfs/kidmax-files/EYKeyVerseMay23.pdf",
+            "title": "Download Early Years Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJune13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/EYColouringPageMay.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYColouringPageJune.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMay16.jpg",
-            "alt": "This week's big idea is: Prayer and fasting make a radical difference."
+            "src": "/static/images/KidsBigIdeaJune13.jpg",
+            "alt": "This week's big idea is: When we live for Jesus, what we say matters."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMay23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJune13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsKeyVerseMay23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KeyVerseJune.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsColouringPageMay.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsColouringPageJune.pdf",
             "openNewBrowser": true
           }
         ]

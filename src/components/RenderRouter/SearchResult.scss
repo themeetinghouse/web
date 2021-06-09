@@ -1,12 +1,111 @@
 @use '../../theme';
 
-@media (min-width: 768px) {
-  .searchResultDiv1 {
-    position: relative;
-    top: 2vw;
-    left: 20vw;
-    margin-bottom: 2vw;
+.searchResultDiv1 {
+  position: relative;
+  top: 2vw;
+  left: 15vw;
+  margin-bottom: 2vw;
+  padding-left: 2vw;
+  &:active {
+    background-color: #efeff0;
+    border: 0;
   }
+  &:hover {
+    background-color: #efeff0;
+    border: 0;
+    color: #1a1a1a;
+  }
+}
+
+.searchResultDiv1Item {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  left: 15vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  cursor: pointer;
+  padding-bottom: 15px;
+  padding-top: 20px;
+  border-bottom: 1px solid #efeff0;
+  width: 70%;
+  background-color: #ffffff;
+  border: 0;
+  color: #1a1a1a;
+  &:active {
+    background-color: #efeff0;
+    border: 0;
+  }
+  &:hover {
+    background-color: #efeff0;
+    border: 0;
+    color: #1a1a1a;
+  }
+}
+
+.searchResultDiv1Item .SearchThumb {
+  width: 160px !important;
+  height: 90px !important;
+  object-fit: cover !important;
+  display: inline-block;
+  object-fit: contain;
+  margin-right: 30px;
+  width: 20%;
+  vertical-align: top;
+}
+
+.searchResultDiv1Item .Content {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  width: 60%;
+}
+
+.searchResultDiv1Item .ContentType {
+  display: inline-block;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 20px;
+  background: #54565a;
+  border-radius: 50px;
+
+  font-family: Graphik Web;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
+.searchResultDiv1Item .VideoType {
+  margin-bottom: 10px;
+  font-family: Graphik Web;
+  font-size: 12px;
+  line-height: 16px;
+  color: #1a1a1a;
+}
+.searchResultDiv1Item .Title {
+  margin-bottom: 2px;
+
+  font-family: Graphik Web;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.searchResultDiv1Item .Description {
+  width: 100%;
+  font-family: Graphik Web;
+  font-size: 16px;
+  line-height: 24px;
+  color: #54565a;
+}
+
+.searchResultDiv1Item .Link {
+  margin-top: 20px;
+  height: 30px;
+  width: 25px;
+  float: right;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -27,5 +126,45 @@
     width: 100%;
     padding-left: 5vw;
     padding-right: 5vw;
+  }
+  .searchResultDiv1Item {
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    left: 0vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 15px;
+    padding-top: 20px;
+    border-bottom: 1px solid #efeff0;
+    width: 96vw;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 0;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    &:active {
+      background-color: #efeff0;
+      border: 0;
+    }
+    &:hover {
+      background-color: #efeff0;
+      border: 0;
+      color: #1a1a1a;
+    }
+  }
+
+  .searchResultDiv1Item .Content {
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  .searchResultDiv1Item .Thumb {
+    display: none;
+  }
+  .searchResultDiv1Item .Link {
+    display: none !important;
   }
 }

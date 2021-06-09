@@ -530,7 +530,10 @@ class ListItem extends React.Component<Props, State> {
     }
     const image = {
       src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
+      alt: `Graphic for the ${item.blogTitle?.replace(
+        /^The /,
+        ''
+      )}${item.blogTitle?.slice(4)} blog.`,
     };
     return (
       <Link
@@ -605,7 +608,7 @@ class ListItem extends React.Component<Props, State> {
       const item = items as OverseerData;
       const image = {
         src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
-        alt: `${item.FirstName} ${item.LastName}`,
+        alt: `Head shot of ${item.FirstName} ${item.LastName}`,
       };
       return (
         <div key={index} className="ListItemDiv3">
@@ -635,7 +638,7 @@ class ListItem extends React.Component<Props, State> {
         {(items as OverseerData[]).map((item, index: number) => {
           const image = {
             src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
-            alt: `${item.FirstName} ${item.LastName}`,
+            alt: `Head shot of ${item.FirstName} ${item.LastName}`,
           };
           return (
             <div key={index} className="StaffItem">
@@ -752,7 +755,10 @@ class ListItem extends React.Component<Props, State> {
       return (
         <div key={index} className="ListItemDiv3">
           <ScaledImage
-            image={{ src: imgsrc, alt: data.FirstName + ' ' + data.LastName }}
+            image={{
+              src: imgsrc,
+              alt: `Head shot of ${data.FirstName} ${data.LastName}`,
+            }}
             className="StaffImage"
             fallbackUrl="/static/Individual.png"
             breakpointSizes={{
@@ -831,7 +837,10 @@ class ListItem extends React.Component<Props, State> {
           return (
             <div key={index} className="StaffItem">
               <ScaledImage
-                image={{ src: imgsrc, alt: item.photoAlt }}
+                image={{
+                  src: imgsrc,
+                  alt: `Head shot of ${item.FirstName} ${item.LastName}`,
+                }}
                 className="StaffImage"
                 fallbackUrl="/static/Individual.png"
                 breakpointSizes={{
@@ -990,7 +999,10 @@ class ListItem extends React.Component<Props, State> {
           '-' +
           (item.title ?? '').replace('?', '') +
           '.jpg',
-        alt: `${item.title} series image`,
+        alt: `Graphic for the ${item.title?.replace(
+          /^The /,
+          ''
+        )}${item.title?.slice(4)} series.`,
       };
       return (
         <div
