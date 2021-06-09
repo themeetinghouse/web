@@ -113,28 +113,28 @@
             "title": "Sunday Teaching",
             "text": "All of our teaching videos and series, including notes, questions, audio, and additional content. Check out what we're learning, or find what you're looking for in our video playlists.",
             "imageSrc": "/static/images/homepage-4-1-new.jpg",
-            "imageAlt": "no",
+            "imageAlt": "this_should_be_empty",
             "navigateTo": "/teaching"
           },
           {
             "title": "Livestream",
             "text": "We're live every Sunday at 10:00am EDT. A one hour livestream experience with stories, music, and teaching. If you're looking for a good first step, this is it. See you this Sunday!",
             "imageSrc": "/static/images/corona-2.jpg",
-            "imageAlt": "no",
+            "imageAlt": "this_should_be_empty",
             "navigateTo": "/live"
           },
           {
             "title": "Podcasts",
             "text": "All of our Sunday teaching in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our leaders, staff, and special guests.",
             "imageSrc": "/static/images/homepage-4-2-new.jpg",
-            "imageAlt": "no",
+            "imageAlt": "this_should_be_empty",
             "navigateTo": "/teaching-podcasts"
           },
           {
             "title": "Kids & Youth Curriculum",
             "text": "Through Sunday morning teaching, midweek group resources, and The Parent Blog, our kids and youth curriculum is designed to partner with parents and leaders and equip them with resources to disciple their kids and youth well.",
             "imageSrc": "/static/images/homepage-4-4-new.jpg",
-            "imageAlt": "no",
+            "imageAlt": "this_should_be_empty",
             "navigateTo": "/teaching-kids-youth"
           }
         ]
