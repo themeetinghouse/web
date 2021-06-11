@@ -277,7 +277,7 @@ class HomeMenu extends React.Component<Props, State> {
                   src={
                     '/static/logos/tmh-text-' + this.state.logoColor + '-sm.png'
                   }
-                  alt="The Meeting House"
+                  alt=""
                   className={
                     !this.state.showLiveBanner
                       ? 'logoText '
