@@ -691,7 +691,8 @@ class Index extends React.Component<EmptyProps, State> {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       console.log({
-        'Success customMutations.updateOneSpeakerVideo: ': updateOneSpeakerVideo,
+        'Success customMutations.updateOneSpeakerVideo: ':
+          updateOneSpeakerVideo,
       });
     } catch (e) {
       console.log(e);
@@ -750,7 +751,8 @@ class Index extends React.Component<EmptyProps, State> {
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         console.log({
-          'Success mutations.createCustomPlaylistVideo': createCustomPlaylistVideo,
+          'Success mutations.createCustomPlaylistVideo':
+            createCustomPlaylistVideo,
         });
       } catch (e) {
         console.error(e);
@@ -766,7 +768,8 @@ class Index extends React.Component<EmptyProps, State> {
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         console.log({
-          'Success mutations.deleteCustomPlaylistVideo': deleteCustomPlaylistVideo,
+          'Success mutations.deleteCustomPlaylistVideo':
+            deleteCustomPlaylistVideo,
         });
       } catch (e) {
         console.error(e);
@@ -978,14 +981,15 @@ class Index extends React.Component<EmptyProps, State> {
                                     className="adminButton"
                                     onClick={() => {
                                       if (this.state.selectedSpeaker !== '') {
-                                        const a = this.state.selectedVideo.speakers.items.find(
-                                          (a: any) => {
-                                            return (
-                                              a?.speaker?.id ===
-                                              this.state.selectedSpeaker
-                                            );
-                                          }
-                                        );
+                                        const a =
+                                          this.state.selectedVideo.speakers.items.find(
+                                            (a: any) => {
+                                              return (
+                                                a?.speaker?.id ===
+                                                this.state.selectedSpeaker
+                                              );
+                                            }
+                                          );
                                         if (!a) {
                                           const speakers: any = {
                                             items: [
@@ -1012,14 +1016,15 @@ class Index extends React.Component<EmptyProps, State> {
                                   <button
                                     onClick={() => {
                                       if (this.state.selectedSpeaker) {
-                                        const speakerInSpeakers = this.state.originalSpeakers.items.find(
-                                          (a: any) => {
-                                            return (
-                                              a?.speaker?.id ===
-                                              this.state.selectedSpeaker
-                                            );
-                                          }
-                                        );
+                                        const speakerInSpeakers =
+                                          this.state.originalSpeakers.items.find(
+                                            (a: any) => {
+                                              return (
+                                                a?.speaker?.id ===
+                                                this.state.selectedSpeaker
+                                              );
+                                            }
+                                          );
                                         if (speakerInSpeakers) {
                                           const speakers: any = {
                                             items: [
@@ -1112,9 +1117,10 @@ class Index extends React.Component<EmptyProps, State> {
                                         )
                                       ) {
                                         this.setState({
-                                          addToPlaylists: this.state.addToPlaylists.concat(
-                                            this.state.selectedPlaylist
-                                          ),
+                                          addToPlaylists:
+                                            this.state.addToPlaylists.concat(
+                                              this.state.selectedPlaylist
+                                            ),
                                         });
                                       }
                                     }}

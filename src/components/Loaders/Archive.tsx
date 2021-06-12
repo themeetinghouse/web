@@ -3,12 +3,12 @@ import { RouteComponentProps } from 'react-router-dom';
 import RenderRouter from '../RenderRouter/RenderRouter';
 import { Analytics } from 'aws-amplify';
 
-const seriesContent = fetch(
-  `/static/content/series-archive.json`
-).then((response) => response.json());
-const videoContent = fetch(
-  `/static/content/video-archive.json`
-).then((response) => response.json());
+const seriesContent = fetch(`/static/content/series-archive.json`).then(
+  (response) => response.json()
+);
+const videoContent = fetch(`/static/content/video-archive.json`).then(
+  (response) => response.json()
+);
 
 interface Params {
   archiveType: string;

@@ -26,9 +26,8 @@ class HeroItem extends React.Component<Props> {
   }
 
   getCalendarEventForLocation(locationItem: any) {
-    let nextSunday = (moment().day() === 0
-      ? moment().add(1, 'week')
-      : moment().day(0)
+    let nextSunday = (
+      moment().day() === 0 ? moment().add(1, 'week') : moment().day(0)
     ).startOf('day');
     let serviceHour =
       locationItem.serviceTimes[locationItem.serviceTimes.length - 1];

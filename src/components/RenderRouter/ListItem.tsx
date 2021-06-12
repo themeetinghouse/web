@@ -1185,9 +1185,9 @@ class ListItem extends React.Component<Props, State> {
             if (!item) {
               return false;
             }
-            return (item[
-              this.props.content.filterField as keyof ListData
-            ] as string)?.includes(this.props.content.filterValue);
+            return (
+              item[this.props.content.filterField as keyof ListData] as string
+            )?.includes(this.props.content.filterValue);
           });
 
     const dataLength = data.length;
