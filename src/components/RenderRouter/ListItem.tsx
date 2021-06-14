@@ -357,7 +357,7 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div
+      <button
         onClick={() => {
           this.handleClick(item);
         }}
@@ -366,6 +366,7 @@ class ListItem extends React.Component<Props, State> {
           'ListItemVideo' +
           (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
         }
+        tabIndex={0}
       >
         <img
           alt={
@@ -391,7 +392,7 @@ class ListItem extends React.Component<Props, State> {
           {item.seriesTitle != null ? item.seriesTitle : null}
         </div>
         <div className="ListItemPublishedDate">{item.publishedDate}</div>
-      </div>
+      </button>
     );
   }
 
