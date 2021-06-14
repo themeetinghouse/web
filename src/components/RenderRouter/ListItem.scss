@@ -356,6 +356,9 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
+    background-color: #ffffff;
+    text-align: left;
+    border: none;
     :hover {
       .ListItemPlayImageOverlay {
         opacity: 0.75;
