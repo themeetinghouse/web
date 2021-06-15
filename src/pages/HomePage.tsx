@@ -82,7 +82,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
             <Route
               key={redirect.id}
               exact
-              from={'/' + redirect.id}
+              path={'/' + redirect.id}
               render={(): ReactNode | undefined => {
                 window.location.href = redirect.to;
                 return undefined;
