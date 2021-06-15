@@ -92,6 +92,12 @@
             "type": "link",
             "title": "COVID-19 FAQs",
             "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf"
+          }, 
+          {
+            "type": "link",
+            "title": "COVID-19 Gathering Guidelines",
+            "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings-June.pdf",
+            "openNewBrowser": true
           }
         ],
         "image1": [
