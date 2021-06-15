@@ -1006,7 +1006,7 @@ class ListItem extends React.Component<Props, State> {
         )}${item.title?.slice(4)} series.`,
       };
       return (
-        <div
+        <button
           onClick={() =>
             this.handleClick(
               videos.sort((a, b) => {
@@ -1038,7 +1038,7 @@ class ListItem extends React.Component<Props, State> {
             {this.showYears(item.startDate, item.endDate)}
             {videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}
           </div>
-        </div>
+        </button>
       );
     } else {
       console.log({ 'None:': item });
