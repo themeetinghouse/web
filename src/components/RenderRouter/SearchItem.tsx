@@ -924,15 +924,15 @@ class ContentItem extends React.Component<Props, State> {
                   style={{
                     fontWeight:
                       this.state.currentSearchType ==
-                      ((item as unknown) as SearchType)
+                      (item as unknown as SearchType)
                         ? 'bold'
                         : 'normal',
                   }}
                   onClick={() => {
                     this.setState({
-                      currentSearchType: (SearchType[
+                      currentSearchType: SearchType[
                         item as any
-                      ] as unknown) as SearchType,
+                      ] as unknown as SearchType,
                     });
                     //  this.doSearch(item);
                   }}

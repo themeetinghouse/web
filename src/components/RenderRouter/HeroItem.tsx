@@ -176,9 +176,10 @@ class HeroItem extends React.Component<Props, State> {
   }
 
   renderHeroImage(className: string) {
-    const image1 = this.state.content.image1[
-      Math.floor(Math.random() * this.state.content.image1.length)
-    ];
+    const image1 =
+      this.state.content.image1[
+        Math.floor(Math.random() * this.state.content.image1.length)
+      ];
     let onLoad: EventHandler<SyntheticEvent<HTMLImageElement>> | undefined;
     let style: CSSProperties | undefined;
     if (className === 'heroImage') {

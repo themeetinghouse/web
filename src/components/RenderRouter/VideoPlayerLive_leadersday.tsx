@@ -34,14 +34,12 @@ export default class VideoPlayer extends React.Component<Props, State> {
     {
       __typename: 'ZoomItem',
       title: 'Brampton',
-      link:
-        'https://us02web.zoom.us/j/88149318051?pwd=T2l6dVI3THVhanNPbEg5WjdNWjlYdz09',
+      link: 'https://us02web.zoom.us/j/88149318051?pwd=T2l6dVI3THVhanNPbEg5WjdNWjlYdz09',
     },
     {
       __typename: 'ZoomItem',
       title: 'Brantford',
-      link:
-        'https://us02web.zoom.us/j/83338623830?pwd=MTNSWm05bElxT1RDMzNMNmZubzZGQT09',
+      link: 'https://us02web.zoom.us/j/83338623830?pwd=MTNSWm05bElxT1RDMzNMNmZubzZGQT09',
     },
     {
       __typename: 'ZoomItem',
@@ -51,8 +49,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     {
       __typename: 'ZoomItem',
       title: 'Hamilton Ancaster',
-      link:
-        'https://us02web.zoom.us/j/83813502060?pwd=K2xKWTdaQ3RDT0syWXY4U1pZaklJdz09',
+      link: 'https://us02web.zoom.us/j/83813502060?pwd=K2xKWTdaQ3RDT0syWXY4U1pZaklJdz09',
     },
     {
       __typename: 'ZoomItem',
@@ -67,8 +64,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     {
       __typename: 'ZoomItem',
       title: 'Kitchener',
-      link:
-        'https://us02web.zoom.us/j/86132511938?pwd=VjRFM1VyWEd2SGFmckxFVEx3S0I4QT09',
+      link: 'https://us02web.zoom.us/j/86132511938?pwd=VjRFM1VyWEd2SGFmckxFVEx3S0I4QT09',
     },
     {
       __typename: 'ZoomItem',
@@ -78,8 +74,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     {
       __typename: 'ZoomItem',
       title: 'Oakville',
-      link:
-        ' https://us02web.zoom.us/j/87155258165?pwd=NXR0ZUJPdm5HNEZRZ25Oc0JhR1pLUT09',
+      link: ' https://us02web.zoom.us/j/87155258165?pwd=NXR0ZUJPdm5HNEZRZ25Oc0JhR1pLUT09',
     },
     {
       __typename: 'ZoomItem',
@@ -119,8 +114,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     {
       __typename: 'ZoomItem',
       title: 'Toronto Uptown',
-      link:
-        'https://us02web.zoom.us/j/82132846890?pwd=TE01Ym0vWEZBNUE4QVI0dGh2MmZkQT09',
+      link: 'https://us02web.zoom.us/j/82132846890?pwd=TE01Ym0vWEZBNUE4QVI0dGh2MmZkQT09',
     },
     {
       __typename: 'ZoomItem',

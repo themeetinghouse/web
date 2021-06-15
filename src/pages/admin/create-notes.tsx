@@ -580,12 +580,8 @@ class Index extends React.Component<EmptyProps, State> {
   };
 
   async makePdf(): Promise<void> {
-    const {
-      title,
-      episodeNumber,
-      notesEditorState,
-      questionsEditorState,
-    } = this.state;
+    const { title, episodeNumber, notesEditorState, questionsEditorState } =
+      this.state;
 
     if (
       questionsEditorState.getCurrentContent().hasText() &&
