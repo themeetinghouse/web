@@ -489,7 +489,7 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div
+      <button
         onClick={() => this.handleClick(item)}
         key={item.id}
         className="CuriousVideo"
@@ -505,7 +505,7 @@ class ListItem extends React.Component<Props, State> {
         <div className="CuriousPlayOverlay">
           <img alt="Play Icon" src="/static/svg/Play.svg"></img>
         </div>
-      </div>
+      </button>
     );
   }
 

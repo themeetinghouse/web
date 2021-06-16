@@ -603,6 +603,8 @@
     width: 24vw;
     height: (9/16) * 24vw;
     position: relative;
+    background-color: #ffffff;
+    border: none;
     &:hover {
       .CuriousVideoImage {
         filter: grayscale(0);
@@ -1303,6 +1305,8 @@
     width: 36vw;
     height: (9/16) * 36vw;
     position: relative;
+    background-color: #ffffff;
+    border: none;
     &:hover {
       .CuriousVideoImage {
         filter: grayscale(0);
@@ -1934,11 +1938,13 @@
 
   .CuriousVideo {
     cursor: pointer;
-    width: 24vw;
+    width: 36vw;
     height: (9/16) * 90vw;
     position: relative;
     margin-bottom: 24px;
     animation: fadeIn ease 1s;
+    background-color: #ffffff;
+    border: none;
   }
 
   .MoreVideos {
