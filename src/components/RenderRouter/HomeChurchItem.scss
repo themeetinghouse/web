@@ -262,6 +262,8 @@
     margin-top: 15px;
     color: theme.$onyxblacktext;
     cursor: pointer;
+    border: none;
+    background-color: #ffffff;
     &:hover {
       text-decoration: underline;
     }
@@ -524,6 +526,8 @@
     font-family: Graphik Web;
     line-height: 8.55vw;
     font-weight: 800;
+    border: none;
+    background-color: #ffffff;
     color: theme.$onyxblacktext;
   }
   .HomeChurchAddress,
