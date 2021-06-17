@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJune13.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJune20.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJune13.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJune20.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJune13.jpg",
-            "alt": "This week's big idea is: When we live for Jesus, what we say matters."
+            "src": "/static/images/KidsBigIdeaJune20.jpg",
+            "alt": "This week's big idea is: When we live for Jesus, we care more about what God thinks than what people think."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJune13.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJune20.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Kids Key Verse",
-            "navigateTo": "/static/pdfs/kidmax-files/KeyVerseJune.pdf",
+            "title": "Download Kids Activity",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJune20.pdf",
             "openNewBrowser": true
           },
           {
