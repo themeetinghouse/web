@@ -495,7 +495,9 @@ class ListItem extends React.Component<Props, State> {
         className="CuriousVideo"
       >
         <img
-          alt={`Thumbnail for video: ${item.episodeTitle}`}
+          id="curiousvideo"
+          aria-label={`${item.episodeTitle}`}
+          alt=""
           className="CuriousVideoImage"
           src={
             (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.maxres
