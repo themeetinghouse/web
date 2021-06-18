@@ -495,7 +495,7 @@ class ListItem extends React.Component<Props, State> {
         className="CuriousVideo"
       >
         <img
-          id="curiousvideo"
+          id={`${item.id}`}
           aria-label={`${item.episodeTitle}`}
           alt=""
           className="CuriousVideoImage"
@@ -505,7 +505,11 @@ class ListItem extends React.Component<Props, State> {
           }
         />
         <div className="CuriousPlayOverlay">
-          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+          <img
+            alt=""
+            src="/static/svg/Play.svg"
+            aria-labelledby={`${item.id}`}
+          ></img>
         </div>
       </button>
     );

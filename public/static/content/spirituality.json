@@ -27,11 +27,11 @@
         "image1": [
           {
             "src": "/static/images/sc-1-1.jpg",
-            "alt": "Man standing in front of a large chalkboard at the front of a lecture hall at a university."
+            "alt": ""
           },
           {
             "src": "/static/images/sc-1-2.jpg",
-            "alt": "Man sitting on the steps in front of a university building."
+            "alt": ""
           }
         ],
         "header1": "Spiritually curious?",
@@ -51,7 +51,7 @@
         "image1": [
           {
             "src": "/static/images/spirituality-2.jpg",
-            "alt": "Bruxy teaching a small group"
+            "alt": ""
           }
         ]
       },
@@ -86,7 +86,7 @@
         "image1": [
           {
             "src": "/static/images/spirituality-3.jpg",
-            "alt": "Two people sitting and talking during Home Church"
+            "alt": ""
           }
         ],
         "list": [
@@ -103,11 +103,11 @@
         "image1": [
           {
             "src": "/static/images/email-connect-5.jpg",
-            "alt": "Friends sitting outside by a fire and hanging out together."
+            "alt": ""
           },
           {
             "src": "/static/images/email-connect-3.jpg",
-            "alt": "A young woman is talking to her friends in the church lobby."
+            "alt": ""
           }
         ],
         "header1": "Not sure where to start?",
