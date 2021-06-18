@@ -367,12 +367,12 @@ class ListItem extends React.Component<Props, State> {
           (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
         }
         tabIndex={0}
+        aria-label={`${item.episodeTitle}`}
+        id={`${item.id}`}
       >
         <img
-          alt={
-            (item as VideoByVideoTypeData)?.thumbnailDescription ||
-            'Video Thumbnail'
-          }
+          alt=""
+          aria-labelledby={`${item.id}`}
           className="ListItemVideoThumb"
           src={
             (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high
