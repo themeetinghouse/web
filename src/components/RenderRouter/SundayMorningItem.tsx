@@ -498,7 +498,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                           <div className="SundayMorningItemDiv4">
                             <div>
                               {this.props.content.alternate === 'christmas' ? (
-                                <h3
+                                <button
                                   className={'SundayMorningH3'}
                                   style={
                                     this.props.content.alternate === 'christmas'
@@ -510,10 +510,10 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                   }
                                 >
                                   {item.name}
-                                </h3>
+                                </button>
                               ) : (
                                 <>
-                                  <h3
+                                  <button
                                     className={
                                       'SundayMorningH3 ' +
                                       (this.state.selectedPlace === item
@@ -527,7 +527,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                     onClick={this.getSiteClickHandler(item)}
                                   >
                                     {item.name}
-                                  </h3>
+                                  </button>
                                   <div
                                     className="SundayMorningAddress"
                                     dangerouslySetInnerHTML={{
