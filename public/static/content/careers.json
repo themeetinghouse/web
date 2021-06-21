@@ -90,6 +90,11 @@
             "type": "link",
             "title": "Discipleship Pastor",
             "navigateTo": "/static/pdfs/careers/Discipleship Pastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Human Resources Manager",
+            "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
           }
         ],
         "image1": [
