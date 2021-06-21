@@ -4,7 +4,6 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { History } from 'history';
 import HomePage from 'pages/HomePage';
 import Authenticator from 'components/Auth/Authenticator';
-import SignUp from 'components/Auth/SignUp';
 
 interface Props extends RouteComponentProps<any> {
   match: any;
@@ -14,6 +13,7 @@ interface State {
   content: any;
 }
 const SignIn = lazy(() => import('./components/Auth/SignIn'));
+const SignUp = lazy(() => import('./components/Auth/SignUp'));
 const Admin = lazy(() => import('./pages/admin/index'));
 const ImportVideo = lazy(() => import('./pages/admin/import-video'));
 const CreateBlog = lazy(() => import('./pages/admin/create-blog'));
