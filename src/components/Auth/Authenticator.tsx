@@ -391,6 +391,8 @@ export default class Authenticator extends React.Component<
               this.setState({ authState: state }, () => {
                 if (state == 'signUp') this.props.history.push('/signup');
                 else if (state == 'signIn') this.props.history.push('/signIn');
+                else if (state == 'signedIn')
+                  this.props.history.push('/account');
               });
             },
             //updateGroups: this.updateGroups,

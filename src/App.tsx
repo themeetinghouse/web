@@ -21,6 +21,7 @@ const CreateNotes = lazy(() => import('./pages/admin/create-notes'));
 const AddLive = lazy(() => import('./pages/admin/livestream'));
 const GetInsta = lazy(() => import('./pages/admin/instagram'));
 const Announcements = lazy(() => import('./pages/admin/Announcements'));
+const AccountMain = lazy(() => import('./pages/users/AccountMain'));
 
 class App extends React.Component<Props, State> {
   render() {
@@ -40,6 +41,7 @@ class App extends React.Component<Props, State> {
             <Route path="/admin" render={() => <Admin />} />
             <Route path="/signin" render={() => <SignIn />} />
             <Route path="/signup" render={() => <SignUp />} />
+            <Route path="/account" render={() => <AccountMain />} />
             <Route path="*" render={(props) => <HomePage {...props} />} />
           </Switch>
         </Authenticator>

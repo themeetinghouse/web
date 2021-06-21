@@ -217,6 +217,7 @@ export default class SignUp extends React.Component<Props, State> {
                           // autoCompleteType="email"
                           // textContentType="emailAddress"
                           // keyboardType="email-address"
+                          type="email"
                           placeholder="Email Address"
                           value={this.state.user.email}
                           onChange={(e) =>
@@ -228,6 +229,7 @@ export default class SignUp extends React.Component<Props, State> {
                         <div>*</div>
                         <input
                           // textContentType="newPassword"
+                          type="password"
                           placeholder="Create Password"
                           value={this.state.user.pass}
                           onChange={(e) =>
@@ -238,6 +240,7 @@ export default class SignUp extends React.Component<Props, State> {
                         <div>*</div>
                         <input
                           //  textContentType="newPassword"
+                          type="password"
                           placeholder="Confirm Password"
                           value={this.state.user.pass2}
                           onChange={(e) =>

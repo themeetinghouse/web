@@ -149,13 +149,15 @@ export default class SignIn extends React.Component<Props, State> {
                     <input
                       //  autoCompleteType="email"
                       //textContentType="emailAddress"
+                      type="email"
                       autoFocus
                       //keyboardType="email-address"
                       placeholder="Email"
                       value={this.state.user}
                       onChange={(e: any) =>
-                        this.setState({ user: e.nativeEvent.text })
+                        this.setState({ user: e.target.value })
                       }
+
                       //secureTextEntry={false}
                     ></input>
                     <input
@@ -164,12 +166,12 @@ export default class SignIn extends React.Component<Props, State> {
                       // onKeyPress={(e: any) => {
                       //   this.handleEnter(userActions, e);
                       // }}
+                      type="password"
                       placeholder="Password"
                       value={this.state.pass}
                       onChange={(e: any) =>
-                        this.setState({ pass: e.nativeEvent.text })
+                        this.setState({ pass: e.target.value })
                       }
-                      // secureTextEntry={true}
                     ></input>
                     <button
                       //  accessibilityLabel="Login"
