@@ -95,6 +95,11 @@
             "type": "link",
             "title": "Human Resources Manager",
             "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Brantford Parish Administrator",
+            "navigateTo": "/static/pdfs/careers/Brantford Site Administrator.pdf"
           }
         ],
         "image1": [
