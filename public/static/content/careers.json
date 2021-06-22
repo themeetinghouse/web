@@ -95,11 +95,6 @@
             "type": "link",
             "title": "Human Resources Manager",
             "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Brantford Parish Administrator",
-            "navigateTo": "/static/pdfs/careers/Brantford Parish Administrator.pdf"
           }
         ],
         "image1": [
@@ -124,6 +119,11 @@
           "type": "link",
           "title": "Kitchener Kidmax Coordinator",
           "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+        },
+        {
+          "type": "link",
+          "title": "Brantford Parish Administrator",
+          "navigateTo": "/static/pdfs/careers/Brantford Parish Administrator.pdf"
         }
       ],
         "image1": [
