@@ -367,12 +367,12 @@ class ListItem extends React.Component<Props, State> {
           (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
         }
         tabIndex={0}
-        aria-label={`${item.episodeTitle}`}
-        id={`${item.id}`}
       >
         <img
-          alt=""
-          aria-labelledby={`${item.id}`}
+          alt={
+            (item as VideoByVideoTypeData)?.thumbnailDescription ||
+            'Video Thumbnail'
+          }
           className="ListItemVideoThumb"
           src={
             (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.high
@@ -496,9 +496,7 @@ class ListItem extends React.Component<Props, State> {
         className="CuriousVideo"
       >
         <img
-          id={`${item.id}`}
-          aria-label={`${item.episodeTitle}`}
-          alt=""
+          alt={`Thumbnail for video: ${item.episodeTitle}`}
           className="CuriousVideoImage"
           src={
             (item as VideoByVideoTypeData)?.Youtube?.snippet?.thumbnails?.maxres
@@ -506,11 +504,7 @@ class ListItem extends React.Component<Props, State> {
           }
         />
         <div className="CuriousPlayOverlay">
-          <img
-            alt=""
-            src="/static/svg/Play.svg"
-            aria-labelledby={`${item.id}`}
-          ></img>
+          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
         </div>
       </button>
     );
