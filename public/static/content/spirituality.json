@@ -79,6 +79,22 @@
       },
       {
         "type": "content",
+        "style": "banner-cards",
+        "images": [
+          {
+            "src": "/static/photos/banners/promo_jesus101.png",
+            "alt": "Graphic for the Jesus 101 teaching series.",
+            "linkto": "/videos/Jesus%20101/r1-ZzIXF7mo"
+          },
+          {
+            "src": "/static/photos/banners/promo_spiritualminds.png",
+            "alt": "Graphic for Spiritual Minds teaching series.",
+            "linkto": "/videos/Spiritual%20Minds/6zVOZCa5Vuo"
+          }
+        ]
+      },
+      {
+        "type": "content",
         "style": "oneImage",
         "header1": "What's your next step?",
         "header2": "",
