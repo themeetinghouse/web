@@ -67,17 +67,6 @@
         "text1": "Short videos that are a great starting point if you are interested in some of the basics when it comes to Jesus, God, and spirituality."
       },
       {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "bbq",
-        "limit": 25,
-        "sortOrder": "DESC",
-        "showEpisodeNumbers": false,
-        "header1": "Popular Questions About Christianity",
-        "text1": "Dive a little deeper than our starting questions and check out some of the most popular questions we've received."
-      },
-      {
         "type": "content",
         "style": "banner-cards",
         "images": [
@@ -92,6 +81,17 @@
             "linkto": "/videos/Spiritual%20Minds/6zVOZCa5Vuo"
           }
         ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "bbq",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "showEpisodeNumbers": false,
+        "header1": "Popular Questions About Christianity",
+        "text1": "Dive a little deeper than our starting questions and check out some of the most popular questions we've received."
       },
       {
         "type": "content",
