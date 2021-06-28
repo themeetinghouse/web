@@ -9,6 +9,95 @@
 }
 
 @media (min-width: 768px) {
+  .maDPosition {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 46vw;
+    //height: 46vw;
+    z-index: 100;
+  }
+
+  .maDH1 {
+    font-weight: bold;
+    font-size: 3vw;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+    margin-bottom: 2vw;
+  }
+
+  .maDText {
+    font-size: 1.2vw;
+    font-family: Graphik Web;
+    margin-bottom: 1vw;
+    color: theme.$coolgray11;
+  }
+
+  .maDList {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    line-height: 0vw;
+
+    cursor: pointer;
+    &:hover {
+      .maDarrow {
+        float: right;
+      }
+    }
+  }
+
+  .maDcontainer {
+    position: relative;
+    width: 28vw;
+    height: 30vw;
+    left: 4vw;
+    top: 8vw;
+  }
+
+  .maDrec {
+    position: absolute;
+    right: 15vw;
+    width: 8vw;
+    bottom: 3.75vw;
+    top: 0vw;
+    border: solid 16px theme.$onyxblacktext;
+  }
+
+  .maDImage {
+    position: absolute;
+    height: 35vw;
+    width: 35vw;
+    left: 40vw;
+    object-fit: cover;
+    top: 3.5vw;
+  }
+
+  .maDA {
+    font-size: 1.2vw;
+  }
+
+  .maDAContainer {
+    text-align: left;
+    top: -3vw;
+    left: 3vw;
+    width: 28vw;
+    border: none;
+    margin: -3.3vw;
+  }
+
+  .maDAContainer:hover {
+    .maDarrow {
+      transition: transform 200ms ease-in-out;
+      transform: translate(20px);
+    }
+  }
+
+  .maDarrow {
+    float: right;
+    padding-top: 0px;
+    width: 28px;
+  }
+
   .pie {
     position: relative;
     text-align: center;
@@ -565,6 +654,90 @@
 }
 
 @media (max-width: 767px) {
+  .maDPosition {
+    position: relative;
+    left: 5vw;
+    width: 80vw;
+    height: 180vw;
+    z-index: 100;
+  }
+
+  .maDH1 {
+    font-weight: bold;
+    font-size: 6vw;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+    margin-bottom: 6vw;
+  }
+
+  .maDText {
+    font-size: 3.5vw;
+    font-family: Graphik Web;
+    margin-bottom: 1vw;
+    color: theme.$coolgray11;
+  }
+
+  .maDList {
+    font-size: 5vw;
+    font-family: Graphik Web;
+    line-height: 0vw;
+
+    cursor: pointer;
+    &:hover {
+      .maDarrow {
+        float: right;
+      }
+    }
+  }
+
+  .maDcontainer {
+    position: relative;
+    width: 80vw;
+    height: 30vw;
+    left: 0vw;
+    top: 60vw;
+  }
+
+  .maDrec {
+    position: absolute;
+    left: 25vw;
+    width: 73vw;
+    height: 24vw;
+    top: 25vw;
+    border: solid 28px theme.$onyxblacktext;
+    border-right: 0vw;
+  }
+
+  .maDImage {
+    display: none;
+  }
+
+  .maDA {
+    font-size: 1.2vw;
+  }
+
+  .maDAContainer {
+    text-align: left;
+    top: 6vw;
+    left: 0vw;
+    width: 80vw;
+    border: none;
+    margin: 0vw;
+  }
+
+  .maDAContainer:hover {
+    .maDarrow {
+      transition: transform 200ms ease-in-out;
+      transform: translate(20px);
+    }
+  }
+
+  .maDarrow {
+    float: right;
+    padding-top: 0px;
+    width: 38px;
+  }
+
   .one-image-calendar {
     margin-top: 24px;
   }

@@ -26,6 +26,12 @@ type ContentList = Array<
       date?: string;
       location: string;
     }
+  | {
+      type: 'arrow';
+      navigateTo: string;
+      title: string;
+      openNewBrowser?: boolean;
+    }
 >;
 
 interface BannerImage {
@@ -113,6 +119,18 @@ function ContentItem({ content }: Props) {
               <div>{item.date}</div>
               <div>{item.location}</div>
             </div>
+          );
+
+        case 'arrow':
+          return (
+            <LinkButton className="maDAContainer" key={id} to={item.navigateTo}>
+              {item.title}
+              <img
+                className="maDarrow"
+                alt=""
+                src="/static/svg/ArrowRight black.svg"
+              />
+            </LinkButton>
           );
 
         default:
@@ -404,6 +422,26 @@ function ContentItem({ content }: Props) {
             {renderList()}
           </div>
           <div className="greenTwoClear" />
+        </div>
+      );
+    case 'maD':
+      return (
+        <div className="ContentItem maD">
+          <div className="maDPosition">
+            <div className="maDcontainer">
+              <h1 className="maDH1">{content.header1}</h1>
+              <div className="maDText">{content.text1}</div>
+              <div className="maDList">{renderList()}</div>
+            </div>
+            <div className="maDVisuals">
+              <div className="maDrec"></div>
+              <ScaledImage
+                image={image1}
+                className="maDImage"
+                breakpointSizes={heroBreakpoints}
+              />
+            </div>
+          </div>
         </div>
       );
 
