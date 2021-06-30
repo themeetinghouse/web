@@ -58,11 +58,6 @@
         "list": [
           {
             "type": "link",
-            "title": "Parry Sound Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
-          },
-          {
-            "type": "link",
             "title": "East Toronto Lead Pastor",
             "navigateTo": "/static/pdfs/careers/ETleadpastor.pdf"
           },
