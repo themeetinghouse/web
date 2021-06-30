@@ -1,28 +1,15 @@
-//import { GraphQLResult } from '@aws-amplify/api/lib/types';
-//import { createStackNavigator } from '@react-navigation/stack';
-import Amplify, {
-  Analytics,
-  //API,
-  Auth,
-  // graphqlOperation
-} from 'aws-amplify';
-//import GRAPHQL_AUTH_MODE from '@aws-amplify/api/lib/types';
+import Amplify, { Analytics, API, Auth, graphqlOperation } from 'aws-amplify';
+
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 //import * as Linking from 'expo-linking';
-//import moment from 'moment';
+import moment from 'moment';
 import React from 'react';
-//import { Platform, Text } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 //import * as Sentry from '@sentry/browser';
-
-//import Validate from '../../components/Validate/Validate';
-/*import {
-  CreateCustomerMutation,
-  CreateUserInput,
-  CreateUserMutation,
-} from '../../../src/API';*/
+import { CreateTmhUserMutation } from 'API';
 import awsconfig from '../../../src/aws-exports';
-//import * as mutations from '../../../src/graphql/mutations';
-//import * as queries from '../../../src/graphql/queries';
+import * as mutations from '../../../src/graphql/mutations';
+import * as queries from '../../../src/graphql/queries';
 import {
   ProfileStatus,
   TMHCognitoUser,
@@ -30,6 +17,9 @@ import {
   //  UserState,
 } from './UserContext';
 import { RouteComponentProps } from 'react-router-dom';
+import { GraphQLResult } from '@aws-amplify/api';
+import { CreateTMHUserInput, GetTmhUserQuery } from 'API';
+import Validate from './Validate';
 
 Amplify.configure(awsconfig);
 
@@ -147,50 +137,41 @@ export default class Authenticator extends React.Component<
   private user: TMHCognitoUser | undefined | null;
 
   async ensureUserExists(performChecks: () => Promise<void>): Promise<void> {
-    const userExists = false;
+    let userExists = false;
     this.user = await Auth.currentAuthenticatedUser().catch(() => {
       console.log('No current authenticated user');
     });
     if (this.user != null) {
-      /*const { attributes } = this.user;
-      
-      const handleUser = async (getUser: GetUserQueryResult) => {
+      const { attributes } = this.user;
+
+      const handleUser = async (getUser: GraphQLResult<GetTmhUserQuery>) => {
         console.log(getUser);
         if (getUser.data == null || getUser.data == undefined) {
-          Sentry.captureEvent(getUser);
+          //  Sentry.captureEvent(getUser);
           console.log({ Errors: getUser.errors });
         }
-        if (getUser.data.getUser == null) {
+        if (getUser?.data?.getTMHUser == null) {
           console.log('Trying to create');
-          const inputData: CreateUserInput = {
+          const inputData: CreateTMHUserInput = {
             id: this.user?.username,
             given_name: attributes?.given_name ?? '',
             family_name: attributes?.family_name ?? '',
             email: attributes?.email,
             phone: attributes?.phone_number,
-            profileState: 'Incomplete',
-            orgName: attributes?.['custom:orgName'],
+            //  profileState: 'Incomplete',
             billingAddress: {},
-            alertConfig: {
-              emailDirectMessage: 'true',
-              emailGroupMessage: 'true',
-              emailEventMessage: 'true',
-              emailOrgMessage: 'true',
-              emailResourceMessage: 'true',
-              emailCourseMessage: 'true',
-              emailPromotions: 'true',
-            },
+
             joined: moment().format(),
           };
 
           try {
             const createUser = (await API.graphql({
-              query: mutations.createUser,
+              query: mutations.createTmhUser,
               variables: {
                 input: inputData,
               },
               authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-            })) as GraphQLResult<CreateUserMutation>;
+            })) as GraphQLResult<CreateTmhUserMutation>;
 
             userExists = true;
             console.log({ createUser: createUser });
@@ -201,15 +182,12 @@ export default class Authenticator extends React.Component<
           userExists = true;
           console.log('User exists');
         }
-
-        
-        
       };
-      const z: GetUserQueryResultPromise = API.graphql(
-        graphqlOperation(queries.getUser, { id: this.user['username'] })
-      ) as GetUserQueryResultPromise;
+      const z = API.graphql(
+        graphqlOperation(queries.getTmhUser, { id: this.user['username'] })
+      ) as Promise<GraphQLResult<GetTmhUserQuery>>;
       await z.then(handleUser).catch(handleUser);
-*/
+
       console.log({ userExists: userExists });
       this.setState({ userExists: userExists }, performChecks);
     }
@@ -312,18 +290,18 @@ export default class Authenticator extends React.Component<
       user: this.state.userExists,
     });
     if (this.state.userExists) {
-      /*const handleUser = (getUser: GetUserQueryResult) => {
-        const response = Validate.Profile(getUser.data.getUser);
+      const handleUser = (getUser: GraphQLResult<GetTmhUserQuery>) => {
+        const response = Validate.Profile(getUser?.data?.getTMHUser);
         console.log({ Validate: response });
         console.debug({ checkIfCompletedProfileResult: response.result });
         if (response.result) return ProfileStatus.Completed;
         else if (!response.result) return ProfileStatus.Incomplete;
         else return ProfileStatus.Unknown;
       };
-      const getUser: GetUserQueryResultPromise = API.graphql(
-        graphqlOperation(queries.getUser, { id: this.user!['username'] })
-      ) as GetUserQueryResultPromise;
-      return await getUser.then(handleUser).catch(handleUser);*/
+      const getUser = API.graphql(
+        graphqlOperation(queries.getTmhUser, { id: this.user!['username'] })
+      ) as Promise<GraphQLResult<GetTmhUserQuery>>;
+      return await getUser.then(handleUser).catch(handleUser);
     }
     return ProfileStatus.Unknown;
   }
