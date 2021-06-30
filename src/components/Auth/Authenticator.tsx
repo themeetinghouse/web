@@ -87,7 +87,13 @@ export default class Authenticator extends React.Component<
       console.log('SIGNIN');
     } else if (this.props.location.pathname == '/signup') {
       this.setState({ authState: 'signUp' });
-      console.log('SIGNIN');
+      console.log('SIGNUP');
+    } else if (this.props.location.pathname == '/confirmsignup') {
+      this.setState({ authState: 'confirmSignUp' });
+      console.log('CONFIRMSIGNUP');
+    } else if (this.props.location.pathname == '/forgotpassword') {
+      this.setState({ authState: 'forgotPassword' });
+      console.log('FORGOTPASSWORD');
     }
     await this.getAuthInitialState();
     await this.performStartup();
@@ -391,6 +397,10 @@ export default class Authenticator extends React.Component<
               this.setState({ authState: state }, () => {
                 if (state == 'signUp') this.props.history.push('/signup');
                 else if (state == 'signIn') this.props.history.push('/signIn');
+                else if (state == 'confirmSignUp')
+                  this.props.history.push('/confirmSignUp');
+                else if (state == 'forgotPassword')
+                  this.props.history.push('/forgotPassword');
                 else if (state == 'signedIn')
                   this.props.history.push('/account');
               });

@@ -12,6 +12,8 @@ interface Props extends RouteComponentProps<any> {
 interface State {
   content: any;
 }
+const ForgotPassword = lazy(() => import('./components/Auth/ForgotPassword'));
+const ConfirmSignUp = lazy(() => import('./components/Auth/ConfirmSignUp'));
 const SignIn = lazy(() => import('./components/Auth/SignIn'));
 const SignUp = lazy(() => import('./components/Auth/SignUp'));
 const Admin = lazy(() => import('./pages/admin/index'));
@@ -41,6 +43,8 @@ class App extends React.Component<Props, State> {
             <Route path="/admin" render={() => <Admin />} />
             <Route path="/signin" render={() => <SignIn />} />
             <Route path="/signup" render={() => <SignUp />} />
+            <Route path="/confirmsignup" render={() => <ConfirmSignUp />} />
+            <Route path="/forgotpassword" render={() => <ForgotPassword />} />
             <Route path="/account" render={() => <AccountMain />} />
             <Route path="*" render={(props) => <HomePage {...props} />} />
           </Switch>
