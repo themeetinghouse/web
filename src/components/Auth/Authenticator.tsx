@@ -78,12 +78,18 @@ export default class Authenticator extends React.Component<
     } else if (this.props.location.pathname == '/signup') {
       this.setState({ authState: 'signUp' });
       console.log('SIGNUP');
+    } else if (this.props.location.pathname == '/verifycontact') {
+      this.setState({ authState: 'verifyContact' });
+      console.log('VERIFYCONTACT');
     } else if (this.props.location.pathname == '/confirmsignup') {
       this.setState({ authState: 'confirmSignUp' });
       console.log('CONFIRMSIGNUP');
     } else if (this.props.location.pathname == '/forgotpassword') {
       this.setState({ authState: 'forgotPassword' });
       console.log('FORGOTPASSWORD');
+    } else if (this.props.location.pathname == '/requirenewpassword') {
+      this.setState({ authState: 'requireNewPassword' });
+      console.log('REQUIRENEWPASSWORD');
     }
     await this.getAuthInitialState();
     await this.performStartup();
@@ -299,7 +305,7 @@ export default class Authenticator extends React.Component<
         else return ProfileStatus.Unknown;
       };
       const getUser = API.graphql(
-        graphqlOperation(queries.getTmhUser, { id: this.user!['username'] })
+        graphqlOperation(queries.getTmhUser, { id: this.user?.username })
       ) as Promise<GraphQLResult<GetTmhUserQuery>>;
       return await getUser.then(handleUser).catch(handleUser);
     }
@@ -374,7 +380,11 @@ export default class Authenticator extends React.Component<
             onStateChange: async (state, data) => {
               this.setState({ authState: state }, () => {
                 if (state == 'signUp') this.props.history.push('/signup');
+                else if (state == 'requireNewPassword')
+                  this.props.history.push('/requireNewPassword');
                 else if (state == 'signIn') this.props.history.push('/signIn');
+                else if (state == 'verifyContact')
+                  this.props.history.push('/verifyContact');
                 else if (state == 'confirmSignUp')
                   this.props.history.push('/confirmSignUp');
                 else if (state == 'forgotPassword')

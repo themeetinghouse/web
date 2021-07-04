@@ -36,7 +36,7 @@ export default class SignIn extends React.Component<Props, State> {
       fromVerified: this.props.route?.params?.fromVerified ?? false,
     });
   }
-  componentDidUpdate(prevProps: Props, prevState: State): void {
+  componentDidUpdate(prevProps: Props): void {
     //        console.log({ CompUpdate: this.props.route })
     if (this.props.route?.params?.email !== prevProps.route?.params?.email) {
       //            console.log("UPDATE1")
