@@ -3,29 +3,29 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_cognito_identity_pool_id": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+    "aws_cognito_identity_pool_id": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_KiJzP2dH5",
-    "aws_user_pools_web_client_id": "3pf37ngd57hsk9ld12aha9bm2f",
+    "aws_user_pools_id": "us-east-1_tKp1OdyuZ",
+    "aws_user_pools_web_client_id": "5gpi0b6rgnm5dh8orcj0088b9n",
     "oauth": {},
     "federationTarget": "COGNITO_IDENTITY_POOLS",
-    "aws_appsync_graphqlEndpoint": "https://qt6manqtzbhkvd6tcxvchusmyq.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://xmi5joyjjjeu7badiat7jr3xby.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-6zfuocqmhvecrfkng7hx2oipni",
+    "aws_appsync_apiKey": "da2-zrd5a3b2izccrajf3vt3dcj4au",
     "aws_cloud_logic_custom": [
         {
             "name": "image",
-            "endpoint": "https://95i5crqja0.execute-api.us-east-1.amazonaws.com/tmhprod",
+            "endpoint": "https://npp92r8kf0.execute-api.us-east-1.amazonaws.com/payments",
             "region": "us-east-1"
         }
     ],
-    "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-tmhprod",
+    "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-payments",
     "aws_content_delivery_bucket_region": "us-east-1",
-    "aws_content_delivery_url": "https://d3ovx9jsa9o5gy.cloudfront.net",
-    "aws_mobile_analytics_app_id": "20b026ebefc445dd82e5a853dff62770",
+    "aws_content_delivery_url": "https://d1bp8606u0j0nh.cloudfront.net",
+    "aws_mobile_analytics_app_id": "445886891bf54eb09b51d0db387efb2d",
     "aws_mobile_analytics_app_region": "us-east-1",
-    "aws_user_files_s3_bucket": "themeetinghouse-usercontentstoragetmhusercontent-tmhprod",
+    "aws_user_files_s3_bucket": "themeetinghouse-usercontent152010-payments",
     "aws_user_files_s3_bucket_region": "us-east-1"
 };
 

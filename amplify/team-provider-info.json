@@ -136,5 +136,65 @@
         }
       }
     }
+  },
+  "payments": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-themeetinghouse-payments-152010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::119330689042:role/amplify-themeetinghouse-payments-152010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::119330689042:role/amplify-themeetinghouse-payments-152010-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+      "UnauthRoleName": "amplify-themeetinghouse-payments-152010-unauthRole",
+      "StackName": "amplify-themeetinghouse-payments-152010",
+      "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/amplify-themeetinghouse-payments-152010/c17abad0-dea8-11eb-bf56-0adc8babde53",
+      "AmplifyAppId": "d3chs2w45ydgx7"
+    },
+    "categories": {
+      "auth": {
+        "cognitodevtmh": {
+          "facebookAppId": "abc",
+          "googleClientId": "def",
+          "amazonAppId": "ghi"
+        }
+      },
+      "function": {
+        "QandEh": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/QandEh-646c58694a6f50475546-build.zip"
+        },
+        "S3Triggerd90d52fa": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/S3Triggerd90d52fa-55585256336f73466775-build.zip"
+        },
+        "emailHomeChurch": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/emailHomeChurch-53536546627839364e74-build.zip"
+        },
+        "socialBotHandler": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/socialBotHandler-65767370555949767a69-build.zip"
+        },
+        "getBiblePassage": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/getBiblePassage-6e56394f6e796c443454-build.zip"
+        },
+        "themeetinghousea5cd4619": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-77724630356a52537731-build.zip"
+        },
+        "tmhMetadataFacebook": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhMetadataFacebook-3274776d436343476a2f-build.zip"
+        },
+        "tmhF1HomeChurch": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhF1HomeChurch-39696c54744d37434f4f-build.zip"
+        },
+        "tmhnotespdf": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhnotespdf-5139675461515a4a564f-build.zip"
+        }
+      }
+    }
   }
 }
