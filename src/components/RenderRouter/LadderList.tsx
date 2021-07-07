@@ -2,20 +2,6 @@ import React, { ReactNode } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { isArray } from 'util';
 import './LadderList.scss';
-import { useState, HTMLAttributes } from 'react';
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Fade,
-} from 'reactstrap';
-import {
-  FacebookShareButton,
-  EmailShareButton,
-  TwitterShareButton,
-} from 'react-share';
-import { FacebookIcon, EmailIcon, TwitterIcon } from 'react-share';
 
 interface Props extends RouteComponentProps {
   darkMode?: boolean;
@@ -71,61 +57,6 @@ class LadderList extends React.Component<Props, State> {
       </>
     );
   }
-}
-
-function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className={className}>
-      <Dropdown isOpen={open} toggle={() => setOpen((prev) => !prev)}>
-        <DropdownToggle id="share-custom">
-          <img
-            className="button-icon"
-            src="/static/svg/Share-white.svg"
-            alt=""
-          />
-          Share
-        </DropdownToggle>
-        <Fade timeout={1000}>
-          <DropdownMenu className="ShareMenu">
-            <FacebookShareButton
-              className="ShareOption"
-              url={window.location.href}
-            >
-              <DropdownItem as="button" className="dropitem">
-                <FacebookIcon className="social-share-icon" size={32} round />
-                Facebook
-              </DropdownItem>
-            </FacebookShareButton>
-
-            <TwitterShareButton
-              className="ShareOption"
-              url={window.location.href}
-              via={'TheMeetingHouse'}
-              related={['TheMeetingHouse']}
-            >
-              <DropdownItem as="button" className="dropitem">
-                <TwitterIcon className="social-share-icon" size={32} round />
-                Twitter
-              </DropdownItem>
-            </TwitterShareButton>
-
-            <EmailShareButton
-              className="ShareOption"
-              url={window.location.href}
-              body={'I wanted to share this blog post with you:'}
-            >
-              <DropdownItem as="button" className="dropitem">
-                <EmailIcon className="social-share-icon" size={32} round />
-                Email
-              </DropdownItem>
-            </EmailShareButton>
-          </DropdownMenu>
-        </Fade>
-      </Dropdown>
-    </div>
-  );
 }
 
 export default withRouter(LadderList);
