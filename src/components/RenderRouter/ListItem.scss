@@ -116,8 +116,7 @@
 
 .EventDateContainer {
   float: left;
-  margin-left: 10px;
-  margin-right: 40px;
+  position: absolute;
   .EventDateMonth {
     font-family: Graphik Web;
     line-height: 3vw;
@@ -126,6 +125,7 @@
     color: #1a1a1a;
   }
   .EventDateDay {
+    text-align: center;
     font-family: Graphik Web;
     line-height: 3vw;
     font-size: 4vw;
@@ -525,15 +525,25 @@
   }
 
   .ListItemEvents {
-    display: relative;
-    width: 53vw;
+    width: 70vw;
     margin-right: 2vw;
+    margin-left: 2vw;
     vertical-align: top;
   }
 
   .ListItemEvents:hover {
     background-color: #efeff0;
     cursor: pointer;
+    .ListItemEventsArrow {
+      transition: transform 200ms ease-in-out;
+      transition: 1s;
+      transform: translate(20px);
+    }
+  }
+
+  .ListItemEventsText {
+    position: relative;
+    left: 8vw;
   }
 
   .ListItemCompassion {
@@ -548,29 +558,57 @@
     font-weight: bold;
     font-size: 2vw;
     line-height: 2.3vw;
-    margin-top: 12px;
+    margin-top: 1.5vw;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDescription2 {
+    margin-top: 1.5vw;
     white-space: normal;
+    font-size: 1.05vw;
     font-family: Graphik Web;
     color: theme.$coolgray11;
-    word-wrap: break-word;
+    width: 52vw;
   }
 
   .ListItemEventsLocation {
     font-family: Graphik Web;
     font-weight: bold;
-    margin-top: 10px;
+    font-size: 1.5vw;
+    margin-top: 1.5vw;
     color: theme.$onyxblacktext;
   }
 
   .ListItemEventsDuration {
     font-family: Graphik Web;
-    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.3vw;
     color: theme.$onyxblacktext;
+  }
+
+  .ListItemEventsIcons {
+    margin-top: 3vw;
+    display: flex;
+    .ListItemEventsShare {
+      margin-right: 5vw;
+      float: right;
+      .ListItemEventsShareLink {
+        margin-left: 1vw;
+      }
+    }
+    .ListItemEventsCalendar {
+      .ListItemEventsCalendarLink {
+        margin-left: 1vw;
+      }
+    }
+  }
+
+  .ListItemEventsArrow {
+    float: right;
+    margin-right: 2vw;
+    width: 28px;
+    transition: 1s;
   }
 
   .ListItem.imageList {
@@ -2111,8 +2149,8 @@
 
   .EventDateContainer {
     float: left;
-    margin-left: 10px;
-    margin-right: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
     display: flex;
     width: 100%;
     margin-bottom: 5px;
