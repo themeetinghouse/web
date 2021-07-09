@@ -6,7 +6,7 @@ import moment from 'moment';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 //import * as Sentry from '@sentry/browser';
-import { CreateTmhUserMutation } from 'API';
+import { CreateTmhUserMutation, TmhF1LinkUserQuery } from 'API';
 import awsconfig from '../../../src/aws-exports';
 import * as mutations from '../../../src/graphql/mutations';
 import * as queries from '../../../src/graphql/queries';
@@ -27,7 +27,7 @@ Amplify.configure(awsconfig);
 
 interface State {
   hasCompletedPersonalProfile: ProfileStatus;
-
+  hasF1Linked: boolean;
   userExists: boolean;
   user: any;
   authState: any;
@@ -47,6 +47,7 @@ export default class Authenticator extends React.Component<
   constructor(props: RouteComponentProps<any>) {
     super(props);
     this.state = {
+      hasF1Linked: false,
       initialParams: null,
       groups: null,
       hasCompletedPersonalProfile: ProfileStatus.Unknown,
@@ -224,15 +225,30 @@ export default class Authenticator extends React.Component<
       return false;
     }
   }
-
+  async checkIfF1Linked(): Promise<boolean> {
+    console.log('CheckF1Link');
+    try {
+      const tmhF1LinkUser = (await API.graphql({
+        query: queries.tmhF1LinkUser,
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhF1LinkUserQuery>;
+      console.log(tmhF1LinkUser);
+      return true;
+    } catch (e) {
+      console.log({ Error: e });
+      return false;
+    }
+  }
   recheckUserState = async (): Promise<void> => {
-    console.debug('recheckUserState');
+    console.log('recheckUserState');
     await this.ensureUserExists(async (): Promise<void> => {
       //   const paidStatus = await this.checkIfPaid();
+      const linkF1 = await this.checkIfF1Linked();
       const profileStatus = await this.checkIfCompletedProfile();
       this.setState(
         {
           //  hasPaidState: paidStatus,
+          hasF1Linked: linkF1,
           hasCompletedPersonalProfile: profileStatus,
         },
         async () => {
@@ -391,6 +407,7 @@ export default class Authenticator extends React.Component<
                   this.props.history.push('/forgotPassword');
                 else if (state == 'signedIn')
                   this.props.history.push('/account');
+                this.performStartup();
               });
             },
             //updateGroups: this.updateGroups,
