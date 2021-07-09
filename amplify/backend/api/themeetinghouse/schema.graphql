@@ -23,7 +23,7 @@ type Query {
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
   generatePdf(notes:String,questions:String,week:String,title:String,userId:String):pdfRes @function(name:"tmhnotespdf-${env}")
-  tmhF1LinkUser:Boolean @function(name:"tmhF1LinkUser-${env}")
+  tmhF1LinkUser:Boolean @function(name:"tmhF1LinkUser-${env}") @aws_cognito_user_pools
   tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}")
 }
 
