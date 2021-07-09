@@ -2527,6 +2527,25 @@ export const generatePdf = /* GraphQL */ `
     }
   }
 `;
+export const tmhF1LinkUser = /* GraphQL */ `
+  query TmhF1LinkUser {
+    tmhF1LinkUser
+  }
+`;
+export const tmhF1SearchContributionReceipts = /* GraphQL */ `
+  query TmhF1SearchContributionReceipts($pageId: String) {
+    tmhF1SearchContributionReceipts(pageId: $pageId) {
+      results {
+        contributionReceipt {
+          id
+          accountReference
+          amount
+          receivedDate
+        }
+      }
+    }
+  }
+`;
 export const getTnSeries = /* GraphQL */ `
   query GetTnSeries($id: ID!) {
     getTNSeries(id: $id) {
@@ -18525,6 +18544,8 @@ export const getTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
+      f1PersonId
+      f1HouseholdId
       createdAt
       updatedAt
       email
@@ -18562,6 +18583,8 @@ export const listTmhUsers = /* GraphQL */ `
           filenameUpload
         }
         joined
+        f1PersonId
+        f1HouseholdId
         createdAt
         updatedAt
         email

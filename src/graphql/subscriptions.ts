@@ -23642,6 +23642,8 @@ export const onCreateTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
+      f1PersonId
+      f1HouseholdId
       createdAt
       updatedAt
       email
@@ -23674,6 +23676,8 @@ export const onUpdateTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
+      f1PersonId
+      f1HouseholdId
       createdAt
       updatedAt
       email
@@ -23706,6 +23710,8 @@ export const onDeleteTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
+      f1PersonId
+      f1HouseholdId
       createdAt
       updatedAt
       email

@@ -1660,6 +1660,8 @@ export type CreateTMHUserInput = {
   billingAddress?: AddressInput | null,
   profileImage?: ImageInput | null,
   joined?: string | null,
+  f1PersonId?: string | null,
+  f1HouseholdId?: string | null,
 };
 
 export type AddressInput = {
@@ -1687,6 +1689,8 @@ export type TMHUser = {
   owner?: string | null,
   profileImage?: Image,
   joined?: string | null,
+  f1PersonId?: string | null,
+  f1HouseholdId?: string | null,
   createdAt?: string,
   updatedAt?: string,
   email?: string | null,
@@ -1727,6 +1731,8 @@ export type UpdateTMHUserInput = {
   billingAddress?: AddressInput | null,
   profileImage?: ImageInput | null,
   joined?: string | null,
+  f1PersonId?: string | null,
+  f1HouseholdId?: string | null,
 };
 
 export type DeleteTMHUserInput = {
@@ -2204,6 +2210,24 @@ export type emailResponse = {
 export type pdfRes = {
   __typename: "pdfRes",
   objectKey?: string | null,
+};
+
+export type F1SearchContributionReceiptsType = {
+  __typename: "F1SearchContributionReceiptsType",
+  results?: F1SearchContributionReceiptsResultType,
+};
+
+export type F1SearchContributionReceiptsResultType = {
+  __typename: "F1SearchContributionReceiptsResultType",
+  contributionReceipt?:  Array<F1ContributionReceipt | null > | null,
+};
+
+export type F1ContributionReceipt = {
+  __typename: "F1ContributionReceipt",
+  id?: string | null,
+  accountReference?: string | null,
+  amount?: string | null,
+  receivedDate?: string | null,
 };
 
 export type ModelTNSeriesFilterInput = {
@@ -3121,6 +3145,8 @@ export type ModelTMHUserFilterInput = {
   stripeCustomerID?: ModelStringFilterInput | null,
   stripeSubscriptionID?: ModelStringFilterInput | null,
   joined?: ModelStringFilterInput | null,
+  f1PersonId?: ModelStringFilterInput | null,
+  f1HouseholdId?: ModelStringFilterInput | null,
   and?: Array< ModelTMHUserFilterInput | null > | null,
   or?: Array< ModelTMHUserFilterInput | null > | null,
   not?: ModelTMHUserFilterInput | null,
@@ -29300,6 +29326,8 @@ export type CreateTmhUserMutation = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
@@ -29338,6 +29366,8 @@ export type UpdateTmhUserMutation = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
@@ -29376,6 +29406,8 @@ export type DeleteTmhUserMutation = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
@@ -32262,6 +32294,30 @@ export type GeneratePdfQuery = {
   generatePdf?:  {
     __typename: "pdfRes",
     objectKey?: string | null,
+  } | null,
+};
+
+export type TmhF1LinkUserQuery = {
+  tmhF1LinkUser?: boolean | null,
+};
+
+export type TmhF1SearchContributionReceiptsQueryVariables = {
+  pageId?: string | null,
+};
+
+export type TmhF1SearchContributionReceiptsQuery = {
+  tmhF1SearchContributionReceipts?:  {
+    __typename: "F1SearchContributionReceiptsType",
+    results?:  {
+      __typename: "F1SearchContributionReceiptsResultType",
+      contributionReceipt?:  Array< {
+        __typename: "F1ContributionReceipt",
+        id?: string | null,
+        accountReference?: string | null,
+        amount?: string | null,
+        receivedDate?: string | null,
+      } | null > | null,
+    } | null,
   } | null,
 };
 
@@ -49867,6 +49923,8 @@ export type GetTmhUserQuery = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
@@ -49909,6 +49967,8 @@ export type ListTmhUsersQuery = {
         filenameUpload?: string | null,
       } | null,
       joined?: string | null,
+      f1PersonId?: string | null,
+      f1HouseholdId?: string | null,
       createdAt: string,
       updatedAt: string,
       email?: string | null,
@@ -75881,6 +75941,8 @@ export type OnCreateTmhUserSubscription = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
@@ -75919,6 +75981,8 @@ export type OnUpdateTmhUserSubscription = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
@@ -75957,6 +76021,8 @@ export type OnDeleteTmhUserSubscription = {
       filenameUpload?: string | null,
     } | null,
     joined?: string | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
     createdAt: string,
     updatedAt: string,
     email?: string | null,
