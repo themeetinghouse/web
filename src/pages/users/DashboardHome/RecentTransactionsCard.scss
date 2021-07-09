@@ -1,0 +1,27 @@
+.Recent-Trans {
+  background-color: white;
+  grid-area: Recent-Trans;
+  table {
+    width: 100%;
+  }
+  h3 {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  th {
+    text-align: left;
+    font-size: 0.75em;
+  }
+  td {
+    text-align: left;
+    font-size: 1em;
+    padding: 6px 4px;
+    line-height: 24px;
+  }
+  tr :not(th) {
+    border-bottom: 0.7px solid #c8c8c8;
+  }
+  padding: 39px;
+  text-align: center;
+  min-height: 100%;
+}

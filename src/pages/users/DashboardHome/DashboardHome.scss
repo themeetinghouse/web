@@ -1,0 +1,14 @@
+.dashboardContainer {
+  height: 47.222vw;
+  max-height: 800px;
+  margin-top: -200px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 406px 408px 264px;
+  gap: 24px 24px;
+  grid-template-rows: 368px 288px;
+  grid-template-areas:
+    'First-Column Recent-Trans Profile-Card'
+    'First-Column Payments Profile-Card'
+    '. . .';
+}
