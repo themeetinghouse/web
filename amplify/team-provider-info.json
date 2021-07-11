@@ -184,7 +184,7 @@
         },
         "tmhMetadataFacebook": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhMetadataFacebook-3274776d436343476a2f-build.zip"
+          "s3Key": "amplify-builds/tmhMetadataFacebook-614a6c3952597634766a-build.zip"
         },
         "tmhF1HomeChurch": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
@@ -195,8 +195,11 @@
           "s3Key": "amplify-builds/tmhnotespdf-5139675461515a4a564f-build.zip"
         },
         "tmhF1LinkUser": {
+          "userPoolId": "us-east-1_tKp1OdyuZ",
+          "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
+          "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhF1LinkUser-304b554d6971694d6d77-build.zip"
+          "s3Key": "amplify-builds/tmhF1LinkUser-6177594f376e3359564a-build.zip"
         },
         "tmhF1SearchContributionReceipts": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
