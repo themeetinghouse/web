@@ -63,6 +63,11 @@
           },
           {
             "type": "link",
+            "title": "Hamilton Youth Pastor",
+            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
+          },
+          {
+            "type": "link",
             "title": "Live Production and Technical Producer",
             "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
           },
