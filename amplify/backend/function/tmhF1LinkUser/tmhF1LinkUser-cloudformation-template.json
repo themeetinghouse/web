@@ -16,6 +16,18 @@
     "s3Key": {
       "Type": "String"
     },
+    "userPoolId": {
+      "Type": "String",
+      "Default": ""
+    },
+    "userPoolWebClientId": {
+      "Type": "String",
+      "Default": ""
+    },
+    "identityPoolId": {
+      "Type": "String",
+      "Default": ""
+    },
     "authcognitodevtmhUserPoolId": {
       "Type": "String",
       "Default": "authcognitodevtmhUserPoolId"
@@ -59,7 +71,7 @@
             "Ref": "s3Key"
           }
         },
-        "Handler": "index.handler",
+        "Handler": "build/index.handler",
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
@@ -80,6 +92,15 @@
         },
         "Environment": {
           "Variables": {
+            "userPoolId": {
+              "Ref": "userPoolId"
+            },
+            "userPoolWebClientId": {
+              "Ref": "userPoolWebClientId"
+            },
+            "identityPoolId": {
+              "Ref": "identityPoolId"
+            },
             "ENV": {
               "Ref": "env"
             },
@@ -298,6 +319,28 @@
                   ]
                 }
               ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "secretsmanager:GetSecretValue"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:secretsmanager:${region}:${account}:secret:tmhweb/${env}/*",
+                  {
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    },
+                    "env": {
+                      "Ref": "env"
+                    }
+                  }
+                ]
+              }
             }
           ]
         }

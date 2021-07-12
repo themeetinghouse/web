@@ -23642,8 +23642,6 @@ export const createTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
-      f1PersonId
-      f1HouseholdId
       createdAt
       updatedAt
       email
@@ -23658,6 +23656,8 @@ export const createTmhUser = /* GraphQL */ `
         postal_code
         state
       }
+      f1PersonId
+      f1HouseholdId
     }
   }
 `;
@@ -23676,8 +23676,6 @@ export const updateTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
-      f1PersonId
-      f1HouseholdId
       createdAt
       updatedAt
       email
@@ -23692,6 +23690,8 @@ export const updateTmhUser = /* GraphQL */ `
         postal_code
         state
       }
+      f1PersonId
+      f1HouseholdId
     }
   }
 `;
@@ -23710,8 +23710,6 @@ export const deleteTmhUser = /* GraphQL */ `
         filenameUpload
       }
       joined
-      f1PersonId
-      f1HouseholdId
       createdAt
       updatedAt
       email
@@ -23726,6 +23724,8 @@ export const deleteTmhUser = /* GraphQL */ `
         postal_code
         state
       }
+      f1PersonId
+      f1HouseholdId
     }
   }
 `;
