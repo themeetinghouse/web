@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 768px) {
-  .maDPosition {
+  .madPosition {
     position: relative;
     left: 20vw;
     width: 80vw;
@@ -17,7 +17,7 @@
     z-index: 100;
   }
 
-  .maDH1 {
+  .madH1 {
     font-weight: bold;
     font-size: 3vw;
     font-family: Graphik Web;
@@ -25,20 +25,20 @@
     margin-bottom: 2vw;
   }
 
-  .maDText {
+  .madText {
     font-size: 1.2vw;
     font-family: Graphik Web;
     margin-bottom: 1vw;
     color: theme.$coolgray11;
   }
 
-  .maDList {
+  .madList {
     font-size: 5vw;
     font-family: Graphik Web;
     line-height: 0vw;
   }
 
-  .maDcontainer {
+  .madcontainer {
     position: relative;
     width: 28vw;
     height: 30vw;
@@ -46,7 +46,7 @@
     top: 8vw;
   }
 
-  .maDrec {
+  .madrec {
     position: absolute;
     right: 15vw;
     width: 8vw;
@@ -55,7 +55,7 @@
     border: solid 16px theme.$onyxblacktext;
   }
 
-  .maDImage {
+  .madImage {
     position: absolute;
     height: 35vw;
     width: 35vw;
@@ -64,11 +64,11 @@
     top: 3.5vw;
   }
 
-  .maDA {
+  .madA {
     font-size: 1.2vw;
   }
 
-  .maDAContainer {
+  .madAContainer {
     text-align: left;
     top: -3vw;
     left: 3vw;
@@ -77,14 +77,14 @@
     margin: -3.3vw;
   }
 
-  .maDAContainer:hover {
-    .maDarrow {
+  .madAContainer:hover {
+    .madarrow {
       transition: 1s;
       transform: translate(20px);
     }
   }
 
-  .maDarrow {
+  .madarrow {
     float: right;
     padding-top: 0px;
     width: 24px;
@@ -647,7 +647,7 @@
 }
 
 @media (max-width: 767px) {
-  .maDPosition {
+  .madPosition {
     position: relative;
     left: 5vw;
     width: 80vw;
@@ -655,7 +655,7 @@
     z-index: 100;
   }
 
-  .maDH1 {
+  .madH1 {
     font-weight: bold;
     font-size: 6vw;
     font-family: Graphik Web;
@@ -663,27 +663,27 @@
     margin-bottom: 6vw;
   }
 
-  .maDText {
+  .madText {
     font-size: 3.5vw;
     font-family: Graphik Web;
     margin-bottom: 1vw;
     color: theme.$coolgray11;
   }
 
-  .maDList {
+  .madList {
     font-size: 5vw;
     font-family: Graphik Web;
     line-height: 0vw;
 
     cursor: pointer;
     &:hover {
-      .maDarrow {
+      .madarrow {
         float: right;
       }
     }
   }
 
-  .maDcontainer {
+  .madcontainer {
     position: relative;
     width: 80vw;
     height: 30vw;
@@ -691,7 +691,7 @@
     top: 60vw;
   }
 
-  .maDrec {
+  .madrec {
     position: absolute;
     left: 25vw;
     width: 73vw;
@@ -701,15 +701,15 @@
     border-right: 0vw;
   }
 
-  .maDImage {
+  .madImage {
     display: none;
   }
 
-  .maDA {
+  .madA {
     font-size: 1.2vw;
   }
 
-  .maDAContainer {
+  .madAContainer {
     text-align: left;
     top: 6vw;
     left: 0vw;
@@ -718,7 +718,7 @@
     margin-bottom: 10vw;
   }
 
-  .maDarrow {
+  .madarrow {
     float: right;
     width: 24px;
   }

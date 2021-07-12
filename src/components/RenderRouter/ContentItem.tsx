@@ -123,10 +123,10 @@ function ContentItem({ content }: Props) {
 
         case 'arrow':
           return (
-            <LinkButton className="maDAContainer" key={id} to={item.navigateTo}>
+            <LinkButton className="madAContainer" key={id} to={item.navigateTo}>
               {item.title}
               <img
-                className="maDarrow"
+                className="madarrow"
                 alt=""
                 src="/static/svg/ArrowRight black.svg"
               />
@@ -424,20 +424,20 @@ function ContentItem({ content }: Props) {
           <div className="greenTwoClear" />
         </div>
       );
-    case 'maD':
+    case 'mad':
       return (
-        <div className="ContentItem maD">
-          <div className="maDPosition">
-            <div className="maDcontainer">
-              <h1 className="maDH1">{content.header1}</h1>
-              <div className="maDText">{content.text1}</div>
-              <div className="maDList">{renderList()}</div>
+        <div className="ContentItem mad">
+          <div className="madPosition">
+            <div className="madcontainer">
+              <h1 className="madH1">{content.header1}</h1>
+              <div className="madText">{content.text1}</div>
+              <div className="madList">{renderList()}</div>
             </div>
-            <div className="maDVisuals">
-              <div className="maDrec"></div>
+            <div className="madVisuals">
+              <div className="madrec"></div>
               <ScaledImage
                 image={image1}
-                className="maDImage"
+                className="madImage"
                 breakpointSizes={heroBreakpoints}
               />
             </div>
