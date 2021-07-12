@@ -24,4 +24,12 @@
   padding: 39px;
   text-align: center;
   min-height: 100%;
+  overflow: auto;
+  @media (max-width: 1130px) {
+    min-height: 288px;
+  }
+  @media (max-width: 768px) {
+    padding: 24px;
+    min-height: 320px;
+  }
 }

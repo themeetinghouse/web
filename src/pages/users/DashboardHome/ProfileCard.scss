@@ -21,4 +21,7 @@
   padding: 36px;
   background-color: white;
   grid-area: Profile-Card;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

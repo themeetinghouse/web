@@ -57,6 +57,10 @@ export default function TotalGivingCard(): JSX.Element {
           marginBottom: 77,
           width: 190,
           backgroundColor: '#1a1a1a',
+          fontSize: 16,
+          lineHeight: 'unset',
+          height: 'unset',
+          padding: '16px 24px',
         }}
         className="inverted"
         to={'/account/give'}
@@ -77,14 +81,14 @@ export default function TotalGivingCard(): JSX.Element {
       </p>
       <LinkButton
         style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
           fontSize: 16,
-          paddingLeft: 0,
-          paddingRight: 0,
           width: 190,
           borderWidth: 4,
           borderColor: 'black',
+          lineHeight: 'unset',
+          height: 'unset',
+          padding: '12px',
+          margin: '16px 0px 0px 0px',
         }}
         to={'/account/give'}
       >
