@@ -1,50 +1,38 @@
+import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import { LinkButton } from 'components/Link/Link';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
+import * as queries from '../../../../src/graphql/queries';
+import {
+  F1SearchContributionReceiptsResultType,
+  TmhF1SearchContributionReceiptsQuery,
+} from 'API';
 
-type Transac = {
-  id: string;
-  date: string;
-  amount: string | number;
-  paymentMethod: string;
-};
 export default function RecentTransactionsCard(): JSX.Element {
-  const [lastTransacs, setLastTransacs] = useState<Array<Transac>>([]);
+  const [lastTransacs, setLastTransacs] =
+    useState<F1SearchContributionReceiptsResultType | null>();
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    // fetch data
-    // iterate and transform data here, or change object type to match data
-    setTimeout(() => {
-      setLastTransacs([
-        {
-          id: 'a',
-          date: 'June 1, 2021',
-          amount: 'CAD $20.00',
-          paymentMethod: 'VISA (5209)',
-        },
-        {
-          id: 'b',
-          date: 'May 1, 2021',
-          amount: 'CAD $20.00',
-          paymentMethod: 'VISA (5209)',
-        },
-        {
-          id: 'c',
-          date: 'April 13, 2021',
-          amount: 'CAD $20.00',
-          paymentMethod: 'VISA (5209)',
-        },
-        {
-          id: 'd',
-          date: 'Mar 13, 2021',
-          amount: 'CAD $20.00',
-          paymentMethod: 'VISA (5209)',
-        },
-      ]);
+  const getReceipts = async () => {
+    try {
+      const tmhF1SearchContributionReceipts = (await API.graphql({
+        query: queries.tmhF1SearchContributionReceipts,
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhF1SearchContributionReceiptsQuery>;
+      console.log(tmhF1SearchContributionReceipts);
+      setLastTransacs(
+        tmhF1SearchContributionReceipts.data?.tmhF1SearchContributionReceipts
+          ?.results
+      );
+
       setIsLoading(false);
-    }, 1300);
+    } catch (e) {
+      console.log({ Error: e });
+    }
+  };
+  useEffect(() => {
+    getReceipts();
   }, []);
   return (
     <div className="Recent-Trans">
@@ -71,11 +59,11 @@ export default function RecentTransactionsCard(): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {lastTransacs.map((transac) => (
-                <tr key={transac.id}>
-                  <td>{transac.date}</td>
-                  <td>{transac.amount}</td>
-                  <td>{transac.paymentMethod}</td>
+              {lastTransacs?.contributionReceipt?.map((transac) => (
+                <tr key={transac?.id}>
+                  <td>{transac?.receivedDate}</td>
+                  <td>{transac?.amount}</td>
+                  <td>{transac?.accountReference}</td>
                 </tr>
               ))}
             </tbody>

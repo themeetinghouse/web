@@ -1,3 +1,10 @@
 {
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "read"
+      ]
+    }
+  },
   "lambdaLayers": []
 }
