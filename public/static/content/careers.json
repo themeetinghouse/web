@@ -109,6 +109,11 @@
           "type": "link",
           "title": "Kitchener Kidmax Coordinator",
           "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+        },
+        {
+          "type": "link",
+          "title": "Brantford Administrator Role",
+          "navigateTo": "/static/pdfs/careers/Brantford Parish Administrator.pdf"
         }
       ],
         "image1": [
