@@ -1,0 +1,13 @@
+.PaymentSelectContainer {
+  margin-bottom: 44px;
+  min-height: 250px;
+  border: 1.5px solid #c8c8c8;
+  background-color: white;
+  padding: 32px;
+}
+.GiveCardAndExpiryContainer {
+  @media (max-width: 768px) {
+    flex-direction: column;
+    display: flex;
+  }
+}

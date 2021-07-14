@@ -1,7 +1,35 @@
-.giveContainer {
+.TransactionsContainer {
   justify-content: center;
   margin-left: 10.972vw;
   margin-right: 10.972vw;
-  height: 680px;
+  height: 788px;
   background-color: white;
+  padding: 48px 60px 56px;
+}
+
+.TransactionHeaderContainer {
+  padding-bottom: 20px;
+}
+.TransactionContainerHeader {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+th {
+  padding-bottom: 8px;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+}
+td {
+  padding: 9px 0px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.TransactionTableRow {
+  border-bottom: 0.7px solid #c8c8c8;
 }

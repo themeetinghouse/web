@@ -7,7 +7,7 @@ export default function PaymentMethodsCard(): JSX.Element {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1300);
+    }, 700);
   }, []);
   return (
     <div className="Payments">
@@ -19,11 +19,19 @@ export default function PaymentMethodsCard(): JSX.Element {
       ) : (
         <div className="cardContainer">
           <div className="paymentCard">
-            <img className="checkIcon" src="/static/svg/Check.svg" />
+            <img
+              alt="Checked"
+              className="checkIcon"
+              src="/static/svg/Check.svg"
+            />
             <p>**** **** **** 5126 Exp 05/22</p>
           </div>
           <div className="paymentCard grey">
-            <img className="plusIcon" src="/static/svg/Plus-Expand.svg" />
+            <img
+              alt="Plus"
+              className="plusIcon"
+              src="/static/svg/Plus-Expand.svg"
+            />
             <p>Add a new credit card</p>
           </div>
         </div>

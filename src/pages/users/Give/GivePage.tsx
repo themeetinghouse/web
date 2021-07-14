@@ -1,9 +1,14 @@
+import ProfileCard from '../DashboardHome/ProfileCard';
 import './GivePage.scss';
+import GivePageCard from './GivePageCard';
 
-export default function GivePage(): JSX.Element {
+//import ProfileCard from '../DashboardHome/ProfileCard';
+
+export default function GivePage() {
   return (
-    <div className="giveContainer">
-      <h3>Giving</h3>
+    <div className="GiveContainer">
+      <GivePageCard />
+      <ProfileCard />
     </div>
   );
 }

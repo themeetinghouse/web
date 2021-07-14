@@ -13,7 +13,7 @@ export default function TotalGivingCard(): JSX.Element {
     setTimeout(() => {
       setTotal(200);
       setIsLoading(false);
-    }, 1300);
+    }, 700);
   }, []);
   return (
     <div style={{ textAlign: 'center' }} className="First-Column">

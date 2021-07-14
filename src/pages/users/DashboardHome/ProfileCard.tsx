@@ -31,7 +31,7 @@ export default function ProfileCard(): JSX.Element {
         address: '80 Parish Cres Mississauga ON L5M 7Q4 Canada',
       });
       setIsLoading(false);
-    }, 1300);
+    }, 700);
   }, []);
   return (
     <div className="Profile-Card">
@@ -41,7 +41,11 @@ export default function ProfileCard(): JSX.Element {
         </div>
       ) : (
         <>
-          <img className="profilePicture" src="/static/svg/Profile.svg"></img>
+          <img
+            alt="User Profile"
+            className="profilePicture"
+            src="/static/svg/Profile.svg"
+          ></img>
           <h3>{userData.name}</h3>
           <span>Email</span>
           <p>{userData.email}</p>
@@ -51,6 +55,7 @@ export default function ProfileCard(): JSX.Element {
           <p>{userData.address}</p>
           <ClickableText style={{ display: 'block' }} to={'/'}>
             <img
+              alt="Edit Icon"
               className="edit"
               style={{ marginRight: 11 }}
               src="/static/svg/Edit.svg"

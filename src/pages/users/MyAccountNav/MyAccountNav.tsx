@@ -2,65 +2,63 @@ import './MyAccountNav.scss';
 import { Link, useLocation, useRouteMatch } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useState } from 'react';
-export default function MyAccountNav(): JSX.Element {
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const a = useLocation();
+interface Props {
+  open: boolean;
+  toggle: () => void;
+}
+export default function MyAccountNav({ open, toggle }: Props): JSX.Element {
+  const [navItems] = useState([
+    { name: 'Home', path: '/' },
+    { name: 'Give', path: '/give' },
+    { name: 'Transactions', path: '/transactions' },
+    { name: 'Payment Methods', path: '/payments' },
+  ]);
+  const { pathname } = useLocation();
   const { url } = useRouteMatch();
   return (
     <div
-      className="MyAccountNavContainer"
+      className={'MyAccountNavContainer'}
       style={
-        openDrawer
+        open
           ? {
               minHeight: '100vh',
               backgroundColor: '#1a1a1a',
-              paddingTop: 40,
             }
           : {}
       }
     >
-      <div
-        className="MyAccountTMHLogoContainer"
-        style={openDrawer ? { top: 40 } : {}}
-      >
+      <div className="MyAccountTMHLogoContainer">
         <img
+          alt="Logo, Stylized House"
           className="MyAccountTMHLogo"
           src="/static/logos/tmh-logo-userportal.svg"
         />
       </div>
-      <nav className={openDrawer ? 'MyAccountNavDrawer' : 'MyAccountNav'}>
-        <Link
-          className={a.pathname === '/account' ? 'active' : ''}
-          to={`${url}`}
-        >
-          Home
-        </Link>
-        <Link
-          className={a.pathname === '/account/give' ? 'active' : ''}
-          to={`${url}/give`}
-        >
-          Give
-        </Link>
-        <Link
-          className={a.pathname === '/account/transactions' ? 'active' : ''}
-          to={`${url}/transactions`}
-        >
-          Transactions
-        </Link>
-        <Link
-          className={a.pathname === '/account/payments' ? 'active' : ''}
-          to={`${url}/payments`}
-        >
-          Payment Methods
-        </Link>
+      <nav className={open ? 'MyAccountNav' : 'MyAccountNav hide'}>
+        {navItems.map(({ name, path }, index) => {
+          return (
+            <Link
+              key={name}
+              className={
+                pathname === '/account' + path ||
+                (pathname === '/account' && path === '/')
+                  ? 'navItem active'
+                  : 'navItem'
+              }
+              to={`${url}${path !== '/' ? path : ''}`}
+            >
+              {name}
+            </Link>
+          );
+        })}
       </nav>
-      <div className="hamburgerToggle">
+      <div aria-role="button" tabIndex={0} className="hamburgerToggle">
         <HamburgerMenu
-          isOpen={openDrawer}
-          menuClicked={() => setOpenDrawer((prev) => !prev)}
+          isOpen={open}
+          menuClicked={() => toggle()}
           width={32}
           height={16}
-          strokeWidth={2}
+          strokeWidth={1.5}
           color="white"
         />
       </div>
