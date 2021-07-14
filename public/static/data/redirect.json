@@ -8,10 +8,6 @@
     "to": "https://www.youtube.com/playlist?list=PLB5r2P47beqKOo8PtwHrVQuCJjBBSKACm"
   },
   {
-    "id": "plantoprotect",
-    "to": "/static/pdfs/Security-Forms/TMH_PlanToProtect_July2019_PRINT.pdf"
-  },
-  {
     "id": "ministryapplication",
     "to": "https://https://www.formstack.com/forms/?1293802-Uxpu1eS8YJ"
   },
@@ -693,7 +689,7 @@
   },
   {
     "id": "prayer",
-    "to": "https://us02web.zoom.us/j/86042864428"
+    "to": "https://us02web.zoom.us/j/87208889346"
   },
   {
     "id": "parishchallenge",
@@ -718,6 +714,10 @@
   {
     "id": "eastercolour",
     "to": "/static/pdfs/teaching/EasterColouringPage.pdf"
+  },
+  {
+    "id": "youthformbuilder",
+    "to": "https://script.google.com/a/macros/themeetinghouse.com/s/AKfycbzz2PPsT8dxUhNinHe3PRKJKI6qc8hslW5zr5U3whbI-5a8b0Vonc8_AL22CqvAybErDg/exec"
   },
   {
     "id": "eastercolor",

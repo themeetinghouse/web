@@ -136,6 +136,8 @@
     margin-top: 15px;
     margin-bottom: 15px;
     color: theme.$onyxblacktext;
+    border: none;
+    background-color: #ffffff;
     cursor: pointer;
     &:hover {
       text-decoration: underline;
@@ -495,6 +497,8 @@
     margin-right: 120px;
     cursor: pointer;
     color: theme.$onyxblacktext;
+    border: none;
+    background-color: #ffffff;
     &:hover {
       text-decoration: underline;
     }

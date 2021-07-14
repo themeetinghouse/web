@@ -737,7 +737,7 @@ export class ContentItem extends React.Component<Props, State> {
                       key={item.id ?? undefined}
                       id={'HC-' + item.id}
                     >
-                      <h3
+                      <button
                         className={
                           'HomeChurchH3 ' +
                           (this.state.selectedPlace === item ? 'selected' : '')
@@ -745,7 +745,7 @@ export class ContentItem extends React.Component<Props, State> {
                         onClick={this.getHomeChurchClickHandler(item)}
                       >
                         {item.name}
-                      </h3>
+                      </button>
                       <div className="HomeChurchAddress">
                         {item.description}
                       </div>

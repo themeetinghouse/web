@@ -357,7 +357,7 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div
+      <button
         onClick={() => {
           this.handleClick(item);
         }}
@@ -366,6 +366,7 @@ class ListItem extends React.Component<Props, State> {
           'ListItemVideo' +
           (this.props.pageConfig.logoColor === 'white' ? ' whiteText' : '')
         }
+        tabIndex={0}
       >
         <img
           alt={
@@ -391,7 +392,7 @@ class ListItem extends React.Component<Props, State> {
           {item.seriesTitle != null ? item.seriesTitle : null}
         </div>
         <div className="ListItemPublishedDate">{item.publishedDate}</div>
-      </div>
+      </button>
     );
   }
 
@@ -489,7 +490,7 @@ class ListItem extends React.Component<Props, State> {
       return null;
     }
     return (
-      <div
+      <button
         onClick={() => this.handleClick(item)}
         key={item.id}
         className="CuriousVideo"
@@ -505,7 +506,7 @@ class ListItem extends React.Component<Props, State> {
         <div className="CuriousPlayOverlay">
           <img alt="Play Icon" src="/static/svg/Play.svg"></img>
         </div>
-      </div>
+      </button>
     );
   }
 
@@ -1005,7 +1006,7 @@ class ListItem extends React.Component<Props, State> {
         )}${item.title?.slice(4)} series.`,
       };
       return (
-        <div
+        <button
           onClick={() =>
             this.handleClick(
               videos.sort((a, b) => {
@@ -1037,7 +1038,7 @@ class ListItem extends React.Component<Props, State> {
             {this.showYears(item.startDate, item.endDate)}
             {videos.length} {videos.length === 1 ? 'Episode' : 'Episodes'}
           </div>
-        </div>
+        </button>
       );
     } else {
       console.log({ 'None:': item });
@@ -1185,9 +1186,9 @@ class ListItem extends React.Component<Props, State> {
             if (!item) {
               return false;
             }
-            return (item[
-              this.props.content.filterField as keyof ListData
-            ] as string)?.includes(this.props.content.filterValue);
+            return (
+              item[this.props.content.filterField as keyof ListData] as string
+            )?.includes(this.props.content.filterValue);
           });
 
     const dataLength = data.length;

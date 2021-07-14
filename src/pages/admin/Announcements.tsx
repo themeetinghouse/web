@@ -65,10 +65,8 @@ export default function Announcements(): JSX.Element {
   const [count, setCount] = useState(5);
   const [showExpired, setShowExpired] = useState(false);
   const [locations, setLocations] = useState<Array<Location>>([]);
-  const [
-    currentAnnouncement,
-    setCurrentAnnouncement,
-  ] = useState<AnnouncementData>();
+  const [currentAnnouncement, setCurrentAnnouncement] =
+    useState<AnnouncementData>();
   const [openCreateModal, setOpenCreateModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [locationFilter, setlocationFilter] = useState('Cross-Regional');
@@ -262,10 +260,10 @@ export default function Announcements(): JSX.Element {
       });
 
       setAnnouncements(
-        (getAnnouncements.data?.listAnnouncements
-          ?.items as NonNullAnnouncements).sort((a, b) =>
-          a.publishedDate.localeCompare(b.publishedDate)
-        )
+        (
+          getAnnouncements.data?.listAnnouncements
+            ?.items as NonNullAnnouncements
+        ).sort((a, b) => a.publishedDate.localeCompare(b.publishedDate))
       );
     } catch (e) {
       Sentry.captureException(e);
@@ -644,9 +642,8 @@ export default function Announcements(): JSX.Element {
     );
   };
   const CreateAnnouncementModal = (): JSX.Element => {
-    const [announcement, setAnnouncement] = useState<AnnouncementData>(
-      announcementInit
-    );
+    const [announcement, setAnnouncement] =
+      useState<AnnouncementData>(announcementInit);
     const [parishes, setParishes] = useState<Array<string>>(['Cross-Regional']);
     const [errorTxt, setErrorTxt] = useState<string>('');
     if (!announcement) return <></>;

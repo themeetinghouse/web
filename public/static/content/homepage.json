@@ -3,7 +3,7 @@
     "name": "homepage",
     "title": "The Meeting House - Welcome",
     "keywords": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Bruxy, Be In Christ, Spirituality, Christianity",
-    "description": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
+    "description": "When’s the last time someone asked you what you believe? We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
     "pageConfig": {
       "showLive": true,
       "movingMenu": true,
@@ -150,23 +150,22 @@
       },
       {
         "type": "content",
-        "style": "oneImage",
+        "style": "mad",
         "header1": "Make a Difference",
-        "header2": "",
         "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?",
         "list": [
           {
-            "type": "link",
+            "type": "arrow",
             "title": "Volunteer",
             "navigateTo": "/volunteering"
           },
           {
-            "type": "link",
+            "type": "arrow",
             "title": "Compassion",
             "navigateTo": "/compassion"
           },
           {
-            "type": "link",
+            "type": "arrow",
             "title": "Give",
             "navigateTo": "/give"
           }
@@ -213,7 +212,7 @@
         ],
         "header1": "So, what now?",
         "header2": "",
-        "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some our favourite starting content and suggest a practical next step.",
+        "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some of our favourite starting content and suggest a practical next step.",
         "hasFooter": true
       },
       {

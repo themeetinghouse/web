@@ -130,7 +130,7 @@
     "FirstName": "Christine",
     "LastName": "Gratton",
     "Phone": "905.287.7000, ext. 806",
-    "Position": "Communications Manager (Maternity Leave)",
+    "Position": "Jesus Collective Marketing and Project Manager",
     "sites": ["Communications"],
     "Email": "Christine.Gratton@themeetinghouse.com"
   },
@@ -178,15 +178,6 @@
     "Position": "Senior Pastor",
     "sites": ["Senior Staff", "Pastoral"],
     "Email": "Darrell.Winger@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "David",
-    "LastName": "Siekanowicz",
-    "Phone": "905.287.7000, ext. 808",
-    "Position": "Brand and Strategy Manager",
-    "sites": ["Communications"],
-    "Email": "David.Siekanowicz@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -256,8 +247,8 @@
     "FirstName": "Jennifer",
     "LastName": "McWilliams",
     "Phone": "905.287.7000, ext. 838",
-    "Position": "Interim Parry Sound Lead Pastor",
-    "sites": ["PAR", "Pastoral"],
+    "Position": "Kids Pastor",
+    "sites": ["Pastoral"],
     "Email": "Jennifer.McWilliams@themeetinghouse.com"
   },
   {
@@ -448,15 +439,6 @@
     "Position": "Accounts Payable Assistant",
     "sites": ["Operations"],
     "Email": "Marinda.Heckroodt@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Mark",
-    "LastName": "Wall",
-    "Phone": "905.287.7000, ext. 850",
-    "Position": "Leadership Pastor",
-    "sites": ["Site Leadership", "Pastoral"],
-    "Email": "Mark.Wall@themeetinghouse.com"
   },
   {
     "Staff": true,

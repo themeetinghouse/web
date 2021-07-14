@@ -12,8 +12,7 @@ else if (window.location.hostname.includes('beta')) env = 'beta';
 else env = 'prod';
 
 Sentry.init({
-  dsn:
-    'https://38e8f0bc706a4d968e1ff3ebf638a090@o390245.ingest.sentry.io/5231570',
+  dsn: 'https://38e8f0bc706a4d968e1ff3ebf638a090@o390245.ingest.sentry.io/5231570',
   environment: env,
   release: version.git,
   ignoreErrors: [
