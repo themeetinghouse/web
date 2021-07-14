@@ -949,6 +949,11 @@ blogSeries: BlogSeries @connection(name: "BlogSeriesContains", keyField: "blogSe
 blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
 }
 
+type Image {
+  src: String!
+  alt: String!
+}
+
 type Blog
  @model
  @searchable
@@ -976,6 +981,9 @@ type Blog
   topics: [String]
   tags: [String]
   hiddenMainIndex: Boolean
+  squareImage: Image
+  bannerImage: Image
+  babyHeroImage: Image
 }
 
 
