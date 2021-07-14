@@ -122,63 +122,70 @@ export default function TransactionsPage(): JSX.Element {
           <Spinner></Spinner>
         </div>
       ) : (
-        <table width={'100%'}>
-          <thead>
-            <tr>
-              {tableHeaders.map((header) => {
-                return (
-                  <th key={header} className="TransactionTableHeader">
-                    {header}
-                  </th>
-                );
-              })}
-            </tr>
-          </thead>
-          <tbody>
-            {transData
-              .filter(
-                (a, index) =>
-                  index >= paginationIndex && index < paginationIndex + 10
-              )
-              .map(({ id, date, time, amount, paymentMethod, fund, index }) => {
-                return (
-                  <tr className="TransactionTableRow" key={id}>
-                    <td>{id}</td>
-                    <td>{date}</td>
-                    <td>{time}</td>
-                    <td>{amount}</td>
-                    <td>{paymentMethod}</td>
-                    <td>{fund}</td>
-                  </tr>
-                );
-              })}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan={6}></td>
-              <td>
-                <button
-                  onClick={() =>
-                    paginationIndex <= 10
-                      ? setPaginationIndex(0)
-                      : setPaginationIndex((prev) => prev - 10)
+        <>
+          <table width={'100%'}>
+            <thead>
+              <tr>
+                {tableHeaders.map((header) => {
+                  return (
+                    <th key={header} className="TransactionTableHeader">
+                      {header}
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {transData
+                .filter(
+                  (a, index) =>
+                    index >= paginationIndex && index < paginationIndex + 10
+                )
+                .map(
+                  ({ id, date, time, amount, paymentMethod, fund, index }) => {
+                    return (
+                      <tr className="TransactionTableRow" key={id}>
+                        <td>{id}</td>
+                        <td>{date}</td>
+                        <td>{time}</td>
+                        <td>{amount}</td>
+                        <td>{paymentMethod}</td>
+                        <td>{fund}</td>
+                      </tr>
+                    );
                   }
-                >
-                  {'<'}
-                </button>
-                <button
-                  onClick={() =>
-                    paginationIndex < transData.length - 10
-                      ? setPaginationIndex((prev) => prev + 10)
-                      : null
-                  }
-                >
-                  {'>'}
-                </button>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
+                )}
+            </tbody>
+          </table>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              marginTop: 50,
+            }}
+          >
+            <button
+              className="TransactionTablePaginateButton"
+              onClick={() =>
+                paginationIndex <= 10
+                  ? setPaginationIndex(0)
+                  : setPaginationIndex((prev) => prev - 10)
+              }
+            >
+              <img src="/static/svg/ArrowLeft.svg"></img>
+            </button>
+            <button
+              className="TransactionTablePaginateButton"
+              onClick={() =>
+                paginationIndex < transData.length - 10
+                  ? setPaginationIndex((prev) => prev + 10)
+                  : null
+              }
+            >
+              <img src="/static/svg/ArrowRight.svg"></img>
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
