@@ -37,6 +37,9 @@
     margin-bottom: 32px;
     height: 56px;
     padding: 17px 30px;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
     .select-selected {
       color: #ffffff;
       padding: 8px 16px;
