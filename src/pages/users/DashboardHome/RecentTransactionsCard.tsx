@@ -20,15 +20,19 @@ export default function RecentTransactionsCard(): JSX.Element {
         style={{
           fontWeight: 700,
           fontSize: 24,
+          flex: 1,
         }}
       >
-        Recent Transactions
+        {lastTransacs?.contributionReceipt?.length || isLoading
+          ? 'Recent Transactions'
+          : 'No Recent Transactions'}
       </h3>
+
       {isLoading ? (
         <div className="spinnerContainer">
           <Spinner></Spinner>
         </div>
-      ) : (
+      ) : lastTransacs?.contributionReceipt?.length ? (
         <>
           <table>
             <thead>
@@ -48,23 +52,14 @@ export default function RecentTransactionsCard(): JSX.Element {
               ))}
             </tbody>
           </table>
-          <LinkButton
-            className="a"
-            style={{
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              marginTop: 21,
-              height: 40,
-              padding: 8,
-              fontSize: 12,
-              borderWidth: 4,
-              borderColor: 'black',
-            }}
-            to={'/account/transactions'}
-          >
+          <LinkButton className="ViewAllButton" to={'/account/transactions'}>
             View all transactions
           </LinkButton>
         </>
+      ) : (
+        <LinkButton className="ViewAllButton" to={'/account/transactions'}>
+          View all transactions
+        </LinkButton>
       )}
     </div>
   );

@@ -7,6 +7,7 @@ import GivePage from './Give/GivePage';
 import PaymentMethodsPage from './PaymentMethods/PaymentMethodsPage';
 import TransactionsPage from './Transactions/TransactionsPage';
 import { useState } from 'react';
+import ProfilePage from './ProfilePage/ProfilePage';
 export default function AccountMain(): JSX.Element {
   const [open, setOpen] = useState(false);
   return (
@@ -18,6 +19,7 @@ export default function AccountMain(): JSX.Element {
           <Route path={`/account/give`} component={GivePage} />
           <Route path={`/account/transactions`} component={TransactionsPage} />
           <Route path={`/account/payments`} component={PaymentMethodsPage} />
+          <Route path={`/account/profile`} component={ProfilePage} />
         </Switch>
       </div>
       {false ? <DashboardFooter /> : null}

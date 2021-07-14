@@ -40,3 +40,16 @@ td {
   width: 72px;
   height: 56px;
 }
+
+@media (max-width: 768px) {
+  .TransactionsContainer {
+    margin-left: unset;
+    margin-right: unset;
+    background-color: white;
+    padding: 40px 24px;
+    width: 100vw;
+  }
+  .TransactionHeaderContainer {
+    padding-bottom: 20px;
+  }
+}

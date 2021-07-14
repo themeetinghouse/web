@@ -44,25 +44,34 @@ export default function TransactionsPage(): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {transData?.contributionReceipt
-                ?.filter(
-                  (a, index) =>
-                    index >= paginationIndex && index < paginationIndex + 10
-                )
-                .map((x) => {
-                  return (
-                    <tr className="TransactionTableRow" key={x?.id}>
-                      <td>{x?.id}</td>
-                      <td>{x?.receivedDate}</td>
-                      <td>{x?.receivedDate}</td>
-                      <td>{x?.amount}</td>
-                      <td>{x?.accountReference}</td>
-                      <td>{x?.fund?.name}</td>
-                    </tr>
-                  );
-                })}
+              {transData?.contributionReceipt?.length ? (
+                transData?.contributionReceipt
+                  ?.filter(
+                    (a, index) =>
+                      index >= paginationIndex && index < paginationIndex + 10
+                  )
+                  .map((x) => {
+                    return (
+                      <tr className="TransactionTableRow" key={x?.id}>
+                        <td>{x?.id}</td>
+                        <td>{x?.receivedDate}</td>
+                        <td>{x?.receivedDate}</td>
+                        <td>{x?.amount}</td>
+                        <td>{x?.accountReference}</td>
+                        <td>{x?.fund?.name}</td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <tr>
+                  <td>
+                    <p>No transactions found</p>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
+
           <div
             style={{
               display: 'flex',

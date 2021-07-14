@@ -1,0 +1,167 @@
+.ProfilePageContainer {
+  display: grid;
+  justify-content: center;
+}
+.ProfilePage {
+  // centered white square
+  background-color: white;
+  max-width: 78.194vw;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding: 39px 48px 40px 42px;
+}
+
+.LeftContainer {
+  // text inputs are in here
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin-bottom: 54px;
+  font-weight: 700;
+}
+
+.RightContainer {
+  // profile picture and buttons
+  margin-top: 126px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  img {
+    width: 15vw;
+    height: 15vw;
+    max-height: 200px;
+    max-width: 200px;
+  }
+}
+label {
+  font-weight: 700;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+.ProfileInput {
+  width: 100%;
+  background-color: white;
+  height: 56px;
+  border: 1.5px solid #c8c8c8;
+  padding: 16px 0px 16px 20px;
+  font-size: 16px;
+  margin-bottom: 26px;
+}
+.NameContainer {
+  display: flex;
+  flex-direction: row;
+  > :nth-child(even) {
+    margin-left: 20px;
+  }
+}
+.NameItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.LocationContainer {
+  display: flex;
+  flex-direction: row;
+  padding-right: unset;
+  :last-child {
+    padding-right: unset;
+  }
+}
+
+.LocationItem {
+  padding-right: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.LeftButtonContainer {
+  display: none;
+}
+.RightButtonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ProfileButton {
+  flex: 1;
+  margin-right: 4px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #1a1a1a;
+  min-width: 50%;
+  font-weight: 700;
+  color: white;
+  font-size: 16px;
+  line-height: 0px;
+  height: 56px;
+  padding: 16px 24px;
+}
+
+.LeftProfilePicture {
+  display: none;
+}
+.RightProfilePicture {
+  flex: 1;
+}
+@media (max-width: 1060px) {
+  .RightProfilePicture {
+    display: none;
+  }
+  .LeftProfilePicture {
+    display: flex;
+    img {
+      min-height: 170px;
+      min-width: 170px;
+      margin-bottom: 36px;
+    }
+  }
+  .ProfilePage {
+    grid-template-columns: 100%;
+    width: 77vw;
+  }
+  .LocationContainer {
+    flex-direction: column;
+  }
+  .LocationItem {
+    padding-right: 0px;
+  }
+  .LeftButtonContainer {
+    flex-direction: row;
+    display: flex;
+    :nth-child(even) {
+      margin-bottom: 8px !important;
+    }
+    .ProfileButton {
+      flex: unset;
+      height: 60px !important;
+    }
+  }
+  .RightButtonContainer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ProfilePage {
+    grid-template-columns: unset;
+    min-width: 100vw;
+  }
+  .RightContainer {
+    display: none;
+  }
+  .NameContainer {
+    > :nth-child(even) {
+      margin-left: unset;
+    }
+    flex-direction: column;
+  }
+  .LeftButtonContainer {
+    flex-direction: column-reverse;
+  }
+  .LocationItem {
+    padding-right: 0px;
+  }
+}

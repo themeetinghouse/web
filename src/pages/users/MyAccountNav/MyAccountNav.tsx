@@ -2,17 +2,39 @@ import './MyAccountNav.scss';
 import { Link, useLocation, useRouteMatch } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useState } from 'react';
+import { useEffect } from 'react';
 interface Props {
   open: boolean;
   toggle: () => void;
 }
 export default function MyAccountNav({ open, toggle }: Props): JSX.Element {
-  const [navItems] = useState([
-    { name: 'Home', path: '/' },
-    { name: 'Give', path: '/give' },
-    { name: 'Transactions', path: '/transactions' },
-    { name: 'Payment Methods', path: '/payments' },
+  const [navItems, setNavItems] = useState<Array<any>>([
+    { label: 'Home', link: '/' },
+    { label: 'Give', link: '/give' },
+    { label: 'Transactions', link: '/transactions' },
+    { label: 'Payment Methods', link: '/payments' },
+    { label: 'Profile', link: '/profile' },
   ]);
+  useEffect(() => {
+    const fetchNavItems = async () => {
+      try {
+        const response = await fetch(
+          '/static/content/account-portal/custom-nav-items.json'
+        );
+        const json = await response.json();
+        if (json?.page?.content?.[0].items) {
+          const filterMalformed = json?.page?.content?.[0].items.filter(
+            (navItem: any) => navItem.label && navItem.link && navItem.custom
+          );
+          setNavItems((prev) => [...prev, ...filterMalformed]);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchNavItems();
+  }, []);
+
   const { pathname } = useLocation();
   const { url } = useRouteMatch();
   return (
@@ -35,24 +57,28 @@ export default function MyAccountNav({ open, toggle }: Props): JSX.Element {
         />
       </div>
       <nav className={open ? 'MyAccountNav' : 'MyAccountNav hide'}>
-        {navItems.map(({ name, path }, index) => {
-          return (
+        {navItems.map(({ label, link, custom }) => {
+          return custom ? (
+            <a href={link} className="navItem">
+              {label}
+            </a>
+          ) : (
             <Link
-              key={name}
+              key={label}
               className={
-                pathname === '/account' + path ||
-                (pathname === '/account' && path === '/')
+                pathname === '/account' + link ||
+                (pathname === '/account' && link === '/')
                   ? 'navItem active'
                   : 'navItem'
               }
-              to={`${url}${path !== '/' ? path : ''}`}
+              to={`${url}${link !== '/' ? link : ''}`}
             >
-              {name}
+              {label}
             </Link>
           );
         })}
       </nav>
-      <div aria-role="button" tabIndex={0} className="hamburgerToggle">
+      <div tabIndex={0} className="hamburgerToggle">
         <HamburgerMenu
           isOpen={open}
           menuClicked={() => toggle()}
