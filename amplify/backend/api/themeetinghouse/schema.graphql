@@ -27,17 +27,48 @@ type Query {
   tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
 }
 
-type F1SearchContributionReceiptsType{
+type F1SearchContributionReceiptsType @aws_cognito_user_pools{
   results:F1SearchContributionReceiptsResultType
 }
-type F1SearchContributionReceiptsResultType{
+type F1SearchContributionReceiptsResultType @aws_cognito_user_pools{
   contributionReceipt:[F1ContributionReceipt]
 }
-type F1ContributionReceipt{
+type F1ContributionReceipt @aws_cognito_user_pools{
   id:String
   accountReference:String
   amount:String
   receivedDate:String
+  transmitDate:String
+  returnDate:String
+  retransmitDate:String
+  glPostDate:String
+  isSplit:String
+  memo:String
+  fund:F1ContributionReceiptFund!
+  subFund:F1ContributionReceiptSubFund!
+  account:F1ContributionReceiptAccount!
+  contributionType:F1ContributionReceiptContributionType!
+  contributionSubType:F1ContributionReceiptContributionSubType!
+}
+type F1ContributionReceiptContributionType @aws_cognito_user_pools{
+  id:String
+  name:String
+}
+type F1ContributionReceiptContributionSubType @aws_cognito_user_pools{
+  id:String
+  name:String
+}
+type F1ContributionReceiptAccount @aws_cognito_user_pools{
+  id:String
+}
+type F1ContributionReceiptSubFund @aws_cognito_user_pools{
+  id:String
+  name:String
+}
+type F1ContributionReceiptFund @aws_cognito_user_pools{
+  id:String
+  name:String
+  fundTypeID:String
 }
 type pdfRes {
   objectKey: String

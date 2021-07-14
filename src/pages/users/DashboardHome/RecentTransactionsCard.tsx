@@ -1,38 +1,18 @@
-import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import { LinkButton } from 'components/Link/Link';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
-import * as queries from '../../../../src/graphql/queries';
-import {
-  F1SearchContributionReceiptsResultType,
-  TmhF1SearchContributionReceiptsQuery,
-} from 'API';
+import { F1SearchContributionReceiptsResultType } from 'API';
+import f1Common from '../f1Common';
 
 export default function RecentTransactionsCard(): JSX.Element {
   const [lastTransacs, setLastTransacs] =
     useState<F1SearchContributionReceiptsResultType | null>();
   const [isLoading, setIsLoading] = useState(true);
-  const getReceipts = async () => {
-    try {
-      const tmhF1SearchContributionReceipts = (await API.graphql({
-        query: queries.tmhF1SearchContributionReceipts,
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<TmhF1SearchContributionReceiptsQuery>;
-      console.log(tmhF1SearchContributionReceipts);
-      setLastTransacs(
-        tmhF1SearchContributionReceipts.data?.tmhF1SearchContributionReceipts
-          ?.results
-      );
 
-      setIsLoading(false);
-    } catch (e) {
-      console.log({ Error: e });
-    }
-  };
   useEffect(() => {
-    getReceipts();
+    f1Common.getReceipts(setLastTransacs, setIsLoading);
   }, []);
   return (
     <div className="Recent-Trans">

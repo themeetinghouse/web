@@ -2228,6 +2228,47 @@ export type F1ContributionReceipt = {
   accountReference?: string | null,
   amount?: string | null,
   receivedDate?: string | null,
+  transmitDate?: string | null,
+  returnDate?: string | null,
+  retransmitDate?: string | null,
+  glPostDate?: string | null,
+  isSplit?: string | null,
+  memo?: string | null,
+  fund?: F1ContributionReceiptFund,
+  subFund?: F1ContributionReceiptSubFund,
+  account?: F1ContributionReceiptAccount,
+  contributionType?: F1ContributionReceiptContributionType,
+  contributionSubType?: F1ContributionReceiptContributionSubType,
+};
+
+export type F1ContributionReceiptFund = {
+  __typename: "F1ContributionReceiptFund",
+  id?: string | null,
+  name?: string | null,
+  fundTypeID?: string | null,
+};
+
+export type F1ContributionReceiptSubFund = {
+  __typename: "F1ContributionReceiptSubFund",
+  id?: string | null,
+  name?: string | null,
+};
+
+export type F1ContributionReceiptAccount = {
+  __typename: "F1ContributionReceiptAccount",
+  id?: string | null,
+};
+
+export type F1ContributionReceiptContributionType = {
+  __typename: "F1ContributionReceiptContributionType",
+  id?: string | null,
+  name?: string | null,
+};
+
+export type F1ContributionReceiptContributionSubType = {
+  __typename: "F1ContributionReceiptContributionSubType",
+  id?: string | null,
+  name?: string | null,
 };
 
 export type ModelTNSeriesFilterInput = {
@@ -32316,6 +32357,37 @@ export type TmhF1SearchContributionReceiptsQuery = {
         accountReference?: string | null,
         amount?: string | null,
         receivedDate?: string | null,
+        transmitDate?: string | null,
+        returnDate?: string | null,
+        retransmitDate?: string | null,
+        glPostDate?: string | null,
+        isSplit?: string | null,
+        memo?: string | null,
+        fund:  {
+          __typename: "F1ContributionReceiptFund",
+          id?: string | null,
+          name?: string | null,
+          fundTypeID?: string | null,
+        },
+        subFund:  {
+          __typename: "F1ContributionReceiptSubFund",
+          id?: string | null,
+          name?: string | null,
+        },
+        account:  {
+          __typename: "F1ContributionReceiptAccount",
+          id?: string | null,
+        },
+        contributionType:  {
+          __typename: "F1ContributionReceiptContributionType",
+          id?: string | null,
+          name?: string | null,
+        },
+        contributionSubType:  {
+          __typename: "F1ContributionReceiptContributionSubType",
+          id?: string | null,
+          name?: string | null,
+        },
       } | null > | null,
     } | null,
   } | null,

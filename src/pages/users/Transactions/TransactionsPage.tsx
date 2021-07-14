@@ -1,108 +1,16 @@
+import { F1SearchContributionReceiptsResultType } from 'API';
 import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
+import f1Common from '../f1Common';
 import './TransactionsPage.scss';
 
 export default function TransactionsPage(): JSX.Element {
-  const [transData, setTransData] = useState<Array<any>>([]);
+  const [transData, setTransData] =
+    useState<F1SearchContributionReceiptsResultType | null>();
   const [isLoading, setIsLoading] = useState(true);
   const [paginationIndex, setPaginationIndex] = useState(0);
   useEffect(() => {
-    const loadTransactions = async () => {
-      setTimeout(() => {
-        setTransData([
-          {
-            id: '2759057629',
-            date: 'Jun 1, 2021',
-            time: '2:47 PM',
-            amount: 'CAD $20.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-          {
-            id: '4608767866',
-            date: 'May 1, 2021',
-            time: '9:01 AM',
-            amount: 'CAD $20.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'Compassion',
-          },
-          {
-            id: '2107399592',
-            date: 'Apr 13, 2021',
-            time: '5:31 PM',
-            amount: 'CAD $100.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'Go',
-          },
-          {
-            id: '0986135073',
-            date: 'Mar 24, 2021',
-            time: '1:42 PM',
-            amount: 'CAD $20.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-          {
-            id: '9365740039',
-            date: 'Mar 3, 2021',
-            time: '7:27 PM',
-            amount: 'CAD $100.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'Compassion',
-          },
-          {
-            id: '0105151985',
-            date: 'Feb 13, 2021',
-            time: '9:43 AM',
-            amount: 'CAD $20.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'Curriculum',
-          },
-          {
-            id: '2417696131',
-            date: 'Jan 21, 2021',
-            time: '1:32 PM',
-            amount: 'CAD $100.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-          {
-            id: '2390283240',
-            date: 'Jan 5, 2021',
-            time: '12:46 PM',
-            amount: 'CAD $25.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-          {
-            id: '2839848047',
-            date: 'Dec 30, 2020',
-            time: '11:40 AM',
-            amount: 'CAD $40.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-          {
-            id: '9381672459',
-            date: 'Dec 30, 2020',
-            time: '6:21 PM',
-            amount: 'CAD $100.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-          {
-            id: '9381672459',
-            date: 'Dec 30, 2020',
-            time: '6:21 PM',
-            amount: 'CAD $100.00 ',
-            paymentMethod: 'VISA (5209)',
-            fund: 'General',
-          },
-        ]);
-        setIsLoading(false);
-      }, 1300);
-    };
-    loadTransactions();
+    f1Common.getReceipts(setTransData, setIsLoading);
   }, []);
   const tableHeaders = [
     'Transaction No.',
@@ -136,25 +44,23 @@ export default function TransactionsPage(): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {transData
-                .filter(
+              {transData?.contributionReceipt
+                ?.filter(
                   (a, index) =>
                     index >= paginationIndex && index < paginationIndex + 10
                 )
-                .map(
-                  ({ id, date, time, amount, paymentMethod, fund, index }) => {
-                    return (
-                      <tr className="TransactionTableRow" key={id}>
-                        <td>{id}</td>
-                        <td>{date}</td>
-                        <td>{time}</td>
-                        <td>{amount}</td>
-                        <td>{paymentMethod}</td>
-                        <td>{fund}</td>
-                      </tr>
-                    );
-                  }
-                )}
+                .map((x) => {
+                  return (
+                    <tr className="TransactionTableRow" key={x?.id}>
+                      <td>{x?.id}</td>
+                      <td>{x?.receivedDate}</td>
+                      <td>{x?.receivedDate}</td>
+                      <td>{x?.amount}</td>
+                      <td>{x?.accountReference}</td>
+                      <td>{x?.fund?.name}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
           <div
@@ -177,7 +83,8 @@ export default function TransactionsPage(): JSX.Element {
             <button
               className="TransactionTablePaginateButton"
               onClick={() =>
-                paginationIndex < transData.length - 10
+                paginationIndex <
+                (transData?.contributionReceipt?.length ?? 0) - 10
                   ? setPaginationIndex((prev) => prev + 10)
                   : null
               }

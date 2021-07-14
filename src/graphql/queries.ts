@@ -2541,6 +2541,32 @@ export const tmhF1SearchContributionReceipts = /* GraphQL */ `
           accountReference
           amount
           receivedDate
+          transmitDate
+          returnDate
+          retransmitDate
+          glPostDate
+          isSplit
+          memo
+          fund {
+            id
+            name
+            fundTypeID
+          }
+          subFund {
+            id
+            name
+          }
+          account {
+            id
+          }
+          contributionType {
+            id
+            name
+          }
+          contributionSubType {
+            id
+            name
+          }
         }
       }
     }

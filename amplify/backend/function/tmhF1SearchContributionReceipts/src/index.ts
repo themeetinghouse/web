@@ -84,7 +84,7 @@ export const handler = async (event) => {
       const result = await f1SearchContributionReceipts(user.f1HouseholdId);
       const z = {
         statusCode: 200,
-        data: { tmhF1SearchContributionReceipts: result },
+        results: result.results,
       };
       console.log(z);
       return z;

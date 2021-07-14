@@ -206,7 +206,7 @@
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhF1SearchContributionReceipts-4a507830796a6b436f74-build.zip"
+          "s3Key": "amplify-builds/tmhF1SearchContributionReceipts-512b77645258456d4370-build.zip"
         }
       }
     }
