@@ -39,7 +39,6 @@ import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
 import { ModelSortDirection } from 'API';
 import { Margin } from '../types';
-import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -746,7 +745,7 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemEvents">
           <div className="EventDateContainer">
             <div className="EventDateMonth">
-              {start_date.toLocaleString('default', { month: 'long' })}
+              {start_date.toLocaleString('default', { month: 'short' })}
             </div>
             <div className="EventDateDay">{start_date.getDate()}</div>
           </div>
@@ -769,34 +768,6 @@ class ListItem extends React.Component<Props, State> {
               </Link>
             ) : null}
             <div className="ListItemEventsDuration">{durationStr}</div>
-            <div className="ListItemEventsIcons">
-              <div className="ListItemEventsShare">
-                <img
-                  className="ListItemEventsShareIcon"
-                  alt=""
-                  src="/static/svg/Share.svg"
-                />
-                <a className="ListItemEventsShareLink" href="url">
-                  Share
-                </a>
-              </div>
-              <div className="ListItemEventsCalendar">
-                {/* <img
-                  className="ListItemEventsCalendarIcon"
-                  alt=""
-                  src="/static/svg/Calendar, Add To.svg"
-                /> */}
-                <AddToCalendar
-                  className="one-image-calendar"
-                  event={theevent}
-                  color="black"
-                  textDecoration="always"
-                />
-                {/* <a className="ListItemEventsCalendarLink" href="url">
-                  Add to Calendar
-                </a> */}
-              </div>
-            </div>
           </div>
         </div>
       </Link>
@@ -995,8 +966,8 @@ class ListItem extends React.Component<Props, State> {
           }}
         />
 
-        <div className="ListItemEventsDescription">{item.name}</div>
-        <div className="ListItemEventsDescription2">{item.description}</div>
+        <div className="ListItemCompassionDescription">{item.name}</div>
+        <div className="ListItemCompassionDescription2">{item.description}</div>
 
         {item.website != null ? (
           <div className="ListItemWebsiteContainer">

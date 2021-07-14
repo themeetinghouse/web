@@ -120,9 +120,10 @@
   .EventDateMonth {
     font-family: Graphik Web;
     line-height: 3vw;
-    font-size: 2vw;
+    font-size: 3vw;
     font-weight: bold;
     color: #1a1a1a;
+    text-align: center;
   }
   .EventDateDay {
     text-align: center;
@@ -543,7 +544,7 @@
 
   .ListItemEventsText {
     position: relative;
-    left: 8vw;
+    left: 10vw;
   }
 
   .ListItemCompassion {
@@ -551,6 +552,26 @@
     width: 23vw;
     margin-right: 2vw;
     vertical-align: top;
+  }
+
+  .ListItemCompassionDescription {
+    white-space: normal;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 2.3vw;
+    margin-top: 1.5vw;
+    font-family: Graphik Web;
+    word-wrap: normal;
+    color: theme.$onyxblacktext;
+  }
+
+  .ListItemCompassionDescription2 {
+    margin-top: 1.5vw;
+    white-space: normal;
+    font-size: 1.05vw;
+    font-family: Graphik Web;
+    word-wrap: break-word;
+    color: theme.$coolgray11;
   }
 
   .ListItemEventsDescription {
@@ -607,7 +628,7 @@
   .ListItemEventsArrow {
     float: right;
     margin-right: 2vw;
-    width: 28px;
+    width: 2.4vw;
     transition: 1s;
   }
 
@@ -1180,8 +1201,22 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
+  .ListItemCompassionDescription {
+    white-space: normal;
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+  }
 
   .ListItemEventsDescription2 {
+    white-space: normal;
+    font-family: Graphik Web;
+    color: theme.$coolgray11;
+    word-wrap: break-word;
+  }
+
+  .ListItemCompassionDescription2 {
     white-space: normal;
     font-family: Graphik Web;
     color: theme.$coolgray11;
@@ -1644,7 +1679,7 @@
     width: 80vw;
     color: theme.$onyxblacktext;
     margin-bottom: 8.55vw;
-    font-size: 10vw;
+    font-size: 9vw;
     font-weight: 700;
     font-family: Graphik Web;
   }
@@ -1901,42 +1936,6 @@
     margin-right: 0.5vw;
   }
 
-  .ListItemEvents {
-    display: relative;
-    width: 75vw;
-    margin-right: 2vw;
-    vertical-align: top;
-  }
-
-  .ListItemEvents:hover {
-    background-color: #efeff0;
-  }
-
-  .ListItemCompassion {
-    display: block;
-    width: 100%;
-    padding-right: 5vw;
-  }
-
-  .ListItemEventsDescription {
-    white-space: normal;
-    font-family: Graphik Web;
-    font-size: 6.4vw;
-    line-height: 8.55vw;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    width: 73vw;
-    color: theme.$onyxblacktext;
-  }
-
-  .ListItemEventsDescription2 {
-    white-space: normal;
-    font-family: Graphik Web;
-    margin-bottom: 20vw;
-    color: theme.$coolgray11;
-    word-wrap: break-word;
-  }
-
   .ListItemEventsLocation {
     white-space: normal;
     font-family: Graphik Web;
@@ -1949,6 +1948,130 @@
     font-family: Graphik Web;
     margin-top: 10px;
     color: theme.$onyxblacktext;
+  }
+
+  .EventDateContainer {
+    float: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: -5vw;
+    display: flex;
+    width: 100%;
+    .EventDateMonth {
+      font-family: Graphik Web;
+      line-height: 3vw;
+      font-size: 6vw;
+      font-weight: bold;
+      color: #646469;
+      margin-right: 7px;
+    }
+    .EventDateDay {
+      font-family: Graphik Web;
+      line-height: 3vw;
+      font-size: 6vw;
+      font-weight: bold;
+      color: #646469;
+    }
+  }
+
+  .ListItemEvents {
+    width: 87vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    vertical-align: top;
+    margin-bottom: 10vw;
+  }
+
+  .ListItemEvents:hover {
+    background-color: #efeff0;
+    cursor: pointer;
+  }
+
+  .ListItemEventsText {
+    position: relative;
+  }
+
+  .ListItemEventsDescription {
+    white-space: normal;
+    font-weight: bold;
+    font-size: 6vw;
+    line-height: 8vw;
+    margin-top: 5vw;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+  }
+
+  .ListItemEventsDescription2 {
+    margin-top: 4vw;
+    white-space: normal;
+    font-size: 3.4vw;
+    font-family: Graphik Web;
+    color: theme.$coolgray11;
+    width: 75vw;
+  }
+
+  .ListItemEventsLocation {
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 5vw;
+    margin-top: 4vw;
+    color: theme.$onyxblacktext;
+  }
+
+  .ListItemEventsDuration {
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 4vw;
+    margin-top: 0;
+    color: theme.$onyxblacktext;
+  }
+
+  .ListItemEventsIcons {
+    margin-top: 3vw;
+    display: flex;
+    .ListItemEventsShare {
+      margin-right: 5vw;
+      float: right;
+      .ListItemEventsShareLink {
+        margin-left: 1vw;
+      }
+    }
+    .ListItemEventsCalendar {
+      .ListItemEventsCalendarLink {
+        margin-left: 1vw;
+      }
+    }
+  }
+
+  .ListItemEventsArrow {
+    float: right;
+    margin-right: 4vw;
+    width: 7vw;
+  }
+
+  .ListItemCompassion {
+    display: block;
+    width: 100%;
+    padding-right: 5vw;
+  }
+
+  .ListItemCompassion {
+    white-space: normal;
+    font-family: Graphik Web;
+    font-size: 6.4vw;
+    line-height: 8.55vw;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    width: 73vw;
+    color: theme.$onyxblacktext;
+  }
+
+  .ListItemCompassionDescription2 {
+    white-space: normal;
+    font-family: Graphik Web;
+    margin-bottom: 20vw;
+    color: theme.$coolgray11;
+    word-wrap: break-word;
   }
 
   .ListItem.imageList {
@@ -2145,30 +2268,6 @@
   .StaffImage {
     width: 70vw;
     height: 70vw;
-  }
-
-  .EventDateContainer {
-    float: left;
-    margin-left: 0px;
-    margin-right: 0px;
-    display: flex;
-    width: 100%;
-    margin-bottom: 5px;
-    .EventDateMonth {
-      font-family: Graphik Web;
-      line-height: 3vw;
-      font-size: 4.5vw;
-      font-weight: bold;
-      color: #1a1a1a;
-      margin-right: 7px;
-    }
-    .EventDateDay {
-      font-family: Graphik Web;
-      line-height: 3vw;
-      font-size: 4.5vw;
-      font-weight: bold;
-      color: #1a1a1a;
-    }
   }
 }
 @media (hover: none) {
