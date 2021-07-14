@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJuly11.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJuly18.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJuly11.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJuly18.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJuly11.jpg",
-            "alt": "This week's big idea is: Satan lies, and lies are weak."
+            "src": "/static/images/KidsBigIdeaJuly18.jpg",
+            "alt": "This week's big idea is: Angels help us even if we don't notice."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJuly11.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJuly18.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJuly11.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJuly18.pdf",
             "openNewBrowser": true
           },
           {
