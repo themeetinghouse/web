@@ -1,11 +1,13 @@
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import {
   F1SearchContributionReceiptsResultType,
+  GetTmhUserQuery,
   TmhF1SearchContributionReceiptsQuery,
 } from 'API';
-import * as queries from '../../../src/graphql/queries';
+import { Auth } from 'aws-amplify';
+import * as queries from '../../graphql/queries';
 
-export default class f1Common {
+export default class paymentsCommon {
   static getReceipts = async (
     setLastTransacs: React.Dispatch<
       React.SetStateAction<
@@ -26,6 +28,35 @@ export default class f1Common {
       );
 
       setIsLoading(false);
+    } catch (e) {
+      console.log({ Error: e });
+    }
+  };
+  static getCurrentUserProfile = async (
+    setUser: React.Dispatch<
+      React.SetStateAction<
+        | NonNullable<
+            NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+          >
+        | null
+        | undefined
+      >
+    >
+  ) => {
+    try {
+      const user = await Auth.currentAuthenticatedUser().catch(() => {
+        console.log('No current authenticated user');
+      });
+      console.log(user);
+      const tmhUser = (await API.graphql({
+        query: queries.getTmhUser,
+        variables: {
+          id: user?.username,
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<GetTmhUserQuery>;
+      console.log(tmhUser);
+      setUser(tmhUser?.data?.getTMHUser);
     } catch (e) {
       console.log({ Error: e });
     }

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
 import { F1SearchContributionReceiptsResultType } from 'API';
-import f1Common from '../f1Common';
+import f1Common from '../paymentsCommon';
 
 export default function RecentTransactionsCard(): JSX.Element {
   const [lastTransacs, setLastTransacs] =

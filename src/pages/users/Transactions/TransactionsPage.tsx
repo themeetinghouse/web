@@ -1,7 +1,7 @@
 import { F1SearchContributionReceiptsResultType } from 'API';
 import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
-import f1Common from '../f1Common';
+import paymentsCommon from '../paymentsCommon';
 import './TransactionsPage.scss';
 
 export default function TransactionsPage(): JSX.Element {
@@ -10,7 +10,7 @@ export default function TransactionsPage(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
   const [paginationIndex, setPaginationIndex] = useState(0);
   useEffect(() => {
-    f1Common.getReceipts(setTransData, setIsLoading);
+    paymentsCommon.getReceipts(setTransData, setIsLoading);
   }, []);
   const tableHeaders = [
     'Transaction No.',

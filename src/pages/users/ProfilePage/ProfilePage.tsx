@@ -1,47 +1,37 @@
+import { GraphQLResult } from '@aws-amplify/api';
+import { GetTmhUserQuery } from 'API';
 import { useEffect, useRef } from 'react';
 import { useState } from 'react';
+import { Spinner } from 'reactstrap';
+import paymentsCommon from '../paymentsCommon';
 import { countryList, stateList, provinceList } from './LocationOptions';
 import './ProfilePage.scss';
-type ProfileForm = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  mobile: string;
-  address: string;
-  city: string;
-  country: string;
-  province: string;
-  postalCode: string;
-  selectedFile: File | null;
-};
+
 export default function ProfilePage() {
   const uploadRef = useRef<any>(null);
   const countries = countryList();
   const states = stateList();
   const provinces = provinceList();
-  const [form, setForm] = useState<ProfileForm>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    mobile: '',
-    address: '',
-    city: '',
-    country: '',
-    province: '',
-    postalCode: '',
-    selectedFile: null,
-  });
+  const [form, setForm] = useState<
+    | NonNullable<
+        NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+      >
+    | null
+    | undefined
+  >(null);
   useEffect(() => {
+    paymentsCommon.getCurrentUserProfile(setForm);
     console.log(form);
-  });
-  return (
+  }, []);
+  console.log(form);
+  return form != null && form.billingAddress != null ? (
     <div className="ProfilePageContainer">
       <div className="ProfilePage">
         <div className="LeftContainer">
           <input
             onChange={(e) => {
-              if (e?.target?.files?.[0])
-                setForm({ ...form, selectedFile: e.target.files[0] });
+              //if (e?.target?.files?.[0])
+              //  setForm({ ...form, selectedFile: e.target.files[0] });
             }}
             ref={uploadRef}
             type="file"
@@ -64,9 +54,9 @@ export default function ProfilePage() {
               <label>First Name</label>
               <input
                 className="ProfileInput"
-                value={form.firstName}
+                value={form.given_name}
                 onChange={(e) =>
-                  setForm({ ...form, firstName: e.target.value })
+                  setForm({ ...form, given_name: e.target.value })
                 }
               ></input>
             </div>
@@ -74,34 +64,49 @@ export default function ProfilePage() {
               <label>Last Name</label>
               <input
                 className="ProfileInput"
-                value={form.lastName}
-                onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                value={form.family_name}
+                onChange={(e) =>
+                  setForm({ ...form, family_name: e.target.value })
+                }
               ></input>
             </div>
           </div>
           <label>Email</label>
           <input
             className="ProfileInput"
-            value={form.email}
+            value={form.email ?? ''}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           ></input>
           <label>Mobile</label>
           <input
             className="ProfileInput"
-            value={form.mobile}
-            onChange={(e) => setForm({ ...form, mobile: e.target.value })}
+            value={form.phone ?? ''}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
           ></input>
           <label>Stress Address</label>
           <input
             className="ProfileInput"
-            value={form.address}
-            onChange={(e) => setForm({ ...form, address: e.target.value })}
+            value={form.billingAddress?.line1 ?? ''}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                billingAddress: {
+                  __typename: 'Address',
+                  line1: e.target.value,
+                },
+              })
+            }
           ></input>
           <label>City</label>
           <input
             className="ProfileInput"
-            value={form.city}
-            onChange={(e) => setForm({ ...form, city: e.target.value })}
+            value={form.billingAddress?.city ?? ''}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                billingAddress: { __typename: 'Address', city: e.target.value },
+              })
+            }
           ></input>
           <div className="LocationContainer">
             <div className="LocationItem">
@@ -109,7 +114,15 @@ export default function ProfilePage() {
               <select
                 id="country-select"
                 className="ProfileInput"
-                onChange={(e) => setForm({ ...form, country: e.target.value })}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    billingAddress: {
+                      __typename: 'Address',
+                      country: e.target.value,
+                    },
+                  })
+                }
                 name="country"
               >
                 <option value={''} defaultValue="">
@@ -127,15 +140,21 @@ export default function ProfilePage() {
             <div className="LocationItem">
               <label htmlFor="province-select">Province/State</label>
               {!(
-                form.country === 'Canada' ||
-                form.country === 'United States of America (the)'
+                form.billingAddress.country === 'Canada' ||
+                form.billingAddress.country === 'United States of America (the)'
               ) ? (
                 <input
                   id="province-select"
                   className="ProfileInput"
-                  value={form.province}
+                  value={form.billingAddress?.state ?? ''}
                   onChange={(e) =>
-                    setForm({ ...form, province: e.target.value })
+                    setForm({
+                      ...form,
+                      billingAddress: {
+                        __typename: 'Address',
+                        state: e.target.value,
+                      },
+                    })
                   }
                 ></input>
               ) : (
@@ -143,12 +162,18 @@ export default function ProfilePage() {
                   id="province-select"
                   className="ProfileInput"
                   onChange={(e) =>
-                    setForm({ ...form, province: e.target.value })
+                    setForm({
+                      ...form,
+                      billingAddress: {
+                        __typename: 'Address',
+                        state: e.target.value,
+                      },
+                    })
                   }
                   name="province"
                 >
                   <option selected>Select a province/state</option>
-                  {form.country === 'Canada'
+                  {form.billingAddress?.country === 'Canada'
                     ? provinces.map((province) => {
                         return (
                           <option value={province} key={province}>
@@ -156,7 +181,8 @@ export default function ProfilePage() {
                           </option>
                         );
                       })
-                    : form.country === 'United States of America (the)'
+                    : form.billingAddress?.country ===
+                      'United States of America (the)'
                     ? states.map((state, index) => {
                         return (
                           <option
@@ -176,9 +202,15 @@ export default function ProfilePage() {
               <label>Postal Code/Zip Code</label>
               <input
                 className="ProfileInput"
-                value={form.postalCode}
+                value={form.billingAddress?.postal_code ?? ''}
                 onChange={(e) =>
-                  setForm({ ...form, postalCode: e.target.value })
+                  setForm({
+                    ...form,
+                    billingAddress: {
+                      __typename: 'Address',
+                      postal_code: e.target.value,
+                    },
+                  })
                 }
               ></input>
             </div>
@@ -225,6 +257,14 @@ export default function ProfilePage() {
               Update
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="ProfilePageContainer">
+      <div className="ProfilePage">
+        <div className="LeftContainer">
+          <Spinner></Spinner>
         </div>
       </div>
     </div>

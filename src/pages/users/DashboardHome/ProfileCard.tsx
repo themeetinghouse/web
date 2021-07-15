@@ -1,3 +1,5 @@
+import { GraphQLResult } from '@aws-amplify/api';
+import { GetTmhUserQuery } from 'API';
 import { Auth } from 'aws-amplify';
 import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
@@ -5,37 +7,24 @@ import {
   Link as ClickableText,
   LinkButton,
 } from '../../../components/Link/Link';
+import paymentsCommon from '../paymentsCommon';
 import './ProfileCard.scss';
 
-type User = {
-  name: string;
-  email: string;
-  mobile: string;
-  address: string;
-};
-
 export default function ProfileCard(): JSX.Element {
-  const [userData, setUserData] = useState<User>({
-    name: '',
-    email: '',
-    mobile: '',
-    address: '',
-  });
-  const [isLoading, setIsLoading] = useState(true);
+  const [userData, setUserData] = useState<
+    | NonNullable<
+        NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+      >
+    | null
+    | undefined
+  >(null);
+  //const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      setUserData({
-        name: 'Simon McTaggart',
-        email: 'S.Mctaggart@gmail.com',
-        mobile: '+1 416 927 1234',
-        address: '80 Parish Cres Mississauga ON L5M 7Q4 Canada',
-      });
-      setIsLoading(false);
-    }, 700);
+    paymentsCommon.getCurrentUserProfile(setUserData);
   }, []);
   return (
     <div className="Profile-Card">
-      {isLoading ? (
+      {userData == null ? (
         <div className="spinnerContainer">
           <Spinner />
         </div>
@@ -46,13 +35,21 @@ export default function ProfileCard(): JSX.Element {
             className="profilePicture"
             src="/static/svg/Profile.svg"
           ></img>
-          <h3>{userData.name}</h3>
+          <h3>
+            {userData.given_name} {userData.family_name}
+          </h3>
           <span>Email</span>
           <p>{userData.email}</p>
           <span>Mobile</span>
-          <p>{userData.mobile}</p>
+          <p>{userData.phone}</p>
           <span>Address</span>
-          <p>{userData.address}</p>
+          <p>{userData.billingAddress?.line1}</p>
+          <p>{userData.billingAddress?.postal_code}</p>
+          <p>
+            {userData.billingAddress?.city} {userData.billingAddress?.state}
+          </p>
+          <p>{userData.billingAddress?.country}</p>
+
           <ClickableText style={{ display: 'block' }} to={'/'}>
             <img
               alt="Edit Icon"
