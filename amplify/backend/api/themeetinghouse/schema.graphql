@@ -966,6 +966,10 @@ type BlogToVideoSeries
   blog: Blog! @connection(fields: ["blogId"])
   videoSeries: Series! @connection(fields: ["videoSeriesId"])
 }
+type Image {
+  src: String!
+  alt: String!
+}
 
 type Blog
  @model
@@ -995,6 +999,9 @@ type Blog
   topics: [String]
   tags: [String]
   hiddenMainIndex: Boolean
+  squareImage: Image
+  bannerImage: Image
+  babyHeroImage: Image
 }
 
 

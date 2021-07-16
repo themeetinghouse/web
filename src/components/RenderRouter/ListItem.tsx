@@ -27,6 +27,7 @@ import DataLoader, {
   InstaQuery,
 } from './DataLoader';
 import HorizontalScrollList from './HorizontalScrollList';
+import LadderList from './LadderList';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './ListItem.scss';
 import format from 'date-fns/format';
@@ -58,6 +59,7 @@ interface State {
     selector?: string;
     sortOrder?: ModelSortDirection;
     margin?: Margin;
+    calendar?: Event;
   };
   listData: ListData[];
   overlayData: any;
@@ -706,6 +708,33 @@ class ListItem extends React.Component<Props, State> {
           item.description.substring(0, item.description.indexOf(' ', 300)) +
           '...';
     } else description = item.description;
+
+    // var Event theevent = {
+    //   start: start_date.getDate();
+    //   end: 'string';
+    //   summary: item.name;
+    //   description: description;
+    //   if (item.place != null) {
+    //     if (item.place.name != null) {
+    //       location: item.place.name;
+    //     }
+    //   }
+    //   //url?: 'https://facebook.com/' + item.id;
+    // }
+    const theevent = {
+      start: start_date.getDate() + '',
+      end: 'string',
+      summary: item.name + '',
+      description: description + '',
+      location: '',
+      url: 'url',
+    };
+    if (item.place != null) {
+      if (item.place.name != null) {
+        theevent.location = item.place.name;
+      }
+    }
+
     return (
       <Link
         key={item.id ?? ''}
@@ -716,11 +745,16 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemEvents">
           <div className="EventDateContainer">
             <div className="EventDateMonth">
-              {start_date.toLocaleString('default', { month: 'long' })}
+              {start_date.toLocaleString('default', { month: 'short' })}
             </div>
             <div className="EventDateDay">{start_date.getDate()}</div>
           </div>
-          <div style={{ margin: '10px' }}>
+          <img
+            className="ListItemEventsArrow"
+            alt=""
+            src="/static/svg/ArrowRight black.svg"
+          />
+          <div className="ListItemEventsText">
             <div className="ListItemEventsDescription">{item.name}</div>
             <div className="ListItemEventsDescription2">{description}</div>
             {item.place != null ? (
@@ -735,7 +769,6 @@ class ListItem extends React.Component<Props, State> {
             ) : null}
             <div className="ListItemEventsDuration">{durationStr}</div>
           </div>
-          <div style={{ clear: 'left' }}></div>
         </div>
       </Link>
     );
@@ -933,8 +966,8 @@ class ListItem extends React.Component<Props, State> {
           }}
         />
 
-        <div className="ListItemEventsDescription">{item.name}</div>
-        <div className="ListItemEventsDescription2">{item.description}</div>
+        <div className="ListItemCompassionDescription">{item.name}</div>
+        <div className="ListItemCompassionDescription2">{item.description}</div>
 
         {item.website != null ? (
           <div className="ListItemWebsiteContainer">
@@ -1693,7 +1726,7 @@ class ListItem extends React.Component<Props, State> {
       } else if (
         this.state.content.style === 'imageList' ||
         this.state.content.style === 'imageListHeader'
-      )
+      ) {
         return (
           <div className="ListItem imageList">
             <div className="ListItemDiv1">
@@ -1763,6 +1796,25 @@ class ListItem extends React.Component<Props, State> {
             </div>
           </div>
         );
+      } else if (this.state.content.style === 'ladder') {
+        return (
+          <div className="ListItem ladder">
+            <div className="ListItemDiv1">
+              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              {this.state.content.text1 != null ? (
+                <div className="ListItemText1"> this.state.content.text1 </div>
+              ) : null}
+              <div className="ListItemSpeakersDiv">
+                <LadderList>
+                  {data.map((item: any, index: any) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </LadderList>
+              </div>
+            </div>
+          </div>
+        );
+      }
       return null;
     };
 
