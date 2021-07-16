@@ -126,7 +126,8 @@
         "S3Triggerd90d52fa": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
           "s3Key": "amplify-builds/S3Triggerd90d52fa-55585256336f73466775-build.zip"
-        }
+        },
+        "tmhMetadataFacebook": {}
       },
       "notifications": {
         "Pinpoint": {

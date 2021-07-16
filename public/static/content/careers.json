@@ -58,18 +58,13 @@
         "list": [
           {
             "type": "link",
-            "title": "Parry Sound Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/Parry Sound Lead Pastor 2020.pdf"
-          },
-          {
-            "type": "link",
-            "title": "East Toronto Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/ETleadpastor.pdf"
-          },
-          {
-            "type": "link",
             "title": "Downtown Toronto Lead Pastor",
             "navigateTo": "/static/pdfs/careers/DTleadpastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Hamilton Youth Pastor",
+            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           },
           {
             "type": "link",
@@ -78,18 +73,13 @@
           },
           {
             "type": "link",
-            "title": "Finance Director",
-            "navigateTo": "/static/pdfs/careers/Finance Director 2.pdf"
-          },
-          {
-            "type": "link",
             "title": "Kitchener Waterloo Pastor",
             "navigateTo": "/static/pdfs/careers/Kitchener Waterloo Pastor.pdf"
           },
           {
             "type": "link",
-            "title": "Discipleship Pastor",
-            "navigateTo": "/static/pdfs/careers/Discipleship Pastor.pdf"
+            "title": "Human Resources Manager",
+            "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
           }
         ],
         "image1": [
@@ -107,13 +97,18 @@
         "list": [          
         {
           "type": "link",
-          "title": "Graphic Designer Contract",
-          "navigateTo": "/static/pdfs/careers/Graphic Designer Contract.pdf"
+          "title": "Kitchener Kidmax Coordinator",
+          "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
         },
         {
           "type": "link",
-          "title": "Kitchener Kidmax Coordinator",
-          "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+          "title": "Alliston Family Engagement Coordinator",
+          "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
+        },
+        {
+          "type": "link",
+          "title": "Brantford Administrator Role",
+          "navigateTo": "/static/pdfs/careers/Brantford Parish Administrator.pdf"
         }
       ],
         "image1": [

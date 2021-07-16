@@ -871,6 +871,7 @@ type Series
   id: ID!
   videos: [Video] @connection(name: "VideosSeries",limit: 50)
   blogs: [Blog] @connection(name: "BlogInVideoSeries",limit: 20)
+  blogPosts: [BlogToVideoSeries] @connection(keyName: "bySeriesForBlogToVideoSeries", fields: ["id"])
   seriesType: String
   title: String
   description: String
@@ -993,6 +994,27 @@ blogSeries: BlogSeries @connection(name: "BlogSeriesContains", keyField: "blogSe
 blogPost: Blog @connection(name: "BlogIsIn", keyField: "blogPostID")
 }
 
+type BlogToVideoSeries
+  @model(queries: null)
+  @auth(rules:[
+    { allow: public, operations: [read] },
+    { allow: private, operations: [read], provider: iam },
+    { allow: groups, operations: [read,update,delete,create], groups: ["Bloggers"], provider: userPools }
+  ])
+  @key(name: "bySeriesForBlogToVideoSeries", fields: ["videoSeriesId", "blogId"])
+  @key(name: "byBlogForBlogToVideoSeries", fields: ["blogId", "videoSeriesId"]) 
+{
+  id: ID!
+  videoSeriesId: ID!
+  blogId: ID!
+  blog: Blog! @connection(fields: ["blogId"])
+  videoSeries: Series! @connection(fields: ["videoSeriesId"])
+}
+type Image {
+  src: String!
+  alt: String!
+}
+
 type Blog
  @model
  @searchable
@@ -1010,6 +1032,7 @@ type Blog
   createdDate: String
   publishedDate: String
   expirationDate: String
+  videoSeries: [BlogToVideoSeries] @connection(keyName: "byBlogForBlogToVideoSeries", fields: ["id"])
   series: Series @connection(name: "BlogInVideoSeries")
   blogSeries: [BlogSeriesBridge] @connection(name: "BlogIsIn", keyField: "blogPostID")
   blogStatus: String
@@ -1020,6 +1043,9 @@ type Blog
   topics: [String]
   tags: [String]
   hiddenMainIndex: Boolean
+  squareImage: Image
+  bannerImage: Image
+  babyHeroImage: Image
 }
 
 
@@ -1214,14 +1240,14 @@ type TMHUser
 
   billingAddress: Address @auth(rules: [{ allow: owner, ownerField: "owner" }])
 
-  profileImage: Image
+  profileImage: PrivateImage
   joined: String
 
   f1PersonId:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
   f1HouseholdId:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
  
 }
-type Image {
+type PrivateImage {
   userId: String
   filenameSmall: String
   filenameMedium: String
