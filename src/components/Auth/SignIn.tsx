@@ -1,7 +1,8 @@
 import * as Sentry from '@sentry/browser';
 import { Auth } from 'aws-amplify';
 import React from 'react';
-
+import './SignIn.scss';
+import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 import { AuthStateData } from './AuthStateData';
 import { UserActions, UserContext } from './UserContext';
 
@@ -122,94 +123,117 @@ export default class SignIn extends React.Component<Props, State> {
               {userState.authState === 'signIn' ||
               userState.authState === 'signedOut' ||
               userState.authState === 'signedUp' ? (
-                <div>
-                  <div>
-                    <button
-                      //accessibilityLabel="Create account"
-                      //accessibilityHint="Navigate to account creation page"
-                      onClick={async () => {
-                        await this.changeAuthState(
-                          userActions,
-                          'signUp',
-                          null,
-                          null
-                        );
-                      }}
-                    >
-                      Create an Account
-                    </button>
-                  </div>
-                  <div>
-                    <h1
-                    //accessibilityRole="header"
-                    >
-                      Welcome to The Meeting House
-                    </h1>
+                <div className="SignInPageContainer">
+                  <MyAccountNav
+                    navigationItems={[]}
+                    toggle={() => null}
+                    open={false}
+                  ></MyAccountNav>
+                  <div className="SignInContent">
+                    <div className="SignInForm">
+                      <p
+                        className="SignInHeader"
+                        //accessibilityRole="header"
+                      >
+                        The Meeting House Account Portal
+                      </p>
 
-                    <input
-                      //  autoCompleteType="email"
-                      //textContentType="emailAddress"
-                      type="email"
-                      autoFocus
-                      //keyboardType="email-address"
-                      placeholder="Email"
-                      value={this.state.user}
-                      onChange={(e: any) =>
-                        this.setState({ user: e.target.value })
-                      }
+                      <input
+                        className="SignInInput"
+                        //  autoCompleteType="email"
+                        //textContentType="emailAddress"
+                        type="email"
+                        autoFocus
+                        //keyboardType="email-address"
+                        placeholder="Email"
+                        value={this.state.user}
+                        onChange={(e: any) =>
+                          this.setState({ user: e.target.value })
+                        }
 
-                      //secureTextEntry={false}
-                    ></input>
-                    <input
-                      // autoCompleteType="password"
-                      // textContentType="password"
-                      // onKeyPress={(e: any) => {
-                      //   this.handleEnter(userActions, e);
-                      // }}
-                      type="password"
-                      placeholder="Password"
-                      value={this.state.pass}
-                      onChange={(e: any) =>
-                        this.setState({ pass: e.target.value })
-                      }
-                    ></input>
-                    <button
-                      //  accessibilityLabel="Login"
-                      //  accessibilityHint="Navigate to platform"
-                      onClick={async () => {
-                        await this.handleSignIn(userActions);
-                      }}
-                    >
-                      Sign In
-                    </button>
-                    <button
-                      // accessibilityLabel="Forgot password"
-                      // accessibilityHint="Navigate to forgot password page"
-                      // accessibilityRole="button"
-                      onClick={async () => {
-                        await this.changeAuthState(
-                          userActions,
-                          'forgotPassword'
-                        );
-                      }}
-                    >
-                      <div>Forgot password?</div>
-                    </button>
-                    <div
-                    // accessibilityLiveRegion={'assertive'}
-                    // accessibilityRole="alert"
-                    >
-                      {this.state.authError ? <img src="warning.gif" /> : null}{' '}
-                      {this.state.authError}
-                    </div>
-                    <div
-                    //   accessible={this.state.fromVerified}
-                    //   accessibilityLiveRegion={'assertive'}
-                    //  accessibilityRole="alert"
-                    >
-                      {this.state.fromVerified
-                        ? 'User Verified. Please Login.'
-                        : null}
+                        //secureTextEntry={false}
+                      ></input>
+                      <input
+                        className="SignInInput"
+                        // autoCompleteType="password"
+                        // textContentType="password"
+                        // onKeyPress={(e: any) => {
+                        //   this.handleEnter(userActions, e);
+                        // }}
+                        type="password"
+                        placeholder="Password"
+                        value={this.state.pass}
+                        onChange={(e: any) =>
+                          this.setState({ pass: e.target.value })
+                        }
+                      ></input>
+
+                      <div className="SignInButtonContainer">
+                        <button
+                          className="SignInButton"
+                          //  accessibilityLabel="Login"
+                          //  accessibilityHint="Navigate to platform"
+                          onClick={async () => {
+                            await this.handleSignIn(userActions);
+                          }}
+                        >
+                          Sign In
+                        </button>
+
+                        <button
+                          className="SignInButton white"
+                          //accessibilityLabel="Create account"
+                          //accessibilityHint="Navigate to account creation page"
+                          onClick={async () => {
+                            await this.changeAuthState(
+                              userActions,
+                              'signUp',
+                              null,
+                              null
+                            );
+                          }}
+                        >
+                          Create an Account
+                        </button>
+                      </div>
+                      <button
+                        // accessibilityLabel="Forgot password"
+                        // accessibilityHint="Navigate to forgot password page"
+                        // accessibilityRole="button"
+                        style={{
+                          backgroundColor: 'white',
+                          padding: 0,
+                          border: 'none',
+                          width: '13ch',
+                          textAlign: 'left',
+                        }}
+                        onClick={async () => {
+                          await this.changeAuthState(
+                            userActions,
+                            'forgotPassword'
+                          );
+                        }}
+                      >
+                        <div>Forgot password?</div>
+                      </button>
+                      <div
+                      // accessibilityLiveRegion={'assertive'}
+                      // accessibilityRole="alert"
+                      >
+                        {this.state.authError ? (
+                          <img src="warning.gif" />
+                        ) : null}{' '}
+                        {this.state.authError}
+                      </div>
+                      <div
+                      //   accessible={this.state.fromVerified}
+                      //   accessibilityLiveRegion={'assertive'}
+                      //  accessibilityRole="alert"
+                      >
+                        {this.state.fromVerified
+                          ? 'User Verified. Please Login.'
+                          : null}
+                      </div>
                     </div>
                   </div>
                 </div>

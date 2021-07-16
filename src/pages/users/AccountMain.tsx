@@ -12,7 +12,17 @@ export default function AccountMain(): JSX.Element {
   const [open, setOpen] = useState(false);
   return (
     <div className="MyAccountContainer">
-      <MyAccountNav open={open} toggle={() => setOpen((prev) => !prev)} />
+      <MyAccountNav
+        navigationItems={[
+          { label: 'Home', link: '/' },
+          { label: 'Give', link: '/give' },
+          { label: 'Transactions', link: '/transactions' },
+          { label: 'Payment Methods', link: '/payments' },
+          { label: 'Profile', link: '/profile' },
+        ]}
+        open={open}
+        toggle={() => setOpen((prev) => !prev)}
+      />
       <div className="DashboardContent" style={open ? { display: 'none' } : {}}>
         <Switch>
           <Route path={`/account`} component={DashboardHome} exact />

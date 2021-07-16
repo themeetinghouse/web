@@ -3,18 +3,24 @@ import { Link, useLocation, useRouteMatch } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useState } from 'react';
 import { useEffect } from 'react';
+
+type NavItem = {
+  label: string;
+  link: string;
+  custom?: boolean;
+};
+type NavItems = Array<NavItem>;
 interface Props {
   open: boolean;
   toggle: () => void;
+  navigationItems: NavItems;
 }
-export default function MyAccountNav({ open, toggle }: Props): JSX.Element {
-  const [navItems, setNavItems] = useState<Array<any>>([
-    { label: 'Home', link: '/' },
-    { label: 'Give', link: '/give' },
-    { label: 'Transactions', link: '/transactions' },
-    { label: 'Payment Methods', link: '/payments' },
-    { label: 'Profile', link: '/profile' },
-  ]);
+export default function MyAccountNav({
+  open,
+  toggle,
+  navigationItems,
+}: Props): JSX.Element {
+  const [navItems, setNavItems] = useState<NavItems>(navigationItems);
   useEffect(() => {
     const fetchNavItems = async () => {
       try {
@@ -32,7 +38,7 @@ export default function MyAccountNav({ open, toggle }: Props): JSX.Element {
         console.log(err);
       }
     };
-    fetchNavItems();
+    if (navigationItems.length) fetchNavItems(); // only fetches if there are items already in the nav, preferred for nav in auth flow
   }, []);
 
   const { pathname } = useLocation();
@@ -78,16 +84,18 @@ export default function MyAccountNav({ open, toggle }: Props): JSX.Element {
           );
         })}
       </nav>
-      <div tabIndex={0} className="hamburgerToggle">
-        <HamburgerMenu
-          isOpen={open}
-          menuClicked={() => toggle()}
-          width={32}
-          height={16}
-          strokeWidth={1.5}
-          color="white"
-        />
-      </div>
+      {navigationItems.length ? (
+        <div tabIndex={0} className="hamburgerToggle">
+          <HamburgerMenu
+            isOpen={open}
+            menuClicked={() => toggle()}
+            width={32}
+            height={16}
+            strokeWidth={1.5}
+            color="white"
+          />
+        </div>
+      ) : null}
       <div style={{ height: 200 }}></div>
     </div>
   );
