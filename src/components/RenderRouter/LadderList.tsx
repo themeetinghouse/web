@@ -13,26 +13,9 @@ interface State {
 }
 
 class LadderList extends React.Component<Props, State> {
-  scrollContainerElement: any;
-  scrollNavElement: any;
-  pageWidth = 0;
-  pageWidthActual = 0;
-  itemsPerPage = 0;
-  useSmoothScroll = false;
-  scrollTimer: any;
-
   constructor(props: Props) {
     super(props);
-    this.state = {
-      childrenLength: -1,
-      numPages: -1,
-      currentPage: 0,
-    };
   }
-
-  refCallback = (scrollContainerElement: any) => {
-    this.scrollContainerElement = scrollContainerElement;
-  };
 
   render(): ReactNode {
     return (
@@ -42,7 +25,7 @@ class LadderList extends React.Component<Props, State> {
             'LadderListContainer ' + (this.props.darkMode ? 'dark' : '')
           }
         >
-          <div ref={this.refCallback} className="LadderListItemContainer">
+          <div className="LadderListItemContainer">
             {this.props.children &&
               isArray(this.props.children) &&
               this.props.children.map((child, index) =>
