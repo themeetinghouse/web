@@ -1569,6 +1569,16 @@ export const onCreateSpeaker = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -1961,6 +1971,16 @@ export const onUpdateSpeaker = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -2363,6 +2383,16 @@ export const onDeleteSpeaker = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -2585,6 +2615,9 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -2881,6 +2914,9 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -2997,6 +3033,9 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -3013,6 +3052,88 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -3061,6 +3182,9 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -3073,6 +3197,16 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -3109,6 +3243,9 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -3244,6 +3381,9 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -3397,6 +3537,9 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -3693,6 +3836,9 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -3809,6 +3955,9 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -3825,6 +3974,88 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -3873,6 +4104,9 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -3885,6 +4119,16 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -3921,6 +4165,9 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -4056,6 +4303,9 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -4209,6 +4459,9 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -4505,6 +4758,9 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -4621,6 +4877,9 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -4637,6 +4896,88 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -4685,6 +5026,9 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -4697,6 +5041,16 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -4733,6 +5087,9 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -4868,6 +5225,9 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -5213,6 +5573,46 @@ export const onCreateSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -5256,6 +5656,9 @@ export const onCreateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -5373,6 +5776,412 @@ export const onCreateSeries = /* GraphQL */ `
         }
         nextToken
       }
+      blogPosts {
+        items {
+          id
+          videoSeriesId
+          blogId
+          createdAt
+          updatedAt
+          videoSeries {
+            id
+            seriesType
+            title
+            description
+            thumbnailDescription
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                thumbnailDescription
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          blog {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
       blogs {
         items {
           id
@@ -5469,6 +6278,46 @@ export const onCreateSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -5512,6 +6361,9 @@ export const onCreateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -5618,6 +6470,91 @@ export const onCreateSeries = /* GraphQL */ `
                 blogSeries {
                   nextToken
                 }
+                videoSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          videoSeries {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -5707,6 +6644,46 @@ export const onCreateSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -5750,6 +6727,9 @@ export const onCreateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -6160,6 +7140,46 @@ export const onUpdateSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -6203,6 +7223,9 @@ export const onUpdateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -6320,6 +7343,412 @@ export const onUpdateSeries = /* GraphQL */ `
         }
         nextToken
       }
+      blogPosts {
+        items {
+          id
+          videoSeriesId
+          blogId
+          createdAt
+          updatedAt
+          videoSeries {
+            id
+            seriesType
+            title
+            description
+            thumbnailDescription
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                thumbnailDescription
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          blog {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
       blogs {
         items {
           id
@@ -6416,6 +7845,46 @@ export const onUpdateSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -6459,6 +7928,9 @@ export const onUpdateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -6565,6 +8037,91 @@ export const onUpdateSeries = /* GraphQL */ `
                 blogSeries {
                   nextToken
                 }
+                videoSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          videoSeries {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -6654,6 +8211,46 @@ export const onUpdateSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -6697,6 +8294,9 @@ export const onUpdateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -7107,6 +8707,46 @@ export const onDeleteSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -7150,6 +8790,9 @@ export const onDeleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -7267,6 +8910,412 @@ export const onDeleteSeries = /* GraphQL */ `
         }
         nextToken
       }
+      blogPosts {
+        items {
+          id
+          videoSeriesId
+          blogId
+          createdAt
+          updatedAt
+          videoSeries {
+            id
+            seriesType
+            title
+            description
+            thumbnailDescription
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                thumbnailDescription
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          blog {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
       blogs {
         items {
           id
@@ -7363,6 +9412,46 @@ export const onDeleteSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -7406,6 +9495,9 @@ export const onDeleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -7512,6 +9604,91 @@ export const onDeleteSeries = /* GraphQL */ `
                 blogSeries {
                   nextToken
                 }
+                videoSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          videoSeries {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -7601,6 +9778,46 @@ export const onDeleteSeries = /* GraphQL */ `
               }
               nextToken
             }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
             blogs {
               items {
                 id
@@ -7644,6 +9861,9 @@ export const onDeleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeries {
+                  nextToken
+                }
+                videoSeries {
                   nextToken
                 }
               }
@@ -8033,6 +10253,16 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -8436,6 +10666,16 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -8834,6 +11074,16 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -9055,6 +11305,9 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -9351,6 +11604,9 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -9467,6 +11723,9 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -9483,6 +11742,88 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -9531,6 +11872,9 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -9543,6 +11887,16 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -9579,6 +11933,9 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -9714,6 +12071,9 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -9866,6 +12226,9 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -10162,6 +12525,9 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -10278,6 +12644,9 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -10294,6 +12663,88 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -10342,6 +12793,9 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -10354,6 +12808,16 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -10390,6 +12854,9 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -10525,6 +12992,9 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -10677,6 +13147,9 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -10973,6 +13446,9 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -11089,6 +13565,9 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -11105,6 +13584,88 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -11153,6 +13714,9 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -11165,6 +13729,16 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -11201,6 +13775,9 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -11336,6 +13913,9 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -11821,6 +14401,16 @@ export const onCreateVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -12154,6 +14744,16 @@ export const onCreateVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -12246,6 +14846,184 @@ export const onCreateVideo = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -12314,6 +15092,16 @@ export const onCreateVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -12400,6 +15188,46 @@ export const onCreateVideo = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -12457,6 +15285,16 @@ export const onCreateVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -12825,6 +15663,16 @@ export const onCreateVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -13384,6 +16232,16 @@ export const onUpdateVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -13717,6 +16575,16 @@ export const onUpdateVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -13809,6 +16677,184 @@ export const onUpdateVideo = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -13877,6 +16923,16 @@ export const onUpdateVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -13963,6 +17019,46 @@ export const onUpdateVideo = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -14020,6 +17116,16 @@ export const onUpdateVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -14388,6 +17494,16 @@ export const onUpdateVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -14947,6 +18063,16 @@ export const onDeleteVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -15280,6 +18406,16 @@ export const onDeleteVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -15372,6 +18508,184 @@ export const onDeleteVideo = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -15440,6 +18754,16 @@ export const onDeleteVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -15526,6 +18850,46 @@ export const onDeleteVideo = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -15583,6 +18947,16 @@ export const onDeleteVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -15956,6 +19330,16 @@ export const onDeleteVideo = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -16196,6 +19580,16 @@ export const onCreateBlogSeries = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -16257,6 +19651,46 @@ export const onCreateBlogSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
                   id
                   author
                   createdBy
@@ -16428,6 +19862,16 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -16489,6 +19933,46 @@ export const onUpdateBlogSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
                   id
                   author
                   createdBy
@@ -16660,6 +20144,16 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -16721,6 +20215,46 @@ export const onDeleteBlogSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
                   id
                   author
                   createdBy
@@ -16839,6 +20373,9 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -16851,6 +20388,16 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -16985,6 +20532,9 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17001,6 +20551,88 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -17049,6 +20681,9 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17061,6 +20696,16 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -17097,6 +20742,9 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -17197,6 +20845,9 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17209,6 +20860,194 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        videoSeries {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -17313,6 +21152,9 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17325,6 +21167,16 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -17459,6 +21311,9 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17475,6 +21330,88 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -17523,6 +21460,9 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17535,6 +21475,16 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -17571,6 +21521,9 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -17671,6 +21624,9 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17683,6 +21639,194 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        videoSeries {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -17787,6 +21931,9 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17799,6 +21946,16 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -17933,6 +22090,9 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -17949,6 +22109,88 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -17997,6 +22239,9 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -18009,6 +22254,16 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -18045,6 +22300,9 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -18145,6 +22403,9 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -18157,6 +22418,4793 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        videoSeries {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const onCreateBlogToVideoSeries = /* GraphQL */ `
+  subscription OnCreateBlogToVideoSeries {
+    onCreateBlogToVideoSeries {
+      id
+      videoSeriesId
+      blogId
+      createdAt
+      updatedAt
+      videoSeries {
+        id
+        seriesType
+        title
+        description
+        thumbnailDescription
+        image
+        startDate
+        endDate
+        createdAt
+        updatedAt
+        videos {
+          items {
+            id
+            createdBy
+            createdDate
+            episodeTitle
+            originalEpisodeTitle
+            episodeNumber
+            seriesTitle
+            customPlaylistIDs
+            publishedDate
+            recordedDate
+            description
+            viewCount
+            closedCaptioning
+            referencedMedia
+            campaigns
+            bibleVerses
+            topics
+            qandeh
+            length
+            YoutubeIdent
+            Youtube {
+              id
+              kind
+              etag
+              snippet {
+                publishedAt
+                channelId
+                title
+                description
+                channelTitle
+                localized {
+                  title
+                  description
+                }
+              }
+              contentDetails {
+                videoId
+                videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
+              }
+            }
+            videoTypes
+            notesURL
+            videoURL
+            audioURL
+            thumbnailDescription
+            createdAt
+            updatedAt
+            speakers {
+              items {
+                id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
+                createdAt
+                updatedAt
+                speaker {
+                  id
+                  name
+                  image
+                  hidden
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            customPlaylists {
+              items {
+                id
+                videoID
+                customPlaylistID
+                createdAt
+                updatedAt
+                customPlaylist {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        blogs {
+          items {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+      }
+      blog {
+        id
+        author
+        createdBy
+        createdDate
+        publishedDate
+        expirationDate
+        blogStatus
+        description
+        thumbnailDescription
+        content
+        blogTitle
+        topics
+        tags
+        hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
+        createdAt
+        updatedAt
+        series {
+          id
+          seriesType
+          title
+          description
+          thumbnailDescription
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              thumbnailDescription
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          blogs {
+            items {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+        }
+        blogSeries {
+          items {
+            id
+            blogSeriesID
+            blogPostID
+            createdAt
+            updatedAt
+            blogSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              blogs {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogPost {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        videoSeries {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const onUpdateBlogToVideoSeries = /* GraphQL */ `
+  subscription OnUpdateBlogToVideoSeries {
+    onUpdateBlogToVideoSeries {
+      id
+      videoSeriesId
+      blogId
+      createdAt
+      updatedAt
+      videoSeries {
+        id
+        seriesType
+        title
+        description
+        thumbnailDescription
+        image
+        startDate
+        endDate
+        createdAt
+        updatedAt
+        videos {
+          items {
+            id
+            createdBy
+            createdDate
+            episodeTitle
+            originalEpisodeTitle
+            episodeNumber
+            seriesTitle
+            customPlaylistIDs
+            publishedDate
+            recordedDate
+            description
+            viewCount
+            closedCaptioning
+            referencedMedia
+            campaigns
+            bibleVerses
+            topics
+            qandeh
+            length
+            YoutubeIdent
+            Youtube {
+              id
+              kind
+              etag
+              snippet {
+                publishedAt
+                channelId
+                title
+                description
+                channelTitle
+                localized {
+                  title
+                  description
+                }
+              }
+              contentDetails {
+                videoId
+                videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
+              }
+            }
+            videoTypes
+            notesURL
+            videoURL
+            audioURL
+            thumbnailDescription
+            createdAt
+            updatedAt
+            speakers {
+              items {
+                id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
+                createdAt
+                updatedAt
+                speaker {
+                  id
+                  name
+                  image
+                  hidden
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            customPlaylists {
+              items {
+                id
+                videoID
+                customPlaylistID
+                createdAt
+                updatedAt
+                customPlaylist {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        blogs {
+          items {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+      }
+      blog {
+        id
+        author
+        createdBy
+        createdDate
+        publishedDate
+        expirationDate
+        blogStatus
+        description
+        thumbnailDescription
+        content
+        blogTitle
+        topics
+        tags
+        hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
+        createdAt
+        updatedAt
+        series {
+          id
+          seriesType
+          title
+          description
+          thumbnailDescription
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              thumbnailDescription
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          blogs {
+            items {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+        }
+        blogSeries {
+          items {
+            id
+            blogSeriesID
+            blogPostID
+            createdAt
+            updatedAt
+            blogSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              blogs {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogPost {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        videoSeries {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;
+export const onDeleteBlogToVideoSeries = /* GraphQL */ `
+  subscription OnDeleteBlogToVideoSeries {
+    onDeleteBlogToVideoSeries {
+      id
+      videoSeriesId
+      blogId
+      createdAt
+      updatedAt
+      videoSeries {
+        id
+        seriesType
+        title
+        description
+        thumbnailDescription
+        image
+        startDate
+        endDate
+        createdAt
+        updatedAt
+        videos {
+          items {
+            id
+            createdBy
+            createdDate
+            episodeTitle
+            originalEpisodeTitle
+            episodeNumber
+            seriesTitle
+            customPlaylistIDs
+            publishedDate
+            recordedDate
+            description
+            viewCount
+            closedCaptioning
+            referencedMedia
+            campaigns
+            bibleVerses
+            topics
+            qandeh
+            length
+            YoutubeIdent
+            Youtube {
+              id
+              kind
+              etag
+              snippet {
+                publishedAt
+                channelId
+                title
+                description
+                channelTitle
+                localized {
+                  title
+                  description
+                }
+              }
+              contentDetails {
+                videoId
+                videoPublishedAt
+                duration
+                dimension
+                definition
+                caption
+                licensedContent
+                projection
+                contentRating {
+                  acbRating
+                  agcomRating
+                  anatelRating
+                  bbfcRating
+                  bfvcRating
+                  bmukkRating
+                  catvRating
+                  catvfrRating
+                  cbfcRating
+                  cccRating
+                  cceRating
+                  chfilmRating
+                  chvrsRating
+                  cicfRating
+                  cnaRating
+                  cncRating
+                  csaRating
+                  cscfRating
+                  czfilmRating
+                  djctqRating
+                  djctqRatingReasons
+                  ecbmctRating
+                  eefilmRating
+                  egfilmRating
+                  eirinRating
+                  fcbmRating
+                  fcoRating
+                  fmocRating
+                  fpbRating
+                  fpbRatingReasons
+                  fskRating
+                  grfilmRating
+                  icaaRating
+                  ifcoRating
+                  ilfilmRating
+                  incaaRating
+                  kfcbRating
+                  kijkwijzerRating
+                  kmrbRating
+                  lsfRating
+                  mccaaRating
+                  mccypRating
+                  mcstRating
+                  mdaRating
+                  medietilsynetRating
+                  mekuRating
+                  mibacRating
+                  mocRating
+                  moctwRating
+                  mpaaRating
+                  mpaatRating
+                  mtrcbRating
+                  nbcRating
+                  nbcplRating
+                  nfrcRating
+                  nfvcbRating
+                  nkclvRating
+                  oflcRating
+                  pefilmRating
+                  rcnofRating
+                  resorteviolenciaRating
+                  rtcRating
+                  rteRating
+                  russiaRating
+                  skfilmRating
+                  smaisRating
+                  smsaRating
+                  tvpgRating
+                  ytRating
+                }
+                regionRestriction {
+                  allowed
+                  blocked
+                }
+                hasCustomThumbnail
+              }
+              status {
+                uploadStatus
+                privacyStatus
+                license
+                embeddable
+                publicStatsViewable
+              }
+            }
+            videoTypes
+            notesURL
+            videoURL
+            audioURL
+            thumbnailDescription
+            createdAt
+            updatedAt
+            speakers {
+              items {
+                id
+                speakerVideosSpeakerId
+                speakerVideosVideoId
+                videoPublishedDate
+                createdAt
+                updatedAt
+                speaker {
+                  id
+                  name
+                  image
+                  hidden
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            customPlaylists {
+              items {
+                id
+                videoID
+                customPlaylistID
+                createdAt
+                updatedAt
+                customPlaylist {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                video {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        blogs {
+          items {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+        notes {
+          items {
+            id
+            title
+            content
+            questions
+            jsonContent
+            jsonQuestions
+            episodeDescription
+            episodeNumber
+            seriesId
+            pdf
+            topics
+            tags
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            verses {
+              items {
+                id
+                key
+                offset
+                length
+                dataType
+                content
+                youVersionUri
+                noteId
+                createdAt
+                updatedAt
+                note {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+          nextToken
+        }
+      }
+      blog {
+        id
+        author
+        createdBy
+        createdDate
+        publishedDate
+        expirationDate
+        blogStatus
+        description
+        thumbnailDescription
+        content
+        blogTitle
+        topics
+        tags
+        hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
+        createdAt
+        updatedAt
+        series {
+          id
+          seriesType
+          title
+          description
+          thumbnailDescription
+          image
+          startDate
+          endDate
+          createdAt
+          updatedAt
+          videos {
+            items {
+              id
+              createdBy
+              createdDate
+              episodeTitle
+              originalEpisodeTitle
+              episodeNumber
+              seriesTitle
+              customPlaylistIDs
+              publishedDate
+              recordedDate
+              description
+              viewCount
+              closedCaptioning
+              referencedMedia
+              campaigns
+              bibleVerses
+              topics
+              qandeh
+              length
+              YoutubeIdent
+              Youtube {
+                id
+                kind
+                etag
+                snippet {
+                  publishedAt
+                  channelId
+                  title
+                  description
+                  channelTitle
+                }
+                contentDetails {
+                  videoId
+                  videoPublishedAt
+                  duration
+                  dimension
+                  definition
+                  caption
+                  licensedContent
+                  projection
+                  hasCustomThumbnail
+                }
+                status {
+                  uploadStatus
+                  privacyStatus
+                  license
+                  embeddable
+                  publicStatsViewable
+                }
+              }
+              videoTypes
+              notesURL
+              videoURL
+              audioURL
+              thumbnailDescription
+              createdAt
+              updatedAt
+              speakers {
+                items {
+                  id
+                  speakerVideosSpeakerId
+                  speakerVideosVideoId
+                  videoPublishedDate
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              customPlaylists {
+                items {
+                  id
+                  videoID
+                  customPlaylistID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+            }
+            nextToken
+          }
+          blogs {
+            items {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          notes {
+            items {
+              id
+              title
+              content
+              questions
+              jsonContent
+              jsonQuestions
+              episodeDescription
+              episodeNumber
+              seriesId
+              pdf
+              topics
+              tags
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              verses {
+                items {
+                  id
+                  key
+                  offset
+                  length
+                  dataType
+                  content
+                  youVersionUri
+                  noteId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+        }
+        blogSeries {
+          items {
+            id
+            blogSeriesID
+            blogPostID
+            createdAt
+            updatedAt
+            blogSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              blogs {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogPost {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
+        videoSeries {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -18441,6 +27489,16 @@ export const onCreateBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -18533,6 +27591,184 @@ export const onCreateBlog = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -18601,6 +27837,16 @@ export const onCreateBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -18687,6 +27933,46 @@ export const onCreateBlog = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -18744,6 +28030,16 @@ export const onCreateBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -18956,6 +28252,16 @@ export const onCreateBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -19017,6 +28323,452 @@ export const onCreateBlog = /* GraphQL */ `
                   updatedAt
                 }
                 blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
+      videoSeries {
+        items {
+          id
+          videoSeriesId
+          blogId
+          createdAt
+          updatedAt
+          videoSeries {
+            id
+            seriesType
+            title
+            description
+            thumbnailDescription
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                thumbnailDescription
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          blog {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
                   id
                   author
                   createdBy
@@ -19315,6 +29067,16 @@ export const onUpdateBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -19407,6 +29169,184 @@ export const onUpdateBlog = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -19475,6 +29415,16 @@ export const onUpdateBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -19561,6 +29511,46 @@ export const onUpdateBlog = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -19618,6 +29608,16 @@ export const onUpdateBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -19830,6 +29830,16 @@ export const onUpdateBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -19891,6 +29901,452 @@ export const onUpdateBlog = /* GraphQL */ `
                   updatedAt
                 }
                 blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
+      videoSeries {
+        items {
+          id
+          videoSeriesId
+          blogId
+          createdAt
+          updatedAt
+          videoSeries {
+            id
+            seriesType
+            title
+            description
+            thumbnailDescription
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                thumbnailDescription
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          blog {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
                   id
                   author
                   createdBy
@@ -20189,6 +30645,16 @@ export const onDeleteBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -20281,6 +30747,184 @@ export const onDeleteBlog = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -20349,6 +30993,16 @@ export const onDeleteBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -20435,6 +31089,46 @@ export const onDeleteBlog = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -20492,6 +31186,16 @@ export const onDeleteBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -20704,6 +31408,16 @@ export const onDeleteBlog = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -20765,6 +31479,452 @@ export const onDeleteBlog = /* GraphQL */ `
                   updatedAt
                 }
                 blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
+      videoSeries {
+        items {
+          id
+          videoSeriesId
+          blogId
+          createdAt
+          updatedAt
+          videoSeries {
+            id
+            seriesType
+            title
+            description
+            thumbnailDescription
+            image
+            startDate
+            endDate
+            createdAt
+            updatedAt
+            videos {
+              items {
+                id
+                createdBy
+                createdDate
+                episodeTitle
+                originalEpisodeTitle
+                episodeNumber
+                seriesTitle
+                customPlaylistIDs
+                publishedDate
+                recordedDate
+                description
+                viewCount
+                closedCaptioning
+                referencedMedia
+                campaigns
+                bibleVerses
+                topics
+                qandeh
+                length
+                YoutubeIdent
+                Youtube {
+                  id
+                  kind
+                  etag
+                }
+                videoTypes
+                notesURL
+                videoURL
+                audioURL
+                thumbnailDescription
+                createdAt
+                updatedAt
+                speakers {
+                  nextToken
+                }
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                customPlaylists {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            blogPosts {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            blogs {
+              items {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            notes {
+              items {
+                id
+                title
+                content
+                questions
+                jsonContent
+                jsonQuestions
+                episodeDescription
+                episodeNumber
+                seriesId
+                pdf
+                topics
+                tags
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                verses {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+          }
+          blog {
+            id
+            author
+            createdBy
+            createdDate
+            publishedDate
+            expirationDate
+            blogStatus
+            description
+            thumbnailDescription
+            content
+            blogTitle
+            topics
+            tags
+            hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
+            createdAt
+            updatedAt
+            series {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blogSeries {
+              items {
+                id
+                blogSeriesID
+                blogPostID
+                createdAt
+                updatedAt
+                blogSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogPost {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
                   id
                   author
                   createdBy
@@ -20966,6 +32126,9 @@ export const onCreateVerse = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -20982,6 +32145,88 @@ export const onCreateVerse = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -21030,6 +32275,9 @@ export const onCreateVerse = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -21042,6 +32290,16 @@ export const onCreateVerse = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -21078,6 +32336,9 @@ export const onCreateVerse = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -21145,6 +32406,9 @@ export const onCreateVerse = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -21300,6 +32564,9 @@ export const onUpdateVerse = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -21316,6 +32583,88 @@ export const onUpdateVerse = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -21364,6 +32713,9 @@ export const onUpdateVerse = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -21376,6 +32728,16 @@ export const onUpdateVerse = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -21412,6 +32774,9 @@ export const onUpdateVerse = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -21479,6 +32844,9 @@ export const onUpdateVerse = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -21634,6 +33002,9 @@ export const onDeleteVerse = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -21650,6 +33021,88 @@ export const onDeleteVerse = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+            }
+            nextToken
+          }
+          blogPosts {
+            items {
+              id
+              videoSeriesId
+              blogId
+              createdAt
+              updatedAt
+              videoSeries {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blog {
+                id
+                author
+                createdBy
+                createdDate
+                publishedDate
+                expirationDate
+                blogStatus
+                description
+                thumbnailDescription
+                content
+                blogTitle
+                topics
+                tags
+                hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
+                createdAt
+                updatedAt
+                series {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blogSeries {
+                  nextToken
+                }
+                videoSeries {
+                  nextToken
+                }
               }
             }
             nextToken
@@ -21698,6 +33151,9 @@ export const onDeleteVerse = /* GraphQL */ `
                 videos {
                   nextToken
                 }
+                blogPosts {
+                  nextToken
+                }
                 blogs {
                   nextToken
                 }
@@ -21710,6 +33166,16 @@ export const onDeleteVerse = /* GraphQL */ `
                   id
                   blogSeriesID
                   blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -21746,6 +33212,9 @@ export const onDeleteVerse = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -21813,6 +33282,9 @@ export const onDeleteVerse = /* GraphQL */ `
                 createdAt
                 updatedAt
                 videos {
+                  nextToken
+                }
+                blogPosts {
                   nextToken
                 }
                 blogs {
@@ -22102,6 +33574,16 @@ export const onCreateNotes = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -22194,6 +33676,184 @@ export const onCreateNotes = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -22262,6 +33922,16 @@ export const onCreateNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -22348,6 +34018,46 @@ export const onCreateNotes = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -22405,6 +34115,16 @@ export const onCreateNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -22551,6 +34271,16 @@ export const onCreateNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -22892,6 +34622,16 @@ export const onUpdateNotes = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -22984,6 +34724,184 @@ export const onUpdateNotes = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -23052,6 +34970,16 @@ export const onUpdateNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -23138,6 +35066,46 @@ export const onUpdateNotes = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -23195,6 +35163,16 @@ export const onUpdateNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -23341,6 +35319,16 @@ export const onUpdateNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -23682,6 +35670,16 @@ export const onDeleteNotes = /* GraphQL */ `
                 }
                 nextToken
               }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
               blogs {
                 items {
                   id
@@ -23774,6 +35772,184 @@ export const onDeleteNotes = /* GraphQL */ `
           }
           nextToken
         }
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            videoSeries {
+              id
+              seriesType
+              title
+              description
+              thumbnailDescription
+              image
+              startDate
+              endDate
+              createdAt
+              updatedAt
+              videos {
+                items {
+                  id
+                  createdBy
+                  createdDate
+                  episodeTitle
+                  originalEpisodeTitle
+                  episodeNumber
+                  seriesTitle
+                  customPlaylistIDs
+                  publishedDate
+                  recordedDate
+                  description
+                  viewCount
+                  closedCaptioning
+                  referencedMedia
+                  campaigns
+                  bibleVerses
+                  topics
+                  qandeh
+                  length
+                  YoutubeIdent
+                  videoTypes
+                  notesURL
+                  videoURL
+                  audioURL
+                  thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogs {
+                items {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              notes {
+                items {
+                  id
+                  title
+                  content
+                  questions
+                  jsonContent
+                  jsonQuestions
+                  episodeDescription
+                  episodeNumber
+                  seriesId
+                  pdf
+                  topics
+                  tags
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              thumbnailDescription
+              content
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+              series {
+                id
+                seriesType
+                title
+                description
+                thumbnailDescription
+                image
+                startDate
+                endDate
+                createdAt
+                updatedAt
+                videos {
+                  nextToken
+                }
+                blogPosts {
+                  nextToken
+                }
+                blogs {
+                  nextToken
+                }
+                notes {
+                  nextToken
+                }
+              }
+              blogSeries {
+                items {
+                  id
+                  blogSeriesID
+                  blogPostID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              videoSeries {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+          }
+          nextToken
+        }
         blogs {
           items {
             id
@@ -23842,6 +36018,16 @@ export const onDeleteNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -23928,6 +36114,46 @@ export const onDeleteNotes = /* GraphQL */ `
               }
               nextToken
             }
+            videoSeries {
+              items {
+                id
+                videoSeriesId
+                blogId
+                createdAt
+                updatedAt
+                videoSeries {
+                  id
+                  seriesType
+                  title
+                  description
+                  thumbnailDescription
+                  image
+                  startDate
+                  endDate
+                  createdAt
+                  updatedAt
+                }
+                blog {
+                  id
+                  author
+                  createdBy
+                  createdDate
+                  publishedDate
+                  expirationDate
+                  blogStatus
+                  description
+                  thumbnailDescription
+                  content
+                  blogTitle
+                  topics
+                  tags
+                  hiddenMainIndex
+                  createdAt
+                  updatedAt
+                }
+              }
+              nextToken
+            }
           }
           nextToken
         }
@@ -23985,6 +36211,16 @@ export const onDeleteNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
@@ -24131,6 +36367,16 @@ export const onDeleteNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              blogPosts {
+                items {
+                  id
+                  videoSeriesId
+                  blogId
                   createdAt
                   updatedAt
                 }
