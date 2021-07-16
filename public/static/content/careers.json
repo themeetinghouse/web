@@ -97,13 +97,13 @@
         "list": [          
         {
           "type": "link",
-          "title": "Graphic Designer Contract",
-          "navigateTo": "/static/pdfs/careers/Graphic Designer Contract.pdf"
+          "title": "Kitchener Kidmax Coordinator",
+          "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
         },
         {
           "type": "link",
-          "title": "Kitchener Kidmax Coordinator",
-          "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+          "title": "Alliston Family Engagement Coordinator",
+          "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
         },
         {
           "type": "link",
