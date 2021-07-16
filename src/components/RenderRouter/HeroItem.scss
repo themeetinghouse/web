@@ -921,7 +921,7 @@ $no-footer-height: 38vw;
 
   .heroText1 {
     font-family: Graphik Web;
-    font-weight: 800;
+    font-weight: normal;
     width: 90vw;
     color: #ffffff;
     font-size: 4.3vw;
@@ -1069,10 +1069,10 @@ $no-footer-height: 38vw;
 
   .partialNoFooterLocationDropDown {
     font-family: Graphik Web;
-    padding: 4px;
+    padding: 0px;
     width: 86vw;
     margin-top: 2vw;
-    margin-bottom: 2vw;
+    margin-bottom: 4vw;
   }
   .emailInput {
     border: 0px;
