@@ -47,13 +47,14 @@ export interface FormItem {
 
 export interface BlogItemContent {
   type: 'blog';
-  style: 'multiImage' | 'hero';
+  style: 'multiImage' | 'hero' | 'featured';
   status: 'Live';
   header1?: string;
   sortOrder?: 'DESC' | 'ASC';
   limit?: number;
   blogSeries?: string;
   hideAllBlogsButton?: boolean;
+  description?: string;
 }
 
 export interface GoLink {
