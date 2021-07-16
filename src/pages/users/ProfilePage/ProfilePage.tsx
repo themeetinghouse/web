@@ -2,16 +2,20 @@ import { GraphQLResult } from '@aws-amplify/api';
 import { GetTmhUserQuery } from 'API';
 import { useEffect, useRef } from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
 import paymentsCommon from '../paymentsCommon';
 import { countryList, stateList, provinceList } from './LocationOptions';
 import './ProfilePage.scss';
 
 export default function ProfilePage() {
+  const history = useHistory();
+  console.log(history);
   const uploadRef = useRef<any>(null);
   const countries = countryList();
   const states = stateList();
   const provinces = provinceList();
+  const [isUpdating] = useState(false);
   const [form, setForm] = useState<
     | NonNullable<
         NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
@@ -23,6 +27,9 @@ export default function ProfilePage() {
     paymentsCommon.getCurrentUserProfile(setForm);
     console.log(form);
   }, []);
+  const handleProfileUpdate = async () => {
+    // compare old form with new form, remove non updated properties
+  };
   console.log(form);
   return form != null && form.billingAddress != null ? (
     <div className="ProfilePageContainer">
@@ -91,6 +98,7 @@ export default function ProfilePage() {
               setForm({
                 ...form,
                 billingAddress: {
+                  ...form.billingAddress,
                   __typename: 'Address',
                   line1: e.target.value,
                 },
@@ -104,7 +112,11 @@ export default function ProfilePage() {
             onChange={(e) =>
               setForm({
                 ...form,
-                billingAddress: { __typename: 'Address', city: e.target.value },
+                billingAddress: {
+                  ...form.billingAddress,
+                  __typename: 'Address',
+                  city: e.target.value,
+                },
               })
             }
           ></input>
@@ -118,6 +130,7 @@ export default function ProfilePage() {
                   setForm({
                     ...form,
                     billingAddress: {
+                      ...form.billingAddress,
                       __typename: 'Address',
                       country: e.target.value,
                     },
@@ -151,6 +164,7 @@ export default function ProfilePage() {
                     setForm({
                       ...form,
                       billingAddress: {
+                        ...form.billingAddress,
                         __typename: 'Address',
                         state: e.target.value,
                       },
@@ -165,6 +179,7 @@ export default function ProfilePage() {
                     setForm({
                       ...form,
                       billingAddress: {
+                        ...form.billingAddress,
                         __typename: 'Address',
                         state: e.target.value,
                       },
@@ -207,6 +222,7 @@ export default function ProfilePage() {
                   setForm({
                     ...form,
                     billingAddress: {
+                      ...form.billingAddress,
                       __typename: 'Address',
                       postal_code: e.target.value,
                     },
@@ -217,12 +233,8 @@ export default function ProfilePage() {
           </div>
           <div className="LeftButtonContainer">
             <button
-              className="ProfileButton"
-              style={{
-                backgroundColor: 'white',
-                border: '4px solid black',
-                color: '#1a1a1a',
-              }}
+              onClick={() => history.goBack()}
+              className="ProfileButton white"
             >
               Back
             </button>
@@ -243,18 +255,22 @@ export default function ProfilePage() {
             ></img>
           </div>
           <div className="RightButtonContainer">
+            <button className="ProfileButton white">Back</button>
             <button
+              onClick={handleProfileUpdate}
+              aria-label="Update Profile"
               className="ProfileButton"
-              style={{
-                backgroundColor: 'white',
-                border: '4px solid black',
-                color: '#1a1a1a',
-              }}
             >
-              Back
-            </button>
-            <button aria-label="Update Profile" className="ProfileButton">
-              Update
+              {isUpdating ? (
+                <Spinner
+                  style={{
+                    width: '1.5rem',
+                    height: '1.5rem',
+                  }}
+                ></Spinner>
+              ) : (
+                'Update'
+              )}
             </button>
           </div>
         </div>

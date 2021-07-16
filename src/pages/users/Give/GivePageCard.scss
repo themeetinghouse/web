@@ -1,4 +1,5 @@
 .GiveCard {
+  grid-area: Give-Card;
   flex-direction: column;
   display: flex;
   background-color: white;
@@ -40,14 +41,7 @@
     @media (max-width: 768px) {
       width: 100%;
     }
-    .select-selected {
-      color: #ffffff;
-      padding: 8px 16px;
-      border: 1px solid transparent;
-      background-color: red;
-      border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-      cursor: pointer;
-    }
+    border: 2px solid #c8c8c8;
   }
 
   .GiveButtonContainer {

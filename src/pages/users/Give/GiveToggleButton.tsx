@@ -17,7 +17,7 @@ export default function GiveButtonToggle({
             : {
                 backgroundColor: 'white',
                 color: 'black',
-                border: '1.5px solid #C8C8C8',
+                border: '2px solid #C8C8C8',
               }
         }
         onClick={() => setSelection('Give once')}
@@ -32,7 +32,7 @@ export default function GiveButtonToggle({
             : {
                 backgroundColor: 'white',
                 color: 'black',
-                border: '1.5px solid #C8C8C8',
+                border: '2px solid #C8C8C8',
               }
         }
         onClick={() => setSelection('Recurring')}

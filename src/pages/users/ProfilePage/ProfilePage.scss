@@ -3,6 +3,8 @@
   justify-content: center;
 }
 .ProfilePage {
+  min-width: 78.194vw;
+  min-height: 840px;
   // centered white square
   background-color: white;
   max-width: 78.194vw;
@@ -44,7 +46,7 @@ label {
   width: 100%;
   background-color: white;
   height: 56px;
-  border: 1.5px solid #c8c8c8;
+  border: 2px solid #c8c8c8;
   padding: 16px 0px 16px 20px;
   font-size: 16px;
   margin-bottom: 26px;
@@ -98,8 +100,18 @@ label {
   line-height: 0px;
   height: 56px;
   padding: 16px 24px;
+  &.white {
+    background-color: white;
+    border: 4px solid black;
+    color: #1a1a1a;
+  }
+  &:active {
+    color: #fff;
+    background-color: #545b62;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
-
 .LeftProfilePicture {
   display: none;
 }

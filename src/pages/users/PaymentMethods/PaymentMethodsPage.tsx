@@ -1,9 +1,12 @@
+import ProfileCard from '../DashboardHome/ProfileCard';
+import PaymentsCard from './PaymentCard';
 import './PaymentMethodsPage.scss';
 
 export default function PaymentMethodsPage(): JSX.Element {
   return (
     <div className="PaymentsContainer">
-      <h3>Payment Methods</h3>
+      <PaymentsCard />
+      <ProfileCard />
     </div>
   );
 }

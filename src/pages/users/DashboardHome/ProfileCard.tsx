@@ -39,18 +39,35 @@ export default function ProfileCard(): JSX.Element {
             {userData.given_name} {userData.family_name}
           </h3>
           <span>Email</span>
-          <p>{userData.email}</p>
+          {userData.email && <p>{userData.email}</p>}
           <span>Mobile</span>
           <p>{userData.phone}</p>
-          <span>Address</span>
-          <p>{userData.billingAddress?.line1}</p>
-          <p>{userData.billingAddress?.postal_code}</p>
-          <p>
-            {userData.billingAddress?.city} {userData.billingAddress?.state}
-          </p>
-          <p>{userData.billingAddress?.country}</p>
+          <div className="AddressContainer">
+            {userData.billingAddress?.line1 ||
+              userData.billingAddress?.line2 ||
+              userData.billingAddress?.postal_code ||
+              userData.billingAddress?.city ||
+              userData.billingAddress?.state ||
+              (userData.billingAddress?.country && <span>Address</span>)}
 
-          <ClickableText style={{ display: 'block' }} to={'/'}>
+            {userData.billingAddress?.line1 && (
+              <p>{userData.billingAddress?.line1}</p>
+            )}
+            {userData.billingAddress?.postal_code && (
+              <p>{userData.billingAddress?.postal_code}</p>
+            )}
+            {userData.billingAddress?.city ||
+              (userData.billingAddress?.state && (
+                <p>
+                  {userData.billingAddress?.city}{' '}
+                  {userData.billingAddress?.state}
+                </p>
+              ))}
+            {userData.billingAddress?.country && (
+              <p>{userData.billingAddress?.country}</p>
+            )}
+          </div>
+          <ClickableText style={{ display: 'block' }} to={'/account/profile'}>
             <img
               alt="Edit Icon"
               className="edit"

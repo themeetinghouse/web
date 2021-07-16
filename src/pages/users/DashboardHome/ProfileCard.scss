@@ -16,6 +16,14 @@
   p {
     margin-bottom: 30px;
   }
+  .AddressContainer {
+    p {
+      margin-bottom: unset;
+    }
+    :last-child {
+      margin-bottom: 20px;
+    }
+  }
   display: flex;
   flex-direction: column;
   padding: 36px;
