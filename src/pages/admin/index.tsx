@@ -10,7 +10,7 @@ const federated = {
   facebookAppId: '579712102531269',
 };
 
-class Index extends React.Component {
+class Admin extends React.Component {
   render() {
     return (
       <AmplifyAuthenticator federated={federated}>
@@ -23,4 +23,4 @@ class Index extends React.Component {
     );
   }
 }
-export default Index;
+export default Admin;

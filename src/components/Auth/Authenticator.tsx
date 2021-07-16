@@ -67,11 +67,11 @@ export default class Authenticator extends React.Component<
     this.setState({ user: user });
   };
   async componentDidMount(): Promise<void> {
-    /* try {
+    try {
       await this.updateGroups();
     } catch (e) {
       console.log(e);
-    }*/
+    }
     console.log(this.props.location.pathname);
     if (this.props.location.pathname == '/signin') {
       this.setState({ authState: 'signIn' });
@@ -98,7 +98,7 @@ export default class Authenticator extends React.Component<
   isReady = (): boolean => {
     if (this.state.groups) return true;
     else {
-      //this.updateGroups();
+      this.updateGroups();
       return false;
     }
   };
@@ -106,10 +106,10 @@ export default class Authenticator extends React.Component<
     if (this.state.groups) return this.state.groups.includes(group);
     else return false;
   };
-  /*  updateGroups = async (): Promise<void> => {
+  updateGroups = async (): Promise<void> => {
     try {
       const currentUser =
-        (await Auth.currentAuthenticatedUser()) as JCCognitoUser;
+        (await Auth.currentAuthenticatedUser()) as TMHCognitoUser;
       const userSession = currentUser.getSignInUserSession();
       const refreshToken = userSession?.getRefreshToken();
       if (refreshToken)
@@ -117,7 +117,7 @@ export default class Authenticator extends React.Component<
           console.log('UPDATED GROUPS!');
           currentUser.setSignInUserSession(session);
         });
-      const user = (await Auth.currentAuthenticatedUser()) as JCCognitoUser;
+      const user = (await Auth.currentAuthenticatedUser()) as TMHCognitoUser;
       this.setState({
         groups: user.getSignInUserSession()?.getAccessToken().payload[
           'cognito:groups'
@@ -132,7 +132,7 @@ export default class Authenticator extends React.Component<
     } catch (e) {
       console.log(e);
     }
-  };*/
+  };
   async performStartup(): Promise<void> {
     this.trackUserId();
     if (this.state.authState == 'signedIn') {
@@ -410,7 +410,7 @@ export default class Authenticator extends React.Component<
                 this.performStartup();
               });
             },
-            //updateGroups: this.updateGroups,
+            updateGroups: this.updateGroups,
             isReady: this.isReady,
             isMemberOf: this.isMemberOf,
           },

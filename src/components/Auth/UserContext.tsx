@@ -35,7 +35,7 @@ export interface UserActions {
   recheckUserState(): Promise<void>;
   updateHasCompletedOrganizationProfile(): Promise<void> | null;
   onStateChange(state: string, data: AuthStateData | null): Promise<any> | null;
-  //updateGroups(): Promise<void> | null;
+  updateGroups(): Promise<void> | null;
   isMemberOf(group: string): boolean;
   isReady(): boolean;
 }
@@ -69,9 +69,9 @@ export const UserContext = React.createContext<UserContextType>({
       return;
     },
     onStateChange: async () => null,
-    /*  updateGroups: async () => {
+    updateGroups: async () => {
       return;
-    },*/
+    },
     isReady: () => {
       return false;
     },
