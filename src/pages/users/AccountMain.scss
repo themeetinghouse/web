@@ -3,6 +3,10 @@ body {
 }
 .MyAccountContainer {
   background-color: #e5e5e5;
+  min-height: 100vh;
+  @media (min-width: 769px) {
+    padding-bottom: 50px;
+  }
 }
 .spinnerContainer {
   height: 100%;
@@ -16,7 +20,7 @@ body {
 .DashboardContent {
   z-index: 1000;
   margin-top: -12vh;
-  min-height: 88vh;
+  min-height: 100%;
 }
 
 @media (max-width: 768px) {

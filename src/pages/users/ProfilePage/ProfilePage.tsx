@@ -278,8 +278,12 @@ export default function ProfilePage() {
     </div>
   ) : (
     <div className="ProfilePageContainer">
-      <div className="ProfilePage">
-        <div className="LeftContainer">
+      <div className="ProfilePage" style={{ gridTemplateColumns: '100%' }}>
+        <div style={{ margin: 'auto', textAlign: 'center' }}>
+          <p>
+            <b>Loading profile data..</b>
+          </p>
+          <br></br>
           <Spinner></Spinner>
         </div>
       </div>

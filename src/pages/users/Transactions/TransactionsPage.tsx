@@ -22,15 +22,27 @@ export default function TransactionsPage(): JSX.Element {
   ];
   return (
     <div className="TransactionsContainer">
-      <div className="TransactionHeaderContainer">
-        <h3 className="TransactionContainerHeader">Transactions</h3>
-      </div>
       {isLoading ? (
-        <div style={{ textAlign: 'center', margin: 'auto' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <p>
+            <b>Loading transactions..</b>
+          </p>
+
+          <br />
           <Spinner></Spinner>
         </div>
       ) : (
         <>
+          <div className="TransactionHeaderContainer">
+            <h3 className="TransactionContainerHeader">Transactions</h3>
+          </div>
           <table width={'100%'}>
             <thead>
               <tr>

@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
 import './PaymentMethodsCard.scss';
 export default function PaymentMethodsCard(): JSX.Element {
+  const history = useHistory();
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -26,7 +28,10 @@ export default function PaymentMethodsCard(): JSX.Element {
             />
             <p>**** **** **** 5126 Exp 05/22</p>
           </div>
-          <div className="paymentCard grey">
+          <div
+            onClick={() => history.push('/account/payments')}
+            className="paymentCard grey"
+          >
             <img
               alt="Plus"
               className="plusIcon"

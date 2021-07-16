@@ -31,11 +31,18 @@ export function PaymentSelect() {
       {isLoading ? (
         <div
           style={{
-            textAlign: 'center',
-            marginTop: 70,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <Spinner />
+          <p>
+            <b>Loading preferred payment method</b>
+          </p>
+
+          <br />
+          <Spinner></Spinner>
         </div>
       ) : (
         <>

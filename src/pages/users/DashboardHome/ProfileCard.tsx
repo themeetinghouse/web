@@ -25,8 +25,12 @@ export default function ProfileCard(): JSX.Element {
   return (
     <div className="Profile-Card">
       {userData == null ? (
-        <div className="spinnerContainer">
-          <Spinner />
+        <div style={{ margin: 'auto', textAlign: 'center' }}>
+          <p>
+            <b>Loading profile data..</b>
+          </p>
+          <br></br>
+          <Spinner></Spinner>
         </div>
       ) : (
         <>

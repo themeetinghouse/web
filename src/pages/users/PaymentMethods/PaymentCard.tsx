@@ -59,13 +59,25 @@ export default function PaymentsCard() {
   });
   return (
     <div className="Payments-Card">
-      <h1>Payment Methods</h1>
       {isLoading ? (
-        <div className="spinnerContainer">
-          <Spinner />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <p>
+            <b>Loading payment methods data..</b>
+          </p>
+
+          <br />
+          <Spinner></Spinner>
         </div>
       ) : (
         <div>
+          <h1>Payment Methods</h1>
           {cards.map(
             ({
               cardNum,
