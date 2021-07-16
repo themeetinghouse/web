@@ -709,18 +709,6 @@ class ListItem extends React.Component<Props, State> {
           '...';
     } else description = item.description;
 
-    // var Event theevent = {
-    //   start: start_date.getDate();
-    //   end: 'string';
-    //   summary: item.name;
-    //   description: description;
-    //   if (item.place != null) {
-    //     if (item.place.name != null) {
-    //       location: item.place.name;
-    //     }
-    //   }
-    //   //url?: 'https://facebook.com/' + item.id;
-    // }
     const theevent = {
       start: start_date.getDate() + '',
       end: 'string',
@@ -1017,7 +1005,7 @@ class ListItem extends React.Component<Props, State> {
     }
   }
 
-  renderSeries(item: SeriesCollectionData) {
+  renderSeries(item: SeriesCollectionData | SeriesByTypeData) {
     if (!item) {
       return null;
     }
