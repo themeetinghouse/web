@@ -5,6 +5,8 @@ import React from 'react';
 import { AuthStateData } from './AuthStateData';
 import * as Sentry from '@sentry/browser';
 import { UserActions, UserContext } from './UserContext';
+import './SignIn.scss';
+import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 
 interface Props {
   navigation?: any;
@@ -166,91 +168,85 @@ export default class SignUp extends React.Component<Props, State> {
           return (
             <>
               {userState.authState === 'signUp' ? (
-                <div>
-                  <div>
-                    <button
-                      //  accessibilityLabel="Go back"
-                      // accessibilityHint="Navigate to previous page"
-                      // accessibilityRole="button"
-                      onClick={async () => {
-                        await this.changeAuthState(userActions, 'signIn', null);
-                      }}
-                    >
+                <div className="SignInContainer">
+                  <MyAccountNav
+                    navigationItems={[]}
+                    open={false}
+                    toggle={() => null}
+                  ></MyAccountNav>
+                  <div className="SignInContent">
+                    <div className="SignInForm">
                       <div>
-                        <img src="warning.gif" color="#333333" />
-                        Back
-                      </div>
-                    </button>
-                  </div>
-                  {
-                    <div>
-                      <div
-                      //accessibilityRole="header"
-                      >
-                        Create your account
-                      </div>
-                      <div>
-                        <div>*</div>
-                        <input
-                          // accessibilityLabel="First Name"
-                          // textContentType="name"
-                          type="text"
-                          placeholder="First Name"
-                          value={this.state.user.first}
-                          onChange={(e) =>
-                            this.handleChange('first', e.target.value)
-                          }
-                        ></input>
-                        <div>*</div>
-                        <input
-                          // textContentType="familyName"
-                          placeholder="Last Name"
-                          value={this.state.user.last}
-                          onChange={(e) =>
-                            this.handleChange('last', e.target.value)
-                          }
-                        ></input>
-                      </div>
-                      <div>
-                        <div>*</div>
-                        <input
-                          // autoCompleteType="email"
-                          // textContentType="emailAddress"
-                          // keyboardType="email-address"
-                          type="email"
-                          placeholder="Email Address"
-                          value={this.state.user.email}
-                          onChange={(e) =>
-                            this.handleChange('email', e.target.value)
-                          }
-                        ></input>
-                      </div>
-                      <div>
-                        <div>*</div>
-                        <input
-                          // textContentType="newPassword"
-                          type="password"
-                          placeholder="Create Password"
-                          value={this.state.user.pass}
-                          onChange={(e) =>
-                            this.handleChange('pass', e.target.value)
-                          }
-                          //  secureTextEntry={true}
-                        ></input>
-                        <div>*</div>
-                        <input
-                          //  textContentType="newPassword"
-                          type="password"
-                          placeholder="Confirm Password"
-                          value={this.state.user.pass2}
-                          onChange={(e) =>
-                            this.handleChange('pass2', e.target.value)
-                          }
-                          // secureTextEntry={true}
-                        ></input>
-                      </div>
-                      <div>
-                        {/*  <Picker
+                        <p
+                          className="SignInHeader"
+                          //accessibilityRole="header"
+                        >
+                          Create your account
+                        </p>
+                        <div>
+                          <input
+                            className="SignInInput"
+                            // accessibilityLabel="First Name"
+                            // textContentType="name"
+                            type="text"
+                            placeholder="First Name"
+                            value={this.state.user.first}
+                            onChange={(e) =>
+                              this.handleChange('first', e.target.value)
+                            }
+                          ></input>
+
+                          <input
+                            className="SignInInput"
+                            // textContentType="familyName"
+                            placeholder="Last Name"
+                            value={this.state.user.last}
+                            onChange={(e) =>
+                              this.handleChange('last', e.target.value)
+                            }
+                          ></input>
+                        </div>
+                        <div>
+                          <input
+                            className="SignInInput"
+                            // autoCompleteType="email"
+                            // textContentType="emailAddress"
+                            // keyboardType="email-address"
+                            type="email"
+                            placeholder="Email Address"
+                            value={this.state.user.email}
+                            onChange={(e) =>
+                              this.handleChange('email', e.target.value)
+                            }
+                          ></input>
+                        </div>
+                        <div>
+                          <input
+                            className="SignInInput"
+                            // textContentType="newPassword"
+                            type="password"
+                            placeholder="Create Password"
+                            value={this.state.user.pass}
+                            onChange={(e) =>
+                              this.handleChange('pass', e.target.value)
+                            }
+                            //  secureTextEntry={true}
+                          ></input>
+
+                          <input
+                            className="SignInInput"
+                            //  textContentType="newPassword"
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={this.state.user.pass2}
+                            onChange={(e) =>
+                              this.handleChange('pass2', e.target.value)
+                            }
+                            // secureTextEntry={true}
+                          ></input>
+                        </div>
+                        <div>
+                          {/*  <Picker
                           accessibilityLabel="Select country code"
                           selectedValue={this.state.user.code}
                           onValueChange={(val) =>
@@ -269,36 +265,62 @@ export default class SignUp extends React.Component<Props, State> {
                             />
                           ))}
                           </Picker>*/}
-                        <div>*</div>
-                        <input
-                          // accessibilityLabel="Telephone number"
-                          // autoCompleteType="tel"
-                          // textContentType="telephoneNumber"
-                          // onKeyPress={(e) => this.handleEnter(userActions, e)}
-                          // keyboardType="phone-pad"
-                          placeholder="Phone number"
-                          value={this.state.user.phone}
-                          onChange={(e) => {
-                            if (
-                              e.target.value.length < 11 &&
-                              !e.target.value.match(/\D/g)
-                            ) {
-                              this.handleChange('phone', e.target.value);
-                            }
-                          }}
-                        ></input>
-                      </div>
-                      <div>
-                        <div>
-                          <button onClick={() => this.signUp(userActions)}>
+
+                          <input
+                            className="SignInInput"
+                            // accessibilityLabel="Telephone number"
+                            // autoCompleteType="tel"
+                            // textContentType="telephoneNumber"
+                            // onKeyPress={(e) => this.handleEnter(userActions, e)}
+                            // keyboardType="phone-pad"
+                            placeholder="Phone number"
+                            value={this.state.user.phone}
+                            onChange={(e) => {
+                              if (
+                                e.target.value.length < 11 &&
+                                !e.target.value.match(/\D/g)
+                              ) {
+                                this.handleChange('phone', e.target.value);
+                              }
+                            }}
+                          ></input>
+                        </div>
+                        <div className="SignInButtonContainer">
+                          <button
+                            className="SignInButton"
+                            onClick={() => this.signUp(userActions)}
+                          >
                             {this.state.sendingData ? (
                               <img src="activity-indicator.gif" />
                             ) : (
                               'Continue'
                             )}
                           </button>
+
+                          <button
+                            className="SignInButton white"
+                            //  accessibilityLabel="Go back"
+                            // accessibilityHint="Navigate to previous page"
+                            // accessibilityRole="button"
+                            onClick={async () => {
+                              await this.changeAuthState(
+                                userActions,
+                                'signIn',
+                                null
+                              );
+                            }}
+                          >
+                            Back
+                          </button>
                         </div>
                         <button
+                          style={{
+                            backgroundColor: 'white',
+                            padding: 0,
+                            border: 'none',
+                            width: '13ch',
+                            textAlign: 'left',
+                          }}
                           // accessibilityRole="button"
                           // accessibilityLabel="Confirm your account"
                           // accessibilityHint="For users already registered"
@@ -311,21 +333,20 @@ export default class SignUp extends React.Component<Props, State> {
                             )
                           }
                         >
-                          <div>Confirm a code</div>
+                          Confirm a code
                         </button>
-                      </div>
-
-                      <div
-                      // accessibilityLiveRegion={'assertive'}
-                      // accessibilityRole="alert"
-                      >
-                        {this.state.authError ? (
-                          <img src="warning.gif" color="#F0493E" />
-                        ) : null}
-                        {this.state.authError}
+                        <div
+                        // accessibilityLiveRegion={'assertive'}
+                        // accessibilityRole="alert"
+                        >
+                          {this.state.authError ? (
+                            <img src="warning.gif" color="#F0493E" />
+                          ) : null}
+                          {this.state.authError}
+                        </div>
                       </div>
                     </div>
-                  }
+                  </div>
                 </div>
               ) : null}
             </>
