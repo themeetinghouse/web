@@ -64,7 +64,7 @@
       }, 
       {
         "type": "list",
-        "style": "vertical",
+        "style": "ladder",
         "class": "events",
         "header1": "Upcoming Events",
         "header2": "",
