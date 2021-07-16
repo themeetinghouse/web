@@ -5,7 +5,7 @@ import React from 'react';
 import { AuthStateData } from './AuthStateData';
 import * as Sentry from '@sentry/browser';
 import { UserActions, UserContext } from './UserContext';
-import './SignIn.scss';
+import './AuthPages.scss';
 import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 
 interface Props {
@@ -168,7 +168,7 @@ export default class SignUp extends React.Component<Props, State> {
           return (
             <>
               {userState.authState === 'signUp' ? (
-                <div className="SignInContainer">
+                <div className="SignInPageContainer">
                   <MyAccountNav
                     navigationItems={[]}
                     open={false}

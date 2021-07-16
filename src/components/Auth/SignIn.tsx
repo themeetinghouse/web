@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/browser';
 import { Auth } from 'aws-amplify';
 import React from 'react';
-import './SignIn.scss';
+import './AuthPages.scss';
 import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 import { AuthStateData } from './AuthStateData';
 import { UserActions, UserContext } from './UserContext';
@@ -123,7 +123,10 @@ export default class SignIn extends React.Component<Props, State> {
               {userState.authState === 'signIn' ||
               userState.authState === 'signedOut' ||
               userState.authState === 'signedUp' ? (
-                <div className="SignInPageContainer">
+                <div
+                  style={{ minHeight: '100vh' }}
+                  className="SignInPageContainer"
+                >
                   <MyAccountNav
                     navigationItems={[]}
                     toggle={() => null}

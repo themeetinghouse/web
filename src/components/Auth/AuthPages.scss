@@ -1,13 +1,16 @@
 .SignInPageContainer {
   margin: auto;
-  height: 100vh;
   background-color: #e5e5e5;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  @media (max-width: 767px) {
+    padding: 0px;
+  }
 }
 .SignInContent {
   padding: 48px;
   margin: auto;
   margin-top: -12vh;
-
   width: 50vw;
   background-color: white;
   @media (max-width: 767px) {
