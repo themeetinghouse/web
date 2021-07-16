@@ -709,18 +709,6 @@ class ListItem extends React.Component<Props, State> {
           '...';
     } else description = item.description;
 
-    // var Event theevent = {
-    //   start: start_date.getDate();
-    //   end: 'string';
-    //   summary: item.name;
-    //   description: description;
-    //   if (item.place != null) {
-    //     if (item.place.name != null) {
-    //       location: item.place.name;
-    //     }
-    //   }
-    //   //url?: 'https://facebook.com/' + item.id;
-    // }
     const theevent = {
       start: start_date.getDate() + '',
       end: 'string',
@@ -1017,7 +1005,7 @@ class ListItem extends React.Component<Props, State> {
     }
   }
 
-  renderSeries(item: SeriesCollectionData) {
+  renderSeries(item: SeriesCollectionData | SeriesByTypeData) {
     if (!item) {
       return null;
     }
@@ -1189,7 +1177,7 @@ class ListItem extends React.Component<Props, State> {
       case 'compassion':
         return this.renderCompassion(item as CompassionData);
       case 'series':
-      //return this.renderSeries(item as SeriesByTypeData);
+        return this.renderSeries(item as SeriesByTypeData);
       case 'playlists':
         return this.renderPlaylist(item as CustomPlaylistsData);
       case 'series-collection':
