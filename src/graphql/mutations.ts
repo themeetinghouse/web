@@ -3033,6 +3033,18 @@ export const createSpeakerVideos = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -3833,6 +3845,18 @@ export const updateSpeakerVideos = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -4633,6 +4657,18 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -5193,6 +5229,18 @@ export const createSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -5341,6 +5389,18 @@ export const createSeries = /* GraphQL */ `
           topics
           tags
           hiddenMainIndex
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           createdAt
           updatedAt
           series {
@@ -5425,6 +5485,18 @@ export const createSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -5517,6 +5589,18 @@ export const createSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -5639,6 +5723,18 @@ export const createSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -6080,6 +6176,18 @@ export const updateSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -6228,6 +6336,18 @@ export const updateSeries = /* GraphQL */ `
           topics
           tags
           hiddenMainIndex
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           createdAt
           updatedAt
           series {
@@ -6312,6 +6432,18 @@ export const updateSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -6404,6 +6536,18 @@ export const updateSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -6526,6 +6670,18 @@ export const updateSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -6967,6 +7123,18 @@ export const deleteSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -7115,6 +7283,18 @@ export const deleteSeries = /* GraphQL */ `
           topics
           tags
           hiddenMainIndex
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           createdAt
           updatedAt
           series {
@@ -7199,6 +7379,18 @@ export const deleteSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -7291,6 +7483,18 @@ export const deleteSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -7413,6 +7617,18 @@ export const deleteSeries = /* GraphQL */ `
                 topics
                 tags
                 hiddenMainIndex
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 createdAt
                 updatedAt
                 series {
@@ -9287,6 +9503,18 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -10086,6 +10314,18 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -10885,6 +11125,18 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -12010,6 +12262,18 @@ export const createVideo = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -13561,6 +13825,18 @@ export const updateVideo = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -15112,6 +15388,18 @@ export const deleteVideo = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -15851,6 +16139,18 @@ export const createBlogSeries = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -16071,6 +16371,18 @@ export const updateBlogSeries = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -16291,6 +16603,18 @@ export const deleteBlogSeries = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -16487,6 +16811,18 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -16540,6 +16876,18 @@ export const createBlogSeriesBridge = /* GraphQL */ `
         topics
         tags
         hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         createdAt
         updatedAt
         series {
@@ -16673,6 +17021,18 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -16809,6 +17169,18 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -16913,6 +17285,18 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -16966,6 +17350,18 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
         topics
         tags
         hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         createdAt
         updatedAt
         series {
@@ -17099,6 +17495,18 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -17235,6 +17643,18 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -17339,6 +17759,18 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -17392,6 +17824,18 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
         topics
         tags
         hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         createdAt
         updatedAt
         series {
@@ -17525,6 +17969,18 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -17661,6 +18117,18 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -17719,6 +18187,18 @@ export const createBlog = /* GraphQL */ `
       topics
       tags
       hiddenMainIndex
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
       createdAt
       updatedAt
       series {
@@ -18069,6 +18549,18 @@ export const createBlog = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -18407,6 +18899,18 @@ export const createBlog = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -18557,6 +19061,18 @@ export const updateBlog = /* GraphQL */ `
       topics
       tags
       hiddenMainIndex
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
       createdAt
       updatedAt
       series {
@@ -18907,6 +19423,18 @@ export const updateBlog = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -19245,6 +19773,18 @@ export const updateBlog = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -19395,6 +19935,18 @@ export const deleteBlog = /* GraphQL */ `
       topics
       tags
       hiddenMainIndex
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
       createdAt
       updatedAt
       series {
@@ -19745,6 +20297,18 @@ export const deleteBlog = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -20083,6 +20647,18 @@ export const deleteBlog = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -20426,6 +21002,18 @@ export const createVerse = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -20748,6 +21336,18 @@ export const updateVerse = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -21070,6 +21670,18 @@ export const deleteVerse = /* GraphQL */ `
               topics
               tags
               hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               createdAt
               updatedAt
               series {
@@ -21598,6 +22210,18 @@ export const createNotes = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -22376,6 +23000,18 @@ export const updateNotes = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
@@ -23154,6 +23790,18 @@ export const deleteNotes = /* GraphQL */ `
             topics
             tags
             hiddenMainIndex
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             createdAt
             updatedAt
             series {
