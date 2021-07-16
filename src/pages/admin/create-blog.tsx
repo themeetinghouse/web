@@ -1,9 +1,7 @@
 import React from 'react';
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
@@ -37,9 +35,6 @@ import {
 } from '../../API';
 
 Amplify.configure(awsmobile);
-const federated = {
-  facebookAppId: '579712102531269',
-};
 
 interface State {
   blogObject: CreateBlogInput;
@@ -1185,24 +1180,21 @@ class Index extends React.Component<EmptyProps, State> {
 
   render() {
     return (
-      <AmplifyAuthenticator federated={federated}>
-        <div className="blog-container">
-          <AdminMenu></AdminMenu>
-          {this.renderAlert()}
-          {this.renderNewBlogSeriesModal()}
-          {this.renderToolbar()}
-          {this.renderTextInput()}
-          <div className="preview">
-            {this.state.showPreview ? (
-              <BlogPreview
-                data={this.state}
-                content={null}
-                type={'blog'}
-              ></BlogPreview>
-            ) : null}
-          </div>
+      <div className="blog-container">
+        {this.renderAlert()}
+        {this.renderNewBlogSeriesModal()}
+        {this.renderToolbar()}
+        {this.renderTextInput()}
+        <div className="preview">
+          {this.state.showPreview ? (
+            <BlogPreview
+              data={this.state}
+              content={null}
+              type={'blog'}
+            ></BlogPreview>
+          ) : null}
         </div>
-      </AmplifyAuthenticator>
+      </div>
     );
   }
 }

@@ -1,12 +1,10 @@
 import React from 'react';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import { EmptyProps } from '../../utils';
 import Amplify, { API } from 'aws-amplify';
 import { Modal } from 'reactstrap';
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import isSafari from 'react-device-detect';
 import moment from 'moment';
@@ -22,9 +20,6 @@ import {
 import './livestream.scss';
 
 Amplify.configure(awsmobile);
-const federated = {
-  facebookAppId: '579712102531269',
-};
 
 const menuInit = [
   {
@@ -1120,23 +1115,20 @@ class Index extends React.Component<EmptyProps, State> {
   }
   render() {
     return (
-      <AmplifyAuthenticator federated={federated}>
-        <div>
-          <AdminMenu />
-          {isSafari ? (
-            <div>This page does not support Safari :(</div>
-          ) : (
-            <div style={{ overflowX: 'hidden' }}>
-              <div className="videoSelectBox">
-                {this.renderLivestreams()}
-                {this.renderDelete()}
-              </div>
-              {this.renderEditor()}
-              {this.renderAlert()}
+      <div>
+        {isSafari ? (
+          <div>This page does not support Safari :(</div>
+        ) : (
+          <div style={{ overflowX: 'hidden' }}>
+            <div className="videoSelectBox">
+              {this.renderLivestreams()}
+              {this.renderDelete()}
             </div>
-          )}
-        </div>
-      </AmplifyAuthenticator>
+            {this.renderEditor()}
+            {this.renderAlert()}
+          </div>
+        )}
+      </div>
     );
   }
 }

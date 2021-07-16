@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import * as mutations from '../../graphql/mutations';
@@ -9,9 +8,6 @@ import { API } from 'aws-amplify';
 import { CreateInstagramInput, GetInstagramQuery } from 'API';
 
 Amplify.configure(awsmobile);
-const federated = {
-  facebookAppId: '579712102531269',
-};
 
 const locations = [
   'themeetinghousealliston',
@@ -109,12 +105,13 @@ export default function Index(): JSX.Element {
   }
 
   return (
-    <AmplifyAuthenticator federated={federated}>
+    <div>
+      {' '}
       <button id="get-posts-button" onClick={() => getPosts()}>
         Get Posts
       </button>
       <div>{location}</div>
       {done ? <div id="done-indicator">Done</div> : null}
-    </AmplifyAuthenticator>
+    </div>
   );
 }

@@ -8,9 +8,7 @@ import {
 } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import Amplify, { Auth } from 'aws-amplify';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
@@ -54,9 +52,6 @@ interface BibleVerseJSON {
 }
 
 Amplify.configure(awsmobile);
-const federated = {
-  facebookAppId: '579712102531269',
-};
 
 interface State {
   notesEditorState: EditorState;
@@ -1005,26 +1000,23 @@ class Index extends React.Component<EmptyProps, State> {
 
   render() {
     return (
-      <AmplifyAuthenticator federated={federated}>
-        <div className="note-container">
-          <AdminMenu></AdminMenu>
-          {this.renderHelp()}
-          {this.renderAlert()}
-          {this.renderPdfModal()}
-          {this.renderEditModal()}
-          {this.renderToolbar()}
-          {this.renderTextInput()}
-          <div className="preview">
-            {this.state.showPreview ? (
-              <BlogPreview
-                data={this.state}
-                content={null}
-                type={'notes'}
-              ></BlogPreview>
-            ) : null}
-          </div>
+      <div className="note-container">
+        {this.renderHelp()}
+        {this.renderAlert()}
+        {this.renderPdfModal()}
+        {this.renderEditModal()}
+        {this.renderToolbar()}
+        {this.renderTextInput()}
+        <div className="preview">
+          {this.state.showPreview ? (
+            <BlogPreview
+              data={this.state}
+              content={null}
+              type={'notes'}
+            ></BlogPreview>
+          ) : null}
         </div>
-      </AmplifyAuthenticator>
+      </div>
     );
   }
 }
