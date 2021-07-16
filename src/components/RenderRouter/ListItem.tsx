@@ -1189,7 +1189,7 @@ class ListItem extends React.Component<Props, State> {
       case 'compassion':
         return this.renderCompassion(item as CompassionData);
       case 'series':
-      //return this.renderSeries(item as SeriesByTypeData);
+        return this.renderSeries(item as SeriesByTypeData);
       case 'playlists':
         return this.renderPlaylist(item as CustomPlaylistsData);
       case 'series-collection':
