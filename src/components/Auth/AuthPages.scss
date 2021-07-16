@@ -41,6 +41,13 @@
     font-size: 32px;
   }
 }
+.PlainTextButton {
+  background-color: white;
+  padding: 0;
+  border: none;
+  width: 13ch;
+  text-align: left;
+}
 .SignInInput {
   width: 100%;
   background-color: white;

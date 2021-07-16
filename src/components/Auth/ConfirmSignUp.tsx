@@ -3,7 +3,8 @@ import React from 'react';
 import * as Sentry from '@sentry/browser';
 import { UserActions, UserContext } from './UserContext';
 import { AuthStateData } from './AuthStateData';
-
+import './AuthPages.scss';
+import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 interface Props {
   navigation?: any;
   route?: any;
@@ -74,74 +75,95 @@ export default class ConfirmSignUp extends React.Component<Props, State> {
           return (
             <>
               {userState.authState === 'confirmSignUp' ? (
-                <div>
-                  <div>
-                    <div
-                      //  accessibilityLabel="Go back"
-                      //   accessibilityHint="Navigate to previous page"
-                      //  accessibilityRole="button"
-                      //  testID="myConfirmSignup-back"
-                      onClick={async () => {
-                        await this.changeAuthState(userActions, 'signIn', null);
-                      }}
-                    >
+                <div className="SignInPageContainer">
+                  <MyAccountNav
+                    navigationItems={[]}
+                    toggle={() => null}
+                    open={false}
+                  ></MyAccountNav>
+                  <div className="SignInContent">
+                    <div className="SignInForm">
                       <div>
-                        <img src="back.gif" />
-                        Back
+                        <p
+                          className="SignInHeader"
+                          //  accessibilityRole="header"
+                        >
+                          Enter your security code
+                        </p>
+                        <input
+                          className="SignInInput"
+                          //autoCompleteType="email"
+                          //accessibilityLabel="Email"
+                          //textContentType="emailAddress"
+                          //keyboardType="email-address"
+                          placeholder="Email Address"
+                          value={this.state.email}
+                          onChange={(e) =>
+                            this.setState({ email: e.target.value })
+                          }
+                        ></input>
+                        <div>
+                          <input
+                            className="SignInInput"
+                            //  textContentType="oneTimeCode"
+                            //  accessibilityLabel="One time security code"
+                            //  keyboardType="number-pad"
+                            onKeyPress={(e) => this.handleEnter(userActions, e)}
+                            placeholder="One-time security code"
+                            value={this.state.code}
+                            onChange={(e) =>
+                              this.setState({ code: e.target.value })
+                            }
+                          ></input>
+                          <div className="SignInButtonContainer">
+                            <button
+                              className="SignInButton white"
+                              //  accessibilityLabel="Go back"
+                              //   accessibilityHint="Navigate to previous page"
+                              //  accessibilityRole="button"
+                              //  testID="myConfirmSignup-back"
+                              onClick={async () => {
+                                await this.changeAuthState(
+                                  userActions,
+                                  'signIn',
+                                  null
+                                );
+                              }}
+                            >
+                              Back
+                            </button>
+                            <button
+                              className="SignInButton"
+                              //  accessibilityLabel="Submit verification code"
+                              //  buttonType={ButtonTypes.SolidSignIn2}
+                              onClick={() =>
+                                this.handleConfirmSignUp(userActions)
+                              }
+                            >
+                              {this.state.sendingData ? (
+                                <img
+                                  src="activity.gif"
+                                  //                            accessibilityRole="alert"
+                                  //                          accessibilityLabel="Loading"
+                                  //                        animating
+                                  //                      color="#333333"
+                                />
+                              ) : (
+                                'Submit'
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                        //  accessibilityLiveRegion={'assertive'}
+                        //   accessibilityRole="alert"
+                        >
+                          {this.state.authError ? (
+                            <img src="/static/svg/Announcement.svg" />
+                          ) : null}
+                          {this.state.authError}
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                    //  accessibilityRole="header"
-                    >
-                      Enter your security code
-                    </div>
-                    <input
-                      //autoCompleteType="email"
-                      //accessibilityLabel="Email"
-                      //textContentType="emailAddress"
-                      //keyboardType="email-address"
-                      placeholder="Email Address"
-                      value={this.state.email}
-                      onChange={(e) => this.setState({ email: e.target.value })}
-                    ></input>
-                    <div>
-                      <input
-                        //  textContentType="oneTimeCode"
-                        //  accessibilityLabel="One time security code"
-                        //  keyboardType="number-pad"
-                        onKeyPress={(e) => this.handleEnter(userActions, e)}
-                        placeholder="One-time security code"
-                        value={this.state.code}
-                        onChange={(e) =>
-                          this.setState({ code: e.target.value })
-                        }
-                      ></input>
-                      <button
-                        //  accessibilityLabel="Submit verification code"
-                        //  buttonType={ButtonTypes.SolidSignIn2}
-                        onClick={() => this.handleConfirmSignUp(userActions)}
-                      >
-                        {this.state.sendingData ? (
-                          <img
-                            src="activity.gif"
-                            //                            accessibilityRole="alert"
-                            //                          accessibilityLabel="Loading"
-                            //                        animating
-                            //                      color="#333333"
-                          />
-                        ) : (
-                          'Submit'
-                        )}
-                      </button>
-                    </div>
-                    <div
-                    //  accessibilityLiveRegion={'assertive'}
-                    //   accessibilityRole="alert"
-                    >
-                      {this.state.authError ? <img src="warning.gif" /> : null}
-                      {this.state.authError}
                     </div>
                   </div>
                 </div>

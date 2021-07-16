@@ -2,6 +2,8 @@ import { Auth } from 'aws-amplify';
 import React from 'react';
 import * as Sentry from '@sentry/browser';
 import { UserActions, UserContext } from './UserContext';
+import './AuthPages.scss';
+import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 interface Props {
   navigation?: any;
   route?: any;
@@ -105,139 +107,181 @@ class ForgotPassword extends React.Component<Props, State> {
           return (
             <>
               {userState.authState === 'forgotPassword' ? (
-                <div>
-                  <div>
-                    <div
-                      // accessibilityLabel="Go back"
-                      // accessibilityHint="Navigate to previous page"
-                      // accessibilityRole="button"
-                      onClick={async () => {
-                        await this.changeAuthState(userActions, 'signIn');
-                      }}
-                    >
-                      <div>
-                        <img src="back.gif" />
-                        Back
-                      </div>
+                <div
+                  style={{ minHeight: '100vh' }}
+                  className="SignInPageContainer"
+                >
+                  <MyAccountNav
+                    navigationItems={[]}
+                    toggle={() => null}
+                    open={false}
+                  ></MyAccountNav>
+                  <div className="SignInContent">
+                    <div className="SignInForm">
+                      {!this.state.codeSent ? (
+                        <div>
+                          <p
+                            className="SignInHeader"
+                            //accessibilityRole="header"
+                          >
+                            Reset your password
+                          </p>
+                          <input
+                            className="SignInInput"
+                            //   autoCompleteType="email"
+                            //  textContentType="emailAddress"
+                            //  keyboardType="email-address"
+                            onKeyPress={(e) => this.handleEnter(userActions, e)}
+                            placeholder="Enter your email"
+                            value={this.state.email}
+                            onChange={(e) =>
+                              this.setState({ email: e.target.value })
+                            }
+                            //  secureTextEntry={false}
+                          ></input>
+                          <div className="SignInButtonContainer">
+                            <button
+                              className="SignInButton white"
+                              // accessibilityLabel="Go back"
+                              // accessibilityHint="Navigate to previous page"
+                              // accessibilityRole="button"
+                              onClick={async () => {
+                                await this.changeAuthState(
+                                  userActions,
+                                  'signIn'
+                                );
+                              }}
+                            >
+                              Back
+                            </button>
+                            <button
+                              className="SignInButton"
+                              //    buttonType={ButtonTypes.SolidSignIn}
+                              //  accessibilityLabel="Send security code"
+                              onClick={() => this.sendCode()}
+                            >
+                              {this.state.sendingCode ? (
+                                <img src="activity.gif" />
+                              ) : (
+                                'Send'
+                              )}
+                            </button>
+                          </div>
+                          <button
+                            className="PlainTextButton"
+                            // accessibilityRole="button"
+                            // accessibilityLabel="Verify your account"
+                            // accessibilityHint="Navigate to account verification page"
+                            onClick={() =>
+                              this.setState({ codeSent: true, authError: '' })
+                            }
+                          >
+                            <div>Submit a code</div>
+                          </button>
+                          <div
+                          //   accessibilityLiveRegion={'assertive'}
+                          //  accessibilityRole="alert"
+                          >
+                            {this.state.authError ? (
+                              <img src="/static/svg/Announcement.svg" />
+                            ) : null}{' '}
+                            {this.state.authError}
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <p className="SignInHeader">Reset your password</p>
+                          <input
+                            className="SignInInput"
+                            //autoCompleteType="email"
+                            //textContentType="emailAddress"
+                            //keyboardType="email-address"
+                            placeholder="Enter your email"
+                            value={this.state.email}
+                            onChange={(e) =>
+                              this.setState({ email: e.target.value })
+                            }
+                            // secureTextEntry={false}
+                          ></input>
+                          <input
+                            className="SignInInput"
+                            //textContentType="oneTimeCode"
+                            // keyboardType="number-pad"
+                            placeholder="One-time security code"
+                            value={this.state.code}
+                            onChange={(e) =>
+                              this.setState({ code: e.target.value })
+                            }
+                            // secureTextEntry={false}
+                          ></input>
+                          <div>
+                            <input
+                              className="SignInInput"
+                              // textContentType="newPassword"
+                              onKeyPress={(e) =>
+                                this.handleEnter(userActions, e)
+                              }
+                              placeholder="New password"
+                              value={this.state.newPass}
+                              onChange={(e) =>
+                                this.setState({ newPass: e.target.value })
+                              }
+                              // secureTextEntry={true}
+                            ></input>
+                            <input
+                              className="SignInInput"
+                              //textContentType="newPassword"
+                              onKeyPress={(e) =>
+                                this.handleEnter(userActions, e)
+                              }
+                              placeholder="Confirm new password"
+                              value={this.state.newPass2}
+                              onChange={(e) =>
+                                this.setState({ newPass2: e.target.value })
+                              }
+                              //secureTextEntry={true}
+                            ></input>
+                          </div>
+                          <div className="SignInButtonContainer">
+                            <button
+                              className="SignInButton white"
+                              // accessibilityLabel="Go back"
+                              // accessibilityHint="Navigate to previous page"
+                              // accessibilityRole="button"
+                              onClick={async () => {
+                                await this.changeAuthState(
+                                  userActions,
+                                  'signIn'
+                                );
+                              }}
+                            >
+                              Back
+                            </button>
+                            <button
+                              className="SignInButton"
+                              //  buttonType={ButtonTypes.SolidSignIn}
+                              onClick={() => this.resetPass(userActions)}
+                            >
+                              {this.state.resetting ? (
+                                <img src="activity.gif" />
+                              ) : (
+                                'Submit'
+                              )}
+                            </button>
+                          </div>
+                          <div
+                          //  accessibilityLiveRegion={'assertive'}
+                          // accessibilityRole="alert"
+                          >
+                            {this.state.authError ? (
+                              <img src="/static/svg/Announcement.svg" />
+                            ) : null}{' '}
+                            {this.state.authError}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                  {!this.state.codeSent ? (
-                    <div>
-                      <div
-                      //accessibilityRole="header"
-                      >
-                        Reset your password
-                      </div>
-                      <input
-                        //   autoCompleteType="email"
-                        //  textContentType="emailAddress"
-                        //  keyboardType="email-address"
-                        onKeyPress={(e) => this.handleEnter(userActions, e)}
-                        placeholder="Enter your email"
-                        value={this.state.email}
-                        onChange={(e) =>
-                          this.setState({ email: e.target.value })
-                        }
-                        //  secureTextEntry={false}
-                      ></input>
-                      <button
-                        //    buttonType={ButtonTypes.SolidSignIn}
-                        //  accessibilityLabel="Send security code"
-                        onClick={() => this.sendCode()}
-                      >
-                        {this.state.sendingCode ? (
-                          <img src="activity.gif" />
-                        ) : (
-                          'Send'
-                        )}
-                      </button>
-                      <div
-                        // accessibilityRole="button"
-                        // accessibilityLabel="Verify your account"
-                        // accessibilityHint="Navigate to account verification page"
-                        onClick={() =>
-                          this.setState({ codeSent: true, authError: '' })
-                        }
-                      >
-                        <div>Submit a code</div>
-                      </div>
-                      <div
-                      //   accessibilityLiveRegion={'assertive'}
-                      //  accessibilityRole="alert"
-                      >
-                        {this.state.authError ? (
-                          <img src="warning.gif" />
-                        ) : null}{' '}
-                        {this.state.authError}
-                      </div>
-                    </div>
-                  ) : (
-                    <div>
-                      <div>Reset your password</div>
-                      <input
-                        //autoCompleteType="email"
-                        //textContentType="emailAddress"
-                        //keyboardType="email-address"
-                        placeholder="Enter your email"
-                        value={this.state.email}
-                        onChange={(e) =>
-                          this.setState({ email: e.target.value })
-                        }
-                        // secureTextEntry={false}
-                      ></input>
-                      <input
-                        //textContentType="oneTimeCode"
-                        // keyboardType="number-pad"
-                        placeholder="One-time security code"
-                        value={this.state.code}
-                        onChange={(e) =>
-                          this.setState({ code: e.target.value })
-                        }
-                        // secureTextEntry={false}
-                      ></input>
-                      <div>
-                        <input
-                          // textContentType="newPassword"
-                          onKeyPress={(e) => this.handleEnter(userActions, e)}
-                          placeholder="New password"
-                          value={this.state.newPass}
-                          onChange={(e) =>
-                            this.setState({ newPass: e.target.value })
-                          }
-                          // secureTextEntry={true}
-                        ></input>
-                        <input
-                          //textContentType="newPassword"
-                          onKeyPress={(e) => this.handleEnter(userActions, e)}
-                          placeholder="Confirm new password"
-                          value={this.state.newPass2}
-                          onChange={(e) =>
-                            this.setState({ newPass2: e.target.value })
-                          }
-                          //secureTextEntry={true}
-                        ></input>
-                      </div>
-                      <button
-                        //  buttonType={ButtonTypes.SolidSignIn}
-                        onClick={() => this.resetPass(userActions)}
-                      >
-                        {this.state.resetting ? (
-                          <img src="activity.gif" />
-                        ) : (
-                          'Submit'
-                        )}
-                      </button>
-                      <div
-                      //  accessibilityLiveRegion={'assertive'}
-                      // accessibilityRole="alert"
-                      >
-                        {this.state.authError ? (
-                          <img src="warning.gif" />
-                        ) : null}{' '}
-                        {this.state.authError}
-                      </div>
-                    </div>
-                  )}
                 </div>
               ) : null}
             </>

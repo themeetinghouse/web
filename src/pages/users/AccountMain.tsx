@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import './AccountMain.scss';
 import MyAccountNav from './MyAccountNav/MyAccountNav';
 import DashboardFooter from './DashboardFooter';
@@ -8,9 +8,28 @@ import PaymentMethodsPage from './PaymentMethods/PaymentMethodsPage';
 import TransactionsPage from './Transactions/TransactionsPage';
 import { useState } from 'react';
 import ProfilePage from './ProfilePage/ProfilePage';
+import { useEffect } from 'react';
+import { Auth } from 'aws-amplify';
 export default function AccountMain(): JSX.Element {
+  const history = useHistory();
   const [open, setOpen] = useState(false);
-  return (
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      const user = await Auth.currentAuthenticatedUser();
+      const session = await Auth.userSession(user);
+      if (!session.isValid()) {
+        setIsLoggedIn(false);
+        console.log('invalid session');
+        history.push('/signin');
+      } else {
+        console.log('Valid session');
+        setIsLoggedIn(true);
+      }
+    };
+    checkAuthStatus();
+  });
+  return isLoggedIn ? (
     <div className="MyAccountContainer">
       <MyAccountNav
         navigationItems={[
@@ -34,5 +53,7 @@ export default function AccountMain(): JSX.Element {
       </div>
       {false ? <DashboardFooter /> : null}
     </div>
+  ) : (
+    <div />
   );
 }

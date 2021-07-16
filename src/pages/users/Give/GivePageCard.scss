@@ -4,6 +4,15 @@
   display: flex;
   background-color: white;
   padding: 52px;
+  label {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    @media (max-width: 768px) {
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -23,10 +32,6 @@
   .GiveAmountInput:focus {
     border: none;
     outline: none;
-  }
-  label {
-    margin-bottom: 16px;
-    font-size: 20px;
   }
 
   @media (max-width: 768px) {

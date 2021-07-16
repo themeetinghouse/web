@@ -173,17 +173,6 @@ export default class SignIn extends React.Component<Props, State> {
 
                       <div className="SignInButtonContainer">
                         <button
-                          className="SignInButton"
-                          //  accessibilityLabel="Login"
-                          //  accessibilityHint="Navigate to platform"
-                          onClick={async () => {
-                            await this.handleSignIn(userActions);
-                          }}
-                        >
-                          Sign In
-                        </button>
-
-                        <button
                           className="SignInButton white"
                           //accessibilityLabel="Create account"
                           //accessibilityHint="Navigate to account creation page"
@@ -197,6 +186,16 @@ export default class SignIn extends React.Component<Props, State> {
                           }}
                         >
                           Create an Account
+                        </button>
+                        <button
+                          className="SignInButton"
+                          //  accessibilityLabel="Login"
+                          //  accessibilityHint="Navigate to platform"
+                          onClick={async () => {
+                            await this.handleSignIn(userActions);
+                          }}
+                        >
+                          Sign In
                         </button>
                       </div>
                       <button
@@ -224,8 +223,8 @@ export default class SignIn extends React.Component<Props, State> {
                       // accessibilityRole="alert"
                       >
                         {this.state.authError ? (
-                          <img src="warning.gif" />
-                        ) : null}{' '}
+                          <img src="/static/svg/Announcement.svg" />
+                        ) : null}
                         {this.state.authError}
                       </div>
                       <div

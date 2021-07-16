@@ -287,17 +287,6 @@ export default class SignUp extends React.Component<Props, State> {
                         </div>
                         <div className="SignInButtonContainer">
                           <button
-                            className="SignInButton"
-                            onClick={() => this.signUp(userActions)}
-                          >
-                            {this.state.sendingData ? (
-                              <img src="activity-indicator.gif" />
-                            ) : (
-                              'Continue'
-                            )}
-                          </button>
-
-                          <button
                             className="SignInButton white"
                             //  accessibilityLabel="Go back"
                             // accessibilityHint="Navigate to previous page"
@@ -311,6 +300,16 @@ export default class SignUp extends React.Component<Props, State> {
                             }}
                           >
                             Back
+                          </button>
+                          <button
+                            className="SignInButton"
+                            onClick={() => this.signUp(userActions)}
+                          >
+                            {this.state.sendingData ? (
+                              <img src="activity-indicator.gif" />
+                            ) : (
+                              'Continue'
+                            )}
                           </button>
                         </div>
                         <button
@@ -340,7 +339,7 @@ export default class SignUp extends React.Component<Props, State> {
                         // accessibilityRole="alert"
                         >
                           {this.state.authError ? (
-                            <img src="warning.gif" color="#F0493E" />
+                            <img src="/static/svg/Announcement.svg" />
                           ) : null}
                           {this.state.authError}
                         </div>
