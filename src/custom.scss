@@ -1,5 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
 @use 'fonts/commercial-type-1906-WOIKTV-web/fonts';
+@use 'theme';
 
 html {
   scroll-behavior: smooth;
@@ -56,6 +57,29 @@ html {
     transform: translateX(20px);
   }
 }
+
+.tmh-header1,
+.tmh-header2 {
+  font-family: Graphik Web;
+  font-weight: bold;
+
+  &.w {
+    color: theme.$white;
+  }
+
+  &.b {
+    color: theme.$onyxblacktext;
+  }
+}
+
+.tmh-header1 {
+  font-size: 3rem;
+}
+
+.tmh-header2 {
+  font-size: 1.5rem;
+}
+
 @media (min-width: 768px) {
   body {
     padding-top: 90px;
@@ -125,6 +149,12 @@ html {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tmh-header1 {
+    font-size: 2rem;
+  }
+}
+
 /*
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
@@ -162,6 +192,10 @@ html {
     .arrow {
       transform: none;
     }
+  }
+
+  .tmh-header1 {
+    font-size: 2rem;
   }
 }
 
