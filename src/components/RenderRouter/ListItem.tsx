@@ -1785,23 +1785,25 @@ class ListItem extends React.Component<Props, State> {
           </div>
         );
       } else if (this.state.content.style === 'ladder') {
-        return (
-          <div className="ListItem ladder">
-            <div className="ListItemDiv1">
-              <h1 className="ListItemH1">{this.state.content.header1}</h1>
-              {this.state.content.text1 != null ? (
-                <div className="ListItemText1"> this.state.content.text1 </div>
-              ) : null}
-              <div className="ListItemSpeakersDiv">
-                <LadderList>
-                  {data.map((item: any, index: any) => {
-                    return this.renderItemRouter(item, index);
-                  })}
-                </LadderList>
+        if (data.length > 0) {
+          return (
+            <div className="ListItem ladder">
+              <div className="ListItemDiv1">
+                <h1 className="ListItemH1">{this.state.content.header1}</h1>
+                {this.state.content.text1 != null ? (
+                  <div className="ListItemText1">this.state.content.text1</div>
+                ) : null}
+                <div className="ListItemSpeakersDiv">
+                  <LadderList>
+                    {data.map((item: any, index: any) => {
+                      return this.renderItemRouter(item, index);
+                    })}
+                  </LadderList>
+                </div>
               </div>
             </div>
-          </div>
-        );
+          );
+        }
       }
       return null;
     };
