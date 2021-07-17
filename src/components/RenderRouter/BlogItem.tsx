@@ -1,4 +1,4 @@
-import React, { EventHandler, SyntheticEvent } from 'react';
+import React from 'react';
 import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import {
   getBlogSeries,
@@ -55,7 +55,21 @@ const FeaturedBlogList = ({ children, screenWidth }: FeaturedBlogListProps) => {
     return <HorizontalScrollList darkMode>{children}</HorizontalScrollList>;
   }
 
-  return <div className="featured-blog-list">{children}</div>;
+  return (
+    <div data-testid="non-scrolling-list" className="featured-blog-list">
+      {children}
+    </div>
+  );
+};
+
+const getImageURI = (
+  title: string | undefined | null,
+  style: 'baby-hero' | 'banner' | 'square'
+): string => {
+  if (!title) return '';
+  return (
+    `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
+  );
 };
 
 type BlogSeries = NonNullable<
@@ -73,8 +87,6 @@ interface Props {
 }
 
 interface State {
-  blogs: Blogs;
-  blogSeries: BlogSeries;
   publishedOnly: NonNullable<BlogSeriesPosts | Blogs>;
   screenWidth: number;
 }
@@ -86,8 +98,6 @@ class BlogItem extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      blogs: [],
-      blogSeries: [],
       publishedOnly: [],
       screenWidth: window.innerWidth,
     };
@@ -134,11 +144,10 @@ class BlogItem extends React.Component<Props, State> {
       console.debug(json.data?.getBlogByBlogStatus);
 
       if (json.data?.getBlogByBlogStatus?.items) {
-        this.setState({
-          blogs: json.data.getBlogByBlogStatus.items,
-        });
-        if (this.state.blogs) {
-          const dateChecked = this.state.blogs.filter(
+        const blogs = json.data.getBlogByBlogStatus.items;
+
+        if (blogs.length > 0) {
+          const dateChecked = blogs.filter(
             (post) =>
               post?.expirationDate === 'none' ||
               moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
@@ -162,23 +171,22 @@ class BlogItem extends React.Component<Props, State> {
   }
 
   async getBlogSeries(): Promise<void> {
-    const { blogSeries, status } = this.props.content;
+    const { blogSeries: id, status } = this.props.content;
 
     try {
       const today = moment();
       const json = (await API.graphql({
         query: getBlogSeries,
-        variables: { id: blogSeries },
+        variables: { id },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<GetBlogSeriesQuery>;
 
       console.debug(json.data?.getBlogSeries);
 
       if (json.data?.getBlogSeries?.blogs?.items) {
-        this.setState({
-          blogSeries: json.data.getBlogSeries.blogs.items,
-        });
-        if (this.state.blogSeries) {
+        const series = json.data.getBlogSeries.blogs.items;
+
+        if (series.length > 0) {
           const publishedOnly: NonNullable<
             NonNullable<
               NonNullable<
@@ -188,7 +196,7 @@ class BlogItem extends React.Component<Props, State> {
               >[0]
             >['blogPost']
           >[] = [];
-          this.state.blogSeries.forEach((item) => {
+          series.forEach((item) => {
             if (
               item?.blogPost?.publishedDate &&
               moment(
@@ -211,27 +219,6 @@ class BlogItem extends React.Component<Props, State> {
     } catch (e) {
       console.error(e);
     }
-  }
-
-  fallbackToImage(
-    fallbackUrl: string
-  ): EventHandler<SyntheticEvent<HTMLImageElement>> {
-    return function (event: SyntheticEvent<HTMLImageElement>) {
-      if (!event.currentTarget.src.endsWith(fallbackUrl)) {
-        event.currentTarget.src = fallbackUrl;
-        event.currentTarget.srcset = '';
-      }
-    };
-  }
-
-  getImageURI(
-    title: string | undefined | null,
-    style: 'baby-hero' | 'banner' | 'square'
-  ): string {
-    if (!title) return '';
-    return (
-      `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
-    );
   }
 
   render() {
@@ -273,6 +260,7 @@ class BlogItem extends React.Component<Props, State> {
                 <div>
                   <Link to={'/posts/' + publishedOnly[0]?.id} tabIndex={-1}>
                     <ScaledImage
+                      data-testid="desktop-image"
                       className="blog-image-desktop"
                       breakpointSizes={{
                         640: 640,
@@ -280,7 +268,7 @@ class BlogItem extends React.Component<Props, State> {
                         2560: 1280,
                       }}
                       image={{
-                        src: this.getImageURI(
+                        src: getImageURI(
                           publishedOnly[0]?.blogTitle,
                           'baby-hero'
                         ),
@@ -295,6 +283,7 @@ class BlogItem extends React.Component<Props, State> {
               <div className="mobile-image-container">
                 <Link to={'/posts/' + publishedOnly[0]?.id} tabIndex={-1}>
                   <ScaledImage
+                    data-testid="mobile-image"
                     className="blog-image-mobile"
                     breakpointSizes={{
                       320: 320,
@@ -302,7 +291,7 @@ class BlogItem extends React.Component<Props, State> {
                       640: 640,
                     }}
                     image={{
-                      src: this.getImageURI(
+                      src: getImageURI(
                         publishedOnly[0]?.blogTitle,
                         'baby-hero'
                       ),
@@ -344,13 +333,14 @@ class BlogItem extends React.Component<Props, State> {
             <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
             {publishedOnly.slice(0, limit).map((item, index) => {
               const image = {
-                src: this.getImageURI(item?.blogTitle, imageStyle),
+                src: getImageURI(item?.blogTitle, imageStyle),
                 alt: '', // TODO: use alt text from admin page input (pending changes from #236)
               };
               return (
                 <div key={index} className="BlogMultiImageItem">
                   <Link className="blog-item-link" to={'/posts/' + item?.id}>
                     <ScaledImage
+                      data-testid="blog-image"
                       image={image}
                       className={`blog-${imageStyle}-image multiImage`}
                       fallbackUrl={`/static/photos/blogs/${imageStyle}/fallback.jpg`}
@@ -367,7 +357,7 @@ class BlogItem extends React.Component<Props, State> {
                 </div>
               );
             })}
-            {!hideAllBlogsButton ? (
+            {!hideAllBlogsButton && (
               <>
                 <br />
                 <LinkButton
@@ -378,7 +368,7 @@ class BlogItem extends React.Component<Props, State> {
                   View All Blogs
                 </LinkButton>
               </>
-            ) : null}
+            )}
           </div>
         </div>
       );
@@ -396,7 +386,7 @@ class BlogItem extends React.Component<Props, State> {
                   ?.slice(0, !isDesktop ? 3 : undefined) // show max 3 posts on mobile
                   .map((blog) => {
                     const image = {
-                      src: this.getImageURI(blog?.blogTitle, 'baby-hero'),
+                      src: getImageURI(blog?.blogTitle, 'baby-hero'),
                       alt: '', // TODO: use alt text from admin page input (pending changes from #236)
                     };
 
@@ -407,6 +397,7 @@ class BlogItem extends React.Component<Props, State> {
                           to={'/posts/' + blog?.id}
                         >
                           <ScaledImage
+                            data-testid="blog-image"
                             image={image}
                             className="featured-blog-image"
                             fallbackUrl="/static/photos/blogs/baby-hero/fallback.jpg"
