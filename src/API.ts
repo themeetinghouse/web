@@ -47386,6 +47386,10 @@ export type TmhF1LinkUserQuery = {
   tmhF1LinkUser?: boolean | null,
 };
 
+export type TmhF1SyncGroupPermissionsQuery = {
+  tmhF1SyncGroupPermissions?: boolean | null,
+};
+
 export type TmhF1SearchContributionReceiptsQueryVariables = {
   pageId?: string | null,
 };

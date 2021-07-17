@@ -6,7 +6,12 @@ import moment from 'moment';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 //import * as Sentry from '@sentry/browser';
-import { CreateTmhUserMutation, TmhF1LinkUserQuery } from 'API';
+import {
+  CreateTmhUserMutation,
+  TmhF1LinkUserQuery,
+  TmhF1SyncGroupPermissionsQuery,
+  TMHUser,
+} from 'API';
 import awsconfig from '../../../src/aws-exports';
 import * as mutations from '../../../src/graphql/mutations';
 import * as queries from '../../../src/graphql/queries';
@@ -29,7 +34,7 @@ interface State {
   hasCompletedPersonalProfile: ProfileStatus;
   hasF1Linked: boolean;
   userExists: boolean;
-  user: any;
+  user: TMHUser | undefined | null;
   authState: any;
   hasCompletedOrganizationProfile: string;
   orgId: string;
@@ -145,6 +150,7 @@ export default class Authenticator extends React.Component<
 
   async ensureUserExists(performChecks: () => Promise<void>): Promise<void> {
     let userExists = false;
+    let userDB: any;
     this.user = await Auth.currentAuthenticatedUser().catch(() => {
       console.log('No current authenticated user');
     });
@@ -179,13 +185,14 @@ export default class Authenticator extends React.Component<
               },
               authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
             })) as GraphQLResult<CreateTmhUserMutation>;
-
+            userDB = createUser?.data?.createTMHUser;
             userExists = true;
             console.log({ createUser: createUser });
           } catch (e) {
             console.log({ error: e });
           }
         } else {
+          userDB = getUser?.data?.getTMHUser;
           userExists = true;
           console.log('User exists');
         }
@@ -196,7 +203,7 @@ export default class Authenticator extends React.Component<
       await z.then(handleUser).catch(handleUser);
 
       console.log({ userExists: userExists });
-      this.setState({ userExists: userExists }, performChecks);
+      this.setState({ user: userDB, userExists: userExists }, performChecks);
     }
   }
 
@@ -225,25 +232,48 @@ export default class Authenticator extends React.Component<
       return false;
     }
   }
-  async checkIfF1Linked(): Promise<boolean> {
-    console.log('CheckF1Link');
+  async syncF1GroupPermissions(): Promise<boolean> {
+    console.log('syncF1Permissions');
+
     try {
-      const tmhF1LinkUser = (await API.graphql({
-        query: queries.tmhF1LinkUser,
+      const tmhF1SyncGroupPermissions = (await API.graphql({
+        query: queries.tmhF1SyncGroupPermissions,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<TmhF1LinkUserQuery>;
-      console.log(tmhF1LinkUser);
+      })) as GraphQLResult<TmhF1SyncGroupPermissionsQuery>;
+      console.log(tmhF1SyncGroupPermissions);
       return true;
     } catch (e) {
       console.log({ Error: e });
       return false;
     }
   }
+  async checkIfF1Linked(): Promise<boolean> {
+    console.log('CheckF1Link');
+    if (
+      this.state.user?.f1HouseholdId == null ||
+      this.state.user?.f1HouseholdId == null
+    ) {
+      try {
+        const tmhF1LinkUser = (await API.graphql({
+          query: queries.tmhF1LinkUser,
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<TmhF1LinkUserQuery>;
+        console.log(tmhF1LinkUser);
+        return true;
+      } catch (e) {
+        console.log({ Error: e });
+        return false;
+      }
+    }
+    return true;
+  }
   recheckUserState = async (): Promise<void> => {
     console.log('recheckUserState');
     await this.ensureUserExists(async (): Promise<void> => {
       //   const paidStatus = await this.checkIfPaid();
       const linkF1 = await this.checkIfF1Linked();
+      const syncF1 = await this.syncF1GroupPermissions();
+      console.log({ sync: syncF1 });
       const profileStatus = await this.checkIfCompletedProfile();
       this.setState(
         {

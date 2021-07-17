@@ -2770,6 +2770,11 @@ export const tmhF1LinkUser = /* GraphQL */ `
     tmhF1LinkUser
   }
 `;
+export const tmhF1SyncGroupPermissions = /* GraphQL */ `
+  query TmhF1SyncGroupPermissions {
+    tmhF1SyncGroupPermissions
+  }
+`;
 export const tmhF1SearchContributionReceipts = /* GraphQL */ `
   query TmhF1SearchContributionReceipts($pageId: String) {
     tmhF1SearchContributionReceipts(pageId: $pageId) {
