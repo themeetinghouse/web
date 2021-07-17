@@ -23,7 +23,7 @@ function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={className}>
+    <div className={className} data-testid="share">
       <Dropdown isOpen={open} toggle={() => setOpen((prev) => !prev)}>
         <DropdownToggle id="share-custom">
           <img
@@ -83,7 +83,7 @@ function DownloadButton({ pdf, className }: DownloadButtonProps) {
   if (!pdf) return null;
 
   return (
-    <div className={className}>
+    <div className={className} data-testid="download">
       <LinkButton size="lg" className="download-custom inverted" to={pdf}>
         <img
           className="button-icon"
@@ -123,7 +123,7 @@ export default function BlogReader({ data }: Props) {
     const blogBody = document.getElementById('blog-body');
     if (blogBody !== null && !isMobile) {
       const handleSelect = () => {
-        const selection = document.getSelection();
+        const selection = window.getSelection();
 
         if (selection && selection.anchorNode?.nodeName === '#text') {
           const range = selection.getRangeAt(0);
@@ -194,7 +194,7 @@ export default function BlogReader({ data }: Props) {
               {data.publishedDate}
             </div>
             <ShareButton className="ShareButtonDesktop" />
-            <div id="blog-body" className="blog-body">
+            <div data-testid="blog-body" id="blog-body" className="blog-body">
               {ReactHtmlParser(data.content ?? '')}
             </div>
             <ShareButton className="ShareButtonMobile" />
@@ -203,10 +203,11 @@ export default function BlogReader({ data }: Props) {
         {!isMobile && selectedText !== '' && (
           <Portal>
             <div
+              data-testid="inline-share"
               className="inline-share"
               style={{
-                top: y + window.pageYOffset - 68,
-                left: x - 52,
+                top: y + window.pageYOffset - 68, // height of button container + triangle: 56 + 12 = 68
+                left: x - 52, // half of width of button container: 104 / 2 = 52
               }}
             >
               <div className="button-container">
@@ -215,6 +216,8 @@ export default function BlogReader({ data }: Props) {
                   via="TheMeetingHouse"
                   title={selectedText}
                   className="share-button"
+                  aria-label="share to twitter"
+                  data-testid="twitter"
                 >
                   <svg
                     width="24"
@@ -233,6 +236,8 @@ export default function BlogReader({ data }: Props) {
                   url={window.location.href}
                   body={selectedText}
                   className="share-button"
+                  aria-label="share via email"
+                  data-testid="email"
                 >
                   <svg
                     width="24"
