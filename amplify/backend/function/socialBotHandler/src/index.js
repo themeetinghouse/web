@@ -31,6 +31,10 @@ const getBlog = /* GraphQL */ `
       id
       blogTitle
       description
+      babyHeroImage {
+        src
+        alt
+      }
     }
   }
 `;
@@ -188,7 +192,10 @@ exports.handler = async (event, context, callback) => {
 
           const base64EncodedBody1 = createMarkup(
             `${tmhUrl}/posts/${blogId1}`,
-            `${tmhUrl}/static/photos/blogs/baby-hero/${processedBlogTitle1}.jpg`,
+            typeof data1.babyHeroImage?.src === 'string' &&
+              data1.babyHeroImage.src.length > 0
+              ? data1.babyHeroImage.src
+              : `${tmhUrl}/static/photos/blogs/baby-hero/${processedBlogTitle1}.jpg`,
             description1,
             blogTitle1,
             'article'
