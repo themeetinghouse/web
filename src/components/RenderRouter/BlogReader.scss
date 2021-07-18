@@ -1,4 +1,39 @@
 @use '../../theme';
+@use "sass:math";
+
+#portal-root {
+  .inline-share {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    $width: 104px;
+    $height: 56px;
+    $triangle-size: 12px;
+
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: theme.$onyxblacktext;
+      width: $width;
+      height: $height;
+      .share-button {
+        width: math.div($width, 2);
+        height: $height;
+      }
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: $triangle-size solid transparent;
+      border-right: $triangle-size solid transparent;
+      border-top: $triangle-size solid theme.$onyxblacktext;
+      align-self: center;
+    }
+  }
+}
 
 .blog-reader {
   .download-custom {
@@ -10,6 +45,7 @@
     margin: 0;
     font-size: 16px;
   }
+
   .blog-body *,
   .notes-body *,
   .questions-body * {
@@ -17,42 +53,54 @@
     color: theme.$onyxblacktext !important;
   }
 
+  .blog-body {
+    padding-top: 36px;
+    padding-bottom: 72px;
+    font-family: Graphik Web;
+    width: 48.33vw;
+    overflow-x: hidden;
+    :not(img)::selection,
+    :not(img)::-moz-selection {
+      background: theme.$goldensun;
+    }
+  }
+
+  .blog-author {
+    color: #1a1a1a;
+  }
+
+  .blog-details {
+    font-family: Graphik Web;
+    color: #54565a;
+    font-size: 12px;
+  }
+
+  .link-to-main-blog-page {
+    font-size: 12px;
+    color: #1a1a1a;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   @media (min-width: 768px) {
     .blog-content {
       position: relative;
-      top: 5vw;
-      left: 20vw;
+      top: 48px;
+      left: 22.5vw;
       width: 75vw;
       padding-bottom: 5vh;
       min-height: 80vh;
     }
 
     .blog-h1 {
-      font-size: 3vw;
+      font-size: 40px;
+      margin-top: 12px;
+      margin-bottom: 16px;
       font-weight: bold;
       font-family: Graphik Web;
       color: #1a1a1a;
       width: 58vw;
-    }
-
-    .blog-details {
-      font-family: Graphik Web;
-      color: #54565a;
-      font-size: 1.1vw;
-    }
-
-    .blog-author {
-      color: #1a1a1a;
-      //border-bottom: #1A1A1A solid 1px;
-      //padding-bottom: 1px;
-    }
-
-    .blog-body {
-      padding-top: 3vw;
-      font-family: Graphik Web;
-      width: 48.33vw;
-      overflow-x: hidden;
-      padding-bottom: 6vw;
     }
 
     .notes-body {
@@ -125,19 +173,6 @@
 
     .ShareOption {
       text-align: left;
-    }
-
-    .link-to-main-blog-page {
-      position: absolute;
-      top: 3vw;
-      left: 20vw;
-      font-size: 1.1vw;
-      color: #1a1a1a;
-    }
-
-    .link-to-main-blog-page:hover {
-      cursor: pointer;
-      text-decoration: underline;
     }
 
     .dropdown-caret {
@@ -146,41 +181,6 @@
   }
 
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .blog-content {
-      position: relative;
-      top: 5vw;
-      left: 20vw;
-      width: 75vw;
-      padding-bottom: 5vh;
-    }
-
-    .blog-h1 {
-      font-size: 3vw;
-      font-weight: bold;
-      font-family: Graphik Web;
-      color: #1a1a1a;
-      width: 58vw;
-    }
-
-    .blog-details {
-      font-family: Graphik Web;
-      color: #54565a;
-      font-size: 1.1vw;
-    }
-
-    .blog-author {
-      color: #1a1a1a;
-      //border-bottom: #1A1A1A solid 1px;
-      //padding-bottom: 1px;
-    }
-
-    .blog-body {
-      padding-top: 3vw;
-      font-family: Graphik Web;
-      width: 48.33vw;
-      overflow-x: hidden;
-    }
-
     .notes-body {
       padding-top: 3vw;
       padding-bottom: 1vw;
@@ -251,19 +251,6 @@
 
     .ShareOption {
       text-align: left;
-    }
-
-    .link-to-main-blog-page {
-      position: absolute;
-      top: 3vw;
-      left: 20vw;
-      font-size: 1.1vw;
-      color: #1a1a1a;
-    }
-
-    .link-to-main-blog-page:hover {
-      cursor: pointer;
-      text-decoration: underline;
     }
 
     .dropdown-caret {
@@ -274,36 +261,23 @@
   @media (max-width: 767px) {
     .blog-content {
       position: relative;
-      top: 24vw;
+      top: 60px;
       padding-left: 5.8vw;
       padding-bottom: 24vw;
     }
 
     .blog-h1 {
-      font-size: 8.5vw;
+      font-size: 32px;
       font-weight: bold;
       font-family: Graphik Web;
       color: #1a1a1a;
       width: 88.5vw;
     }
 
-    .blog-details {
-      font-family: Graphik Web;
-      color: #54565a;
-      font-size: 3.5vw;
-    }
-
-    .blog-author {
-      color: #1a1a1a;
-      //border-bottom: #1A1A1A solid 1px;
-      //padding-bottom: 1px;
-    }
-
     .blog-body {
-      padding-top: 8.5vw;
-      font-family: Graphik Web;
+      padding-top: 36px;
+      padding-bottom: 0;
       width: 88.5vw;
-      overflow-x: hidden;
     }
 
     .notes-body {
@@ -377,19 +351,6 @@
 
     .ShareOption {
       text-align: left;
-    }
-
-    .link-to-main-blog-page {
-      position: absolute;
-      top: 28vw;
-      left: 5.8vw;
-      font-size: 3.5vw;
-      color: #1a1a1a;
-    }
-
-    .link-to-main-blog-page:hover {
-      cursor: pointer;
-      text-decoration: underline;
     }
 
     .dropdown-caret {
