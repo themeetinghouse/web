@@ -98,9 +98,10 @@ function DownloadButton({ pdf, className }: DownloadButtonProps) {
 
 interface Props {
   data: GetBlogQuery['getBlog'] | GetNotesQuery['getNotes'];
+  style: 'blog' | 'notes';
 }
 
-export default function BlogReader({ data }: Props) {
+export default function BlogReader({ data, style }: Props) {
   const [selectedText, setSelectedText] = useState('');
   const [selectedPosition, setSelectedPosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -110,70 +111,79 @@ export default function BlogReader({ data }: Props) {
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      resetState();
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const blogBody = document.getElementById('blog-body');
-    if (blogBody !== null && !isMobile) {
-      const handleSelect = () => {
-        const selection = window.getSelection();
-
-        if (selection && selection.anchorNode?.nodeName === '#text') {
-          const range = selection.getRangeAt(0);
-          const { y, right, left } = range.getBoundingClientRect();
-
-          setSelectedPosition({
-            x: (right + left) / 2,
-            y,
-          });
-
-          const text = selection.toString();
-          setSelectedText(text);
-        }
-      };
-
-      blogBody.addEventListener('mouseup', handleSelect);
-      return () => blogBody.removeEventListener('mouseup', handleSelect);
-    }
-  }, []);
-
-  useEffect(() => {
-    const root = document.getElementById('root');
-    if (root !== null && !isMobile) {
-      const handleMouseDown = () => {
+    if (style === 'blog') {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
         resetState();
       };
 
-      root.addEventListener('mousedown', handleMouseDown);
-      return () => root.removeEventListener('mousedown', handleMouseDown);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
-  }, []);
+  }, [style]);
 
   useEffect(() => {
-    if (!isMobile) {
-      const handleKeyUp = ({ key }: KeyboardEvent) => {
-        if (key === 'Tab') {
+    if (style === 'blog') {
+      const blogBody = document.getElementById('blog-body');
+      if (blogBody !== null && !isMobile) {
+        const handleSelect = () => {
           const selection = window.getSelection();
+          const text = selection?.toString() ?? '';
 
-          if (selection?.toString() === '') {
-            resetState();
+          if (selection && text.length > 0) {
+            const range = selection.getRangeAt(0);
+            const { y, right, left } = range.getBoundingClientRect();
+
+            setSelectedPosition({
+              x: (right + left) / 2,
+              y,
+            });
+
+            setSelectedText(text);
           }
-        }
-      };
+        };
 
-      window.addEventListener('keyup', handleKeyUp);
-      return () => window.removeEventListener('keyup', handleKeyUp);
+        blogBody.addEventListener('mouseup', handleSelect);
+        return () => blogBody.removeEventListener('mouseup', handleSelect);
+      }
     }
-  }, []);
+  }, [style]);
 
-  if (data && 'blogTitle' in data) {
+  useEffect(() => {
+    if (style === 'blog') {
+      const root = document.getElementById('root');
+      if (root !== null && !isMobile) {
+        const handleMouseDown = () => {
+          resetState();
+        };
+
+        root.addEventListener('mousedown', handleMouseDown);
+        return () => root.removeEventListener('mousedown', handleMouseDown);
+      }
+    }
+  }, [style]);
+
+  useEffect(() => {
+    if (style === 'blog') {
+      if (!isMobile) {
+        const handleKeyUp = ({ key }: KeyboardEvent) => {
+          if (key === 'Tab') {
+            const selection = window.getSelection();
+            const text = selection?.toString() ?? '';
+
+            if (text.length === 0) {
+              resetState();
+            }
+          }
+        };
+
+        window.addEventListener('keyup', handleKeyUp);
+        return () => window.removeEventListener('keyup', handleKeyUp);
+      }
+    }
+  }, [style]);
+
+  if (style === 'blog' && data && 'blogTitle' in data) {
     const { x, y } = selectedPosition;
 
     return (
@@ -268,7 +278,7 @@ export default function BlogReader({ data }: Props) {
         )}
       </>
     );
-  } else if (data && 'questions' in data) {
+  } else if (style === 'notes' && data && 'title' in data) {
     return (
       <div className="blog-reader">
         {data.title === 'Unlisted' ? (

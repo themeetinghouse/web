@@ -41,8 +41,6 @@ const noPdfNoteProps = {
   data: { ...noteProps.data, pdf: '' },
 };
 
-const toString = jest.fn().mockReturnValue('highlighted text');
-
 describe('BlogReader', () => {
   beforeEach(() => {
     // set up portal
@@ -54,7 +52,7 @@ describe('BlogReader', () => {
         anchorNode: {
           nodeName: '#text',
         },
-        toString,
+        toString: () => 'highlighted text',
         getRangeAt: () => ({
           getBoundingClientRect: () => ({ y: 100, right: 1000, left: 100 }),
         }),
@@ -67,7 +65,7 @@ describe('BlogReader', () => {
     it('renders notes, questions, title and download button', () => {
       render(
         <MemoryRouter>
-          <BlogReader {...(noteProps as any)} />
+          <BlogReader {...(noteProps as any)} style="notes" />
         </MemoryRouter>
       );
 
@@ -96,7 +94,7 @@ describe('BlogReader', () => {
     it('does not render content if notes are unlisted', () => {
       render(
         <MemoryRouter>
-          <BlogReader {...(unlistedNoteProps as any)} />
+          <BlogReader {...(unlistedNoteProps as any)} style="notes" />
         </MemoryRouter>
       );
 
@@ -112,7 +110,7 @@ describe('BlogReader', () => {
     it('does not render download button if PDF link does not exist', () => {
       render(
         <MemoryRouter>
-          <BlogReader {...(noPdfNoteProps as any)} />
+          <BlogReader {...(noPdfNoteProps as any)} style="notes" />
         </MemoryRouter>
       );
 
@@ -125,7 +123,7 @@ describe('BlogReader', () => {
     it('renders body, title, author, date and share button', () => {
       render(
         <MemoryRouter>
-          <BlogReader {...(blogProps as any)} />
+          <BlogReader {...(blogProps as any)} style="blog" />
         </MemoryRouter>
       );
 
@@ -158,7 +156,7 @@ describe('BlogReader', () => {
     it('highlight and share', async () => {
       render(
         <MemoryRouter>
-          <BlogReader {...(blogProps as any)} />
+          <BlogReader {...(blogProps as any)} style="blog" />
         </MemoryRouter>
       );
 
@@ -182,8 +180,6 @@ describe('BlogReader', () => {
         );
       });
 
-      expect(toString).toHaveBeenCalled();
-
       const twitter = screen.getByTestId('twitter');
       expect(twitter).toBeTruthy();
       const email = screen.getByTestId('email');
@@ -204,7 +200,7 @@ describe('BlogReader', () => {
 
       render(
         <MemoryRouter>
-          <BlogReader {...(blogProps as any)} />
+          <BlogReader {...(blogProps as any)} style="blog" />
         </MemoryRouter>
       );
 
@@ -228,8 +224,6 @@ describe('BlogReader', () => {
         const email = screen.queryByTestId('email');
         expect(email).toBeFalsy();
       });
-
-      expect(toString).not.toHaveBeenCalled();
     });
   });
 });

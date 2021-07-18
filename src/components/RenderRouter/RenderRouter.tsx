@@ -63,7 +63,9 @@ class RenderRouter extends React.Component<Props> {
       case 'blog':
         return <BlogItem key={index} content={item} />;
       case 'post':
-        return <BlogReader data={this.props.data} key={index} />;
+        return (
+          <BlogReader data={this.props.data} key={index} style={item.style} />
+        );
       case 'liveVideoPlayer':
         return <VideoPlayerLive key={index} content={item} />;
       case 'liveVideoPlayer2':
