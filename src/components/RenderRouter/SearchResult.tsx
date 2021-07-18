@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchResult.scss';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ScaledImage } from 'components/ScaledImage';
 import { Link } from 'components/Link/Link';
 
 interface Props {

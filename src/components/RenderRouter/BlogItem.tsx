@@ -93,6 +93,7 @@ interface State {
 
 const DESKTOP_BREAKPOINT = 1024;
 const MOBILE_BREAKPOINT = 768;
+// TODO: use blog image
 
 class BlogItem extends React.Component<Props, State> {
   constructor(props: Props) {

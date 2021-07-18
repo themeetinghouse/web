@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { ItemImage } from 'components/types';
 
-interface Props extends ImgHTMLAttributes<HTMLImageElement> {
+export interface Props extends ImgHTMLAttributes<HTMLImageElement> {
   image?: ItemImage;
   fallbackUrl?: string;
   breakpointSizes: { [maxWidth: string]: number };

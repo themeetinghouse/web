@@ -2,7 +2,7 @@ import React from 'react';
 import { Collapse } from 'reactstrap';
 import './FAQItem.scss';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ScaledImage } from 'components/ScaledImage';
 import { ItemImage } from 'components/types';
 import { Link, LinkButton } from 'components/Link/Link';
 

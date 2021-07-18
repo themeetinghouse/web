@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { ItemImage } from '../types';
 import './ContentItem.scss';
