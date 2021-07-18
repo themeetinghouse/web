@@ -287,7 +287,7 @@
   .bannerCardImage {
     $width: 37.67vw;
     width: $width;
-    height: (248/552) * $width;
+    height: math.div(248, 552) * $width;
     margin-right: 1.67vw;
   }
 
@@ -915,7 +915,7 @@
   .bannerCardImage {
     $width: 90vw;
     width: $width;
-    height: (248/552) * $width;
+    height: math.div(248, 552) * $width;
     margin-bottom: 6.4vw;
   }
 
