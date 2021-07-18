@@ -13,7 +13,7 @@ import {
   ModelSortDirection,
 } from 'API';
 import { BlogItemContent } from 'components/types';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { BlogImage } from 'components/ScaledImage';
 import HorizontalScrollList from './HorizontalScrollList';
 import './BlogItem.scss';
 
@@ -59,16 +59,6 @@ const FeaturedBlogList = ({ children, screenWidth }: FeaturedBlogListProps) => {
     <div data-testid="non-scrolling-list" className="featured-blog-list">
       {children}
     </div>
-  );
-};
-
-const getImageURI = (
-  title: string | undefined | null,
-  style: 'baby-hero' | 'banner' | 'square'
-): string => {
-  if (!title) return '';
-  return (
-    `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
   );
 };
 
@@ -233,47 +223,38 @@ class BlogItem extends React.Component<Props, State> {
     const isDesktop = screenWidth >= MOBILE_BREAKPOINT;
 
     if (style === 'hero') {
+      const blog = publishedOnly[0];
+
       return (
         <div className="blog-item">
           <div className="blog">
             <h1 className="blog-h1 tmh-header1 b">{header1}</h1>
             <div className="blog-blackbox">
-              <div className="blog-post-title">
-                {publishedOnly[0]?.blogTitle}
-              </div>
+              <div className="blog-post-title">{blog?.blogTitle}</div>
               <div className="blogdiv blogauthor">
-                by{' '}
-                <span className="author-underline">
-                  {publishedOnly[0]?.author}
-                </span>{' '}
-                on {publishedOnly[0]?.publishedDate}
+                by <span className="author-underline">{blog?.author}</span> on{' '}
+                {blog?.publishedDate}
               </div>
-              <div className="blogdiv blogdescription">
-                {publishedOnly[0]?.description}
-              </div>
+              <div className="blogdiv blogdescription">{blog?.description}</div>
               <div className="blogdiv2">
-                <LinkButton size="lg" to={'/posts/' + publishedOnly[0]?.id}>
+                <LinkButton size="lg" to={'/posts/' + blog?.id}>
                   Read More
                 </LinkButton>
               </div>
               {isDesktop && (
                 <div>
-                  <Link to={'/posts/' + publishedOnly[0]?.id} tabIndex={-1}>
-                    <ScaledImage
+                  <Link to={'/posts/' + blog?.id} tabIndex={-1}>
+                    <BlogImage
                       data-testid="desktop-image"
+                      blogTitle={blog?.blogTitle}
+                      imageType="baby-hero"
                       className="blog-image-desktop"
                       breakpointSizes={{
                         640: 640,
                         1920: 960,
                         2560: 1280,
                       }}
-                      image={{
-                        src: getImageURI(
-                          publishedOnly[0]?.blogTitle,
-                          'baby-hero'
-                        ),
-                        alt: 'blog post:' + publishedOnly[0]?.blogTitle,
-                      }}
+                      image={blog?.babyHeroImage}
                     />
                   </Link>
                 </div>
@@ -281,22 +262,18 @@ class BlogItem extends React.Component<Props, State> {
             </div>
             {!isDesktop && (
               <div className="mobile-image-container">
-                <Link to={'/posts/' + publishedOnly[0]?.id} tabIndex={-1}>
-                  <ScaledImage
+                <Link to={'/posts/' + blog?.id} tabIndex={-1}>
+                  <BlogImage
                     data-testid="mobile-image"
+                    blogTitle={blog?.blogTitle}
+                    imageType="baby-hero"
                     className="blog-image-mobile"
                     breakpointSizes={{
                       320: 320,
                       480: 480,
                       640: 640,
                     }}
-                    image={{
-                      src: getImageURI(
-                        publishedOnly[0]?.blogTitle,
-                        'baby-hero'
-                      ),
-                      alt: 'blog post:' + publishedOnly[0]?.blogTitle,
-                    }}
+                    image={blog?.babyHeroImage}
                   />
                 </Link>
               </div>
@@ -325,25 +302,23 @@ class BlogItem extends React.Component<Props, State> {
         };
 
     if (style === 'multiImage') {
-      const imageStyle = isDesktop ? 'banner' : 'square';
+      const imageType = isDesktop ? 'banner' : 'square';
 
       return (
         <div className="blog-item">
           <div className="blog multiImage">
             <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
             {publishedOnly.slice(0, limit).map((item, index) => {
-              const image = {
-                src: getImageURI(item?.blogTitle, imageStyle),
-                alt: '', // TODO: use alt text from admin page input (pending changes from #236)
-              };
               return (
                 <div key={index} className="BlogMultiImageItem">
                   <Link className="blog-item-link" to={'/posts/' + item?.id}>
-                    <ScaledImage
+                    <BlogImage
                       data-testid="blog-image"
-                      image={image}
-                      className={`blog-${imageStyle}-image multiImage`}
-                      fallbackUrl={`/static/photos/blogs/${imageStyle}/fallback.jpg`}
+                      imageType={imageType}
+                      blogTitle={item?.blogTitle}
+                      image={isDesktop ? item?.bannerImage : item?.squareImage}
+                      className={`blog-${imageType}-image multiImage`}
+                      fallbackUrl={`/static/photos/blogs/${imageType}/fallback.jpg`}
                       breakpointSizes={breakpointSizes}
                     />
                     <BlogPreviewText
@@ -385,20 +360,17 @@ class BlogItem extends React.Component<Props, State> {
                 {publishedOnly
                   ?.slice(0, !isDesktop ? 3 : undefined) // show max 3 posts on mobile
                   .map((blog) => {
-                    const image = {
-                      src: getImageURI(blog?.blogTitle, 'baby-hero'),
-                      alt: '', // TODO: use alt text from admin page input (pending changes from #236)
-                    };
-
                     return (
                       <div className="featured-blog-item" key={blog?.id}>
                         <Link
                           className="blog-item-link"
                           to={'/posts/' + blog?.id}
                         >
-                          <ScaledImage
+                          <BlogImage
                             data-testid="blog-image"
-                            image={image}
+                            image={blog?.babyHeroImage}
+                            blogTitle={blog?.blogTitle}
+                            imageType="baby-hero"
                             className="featured-blog-image"
                             fallbackUrl="/static/photos/blogs/baby-hero/fallback.jpg"
                             breakpointSizes={breakpointSizes}

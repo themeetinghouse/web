@@ -7,7 +7,7 @@ import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import Highlighter from 'react-highlight-words';
 import DataLoader, { CompassionData, StaffData } from './DataLoader';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import {
   SearchBlogSeriessQuery,
   SearchBlogsQuery,
@@ -538,10 +538,6 @@ class ContentItem extends React.Component<Props, State> {
     );
   }
   renderBlog(item: any): React.ReactNode {
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
-    };
     if (item.episodeTitle !== null)
       return (
         <Button
@@ -551,8 +547,10 @@ class ContentItem extends React.Component<Props, State> {
           }}
           className="SearchResultItem"
         >
-          <ScaledImage
-            image={image}
+          <BlogImage
+            image={item.squareImage}
+            blogTitle={item.blogTitle}
+            imageType="square"
             className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
@@ -644,10 +642,6 @@ class ContentItem extends React.Component<Props, State> {
     else return null;
   }
   renderBlogSeries(item: any): React.ReactNode {
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
-    };
     if (item.episodeTitle !== null)
       return (
         <Button
@@ -657,8 +651,10 @@ class ContentItem extends React.Component<Props, State> {
           }}
           className="SearchResultItem"
         >
-          <ScaledImage
-            image={image}
+          <BlogImage
+            image={item.squareImage}
+            blogTitle={item.blogTitle}
+            imageType="square"
             className="SearchThumb"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{

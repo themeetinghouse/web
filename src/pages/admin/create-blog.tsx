@@ -1,21 +1,21 @@
 import React from 'react';
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-import AdminMenu from '../../components/Menu/AdminMenu';
+import AdminMenu from 'components/Menu/AdminMenu';
 import BlogPreview from './BlogPreview';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
-import awsmobile from '../../aws-exports';
-import * as customQueries from '../../graphql-custom/customQueries';
-import * as queries from '../../graphql/queries';
-import * as mutations from '../../graphql/mutations';
+import awsmobile from 'aws-exports';
+import * as customQueries from 'graphql-custom/customQueries';
+import * as queries from 'graphql/queries';
+import * as mutations from 'graphql/mutations';
 import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify, { API, Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
-import { v1 as uuidv1 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import DatePicker from 'react-datepicker';
-import { EmptyProps } from '../../utils';
+import { EmptyProps } from 'utils';
 import 'react-datepicker/dist/react-datepicker.css';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
@@ -34,12 +34,33 @@ import {
   ListBlogsQuery,
   ListSeriessQuery,
   UpdateBlogMutation,
-} from '../../API';
+  ImageInput,
+} from 'API';
 
 Amplify.configure(awsmobile);
 const federated = {
   facebookAppId: '579712102531269',
 };
+
+const S3_BUCKET =
+  'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';
+
+type ImageSizes = 'babyHeroImage' | 'bannerImage' | 'squareImage';
+
+const imageInputs: Array<{ size: ImageSizes; text: string }> = [
+  {
+    size: 'babyHeroImage',
+    text: 'Baby Hero Image (1280x1024)',
+  },
+  {
+    size: 'bannerImage',
+    text: 'Banner Image (2208x1200)',
+  },
+  {
+    size: 'squareImage',
+    text: 'Square Image (1024x1024)',
+  },
+];
 
 interface State {
   blogObject: CreateBlogInput;
@@ -85,6 +106,8 @@ interface State {
   blogSeriesFilterList: string[] | null;
   searchQuery: string;
   selectedBlog: string;
+  imageTypeWarning: boolean;
+  imageSizeWarning: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -105,6 +128,18 @@ class Index extends React.Component<EmptyProps, State> {
         hiddenMainIndex: false,
         tags: [],
         blogSeriesId: this.nullString,
+        babyHeroImage: {
+          src: '',
+          alt: '',
+        },
+        bannerImage: {
+          src: '',
+          alt: '',
+        },
+        squareImage: {
+          src: '',
+          alt: '',
+        },
       },
       blogToEditObject: null,
       editorState: EditorState.createEmpty(),
@@ -143,6 +178,8 @@ class Index extends React.Component<EmptyProps, State> {
       blogSeriesFilterList: null,
       searchQuery: '',
       selectedBlog: 'none',
+      imageTypeWarning: false,
+      imageSizeWarning: '',
     };
 
     this.listSeries();
@@ -329,11 +366,16 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async handleSave() {
+    const { blogObject, blogPostsList, editorState, customId, editMode } =
+      this.state;
+    const { babyHeroImage, bannerImage, squareImage } = blogObject;
+    const images = [babyHeroImage, bannerImage, squareImage];
+
     if (
-      !this.state.blogObject.blogTitle ||
-      !this.state.blogObject.author ||
-      !this.state.blogObject.description ||
-      !this.state.editorState.getCurrentContent().hasText()
+      !blogObject.blogTitle ||
+      !blogObject.author ||
+      !blogObject.description ||
+      !editorState.getCurrentContent().hasText()
     ) {
       this.setState({
         showAlert:
@@ -341,31 +383,33 @@ class Index extends React.Component<EmptyProps, State> {
       });
       return false;
     }
+
+    if (images.some((image) => image?.src && !image.alt)) {
+      this.setState({
+        showAlert: '⚠️ images must have alt text.',
+      });
+      return false;
+    }
+
     const titles: string[] = [];
-    this.state.blogPostsList.forEach((post) => {
+    blogPostsList.forEach((post) => {
       if (post?.blogTitle) titles.push(post?.blogTitle);
     });
-    const contentState = this.state.editorState.getCurrentContent();
+    const contentState = editorState.getCurrentContent();
     const raw = convertToRaw(contentState);
     const html = draftToHtml(raw);
     this.updateBlogField('content', html);
 
-    if (!this.validCustomId(this.state.customId)) {
+    if (!this.validCustomId(customId)) {
       this.setState({
         showAlert: '⚠️ Invalid custom id: lowercase letters and hyphens only!',
       });
       return false;
     }
 
-    this.updateBlogField(
-      'id',
-      this.state.customId || this.state.blogObject.blogTitle
-    );
+    this.updateBlogField('id', customId || blogObject.blogTitle);
 
-    if (
-      !this.state.editMode &&
-      titles.includes(this.state.blogObject?.blogTitle)
-    ) {
+    if (!editMode && titles.includes(blogObject?.blogTitle)) {
       this.setState({
         showAlert:
           '⚠️ Warning: A post with this title exists. Please change your title. If you are trying to edit this post, please close this message then click edit: Edit an existing post',
@@ -414,14 +458,60 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-  waitForSelection(conditionFunction: () => boolean) {
-    const poll = (resolve: any) => {
-      if (conditionFunction()) resolve();
-      else setTimeout(() => poll(resolve), 500);
-    };
+  handleImageUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+    size: ImageSizes
+  ): Promise<void> => {
+    try {
+      const image = event?.target?.files?.[0];
 
-    return new Promise(poll);
-  }
+      this.setState({ imageTypeWarning: !image?.name.endsWith('jpg') });
+
+      if (image) {
+        const filepath = 'bloguploads/' + uuidv4() + image?.name;
+        await Storage.put(filepath, image, {
+          contentType: 'image/*',
+          acl: 'public-read',
+        });
+
+        this.updateBlogField(size, {
+          src: S3_BUCKET + filepath,
+          alt: this.state.blogObject[size]?.alt ?? '',
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  validateImageSize = (
+    {
+      currentTarget: { naturalWidth, naturalHeight },
+    }: React.SyntheticEvent<HTMLImageElement, Event>,
+    size: ImageSizes
+  ): void => {
+    let imageSizeWarning = '';
+
+    switch (size) {
+      case 'babyHeroImage':
+        if (naturalWidth !== 1280 || naturalHeight !== 1024) {
+          imageSizeWarning = 'Baby Hero';
+        }
+        break;
+      case 'bannerImage':
+        if (naturalWidth !== 2208 || naturalHeight !== 1200) {
+          imageSizeWarning = 'Banner';
+        }
+        break;
+      case 'squareImage':
+        if (naturalWidth !== 1024 || naturalHeight !== 1024) {
+          imageSizeWarning = 'Square';
+        }
+        break;
+    }
+
+    this.setState({ imageSizeWarning });
+  };
 
   async handleEdit() {
     if (this.state.blogToEditObject?.content) {
@@ -435,14 +525,15 @@ class Index extends React.Component<EmptyProps, State> {
         editorState: EditorState.createWithContent(contentState),
       });
 
-      const temp: any = { ...this.state.blogToEditObject };
-      delete temp.__typename;
+      const temp = { ...this.state.blogToEditObject };
+      delete (temp as any).__typename;
+      delete (temp as any).createdAt;
+      delete (temp as any).updatedAt;
       delete temp.blogSeries;
-      delete temp.createdAt;
       delete temp.createdBy;
       delete temp.createdBy;
-      delete temp.updatedAt;
       delete temp.series;
+      delete temp.videoSeries;
 
       this.setState({ blogObject: temp });
 
@@ -532,7 +623,7 @@ class Index extends React.Component<EmptyProps, State> {
 
   updateBlogField(
     field: keyof CreateBlogInput,
-    value: boolean | string | (string | null)[]
+    value: boolean | string | (string | null)[] | ImageInput
   ) {
     this.setState((prevState) => ({
       blogObject: { ...prevState.blogObject, [field]: value },
@@ -877,6 +968,9 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   renderTextInput() {
+    const { imageSizeWarning, imageTypeWarning, blogObject } = this.state;
+    const { babyHeroImage } = blogObject;
+
     return (
       <div className="editor-container">
         <div>
@@ -1059,7 +1153,6 @@ class Index extends React.Component<EmptyProps, State> {
             }}
           />
         </label>
-
         <label>
           Custom ID:
           <input
@@ -1090,7 +1183,52 @@ class Index extends React.Component<EmptyProps, State> {
             }
           ></input>
         </label>
+        <hr />
 
+        <h5>Preview Images</h5>
+        <h6>Please upload .jpg images</h6>
+        {imageTypeWarning && (
+          <h6 style={{ color: 'red' }}>Warning: images should be .jpg</h6>
+        )}
+        {imageSizeWarning && (
+          <h6 style={{ color: 'red' }}>
+            Warning: {imageSizeWarning} image may have incorrect dimensions
+          </h6>
+        )}
+        {imageInputs.map(({ size, text }) => (
+          <label style={{ marginRight: 12, maxWidth: 250 }} key={size}>
+            {text}
+            <input
+              type="file"
+              accept="image/jpg"
+              onChange={(e) => this.handleImageUpload(e, size)}
+            />
+            {blogObject[size]?.src && (
+              <img
+                src={blogObject[size]?.src ?? ''}
+                alt={blogObject[size]?.alt ?? ''}
+                onLoad={(e) => this.validateImageSize(e, size)}
+                style={{ maxWidth: 150 }}
+              />
+            )}
+          </label>
+        ))}
+        <label>
+          Alt text:
+          <input
+            onChange={(e) => {
+              (
+                ['babyHeroImage', 'bannerImage', 'squareImage'] as ImageSizes[]
+              ).forEach((image) => {
+                this.updateBlogField(image, {
+                  src: blogObject[image]?.src ?? '',
+                  alt: e.target.value,
+                });
+              });
+            }}
+            value={babyHeroImage?.alt ?? ''}
+          />
+        </label>
         <Editor
           editorState={this.state.editorState}
           onEditorStateChange={this.onChange}
@@ -1114,14 +1252,12 @@ class Index extends React.Component<EmptyProps, State> {
             image: {
               uploadEnabled: true,
               uploadCallback: async (file: any) => {
-                const filepath = 'bloguploads/' + uuidv1() + file.name;
+                const filepath = 'bloguploads/' + uuidv4() + file.name;
                 await Storage.put(filepath, file, {
                   contentType: 'image/*',
                   acl: 'public-read',
                 });
-                const download =
-                  'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/' +
-                  filepath;
+                const download = S3_BUCKET + filepath;
                 return { data: { link: download } };
               },
               previewImage: true,

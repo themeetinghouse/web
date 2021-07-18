@@ -6,7 +6,7 @@ import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import moment from 'moment';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {

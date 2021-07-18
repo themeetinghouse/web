@@ -31,9 +31,8 @@ import LadderList from './LadderList';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './ListItem.scss';
 import format from 'date-fns/format';
-import ScaledImage, {
-  fallbackToImage,
-} from 'components/ScaledImage/ScaledImage';
+import { ScaledImage, BlogImage } from 'components/ScaledImage';
+import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 import { Link } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
@@ -531,13 +530,7 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: `Graphic for the ${item.blogTitle?.replace(
-        /^The /,
-        ''
-      )}${item.blogTitle?.slice(4)} blog.`,
-    };
+
     return (
       <Link
         className="BlogLink"
@@ -546,8 +539,10 @@ class ListItem extends React.Component<Props, State> {
         aria-label={item.blogTitle ?? 'read blog post'}
       >
         <div className="BlogItem">
-          <ScaledImage
-            image={image}
+          <BlogImage
+            image={item.squareImage}
+            blogTitle={item.blogTitle}
+            imageType="square"
             className="BlogSquareImage"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{

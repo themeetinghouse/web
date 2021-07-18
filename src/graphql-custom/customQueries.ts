@@ -18,6 +18,18 @@ export const getBlogSeries = /* GraphQL */ `
             blogStatus
             description
             blogTitle
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
           }
         }
         nextToken
@@ -161,6 +173,18 @@ export const getBlogByBlogStatus = /* GraphQL */ `
         blogTitle
         createdAt
         updatedAt
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
       }
       nextToken
     }
@@ -360,6 +384,18 @@ export const getBlogForSearch = /* GraphQL */ `
       id
       author
       tags
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
     }
   }
 `;
@@ -379,6 +415,18 @@ export const getBlog = /* GraphQL */ `
       blogTitle
       topics
       tags
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
     }
   }
 `;
@@ -672,6 +720,18 @@ export const searchBlogs = /* GraphQL */ `
         description
         blogTitle
         hiddenMainIndex
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
       }
       nextToken
       total
