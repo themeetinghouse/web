@@ -173,6 +173,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
             ref={this.refCallback}
             className="HorizontalScrollListItemContainer"
             onScroll={this.handleScroll}
+            data-testid="horizontal-scroll-list"
           >
             {/* Each child will be sized to determine how many pages we need compared to the overall width of the container */}
             {this.props.children &&
