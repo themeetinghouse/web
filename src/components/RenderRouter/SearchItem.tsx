@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchItem.scss';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { GraphQLResult } from '@aws-amplify/api';
 
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
@@ -16,7 +17,6 @@ import {
   SearchNotessQuery,
   SearchSeriessQuery,
 } from 'API';
-import { GraphQLResult } from '@aws-amplify/api';
 import RenderRouter from './RenderRouter';
 import { Button } from 'reactstrap';
 Amplify.configure(awsmobile);

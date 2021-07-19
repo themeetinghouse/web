@@ -1,8 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import BlogItem from './BlogItem';
-import { API } from '@aws-amplify/api';
-
+import { API } from 'aws-amplify';
 type BuildPropsArgs = {
   style: 'multiImage' | 'hero' | 'featured';
   blogSeries?: string;

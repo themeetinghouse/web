@@ -1,9 +1,10 @@
 import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import moment from 'moment';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+
 import {
   GetSeriesQuery,
   GetSeriesQueryVariables,

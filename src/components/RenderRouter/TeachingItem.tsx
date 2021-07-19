@@ -5,9 +5,9 @@ import './TeachingItem.scss';
 import * as customQueries from '../../graphql-custom/customQueries';
 import { API } from 'aws-amplify';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { LinkButton } from 'components/Link/Link';
 import { Button } from 'reactstrap';
+import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 interface Props extends RouteComponentProps {
   content: any;

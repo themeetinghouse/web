@@ -35,7 +35,6 @@
   "author": "George Bell",
   "license": "ISC",
   "dependencies": {
-    "@aws-amplify/api": "^4.0.6",
     "@aws-amplify/ui-react": "^1.2.6",
     "@sentry/browser": "^6.9.0",
     "aws-amplify": "^4.2.0",

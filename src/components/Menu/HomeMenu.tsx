@@ -8,16 +8,16 @@ import {
   Button,
   NavItem,
 } from 'reactstrap';
+import { API } from 'aws-amplify';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import './menu.scss';
 import moment from 'moment-timezone';
 import * as queries from '../../graphql/queries';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import API from '@aws-amplify/api';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, NavLink } from 'components/Link/Link';
 import { LiveEvents } from '../types';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const Dropdown = React.lazy(
   () => import('../../components/LiveEvents/Dropdown')

@@ -1,9 +1,12 @@
 import React from 'react';
-import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import {
   getBlogSeries,
   getBlogByBlogStatus,
 } from 'graphql-custom/customQueries';
+import { API } from 'aws-amplify';
+
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+
 import moment from 'moment';
 import { Link, LinkButton } from 'components/Link/Link';
 import {

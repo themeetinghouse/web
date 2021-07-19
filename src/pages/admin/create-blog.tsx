@@ -8,7 +8,6 @@ import awsmobile from 'aws-exports';
 import * as customQueries from 'graphql-custom/customQueries';
 import * as queries from 'graphql/queries';
 import * as mutations from 'graphql/mutations';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify, { API, Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
@@ -19,6 +18,8 @@ import { EmptyProps } from 'utils';
 import 'react-datepicker/dist/react-datepicker.css';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+
 import './create-blog.scss';
 import {
   BlogBridgeByPostQuery,

@@ -1,4 +1,4 @@
-import { GraphQLResult } from '@aws-amplify/api/lib/types';
+import { GraphQLResult } from '@aws-amplify/api';
 
 const Amplify = {
   configure: jest.fn(),
