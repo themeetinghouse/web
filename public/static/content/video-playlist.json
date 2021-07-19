@@ -24,6 +24,10 @@
         "selector": "same-playlist"
       },
       {
+        "type": "blog",
+        "style": "watch-page"
+      },
+      {
         "type": "podcasts",
         "podcastlist": [
           {
