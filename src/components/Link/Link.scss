@@ -45,7 +45,7 @@ a.button-link {
 }
 
 a {
-  color: theme.$onyxblacktext;
+  color: theme.$onyxblacktext !important;
   text-decoration: underline;
   text-underline-offset: 0.25em;
 

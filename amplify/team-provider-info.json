@@ -115,7 +115,10 @@
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
           "s3Key": "amplify-builds/emailHomeChurch-53536546627839364e74-build.zip"
         },
-        "socialBotHandler": {},
+        "socialBotHandler": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/socialBotHandler-356435453137546e4130-build.zip"
+        },
         "tmhF1HomeChurch": {
           "userPoolId": "us-east-1_KiJzP2dH5",
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
