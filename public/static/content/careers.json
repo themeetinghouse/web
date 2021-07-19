@@ -58,11 +58,6 @@
         "list": [
           {
             "type": "link",
-            "title": "Downtown Toronto Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/DTleadpastor.pdf"
-          },
-          {
-            "type": "link",
             "title": "Hamilton Youth Pastor",
             "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           },
