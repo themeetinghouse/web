@@ -68,6 +68,11 @@
           },
           {
             "type": "link",
+            "title": "Cross Regional Kids Pastor",
+            "navigateTo": "/static/pdfs/careers/Cross Regional Kids Pastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Live Production and Technical Producer",
             "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
           },
