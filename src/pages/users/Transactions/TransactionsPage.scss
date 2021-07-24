@@ -40,14 +40,37 @@ td {
   width: 72px;
   height: 56px;
 }
-
+.TransactionsSmallScreen {
+  display: none;
+}
 @media (max-width: 768px) {
+  .TransactionsSmallScreen {
+    display: unset;
+  }
+  .TransactionsBigScreen {
+    display: none;
+  }
   .TransactionsContainer {
     margin-left: unset;
+    height: unset;
+    min-height: calc(100vh - 74px);
     margin-right: unset;
-    background-color: white;
-    padding: 40px 24px;
+    background-color: #efeff0;
+    padding: unset;
+    padding-bottom: 40px;
     width: 100vw;
+    h3 {
+      padding-top: 36px;
+    }
+    p,
+    h3 {
+      padding-left: 22px;
+    }
+    p {
+      padding-top: 9px;
+      padding-bottom: 7px;
+      margin-bottom: 0px;
+    }
   }
   .TransactionHeaderContainer {
     padding-bottom: 20px;

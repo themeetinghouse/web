@@ -20,6 +20,52 @@ export default function TransactionsPage(): JSX.Element {
     'Payment Method',
     'Fund',
   ];
+  const TransactionCollapseableItem = (props: any) => {
+    const [open, setOpen] = useState(false);
+    const { item } = props;
+    return (
+      <div key={item?.id}>
+        <div>
+          <p
+            style={{
+              fontSize: 14,
+              letterSpacing: '0.5px',
+              fontWeight: 700,
+              lineHeight: '18px',
+            }}
+          >
+            {item?.receivedDate}
+          </p>
+        </div>
+        <div
+          style={{
+            backgroundColor: 'white',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <p style={{ flex: 1 }}>{item?.fund?.name}</p>
+            <p style={{ flex: 1 }}>{item?.amount} </p>
+            <p
+              onClick={() => setOpen((prev) => !prev)}
+              style={{ paddingRight: 40 }}
+            >
+              {!open ? '+' : '-'}
+            </p>
+          </div>
+
+          {open ? (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <p>Transaction No.:</p>
+              <p>Time:</p>
+              <p>Payment Method:</p>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="TransactionsContainer">
       {isLoading ? (
@@ -43,47 +89,140 @@ export default function TransactionsPage(): JSX.Element {
           <div className="TransactionHeaderContainer">
             <h3 className="TransactionContainerHeader">Transactions</h3>
           </div>
-          <table width={'100%'}>
-            <thead>
+          <div className="TransactionsSmallScreen">
+            {true || transData?.contributionReceipt?.length ? (
+              [
+                ...(transData?.contributionReceipt ?? []),
+                {
+                  id: '1',
+                  receivedDate: 'Jun 1, 2021',
+                  amount: 'CAD $520.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '2',
+                  receivedDate: 'Apr 2, 2021',
+                  amount: 'CAD $1110.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '3',
+                  receivedDate: 'Mar 3, 2021',
+                  amount: 'CAD $20.00',
+                  fund: { name: 'Go' },
+                },
+                {
+                  id: '4',
+                  receivedDate: 'Jun 4, 2021',
+                  amount: 'CAD $900.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '5',
+                  receivedDate: 'Apr 5, 2021',
+                  amount: 'CAD $800.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '6',
+                  receivedDate: 'Mar 6, 2021',
+                  amount: 'CAD $120.00',
+                  fund: { name: 'Go' },
+                },
+                {
+                  id: '7',
+                  receivedDate: 'Jun 7, 2021',
+                  amount: 'CAD $250.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '8',
+                  receivedDate: 'Apr 8, 2021',
+                  amount: 'CAD $700.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '9',
+                  receivedDate: 'Mar 9, 2021',
+                  amount: 'CAD $20.00',
+                  fund: { name: 'Go' },
+                },
+                {
+                  id: '10',
+                  receivedDate: 'Jun 10, 2021',
+                  amount: 'CAD $600.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '11',
+                  receivedDate: 'Apr 11, 2021',
+                  amount: 'CAD $500.00',
+                  fund: { name: 'Compassion' },
+                },
+                {
+                  id: '12',
+                  receivedDate: 'Mar 12, 2021',
+                  amount: 'CAD $21.00',
+                  fund: { name: 'Go' },
+                },
+              ]
+                ?.filter(
+                  (a, index) =>
+                    index >= paginationIndex && index < paginationIndex + 10
+                )
+                .map((x) => (
+                  <TransactionCollapseableItem key={x?.id} item={x} />
+                ))
+            ) : (
               <tr>
-                {tableHeaders.map((header) => {
-                  return (
-                    <th key={header} className="TransactionTableHeader">
-                      {header}
-                    </th>
-                  );
-                })}
+                <td>
+                  <p>No transactions found</p>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {transData?.contributionReceipt?.length ? (
-                transData?.contributionReceipt
-                  ?.filter(
-                    (a, index) =>
-                      index >= paginationIndex && index < paginationIndex + 10
-                  )
-                  .map((x) => {
-                    return (
-                      <tr className="TransactionTableRow" key={x?.id}>
-                        <td>{x?.id}</td>
-                        <td>{x?.receivedDate}</td>
-                        <td>{x?.receivedDate}</td>
-                        <td>{x?.amount}</td>
-                        <td>{x?.accountReference}</td>
-                        <td>{x?.fund?.name}</td>
-                      </tr>
-                    );
-                  })
-              ) : (
+            )}
+          </div>
+          <div className="TransactionsBigScreen">
+            <table width={'100%'}>
+              <thead>
                 <tr>
-                  <td>
-                    <p>No transactions found</p>
-                  </td>
+                  {tableHeaders.map((header) => {
+                    return (
+                      <th key={header} className="TransactionTableHeader">
+                        {header}
+                      </th>
+                    );
+                  })}
                 </tr>
-              )}
-            </tbody>
-          </table>
-
+              </thead>
+              <tbody>
+                {transData?.contributionReceipt?.length ? (
+                  transData?.contributionReceipt
+                    ?.filter(
+                      (a, index) =>
+                        index >= paginationIndex && index < paginationIndex + 10
+                    )
+                    .map((x) => {
+                      return (
+                        <tr className="TransactionTableRow" key={x?.id}>
+                          <td>{x?.id}</td>
+                          <td>{x?.receivedDate}</td>
+                          <td>{x?.receivedDate}</td>
+                          <td>{x?.amount}</td>
+                          <td>{x?.accountReference}</td>
+                          <td>{x?.fund?.name}</td>
+                        </tr>
+                      );
+                    })
+                ) : (
+                  <tr>
+                    <td>
+                      <p>No transactions found</p>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
           <div
             style={{
               display: 'flex',

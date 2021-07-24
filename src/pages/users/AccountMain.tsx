@@ -19,15 +19,20 @@ export default function AccountMain(): JSX.Element {
   const UserConsumer = UserContext.Consumer;
   useEffect(() => {
     const checkAuthStatus = async () => {
-      const user = await Auth.currentAuthenticatedUser();
-      const session = await Auth.userSession(user);
-      if (!session.isValid()) {
-        setIsLoggedIn(false);
-        console.log('invalid session');
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        const session = await Auth.userSession(user);
+        if (!session.isValid()) {
+          setIsLoggedIn(false);
+          console.log('invalid session');
+          history.push('/signin');
+        } else {
+          console.log('Valid session');
+          setIsLoggedIn(true);
+        }
+      } catch (err) {
+        console.log(err);
         history.push('/signin');
-      } else {
-        console.log('Valid session');
-        setIsLoggedIn(true);
       }
     };
     checkAuthStatus();
