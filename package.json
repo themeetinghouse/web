@@ -41,6 +41,8 @@
     "@aws-amplify/api": "^3.3.3",
     "@aws-amplify/ui-react": "^1.2.2",
     "@sentry/browser": "^6.6.0",
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.16.0",
     "aws-amplify": "^3.3.19",
     "bootstrap": "^4.5.3",
     "date-fns": "^2.16.1",

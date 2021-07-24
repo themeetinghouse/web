@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './PaymentsCard.scss';
+import {
+  CardCvcElement,
+  CardExpiryElement,
+  CardNumberElement,
+} from '@stripe/react-stripe-js';
+import {
+  StripeCardCvcElementChangeEvent,
+  StripeCardExpiryElementChangeEvent,
+  StripeCardNumberElementChangeEvent,
+} from '@stripe/stripe-js';
 type PaymentMethod = {
   nameOnCard: string;
   cardNum: string;
@@ -9,7 +19,48 @@ type PaymentMethod = {
   lastTransactionDate?: string;
   isPreferredCard?: boolean;
 };
+
+const CARD_ELEMENT_OPTIONS = {
+  style: {
+    base: {
+      color: '#32325d',
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a',
+    },
+  },
+};
+
 export default function PaymentsCard() {
+  const stripeFieldValidation = (
+    element:
+      | StripeCardNumberElementChangeEvent
+      | StripeCardExpiryElementChangeEvent
+      | StripeCardCvcElementChangeEvent,
+    name: string
+  ) => {
+    if (!element.empty && element.complete) {
+      setStripeValidation({
+        ...stripeValidation,
+        [name]: true,
+      });
+    } else {
+      setStripeValidation({ ...stripeValidation, [name]: false });
+    }
+    console.log(stripeValidation);
+  };
+  const [stripeValidation, setStripeValidation] = useState({
+    cardNumber: false,
+    expiryDate: false,
+    cvc: false,
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [cards, setCards] = useState<Array<PaymentMethod>>([]);
   const [showCardForm, setShowCardForm] = useState(false);
@@ -19,6 +70,18 @@ export default function PaymentsCard() {
     expiry: '',
     cvc: '',
   });
+  const isCardValid = (): boolean => {
+    console.log(
+      stripeValidation.cardNumber &&
+        stripeValidation.expiryDate &&
+        stripeValidation.cvc
+    );
+    return (
+      stripeValidation.cardNumber &&
+      stripeValidation.expiryDate &&
+      stripeValidation.cvc
+    );
+  };
   const [addingCard, setAddingCard] = useState(false);
   const addNewPaymentMethod = async () => {
     setAddingCard(true);
@@ -173,20 +236,28 @@ export default function PaymentsCard() {
                 className="NewCardInput"
               />
               <p>Credit card number</p>
-              <input
+              <CardNumberElement
+                onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
+                options={CARD_ELEMENT_OPTIONS}
+              />
+              {/*} <input
                 onChange={(e) =>
                   setCardDataForm({ ...cardDataForm, cardNum: e.target.value })
                 }
                 value={cardDataForm.cardNum}
                 className="NewCardInput"
-              />
+              />*/}
               <div
                 className="ExpiryCvcContainer"
                 style={{ display: 'flex', flexDirection: 'row' }}
               >
                 <div>
                   <p>Expiry</p>
-                  <input
+                  <CardExpiryElement
+                    onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
+                    options={CARD_ELEMENT_OPTIONS}
+                  />
+                  {/*  <input
                     onChange={(e) =>
                       setCardDataForm({
                         ...cardDataForm,
@@ -198,23 +269,28 @@ export default function PaymentsCard() {
                     placeholder="MM/YY"
                     style={{ width: '100%' }}
                     className="NewCardInput"
-                  />
+                  />*/}
                 </div>
                 <div style={{ marginLeft: 33 }}>
                   <p>CVC</p>
-                  <input
+                  <CardCvcElement
+                    onChange={(el) => stripeFieldValidation(el, 'cvc')}
+                    options={CARD_ELEMENT_OPTIONS}
+                  />
+                  {/*  <input
                     onChange={(e) =>
                       setCardDataForm({ ...cardDataForm, cvc: e.target.value })
                     }
                     value={cardDataForm.cvc}
                     style={{ width: '100%' }}
                     className="NewCardInput"
-                  />
+                  />*/}
                 </div>
               </div>
               <button
                 onClick={addNewPaymentMethod}
                 style={{ width: '100%' }}
+                disabled={!isCardValid()}
                 className="SubmitNewCardButton"
               >
                 {addingCard ? (
