@@ -1,5 +1,5 @@
 import './MyAccountNav.scss';
-import { Link, useLocation, useRouteMatch } from 'react-router-dom';
+import { Link, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -20,6 +20,7 @@ export default function MyAccountNav({
   toggle,
   navigationItems,
 }: Props): JSX.Element {
+  const history = useHistory();
   const [navItems, setNavItems] = useState<NavItems>(navigationItems);
   useEffect(() => {
     const fetchNavItems = async () => {
@@ -57,7 +58,8 @@ export default function MyAccountNav({
     >
       <div className="MyAccountTMHLogoContainer">
         <img
-          alt="Logo, Stylized House"
+          onClick={() => history.push('/')}
+          alt="The Meeting House, Home"
           className="MyAccountTMHLogo"
           src="/static/logos/tmh-logo-userportal.svg"
         />
