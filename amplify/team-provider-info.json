@@ -215,6 +215,17 @@
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
           "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-336372523250362b6362-build.zip"
+        },
+        "themeetinghousetmhShared": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion93f8acf8-build.zip"
+        },
+        "tmhStripeListPaymentMethods": {
+          "userPoolId": "us-east-1_tKp1OdyuZ",
+          "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
+          "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhStripeListPaymentMethods-5645626230504a6f4558-build.zip"
         }
       }
     }

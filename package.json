@@ -15,6 +15,8 @@
     "publish": "COMMIT=`git rev-parse --short HEAD`;amplify publish -c;curl --header 'Content-Type: application/json' --request POST --data '{\"content\":\"Published a new version from commit: '$COMMIT'\"}' $DISCORD_WEBHOOK_WEB",
     "eject": "react-scripts eject",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
+    "amplify:themeetinghousetmhShared": "cd amplify/backend/function/themeetinghousetmhShared/opt && tsc && cd -",
+    "amplify:tmhStripeListPaymentMethods": "cd amplify/backend/function/tmhStripeListPaymentMethods/src && tsc && cd -",
     "amplify:tmhF1LinkUser": "cd amplify/backend/function/tmhF1LinkUser/src && tsc && cd -",
     "amplify:tmhF1SearchContributionReceipts": "cd amplify/backend/function/tmhF1SearchContributionReceipts/src && tsc && cd -",
     "amplify:tmhF1SyncGroupPermissions": "cd amplify/backend/function/tmhF1SyncGroupPermissions/src && tsc && cd -",
