@@ -237,6 +237,7 @@ export default function PaymentsCard() {
               />
               <p>Credit card number</p>
               <CardNumberElement
+                className="NewCardInput"
                 onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
                 options={CARD_ELEMENT_OPTIONS}
               />
@@ -251,40 +252,21 @@ export default function PaymentsCard() {
                 className="ExpiryCvcContainer"
                 style={{ display: 'flex', flexDirection: 'row' }}
               >
-                <div>
+                <div style={{ flex: 1 }}>
                   <p>Expiry</p>
                   <CardExpiryElement
+                    className="NewCardInput"
                     onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
                     options={CARD_ELEMENT_OPTIONS}
                   />
-                  {/*  <input
-                    onChange={(e) =>
-                      setCardDataForm({
-                        ...cardDataForm,
-                        expiry: e.target.value,
-                      })
-                    }
-                    value={cardDataForm.expiry}
-                    maxLength={5}
-                    placeholder="MM/YY"
-                    style={{ width: '100%' }}
-                    className="NewCardInput"
-                  />*/}
                 </div>
-                <div style={{ marginLeft: 33 }}>
+                <div style={{ flex: 1, marginLeft: 33 }}>
                   <p>CVC</p>
                   <CardCvcElement
+                    className="NewCardInput"
                     onChange={(el) => stripeFieldValidation(el, 'cvc')}
                     options={CARD_ELEMENT_OPTIONS}
                   />
-                  {/*  <input
-                    onChange={(e) =>
-                      setCardDataForm({ ...cardDataForm, cvc: e.target.value })
-                    }
-                    value={cardDataForm.cvc}
-                    style={{ width: '100%' }}
-                    className="NewCardInput"
-                  />*/}
                 </div>
               </div>
               <button

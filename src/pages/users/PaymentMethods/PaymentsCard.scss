@@ -166,7 +166,7 @@ h1 {
   flex-direction: row;
   max-width: 50%;
   @media (max-width: 1000px) {
-    max-width: 100%;
+    min-width: 100%;
   }
 }
 .NewCardInput {
