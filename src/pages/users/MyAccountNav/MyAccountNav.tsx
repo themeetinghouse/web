@@ -86,6 +86,14 @@ export default function MyAccountNav({
           );
         })}
       </nav>
+      {!navigationItems.length ? (
+        <img
+          aria-label="Close"
+          className="CloseButton"
+          onClick={() => history.push('/')}
+          src="/static/svg/Close-Cancel-White.svg"
+        />
+      ) : null}
       {navigationItems.length ? (
         <div tabIndex={0} className="hamburgerToggle">
           <HamburgerMenu
