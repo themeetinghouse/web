@@ -1,20 +1,17 @@
 import { LinkButton } from 'components/Link/Link';
 import { useContext, useEffect } from 'react';
-import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
-import { F1SearchContributionReceiptsResultType } from 'API';
 
 import { UserContext } from 'components/Auth/UserContext';
 
 export default function RecentTransactionsCard(): JSX.Element {
-  const [lastTransacs, setLastTransacs] =
-    useState<F1SearchContributionReceiptsResultType | null>();
-  const [isLoading, setIsLoading] = useState(true);
   const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    UserConsumer.userActions.getReceipts(setLastTransacs, setIsLoading);
+    UserConsumer.userActions.getReceipts();
   }, []);
+  const lastTransacs = UserConsumer.userState?.f1Transactions;
+  const isLoading = lastTransacs == null;
   return (
     <div className="Recent-Trans">
       {isLoading ? (
@@ -33,7 +30,7 @@ export default function RecentTransactionsCard(): JSX.Element {
           <br />
           <Spinner></Spinner>
         </div>
-      ) : lastTransacs?.contributionReceipt?.length ? (
+      ) : lastTransacs?.length ? (
         <>
           <h3
             style={{
@@ -53,7 +50,7 @@ export default function RecentTransactionsCard(): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {lastTransacs?.contributionReceipt?.map((transac) => (
+              {lastTransacs?.map((transac) => (
                 <tr key={transac?.id}>
                   <td>{transac?.receivedDate}</td>
                   <td>{transac?.amount}</td>

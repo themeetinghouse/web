@@ -1,5 +1,3 @@
-import { GraphQLResult } from '@aws-amplify/api';
-import { GetTmhUserQuery } from 'API';
 import { UserContext } from 'components/Auth/UserContext';
 import { useContext, useEffect, useRef } from 'react';
 import { useState } from 'react';
@@ -16,22 +14,15 @@ export default function ProfilePage() {
   const states = stateList();
   const provinces = provinceList();
   const [isUpdating] = useState(false);
-  const [form, setForm] = useState<
-    | NonNullable<
-        NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
-      >
-    | null
-    | undefined
-  >(null);
+
   const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    UserConsumer.userActions.getCurrentUserProfile(setForm);
-    console.log(form);
+    UserConsumer.userActions.getCurrentUserProfile();
   }, []);
   const handleProfileUpdate = async () => {
     // compare old form with new form, remove non updated properties
   };
-  console.log(form);
+  const form = UserConsumer.userState?.user;
   return form != null && form.billingAddress != null ? (
     <div className="ProfilePageContainer">
       <div className="ProfilePage">
@@ -63,9 +54,9 @@ export default function ProfilePage() {
               <input
                 className="ProfileInput"
                 value={form.given_name}
-                onChange={(e) =>
+                /* onChange={(e) =>
                   setForm({ ...form, given_name: e.target.value })
-                }
+                }*/
               ></input>
             </div>
             <div className="NameItem">
@@ -73,9 +64,9 @@ export default function ProfilePage() {
               <input
                 className="ProfileInput"
                 value={form.family_name}
-                onChange={(e) =>
+                /* onChange={(e) =>
                   setForm({ ...form, family_name: e.target.value })
-                }
+                }*/
               ></input>
             </div>
           </div>
@@ -83,19 +74,19 @@ export default function ProfilePage() {
           <input
             className="ProfileInput"
             value={form.email ?? ''}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            //   onChange={(e) => setForm({ ...form, email: e.target.value })}
           ></input>
           <label>Mobile</label>
           <input
             className="ProfileInput"
             value={form.phone ?? ''}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            // onChange={(e) => setForm({ ...form, phone: e.target.value })}
           ></input>
           <label>Stress Address</label>
           <input
             className="ProfileInput"
             value={form.billingAddress?.line1 ?? ''}
-            onChange={(e) =>
+            /* onChange={(e) =>
               setForm({
                 ...form,
                 billingAddress: {
@@ -104,13 +95,13 @@ export default function ProfilePage() {
                   line1: e.target.value,
                 },
               })
-            }
+            }*/
           ></input>
           <label>City</label>
           <input
             className="ProfileInput"
             value={form.billingAddress?.city ?? ''}
-            onChange={(e) =>
+            /* onChange={(e) =>
               setForm({
                 ...form,
                 billingAddress: {
@@ -119,7 +110,7 @@ export default function ProfilePage() {
                   city: e.target.value,
                 },
               })
-            }
+            }*/
           ></input>
           <div className="LocationContainer">
             <div className="LocationItem">
@@ -127,7 +118,7 @@ export default function ProfilePage() {
               <select
                 id="country-select"
                 className="ProfileInput"
-                onChange={(e) =>
+                /* onChange={(e) =>
                   setForm({
                     ...form,
                     billingAddress: {
@@ -136,7 +127,7 @@ export default function ProfilePage() {
                       country: e.target.value,
                     },
                   })
-                }
+                }*/
                 name="country"
               >
                 <option value={''} defaultValue="">
@@ -161,7 +152,7 @@ export default function ProfilePage() {
                   id="province-select"
                   className="ProfileInput"
                   value={form.billingAddress?.state ?? ''}
-                  onChange={(e) =>
+                  /*    onChange={(e) =>
                     setForm({
                       ...form,
                       billingAddress: {
@@ -170,13 +161,13 @@ export default function ProfilePage() {
                         state: e.target.value,
                       },
                     })
-                  }
+                  }*/
                 ></input>
               ) : (
                 <select
                   id="province-select"
                   className="ProfileInput"
-                  onChange={(e) =>
+                  /* onChange={(e) =>
                     setForm({
                       ...form,
                       billingAddress: {
@@ -185,7 +176,7 @@ export default function ProfilePage() {
                         state: e.target.value,
                       },
                     })
-                  }
+                  }*/
                   name="province"
                 >
                   <option selected>Select a province/state</option>
@@ -219,7 +210,7 @@ export default function ProfilePage() {
               <input
                 className="ProfileInput"
                 value={form.billingAddress?.postal_code ?? ''}
-                onChange={(e) =>
+                /*onChange={(e) =>
                   setForm({
                     ...form,
                     billingAddress: {
@@ -228,7 +219,7 @@ export default function ProfilePage() {
                       postal_code: e.target.value,
                     },
                   })
-                }
+                }*/
               ></input>
             </div>
           </div>

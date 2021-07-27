@@ -26,7 +26,8 @@ type Query {
   tmhF1LinkUser:Boolean @function(name:"tmhF1LinkUser-${env}") @aws_cognito_user_pools
   tmhF1SyncGroupPermissions:Boolean @function(name:"tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
   tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
-  tmhStripeCreateCustomer(idempotency:String,phone:String,email:String,firstName:String,lastName:String,orgName:String,billingAddress:StripeAddressInput):StripeCustomerData @function(name:"tmhStripeCreateCustomer-${env}") @aws_cognito_user_pools
+  tmhStripeAddCustomer(idempotency:String,phone:String,email:String,firstName:String,lastName:String,orgName:String,billingAddress:StripeAddressInput):StripeCustomerData @function(name:"tmhStripeAddCustomer-${env}") @aws_cognito_user_pools
+  tmhStripeListPaymentMethods(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
 }
 input StripeAddressInput
 {
@@ -40,7 +41,13 @@ input StripeAddressInput
   type StripeCustomerData{
   customer:StripeCustomer
 }
-
+type StripePaymentMethodsData{
+   paymentMethods:[StripePaymentMethod]
+}
+type StripePaymentMethod{
+  id:String
+  type:String
+}
 type StripeCustomer{
   
   id: String

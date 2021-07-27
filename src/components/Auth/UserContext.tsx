@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { CognitoUser } from '@aws-amplify/auth';
 import { AuthStateData } from './AuthStateData';
-import { F1SearchContributionReceiptsResultType, GetTmhUserQuery } from 'API';
 import { GraphQLResult } from '@aws-amplify/api';
+import { GetTmhUserQuery, TmhF1SearchContributionReceiptsQuery } from 'API';
+
 export type TMHUserData = {
   sub: string;
   given_name: string;
@@ -20,7 +21,17 @@ export interface TMHCognitoUser extends CognitoUser {
 export interface UserState {
   hasCompletedPersonalProfile: ProfileStatus;
   userExists: boolean;
-  user: any;
+  user:
+    | NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+    | undefined
+    | null;
+  f1Transactions: NonNullable<
+    NonNullable<
+      NonNullable<
+        GraphQLResult<TmhF1SearchContributionReceiptsQuery>['data']
+      >['tmhF1SearchContributionReceipts']
+    >['results']
+  >['contributionReceipt'];
   authState: any;
   hasCompletedOrganizationProfile: string;
   orgId: string;
@@ -32,7 +43,6 @@ export interface UserState {
   groupsLoaded: boolean;
 }
 export interface UserActions {
-  onSetUser(user: any): void;
   updateHasCompletedPersonalProfile(): Promise<void> | null;
   recheckUserState(): Promise<void>;
   updateHasCompletedOrganizationProfile(): Promise<void> | null;
@@ -40,25 +50,8 @@ export interface UserActions {
   updateGroups(): Promise<void> | null;
   isMemberOf(group: string): boolean;
   isReady(): boolean;
-  getReceipts(
-    setLastTransacs: React.Dispatch<
-      React.SetStateAction<
-        F1SearchContributionReceiptsResultType | null | undefined
-      >
-    >,
-    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-  ): Promise<any>;
-  getCurrentUserProfile(
-    setUser: React.Dispatch<
-      React.SetStateAction<
-        | NonNullable<
-            NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
-          >
-        | null
-        | undefined
-      >
-    >
-  ): Promise<any>;
+  getReceipts(): Promise<void>;
+  getCurrentUserProfile(): Promise<void>;
 }
 export enum ProfileStatus {
   Completed,
@@ -79,7 +72,6 @@ type UserContextType = {
 };
 export const UserContext = React.createContext<UserContextType>({
   userActions: {
-    onSetUser: () => null,
     updateHasCompletedPersonalProfile: async () => {
       return;
     },
@@ -100,10 +92,10 @@ export const UserContext = React.createContext<UserContextType>({
       return false;
     },
     getReceipts: async () => {
-      return [];
+      return;
     },
     getCurrentUserProfile: async () => {
-      return [];
+      return;
     },
   },
   userState: undefined,

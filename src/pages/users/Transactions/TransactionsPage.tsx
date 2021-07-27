@@ -1,4 +1,3 @@
-import { F1SearchContributionReceiptsResultType } from 'API';
 import { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { isMobile } from 'react-device-detect';
@@ -8,13 +7,10 @@ import TransactionCollapsibleItem from './TransactionCollapsibleItem';
 import { UserContext } from 'components/Auth/UserContext';
 
 export default function TransactionsPage(): JSX.Element {
-  const [transData, setTransData] =
-    useState<F1SearchContributionReceiptsResultType | null>();
-  const [isLoading, setIsLoading] = useState(true);
   const [paginationIndex, setPaginationIndex] = useState(0);
   const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    UserConsumer.userActions.getReceipts(setTransData, setIsLoading);
+    UserConsumer.userActions.getReceipts();
   }, []);
   const tableHeaders = [
     'Transaction No.',
@@ -24,7 +20,8 @@ export default function TransactionsPage(): JSX.Element {
     'Payment Method',
     'Fund',
   ];
-
+  const transData = UserConsumer.userState?.f1Transactions;
+  const isLoading = transData == null;
   return (
     <div className="TransactionsContainer">
       {isLoading ? (
@@ -50,8 +47,8 @@ export default function TransactionsPage(): JSX.Element {
           </div>
           {isMobile ? (
             <div className="TransactionsSmallScreen">
-              {transData?.contributionReceipt?.length ? (
-                transData?.contributionReceipt
+              {transData?.length ? (
+                transData
                   ?.filter(
                     (contributionReceipt, index) =>
                       index >= paginationIndex && index < paginationIndex + 10
@@ -83,8 +80,8 @@ export default function TransactionsPage(): JSX.Element {
                   </tr>
                 </thead>
                 <tbody>
-                  {transData?.contributionReceipt?.length ? (
-                    transData?.contributionReceipt
+                  {transData?.length ? (
+                    transData
                       ?.filter(
                         (a, index) =>
                           index >= paginationIndex &&
@@ -114,7 +111,7 @@ export default function TransactionsPage(): JSX.Element {
             </div>
           )}
           <TransactionsPaginate
-            length={transData?.contributionReceipt?.length ?? 0}
+            length={transData?.length ?? 0}
             paginationIndex={paginationIndex}
             setPaginationIndex={setPaginationIndex}
           />

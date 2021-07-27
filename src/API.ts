@@ -2372,6 +2372,17 @@ export type StripeInvoiceSettings = {
   footer?: string | null,
 };
 
+export type StripePaymentMethodsData = {
+  __typename: "StripePaymentMethodsData",
+  paymentMethods?:  Array<StripePaymentMethod | null > | null,
+};
+
+export type StripePaymentMethod = {
+  __typename: "StripePaymentMethod",
+  id?: string | null,
+  type?: string | null,
+};
+
 export type ModelTNSeriesFilterInput = {
   id?: ModelIDFilterInput | null,
   TNident?: ModelStringFilterInput | null,
@@ -47487,7 +47498,7 @@ export type TmhF1SearchContributionReceiptsQuery = {
   } | null,
 };
 
-export type TmhStripeCreateCustomerQueryVariables = {
+export type TmhStripeAddCustomerQueryVariables = {
   idempotency?: string | null,
   phone?: string | null,
   email?: string | null,
@@ -47497,8 +47508,8 @@ export type TmhStripeCreateCustomerQueryVariables = {
   billingAddress?: StripeAddressInput | null,
 };
 
-export type TmhStripeCreateCustomerQuery = {
-  tmhStripeCreateCustomer?:  {
+export type TmhStripeAddCustomerQuery = {
+  tmhStripeAddCustomer?:  {
     __typename: "StripeCustomerData",
     customer?:  {
       __typename: "StripeCustomer",
@@ -47529,6 +47540,21 @@ export type TmhStripeCreateCustomerQuery = {
       shipping?: string | null,
       tax_exempt?: string | null,
     } | null,
+  } | null,
+};
+
+export type TmhStripeListPaymentMethodsQueryVariables = {
+  pageId?: string | null,
+};
+
+export type TmhStripeListPaymentMethodsQuery = {
+  tmhStripeListPaymentMethods?:  {
+    __typename: "StripePaymentMethodsData",
+    paymentMethods?:  Array< {
+      __typename: "StripePaymentMethod",
+      id?: string | null,
+      type?: string | null,
+    } | null > | null,
   } | null,
 };
 

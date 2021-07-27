@@ -8,10 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
 //import * as Sentry from '@sentry/browser';
 import {
   CreateTmhUserMutation,
-  F1SearchContributionReceiptsResultType,
   TmhF1LinkUserQuery,
+  TmhF1SearchContributionReceiptsQuery,
   TmhF1SyncGroupPermissionsQuery,
-  TMHUser,
 } from 'API';
 import awsconfig from '../../../src/aws-exports';
 import * as mutations from '../../../src/graphql/mutations';
@@ -35,7 +34,17 @@ interface State {
   hasCompletedPersonalProfile: ProfileStatus;
   hasF1Linked: boolean;
   userExists: boolean;
-  user: TMHUser | undefined | null;
+  user:
+    | NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+    | undefined
+    | null;
+  f1Transactions: NonNullable<
+    NonNullable<
+      NonNullable<
+        GraphQLResult<TmhF1SearchContributionReceiptsQuery>['data']
+      >['tmhF1SearchContributionReceipts']
+    >['results']
+  >['contributionReceipt'];
   authState: any;
   hasCompletedOrganizationProfile: string;
   orgId: string;
@@ -59,6 +68,7 @@ export default class Authenticator extends React.Component<
       hasCompletedPersonalProfile: ProfileStatus.Unknown,
       userExists: false,
       user: null,
+      f1Transactions: null,
       authState: 'signedOut',
       hasCompletedOrganizationProfile: 'Unknown',
       orgId: '',
@@ -69,9 +79,6 @@ export default class Authenticator extends React.Component<
       // initialUrl: '',
     };
   }
-  onSetUser = (user: any): void => {
-    this.setState({ user: user });
-  };
   async componentDidMount(): Promise<void> {
     try {
       await this.updateGroups();
@@ -386,29 +393,23 @@ export default class Authenticator extends React.Component<
       console.log(error);
     }
   };
-  getReceipts = async (
-    setLastTransacs: React.Dispatch<
-      React.SetStateAction<
-        F1SearchContributionReceiptsResultType | null | undefined
-      >
-    >,
-    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-  ): Promise<any> => {
-    return PaymentsCommon.getReceipts(setLastTransacs, setIsLoading);
+  getReceipts = async (): Promise<any> => {
+    if (this.state.f1Transactions == null) {
+      const z = await PaymentsCommon.getReceipts();
+      if (z)
+        this.setState({
+          f1Transactions: z.contributionReceipt,
+        });
+    }
   };
 
-  getCurrentUserProfile = async (
-    setUser: React.Dispatch<
-      React.SetStateAction<
-        | NonNullable<
-            NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
-          >
-        | null
-        | undefined
-      >
-    >
-  ): Promise<any> => {
-    return PaymentsCommon.getCurrentUserProfile(setUser);
+  getCurrentUserProfile = async (): Promise<void> => {
+    if (this.state.user == null) {
+      const z = await PaymentsCommon.getCurrentUserProfile();
+      this.setState({
+        user: z.data?.getTMHUser,
+      });
+    }
   };
   async getAuthInitialState(): Promise<void> {
     /* const initialUrl = await Linking.getInitialURL();
@@ -444,7 +445,6 @@ export default class Authenticator extends React.Component<
             ...this.state,
           },
           userActions: {
-            onSetUser: this.onSetUser,
             updateHasCompletedPersonalProfile: this.recheckUserState,
             updateHasCompletedOrganizationProfile: this.recheckUserState,
             recheckUserState: this.recheckUserState,

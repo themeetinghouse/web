@@ -2815,8 +2815,8 @@ export const tmhF1SearchContributionReceipts = /* GraphQL */ `
     }
   }
 `;
-export const tmhStripeCreateCustomer = /* GraphQL */ `
-  query TmhStripeCreateCustomer(
+export const tmhStripeAddCustomer = /* GraphQL */ `
+  query TmhStripeAddCustomer(
     $idempotency: String
     $phone: String
     $email: String
@@ -2825,7 +2825,7 @@ export const tmhStripeCreateCustomer = /* GraphQL */ `
     $orgName: String
     $billingAddress: StripeAddressInput
   ) {
-    tmhStripeCreateCustomer(
+    tmhStripeAddCustomer(
       idempotency: $idempotency
       phone: $phone
       email: $email
@@ -2860,6 +2860,16 @@ export const tmhStripeCreateCustomer = /* GraphQL */ `
         preferred_locales
         shipping
         tax_exempt
+      }
+    }
+  }
+`;
+export const tmhStripeListPaymentMethods = /* GraphQL */ `
+  query TmhStripeListPaymentMethods($pageId: String) {
+    tmhStripeListPaymentMethods(pageId: $pageId) {
+      paymentMethods {
+        id
+        type
       }
     }
   }

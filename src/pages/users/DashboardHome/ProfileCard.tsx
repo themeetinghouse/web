@@ -1,8 +1,6 @@
-import { GraphQLResult } from '@aws-amplify/api';
-import { GetTmhUserQuery } from 'API';
 import { Auth } from 'aws-amplify';
 import { UserContext } from 'components/Auth/UserContext';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Spinner } from 'reactstrap';
 import {
   Link as ClickableText,
@@ -11,18 +9,12 @@ import {
 import './ProfileCard.scss';
 
 export default function ProfileCard(): JSX.Element {
-  const [userData, setUserData] = useState<
-    | NonNullable<
-        NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
-      >
-    | null
-    | undefined
-  >(null);
   const UserConsumer = useContext(UserContext);
   //const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    UserConsumer.userActions.getCurrentUserProfile(setUserData);
+    UserConsumer.userActions.getCurrentUserProfile();
   }, []);
+  const userData = UserConsumer.userState?.user;
   return (
     <div className="Profile-Card">
       {userData == null ? (

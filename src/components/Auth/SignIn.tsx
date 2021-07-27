@@ -55,7 +55,7 @@ export default class SignIn extends React.Component<Props, State> {
   async changeAuthState(
     action: UserActions,
     state: string,
-    user?: any,
+
     data?: AuthStateData | null
   ): Promise<void> {
     this.setState({
@@ -64,7 +64,6 @@ export default class SignIn extends React.Component<Props, State> {
       authError: '',
     });
     if (action.onStateChange) await action.onStateChange(state, data ?? null);
-    if (user) action.onSetUser(user);
   }
 
   validateLogin(): boolean {
@@ -180,7 +179,6 @@ export default class SignIn extends React.Component<Props, State> {
                             await this.changeAuthState(
                               userActions,
                               'signUp',
-                              null,
                               null
                             );
                           }}
