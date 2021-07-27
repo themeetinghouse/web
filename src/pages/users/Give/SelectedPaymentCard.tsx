@@ -4,7 +4,11 @@ import { useEffect } from 'react';
 import { Spinner } from 'reactstrap';
 import './SelectedPaymentCard.scss';
 
-export function PaymentSelect() {
+type SelectedPaymentCardProps = {
+  card?: any;
+};
+
+export function SelectedPaymentCard(props: SelectedPaymentCardProps) {
   const [selectedCard, setSelectedCard] = useState({
     cardNum: '',
     expiry: '',

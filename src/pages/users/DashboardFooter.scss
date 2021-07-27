@@ -12,10 +12,7 @@
   display: flex;
   margin-left: 10.972vw;
   flex-direction: row;
-  a {
-    color: black;
-    border-bottom: 1px solid black;
-  }
+
   @media (max-width: 768px) {
     display: none;
   }

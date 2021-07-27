@@ -1,12 +1,19 @@
 import { useState } from 'react';
 import './GiveManageRecurringCard.scss';
-export default function GiveManageRecurringCard(): JSX.Element {
+import { GiveActionType } from './GivePage';
+type GiveRecurringProps = {
+  giveState: any;
+  dispatch: any;
+};
+export default function GiveManageRecurringCard(
+  props: GiveRecurringProps
+): JSX.Element {
   const [givings] = useState<any>([
     {
       id: '1',
-      amount: '$20',
+      giveAmount: 20,
       fund: { name: 'Compassion' },
-      frequency: 'Monthly',
+      frequency: 'Every week',
       paymentMethod: {
         cardType: 'visa',
         exp: '05/22',
@@ -15,9 +22,9 @@ export default function GiveManageRecurringCard(): JSX.Element {
     },
     {
       id: '2',
-      amount: '$100',
+      giveAmount: 100,
       fund: { name: 'GO' },
-      frequency: 'Monthly',
+      frequency: 'Every month',
       paymentMethod: {
         cardType: 'mastercard',
         exp: '05/22',
@@ -44,7 +51,7 @@ export default function GiveManageRecurringCard(): JSX.Element {
         {givings?.map((giving: any) => {
           return (
             <div key={giving.id} className="PaymentMethodCard">
-              <p className="PaymentMethodCardHeader">{giving.amount}</p>
+              <p className="PaymentMethodCardHeader">${giving.giveAmount}</p>
               <p className="PaymentMethodCardLabel">Fund</p>
               <p>{giving.fund.name} fund</p>
               <p className="PaymentMethodCardLabel">Next payment</p>
@@ -74,6 +81,12 @@ export default function GiveManageRecurringCard(): JSX.Element {
                   Cancel
                 </button>{' '}
                 <button
+                  onClick={() =>
+                    props.dispatch({
+                      type: GiveActionType.SHOW_GIVE,
+                      payload: giving,
+                    })
+                  }
                   className="CardButton"
                   style={{ flex: 1, marginLeft: 15 }}
                 >

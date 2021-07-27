@@ -1,30 +1,52 @@
-import { useState } from 'react';
+import { Dispatch, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import GiveCompletionScreen from './GiveCompletionPage';
 import GiveButtonToggle from './GiveToggleButton';
-import { PaymentSelect } from './SelectedPaymentCard';
-import { Link as ClickableText } from 'components/Link/Link';
+import { SelectedPaymentCard } from './SelectedPaymentCard';
 import './GivePageCard.scss';
 import { useEffect } from 'react';
-type GiveForm = {
-  status: string; // can be enum ?
+import { GiveAction, GiveActionType, GiveState } from './GivePage';
+
+type GivingData = {
   giveAmount: string;
-  submitting: boolean;
-  giveFund: string; // fund types
-  frequency?: string; // can be enum?
+  fund: { name: string };
+  frequency?: string;
 };
-export default function GivePageCard() {
-  const [selection, setSelection] = useState('Give once');
-  const [form, setForm] = useState<GiveForm>({
-    status: 'start',
-    giveAmount: '0',
-    submitting: false,
-    giveFund: '',
-    frequency: '',
-  });
+
+type GiveForm = {
+  status: string;
+  submitting: boolean;
+};
+
+type GiveFormWithData = GiveForm & GivingData;
+
+type GivePageCardProps = {
+  giveState: GiveState;
+  dispatch: Dispatch<GiveAction>; //?
+};
+export default function GivePageCard(props: GivePageCardProps) {
+  const { currentPayload } = props.giveState;
+  const [selection, setSelection] = useState(
+    currentPayload ? 'Recurring' : 'Give once'
+  );
+  console.log('payload', currentPayload);
+  const initialForm = currentPayload
+    ? {
+        status: 'start',
+        submitting: false,
+        ...currentPayload,
+      }
+    : {
+        status: 'start',
+        giveAmount: '0',
+        submitting: false,
+        fund: { name: '' },
+        frequency: '',
+      };
+  const [form, setForm] = useState<GiveFormWithData>(initialForm);
   const [fundOptions, setFundOptions] = useState<Array<string>>([]);
   const validateAmount = () => {
-    if (form.giveFund === '' || form.giveFund === 'Please make a selection')
+    if (form.fund.name === '' || form.fund.name === 'Please make a selection')
       return false;
     const amount = parseFloat(form.giveAmount);
 
@@ -46,9 +68,9 @@ export default function GivePageCard() {
       setTimeout(() => {
         setFundOptions([
           'Please make a selection',
-          'General Fund',
-          'Compassion Fund',
-          'Go Fund',
+          'General',
+          'Compassion',
+          'Go',
           'Curriculum',
         ]);
       }, 1300);
@@ -56,8 +78,8 @@ export default function GivePageCard() {
     loadFundOptions();
   }, []);
   useEffect(() => {
-    if (fundOptions.length) {
-      setForm({ ...form, giveFund: fundOptions[0] });
+    if (fundOptions.length && !currentPayload) {
+      setForm({ ...form, fund: { name: fundOptions[0] } });
     }
   }, [fundOptions]);
   return (
@@ -79,8 +101,10 @@ export default function GivePageCard() {
           />
           <label htmlFor="fundType">Where would you like to give?</label>
           <select
-            value={form.giveFund}
-            onChange={(e) => setForm({ ...form, giveFund: e.target.value })}
+            value={form.fund.name}
+            onChange={(e) =>
+              setForm({ ...form, fund: { name: e.target.value } })
+            }
             className="GiveInput"
             id="fundType"
             style={{ padding: '0px 30px' }}
@@ -91,7 +115,7 @@ export default function GivePageCard() {
               fundOptions.map((fundName) => {
                 return (
                   <option key={fundName} value={fundName}>
-                    {fundName}
+                    {fundName} fund
                   </option>
                 );
               })
@@ -123,14 +147,26 @@ export default function GivePageCard() {
               />
             </>
           ) : null}
-          <PaymentSelect></PaymentSelect>
+          <SelectedPaymentCard
+            card={currentPayload?.paymentMethod}
+          ></SelectedPaymentCard>
           <div className="GiveButtonContainer">
-            <ClickableText
-              className="ManageRecurringButton"
-              to={'/account/give'}
-            >
-              Manage my recurring giving
-            </ClickableText>
+            <div className="ManageRecurringButton">
+              <span
+                style={{
+                  cursor: 'pointer',
+                  paddingTop: 16,
+                  margin: '16px 0px',
+                  borderBottom: '1px solid black',
+                }}
+                onClick={() =>
+                  props.dispatch({ type: GiveActionType.SHOW_RECURRING })
+                }
+              >
+                Manage my recurring giving
+              </span>
+            </div>
+
             <button
               disabled={!validateAmount()}
               aria-label="Gift now"
@@ -160,9 +196,9 @@ export default function GivePageCard() {
       ) : (
         <GiveCompletionScreen
           giveType={selection}
-          giveFund={form.giveFund}
+          giveFund={form.fund.name}
           giveFrequency={form.frequency ?? ''}
-          giveAmount={form.giveAmount.toString()}
+          giveAmount={form?.giveAmount?.toString()}
           giveStatus={form.status}
         />
       )}

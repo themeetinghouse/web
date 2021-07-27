@@ -16,14 +16,11 @@
     .paymentCard {
       display: flex;
       padding: 16px;
-      img {
-        width: 20px;
-        height: 20px;
-      }
       .plusIcon {
-        margin-top: 8px;
+        margin-top: 12px;
         margin-right: 8px;
         align-self: center;
+        margin-bottom: 14px;
       }
       .checkIcon {
         margin-top: 8px;
@@ -37,7 +34,11 @@
       text-align: center;
     }
     .grey {
+      cursor: pointer;
       background-color: #efeff0;
+    }
+    .grey:hover {
+      background-color: lightgrey;
     }
   }
   @media (max-width: 768px) {

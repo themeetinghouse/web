@@ -3,6 +3,13 @@ body {
   * {
     font-family: 'Graphik Web';
   }
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: grey;
+  }
 }
 .MyAccountContainer {
   background-color: #e5e5e5;

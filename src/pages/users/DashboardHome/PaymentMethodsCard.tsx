@@ -26,7 +26,15 @@ export default function PaymentMethodsCard(): JSX.Element {
               className="checkIcon"
               src="/static/svg/Check.svg"
             />
-            <p>**** **** **** 5126 Exp 05/22</p>
+            <img
+              width={46}
+              style={{ marginTop: -12 }}
+              src={`/static/svg/visa.svg`}
+            />
+            <p style={{ textAlign: 'left', marginBottom: 0 }}>
+              •••• •••• •••• 5126
+            </p>
+            <p style={{ textAlign: 'left' }}>Exp 05/22</p>
           </div>
           <div
             onClick={() => history.push('/account/payments')}
