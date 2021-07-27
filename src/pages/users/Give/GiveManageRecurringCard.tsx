@@ -69,17 +69,18 @@ export default function GiveManageRecurringCard(
                 {giving.paymentMethod.cardNumber} Exp {giving.paymentMethod.exp}
               </p>
 
-              <div
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  height: 44,
-                  marginTop: 50,
-                }}
-              >
-                <button className="CardButton white" style={{ flex: 1 }}>
+              <div className="PaymentMethodCardButtonContainer">
+                <button
+                  onClick={() =>
+                    props.dispatch({
+                      type: GiveActionType.NAVIGATE_TO_GIVE,
+                    })
+                  }
+                  className="CardButton white"
+                  style={{ flex: 1 }}
+                >
                   Cancel
-                </button>{' '}
+                </button>
                 <button
                   onClick={() =>
                     props.dispatch({

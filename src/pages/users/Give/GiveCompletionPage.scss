@@ -1,10 +1,22 @@
-.CompletionHeader {
-  margin-bottom: 36px;
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 700;
-}
+.GiveResultPageContainer {
+  grid-area: Give-Card;
+  flex-direction: column;
+  display: flex;
+  background-color: white;
+  padding: 52px;
 
-.CompletionMessage {
-  margin-bottom: 55px;
+  .CompletionHeader {
+    margin-bottom: 36px;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+  }
+
+  .CompletionMessage {
+    margin-bottom: 55px;
+  }
+  @media (max-width: 768px) {
+    background-color: #efeff0;
+    padding: 26px;
+  }
 }
