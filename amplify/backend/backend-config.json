@@ -209,6 +209,98 @@
           ]
         }
       ]
+    },
+    "tmhStripeAddPaymentMethod": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
+    },
+    "tmhStripeListSubscriptions": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
+    },
+    "tmhStripeAddSubscription": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
+    },
+    "tmhStripeDeleteSubscription": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared",
+          "attributes": [
+            "Arn"
+          ]
+        }
+      ]
     }
   },
   "analytics": {
