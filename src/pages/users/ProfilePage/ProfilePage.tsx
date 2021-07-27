@@ -8,21 +8,21 @@ import './ProfilePage.scss';
 
 export default function ProfilePage() {
   const history = useHistory();
-  console.log(history);
   const uploadRef = useRef<any>(null);
   const countries = countryList();
   const states = stateList();
   const provinces = provinceList();
   const [isUpdating] = useState(false);
-
-  const UserConsumer = useContext(UserContext);
+  const { userActions, userState } = useContext(UserContext);
+  const form = userState?.user;
+  const { getCurrentUserProfile } = userActions;
   useEffect(() => {
-    UserConsumer.userActions.getCurrentUserProfile();
+    // is this needed? gets pulled in home screen
+    getCurrentUserProfile();
   }, []);
   const handleProfileUpdate = async () => {
     // compare old form with new form, remove non updated properties
   };
-  const form = UserConsumer.userState?.user;
   return form != null && form.billingAddress != null ? (
     <div className="ProfilePageContainer">
       <div className="ProfilePage">
