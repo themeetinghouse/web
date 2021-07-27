@@ -7,10 +7,12 @@
 Amplify Params - DO NOT EDIT */
 
 import TMHDB from '../../themeetinghousetmhShared/opt/TMHDB';
+import TMHStripe from '../../themeetinghousetmhShared/opt/TMHStripe';
 export const handler = async (event) => {
   // TODO implement
-  const user = await TMHDB.getUser('george_vic_bell@hotmail.com');
-  console.log(user.stripeCustomerID);
+  const user = await TMHDB.getUser(event.identity.username);
+  if (user.stripeCustomerID)
+    return TMHStripe.listPaymentMethods('', user.stripeCustomerID, 'card');
   const response = {
     statusCode: 200,
     //  Uncomment below to enable CORS requests

@@ -1,6 +1,7 @@
 import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
+import * as mutations from './mutations';
 const aws = require('aws-sdk');
 
 Amplify.configure({
@@ -71,6 +72,38 @@ export default class TMHDB {
     } catch (e) {
       console.log({ error: e });
       return null;
+    }
+  }
+  static async updateUser(
+    id: string,
+    field: string,
+    value: string | number | boolean
+  ) {
+    console.log({ 'Updating User': id });
+    try {
+      console.log('Done Auth');
+      var queryA = {
+        query: mutations.updateTmhUser,
+        variables: {
+          input: {
+            id: id,
+            [field]: value,
+          },
+        },
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+      };
+      var json = await Amplify.API.graphql(queryA);
+      console.log('Done Update Users');
+      return true;
+    } catch (json) {
+      if (json && json.data && json.data.getUser) {
+        return true;
+      }
+      console.log({ 'Error Updating user': json });
+      console.log({ 'Error Updating user': json.errors });
+      console.log({ 'Error Updating user': json.errors[0].path });
+      console.log({ 'Error Updating user': json.errors[0].locations });
+      return false;
     }
   }
 }

@@ -2326,6 +2326,52 @@ export type F1ContributionReceiptContributionSubType = {
   name?: string | null,
 };
 
+export type StripeAddressInput = {
+  city?: string | null,
+  country?: string | null,
+  line1?: string | null,
+  line2?: string | null,
+  postal_code?: string | null,
+  state?: string | null,
+};
+
+export type StripeCustomerData = {
+  __typename: "StripeCustomerData",
+  customer?: StripeCustomer,
+};
+
+export type StripeCustomer = {
+  __typename: "StripeCustomer",
+  id?: string | null,
+  object?: string | null,
+  address?: string | null,
+  balance?: string | null,
+  created?: string | null,
+  currency?: string | null,
+  default_source?: string | null,
+  delinquent?: string | null,
+  description?: string | null,
+  discount?: string | null,
+  email?: string | null,
+  invoice_prefix?: string | null,
+  invoice_settings?: StripeInvoiceSettings,
+  livemode?: string | null,
+  metadata?: string | null,
+  name?: string | null,
+  next_invoice_sequence?: string | null,
+  phone?: string | null,
+  preferred_locales?: string | null,
+  shipping?: string | null,
+  tax_exempt?: string | null,
+};
+
+export type StripeInvoiceSettings = {
+  __typename: "StripeInvoiceSettings",
+  custom_fields?: string | null,
+  default_payment_method?: string | null,
+  footer?: string | null,
+};
+
 export type ModelTNSeriesFilterInput = {
   id?: ModelIDFilterInput | null,
   TNident?: ModelStringFilterInput | null,
@@ -47437,6 +47483,51 @@ export type TmhF1SearchContributionReceiptsQuery = {
           name?: string | null,
         },
       } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type TmhStripeCreateCustomerQueryVariables = {
+  idempotency?: string | null,
+  phone?: string | null,
+  email?: string | null,
+  firstName?: string | null,
+  lastName?: string | null,
+  orgName?: string | null,
+  billingAddress?: StripeAddressInput | null,
+};
+
+export type TmhStripeCreateCustomerQuery = {
+  tmhStripeCreateCustomer?:  {
+    __typename: "StripeCustomerData",
+    customer?:  {
+      __typename: "StripeCustomer",
+      id?: string | null,
+      object?: string | null,
+      address?: string | null,
+      balance?: string | null,
+      created?: string | null,
+      currency?: string | null,
+      default_source?: string | null,
+      delinquent?: string | null,
+      description?: string | null,
+      discount?: string | null,
+      email?: string | null,
+      invoice_prefix?: string | null,
+      invoice_settings?:  {
+        __typename: "StripeInvoiceSettings",
+        custom_fields?: string | null,
+        default_payment_method?: string | null,
+        footer?: string | null,
+      } | null,
+      livemode?: string | null,
+      metadata?: string | null,
+      name?: string | null,
+      next_invoice_sequence?: string | null,
+      phone?: string | null,
+      preferred_locales?: string | null,
+      shipping?: string | null,
+      tax_exempt?: string | null,
     } | null,
   } | null,
 };

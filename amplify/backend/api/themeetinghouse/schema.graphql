@@ -26,8 +26,53 @@ type Query {
   tmhF1LinkUser:Boolean @function(name:"tmhF1LinkUser-${env}") @aws_cognito_user_pools
   tmhF1SyncGroupPermissions:Boolean @function(name:"tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
   tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
+  tmhStripeCreateCustomer(idempotency:String,phone:String,email:String,firstName:String,lastName:String,orgName:String,billingAddress:StripeAddressInput):StripeCustomerData @function(name:"tmhStripeCreateCustomer-${env}") @aws_cognito_user_pools
+}
+input StripeAddressInput
+{
+    city:String
+    country:String
+    line1:String
+    line2:String
+    postal_code:String
+    state:String
+  }
+  type StripeCustomerData{
+  customer:StripeCustomer
 }
 
+type StripeCustomer{
+  
+  id: String
+  object:String
+  address:String
+  balance:String
+  created:String
+  currency:String
+  default_source:String
+  delinquent:String
+  description:String
+  discount:String
+  email:String
+  invoice_prefix:String
+  invoice_settings: StripeInvoiceSettings
+  livemode:String
+  metadata:String
+  name:String
+  next_invoice_sequence:String
+  phone:String
+  preferred_locales:String
+  shipping:String
+  tax_exempt:String
+
+}
+
+type StripeInvoiceSettings{
+    custom_fields:String
+    default_payment_method:String
+    footer:String
+
+}
 type F1SearchContributionReceiptsType @aws_cognito_user_pools{
   results:F1SearchContributionReceiptsResultType
 }

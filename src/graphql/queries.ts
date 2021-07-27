@@ -2815,6 +2815,55 @@ export const tmhF1SearchContributionReceipts = /* GraphQL */ `
     }
   }
 `;
+export const tmhStripeCreateCustomer = /* GraphQL */ `
+  query TmhStripeCreateCustomer(
+    $idempotency: String
+    $phone: String
+    $email: String
+    $firstName: String
+    $lastName: String
+    $orgName: String
+    $billingAddress: StripeAddressInput
+  ) {
+    tmhStripeCreateCustomer(
+      idempotency: $idempotency
+      phone: $phone
+      email: $email
+      firstName: $firstName
+      lastName: $lastName
+      orgName: $orgName
+      billingAddress: $billingAddress
+    ) {
+      customer {
+        id
+        object
+        address
+        balance
+        created
+        currency
+        default_source
+        delinquent
+        description
+        discount
+        email
+        invoice_prefix
+        invoice_settings {
+          custom_fields
+          default_payment_method
+          footer
+        }
+        livemode
+        metadata
+        name
+        next_invoice_sequence
+        phone
+        preferred_locales
+        shipping
+        tax_exempt
+      }
+    }
+  }
+`;
 export const getTnSeries = /* GraphQL */ `
   query GetTnSeries($id: ID!) {
     getTNSeries(id: $id) {

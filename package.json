@@ -16,6 +16,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "amplify:themeetinghousetmhShared": "cd amplify/backend/function/themeetinghousetmhShared/opt && tsc && cd -",
+    "amplify:tmhStripeAddCustomer": "cd amplify/backend/function/tmhStripeAddCustomer/src && tsc && cd -",
     "amplify:tmhStripeListPaymentMethods": "cd amplify/backend/function/tmhStripeListPaymentMethods/src && tsc && cd -",
     "amplify:tmhF1LinkUser": "cd amplify/backend/function/tmhF1LinkUser/src && tsc && cd -",
     "amplify:tmhF1SearchContributionReceipts": "cd amplify/backend/function/tmhF1SearchContributionReceipts/src && tsc && cd -",
