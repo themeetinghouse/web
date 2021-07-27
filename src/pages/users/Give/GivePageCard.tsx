@@ -24,7 +24,8 @@ export default function GivePageCard() {
   });
   const [fundOptions, setFundOptions] = useState<Array<string>>([]);
   const validateAmount = () => {
-    if (form.giveFund === '') return false;
+    if (form.giveFund === '' || form.giveFund === 'Please make a selection')
+      return false;
     const amount = parseFloat(form.giveAmount);
 
     if (amount && amount > 0) {
@@ -44,6 +45,7 @@ export default function GivePageCard() {
       // do we want to load this from a JSON?
       setTimeout(() => {
         setFundOptions([
+          'Please make a selection',
           'General Fund',
           'Compassion Fund',
           'Go Fund',
@@ -53,6 +55,11 @@ export default function GivePageCard() {
     };
     loadFundOptions();
   }, []);
+  useEffect(() => {
+    if (fundOptions.length) {
+      setForm({ ...form, giveFund: fundOptions[0] });
+    }
+  }, [fundOptions]);
   return (
     <div className="GiveCard">
       {form.status === 'start' ? (

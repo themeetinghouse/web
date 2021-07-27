@@ -13,14 +13,14 @@
   }
   grid-template-areas:
     'Give-Card Profile-Card'
-    'Give-Card .';
+    '. Profile-Card';
   @media (max-width: 1130px) {
-    grid-template-columns: 60vw 30vw;
+    grid-template-columns: 49vw 27vw;
     gap: 25px 25px;
-    grid-template-areas: 'Give-Card Profile-Card';
   }
 
   @media (max-width: 768px) {
+    height: 93vh;
     gap: 0px 0px;
     grid-template-columns: 100%;
     grid-template-areas: 'Give-Card';
