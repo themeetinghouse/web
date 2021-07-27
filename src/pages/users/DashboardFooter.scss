@@ -1,17 +1,22 @@
-.footerText {
-  font-weight: 700;
-  line-height: 24px;
-  font-size: 1em;
-  margin: 0px;
-  .subText {
-    font-weight: 400;
-    text-decoration: underline;
-  }
-}
 .Footer {
+  .footerText {
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 1em;
+    margin: 0px;
+    .subText {
+      font-weight: 400;
+    }
+  }
+  padding-top: 50px;
   display: flex;
-  position: absolute;
-  left: 10.972vw;
-  bottom: 5vh;
+  margin-left: 10.972vw;
   flex-direction: row;
+  a {
+    color: black;
+    border-bottom: 1px solid black;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
