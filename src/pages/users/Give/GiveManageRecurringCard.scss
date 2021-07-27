@@ -1,0 +1,45 @@
+.GiveManageRecurringCard {
+  grid-area: Give-Card;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 52px;
+  @media (max-width: 768px) {
+    background-color: #efeff0;
+    padding: 26px;
+  }
+  .PaymentMethodCardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 26px;
+    @media (max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 768px) {
+      background-color: #efeff0;
+    }
+    .PaymentMethodCard {
+      padding: 43px 37px 44px 30px;
+      background-color: white;
+      border: solid 2px #c8c8c8;
+      display: flex;
+      flex-direction: column;
+      min-height: 567px;
+      .PaymentMethodCardHeader {
+        margin-bottom: 34px;
+        font-size: 56px;
+        letter-spacing: -0.5px;
+        line-height: 56px;
+        font-weight: 300;
+      }
+      .PaymentMethodCardLabel {
+        margin: 0;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
