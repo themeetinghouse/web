@@ -15,20 +15,9 @@ export default function GiveManageRecurringCard(): JSX.Element {
     },
     {
       id: '2',
-      amount: '$20',
+      amount: '$100',
       fund: { name: 'GO' },
       frequency: 'Monthly',
-      paymentMethod: {
-        cardType: 'mastercard',
-        exp: '05/22',
-        cardNumber: '•••• •••• •••• 5126',
-      },
-    },
-    {
-      id: '3',
-      amount: '$20',
-      fund: { name: 'GO' },
-      frequency: 'Quarterly',
       paymentMethod: {
         cardType: 'mastercard',
         exp: '05/22',
@@ -73,9 +62,23 @@ export default function GiveManageRecurringCard(): JSX.Element {
                 {giving.paymentMethod.cardNumber} Exp {giving.paymentMethod.exp}
               </p>
 
-              <div style={{ width: '100%', display: 'flex', height: 44 }}>
-                <button style={{ flex: 1 }}>Cancel</button>{' '}
-                <button style={{ flex: 1, marginLeft: 15 }}>Edit</button>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  height: 44,
+                  marginTop: 50,
+                }}
+              >
+                <button className="CardButton white" style={{ flex: 1 }}>
+                  Cancel
+                </button>{' '}
+                <button
+                  className="CardButton"
+                  style={{ flex: 1, marginLeft: 15 }}
+                >
+                  Edit
+                </button>
               </div>
             </div>
           );
