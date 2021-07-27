@@ -58,6 +58,11 @@
         "list": [
           {
             "type": "link",
+            "title": "Brand & Design Manager",
+            "navigateTo": "/static/pdfs/careers/Brand & Design Manager.pdf"
+          },
+          {
+            "type": "link",
             "title": "Hamilton Youth Pastor",
             "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           },
