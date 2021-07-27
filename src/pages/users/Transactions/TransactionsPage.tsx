@@ -1,19 +1,20 @@
 import { F1SearchContributionReceiptsResultType } from 'API';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
-import paymentsCommon from '../paymentsCommon';
 import { isMobile } from 'react-device-detect';
 import './TransactionsPage.scss';
 import TransactionsPaginate from './TransactionsPaginate';
 import TransactionCollapsibleItem from './TransactionCollapsibleItem';
+import { UserContext } from 'components/Auth/UserContext';
 
 export default function TransactionsPage(): JSX.Element {
   const [transData, setTransData] =
     useState<F1SearchContributionReceiptsResultType | null>();
   const [isLoading, setIsLoading] = useState(true);
   const [paginationIndex, setPaginationIndex] = useState(0);
+  const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    paymentsCommon.getReceipts(setTransData, setIsLoading);
+    UserConsumer.userActions.getReceipts(setTransData, setIsLoading);
   }, []);
   const tableHeaders = [
     'Transaction No.',

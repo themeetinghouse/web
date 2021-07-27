@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { CognitoUser } from '@aws-amplify/auth';
 import { AuthStateData } from './AuthStateData';
+import { F1SearchContributionReceiptsResultType, GetTmhUserQuery } from 'API';
+import { GraphQLResult } from '@aws-amplify/api';
 export type TMHUserData = {
   sub: string;
   given_name: string;
@@ -38,6 +40,25 @@ export interface UserActions {
   updateGroups(): Promise<void> | null;
   isMemberOf(group: string): boolean;
   isReady(): boolean;
+  getReceipts(
+    setLastTransacs: React.Dispatch<
+      React.SetStateAction<
+        F1SearchContributionReceiptsResultType | null | undefined
+      >
+    >,
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ): Promise<any>;
+  getCurrentUserProfile(
+    setUser: React.Dispatch<
+      React.SetStateAction<
+        | NonNullable<
+            NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+          >
+        | null
+        | undefined
+      >
+    >
+  ): Promise<any>;
 }
 export enum ProfileStatus {
   Completed,
@@ -77,6 +98,12 @@ export const UserContext = React.createContext<UserContextType>({
     },
     isMemberOf: () => {
       return false;
+    },
+    getReceipts: async () => {
+      return [];
+    },
+    getCurrentUserProfile: async () => {
+      return [];
     },
   },
   userState: undefined,

@@ -1,18 +1,19 @@
 import { LinkButton } from 'components/Link/Link';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
 import { F1SearchContributionReceiptsResultType } from 'API';
-import f1Common from '../paymentsCommon';
+
+import { UserContext } from 'components/Auth/UserContext';
 
 export default function RecentTransactionsCard(): JSX.Element {
   const [lastTransacs, setLastTransacs] =
     useState<F1SearchContributionReceiptsResultType | null>();
   const [isLoading, setIsLoading] = useState(true);
-
+  const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    f1Common.getReceipts(setLastTransacs, setIsLoading);
+    UserConsumer.userActions.getReceipts(setLastTransacs, setIsLoading);
   }, []);
   return (
     <div className="Recent-Trans">

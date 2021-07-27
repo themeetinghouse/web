@@ -1,10 +1,10 @@
 import { GraphQLResult } from '@aws-amplify/api';
 import { GetTmhUserQuery } from 'API';
-import { useEffect, useRef } from 'react';
+import { UserContext } from 'components/Auth/UserContext';
+import { useContext, useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
-import paymentsCommon from '../paymentsCommon';
 import { countryList, stateList, provinceList } from './LocationOptions';
 import './ProfilePage.scss';
 
@@ -23,8 +23,9 @@ export default function ProfilePage() {
     | null
     | undefined
   >(null);
+  const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    paymentsCommon.getCurrentUserProfile(setForm);
+    UserConsumer.userActions.getCurrentUserProfile(setForm);
     console.log(form);
   }, []);
   const handleProfileUpdate = async () => {

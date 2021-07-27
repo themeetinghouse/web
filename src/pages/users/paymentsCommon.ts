@@ -7,7 +7,7 @@ import {
 import { Auth } from 'aws-amplify';
 import * as queries from '../../graphql/queries';
 
-export default class paymentsCommon {
+export default class PaymentsCommon {
   static getReceipts = async (
     setLastTransacs: React.Dispatch<
       React.SetStateAction<

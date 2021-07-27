@@ -1,13 +1,13 @@
 import { GraphQLResult } from '@aws-amplify/api';
 import { GetTmhUserQuery } from 'API';
 import { Auth } from 'aws-amplify';
-import { useEffect, useState } from 'react';
+import { UserContext } from 'components/Auth/UserContext';
+import { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import {
   Link as ClickableText,
   LinkButton,
 } from '../../../components/Link/Link';
-import paymentsCommon from '../paymentsCommon';
 import './ProfileCard.scss';
 
 export default function ProfileCard(): JSX.Element {
@@ -18,9 +18,10 @@ export default function ProfileCard(): JSX.Element {
     | null
     | undefined
   >(null);
+  const UserConsumer = useContext(UserContext);
   //const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    paymentsCommon.getCurrentUserProfile(setUserData);
+    UserConsumer.userActions.getCurrentUserProfile(setUserData);
   }, []);
   return (
     <div className="Profile-Card">

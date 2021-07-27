@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 //import * as Sentry from '@sentry/browser';
 import {
   CreateTmhUserMutation,
+  F1SearchContributionReceiptsResultType,
   TmhF1LinkUserQuery,
   TmhF1SyncGroupPermissionsQuery,
   TMHUser,
@@ -25,7 +26,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { GraphQLResult } from '@aws-amplify/api';
 import { CreateTMHUserInput, GetTmhUserQuery } from 'API';
 import Validate from './Validate';
-
+import PaymentsCommon from 'pages/users/PaymentsCommon';
 Amplify.configure(awsconfig);
 
 //const PERSISTENCE_KEY = "NAVIGATION_STATE"
@@ -385,6 +386,30 @@ export default class Authenticator extends React.Component<
       console.log(error);
     }
   };
+  getReceipts = async (
+    setLastTransacs: React.Dispatch<
+      React.SetStateAction<
+        F1SearchContributionReceiptsResultType | null | undefined
+      >
+    >,
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ): Promise<any> => {
+    return PaymentsCommon.getReceipts(setLastTransacs, setIsLoading);
+  };
+
+  getCurrentUserProfile = async (
+    setUser: React.Dispatch<
+      React.SetStateAction<
+        | NonNullable<
+            NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+          >
+        | null
+        | undefined
+      >
+    >
+  ): Promise<any> => {
+    return PaymentsCommon.getCurrentUserProfile(setUser);
+  };
   async getAuthInitialState(): Promise<void> {
     /* const initialUrl = await Linking.getInitialURL();
     const initialParams = Linking.parse(initialUrl ?? '').queryParams;
@@ -443,6 +468,8 @@ export default class Authenticator extends React.Component<
             updateGroups: this.updateGroups,
             isReady: this.isReady,
             isMemberOf: this.isMemberOf,
+            getReceipts: this.getReceipts,
+            getCurrentUserProfile: this.getCurrentUserProfile,
           },
         }}
       >
