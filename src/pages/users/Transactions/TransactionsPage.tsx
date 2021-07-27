@@ -5,6 +5,7 @@ import './TransactionsPage.scss';
 import TransactionsPaginate from './TransactionsPaginate';
 import TransactionCollapsibleItem from './TransactionCollapsibleItem';
 import { UserContext } from 'components/Auth/UserContext';
+import moment from 'moment';
 
 export default function TransactionsPage(): JSX.Element {
   const [paginationIndex, setPaginationIndex] = useState(0);
@@ -15,7 +16,6 @@ export default function TransactionsPage(): JSX.Element {
   const tableHeaders = [
     'Transaction No.',
     'Date',
-    'Time',
     'Amount',
     'Payment Method',
     'Fund',
@@ -91,8 +91,10 @@ export default function TransactionsPage(): JSX.Element {
                         return (
                           <tr className="TransactionTableRow" key={x?.id}>
                             <td>{x?.id}</td>
-                            <td>{x?.receivedDate}</td>
-                            <td>{x?.receivedDate}</td>
+                            <td>
+                              {moment(x?.receivedDate).format('YYYY-MM-DD')}
+                            </td>
+
                             <td>{x?.amount}</td>
                             <td>{x?.accountReference}</td>
                             <td>{x?.fund?.name}</td>

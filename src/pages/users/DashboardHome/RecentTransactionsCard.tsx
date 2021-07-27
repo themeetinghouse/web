@@ -4,6 +4,7 @@ import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
 
 import { UserContext } from 'components/Auth/UserContext';
+import moment from 'moment';
 
 export default function RecentTransactionsCard(): JSX.Element {
   const UserConsumer = useContext(UserContext);
@@ -52,7 +53,7 @@ export default function RecentTransactionsCard(): JSX.Element {
             <tbody>
               {lastTransacs?.map((transac) => (
                 <tr key={transac?.id}>
-                  <td>{transac?.receivedDate}</td>
+                  <td>{moment(transac?.receivedDate).format('YYYY-MM-DD')}</td>
                   <td>{transac?.amount}</td>
                   <td>{transac?.accountReference}</td>
                 </tr>
