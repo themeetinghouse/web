@@ -76,6 +76,7 @@ export default function GivePageCard() {
             onChange={(e) => setForm({ ...form, giveFund: e.target.value })}
             className="GiveInput"
             id="fundType"
+            style={{ padding: '0px 30px' }}
           >
             {!fundOptions.length ? (
               <option value="loading">Loading options...</option>

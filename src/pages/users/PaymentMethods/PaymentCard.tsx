@@ -21,10 +21,11 @@ type PaymentMethod = {
 };
 
 const CARD_ELEMENT_OPTIONS = {
+  classes: { base: 'NewCardInput' },
   style: {
     base: {
-      color: '#32325d',
-      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      color: 'black',
+      fontFamily: '"Graphik Web", Helvetica, sans-serif',
       fontSmoothing: 'antialiased',
       fontSize: '16px',
       '::placeholder': {
@@ -32,7 +33,7 @@ const CARD_ELEMENT_OPTIONS = {
       },
     },
     invalid: {
-      color: '#fa755a',
+      color: 'red',
       iconColor: '#fa755a',
     },
   },
@@ -70,16 +71,18 @@ export default function PaymentsCard() {
     expiry: '',
     cvc: '',
   });
-  const isCardValid = (): boolean => {
+  const isCardFormValid = (): boolean => {
     console.log(
       stripeValidation.cardNumber &&
         stripeValidation.expiryDate &&
-        stripeValidation.cvc
+        stripeValidation.cvc &&
+        !!cardDataForm.nameOncard
     );
     return (
       stripeValidation.cardNumber &&
       stripeValidation.expiryDate &&
-      stripeValidation.cvc
+      stripeValidation.cvc &&
+      !!cardDataForm.nameOncard
     );
   };
   const [addingCard, setAddingCard] = useState(false);
@@ -237,61 +240,36 @@ export default function PaymentsCard() {
               />
               <p>Credit card number</p>
               <CardNumberElement
+                className="NewCardInput"
                 onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
                 options={CARD_ELEMENT_OPTIONS}
               />
-              {/*} <input
-                onChange={(e) =>
-                  setCardDataForm({ ...cardDataForm, cardNum: e.target.value })
-                }
-                value={cardDataForm.cardNum}
-                className="NewCardInput"
-              />*/}
               <div
                 className="ExpiryCvcContainer"
                 style={{ display: 'flex', flexDirection: 'row' }}
               >
-                <div>
+                <div style={{ flex: 1 }}>
                   <p>Expiry</p>
                   <CardExpiryElement
                     onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
                     options={CARD_ELEMENT_OPTIONS}
                   />
-                  {/*  <input
-                    onChange={(e) =>
-                      setCardDataForm({
-                        ...cardDataForm,
-                        expiry: e.target.value,
-                      })
-                    }
-                    value={cardDataForm.expiry}
-                    maxLength={5}
-                    placeholder="MM/YY"
-                    style={{ width: '100%' }}
-                    className="NewCardInput"
-                  />*/}
                 </div>
-                <div style={{ marginLeft: 33 }}>
+                <div style={{ flex: 1, marginLeft: 33 }}>
                   <p>CVC</p>
                   <CardCvcElement
                     onChange={(el) => stripeFieldValidation(el, 'cvc')}
                     options={CARD_ELEMENT_OPTIONS}
                   />
-                  {/*  <input
-                    onChange={(e) =>
-                      setCardDataForm({ ...cardDataForm, cvc: e.target.value })
-                    }
-                    value={cardDataForm.cvc}
-                    style={{ width: '100%' }}
-                    className="NewCardInput"
-                  />*/}
                 </div>
               </div>
               <button
                 onClick={addNewPaymentMethod}
                 style={{ width: '100%' }}
-                disabled={!isCardValid()}
-                className="SubmitNewCardButton"
+                disabled={!isCardFormValid()}
+                className={`SubmitNewCardButton${
+                  !isCardFormValid() ? ' disabled' : ''
+                }`}
               >
                 {addingCard ? (
                   <>

@@ -2,11 +2,10 @@
   justify-content: center;
   margin-left: 10.972vw;
   margin-right: 10.972vw;
-  height: 788px;
+  min-height: 788px;
   background-color: white;
   padding: 48px 60px 56px;
 }
-
 .TransactionHeaderContainer {
   padding-bottom: 20px;
 }
@@ -15,7 +14,6 @@
   font-size: 32px;
   line-height: 40px;
 }
-
 th {
   padding-bottom: 8px;
   color: #1a1a1a;
@@ -33,23 +31,7 @@ td {
 .TransactionTableRow {
   border-bottom: 0.7px solid #c8c8c8;
 }
-.TransactionTablePaginateButton {
-  margin-left: 8px;
-  margin-right: 8px;
-  background-color: #1a1a1a;
-  width: 72px;
-  height: 56px;
-}
-.TransactionsSmallScreen {
-  display: none;
-}
 @media (max-width: 768px) {
-  .TransactionsSmallScreen {
-    display: unset;
-  }
-  .TransactionsBigScreen {
-    display: none;
-  }
   .TransactionsContainer {
     margin-left: unset;
     height: unset;
@@ -71,8 +53,5 @@ td {
       padding-bottom: 7px;
       margin-bottom: 0px;
     }
-  }
-  .TransactionHeaderContainer {
-    padding-bottom: 20px;
   }
 }

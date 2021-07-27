@@ -1,0 +1,13 @@
+.TransactionCollapsibleItemContainer {
+  .Header {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+  .Content {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+}

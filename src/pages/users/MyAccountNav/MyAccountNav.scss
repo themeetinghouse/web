@@ -16,9 +16,16 @@
     align-self: center;
     width: 40px;
     height: 47px;
+    cursor: pointer;
   }
   .hamburgerToggle {
     display: none;
+  }
+  .CloseButton {
+    cursor: pointer;
+    display: inherit;
+    position: absolute;
+    right: 25px;
   }
   .MyAccountNav {
     padding-top: 16px;
@@ -46,6 +53,9 @@
   @media (max-width: 768px) {
     .hide {
       display: none;
+    }
+    .CloseButton {
+      margin-top: 8px;
     }
     .MyAccountNav {
       .navItem {
