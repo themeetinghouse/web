@@ -1,6 +1,5 @@
 import { Dispatch, useState } from 'react';
 import { Spinner } from 'reactstrap';
-import GiveCompletionScreen from './GiveCompletionPage';
 import GiveButtonToggle from './GiveToggleButton';
 import { SelectedPaymentCard } from './SelectedPaymentCard';
 import './GivePageCard.scss';
@@ -26,6 +25,7 @@ type GivePageCardProps = {
 };
 export default function GivePageCard(props: GivePageCardProps) {
   const { currentPayload } = props.giveState;
+  const { dispatch } = props;
   const [selection, setSelection] = useState(
     currentPayload ? 'Recurring' : 'Give once'
   );
@@ -38,7 +38,7 @@ export default function GivePageCard(props: GivePageCardProps) {
       }
     : {
         status: 'start',
-        giveAmount: '0',
+        giveAmount: '',
         submitting: false,
         fund: { name: '' },
         frequency: '',
@@ -60,8 +60,23 @@ export default function GivePageCard(props: GivePageCardProps) {
     setForm({ ...form, submitting: true });
     setTimeout(() => {
       setForm({ ...form, status: 'complete', submitting: false });
+      // pass error
+
+      /* success*/
+      dispatch({
+        type: GiveActionType.NAVIGATE_TO_COMPLETION_SUCCESS,
+        payload: { status: 'complete', amount: form.giveAmount },
+      });
+
+      /*error
+      dispatch({
+        type: GiveActionType.NAVIGATE_TO_COMPLETION_ERROR,
+        payload: { status: 'error', errorMessage: 'Something went wrong.' },
+      });
+      */
     }, 1500);
   };
+
   useEffect(() => {
     const loadFundOptions = async () => {
       // do we want to load this from a JSON?
@@ -84,124 +99,110 @@ export default function GivePageCard(props: GivePageCardProps) {
   }, [fundOptions]);
   return (
     <div className="GiveCard">
-      {form.status === 'start' ? (
-        <>
-          <GiveButtonToggle selection={selection} setSelection={setSelection} />
-          <p style={{ fontSize: 24, marginTop: 36 }}>Giving</p>
-          <input
-            type="number"
-            placeholder="$0.00"
-            value={form.giveAmount}
-            onChange={(e) => {
-              e.target.value.length < 11
-                ? setForm({ ...form, giveAmount: e.target.value })
-                : null;
-            }}
-            className="GiveAmountInput"
-          />
-          <label htmlFor="fundType">Where would you like to give?</label>
-          <select
-            value={form.fund.name}
-            onChange={(e) =>
-              setForm({ ...form, fund: { name: e.target.value } })
-            }
-            className="GiveInput"
-            id="fundType"
-            style={{ padding: '0px 30px' }}
-          >
-            {!fundOptions.length ? (
-              <option value="loading">Loading options...</option>
-            ) : (
-              fundOptions.map((fundName) => {
-                return (
-                  <option key={fundName} value={fundName}>
-                    {fundName} fund
-                  </option>
-                );
-              })
-            )}
-          </select>
-          {selection === 'Recurring' ? (
-            <>
-              <label htmlFor="frequency">Frequency</label>
-              <select
-                value={form.frequency}
-                onChange={(e) =>
-                  setForm({ ...form, frequency: e.target.value })
-                }
-                className="GiveInput"
-                id="frequency"
-              >
-                <option value="Every week">Every week</option>
-                <option value="Every 2 weeks">Every 2 weeks</option>
-                <option value="Every month">Every month</option>
-                <option value={`1st & 15th monthly`}>
-                  {'1st & 15th monthly'}
-                </option>
-              </select>
-              <label htmlFor="date">Starting</label>
-              <input
-                className="GiveInput"
-                placeholder={'YYYY-MM-DD'}
-                type="date"
-              />
-            </>
-          ) : null}
-          <SelectedPaymentCard
-            card={currentPayload?.paymentMethod}
-          ></SelectedPaymentCard>
-          <div className="GiveButtonContainer">
-            <div className="ManageRecurringButton">
-              <span
-                style={{
-                  cursor: 'pointer',
-                  paddingTop: 16,
-                  margin: '16px 0px',
-                  borderBottom: '1px solid black',
-                }}
-                onClick={() =>
-                  props.dispatch({ type: GiveActionType.SHOW_RECURRING })
-                }
-              >
-                Manage my recurring giving
-              </span>
-            </div>
-
-            <button
-              disabled={!validateAmount()}
-              aria-label="Gift now"
-              className={`GiveNowButton ${
-                !validateAmount() ? 'disabled' : ''
-              } `}
-              onClick={() => handleSubmit()}
-            >
-              {form.submitting ? (
-                <>
-                  <Spinner
-                    style={{
-                      marginLeft: '-16px',
-                      marginRight: 8,
-                      width: '1.5rem',
-                      height: '1.5rem',
-                    }}
-                  />
-                  Submitting...
-                </>
-              ) : (
-                'Give Now'
-              )}
-            </button>
-          </div>
-        </>
-      ) : (
-        <GiveCompletionScreen
-          giveType={selection}
-          giveFund={form.fund.name}
-          giveFrequency={form.frequency ?? ''}
-          giveAmount={form?.giveAmount?.toString()}
-          giveStatus={form.status}
+      <GiveButtonToggle selection={selection} setSelection={setSelection} />
+      <p style={{ fontSize: 24, marginTop: 36 }}>Giving</p>
+      <div>
+        <span
+          style={
+            form.giveAmount
+              ? { fontSize: 48 }
+              : { fontSize: 48, opacity: '0.7' }
+          }
+        >
+          $
+        </span>
+        <input
+          type="number"
+          placeholder="0.00"
+          value={form.giveAmount}
+          onChange={(e) => {
+            e.target.value.length < 11
+              ? setForm({ ...form, giveAmount: e.target.value })
+              : null;
+          }}
+          className="GiveAmountInput"
         />
-      )}
+      </div>
+
+      <label htmlFor="fundType">Where would you like to give?</label>
+      <select
+        value={form.fund.name}
+        onChange={(e) => setForm({ ...form, fund: { name: e.target.value } })}
+        className="GiveInput"
+        id="fundType"
+        style={{ padding: '0px 30px' }}
+      >
+        {!fundOptions.length ? (
+          <option value="loading">Loading options...</option>
+        ) : (
+          fundOptions.map((fundName) => {
+            return (
+              <option key={fundName} value={fundName}>
+                {fundName} fund
+              </option>
+            );
+          })
+        )}
+      </select>
+      {selection === 'Recurring' ? (
+        <>
+          <label htmlFor="frequency">Frequency</label>
+          <select
+            value={form.frequency}
+            onChange={(e) => setForm({ ...form, frequency: e.target.value })}
+            className="GiveInput"
+            id="frequency"
+          >
+            <option value="Every week">Every week</option>
+            <option value="Every 2 weeks">Every 2 weeks</option>
+            <option value="Every month">Every month</option>
+            <option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option>
+          </select>
+          <label htmlFor="date">Starting</label>
+          <input className="GiveInput" placeholder={'YYYY-MM-DD'} type="date" />
+        </>
+      ) : null}
+      <SelectedPaymentCard
+        card={currentPayload?.paymentMethod}
+      ></SelectedPaymentCard>
+      <div className="GiveButtonContainer">
+        <div className="ManageRecurringButton">
+          <span
+            style={{
+              cursor: 'pointer',
+              paddingTop: 16,
+              margin: '16px 0px',
+              borderBottom: '1px solid black',
+            }}
+            onClick={() => dispatch({ type: GiveActionType.SHOW_RECURRING })}
+          >
+            Manage my recurring giving
+          </span>
+        </div>
+
+        <button
+          disabled={!validateAmount()}
+          aria-label="Gift now"
+          className={`GiveNowButton ${!validateAmount() ? 'disabled' : ''} `}
+          onClick={() => handleSubmit()}
+        >
+          {form.submitting ? (
+            <>
+              <Spinner
+                style={{
+                  marginLeft: '-16px',
+                  marginRight: 8,
+                  width: '1.5rem',
+                  height: '1.5rem',
+                }}
+              />
+              Submitting...
+            </>
+          ) : (
+            'Give Now'
+          )}
+        </button>
+      </div>
     </div>
   );
 }
