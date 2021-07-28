@@ -14,22 +14,18 @@ export default function GiveManageRecurringCard(
       giveAmount: 20,
       fund: { name: 'Compassion' },
       frequency: 'Every week',
-      paymentMethod: {
-        cardType: 'visa',
-        exp: '05/22',
-        cardNumber: '•••• •••• •••• 5126',
-      },
+      cardType: 'visa',
+      expiry: '05/22',
+      cardNumber: '•••• •••• •••• 4021',
     },
     {
       id: '2',
       giveAmount: 100,
-      fund: { name: 'GO' },
+      fund: { name: 'Go' },
       frequency: 'Every month',
-      paymentMethod: {
-        cardType: 'mastercard',
-        exp: '05/22',
-        cardNumber: '•••• •••• •••• 5126',
-      },
+      cardType: 'mastercard',
+      expiry: '05/22',
+      cardNumber: '•••• •••• •••• 5126',
     },
   ]);
   return (
@@ -64,9 +60,10 @@ export default function GiveManageRecurringCard(
                 <img
                   width={46}
                   style={{ marginRight: 22 }}
-                  src={`/static/svg/${giving.paymentMethod.cardType}.svg`}
+                  src={`/static/svg/${giving.cardType}.svg`}
                 />
-                {giving.paymentMethod.cardNumber} Exp {giving.paymentMethod.exp}
+                {giving.cardNumber} Exp
+                {giving.expiry}
               </p>
 
               <div className="PaymentMethodCardButtonContainer">
@@ -76,8 +73,7 @@ export default function GiveManageRecurringCard(
                       type: GiveActionType.NAVIGATE_TO_GIVE,
                     })
                   }
-                  className="CardButton white"
-                  style={{ flex: 1 }}
+                  className="PaymentMethodCardButton white"
                 >
                   Cancel
                 </button>
@@ -88,8 +84,7 @@ export default function GiveManageRecurringCard(
                       payload: giving,
                     })
                   }
-                  className="CardButton"
-                  style={{ flex: 1, marginLeft: 15 }}
+                  className="PaymentMethodCardButton"
                 >
                   Edit
                 </button>
