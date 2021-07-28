@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { useHistory } from 'react-router-dom';
 import ProfileCard from '../DashboardHome/ProfileCard';
 import GiveCompletionPage from './GiveCompletionPage';
 import GiveManageRecurringCard from './GiveManageRecurringCard';
@@ -12,24 +13,43 @@ export enum GiveActionType {
   NAVIGATE_TO_COMPLETION_SUCCESS = 'NAVIGATE_TO_COMPLETION_SUCCESS',
   NAVIGATE_TO_COMPLETION_ERROR = 'NAVIGATE_TO_COMPLETION_ERROR',
 }
-enum GivePageType {
+enum GivePageType { // GivePageCard can be 1 of 3 cards (GivePageCard[give once, recurring], GiveManageRecurring, and GiveCompletionPage)
   GIVE_PAGE = 'give',
   RECURRING_PAGE = 'recurring',
   COMPLETE_PAGE = 'complete',
 }
+export enum GiveToggleType { // this is for determining the ['Recurring', 'Give once']toggle button in GivePageCard.tsx
+  RECURRING_PAGE = 'Recurring',
+  GIVE_PAGE = 'Give once',
+}
 export type GiveState = {
   currentPage: GivePageType;
   currentPayload?: any;
+  givePageToggleType?: GiveToggleType;
 };
 export type GiveAction = {
   type: GiveActionType;
   payload?: any;
 };
 
+type LocationObj = {
+  showActiveRecurringPage?: boolean;
+  showNewRecurringPage?: boolean;
+};
+
 export default function GivePage() {
-  const initialState: GiveState = {
-    currentPage: GivePageType.GIVE_PAGE,
+  const history = useHistory<LocationObj>();
+  const determineInitialState = () => {
+    if (history?.location?.state?.showActiveRecurringPage)
+      return { currentPage: GivePageType.RECURRING_PAGE };
+    if (history?.location?.state?.showNewRecurringPage)
+      return {
+        currentPage: GivePageType.GIVE_PAGE,
+        givePageToggleType: GiveToggleType.RECURRING_PAGE,
+      };
+    return { currentPage: GivePageType.GIVE_PAGE }; // landing default
   };
+  const initialState: GiveState = determineInitialState();
   const giveStateReducer = (
     giveState: GiveState,
     action: GiveAction

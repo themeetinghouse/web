@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
-import {
-  LinkButton,
-  Link as ClickableText,
-} from '../../../components/Link/Link';
+import { LinkButton } from '../../../components/Link/Link';
 import './TotalGivingCard.scss';
 export default function TotalGivingCard(): JSX.Element {
+  const history = useHistory();
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -79,27 +78,29 @@ export default function TotalGivingCard(): JSX.Element {
           "Want to make giving automatic? Let us know when and we'll take care of the rest."
         }
       </p>
-      <LinkButton
-        style={{
-          fontSize: 16,
-          width: 190,
-          borderWidth: 4,
-          borderColor: 'black',
-          lineHeight: 'unset',
-          height: 'unset',
-          padding: '12px',
-          margin: '16px 0px 0px 0px',
-        }}
-        to={'/account/give'}
+      <button
+        onClick={() =>
+          history.push('/account/give', { showNewRecurringPage: true })
+        }
+        className="AddRecurringButton white"
       >
         Add recurring gift
-      </LinkButton>
-      <ClickableText
-        style={{ marginTop: 36, display: 'block' }}
-        to={'/account/give'}
-      >
-        Manage my recurring giving
-      </ClickableText>
+      </button>
+      <div style={{ marginTop: 36 }} className="ManageRecurringButton">
+        <span
+          style={{
+            cursor: 'pointer',
+            paddingTop: 16,
+            margin: '16px 0px',
+            borderBottom: '1px solid black',
+          }}
+          onClick={() =>
+            history.push('/account/give', { showActiveRecurringPage: true })
+          }
+        >
+          Manage my recurring giving
+        </span>
+      </div>
     </div>
   );
 }
