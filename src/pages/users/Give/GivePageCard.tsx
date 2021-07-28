@@ -26,7 +26,7 @@ type GiveForm = {
 type GiveFormWithData = GiveForm & GivingData;
 
 export type CardInfo = {
-  cardNum: string;
+  cardNumber: string;
   expiry: string;
   cardType: string;
   nameOnCard: string;
@@ -102,7 +102,7 @@ export default function GivePageCard(props: GivePageCardProps) {
   };
   const getCard = async () => {
     setSelectedCard({
-      cardNum: '**** **** **** 5126',
+      cardNumber: '**** **** **** 5126',
       cardType: 'visa',
       nameOnCard: '',
       expiry: '05/22',
@@ -131,9 +131,22 @@ export default function GivePageCard(props: GivePageCardProps) {
       setForm({ ...form, fund: { name: fundOptions[0] } });
     }
   }, [fundOptions]);
+  console.log('currentPayload', currentPayload);
   return (
     <div className="GiveCard">
-      <GiveButtonToggle selection={selection} setSelection={setSelection} />
+      <GiveButtonToggle
+        selection={selection}
+        setSelection={(a) => {
+          setForm({
+            status: 'start',
+            giveAmount: '',
+            submitting: false,
+            fund: { name: '' },
+            frequency: '',
+          });
+          setSelection(a);
+        }}
+      />
       <p style={{ fontSize: 24, marginTop: 36 }}>Giving</p>
       <div>
         <span

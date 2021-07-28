@@ -4,7 +4,7 @@ import './PaymentCard.scss';
 import PaymentAddMethod from './PaymentAddMethod';
 type PaymentMethod = {
   nameOnCard: string;
-  cardNum: string;
+  cardNumber: string;
   expiry: string;
   cardType?: string;
   lastTransactionDate?: string;
@@ -20,7 +20,7 @@ export default function PaymentsCard() {
       setCards([
         {
           nameOnCard: 'Simon McTaggart',
-          cardNum: '•••• •••• •••• 5126 ',
+          cardNumber: '•••• •••• •••• 5126 ',
           expiry: '05/22',
           cardType: 'visa',
           lastTransactionDate: 'Jun 1, 2021',
@@ -28,13 +28,13 @@ export default function PaymentsCard() {
         },
         {
           nameOnCard: 'Simon McTaggart',
-          cardNum: '•••• •••• •••• 4126 ',
+          cardNumber: '•••• •••• •••• 4126 ',
           expiry: '05/22',
           cardType: 'mastercard',
         },
         {
           nameOnCard: 'Simon McTaggart',
-          cardNum: '•••• •••• •••• 2126 ',
+          cardNumber: '•••• •••• •••• 2126 ',
           expiry: '02/22',
           cardType: 'visa',
         },
@@ -65,7 +65,7 @@ export default function PaymentsCard() {
           <h1>Payment Methods</h1>
           {cards.map(
             ({
-              cardNum,
+              cardNumber,
               nameOnCard,
               expiry,
               cardType,
@@ -73,7 +73,7 @@ export default function PaymentsCard() {
               isPreferredCard,
             }) => {
               return (
-                <div key={cardNum} className="Payments-ItemContainer">
+                <div key={cardNumber} className="Payments-ItemContainer">
                   <div className="CardImageContainer">
                     {cardType && (
                       <img src={`/static/svg/${cardType}.svg`}></img>
@@ -94,7 +94,7 @@ export default function PaymentsCard() {
                     )}
                     <span>{nameOnCard}</span>
                     <p>
-                      {cardNum}
+                      {cardNumber}
                       <span style={{ marginLeft: 8 }}>Exp {expiry}</span>
                     </p>
                     {lastTransactionDate ? (

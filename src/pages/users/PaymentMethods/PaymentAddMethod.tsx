@@ -74,7 +74,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     );
   };
   const [cardDataForm, setCardDataForm] = useState<CardInfo>({
-    cardNum: '',
+    cardNumber: '',
     nameOnCard: '',
     expiry: '',
     cvc: '',
