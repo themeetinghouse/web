@@ -25,7 +25,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { GraphQLResult } from '@aws-amplify/api';
 import { CreateTMHUserInput, GetTmhUserQuery } from 'API';
 import Validate from './Validate';
-import PaymentsCommon from '../../pages/users/PaymentsCommon';
+import PaymentsCommon from '../../pages/users/paymentsCommon';
 Amplify.configure(awsconfig);
 
 //const PERSISTENCE_KEY = "NAVIGATION_STATE"
