@@ -4,7 +4,13 @@ import GiveButtonToggle from './GiveToggleButton';
 import { SelectedPaymentCard } from './SelectedPaymentCard';
 import './GivePageCard.scss';
 import { useEffect } from 'react';
-import { GiveAction, GiveActionType, GiveState } from './GivePage';
+import {
+  GiveAction,
+  GiveActionType,
+  GiveState,
+  GiveToggleType,
+} from './GivePage';
+import PaymentAddMethod from '../PaymentMethods/PaymentAddMethod';
 
 type GivingData = {
   giveAmount: string;
@@ -13,23 +19,38 @@ type GivingData = {
 };
 
 type GiveForm = {
-  status: string;
+  status: string; // this is likely not needed
   submitting: boolean;
 };
 
 type GiveFormWithData = GiveForm & GivingData;
+
+export type CardInfo = {
+  cardNum: string;
+  expiry: string;
+  cardType: string;
+  nameOnCard: string;
+  cvc: string;
+};
 
 type GivePageCardProps = {
   giveState: GiveState;
   dispatch: Dispatch<GiveAction>; //?
 };
 export default function GivePageCard(props: GivePageCardProps) {
-  const { currentPayload } = props.giveState;
+  const { currentPayload, givePageToggleType } = props.giveState;
   const { dispatch } = props;
+
+  const [selectedCard, setSelectedCard] = useState<CardInfo | null>(null);
+
+  // Give once vs Recurring fields toggle
+  // if currentPayload exists, then previous page was GiveManageRecurringCard.tsx
   const [selection, setSelection] = useState(
-    currentPayload ? 'Recurring' : 'Give once'
+    currentPayload || givePageToggleType === GiveToggleType.RECURRING_PAGE
+      ? 'Recurring'
+      : 'Give once'
   );
-  console.log('payload', currentPayload);
+
   const initialForm = currentPayload
     ? {
         status: 'start',
@@ -43,8 +64,11 @@ export default function GivePageCard(props: GivePageCardProps) {
         fund: { name: '' },
         frequency: '',
       };
+
   const [form, setForm] = useState<GiveFormWithData>(initialForm);
+
   const [fundOptions, setFundOptions] = useState<Array<string>>([]);
+
   const validateAmount = () => {
     if (form.fund.name === '' || form.fund.name === 'Please make a selection')
       return false;
@@ -56,11 +80,11 @@ export default function GivePageCard(props: GivePageCardProps) {
       return false;
     }
   };
+
   const handleSubmit = async () => {
     setForm({ ...form, submitting: true });
     setTimeout(() => {
       setForm({ ...form, status: 'complete', submitting: false });
-      // pass error
 
       /* success*/
       dispatch({
@@ -76,10 +100,18 @@ export default function GivePageCard(props: GivePageCardProps) {
       */
     }, 1500);
   };
+  const getCard = async () => {
+    setSelectedCard({
+      cardNum: '**** **** **** 5126',
+      cardType: 'visa',
+      nameOnCard: '',
+      expiry: '05/22',
+      cvc: '',
+    });
+  };
 
   useEffect(() => {
     const loadFundOptions = async () => {
-      // do we want to load this from a JSON?
       setTimeout(() => {
         setFundOptions([
           'Please make a selection',
@@ -88,8 +120,10 @@ export default function GivePageCard(props: GivePageCardProps) {
           'Go',
           'Curriculum',
         ]);
-      }, 1300);
+      }, 500);
     };
+
+    //getCard();
     loadFundOptions();
   }, []);
   useEffect(() => {
@@ -162,9 +196,19 @@ export default function GivePageCard(props: GivePageCardProps) {
           <input className="GiveInput" placeholder={'YYYY-MM-DD'} type="date" />
         </>
       ) : null}
-      <SelectedPaymentCard
-        card={currentPayload?.paymentMethod}
-      ></SelectedPaymentCard>
+      <div>
+        {currentPayload || selectedCard ? (
+          <SelectedPaymentCard card={currentPayload ?? selectedCard} />
+        ) : (
+          <>
+            <PaymentAddMethod
+              closeCard={(card?: CardInfo) => {
+                if (card) getCard();
+              }}
+            />
+          </>
+        )}
+      </div>
       <div className="GiveButtonContainer">
         <div className="ManageRecurringButton">
           <span

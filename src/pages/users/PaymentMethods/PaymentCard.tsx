@@ -1,16 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
-import './PaymentsCard.scss';
-import {
-  CardCvcElement,
-  CardExpiryElement,
-  CardNumberElement,
-} from '@stripe/react-stripe-js';
-import {
-  StripeCardCvcElementChangeEvent,
-  StripeCardExpiryElementChangeEvent,
-  StripeCardNumberElementChangeEvent,
-} from '@stripe/stripe-js';
+import './PaymentCard.scss';
+import PaymentAddMethod from './PaymentAddMethod';
 type PaymentMethod = {
   nameOnCard: string;
   cardNum: string;
@@ -20,79 +11,10 @@ type PaymentMethod = {
   isPreferredCard?: boolean;
 };
 
-const CARD_ELEMENT_OPTIONS = {
-  classes: { base: 'NewCardInput' },
-  style: {
-    base: {
-      color: 'black',
-      fontFamily: '"Graphik Web", Helvetica, sans-serif',
-      fontSmoothing: 'antialiased',
-      fontSize: '16px',
-      '::placeholder': {
-        color: '#aab7c4',
-      },
-    },
-    invalid: {
-      color: 'red',
-      iconColor: '#fa755a',
-    },
-  },
-};
-
 export default function PaymentsCard() {
-  const stripeFieldValidation = (
-    element:
-      | StripeCardNumberElementChangeEvent
-      | StripeCardExpiryElementChangeEvent
-      | StripeCardCvcElementChangeEvent,
-    name: string
-  ) => {
-    if (!element.empty && element.complete) {
-      setStripeValidation({
-        ...stripeValidation,
-        [name]: true,
-      });
-    } else {
-      setStripeValidation({ ...stripeValidation, [name]: false });
-    }
-    console.log(stripeValidation);
-  };
-  const [stripeValidation, setStripeValidation] = useState({
-    cardNumber: false,
-    expiryDate: false,
-    cvc: false,
-  });
   const [isLoading, setIsLoading] = useState(true);
   const [cards, setCards] = useState<Array<PaymentMethod>>([]);
   const [showCardForm, setShowCardForm] = useState(false);
-  const [cardDataForm, setCardDataForm] = useState({
-    cardNum: '',
-    nameOncard: '',
-    expiry: '',
-    cvc: '',
-  });
-  const isCardFormValid = (): boolean => {
-    console.log(
-      stripeValidation.cardNumber &&
-        stripeValidation.expiryDate &&
-        stripeValidation.cvc &&
-        !!cardDataForm.nameOncard
-    );
-    return (
-      stripeValidation.cardNumber &&
-      stripeValidation.expiryDate &&
-      stripeValidation.cvc &&
-      !!cardDataForm.nameOncard
-    );
-  };
-  const [addingCard, setAddingCard] = useState(false);
-  const addNewPaymentMethod = async () => {
-    setAddingCard(true);
-    setTimeout(() => {
-      setAddingCard(false);
-      setShowCardForm(false);
-    }, 1000);
-  };
   useEffect(() => {
     setTimeout(() => {
       setCards([
@@ -120,9 +42,6 @@ export default function PaymentsCard() {
       setIsLoading(false);
     }, 200);
   }, []);
-  useEffect(() => {
-    console.log(cardDataForm);
-  });
   return (
     <div className="Payments-Card">
       {isLoading ? (
@@ -197,14 +116,6 @@ export default function PaymentsCard() {
               );
             }
           )}
-          <div className="SecurePaymentContainer">
-            {showCardForm ? (
-              <img
-                style={{ alignSelf: 'flex-end' }}
-                src={`/static/svg/Secure-Payment.svg`}
-              />
-            ) : null}
-          </div>
           {!showCardForm ? (
             <button
               onClick={() => setShowCardForm(true)}
@@ -213,94 +124,7 @@ export default function PaymentsCard() {
               <img src={`/static/svg/Plus-Expand.svg`}></img>Add New Credit Card
             </button>
           ) : (
-            <div className="AddNewCardContainer">
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  marginBottom: 49,
-                }}
-              >
-                <h3 style={{ flex: 1, fontWeight: 300 }}>
-                  New credit card information
-                </h3>
-                <img src={`/static/svg/Secure-Payment.svg`} />
-              </div>
-
-              <p>Name on card</p>
-              <input
-                onChange={(e) =>
-                  setCardDataForm({
-                    ...cardDataForm,
-                    nameOncard: e.target.value,
-                  })
-                }
-                value={cardDataForm.nameOncard}
-                className="NewCardInput"
-              />
-              <p>Credit card number</p>
-              <CardNumberElement
-                className="NewCardInput"
-                onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
-                options={CARD_ELEMENT_OPTIONS}
-              />
-              <div
-                className="ExpiryCvcContainer"
-                style={{ display: 'flex', flexDirection: 'row' }}
-              >
-                <div style={{ flex: 1 }}>
-                  <p>Expiry</p>
-                  <CardExpiryElement
-                    onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
-                    options={CARD_ELEMENT_OPTIONS}
-                  />
-                </div>
-                <div style={{ flex: 1, marginLeft: 33 }}>
-                  <p>CVC</p>
-                  <CardCvcElement
-                    onChange={(el) => stripeFieldValidation(el, 'cvc')}
-                    options={CARD_ELEMENT_OPTIONS}
-                  />
-                </div>
-              </div>
-              <button
-                onClick={addNewPaymentMethod}
-                style={{ width: '100%' }}
-                disabled={!isCardFormValid()}
-                className={`SubmitNewCardButton${
-                  !isCardFormValid() ? ' disabled' : ''
-                }`}
-              >
-                {addingCard ? (
-                  <>
-                    <Spinner
-                      style={{
-                        width: '1.5rem',
-                        height: '1.5rem',
-                        marginRight: 8,
-                      }}
-                    />
-                    Adding card...
-                  </>
-                ) : (
-                  'Add new credit card'
-                )}
-              </button>
-              <span style={{ color: '#646469', marginTop: 12 }}>
-                This is a secure 128-bit SSL encrypted payment.
-                <span
-                  style={{
-                    marginLeft: 10,
-                    textDecoration: 'underline',
-                  }}
-                >
-                  {'Terms & Conditions'}
-                </span>
-                <span style={{ marginLeft: 10, textDecoration: 'underline' }}>
-                  Privacy Policy
-                </span>
-              </span>
-            </div>
+            <PaymentAddMethod closeCard={() => setShowCardForm(false)} />
           )}
         </div>
       )}
