@@ -42,24 +42,35 @@ export default function RecentTransactionsCard(): JSX.Element {
           >
             Recent Transactions
           </h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Payment Method</th>
-              </tr>
-            </thead>
-            <tbody>
-              {lastTransacs?.map((transac) => (
-                <tr key={transac?.id}>
-                  <td>{moment(transac?.receivedDate).format('YYYY-MM-DD')}</td>
-                  <td>{transac?.amount}</td>
-                  <td>{transac?.accountReference}</td>
+          <div style={{ maxHeight: 180, overflow: 'auto' }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Payment Method</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {lastTransacs
+                  ?.filter((transac, index) => index < 4)
+                  .sort((txOne, txTwo) =>
+                    txTwo?.receivedDate && txOne?.receivedDate
+                      ? txTwo?.receivedDate?.localeCompare(txOne?.receivedDate)
+                      : 0
+                  )
+                  .map((transac) => (
+                    <tr key={transac?.id}>
+                      <td>
+                        {moment(transac?.receivedDate).format('YYYY-MM-DD')}
+                      </td>
+                      <td>{transac?.amount}</td>
+                      <td>{transac?.accountReference}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
           <LinkButton className="ViewAllButton" to={'/account/transactions'}>
             View all transactions
           </LinkButton>
