@@ -1,0 +1,691 @@
+/* ================== START NEW STUFF ================== */
+.giveItemDiv1 {
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .giveItemDiv2 {
+    background-color: white;
+    height: 100%;
+  }
+  .GiveItemHR {
+    margin-left: 0;
+    margin-right: 0;
+    margin: 50px 0px;
+    width: 32px;
+    background-color: #ffffff;
+  }
+  .giveItemDiv3 {
+    position: relative;
+    left: 20vw;
+    width: 60vw;
+  }
+  .GiveContentContainer {
+    position: relative;
+    top: -150px;
+    background-color: #efeff0;
+    min-height: 500px;
+    padding: 43px 80px;
+    margin-bottom: -150px;
+  }
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 60vw;
+    font-size: 1.5vw;
+  }
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    padding-bottom: 250px;
+  }
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
+  .GiveItemGreyBox {
+    background-color: #efeff0;
+    width: 60vw;
+    padding: 5vw;
+  }
+  .GiveItemOtherWays {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: black;
+    font-size: 1.667vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+  }
+  .GiveOtherButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #efeff0;
+    color: black;
+    font-weight: bold;
+    font-family: Graphik Web;
+  }
+  .GiveExtendedContainer {
+    width: 60vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    .GiveItemOtherWayGroup {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+      gap: 25px;
+
+      .GiveItemOtherWay {
+        img {
+          width: 3.472vw;
+          margin-right: 6px;
+        }
+        padding: 33px 68px;
+        font-size: 1.667vw;
+        min-width: 100%;
+        font-weight: 700;
+        text-decoration: none;
+        background-color: #efeff0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid transparent;
+        span {
+          margin-top: 12px;
+          color: black !important;
+        }
+      }
+
+      a:hover {
+        border: 1px solid #bfbfc0;
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 50vh;
+  }
+}
+@media (max-width: 767px) {
+  .GiveItemHR {
+    margin-left: 0;
+    margin-right: 0;
+    margin: 50px 0px;
+    width: 32px;
+    background-color: #ffffff;
+  }
+  .giveItemDiv2 {
+    background-color: white;
+    height: 100%;
+  }
+  .giveItemDiv3 {
+    position: relative;
+    width: calc(100% - 10vw);
+    margin-left: 5vw;
+  }
+  .GiveExtendedContainer {
+    width: 100%;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    .GiveItemOtherWays {
+      font-weight: bold;
+      font-family: Graphik Web;
+      color: black;
+      font-size: 16px;
+    }
+    .GiveItemOtherWayGroup {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+      gap: 25px;
+      .GiveItemOtherWay {
+        img {
+          margin-left: -16px;
+          width: 6.472vw;
+          margin-right: 6px;
+        }
+        padding: 33px 68px;
+        font-size: 3.667vw;
+        min-width: 100%;
+        font-weight: 700;
+        text-decoration: none;
+        background-color: #efeff0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid transparent;
+        span {
+          margin-top: 12px;
+          color: black !important;
+        }
+      }
+
+      a:hover {
+        border: 1px solid #bfbfc0;
+      }
+    }
+  }
+  .GiveContentContainer {
+    position: relative;
+    width: calc(100% + 10vw);
+    background-color: #efeff0;
+    padding: 5vw;
+    margin-left: -5vw;
+  }
+  .giveItemDiv1 {
+    padding-bottom: 25vw;
+    position: relative;
+    top: 20vw;
+    left: 0vw;
+    width: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 7vw;
+    line-height: 10.67vw;
+  }
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 100%;
+    font-size: 4vw;
+    line-height: 8.55vw;
+  }
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 6vw;
+    font-size: 4vw;
+    width: 97%;
+  }
+}
+/* ================== END NEW STUFF ================== */
+
+/*
+@media (min-width: 768px) {
+  .GiveFormId {
+    border: 0px;
+    width: 60vw;
+  }
+  .GiveItemOtherWayLink {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff00;
+    color: #0000ff;
+    border: 0;
+    font-weight: normal;
+    font-family: Graphik Web;
+  }
+  ul.GiveItem {
+    list-style-type: none;
+    margin: 5;
+    padding: 5;
+  }
+  ul.GiveItemNumber {
+    list-style-type: decimal;
+    margin: 5;
+    padding: 5;
+  }
+  .GiveItemOtherWayLink:hover {
+    background-color: #ffffff00 !important;
+    color: #0000ff !important;
+    border: 0;
+  }
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 60vw;
+    font-size: 1.5vw;
+  }
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
+
+  .GiveItemHR {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    width: 8.55vw;
+    background-color: #ffffff;
+  }
+
+  .GiveItemBottom {
+    height: 15vw;
+  }
+
+  .GiveItemOtherWayButton {
+    background-color: #000;
+    color: #ffffff;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    text-decoration: underline;
+
+    &:hover {
+      background-color: #000;
+      border: none;
+      color: #0000ff;
+      text-decoration: underline;
+    }
+  }
+
+  .GiveItemOtherWayButton2 {
+    font-family: Graphik Web;
+    background-color: #000000 !important;
+    color: #ffffff;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .GiveItemGreyBox {
+    background-color: #efeff0;
+    width: 60vw;
+    padding: 5vw;
+  }
+
+  .GiveItemButton {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: #000000;
+    color: #000000;
+    font-family: Graphik Web;
+    font-weight: normal;
+    margin: 0.5vw;
+    padding: 0.7vw;
+  }
+
+  .GiveItemOtherWays,
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 1vw;
+    margin-top: 2vw;
+  }
+
+  .GiveItemOtherWay {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .GiveItemNeedHelpEmail {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .GiveItemOtherWayGroup {
+    float: left;
+  }
+
+  .GiveItemNeedHelpGroup {
+    float: right;
+    width: 60vw;
+    font-size: 1vw;
+  }
+
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 40vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 70vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .GiveFormId {
+    border: 0px;
+    width: 60vw;
+  }
+  .GiveItemOtherWayLink {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff00;
+    color: #0000ff;
+    border: 0;
+    font-weight: normal;
+    font-family: Graphik Web;
+  }
+  ul.GiveItem {
+    list-style-type: none;
+    margin: 5;
+    padding: 5;
+  }
+  ul.GiveItemNumber {
+    list-style-type: decimal;
+    margin: 5;
+    padding: 5;
+  }
+  .GiveItemOtherWayLink:hover {
+    background-color: #ffffff00 !important;
+    color: #0000ff !important;
+    border: 0;
+  }
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 60vw;
+    font-size: 1.5vw;
+  }
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 1vw;
+    font-size: 1.2vw;
+  }
+
+  .GiveItemHR {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    width: 8.55vw;
+    background-color: #ffffff;
+  }
+
+  .GiveItemGreyBox {
+    background-color: #efeff0;
+    width: 60vw;
+    padding: 5vw;
+  }
+
+  .GiveItemButton {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: #000000;
+    color: #000000;
+    font-family: Graphik Web;
+    font-weight: normal;
+    margin: 0.5vw;
+    padding: 0.7vw;
+  }
+
+  .GiveItemOtherWays,
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 1vw;
+    margin-top: 2vw;
+  }
+
+  .GiveItemOtherWay {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-right: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .GiveItemBottom {
+    height: 15vw;
+  }
+
+  .GiveItemNeedHelpEmail {
+    font-family: Graphik Web;
+    color: #ffffff;
+    float: left;
+    font-size: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .GiveItemOtherWayGroup {
+    float: left;
+  }
+
+  .GiveItemNeedHelpGroup {
+    float: right;
+    width: 60vw;
+    font-size: 1vw;
+  }
+
+  .giveItemDiv1 {
+    position: relative;
+    top: 2vw;
+    left: 20vw;
+    margin-bottom: 50vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .GiveFormId {
+    border: 0px;
+    width: 95%;
+  }
+  .GiveItemOtherWayLink {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff00;
+    color: #0000ff;
+    border: 0;
+    font-weight: normal;
+    font-family: Graphik Web;
+  }
+  ul.GiveItem {
+    list-style-type: none;
+    margin: 5;
+    padding: 5;
+  }
+  ul.GiveItemNumber {
+    list-style-type: decimal;
+    margin: 5;
+    padding: 5;
+  }
+  .GiveItemOtherWayLink:hover {
+    background-color: #ffffff00 !important;
+    color: #0000ff !important;
+    border: 0;
+  }
+  .GiveItemH1 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 7vw;
+    line-height: 10.67vw;
+  }
+
+  .GiveItemH2 {
+    color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: normal;
+    width: 100%;
+    font-size: 4vw;
+    line-height: 8.55vw;
+  }
+
+  .GiveItemText {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 6vw;
+    font-size: 4vw;
+    width: 97%;
+  }
+
+  .GiveItemHR {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5vw;
+    margin-bottom: 6.5vw;
+    width: 8.55vw;
+    background-color: #ffffff;
+  }
+
+  .GiveItemGreyBox {
+    background-color: #efeff0;
+    width: 96%;
+    padding: 10vw 5vw 10vw 5vw;
+  }
+
+  .GiveItemButton {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-width: 1px;
+    border-color: #000000;
+    color: #000000;
+    font-family: Graphik Web;
+    font-weight: normal;
+    margin: 0.5vw;
+    padding: 0.7vw;
+  }
+
+  .GiveItemOtherWays {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 4.3vw;
+    margin-top: 12vw;
+    margin-bottom: 3vw;
+  }
+
+  .GiveItemNeedHelp {
+    font-weight: bold;
+    font-family: Graphik Web;
+    color: #ffffff;
+    font-size: 4.3vw;
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+  }
+
+  .GiveItemOtherWay {
+    font-family: Graphik Web;
+    color: #ffffff;
+    // float: left;
+    font-size: 3.7vw;
+    margin-right: 1vw;
+    width: 100%;
+  }
+
+  .GiveItemNeedHelpEmail {
+    font-family: Graphik Web;
+    color: #ffffff;
+    //  float: left;
+    font-size: 4.3vw;
+    margin-bottom: 5vw;
+  }
+
+  .GiveItemOtherWayGroup {
+    width: 100%;
+  }
+
+  .GiveItemNeedHelpGroup {
+    // float: right;
+    width: 100%;
+    font-size: 1vw;
+  }
+
+  .giveItemDiv1 {
+    position: relative;
+    top: 20vw;
+    left: 0vw;
+    margin-bottom: 25vh;
+    width: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .GiveItemOtherWayButton {
+    float: left;
+    width: 50%;
+    color: #000000;
+    background-color: #ffffff;
+    width: 45%;
+    margin-right: 2vw;
+    margin-bottom: 5vw;
+    padding: 0;
+    height: 11.25vw;
+  }
+
+  .GiveItemOtherWayButton2 {
+    float: left;
+    width: 50%;
+    color: #000000;
+    background-color: #ffffff;
+    text-decoration: underline;
+    width: 45%;
+    margin-right: 2vw;
+    margin-bottom: 5vw;
+    padding: 0;
+    height: 11.25vw;
+  }
+}
+*/

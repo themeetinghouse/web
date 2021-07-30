@@ -9,13 +9,14 @@ import HeroItem from './HeroItem';
 import HomeMenu from 'components/Menu/HomeMenu';
 import HomeFooter from 'components/Menu/HomeFooter';
 import AppPromo from '../AppPromo/AppPromo';
+import { GEProvider } from './GiveComponents/GEContext';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
 const WeatherItem = React.lazy(() => import('./WeatherItem'));
 const FAQItem = React.lazy(() => import('./FAQItem'));
-const GiveItem = React.lazy(() => import('./GiveItem'));
+const NewGiveItem = React.lazy(() => import('./NewGiveItem'));
 const Give2Item = React.lazy(() => import('./Give2Item'));
 const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
 const VideoPlayerLive = React.lazy(() => import('./VideoPlayerLive'));
@@ -99,7 +100,12 @@ class RenderRouter extends React.Component<Props> {
       case 'payment':
         return <PaymentItem key={index} content={item} />;
       case 'give':
-        return <GiveItem key={index} content={item} />;
+        return (
+          <GEProvider>
+            <NewGiveItem content={item} />
+          </GEProvider>
+        );
+
       case 'searchResult':
         return <SearchResult key={index} content={item} />;
       case 'give2':
