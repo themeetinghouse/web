@@ -1,20 +1,67 @@
 import { GEContext } from './GEContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { GEPage, GEActionType } from './GETypes';
 import GiveToggleButton from 'pages/users/Give/GiveToggleButton';
-
+import GiftAmountButton from './GiftAmountButtons';
+import GiveSelect from 'pages/users/Give/GiveSelect';
+import './GiveExperience.scss';
+import PaymentAddMethod from 'pages/users/PaymentMethods/PaymentAddMethod';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+let env = 'unknown';
+if (window.location === undefined) env = 'mobile';
+else if (window.location.hostname === 'localhost') env = 'dev';
+else if (window.location.hostname.includes('beta')) env = 'beta';
+else if (window.location.hostname.includes('dev')) env = 'dev';
+else env = 'prod';
 type OnlineBankingInfoProps = {
   content: any;
 };
 export default function GiveExperienceContainer() {
+  const [stripePromise] = useState(() =>
+    loadStripe(
+      env == 'beta'
+        ? 'pk_live_51HlyrYLTzrDhiQ9282ydxEkzCmGQuJ6w6m2J7pvWL3DslQGdyZHhi6NFa7lLgErh9YjboGdEs09ce0y9c3H5SfVx00K1massZP'
+        : 'pk_test_51HlyrYLTzrDhiQ921sERNUY2GQBDgpHDOUYMiNZ0lTeTsse9u8oQoBfLg6UzWaxcNkYhek4tkNWILTlAiajet27k00FFv6z0RB'
+    )
+  );
   const { state, dispatch } = useContext(GEContext);
   const PageOne = () => {
+    const [form, setForm] = useState({ fund: { name: '' } });
     return (
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <GiveToggleButton
           selection="Give once"
           setSelection={() => null}
         ></GiveToggleButton>
+
+        <GiftAmountButton></GiftAmountButton>
+        <label
+          style={{
+            fontSize: 24,
+            lineHeight: '32px',
+            marginTop: 48,
+            fontWeight: 300,
+          }}
+        >
+          Where would you like to give?
+        </label>
+        <GiveSelect form={form} setForm={setForm}></GiveSelect>
+        <button
+          onClick={() =>
+            dispatch({ type: GEActionType.NAVIGATE_TO_PAYMENT_INFO })
+          }
+          className="GENextButton"
+        >
+          Next
+        </button>
+      </div>
+    );
+  };
+  const PageTwo = () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <PaymentAddMethod closeCard={() => null}></PaymentAddMethod>
       </div>
     );
   };
@@ -116,30 +163,34 @@ export default function GiveExperienceContainer() {
   };
 
   return (
-    <div className="GiveContentContainer">
-      {state.currentPage === GEPage.GIVE_NOW ? (
-        <PageOne></PageOne>
-      ) : state.currentPage === GEPage.ONLINE_BANKING ? (
-        <OnlineBankingInfo content={state.content}></OnlineBankingInfo>
-      ) : state.currentPage === GEPage.REQUEST_ACCOUNT ? (
-        <iframe
-          src={'https://meeting.formstack.com/forms/request_account_number'}
-          title="The Meeting House - Forms"
-          scrolling="yes"
-          className="GiveFormId"
-          style={{ minHeight: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
-        ></iframe>
-      ) : state.currentPage === GEPage.PREAUTHORIZED_WITHDRAWAL ? (
-        <iframe
-          src={
-            'https://meeting.formstack.com/forms/preauthorized_withdrawal_form'
-          }
-          title="The Meeting House - Forms"
-          scrolling="yes"
-          className="GiveFormId"
-          style={{ height: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
-        ></iframe>
-      ) : null}
-    </div>
+    <Elements stripe={stripePromise}>
+      <div className="GiveContentContainer">
+        {state.currentPage === GEPage.GIVE_NOW ? (
+          <PageOne></PageOne>
+        ) : state.currentPage === GEPage.PAYMENT_INFO ? (
+          <PageTwo></PageTwo>
+        ) : state.currentPage === GEPage.ONLINE_BANKING ? (
+          <OnlineBankingInfo content={state.content}></OnlineBankingInfo>
+        ) : state.currentPage === GEPage.REQUEST_ACCOUNT ? (
+          <iframe
+            src={'https://meeting.formstack.com/forms/request_account_number'}
+            title="The Meeting House - Forms"
+            scrolling="yes"
+            className="GiveFormId"
+            style={{ minHeight: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
+          ></iframe>
+        ) : state.currentPage === GEPage.PREAUTHORIZED_WITHDRAWAL ? (
+          <iframe
+            src={
+              'https://meeting.formstack.com/forms/preauthorized_withdrawal_form'
+            }
+            title="The Meeting House - Forms"
+            scrolling="yes"
+            className="GiveFormId"
+            style={{ height: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
+          ></iframe>
+        ) : null}
+      </div>
+    </Elements>
   );
 }
