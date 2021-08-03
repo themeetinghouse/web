@@ -43,7 +43,7 @@ const BlogPreviewText = ({
 }: BlogPreviewTextProps) => (
   <div className={`BlogPreviewTextContainer ${style}`}>
     <div className={`BlogPreviewTitle tmh-${color}`}>{title}</div>
-    <div className={`BlogPreviewAuthorDate ${style}`}>
+    <div className={`BlogPreviewAuthorDate ${style} ${color}`}>
       by <span className={`BlogPreviewAuthor tmh-${color}`}>{author}</span> on{' '}
       {publishedDate}
     </div>
@@ -56,11 +56,20 @@ const BlogPreviewText = ({
 interface FeaturedBlogListProps {
   children: React.ReactNode;
   screenWidth: number;
+  backgroundColor: 'white' | 'black';
 }
 
-const FeaturedBlogList = ({ children, screenWidth }: FeaturedBlogListProps) => {
+const FeaturedBlogList = ({
+  children,
+  screenWidth,
+  backgroundColor,
+}: FeaturedBlogListProps) => {
   if (screenWidth > DESKTOP_BREAKPOINT) {
-    return <HorizontalScrollList darkMode>{children}</HorizontalScrollList>;
+    return (
+      <HorizontalScrollList darkMode={backgroundColor === 'black'}>
+        {children}
+      </HorizontalScrollList>
+    );
   }
 
   return (
@@ -94,6 +103,7 @@ interface Props {
 
 const DESKTOP_BREAKPOINT = 1024;
 const MOBILE_BREAKPOINT = 768;
+const invertBlackWhite = { black: 'white', white: 'black' } as const;
 
 const BlogItem = ({ content }: Props) => {
   const [blogs, setBlogs] = useState<
@@ -250,7 +260,8 @@ const BlogItem = ({ content }: Props) => {
     }
   };
 
-  const { description, header1, style, limit, hideAllBlogsButton } = content;
+  const { description, header1, header2, style, limit, hideAllBlogsButton } =
+    content;
 
   const isDesktop = screenWidth >= MOBILE_BREAKPOINT;
 
@@ -382,13 +393,31 @@ const BlogItem = ({ content }: Props) => {
   }
 
   if (style === 'featured') {
+    const { backgroundColor = 'black', lessPadding = false } = content;
+    const headerColor = backgroundColor === 'black' ? 'w' : 'b';
+
     return blogs.length > 0 ? (
       <div className="blog-item">
-        <div className="featured-blog-container">
-          <h1 className="tmh-header1 w">{header1}</h1>
-          <h3 className="featured-blog-description">{description}</h3>
+        <div
+          className={`featured-blog-container ${backgroundColor} ${
+            lessPadding ? 'less-padding' : ''
+          }`}
+        >
+          {header1 ? (
+            <h1 className={`tmh-header1 ${headerColor}`}>{header1}</h1>
+          ) : header2 ? (
+            <h2 className={`tmh-header2 ${headerColor}`}>{header2}</h2>
+          ) : null}
+          {description ? (
+            <h3 className={`featured-blog-description ${backgroundColor}`}>
+              {description}
+            </h3>
+          ) : null}
           <div className="featured-blog-list-wrapper">
-            <FeaturedBlogList screenWidth={screenWidth}>
+            <FeaturedBlogList
+              screenWidth={screenWidth}
+              backgroundColor={backgroundColor}
+            >
               {blogs
                 .slice(0, !isDesktop ? 3 : undefined) // show max 3 posts on mobile
                 .map((blog) => {
@@ -412,7 +441,7 @@ const BlogItem = ({ content }: Props) => {
                           author={blog?.author ?? ''}
                           publishedDate={blog?.publishedDate ?? ''}
                           description={blog?.description ?? ''}
-                          color="white"
+                          color={invertBlackWhite[backgroundColor]}
                           style="feat-blog"
                         />
                       </Link>
