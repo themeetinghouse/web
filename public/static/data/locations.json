@@ -93,7 +93,7 @@
   {
     "id": "toronto-downtown",
     "name": "Toronto - Downtown",
-    "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
+    "pastorEmail": "Rob.Schlenberg@themeetinghouse.com",
     "location": {
       "longitude": -79.391418,
       "latitude": 43.648869,
@@ -115,7 +115,7 @@
   {
     "id": "toronto-east",
     "name": "Toronto - East",
-    "pastorEmail": "Robin.Ellingwood@themeetinghouse.com",
+    "pastorEmail": "Jennifer.McWilliams@themeetinghouse.com",
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
@@ -126,7 +126,7 @@
   {
     "id": "toronto-high-park",
     "name": "Toronto - High Park",
-    "pastorEmail": "houston.cheng@themeetinghouse.com",
+    "pastorEmail": "Rob.Schlenberg@themeetinghouse.com",
     "location": {
       "longitude": -79.4744334,
       "latitude": 43.6578297,
