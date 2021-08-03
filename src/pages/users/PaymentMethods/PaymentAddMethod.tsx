@@ -17,6 +17,8 @@ type AddPaymentMethodCardProps = {
   closeCard: (card?: CardInfo) => void;
 };
 export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
+  // TODO:
+  /* Immediate payment vs adding card to payment methods */
   const { closeCard } = props;
   const [addingCard, setAddingCard] = useState(false);
   const [stripeValidation, setStripeValidation] = useState({

@@ -3,6 +3,32 @@
   margin-top: 20px;
 }
 @media (min-width: 768px) {
+  .GEButtonContainer {
+    display: flex;
+    width: 60vw;
+  }
+  .GEButton {
+    margin-right: 30px !important;
+    text-align: center;
+    cursor: pointer;
+    background-color: #1a1a1a;
+    font-weight: 700;
+    height: 56px;
+    border: 1px solid #fff;
+    padding: 12px;
+    width: 260px;
+    color: white;
+    font-size: 12px;
+    &.GEButtonWhite {
+      background-color: white;
+      color: #1a1a1a;
+    }
+    &:active {
+      background-color: #545b62;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+  }
   .giveItemDiv2 {
     background-color: white;
     height: 100%;
@@ -21,7 +47,7 @@
   }
   .GiveContentContainer {
     position: relative;
-    top: -150px;
+    top: -170px;
     background-color: #efeff0;
     min-height: 500px;
     padding: 43px 80px;

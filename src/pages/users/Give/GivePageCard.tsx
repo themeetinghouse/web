@@ -3,7 +3,6 @@ import { Spinner } from 'reactstrap';
 import GiveButtonToggle from './GiveToggleButton';
 import { SelectedPaymentCard } from './SelectedPaymentCard';
 import './GivePageCard.scss';
-import { useEffect } from 'react';
 import {
   GiveAction,
   GiveActionType,
@@ -11,6 +10,7 @@ import {
   GiveToggleType,
 } from './GivePage';
 import PaymentAddMethod from '../PaymentMethods/PaymentAddMethod';
+import GiveSelect from './GiveSelect';
 
 type GivingData = {
   giveAmount: string;
@@ -66,9 +66,6 @@ export default function GivePageCard(props: GivePageCardProps) {
       };
 
   const [form, setForm] = useState<GiveFormWithData>(initialForm);
-
-  const [fundOptions, setFundOptions] = useState<Array<string>>([]);
-
   const validateAmount = () => {
     if (form.fund.name === '' || form.fund.name === 'Please make a selection')
       return false;
@@ -110,27 +107,6 @@ export default function GivePageCard(props: GivePageCardProps) {
     });
   };
 
-  useEffect(() => {
-    const loadFundOptions = async () => {
-      setTimeout(() => {
-        setFundOptions([
-          'Please make a selection',
-          'General',
-          'Compassion',
-          'Go',
-          'Curriculum',
-        ]);
-      }, 500);
-    };
-
-    //getCard();
-    loadFundOptions();
-  }, []);
-  useEffect(() => {
-    if (fundOptions.length && !currentPayload) {
-      setForm({ ...form, fund: { name: fundOptions[0] } });
-    }
-  }, [fundOptions]);
   console.log('currentPayload', currentPayload);
   return (
     <div className="GiveCard">
@@ -172,25 +148,7 @@ export default function GivePageCard(props: GivePageCardProps) {
       </div>
 
       <label htmlFor="fundType">Where would you like to give?</label>
-      <select
-        value={form.fund.name}
-        onChange={(e) => setForm({ ...form, fund: { name: e.target.value } })}
-        className="GiveInput"
-        id="fundType"
-        style={{ padding: '0px 30px' }}
-      >
-        {!fundOptions.length ? (
-          <option value="loading">Loading options...</option>
-        ) : (
-          fundOptions.map((fundName) => {
-            return (
-              <option key={fundName} value={fundName}>
-                {fundName} fund
-              </option>
-            );
-          })
-        )}
-      </select>
+      <GiveSelect form={form} setForm={setForm}></GiveSelect>
       {selection === 'Recurring' ? (
         <>
           <label htmlFor="frequency">Frequency</label>

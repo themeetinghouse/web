@@ -3,7 +3,6 @@ import './NewGiveItem.scss';
 import ReactGA from 'react-ga';
 import { Link } from 'components/Link/Link';
 import { GEContext } from './GiveComponents/GEContext';
-import '../../pages/users/Give/GivePageCard';
 import GiveExperienceContainer from './GiveComponents/GiveExperienceContainer';
 import { GEActionType } from './GiveComponents/GETypes';
 
@@ -48,9 +47,9 @@ export default function NewGiveItem(props: Props): JSX.Element {
   }, []);
   const renderGiveButtons = () => {
     return (
-      <div>
+      <div className="GEButtonContainer">
         <button
-          className="GiveButton"
+          className="GEButton GEButtonWhite"
           onClick={(e) => {
             e.preventDefault();
             dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW });
@@ -59,6 +58,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
           Give Now
         </button>
         <button
+          className="GEButton"
           onClick={(e) => {
             e.preventDefault();
             dispatch({
@@ -69,7 +69,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
         >
           Online Banking
         </button>
-        <Link style={{ color: 'white' }} to="/signin">
+        <Link style={{ color: 'white', margin: 'auto 30px' }} to="/signin">
           Login to manage your giving
         </Link>
       </div>
