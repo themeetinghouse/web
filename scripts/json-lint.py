@@ -232,13 +232,18 @@ if __name__ == '__main__':
                         elif item_type == 'blog':
                             assert(item['style'] in ['hero', 'multiImage', 'featured'])
                             assert(isinstance(item['status'], str))
-                            assert(isinstance(item['header1'], str))
+                            assert('header1' not in item or isinstance(item['header1'], str))
+                            assert('header2' not in item or isinstance(item['header2'], str))
+                            assert(bool('header1' in item) != bool('header2' in item))  # header1 or header2 is required, but cannot be used together (XOR) 
+                            assert(not ('header2' in item and 'description' in item))  # header2 and description cannot be used together
                             assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
                             assert('limit' not in item or isinstance(item['limit'], int))
                             assert('description' not in item or isinstance(item['description'], str))
                             assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
                             assert('button1Action' not in item or isinstance(item['button1Action'], str))
                             assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
+                            assert('lessPadding' not in item or isinstance(item['lessPadding'], bool))
+                            assert('backgroundColor' not in item or item['backgroundColor'] in ['white', 'black'])
                         
                         elif item_type == 'podcasts':
                             assert(isinstance(item, dict))

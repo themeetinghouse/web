@@ -50,11 +50,14 @@ export interface BlogItemContent {
   style: 'multiImage' | 'hero' | 'featured';
   status: 'Live';
   header1?: string;
+  header2?: string;
   sortOrder?: 'DESC' | 'ASC';
   limit?: number;
   blogSeries?: string;
   hideAllBlogsButton?: boolean;
   description?: string;
+  backgroundColor?: 'white' | 'black';
+  lessPadding?: boolean;
 }
 
 export interface GoLink {
