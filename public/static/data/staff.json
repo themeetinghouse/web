@@ -247,7 +247,7 @@
     "FirstName": "Jennifer",
     "LastName": "McWilliams",
     "Phone": "905.287.7000, ext. 838",
-    "Position": "Kids Pastor",
+    "Position": "East Toronto Lead Pastor",
     "sites": ["Pastoral"],
     "Email": "Jennifer.McWilliams@themeetinghouse.com"
   },
@@ -583,15 +583,6 @@
     "Position": "High Park Lead Pastor",
     "sites": ["TOHP", "Pastoral"],
     "Email": "Rob.Schellenberg@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Houston",
-    "LastName": "Cheng",
-    "Phone": "905.287.7000",
-    "Position": "Interim East Toronto Lead Pastor",
-    "sites": ["TOBC", "Pastoral"],
-    "Email": "houston.cheng@themeetinghouse.com"
   },
   {
     "Staff": true,
