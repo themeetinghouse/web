@@ -1,7 +1,11 @@
 import { createRef, useEffect, useState } from 'react';
 import './GiftAmountButtons.scss';
 type Options = string | number | null;
-export default function GiftAmountButton() {
+type GiftAmountButtonProps = {
+  setForm: (prev: any) => void;
+};
+export default function GiftAmountButton(props: GiftAmountButtonProps) {
+  const { setForm } = props;
   const fieldRef = createRef<HTMLInputElement>();
   const [options] = useState<Array<Options>>([
     '$25',
@@ -17,6 +21,7 @@ export default function GiftAmountButton() {
     } else {
       if (fieldRef?.current) fieldRef.current.value = '';
     }
+    setForm((prev: any) => ({ ...prev, amount: selectedOption }));
   }, [selectedOption]);
   return (
     <div style={{ marginTop: 60 }}>

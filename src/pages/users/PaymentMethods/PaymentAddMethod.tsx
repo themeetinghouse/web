@@ -8,6 +8,11 @@ import {
   StripeCardExpiryElementChangeEvent,
   StripeCardNumberElementChangeEvent,
 } from '@stripe/stripe-js';
+import {
+  GEAction,
+  GEPage,
+  GEState,
+} from 'components/RenderRouter/GiveComponents/GETypes';
 import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { CardInfo } from '../Give/GivePageCard';
@@ -15,11 +20,13 @@ import './PaymentCard.scss';
 
 type AddPaymentMethodCardProps = {
   closeCard: (card?: CardInfo) => void;
+  state?: GEState;
+  dispatch?: (obj: GEAction) => void;
 };
 export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
   // TODO:
   /* Immediate payment vs adding card to payment methods */
-  const { closeCard } = props;
+  const { closeCard, state } = props;
   const [addingCard, setAddingCard] = useState(false);
   const [stripeValidation, setStripeValidation] = useState({
     cardNumber: false,
@@ -106,7 +113,9 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
           }}
         >
           <h3 style={{ flex: 1, fontWeight: 300 }}>
-            New credit card information
+            {state?.currentPage === GEPage?.PAYMENT_INFO
+              ? 'Credit card information'
+              : 'New credit card information'}
           </h3>
           <img src={`/static/svg/Secure-Payment.svg`} />
         </div>
@@ -166,6 +175,8 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
               />
               Adding card...
             </>
+          ) : state?.currentPage === GEPage?.PAYMENT_INFO ? (
+            `Make my ${state?.content?.amount} gift`
           ) : (
             'Add new credit card'
           )}

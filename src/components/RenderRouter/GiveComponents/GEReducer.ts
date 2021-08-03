@@ -9,7 +9,11 @@ export default function giveExperienceReducer(
     case GEActionType.NAVIGATE_TO_REQUEST_ACCOUNT:
       return { ...state, currentPage: GEPage.REQUEST_ACCOUNT };
     case GEActionType.NAVIGATE_TO_PAYMENT_INFO:
-      return { ...state, currentPage: GEPage.PAYMENT_INFO };
+      return {
+        ...state,
+        currentPage: GEPage.PAYMENT_INFO,
+        content: action.payload,
+      };
     case GEActionType.NAVIGATE_GIVE_NOW:
       // wipe data belonging to other pages ie content
       return { ...state, currentPage: GEPage.GIVE_NOW };

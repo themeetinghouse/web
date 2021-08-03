@@ -27,7 +27,7 @@ export default function GiveExperienceContainer() {
   );
   const { state, dispatch } = useContext(GEContext);
   const PageOne = () => {
-    const [form, setForm] = useState({ fund: { name: '' } });
+    const [form, setForm] = useState({ fund: { name: '' }, amount: null });
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <GiveToggleButton
@@ -35,7 +35,7 @@ export default function GiveExperienceContainer() {
           setSelection={() => null}
         ></GiveToggleButton>
 
-        <GiftAmountButton></GiftAmountButton>
+        <GiftAmountButton setForm={setForm}></GiftAmountButton>
         <label
           style={{
             fontSize: 24,
@@ -49,7 +49,10 @@ export default function GiveExperienceContainer() {
         <GiveSelect form={form} setForm={setForm}></GiveSelect>
         <button
           onClick={() =>
-            dispatch({ type: GEActionType.NAVIGATE_TO_PAYMENT_INFO })
+            dispatch({
+              type: GEActionType.NAVIGATE_TO_PAYMENT_INFO,
+              payload: { amount: form.amount },
+            })
           }
           className="GENextButton"
         >
@@ -61,7 +64,11 @@ export default function GiveExperienceContainer() {
   const PageTwo = () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <PaymentAddMethod closeCard={() => null}></PaymentAddMethod>
+        <PaymentAddMethod
+          state={state}
+          dispatch={dispatch}
+          closeCard={() => null}
+        ></PaymentAddMethod>
       </div>
     );
   };
