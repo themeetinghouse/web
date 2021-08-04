@@ -230,7 +230,7 @@ if __name__ == '__main__':
                                             raise Exception(f'unknown FAQ list type: {unknown}')                     
 
                         elif item_type == 'blog':
-                            assert(item['style'] in ['hero', 'multiImage', 'featured'])
+                            assert(item['style'] in ['hero', 'multiImage', 'featured', 'watch-page'])
                             assert(isinstance(item['status'], str))
                             assert('header1' not in item or isinstance(item['header1'], str))
                             assert('header2' not in item or isinstance(item['header2'], str))
@@ -244,6 +244,15 @@ if __name__ == '__main__':
                             assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
                             assert('lessPadding' not in item or isinstance(item['lessPadding'], bool))
                             assert('backgroundColor' not in item or item['backgroundColor'] in ['white', 'black'])
+                            if item['style'] != 'watch-page':
+                                assert(isinstance(item['status'], str))
+                                assert(isinstance(item['header1'], str))
+                                assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                                assert('limit' not in item or isinstance(item['limit'], int))
+                                assert('description' not in item or isinstance(item['description'], str))
+                                assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
+                                assert('button1Action' not in item or isinstance(item['button1Action'], str))
+                                assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
                         
                         elif item_type == 'podcasts':
                             assert(isinstance(item, dict))

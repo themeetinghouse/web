@@ -1,5 +1,25 @@
 @use './admin.scss';
 
+.add-button {
+  margin-left: 12px;
+  &:focus,
+  &:hover {
+    transition: 0.3s;
+    background-color: lightgreen;
+  }
+}
+
+.video-series-button {
+  margin-right: 6px;
+  margin-left: 6px;
+  background-color: transparent;
+  &:focus,
+  &:hover {
+    transition: 0.3s;
+    background-color: red;
+  }
+}
+
 .toolbar-button {
   color: black;
   background: white;

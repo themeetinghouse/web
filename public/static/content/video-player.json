@@ -32,6 +32,10 @@
         "header1": "More From This Series"
       },
       {
+        "type": "blog",
+        "style": "watch-page"
+      },
+      {
         "type": "podcasts",
         "podcastlist": [
           {

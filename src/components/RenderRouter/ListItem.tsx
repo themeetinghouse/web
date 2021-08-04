@@ -1209,6 +1209,8 @@ class ListItem extends React.Component<Props, State> {
 
     const dataLength = data.length;
 
+    const { logoColor } = this.props.pageConfig;
+
     const renderByStyle = () => {
       if (this.state.content.style === 'horizontal') {
         switch (this.state.content.class) {
@@ -1221,9 +1223,7 @@ class ListItem extends React.Component<Props, State> {
                     {this.state.content.header1 ?? this.state.content.playlist}
                   </h1>
                   <div className="ListItemDiv2">
-                    <HorizontalScrollList
-                      darkMode={this.props.pageConfig.logoColor === 'white'}
-                    >
+                    <HorizontalScrollList darkMode={logoColor === 'white'}>
                       {this.state.content.class === 'custom-playlist'
                         ? (data as CustomPlaylistVideoData[])
                             .sort((a, b) =>
@@ -1264,10 +1264,7 @@ class ListItem extends React.Component<Props, State> {
                 <div className="ListItemDiv1">
                   <h1
                     className={
-                      'ListItemH1' +
-                      (this.props.pageConfig.logoColor === 'white'
-                        ? ' whiteText'
-                        : '')
+                      'ListItemH1' + (logoColor === 'white' ? ' whiteText' : '')
                     }
                   >
                     {this.state.content.header1}
@@ -1280,9 +1277,7 @@ class ListItem extends React.Component<Props, State> {
                   <div className="ListItemDiv2">
                     {this.state.content.class === 'videos' ? (
                       this.state.content.selector === 'popular' ? (
-                        <HorizontalScrollList
-                          darkMode={this.props.pageConfig.logoColor === 'white'}
-                        >
+                        <HorizontalScrollList darkMode={logoColor === 'white'}>
                           {(data as VideoData[])
                             .slice(0, 100)
                             .sort((a, b) => this.sortByViews(a, b))
@@ -1294,9 +1289,7 @@ class ListItem extends React.Component<Props, State> {
                             })}
                         </HorizontalScrollList>
                       ) : (
-                        <HorizontalScrollList
-                          darkMode={this.props.pageConfig.logoColor === 'white'}
-                        >
+                        <HorizontalScrollList darkMode={logoColor === 'white'}>
                           {data
                             .concat(
                               this.state.content.limit &&
@@ -1316,9 +1309,7 @@ class ListItem extends React.Component<Props, State> {
                         </HorizontalScrollList>
                       )
                     ) : (
-                      <HorizontalScrollList
-                        darkMode={this.props.pageConfig.logoColor === 'white'}
-                      >
+                      <HorizontalScrollList darkMode={logoColor === 'white'}>
                         {data.map((item: any, index: any) => {
                           return this.renderItemRouter(item, index);
                         })}
@@ -1423,22 +1414,20 @@ class ListItem extends React.Component<Props, State> {
           return (
             <div className="ListItem horizontal-video-player">
               <div className="ListItemDiv1 horizontal-video-player">
-                <h1
+                <h2
                   className={
-                    'ListItemH1 horizontal-video-player' +
-                    (this.props.pageConfig.logoColor === 'white'
-                      ? ' whiteText'
-                      : '')
+                    'v-player-h2 tmh-header2' +
+                    (logoColor === 'white' ? ' w' : ' b')
                   }
                 >
                   {this.props?.match?.params?.playlist}
-                </h1>
+                </h2>
                 <div className="WatchPageContainer">
                   {videoData.map((item: any, index: any) => {
                     return this.renderItemRouter(item, index);
                   })}
                 </div>
-                <div className="HorizontalLine"></div>
+                <div className="v-player-hr" />
               </div>
               <VideoOverlay
                 onClose={() => {
@@ -1453,16 +1442,14 @@ class ListItem extends React.Component<Props, State> {
         return (
           <div className="ListItem horizontal-video-player">
             <div className="ListItemDiv1 horizontal-video-player">
-              <h1
+              <h2
                 className={
-                  'ListItemH1 horizontal-video-player' +
-                  (this.props.pageConfig.logoColor === 'white'
-                    ? ' whiteText'
-                    : '')
+                  'v-player-h2 tmh-header2' +
+                  (logoColor === 'white' ? ' w' : ' b')
                 }
               >
                 {this.state.content.header1}
-              </h1>
+              </h2>
               {this.state.content.text1 != null ? (
                 <div className="ListItemText1">{this.state.content.text1}</div>
               ) : null}
@@ -1471,7 +1458,7 @@ class ListItem extends React.Component<Props, State> {
                   return this.renderItemRouter(item, index);
                 })}
               </div>
-              <div className="HorizontalLine"></div>
+              <div className="v-player-hr" />
             </div>
             <VideoOverlay
               onClose={() => {
@@ -1490,10 +1477,7 @@ class ListItem extends React.Component<Props, State> {
             <div className="ListItemDiv1">
               <h1
                 className={
-                  'ListItemH1' +
-                  (this.props.pageConfig.logoColor === 'white'
-                    ? ' whiteText'
-                    : '')
+                  'ListItemH1' + (logoColor === 'white' ? ' whiteText' : '')
                 }
               >
                 {this.state.content.header1}

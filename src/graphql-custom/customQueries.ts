@@ -938,3 +938,44 @@ export const getCustomPlaylist = `
     }
   }
 `;
+
+export const getBlogsByVideoForWatchPage = /* GraphQL */ `
+  query GetVideo($id: ID!) {
+    getVideo(id: $id) {
+      id
+      series {
+        id
+        blogPosts {
+          items {
+            id
+            videoSeriesId
+            blogId
+            createdAt
+            updatedAt
+            blog {
+              id
+              author
+              createdBy
+              createdDate
+              publishedDate
+              expirationDate
+              blogStatus
+              description
+              blogTitle
+              topics
+              tags
+              hiddenMainIndex
+              squareImage {
+                src
+                alt
+              }
+              createdAt
+              updatedAt
+            }
+          }
+          nextToken
+        }
+      }
+    }
+  }
+`;

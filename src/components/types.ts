@@ -47,8 +47,8 @@ export interface FormItem {
 
 export interface BlogItemContent {
   type: 'blog';
-  style: 'multiImage' | 'hero' | 'featured';
-  status: 'Live';
+  style: 'multiImage' | 'hero' | 'featured' | 'watch-page';
+  status?: 'Live';
   header1?: string;
   header2?: string;
   sortOrder?: 'DESC' | 'ASC';
