@@ -58,16 +58,8 @@ $preview-image-ratio: 0.745;
   }
 
   .featured-blog-container {
-    &.black {
-      background: theme.$onyxblacktext;
-    }
-    &.white {
-      background: theme.$white;
-    }
+    background: theme.$onyxblacktext;
     padding: 136px 0;
-    &.less-padding {
-      padding: 96px 0;
-    }
   }
 
   .BlogPreviewTitle {
@@ -104,15 +96,10 @@ $preview-image-ratio: 0.745;
   .featured-blog-description {
     font-size: 1.25rem;
     line-height: 2rem;
+    color: theme.$coolgray3;
     font-family: Graphik Web;
     font-weight: normal;
     max-width: 700px;
-    &.black {
-      color: theme.$coolgray3;
-    }
-    &.white {
-      color: theme.$onyxblacktext;
-    }
   }
 
   .blog-blackbox {

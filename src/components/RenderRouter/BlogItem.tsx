@@ -56,20 +56,11 @@ const BlogPreviewText = ({
 interface FeaturedBlogListProps {
   children: React.ReactNode;
   screenWidth: number;
-  backgroundColor: 'white' | 'black';
 }
 
-const FeaturedBlogList = ({
-  children,
-  screenWidth,
-  backgroundColor,
-}: FeaturedBlogListProps) => {
+const FeaturedBlogList = ({ children, screenWidth }: FeaturedBlogListProps) => {
   if (screenWidth > DESKTOP_BREAKPOINT) {
-    return (
-      <HorizontalScrollList darkMode={backgroundColor === 'black'}>
-        {children}
-      </HorizontalScrollList>
-    );
+    return <HorizontalScrollList darkMode>{children}</HorizontalScrollList>;
   }
 
   return (
@@ -103,7 +94,6 @@ interface Props {
 
 const DESKTOP_BREAKPOINT = 1024;
 const MOBILE_BREAKPOINT = 768;
-const invertBlackWhite = { black: 'white', white: 'black' } as const;
 
 const BlogItem = ({ content }: Props) => {
   const [blogs, setBlogs] = useState<
@@ -259,11 +249,6 @@ const BlogItem = ({ content }: Props) => {
       console.error(e);
     }
   };
-
-  render() {
-    const { screenWidth, publishedOnly } = this.state;
-    const { description, header1, header2, style, limit, hideAllBlogsButton } =
-      this.props.content;
 
   const { description, header1, style, limit, hideAllBlogsButton } = content;
 
@@ -494,82 +479,6 @@ const BlogItem = ({ content }: Props) => {
                 </Link>
               );
             })}
-            {!hideAllBlogsButton && (
-              <>
-                <br />
-                <LinkButton
-                  size="lg"
-                  className="inverted multiImageButton"
-                  to="/blog"
-                >
-                  View All Blogs
-                </LinkButton>
-              </>
-            )}
-          </div>
-        </div>
-      );
-    }
-
-    if (style === 'featured') {
-      const { backgroundColor = 'black', lessPadding = false } =
-        this.props.content;
-      const headerColor = backgroundColor === 'black' ? 'w' : 'b';
-
-      return (
-        <div className="blog-item">
-          <div
-            className={`featured-blog-container ${backgroundColor} ${
-              lessPadding ? 'less-padding' : ''
-            }`}
-          >
-            {header1 ? (
-              <h1 className={`tmh-header1 ${headerColor}`}>{header1}</h1>
-            ) : header2 ? (
-              <h2 className={`tmh-header2 ${headerColor}`}>{header2}</h2>
-            ) : null}
-            {description ? (
-              <h3 className={`featured-blog-description ${backgroundColor}`}>
-                {description}
-              </h3>
-            ) : null}
-            <div className="featured-blog-list-wrapper">
-              <FeaturedBlogList
-                screenWidth={screenWidth}
-                backgroundColor={backgroundColor}
-              >
-                {publishedOnly
-                  ?.slice(0, !isDesktop ? 3 : undefined) // show max 3 posts on mobile
-                  .map((blog) => {
-                    return (
-                      <div className="featured-blog-item" key={blog?.id}>
-                        <Link
-                          className="blog-item-link"
-                          to={'/posts/' + blog?.id}
-                        >
-                          <BlogImage
-                            data-testid="blog-image"
-                            image={blog?.babyHeroImage}
-                            blogTitle={blog?.blogTitle}
-                            imageType="baby-hero"
-                            className="featured-blog-image"
-                            fallbackUrl="/static/photos/blogs/baby-hero/fallback.jpg"
-                            breakpointSizes={breakpointSizes}
-                          />
-                          <BlogPreviewText
-                            title={blog?.blogTitle ?? ''}
-                            author={blog?.author ?? ''}
-                            publishedDate={blog?.publishedDate ?? ''}
-                            description={blog?.description ?? ''}
-                            color={invertBlackWhite[backgroundColor]}
-                            featuredStyle
-                          />
-                        </Link>
-                      </div>
-                    );
-                  })}
-              </FeaturedBlogList>
-            </div>
           </div>
           {sliceIndex < blogs.length && (
             <button
