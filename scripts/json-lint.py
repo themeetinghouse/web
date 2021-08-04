@@ -230,15 +230,16 @@ if __name__ == '__main__':
                                             raise Exception(f'unknown FAQ list type: {unknown}')                     
 
                         elif item_type == 'blog':
-                            assert(item['style'] in ['hero', 'multiImage', 'featured'])
-                            assert(isinstance(item['status'], str))
-                            assert(isinstance(item['header1'], str))
-                            assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
-                            assert('limit' not in item or isinstance(item['limit'], int))
-                            assert('description' not in item or isinstance(item['description'], str))
-                            assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
-                            assert('button1Action' not in item or isinstance(item['button1Action'], str))
-                            assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
+                            assert(item['style'] in ['hero', 'multiImage', 'featured', 'watch-page'])
+                            if item['style'] != 'watch-page':
+                                assert(isinstance(item['status'], str))
+                                assert(isinstance(item['header1'], str))
+                                assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                                assert('limit' not in item or isinstance(item['limit'], int))
+                                assert('description' not in item or isinstance(item['description'], str))
+                                assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
+                                assert('button1Action' not in item or isinstance(item['button1Action'], str))
+                                assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
                         
                         elif item_type == 'podcasts':
                             assert(isinstance(item, dict))

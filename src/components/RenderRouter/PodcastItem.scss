@@ -13,14 +13,6 @@
     float: left;
   }
 
-  .PodcastHeader {
-    position: relative;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 2vw;
-    margin-bottom: 1vw;
-  }
-
   .PodcastText {
     color: #c8c8c8;
     margin-top: 0.5vw;
@@ -81,12 +73,6 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  .PodcastHeader {
-    font-size: 3vw;
-  }
-}
-
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .PodcastItem {
     position: relative;
@@ -100,14 +86,6 @@
     color: #ffffff;
     margin-right: 3.5vw;
     float: left;
-  }
-
-  .PodcastHeader {
-    position: relative;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 2vw;
-    margin-bottom: 1vw;
   }
 
   .PodcastText {
@@ -182,14 +160,6 @@
   .PodcastItemDiv1 {
     color: #ffffff;
     margin-right: 3.5vw;
-  }
-
-  .PodcastHeader {
-    position: relative;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 7vw;
-    margin-bottom: 5vw;
   }
 
   .PodcastText {

@@ -80,6 +80,17 @@ html {
   font-size: 1.5rem;
 }
 
+.v-player-h2 {
+  margin-bottom: 1rem;
+}
+
+.v-player-hr {
+  margin-top: 3.75vw;
+  height: 8px;
+  background: theme.$white;
+  opacity: 0.12;
+}
+
 @media (min-width: 768px) {
   body {
     padding-top: 90px;
@@ -196,6 +207,10 @@ html {
 
   .tmh-header1 {
     font-size: 2rem;
+  }
+
+  .v-player-hr {
+    width: 88.53vw;
   }
 }
 

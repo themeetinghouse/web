@@ -36,6 +36,8 @@ import {
   ListSeriessQuery,
   UpdateBlogMutation,
   ImageInput,
+  CreateBlogToVideoSeriesInput,
+  DeleteBlogToVideoSeriesInput,
 } from 'API';
 
 Amplify.configure(awsmobile);
@@ -109,6 +111,10 @@ interface State {
   selectedBlog: string;
   imageTypeWarning: boolean;
   imageSizeWarning: string;
+
+  toAddVideoSeriesIds: string[];
+  toRemoveVideoSeriesIds: string[];
+  selectedVideoSeriesId: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -181,6 +187,10 @@ class Index extends React.Component<EmptyProps, State> {
       selectedBlog: 'none',
       imageTypeWarning: false,
       imageSizeWarning: '',
+
+      toAddVideoSeriesIds: [],
+      toRemoveVideoSeriesIds: [],
+      selectedVideoSeriesId: '',
     };
 
     this.listSeries();
@@ -410,6 +420,18 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.updateBlogField('id', customId || blogObject.blogTitle);
 
+    if (
+      !(
+        typeof this.state.blogObject.id === 'string' &&
+        this.state.blogObject.id.length > 0
+      )
+    ) {
+      this.setState({
+        showAlert: 'Warning: blog ID is invalid',
+      });
+      return false;
+    }
+
     if (!editMode && titles.includes(blogObject?.blogTitle)) {
       this.setState({
         showAlert:
@@ -418,6 +440,8 @@ class Index extends React.Component<EmptyProps, State> {
       return false;
     }
 
+    await this.writeVideoSeriesConnections();
+
     this.writeBridges(
       this.state.selectedBlogSeries,
       this.state.deselectedBlogSeries
@@ -425,10 +449,12 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.setState({ editMode: true });
 
+    const { blogObject: input } = this.state;
+
     try {
       const updateBlog = (await API.graphql({
         query: mutations.updateBlog,
-        variables: { input: this.state.blogObject },
+        variables: { input },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<UpdateBlogMutation>;
       this.setState({
@@ -443,7 +469,7 @@ class Index extends React.Component<EmptyProps, State> {
       try {
         const createBlog = (await API.graphql({
           query: mutations.createBlog,
-          variables: { input: this.state.blogObject },
+          variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<CreateBlogMutation>;
         this.setState({
@@ -527,6 +553,14 @@ class Index extends React.Component<EmptyProps, State> {
       });
 
       const temp = { ...this.state.blogToEditObject };
+
+      this.setState({
+        toAddVideoSeriesIds:
+          temp.videoSeries?.items
+            ?.map((item) => item?.videoSeriesId ?? '')
+            .filter((id) => id !== '') ?? [],
+      });
+
       delete (temp as any).__typename;
       delete (temp as any).createdAt;
       delete (temp as any).updatedAt;
@@ -729,7 +763,79 @@ class Index extends React.Component<EmptyProps, State> {
     );
   }
 
+  removeVideoSeries(toRemove: string): void {
+    const { toAddVideoSeriesIds, toRemoveVideoSeriesIds } = this.state;
+
+    const filteredVideoSeriesIds = toAddVideoSeriesIds.filter(
+      (id) => id !== toRemove
+    );
+
+    this.setState({
+      toAddVideoSeriesIds: filteredVideoSeriesIds,
+      toRemoveVideoSeriesIds: [...toRemoveVideoSeriesIds, toRemove],
+    });
+  }
+
+  async writeVideoSeriesConnections(): Promise<void> {
+    const {
+      toAddVideoSeriesIds: toAdd,
+      toRemoveVideoSeriesIds: toRemove,
+      blogObject,
+    } = this.state;
+
+    const { id: blogId } = blogObject;
+
+    if (blogId) {
+      for (const videoSeriesId of toAdd) {
+        const id = blogId + '-' + videoSeriesId;
+        const input: CreateBlogToVideoSeriesInput = {
+          id,
+          videoSeriesId,
+          blogId,
+        };
+        try {
+          const json = await API.graphql({
+            query: mutations.createBlogToVideoSeries,
+            variables: {
+              input,
+            },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          });
+          console.log({
+            'Success mutations.createBlogToVideoSeries': json,
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      for (const videoSeriesId of toRemove) {
+        const id = blogId + '-' + videoSeriesId;
+        const input: DeleteBlogToVideoSeriesInput = {
+          id,
+        };
+        try {
+          const json = await API.graphql({
+            query: mutations.deleteBlogToVideoSeries,
+            variables: { input },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          });
+          console.log({
+            'Success mutations.deleteBlogToVideoSeries': json,
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+
+    this.setState({ toRemoveVideoSeriesIds: [] });
+  }
+
   renderMoreOptions() {
+    const { videoSeriesList, selectedVideoSeriesId, toAddVideoSeriesIds } =
+      this.state;
+
     return (
       <div>
         <b>Blog Status</b>
@@ -842,38 +948,66 @@ class Index extends React.Component<EmptyProps, State> {
         </div>
         <br />
 
-        <b>Add to Video Series</b>
-        <button
-          className="tags-button"
-          style={{ background: 'red' }}
-          onClick={() => this.updateBlogField('blogSeriesId', this.nullString)}
-        >
-          Clear
-        </button>
-        <select
-          style={{ width: 800 }}
-          onChange={(event) =>
-            this.updateBlogField('blogSeriesId', event.target.value)
-          }
-        >
-          <option key="null" value="null">
-            None Selected
-          </option>
-          {this.state.videoSeriesList.map((item) => {
-            return (
-              <option key={item?.id} value={item?.id}>
-                {item?.id}
+        <div>
+          <h4>Video Series</h4>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <select
+              onChange={(e) =>
+                this.setState({
+                  selectedVideoSeriesId: e.target.value,
+                })
+              }
+            >
+              <option key="null" value="">
+                None Selected
               </option>
+              {videoSeriesList.map((item) => {
+                if (item) {
+                  return (
+                    <option key={item.id} value={item.id}>
+                      {item.id}
+                    </option>
+                  );
+                }
+              })}
+            </select>
+            <button
+              className="add-button"
+              onClick={() => {
+                if (
+                  selectedVideoSeriesId &&
+                  !toAddVideoSeriesIds.includes(selectedVideoSeriesId)
+                ) {
+                  this.setState({
+                    toAddVideoSeriesIds: [
+                      ...toAddVideoSeriesIds,
+                      selectedVideoSeriesId,
+                    ],
+                  });
+                }
+              }}
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div>
+          Connected video series{' '}
+          {toAddVideoSeriesIds.length > 0
+            ? '(click a on series to remove)'
+            : ''}
+          :
+          {toAddVideoSeriesIds.map((id) => {
+            return (
+              <button
+                onClick={() => this.removeVideoSeries(id)}
+                key={id}
+                className="video-series-button"
+              >
+                {id}
+              </button>
             );
           })}
-        </select>
-        <div>
-          <b>Current video series: </b>{' '}
-          <div style={{ display: 'inline' }}>
-            {this.state.blogObject.blogSeriesId === this.nullString
-              ? ''
-              : this.state.blogObject.blogSeriesId}
-          </div>
         </div>
         <br />
 
