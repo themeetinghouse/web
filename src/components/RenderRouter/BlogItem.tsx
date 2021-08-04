@@ -43,7 +43,7 @@ const BlogPreviewText = ({
 }: BlogPreviewTextProps) => (
   <div className={`BlogPreviewTextContainer ${style}`}>
     <div className={`BlogPreviewTitle tmh-${color}`}>{title}</div>
-    <div className={`BlogPreviewAuthorDate ${style}`}>
+    <div className={`BlogPreviewAuthorDate ${style} ${color}`}>
       by <span className={`BlogPreviewAuthor tmh-${color}`}>{author}</span> on{' '}
       {publishedDate}
     </div>
@@ -351,32 +351,30 @@ const BlogItem = ({ content }: Props) => {
       <div className="blog-item">
         <div className="blog multiImage">
           <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
-          {(blogs.slice(0, limit) as Blog[]).map(
-            (item: Blog, index: number) => {
-              return (
-                <div key={index} className="BlogMultiImageItem">
-                  <Link className="blog-item-link" to={'/posts/' + item?.id}>
-                    <BlogImage
-                      data-testid="blog-image"
-                      imageType={imageType}
-                      blogTitle={item?.blogTitle}
-                      image={isDesktop ? item?.bannerImage : item?.squareImage}
-                      className={`blog-${imageType}-image multiImage`}
-                      fallbackUrl={`/static/photos/blogs/${imageType}/fallback.jpg`}
-                      breakpointSizes={breakpointSizes}
-                    />
-                    <BlogPreviewText
-                      title={item?.blogTitle ?? ''}
-                      author={item?.author ?? ''}
-                      publishedDate={item?.publishedDate ?? ''}
-                      description={item?.description ?? ''}
-                      color="black"
-                    />
-                  </Link>
-                </div>
-              );
-            }
-          )}
+          {blogs.slice(0, limit).map((item, index) => {
+            return (
+              <div key={index} className="BlogMultiImageItem">
+                <Link className="blog-item-link" to={'/posts/' + item?.id}>
+                  <BlogImage
+                    data-testid="blog-image"
+                    imageType={imageType}
+                    blogTitle={item?.blogTitle}
+                    image={isDesktop ? item?.bannerImage : item?.squareImage}
+                    className={`blog-${imageType}-image multiImage`}
+                    fallbackUrl={`/static/photos/blogs/${imageType}/fallback.jpg`}
+                    breakpointSizes={breakpointSizes}
+                  />
+                  <BlogPreviewText
+                    title={item?.blogTitle ?? ''}
+                    author={item?.author ?? ''}
+                    publishedDate={item?.publishedDate ?? ''}
+                    description={item?.description ?? ''}
+                    color="black"
+                  />
+                </Link>
+              </div>
+            );
+          })}
           {!hideAllBlogsButton && (
             <>
               <br />
@@ -395,19 +393,34 @@ const BlogItem = ({ content }: Props) => {
   }
 
   if (style === 'featured') {
-    const { backgroundColor = 'black' } = content;
+    const { backgroundColor = 'black', lessPadding = false } = content;
+    const headerColor = backgroundColor === 'black' ? 'w' : 'b';
+
     return blogs.length > 0 ? (
       <div className="blog-item">
-        <div className="featured-blog-container">
-          <h1 className="tmh-header1 w">{header1}</h1>
-          <h3 className="featured-blog-description">{description}</h3>
+        <div
+          className={`featured-blog-container ${backgroundColor} ${
+            lessPadding ? 'less-padding' : ''
+          }`}
+        >
+          {header1 ? (
+            <h1 className={`tmh-header1 ${headerColor}`}>{header1}</h1>
+          ) : header2 ? (
+            <h2 className={`tmh-header2 ${headerColor}`}>{header2}</h2>
+          ) : null}
+          {description ? (
+            <h3 className={`featured-blog-description ${backgroundColor}`}>
+              {description}
+            </h3>
+          ) : null}
           <div className="featured-blog-list-wrapper">
             <FeaturedBlogList
-              backgroundColor={backgroundColor}
               screenWidth={screenWidth}
+              backgroundColor={backgroundColor}
             >
-              {(blogs.slice(0, !isDesktop ? 3 : undefined) as Blog[]) // show max 3 posts on mobile
-                .map((blog: Blog) => {
+              {blogs
+                .slice(0, !isDesktop ? 3 : undefined) // show max 3 posts on mobile
+                .map((blog) => {
                   return (
                     <div className="featured-blog-item" key={blog?.id}>
                       <Link
@@ -428,7 +441,7 @@ const BlogItem = ({ content }: Props) => {
                           author={blog?.author ?? ''}
                           publishedDate={blog?.publishedDate ?? ''}
                           description={blog?.description ?? ''}
-                          color="white"
+                          color={invertBlackWhite[backgroundColor]}
                           style="feat-blog"
                         />
                       </Link>
@@ -450,7 +463,7 @@ const BlogItem = ({ content }: Props) => {
             Suggested Reads
           </h2>
           <div className="suggested-reads-list">
-            {(blogs.slice(0, sliceIndex) as Blog[]).map((blog: Blog) => {
+            {blogs.slice(0, sliceIndex).map((blog) => {
               return (
                 <Link
                   key={blog?.id}
@@ -495,93 +508,19 @@ const BlogItem = ({ content }: Props) => {
                 </Link>
               );
             })}
-            {!hideAllBlogsButton && (
-              <>
-                <br />
-                <LinkButton
-                  size="lg"
-                  className="inverted multiImageButton"
-                  to="/blog"
-                >
-                  View All Blogs
-                </LinkButton>
-              </>
-            )}
           </div>
+          {sliceIndex < blogs.length && (
+            <button
+              className="load-more-suggested-reads"
+              onClick={() => setSliceIndex(sliceIndex + 3)}
+            >
+              Load More
+            </button>
+          )}
+          <div className="v-player-hr" />
         </div>
       </div>
     ) : null;
-  }
-
-  if (style === 'featured') {
-    const { backgroundColor = 'black', lessPadding = false } = content;
-    const headerColor = backgroundColor === 'black' ? 'w' : 'b';
-
-    return (
-      <div className="blog-item">
-        <div
-          className={`featured-blog-container ${backgroundColor} ${
-            lessPadding ? 'less-padding' : ''
-          }`}
-        >
-          {header1 ? (
-            <h1 className={`tmh-header1 ${headerColor}`}>{header1}</h1>
-          ) : header2 ? (
-            <h2 className={`tmh-header2 ${headerColor}`}>{header2}</h2>
-          ) : null}
-          {description ? (
-            <h3 className={`featured-blog-description ${backgroundColor}`}>
-              {description}
-            </h3>
-          ) : null}
-          <div className="featured-blog-list-wrapper">
-            <FeaturedBlogList
-              screenWidth={screenWidth}
-              backgroundColor={backgroundColor}
-            >
-              {(blogs?.slice(0, !isDesktop ? 3 : undefined) as Blog[]) // show max 3 posts on mobile
-                .map((blog: Blog) => {
-                  return (
-                    <div className="featured-blog-item" key={blog?.id}>
-                      <Link
-                        className="blog-item-link"
-                        to={'/posts/' + blog?.id}
-                      >
-                        <BlogImage
-                          data-testid="blog-image"
-                          image={blog?.babyHeroImage}
-                          blogTitle={blog?.blogTitle}
-                          imageType="baby-hero"
-                          className="featured-blog-image"
-                          fallbackUrl="/static/photos/blogs/baby-hero/fallback.jpg"
-                          breakpointSizes={breakpointSizes}
-                        />
-                        <BlogPreviewText
-                          title={blog?.blogTitle ?? ''}
-                          author={blog?.author ?? ''}
-                          publishedDate={blog?.publishedDate ?? ''}
-                          description={blog?.description ?? ''}
-                          color={invertBlackWhite[backgroundColor]}
-                          //featuredStyle
-                        />
-                      </Link>
-                    </div>
-                  );
-                })}
-            </FeaturedBlogList>
-          </div>
-        </div>
-        {sliceIndex < blogs.length && (
-          <button
-            className="load-more-suggested-reads"
-            onClick={() => setSliceIndex(sliceIndex + 3)}
-          >
-            Load More
-          </button>
-        )}
-        <div className="v-player-hr" />
-      </div>
-    );
   }
 
   return null;
