@@ -45,13 +45,14 @@
         },
         {
           "type": "blog",
-          "style": "multiImage",
+          "style": "featured",
           "status": "Live",
-          "header1": "Recent News and Updates",
           "sortOrder": "DESC",
-          "limit": 2,
-          "blogSeries": "News"
-        },
+          "blogSeries": "Regather News",
+          "header2": "News and Updates",
+          "backgroundColor": "white",
+          "lessPadding": true
+          },          
         {
           "type": "list",
           "style": "imageList",
