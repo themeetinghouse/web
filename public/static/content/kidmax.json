@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug8.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesAug1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesAug8.pdf",
             "openNewBrowser": true
           },
           {
