@@ -94,13 +94,13 @@
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug8.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesAug1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesAug8.pdf",
             "openNewBrowser": true
           },
           {
