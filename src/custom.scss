@@ -23,27 +23,19 @@ html {
   ##Device = Desktops
   ##Screen = 1025px to higher resolution desktops
 */
-.imageList .hoverText {
-  position: relative;
-  padding-right: 10vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  padding-left: 10vw;
-  width: 58vw;
-  height: 25vw;
-  left: 22vw;
-  top: 0vw;
-}
-.imageList .noHoverText {
-  position: relative;
-  padding-right: 10vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  padding-left: 10vw;
-  width: 58vw;
-  height: 25vw;
-  left: 22vw;
-  top: 0vw;
+.imageList {
+  .hoverText,
+  .noHoverText {
+    position: relative;
+    padding-right: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    padding-left: 10vw;
+    width: 58vw;
+    min-height: 25vw;
+    left: 22vw;
+    top: 0vw;
+  }
 }
 
 .arrow {

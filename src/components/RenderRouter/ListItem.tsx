@@ -33,7 +33,7 @@ import './ListItem.scss';
 import format from 'date-fns/format';
 import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
-import { Link } from 'components/Link/Link';
+import { Link, ArrowLink } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
 import { ModelSortDirection } from 'API';
@@ -1711,6 +1711,7 @@ class ListItem extends React.Component<Props, State> {
               <div className="ListItemDiv8">
                 <div className="ListItemDiv9"></div>
                 {data.map((item: any, index: any) => {
+                  const hasMultipleLinks = Array.isArray(item.links);
                   const href = item.navigateTo || item.url;
                   const body = (
                     <div
@@ -1728,7 +1729,28 @@ class ListItem extends React.Component<Props, State> {
                         ) : null}
                         {item.title}
                       </h3>
-                      <div className="ListItemDiv11">{item.text}</div>
+                      <div
+                        className={`ListItemDiv11 ${
+                          hasMultipleLinks ? 'multi-link' : ''
+                        }`}
+                      >
+                        {item.text}
+                      </div>
+                      {hasMultipleLinks && (
+                        <div className="links-container">
+                          {(
+                            item.links as Array<{ to: string; text: string }>
+                          ).map(({ to, text }) => (
+                            <ArrowLink
+                              key={to + text}
+                              to={to}
+                              className="links-item"
+                            >
+                              {text}
+                            </ArrowLink>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                   return (

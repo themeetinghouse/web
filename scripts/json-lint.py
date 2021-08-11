@@ -168,7 +168,17 @@ if __name__ == '__main__':
                                     assert(isinstance(item[i], list))
                                     for list_item in item[i]:
                                         assert(isinstance(list_item, dict))
-                                        if ('navigateTo' in list_item):
+                                        has_links = 'links' in list_item
+                                        has_url = 'url' in list_item
+                                        has_navigate_to = 'navigateTo' in list_item
+                                        assert(not (has_links and (has_navigate_to or has_url))) # cannot have links and navigateTo/url together
+                                        if has_links:
+                                            assert(isinstance(list_item['links'], list))
+                                            for link in list_item['links']:
+                                                assert(isinstance(link, dict))
+                                                assert('to' in link and isinstance(link['to'], str))
+                                                assert('text' in link and isinstance(link['text'], str))
+                                        if has_navigate_to:
                                             assert(isinstance(list_item['navigateTo'], str))
                                             file_exists(list_item['navigateTo'])
                                             assert(isinstance(list_item['text'], str))
@@ -176,7 +186,7 @@ if __name__ == '__main__':
                                                 assert_list_image(list_item)
                                         else:
                                             assert_list_image(list_item)
-                                            if ('url' in list_item):
+                                            if has_url:
                                                 assert(isinstance(list_item['url'], str))
                                                 file_exists(list_item['url'])
                                 elif i == 'sortOrder':
