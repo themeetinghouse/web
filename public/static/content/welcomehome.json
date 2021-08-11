@@ -41,6 +41,11 @@
             "text": "Watch Video",
             "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
             "description": "Click to watch video"
+          },
+          "button2": {
+            "text": "Sunday Registration",
+            "action": "/register",
+            "description": "Click to register for the Sunday morning service."
           }
         },
         {
