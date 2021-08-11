@@ -59,3 +59,16 @@ export function LinkButton({
     </Button>
   );
 }
+
+export const ArrowLink = ({ to, className, ...props }: Props) => (
+  <Link className={`tmh-arrow-link ${className}`} to={to} {...props}>
+    {props.children}
+    <img
+      className="tmh-arrow-svg"
+      alt=""
+      src="/static/svg/ArrowRight black.svg"
+      width={32}
+      height={32}
+    />
+  </Link>
+);

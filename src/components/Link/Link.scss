@@ -71,3 +71,30 @@ a {
     text-decoration: underline;
   }
 }
+
+.tmh-arrow-svg {
+  transition: 1s;
+}
+
+.tmh-arrow-link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1rem;
+  font-weight: bold;
+  @media (min-width: 1024px) {
+    font-size: 1.25rem;
+  }
+
+  text-decoration: none;
+  color: theme.$onyxblacktext;
+  &:hover,
+  &:focus {
+    color: theme.$onyxblacktext;
+    .tmh-arrow-svg {
+      transform: translate(20px);
+    }
+  }
+}
