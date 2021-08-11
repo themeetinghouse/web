@@ -17,9 +17,9 @@
         {
           "type": "og-tags",
           "image": "/static/images/covid-1-2.jpg",
-          "url": "https://www.themeetinghouse.com/welcomehome",
-          "title": "Welcome Home.",
-          "description": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together."
+          "url": "https://www.themeetinghouse.com/infodesk",
+          "title": "Online Info Desk.",
+          "description": "This webpage is our online info desk experience. It can be accessed by either scanning a QR code at the welcome table or by entering a unique URL (like themeetinghouse.com/infodesk)."
         },
         {
           "type": "hero",
@@ -42,15 +42,6 @@
             "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
             "description": "Click to watch video"
           }
-        },
-        {
-          "type": "blog",
-          "style": "multiImage",
-          "status": "Live",
-          "header1": "Recent News and Updates",
-          "sortOrder": "DESC",
-          "limit": 2,
-          "blogSeries": "News"
         },
         {
           "type": "list",
@@ -119,16 +110,16 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Get Involved",
+          "header1": "Get Engaged",
           "list": [
             {
               "type": "link",
-              "title": "Home Church",
+              "title": "Find a Home Church",
               "navigateTo": "/find-homechurch"
             },
             {
               "type": "link",
-              "title": "Compassion",
+              "title": "Engage in Compassion",
               "navigateTo": "/compassion"
             },
             {
