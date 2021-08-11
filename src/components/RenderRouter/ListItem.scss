@@ -151,6 +151,14 @@
   object-position: 50% 0%;
 }
 
+.imageList .links-container {
+  margin-top: 12px;
+  width: 28vw;
+  .links-item {
+    padding: 12px 0;
+  }
+}
+
 @media (min-width: 768px) {
   .BlogLink:hover {
     .blogarrow {
@@ -251,6 +259,9 @@
 
   .ListItemDiv11 {
     width: 31vw;
+    &.multi-link {
+      width: 36vw;
+    }
     font-size: 1.25vw;
     font-family: Graphik Web;
     color: theme.$coolgray11;
@@ -926,13 +937,6 @@
     z-index: 99;
   }
 
-  .ListItemDiv11 {
-    width: 31vw;
-    font-size: 1.25vw;
-    font-family: Graphik Web;
-    color: theme.$coolgray11;
-  }
-
   .ListItemH1 {
     position: relative;
     left: 0vw;
@@ -1538,6 +1542,10 @@
 }
 
 @media (max-width: 767px) {
+  .imageList .links-container {
+    width: 85vw;
+  }
+
   .BlogLoader {
     width: 88.5vw;
   }
