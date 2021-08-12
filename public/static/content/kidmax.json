@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug8.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug15.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesAug8.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitivesAug15.pdf",
             "openNewBrowser": true
           },
           {
@@ -87,20 +87,20 @@
         "image1": [
           {
             "src": "/static/images/KidsBigIdeaAugust8.jpg",
-            "alt": "This week's big idea is: Joy comes from a thankful heart."
+            "alt": "This week's big idea is: Peace invites us to fight hatred with love."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug8.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug15.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesAug8.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitivesAug15.pdf",
             "openNewBrowser": true
           },
           {
