@@ -1,4 +1,5 @@
 import Analytics from '@aws-amplify/analytics';
+import GenericModalPage from '../RenderRouter/GenericModalPage';
 import React from 'react';
 import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -65,9 +66,20 @@ export default function ContentPage(): ReactElement | null {
     history.push('/weather');
   }
 
-  const { isPopup = false, navigateOnPopupClose = '/' } =
-    content.page.pageConfig ?? {};
-
+  const {
+    showGenericModalPage,
+    isPopup = false,
+    navigateOnPopupClose = '/',
+  } = content.page.pageConfig ?? {};
+  if (showGenericModalPage && isPopup) {
+    return (
+      <GenericModalPage
+        onClose={() => history.push(navigateOnPopupClose)}
+        content={content}
+        data={{ id: undefined }}
+      ></GenericModalPage>
+    );
+  }
   return isPopup ? (
     <VideoOverlay
       onClose={() => history.push(navigateOnPopupClose)}

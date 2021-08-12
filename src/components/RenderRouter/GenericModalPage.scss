@@ -1,0 +1,182 @@
+@media (min-width: 768px) {
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+    .modal-container {
+        width: 100%;
+        max-width: none !important;
+        background-color: #000000 !important;
+        margin: 0 !important;
+        & .white {
+            background-color: #ffffff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .modal-footer {
+        width: 100%;
+        background-color: #000000 !important;
+        display: unset;
+        margin: 22px 0px !important;
+        border-radius: 0;
+        border: none !important;
+        padding-left: 20vw !important;
+         :first-child {
+            font-weight: 700;
+        }
+        & .white {
+            background-color: #ffffff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .modal-body {
+        padding: 0 !important;
+        margin: 0 !important;
+        background-color: #000000 !important;
+        & .white {
+            background-color: #ffffff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .VideoOverlayClose,
+    .CloseButton {
+        position: fixed;
+        z-index: 1000;
+        top: 2.3vw;
+        left: unset;
+        right: 4vw;
+    }
+    .fade.modal.show {
+        padding-left: 0 !important;
+    }
+    .modal-backdrop {
+        opacity: 1 !important;
+        & .white {
+            background-color: #fff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .modal-container {
+        width: 100%;
+        max-width: none !important;
+        background-color: #000000 !important;
+        height: unset !important;
+        margin: 0 !important;
+        & .white {
+            background-color: #ffffff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .modal-body {
+        padding: 0 !important;
+        margin: 0 !important;
+        background-color: #000000 !important;
+        & .white {
+            background-color: #ffffff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .VideoOverlayClose,
+    .CloseButton {
+        position: fixed;
+        z-index: 1000;
+        top: 1.3vw;
+        left: 94.3vw;
+    }
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+    .modal-footer {
+        width: 100%;
+        max-width: none !important;
+        height: unset !important;
+        background-color: #000000 !important;
+        margin: 0 !important;
+        border-radius: 0;
+        border: none !important;
+        & .white {
+            background-color: #ffffff !important;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .fade.modal.show {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-content {
+        border: none;
+        border-radius: 0;
+    }
+    .modal-container {
+        width: 100%;
+        max-width: none !important;
+        background-color: #000000;
+        margin: 0 !important;
+        & .white {
+            background-color: #ffffff;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .modal-body {
+        padding: 0;
+        margin: 0 !important;
+        background-color: #000000;
+        & .white {
+            background-color: #ffffff;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+        .beige & .navbar-custom {
+            background-color: #ffecd9;
+        }
+    }
+    .VideoOverlayClose,
+    .CloseButton {
+        position: fixed;
+        z-index: 1041;
+        top: 3vw;
+        left: 84vw;
+    }
+    .modal-footer {
+        margin-left: 0px;
+        height: unset !important;
+        margin: 60px 22px 20px !important;
+        display: unset;
+        width: unset;
+         :first-child {
+            font-weight: 700;
+        }
+        & .white {
+            background-color: #ffffff;
+        }
+        & .beige {
+            background-color: #ffecd9 !important;
+        }
+    }
+    .fade.modal.show {
+        padding-left: 0 !important;
+    }
+}

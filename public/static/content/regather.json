@@ -1,0 +1,86 @@
+{
+    "page": {
+        "name": "regather",
+        "title": "Regather",
+        "keywords": "",
+        "description": "",
+
+        "pageConfig": {
+            "showLive": true,
+            "movingMenu": false,
+            "showLogoText": false,
+            "logoColor": "black",
+            "showSearch": false,
+            "showFooter": false,
+            "showMenu": false,
+            "isPopup": true,
+            "navigateOnPopupClose": "/",
+            "showGenericModalPage": true,
+            "backgroundColor": "beige",
+            "showModalFooter": true,
+            "modalFooterBackgroundColor": "white",
+            "modalFooterContent": {
+                "text1": "Questions about in-person worship?",
+                "text2": "hello@themeetinghouse.com"
+            }
+        },
+        "content": [{
+            "type": "regather",
+            "mainHeader": "Sunday Worship",
+            "subHeader1": "Welcome home. We’re excited to see you again.",
+            "divider": true,
+            "text1": "In this current season, we are offering weekend worship experiences online and gatherings for in-person weekend services on Sundays. In light of public health guidelines intended to limit the spread of COVID-19 in our community, we have made a number of changes to our in-person experiences, including limiting capacity and requiring online registration. Our livestream service will continue, and everyone is encouraged to choose the worship experience that is right for them.",
+            "text2": "We invite you to read the details below and join us in caring for one another as best we can.",
+            "button1": {
+                "text": "Register for In-Person",
+                "type": "solid"
+            },
+            "button2": {
+                "text": "Watch Livestream",
+                "action": "/live",
+                "type": "outline"
+            },
+            "header3": "What to expect",
+            "graphicItems": [{
+                    "title": "Please Register",
+                    "description": "We are unable to accomodate un-registered wal-ins at this time.",
+                    "image": "/static/svg/Regather-Icon-01.svg"
+                },
+                {
+                    "title": "Mind the numbers",
+                    "description": "Capacity limits mean we will only be able to allow a set number of kids, youth, and adults",
+                    "image": "/static/svg/Regather-Icon-05.svg"
+                },
+                {
+                    "title": "Health check",
+                    "description": "To ensure everyone’s safety, you’ll need to confirm your wellness prior to entry. ",
+                    "image": "/static/svg/Regather-Icon-03.svg"
+                },
+                {
+                    "title": "Wear a mask",
+                    "description": "A mask is required throughout the service. If you do not have one, one will be provided.",
+                    "image": "/static/svg/Regather-Icon-04.svg"
+                },
+                {
+                    "title": "Lovingly apart",
+                    "description": "We are still required to stay six feet apart from people who are not in our household. ",
+                    "image": "/static/svg/Regather-Icon-07.svg"
+                },
+                {
+                    "title": "No singing",
+                    "description": "Public health has asked that no one sings along to the music. ",
+                    "image": "/static/svg/Regather-Icon-06.svg"
+                }
+            ],
+            "header4": "Online Registration",
+            "text3": "Anyone attending a Sunday gathering will be required to pre-register online. We do this to ensure we aren’t exceeding the number of people that can safely attend. The online registration window will be open each week from Monday – Thursday.",
+            "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will help you check in and confirm your health screening.",
+            "button3": {
+                "text": "Register Now",
+                "type": "solid"
+            },
+            "footerText1": "Questions about in-person worship?",
+            "footerText2": "hello@themeetinghouse.com"
+        }]
+    }
+}
