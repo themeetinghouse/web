@@ -11,7 +11,20 @@
 .heroAContainer {
   margin-top: 1vw;
 }
-
+.secondaryCTA {
+  font-size: 1.2vw;
+  font-family: Graphik Web !important;
+  color: #ffffff;
+  font-weight: normal;
+  background-color: theme.$onyxblacktext !important;
+  border-width: 0 !important;
+  border-radius: 0;
+  text-decoration: underline !important;
+  margin-left: 30px;
+}
+.secondaryCTA:hover {
+  color: white;
+}
 .contactPastorLink {
   margin-top: 16px;
   display: flex;
@@ -767,6 +780,9 @@ $no-footer-height: 38vw;
 }
 
 @media (max-width: 1050px) {
+  .secondaryCTA {
+    margin-left: 0px;
+  }
   .contactPastorLink {
     margin-top: 16px;
     display: flex;
@@ -780,6 +796,9 @@ $no-footer-height: 38vw;
 }
 
 @media (max-width: 767px) {
+  .secondaryCTA {
+    font-size: 14px;
+  }
   .covidButtonDetail {
     background-color: #ffc60b !important;
 

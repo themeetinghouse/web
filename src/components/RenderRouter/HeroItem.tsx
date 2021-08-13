@@ -232,6 +232,30 @@ class HeroItem extends React.Component<Props, State> {
       </Button>
     ) : null;
   }
+
+  renderSecondaryCTA(buttonInfo: any) {
+    if (!buttonInfo) return null;
+    return (
+      <Link
+        to={buttonInfo.action}
+        className="secondaryCTA"
+        style={{
+          marginTop: 20,
+        }}
+        aria-label={buttonInfo.description}
+      >
+        {buttonInfo.icon ? (
+          <img
+            className="calendarImage"
+            src={buttonInfo.icon}
+            alt="Contact Icon"
+          />
+        ) : null}
+        {buttonInfo.text}
+      </Link>
+    );
+  }
+
   render() {
     window.onscroll = () => {
       this.downArrowScroll();
@@ -344,6 +368,8 @@ class HeroItem extends React.Component<Props, State> {
                     />
                   )
                 ) : null
+              ) : this.state.content.secondaryCTA ? (
+                this.renderSecondaryCTA(this.state.content.secondaryCTA)
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
