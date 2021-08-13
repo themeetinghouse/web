@@ -46,7 +46,7 @@
           "text": "Registration",
           "action": "/regather",
           "description": "Navigate to registration page",
-          "icon": "/static/svg/Calendar-white.svg"
+          "icon": "/static/svg/Register-white.svg"
         }
       },
       {
