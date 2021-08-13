@@ -80,7 +80,22 @@
           "list": [
             {
               "type": "link",
-              "title": "Make a Difference",
+              "title": "What you need to know #1",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Giving announcements 101",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Events and announcements in the app",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID FAQs",
               "navigateTo": "/make-a-difference"
             }
           ],
@@ -118,7 +133,47 @@
           "list": [
             {
               "type": "link",
-              "title": "Make a Difference",
+              "title": "Why Kidmax",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Updated Check in process",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #1",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #2",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #3",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Sign in set up",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Check in process",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Printer Realignment",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Tethering wifi to phone",
               "navigateTo": "/make-a-difference"
             }
           ],
@@ -137,7 +192,17 @@
           "list": [
             {
               "type": "link",
-              "title": "Make a Difference",
+              "title": "Connect Team basics",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Sign in and check in",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "The digital info desk",
               "navigateTo": "/make-a-difference"
             }
           ],
@@ -175,7 +240,7 @@
           "list": [
             {
               "type": "link",
-              "title": "Make a Difference",
+              "title": "How to connect to the livestream",
               "navigateTo": "/make-a-difference"
             }
           ],
