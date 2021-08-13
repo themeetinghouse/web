@@ -248,7 +248,7 @@ class HeroItem extends React.Component<Props, State> {
           <img
             className="calendarImage"
             src={buttonInfo.icon}
-            alt="Contact Icon"
+            alt={`${buttonInfo.text} Icon`}
           />
         ) : null}
         {buttonInfo.text}
@@ -303,7 +303,7 @@ class HeroItem extends React.Component<Props, State> {
                     height={25}
                     className="calendarImage"
                     src="/static/svg/Play.svg"
-                    alt="Contact Icon"
+                    alt="Play Icon"
                   />
                   Watch Live
                 </Link>
@@ -319,7 +319,7 @@ class HeroItem extends React.Component<Props, State> {
                     height={25}
                     className="calendarImage"
                     src="/static/svg/Play.svg"
-                    alt="Contact Icon"
+                    alt="Play Icon"
                   />
                   Watch Live
                 </Link>
