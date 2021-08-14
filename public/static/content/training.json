@@ -1,9 +1,9 @@
 {
     "page": {
-      "name": "welcomehome",
-      "title": "Welcome Home",
-      "keywords": "Regathering, Fall, Church this Fall, Welcome Home, Registration, Pre-register, Pre-registration",
-      "description": "This page provides information on what The Meeting House is doing to re-launch in-person gatherings.",
+      "name": "training",
+      "title": "Training",
+      "keywords": "Training, elders, coordinators, links, hub, training hub, elders hub, resources",
+      "description": "This page provides all of the links to training materials for elders and key coordinators.",
       "pageConfig": {
         "showLive": true,
         "movingMenu": false,
@@ -18,8 +18,8 @@
           "type": "og-tags",
           "image": "/static/images/covid-1-2.jpg",
           "url": "https://www.themeetinghouse.com/welcomehome",
-          "title": "Welcome Home.",
-          "description": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together."
+          "title": "Training Hub",
+          "description": "This webpage is designed to be a one stop information and training hub for our elders and key volunteers.  It can host links to any training or resourcing material we would like to make available to our teams and content can be updated as often as needed as circumstances or restrictions change."
         },
         {
           "type": "hero",
@@ -36,7 +36,7 @@
           ],
           "header1": "Training and Info",
           "header2": "",
-          "text1": "This webpage can be accessed via a unique url (themeetinghouse.com/training). Its purpose is to be a one stop shop for all training purposes within The Meeting House. It provides a consistent CTA for all staff and volunteers."
+          "text1": "This webpage is designed to be a one stop information and training hub for our elders and key volunteers.  It can host links to any training or resourcing material we would like to make available to our teams and content can be updated as often as needed as circumstances or restrictions change."
         },
         {
           "type": "blog",
@@ -52,7 +52,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "Welcome Home",
-          "text1":"High level inspirational messaging about what's happening this Fall.",
+          "text1":"What is church going to look this this fall is a question we've all been asked and probably asked ourselves. This videos share what our fall will look like as we begin to regather in person and work to re-engage our core community.",
           "list": [
             {
               "type": "link",
@@ -75,42 +75,8 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Parish Leadership",
-          "text1":"All training for elders and hosts is found in our new elder hub.",
-          "list": [
-            {
-              "type": "link",
-              "title": "What you need to know #1",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Giving announcements 101",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Events and announcements in the app",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "COVID FAQs",
-              "navigateTo": "/make-a-difference"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/make-a-difference-3.jpg",
-              "alt": "A woman is on her phone outside."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Home Church Elders and Hosts",
-          "text1":"All training for elders and hosts is found in our new elder hub.",
+          "header1": "Home Church Resources",
+          "text1":"All training and equipping resources for elders will be available through this one webpage. This webpage is still being developed.",
           "list": [
             {
               "type": "link",
@@ -129,7 +95,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "Kids",
-          "text1":"All training for elders and hosts is found in our new elder hub.",
+          "text1":"Resources to train and equip Kidmax volunteers.",
           "list": [
             {
               "type": "link",
@@ -188,7 +154,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "Connect Team",
-          "text1":"All training for elders and hosts is found in our new elder hub.",
+          "text1":"Resources to train and equip Connect teams.",
           "list": [
             {
               "type": "link",
@@ -217,14 +183,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "Youth",
-          "text1":"All training for elders and hosts is found in our new elder hub.",
-          "list": [
-            {
-              "type": "link",
-              "title": "Make a Difference",
-              "navigateTo": "/make-a-difference"
-            }
-          ],
+          "text1":"Resources to train and equip youth leaders.",
           "image1": [
             {
               "src": "/static/images/make-a-difference-3.jpg",
@@ -236,7 +195,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "Tech Team",
-          "text1":"All training for elders and hosts is found in our new elder hub.",
+          "text1":"Training and equipping resources for tech teams.",
           "list": [
             {
               "type": "link",
