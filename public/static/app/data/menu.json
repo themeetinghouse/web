@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Elders Resources",
+    "subtext": "Resource for elders",
+    "location": "https://www.themeetinghouse.com/elders-hub",
+    "groups": ["Elder"],
+    "external": true
+  }
+]
