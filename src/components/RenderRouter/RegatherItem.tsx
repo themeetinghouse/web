@@ -118,17 +118,18 @@ export default function RegatherItem(props: Props): JSX.Element {
         </div>
       </div>
       {isMobileOnly ? (
-        <Modal className={`modal-container white`} isOpen={isOpen}>
+        <Modal className={`GenericModalContainer white`} isOpen={isOpen}>
           <ModalBody
             style={{ backgroundColor: '#1A1A1A' }}
-            className={`modal-body white`}
+            className={`GenericModalBody white`}
           >
             <img
+              onClick={() => history.push('/')}
               style={{
                 height: '10.4vw',
                 position: 'absolute',
                 marginLeft: 16,
-                top: 16,
+                top: 14,
               }}
               src="/static/logos/house-white-sm.png"
             ></img>
@@ -152,7 +153,7 @@ export default function RegatherItem(props: Props): JSX.Element {
               title="The Meeting House - Forms"
               scrolling="auto"
               className="RegatherFormIframe"
-              style={{ height: 960, marginTop: 72 }}
+              style={{ height: '125vh', marginTop: '17vw' }}
             ></iframe>
           </ModalBody>
         </Modal>

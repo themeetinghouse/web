@@ -13,10 +13,10 @@ export default function GenericModalPage(props: Props): JSX.Element {
   const { pageConfig } = page;
   return (
     <Modal
-      className={`modal-container ${pageConfig.backgroundColor}`}
+      className={`GenericModalContainer ${pageConfig.backgroundColor}`}
       isOpen={true}
     >
-      <ModalBody className={`modal-body ${pageConfig.backgroundColor}`}>
+      <ModalBody className={`GenericModalBody ${pageConfig.backgroundColor}`}>
         <button
           className="CloseButton"
           onClick={() => {
@@ -27,7 +27,8 @@ export default function GenericModalPage(props: Props): JSX.Element {
           <img
             className="VideoOverlayClose"
             src={
-              true
+              pageConfig.backgroundColor === 'beige' ||
+              pageConfig.backgroundColor === 'white'
                 ? '/static/svg/Close-Cancel.svg'
                 : '/static/svg/Close-Cancel-White.svg'
             }
@@ -39,7 +40,7 @@ export default function GenericModalPage(props: Props): JSX.Element {
       </ModalBody>
       {pageConfig.showModalFooter ? (
         <ModalFooter
-          className={`modal-footer ${pageConfig.modalFooterBackgroundColor}`}
+          className={`GenericModalFooter ${pageConfig.modalFooterBackgroundColor}`}
         >
           <p>{pageConfig.modalFooterContent.text1}</p>
           <a
