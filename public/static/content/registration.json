@@ -1,7 +1,7 @@
 {
     "page": {
-        "name": "regather",
-        "title": "Regather",
+        "name": "registration",
+        "title": "Regather - Registration",
         "keywords": "",
         "description": "",
 
@@ -75,10 +75,6 @@
             "header4": "Online Registration",
             "text3": "Anyone attending a Sunday gathering will be required to pre-register online. We do this to ensure we aren’t exceeding the number of people that can safely attend. The online registration window will be open each week from Monday – Thursday.",
             "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will help you check in and confirm your health screening.",
-            "button3": {
-                "text": "Register Now",
-                "type": "solid"
-            },
             "footerText1": "Questions about in-person worship?",
             "footerText2": "hello@themeetinghouse.com"
         }]
