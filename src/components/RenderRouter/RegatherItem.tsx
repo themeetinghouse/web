@@ -120,34 +120,29 @@ export default function RegatherItem(props: Props): JSX.Element {
       {isMobileOnly ? (
         <Modal className={`modal-container white`} isOpen={isOpen}>
           <ModalBody
-            style={{ backgroundColor: '#EFEFF0' }}
+            style={{ backgroundColor: '#1A1A1A' }}
             className={`modal-body white`}
           >
             <img
               style={{
                 height: '10.4vw',
-                verticalAlign: 'middle',
                 position: 'absolute',
-                marginLeft: 15,
-                top: '0.5rem',
+                marginLeft: 16,
+                top: 16,
               }}
-              src="/static/logos/house-black-sm.png"
+              src="/static/logos/house-white-sm.png"
             ></img>
             <button
               className="CloseButton"
+              style={{ position: 'absolute', right: '16px' }}
               onClick={() => {
                 setIsOpen(false);
               }}
               aria-label="Close modal"
             >
               <img
-                className="VideoOverlayClose"
-                src={
-                  true
-                    ? '/static/svg/Close-Cancel.svg'
-                    : '/static/svg/Close-Cancel-White.svg'
-                }
-                alt=""
+                src={'/static/svg/Close-Cancel-White.svg'}
+                alt="Close Page"
               />
             </button>
 
