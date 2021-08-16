@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Modal, ModalBody } from 'reactstrap';
+import { isMobileOnly } from 'react-device-detect';
 import './RegatherItem.scss';
 interface Props {
   content: any;
@@ -10,22 +12,33 @@ export default function RegatherItem(props: Props): JSX.Element {
   const formRef = useRef<HTMLIFrameElement>(null);
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  const [formUrl, setFormUrl] = useState(
+    'https://rsvp.themeetinghouse.com/beta1'
+  );
   const openForm = () => {
     setIsOpen(true);
     if (isOpen) {
-      console.log(isOpen, 'aaaa');
       formRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   };
   useEffect(() => {
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [isOpen]);
+  useEffect(() => {
+    if (window.location.href.includes('transCode')) {
+      const transCode = window.location.href?.split('transCode=')?.[1];
+      console.log(transCode);
+      if (transCode) {
+        setFormUrl(
+          `https://rsvp.themeetinghouse.com/beta1/cancelReg.php?transCode=${transCode}`
+        );
+        setIsOpen(true);
+      }
+    }
+  }, []);
   return (
     <>
-      <div
-        style={isOpen ? { paddingBottom: 200 } : { paddingBottom: 0 }}
-        className="RegatherItemContainer"
-      >
+      <div className={`RegatherItemContainer ${isOpen ? 'open' : ''}`}>
         {Object.keys(content).map((contentItem) => {
           if (contentItem.includes('mainHeader')) {
             return (
@@ -49,6 +62,7 @@ export default function RegatherItem(props: Props): JSX.Element {
             const { action, text, type } = content[contentItem];
             return (
               <div
+                key={contentItem}
                 onClick={action ? () => history.push(action) : () => openForm()}
                 className={`RegatherButton ${type}`}
               >
@@ -65,7 +79,7 @@ export default function RegatherItem(props: Props): JSX.Element {
             return <hr key={contentItem} className="RegatherItemHR" />;
           } else if (contentItem === 'graphicItems') {
             return (
-              <div className="RegatherGraphicsContainer">
+              <div key={contentItem} className="RegatherGraphicsContainer">
                 {content[contentItem].map((item: any, index: number) => {
                   return (
                     <div className="RegatherGraphic" key={index}>
@@ -83,19 +97,70 @@ export default function RegatherItem(props: Props): JSX.Element {
             );
           }
         })}
+        <div onClick={openForm} className={`RegatherButton solid mobile`}>
+          Register Now
+        </div>
       </div>
-      {isOpen ? (
-        <div className="RegatherItemContainer2">
-          <div className="RegatherFormOffsetContainer">
+
+      <div
+        style={isOpen ? {} : { display: 'none' }}
+        className="RegatherItemContainer2"
+      >
+        <div className="RegatherFormOffsetContainer">
+          <iframe
+            ref={formRef}
+            src={formUrl}
+            title="The Meeting House - Forms"
+            scrolling="auto"
+            className="RegatherFormIframe"
+            style={{ height: 960 }}
+          ></iframe>
+        </div>
+      </div>
+      {isMobileOnly ? (
+        <Modal className={`modal-container white`} isOpen={isOpen}>
+          <ModalBody
+            style={{ backgroundColor: '#EFEFF0' }}
+            className={`modal-body white`}
+          >
+            <img
+              style={{
+                height: '10.4vw',
+                verticalAlign: 'middle',
+                position: 'absolute',
+                marginLeft: 15,
+                top: '0.5rem',
+              }}
+              src="/static/logos/house-black-sm.png"
+            ></img>
+            <button
+              className="CloseButton"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              aria-label="Close modal"
+            >
+              <img
+                className="VideoOverlayClose"
+                src={
+                  true
+                    ? '/static/svg/Close-Cancel.svg'
+                    : '/static/svg/Close-Cancel-White.svg'
+                }
+                alt=""
+              />
+            </button>
+
             <iframe
               ref={formRef}
-              src={'http://127.0.0.1:5500/Form.html'}
+              src={formUrl}
               title="The Meeting House - Forms"
-              scrolling="yes"
+              scrolling="auto"
               className="RegatherFormIframe"
+              style={{ height: 960, marginTop: 72 }}
             ></iframe>
-          </div>
-        </div>
+          </ModalBody>
+        </Modal>
       ) : null}
     </>
   );

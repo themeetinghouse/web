@@ -3,9 +3,12 @@
   top: 2vw;
   left: 20vw;
   margin-bottom: 2vw;
-  color: 'black';
-  padding-bottom: 300px;
+  color: black;
   background-color: #ffecd9;
+  padding-bottom: 40px;
+  &.open {
+    padding-bottom: 250px;
+  }
 }
 
 .RegatherFormOffsetContainer {
@@ -18,12 +21,12 @@
   background-color: #fff;
   padding-left: 20vw;
   padding-right: 20vw;
+  height: calc(940px - 150px);
 }
 
 .RegatherFormIframe {
   width: 100%;
   border: none;
-  height: 500px;
 }
 
 .RegatherButton {
@@ -45,28 +48,32 @@
     color: black;
     border: 1px solid black;
   }
+  &.mobile {
+    display: none;
+  }
 }
 
 .RegatherItemHR {
   margin-left: 0;
   margin-right: 0;
-  margin-top: 1.5vw;
-  margin-bottom: 1.5vw;
-  border-width: 0.1vw;
-  width: 3.55vw;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  width: 2.222vw;
   background-color: #1a1a1a;
+  height: 1.5px !important;
+  opacity: 1;
 }
 
 .RegatherItemH1 {
   color: black;
   font-family: Graphik Web;
   font-weight: bold;
-  font-size: 2.2vw;
-  margin-bottom: 30px;
+  font-size: 32px;
+  margin-bottom: 36px;
   &.MainHeader {
     letter-spacing: -0.5px;
     color: #1a1a1a;
-    font-size: 3.33vw !important;
+    font-size: 48px !important;
     margin-top: 30px;
   }
 }
@@ -76,7 +83,7 @@
   font-family: Graphik Web;
   font-weight: normal;
   width: 60vw;
-  font-size: 1.5vw;
+  font-size: 24px;
 }
 
 .RegatherGraphicsContainer {
@@ -104,7 +111,7 @@
   font-family: Graphik Web;
   width: 60vw;
   margin-bottom: 2vw;
-  font-size: 1.2vw;
+  font-size: 16px;
   &.GraphicsText {
     width: 100%;
     line-height: 24px;
@@ -121,13 +128,16 @@
     padding-bottom: 5vh;
     padding-left: 5vw;
     padding-right: 5vw;
+    &.open {
+      padding-bottom: 80px;
+    }
   }
   .RegatherGraphicsContainer {
     margin-top: 46px;
     display: grid;
     width: 100vw;
     grid-template-columns: 1fr;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     grid-gap: 46px;
   }
   .RegatherGraphic {
@@ -150,6 +160,7 @@
     font-size: 4.267vw;
     text-align: center;
     &.solid {
+      margin-top: 40px;
       background-color: #000;
       color: white;
     }
@@ -159,10 +170,11 @@
       color: black;
       border: 1px solid black;
     }
+    &.mobile {
+      display: block;
+    }
   }
   .RegatherItemHR {
-    margin-left: 0;
-    margin-right: 0;
     margin-top: 7.5vw;
     margin-bottom: 7.5vw;
     border-width: 0.4vw;
@@ -180,6 +192,7 @@
   }
   .RegatherItemContainer2 {
     background-color: white;
+    display: none;
     padding-left: unset;
     padding-right: unset;
   }
@@ -204,11 +217,9 @@
     line-height: 8.55vw;
   }
   .RegatherItemText {
-    margin-bottom: 6vw;
     font-size: 4.267vw;
     line-height: 6.4vw;
     width: 100%;
-    margin-bottom: 6vw;
-    font-size: 4.267vw;
+    margin-bottom: 0px;
   }
 }
