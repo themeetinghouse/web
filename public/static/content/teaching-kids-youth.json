@@ -25,7 +25,7 @@
         "type": "teaching",
         "style": "hero",
         "class": "teaching-kids-youth",
-        "header1": "One Story",
+        "header1": "Kids and Youth Teaching - One Story",
         "options": ["Kids", "Jr. High", "Youth", "Sr. High"],
         "group": "kids+youth",
         "sortOrder": "DESC"
