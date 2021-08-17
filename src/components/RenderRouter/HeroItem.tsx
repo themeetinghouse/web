@@ -233,6 +233,34 @@ class HeroItem extends React.Component<Props, State> {
     ) : null;
   }
 
+  renderButtonContainer(): any {
+    return (
+      <div
+        style={{
+          display: 'grid',
+          justifyContent: 'center',
+          gridAutoFlow: 'column',
+          gap: '24px',
+          marginTop: 24,
+        }}
+      >
+        {this.state.content.button1
+          ? this.renderButton(
+              this.state.content.button1,
+              `heroButton ${this.state.content.button1.white ? 'white' : ''}`
+            )
+          : null}
+        {this.state.content.button2
+          ? this.renderButton(
+              this.state.content.button2,
+              `heroButton ${this.state.content.button2.white ? 'white' : ''}`
+            )
+          : null}
+      </div>
+    );
+  }
+
+
   renderSecondaryCTA(buttonInfo: any) {
     if (!buttonInfo) return null;
     return (
@@ -584,7 +612,9 @@ class HeroItem extends React.Component<Props, State> {
               <div className="heroText2">{this.state.content.text5}</div>
               <div className="heroText2">{this.state.content.text6}</div>
               <div className="heroText2">{this.state.content.text7}</div>
-              {this.renderEmailSignup()}
+              {!this.state.content.button1
+                ? this.renderEmailSignup()
+                : this.renderButtonContainer()}
             </div>
           </div>
           {console.log(this.state.content.hasFooter)}
