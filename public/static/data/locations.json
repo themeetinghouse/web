@@ -53,7 +53,7 @@
     "location": {
       "longitude": -79.768112,
       "latitude": 43.733024,
-      "address": "SilverCity Brampton, 50 Great Lakes Drive"
+      "address": "Loafer's Lake Recreation Centre, 30 Loafer's Lake Lane"
     },
     "serviceTimes": ["10:00"]
   },
@@ -64,7 +64,7 @@
     "location": {
       "longitude": -80.278012,
       "latitude": 43.182376,
-      "address": "Galaxy Cinemas Brantford, 300 King George Road"
+      "address": "Grace Anglican Church, 4 Pearl Street"
     },
     "serviceTimes": ["10:00"]
   },
@@ -159,7 +159,7 @@
   {
     "id": "newmarket",
     "name": "Newmarket",
-    "pastorEmail": "Simon.Downey@themeetinghouse.com",
+    "pastorEmail": "chris.chase@themeetinghouse.com",
     "location": {
       "longitude": -79.555998,
       "latitude": 43.79428,
@@ -200,7 +200,7 @@
     "location": {
       "longitude": -75.613528,
       "latitude": 45.431384,
-      "address": "Lansdowne Cineplex, 325 Marché Way"
+      "address": "Riverside United Church, 3191 Riverside Drive"
     },
     "serviceTimes": ["10:00"]
   },
