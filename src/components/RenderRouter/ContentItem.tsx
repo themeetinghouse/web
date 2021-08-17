@@ -47,6 +47,7 @@ interface ContentType extends LocationQuery {
   header2?: string;
   text1?: string;
   list?: ContentList;
+  reverse?: boolean;
   pieChart?: {
     raised: number;
     goal: number;
@@ -426,20 +427,31 @@ function ContentItem({ content }: Props) {
       );
     case 'mad':
       return (
-        <div className="ContentItem mad">
+        <div className="ContentItem">
           <div className="madPosition">
-            <div className="madcontainer">
-              <h1 className="madH1">{content.header1}</h1>
-              <div className="madText">{content.text1}</div>
-              <div className="madList">{renderList()}</div>
-            </div>
-            <div className="madVisuals">
-              <div className="madrec"></div>
-              <ScaledImage
-                image={image1}
-                className="madImage"
-                breakpointSizes={heroBreakpoints}
-              />
+            <div
+              className={`madContainer ${content.reverse ? 'madReverse' : ''}`}
+            >
+              <div className="madContainerDiv1">
+                <h1 className="madH1">{content.header1}</h1>
+                <div className="madText">{content.text1}</div>
+                <div className="madList">{renderList()}</div>
+              </div>
+
+              <div
+                className={`madContainerDiv2 ${
+                  content.reverse ? 'madReverse' : ''
+                }`}
+              >
+                <div
+                  className={`madrec ${content.reverse ? 'madReverse' : ''}`}
+                ></div>
+                <ScaledImage
+                  image={image1}
+                  className="madImage"
+                  breakpointSizes={heroBreakpoints}
+                />
+              </div>
             </div>
           </div>
         </div>

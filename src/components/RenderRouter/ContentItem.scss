@@ -9,14 +9,42 @@
 }
 
 @media (min-width: 768px) {
+  /*mad*/
+  .madContainer {
+    display: flex;
+    flex-direction: row;
+    left: 4vw;
+    position: relative;
+    margin-top: 3vw;
+    max-width: 80%;
+    &.madReverse {
+      flex-direction: row-reverse;
+      max-width: 100%;
+      left: 0;
+      margin-left: -5vw;
+    }
+  }
+  .madContainerDiv1 {
+    width: 30vw;
+    height: 30vw;
+    padding-top: 4vw;
+  }
+  .madContainerDiv2 {
+    padding-left: 8vw;
+    padding-right: 0;
+    &.madReverse {
+      flex: unset;
+      padding-left: 0;
+      padding-right: 10vw;
+    }
+  }
   .madPosition {
     position: relative;
-    left: 20vw;
     width: 80vw;
+    left: 20vw;
     height: 46vw;
     z-index: 100;
   }
-
   .madH1 {
     font-weight: bold;
     font-size: 3vw;
@@ -24,50 +52,40 @@
     color: theme.$onyxblacktext;
     margin-bottom: 2vw;
   }
-
   .madText {
     font-size: 1.2vw;
     font-family: Graphik Web;
     margin-bottom: 1vw;
     color: theme.$coolgray11;
   }
-
   .madList {
     font-size: 5vw;
     font-family: Graphik Web;
     line-height: 0vw;
   }
-
-  .madcontainer {
-    position: relative;
-    width: 28vw;
-    height: 30vw;
-    left: 4vw;
-    top: 8vw;
-  }
-
   .madrec {
     position: absolute;
-    right: 15vw;
+    z-index: -1 !important;
     width: 8vw;
+    height: 42vw;
     bottom: 3.75vw;
-    top: 0vw;
+    top: -3.5vw;
+    right: 5vw;
     border: solid 16px theme.$onyxblacktext;
+    &.madReverse {
+      right: unset;
+      left: 10vw;
+    }
   }
-
   .madImage {
-    position: absolute;
     height: 35vw;
     width: 35vw;
-    left: 40vw;
     object-fit: cover;
     top: 3.5vw;
   }
-
   .madA {
     font-size: 1.2vw;
   }
-
   .madAContainer {
     text-align: left;
     top: -3vw;
@@ -76,21 +94,19 @@
     border: none;
     margin: -3.3vw;
   }
-
   .madAContainer:hover {
     .madarrow {
       transition: 1s;
       transform: translate(20px);
     }
   }
-
   .madarrow {
     float: right;
     padding-top: 0px;
     width: 24px;
     transition: 1s;
   }
-
+  /* end Mad */
   .pie {
     position: relative;
     text-align: center;
@@ -98,7 +114,6 @@
     height: 21vw;
     margin-top: 1vw;
   }
-
   .pieText {
     .amount {
       font-size: 2.7vw;
@@ -106,13 +121,11 @@
       font-weight: bold;
       text-align: center;
     }
-
     .text {
       font-size: 1.4vw;
       font-family: Graphik Web;
     }
   }
-
   .pie-chart-flex {
     display: flex;
     flex-direction: row;
@@ -123,7 +136,6 @@
     margin-bottom: 5vw;
     padding-left: 25vw;
   }
-
   .greyTwoTextTextPieChart {
     margin: 1vw;
     margin-top: 3vw;
@@ -133,18 +145,15 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .oneImageText {
     font-size: 1.2vw;
     font-family: Graphik Web;
     margin-bottom: 1.5vw;
     color: theme.$coolgray11;
   }
-
   .oneImageText.white {
     color: #ffffff;
   }
-
   .oneImageEventDetails {
     font-family: Graphik Web;
     color: #ffffff;
@@ -152,15 +161,12 @@
     margin-top: 1vw;
     margin-bottom: 0.5vw;
   }
-
   .oneImageA {
     font-size: 1.2vw;
   }
-
   .oneImageAContainer {
     margin-bottom: 0.5vw;
   }
-
   .oneImageImage {
     position: absolute;
     height: 35vw;
@@ -169,7 +175,6 @@
     object-fit: cover;
     top: 2.5vw;
   }
-
   .oneImageImage.right {
     position: absolute;
     height: 35vw;
@@ -178,7 +183,6 @@
     object-fit: cover;
     top: 2.5vw;
   }
-
   .oneImageGreyBox {
     padding: 10vw;
     padding-top: 8vw;
@@ -189,7 +193,6 @@
     top: 0vw;
     background-color: #efeff0;
   }
-
   .oneImageGreyBox.right {
     padding: 10vw;
     padding-top: 8vw;
@@ -200,7 +203,6 @@
     top: 0vw;
     background-color: #efeff0;
   }
-
   .oneImageBlackBox {
     padding: 10vw;
     padding-top: 8vw;
@@ -211,7 +213,6 @@
     top: 0vw;
     background-color: theme.$onyxblacktext;
   }
-
   .oneImageBlackBox.right {
     padding: 10vw;
     padding-top: 8vw;
@@ -231,7 +232,6 @@
     top: 0vw;
     background-color: #2b583b;
   }
-
   .oneImageGreenBox.right {
     padding: 10vw;
     position: relative;
@@ -247,11 +247,9 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .oneImageH1.white {
     color: #ffffff;
   }
-
   .oneImageH2 {
     font-size: 2vw;
     font-weight: normal;
@@ -260,37 +258,31 @@
     margin-top: 2vw !important;
     margin-bottom: 2vw !important;
   }
-
   .oneImageH2.white {
     color: #ffffff;
   }
-
   .oneImagePosition {
     position: relative;
     left: 20vw;
     width: 80vw;
     z-index: 100;
   }
-
   .ContentItem.oneImage {
     position: static;
     padding-bottom: 5vw;
   }
-
   .ContentItem.bannerCards {
     position: relative;
     left: 20vw;
     width: 80vw;
     margin-bottom: 5vw;
   }
-
   .bannerCardImage {
     $width: 37.67vw;
     width: $width;
     height: math.div(248, 552) * $width;
     margin-right: 1.67vw;
   }
-
   .greyTwoText {
     left: 0vw;
     position: relative;
@@ -299,7 +291,6 @@
     margin-top: -5vh;
     margin-bottom: 5vw;
   }
-
   .greyTwoTextH1 {
     position: relative;
     float: left;
@@ -313,7 +304,6 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .greyTwoTextText {
     left: 20vw;
     position: relative;
@@ -326,18 +316,15 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .greyTwoTextJustText {
     margin-bottom: 2vw;
   }
   .greyTwoTextJustTextYouth {
     margin-bottom: 1vw;
   }
-
   .greyTwoClear {
     clear: left;
   }
-
   .greenTwoText {
     left: 0vw;
     position: relative;
@@ -346,7 +333,6 @@
     margin-top: -5vh;
     margin-bottom: 5vw;
   }
-
   .greenTwoTextH1 {
     position: relative;
     float: left;
@@ -360,13 +346,11 @@
     font-family: Graphik Web;
     color: #ffffff;
   }
-
   .greenTwoTextText {
     left: 20vw;
     position: relative;
     margin: 1vw;
     margin-top: 3vw;
-
     float: left;
     width: 45vw;
     height: 20vw;
@@ -374,7 +358,6 @@
     font-family: Graphik Web;
     color: #ffffff;
   }
-
   .greenTwoClear {
     clear: left;
   }
@@ -396,7 +379,6 @@
     margin-bottom: 0.2vw;
     height: 2.2vw;
   }
-
   .oneImageA {
     font-size: 1vw;
   }
@@ -418,22 +400,18 @@
   .oneImageText.white {
     color: #ffffff;
   }
-
   .oneImageA {
     font-size: 1.2vw;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
-
     &:hover {
       color: inherit;
       text-decoration: inherit;
     }
   }
-
   .oneImageAContainer {
     margin-bottom: 0.2vw;
   }
-
   .oneImageImage {
     position: absolute;
     height: 35vw;
@@ -442,7 +420,6 @@
     object-fit: cover;
     top: 2.5vw;
   }
-
   .oneImageImage.right {
     position: absolute;
     height: 35vw;
@@ -451,7 +428,6 @@
     object-fit: cover;
     top: 2.5vw;
   }
-
   .oneImageGreyBox {
     padding: 10vw;
     padding-top: 8vw;
@@ -461,7 +437,6 @@
     top: 0vw;
     background-color: #efeff0;
   }
-
   .oneImageGreyBox.right {
     padding: 10vw;
     padding-top: 8vw;
@@ -472,7 +447,6 @@
     top: 0vw;
     background-color: #efeff0;
   }
-
   .oneImageBlackBox {
     padding: 10vw;
     padding-top: 8vw;
@@ -483,7 +457,6 @@
     top: 0vw;
     background-color: theme.$onyxblacktext;
   }
-
   .oneImageBlackBox.right {
     padding: 10vw;
     padding-top: 8vw;
@@ -503,7 +476,6 @@
     top: 0vw;
     background-color: #2b583b;
   }
-
   .oneImageGreenBox.right {
     padding: 10vw;
     position: relative;
@@ -519,11 +491,9 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .oneImageH1.white {
     color: #ffffff;
   }
-
   .oneImageH2 {
     font-size: 2vw;
     font-weight: normal;
@@ -532,23 +502,19 @@
     margin-top: 2vw !important;
     margin-bottom: 2vw !important;
   }
-
   .oneImageH2.white {
     color: #ffffff;
   }
-
   .oneImagePosition {
     position: relative;
     left: 20vw;
     width: 80vw;
     z-index: 100;
   }
-
   .ContentItem.oneImage {
     position: static;
     padding-bottom: 5vw;
   }
-
   .greyTwoText {
     left: 0vw;
     position: relative;
@@ -557,7 +523,6 @@
     margin-top: -5vh;
     margin-bottom: 5vw;
   }
-
   .greyTwoTextH1 {
     position: relative;
     float: left;
@@ -571,13 +536,11 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .greyTwoTextText {
     left: 20vw;
     position: relative;
     margin: 1vw;
     margin-top: 3vw;
-
     float: left;
     width: 45vw;
     height: 20vw;
@@ -585,7 +548,6 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .greyTwoTextJustText {
     margin-bottom: 2vw;
   }
@@ -595,7 +557,6 @@
   .greyTwoClear {
     clear: left;
   }
-
   .greenTwoText {
     left: 0vw;
     position: relative;
@@ -604,7 +565,6 @@
     margin-top: -5vh;
     margin-bottom: 5vw;
   }
-
   .greenTwoTextH1 {
     position: relative;
     float: left;
@@ -618,13 +578,11 @@
     font-family: Graphik Web;
     color: #ffffff;
   }
-
   .greenTwoTextText {
     left: 20vw;
     position: relative;
     margin: 1vw;
     margin-top: 3vw;
-
     float: left;
     width: 45vw;
     height: 20vw;
@@ -632,7 +590,6 @@
     font-family: Graphik Web;
     color: #ffffff;
   }
-
   .greenTwoClear {
     clear: left;
   }
@@ -647,6 +604,11 @@
 }
 
 @media (max-width: 767px) {
+  /*mad */
+  .madContainer {
+    flex-direction: column-reverse;
+    display: flex;
+  }
   .madPosition {
     position: relative;
     left: 5vw;
@@ -654,7 +616,6 @@
     height: 180vw;
     z-index: 100;
   }
-
   .madH1 {
     font-weight: bold;
     font-size: 6vw;
@@ -662,19 +623,16 @@
     color: theme.$onyxblacktext;
     margin-bottom: 6vw;
   }
-
   .madText {
     font-size: 3.5vw;
     font-family: Graphik Web;
     margin-bottom: 1vw;
     color: theme.$coolgray11;
   }
-
   .madList {
     font-size: 5vw;
     font-family: Graphik Web;
     line-height: 0vw;
-
     cursor: pointer;
     &:hover {
       .madarrow {
@@ -682,33 +640,22 @@
       }
     }
   }
-
-  .madcontainer {
-    position: relative;
-    width: 80vw;
-    height: 30vw;
-    left: 0vw;
-    top: 60vw;
-  }
-
   .madrec {
-    position: absolute;
+    margin-top: 25vw;
+    margin-bottom: 12vw;
+    position: relative;
     left: 25vw;
     width: 73vw;
     height: 24vw;
-    top: 25vw;
     border: solid 28px theme.$onyxblacktext;
     border-right: 0vw;
   }
-
   .madImage {
     display: none;
   }
-
   .madA {
     font-size: 1.2vw;
   }
-
   .madAContainer {
     text-align: left;
     top: 6vw;
@@ -716,23 +663,20 @@
     width: 80vw;
     border: none;
   }
-
   .madarrow {
     float: right;
     width: 24px;
   }
-
+  /* mad */
   .one-image-calendar {
     margin-top: 24px;
   }
-
   .pie {
     position: relative;
     text-align: center;
     width: 75vw;
     height: 75vw;
   }
-
   .pieText {
     .amount {
       font-size: 10vw;
@@ -740,13 +684,11 @@
       font-weight: bold;
       text-align: center;
     }
-
     .text {
       font-size: 5.5vw;
       font-family: Graphik Web;
     }
   }
-
   .pie-chart-flex {
     display: flex;
     flex-direction: column-reverse;
@@ -756,7 +698,6 @@
     background-color: #efeff0;
     padding: 5vw 0;
   }
-
   .greyTwoTextTextPieChart {
     position: relative;
     text-align: center;
@@ -767,18 +708,15 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .oneImageText {
     font-size: 5vw;
     font-family: Graphik Web;
     line-height: 7.5vw;
     color: theme.$coolgray11;
   }
-
   .oneImageText.white {
     color: #ffffff;
   }
-
   .oneImageA {
     font-size: 4vw;
     font-family: Graphik Web;
@@ -790,7 +728,6 @@
       text-decoration: inherit;
     }
   }
-
   .oneImageImage {
     position: absolute;
     height: 90vw;
@@ -800,11 +737,9 @@
     top: -60vw;
     padding-top: 20vw;
   }
-
   .extramrg {
     margin-top: 20vw;
   }
-
   .oneImageImage.right {
     position: relative;
     height: 90vw;
@@ -815,11 +750,9 @@
     padding-top: 20vw;
     margin-bottom: -60vw;
   }
-
   .secondImg {
     position: relative;
   }
-
   .oneImageGreyBox {
     margin-top: 55vw;
     padding: 40vw 6vw 10vw;
@@ -829,7 +762,6 @@
     top: 0vw;
     background-color: #efeff0;
   }
-
   .oneImageBlackBox {
     padding: 6vw;
     padding-top: 20vw;
@@ -840,7 +772,6 @@
     top: 0vw;
     background-color: theme.$onyxblacktext;
   }
-
   .oneImageBlackBox.right {
     padding: 6vw;
     padding-top: 20vw;
@@ -851,7 +782,6 @@
     top: 0;
     background-color: theme.$onyxblacktext;
   }
-
   .oneImageGreenBox {
     padding: 6vw;
     padding-top: 20vw;
@@ -862,7 +792,6 @@
     top: 0;
     background-color: #2b583b;
   }
-
   .oneImageH1 {
     font-weight: bold;
     font-size: 10vw;
@@ -870,7 +799,6 @@
     line-height: 12.5vw;
     color: theme.$onyxblacktext;
   }
-
   .oneImageEventDetails {
     font-family: Graphik Web;
     color: #ffffff;
@@ -878,55 +806,45 @@
     margin-top: 1vw;
     margin-bottom: 0.5vw;
   }
-
   .oneImageH1.white {
     color: #ffffff;
   }
-
   .oneImageH2 {
     font-size: 7.5vw;
     font-weight: normal;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .oneImageH2.white {
     color: #ffffff;
   }
-
   .oneImagePosition {
     position: relative;
     left: 0vw;
     width: 100vw;
     z-index: 100;
   }
-
   .ContentItem.oneImage {
     position: static;
     display: relative;
   }
-
   .ContentItem.bannerCards {
     position: relative;
     width: 80vw;
     padding: 10vw 5vw 0vw;
   }
-
   .bannerCardImage {
     $width: 90vw;
     width: $width;
     height: math.div(248, 552) * $width;
     margin-bottom: 6.4vw;
   }
-
   .ContentItemMarginBottom {
     margin-bottom: 0vw;
   }
-
   .goRegionalEventsMarginBottom {
     margin-bottom: 30vw;
   }
-
   .greyTwoText {
     left: 0vw;
     position: relative;
@@ -934,7 +852,6 @@
     background-color: #efeff0;
     margin-bottom: 5vw;
   }
-
   .greyTwoTextH1 {
     position: relative;
     float: left;
@@ -948,7 +865,6 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .greyTwoTextText {
     left: 5vw;
     position: relative;
@@ -962,11 +878,9 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
-
   .greyTwoClear {
     clear: left;
   }
-
   .greenTwoText {
     left: 0vw;
     position: relative;
@@ -974,7 +888,6 @@
     background-color: #2b583b;
     margin-bottom: 5vw;
   }
-
   .greenTwoTextH1 {
     position: relative;
     float: left;
@@ -989,7 +902,6 @@
     font-family: Graphik Web;
     color: #ffffff;
   }
-
   .greenTwoTextText {
     left: 5vw;
     position: relative;
@@ -1004,16 +916,13 @@
     font-family: Graphik Web;
     color: #ffffff;
   }
-
   .greenTwoClear {
     clear: left;
   }
-
   .bottom {
     top: unset;
     bottom: -40vw;
   }
-
   .contentButton {
     margin-top: 5vw !important;
     color: #ffffff !important;
@@ -1022,7 +931,6 @@
     font-weight: 800 !important;
     font-family: Graphik Web !important;
   }
-
   .oneImageList {
     font-size: 5vw;
     font-family: Graphik Web;
