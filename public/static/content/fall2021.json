@@ -57,18 +57,18 @@
           "type": "list",
           "style": "imageList",
           "header1": "Church this Fall",
-          "text1": "This fall church is going to look and feel different as we begin to regather in person and navigate the ever changing reality of the COVID-19 pandemic.  However no matter how you feel about church we’re excited to help you get more engaged and get connected into community.",
+          "text1": "This fall, church is going to look and feel different as we begin to regather in person and navigate the ever changing reality of the COVID-19 pandemic.  However no matter how you feel about church we’re excited to help you get more engaged and get connected into community.",
           "list": [
             {
               "title": "Sunday Mornings",
-              "text": "The Sunday morning experience this Fall will be a blend of in-person gatherings and online livestream experiences. So whether you feel comfortable meeting in person or would rather watch the livestream at home, you will be able to learn, grow and engage in the same teaching each week across all experiences. For now, click here to join our livestream on Sundays at 10am.",
+              "text": "The Sunday morning experience this fall will be a blend of in-person gatherings and online livestream experiences. So whether you feel comfortable meeting in person or would rather watch the livestream at home, you will be able to learn, grow and engage in the same teaching each week across all experiences. For now, click here to join our livestream on Sundays at 10 am.",
               "imageSrc": "/static/images/corona-2.jpg",
               "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
               "navigateTo": "/live"
             },
             {
               "title": "Home Church",
-              "text": "This Fall we will have both in-person and online Home Churches, across all of our parishes, where you can share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus. Click here to find a group you can connect with.",
+              "text": "This fall, we will have both in-person and online Home Churches, across all of our parishes, where you can share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus. Click here to find a group you can connect with.",
               "imageSrc": "/static/images/corona-3.jpg",
               "imageAlt": "Online home church meeting using zoom.",
               "navigateTo": "/home-church"
