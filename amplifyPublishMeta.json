@@ -1,0 +1,17 @@
+[
+  {
+    "pattern": "**/*.jpg",
+    "key": "CacheControl",
+    "value": "public, s-max-age=604800, max-age=604800, immutable"
+  },
+  {
+    "pattern": "**/*.json",
+    "key": "test2",
+    "value": "test22"
+  },
+  {
+    "pattern": "**/*.json",
+    "key": "test3",
+    "value": "test22"
+  }
+]

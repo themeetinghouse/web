@@ -10,7 +10,9 @@ import {
 } from 'react-router-dom';
 import awsconfig from '../../src/aws-exports';
 import '../custom.scss';
-const ContentPage = React.lazy(() => import('components/Loaders/ContentPage'));
+const ContentPage = React.lazy(
+  () => import('../components/Loaders/ContentPage')
+);
 const Videos = React.lazy(() => import('../components/Loaders/Videos'));
 const Blog = React.lazy(() => import('../components/Loaders/Blog'));
 const Notes = React.lazy(() => import('../components/Loaders/Notes'));
@@ -31,16 +33,6 @@ const redirectData = fetch('/static/data/redirect.json').then<
     to: string;
   }>
 >((response) => response.json());
-
-export interface RouteParams {
-  id?: string;
-  blog?: string;
-  episode?: string;
-  series?: string;
-  note?: string;
-  playlist?: string;
-  pod?: string;
-}
 
 interface State {
   redirects?: Array<{ id: string; to: string }>;

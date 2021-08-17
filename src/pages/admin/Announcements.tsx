@@ -24,7 +24,7 @@ import {
   DeleteAnnouncementMutation,
   UpdateAnnouncementMutation,
 } from 'API';
-import DataLoader, { LocationData } from 'components/RenderRouter/DataLoader';
+import { DataLoader } from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 
 Amplify.configure(awsmobile);
 const federated = {
@@ -77,7 +77,7 @@ export default function Announcements(): JSX.Element {
 
   /* ========================== Populates Location Filter Dropdown ========================= */
   const fetchLocations = async (): Promise<void> => {
-    const data: LocationData[] = await DataLoader.getLocations({
+    const data = await DataLoader.getLocations({
       class: 'locations',
     });
     if (data) {
@@ -86,7 +86,7 @@ export default function Announcements(): JSX.Element {
       ];
       const transformedLocations = [
         ...locationArr,
-        ...data.map((location) => {
+        ...data.map((location: any) => {
           return { label: location.name, value: location.name };
         }),
       ];

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import VideoOverlay from '../../components/VideoOverlay/VideoOverlay';
+import VideoOverlay from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 export default function Podcast() {
   const match = useRouteMatch<{ pod?: string }>();
   const [content, setContent] = useState<Record<string, unknown>>();

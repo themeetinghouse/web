@@ -1,7 +1,7 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth } from 'aws-amplify';
 import React from 'react';
-import { NavLink } from '../Link/Link';
+import { NavLink } from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 import {
   Collapse,
   Navbar,

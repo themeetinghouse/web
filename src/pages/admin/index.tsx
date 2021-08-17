@@ -3,7 +3,7 @@ import AdminMenu from '../../components/Menu/AdminMenu';
 import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
-import { NavLink } from 'components/Link/Link';
+import { NavLink } from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 
 Amplify.configure(awsmobile);
 const federated = {

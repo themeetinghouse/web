@@ -3,7 +3,7 @@ import { API, Analytics } from 'aws-amplify';
 import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import * as customQueries from '../../graphql-custom/customQueries';
-import VideoOverlay from '../VideoOverlay/VideoOverlay';
+import VideoOverlay from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 interface Params {

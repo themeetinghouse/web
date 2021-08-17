@@ -37,6 +37,7 @@
   "dependencies": {
     "@aws-amplify/ui-react": "^1.2.6",
     "@sentry/browser": "^6.9.0",
+    "@themeetinghouse/tmh-render-router": "^1.0.29",
     "aws-amplify": "^4.2.0",
     "bootstrap": "^5.0.2",
     "date-fns": "^2.16.1",

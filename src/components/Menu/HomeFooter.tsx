@@ -1,5 +1,5 @@
 ﻿import { NavLink as RSNavLink, Container, Row, Col } from 'reactstrap';
-import { NavLink } from 'components/Link/Link';
+import { NavLink } from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 import './HomeFooter.scss';
 
 export default function HomeFooter() {

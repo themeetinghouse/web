@@ -1,13 +1,13 @@
 import { ListLivestreamsQuery } from 'API';
-import { LocationQuery } from './RenderRouter/DataLoader';
+//import { LocationQuery } from '@themeetinghouse/tmh-render-router/build/app';
 
-export interface SundayMorningItemContent extends LocationQuery {
+/*export interface SundayMorningItemContent extends LocationQuery {
   type: 'sunday-morning';
   alternate: string;
   header1: string;
   filterField?: 'id';
   filterValue?: string;
-}
+}*/
 
 export interface DistanceGroupItemContent {
   type: 'distance-groups';

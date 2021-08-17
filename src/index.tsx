@@ -5,7 +5,7 @@ import App from './App';
 import { createBrowserHistory, History } from 'history';
 import { CookiesProvider } from 'react-cookie';
 import { version } from './version';
-import ErrorBoundry from './components/ErrorBoundry';
+import { ErrorBoundary } from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 let env = 'unknown';
 if (window.location.hostname === 'localhost') env = 'dev';
 else if (window.location.hostname.includes('beta')) env = 'beta';
@@ -27,9 +27,9 @@ const history: History<any> = createBrowserHistory();
 render(
   <Router history={history}>
     <CookiesProvider>
-      <ErrorBoundry>
+      <ErrorBoundary>
         <App />
-      </ErrorBoundry>
+      </ErrorBoundary>
     </CookiesProvider>
   </Router>,
   document.querySelector('#root')

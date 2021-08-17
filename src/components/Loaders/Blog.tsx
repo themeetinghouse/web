@@ -5,7 +5,7 @@ import { API, Analytics, AmazonPersonalizeProvider, Auth } from 'aws-amplify';
 import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { getBlog } from '../../graphql-custom/customQueries';
-import RenderRouter from '../RenderRouter/RenderRouter';
+import RenderRouter from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 Analytics.addPluggable(new AmazonPersonalizeProvider());
 Analytics.configure({
   AmazonPersonalize: {

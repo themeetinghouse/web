@@ -1,5 +1,5 @@
 import { Analytics, API } from 'aws-amplify';
-import RenderRouter from 'components/RenderRouter/RenderRouter';
+import RenderRouter from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 import moment from 'moment-timezone';
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';

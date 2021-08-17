@@ -15,15 +15,20 @@ import './menu.scss';
 import moment from 'moment-timezone';
 import * as queries from '../../graphql/queries';
 import { ListLivestreamsQuery } from '../../API';
-import { Link, NavLink } from 'components/Link/Link';
+import {
+  Link,
+  NavLink,
+} from '@themeetinghouse/tmh-render-router/build/webpack-render-router';
 import { LiveEvents } from '../types';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
+const VideoOverlay = React.lazy(
+  () => import('@themeetinghouse/tmh-render-router/build/webpack-render-router')
+);
 const Dropdown = React.lazy(
-  () => import('../../components/LiveEvents/Dropdown')
+  () => import('@themeetinghouse/tmh-render-router/build/webpack-render-router')
 );
 const AnnouncementBar = React.lazy(
-  () => import('../../components/AnnouncementBar/AnnouncementBar')
+  () => import('@themeetinghouse/tmh-render-router/build/webpack-render-router')
 );
 
 interface SubMenuItem {
