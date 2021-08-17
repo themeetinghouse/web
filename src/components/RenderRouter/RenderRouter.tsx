@@ -31,6 +31,7 @@ const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
 const PaymentItem = React.lazy(() => import('./PaymentItem'));
 const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
 const PodcastPlayer = React.lazy(() => import('./PodcastPlayer'));
+const RegatherItem = React.lazy(() => import('./RegatherItem'));
 const VideoPlayerLiveLeadersDay = React.lazy(
   () => import('./VideoPlayerLive_leadersday')
 );
@@ -102,6 +103,8 @@ class RenderRouter extends React.Component<Props> {
         return <PaymentItem key={index} content={item} />;
       case 'give':
         return <GiveItem key={index} content={item} />;
+      case 'regather':
+        return <RegatherItem key={index} content={item} />;
       case 'searchResult':
         return <SearchResult key={index} content={item} />;
       case 'give2':

@@ -366,6 +366,8 @@ if __name__ == '__main__':
                             pass
                         elif item_type == 'searchResult':
                             pass
+                        elif item_type == 'regather':
+                            pass
                         else:
                             raise Exception(f'unknown content type: {item_type}')
 

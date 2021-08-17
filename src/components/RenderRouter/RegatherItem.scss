@@ -1,0 +1,224 @@
+.RegatherItemContainer {
+  position: relative;
+  top: 2vw;
+  left: 20vw;
+  margin-bottom: 2vw;
+  color: black;
+  background-color: #ffecd9;
+  padding-bottom: 40px;
+  &.open {
+    padding-bottom: 250px;
+  }
+}
+
+.RegatherFormOffsetContainer {
+  position: relative;
+  top: -200px;
+  width: 60vw;
+}
+
+.RegatherItemContainer2 {
+  background-color: #fff;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  height: calc(940px - 150px);
+}
+
+.RegatherFormIframe {
+  width: 100%;
+  border: none;
+}
+
+.RegatherButton {
+  display: inline-block;
+  font-weight: 700;
+  font-size: min(1.11vw, 16px);
+  cursor: pointer;
+  margin-right: 28px;
+  margin-bottom: 110px;
+  margin-top: 40px;
+  text-align: center;
+  padding: 16px 0px;
+  min-width: 260px;
+  &.solid {
+    background-color: #000;
+    color: white;
+  }
+  &.outline {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+  }
+  &.mobile {
+    display: none;
+  }
+}
+
+.RegatherItemHR {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  width: 2.222vw;
+  background-color: #1a1a1a;
+  height: 1.5px !important;
+  opacity: 1;
+}
+
+.RegatherItemH1 {
+  color: black;
+  font-family: Graphik Web;
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 40px;
+  &.MainHeader {
+    letter-spacing: -0.5px;
+    color: #1a1a1a;
+    font-size: 48px !important;
+    margin-top: 60px;
+  }
+}
+
+.RegatherItemH2 {
+  color: #1a1a1a;
+  font-family: Graphik Web;
+  font-weight: normal;
+  width: 60vw;
+  font-size: 24px;
+}
+
+.RegatherGraphicsContainer {
+  display: grid;
+  width: 60vw;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+  margin: 2.5vw 0vw 6.944vw;
+}
+
+.RegatherGraphic {
+  .RegatherGraphicLabel {
+    margin-top: 29px;
+    font-weight: 700;
+    color: black;
+  }
+  img {
+    height: 10.694vw;
+    width: 10.694vw;
+  }
+}
+
+.RegatherItemText {
+  color: black;
+  font-family: Graphik Web;
+  width: 60vw;
+  margin-bottom: 2vw;
+  font-size: 16px;
+  &.GraphicsText {
+    width: 100%;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .RegatherItemContainer {
+    position: relative;
+    top: 20vw;
+    left: 0vw;
+    margin-bottom: 7vh;
+    width: 100%;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    &.open {
+      padding-bottom: 80px;
+    }
+  }
+  .RegatherGraphicsContainer {
+    margin-top: 46px;
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr;
+    margin-bottom: 80px;
+    grid-gap: 46px;
+  }
+  .RegatherGraphic {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 10vw);
+    .RegatherGraphicLabel {
+      margin-top: 0px;
+    }
+    img {
+      margin-right: 28px;
+      height: 18.133vw;
+      width: 18.133vw;
+    }
+  }
+  .RegatherButton {
+    display: inline-block;
+    margin: 14px 0px;
+    width: 100%;
+    font-size: 4.267vw;
+    text-align: center;
+    &.solid {
+      margin-top: 40px;
+      background-color: #000;
+      color: white;
+    }
+    &.outline {
+      margin-bottom: 85px;
+      background-color: transparent;
+      color: black;
+      border: 1px solid black;
+    }
+    &.mobile {
+      display: block;
+    }
+  }
+  .RegatherItemHR {
+    margin-top: 7.5vw;
+    margin-bottom: 7.5vw;
+    border-width: 0.4vw;
+    width: 6.55vw;
+    background-color: #1a1a1a;
+  }
+  .RegatherFormOffsetContainer {
+    width: 100vw;
+    top: unset;
+  }
+  .RegatherFormIframe {
+    width: 100%;
+    min-height: 500px;
+    border: none;
+  }
+  .RegatherItemContainer2 {
+    background-color: white;
+    display: none;
+    padding-left: unset;
+    padding-right: unset;
+  }
+  .RegatherItemH1 {
+    color: black;
+    font-family: Graphik Web;
+    font-weight: bold;
+    font-size: 8.533vw;
+    line-height: 10.67vw;
+    &.MainHeader {
+      color: black;
+      font-size: 48px !important;
+      line-height: 56px;
+      margin-top: 30px;
+    }
+  }
+  .RegatherItemH2 {
+    color: #1a1a1a;
+    font-family: Graphik Web;
+    width: 100%;
+    font-size: 6.333vw;
+    line-height: 8.55vw;
+  }
+  .RegatherItemText {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+}
