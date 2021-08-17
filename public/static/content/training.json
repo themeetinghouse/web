@@ -1,9 +1,9 @@
 {
     "page": {
-      "name": "welcomehome",
-      "title": "Welcome Home",
-      "keywords": "Regathering, Fall, Church this Fall, Welcome Home, Registration, Pre-register, Pre-registration",
-      "description": "This page provides information on what The Meeting House is doing to re-launch in-person gatherings.",
+      "name": "training",
+      "title": "Training",
+      "keywords": "Training, elders, coordinators, links, hub, training hub, elders hub, resources",
+      "description": "This page provides all of the links to training materials for elders and key coordinators.",
       "pageConfig": {
         "showLive": true,
         "movingMenu": false,
@@ -18,8 +18,8 @@
           "type": "og-tags",
           "image": "/static/images/covid-1-2.jpg",
           "url": "https://www.themeetinghouse.com/welcomehome",
-          "title": "Welcome Home.",
-          "description": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together."
+          "title": "Training Hub",
+          "description": "This webpage is designed to be a one stop information and training hub for our elders and key volunteers.  It can host links to any training or resourcing material we would like to make available to our teams and content can be updated as often as needed as circumstances or restrictions change."
         },
         {
           "type": "hero",
@@ -34,61 +34,172 @@
               "alt": "Young man in a face mask is sitting and talking with friends."
             }
           ],
-          "header1": "Welcome Home",
+          "header1": "Training and Info",
           "header2": "",
-          "text1": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together.",
-          "button1": {
-            "text": "Watch Video",
-            "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
-            "description": "Click to watch video"
-          }
+          "text1": "This webpage is designed to be a one stop information and training hub for our elders and key volunteers.  It can host links to any training or resourcing material we would like to make available to our teams and content can be updated as often as needed as circumstances or restrictions change."
         },
         {
           "type": "blog",
-          "style": "multiImage",
+          "style": "featured",
           "status": "Live",
-          "header1": "Recent News and Updates",
           "sortOrder": "DESC",
-          "limit": 2,
-          "blogSeries": "News"
-        },
+          "blogSeries": "Regather News",
+          "header2": "News and Updates",
+          "backgroundColor": "white",
+          "lessPadding": true
+          }, 
         {
-          "type": "list",
-          "style": "imageList",
-          "header1": "Church this Fall",
-          "text1": "We never stopped being the church during COVID.  It just looked a little different.  This fall as we are able to start gathering in person it might look and feel a little different as well but we’re excited to help you get more engaged and find a way for you to learn and grow and get connected into community.",
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Welcome Home",
+          "text1":"What is church going to look this this fall is a question we've all been asked and probably asked ourselves. This videos share what our fall will look like as we begin to regather in person and work to re-engage our core community.",
           "list": [
             {
-              "title": "Sunday Mornings",
-              "text": "Over the fall our Sunday morning experience will be a blend of in-person gatherings and an online livestream experience.  We know some people might not feel comfortable meeting in person right away and some parishes might take longer to start inperson gatherings than others, so we want to make sure everyone has an opportunity to engage in worship and hear the teaching.",
-              "imageSrc": "/static/images/corona-2.jpg",
-              "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
-              "navigateTo": "/live"
+              "type": "link",
+              "title": "Why? Welcome Home",
+              "navigateTo": "/videos/Regather/73skPQpGChQ"
             },
             {
-              "title": "Home Church",
-              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person. Click her to find a group you can connect with.",
-              "imageSrc": "/static/images/corona-3.jpg",
-              "imageAlt": "Online home church meeting using zoom.",
-              "navigateTo": "/home-church"
-            },
+              "type": "link",
+              "title": "How? Welcome Home",
+              "navigateTo": "/videos/Regather/FAjdn58eINc"
+            }
+          ],
+          "image1": [
             {
-              "title": "Kids and Youth",
-              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person. Click her to find a group you can connect with.",
-              "imageSrc": "/static/images/corona-5.jpg",
-              "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
-              "navigateTo": "/kidmax"
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
             }
           ]
         },
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Get Involved",
+          "header1": "Home Church Resources",
+          "text1":"All training and equipping resources for elders will be available through this one webpage. This webpage is still being developed.",
           "list": [
             {
               "type": "link",
-              "title": "Make a Difference",
+              "title": "Elders Hub",
+              "navigateTo": "/elders-hub"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Kids",
+          "text1":"Resources to train and equip Kidmax volunteers.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Why Kidmax",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Updated Check in process",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #1",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #2",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #3",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Sign in set up",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Check in process",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Printer Realignment",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Tethering wifi to phone",
+              "navigateTo": "/make-a-difference"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Connect Team",
+          "text1":"Resources to train and equip Connect teams.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Connect Team basics",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Sign in and check in",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "The digital info desk",
+              "navigateTo": "/make-a-difference"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Youth",
+          "text1":"Resources to train and equip youth leaders.",
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Tech Team",
+          "text1":"Training and equipping resources for tech teams.",
+          "list": [
+            {
+              "type": "link",
+              "title": "How to connect to the livestream",
               "navigateTo": "/make-a-difference"
             }
           ],
@@ -102,13 +213,18 @@
         {
           "type": "content",
           "style": "oneImageBlackRight",
-          "header1": "Giving",
-          "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
+          "header1": "Still need help?",
+          "text1": "If you haven't found the information you're looking for, we want to hear from you. You're essential for running out church and we want to make sure you have everything you need.",
           "list": [
             {
               "type": "link",
-              "title": "Give Today",
-              "navigateTo": "https://pushpay.com/g/themeetinghouse"
+              "title": "Ask a question",
+              "navigateTo": "/connect"
+            },
+            {
+              "type": "link",
+              "title": "Go to The Meeting House website",
+              "navigateTo": "homepage"
             }
           ],
           "image1": [

@@ -1,7 +1,7 @@
 {
     "page": {
-      "name": "welcomehome",
-      "title": "Welcome Home",
+      "name": "fall2021",
+      "title": "Fall 2021",
       "keywords": "Regathering, Fall, Church this Fall, Welcome Home, Registration, Pre-register, Pre-registration",
       "description": "This page provides information on what The Meeting House is doing to re-launch in-person gatherings.",
       "pageConfig": {
@@ -17,8 +17,8 @@
         {
           "type": "og-tags",
           "image": "/static/images/covid-1-2.jpg",
-          "url": "https://www.themeetinghouse.com/welcomehome",
-          "title": "Welcome Home.",
+          "url": "https://www.themeetinghouse.com/fall2021",
+          "title": "Fall 2021.",
           "description": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together."
         },
         {
@@ -36,16 +36,11 @@
           ],
           "header1": "Welcome Home",
           "header2": "",
-          "text1": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together.",
+          "text1": "Home is more than a place.  It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  This fall we want to welcome you to experience a sense of home as we share life and learn about Jesus together.",
           "button1": {
             "text": "Watch Video",
-            "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
+            "action": "/videos/Regather/KzDV3suceBI",
             "description": "Click to watch video"
-          },
-          "button2": {
-            "text": "Sunday Registration",
-            "action": "/register",
-            "description": "Click to register for the Sunday morning service."
           }
         },
         {
@@ -62,28 +57,28 @@
           "type": "list",
           "style": "imageList",
           "header1": "Church this Fall",
-          "text1": "We never stopped being the church during COVID.  It just looked a little different.  This fall as we are able to start gathering in person it might look and feel a little different as well but we’re excited to help you get more engaged and find a way for you to learn and grow and get connected into community.",
+          "text1": "This fall church is going to look and feel different as we begin to regather in person and navigate the ever changing reality of the COVID-19 pandemic.  However no matter how you feel about church we’re excited to help you get more engaged and get connected into community.",
           "list": [
             {
               "title": "Sunday Mornings",
-              "text": "Over the fall our Sunday morning experience will be a blend of in-person gatherings and an online livestream experience.  We know some people might not feel comfortable meeting in person right away and some parishes might take longer to start inperson gatherings than others, so we want to make sure everyone has an opportunity to engage in worship and hear the teaching.",
+              "text": "The Sunday morning experience this Fall will be a blend of in-person gatherings and online livestream experiences. So whether you feel comfortable meeting in person or would rather watch the livestream at home, you will be able to learn, grow and engage in the same teaching each week across all experiences. For now, click here to join our livestream on Sundays at 10am.",
               "imageSrc": "/static/images/corona-2.jpg",
               "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
               "navigateTo": "/live"
             },
             {
               "title": "Home Church",
-              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person. Click her to find a group you can connect with.",
+              "text": "This Fall we will have both in-person and online Home Churches, across all of our parishes, where you can share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus. Click here to find a group you can connect with.",
               "imageSrc": "/static/images/corona-3.jpg",
               "imageAlt": "Online home church meeting using zoom.",
               "navigateTo": "/home-church"
             },
             {
               "title": "Kids and Youth",
-              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person. Click her to find a group you can connect with.",
+              "text": "We love kids and youth and we are excited that we will be able to start meeting back in-person this fall. The availability and type of kids and youth programs will vary depending on the parish so check out your local parish page to learn about the programs at your parish.",
               "imageSrc": "/static/images/corona-5.jpg",
               "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
-              "navigateTo": "/kidmax"
+              "navigateTo": "/locations"
             }
           ]
         },
@@ -91,6 +86,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "Get Involved",
+          "text1":"We are created to live, grow and thrive in community. This fall there are lots of opportunities for you to get involved in helping out, either on a Sunday morning or through out the week in our neighbourhoods.",
           "list": [
             {
               "type": "link",
@@ -108,8 +104,8 @@
         {
           "type": "content",
           "style": "oneImageBlackRight",
-          "header1": "Giving",
-          "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
+          "header1": "Your giving creates our future",
+          "text1": "We have been called to a life of radical generosity, like Jesus! Giving is a great first step to declaring your commitment to Jesus, and this church family. Thank you! ",
           "list": [
             {
               "type": "link",
