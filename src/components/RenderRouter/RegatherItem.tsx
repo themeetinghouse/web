@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
-import { isMobile } from 'react-device-detect';
+import { isMobileOnly } from 'react-device-detect';
 import moment from 'moment-timezone';
 import './RegatherItem.scss';
 interface Props {
@@ -12,7 +12,7 @@ export default function RegatherItem(props: Props): JSX.Element {
   const { content } = props;
   const formRef = useRef<HTMLIFrameElement>(null);
   const history = useHistory();
-  const [isOpen, setIsOpen] = useState(!isMobile);
+  const [isOpen, setIsOpen] = useState(!isMobileOnly);
   const registrationOpen = moment().weekday() > 0 && moment().weekday() < 5;
   const [formUrl, setFormUrl] = useState(
     'https://rsvp.themeetinghouse.com/beta1/'
@@ -164,7 +164,7 @@ export default function RegatherItem(props: Props): JSX.Element {
           )}
         </div>
       </div>
-      {isMobile ? (
+      {isMobileOnly ? (
         <Modal className={`GenericModalContainer white`} isOpen={isOpen}>
           <ModalBody
             style={{ backgroundColor: '#1A1A1A' }}
