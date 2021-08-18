@@ -1,4 +1,4 @@
-import TestHelper from '../../components/TestHelpers/TestHelpers';
+import TestHelper from '../../src/components/TestHelpers/TestHelpers';
 const sizes = ['iphone-6', 'ipad-2', [1024, 768]];
 const random = Math.floor(Math.random() * 10);
 const user = 'login.test.' + random + '@jesuscollective.com'; //George
@@ -135,7 +135,7 @@ describe('Create User', () => {
         cy.viewport(size);
       }
 
-      cy.visit('/').then(() => {
+      cy.visit('https://localhost:3006/give').then(() => {
         TestHelper.DeleteUser(user, 'TestTest#1');
       });
       cy.contains('Sign In').click();

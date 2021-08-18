@@ -101,6 +101,9 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-expo": "^8.4.1",
     "@cypress/code-coverage": "^3.8.1",
     "@cypress/webpack-preprocessor": "^5.5.0",
     "@sentry/cli": "^1.66.0",
