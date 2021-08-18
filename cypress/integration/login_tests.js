@@ -1,5 +1,5 @@
 import TestHelper from '../../src/components/TestHelpers/TestHelpers';
-const sizes = ['iphone-6', 'ipad-2', [1024, 768]];
+const sizes = [[1024, 768], 'iphone-6', 'ipad-2'];
 const random = Math.floor(Math.random() * 10);
 const user = 'login.test.' + random + '@jesuscollective.com'; //George
 //const user = "courseuser3@jesuscollective.com"
@@ -16,16 +16,7 @@ const submitNewUserScreen = () => {
   cy.get('input[placeholder="Last Name"]').type('User 1');
   cy.contains('Continue').click({ force: true });
 };
-const submitNewUserOrgScreen = () => {
-  cy.get('input[placeholder="Email Address"]').type(user);
-  cy.get('input[placeholder="Create Password"]').type('TestTest#1');
-  cy.get('input[placeholder="Confirm Password"]').type('TestTest#1');
-  cy.get('input[placeholder="Phone number"]').type('1234567890');
-  cy.get('input[placeholder="First Name"]').type('Test');
-  cy.get('input[placeholder="Last Name"]').type('User 1');
-  cy.get('input[placeholder="Organization Name"]').type('Test Org 1');
-  cy.contains('Continue').click({ force: true });
-};
+
 const completeBillingScreen = (coupon) => {
   cy.contains('One Story Curriculum', { timeout: 30000 });
   cy.contains('Total:', { timeout: 30000 });
@@ -138,6 +129,7 @@ describe('Create User', () => {
       cy.visit('https://localhost:3006/give').then(() => {
         TestHelper.DeleteUser(user, 'TestTest#1');
       });
+      cy.contains('Login to manage your giving').click();
       cy.contains('Sign In').click();
       cy.contains('Email cannot be empty')
         .get('input[placeholder="Email"]')
@@ -149,7 +141,6 @@ describe('Create User', () => {
       cy.contains('Sign In').click();
       cy.contains('User does not exist');
       cy.contains('Create an Account').click();
-      cy.contains('Individual').click();
 
       submitNewUserScreen();
 
@@ -163,51 +154,6 @@ describe('Create User', () => {
 
       completeBillingScreen('');
       completeProfileScreen(true);
-
-      cy.get('[data-testid="header-logo"]').should('be.visible');
-    });
-  });
-});
-
-describe('Create User + Org', () => {
-  sizes.forEach((size) => {
-    it('Size - ' + size, () => {
-      if (Cypress._.isArray(size)) {
-        cy.viewport(size[0], size[1]);
-      } else {
-        cy.viewport(size);
-      }
-
-      cy.visit('/')
-        .then(() => {
-          TestHelper.DeleteUser(user, 'TestTest#1');
-        })
-        .contains('Sign In')
-        .click();
-      cy.contains('Email cannot be empty')
-        .get('input[placeholder="Email"]')
-        .type(user);
-      cy.contains('Sign In').click();
-      cy.contains('Password cannot be empty')
-        .get('input[placeholder="Password"]')
-        .type('TestTest#1');
-      cy.contains('Sign In').click();
-      cy.contains('User does not exist');
-      cy.contains('Create an Account').click();
-      cy.contains('Organization').click();
-      submitNewUserOrgScreen();
-
-      cy.get('input[placeholder="One-time security code"]', { timeout: 30000 })
-        .get('div[data-testId="myConfirmSignup-back"]')
-        .click();
-
-      cy.get('input[placeholder="Email"]').type(user);
-      cy.get('input[placeholder="Password"]').type('TestTest#1');
-      cy.contains('Sign In').click();
-
-      completeBillingScreen('JC20');
-      completeProfileScreen(false);
-      completeOrgScreen();
 
       cy.get('[data-testid="header-logo"]').should('be.visible');
     });
