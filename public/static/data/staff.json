@@ -1,15 +1,6 @@
 [
   {
     "Staff": true,
-    "FirstName": "Aaron",
-    "LastName": "Westera",
-    "Phone": "905.287.7000, ext. 852",
-    "Position": "Hamilton Youth Pastor",
-    "sites": ["HMAN", "Pastoral", "Youth"],
-    "Email": "Aaron.Westera@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Alex",
     "LastName": "Briere",
     "Phone": "905.287.7000",
