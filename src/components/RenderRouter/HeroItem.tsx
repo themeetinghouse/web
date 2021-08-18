@@ -260,7 +260,6 @@ class HeroItem extends React.Component<Props, State> {
     );
   }
 
-
   renderSecondaryCTA(buttonInfo: any) {
     if (!buttonInfo) return null;
     return (
