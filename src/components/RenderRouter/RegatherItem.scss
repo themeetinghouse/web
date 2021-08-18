@@ -35,7 +35,7 @@
   font-size: min(1.11vw, 16px);
   cursor: pointer;
   margin-right: 28px;
-  margin-bottom: 110px;
+  margin-bottom: 20px;
   margin-top: 40px;
   text-align: center;
   padding: 16px 0px;
@@ -51,6 +51,12 @@
   }
   &.mobile {
     display: none;
+  }
+  &.notmobile {
+    margin-bottom: 0px;
+  }
+  &.nomargin {
+    margin-top: 0px;
   }
 }
 
@@ -70,12 +76,17 @@
   font-family: Graphik Web;
   font-weight: bold;
   font-size: 32px;
+  margin-top: 60px;
   margin-bottom: 40px;
   &.MainHeader {
     letter-spacing: -0.5px;
     color: #1a1a1a;
     font-size: 48px !important;
     margin-top: 60px;
+  }
+  &.LivestreamHeader {
+    margin-bottom: 0px;
+    margin-top: -20px;
   }
 }
 
@@ -164,15 +175,22 @@
       margin-top: 40px;
       background-color: #000;
       color: white;
+      display: block;
     }
     &.outline {
-      margin-bottom: 85px;
       background-color: transparent;
       color: black;
       border: 1px solid black;
+      margin-top: 28px;
     }
     &.mobile {
       display: block;
+    }
+    &.notmobile {
+      display: none;
+    }
+    &.disabled {
+      background-color: rgba(0, 0, 0, 0.6);
     }
   }
   .RegatherItemHR {
@@ -188,7 +206,7 @@
   }
   .RegatherFormIframe {
     width: 100%;
-    min-height: 500px;
+    min-height: 100vh;
     border: none;
   }
   .RegatherItemContainer2 {
@@ -209,6 +227,9 @@
       line-height: 56px;
       margin-top: 30px;
     }
+    &.LivestreamHeader {
+      display: none;
+    }
   }
   .RegatherItemH2 {
     color: #1a1a1a;
@@ -219,6 +240,6 @@
   }
   .RegatherItemText {
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 24px;
   }
 }

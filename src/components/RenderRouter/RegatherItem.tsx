@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
-import { isMobileOnly } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
+import moment from 'moment-timezone';
 import './RegatherItem.scss';
 interface Props {
   content: any;
@@ -11,19 +12,19 @@ export default function RegatherItem(props: Props): JSX.Element {
   const { content } = props;
   const formRef = useRef<HTMLIFrameElement>(null);
   const history = useHistory();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(!isMobile);
+  const registrationOpen = moment().weekday() > 0 && moment().weekday() < 5;
   const [formUrl, setFormUrl] = useState(
-    'https://rsvp.themeetinghouse.com/beta1'
+    'https://rsvp.themeetinghouse.com/beta1/'
   );
   const openForm = () => {
-    setIsOpen(true);
-    if (isOpen) {
-      formRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (registrationOpen) {
+      setIsOpen(true);
+      if (isOpen) {
+        formRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
-  useEffect(() => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [isOpen]);
   useEffect(() => {
     if (window.location.href.includes('transCode')) {
       const transCode = window.location.href?.split('transCode=')?.[1];
@@ -48,7 +49,14 @@ export default function RegatherItem(props: Props): JSX.Element {
             );
           } else if (contentItem.includes('header')) {
             return (
-              <h1 key={contentItem} className="RegatherItemH1">
+              <h1
+                key={contentItem}
+                className={`RegatherItemH1 ${
+                  content[contentItem] === 'Livestream'
+                    ? 'LivestreamHeader'
+                    : ''
+                }`}
+              >
                 {content[contentItem]}
               </h1>
             );
@@ -60,14 +68,24 @@ export default function RegatherItem(props: Props): JSX.Element {
             );
           } else if (contentItem.includes('button')) {
             const { action, text, type } = content[contentItem];
+            const checkedText =
+              text.includes('Register Now') && !registrationOpen
+                ? 'Registration Closed'
+                : text;
+            const disabled =
+              text.includes('Register Now') && !registrationOpen ? true : false;
+
             return (
-              <div
+              <button
                 key={contentItem}
                 onClick={action ? () => history.push(action) : () => openForm()}
-                className={`RegatherButton ${type}`}
+                className={`RegatherButton ${type} ${
+                  disabled ? 'disabled' : ''
+                }`}
+                disabled={disabled}
               >
-                {text}
-              </div>
+                {checkedText}
+              </button>
             );
           } else if (contentItem.includes('text')) {
             return (
@@ -97,27 +115,56 @@ export default function RegatherItem(props: Props): JSX.Element {
             );
           }
         })}
-        <div onClick={openForm} className={`RegatherButton solid mobile`}>
-          Register Now
-        </div>
       </div>
 
       <div
-        style={isOpen ? {} : { display: 'none' }}
+        style={
+          isOpen
+            ? !registrationOpen
+              ? { height: 'unset' }
+              : {}
+            : { display: 'none' }
+        }
         className="RegatherItemContainer2"
       >
         <div className="RegatherFormOffsetContainer">
-          <iframe
-            ref={formRef}
-            src={formUrl}
-            title="The Meeting House - Forms"
-            scrolling="auto"
-            className="RegatherFormIframe"
-            style={{ height: 960 }}
-          ></iframe>
+          {registrationOpen ? (
+            <iframe
+              ref={formRef}
+              src={formUrl}
+              title="The Meeting House - Forms"
+              scrolling="auto"
+              className="RegatherFormIframe"
+              style={{ height: 960 }}
+            ></iframe>
+          ) : (
+            <div
+              style={{
+                padding: '68px 80px',
+                width: '60vw',
+                backgroundColor: '#EFEFF0',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <h2 className="RegatherItemH2">Registration is closed</h2>
+              <p style={{ marginTop: 24 }}>
+                Registration for this week is now closed. If you’d like to
+                attend next Sunday, please register Monday – Thursday.
+              </p>
+              <p>Please join us on the livestream Sunday at 10am.</p>
+              <button
+                onClick={() => history.push('/live')}
+                className={`RegatherButton solid`}
+                style={{ backgroundColor: '#1a1a1a', alignSelf: 'center' }}
+              >
+                Watch Livestream
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      {isMobileOnly ? (
+      {isMobile ? (
         <Modal className={`GenericModalContainer white`} isOpen={isOpen}>
           <ModalBody
             style={{ backgroundColor: '#1A1A1A' }}
@@ -146,15 +193,22 @@ export default function RegatherItem(props: Props): JSX.Element {
                 alt="Close Page"
               />
             </button>
-
-            <iframe
-              ref={formRef}
-              src={formUrl}
-              title="The Meeting House - Forms"
-              scrolling="auto"
-              className="RegatherFormIframe"
-              style={{ height: '125vh', marginTop: '17vw' }}
-            ></iframe>
+            <div
+              style={{
+                marginTop: 74,
+                minHeight: 'calc(100vh - 74px)',
+                backgroundColor: '#EFEFF0',
+              }}
+            >
+              <iframe
+                ref={formRef}
+                src={formUrl}
+                title="The Meeting House - Forms"
+                scrolling="auto"
+                className="RegatherFormIframe"
+                style={{ height: '125vh' }}
+              ></iframe>
+            </div>
           </ModalBody>
         </Modal>
       ) : null}
