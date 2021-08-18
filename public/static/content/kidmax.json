@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug15.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug22.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitivesAug15.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesAug22.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaAug15.jpg",
-            "alt": "This week's big idea is: Peace invites us to fight hatred with love."
+            "src": "/static/images/KidsBigIdeaAug22.jpg",
+            "alt": "This week's big idea is: Patience shows our trust in God."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug15.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug22.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitivesAug15.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityAug22.pdf",
             "openNewBrowser": true
           },
           {
