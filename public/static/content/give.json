@@ -26,44 +26,13 @@
       },
       {
         "type": "give",
-        "header1": "Your Giving Creates Our Future",
-        "header2": "The way of Jesus is radically generous.",
+        "header1": "Giving is Love in Action",
+        "header2": "In this difficult time, the opportunity to have meaningful impact is huge.",
         "text1": "Giving helps us grow as disciples, care for people, and go into our neighbourhoods to introduce spiritually curious people to the Jesus-centred life.",
         "text2": "Everything you give fuels our vision:",
         "text3": "• Teaching, home church, livestream, as well as kids, youth, and young adult ministries. Support our core ministries by giving to the General Fund.",
         "text4": "• We love and serve in practical ways by partnering with vulnerable people as we journey toward relationship, justice, and peace. Give to the Compassion Fund to support our compassion partners.",
-        "text5": "• Invest in innovative projects that help more people meaningfully engage the teachings of Jesus by giving to the Go Fund. This fund is the fuel that supports Jesus Collective, TMHU, and our One Story kids and youth curriculum.",
-        "extendedFamilyLinksTitle": "Give to our Extended Family",
-        "extendedFamilyLinks": [
-          {
-            "title": "Alliston",
-            "url": "https://tithe.ly/give_new/www/#/tithely/give-one-time/674673"
-          },
-          {
-            "title": "Sandbanks",
-            "url": "https://www.canadahelps.org/en/charities/west-lake-community-church/"
-          }
-        ],
-        "onlineBankingInfo": {
-          "header1": "Set up your giving as a bill payment",
-          "text1": "1. Locate your Meeting House account number, found on your donations envelope. If you don't have an account number click here to request one.",
-          "text2": "2. Log in to your online banking, and select the Bill Payment option.",
-          "text3": "3. Select the option to add a new payee.",
-          "text4": "4. Search for The Meeting House, it may also display as The Meeting House Church Family.",
-          "text5": "5. Enter your account number, followed by one of the 3 codes below to indicate which fund you would like to donate to. If your account number is less than 5 digits, enter zeros in front of your number to make it the correct length",
-          "text5Options": [
-            "• General Fund: #####GEN",
-            "• Go Fund: #####GOF",
-            "• Compassion Fund #####COM"
-          ],
-          "text6": "6. Select the amount and frequency of your gift.",
-          "text7": "Note: If you would like to donate to multiple funds, you must set up each donation as a seperate bill payment.",
-          "header2": "Pre-authorized withdrawal",
-          "textLines2": [
-            "To have your giving deducted directly from your bank account:",
-            "Complete this form online. You will need your branch, transit, and account number."
-          ]
-        }
+        "text5": "• Invest in innovative projects that help more people meaningfully engage the teachings of Jesus by giving to the Go Fund. This fund is the fuel that supports Jesus Collective, TMHU, and our One Story kids and youth curriculum."
       }
     ]
   }
