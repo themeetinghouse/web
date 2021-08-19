@@ -1,15 +1,6 @@
 [
   {
     "Staff": true,
-    "FirstName": "Aaron",
-    "LastName": "Westera",
-    "Phone": "905.287.7000, ext. 852",
-    "Position": "Hamilton Youth Pastor",
-    "sites": ["HMAN", "Pastoral", "Youth"],
-    "Email": "Aaron.Westera@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Alex",
     "LastName": "Briere",
     "Phone": "905.287.7000",
@@ -247,7 +238,7 @@
     "FirstName": "Jennifer",
     "LastName": "McWilliams",
     "Phone": "905.287.7000, ext. 838",
-    "Position": "Kids Pastor",
+    "Position": "East Toronto Lead Pastor",
     "sites": ["Pastoral"],
     "Email": "Jennifer.McWilliams@themeetinghouse.com"
   },
@@ -586,15 +577,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Houston",
-    "LastName": "Cheng",
-    "Phone": "905.287.7000",
-    "Position": "Interim East Toronto Lead Pastor",
-    "sites": ["TOBC", "Pastoral"],
-    "Email": "houston.cheng@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Rod",
     "LastName": "Tombs",
     "Phone": "905.287.7000, ext. 827",
@@ -652,7 +634,7 @@
     "FirstName": "Tammy",
     "LastName": "Lembo",
     "Phone": "905.287.7000, ext. 830",
-    "Position": "Curriculum Assistant (on leave)",
+    "Position": "Curriculum Assistant",
     "sites": ["Operations"],
     "Email": "Tammy.Lembo@themeetinghouse.com"
   },

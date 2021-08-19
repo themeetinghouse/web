@@ -1,4 +1,4 @@
-import Amplify from '@aws-amplify/core';
+import Amplify from 'aws-amplify';
 import React, { ReactNode } from 'react';
 import ReactGA from 'react-ga';
 import {

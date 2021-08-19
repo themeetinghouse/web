@@ -86,13 +86,13 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Go Campaign",
-        "text1": "We're beginning the next chapter of our story to go and engage people who have never meaningfully encountered the message of Jesus. COVID-19 has impacted the plans we had and so we've made some necessary changes.",
+        "header1": "Fall 2021",
+        "text1": "Church is going to look different this fall. Whether you're watching online or planning to join our in-person gatherings, keep checking back here for all the details on how you can get engaged.",
         "list": [
           {
             "type": "link",
-            "title": "See Our New Plan",
-            "navigateTo": "/go"
+            "title": "See our plan",
+            "navigateTo": "/fall2021"
           }
         ],
         "image1": [

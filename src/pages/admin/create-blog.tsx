@@ -6,17 +6,18 @@ import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify, { API, Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';
-import { v1 as uuidv1 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import DatePicker from 'react-datepicker';
-import { EmptyProps } from '../../utils';
+import { EmptyProps } from 'utils';
 import 'react-datepicker/dist/react-datepicker.css';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+
 import './create-blog.scss';
 import {
   BlogBridgeByPostQuery,
@@ -32,9 +33,32 @@ import {
   ListBlogsQuery,
   ListSeriessQuery,
   UpdateBlogMutation,
-} from '../../API';
+  ImageInput,
+  CreateBlogToVideoSeriesInput,
+  DeleteBlogToVideoSeriesInput,
+} from 'API';
 
 Amplify.configure(awsmobile);
+
+const S3_BUCKET =
+  'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';
+
+type ImageSizes = 'babyHeroImage' | 'bannerImage' | 'squareImage';
+
+const imageInputs: Array<{ size: ImageSizes; text: string }> = [
+  {
+    size: 'babyHeroImage',
+    text: 'Baby Hero Image (1280x1024)',
+  },
+  {
+    size: 'bannerImage',
+    text: 'Banner Image (2208x1200)',
+  },
+  {
+    size: 'squareImage',
+    text: 'Square Image (1024x1024)',
+  },
+];
 
 interface State {
   blogObject: CreateBlogInput;
@@ -80,6 +104,12 @@ interface State {
   blogSeriesFilterList: string[] | null;
   searchQuery: string;
   selectedBlog: string;
+  imageTypeWarning: boolean;
+  imageSizeWarning: string;
+
+  toAddVideoSeriesIds: string[];
+  toRemoveVideoSeriesIds: string[];
+  selectedVideoSeriesId: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -100,6 +130,18 @@ class Index extends React.Component<EmptyProps, State> {
         hiddenMainIndex: false,
         tags: [],
         blogSeriesId: this.nullString,
+        babyHeroImage: {
+          src: '',
+          alt: '',
+        },
+        bannerImage: {
+          src: '',
+          alt: '',
+        },
+        squareImage: {
+          src: '',
+          alt: '',
+        },
       },
       blogToEditObject: null,
       editorState: EditorState.createEmpty(),
@@ -138,6 +180,12 @@ class Index extends React.Component<EmptyProps, State> {
       blogSeriesFilterList: null,
       searchQuery: '',
       selectedBlog: 'none',
+      imageTypeWarning: false,
+      imageSizeWarning: '',
+
+      toAddVideoSeriesIds: [],
+      toRemoveVideoSeriesIds: [],
+      selectedVideoSeriesId: '',
     };
 
     this.listSeries();
@@ -324,11 +372,16 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async handleSave() {
+    const { blogObject, blogPostsList, editorState, customId, editMode } =
+      this.state;
+    const { babyHeroImage, bannerImage, squareImage } = blogObject;
+    const images = [babyHeroImage, bannerImage, squareImage];
+
     if (
-      !this.state.blogObject.blogTitle ||
-      !this.state.blogObject.author ||
-      !this.state.blogObject.description ||
-      !this.state.editorState.getCurrentContent().hasText()
+      !blogObject.blogTitle ||
+      !blogObject.author ||
+      !blogObject.description ||
+      !editorState.getCurrentContent().hasText()
     ) {
       this.setState({
         showAlert:
@@ -336,37 +389,53 @@ class Index extends React.Component<EmptyProps, State> {
       });
       return false;
     }
+
+    if (images.some((image) => image?.src && !image.alt)) {
+      this.setState({
+        showAlert: '⚠️ images must have alt text.',
+      });
+      return false;
+    }
+
     const titles: string[] = [];
-    this.state.blogPostsList.forEach((post) => {
+    blogPostsList.forEach((post) => {
       if (post?.blogTitle) titles.push(post?.blogTitle);
     });
-    const contentState = this.state.editorState.getCurrentContent();
+    const contentState = editorState.getCurrentContent();
     const raw = convertToRaw(contentState);
     const html = draftToHtml(raw);
     this.updateBlogField('content', html);
 
-    if (!this.validCustomId(this.state.customId)) {
+    if (!this.validCustomId(customId)) {
       this.setState({
         showAlert: '⚠️ Invalid custom id: lowercase letters and hyphens only!',
       });
       return false;
     }
 
-    this.updateBlogField(
-      'id',
-      this.state.customId || this.state.blogObject.blogTitle
-    );
+    this.updateBlogField('id', customId || blogObject.blogTitle);
 
     if (
-      !this.state.editMode &&
-      titles.includes(this.state.blogObject?.blogTitle)
+      !(
+        typeof this.state.blogObject.id === 'string' &&
+        this.state.blogObject.id.length > 0
+      )
     ) {
+      this.setState({
+        showAlert: 'Warning: blog ID is invalid',
+      });
+      return false;
+    }
+
+    if (!editMode && titles.includes(blogObject?.blogTitle)) {
       this.setState({
         showAlert:
           '⚠️ Warning: A post with this title exists. Please change your title. If you are trying to edit this post, please close this message then click edit: Edit an existing post',
       });
       return false;
     }
+
+    await this.writeVideoSeriesConnections();
 
     this.writeBridges(
       this.state.selectedBlogSeries,
@@ -375,10 +444,12 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.setState({ editMode: true });
 
+    const { blogObject: input } = this.state;
+
     try {
       const updateBlog = (await API.graphql({
         query: mutations.updateBlog,
-        variables: { input: this.state.blogObject },
+        variables: { input },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<UpdateBlogMutation>;
       this.setState({
@@ -393,7 +464,7 @@ class Index extends React.Component<EmptyProps, State> {
       try {
         const createBlog = (await API.graphql({
           query: mutations.createBlog,
-          variables: { input: this.state.blogObject },
+          variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<CreateBlogMutation>;
         this.setState({
@@ -409,14 +480,60 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-  waitForSelection(conditionFunction: () => boolean) {
-    const poll = (resolve: any) => {
-      if (conditionFunction()) resolve();
-      else setTimeout(() => poll(resolve), 500);
-    };
+  handleImageUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+    size: ImageSizes
+  ): Promise<void> => {
+    try {
+      const image = event?.target?.files?.[0];
 
-    return new Promise(poll);
-  }
+      this.setState({ imageTypeWarning: !image?.name.endsWith('jpg') });
+
+      if (image) {
+        const filepath = 'bloguploads/' + uuidv4() + image?.name;
+        await Storage.put(filepath, image, {
+          contentType: 'image/*',
+          acl: 'public-read',
+        });
+
+        this.updateBlogField(size, {
+          src: S3_BUCKET + filepath,
+          alt: this.state.blogObject[size]?.alt ?? '',
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  validateImageSize = (
+    {
+      currentTarget: { naturalWidth, naturalHeight },
+    }: React.SyntheticEvent<HTMLImageElement, Event>,
+    size: ImageSizes
+  ): void => {
+    let imageSizeWarning = '';
+
+    switch (size) {
+      case 'babyHeroImage':
+        if (naturalWidth !== 1280 || naturalHeight !== 1024) {
+          imageSizeWarning = 'Baby Hero';
+        }
+        break;
+      case 'bannerImage':
+        if (naturalWidth !== 2208 || naturalHeight !== 1200) {
+          imageSizeWarning = 'Banner';
+        }
+        break;
+      case 'squareImage':
+        if (naturalWidth !== 1024 || naturalHeight !== 1024) {
+          imageSizeWarning = 'Square';
+        }
+        break;
+    }
+
+    this.setState({ imageSizeWarning });
+  };
 
   async handleEdit() {
     if (this.state.blogToEditObject?.content) {
@@ -430,14 +547,23 @@ class Index extends React.Component<EmptyProps, State> {
         editorState: EditorState.createWithContent(contentState),
       });
 
-      const temp: any = { ...this.state.blogToEditObject };
-      delete temp.__typename;
+      const temp = { ...this.state.blogToEditObject };
+
+      this.setState({
+        toAddVideoSeriesIds:
+          temp.videoSeries?.items
+            ?.map((item) => item?.videoSeriesId ?? '')
+            .filter((id) => id !== '') ?? [],
+      });
+
+      delete (temp as any).__typename;
+      delete (temp as any).createdAt;
+      delete (temp as any).updatedAt;
       delete temp.blogSeries;
-      delete temp.createdAt;
       delete temp.createdBy;
       delete temp.createdBy;
-      delete temp.updatedAt;
       delete temp.series;
+      delete temp.videoSeries;
 
       this.setState({ blogObject: temp });
 
@@ -527,7 +653,7 @@ class Index extends React.Component<EmptyProps, State> {
 
   updateBlogField(
     field: keyof CreateBlogInput,
-    value: boolean | string | (string | null)[]
+    value: boolean | string | (string | null)[] | ImageInput
   ) {
     this.setState((prevState) => ({
       blogObject: { ...prevState.blogObject, [field]: value },
@@ -632,7 +758,79 @@ class Index extends React.Component<EmptyProps, State> {
     );
   }
 
+  removeVideoSeries(toRemove: string): void {
+    const { toAddVideoSeriesIds, toRemoveVideoSeriesIds } = this.state;
+
+    const filteredVideoSeriesIds = toAddVideoSeriesIds.filter(
+      (id) => id !== toRemove
+    );
+
+    this.setState({
+      toAddVideoSeriesIds: filteredVideoSeriesIds,
+      toRemoveVideoSeriesIds: [...toRemoveVideoSeriesIds, toRemove],
+    });
+  }
+
+  async writeVideoSeriesConnections(): Promise<void> {
+    const {
+      toAddVideoSeriesIds: toAdd,
+      toRemoveVideoSeriesIds: toRemove,
+      blogObject,
+    } = this.state;
+
+    const { id: blogId } = blogObject;
+
+    if (blogId) {
+      for (const videoSeriesId of toAdd) {
+        const id = blogId + '-' + videoSeriesId;
+        const input: CreateBlogToVideoSeriesInput = {
+          id,
+          videoSeriesId,
+          blogId,
+        };
+        try {
+          const json = await API.graphql({
+            query: mutations.createBlogToVideoSeries,
+            variables: {
+              input,
+            },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          });
+          console.log({
+            'Success mutations.createBlogToVideoSeries': json,
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      for (const videoSeriesId of toRemove) {
+        const id = blogId + '-' + videoSeriesId;
+        const input: DeleteBlogToVideoSeriesInput = {
+          id,
+        };
+        try {
+          const json = await API.graphql({
+            query: mutations.deleteBlogToVideoSeries,
+            variables: { input },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          });
+          console.log({
+            'Success mutations.deleteBlogToVideoSeries': json,
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+
+    this.setState({ toRemoveVideoSeriesIds: [] });
+  }
+
   renderMoreOptions() {
+    const { videoSeriesList, selectedVideoSeriesId, toAddVideoSeriesIds } =
+      this.state;
+
     return (
       <div>
         <b>Blog Status</b>
@@ -745,38 +943,66 @@ class Index extends React.Component<EmptyProps, State> {
         </div>
         <br />
 
-        <b>Add to Video Series</b>
-        <button
-          className="tags-button"
-          style={{ background: 'red' }}
-          onClick={() => this.updateBlogField('blogSeriesId', this.nullString)}
-        >
-          Clear
-        </button>
-        <select
-          style={{ width: 800 }}
-          onChange={(event) =>
-            this.updateBlogField('blogSeriesId', event.target.value)
-          }
-        >
-          <option key="null" value="null">
-            None Selected
-          </option>
-          {this.state.videoSeriesList.map((item) => {
-            return (
-              <option key={item?.id} value={item?.id}>
-                {item?.id}
+        <div>
+          <h4>Video Series</h4>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <select
+              onChange={(e) =>
+                this.setState({
+                  selectedVideoSeriesId: e.target.value,
+                })
+              }
+            >
+              <option key="null" value="">
+                None Selected
               </option>
+              {videoSeriesList.map((item) => {
+                if (item) {
+                  return (
+                    <option key={item.id} value={item.id}>
+                      {item.id}
+                    </option>
+                  );
+                }
+              })}
+            </select>
+            <button
+              className="add-button"
+              onClick={() => {
+                if (
+                  selectedVideoSeriesId &&
+                  !toAddVideoSeriesIds.includes(selectedVideoSeriesId)
+                ) {
+                  this.setState({
+                    toAddVideoSeriesIds: [
+                      ...toAddVideoSeriesIds,
+                      selectedVideoSeriesId,
+                    ],
+                  });
+                }
+              }}
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div>
+          Connected video series{' '}
+          {toAddVideoSeriesIds.length > 0
+            ? '(click a on series to remove)'
+            : ''}
+          :
+          {toAddVideoSeriesIds.map((id) => {
+            return (
+              <button
+                onClick={() => this.removeVideoSeries(id)}
+                key={id}
+                className="video-series-button"
+              >
+                {id}
+              </button>
             );
           })}
-        </select>
-        <div>
-          <b>Current video series: </b>{' '}
-          <div style={{ display: 'inline' }}>
-            {this.state.blogObject.blogSeriesId === this.nullString
-              ? ''
-              : this.state.blogObject.blogSeriesId}
-          </div>
         </div>
         <br />
 
@@ -872,6 +1098,9 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   renderTextInput() {
+    const { imageSizeWarning, imageTypeWarning, blogObject } = this.state;
+    const { babyHeroImage } = blogObject;
+
     return (
       <div className="editor-container">
         <div>
@@ -1054,7 +1283,6 @@ class Index extends React.Component<EmptyProps, State> {
             }}
           />
         </label>
-
         <label>
           Custom ID:
           <input
@@ -1085,7 +1313,52 @@ class Index extends React.Component<EmptyProps, State> {
             }
           ></input>
         </label>
+        <hr />
 
+        <h5>Preview Images</h5>
+        <h6>Please upload .jpg images</h6>
+        {imageTypeWarning && (
+          <h6 style={{ color: 'red' }}>Warning: images should be .jpg</h6>
+        )}
+        {imageSizeWarning && (
+          <h6 style={{ color: 'red' }}>
+            Warning: {imageSizeWarning} image may have incorrect dimensions
+          </h6>
+        )}
+        {imageInputs.map(({ size, text }) => (
+          <label style={{ marginRight: 12, maxWidth: 250 }} key={size}>
+            {text}
+            <input
+              type="file"
+              accept="image/jpg"
+              onChange={(e) => this.handleImageUpload(e, size)}
+            />
+            {blogObject[size]?.src && (
+              <img
+                src={blogObject[size]?.src ?? ''}
+                alt={blogObject[size]?.alt ?? ''}
+                onLoad={(e) => this.validateImageSize(e, size)}
+                style={{ maxWidth: 150 }}
+              />
+            )}
+          </label>
+        ))}
+        <label>
+          Alt text:
+          <input
+            onChange={(e) => {
+              (
+                ['babyHeroImage', 'bannerImage', 'squareImage'] as ImageSizes[]
+              ).forEach((image) => {
+                this.updateBlogField(image, {
+                  src: blogObject[image]?.src ?? '',
+                  alt: e.target.value,
+                });
+              });
+            }}
+            value={babyHeroImage?.alt ?? ''}
+          />
+        </label>
         <Editor
           editorState={this.state.editorState}
           onEditorStateChange={this.onChange}
@@ -1109,14 +1382,12 @@ class Index extends React.Component<EmptyProps, State> {
             image: {
               uploadEnabled: true,
               uploadCallback: async (file: any) => {
-                const filepath = 'bloguploads/' + uuidv1() + file.name;
+                const filepath = 'bloguploads/' + uuidv4() + file.name;
                 await Storage.put(filepath, file, {
                   contentType: 'image/*',
                   acl: 'public-read',
                 });
-                const download =
-                  'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/' +
-                  filepath;
+                const download = S3_BUCKET + filepath;
                 return { data: { link: download } };
               },
               previewImage: true,

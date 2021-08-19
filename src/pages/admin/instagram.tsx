@@ -3,9 +3,9 @@ import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import * as mutations from '../../graphql/mutations';
 import * as adminQueries from './queries';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import { CreateInstagramInput, GetInstagramQuery } from 'API';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 Amplify.configure(awsmobile);
 

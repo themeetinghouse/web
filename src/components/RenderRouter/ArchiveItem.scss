@@ -1,4 +1,5 @@
 @use '../../theme';
+@use "sass:math";
 
 .LoadingArchivesDiv1 {
   display: flex;
@@ -110,7 +111,7 @@
 
 @media (min-width: 768px) {
   $width: 18vw;
-  $height: $width * (9/16);
+  $height: $width * math.div(9, 16);
   .ArchiveItemDiv1 {
     position: relative;
     z-index: 99;
@@ -235,7 +236,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   $width: 24vw;
-  $height: $width * (9/16);
+  $height: $width * math.div(9, 16);
   .ArchiveItemDiv1 {
     position: relative;
     z-index: 99;
@@ -359,7 +360,7 @@
 }
 @media (max-width: 767px) {
   $width: 44vw;
-  $height: $width * (9/16);
+  $height: $width * math.div(9, 16);
   .ArchiveItemDiv1 {
     position: relative;
     z-index: 99;

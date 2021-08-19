@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .dropdown-toggle:after {
   display: none;
 }
@@ -35,7 +37,7 @@
     margin-left: 10vw;
     padding-top: 2vw;
     width: 80vw;
-    height: (9/16) * 80vw;
+    height: math.div(9, 16) * 80vw;
   }
 
   .LiveVideoPlayerInfoText {
@@ -142,7 +144,7 @@
     transition: 0.5s;
     position: relative;
     width: 26vw;
-    height: (9/16) * 26vw;
+    height: math.div(9, 16) * 26vw;
     background: white;
     display: flex;
     justify-content: center;
@@ -283,7 +285,7 @@
     margin-left: 10vw;
     padding-top: 2vw;
     width: 80vw;
-    height: (9/16) * 80vw;
+    height: math.div(9, 16) * 80vw;
   }
 
   .LiveVideoPlayerInfoText {
@@ -365,7 +367,7 @@
     transition: 0.5s;
     position: relative;
     width: 26vw;
-    height: (9/16) * 26vw;
+    height: math.div(9, 16) * 26vw;
     background: white;
     display: flex;
     justify-content: center;
@@ -518,7 +520,7 @@
   .KidmaxVideo {
     padding-top: 2vw;
     width: 90vw;
-    height: (9/16) * 90vw;
+    height: math.div(9, 16) * 90vw;
     margin-left: 5vw;
   }
 
@@ -627,7 +629,7 @@
     transition: 0.5s;
     position: relative;
     width: 44vw;
-    height: (9/16) * 44vw;
+    height: math.div(9, 16) * 44vw;
     background: white;
     display: flex;
     justify-content: center;

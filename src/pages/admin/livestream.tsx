@@ -1,7 +1,6 @@
 import React from 'react';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import { EmptyProps } from '../../utils';
 import Amplify, { API } from 'aws-amplify';
 import { Modal } from 'reactstrap';
@@ -18,6 +17,7 @@ import {
   UpdateLivestreamMutation,
 } from 'API';
 import './livestream.scss';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 Amplify.configure(awsmobile);
 

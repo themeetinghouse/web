@@ -6,7 +6,7 @@ import './HeroItem.scss';
 import Select from 'react-select';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import moment from 'moment';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
+import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 
 interface Props extends RouteComponentProps {
@@ -232,6 +232,57 @@ class HeroItem extends React.Component<Props, State> {
       </Button>
     ) : null;
   }
+
+  renderButtonContainer(): any {
+    return (
+      <div
+        style={{
+          display: 'grid',
+          justifyContent: 'center',
+          gridAutoFlow: 'column',
+          gap: '24px',
+          marginTop: 24,
+        }}
+      >
+        {this.state.content.button1
+          ? this.renderButton(
+              this.state.content.button1,
+              `heroButton ${this.state.content.button1.white ? 'white' : ''}`
+            )
+          : null}
+        {this.state.content.button2
+          ? this.renderButton(
+              this.state.content.button2,
+              `heroButton ${this.state.content.button2.white ? 'white' : ''}`
+            )
+          : null}
+      </div>
+    );
+  }
+
+  renderSecondaryCTA(buttonInfo: any) {
+    if (!buttonInfo) return null;
+    return (
+      <Link
+        to={buttonInfo.action}
+        className="secondaryCTA"
+        style={{
+          marginTop: 20,
+        }}
+        aria-label={buttonInfo.description}
+      >
+        {buttonInfo.icon ? (
+          <img
+            className="calendarImage"
+            src={buttonInfo.icon}
+            alt={`${buttonInfo.text} Icon`}
+          />
+        ) : null}
+        {buttonInfo.text}
+      </Link>
+    );
+  }
+
   render() {
     window.onscroll = () => {
       this.downArrowScroll();
@@ -279,7 +330,7 @@ class HeroItem extends React.Component<Props, State> {
                     height={25}
                     className="calendarImage"
                     src="/static/svg/Play.svg"
-                    alt="Contact Icon"
+                    alt="Play Icon"
                   />
                   Watch Live
                 </Link>
@@ -295,7 +346,7 @@ class HeroItem extends React.Component<Props, State> {
                     height={25}
                     className="calendarImage"
                     src="/static/svg/Play.svg"
-                    alt="Contact Icon"
+                    alt="Play Icon"
                   />
                   Watch Live
                 </Link>
@@ -344,6 +395,8 @@ class HeroItem extends React.Component<Props, State> {
                     />
                   )
                 ) : null
+              ) : this.state.content.secondaryCTA ? (
+                this.renderSecondaryCTA(this.state.content.secondaryCTA)
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
@@ -558,7 +611,9 @@ class HeroItem extends React.Component<Props, State> {
               <div className="heroText2">{this.state.content.text5}</div>
               <div className="heroText2">{this.state.content.text6}</div>
               <div className="heroText2">{this.state.content.text7}</div>
-              {this.renderEmailSignup()}
+              {!this.state.content.button1
+                ? this.renderEmailSignup()
+                : this.renderButtonContainer()}
             </div>
           </div>
           {console.log(this.state.content.hasFooter)}

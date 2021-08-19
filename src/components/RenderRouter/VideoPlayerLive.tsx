@@ -2,12 +2,13 @@ import React, { Fragment } from 'react';
 import './VideoPlayerLive.scss';
 import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, LinkButton } from 'components/Link/Link';
 import { isMobile, isMobileOnly } from 'react-device-detect';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+
 import {
   Dropdown,
   DropdownItem,

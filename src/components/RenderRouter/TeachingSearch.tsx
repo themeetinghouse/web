@@ -9,7 +9,8 @@ import {
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
 } from 'API';
-import { GraphQLResult } from '@aws-amplify/api/lib/types';
+import { GraphQLResult } from '@aws-amplify/api';
+
 import { SearchBarContentProp } from '../types';
 import { Link } from 'components/Link/Link';
 

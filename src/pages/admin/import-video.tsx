@@ -3,7 +3,6 @@ import * as adminQueries from './queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 import * as customMutations from '../../graphql-custom/customMutations';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify';
 import './import-video.scss';
@@ -13,6 +12,7 @@ import ImportYoutube from '../../components/ImportYoutube/ImportYoutube';
 import { EmptyProps } from '../../utils';
 import { Modal } from 'reactstrap';
 import { DeleteCustomPlaylistMutation } from 'API';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 Amplify.configure(awsmobile);
 interface State {

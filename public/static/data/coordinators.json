@@ -55,12 +55,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Ruth",
-    "LastName": "Wagner",
-    "sites": ["NMKT"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Lisana",
     "LastName": "Walks",
     "sites": ["NMKT"],
@@ -133,13 +127,6 @@
     "LastName": "Albione",
     "sites": ["RHLL"],
     "Email": "sandra.albione@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Yvonne",
-    "LastName": "Shek",
-    "sites": ["RHLL"],
-    "Email": "yvonne.shek@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
@@ -267,8 +254,8 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Rachelle",
-    "LastName": "DeBoer",
+    "FirstName": "Winfer",
+    "LastName": "Foster",
     "sites": ["PAR"],
     "Email": "parrysound.Kidmax@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
@@ -468,13 +455,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Carolina",
-    "LastName": "Bartholomew",
-    "sites": ["HMMT"],
-    "Email": "carolina.bartholomew@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Sheryl",
     "LastName": "Bailey",
     "sites": ["LOND"],
@@ -520,6 +500,13 @@
     "sites": ["TOBC"],
     "Email": "hazel.cheng@themeetinghouse.com",
     "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Jennifer",
+    "LastName": "McWilliams",
+    "sites": ["TOBC"],
+    "Email": "jennifer.mcwilliams@themeetinghouse.com",
+    "Position": "East Toronto Lead Pastor"
   },
   {
     "FirstName": "Russ",
@@ -589,12 +576,6 @@
     "LastName": "Woodward",
     "sites": ["BRFD"],
     "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Carissa",
-    "LastName": "Refell",
-    "sites": ["BURL"],
     "Position": "Youth Coordinator"
   },
   {

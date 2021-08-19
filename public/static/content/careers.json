@@ -58,8 +58,8 @@
         "list": [
           {
             "type": "link",
-            "title": "Downtown Toronto Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/DTleadpastor.pdf"
+            "title": "Brand & Design Manager",
+            "navigateTo": "/static/pdfs/careers/Brand & Design Manager.pdf"
           },
           {
             "type": "link",
@@ -68,7 +68,12 @@
           },
           {
             "type": "link",
-            "title": "Live Production and Technical Producer",
+            "title": "Cross Regional Kids Pastor",
+            "navigateTo": "/static/pdfs/careers/Cross Regional Kids Pastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Live Production Technical Producer",
             "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
           },
           {

@@ -1,4 +1,5 @@
 @use '../../theme';
+@use "sass:math";
 
 .spinner {
   width: 40px;
@@ -150,6 +151,14 @@
   object-position: 50% 0%;
 }
 
+.imageList .links-container {
+  margin-top: 12px;
+  width: 28vw;
+  .links-item {
+    padding: 12px 0;
+  }
+}
+
 @media (min-width: 768px) {
   .BlogLink:hover {
     .blogarrow {
@@ -250,6 +259,9 @@
 
   .ListItemDiv11 {
     width: 31vw;
+    &.multi-link {
+      width: 36vw;
+    }
     font-size: 1.25vw;
     font-family: Graphik Web;
     color: theme.$coolgray11;
@@ -410,7 +422,7 @@
     cursor: pointer;
     transition: 0.5s;
     width: 20vw;
-    height: 20vw * (1248/1056);
+    height: 20vw * math.div(1248, 1056);
     margin-right: 1vw;
     border: 4px solid theme.$onyxblacktext;
     display: flex;
@@ -645,7 +657,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: (9/16) * 24vw;
+    height: math.div(9, 16) * 24vw;
     opacity: 0;
     transition: 0.5s ease;
     img {
@@ -655,7 +667,7 @@
 
   .CuriousVideoImage {
     width: 24vw;
-    height: (9/16) * 24vw;
+    height: math.div(9, 16) * 24vw;
     transition: 0.5s ease;
     filter: grayscale(0.9);
   }
@@ -663,7 +675,7 @@
   .CuriousVideo {
     cursor: pointer;
     width: 24vw;
-    height: (9/16) * 24vw;
+    height: math.div(9, 16) * 24vw;
     position: relative;
     background-color: #ffffff;
     border: none;
@@ -680,7 +692,7 @@
   .CuriousContainer {
     display: grid;
     grid-template-columns: repeat(3, 24vw);
-    grid-template-rows: (9/16) * 24vw;
+    grid-template-rows: math.div(9, 16) * 24vw;
     column-gap: 1.67vw;
     row-gap: 1.67vw;
   }
@@ -741,13 +753,6 @@
     width: 20vw;
     white-space: normal;
     font-family: Graphik Web;
-  }
-
-  .HorizontalLine {
-    margin-top: 3.75vw;
-    height: 8px;
-    background: #ffffff;
-    opacity: 0.12;
   }
 
   .hide-desktop {
@@ -932,13 +937,6 @@
     z-index: 99;
   }
 
-  .ListItemDiv11 {
-    width: 31vw;
-    font-size: 1.25vw;
-    font-family: Graphik Web;
-    color: theme.$coolgray11;
-  }
-
   .ListItemH1 {
     position: relative;
     left: 0vw;
@@ -1087,7 +1085,7 @@
     cursor: pointer;
     transition: 0.5s;
     width: 20vw;
-    height: 20vw * (1248/1056);
+    height: 20vw * math.div(1248, 1056);
     margin-right: 1vw;
     border: 4px solid theme.$onyxblacktext;
     display: flex;
@@ -1305,13 +1303,6 @@
     font-family: Graphik Web;
   }
 
-  .HorizontalLine {
-    margin-top: 3.75vw;
-    height: 8px;
-    background: #ffffff;
-    opacity: 0.12;
-  }
-
   .BlogItem {
     display: flex;
     align-items: top;
@@ -1361,7 +1352,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: (9/16) * 36vw;
+    height: math.div(9, 16) * 36vw;
     opacity: 0;
     transition: 0.5s ease;
     img {
@@ -1371,7 +1362,7 @@
 
   .CuriousVideoImage {
     width: 36vw;
-    height: (9/16) * 36vw;
+    height: math.div(9, 16) * 36vw;
     transition: 0.5s ease;
     filter: grayscale(0.9);
   }
@@ -1379,7 +1370,7 @@
   .CuriousVideo {
     cursor: pointer;
     width: 36vw;
-    height: (9/16) * 36vw;
+    height: math.div(9, 16) * 36vw;
     position: relative;
     background-color: #ffffff;
     border: none;
@@ -1400,7 +1391,7 @@
   .CuriousContainer {
     display: grid;
     grid-template-columns: repeat(2, 36vw);
-    grid-template-rows: (9/16) * 36vw;
+    grid-template-rows: math.div(9, 16) * 36vw;
     row-gap: 2.5vw;
     column-gap: 2.5vw;
   }
@@ -1485,13 +1476,6 @@
     font-family: Graphik Web;
   }
 
-  .HorizontalLine {
-    margin-top: 3.75vw;
-    height: 8px;
-    background: #ffffff;
-    opacity: 0.12;
-  }
-
   .ListItemText1 {
     font-size: 2vw;
   }
@@ -1558,6 +1542,10 @@
 }
 
 @media (max-width: 767px) {
+  .imageList .links-container {
+    width: 85vw;
+  }
+
   .BlogLoader {
     width: 88.5vw;
   }
@@ -1835,7 +1823,7 @@
     transition: 0.5s;
     width: 70vw;
     margin-right: 1vw;
-    height: 70vw * (1248/1056);
+    height: 70vw * math.div(1248, 1056);
     border: 4px solid theme.$onyxblacktext;
     display: flex;
     align-items: center;
@@ -2091,7 +2079,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: (9/16) * 90vw;
+    height: math.div(9, 16) * 90vw;
     display: none;
     img {
       height: 100%;
@@ -2100,13 +2088,13 @@
 
   .CuriousVideoImage {
     width: 90vw;
-    height: (9/16) * 90vw;
+    height: math.div(9, 16) * 90vw;
   }
 
   .CuriousVideo {
     cursor: pointer;
     width: 36vw;
-    height: (9/16) * 90vw;
+    height: math.div(9, 16) * 90vw;
     position: relative;
     margin-bottom: 24px;
     animation: fadeIn ease 1s;
@@ -2206,14 +2194,6 @@
     white-space: normal;
     font-size: 4.8vw;
     font-family: Graphik Web;
-  }
-
-  .HorizontalLine {
-    margin-top: 3.75vw;
-    height: 8px;
-    width: 88.53vw;
-    background: #ffffff;
-    opacity: 0.12;
   }
 
   .author-only {

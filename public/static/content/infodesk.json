@@ -1,0 +1,181 @@
+{
+    "page": {
+      "name": "welcomehome",
+      "title": "Welcome Home",
+      "keywords": "Regathering, Fall, Church this Fall, Welcome Home, Registration, Pre-register, Pre-registration",
+      "description": "This page provides information on what The Meeting House is doing to re-launch in-person gatherings.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/covid-1-2.jpg",
+          "url": "https://www.themeetinghouse.com/infodesk",
+          "title": "Online Info Desk.",
+          "description": "This webpage is our online info desk experience. It can be accessed by either scanning a QR code at the welcome table or by entering a unique URL (like themeetinghouse.com/infodesk)."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/covid-1-1.jpg",
+              "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
+            },
+            {
+              "src": "/static/images/covid-1-2.jpg",
+              "alt": "Young man in a face mask is sitting and talking with friends."
+            }
+          ],
+          "header1": "Online Info Desk.",
+          "header2": "",
+          "text1": "This webpage is our online info desk experience. It can be accessed by either scanning a QR code at the welcome table or by entering a unique URL (like themeetinghouse.com/infodesk).",
+          "button1": {
+            "text": "Watch Video",
+            "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
+            "description": "Click to watch video"
+          }
+        },
+        {
+          "type": "list",
+          "style": "imageList",
+          "header1": "Church this Fall",
+          "text1": "We never stopped being the church during COVID.  It just looked a little different.  This fall as we are able to start gathering in person it might look and feel a little different as well but we’re excited to help you get more engaged and find a way for you to learn and grow and get connected into community.",
+          "list": [
+            {
+              "title": "More about us",
+              "text": "We're pretty awesome.",
+              "imageSrc": "/static/images/corona-2.jpg",
+              "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
+              "links": [
+                { "to": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf", "text": "Welcome Booklet" },
+                { "to": "/about-us", "text": "About Us" }
+                ]
+            },
+            {
+              "title": "Home Church",
+              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person.",
+              "imageSrc": "/static/images/corona-3.jpg",
+              "imageAlt": "Online home church meeting using zoom.",
+              "links": [
+                { "to": "/find-homechurch", "text": "Find a Home Church" }
+                ]
+            },
+            {
+              "title": "Infants and Kids",
+              "text": "Kids are cool. This description should span no more than 2 lines of text as seen here.",
+              "imageSrc": "/static/images/corona-5.jpg",
+              "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
+              "links": [
+                { "to": "/kids-and-youth", "text": "Don't Learn More" },
+                { "to": "/about-us", "text": "Plan to Protect" },
+                { "to": "/about-us", "text": "What to expect (pdf)" },
+                { "to": "/about-us", "text": "Register your child" },
+                { "to": "/about-us", "text": "Diaper Change Policy" },
+                { "to": "/about-us", "text": "Parent Card" }
+                ]
+            },
+            {
+              "title": "Youth",
+              "text": "Youth is important. Let's have a section for them too.",
+              "imageSrc": "/static/images/corona-5.jpg",
+              "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
+              "links": [
+                { "to": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf", "text": "Parent Card" },
+                { "to": "/about-us", "text": "Register your youth" },
+                { "to": "/about-us", "text": "Youth values card" },
+                { "to": "/kids-and-youth", "text": "Don't Learn More" }
+                ]
+            },
+            {
+              "title": "Resources",
+              "text": "We offer books at the info desk. Here is where we list links to go get them online.",
+              "imageSrc": "/static/images/corona-5.jpg",
+              "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
+              "links": [
+                { "to": "https://www.amazon.ca/End-Religion-Encountering-Subversive-Spirituality/dp/1513805495/ref=sr_1_1?dchild=1&keywords=the+end+of+religion&qid=1628714629&sr=8-1", "text": "The End of Religion" },
+                { "to": "https://www.amazon.ca/REUNION-TP-Bruxy-Cavey/dp/1513801309/ref=pd_bxgy_img_1/142-9611675-9775564?pd_rd_w=icdw2&pf_rd_p=8c482a45-7c0f-409b-937c-741a67b11a67&pf_rd_r=1ZFECSXQRZ3G7KYTWBZX&pd_rd_r=6771c4be-36b6-4b0f-86f4-e11217be96a5&pd_rd_wg=EL5hj&pd_rd_i=1513801309&psc=1", "text": "Reunion" },
+                { "to": "https://www.amazon.ca/REUNION-STUDY-SEEKERS-SAINTS-SINNERS/dp/1513802526/ref=pd_bxgy_img_2/142-9611675-9775564?pd_rd_w=1IVH3&pf_rd_p=8c482a45-7c0f-409b-937c-741a67b11a67&pf_rd_r=ZT258JC077RHPDKCB320&pd_rd_r=46cb4eb8-c991-4d13-b78e-9ee9f8f92b5c&pd_rd_wg=hPccj&pd_rd_i=1513802526&psc=1", "text": "Reunion Study Guide" }
+                ]
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Get Engaged",
+          "list": [
+            {
+              "type": "link",
+              "title": "Find a Home Church",
+              "navigateTo": "/find-homechurch"
+            },
+            {
+              "type": "link",
+              "title": "Engage in Compassion",
+              "navigateTo": "/compassion"
+            },
+            {
+              "type": "link",
+              "title": "Find a Community",
+              "navigateTo": "/locations"
+            },
+            {
+              "type": "link",
+              "title": "Volunteer",
+              "navigateTo": "/volunteering"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Your giving creates our future",
+          "text1": "We have been called to a life of radical generosity, like Jesus! Giving is a great first step to declaring your commitment to Jesus, and this church family. Thank you!",
+          "list": [
+            {
+              "type": "link",
+              "title": "Give Today",
+              "navigateTo": "https://pushpay.com/g/themeetinghouse"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/corona-7.jpg",
+              "alt": "A viewer is watching The Meeting House livestream on their laptop."
+            }
+          ]
+        },
+        {
+          "type": "hero",
+          "style": "connect",
+          "image1": [
+            {
+              "src": "/static/images/email-connect-1.jpg",
+              "alt": "Two women drinking coffee."
+            },
+            {
+              "src": "/static/images/email-connect-2.jpg",
+              "alt": "A young woman is talking to her friends in the church lobby."
+            }
+          ],
+          "header1": "Stay connected.",
+          "header2": "Never miss an update.",
+          "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandemic."
+        }
+      ]
+    }
+  }

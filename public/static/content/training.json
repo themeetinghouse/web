@@ -1,0 +1,261 @@
+{
+    "page": {
+      "name": "training",
+      "title": "Training",
+      "keywords": "Training, elders, coordinators, links, hub, training hub, elders hub, resources",
+      "description": "This page provides all of the links to training materials for elders and key coordinators.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/covid-1-2.jpg",
+          "url": "https://www.themeetinghouse.com/welcomehome",
+          "title": "Training Hub",
+          "description": "This webpage is designed to be a one stop information and training hub for our elders and key volunteers.  It can host links to any training or resourcing material we would like to make available to our teams and content can be updated as often as needed as circumstances or restrictions change."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/covid-1-1.jpg",
+              "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
+            },
+            {
+              "src": "/static/images/covid-1-2.jpg",
+              "alt": "Young man in a face mask is sitting and talking with friends."
+            }
+          ],
+          "header1": "Training and Info",
+          "header2": "",
+          "text1": "Our one-stop hub for elders and key volunteers as we navigate this next season together. Keep scrolling for links to the latest trainings and resources to help us love and support our communities well."
+        },
+        {
+          "type": "blog",
+          "style": "featured",
+          "status": "Live",
+          "sortOrder": "DESC",
+          "blogSeries": "Regather News",
+          "header2": "News and Updates",
+          "backgroundColor": "white",
+          "lessPadding": true
+          }, 
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Welcome Home",
+          "text1":"What's church going to look this this fall? Check out these videos to learn more as we start to regather in person and work to re-engage our core community.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Why? Welcome Home",
+              "navigateTo": "/videos/Regather/73skPQpGChQ"
+            },
+            {
+              "type": "link",
+              "title": "How? Welcome Home",
+              "navigateTo": "/videos/Regather/FAjdn58eINc"
+            },
+            {
+              "type": "link",
+              "title": "What? Welcome Home",
+              "navigateTo": "/videos/Regather/mujywwbiY-4"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Home Church Resources",
+          "text1":"All training and equipping resources for elders will be available through this one webpage. This webpage is still being developed.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Elders Hub",
+              "navigateTo": "https://drive.google.com/drive/folders/0B-JVWCBiOuinfmFGb3A3eTZ1LTU1cTl2d08wa09wMmJIbWhzTzlEUTAtelZTSmVxVnhJUVU?resourcekey=0-8aDPoskI5t0tbs7BEdMK6g&usp=sharing"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Kids",
+          "text1":"Resources to train and equip Kidmax volunteers.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Why Kidmax",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Updated Check in process",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #1",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #2",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "COVID #3",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Sign in set up",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Check in process",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Printer Realignment",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Tethering wifi to phone",
+              "navigateTo": "/make-a-difference"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Connect Team",
+          "text1":"Resources to train and equip Connect teams.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Connect Team basics",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "Sign in and check in",
+              "navigateTo": "/make-a-difference"
+            },
+            {
+              "type": "link",
+              "title": "The digital info desk",
+              "navigateTo": "/make-a-difference"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Youth",
+          "text1":"Resources to train and equip youth leaders.",
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Tech Team",
+          "text1":"Training and equipping resources for tech teams.",
+          "list": [
+            {
+              "type": "link",
+              "title": "How to connect to the livestream",
+              "navigateTo": "/make-a-difference"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Still need help?",
+          "text1": "If you haven't found the info you're looking for, we want to hear from you! You're an important part of making church happen, and we want to make sure you've got everything you need.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Ask a question",
+              "navigateTo": "/connect"
+            },
+            {
+              "type": "link",
+              "title": "Go to The Meeting House website",
+              "navigateTo": "homepage"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/corona-7.jpg",
+              "alt": "A viewer is watching The Meeting House livestream on their laptop."
+            }
+          ]
+        },
+        {
+          "type": "hero",
+          "style": "connect",
+          "image1": [
+            {
+              "src": "/static/images/email-connect-1.jpg",
+              "alt": "Two women drinking coffee."
+            },
+            {
+              "src": "/static/images/email-connect-2.jpg",
+              "alt": "A young woman is talking to her friends in the church lobby."
+            }
+          ],
+          "header1": "Stay connected.",
+          "header2": "Never miss an update.",
+          "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandemic."
+        }
+      ]
+    }
+  }

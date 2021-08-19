@@ -168,7 +168,17 @@ if __name__ == '__main__':
                                     assert(isinstance(item[i], list))
                                     for list_item in item[i]:
                                         assert(isinstance(list_item, dict))
-                                        if ('navigateTo' in list_item):
+                                        has_links = 'links' in list_item
+                                        has_url = 'url' in list_item
+                                        has_navigate_to = 'navigateTo' in list_item
+                                        assert(not (has_links and (has_navigate_to or has_url))) # cannot have links and navigateTo/url together
+                                        if has_links:
+                                            assert(isinstance(list_item['links'], list))
+                                            for link in list_item['links']:
+                                                assert(isinstance(link, dict))
+                                                assert('to' in link and isinstance(link['to'], str))
+                                                assert('text' in link and isinstance(link['text'], str))
+                                        if has_navigate_to:
                                             assert(isinstance(list_item['navigateTo'], str))
                                             file_exists(list_item['navigateTo'])
                                             assert(isinstance(list_item['text'], str))
@@ -176,7 +186,7 @@ if __name__ == '__main__':
                                                 assert_list_image(list_item)
                                         else:
                                             assert_list_image(list_item)
-                                            if ('url' in list_item):
+                                            if has_url:
                                                 assert(isinstance(list_item['url'], str))
                                                 file_exists(list_item['url'])
                                 elif i == 'sortOrder':
@@ -230,14 +240,20 @@ if __name__ == '__main__':
                                             raise Exception(f'unknown FAQ list type: {unknown}')                     
 
                         elif item_type == 'blog':
-                            assert(item['style'] == 'hero' or item['style'] == 'multiImage')
-                            assert(isinstance(item['status'], str))
-                            assert(isinstance(item['header1'], str))
-                            assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
-                            assert('limit' not in item or isinstance(item['limit'], int))
-                            assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
-                            assert('button1Action' not in item or isinstance(item['button1Action'], str))
-                            assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
+                            assert(item['style'] in ['hero', 'multiImage', 'featured', 'watch-page'])
+                            if item['style'] != 'watch-page':
+                                assert('header1' not in item or isinstance(item['header1'], str))
+                                assert('header2' not in item or isinstance(item['header2'], str))
+                                assert(bool('header1' in item) != bool('header2' in item))  # header1 or header2 is required, but cannot be used together (XOR) 
+                                assert(not ('header2' in item and 'description' in item))  # header2 and description cannot be used together
+                                assert(item['sortOrder'] == 'DESC' or item['sortOrder'] == 'ASC')
+                                assert('limit' not in item or isinstance(item['limit'], int))
+                                assert('description' not in item or isinstance(item['description'], str))
+                                assert('blogSeries' not in item or isinstance(item['blogSeries'], str))
+                                assert('button1Action' not in item or isinstance(item['button1Action'], str))
+                                assert('hideAllBlogsButton' not in item or isinstance(item['hideAllBlogsButton'], bool))
+                                assert('lessPadding' not in item or isinstance(item['lessPadding'], bool))
+                                assert('backgroundColor' not in item or item['backgroundColor'] in ['white', 'black'])
                         
                         elif item_type == 'podcasts':
                             assert(isinstance(item, dict))
@@ -349,6 +365,8 @@ if __name__ == '__main__':
                         elif item_type == 'weather':
                             pass
                         elif item_type == 'searchResult':
+                            pass
+                        elif item_type == 'regather':
                             pass
                         else:
                             raise Exception(f'unknown content type: {item_type}')

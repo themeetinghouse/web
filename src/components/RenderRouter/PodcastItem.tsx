@@ -76,7 +76,7 @@ function PodcastDropdown({ item }: DropdownProps) {
 export default function PodcastItem({ content }: Props) {
   return (
     <div className="PodcastItem">
-      <div className="PodcastHeader">Suggested Podcasts</div>
+      <h2 className="v-player-h2 tmh-header2 w">Suggested Podcasts</h2>
       {content.podcastlist.map((item) => {
         return (
           <div className="PodcastItemDiv1" key={item.title}>

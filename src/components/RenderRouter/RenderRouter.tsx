@@ -16,6 +16,7 @@ const SearchItem = React.lazy(() => import('./SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
 const WeatherItem = React.lazy(() => import('./WeatherItem'));
 const FAQItem = React.lazy(() => import('./FAQItem'));
+const GiveItem = React.lazy(() => import('./GiveItem'));
 const NewGiveItem = React.lazy(() => import('./NewGiveItem'));
 const Give2Item = React.lazy(() => import('./Give2Item'));
 const VideoPlayer = React.lazy(() => import('./VideoPlayer'));
@@ -32,6 +33,7 @@ const ArchiveItem = React.lazy(() => import('./ArchiveItem'));
 const PaymentItem = React.lazy(() => import('./PaymentItem'));
 const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
 const PodcastPlayer = React.lazy(() => import('./PodcastPlayer'));
+const RegatherItem = React.lazy(() => import('./RegatherItem'));
 const VideoPlayerLiveLeadersDay = React.lazy(
   () => import('./VideoPlayerLive_leadersday')
 );
@@ -64,7 +66,9 @@ class RenderRouter extends React.Component<Props> {
       case 'blog':
         return <BlogItem key={index} content={item} />;
       case 'post':
-        return <BlogReader data={this.props.data} key={index} />;
+        return (
+          <BlogReader data={this.props.data} key={index} style={item.style} />
+        );
       case 'liveVideoPlayer':
         return <VideoPlayerLive key={index} content={item} />;
       case 'liveVideoPlayer2':
@@ -99,13 +103,16 @@ class RenderRouter extends React.Component<Props> {
         return <SearchItem key={index} content={item} />;
       case 'payment':
         return <PaymentItem key={index} content={item} />;
-      case 'give':
+      case 'give2':
         return (
           <GEProvider>
             <NewGiveItem content={item} />
           </GEProvider>
         );
-
+      case 'give':
+        return <GiveItem key={index} content={item} />;
+      case 'regather':
+        return <RegatherItem key={index} content={item} />;
       case 'searchResult':
         return <SearchResult key={index} content={item} />;
       case 'give2':

@@ -1,5 +1,4 @@
 @use '../../theme';
-
 .HeroItemA2 {
   font-size: 1.1vw;
 }
@@ -11,7 +10,20 @@
 .heroAContainer {
   margin-top: 1vw;
 }
-
+.secondaryCTA {
+  font-size: 1.2vw;
+  font-family: Graphik Web !important;
+  color: #ffffff;
+  font-weight: normal;
+  background-color: theme.$onyxblacktext !important;
+  border-width: 0 !important;
+  border-radius: 0;
+  text-decoration: underline !important;
+  margin-left: 30px;
+}
+.secondaryCTA:hover {
+  color: white;
+}
 .contactPastorLink {
   margin-top: 16px;
   display: flex;
@@ -68,14 +80,12 @@ $no-footer-height: 38vw;
     padding-right: 12.5vw !important;
     color: theme.$onyxblacktext !important;
   }
-
   .partialConnect {
     position: relative;
     left: 20vw;
     width: 80vw;
     height: 40vw;
   }
-
   .partialConnectImage {
     width: 80vw;
     height: 40vw;
@@ -83,9 +93,10 @@ $no-footer-height: 38vw;
     object-fit: cover;
     position: absolute;
   }
-
   .partialConnectBox {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     padding: 2vw;
     right: 22vw;
@@ -93,29 +104,48 @@ $no-footer-height: 38vw;
     top: 50%;
     transform: translateY(-50%);
     z-index: 99;
-
     .heroH1,
     .heroH2 {
       color: #1a1a1a;
     }
-
     .heroHr,
     .heroText1,
     .heroText2 {
       color: #54565a;
     }
+    .heroButton {
+      font-family: Graphik Web !important;
+      display: flex;
+      color: #646469;
+      flex: 0 !important;
+      margin: 0 !important;
+      background-color: #1a1a1a !important;
+      border: 0 solid #1a1a1a;
+      color: #ffffff !important;
+      font-size: 1vw !important;
+      padding: 0.75rem 1.25rem;
+      &.white {
+        margin-top: 1.5vw;
+        color: black !important;
+        background-color: white !important;
+        border: 1.5px solid black;
+      }
+      &.white:hover {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+      }
+    }
+    .heroButton:hover {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+    }
   }
-
   .signupContainer {
     width: 100%;
     margin-top: 1.5vw;
   }
-
   .signupButtons {
     font-family: Graphik Web !important;
     display: flex;
     color: #646469;
-
     [type='submit'].heroButton {
       flex: 0 !important;
       margin: 0 !important;
@@ -126,7 +156,6 @@ $no-footer-height: 38vw;
       padding: 0.75rem 1.25rem;
     }
   }
-
   .emailWrapper {
     flex: 1;
     align-items: center;
@@ -142,33 +171,27 @@ $no-footer-height: 38vw;
       font-size: 1vw;
     }
   }
-
   .contactIcon {
     padding: 0 1vw;
   }
-
   #mergeRow-gdpr {
     margin-top: 20px;
   }
-
   #mergeRow-gdpr fieldset label {
     font-weight: normal;
   }
-
   .heroItem {
     position: relative;
     width: 100vw;
     height: 105vh;
     padding-bottom: 5vh;
   }
-
   .heroH1 {
     font-family: Graphik Web;
     font-weight: bold;
     color: #ffffff;
     font-size: 3vw;
   }
-
   .heroH2 {
     font-family: Graphik Web;
     font-weight: bold;
@@ -177,7 +200,6 @@ $no-footer-height: 38vw;
     margin-top: 0vw !important;
     margin-bottom: 0vw !important;
   }
-
   .downarrow {
     height: 3vw;
     left: 2vw;
@@ -185,7 +207,6 @@ $no-footer-height: 38vw;
     position: absolute;
     z-index: 100;
   }
-
   .animated {
     -webkit-animation-duration: 2.5s;
     animation-duration: 2.5s;
@@ -196,7 +217,6 @@ $no-footer-height: 38vw;
     animation-iteration-count: infinite;
     -webkit-animation-iteration-count: infinite;
   }
-
   @-webkit-keyframes bounce {
     0%,
     20%,
@@ -206,12 +226,10 @@ $no-footer-height: 38vw;
     100% {
       -webkit-transform: translateY(0);
     }
-
     50% {
       -webkit-transform: translateY(-10px);
     }
   }
-
   @keyframes bounce {
     0%,
     20%,
@@ -221,17 +239,14 @@ $no-footer-height: 38vw;
     100% {
       transform: translateY(0);
     }
-
     50% {
       transform: translateY(-10px);
     }
   }
-
   .bounce {
     -webkit-animation-name: bounce;
     animation-name: bounce;
   }
-
   .partialNoFooterBox {
     position: absolute;
     padding: 2vw;
@@ -240,7 +255,6 @@ $no-footer-height: 38vw;
     top: 6vh;
     z-index: 1000;
   }
-
   .partialNoFooterBoxHr {
     margin-left: 0;
     margin-right: 0;
@@ -249,7 +263,6 @@ $no-footer-height: 38vw;
     width: 5vw;
     background-color: #ffffff;
   }
-
   .heroHr {
     margin-left: 0;
     margin-right: 0;
@@ -258,21 +271,18 @@ $no-footer-height: 38vw;
     width: 3vw;
     background-color: #ffffff;
   }
-
   .heroText1 {
     font-family: Graphik Web;
     width: 32vw;
     color: #ffffff;
     font-size: 1.25vw;
   }
-
   .heroText2 {
     font-family: Graphik Web;
     width: 32vw;
     color: #ffffff;
     font-size: 1vw;
   }
-
   .partial {
     width: 80vw;
     height: 45vw;
@@ -280,7 +290,6 @@ $no-footer-height: 38vw;
     object-fit: cover;
     position: absolute;
   }
-
   .heroImage {
     width: 100vw;
     height: 100vh;
@@ -291,7 +300,6 @@ $no-footer-height: 38vw;
     mask-size: 20vw;
     z-index: 50;
   }
-
   .heroImageGradient {
     width: 100vw;
     height: 100vh;
@@ -307,7 +315,6 @@ $no-footer-height: 38vw;
       rgba(255, 255, 255, 0) 66%
     );
   }
-
   .heroPartialBlackBox {
     position: absolute;
     background-color: theme.$onyxblacktext;
@@ -317,7 +324,6 @@ $no-footer-height: 38vw;
     top: 10vh;
     z-index: 100;
   }
-
   .heroBlackBox {
     position: absolute;
     background-color: theme.$onyxblacktext;
@@ -327,7 +333,6 @@ $no-footer-height: 38vw;
     top: 30vh;
     z-index: 100;
   }
-
   .heroButton {
     margin-top: 1.5vw !important;
     color: theme.$onyxblacktext !important;
@@ -336,37 +341,30 @@ $no-footer-height: 38vw;
     font-weight: 800 !important;
     font-family: Graphik Web !important;
   }
-
   .headerItem {
     position: static;
     padding-bottom: 5vw;
   }
-
   .headerItemDiv {
     position: relative;
     z-index: 100;
   }
-
   .header1H1 {
     font-weight: bold;
     font-size: 3vw;
   }
-
   .headerText1 {
     width: 50vw;
     font-size: 1.5vw;
   }
-
   .headerText2 {
     font-size: 1.5vw;
   }
-
   .example-mask {
     position: absolute;
     top: 0vw;
     left: 0vw;
   }
-
   .partialNoFooterLocationDropDown {
     font-family: Graphik Web;
     padding: 0px;
@@ -399,7 +397,6 @@ $no-footer-height: 38vw;
     background-color: #ffffff;
     border-radius: 0;
   }
-
   .divPartial {
     position: relative;
     left: 20vw;
@@ -423,14 +420,12 @@ $no-footer-height: 38vw;
     left: 20vw;
     top: 20vh;
   }
-
   .partialConnect {
     position: relative;
     left: 20vw;
     width: 80vw;
     height: 40vw;
   }
-
   .partialConnectImage {
     width: 80vw;
     height: 40vw;
@@ -438,7 +433,6 @@ $no-footer-height: 38vw;
     object-fit: cover;
     position: absolute;
   }
-
   .partialConnectBox {
     position: absolute;
     background-color: #ffffff;
@@ -448,29 +442,24 @@ $no-footer-height: 38vw;
     top: 50%;
     transform: translateY(-50%);
     z-index: 99;
-
     .heroH1,
     .heroH2 {
       color: #1a1a1a;
     }
-
     .heroHr,
     .heroText1,
     .heroText2 {
       color: #54565a;
     }
   }
-
   .signupContainer {
     width: 100%;
     margin-top: 1.5vw;
   }
-
   .signupButtons {
     font-family: Graphik Web !important;
     display: flex;
     color: #646469;
-
     [type='submit'].heroButton {
       flex: 0 !important;
       margin: 0 !important;
@@ -481,36 +470,28 @@ $no-footer-height: 38vw;
       padding: 0.75rem 1.25rem;
     }
   }
-
   .emailWrapper {
     flex: 1;
     align-items: center;
     display: flex;
-
     border: 1.5px solid #c8c8c8;
     margin-right: 1vw;
-
     [type='email'] {
       border: none;
       outline: none;
       margin: 0;
-
       font-size: 1vw;
     }
   }
-
   .contactIcon {
     padding: 0 1vw;
   }
-
   #mergeRow-gdpr {
     margin-top: 20px;
   }
-
   #mergeRow-gdpr fieldset label {
     font-weight: normal;
   }
-
   .heroH2 {
     font-family: Graphik Web;
     font-weight: bold;
@@ -519,21 +500,18 @@ $no-footer-height: 38vw;
     margin-top: 0vw !important;
     margin-bottom: 0vw !important;
   }
-
   .heroItem {
     position: relative;
     width: 100vw;
     height: 105vh;
     padding-bottom: 5vh;
   }
-
   .heroH1 {
     font-family: Graphik Web;
     font-weight: bold;
     color: #ffffff;
     font-size: 3vw;
   }
-
   .downarrow {
     height: 4vw;
     left: 2vw;
@@ -541,7 +519,6 @@ $no-footer-height: 38vw;
     position: absolute;
     z-index: 100;
   }
-
   .animated {
     -webkit-animation-duration: 2.5s;
     animation-duration: 2.5s;
@@ -552,7 +529,6 @@ $no-footer-height: 38vw;
     animation-iteration-count: infinite;
     -webkit-animation-iteration-count: infinite;
   }
-
   @-webkit-keyframes bounce {
     0%,
     20%,
@@ -562,12 +538,10 @@ $no-footer-height: 38vw;
     100% {
       -webkit-transform: translateY(0);
     }
-
     50% {
       -webkit-transform: translateY(-10px);
     }
   }
-
   @keyframes bounce {
     0%,
     20%,
@@ -577,17 +551,14 @@ $no-footer-height: 38vw;
     100% {
       transform: translateY(0);
     }
-
     50% {
       transform: translateY(-10px);
     }
   }
-
   .bounce {
     -webkit-animation-name: bounce;
     animation-name: bounce;
   }
-
   .heroHr {
     margin-left: 0;
     margin-right: 0;
@@ -596,7 +567,6 @@ $no-footer-height: 38vw;
     width: 3vw;
     background-color: #ffffff;
   }
-
   .partialNoFooterBox {
     position: absolute;
     padding: 2vw;
@@ -605,7 +575,6 @@ $no-footer-height: 38vw;
     top: 6vh;
     z-index: 1000;
   }
-
   .partialNoFooterBoxHr {
     margin-left: 0;
     margin-right: 0;
@@ -614,21 +583,18 @@ $no-footer-height: 38vw;
     width: 5vw;
     background-color: #ffffff;
   }
-
   .heroText1 {
     font-family: Graphik Web;
     width: 32vw;
     color: #ffffff;
     font-size: 1.25vw;
   }
-
   .heroText2 {
     font-family: Graphik Web;
     width: 32vw;
     color: #ffffff;
     font-size: 1vw;
   }
-
   .partial {
     width: 80vw;
     height: 45vw;
@@ -636,7 +602,6 @@ $no-footer-height: 38vw;
     object-fit: cover;
     position: absolute;
   }
-
   .heroImage {
     width: 100vw;
     height: 100vh;
@@ -647,7 +612,6 @@ $no-footer-height: 38vw;
     mask-size: 20vw;
     z-index: 50;
   }
-
   .heroImageGradient {
     width: 100vw;
     height: 100vh;
@@ -663,7 +627,6 @@ $no-footer-height: 38vw;
       rgba(255, 255, 255, 0) 66%
     );
   }
-
   .heroPartialBlackBox {
     position: absolute;
     background-color: theme.$onyxblacktext;
@@ -673,7 +636,6 @@ $no-footer-height: 38vw;
     top: 10vh;
     z-index: 100;
   }
-
   .heroBlackBox {
     position: absolute;
     background-color: theme.$onyxblacktext;
@@ -683,7 +645,6 @@ $no-footer-height: 38vw;
     top: 30vh;
     z-index: 100;
   }
-
   .heroButton {
     margin-top: 1.5vw !important;
     color: theme.$onyxblacktext !important;
@@ -692,37 +653,30 @@ $no-footer-height: 38vw;
     font-weight: 800 !important;
     font-family: Graphik Web !important;
   }
-
   .headerItem {
     position: static;
     padding-bottom: 5vw;
   }
-
   .headerItemDiv {
     position: relative;
     z-index: 100;
   }
-
   .header1H1 {
     font-weight: bold;
     font-size: 3vw;
   }
-
   .headerText1 {
     width: 50vw;
     font-size: 1.5vw;
   }
-
   .headerText2 {
     font-size: 1.5vw;
   }
-
   .example-mask {
     position: absolute;
     top: 0vw;
     left: 0vw;
   }
-
   .partialNoFooterLocationDropDown {
     font-family: Graphik Web;
     padding: 0px;
@@ -730,7 +684,6 @@ $no-footer-height: 38vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
   }
-
   .partialLocationDropDown {
     font-family: Graphik Web;
     padding: 4px;
@@ -756,7 +709,6 @@ $no-footer-height: 38vw;
     background-color: #ffffff;
     border-radius: 0;
   }
-
   .divPartial {
     position: relative;
     left: 20vw;
@@ -767,22 +719,26 @@ $no-footer-height: 38vw;
 }
 
 @media (max-width: 1050px) {
+  .secondaryCTA {
+    margin-left: 0px;
+  }
   .contactPastorLink {
     margin-top: 16px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-
   .contactPastor {
     margin-top: 8px;
   }
 }
 
 @media (max-width: 767px) {
+  .secondaryCTA {
+    font-size: 14px;
+  }
   .covidButtonDetail {
     background-color: #ffc60b !important;
-
     padding-left: 10vw !important;
     border: 0 !important;
     padding-right: 10vw !important;
@@ -802,13 +758,11 @@ $no-footer-height: 38vw;
     width: 100vw;
     margin-top: 30vw;
   }
-
   .partialConnectImage {
     width: 100%;
     object-fit: cover;
     position: relative;
   }
-
   .partialConnectBox {
     background-color: #ffffff;
     padding: 2vw;
@@ -816,33 +770,27 @@ $no-footer-height: 38vw;
     width: 100vw;
     z-index: 99;
     padding: 10vw 5vw 10vw 5vw;
-
     .heroH1,
     .heroH2 {
       color: #1a1a1a;
     }
-
     .heroHr,
     .heroText1,
     .heroText2 {
       color: #54565a;
     }
   }
-
   .signupContainer {
     width: 100%;
     margin-top: 1.5vw;
   }
-
   .signupButtons {
     font-family: Graphik Web !important;
     display: flex;
     flex-wrap: wrap;
-
     color: #646469;
     font-size: 4.3vw;
     line-height: 6.4vw;
-
     [type='submit'].heroButton {
       flex: 0 !important;
       margin: 0 !important;
@@ -852,36 +800,29 @@ $no-footer-height: 38vw;
       padding: 0.75rem 1.25rem;
     }
   }
-
   .emailWrapper {
     flex: 0 1 auto;
     width: 100%;
     align-items: center;
     display: flex;
-
     border: 1.5px solid #c8c8c8;
     margin-right: 4.5vw;
     margin-bottom: 4.5vw;
-
     [type='email'] {
       border: none;
       outline: none;
       margin: 0;
     }
   }
-
   .contactIcon {
     padding: 0 4.5vw;
   }
-
   #mergeRow-gdpr {
     margin-top: 20px;
   }
-
   #mergeRow-gdpr fieldset label {
     font-weight: normal;
   }
-
   .heroH2 {
     font-family: Graphik Web;
     font-weight: bold;
@@ -891,13 +832,11 @@ $no-footer-height: 38vw;
     margin-top: 0vw !important;
     margin-bottom: 0vw !important;
   }
-
   .heroItem {
     position: relative;
     width: 100vw;
     padding-bottom: 5vh;
   }
-
   .heroH1 {
     font-family: Graphik Web;
     font-weight: bold;
@@ -905,11 +844,9 @@ $no-footer-height: 38vw;
     font-size: 10vw;
     line-height: 10.65vw;
   }
-
   .downarrow {
     display: none;
   }
-
   .heroHr {
     margin-left: 0;
     margin-right: 0;
@@ -918,7 +855,6 @@ $no-footer-height: 38vw;
     width: 8.55vw;
     background-color: #ffffff;
   }
-
   .heroText1 {
     font-family: Graphik Web;
     font-weight: normal;
@@ -928,7 +864,6 @@ $no-footer-height: 38vw;
     line-height: 6.4vw;
     margin-bottom: 5vw;
   }
-
   .heroText2 {
     font-family: Graphik Web;
     width: 90vw;
@@ -936,7 +871,6 @@ $no-footer-height: 38vw;
     font-size: 4.3vw;
     line-height: 6.4vw;
   }
-
   .partial {
     width: 100%;
     height: 95vw;
@@ -944,19 +878,16 @@ $no-footer-height: 38vw;
     object-fit: cover;
     position: relative;
   }
-
   $mobile-no-footer-height: 90vh;
   .partialNoFooterImage {
     width: 100vw;
     height: $mobile-no-footer-height;
   }
-
   .partialNoFooter {
     left: 0;
     width: 100vw;
     height: $mobile-no-footer-height;
   }
-
   .partialNoFooterBox {
     position: absolute;
     padding: 30vw 6vw 6vw 6vw;
@@ -965,7 +896,6 @@ $no-footer-height: 38vw;
     top: 18vh;
     z-index: 1000;
   }
-
   .partialNoFooterBoxHr {
     margin-left: 0;
     margin-right: 0;
@@ -974,7 +904,6 @@ $no-footer-height: 38vw;
     width: 8.55vw;
     background-color: #ffffff;
   }
-
   .partialNoFooterLocationDropDown {
     font-family: Graphik Web;
     padding: 0px;
@@ -982,7 +911,6 @@ $no-footer-height: 38vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
   }
-
   .partialLocationDropDown {
     font-family: Graphik Web;
     padding: 4px;
@@ -1000,11 +928,9 @@ $no-footer-height: 38vw;
     z-index: 50;
     object-position: 85% 50%;
   }
-
   .heroImageGradient {
     visibility: hidden;
   }
-
   .heroBlackBox {
     background-color: theme.$onyxblacktext;
     padding: 2vw;
@@ -1013,13 +939,11 @@ $no-footer-height: 38vw;
     z-index: 100;
     padding: 10vw 5vw 10vw 5vw;
   }
-
   .heroPartialBlackBox {
     background-color: theme.$onyxblacktext;
     width: 100vw;
     padding: 10vw 6vw 10vw 6vw;
   }
-
   .heroButton {
     margin-top: 5vw !important;
     color: theme.$onyxblacktext !important;
@@ -1028,37 +952,30 @@ $no-footer-height: 38vw;
     font-weight: 800 !important;
     font-family: Graphik Web !important;
   }
-
   .headerItem {
     position: static;
     padding-bottom: 5vw;
   }
-
   .headerItemDiv {
     position: relative;
     z-index: 100;
   }
-
   .header1H1 {
     font-weight: bold;
     font-size: 3vw;
   }
-
   .headerText1 {
     width: 50vw;
     font-size: 1.5vw;
   }
-
   .headerText2 {
     font-size: 1.5vw;
   }
-
   .example-mask {
     position: absolute;
     top: 5vw;
     left: 58vw;
   }
-
   .partialNoFooterBox {
     position: relative;
     padding: 6vw;
@@ -1066,7 +983,6 @@ $no-footer-height: 38vw;
     width: 88vw;
     z-index: 1000;
   }
-
   .partialNoFooterLocationDropDown {
     font-family: Graphik Web;
     padding: 0px;
@@ -1077,7 +993,6 @@ $no-footer-height: 38vw;
   .emailInput {
     border: 0px;
   }
-
   .calendarButton {
     font-family: Graphik Web !important;
     font-weight: normal;
@@ -1093,22 +1008,18 @@ $no-footer-height: 38vw;
     background-color: #ffffff;
     border-radius: 0;
   }
-
   .HeroItemA2 {
     font-size: 4vw;
   }
-
   .divPartial {
     position: relative;
     width: 100vw;
     top: 3vw;
     margin-bottom: 0vw;
   }
-
   .heroBlackBoxA {
     font-size: 4vw;
   }
-
   .heroAContainer {
     margin-top: 5vw;
   }

@@ -6,6 +6,8 @@ import {
   RawDraftContentState,
   convertFromRaw,
 } from 'draft-js';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+
 import { Editor } from 'react-draft-wysiwyg';
 import Amplify, { Auth } from 'aws-amplify';
 import BlogPreview from './BlogPreview';
@@ -13,7 +15,6 @@ import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import * as adminQueries from './queries';
-import { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api/lib/types';
 import { API, graphqlOperation } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
 import { Modal } from 'reactstrap';

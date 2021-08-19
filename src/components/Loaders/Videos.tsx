@@ -1,10 +1,10 @@
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import { GetSeriesQuery, GetVideoQuery } from 'API';
 import { API, Analytics } from 'aws-amplify';
 import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import * as customQueries from '../../graphql-custom/customQueries';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 interface Params {
   isPlaylist?: boolean;

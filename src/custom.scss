@@ -1,5 +1,6 @@
 @use '~bootstrap/scss/bootstrap';
 @use 'fonts/commercial-type-1906-WOIKTV-web/fonts';
+@use 'theme';
 
 html {
   scroll-behavior: smooth;
@@ -22,27 +23,19 @@ html {
   ##Device = Desktops
   ##Screen = 1025px to higher resolution desktops
 */
-.imageList .hoverText {
-  position: relative;
-  padding-right: 10vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  padding-left: 10vw;
-  width: 58vw;
-  height: 25vw;
-  left: 22vw;
-  top: 0vw;
-}
-.imageList .noHoverText {
-  position: relative;
-  padding-right: 10vw;
-  padding-top: 5vw;
-  padding-bottom: 5vw;
-  padding-left: 10vw;
-  width: 58vw;
-  height: 25vw;
-  left: 22vw;
-  top: 0vw;
+.imageList {
+  .hoverText,
+  .noHoverText {
+    position: relative;
+    padding-right: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    padding-left: 10vw;
+    width: 58vw;
+    min-height: 25vw;
+    left: 22vw;
+    top: 0vw;
+  }
 }
 
 .arrow {
@@ -56,6 +49,40 @@ html {
     transform: translateX(20px);
   }
 }
+
+.tmh-header1,
+.tmh-header2 {
+  font-family: Graphik Web;
+  font-weight: bold;
+
+  &.w {
+    color: theme.$white;
+  }
+
+  &.b {
+    color: theme.$onyxblacktext;
+  }
+}
+
+.tmh-header1 {
+  font-size: 3rem;
+}
+
+.tmh-header2 {
+  font-size: 1.5rem;
+}
+
+.v-player-h2 {
+  margin-bottom: 1rem;
+}
+
+.v-player-hr {
+  margin-top: 3.75vw;
+  height: 8px;
+  background: theme.$white;
+  opacity: 0.12;
+}
+
 @media (min-width: 768px) {
   body {
     padding-top: 90px;
@@ -125,6 +152,12 @@ html {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tmh-header1 {
+    font-size: 2rem;
+  }
+}
+
 /*
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
@@ -162,6 +195,14 @@ html {
     .arrow {
       transform: none;
     }
+  }
+
+  .tmh-header1 {
+    font-size: 2rem;
+  }
+
+  .v-player-hr {
+    width: 88.53vw;
   }
 }
 

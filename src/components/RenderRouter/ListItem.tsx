@@ -31,10 +31,9 @@ import LadderList from './LadderList';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import './ListItem.scss';
 import format from 'date-fns/format';
-import ScaledImage, {
-  fallbackToImage,
-} from 'components/ScaledImage/ScaledImage';
-import { Link } from 'components/Link/Link';
+import { ScaledImage, BlogImage } from 'components/ScaledImage';
+import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
+import { Link, ArrowLink } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
 import { ModelSortDirection } from 'API';
@@ -531,13 +530,7 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: `Graphic for the ${item.blogTitle?.replace(
-        /^The /,
-        ''
-      )}${item.blogTitle?.slice(4)} blog.`,
-    };
+
     return (
       <Link
         className="BlogLink"
@@ -546,8 +539,10 @@ class ListItem extends React.Component<Props, State> {
         aria-label={item.blogTitle ?? 'read blog post'}
       >
         <div className="BlogItem">
-          <ScaledImage
-            image={image}
+          <BlogImage
+            image={item.squareImage}
+            blogTitle={item.blogTitle}
+            imageType="square"
             className="BlogSquareImage"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
@@ -1214,6 +1209,8 @@ class ListItem extends React.Component<Props, State> {
 
     const dataLength = data.length;
 
+    const { logoColor } = this.props.pageConfig;
+
     const renderByStyle = () => {
       if (this.state.content.style === 'horizontal') {
         switch (this.state.content.class) {
@@ -1226,9 +1223,7 @@ class ListItem extends React.Component<Props, State> {
                     {this.state.content.header1 ?? this.state.content.playlist}
                   </h1>
                   <div className="ListItemDiv2">
-                    <HorizontalScrollList
-                      darkMode={this.props.pageConfig.logoColor === 'white'}
-                    >
+                    <HorizontalScrollList darkMode={logoColor === 'white'}>
                       {this.state.content.class === 'custom-playlist'
                         ? (data as CustomPlaylistVideoData[])
                             .sort((a, b) =>
@@ -1269,10 +1264,7 @@ class ListItem extends React.Component<Props, State> {
                 <div className="ListItemDiv1">
                   <h1
                     className={
-                      'ListItemH1' +
-                      (this.props.pageConfig.logoColor === 'white'
-                        ? ' whiteText'
-                        : '')
+                      'ListItemH1' + (logoColor === 'white' ? ' whiteText' : '')
                     }
                   >
                     {this.state.content.header1}
@@ -1285,9 +1277,7 @@ class ListItem extends React.Component<Props, State> {
                   <div className="ListItemDiv2">
                     {this.state.content.class === 'videos' ? (
                       this.state.content.selector === 'popular' ? (
-                        <HorizontalScrollList
-                          darkMode={this.props.pageConfig.logoColor === 'white'}
-                        >
+                        <HorizontalScrollList darkMode={logoColor === 'white'}>
                           {(data as VideoData[])
                             .slice(0, 100)
                             .sort((a, b) => this.sortByViews(a, b))
@@ -1299,9 +1289,7 @@ class ListItem extends React.Component<Props, State> {
                             })}
                         </HorizontalScrollList>
                       ) : (
-                        <HorizontalScrollList
-                          darkMode={this.props.pageConfig.logoColor === 'white'}
-                        >
+                        <HorizontalScrollList darkMode={logoColor === 'white'}>
                           {data
                             .concat(
                               this.state.content.limit &&
@@ -1321,9 +1309,7 @@ class ListItem extends React.Component<Props, State> {
                         </HorizontalScrollList>
                       )
                     ) : (
-                      <HorizontalScrollList
-                        darkMode={this.props.pageConfig.logoColor === 'white'}
-                      >
+                      <HorizontalScrollList darkMode={logoColor === 'white'}>
                         {data.map((item: any, index: any) => {
                           return this.renderItemRouter(item, index);
                         })}
@@ -1428,22 +1414,20 @@ class ListItem extends React.Component<Props, State> {
           return (
             <div className="ListItem horizontal-video-player">
               <div className="ListItemDiv1 horizontal-video-player">
-                <h1
+                <h2
                   className={
-                    'ListItemH1 horizontal-video-player' +
-                    (this.props.pageConfig.logoColor === 'white'
-                      ? ' whiteText'
-                      : '')
+                    'v-player-h2 tmh-header2' +
+                    (logoColor === 'white' ? ' w' : ' b')
                   }
                 >
                   {this.props?.match?.params?.playlist}
-                </h1>
+                </h2>
                 <div className="WatchPageContainer">
                   {videoData.map((item: any, index: any) => {
                     return this.renderItemRouter(item, index);
                   })}
                 </div>
-                <div className="HorizontalLine"></div>
+                <div className="v-player-hr" />
               </div>
               <VideoOverlay
                 onClose={() => {
@@ -1458,16 +1442,14 @@ class ListItem extends React.Component<Props, State> {
         return (
           <div className="ListItem horizontal-video-player">
             <div className="ListItemDiv1 horizontal-video-player">
-              <h1
+              <h2
                 className={
-                  'ListItemH1 horizontal-video-player' +
-                  (this.props.pageConfig.logoColor === 'white'
-                    ? ' whiteText'
-                    : '')
+                  'v-player-h2 tmh-header2' +
+                  (logoColor === 'white' ? ' w' : ' b')
                 }
               >
                 {this.state.content.header1}
-              </h1>
+              </h2>
               {this.state.content.text1 != null ? (
                 <div className="ListItemText1">{this.state.content.text1}</div>
               ) : null}
@@ -1476,7 +1458,7 @@ class ListItem extends React.Component<Props, State> {
                   return this.renderItemRouter(item, index);
                 })}
               </div>
-              <div className="HorizontalLine"></div>
+              <div className="v-player-hr" />
             </div>
             <VideoOverlay
               onClose={() => {
@@ -1495,10 +1477,7 @@ class ListItem extends React.Component<Props, State> {
             <div className="ListItemDiv1">
               <h1
                 className={
-                  'ListItemH1' +
-                  (this.props.pageConfig.logoColor === 'white'
-                    ? ' whiteText'
-                    : '')
+                  'ListItemH1' + (logoColor === 'white' ? ' whiteText' : '')
                 }
               >
                 {this.state.content.header1}
@@ -1732,6 +1711,7 @@ class ListItem extends React.Component<Props, State> {
               <div className="ListItemDiv8">
                 <div className="ListItemDiv9"></div>
                 {data.map((item: any, index: any) => {
+                  const hasMultipleLinks = Array.isArray(item.links);
                   const href = item.navigateTo || item.url;
                   const body = (
                     <div
@@ -1749,7 +1729,28 @@ class ListItem extends React.Component<Props, State> {
                         ) : null}
                         {item.title}
                       </h3>
-                      <div className="ListItemDiv11">{item.text}</div>
+                      <div
+                        className={`ListItemDiv11 ${
+                          hasMultipleLinks ? 'multi-link' : ''
+                        }`}
+                      >
+                        {item.text}
+                      </div>
+                      {hasMultipleLinks && (
+                        <div className="links-container">
+                          {(
+                            item.links as Array<{ to: string; text: string }>
+                          ).map(({ to, text }) => (
+                            <ArrowLink
+                              key={to + text}
+                              to={to}
+                              className="links-item"
+                            >
+                              {text}
+                            </ArrowLink>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                   return (
