@@ -3,7 +3,33 @@
     "cognitodevtmh": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": []
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreSignup",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ]
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ]
     }
   },
   "api": {
@@ -43,6 +69,28 @@
           "attributes": [
             "Name",
             "Arn"
+          ]
+        }
+      ]
+    },
+    "AdminQueries": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesb1fe1491",
+          "attributes": [
+            "Arn",
+            "Name"
           ]
         }
       ]
@@ -301,6 +349,25 @@
           ]
         }
       ]
+    },
+    "AdminQueriesb1fe1491": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
+    },
+    "cognitodevtmhPreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "analytics": {

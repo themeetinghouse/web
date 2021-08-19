@@ -264,6 +264,14 @@
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
           "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-2f537876624b4e6d3576-build.zip"
+        },
+        "cognitodevtmhPreSignup": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPreSignup-77577332454d51647776-build.zip"
+        },
+        "AdminQueriesb1fe1491": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/AdminQueriesb1fe1491-725532354e52556f3479-build.zip"
         }
       }
     }

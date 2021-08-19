@@ -18,6 +18,11 @@ const awsmobile = {
             "name": "image",
             "endpoint": "https://npp92r8kf0.execute-api.us-east-1.amazonaws.com/payments",
             "region": "us-east-1"
+        },
+        {
+            "name": "AdminQueries",
+            "endpoint": "https://c6yinvf4c0.execute-api.us-east-1.amazonaws.com/payments",
+            "region": "us-east-1"
         }
     ],
     "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-payments",

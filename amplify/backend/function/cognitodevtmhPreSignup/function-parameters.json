@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "cognitodevtmh",
+  "functionName": "cognitodevtmhPreSignup",
+  "resourceName": "cognitodevtmhPreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "triggerEventPath": "PreSignup.event.json",
+  "roleName": "cognitodevtmhPreSignup",
+  "skipEdit": true,
+  "enableCors": false
+}
