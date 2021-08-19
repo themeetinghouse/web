@@ -30,16 +30,7 @@
             "subHeader1": "Welcome home. We’re excited to see you again.",
             "divider": true,
             "text1": "In this current season, we are offering weekend worship experiences online and gatherings for in-person weekend services on Sundays. In light of public health guidelines intended to limit the spread of COVID-19 in our community, we have made a number of changes to our in-person experiences, including limiting capacity and requiring online registration. Our livestream service will continue, and everyone is encouraged to choose the worship experience that is right for them.",
-            "text2": "We invite you to read the details below and join us in caring for one another as best we can.",
-            "button1": {
-                "text": "Register for In-Person",
-                "type": "solid"
-            },
-            "button2": {
-                "text": "Watch Livestream",
-                "action": "/live",
-                "type": "outline"
-            },
+            "text2": "We invite you to read the details below and join us in caring for one another as best we can. There will be an option to register for in-person gatherings at the end of this page as well as a link to the livestream should you prefer that option.",
             "header3": "What to expect",
             "graphicItems": [{
                     "title": "Please Register",
@@ -72,9 +63,24 @@
                     "image": "/static/svg/Regather-Icon-06.svg"
                 }
             ],
-            "header4": "Online Registration",
+            "header4": "Livestream",
+            "button2": {
+                "text": "Watch Livestream",
+                "action": "/live",
+                "type": "outline notmobile"
+            },
+            "header5": "Online Registration",
             "text3": "Anyone attending a Sunday gathering will be required to pre-register online. We do this to ensure we aren’t exceeding the number of people that can safely attend. The online registration window will be open each week from Monday – Thursday.",
-            "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will help you check in and confirm your health screening."
+            "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will help you check in and confirm your health screening.",
+            "button3": {
+                "text": "Register Now",
+                "type": "solid mobile"
+            },
+            "button4": {
+                "text": "Watch Livestream",
+                "action": "/live",
+                "type": "outline mobile"
+            }
         }]
     }
 }
