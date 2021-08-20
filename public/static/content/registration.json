@@ -34,17 +34,17 @@
             "header3": "What to expect",
             "graphicItems": [{
                     "title": "Please Register",
-                    "description": "We are unable to accommodate un-registered walk-ins at this time.",
+                    "description": "Registration is required to ensure a safe gathering environment.",
                     "image": "/static/svg/Regather-Icon-01.svg"
                 },
                 {
                     "title": "Mind the numbers",
-                    "description": "Capacity limits mean we will only be able to allow a set number of kids, youth, and adults",
+                    "description": "Capacity limits mean we will only be able to allow a set number of kids, youth, and adults.",
                     "image": "/static/svg/Regather-Icon-05.svg"
                 },
                 {
                     "title": "Health check",
-                    "description": "To ensure everyone’s safety, you’ll need to confirm your wellness prior to entry. ",
+                    "description": "To ensure everyone’s safety, you’ll need to confirm your wellness prior to entry.",
                     "image": "/static/svg/Regather-Icon-03.svg"
                 },
                 {
@@ -54,12 +54,12 @@
                 },
                 {
                     "title": "Lovingly apart",
-                    "description": "We are still required to stay six feet apart from people who are not in our household. ",
+                    "description": "We are still required to stay six feet apart from people who are not in our household.",
                     "image": "/static/svg/Regather-Icon-07.svg"
                 },
                 {
                     "title": "No singing",
-                    "description": "Public health has asked that no one sings along to the music. ",
+                    "description": "Public health has asked that no one sings along to the music.",
                     "image": "/static/svg/Regather-Icon-06.svg"
                 }
             ],
@@ -70,8 +70,8 @@
                 "type": "outline notmobile"
             },
             "header5": "Online Registration",
-            "text3": "Anyone attending a Sunday gathering will be required to pre-register online. We do this to ensure we aren’t exceeding the number of people that can safely attend. The online registration window will be open each week from Monday – Thursday.",
-            "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will help you check in and confirm your health screening.",
+            "text3": "Anyone attending a Sunday gathering will be required to pre-register online. We do this to ensure we aren’t exceeding the number of people that can safely attend. The online registrations window will be open each week from 5pm on Sunday to 5pm on Thursday.",
+            "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will check you in and confirm your health screening.",
             "button3": {
                 "text": "Register Now",
                 "type": "solid mobile"
