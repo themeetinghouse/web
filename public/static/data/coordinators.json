@@ -183,12 +183,6 @@
     "Position": "Connect Coordinator"
   },
   {
-    "FirstName": "Jessica-Rae",
-    "LastName": "Linzel",
-    "sites": ["OTTA"],
-    "Position": "Connect Coordinator"
-  },
-  {
     "FirstName": "Nancy",
     "LastName": "Sergeant",
     "sites": ["SAND"],
@@ -408,17 +402,18 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Nathan A.",
-    "LastName": "Snelgrove",
-    "sites": ["TODT"],
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Scott",
     "LastName": "McConnell",
     "sites": ["BRAM"],
     "Email": "scott.mcconnell@themeetinghouse.com",
     "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Brian",
+    "LastName": "Ramoutar",
+    "sites": ["BRAM"],
+    "Email": "brian.ramoutar@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Joyce",
