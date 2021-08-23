@@ -19,13 +19,11 @@
 
 .RegatherItemContainer2 {
   background-color: #fff;
-  padding-left: 20vw;
-  padding-right: 20vw;
   height: calc(940px - 150px);
 }
 
 .RegatherFormIframe {
-  width: 100%;
+  width: 100vw;
   border: none;
 }
 
@@ -135,7 +133,7 @@
     position: relative;
     top: 20vw;
     left: 0vw;
-    margin-bottom: 7vh;
+    margin-bottom: 3.5vh;
     width: 100%;
     padding-bottom: 5vh;
     padding-left: 5vw;
