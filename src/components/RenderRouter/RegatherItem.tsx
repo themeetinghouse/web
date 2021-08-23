@@ -13,10 +13,30 @@ export default function RegatherItem(props: Props): JSX.Element {
   const formRef = useRef<HTMLIFrameElement>(null);
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(!isMobileOnly);
-  const registrationOpen = moment().weekday() > 0 && moment().weekday() < 5;
-  const [formUrl, setFormUrl] = useState(
-    'https://rsvp.themeetinghouse.com/beta1/'
-  );
+  const [formUrl, setFormUrl] = useState('');
+
+  const checkRegistrationState = () => {
+    if (moment().weekday() > 0 && moment().weekday() < 4) return true;
+    if (moment().weekday() === 4)
+      if (moment().isBefore(moment('17:00', 'HH:mm'))) return true;
+    if (moment().weekday() === 0)
+      if (moment().isAfter(moment('17:00', 'HH:mm'))) return true;
+    return false;
+  };
+
+  const checkIfIsCancel = () => {
+    if (window.location.href.includes('transCode')) {
+      const transCode = window.location.href?.split('transCode=')?.[1];
+      if (transCode) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const registrationOpen = checkRegistrationState();
+  const isCancel = checkIfIsCancel();
+
   const openForm = () => {
     if (registrationOpen) {
       setIsOpen(true);
@@ -25,16 +45,19 @@ export default function RegatherItem(props: Props): JSX.Element {
       }
     }
   };
+
   useEffect(() => {
-    if (window.location.href.includes('transCode')) {
-      const transCode = window.location.href?.split('transCode=')?.[1];
-      console.log(transCode);
-      if (transCode) {
-        setFormUrl(
-          `https://rsvp.themeetinghouse.com/beta1/cancelReg.php?transCode=${transCode}`
-        );
+    if (isCancel) {
+      setFormUrl(
+        `https://rsvp.themeetinghouse.com/beta1/cancelReg.php?transCode=${
+          window.location.href?.split('transCode=')?.[1]
+        }`
+      );
+      if (isMobileOnly) {
         setIsOpen(true);
-      }
+      } else formRef.current?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setFormUrl('https://rsvp.themeetinghouse.com/beta1/');
     }
   }, []);
   return (
@@ -128,19 +151,20 @@ export default function RegatherItem(props: Props): JSX.Element {
         className="RegatherItemContainer2"
       >
         <div className="RegatherFormOffsetContainer">
-          {registrationOpen ? (
+          {registrationOpen || isCancel ? (
             <iframe
               ref={formRef}
               src={formUrl}
               title="The Meeting House - Forms"
               scrolling="auto"
               className="RegatherFormIframe"
-              style={{ height: 960 }}
+              style={{ height: 1000 }}
             ></iframe>
           ) : (
             <div
               style={{
                 padding: '68px 80px',
+                marginLeft: '20vw',
                 width: '60vw',
                 backgroundColor: '#EFEFF0',
                 display: 'flex',
@@ -185,6 +209,7 @@ export default function RegatherItem(props: Props): JSX.Element {
               style={{ position: 'absolute', right: '16px' }}
               onClick={() => {
                 setIsOpen(false);
+                setFormUrl('https://rsvp.themeetinghouse.com/beta1/');
               }}
               aria-label="Close modal"
             >
