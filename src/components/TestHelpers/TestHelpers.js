@@ -51,11 +51,20 @@ export default class TestHelper {
               });
           })
           .catch((e) => {
-            console.log(e);
+            console.log({ error: e });
+
+            return delStat;
           });
       })
       .catch((e) => {
-        console.log(e);
+        console.log({ error: e });
+        return Auth.currentAuthenticatedUser()
+          .then((user) => {
+            user.deleteUser();
+          })
+          .catch((e) => {
+            console.log({ e: error });
+          });
       });
   }
 }

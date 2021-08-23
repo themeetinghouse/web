@@ -126,7 +126,7 @@ describe('Create User', () => {
         cy.viewport(size);
       }
 
-      cy.visit('https://localhost:3006/give').then(() => {
+      cy.visit('https://localhost:3006/give2').then(() => {
         TestHelper.DeleteUser(user, 'TestTest#1');
       });
       cy.contains('Login to manage your giving').click();
@@ -145,17 +145,31 @@ describe('Create User', () => {
       submitNewUserScreen();
 
       cy.get('input[placeholder="One-time security code"]', { timeout: 30000 })
-        .get('div[data-testId="myConfirmSignup-back"]')
+        .get('[data-testId="myConfirmSignup-back"]')
         .click();
 
       cy.get('input[placeholder="Email"]').type(user);
       cy.get('input[placeholder="Password"]').type('TestTest#1');
       cy.contains('Sign In').click();
 
-      completeBillingScreen('');
-      completeProfileScreen(true);
+      // completeBillingScreen('');
+      //completeProfileScreen(true);
+      cy.contains('Edit').click();
 
-      cy.get('[data-testid="header-logo"]').should('be.visible');
+      cy.contains('Give').click();
+      cy.contains('Recurring').click();
+      cy.contains('Give once').click();
+      cy.contains('Transactions').click();
+      cy.contains('Payment Methods').click();
+      cy.contains('Profile').click();
+      cy.contains('Home').click();
+      cy.contains('Give Now').click();
+      cy.contains('Home').click();
+      cy.contains('Add recurring gift').click();
+      cy.contains('Home').click();
+      cy.contains('Manage my recurring giving').click();
+      cy.contains('Home').click();
+      cy.contains('Logout').click();
     });
   });
 });
