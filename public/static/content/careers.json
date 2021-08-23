@@ -68,13 +68,13 @@
           },
           {
             "type": "link",
-            "title": "Cross Regional Kids Pastor",
-            "navigateTo": "/static/pdfs/careers/Cross Regional Kids Pastor.pdf"
+            "title": "Live Production Technical Producer",
+            "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
           },
           {
             "type": "link",
-            "title": "Live Production Technical Producer",
-            "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
+            "title": "Facilities Assistant",
+            "navigateTo": "/static/pdfs/careers/Facility Assistant 2021.pdf"
           },
           {
             "type": "link",
@@ -109,6 +109,16 @@
           "type": "link",
           "title": "Alliston Family Engagement Coordinator",
           "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
+        },
+        {
+          "type": "link",
+          "title": "Events Associate",
+          "navigateTo": "/static/pdfs/careers/Events Associate.pdf"
+        },
+        {
+          "type": "link",
+          "title": "Rentals and Events Administrator",
+          "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
         },
         {
           "type": "link",
