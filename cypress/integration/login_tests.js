@@ -155,6 +155,19 @@ describe('Create User', () => {
       // completeBillingScreen('');
       //completeProfileScreen(true);
       cy.contains('Edit').click();
+      cy.get('input[data-TestId="FirstName"]', { timeout: 30000 }).type(
+        'UserA'
+      );
+      cy.get('input[data-TestId="LastName"]').type('UserA');
+      cy.get('input[data-TestId="Email"]').type('a@a.com');
+      cy.get('input[data-TestId="Mobile"]').type('123-456-7899');
+      cy.get('input[data-TestId="Address"]').type('123 Sesame St.');
+      cy.get('input[data-TestId="City"]').type('Toronto');
+      cy.get('input[data-TestId="Country"]').type('Canada');
+      cy.get('input[data-TestId="Province"]').type('Ontario');
+      cy.get('input[data-TestId="PostalCode"]').type('M4W2Z7');
+
+      cy.get('[data-TestId=""]').type('UserA');
 
       cy.contains('Give').click();
       cy.contains('Recurring').click();

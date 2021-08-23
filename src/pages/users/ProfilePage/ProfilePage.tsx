@@ -53,6 +53,7 @@ export default function ProfilePage() {
               <label>First Name</label>
               <input
                 className="ProfileInput"
+                data-testID="FirstName"
                 value={form.given_name}
                 /* onChange={(e) =>
                   setForm({ ...form, given_name: e.target.value })
@@ -63,6 +64,7 @@ export default function ProfilePage() {
               <label>Last Name</label>
               <input
                 className="ProfileInput"
+                data-testID="LastName"
                 value={form.family_name}
                 /* onChange={(e) =>
                   setForm({ ...form, family_name: e.target.value })
@@ -73,17 +75,20 @@ export default function ProfilePage() {
           <label>Email</label>
           <input
             className="ProfileInput"
+            data-testID="Email"
             value={form.email ?? ''}
             //   onChange={(e) => setForm({ ...form, email: e.target.value })}
           ></input>
           <label>Mobile</label>
           <input
+            data-testID="Mobile"
             className="ProfileInput"
             value={form.phone ?? ''}
             // onChange={(e) => setForm({ ...form, phone: e.target.value })}
           ></input>
           <label>Stress Address</label>
           <input
+            data-testID="Address"
             className="ProfileInput"
             value={form.billingAddress?.line1 ?? ''}
             /* onChange={(e) =>
@@ -99,6 +104,7 @@ export default function ProfilePage() {
           ></input>
           <label>City</label>
           <input
+            data-testID="City"
             className="ProfileInput"
             value={form.billingAddress?.city ?? ''}
             /* onChange={(e) =>
@@ -116,6 +122,7 @@ export default function ProfilePage() {
             <div className="LocationItem">
               <label htmlFor="country-select">Country</label>
               <select
+                data-testID="Country"
                 id="country-select"
                 className="ProfileInput"
                 /* onChange={(e) =>
@@ -149,6 +156,7 @@ export default function ProfilePage() {
                 form.billingAddress.country === 'United States of America (the)'
               ) ? (
                 <input
+                  data-testID="Province"
                   id="province-select"
                   className="ProfileInput"
                   value={form.billingAddress?.state ?? ''}
@@ -165,6 +173,7 @@ export default function ProfilePage() {
                 ></input>
               ) : (
                 <select
+                  data-testID="Province"
                   id="province-select"
                   className="ProfileInput"
                   /* onChange={(e) =>
@@ -208,6 +217,7 @@ export default function ProfilePage() {
             <div className="LocationItem">
               <label>Postal Code/Zip Code</label>
               <input
+                data-testID="PostalCode"
                 className="ProfileInput"
                 value={form.billingAddress?.postal_code ?? ''}
                 /*onChange={(e) =>
