@@ -83,6 +83,23 @@
           ]
         },
         {
+          "type": "hero",
+          "style": "partial",
+          "image1": [
+            {
+              "src": "/static/svg/Map.svg",
+              "alt": "A map of meeting house churches."
+            }
+          ],
+          "header1": "Find Your Community",
+          "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
+          "link1Text": "Show Map",
+          "link1AriaLabel" : "View a map of all church locations",
+          "link1Action": "/find-sunday-morning",
+          "class": "locations",
+          "showLocationSearch": true
+        },
+        {
           "type": "content",
           "style": "oneImage",
           "header1": "Get Involved",
