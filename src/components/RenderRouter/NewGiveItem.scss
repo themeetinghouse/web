@@ -1,10 +1,13 @@
 /* ================== START NEW STUFF ================== */
+
 .giveItemDiv1 {
   margin-top: 20px;
 }
+
 @media (min-width: 768px) {
   .GEButtonContainer {
     display: flex;
+    margin-top: 36px;
     width: 60vw;
   }
   .GEButton {
@@ -85,12 +88,11 @@
     padding: 5vw;
   }
   .GiveItemOtherWays {
+    margin-top: 7.083vw;
     font-weight: bold;
     font-family: Graphik Web;
     color: black;
     font-size: 1.667vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
   }
   .GiveOtherButton {
     display: flex;
@@ -104,14 +106,13 @@
   }
   .GiveExtendedContainer {
     width: 60vw;
-    padding-top: 5vw;
+    padding-top: 1.944vw;
     padding-bottom: 5vw;
     .GiveItemOtherWayGroup {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       width: 100%;
       gap: 25px;
-
       .GiveItemOtherWay {
         img {
           width: 3.472vw;
@@ -133,13 +134,13 @@
           color: black !important;
         }
       }
-
       a:hover {
         border: 1px solid #bfbfc0;
       }
     }
   }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   .giveItemDiv1 {
     position: relative;
@@ -147,6 +148,7 @@
     left: 20vw;
   }
 }
+
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .giveItemDiv1 {
     position: relative;
@@ -155,6 +157,7 @@
     margin-bottom: 50vh;
   }
 }
+
 @media (max-width: 767px) {
   .GiveItemHR {
     margin-left: 0;
@@ -209,7 +212,6 @@
           color: black !important;
         }
       }
-
       a:hover {
         border: 1px solid #bfbfc0;
       }
@@ -238,7 +240,6 @@
     font-size: 7vw;
     line-height: 10.67vw;
   }
-
   .GiveItemH2 {
     color: #ffffff;
     font-family: Graphik Web;
@@ -247,7 +248,6 @@
     font-size: 4vw;
     line-height: 8.55vw;
   }
-
   .GiveItemText {
     color: #ffffff;
     font-family: Graphik Web;
@@ -257,6 +257,7 @@
     width: 97%;
   }
 }
+
 /* ================== END NEW STUFF ================== */
 
 /*

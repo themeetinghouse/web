@@ -4,7 +4,7 @@ import ReactGA from 'react-ga';
 import { Link } from 'components/Link/Link';
 import { GEContext } from './GiveComponents/GEContext';
 import GiveExperienceContainer from './GiveComponents/GiveExperienceContainer';
-import { GEActionType } from './GiveComponents/GETypes';
+import { GEActionType, GEPage } from './GiveComponents/GETypes';
 
 interface Props {
   content: any;
@@ -45,11 +45,14 @@ export default function NewGiveItem(props: Props): JSX.Element {
       ReactGA.initialize('UA-4554612-19');
     else ReactGA.initialize('UA-4554612-3');
   }, []);
+  console.log(state);
   const renderGiveButtons = () => {
     return (
       <div className="GEButtonContainer">
         <button
-          className="GEButton GEButtonWhite"
+          className={`GEButton ${
+            state.currentPage !== GEPage.ONLINE_BANKING ? 'GEButtonWhite' : ''
+          }`}
           onClick={(e) => {
             e.preventDefault();
             dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW });
@@ -58,7 +61,9 @@ export default function NewGiveItem(props: Props): JSX.Element {
           Give Now
         </button>
         <button
-          className="GEButton"
+          className={`GEButton ${
+            state.currentPage === GEPage.ONLINE_BANKING ? 'GEButtonWhite' : ''
+          }`}
           onClick={(e) => {
             e.preventDefault();
             dispatch({

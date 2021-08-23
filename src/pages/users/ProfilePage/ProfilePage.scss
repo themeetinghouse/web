@@ -2,6 +2,7 @@
   display: grid;
   justify-content: center;
 }
+
 .ProfilePage {
   width: 1130px;
   min-height: 840px;
@@ -20,7 +21,7 @@
 
 h1 {
   margin-bottom: 54px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .RightContainer {
@@ -36,11 +37,13 @@ h1 {
     max-width: 200px;
   }
 }
+
 label {
   font-weight: 700;
   font-size: 14px;
   color: #1a1a1a;
 }
+
 .ProfileInput {
   width: 100%;
   background-color: white;
@@ -50,6 +53,7 @@ label {
   font-size: 16px;
   margin-bottom: 26px;
 }
+
 .NameContainer {
   display: flex;
   flex-direction: row;
@@ -57,11 +61,13 @@ label {
     margin-left: 20px;
   }
 }
+
 .NameItem {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+
 .LocationContainer {
   display: flex;
   flex-direction: row;
@@ -81,6 +87,7 @@ label {
 .LeftButtonContainer {
   display: none;
 }
+
 .RightButtonContainer {
   display: flex;
   flex-direction: row;
@@ -111,12 +118,15 @@ label {
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 }
+
 .LeftProfilePicture {
   display: none;
 }
+
 .RightProfilePicture {
   flex: 1;
 }
+
 @media (max-width: 1060px) {
   .RightProfilePicture {
     display: none;

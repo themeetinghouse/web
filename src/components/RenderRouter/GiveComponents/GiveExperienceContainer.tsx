@@ -8,6 +8,7 @@ import './GiveExperience.scss';
 import PaymentAddMethod from 'pages/users/PaymentMethods/PaymentAddMethod';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import ProfileForm from 'pages/users/ProfilePage/ProfileForm';
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
 else if (window.location.hostname === 'localhost') env = 'dev';
@@ -61,9 +62,16 @@ export default function GiveExperienceContainer() {
       </div>
     );
   };
+
   const PageTwo = () => {
+    const [form, setForm] = useState({});
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
+        <ProfileForm
+          setForm={setForm}
+          isFromGive={true}
+          form={form}
+        ></ProfileForm>
         <PaymentAddMethod
           state={state}
           dispatch={dispatch}
