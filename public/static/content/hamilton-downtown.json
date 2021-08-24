@@ -54,6 +54,16 @@
         "filterValue": "hamilton-downtown"
       },
       {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather HMDT",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",

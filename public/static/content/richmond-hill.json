@@ -54,6 +54,16 @@
         "filterValue": "richmond-hill"
       },
       {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather RHLL",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",
