@@ -52,7 +52,7 @@
           "header2": "News and Updates",
           "backgroundColor": "white",
           "lessPadding": true
-          },          
+        },          
         {
           "type": "list",
           "style": "imageList",
@@ -152,7 +152,19 @@
           ],
           "header1": "Stay connected.",
           "header2": "Never miss an update.",
-          "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandemic."
+          "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandemic.",
+          "button1":{
+            "text": "Download the iOS App",
+            "action":"https://apps.apple.com/app/apple-store/id917315049?mt=8",
+            "description": "Click to download the iOS app",
+            "white": true
+          }, 
+          "button2":{
+            "text": "Download the Android App",
+            "action":"https://play.google.com/store/apps/details?id=org.tmh.takenote&utm_source=website&utm_medium=website",
+            "description": "Click to download the Android app",
+            "white": true
+          }
         }
       ]
     }
