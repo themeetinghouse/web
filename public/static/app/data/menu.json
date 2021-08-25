@@ -4,6 +4,7 @@
     "subtext": "Resource for elders",
     "location": "https://www.themeetinghouse.com/elders-hub",
     "groups": ["Elder"],
-    "external": true
+    "external": true,
+    "icon":"https://www.themeetinghouse.com/static/icons/Frame.png"
   }
 ]
