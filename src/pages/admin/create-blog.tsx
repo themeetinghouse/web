@@ -65,6 +65,10 @@ const imageInputs: Array<{ size: ImageSizes; text: string }> = [
   },
 ];
 
+type BlogPostList = NonNullable<
+  NonNullable<ListBlogsQuery['listBlogs']>['items']
+>;
+
 interface State {
   blogObject: CreateBlogInput;
   blogToEditObject: NonNullable<
@@ -78,7 +82,7 @@ interface State {
   videoSeriesList: NonNullable<
     NonNullable<ListSeriessQuery['listSeriess']>['items']
   >;
-  blogPostsList: NonNullable<NonNullable<ListBlogsQuery['listBlogs']>['items']>;
+  blogPostsList: BlogPostList;
   blogSeriesList: NonNullable<
     NonNullable<ListBlogSeriessQuery['listBlogSeriess']>['items']
   >;
@@ -231,33 +235,45 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
+  setBlogPosts = (blogs: BlogPostList | undefined | null) => {
+    this.setState({
+      blogPostsList: this.state.blogPostsList
+        .concat(blogs ?? [])
+        .sort((a, b) => {
+          const nameA = a?.blogTitle?.toUpperCase() ?? '';
+          const nameB = b?.blogTitle?.toUpperCase() ?? '';
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        }),
+    });
+  };
+
   async listBlogs(nextToken?: string) {
     try {
       const listBlogs = (await API.graphql({
         query: queries.listBlogs,
-        variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
+        variables: { nextToken, sortDirection: 'DESC', limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListBlogsQuery>;
 
-      console.log({ 'Success queries.listBlogs: ': listBlogs });
-      this.setState({
-        blogPostsList: this.state.blogPostsList
-          .concat(listBlogs?.data?.listBlogs?.items ?? [])
-          .sort((a, b) => {
-            const nameA = a?.id?.toUpperCase() ?? '';
-            const nameB = b?.id?.toUpperCase() ?? '';
-            if (nameA < nameB) {
-              return -1;
-            }
-            if (nameA > nameB) {
-              return 1;
-            }
-            return 0;
-          }),
-      });
-      if (listBlogs?.data?.listBlogs?.nextToken)
+      console.log({ 'Success queries.listBlogs: ': listBlogs.data });
+      this.setBlogPosts(listBlogs?.data?.listBlogs?.items);
+      if (listBlogs?.data?.listBlogs?.nextToken) {
         this.listBlogs(listBlogs.data.listBlogs.nextToken);
-    } catch (e) {
+      }
+    } catch (e: any) {
+      if (e.data?.listBlogs?.items) {
+        console.log({ 'Success queries.listBlogs: ': e.data });
+        this.setBlogPosts(e.data.listBlogs.items);
+        if (e.data.listBlogs.nextToken) {
+          this.listBlogs(e.data.listBlogs.nextToken);
+        }
+      }
       console.error(e);
     }
   }
