@@ -48,9 +48,18 @@
           "header1": "Welcome Home"
         },
         {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "kids-training",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Kidmax Team Training Videos"
+        },
+        {
           "type": "content",
           "style": "oneImage",
-          "header1": "Home Church Resources",
+          "header1": "Home Church Training Resources",
           "text1":"All training and equipping resources for elders will be available through this one webpage.",
           "list": [
             {
@@ -70,98 +79,10 @@
           "type": "list",
           "style": "horizontal",
           "class": "videos",
-          "subclass": "kids-training",
+          "subclass": "connect training",
           "limit": 25,
           "sortOrder": "DESC",
-          "header1": "Resources to train and equip kidmax volunteers"
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Kids",
-          "text1":"Resources to train and equip Kidmax volunteers.",
-          "list": [
-            {
-              "type": "link",
-              "title": "Why Kidmax",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Updated Check in process",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "COVID #1",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "COVID #2",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "COVID #3",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Sign in set up",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Check in process",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Printer Realignment",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Tethering wifi to phone",
-              "navigateTo": "/make-a-difference"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/make-a-difference-3.jpg",
-              "alt": "A woman is on her phone outside."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Connect Team",
-          "text1":"Resources to train and equip Connect teams.",
-          "list": [
-            {
-              "type": "link",
-              "title": "Connect Team basics",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "Sign in and check in",
-              "navigateTo": "/make-a-difference"
-            },
-            {
-              "type": "link",
-              "title": "The digital info desk",
-              "navigateTo": "/make-a-difference"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/make-a-difference-3.jpg",
-              "alt": "A woman is on her phone outside."
-            }
-          ]
+          "header1": "Connect Team Training Videos"
         },
         {
           "type": "content",
@@ -217,23 +138,6 @@
               "alt": "A viewer is watching The Meeting House livestream on their laptop."
             }
           ]
-        },
-        {
-          "type": "hero",
-          "style": "connect",
-          "image1": [
-            {
-              "src": "/static/images/email-connect-1.jpg",
-              "alt": "Two women drinking coffee."
-            },
-            {
-              "src": "/static/images/email-connect-2.jpg",
-              "alt": "A young woman is talking to her friends in the church lobby."
-            }
-          ],
-          "header1": "Stay connected.",
-          "header2": "Never miss an update.",
-          "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandemic."
         }
       ]
     }
