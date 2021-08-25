@@ -70,12 +70,12 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Get Involved",
+          "header1": "Elders Toolbox",
           "list": [
             {
               "type": "link",
-              "title": "Make a Difference",
-              "navigateTo": "/make-a-difference"
+              "title": "Access the toolbox",
+              "navigateTo": "https://drive.google.com/drive/folders/0B-JVWCBiOuinfmFGb3A3eTZ1LTU1cTl2d08wa09wMmJIbWhzTzlEUTAtelZTSmVxVnhJUVU?resourcekey=0-8aDPoskI5t0tbs7BEdMK6g&usp=sharing"
             }
           ],
           "image1": [
