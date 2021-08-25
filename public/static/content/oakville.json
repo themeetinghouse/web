@@ -112,26 +112,6 @@
         ]
       },
       {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Care Ministries",
-        "header2": "",
-        "text1": "Our care ministries provide safe environments where people can receive the spiritual care they need in safe and intentional community, with trained and caring facilitators.",
-        "list": [
-          {
-            "type": "link",
-            "title": "View All Care Ministries",
-            "navigateTo": "/care-ministries"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/care-ministries-1.jpg",
-            "alt": "Two women sitting down together and talking as friends."
-          }
-        ]
-      },
-      {
         "type": "hero",
         "style": "partial",
         "image1": [
@@ -157,6 +137,26 @@
         "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
         "link1Text": "Browse Home Churches in Oakville",
         "link1Action": "/find-homechurch"
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Care Ministries",
+        "header2": "",
+        "text1": "Our care ministries provide safe environments where people can receive the spiritual care they need in safe and intentional community, with trained and caring facilitators.",
+        "list": [
+          {
+            "type": "link",
+            "title": "View All Care Ministries",
+            "navigateTo": "/care-ministries"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/care-ministries-1.jpg",
+            "alt": "Two women sitting down together and talking as friends."
+          }
+        ]
       },
       {
         "type": "list",
