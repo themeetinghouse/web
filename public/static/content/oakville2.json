@@ -44,9 +44,9 @@
             }
           ],
           "header1": "Oakville",
-          "text1": "Livestream Sundays @ 10:00am",
-          "text2": "In-person gatherings start September 12",
-          "text3": "9:30am and 11:30am",
+          "text1": "In-person gatherings start September 12",
+          "text2": "9:30am and 11:30am",
+          "text3": "Currently Live streaming Sundays @ 10:00am",
           "customLiveLink": "themeetinghouse.com/live",
           "addToCalendar": true,
           "contactPastor": true,
