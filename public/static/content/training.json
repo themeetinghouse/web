@@ -59,6 +59,35 @@
         {
           "type": "content",
           "style": "oneImage",
+          "header1": "Parish Leadership",
+          "text1":"Resources for pastors.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Giving Announcements",
+              "navigateTo": "/elders-hub"
+            },
+            {
+              "type": "link",
+              "title": "Events and announcements in the app",
+              "navigateTo": "/elders-hub"
+            },
+            {
+              "type": "link",
+              "title": "Other resources",
+              "navigateTo": "/elders-hub"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
           "header1": "Home Church Training Resources",
           "text1":"All training and equipping resources for elders will be available through this one webpage.",
           "list": [
