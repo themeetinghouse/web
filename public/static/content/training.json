@@ -39,15 +39,14 @@
           "text1": "Our one-stop hub for elders and key volunteers as we navigate this next season together. Keep scrolling for links to the latest trainings and resources to help us love and support our communities well."
         },
         {
-          "type": "blog",
-          "style": "featured",
-          "status": "Live",
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "regather",
+          "limit": 25,
           "sortOrder": "DESC",
-          "blogSeries": "Regather News",
-          "header2": "News and Updates",
-          "backgroundColor": "white",
-          "lessPadding": true
-          }, 
+          "header1": "Welcome Home"
+        },
         {
           "type": "content",
           "style": "oneImage",
