@@ -42,7 +42,7 @@
           "type": "list",
           "style": "horizontal",
           "class": "videos",
-          "subclass": "regather",
+          "subclass": "regather-internal",
           "limit": 25,
           "sortOrder": "DESC",
           "header1": "Welcome Home"
@@ -50,23 +50,13 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Welcome Home",
-          "text1":"What's church going to look this this fall? Check out these videos to learn more as we start to regather in person and work to re-engage our core community.",
+          "header1": "Home Church Resources",
+          "text1":"All training and equipping resources for elders will be available through this one webpage.",
           "list": [
             {
               "type": "link",
-              "title": "Why Welcome Home?",
-              "navigateTo": "/videos/Regather/73skPQpGChQ"
-            },
-            {
-              "type": "link",
-              "title": "How do we do this?",
-              "navigateTo": "/videos/Regather/FAjdn58eINc"
-            },
-            {
-              "type": "link",
-              "title": "What is church going to look like?",
-              "navigateTo": "/videos/Regather/mujywwbiY-4"
+              "title": "Elders Hub",
+              "navigateTo": "/elders-hub"
             }
           ],
           "image1": [
@@ -77,23 +67,13 @@
           ]
         },
         {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Home Church Resources",
-          "text1":"All training and equipping resources for elders will be available through this one webpage. This webpage is still being developed.",
-          "list": [
-            {
-              "type": "link",
-              "title": "Elders Hub",
-              "navigateTo": "https://drive.google.com/drive/folders/0B-JVWCBiOuinfmFGb3A3eTZ1LTU1cTl2d08wa09wMmJIbWhzTzlEUTAtelZTSmVxVnhJUVU?resourcekey=0-8aDPoskI5t0tbs7BEdMK6g&usp=sharing"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/make-a-difference-3.jpg",
-              "alt": "A woman is on her phone outside."
-            }
-          ]
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "kids-training",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Resources to train and equip kidmax volunteers"
         },
         {
           "type": "content",
