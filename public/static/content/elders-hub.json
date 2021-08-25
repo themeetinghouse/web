@@ -53,7 +53,7 @@
           "type": "list",
           "style": "horizontal",
           "class": "videos",
-          "subclass": "HC 101",
+          "subclass": "HC101",
           "limit": 25,
           "sortOrder": "DESC",
           "header1": "Home Church 101 Videos"
@@ -62,7 +62,7 @@
           "type": "list",
           "style": "horizontal",
           "class": "videos",
-          "subclass": "HC 102",
+          "subclass": "HC102",
           "limit": 25,
           "sortOrder": "DESC",
           "header1": "New Home Church Training videos"
