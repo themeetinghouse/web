@@ -26,12 +26,24 @@
           "style": "full",
           "image1": [
             {
-              "src": "/static/images/covid-1-1.jpg",
-              "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
+              "src": "/static/images/homepage-1-1.jpg",
+              "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends."
             },
             {
-              "src": "/static/images/covid-1-2.jpg",
-              "alt": "Young man in a face mask is sitting and talking with friends."
+              "src": "/static/images/homepage-1-2.jpg",
+              "alt": "Young man talking to his friend outside a church building."
+            },
+            {
+              "src": "/static/images/homepage-1-5.jpg",
+              "alt": "Two men talking outside on a backyard patio."
+            },
+            {
+              "src": "/static/images/homepage-1-6.jpg",
+              "alt": "Young woman talking to a friend outside on a backyard patio."
+            },
+            {
+              "src": "/static/images/homepage-1-8.jpg",
+              "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
             }
           ],
           "header1": "Training and Info",
