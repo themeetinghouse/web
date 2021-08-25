@@ -42,7 +42,17 @@
             "action": "/videos/Regather/KzDV3suceBI",
             "description": "Click to watch video"
           }
-        },         
+        },
+        {
+          "type": "blog",
+          "style": "featured",
+          "status": "Live",
+          "sortOrder": "DESC",
+          "blogSeries": "Regather News",
+          "header2": "News and Updates",
+          "backgroundColor": "white",
+          "lessPadding": true
+        },          
         {
           "type": "list",
           "style": "imageList",
