@@ -34,52 +34,38 @@
               "alt": "Young man in a face mask is sitting and talking with friends."
             }
           ],
-          "header1": "Welcome Home",
+          "header1": "Elders Resources",
           "header2": "",
-          "text1": "Home is more than a place. It’s an experience of being known, being connected with others and finding purpose and meaning as we serve and love each other.  We never stopped being the church during COVID but it sure felt different and even though it will still be different this fall we want to welcome everyone to experience a sense of home as we share life and learn about Jesus together.",
+          "text1": "Here you can find all of the resources you may need to be an effective home church leader.",
           "button1": {
-            "text": "Watch Video",
-            "action": "/videos/go-Go%20Campaign/W0XfcdmgDWk",
-            "description": "Click to watch video"
+            "text": "Watch Teaching",
+            "action": "/teaching",
+            "description": "navigate to teaching page"
+          },
+          "secondaryCTA": {
+            "text":"Notes",
+            "action":"/notes",
+            "description":"navigate to notes page",
+            "icon":"/static/svg/Notes-white.svg"
           }
         },
         {
-          "type": "blog",
-          "style": "multiImage",
-          "status": "Live",
-          "header1": "Recent News and Updates",
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "hc101",
+          "limit": 25,
           "sortOrder": "DESC",
-          "limit": 2,
-          "blogSeries": "News"
+          "header1": "Home Church 101 Videos"
         },
         {
           "type": "list",
-          "style": "imageList",
-          "header1": "Church this Fall",
-          "text1": "We never stopped being the church during COVID.  It just looked a little different.  This fall as we are able to start gathering in person it might look and feel a little different as well but we’re excited to help you get more engaged and find a way for you to learn and grow and get connected into community.",
-          "list": [
-            {
-              "title": "Sunday Mornings",
-              "text": "Over the fall our Sunday morning experience will be a blend of in-person gatherings and an online livestream experience.  We know some people might not feel comfortable meeting in person right away and some parishes might take longer to start inperson gatherings than others, so we want to make sure everyone has an opportunity to engage in worship and hear the teaching.",
-              "imageSrc": "/static/images/corona-2.jpg",
-              "imageAlt": "Watching the teaching from Bruxy Cavey during The Meeting House Sunday morning livestream.",
-              "navigateTo": "/live"
-            },
-            {
-              "title": "Home Church",
-              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person. Click her to find a group you can connect with.",
-              "imageSrc": "/static/images/corona-3.jpg",
-              "imageAlt": "Online home church meeting using zoom.",
-              "navigateTo": "/home-church"
-            },
-            {
-              "title": "Kids and Youth",
-              "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendship, ask questions and talk openly about living out the teachings of Jesus.  Over the fall some home churches will be online and some will be meeting in person. Click her to find a group you can connect with.",
-              "imageSrc": "/static/images/corona-5.jpg",
-              "imageAlt": "Two young children watch The Meeting House kids curriculum on their laptop at home with their mom sitting beside them.",
-              "navigateTo": "/kidmax"
-            }
-          ]
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "hc102",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "New Home Church Training videos"
         },
         {
           "type": "content",
@@ -102,13 +88,13 @@
         {
           "type": "content",
           "style": "oneImageBlackRight",
-          "header1": "Giving",
-          "text1": "Pausing in-person Sunday services impacts the donations we receive and need to fund our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage with the good news of Jesus.",
+          "header1": "Questions",
+          "text1": "Do you have questions about leading your Home Church? Get in touch.",
           "list": [
             {
               "type": "link",
-              "title": "Give Today",
-              "navigateTo": "https://pushpay.com/g/themeetinghouse"
+              "title": "Ask a question",
+              "navigateTo": "/connect"
             }
           ],
           "image1": [
@@ -117,23 +103,6 @@
               "alt": "A viewer is watching The Meeting House livestream on their laptop."
             }
           ]
-        },
-        {
-          "type": "hero",
-          "style": "connect",
-          "image1": [
-            {
-              "src": "/static/images/email-connect-1.jpg",
-              "alt": "Two women drinking coffee."
-            },
-            {
-              "src": "/static/images/email-connect-2.jpg",
-              "alt": "A young woman is talking to her friends in the church lobby."
-            }
-          ],
-          "header1": "Stay connected.",
-          "header2": "Never miss an update.",
-          "text2": "Subscribe to our email list and stay on top of the changing circumstances as we navigate this pandemic."
         }
       ]
     }
