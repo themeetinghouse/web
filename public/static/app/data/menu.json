@@ -45,7 +45,7 @@
 {
   "name": "Home Church",
   "subtext": "Find a home church near you",
-  "location": "HomeChurch",
+  "location": "HomeChurchScreen",
   "groups": ["default"],
   "external": false,
   "icon": "https://www.themeetinghouse.com/static/icons/HomeChurch.png"
