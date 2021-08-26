@@ -1,10 +1,62 @@
-[
-  {
-    "name": "Elders Resources",
-    "subtext": "Resource for elders",
-    "location": "https://www.themeetinghouse.com/elders-hub",
-    "groups": ["Elder"],
-    "external": true,
-    "icon":"https://www.themeetinghouse.com/static/icons/Frame.png"
-  }
+[{
+  "name": "Elders Resources",
+  "subtext": "Resource for elders",
+  "location": "https://www.themeetinghouse.com/elders-hub",
+  "groups": ["Elder"],
+  "external": true,
+  "icon": "https://www.themeetinghouse.com/static/icons/Frame.png"
+},
+{
+  "name": "Give",
+  "subtext": "Donate to The Meeting House",
+  "location": "https://www.themeetinghouse.com/give",
+  "groups": ["default"],
+  "external": true,
+  "icon": "https://www.themeetinghouse.com/static/icons/Give.png"
+},
+
+{
+  "name": "Connect",
+  "subtext": "Looking to connect with us?",
+  "location": "https://www.themeetinghouse.com/connect",
+  "groups": ["default"],
+  "external": true,
+  "icon": "https://www.themeetinghouse.com/static/icons/Connect.png"
+},
+
+{
+  "name": "Staff Team",
+  "subtext": "Contact a staff member directly",
+  "location": "StaffList",
+  "groups": ["default"],
+  "external": false,
+  "icon": "https://www.themeetinghouse.com/static/icons/Staff.png"
+},
+
+{
+  "name": "My Parish Team",
+  "subtext": "Contact a parish team member",
+  "location": "ParishTeam",
+  "groups": ["default"],
+  "external": false,
+  "icon": "https://www.themeetinghouse.com/static/icons/Staff.png"
+},
+
+{
+  "name": "Home Church",
+  "subtext": "Find a home church near you",
+  "location": "HomeChurchScreen",
+  "groups": ["default"],
+  "external": false,
+  "icon": "https://www.themeetinghouse.com/static/icons/HomeChurch.png"
+},
+
+{
+  "name": "Volunteer",
+  "subtext": "Get involved!",
+  "location": "https://www.themeetinghouse.com/volunteer",
+  "groups": ["default"],
+  "external": true,
+  "icon": "https://www.themeetinghouse.com/static/icons/Volunteer.png"
+}
 ]
